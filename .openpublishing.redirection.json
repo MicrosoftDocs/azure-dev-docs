@@ -310,7 +310,31 @@
       "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-search",
       "redirect_document_id": false
     },
+    {
 
+      "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli.md",
+      "redirect_url": "/azure/static-web-apps/add-api",
+      "redirect_document_id": false
+    },{
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management.md",
+      "redirect_url": "/azure/developer/javascript",
+      "redirect_document_id": false
+  },    
+    {
+      "source_path": "articles/javascript/how-to/with-authentication/getting-started.md",
+      "redirect_url": "/azure/developer/javascript",
+      "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/javascript/tutorial/run-nodejs-virtual-machine.md",
+    "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
+    "redirect_document_id": false
+},
+    {
+      "source_path": "articles/javascript/how-to/with-visual-studio-code/create-azure-database.md",
+      "redirect_url": "/azure/developer/javascript",
+      "redirect_document_id": false
+  },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-developer-solutions.md",
         "redirect_url": "/azure/developer/javascript",
@@ -1403,6 +1427,10 @@
       "redirect_url": "/azure/developer/go/management-libraries"
     },
     {
+      "source_path": "articles/go/azure-sdk-qs-vm.md",
+      "redirect_url": "/azure/developer/go"
+    },
+    {
       "source_path": "articles/go/azure-sdk-containers-samples.md",
       "redirect_url": "/azure/developer/go"
     },
@@ -1766,6 +1794,10 @@
     {
       "source_path": "articles/azure-developer-cli/debug.md",
       "redirect_url": "/azure/developer/azure-developer-cli/get-started"
-    }       
+    },
+    {
+      "source_path": "articles/terraform/azure-terraform-resource-provider/get-started-export-resources-portal.md",
+      "redirect_url": "/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview"
+    }
   ]
 }

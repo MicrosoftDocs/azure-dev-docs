@@ -1,5 +1,5 @@
 ---
-title: Choose the right Azure services for Your Java applications
+title: Choose the Right Azure Services for your Java Applications
 description: This article guides you on using Azure services for Java application deployment, emphasizing Azure's support for diverse Java technologies and architectures.
 author: KarlErickson
 ms.author: asirveda
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Choose the right Azure services for your Java applications
 
-This article guides you on using Azure services for Java application deployment, emphasizing Azure's support for diverse Java technologies and architectures. It outlines deployment methods like "Lift and Shift," containerization, and Platform-as-a-Service (PaaS), tailored to various control and simplicity levels.
+This article guides you on using Azure services for Java application deployment, emphasizing Azure's support for diverse Java technologies and architectures. It outlines deployment methods like lift and shift, containerization, and Platform-as-a-Service (PaaS), tailored to various control and simplicity levels.
 
 The article advocates an *A+B mindset*, advising you to choose services based on application needs over a fixed A or B choice. It suggests considering use case, business goals, security, and budget for a flexible approach. The article highlights Microsoft's partnership with Java ecosystem leaders to enhance developer experiences and recommends Azure services for deploying Java applications - whether as source, binaries, or containers. This nuanced approach helps you focus on innovation, supported by Microsoft's commitment to providing Java applications with the most appropriate Azure services for your deployment strategy, maximizing efficiency, scalability, and cost-effectiveness.
 
@@ -20,7 +20,7 @@ The Java ecosystem includes diverse technologies such as Java SE, Jakarta EE (su
 
 Azure offers the following three primary methods for running Java applications in the cloud, tailored to varying levels of control and simplicity:
 
-- The "Lift and Shift" approach enables minimal-change migration of existing applications directly to Azure Virtual Machines.
+- The *lift and shift* approach enables minimal-change migration of existing applications directly to Azure Virtual Machines.
 
 - Containerization offers flexibility, with Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift being the main platforms for orchestrating containerized apps.
 
@@ -38,13 +38,13 @@ Of course, when there are so many choices, you face a dilemma.
 
 If you navigate Azure's offerings, you might encounter the dilemma of selecting the most suitable Azure service for running your Java applications. This choice is crucial, as it influences your resource planning, budget, project timelines, and ultimately, your application's time to market. The decision affects not just the initial deployment costs but also the ongoing maintenance expenses.
 
-In the past, organizations often felt compelled to choose between two platforms, technologies, or competing solutions for their software applications. For example, organizations had to decide between WebLogic or WebSphere for Java Enterprise applications, Docker Swarm or Kubernetes for container management, or containers versus virtual machines (VMs) for deployment. This decision-making process is called the "A or B mindset", and it differs significantly from A/B testing, which is a method for comparing two versions of a webpage or app against each other to determine which one performs better. Instead, the A or B mindset in this context is about choosing one platform or technology over another for application deployment. It comes from traditional on-premises practices, where decisions are often constrained by factors like packaged software delivery models, substantial upfront investments in infrastructure and software licensing, and the lengthy lead times needed to build and deploy any application platform.
+In the past, organizations often felt compelled to choose between two platforms, technologies, or competing solutions for their software applications. For example, organizations had to decide between WebLogic or WebSphere for Java Enterprise applications, Docker Swarm or Kubernetes for container management, or containers versus virtual machines (VMs) for deployment. This decision-making process is called the *A or B mindset*, and it differs significantly from A/B testing, which is a method for comparing two versions of a webpage or app against each other to determine which one performs better. Instead, the A or B mindset in this context is about choosing one platform or technology over another for application deployment. It comes from traditional on-premises practices, where decisions are often constrained by factors like packaged software delivery models, substantial upfront investments in infrastructure and software licensing, and the lengthy lead times needed to build and deploy any application platform.
 
 Bringing this mindset to Azure can lead to excessive time spent on creating a single platform that tries to accommodate all applications, potentially introducing delays and inefficiencies. However, Azure offers a more advantageous approach, encouraging a shift from this restrictive mindset to one that embraces the best of both worlds, ultimately yielding a better return on investment (ROI).
 
 As you transition to Azure, the cloud environment offers a flexible paradigm where you can provision and deprovision resources according to your needs, eliminating the necessity to choose between one service over another. This flexibility ushers in the A+B approach, a strategy that diverges from the traditional A or B mindset by encouraging a broader, more inclusive way of thinking. Azure facilitates this shift by making it both easy and cost-effective to blend the advantages of multiple services, and adopt an A+B mindset. This approach underscores the principle of selecting services that best align with the specific needs of your application, essentially advocating for choosing the right tool for the job at hand.
 
-The transition to an A+B mindset enables organizations to broaden their decision-making processes and technical strategies, embracing new possibilities and opportunities that this mindset affords. This article delineates the principles of the A+B mindset, enabling you to judiciously select Azure services that resonate most effectively with your application's requirements. Whether it's Azure Container Apps (ACA), Azure App Service, Azure Kubernetes Service, or Virtual Machines, the A+B mindset grants you the latitude to assess and choose from an array of Azure Services for hosting your applications. This philosophy is applicable universally, transcending language and framework boundaries. Although Java applications are the focus here, the A+B mindset is equally relevant and beneficial for applications developed in any programming language.
+The transition to an A+B mindset enables organizations to broaden their decision-making processes and technical strategies, embracing new possibilities and opportunities that this mindset affords. This article delineates the principles of the A+B mindset, enabling you to judiciously select Azure services that resonate most effectively with your application's requirements. Whether it's Azure Container Apps, Azure App Service, Azure Kubernetes Service, or Virtual Machines, the A+B mindset grants you the latitude to assess and choose from an array of Azure Services for hosting your applications. This philosophy is applicable universally, transcending language and framework boundaries. Although Java applications are the focus here, the A+B mindset is equally relevant and beneficial for applications developed in any programming language.
 
 By embracing the A+B mindset, you aren't confined to a single, predetermined service. Instead, you're empowered to combine services in a way that best suits the unique demands of your application. This approach not only enhances flexibility and scalability, but also optimizes cost and operational efficiency. This approach ensures that your technical strategy is as dynamic and adaptable as the cloud environment you're operating in.
 
@@ -63,6 +63,7 @@ Moving to the cloud, and to Azure in particular, brings a significant change in 
 The following diagram shows the shared responsibility model between customer and cloud provider:
 
 :::image type="complex" source="media/responsibility.png" alt-text="Diagram with a table that shows the shared responsibility model between customer and cloud provider." lightbox="media/responsibility.png":::
+
 The following table shows which infrastructure and platform responsibilities are managed by Microsoft, by the customer, or are shared:
 
 | Responsibility                        | SaaS      | PaaS      | IaaS      | On-premises |
@@ -127,7 +128,7 @@ Like anything else, there are exceptions to A+B. The following list isn't exhaus
 
 - Too far down the line with execution. You might have chosen a solution before going through the A+B analysis. If you're already deep into execution of your solution, continue with it, but for the next application, use the principles of the A+B mindset to choose the right solution for your use case.
 
-- Large scale data center migrations. To accelerate their journey to the cloud, enterprises commonly use a strategy called "lift and shift" that involves migrating servers (hosting their applications) in bulk to Azure using tools like Azure Migrate. Some use this approach to migrate data centers to Azure and shut them down in an efficient and cost-effective manner. In this scenario, we recommend using the A+B mindset to modernize applications after migrating to Azure.
+- Large scale data center migrations. To accelerate their journey to the cloud, enterprises commonly use a lift and shift strategy, which involves migrating servers (hosting their applications) in bulk to Azure using tools like Azure Migrate. Some use this approach to migrate data centers to Azure and shut them down in an efficient and cost-effective manner. In this scenario, we recommend using the A+B mindset to modernize applications after migrating to Azure.
 
 ### Key considerations
 
@@ -213,6 +214,7 @@ These examples underscore Azure's commitment to providing versatile, efficient, 
 The following diagram shows the recommended Azure services for every Java application type deployed as containers:
 
 :::image type="complex" source="media/find-match-containers.png" alt-text="Diagram that shows recommended Azure services for every Java application type deployed as containers." lightbox="media/find-match-containers.png":::
+
 The following table helps you find the right Azure service for every Java app type deployed as containers:
 
 |                     | Spring microservice  | Spring monolith           | Tomcat                   | JBoss EAP                | WebLogic                 | WebSphere Liberty        |

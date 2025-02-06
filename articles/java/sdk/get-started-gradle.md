@@ -31,9 +31,9 @@ You're prompted to answer a short series of questions, after which you have a di
 gradle clean assemble test
 ```
 
-You can now move on to editing the *build.gradle* file located in the app directory. For starters, to make dependency version management simpler, the Azure SDK for Java team publishes the [Azure SDK for Java client BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions) each month. This BOM file includes all Generally Available (GA) Azure SDK for Java client packages with their compatible dependency version.
+You can now move on to editing the **build.gradle** file located in the app directory. For starters, to make dependency version management simpler, the Azure SDK for Java team publishes the [Azure SDK for Java client BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions) each month. This BOM file includes all Generally Available (GA) Azure SDK for Java client packages with their compatible dependency version.
 
-To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project *build.gradle* file. Replace the *`{bom_version_to_target}`* placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions).
+To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project **build.gradle** file. Replace the `{bom_version_to_target}` placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions).
 
 ```groovy
 dependencies {
@@ -43,7 +43,7 @@ dependencies {
 
 You can find all releases of the Azure SDK for Java client BOM at [azure-sdk-bom](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions). We recommend using the latest version to take advantage of the newest features of the Azure SDK for Java client libraries.
 
-Once you've started depending on the Azure SDK for Java BOM, you can include dependencies on libraries without specifying their version. These version values are looked up automatically in the Azure SDK for Java BOM. For example, to include an `azure-storage-blob` dependency, add the following lines to your *build.gradle* file:
+Once you've started depending on the Azure SDK for Java BOM, you can include dependencies on libraries without specifying their version. These version values are looked up automatically in the Azure SDK for Java BOM. For example, to include an `azure-storage-blob` dependency, add the following lines to your **build.gradle** file:
 
 ```groovy
 dependencies {
@@ -71,7 +71,7 @@ If you use this approach and specify versions directly in your project, you migh
 
 ## Build a native image with GraalVM
 
-You can use GraalVM to create a *native image* of a Java application. GraalVM compiles the Java code ahead of time into native machine code, which can yield drastic performance gains in certain situations. The Azure SDK for Java provides the necessary metadata in each of its client libraries to support GraalVM native image compilation.
+You can use GraalVM to create a native image of a Java application. GraalVM compiles the Java code ahead of time into native machine code, which can yield drastic performance gains in certain situations. The Azure SDK for Java provides the necessary metadata in each of its client libraries to support GraalVM native image compilation.
 
 To get started, you need to install GraalVM and prepare your development system for compiling native images. The installation process for GraalVM is straightforward, and the GraalVM documentation provides step-by-step instructions for [installing GraalVM](https://www.graalvm.org/latest/docs/getting-started/) and [using GraalVM to install native-image](https://www.graalvm.org/latest/reference-manual/native-image/). Follow the [prerequisites](https://www.graalvm.org/latest/reference-manual/native-image/#prerequisites) section carefully to install the necessary native compilers for your operating system.
 
@@ -83,7 +83,7 @@ Next, you're ready to run a native image build. You can use standard Gradle tool
 gradle nativeCompile
 ```
 
-After you run this command, GraalVM outputs a native executable for the platform it's running on. The executable appears in the Gradle */app/build/native/nativeCompile* directory of your project. You can now run your application with this executable file, and it should perform similarly to a standard Java application.
+After you run this command, GraalVM outputs a native executable for the platform it's running on. The executable appears in the Gradle **/app/build/native/nativeCompile** directory of your project. You can now run your application with this executable file, and it should perform similarly to a standard Java application.
 
 ## Next steps
 

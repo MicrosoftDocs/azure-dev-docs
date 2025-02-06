@@ -12,7 +12,7 @@ Now that you've completed your migration, verify that your application works as 
 
 * Consider adding a Spring Cloud Config Server to centrally manage and version-control configuration for all your Spring Cloud applications. First, create a Git repository to house the configuration and configure app instance to use it. For more information, see [Configure settings for the Config Server for Spring component in Azure Container Apps](/azure/container-apps/java-config-server-usage). Then, migrate your configuration using the following steps:
 
-  1. Inside the application's *src/main/resources* directory, create a *bootstrap.yml* file with the following contents:
+  1. Inside the application's **src/main/resources** directory, create a **bootstrap.yml** file with the following contents:
 
         ```yml
           spring:
@@ -20,13 +20,13 @@ Now that you've completed your migration, verify that your application works as 
               name: <your-application-name>
         ```
 
-  1. In the configuration Git repository, create a *\<your-application-name>.yml* file, where `your-application-name` is the same as in the preceding step. Move the settings from *application.yml* file in *src/main/resources* to the new file you created. If the settings were previously in a *.properties* file, converted them to YAML first. You can find online tools or IntelliJ plugins to perform this conversion.
+  1. In the configuration Git repository, create a **\<your-application-name\>.yml** file, where `your-application-name` is the same as in the preceding step. Move the settings from **application.yml** file in **src/main/resources** to the new file you created. If the settings were previously in a **.properties** file, converted them to YAML first. You can find online tools or IntelliJ plugins to perform this conversion.
 
-  1. Create an *application.yml* file in the directory above. You can use this file to define settings and resources that are shared among all applications in the Azure Container Apps environment. Such settings typically include data sources, logging settings, Spring Boot Actuator configuration, and others.
+  1. Create an **application.yml** file in the directory above. You can use this file to define settings and resources that are shared among all applications in the Azure Container Apps environment. Such settings typically include data sources, logging settings, Spring Boot Actuator configuration, and others.
 
   1. Commit and push these changes to the Git repository.
 
-  1. Remove the *application.properties* or *application.yml* file from the application.
+  1. Remove the **application.properties** or **application.yml** file from the application.
 
 * Consider adding the Admin for Spring managed component to enable an administrative interface for Spring Boot web applications that expose actuator endpoints. For more information, see [Configure the Spring Boot Admin component in Azure Container Apps](/azure/container-apps/java-admin-for-spring-usage).
 

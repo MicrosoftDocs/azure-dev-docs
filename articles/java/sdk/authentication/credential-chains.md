@@ -9,7 +9,7 @@ ms.author: scaddie
 
 # Credential chains in the Azure Identity client library for Java
 
-The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/java/api/com.azure.core.credential.tokencredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials* - public classes that implement the Azure Core library's [TokenCredential](/java/api/com.azure.core.credential.tokencredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 

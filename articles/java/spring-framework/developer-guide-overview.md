@@ -56,7 +56,7 @@ For more information on migrating to 4.0, see [Migration guide for 4.0](migratio
 
 #### Bill of materials (BOM)
 
-If you use Maven, add the BOM to your *pom.xml* file in the `dependencyManagement` section, as shown in the following example. When you use the BOM, you don't have to specify versions for any of the Maven dependencies because versioning is delegated to the BOM.
+If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagement` section, as shown in the following example. When you use the BOM, you don't have to specify versions for any of the Maven dependencies because versioning is delegated to the BOM.
 
 ```xml
 <dependencyManagement>
@@ -108,7 +108,7 @@ For more information, see [Spring Boot Gradle Plugin Reference Guide](https://do
 
 > [!NOTE]
 > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-> This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+> This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
 > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 #### Starter dependencies
@@ -183,7 +183,7 @@ Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't su
 
 To solve this issue, disable the JAR signature verification.
 
-1. Create a *custom.security* file in *src/main/resources* with the following contents:
+1. Create a **custom.security** file in **src/main/resources** with the following contents:
 
    ```
    jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA

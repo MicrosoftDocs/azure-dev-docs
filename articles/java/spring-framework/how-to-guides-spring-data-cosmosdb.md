@@ -175,7 +175,7 @@ This project welcomes contributions and suggestions. Most contributions require 
 to use your contribution.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate
-the PR appropriately (for example, label, comment). Simply follow the instructions provided by the bot. You'll only need to
+the PR appropriately - for example, label, comment. Simply follow the instructions provided by the bot. You'll only need to
 do this once across all repos using our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information, see the [Code of Conduct FAQ][coc_faq]
@@ -193,8 +193,8 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [coc_contact]: mailto:opencode@microsoft.com
 [azure_subscription]: https://azure.microsoft.com/free/
 [samples]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/src/samples/java/com/azure/spring/data/cosmos
-[sample-for-multi-database]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-multi-database-multi-account
-[sample-for-multi-database-single-account]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-multi-database-single-account
+[sample-for-multi-database]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-data-cosmos/cosmos-multi-database-multi-account
+[sample-for-multi-database-single-account]: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cosmos/azure-spring-data-cosmos/cosmos-multi-database-single-account
 [sql_api_query]: /azure/cosmos-db/sql-api-sql-query
 [local_emulator]: /azure/cosmos-db/local-emulator
 [local_emulator_export_ssl_certificates]: /azure/cosmos-db/local-emulator-export-ssl-certificates

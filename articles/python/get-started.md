@@ -1,7 +1,7 @@
 ---
 title: Get started with Python on Azure
 description: A starting point with links to everything a Python developer needs to know about Azure.
-ms.date: 07/10/2024
+ms.date: 01/28/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, vscode-azure-extension-update-completed
 ---
@@ -39,12 +39,12 @@ To use Azure resources like databases, message queues, file storage, and so on, 
 * selecting the region of the world where the service runs
 * giving the service a unique name
 
-There are several tools you can use create and manage Azure resources, depending on your scenario:
+There are several tools you can use to create and manage Azure resources, depending on your scenario:
 
 - [Azure portal](https://portal.azure.com) - If you're new to Azure and want a web-based user interface to create and manage a couple of resources.
 - [Azure CLI](/cli/azure/install-azure-cli) - If you're more comfortable with command line interfaces.
 - [Azure PowerShell](/powershell/azure/) - If you prefer a PowerShell style syntax in their CLI.
-- [Azure Developer CLI](/azure/developer/azure-developer-cli/) - When you want to create repeatable deployments involving many Azure resources with intricate dependencies. Requires learning Bicep templates an imperative language.
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/) - When you want to create repeatable deployments involving many Azure resources with intricate dependencies. Requires learning Bicep templates.
 - [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) - The extension pack contains extensions for working with some of the most popular Azure services in one convenient package.
 
 You can also use the [Azure Management Libraries for Python](https://azure.github.io/azure-sdk/releases/latest/mgmt/python.html) to create and manage resources. The management libraries allow you to use Python to implement custom deployment and management functionality. Here are a few articles that can help you get started:
@@ -68,11 +68,11 @@ Most of the instructions in this set of articles use a virtual environment becau
 
 As you're getting started, the articles instruct you on which Python on Azure libraries to install and reference using the `pip` utility.
 
-At some point, you might want to [install and reference](./sdk/azure-sdk-install.md) the [Azure SDK for Python client libraries](https://azure.github.io/azure-sdk/releases/latest/python.html) without follow the instructions in an article. The [Azure SDK Overview](./sdk/azure-sdk-overview.md) is a great starting point.
+At some point, you might want to [install and reference](./sdk/azure-sdk-install.md) the [Azure SDK for Python client libraries](https://azure.github.io/azure-sdk/releases/latest/python.html) without having to follow the instructions in an article. The [Azure SDK Overview](./sdk/azure-sdk-overview.md) is a great starting point.
 
 ### Authenticate your app to Azure
 
-When you use the Azure SDK for Python, your app must authenticate itself. How your app authenticates depends on whether you're running your app locally during development and testing, hosting the app on your own servers, or hosting the app in Azure. Read [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication-overview.md) to understand more about authentication on Azure.
+When you use the Azure SDK for Python, you must add authentication logic to your app. How your app authenticates depends on whether you're running your app locally during development and testing, hosting the app on your own servers, or hosting the app in Azure. Read [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication-overview.md) to understand more about authentication on Azure.
 
 You'll also need to set up access policies that control what identities (service principals and/or application IDs) are able to access those resources. Access policies are managed through Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview); some services have more specific access controls as well. As a cloud developer working with Azure, make sure to familiarize yourself with Azure RBAC because you use it with just about any resource that has security concerns.
 

@@ -54,11 +54,11 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
 
 To use the Microsoft Entra starter in this scenario, use the following steps:
 
-Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+Set the redirect URI to `<application-base-uri>/login/oauth2/code/`. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
    :::image type="content" source="media/spring-boot-starter-for-entra-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Screenshot of Azure portal showing web app authentication page with redirect URI highlighted.":::
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -74,7 +74,7 @@ Add the following dependencies to your *pom.xml* file.
 > [!NOTE]
 > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-Add the following properties to your *application.yml* file. You can get the values for these properties from the app registration you created in the Azure portal, as described in the prerequisites.
+Add the following properties to your **application.yml** file. You can get the values for these properties from the app registration you created in the Azure portal, as described in the prerequisites.
 
 ```yaml
 spring:
@@ -161,7 +161,7 @@ To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Set the redirect URI as described previously.
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -177,7 +177,7 @@ Add the following dependencies to your *pom.xml* file.
 > [!NOTE]
 > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-Add the following properties to your *application.yml* file, as described previously:
+Add the following properties to your **application.yml** file, as described previously:
 
 ```yaml
 spring:
@@ -224,7 +224,7 @@ This scenario doesn't support sign in, but protects the server by validating the
 
 To use the Microsoft Entra starter in this scenario, use the following steps:
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -240,7 +240,7 @@ Add the following dependencies to your *pom.xml* file.
 > [!NOTE]
 > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-Add the following properties to your *application.yml* file, as described previously:
+Add the following properties to your **application.yml** file, as described previously:
 
 ```yaml
 spring:
@@ -253,7 +253,7 @@ spring:
        app-id-uri: <your-app-ID-URI>
 ```
 
-You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
+You can use both the `<your-client-ID>` and `<your-app-ID-URI>` values to verify the access token. You can get the `<your-app-ID-URI>` value from the Azure portal, as shown in the following images:
 
 :::image type="content" source="media/spring-boot-starter-for-entra-developer-guide/get-app-id-uri-2.png" alt-text="Screenshot of Azure portal showing web app Expose an API page with Application ID URI highlighted.":::
 
@@ -325,7 +325,7 @@ This scenario supports a resource server visiting other resource servers.
 
 To use the Microsoft Entra starter in this scenario, use the following steps:
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -345,7 +345,7 @@ Add the following dependencies to your *pom.xml* file.
 > [!NOTE]
 > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-Add the following properties to your *application.yml* file:
+Add the following properties to your **application.yml** file:
 
 ```yaml
 spring:
@@ -386,7 +386,7 @@ This scenario supports [Access a web application](#access-a-web-application) and
 
 To use `aad-starter` in this scenario, follow these steps:
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -406,7 +406,7 @@ Add the following dependencies to your *pom.xml* file.
 > [!NOTE]
 > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-Update your *application.yml* file. Set property `spring.cloud.azure.active-directory.application-type` to `web_application_and_resource_server`, and specify the authorization type for each authorization client, as shown in the following example.
+Update your **application.yml** file. Set property `spring.cloud.azure.active-directory.application-type` to `web_application_and_resource_server`, and specify the authorization type for each authorization client, as shown in the following example.
 
 ```yaml
 spring:
@@ -524,15 +524,15 @@ The Spring Boot Starter for Microsoft Entra ID provides the following properties
 
 | Properties                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                              |
 |----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| spring.cloud.azure.active-directory.app-id-uri                                                           | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the *\<your-client-ID>* or *\<your-app-ID-URI>* values described previously.                                                                                                                                                      |
+| spring.cloud.azure.active-directory.app-id-uri                                                           | Used by the resource server to validate the audience in the access token. The access token is valid only when the audience is equal to the `<your-client-ID>` or `<your-app-ID-URI>` values described previously.                                                                                                                                                      |
 | spring.cloud.azure.active-directory.authorization-clients                                                | A map that configures the resource APIs the application is going to visit. Each item corresponds to one resource API the application is going to visit. In your Spring code, each item corresponds to one `OAuth2AuthorizedClient` object.                                                                                                                               |
-| spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.scopes                   | The API permissions of a resource server that the application is going to acquire.                                                                                                                                                                                                                                                                                       |
-| spring.cloud.azure.active-directory.authorization-clients.*\<your-client-name>*.authorization-grant-type | The type of authorization client. Supported types are [authorization_code](/azure/active-directory/develop/v2-oauth2-auth-code-flow) (default type for webapp), [on_behalf_of](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) (default type for resource-server), [client_credentials](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). |
+| spring.cloud.azure.active-directory.authorization-clients.`<your-client-name>`.scopes                    | The API permissions of a resource server that the application is going to acquire.                                                                                                                                                                                                                                                                                       |
+| spring.cloud.azure.active-directory.authorization-clients.`<your-client-name>`.authorization-grant-type  | The type of authorization client. Supported types are [`authorization_code`](/azure/active-directory/develop/v2-oauth2-auth-code-flow) (default type for webapp), [`on_behalf_of`](/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) (default type for resource-server), [`client_credentials`](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). |
 | spring.cloud.azure.active-directory.application-type                                                     | Refer to [Application type](#application-type).                                                                                                                                                                                                                                                                                                                          |
 | spring.cloud.azure.active-directory.profile.environment.active-directory-endpoint                        | The base URI for the authorization server. The default value is `https://login.microsoftonline.com/`.                                                                                                                                                                                                                                                                    |
 | spring.cloud.azure.active-directory.credential.client-id                                                 | The registered application ID in Microsoft Entra ID.                                                                                                                                                                                                                                                                                                                               |
 | spring.cloud.azure.active-directory.credential.client-secret                                             | The client secret of the registered application.                                                                                                                                                                                                                                                                                                                         |
-| spring.cloud.azure.active-directory.user-group.use-transitive-members                                    | Use `v1.0/me/transitiveMemberOf` to get groups if set to *true*. Otherwise, use `/v1.0/me/memberOf`.                                                                                                                                                                                                                                                                     |
+| spring.cloud.azure.active-directory.user-group.use-transitive-members                                    | Use `v1.0/me/transitiveMemberOf` to get groups if set to `true`. Otherwise, use `/v1.0/me/memberOf`.                                                                                                                                                                                                                                                                     |
 | spring.cloud.azure.active-directory.post-logout-redirect-uri                                             | The redirect URI for posting the sign-out.                                                                                                                                                                                                                                                                                                                               |
 | spring.cloud.azure.active-directory.profile.tenant-id                                                    | The Azure tenant ID. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                                                                                                                                                                                                         |
 | spring.cloud.azure.active-directory.user-group.allowed-group-names                                       | The expected user groups that an authority will be granted to if found in the response from the `MemberOf` Graph API call.                                                                                                                                                                                                                                               |
@@ -542,7 +542,7 @@ The following examples show you how to use these properties:
 
 **Property example 1:** To use [Azure China 21Vianet](/azure/china/resources-developer-guide#check-endpoints-in-azure) instead of Azure Global, use the following step.
 
-- Add the following properties to your *application.yml* file:
+- Add the following properties to your **application.yml** file:
 
    ```yaml
    spring:
@@ -559,7 +559,7 @@ With this method, you can use an [Azure sovereign or national cloud](/azure/acti
 
 **Property example 2:** To use a group name to protect some method in a web application, use the following steps:
 
-Add the following property to your *application.yml* file:
+Add the following property to your **application.yml** file:
 
 ```yaml
 spring:
@@ -665,7 +665,7 @@ public class RoleController {
 
 **Property example 3:** To enable client credential flow in a resource server visiting resource servers, use the following steps:
 
-Add the following property to your *application.yml* file:
+Add the following property to your **application.yml** file:
 
 ```yaml
 spring:
@@ -758,9 +758,9 @@ The Azure SDKs for Java offer a consistent logging story to help troubleshoot an
 
 ### Enable Spring logging
 
-Spring enables all the supported logging systems to set logger levels in the Spring environment (for example, in *application.properties*) by using `logging.level.<logger-name>=<level>` where level is one of TRACE, DEBUG, INFO, WARN, ERROR, FATAL, or OFF. You can configure the root logger by using `logging.level.root`.
+Spring enables all the supported logging systems to set logger levels in the Spring environment - for example, in **application.properties** - by using `logging.level.<logger-name>=<level>` where `<level>` is one of `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`, or `OFF`. You can configure the root logger by using `logging.level.root`.
 
-The following example shows potential logging settings in the *application.properties* file:
+The following example shows potential logging settings in the **application.properties** file:
 
 ```properties
 logging.level.root=WARN

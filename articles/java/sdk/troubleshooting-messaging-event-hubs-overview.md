@@ -108,15 +108,15 @@ In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` p
 
 Use the following steps to configure Log4J 2:
 
-1. Add the dependencies in your *pom.xml* using the ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
-1. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/log4j2.xml) to your *src/main/resources* folder.
+1. Add the dependencies in your **pom.xml** using the ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
+1. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/log4j2.xml) to your **src/main/resources** folder.
 
 ### Configure logback
 
 Use the following steps to configure logback:
 
-1. Add the dependencies in your *pom.xml* using the ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for logback" section.
-1. Add [logback.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/logback.xml) to your *src/main/resources* folder.
+1. Add the dependencies in your **pom.xml** using the ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for logback" section.
+1. Add [logback.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/docs/logback.xml) to your **src/main/resources** folder.
 
 ### Enable AMQP transport logging
 
@@ -126,7 +126,7 @@ To trace the AMQP transport frames, set the `PN_TRACE_FRM=1` environment variabl
 
 #### Sample "logging.properties" file
 
-The following configuration file logs TRACE level output from Proton-J to the *proton-trace.log* file:
+The following configuration file logs TRACE level output from Proton-J to the **proton-trace.log** file:
 
 ```properties
 handlers=java.util.logging.FileHandler

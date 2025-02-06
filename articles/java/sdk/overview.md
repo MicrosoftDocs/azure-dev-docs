@@ -69,7 +69,7 @@ KeyAsyncClient client = new KeyClientBuilder()
         .buildAsyncClient();
 ```
 
-For more information on working with each client library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For more information on working with each client library, see the **README.md** file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Provision and manage Azure resources with management libraries
 
@@ -121,7 +121,7 @@ virtualMachine.update()
     .apply();
 ```
 
-For more information on working with each management library, see the *README.md* file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager#readme). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
+For more information on working with each management library, see the **README.md** file located in the library's project directory in the [SDK GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager#readme). You can also find more code snippets in the [reference documentation](/java/api) and the [Azure Samples](/samples/browse/?products=azure&languages=java).
 
 ## Get help and connect with the SDK team
 

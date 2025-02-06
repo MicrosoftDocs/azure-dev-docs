@@ -35,13 +35,13 @@ Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java de
       * **Create New**: Specifies that you want to create a new resource group.
       * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
 
-   * **Region**: Specifies the location where your storage account will be created (for example, "West US").
+   * **Region**: Specifies the location where your storage account is created - for example, "West US".
 
-   * **Account kind**: Specifies the type of storage account to create (for example, "General purpose v1"). For more information, see [About Azure storage accounts].
+   * **Account kind**: Specifies the type of storage account to create - for example, "General purpose v1". For more information, see [About Azure storage accounts].
 
-   * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, "Standard"). For more information, see [Azure storage scalability and performance targets].
+   * **Performance**: Specifies which storage account offering to use from the selected publisher - for example, "Standard". For more information, see [Azure storage scalability and performance targets].
 
-   * **Replication**: Specifies the replication for the storage account (for example, "Locally Redundant"). For more information, see [Azure storage replication].
+   * **Replication**: Specifies the replication for the storage account - for example, "Locally Redundant". For more information, see [Azure storage replication].
 
 1. When you have specified all of the preceding options, click **Create**.
 

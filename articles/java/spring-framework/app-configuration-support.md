@@ -48,7 +48,7 @@ Confirm your configurations before loading them. You can upload YAML files by ch
 
 ## Library usage
 
-To use the feature in an application, you can build it as a Spring Boot application. The most convenient way to add the dependency is with the Spring Boot starter `com.azure.spring:spring-cloud-azure-starter-appconfiguration-config`. The following example *pom.xml* file uses Azure App Configuration:
+To use the feature in an application, you can build it as a Spring Boot application. The most convenient way to add the dependency is with the Spring Boot starter `com.azure.spring:spring-cloud-azure-starter-appconfiguration-config`. The following example **pom.xml** file uses Azure App Configuration:
 
 ```xml
 <parent>
@@ -116,7 +116,7 @@ public class Application {
 }
 ```
 
-For this example, the *bootstrap.properties* file contains the following line:
+For this example, the **bootstrap.properties** file contains the following line:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].connection-string=${CONFIG_STORE_CONNECTION_STRING}
@@ -441,7 +441,7 @@ You can create custom feature filters. For example, you can use a feature filter
 
 #### Feature flag declaration
 
-The feature management library supports Azure App Configuration along with *application.yml* or *bootstrap.yml* as sources for feature flags. Here's an example of the format used to set up feature flags in an *application.yml* file:
+The feature management library supports Azure App Configuration along with **application.yml** or **bootstrap.yml** as sources for feature flags. Here's an example of the format used to set up feature flags in an **application.yml** file:
 
 ```yaml
 feature-management:

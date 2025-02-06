@@ -70,7 +70,7 @@ Configuration properties for each Azure service are under prefix `spring.cloud.a
 
 ## Basic usage
 
-Adding the following properties to your *application.yaml* file will autoconfigure the Azure Cosmos DB client for you.
+Adding the following properties to your **application.yaml** file will autoconfigure the Azure Cosmos DB client for you.
 
 ```yaml
 spring:

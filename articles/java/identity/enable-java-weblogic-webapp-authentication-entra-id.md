@@ -33,7 +33,7 @@ These instructions assume that you installed WebLogic and set up some server dom
 
 Before you can deploy to WebLogic, use the following steps to make some configuration changes in the sample itself and then build or rebuild the package:
 
-1. In the sample, find the *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
+1. In the sample, find the **application.properties** or **authentication.properties** file where you configured the client ID, tenant, redirect URL, and so on.
 
 1. In this file, change references to `localhost:8080` or `localhost:8443` to the URL and port that WebLogic runs on, which by default should be `localhost:7001`.
 
@@ -41,11 +41,11 @@ Before you can deploy to WebLogic, use the following steps to make some configur
 
 Use the following steps to deploy the sample to WebLogic via the web console:
 
-1. Start the WebLogic server with *DOMAIN_NAME\bin\startWebLogic.cmd*.
+1. Start the WebLogic server with **DOMAIN_NAME\bin\startWebLogic.cmd**.
 
 1. Navigate to the WebLogic web console in your browser at `http://localhost:7001/console`.
 
-1. Go to **Domain Structure** > **Deployments**, select **Install**, select **Upload your files**, and then find the *.war* file that you built by using Maven.
+1. Go to **Domain Structure** > **Deployments**, select **Install**, select **Upload your files**, and then find the **.war** file that you built by using Maven.
 
 1. Select Install this deployment as an application, select **Next**, select **Finish**, and then select **Save**.
 

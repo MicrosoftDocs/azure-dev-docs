@@ -2,7 +2,7 @@
 title: Use keyless connections with Azure OpenAI
 description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 11/13/2024
+ms.date: 02/05/2025
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
@@ -248,7 +248,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 ## Configure environment variables
 
-To connect to Azure OpenAI, your code needs to know your resource endpoint, and _may_ need other environment variables.
+To connect to Azure OpenAI, your code needs to know your resource endpoint, and _might_ need other environment variables.
 
 1. Create an environment variable for your Azure OpenAI endpoint. 
 
@@ -323,23 +323,47 @@ The Azure Identity library's `DefaultAzureCredential` allows the customer to run
 
 ### [.NET](#tab/csharp)
 
-For more information on `DefaultAzureCredential` for .NET, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for .NET, see the [`DefaultAzureCredential` overview](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview).
 
-```csharp
-using Azure;
-using Azure.AI.OpenAI;
-using Azure.Identity;
-using System;
-using static System.Environment;
+Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
 
-OpenAIClient client = new(new Uri(endpoint), new DefaultAzureCredential());
-```
+    ```csharp
+    using Azure;
+    using Azure.AI.OpenAI;
+    using Azure.Identity;
+    using System;
+    using static System.Environment;
+    
+    string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+    
+    OpenAIClient client = new(new Uri(endpoint), new DefaultAzureCredential());
+    ```
+
+- Set property [ManagedIdentityClientId](/dotnet/api/azure.identity.defaultazurecredentialoptions.managedidentityclientid?view=azure-dotnet&preserve-view=true) on `DefaultAzureCredentialOptions`:
+
+    ```csharp
+    using Azure;
+    using Azure.AI.OpenAI;
+    using Azure.Identity;
+    using System;
+    using static System.Environment;
+    
+    string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+    
+    var credential = new DefaultAzureCredential(
+        new DefaultAzureCredentialOptions
+        {
+            ManagedIdentityClientId = "<user_assigned_client_id>"
+        });
+    
+    OpenAIClient client = new(new Uri(endpoint), credential);
+    ```
 
 ### [Go](#tab/go)
 
-For more information on `DefaultAzureCredential` for Go, see [Azure Identity client library for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential).
+For more information on `DefaultAzureCredential` for Go, see the [`DefaultAzureCredential` overview](/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
 
 ```go
 import (
@@ -368,58 +392,132 @@ func main() {
 
 ### [Java](#tab/java)
 
-For more information on `DefaultAzureCredential` for Java, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for Java,  see the [`DefaultAzureCredential` overview](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview).
 
-```java
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import com.azure.ai.openai.OpenAIClient;
-import com.azure.ai.openai.OpenAIClientBuilder;
+Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
 
-DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
-OpenAIClient client = new OpenAIClientBuilder()
-    .credential(credential)
-    .endpoint(endpoint)
-    .buildClient();
-```
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    import com.azure.ai.openai.OpenAIClient;
+    import com.azure.ai.openai.OpenAIClientBuilder;
+    
+    String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
+    
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
+    OpenAIClient client = new OpenAIClientBuilder()
+        .credential(credential)
+        .endpoint(endpoint)
+        .buildClient();
+    ```
+
+- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `DefaultAzureCredentialBuilder` to configure it with a client ID:
+
+    ```java
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    import com.azure.ai.openai.OpenAIClient;
+    import com.azure.ai.openai.OpenAIClientBuilder;
+    
+    String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
+    String userAssignedClientId = "<your managed identity client ID>";
+    
+    TokenCredential dacWithUserAssignedManagedIdentity
+         = new DefaultAzureCredentialBuilder().managedIdentityClientId(userAssignedClientId).build();
+    OpenAIClient client = new OpenAIClientBuilder()
+        .credential(dacWithUserAssignedManagedIdentity)
+        .endpoint(endpoint)
+        .buildClient();
+    ```
 
 ### [JavaScript](#tab/javascript)
 
-For more information on `DefaultAzureCredential` for JavaScript, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for JavaScript, see the [`DefaultAzureCredential` overview](/azure/developer/javascript/sdk/authentication/credential-chains#use-defaultazurecredential-for-flexibility).
 
-```javascript
-import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
-import { AzureOpenAI } from "openai";
+Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-const credential = new DefaultAzureCredential();
-const scope = "https://cognitiveservices.azure.com/.default";
-const azureADTokenProvider = getBearerTokenProvider(credential, scope);
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
 
-const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
-const deployment = "<your Azure OpenAI deployment name>";
-const apiVersion = "2024-05-01-preview";
-const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
+    ```javascript
+    import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
+    import { AzureOpenAI } from "openai";
+    
+    const credential = new DefaultAzureCredential();
+    const scope = "https://cognitiveservices.azure.com/.default";
+    const azureADTokenProvider = getBearerTokenProvider(credential, scope);
+    
+    const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
+    const deployment = "<your Azure OpenAI deployment name>";
+    const apiVersion = "2024-05-01-preview";
+    const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
+    
+    const client = new AzureOpenAI(options);
+    ```
 
-const client = new AzureOpenAI(options);
-```
+- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `managedIdentityClientId` parameter to configure it with a client ID:
+
+    ```javascript
+    import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
+    import { AzureOpenAI } from "openai";
+    
+    const managedIdentityClientId = "<your managed identity client ID>";
+    
+    const credential = new DefaultAzureCredential({
+          managedIdentityClientId: managedIdentityClientId,
+        });
+    const scope = "https://cognitiveservices.azure.com/.default";
+    const azureADTokenProvider = getBearerTokenProvider(credential, scope);
+    
+    const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
+    const deployment = "<your Azure OpenAI deployment name>";
+    const apiVersion = "2024-05-01-preview";
+    const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
+    
+    const client = new AzureOpenAI(options);
+    ```
 
 ### [Python](#tab/python)
 
-For more information on `DefaultAzureCredential` for Python, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for Python, see the [`DefaultAzureCredential` overview](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview).
 
-```python
-import openai
-from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
 
-openai_client = openai.AzureOpenAI(
-    api_version=os.getenv("AZURE_OPENAI_VERSION"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    azure_ad_token_provider=token_provider
-)
-```
+    ```python
+    import openai
+    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    
+    token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+    
+    openai_client = openai.AzureOpenAI(
+        api_version=os.getenv("AZURE_OPENAI_VERSION"),
+        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        azure_ad_token_provider=token_provider
+    )
+    ```
+
+- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `managed_identity_client_id` parameter to configure it with a client ID:
+
+    ```python
+    import openai
+    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    
+    user_assigned_client_id = "<your managed identity client ID>"
+    
+    credential = DefaultAzureCredential(
+     managed_identity_client_id=user_assigned_client_id
+    )
+    
+    token_provider = get_bearer_token_provider(credential, "https://cognitiveservices.azure.com/.default")
+    
+    openai_client = openai.AzureOpenAI(
+        api_version=os.getenv("AZURE_OPENAI_VERSION"),
+        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+        azure_ad_token_provider=token_provider
+    )
+    
+    ```
 
 ---
 
