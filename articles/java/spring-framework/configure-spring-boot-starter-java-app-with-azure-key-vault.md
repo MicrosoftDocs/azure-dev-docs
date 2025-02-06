@@ -37,7 +37,7 @@ To store the URL of an H2 database as a new secret in Key Vault, see [Quickstart
 
 Now that database credentials have been stored in Key Vault, you can retrieve them with Spring Cloud Azure.
 
-To install the Spring Cloud Azure Key Vault Starter module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Key Vault Starter module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -57,7 +57,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Key Vault Starter artifact:
@@ -82,7 +82,7 @@ The following code example will show you how to use `SecretClient` to retrieve H
 
 To read a secret using Azure SDK from Key Vault, configure the application by following these steps:
 
-1. Configure a Key Vault endpoint in the *application.properties* configuration file.
+1. Configure a Key Vault endpoint in the **application.properties** configuration file.
 
    ```properties
    spring.cloud.azure.keyvault.secret.endpoint=https://<your-keyvault-name>.vault.azure.net/
@@ -151,7 +151,7 @@ public class SecretClientConfiguration {
 The following list shows some of the reasons why this code isn't flexible or graceful:
 
 - The Key Vault endpoint is hard coded.
-- If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your *application.properties* file.
+- If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your **application.properties** file.
 - If you have a microservice scenario, the code must be duplicated in each project, and it's easy to make mistakes and hard to be consistent.
 
 Fortunately, building the `SecretClient` bean by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject `SecretClient` and use the configuration properties that you're already familiar with to configure Key Vault. For more information, see [Configuration examples](configuration.md#configuration-examples).
@@ -174,7 +174,7 @@ The following code example shows you how to use `PropertySource` to retrieve H2 
 
 To retrieve the URL of an H2 database from Key Vault and store data from the H2 database using Spring Data JPA, configure the application by following these steps:
 
-1. Add the following Key Vault endpoint and datasource properties to the *application.properties* configuration file.
+1. Add the following Key Vault endpoint and datasource properties to the **application.properties** configuration file.
 
    ```properties
    logging.level.org.hibernate.SQL=DEBUG

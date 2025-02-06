@@ -27,7 +27,7 @@ Use the following steps to install from the Marketplace:
 
 1. Select **File** and then open **Settings**.
 
-1. Select **Plugins**, then use the search box on the **Marketplace** tab to search for *Azure Toolkit*.
+1. Select **Plugins**, then use the search box on the **Marketplace** tab to search for **Azure Toolkit**.
 
 1. When **Azure Toolkit for IntelliJ by Microsoft** is displayed, select it.
 

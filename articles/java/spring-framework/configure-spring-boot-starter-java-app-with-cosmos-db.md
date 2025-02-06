@@ -32,7 +32,7 @@ Use the following steps to create an Azure Cosmos DB instance:
 
    * Choose the **Subscription** you want to use for your database.
    * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
-   * Enter a unique **Account Name**, which you use as the URI for your database. For example: *contosoaccounttest*.
+   * Enter a unique **Account Name**, which you use as the URI for your database. For example: **contosoaccounttest**.
    * Specify the **Location** for your database.
    * Select **Apply Free Tier Discount** if you want to create an account for demonstration purpose only.
    * Leave the rest of the default options and settings as is.
@@ -65,7 +65,7 @@ Use the following steps to create a new Spring Boot application project with Azu
    * Add **Azure Support** in the dependencies.
 
    > [!NOTE]
-   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wingtiptoysdata*.
+   > The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: **com.example.wingtiptoysdata**.
    >
    > The version of Spring Boot may be higher than the version supported by Azure Support. After the project is automatically generated, you can manually change the Spring Boot version to the highest version supported by Azure, which you can find in [Spring-Versions-Mapping](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
 
@@ -77,15 +77,15 @@ Your simple Spring Boot application is now ready for editing.
 
 ## Configure your Spring Boot application to use the Azure Spring Boot Starter
 
-1. Locate the *pom.xml* file in the directory of your app; for example:
+1. Locate the **pom.xml** file in the directory of your app; for example:
 
-   *C:\SpringBoot\wingtiptoysdata\pom.xml*
+   **C:\SpringBoot\wingtiptoysdata\pom.xml**
 
    -or-
 
-   */users/example/home/wingtiptoysdata/pom.xml*
+   **/users/example/home/wingtiptoysdata/pom.xml**
 
-1. Open the *pom.xml* file in a text editor, and add the following to the `<dependencies>` element:
+1. Open the **pom.xml** file in a text editor, and add the following to the `<dependencies>` element:
 
    ```xml
    <dependency>
@@ -97,19 +97,19 @@ Your simple Spring Boot application is now ready for editing.
    > [!NOTE]
    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Save and close the *pom.xml* file.
+1. Save and close the **pom.xml** file.
 
 ## Configure your Spring Boot application to use your Azure Cosmos DB
 
-1. Locate the *application.properties* file in the *resources* directory of your app; for example:
+1. Locate the **application.properties** file in the **resources** directory of your app; for example:
 
-   *C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties*
+   **C:\SpringBoot\wingtiptoysdata\src\main\resources\application.properties**
 
    -or-
 
-   */users/example/home/wingtiptoysdata/src/main/resources/application.properties*
+   **/users/example/home/wingtiptoysdata/src/main/resources/application.properties**
 
-1. Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties for your database:
+1. Open the **application.properties** file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties for your database:
 
    ```properties
    # Specify the DNS URI of your Azure Cosmos DB.
@@ -121,7 +121,7 @@ Your simple Spring Boot application is now ready for editing.
    spring.cloud.azure.cosmos.populate-query-metrics=true
    ```
 
-1. Save and close the *application.properties* file.
+1. Save and close the **application.properties** file.
 
 ## Add sample code to implement basic database functionality
 
@@ -129,9 +129,9 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
 ### Define a base class for storing user data
 
-1. Create a new file named *User.java* in the same directory as your main application Java file.
+1. Create a new file named **User.java** in the same directory as your main application Java file.
 
-1. Open the *User.java* file in a text editor, and add the following lines to the file to define a generic user class that stores and retrieve values in your database:
+1. Open the **User.java** file in a text editor, and add the following lines to the file to define a generic user class that stores and retrieve values in your database:
 
    ```java
    package com.example.wingtiptoysdata;
@@ -199,13 +199,13 @@ In this section, you create two Java classes for storing user data. Then, you mo
    }
    ```
 
-1. Save and close the *User.java* file.
+1. Save and close the **User.java** file.
 
 ### Define a data repository interface
 
-1. Create a new file named *UserRepository.java* in the same directory as your main application Java file.
+1. Create a new file named **UserRepository.java** in the same directory as your main application Java file.
 
-1. Open the *UserRepository.java* file in a text editor, and add the following lines to the file to define a user repository interface that extends the default `ReactiveCosmosRepository` interface:
+1. Open the **UserRepository.java** file in a text editor, and add the following lines to the file to define a user repository interface that extends the default `ReactiveCosmosRepository` interface:
 
    ```java
    package com.example.wingtiptoysdata;
@@ -222,7 +222,7 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
    The `ReactiveCosmosRepository` interface replaces the `DocumentDbRepository` interface from the previous version of the starter. The new interface provides synchronous and reactive APIs for basic save, delete, and find operations.
 
-1. Save and close the *UserRepository.java* file.
+1. Save and close the **UserRepository.java** file.
 
 ### Modify the main application class
 
@@ -303,7 +303,7 @@ In this section, you create two Java classes for storing user data. Then, you mo
 
 ## Build and test your app
 
-1. Open a command prompt and navigate to the folder where your *pom.xml* file is located; for example:
+1. Open a command prompt and navigate to the folder where your **pom.xml** file is located; for example:
 
    `cd C:\SpringBoot\wingtiptoysdata`
 

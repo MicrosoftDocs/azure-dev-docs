@@ -44,7 +44,7 @@ In this tutorial, you'll code a sample application. If you want to go faster, th
 
 To store data from Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
 
-1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your *application.properties* configuration file.
+1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -94,7 +94,7 @@ In this article, you'll code a sample application. If you want to go faster, thi
 
 To store data from Azure Database for PostgreSQL using Spring Data JPA, follow these steps to configure the application:
 
-1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your *application.properties* configuration file.
+1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 

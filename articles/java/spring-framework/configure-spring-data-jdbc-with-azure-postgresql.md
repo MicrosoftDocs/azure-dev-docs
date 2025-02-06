@@ -41,7 +41,7 @@ In this tutorial, you'll code a sample application. If you want to go faster, th
 
 To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow these steps to configure the application:
 
-1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your *application.properties* configuration file.
+1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -71,7 +71,7 @@ To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow 
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
 
 ::: zone-end
 
@@ -89,7 +89,7 @@ In this article, you'll code a sample application. If you want to go faster, thi
 
 To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow these steps to configure the application:
 
-1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your *application.properties* configuration file.
+1. Configure Azure Database for PostgreSQL credentials by adding the following properties to your **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -119,12 +119,12 @@ To store data from Azure Database for PostgreSQL using Spring Data JDBC, follow 
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
 
 ::: zone-end
 
 <!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step, otherwise the numbering will reset to 1. -->
-2. Create the *src/main/resources/schema.sql* configuration file to configure the database schema, then add the following contents.
+2. Create the **src/main/resources/schema.sql** configuration file to configure the database schema, then add the following contents.
 
    ```sql
    DROP TABLE IF EXISTS todo;

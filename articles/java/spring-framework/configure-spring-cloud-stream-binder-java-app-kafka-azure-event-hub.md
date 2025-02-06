@@ -67,7 +67,7 @@ az eventhubs namespace authorization-rule keys list \
 
 With an Azure Event hub, you can send and receive messages using Spring Cloud Azure.
 
-To install the Spring Cloud Azure Starter module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Starter module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -87,7 +87,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:
@@ -103,7 +103,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 
 Use the following steps to configure your application to produce and consume messages using Azure Event Hubs.
 
-1. Configure the Event hub credentials by adding the following properties to your *application.properties* file.
+1. Configure the Event hub credentials by adding the following properties to your **application.properties** file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -155,7 +155,7 @@ Use the following steps to configure your application to produce and consume mes
     ---
 
    > [!NOTE]
-   > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least *1*. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
+   > If you enable automatic topic creation, be sure to add the configuration item `spring.cloud.stream.kafka.binder.replicationFactor`, with the value set to at least `1`. For more information, see [Spring Cloud Stream Kafka Binder Reference Guide](https://docs.spring.io/spring-cloud-stream-binder-kafka/docs/3.1.2/reference/html/spring-cloud-stream-binder-kafka.html).
 
 1. Edit the startup class file to show the following content.
 

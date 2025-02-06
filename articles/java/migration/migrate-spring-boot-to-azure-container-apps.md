@@ -44,13 +44,13 @@ For any applications using Spring Boot versions prior to 3.x, follow the [Spring
 
 ### Inventory external resources
 
-Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Boot applications, you can typically find the configuration for such resources in the *src/main/resources* folder, in a file typically called *application.properties* or *application.yml*.
+Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Boot applications, you can typically find the configuration for such resources in the **src/main/resources** folder, in a file typically called **application.properties** or **application.yml**.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
-After you've identified the broker or brokers in use, find the corresponding settings. In Spring Boot applications, you can typically find them in the *application.properties* and *application.yml* files in the application directory.
+After you've identified the broker or brokers in use, find the corresponding settings. In Spring Boot applications, you can typically find them in the **application.properties** and **application.yml** files in the application directory.
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 

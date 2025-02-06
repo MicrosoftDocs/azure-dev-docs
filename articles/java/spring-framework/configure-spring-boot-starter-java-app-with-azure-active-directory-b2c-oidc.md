@@ -129,7 +129,7 @@ Select **Certificates & secrets**, then **New client secrets**. Input your secre
 
 > [!NOTE]
 > If you leave the **Certificates & secrets** section and come back, you'll not be able to see the secret value. In that case, you must create another secret and copy it for future use.
-> Occasionally, the generated secret value may contain characters that are problematic for inclusion in the *application.yml* file, such as backslash or backtick. In that case, discard that secret and generate another one.
+> Occasionally, the generated secret value may contain characters that are problematic for inclusion in the **application.yml** file, such as backslash or backtick. In that case, discard that secret and generate another one.
 
 ### Add user flow
 
@@ -153,9 +153,9 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
 1. From the command line, cd to the directory where you unzipped the .zip file you downloaded from Spring Initializr.
 
-1. Navigate to the parent folder for your project, and open the *pom.xml* Maven project file in a text editor.
+1. Navigate to the parent folder for your project, and open the **pom.xml** Maven project file in a text editor.
 
-1. Add the dependencies for Spring OAuth2 security to the *pom.xml*:
+1. Add the dependencies for Spring OAuth2 security to the **pom.xml**:
 
    ```xml
    <dependency>
@@ -181,11 +181,11 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
 
    For `thymeleaf-extras-springsecurity5`, use the latest version available. You may be able to use [mvnrepository.com](https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5) to look this up. As of this writing, the latest version is `3.0.4.RELEASE`.
 
-1. Save and close the *pom.xml* file.
+1. Save and close the **pom.xml** file.
 
    * Verify that your dependencies are correct by running `mvn -DskipTests clean install`. If you don't see `BUILD SUCCESS`, troubleshoot and resolve the problem before continuing.
 
-1. Navigate to the *src/main/resources* folder in your project and create an *application.yml* file in a text editor.
+1. Navigate to the **src/main/resources** folder in your project and create an **application.yml** file in a text editor.
 
 1. Specify the settings for your app registration using the values you created earlier; for example:
 
@@ -212,7 +212,7 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    Notice that the `client-secret` value is enclosed in single quotes. This is necessary because the value of `<secret-value>` will almost certainly contain some characters that require being inside single quotes when present in YAML.
 
    > [!NOTE]
-   > As of this writing, the full list of Active Directory B2C Spring Integration values that are available for use in *application.yml* is the following:
+   > As of this writing, the full list of Active Directory B2C Spring Integration values that are available for use in **application.yml** is the following:
    >
    > ```yaml
    > spring:
@@ -234,13 +234,13 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    >           user-name-attribute-name:
    > ```
    >
-   > The *application.yml* file is available in [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
+   > The **application.yml** file is available in [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/application.yml) on GitHub.
 
-1. Save and close the *application.yml* file.
+1. Save and close the **application.yml** file.
 
-1. Create a folder named *controller* in *src/main/java/\<yourGroupId\>/\<yourGroupId\>*, replacing `<yourGroupId>` with the value you entered for **Group**.
+1. Create a folder named **controller** in **src/main/java/\<yourGroupId\>/\<yourGroupId\>**, replacing `<yourGroupId>` with the value you entered for **Group**.
 
-1. Create a new Java file named *WebController.java* in the *controller* folder and open it in a text editor.
+1. Create a new Java file named **WebController.java** in the **controller** folder and open it in a text editor.
 
 1. Enter the following code, changing `yourGroupId` appropriately, then save and close the file:
 
@@ -288,11 +288,11 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    }
    ```
 
-   Because every method in the controller calls `initializeModel()`, and that method calls `model.addAllAttributes(user.getAttributes());`, any HTML page in *src/main/resources/templates* is able to access any of those attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`. The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication. The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
+   Because every method in the controller calls `initializeModel()`, and that method calls `model.addAllAttributes(user.getAttributes());`, any HTML page in **src/main/resources/templates** is able to access any of those attributes, such as `${name}`, `${grant_type}`, or `${auth_time}`. The values returned from `user.getAttributes()` are in fact the claims of the `id_token` for the authentication. The complete list of available claims is listed in [Microsoft identity platform ID tokens](/azure/active-directory/develop/id-tokens#payload-claims).
 
-1. Create a folder named *security* in *src/main/java/\<yourGroupId\>/\<yourGroupId\>*, replacing `yourGroupId` with the value you entered for **Group**.
+1. Create a folder named **security** in **src/main/java/\<yourGroupId\>/\<yourGroupId\>**, replacing `yourGroupId` with the value you entered for **Group**.
 
-1. Create a new Java file named *WebSecurityConfiguration.java* in the *security* folder and open it in a text editor.
+1. Create a new Java file named **WebSecurityConfiguration.java** in the **security** folder and open it in a text editor.
 
 1. Enter the following code, changing `yourGroupId` appropriately, then save and close the file:
 
@@ -326,11 +326,11 @@ Now that you've created the Azure AD B2C instance and some user flows, you'll co
    }
    ```
 
-1. Copy the *home.html* file from [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to *src/main/resources/templates*, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
+1. Copy the **home.html** file from [spring-cloud-azure-starter-active-directory-b2c sample: aad-b2c-web-application](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates) to **src/main/resources/templates**, and replace the `${your-profile-edit-user-flow}` and `${your-password-reset-user-flow}` with the names of the user flows that you created earlier.
 
 ## Build and test your app
 
-1. Open a command prompt and change directory to the folder where your app's *pom.xml* file is located.
+1. Open a command prompt and change directory to the folder where your app's **pom.xml** file is located.
 
 1. Build your Spring Boot application with Maven and run it; for example:
 
@@ -369,7 +369,7 @@ at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.load
 at org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService.loadUser(OidcUserService.java:63) ~[spring-security-oauth2-client-5.3.6.RELEASE.jar:5.3.6.RELEASE]
 ```
 
-If you get this error, double-check the user workflow you created in [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows). When creating the user workflow, for **User attributes and claims**, be sure to choose attributes and claims for **Display Name**. Also, be sure to properly configure `user-name-attribute-name` in the *application.yml* file.
+If you get this error, double-check the user workflow you created in [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows). When creating the user workflow, for **User attributes and claims**, be sure to choose attributes and claims for **Display Name**. Also, be sure to properly configure `user-name-attribute-name` in the **application.yml** file.
 
 ### Sign in with loops to B2C endpoint
 

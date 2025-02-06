@@ -48,7 +48,7 @@ It's possible to resize node pools in Azure Red Hat OpenShift. For more informat
 
 ### Inventory all secrets
 
-Before the advent of "configuration as a service" technologies such as Azure Key Vault, there wasn't a well-defined concept of "secrets". Instead, you had a disparate set of configuration settings that effectively functioned as what we now call "secrets". With app servers such as JBoss EAP, these secrets are in many different config files and configuration stores. Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check configuration files like *custom-config.xml* or *jboss-web.xml* in your applications. Configuration files containing passwords or credentials may also be found inside your application. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
+Before the advent of "configuration as a service" technologies such as Azure Key Vault, there wasn't a well-defined concept of "secrets". Instead, you had a disparate set of configuration settings that effectively functioned as what we now call "secrets". With app servers such as JBoss EAP, these secrets are in many different config files and configuration stores. Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check configuration files like **custom-config.xml** or **jboss-web.xml** in your applications. Configuration files containing passwords or credentials may also be found inside your application. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
 Once you have a solid inventory of secrets, consult the EAP Operator documentation regarding secrets. For more information, see [Creating a Secret](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_online/eap-operator-for-automating-application-deployment-on-openshift_default#creating-a-secret_default) in the Red Hat documentation.
 
@@ -70,9 +70,9 @@ Inventory all JNDI resources. For example, datasources such as databases may hav
 
 If your application relies on session replication, with or without [Infinispan](https://infinispan.org/), you have three options:
 
-- Infinispan works well in Azure virtual machines, but if you're using a profile that provides high availability capabilities, be aware of the *JGroups* configuration. Determine whether your system is operating as a managed domain or standalone server.
-  - If in a managed domain, the *ha* or *full-ha* profiles deal with JGroups.
-  - If in a standalone server, the *standalone-ha.xml* or *standalone-full-ha.xml* configuration files deal with JGroups.
+- Infinispan works well in Azure virtual machines, but if you're using a profile that provides high availability capabilities, be aware of the `JGroups` configuration. Determine whether your system is operating as a managed domain or standalone server.
+  - If in a managed domain, the `ha` or `full-ha` profiles deal with JGroups.
+  - If in a standalone server, the **standalone-ha.xml** or **standalone-full-ha.xml** configuration files deal with JGroups.
   - Microsoft Azure doesn't support JGroups discovery protocols that are based on UDP multicast. For more information, see [Using JBoss EAP High Availability in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/using_jboss_eap_in_microsoft_azure/using_jboss_eap_high_availability_in_microsoft_azure#doc-wrapper) in the Red Hat documentation.
 - Refactor your application to use a database for session management.
 - Refactor your application to externalize the session to Azure Redis Service. For more information, see [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
@@ -93,7 +93,7 @@ For more information on JDBC drivers in JBoss EAP, see [Datasource Management](h
 
 Determine which of the following customizations have been made, and capture what's been done.
 
-- Have the startup scripts been changed? Such scripts include *host*, *eap_env*, *standalone*, and *domain*.
+- Have the startup scripts been changed? Such scripts include **host**, **eap_env**, **standalone**, and **domain**.
 - Are there any specific parameters passed to the JVM?
 - Are there JARs added to the server classpath?
 

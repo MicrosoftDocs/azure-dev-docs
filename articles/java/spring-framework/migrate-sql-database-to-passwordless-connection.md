@@ -135,7 +135,7 @@ Next, use the following steps to update your code to use passwordless connection
    > [!NOTE]
    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Update the *application.yaml* or *application.properties* file as shown in the following example. Remove `spring.datasource.username` and `spring.datasource.password` properties.
+1. Update the **application.yaml** or **application.properties** file as shown in the following example. Remove `spring.datasource.username` and `spring.datasource.password` properties.
 
    ```yaml
    spring:

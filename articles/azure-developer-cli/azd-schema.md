@@ -200,6 +200,39 @@ pipeline:
   provider: azdo
 ```
 
+### `workflows` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| up           | object | No       | When specified will override the default behavior for the azd up workflow. |
+
+#### `up` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| steps        | array  | Yes      | The steps to execute in the workflow. |
+
+#### `steps` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| azd          | string | Yes      | The name and args of the azd command to execute. |
+
+#### Sample workflow
+
+The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step using a workflow. This example could be used in scenarios where you need to know the URLs of resources during the build or packaging process.
+
+```yml
+name: todo-nodejs-mongo
+metadata:
+  template: todo-nodejs-mongo@0.0.1-beta
+workflows:
+  up: 
+    steps:
+      - azd: provision
+      - azd: deploy --all
+```
+
 [!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps

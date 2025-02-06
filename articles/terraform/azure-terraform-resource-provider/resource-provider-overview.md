@@ -23,14 +23,10 @@ Check the status of the registration with `az feature show --namespace Microsoft
 ## Export
 Export functionality is based on the preexisting [Azure Export for Terraform tool](../azure-export-for-terraform/export-terraform-overview.md). These capabilities are exposed through the resource provider. To export resources, choose your tool of choice:
 
-### Portal
-Follow the [quickstart article to export resources to Terraform using Azure portal](./get-started-export-resources-portal.md)
-
 ### REST
 Follow the [REST API reference](/rest/api/)
 
 ## Next steps
 
-**Quickstart articles:**
-
-- [Export your first resources using the Azure portal](./get-started-export-resources-portal.md)
+> [!div class="nextstepaction"] 
+> [Learn more about using Terraform in Azure](/azure/terraform)

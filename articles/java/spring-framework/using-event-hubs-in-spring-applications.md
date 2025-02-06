@@ -52,7 +52,7 @@ The [Spring Cloud Azure Event Hubs Starter](https://mvnrepository.com/artifact/c
 
 ### Add dependencies
 
-To install the Spring Cloud Azure Event Hubs Starter module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Event Hubs Starter module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -72,7 +72,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Event Hubs artifact:
@@ -356,7 +356,7 @@ You can build the client beans by yourself, but the process is complicated. In S
 The following list shows some reasons why this code isn't flexible or graceful:
 
 - The Event Hubs namespace and event hub name are hard coded.
-- If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your *application.properties* file.
+- If you use `@Value` to get configurations from the Spring environment, you can't have IDE hints in your **application.properties** file.
 - If you have a microservice scenario, you must duplicate the code in each project, and it's easy to make mistakes and hard to be consistent.
 
 Fortunately, building the client beans by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject them and use the configuration properties that you're already familiar with to configure Storage queue. For more information, see [Spring Cloud Azure configuration](configuration.md).
@@ -382,7 +382,7 @@ This guide shows you how to use Spring Messaging Azure Event Hubs to send messag
 
 ### Add dependencies
 
-To install the Spring Messaging Azure Event Hubs module, add the following dependencies to your *pom.xml* file:
+To install the Spring Messaging Azure Event Hubs module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -402,7 +402,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure starter, Spring Messaging Event Hubs and Azure Event Hubs Checkpoint Store artifacts:
@@ -506,7 +506,7 @@ This guide shows you how to use Spring Integration Azure Event Hubs to send mess
 
 ### Add dependencies
 
-To install the Spring Cloud Azure Event Hubs Integration Starter module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Event Hubs Integration Starter module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -526,7 +526,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Event Hubs Integration artifact:
@@ -695,7 +695,7 @@ This guide shows you how to use Spring Cloud Stream Event Hubs Binder to send me
 
 ### Add dependencies
 
-To install the Spring Cloud Azure Event Hubs Stream Binder module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Event Hubs Stream Binder module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -715,7 +715,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Event Hubs Stream Binder artifact:
@@ -803,7 +803,7 @@ This guide shows you how to use Azure Event Hubs and [Spring Kafka](https://mvnr
 
 ### Add dependencies
 
-To install the Spring Cloud Azure starter and Spring Kafka modules, adding the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure starter and Spring Kafka modules, adding the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -823,7 +823,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure starter and Spring Kafka artifact:
@@ -905,7 +905,7 @@ This guide shows you how to use Azure Event Hubs and [Spring Cloud Stream Kafka 
 
 ### Add dependencies
 
-To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka modules, adding the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka modules, adding the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -925,7 +925,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure starter artifact:

@@ -92,14 +92,18 @@ COPY . .
 
 EXPOSE 3100
 
-CMD ["gunicorn", "main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:3100", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker"]
 ```
 
 `3100` is used for the container port (internal) in this example, but you can use any free port.
 
 Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`.
 
-:::code language="python" source="~/../msdocs-python-fastapi-webapp-quickstart/requirements.txt" highlight="2-3" :::
+```
+fastapi
+uvicorn
+gunicorn
+```
 
 ---
 
@@ -222,11 +226,11 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
     An Azure resource group is a logical container into which Azure resources are deployed and managed. When creating a resource group, you specify a location, such as *eastus*.
 
-1. Create an Azure Container Registry with the [az acr create][19] command.
+1. Create an Azure Container Registry with the [az acr create][19] command. Replace `<container-registry-name>` with a unique name for your instance.
 
     ```azurecli
     az acr create --resource-group web-app-simple-rg \
-    --name webappacr123 --sku Basic
+    --name <container-registry-name> --sku Basic
     ```
 
     > [!NOTE]
@@ -241,7 +245,7 @@ Build the Docker image in Azure with the [az acr build][21] command. The command
 ```azurecli
 az acr build \
   --resource-group web-app-simple-rg \
-  --registry webappacr123 \
+  --registry <container-registry-name> \
   --image webappsimple:latest .
 ```
 
@@ -272,12 +276,12 @@ The `--registry` option specifies the registry name, and the `--image` option sp
     ```azurecli
     az webapp create \
     --resource-group web-app-simple-rg \
-    --plan webplan --name webappsimple123 \
+    --plan webplan --name <container-registry-name> \
     --assign-identity [system] \
     --role AcrPull \
     --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/web-app-simple-rg \
     --acr-use-identity --acr-identity [system] \
-    --container-image-name webappacr123.azurecr.io/webappsimple:latest 
+    --container-image-name <container-registry-name>.azurecr.io/webappsimple:latest 
     ```
 
     Notes:

@@ -52,7 +52,7 @@ The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Ec
 
 ## Install new software
 
-You can install the Azure Toolkit for Eclipse directly from the *Help* menu in the form of new software.
+You can install the Azure Toolkit for Eclipse directly from the **Help** menu in the form of new software.
 
 1. Click the **Help** menu, and then click **Install New Software**.
 

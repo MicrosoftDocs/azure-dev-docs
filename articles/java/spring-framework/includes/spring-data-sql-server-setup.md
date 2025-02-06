@@ -47,7 +47,7 @@ The Microsoft Entra admin you created is an SQL database admin user, so you don'
 
 ### [Password](#tab/password)
 
-1. First, create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+1. First, create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
    ```bash
    cat << EOF > create_user.sql

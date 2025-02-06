@@ -18,5 +18,5 @@ The following list provides references on how to deploy applications to various 
 - Azure App Service. For more information, see [Deployment Best Practices](/azure/app-service/deploy-best-practices).
 - Azure Functions. For more information, see [Deployment technologies in Azure Functions](/azure/azure-functions/functions-deployment-technologies).
 - Azure Containers Instances. For more information, see [Quickstart: Deploy a container instance in Azure using the Azure CLI](/azure/container-instances/container-instances-quickstart).
-- Azure Kubernetes Service (AKS). For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](./deploy-spring-boot-java-app-on-kubernetes.md).
+- Azure Kubernetes Service (AKS). For more information, see [Deploy Spring Boot Application to Azure Kubernetes Service](./deploy-spring-boot-java-app-on-kubernetes.md).
 - Azure Spring Apps. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps](/azure/spring-apps/quickstart-deploy-apps?tabs=Azure-CLI&pivots=programming-language-java).

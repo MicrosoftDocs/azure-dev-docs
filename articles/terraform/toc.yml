@@ -60,11 +60,6 @@
         items:
           - name: Azure Terraform Resource Provider
             href: ./azure-terraform-resource-provider/resource-provider-overview.md
-      - name: Quickstarts
-        expanded: true
-        items:
-          - name: Export resources in the Azure portal
-            href: ./azure-terraform-resource-provider/get-started-export-resources-portal.md
 - name: Quickstarts
   expanded: true
   items:
@@ -140,6 +135,10 @@
                   href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
+            - name: Azure Container Registry
+              items: 
+                - name: Create an Azure container registry 
+                  href: /azure/container-registry/container-registry-get-started-terraform
             - name: Container Instances
               items:
                 - name: Create an instance
@@ -210,6 +209,10 @@
                   href: /azure/notification-hubs/create-notification-hub-terraform
         - name: Management and Governance
           items:
+            - name: Azure Automation
+              items:
+                - name: Create an Automation account
+                  href: /azure/automation/quickstarts/create-azure-automation-account-terraform
             - name: Azure Policy
               items:
                 - name: Create an assignment
@@ -242,6 +245,10 @@
               items:
                 - name: Create an application gateway
                   href: /azure/application-gateway/quick-create-terraform
+            - name: Azure Bastion
+              items:
+                - name: Deploy Bastion
+                  href: /azure/bastion/quickstart-deploy-terraform 
             - name: Azure DDoS Protection
               items:
                 - name: Create protection plan
@@ -250,6 +257,10 @@
               items:
                 - name: Create an Azure DNS zone and record
                   href: /azure/dns/dns-get-started-terraform
+            - name: Azure ExpressRoute
+              items:
+                - name: Create an ExpressRoute circuit
+                  href: /azure/expressroute/quickstart-create-expressroute-vnet-terraform
             - name: Azure Firewall
               items:
                 - name: Deploy with IP Groups

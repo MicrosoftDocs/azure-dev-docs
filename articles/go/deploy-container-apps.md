@@ -2,7 +2,7 @@
 title: Deploy a Go web app to Azure Container Apps
 description: In this tutorial, you learn how to use Docker, Azure Container Registry, and Azure Container Apps to deploy a Go web app to Azure.
 ms.topic: quickstart
-ms.date: 09/12/2024
+ms.date: 01/27/2025
 ms.custom: devx-track-go, devx-track-azurecli
 ---
 
@@ -10,7 +10,7 @@ ms.custom: devx-track-go, devx-track-azurecli
 
 In this quickstart, you learn to deploy a containerized Go web app to Azure Container Apps.
 
-[Azure Container Apps](/azure/container-apps/) lets you execute application code packaged in any container without having to manage complicated cloud infrastructure or complex container orchestrators, and without worrying about the runtime or programming model. Common uses of Azure Container Apps include: Deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices.
+[Azure Container Apps](/azure/container-apps/) lets you execute application code packaged in any container without managing complicated cloud infrastructure or complex container orchestrators. It also eliminates the need to worry about the runtime or programming model. Common uses of Azure Container Apps include: Deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices.
 
 Follow this tutorial to walk through building a Docker image, deploying that image to Azure Container Registry, and deploying a Go web app to Azure Container Apps.
 
@@ -52,7 +52,7 @@ az extension add --name containerapp --upgrade
 Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
 > [!NOTE]
-> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+> Azure Container Apps resources migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 ```azurecli
 az provider register --namespace Microsoft.App
@@ -74,7 +74,7 @@ cd msdocs-go-webapp-quickstart
 
 ## Create an Azure Container Registry
 
-[Azure Container Registry](/azure/container-registry/) allows you to build, store, and manage container images. You'll use it to store the Docker image that contains the sample Go web app provided in the sample repository mentioned previously.
+[Azure Container Registry](/azure/container-registry/) allows you to build, store, and manage container images. Use it to store the Docker image that contains the sample Go web app provided in the sample repository mentioned previously.
 
 Run the following commands to create an Azure Container Registry:
 
@@ -106,7 +106,7 @@ Run the following commands to create an Azure Container Registry:
 Replace `<resourceGroupName>` and `<azureContainerRegistryName>` with the appropriate values. Your Azure Container Registry name needs to be globally unique.
 
 > [!NOTE]
-> If you get an error similar to the following when you run the `az acr login` command, make sure the docker deamon is running on your system:
+> If you get an error similar to the following when you run the `az acr login` command, make sure the docker daemon is running on your system:
 >
 > ```output
 > You may want to use 'az acr login -n <azureContainerRegistryName> --expose-token' to get an access token, which does not require Docker to be installed.
@@ -115,7 +115,7 @@ Replace `<resourceGroupName>` and `<azureContainerRegistryName>` with the approp
 
 ### Build and push the Docker image
 
-Once you've created an Azure Container Registry, build and push the Docker image of the sample Go web app.
+Once you create an Azure Container Registry, build and push the Docker image of the sample Go web app.
 
 Run the following commands build and push the image to the registry:
 
@@ -168,7 +168,7 @@ Azure Container Apps doesn't have the complexity of a container orchestrator, bu
 
 ## Deploy to Azure Container Apps
 
-At this point, you've created an Azure Container Registry, built and pushed a Docker image to it, and created an Azure Container Apps environment. All that's left is to deploy the application.
+At this point, you created an Azure Container Registry, built and pushed a Docker image to it, and set up an Azure Container Apps environment. All that remains is to deploy the application.
 
 Run the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command to deploy the Go web app to Azure Container Apps.
 
@@ -184,7 +184,7 @@ az containerapp create \
     --ingress external
 ```
 
-The `--registry-identity system` parameter configures the system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** on the container app. The container app uses this identity rather than username/password, which is less secure, to authenticate with the container registry. The command also automatically creates an [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) assignment for the identity, so that it's authorized to pull images from the registry. To use managed identities for authentication and authorization, the registry must be an Azure Container Registry.
+The `--registry-identity system` parameter configures the system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** on the container app. The container app uses this identity rather than username/password, which is less secure, to authenticate with the container registry. The command also automatically creates an [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) assignment for the identity, authorizing it to pull images from the registry. To use managed identities for authentication and authorization, the registry must be an Azure Container Registry.
 
 ## Verify the web app URL
 
