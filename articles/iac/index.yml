@@ -40,7 +40,7 @@ conceptualContent:
           url: /devops/deliver/iac-github-actions
           itemType: deploy
         - text: Azure and GitHub integration
-          url: /azure/developer/github/index.yml
+          url: /azure/developer/github/
           itemType: concept
       - title: Use IaC tools
         links:
