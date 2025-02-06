@@ -7,11 +7,11 @@ brand: azure
 metadata:
   title: Get started with Infrastructure-as-code (IaC)
   description: Learn how to use Infrastructure-as-code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
-  ms.service: azure # should we use Terraform instead?
+  ms.service: azure
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: hub-page
-  ms.date: 01/22/2025
+  ms.date: 02/14/2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
