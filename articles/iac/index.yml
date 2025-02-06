@@ -39,6 +39,9 @@ conceptualContent:
         - text: Deploy with IaC
           url: /devops/deliver/iac-github-actions
           itemType: deploy
+        - text: Azure and GitHub integration
+          url: ./github/index.yml
+          itemType: concept
       - title: Use IaC tools
         links:
         - text: Deploy with Bicep
