@@ -1,7 +1,7 @@
 ---
 title: How to install Azure SDK library packages for Python
 description: How to install, uninstall, and verify Azure SDK or Python libraries using pip and conda. Includes details on installing specific versions and preview packages.
-ms.date: 11/27/2023
+ms.date: 02/05/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 adobe-target: true
@@ -47,7 +47,7 @@ conda install <package>
 
 `conda install` retrieves the latest version of a package in your current Python environment.
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
 
 Packages for conda are grouped by services. For example, `azure-storage` includes libraries for working with blobs, file shares, queues, and any other Azure Storage service. The single `azure-mgmt` package contains the management libraries for all services.
 
@@ -131,7 +131,7 @@ If the package is installed, `conda list` displays version and other summary inf
 
 You can also use `conda list` to see all the packages that are installed in your current conda environment.
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
 
 ---
 
@@ -155,6 +155,6 @@ To uninstall a package:
 conda remove <package>
 ```
 
-You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have named that begin with `azure-`.
+You can use any package name listed in the [Microsoft channel on anaconda.org](https://anaconda.org/microsoft/repo). Azure packages have names that begin with `azure-`.
 
 ---
