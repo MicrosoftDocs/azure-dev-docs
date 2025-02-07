@@ -233,7 +233,7 @@ az postgres flexible-server ad-admin create \
     --resource-group $RESOURCE_GROUP_NAME \
     --server-name $POSTGRESQL_NAME \
     --display-name $CURRENT_USER \
-    --object-id $(az ad signed-in-user show --query id -o tsv)
+    --object-id $(az ad signed-in-user show --query id --output tsv)
 ```
 
 ### [Azure SQL Database](#tab/azure-sql-database)
@@ -279,7 +279,7 @@ First, you're required to create a firewall rule to access the database server f
 export MY_IP=$(curl http://whatismyip.akamai.com)
 ```
 
-If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command might return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). Set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database. You will configure the database firewall with this IP address later.
+If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command might return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). Set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database. You configure the database firewall with this IP address later.
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
@@ -365,7 +365,7 @@ echo ${CONNECTION_STRING}
 
 Connect as the Microsoft Entra administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
 
-Create a temporary firewall rule with [`az postgres flexible-server firewall-rule create`](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create).
+Create a temporary firewall rule with [`az postgres flexible-server firewall-rule create`](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create), as shown in the following example:
 
 ```azurecli-interactive
 az postgres flexible-server firewall-rule create \
@@ -376,7 +376,7 @@ az postgres flexible-server firewall-rule create \
     --end-ip-address $MY_IP
 ```
 
-In the same Azure CLI shell you've been using, obtain a token for connection. 
+In the same Azure CLI shell you've been using, obtain a token for connection by using the following command:
 
 ```bash
 export RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --query accessToken --output tsv)
@@ -394,7 +394,7 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
 EOF
 ```
 
-Run `az postgres flexible-server execute` to execute the SQL file.
+Use the following commands to execute the SQL file:
    
 ```bash
 az config set extension.use_dynamic_install=yes_without_prompt
@@ -403,10 +403,10 @@ az postgres flexible-server execute --verbose \
     --name ${POSTGRESQL_NAME} \
     --admin-user ${CURRENT_USER} \
     --admin-password ${RDBMS_ACCESS_TOKEN} \
-    -f createuser.sql
+    --file-path createuser.sql
 ```
 
-The output is similar to the following content:
+The output is similar to the following example:
 
 ```output
 Connecting to postgres database by default.
