@@ -31,9 +31,9 @@ The diag4j tool is composed of the following components:
 
 To maintain security during the current milestone, these components aren't exposed publicly. You can access the tool via the `kubectl port-forward` command.
 
-:::image type="content" source="media/java-diagnostic-tool/architecture-diagram.png" alt-text="Diagram of the diag4j architecture." lightbox="media/java-diagnostic-tool/architecture.png":::
+:::image type="content" source="media/java-diagnostic-tool/architecture-diagram.png" alt-text="Diagram of the diag4j architecture." lightbox="media/java-diagnostic-tool/architecture-diagram.png" border="false":::
 
 ## Next steps
 
-- [Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on AKS](java-diagnostic-tools-sba-quickstart.md)
-- [Get started with the Java Diagnostic Agent](java-diagnostic-tools-jda-quickstart.md)
+- [Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on AKS](java-diagnostic-tools-spring-boot-admin-quickstart.md)
+- [Get started with the Java Diagnostic Agent](java-diagnostic-tools-java-diagnostic-agent-quickstart.md)

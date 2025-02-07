@@ -3,7 +3,7 @@ title: Get Started with the Java Diagnostic Agent
 description: Describes how to get started using the Java Diagnostic Agent.
 author: KarlErickson
 ms.author: fenzho
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -16,7 +16,7 @@ The Java Diagnostic Agent is a Java agent for troubleshooting a Java process. It
 
 ## Prerequisites
 
-- [diag4j](java-diagnostic-tools-sba-quickstart.md#steps) installed in your cluster.
+- [diag4j](java-diagnostic-tools-spring-boot-admin-quickstart.md) installed in your cluster.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download).
 - [Java LTS](/java/openjdk/download) version 11, 17, or 21.
 - The IntelliJ IDEA [plugin](https://github.com/microsoft/diag4j/releases), installed locally through **Settings** > **Plugins** > **Install Plugin from Disk**.
@@ -104,4 +104,4 @@ You can find information about the operations of the plugin in the log named `di
 
 ## Next step
 
-[Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on AKS](java-diagnostic-tools-sba-quickstart.md)
+[Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on AKS](java-diagnostic-tools-spring-boot-admin-quickstart.md)

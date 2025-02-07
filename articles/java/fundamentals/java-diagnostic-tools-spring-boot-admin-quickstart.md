@@ -3,7 +3,7 @@ title: Get Started with the Spring Boot Admin Component of the Java Diagnostic T
 description: Shows you how to get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service.
 author: KarlErickson
 ms.author: xuycao
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -82,4 +82,4 @@ To perform advanced diagnostics, generate heap dumps and thread dumps for in-dep
 
 ## Next step
 
-[Get started with the Java Diagnostic Agent](java-diagnostic-tools-jda-quickstart.md)
+[Get started with the Java Diagnostic Agent](java-diagnostic-tools-java-diagnostic-agent-quickstart.md)
