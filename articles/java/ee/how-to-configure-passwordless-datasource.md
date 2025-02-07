@@ -112,7 +112,7 @@ az postgres flexible-server create \
     --location eastus \
     --admin-user $POSTGRESQL_ADMIN_USER \
     --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-    --public-access None \
+    --public-access 0.0.0.0 \
     --tier Burstable \
     --sku-name Standard_B1ms \
     --active-directory-auth Enabled
@@ -128,6 +128,17 @@ az postgres flexible-server db create \
     --resource-group $RESOURCE_GROUP_NAME \
     --server-name $POSTGRESQL_NAME \
     --database-name $DATABASE_NAME
+```
+
+Allow public access from any Azure service within Azure to this server.
+
+```azurecli-interactive
+az postgres flexible-server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $POSTGRESQL_NAME \
+    --rule-name AllowAllAzureServices \
+    --start-ip-address 0.0.0.0 \
+    --end-ip-address 0.0.0.0
 ```
 
 ### [Azure SQL Database](#tab/azure-sql-database)
