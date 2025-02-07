@@ -3,7 +3,7 @@ title: "JavaScript: Upload image to Blob Storage"
 titleSuffix: JavaScript on Azure
 description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 02/07/2025
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 # CustomerIntent: As a JavaScript developer new to Azure, I want learn how to upload a file to Azure Storage in a web app so that know how to browser to do the actual file upload without exposing authentication secrets on the client.'
 ---
@@ -11,6 +11,9 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure
 # Upload an image to an Azure Storage blob with JavaScript
 
 Use a static web app to upload a file to an Azure Storage blob using an Azure Storage [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package with an Azure Storage SAS token. 
+
+> [!CAUTION]
+> This tutorial shows you how to host your function app in a Consumption Plan. When you plan to secure your connections by using Microsoft Entra ID with managed identities, you should instead consider hosting your app in the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan). The Flex Consumption plan has been designed to optimize security by supporting the use of managed identities without any of the tradeoffs required when running in a Consumption or Premium plan. Flex Consumption also fully supports virtual network integration.  
 
 ## Prerequisites
 
