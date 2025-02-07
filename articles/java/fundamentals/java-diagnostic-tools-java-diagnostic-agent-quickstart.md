@@ -77,7 +77,7 @@ To add logging to a function, right-click it in the editor, then select **Java D
 
 :::image type="content" source="media/java-diagnostic-tool/add-log.png" alt-text="Screenshot of IntelliJ IDEA that shows the context menu opened for a function with the Add AroundLog menu option highlighted." lightbox="media/java-diagnostic-tool/add-log.png":::
 
-In this example, after you add the logging, you can call `{host}/infor` to see output similar to the following example before and after the function is called:
+In this example, after you add the logging, you can call `<host>/infor` to see output similar to the following example before and after the function is called:
 
 ```output
 ===== START ===== Method: updateInformation Start Time: 2024-12-12T07:37:55.404107848Z
@@ -98,9 +98,9 @@ To remove all the logs added by the agent, select **Remove All AroundLogs**.
 
 A timeout can occur when you attempt to attach the agent to a pod running on a node that hasn't already enabled the feature. The timeout can occur because the node must first retrieve the agent image, which causes a delay. When this occurs, you can select **Refresh** to check whether the agent has attached, or you can try attaching the agent again. 
 
-If the attachment fails, you can check the log named `diagnostic-container-{hashcode}`.in the ephemeral container.
+If the attachment fails, you can check the log named `diagnostic-container-<hashcode>` in the ephemeral container.
 
-You can find information about the operations of the plugin in the log named `diag4j-agent-service-{hashcode}`.
+You can find information about the operations of the plugin in the logs under the pod container named `diag4j-agent-service-<hashcode>`.
 
 ## Next step
 
