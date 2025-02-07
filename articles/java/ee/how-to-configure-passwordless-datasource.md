@@ -112,10 +112,10 @@ az postgres flexible-server create \
     --location eastus \
     --admin-user $POSTGRESQL_ADMIN_USER \
     --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-    --version 14 \
-    --public-access 0.0.0.0 \
+    --public-access None \
     --tier Burstable \
-    --sku-name Standard_B1ms
+    --sku-name Standard_B1ms \
+    --active-directory-auth Enabled
 ```
 
 Create a database with [`az postgres flexible-server db create`](/cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create).
