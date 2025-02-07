@@ -42,8 +42,6 @@
     items: 
     - name: Create a static frontend
       href: how-to/create-static-web-app.md
-    - name: Add search to website
-      href: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Upload image to Storage
       href: tutorial/browser-file-upload-azure-storage-blob.md
     - name: Add image analysis
