@@ -1,16 +1,16 @@
 ---
 title: Get Started with the Java Diagnostic Agent
-description: The quickstart guide for Java Diagnostic Agent
+description: Describes how to get started using the Java Diagnostic Agent.
 author: KarlErickson
 ms.author: fenzho
 ms.topic: article
-ms.date: 12/17/2024
+ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Get started with the Java Diagnostic Agent
 
-This article describes how to get started using the Java Diagnostic Agent.
+This article describes how to get started using the Java Diagnostic Agent. It also describes the Java Diagnostic Tool on AKS plugin for IntelliJ IDEA.
 
 The Java Diagnostic Agent is a Java agent for troubleshooting a Java process. It doesn't need to rebuild, redeploy, or restart an application. Currently, it supports adding logs around a function in a Java class. When the function is called, the log is printed along with a calculation of the total time consumed by the function.
 
@@ -18,9 +18,14 @@ The Java Diagnostic Agent is a Java agent for troubleshooting a Java process. It
 
 - [diag4j](java-diagnostic-tools-sba-quickstart.md#steps) installed in your cluster.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download).
-- Java LTS version 11, 17, or 21.
+- [Java LTS](/java/openjdk/download) version 11, 17, or 21.
+- The IntelliJ IDEA [plugin](https://github.com/microsoft/diag4j/releases), installed locally through **Settings** > **Plugins** > **Install Plugin from Disk**.
 
-## Steps
+   :::image type="content" source="media/java-diagnostic-tool/install-plugin-locally.png" alt-text="Screenshot of the IntelliJ IDEA Settings page with Azure Toolkit for IntelliJ plugin selected and Install Plugin from Disk menu item highlighted." lightbox="media/java-diagnostic-tool/install-plugin-locally.png":::
+
+- Java applications to troubleshoot with. For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md).
+
+## Establish port forwarding
 
 Use the following command to establish port forwarding to the agent service:
 
@@ -28,80 +33,75 @@ Use the following command to establish port forwarding to the agent service:
 kubectl port-forward svc/diag4j-agent-service -n <namespace> <port>:8080
 ```
 
-### Java Diagnostic Tool on AKS plugin
+## Use the Java Diagnostic Tool on AKS plugin for IntelliJ IDEA
 
-This plugin is used to attach Java diagnostic agent to the Java application which running in a pod container on Azure Kubernetes Service (AKS) cluster.
+You can use the Java Diagnostic Tool on AKS plugin to attach the Java Diagnostic Agent to the Java application running in a pod container on an Azure Kubernetes Service (AKS) cluster.
 
-After Attach, it allows to do some troubleshooting like add logs around a class function, to test if the function is executed and calculate the total cost of the function
+After you attach the agent, it enables you to perform troubleshooting tasks such as adding logs around a class function. You can use this log to test whether the function is executed and to calculate the total time spent in the function. This analysis can help you locate performance bottlenecks in your application.
 
-It's useful when locate the performance bottleneck of the Java application.
+The plugin configuration is shown on the **Diagnostic** tab. Here, you can do the following tasks:
 
-## How to use Intellij Idea plugin
+- Configure the local port that forwards to the agent service.
+- View the pods listed with `kubeconfig` in your local environment.
+- Select **Refresh** to refresh the pod table. After you switch clusters, you should refresh the table to load the pods in new cluster.
 
-### [Prerequisites](#prerequisites)
+:::image type="content" source="media/java-diagnostic-tool/overview.png" alt-text="Screenshot of the IntelliJ IDEA Diagnostic tab." lightbox="media/java-diagnostic-tool/overview.png":::
 
-- The IntelliJ IDEA [plugin](https://github.com/microsoft/diag4j/releases), installed locally through **Settings** > **Plugins** > **Install Plugin from Disk**.
+## Attach the agent
 
-  ![install-plugin-locally-via-settings.png](media/java-diagnostic-tool/install-plugin-locally.png)
+The pod container should have a **/tmp** folder, and it should have write permission to the **/tmp** folder.
 
-- Java applications to troubleshoot with. For more information, see [Deploy Spring Boot Application to the Azure Kubernetes Service](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md).
+To enable attaching the agent in the JVM, be sure not to add `-XX:+DisableAttachMechanism` to the JVM options.
 
-### Agent Overview Dashboard
+The backend diagnostic server is closed after 6 hours.
 
-  - you can configure your port which forward to the agent service in local
-  - the pods show in the table are listed with kubeconfig in local environment
-  - click "Refresh" button to fresh the pod table, once you switch cluster, should click refresh to load the pods in new cluster
+To attach the agent, click the pod you want to attach the agent to, and then select the container. You can only attach the agent to one container in the pod. Then, wait for the attachment process to complete.
 
-  ![Agent Overview](media/java-diagnostic-tool/overview.png)
+:::image type="content" source="media/java-diagnostic-tool/attach.png" alt-text="Screenshot of IntelliJ IDEA that shows the Diagnostic tab with the Container Selection dialog box open." lightbox="media/java-diagnostic-tool/attach.png":::
 
-### Attach Agent
+## Set the active pod container
 
-> The pod container should have /tmp folder, and it should have write permission to /tmp folder
->
-> Should enable attach in the JVM, like don't add "-XX:+DisableAttachMechanism" in the JVM options
->
-> The backend diagnostic server will be closed after 6 hours
+After you attach the agent successfully, you can use it for troubleshooting.
 
-  - click the pod you want to attach the agent and select the container, only one container in the pod can be attached
-  - wait the attachment process to complete
+Multiple pods might have injected the agent, so you must set an active pod. In IntelliJ IDEA, on the **Diagnostic** tab, right-click a pod and then select **Select as the active one**.
 
-  ![Attach Agent](media/java-diagnostic-tool/attach.png)
+:::image type="content" source="media/java-diagnostic-tool/set-active.png" alt-text="Screenshot of the IntelliJ IDEA Diagnostic tab with a pod selected and the Select as the active one menu item showing." lightbox="media/java-diagnostic-tool/set-active.png":::
 
-### Set active pod container
+## Add logging around a class function
 
- Once attach the agent successfully, we can use the agent to help do some troubleshooting. Because there may be existed multiple pods inject the agent, so we should set an active one first. Later operations on the code in IDE will be based on the active pod container.
+The configured log is automatically removed after 30 minutes.
 
- ![Set active pod container](media/java-diagnostic-tool/setactive.png)
+You can use the tool to add logging around class functions, but not interfaces, constructors, and so on.
 
-### Add log around a class function
+To add logging to a function, right-click it in the editor, then select **Java Diagnostic** > **Add AroundLog**, as shown in the following screenshot.
 
-> The configured log will be removed after the 30 minutes automatically
->
-> It supports to add logs around a class function in your source code, not include interface, constructure, etc.
+:::image type="content" source="media/java-diagnostic-tool/add-log.png" alt-text="Screenshot of IntelliJ IDEA that shows the context menu opened for a function with the Add AroundLog menu option highlighted." lightbox="media/java-diagnostic-tool/add-log.png":::
 
-- select the class and function you want to add log, then click the "Add AroundLog" button. In below example, after add log, then call "{host}/infor", you can see the log print before and after the function called
+In this example, after you add the logging, you can call `{host}/infor` to see output similar to the following example before and after the function is called:
 
-![Add Log](media/java-diagnostic-tool/addlog.png)
+```output
+===== START ===== Method: updateInformation Start Time: 2024-12-12T07:37:55.404107848Z
+Done with the validation
+Done with the DB access
+Done with the data filtering
+===== END ===== Method: updateInformation End Time: 2024-12-12T07:37:55.404316940Z Total Time: 0 milliseconds
+```
 
-![Log Print](media/java-diagnostic-tool/showlog.png)
+## Remove all configured logs
 
-### Remove all configured logs
+To remove all the logs added by the agent, select **Remove All AroundLogs**.
 
-- click the "Remove All AroundLogs" button, all the logs added by the agent will be removed
+> [!NOTE]
+> The backend Java agent is used by an ephemeral container in the pod. After the pod restarts, the agent is removed.
 
-## Note
+## Troubleshooting
 
-- The backend Java agent is used by ephemeral container in the pod, Once the pod restart, the agent will be removed
+A timeout can occur when you attempt to attach the agent to a pod running on a node that hasn't already enabled the feature. The timeout can occur because the node must first retrieve the agent image, which causes a delay. When this occurs, you can select **Refresh** to check whether the agent has attached, or you can try attaching the agent again. 
 
-## Trouble Shooting
+If the attachment fails, you can check the log named `diagnostic-container-{hashcode}`.in the ephemeral container.
 
-- Attach agent timeout sometimes
-  - if you attach the agent to a pod which running on a node that never has a pod enable the feature before,
-  it may take a longer time than others because it will pull the agent image to the node first. click the refresh button to see if it finally attached or try it again.
-- Attach failed
-  - if the attach operation failed, you can check detail logs in the ephemeral container, name as `diagnostic-container-{hashcode}`.
-- See more logs `diag4j-agent-service-{hashcode}` pod about the operations in the plugin
+You can find information about the operations of the plugin in the log named `diag4j-agent-service-{hashcode}`.
 
-## Next Steps
+## Next step
 
-- Explore spring boot admin component of diag4j tool [Quick Start Guide](java-diagnostic-tools-sba-quickstart.md)
+[Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on AKS](java-diagnostic-tools-sba-quickstart.md)

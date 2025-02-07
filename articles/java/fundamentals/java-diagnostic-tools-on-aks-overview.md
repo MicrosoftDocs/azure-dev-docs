@@ -1,47 +1,39 @@
 ---
-title: Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
-description: The overview of Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
+title: The Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
+description: Provides an overview of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS).
 author: KarlErickson
 ms.author: xuycao
 ms.topic: article
-ms.date: 12/17/2024
+ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
+# The Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
 
-## Overview
+This article provides an overview of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). The diag4j tool is a lightweight, non-intrusive monitoring and diagnostic solution for Java applications running on Azure Kubernetes Service.
 
-The Java Diagnostic Tool for AKS is a lightweight, non-intrusive monitoring and diagnostic solution for Java applications running on Azure Kubernetes Service.
+## Key benefits
 
-### Key Benefits
+The diag4j tool provides the following key benefits:
 
-- **Lightweight & Non-Invasive**: By leveraging Spring Boot Admin (SBA) and Java Attach Agent, this tool is resource-efficient and does not require deep modifications to applications.
-- **Automatic Kubernetes Integration**: The tool auto-discovers pods with exposed actuator endpoints, listing them on the SBA dashboard.
-- **Real-Time Metrics & Diagnostics**: It displays real-time application metrics, GC status, and environment variables. Developers can also adjust log levels dynamically for deeper insights into specific issues.
-- **Advanced Diagnostics**: This tool offers enhanced diagnostic features, such as stack trace inspection, viewing local variables, generating heap and thread dumps, and injecting logs dynamically for troubleshooting.
-- **IDE Compatibility**: Integrates with IDEs to enable debugging without needing to rebuild or redeploy the application, allowing for streamlined troubleshooting.
+- Lightweight and non-invasive: by leveraging Spring Boot Admin (SBA) and the Java Attach Agent, the tool is resource-efficient and doesn't require deep modifications to applications.
+- Automatic Kubernetes integration: the tool auto-discovers pods with exposed actuator endpoints, listing them on the SBA dashboard.
+- Real-time metrics and diagnostics: the tool displays real-time application metrics, garbage-collection (GC) status, and environment variables. You can also adjust log levels dynamically for deeper insights into specific issues.
+- Advanced diagnostics: the tool offers enhanced diagnostic features, such as stack trace inspection, viewing local variables, generating heap and thread dumps, and injecting logs dynamically for troubleshooting.
+- IDE compatibility: the tool integrates with IDEs to enable debugging without needing to rebuild or redeploy the application, enabling streamlined troubleshooting.
 
 ## Architecture
 
-The diag4j tool is composed of two main components: the Spring Boot Admin server and the Agent Service.
+The diag4j tool is composed of the following components:
 
-- The Spring Boot Admin server is equipped with a read-only role within its namespace to automatically discover and monitor pods exposing actuator endpoints.
-- The Java Attach Agent is a lightweight Java agent that attaches to running Java processes, enabling diagnostic capabilities without restarting the application.
+- The Spring Boot Admin server, which has a read-only role within its namespace to automatically discover and monitor pods exposing actuator endpoints.
+- The Java Attach Agent, which is a lightweight Java agent that attaches to running Java processes, enabling diagnostic capabilities without restarting the application.
 
-### Access
+To maintain security during the current milestone, these components aren't exposed publicly. You can access the tool via the `kubectl port-forward` command.
 
-To maintain security during the current milestone, both components are not exposed publicly. Developers can access the tool via the `kubectl port-forward` command.
+:::image type="content" source="media/java-diagnostic-tool/architecture-diagram.png" alt-text="Diagram of the diag4j architecture." lightbox="media/java-diagnostic-tool/architecture.png":::
 
-![Architecture Diagram](media/java-diagnostic-tool/arch.png)
-> Note: SBA stands for Spring Boot Admin server.
+## Next steps
 
-## Demonstration Video
-
-Explore how to use diag4j on AKS through this demo video:
-[Watch the video](https://youtu.be/srysxWp2tak)
-
-## Next Steps
-
-- Explore spring boot admin component of diag4j tool [Quick Start Guide](java-diagnostic-tools-sba-quickstart.md)
-- Explore diagnostic agent of diag4j tool [Quick Start Guide](java-diagnostic-tools-jda-quickstart.md)
+- [Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on AKS](java-diagnostic-tools-sba-quickstart.md)
+- [Get started with the Java Diagnostic Agent](java-diagnostic-tools-jda-quickstart.md)

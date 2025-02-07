@@ -35,6 +35,11 @@ items:
           href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
         - name: Azure Spring Apps
           href: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
+    - name: Java Diagnostic Tool (diag4j) on AKS
+      expanded: true
+      items:
+        - name: Overview
+          href: 
     - name: SSL certs from Key Vault
       expanded: true
       items:

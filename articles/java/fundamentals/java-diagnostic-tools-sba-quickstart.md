@@ -1,98 +1,85 @@
 ---
-title: Get Started with Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
-description: The quickstart guide for Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
+title: Get Started with the Spring Boot Admin Component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service.
+description: Shows you how to get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service.
 author: KarlErickson
 ms.author: xuycao
 ms.topic: article
-ms.date: 12/17/2024
+ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Get Started with Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
+# Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service
 
-## Introduction
-
-This guide provides step-by-step instructions to set up and start using the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). By following these steps, developers can monitor and diagnose their Java applications efficiently.
+This article provides step-by-step instructions to set up and start using the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). By following these steps, you can monitor and diagnose your Java applications efficiently.
 
 ## Prerequisites
 
-Before starting, ensure the following prerequisites are met:
+- A running AKS cluster with necessary permissions.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) installed and configured to access your AKS cluster.
+- [Helm](https://helm.sh/docs/intro/install/) installed on your local machine.
+- Java applications deployed in AKS. For more information, see [Deploy Spring Boot Application to Azure Kubernetes Service](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md). The tool works better when Spring Boot actuator endpoints are enabled.
+- Developer access to the namespace hosting diag4j. Ensure that you can execute `kubectl port-forward`.
 
-1. Kubernetes Cluster: A running AKS cluster with necessary permissions.
-2. kubectl: Installed and configured to access the AKS cluster.
-3. Helm: Installed on your local machine.
-4. Java Applications: Applications deployed in AKS (better with Spring Boot actuator endpoints enabled.)
-5. Permissions: Developer access to the namespace hosting diag4j. Ensure you can execute `kubectl port-forward`.
+## Install diag4j in your cluster
 
-## Steps
+Use the following command to install diag4j in the desired namespace:
 
-### Step 1: Install diag4j in Your Cluster
+```bash
+helm install my-diag4j oci://diag4j.azurecr.io/helm/diag4j --version 1.1.5 -n <namespace> --create-namespace
+```
 
-1. Install diag4j in the desired namespace:
+## Create a Spring Boot Admin component
 
-    ```bash
-    helm install my-diag4j oci://diag4j.azurecr.io/helm/diag4j --version 1.1.5 -n <namespace> --create-namespace
-    ```
+Use the following commands to create a Spring Boot Admin (SBA) component:
 
->  **Note:** If you need help to deploy your Java application to AKS, please refer to this guide to deploy a sample Java app to your AKS: [Deploy an app on AKS](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md)
+1. Apply a custom resource (CR) to create a Spring Boot Admin component. Create a file named **spring-boot-admin.yaml**, and then add the following contents. Replace `<namespace>` with the namespace that your Spring Boot apps are running in. SBA will auto-discover apps whose actuator endpoints are exposed. Others will show with the `DOWN` status on the dashboard.
 
-### Step 2: Create a Spring Boot Admin component
+   ```yaml
+   apiVersion: diagtool4j.microsoft.com/v1alpha1
+   kind: Component
+   metadata:
+       name: spring-boot-admin
+       namespace: <namespace>
+   spec:
+       type: SpringBootAdmin
+   ```
 
-1. Apply the following CR to create a Spring Boot Admin component:
+1. Use the following command to apply the CR:
 
-    > **Note**: Replace `<namespace>` with the namespace where Spring Boot apps are running in. SBA will auto-discover apps whose actuator endpoints are exposed. Others will show as `DOWN` status on the dashboard.
-    ```yaml
-    apiVersion: diagtool4j.microsoft.com/v1alpha1
-    kind: Component
-    metadata:
-        name: spring-boot-admin
-        namespace: <namespace>
-    spec:
-        type: SpringBootAdmin
-    ```
+   ```bash
+   kubectl apply -f spring-boot-admin.yaml
+   ```
 
-    Save the file as `spring-boot-admin.yaml` and apply it:
+## Access the diag4j dashboard
 
-    ```bash
-    kubectl apply -f spring-boot-admin.yaml
-    ```
+Use the following steps to access the dashboard:
 
-### Step 3: Access the diag4j Dashboard
+1. Use the following command to configure local port forwarding to the SBA server:
 
-1. Port Forwarding
- 
-    Access the Spring Boot Admin (SBA) server locally by forwarding its port:
+   ```bash
+   kubectl port-forward svc/spring-boot-admin-azure-java -n <namespace> 8080:8080
+   ```
 
-    ```bash
-    kubectl port-forward svc/spring-boot-admin-azure-java -n <namespace> 8080:8080
-    ```
+1. Navigate to `http://localhost:8080` in your browser to view the SBA dashboard. All applications in the same namespace should be registered automatically.
 
-2. Navigate to http://localhost:8080 in your browser to view the SBA dashboard, all applications in the same namespace should be registered automatically.
+   :::image type="content" source="media/java-diagnostic-tool/spring-boot-admin-dashboard.png" alt-text="Screenshot of the Spring Boot Admin dashboard." lightbox="media/java-diagnostic-tool/spring-boot-admin-dashboard.png":::
 
-![Spring-Boot-Admin-dashboard](media/java-diagnostic-tool/sba-dashboard.png)
+## Use the diagnostic features
 
-### Step 4: Use Diagnostic Features
+To view application metrics, click on the application in the SBA dashboard. You can view real-time metrics including the following metrics:
 
-1. View Application Metrics:
+- CPU & memory usage
+- Garbage collection (GC) status
+- Active threads and environment variables
 
-- Click on the application in the SBA dashboard to access real-time metrics like:
-  - CPU & memory usage.
-  - Garbage collection (GC) status.
-  - Active threads and environment variables.
+:::image type="content" source="media/java-diagnostic-tool/app-details.png" alt-text="Screenshot of the Spring Boot Admin dashboard page that shows application metrics." lightbox="media/java-diagnostic-tool/app-details.png":::
 
-![sba-app-details](media/java-diagnostic-tool/app-details.png)
+To adjust log levels, navigate to the **Loggers** section. You can then modify log levels dynamically for specific packages or classes in order to isolate issues.
 
-2. Adjust Log Levels:
+:::image type="content" source="media/java-diagnostic-tool/log-level-change.png" alt-text="Screenshot of the Spring Boot Admin dashboard page that shows the Loggers section." lightbox="media/java-diagnostic-tool/log-level-change.png":::
 
-- Navigate to the Loggers section.
-- Modify log levels dynamically for specific packages or classes to isolate issues.
+To perform advanced diagnostics, generate heap dumps and thread dumps for in-depth analysis.
 
-![sba-change-log-level](media/java-diagnostic-tool/log-level-change.png)
+## Next step
 
-3. Perform Advanced Diagnostics:
-
-- Generate heap dumps and thread dumps for in-depth analysis.
-
-## Next Steps
-
-- Explore diagnostic agent of diag4j tool [Quick Start Guide](java-diagnostic-tools-jda-quickstart.md)
+[Get started with the Java Diagnostic Agent](java-diagnostic-tools-jda-quickstart.md)
