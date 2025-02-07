@@ -44,8 +44,6 @@
       href: how-to/create-static-web-app.md
     - name: Upload image to Storage
       href: tutorial/browser-file-upload-azure-storage-blob.md
-    - name: Add image analysis
-      href: tutorial/static-web-app-image-analysis.md  
     - name: Express.js with MongoDB
       href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Express.js with MERN
