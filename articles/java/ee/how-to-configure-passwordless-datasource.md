@@ -112,10 +112,10 @@ az postgres flexible-server create \
     --location eastus \
     --admin-user $POSTGRESQL_ADMIN_USER \
     --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-    --version 14 \
     --public-access 0.0.0.0 \
     --tier Burstable \
-    --sku-name Standard_B1ms
+    --sku-name Standard_B1ms \
+    --active-directory-auth Enabled
 ```
 
 Create a database with [`az postgres flexible-server db create`](/cli/azure/postgres/flexible-server/db#az-postgres-flexible-server-db-create).
@@ -128,6 +128,17 @@ az postgres flexible-server db create \
     --resource-group $RESOURCE_GROUP_NAME \
     --server-name $POSTGRESQL_NAME \
     --database-name $DATABASE_NAME
+```
+
+Allow public access from any Azure service within Azure to this server.
+
+```azurecli-interactive
+az postgres flexible-server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $POSTGRESQL_NAME \
+    --rule-name AllowAllAzureServices \
+    --start-ip-address 0.0.0.0 \
+    --end-ip-address 0.0.0.0
 ```
 
 ### [Azure SQL Database](#tab/azure-sql-database)
@@ -212,74 +223,18 @@ az mysql flexible-server ad-admin create \
 
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
-For information on how PostgreSQL Flexible server interacts with managed identities, see [Use Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). The next few commands use PowerShell. If you don't already have the `Az` and `Azure AD` modules installed, install them now.
+For information on how PostgreSQL Flexible server interacts with managed identities, see [Use Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). 
 
-To install the `Az` module, follow the steps at [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+Add the current signed-in user as Microsoft Entra Admin to the Azure Database for PostgreSQL Flexible Server instance by using the following commands:
 
-To install the `AzureAD` module, follow the steps at [AzureAD](/powershell/module/azuread).
-
-Sign in to Azure and get your tenant ID with the following command:
-
-```powershell
-Connect-AzAccount
+```azurecli-interactive
+export CURRENT_USER=$(az account show --query user.name --output tsv)
+az postgres flexible-server ad-admin create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server-name $POSTGRESQL_NAME \
+    --display-name $CURRENT_USER \
+    --object-id $(az ad signed-in-user show --query id --output tsv)
 ```
-
-If you want to sign in to a specific tenant, use the following command, instead:
-
-```powershell
-Connect-AzAccount -Tenant <your-tenant-name>.onmicrosoft.com
-```
-
-In either case, you're directed to a browser to complete the sign-in. Your `TenantId` should be output, as shown with redacted data in the following example.
-
-```output
-Account                       SubscriptionName       TenantId                             Environment
--------                       ----------------       --------                             -----------
-passwordless-user@contoso.com Contoso subscription   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX Your Cloud
-```
-
-Use the following command to grant `Azure Database for PostgreSQL - Flexible Server Service Principal` read access to your tenant, to request Graph API tokens for Microsoft Entra validation tasks. This operation uses PowerShell commands. Input the tenant ID that you obtained from the previous command. For more information, see [Use Microsoft Entra authentication with Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication#install-the-azure-ad-powershell-module).
-
-```powershell
-Connect-AzureAD -TenantId <your-tenant-ID>
-```
-
-A successful output looks similar to the following example:
-
-```output
-Account                       Environment TenantId                             TenantDomain                       AccountType
--------                       ----------- --------                             ------------                       -----------
-passwordless-user@contoso.com AzureCloud  XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX <your-tenant-name>.onmicrosoft.com User
-```
-
-Ensure that your Azure tenant has the service principal for the Azure Database for PostgreSQL Flexible Server. You only need to do this action once per Azure tenant. First, check for the existence of the service principal in your tenant by using the following command. The specific `ObjectId` value is for the Azure Database for PostgreSQL Flexible Server service principal.
-
-```powershell
-Get-AzureADServicePrincipal -ObjectId 0049e2e2-fcea-4bc4-af90-bdb29a9bbe98
-```
-
-If the service principal exists, you see the following output:
-
-```output
-ObjectId                             AppId                                DisplayName
---------                             -----                                -----------
-0049e2e2-fcea-4bc4-af90-bdb29a9bbe98 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9 Azure OSSRDBMS PostgreSQL Flexible Server
-```
-
-Otherwise, you need to create the service principal with the following command. The specific `AppId` value is for the Azure Database for PostgreSQL Flexible Server.
-
-```powershell
-New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
-```
-
-Use the following steps to continue the configuration in the Azure portal:
-
-1. Sign in to the Azure portal from your browser. Search for **postgresql20221223** and then select it.
-1. In the **Security** section, select **Authentication**, and select **PostgreSQL and Microsoft Entra authentication**.
-1. Select **Save**, then **Continue**. The deployment takes several minutes to finish. Wait for the deployment to complete before continuing.
-1. Go back to resource **postgresql20221223**, and then in the **Security** section, select **Authentication** again.
-1. You find **Microsoft Entra Administrators (Microsoft Entra Admins)** shown in the page. Select **Add Microsoft Entra Admins**, select the account you're currently using in the Azure portal, then select **Select**.
-1. Select **Save**. It takes several seconds to create the Microsoft Entra Admin.
 
 ### [Azure SQL Database](#tab/azure-sql-database)
 
@@ -318,17 +273,17 @@ export CLIENT_ID=$(az identity show \
 
 ## Create a database user for your managed identity
 
-### [MySQL Flexible Server](#tab/mysql-flexible-server)
-
-Connect as the Microsoft Entra administrator user to your MySQL database, and create a MySQL user for your managed identity.
-
-First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address:
+First, you're required to create a firewall rule to access the database server from your CLI client. Run the following commands to get your current IP address:
 
 ```bash
 export MY_IP=$(curl http://whatismyip.akamai.com)
 ```
 
-If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command might return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). Set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database.
+If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command might return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). Set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database. You configure the database firewall with this IP address later.
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
+
+Connect as the Microsoft Entra administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
 Create a temporary firewall rule with [`az mysql flexible-server firewall-rule create`](/cli/azure/mysql/flexible-server/firewall-rule#az-mysql-flexible-server-firewall-rule-create).
 
@@ -410,72 +365,63 @@ echo ${CONNECTION_STRING}
 
 Connect as the Microsoft Entra administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
 
-This example uses Azure Cloud Shell to connect to the database. Use the following steps to create a database user:
+Create a temporary firewall rule with [`az postgres flexible-server firewall-rule create`](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create), as shown in the following example:
 
-1. Sign in to the Azure portal from your browser. Search for **postgresql20221223** and open the database server.
+```azurecli-interactive
+az postgres flexible-server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $POSTGRESQL_NAME \
+    --rule-name $POSTGRESQL_NAME-database-allow-local-ip \
+    --start-ip-address $MY_IP \
+    --end-ip-address $MY_IP
+```
 
-1. Select **Overview**. Locate the **Connect** button. Select **Connect**, and then select the `postgres` database. Make sure you're using the right database. When the database is connected, the Azure Cloud Shell appears.
+In the same Azure CLI shell you've been using, obtain a token for connection by using the following command:
 
-1. Input the following command to create a user for your managed identity `myManagedIdentity`:
+```bash
+export RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --query accessToken --output tsv)
+```
 
-    ```bash
-    select * from pgaadauth_create_principal('myManagedIdentity', false, false);
-    ```
+Next, prepare an SQL file to create a database user for the managed identity. The following example adds a user with login name `myManagedIdentity` and grants the user privileges to access database `contoso`:
 
-    You find a message saying `Created role for "myManagedIdentity"`, which means the user is created successfully.
+```bash
+cat <<EOF >createuser.sql
+select * from pgaadauth_create_principal('myManagedIdentity', false, false);
+select * from pgaadauth_list_principals(false);
+GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
+EOF
+```
 
-1. List all the Microsoft Entra users by using the following command:
+Use the following commands to execute the SQL file:
+   
+```bash
+az config set extension.use_dynamic_install=yes_without_prompt
 
-    ```bash
-    select * from pgaadauth_list_principals(false);
-    ```
+az postgres flexible-server execute --verbose \
+    --name ${POSTGRESQL_NAME} \
+    --admin-user ${CURRENT_USER} \
+    --admin-password ${RDBMS_ACCESS_TOKEN} \
+    --file-path createuser.sql
+```
 
-1. Use the following commands to grant `myManagedIdentity` to access your `contoso` database:
+The output is similar to the following example:
 
-    ```bash
-    GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
-    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
-    GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
-    ```
+```output
+Connecting to postgres database by default.
+Running sql file 'dbuser.sql'...
+Successfully executed the file.
+Closed the connection to postgresql20221223
+Command ran in 2.752 seconds (init: 0.144, invoke: 2.609)
+```
 
-    The output is similar to the following content:
+Use the following command to get the connection string that you use in the next section:
 
-    ```output
-    psql 'host=postgresql20221223.postgres.database.azure.com port=5432 dbname=postgres user=test@contoso.com password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require'
-    psql (14.5)
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-    Type "help" for help.
-
-    postgres=> select * from pgaadauth_create_principal('myManagedIdentity', false, false);
-        pgaadauth_create_principal
-    --------------------------------------
-    Created role for "myManagedIdentity"
-    (1 row)
-
-    postgres=> select * from pgaadauth_list_principals(false);
-        rolname       | principaltype |               objectid               |               tenantid               | ismfa | isadmin
-    ------------------+---------------+--------------------------------------+--------------------------------------+-------+---------
-    test@contoso.com  | user          | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |       1
-    myManagedIdentity | service       | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX |     0 |       0
-    (2 rows)
-    postgres=> GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
-    WARNING:  no privileges were granted for "contoso"
-    GRANT
-    postgres=> GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
-    GRANT
-    postgres=> GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
-    GRANT
-    postgres=>
-    ```
-
-1. Close the Azure Cloud Shell window.
-
-1. In the Azure CLI shell you've been using, use the following command to get the connection string that you use in the next section:
-
-    ```azurecli-interactive
-    export CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
-    echo ${CONNECTION_STRING}
-    ```
+```azurecli-interactive
+export CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
+echo ${CONNECTION_STRING}
+```
 
 ### [Azure SQL Database](#tab/azure-sql-database)
 
