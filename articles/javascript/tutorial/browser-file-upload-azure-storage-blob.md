@@ -63,11 +63,11 @@ A [development container](https://containers.dev/) environment is available with
 
 1. In a web browser, on your GitHub fork of the sample repository, start the process to create a new GitHub Codespace on the `main` branch of your fork by selecting the **CODE** button.
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-button.png" alt-text="GitHub screenshot of Code Spaces buttons for a repository.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-button.png" alt-text="GitHub screenshot of Codespaces buttons for a repository.":::
 
 1. On the **Codespaces** tab, select the ellipsis, `...`.
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-select.png" alt-text="GitHub screenshot of Code Spaces tab with ellipsis control highlighted.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-select.png" alt-text="GitHub screenshot of Codespaces tab with ellipsis control highlighted.":::
 
 1. Select **+ New with options** to select a specific Codespaces dev container. 
 
@@ -137,7 +137,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     :::image type="content" source="media/browser-file-upload-azure-storage-blob/reopen-container-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within the context of a development container.":::
 
     > [!TIP]
-    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
+    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This functionality is equivalent to using the command palette to reopen the current workspace in a container.
     >
     > :::image type="content" source="media/browser-file-upload-azure-storage-blob/reopen-container-toast.png" alt-text="Screenshot of a toast notification to reopen the current folder within the context of a development container.":::
 
@@ -397,7 +397,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
     ```
 
 1. Open the workflow file located at `/.github/workflows/`. 
-1. Verify he section of the workflow specific to this tutorial's Static Web app should look like:
+1. Verify the section of the workflow specific to this tutorial's Static Web app should look like:
 
     ```yml
     ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
@@ -410,7 +410,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
 
 1. Go to your GitHub fork of the sample, `https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps/actions` to verify the build and deploy action, named `Azure Static Web Apps CI/CD`, completed successfully. This may take a few minutes to complete.
 
-1. Go to your Azure portal for your app and view the **APIs** section of **Settings**. The **Backend Resource Name** in the production environment is `(managed)` indicating your APIs have been successfully deployed. 
+1. Go to your Azure portal for your app and view the **APIs** section of **Settings**. The **Backend Resource Name** in the production environment is `(managed)` indicating your APIs are successfully deployed. 
 1. Select **(managed)** to see the list of APIs loaded in the app:
     * list
     * sas
