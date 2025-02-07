@@ -49,6 +49,18 @@ landingContent:
             url: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions
           - text: Azure Spring Apps
             url: https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud
+  - title: Java Diagnostic Tool (diag4j) on AKS
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: java-diagnostic-tools-on-aks-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Spring Boot Admin component
+            url: java-diagnostic-tools-spring-boot-admin-quickstart.md
+          - text: Java Diagnostic Agent component
+            url: java-diagnostic-tools-java-diagnostic-agent-quickstart.md
   - title: Logging
     linkLists:
       - linkListType: overview
