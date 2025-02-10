@@ -10,7 +10,7 @@ ms.custom: devx-track-typespec
 
 [TypeSpec](https://typespec.io/) is a concise, human-readable **API-first** language designed to define and design APIs at scale. **API-first** means that the API is designed before any code is written, ensuring that the API meets the needs of its consumers. TypeSpec provides a structured approach to describe the shape and behavior of data and services, ensuring consistency and reducing errors in API development. For example, with TypeSpec, you can define an API for a pet store, generate OpenAPI specifications, API service code, reference documentation, and other artifacts from your API definitions, making it easier to build, maintain, and evolve your services.
 
-![TypeSpec Workflow](https://nordicapis.com/wp-content/uploads/OpenAPI-specification-benefits-diagram.png)
+![TypeSpec Workflow](./media/typespec-toolchain.png)
 
 Key benefits of TypeSpec:
 
