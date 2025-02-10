@@ -81,7 +81,7 @@ Write TypeSpec once, emit to multiple specification formats such as OpenAPI, JSO
 
 ## Enforces governance with reuse and modular design 
 
-TypeSpec allows you to transform API patterns into reusable elements, enhancing both the quality and uniformity of your API interface. By using reusable elements, you eliminate the need for multiple teams to define the same functionality, reducing duplication and ensuring consistency across your APIs.
+TypeSpec allows you to transform API patterns into reusable elements, enhancing both the quality and uniformity of your API interface. By designing reusable elements, you eliminate the need for multiple teams to define the same functionality, reducing duplication and ensuring consistency across your APIs.
 
 Examples of reusable elements include:
 
@@ -95,7 +95,7 @@ For example, you can create a reusable library of common TypeSpec elements, such
 
 ## Interoperability with industry toolchain
 
-TypeSpec seamlessly integrates with existing industry toolchains, ensuring interoperability, and enhancing productivity. By generating OpenAPI specifications from TypeSpec definitions, developers can use a vast ecosystem of tools designed for OpenAPI, such as Swagger for API documentation, Postman for API testing, and AWS API Gateway for deploying APIs. This includes configuring API gateways, generating client and server code, and validating API data. This compatibility allows teams to maintain their current workflows while benefiting from the structured and consistent API design that TypeSpec provides.
+TypeSpec seamlessly integrates with existing industry toolchains, ensuring interoperability, and enhancing productivity. By generating OpenAPI specifications from TypeSpec definitions, developers can use a vast ecosystem of tools designed for OpenAPI, such as Swagger for API documentation, Postman for API testing, and Azure API Management for deploying APIs. This includes configuring API gateways, generating client and server code, and validating API data. This compatibility allows teams to maintain their current workflows while benefiting from the structured and consistent API design that TypeSpec provides.
 
 ## Great developer experience
 
