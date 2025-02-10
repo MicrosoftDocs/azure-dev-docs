@@ -304,6 +304,7 @@
 | Resource Management - Orbital | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-orbital/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-orbital-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-orbital_2.0.0/sdk/orbital/arm-orbital/) |
 | Resource Management - Palo Alto Networks - Next Generation Firewall | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-paloaltonetworksngfw/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-paloaltonetworksngfw-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_1.1.0/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/) |
 | Resource Management - Peering | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-peering/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-peering-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering) |
+| Resource Management - Pineconevectordb | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-pineconevectordb/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-pineconevectordb-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-pineconevectordb_1.0.0-beta.1/sdk/pineconevectordb/arm-pineconevectordb/) |
 | Resource Management - Playwright Testing | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-playwrighttesting/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-playwrighttesting-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwrighttesting_1.0.0/sdk/playwrighttesting/arm-playwrighttesting/) |
 | Resource Management - Policy | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-policy/v/5.1.0)<br>npm [5.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-policy/v/5.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
 | Resource Management - Policy Insights | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-policyinsights/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-policyinsights-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights) |
@@ -372,7 +373,7 @@
 | Resource Management - Workloads SAP Virtual Instance | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-workloadssapvirtualinstance/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-workloadssapvirtualinstance-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0-beta.1/sdk/workloads/arm-workloadssapvirtualinstance/) |
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.10.8](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.8) |  |  |
+| @autorest/openapi-to-typespec | npm [0.10.9](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.9) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.8) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -390,7 +391,7 @@
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/functions-opentelemetry-instrumentation | npm [0.1.0](https://www.npmjs.com/package/@azure/functions-opentelemetry-instrumentation/v/0.1.0) |  |  |
 | @microsoft.azure/autorest-core | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
-| @microsoft.azure/autorest.testserver | npm [3.3.50](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.50) |  |  |
+| @microsoft.azure/autorest.testserver | npm [3.3.51](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.51) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.3) |  |  |
 | @microsoft.azure/openapi-validator-rulesets | npm [2.1.5](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.5) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
@@ -406,7 +407,7 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.5) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.8.2) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.9.0) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/events/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.1.9](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.9) |  |  |
 | Unknown Display Name | npm [0.6.10](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.10) |  |  |
@@ -544,7 +545,7 @@
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
-| @azure/static-web-apps-cli | npm [2.0.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.2) |  |  |
+| @azure/static-web-apps-cli | npm [2.0.3](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.3) |  |  |
 | @cadl-lang/compiler | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.40.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.40.0) |  |  |

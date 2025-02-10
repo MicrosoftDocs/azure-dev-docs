@@ -90,8 +90,6 @@ Use the Visual Studio Code [extension for Static Web Apps](https://marketplace.v
 
 * [Building your first static site](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * [Add search to a website with Azure Search](/azure/search/tutorial-javascript-overview)
-* [Analyze an image with Azure Computer Vision](../tutorial/static-web-app-image-analysis.md)
-
 ## Configure client environment variables
 
 The GitHub Action controls [environment variables](/azure/static-web-apps/github-actions-workflow#environment-variables) injected into your project at build time. These client-side variables need to be configured in the GitHub Action's yaml in the `env` section. Secrets should be stored in GitHub secrets and pulled in to the `env` section.
