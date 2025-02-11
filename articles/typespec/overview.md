@@ -62,18 +62,18 @@ Paths from TypeSpec Compiler:
     - **Service-Side Code Emitter**: Generates server-side stub code.
     - **Artifact**: Code for server-side implementation of the API.
 
-## Service-Side Code Generation with TypeSpec
+## Service-Side code generation with TypeSpec
 
-In addition to client code generation, TypeSpec also supports service-side code generation. This feature allows developers to generate server-side stub code directly from TypeSpec definitions, streamlining the development process and ensuring consistency across client and server implementations.
+TypeSpec supports generating server-side stub code directly from TypeSpec definitions. This streamlines the development process and ensures consistency across client and server implementations.
 
-TypeSpec’s service-side code generation capabilities include:
+Key capabilities:
 
-* **Model Generation**: TypeSpec serves as the source of truth for APIs, making model generation from TypeSpec emitters a natural progression. The prototype emitter in C# embraces a canonical service model instead of a single-client model approach, generating mapping code between versioned and canonical models.
-* **Standard Runtime Interfaces**: The standard emitter for TypeSpec focuses on generating standard runtime interfaces initially, rather than behaviors. This approach ensures flexibility and allows for easy integration with various runtime stacks.
-* **Custom Code Extensibility**: TypeSpec’s emitters offer custom code extensibility, allowing developers to tailor the generated code to their specific needs. This makes it easier to adapt the generated code to different environments and use cases.
-* **Comprehensive Code Generation**: TypeSpec supports code generation that spans a modern development stack, from clients to servers and everything in between. This includes generating code for different protocols and asset types, ensuring a unified development approach.
+* **Model Generation**: TypeSpec acts as the source of truth for APIs, making model generation from TypeSpec emitters straightforward. The C# prototype emitter uses a canonical service model, generating mapping code between versioned and canonical models.
+* **Standard Runtime Interfaces**: The standard emitter focuses on generating runtime interfaces initially, ensuring flexibility and easy integration with various runtime stacks.
+* **Custom Code Extensibility**: TypeSpec emitters offer custom code extensibility, allowing developers to tailor the generated code to specific needs, making it adaptable to different environments.
+* **Comprehensive Code Generation**: TypeSpec supports code generation across the entire development stack, from clients to servers, including different protocols and asset types, ensuring a unified development approach.
 
-By leveraging TypeSpec’s service-side code generation capabilities, developers can significantly reduce the amount of manual coding required, improve consistency across their API implementations, and enhance overall productivity.
+By leveraging TypeSpec’s service-side code generation capabilities, developers can reduce manual coding, improve consistency, and enhance overall productivity.
 
 ## Interoperability with Industry Toolchain
 
