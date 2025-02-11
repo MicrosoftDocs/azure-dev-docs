@@ -59,16 +59,16 @@ additionalContent:
   - title: Third-party Azure IaC providers
     items:
       - title: Terraform
-        summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology.
+        summary: Use HCL (HashiCorp Language) to codify infrastructure in configuration files that describe the desired state for your topology.
         url: /azure/developer/terraform/overview
       - title: Chef
-        summary: Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale.
+        summary: Use Chef Automate to collaborate on application and infrastructure changes with speed and at scale.
         url: https://docs.chef.io/azure_marketplace/
       - title: Jenkins
-        summary: Jenkins is an open-source automation server used to set up continuous integration and delivery (CI/CD) for software projects.
+        summary: Use Jenkins to set up continuous integration and delivery (CI/CD) for software projects.
         url: https://www.jenkins.io/
       - title: Ansible
-        summary: Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
+        summary: Use Ansible to automate provisioning, configuration management, application deployment, orchestration, and many other IT processes.
         url: https://www.redhat.com/en/ansible-collaborative
       - title: Pulumi
         summary: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
