@@ -36,7 +36,9 @@ TypeSpec addresses common challenges in API design, governance, and implementati
 
 By addressing these challenges, TypeSpec simplifies the API design process, ensures consistency across different protocols, and enhances overall governance and scalability.
 
-## TypeSpec API Development Workflow
+## TypeSpec API development workflow
+
+The following figure outlines the key steps in the TypeSpec API development workflow, from writing the initial API specification to integrating with existing toolchains.
 
 ![TypeSpec Workflow](./media/typespec-toolchain-diagram.png)
 
