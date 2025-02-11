@@ -60,7 +60,7 @@ Paths from TypeSpec Compiler:
     - **Client Code Emitter**: Generates client-side code.
     - **Artifact**: Code for client applications to interact with the API.
 
-3. **Generate Server-Side Stub Code**
+3. [**Generate Server-Side Stub Code**](#service-side-code-generation-with-typespec)
     - **Service-Side Code Emitter**: Generates server-side stub code.
     - **Artifact**: Code for server-side implementation of the API.
 
