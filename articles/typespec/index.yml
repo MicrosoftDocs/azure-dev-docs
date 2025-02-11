@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: TypeSpec documentation
-summary: Learn how to use TypeSpec to ...
+summary: Learn how to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
 
 metadata:
   title: TypeSpec documentation - Articles, samples, references, and resources
-  description: Learn how to use TypeSpec to ...
+  description: Learn how to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.v
   ms.service: typespec
   author: diberry
   ms.author: diberry
