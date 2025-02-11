@@ -17,13 +17,13 @@ TypeSpec is open source and can be used to describe any API, not just Azure APIs
 
 ## Benefits of TypeSpec
 
-* **Simplifies API Development**: TypeSpec streamlines the process of building service APIs by providing a clear and concise way to define them. This helps developers focus on the logic and functionality of their APIs rather than getting bogged down in the details of API specifications.
-* **Ensures Compliance**: By using libraries of reusable components, TypeSpec ensures that API definitions adhere to established guidelines and standards. This reduces the risk of errors and inconsistencies in API design.
-* **Enhances Compatibility**: The inclusion of an OpenAPI emitter in the TypeSpec standard library ensures that TypeSpec definitions are compatible with existing tools and workflows. This makes it easier for developers to integrate TypeSpec into their current development processes.
-* **Supports Extensibility**: TypeSpec’s flexible and extensible nature allows developers to customize and extend their API definitions as needed. This makes it a valuable tool for a wide range of API development scenarios.
-* **Facilitates Transition**: For Azure service teams, transitioning from OpenAPI to TypeSpec offers several benefits, including simplified API development and easier API reviews. This makes TypeSpec an attractive option for teams looking to modernize their API development processes.
+* **Simplifies API Development**: Provides a clear and concise way to define APIs, allowing developers to focus on logic and functionality.
+* **Ensures Compliance**: Uses reusable components to adhere to established guidelines and standards, reducing errors and inconsistencies.
+* **Enhances Compatibility**: Includes an OpenAPI emitter for compatibility with existing tools and workflows, making integration easier.
+* **Supports Extensibility**: Flexible and extensible, allowing customization and extension of API definitions for various scenarios.
+* **Facilitates Transition**: Simplifies API development and reviews, making it easier for teams to transition from OpenAPI to TypeSpec.
 
-Open Source and Community-Driven: As an open-source project, TypeSpec benefits from contributions and feedback from the developer community. This ensures that the language continues to evolve and improve based on real-world use cases and requirements.
+As an open-source project, TypeSpec benefits from community contributions and feedback, ensuring continuous improvement based on real-world use cases.
 
 ## API Design is Challenging
 
@@ -45,8 +45,10 @@ By addressing these challenges, TypeSpec simplifies the API design process, ensu
 | Start                    | The process begins with the developer writing an API specification using TypeSpec.                    |
 | TypeSpec Definition      | The developer defines the API using TypeSpec, leveraging reusable components and libraries.           |
 | TypeSpec Compiler        | The TypeSpec compiler processes the TypeSpec definitions.                                             |
+| Generation               | Generate the specification, client and server.                                                        |
+| Integration              | Integrate with existing API tool chain.                                                               |
 
-### Paths from TypeSpec Compiler
+Paths from TypeSpec Compiler:
 
 1. **Generate OpenAPI Specifications**
     - **OpenAPI Emitter**: Generates OpenAPI specifications.
@@ -59,10 +61,6 @@ By addressing these challenges, TypeSpec simplifies the API design process, ensu
 3. **Generate Server-Side Stub Code**
     - **Service-Side Code Emitter**: Generates server-side stub code.
     - **Artifact**: Code for server-side implementation of the API.
-
-### Integration
-
-- The generated artifacts are integrated into the development workflow, ensuring consistency and compliance with API guidelines.
 
 ## Service-Side Code Generation with TypeSpec
 
