@@ -11,6 +11,8 @@ ms.custom: devx-track-typespec
 
 [TypeSpec](https://typespec.io/) is a powerful and flexible language from Microsoft for describing APIs. It allows developers to define APIs in an extensible and easy-to-understand way. With TypeSpec, you can generate API specifications, client code, and server-side code directly from your API definition using a robust system of emitters.
 
+:::image type="content" source="media/tool-chain.png" alt-text="Diagram showing TypeSpec and the generated specification happen before API generation.":::
+
 A key strength of TypeSpec is that it enables the creation of modular, reusable components. This makes TypeSpec code more concise and ensures compliance with API guidelines. The standard TypeSpec library includes an OpenAPI emitter, ensuring compatibility with existing tools and workflows.
 
 As an open source language, TypeSpec can describe any API, not just Azure APIs. This versatility makes it a valuable tool for API developers, architects, and managers who need to deliver high-quality APIs in a complex and evolving environment.
