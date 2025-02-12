@@ -1,21 +1,21 @@
----
-title: TypeSpec resources
-description: Discover the best learning resources for TypeSpec, including official documentation, getting started guides, interactive playground, language reference, community support, and instructional videos. Perfect for developers looking to master TypeSpec and integrate it into their workflow.
-ms.date: 02/03/2025
-ms.topic: conceptual
+---  
+title: TypeSpec Resources  
+description: Discover the best learning resources for TypeSpec, including official documentation, an interactive playground, language reference, community support, and instructional videos.   
+ms.date: 02/12/2025  
+ms.topic: conceptual  
 ---
 
 # Resources for developing TypeSpec apps
 
-This article provides the best learning resources for developers who are getting started building TypeSpec apps. These resources will help you understand the fundamentals of TypeSpec, explore advanced features, and integrate TypeSpec into your development workflow.
+This article provides the best learning resources for developers who are getting started building TypeSpec apps. These resources help you understand the fundamentals of TypeSpec, explore advanced features, and integrate TypeSpec into your development workflow.
 
 ## Official documentation
 
-The [TypeSpec Documentation](https://typespec.io/docs) is the primary resource for learning about TypeSpec. It includes comprehensive guides, API references, and tutorials to help you get started and master TypeSpec.
+The [TypeSpec Documentation](https://typespec.io/docs) is the primary resource for learning about TypeSpec. It includes comprehensive guides, API references, and tutorials to help you get started using TypeSpec.
 
 ## Getting started guide
 
-The [Getting Started Guide for OpenAPI](https://typespec.io/docs/getting-started/typespec-for-openapi-dev/) guide is an introduction to TypeSpec using concepts that will be familiar to developers that either build or use API definitions in OpenAPI v2 or v3.
+The [Getting Started Guide for OpenAPI](https://typespec.io/docs/getting-started/typespec-for-openapi-dev/) guide is an introduction to TypeSpec using concepts that are familiar to developers that either build or use API definitions in OpenAPI v2 or v3.
 
 ## TypeSpec playground
 
