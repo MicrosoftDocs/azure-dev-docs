@@ -134,7 +134,7 @@ In the form **New coffee in session**, set values for fields **Name** and **Pric
 
 To demonstrate that the session cache is persisted and can be retrieved in the same session, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with `mvn liberty:dev` command. 
 
-Then, refresh the application home page. You should see the same data displayed in the section **New coffee in session**.
+Then, refresh the application home page. You should see the same data displayed in the section **New coffee in session**. Stop the application when you're done testing.
 
 Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to demonstrate that the session data is persisted in the Azure Managed Redis instance. In this guide, you use [Azure Cloud Shell](/azure/cloud-shell/overview) where the `redis-cli` tool is preinstalled. If you want to use the `redis-cli` tool on your local machine, you can install it by following the instructions in the document [Use the Redis command-line tool with Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-how-to-redis-cli-tool).
 
@@ -179,6 +179,29 @@ Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/
       ```
 
       You should see a few entries listed in the output, and one of them contains the value `**cafe.model.entity.Coffee[id=1, name=Coffee 3, price=30.0]**`, which is the coffee you created and persisted in the Azure Managed Redis instance.
+
+### Containerize the application
+
+Optionally, you can containerize the application and run it in a container. The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. This guide uses Docker and the Dockerfile for Open Liberty to containerize the application, but you can use the Dockerfile for WebSphere Liberty by following the similar steps.
+
+1. Install Docker for your OS. For more information, see [Get Docker](https://docs.docker.com/get-docker/).
+
+1. Run the following command to build the Docker image:
+
+   ```bash
+   docker build -t javaee-cafe-jcache:v1 -f src/main/docker/Dockerfile .
+   ```
+
+1. Run the following command to start the Docker container:
+
+   ```bash
+   docker run -it --rm \
+      -p 9080:9080 \
+      --mount type=bind,source=$(pwd)/target/liberty/wlp/usr/servers/defaultServer/redisson-config.yaml,target=/config/redisson-config.yaml \
+      javaee-cafe-jcache:v1
+   ```
+
+   Once the container is started, you can test it with similar steps as running the application locally.
 
 ## Clean up resources
 
