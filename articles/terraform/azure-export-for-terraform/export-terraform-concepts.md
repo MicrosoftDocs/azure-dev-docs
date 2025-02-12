@@ -91,10 +91,6 @@ If you aren't sure what resources exist within an environment, you can verify by
 
 Azure Export for Terraform is a complex tool that attempts to convert Azure infrastructure into Terraform code and state. Its current known limitations are explained in the following subsections.
 
-### Write-only properties
-
-Certain properties within AzureRM are write-only and aren't included in the generated code that Azure Export for Terraform creates. The issue is addressed by defining the property after exporting to HCL code.
-
 ### Cross-property constraints
 
 The [AzureRM provider](https://github.com/hashicorp/terraform-provider-azurerm) can set two properties that conflict with each other. When Azure Export for Terraform reads conflicting properties, it may set both properties to the same value despite the user only configuring one. Further complications emerge when multiple cross-property constraints exist within the same generated configuration. You must know where cross-property conflicts exist within your configuration in order to mitigate this issue.

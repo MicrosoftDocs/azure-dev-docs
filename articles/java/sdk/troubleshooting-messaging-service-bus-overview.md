@@ -121,46 +121,6 @@ If the host is not sufficiently resourced, the lock can still be lost even if th
 
 The same remarks about locks are also relevant for a Service Bus queue or a topic subscription that has session enabled. When the receiver client connects to a session in the resource, the broker applies an initial lock to the session. To maintain the lock on the session, the lock renew task in the client has to keep renewing the session lock before it expires. For a session enabled resource, the underlying partitions sometimes move to achieve load balancing across Service Bus nodes - for example, when new nodes are added to share the load. When that happens, session locks can be lost. If the application tries to complete or abandon a message after the session lock is lost, the API call fails with the error `com.azure.messaging.servicebus.ServiceBusException: The session lock was lost. Request a new session receiver`.
 
-## Upgrade to 7.15.x or latest
-
-If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.
-
-Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessorClient`.
-
-Version 7.15.x and later also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
-
-### Using the latest clients
-
-The new underlying framework with these improvements - in version 7.15.x and later - is called the V2-Stack. This release line includes both the previous generation of the underlying stack - the stack that version 7.14.x uses - and the new V2-Stack.
-
-By default, some of the client types use the V2-Stack, while others require V2-Stack opt-in. You can accomplish the opt-in or opt-out of a specific stack (V2 or the previous generation) for a client type by providing `com.azure.core.util.Configuration` values when you build the client.
-
-For example, V2-Stack-based session receive with `ServiceBusSessionReceiverClient` requires opt-in as shown in the following example:
-
-```java
-ServiceBusSessionReceiverClient sessionReceiver = new ServiceBusClientBuilder()
-    .connectionString(Config.CONNECTION_STRING)
-    .configuration(new com.azure.core.util.ConfigurationBuilder()
-        .putProperty("com.azure.messaging.servicebus.session.syncReceive.v2", "true") // 'false' by default, opt-in for V2-Stack.
-        .build())
-    .sessionReceiver()
-    .queueName(Config.QUEUE_NAME)
-    .buildClient();
-```
-
-The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.17.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
-
-| Client type                                       | Configuration name                                                 | Is on V2-Stack by default? |
-|---------------------------------------------------|--------------------------------------------------------------------|----------------------------|
-| Sender and management client                      | `com.azure.messaging.servicebus.sendAndManageRules.v2`             | yes                        |
-| Non-session processor and reactor receiver client | `com.azure.messaging.servicebus.nonSession.asyncReceive.v2`        | yes                        |
-| Session processor receiver client                 | `com.azure.messaging.servicebus.session.processor.asyncReceive.v2` | yes                        |
-| Session reactor receiver client                   | `com.azure.messaging.servicebus.session.reactor.asyncReceive.v2`   | yes                        |
-| Non-session synchronous receiver client           | `com.azure.messaging.servicebus.nonSession.syncReceive.v2`         | no                         |
-| Session synchronous receiver client               | `com.azure.messaging.servicebus.session.syncReceive.v2`            | no                         |
-
-As an alternative to using `com.azure.core.util.Configuration`, you can do the opt-in or opt-out by setting the same configuration names using environment variables or system properties.
-
 ## Next steps
 
 If the troubleshooting guidance in this article doesn't help to resolve issues when you use the Azure SDK for Java client libraries, we recommended that you [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new/choose) in the [Azure SDK for Java GitHub repository](https://github.com/Azure/azure-sdk-for-java).
