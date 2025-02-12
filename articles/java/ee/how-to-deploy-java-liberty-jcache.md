@@ -223,7 +223,8 @@ You can learn more from references used in this guide:
 
 If you want to deploy the sample application to Azure, reference the following articles:
 
-* [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
 * [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app)
+* [Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app)
+* [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
