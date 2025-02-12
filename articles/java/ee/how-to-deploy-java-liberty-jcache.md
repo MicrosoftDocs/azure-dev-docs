@@ -66,7 +66,7 @@ Use the following commands to clone the sample code for this guide. The sample i
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20250211
+git checkout 20250212
 cd java-app-jcache
 ```
 
@@ -77,10 +77,9 @@ The application has the following file structure:
 ```text
 java-app-jcache/
 ├── pom.xml
+├── pom-redisson.xml
 └── src
     └── main
-        ├── aks
-        │   └── openlibertyapplication.yaml
         ├── docker
         │   ├── Dockerfile
         │   └── Dockerfile-wlp
@@ -94,18 +93,17 @@ java-app-jcache/
         └── webapp
 ```
 
+The **pom.xml** file is the Maven project file that contains the dependencies and plugins for the sample application. 
+
+The **pom-redisson.xml** file contains the dependencies for the Redisson client library, and is used to copy dependencies to the shared resources directory of the Liberty server later.
+
 The **java**, **resources**, and **webapp** directories contain the source code of the sample application.
 
 In the **liberty/config** directory, the **server.xml** file is used to configure session cache for the Open Liberty and WebSphere Liberty cluster.
 
 In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection of the Azure Managed Redis instance.
 
-> [!NOTE]
-> This article focuses on configuring the JCache session persistence for the Open Liberty and WebSphere Liberty application using the Azure Managed Redis instance, it simplifies the instructions to run the sample application locally. 
-> However, if you want to deploy the application to an containerized environment, such as Azure Kubernetes Service (AKS), you can refer to the following general steps:
-> * Reference the **docker** directory that contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
-> * Create a secret in the AKS cluster that contains the content of the **redisson-config.yaml** file populated with the values of the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY`.
-> * Reference the **aks** directory that contains the deployment file **openlibertyapplication.yaml** to deploy the application image.
+The **docker** directory contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
 
 ## Run the sample application locally
 
@@ -113,7 +111,8 @@ Use the following steps to build and run your sample application locally. These 
 
 1. Verify the current working directory is **java-app-jcache** in your local clone.
 1. Run `mvn clean package` to package the application.
-1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step also nserts the values of the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
+1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step also inserts the values of the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
+1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson client library and its dependencies to the shared resources directory of the Liberty server.
 1. Run `mvn liberty:dev` to start the application. If the application is successful started, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
    You should see output similar to the following if the Redis connection is successful.
 
@@ -146,8 +145,8 @@ Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/
 1. Run the similar command in Cloud Shell console with the values of the Redis endpoint and the primary access key you noted down earlier:
 
    ```bash
-   REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>
-   REDIS_CACHE_KEY=<your-primary-access-key>
+   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>
+   export REDIS_CACHE_KEY=<your-primary-access-key>
    ```
 
 1. Run the following command to retrieve the hostname and port of the Azure Managed Redis instance:
@@ -163,15 +162,23 @@ Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/
    redis-cli -p ${REDIS_CACHE_PORT} -h ${REDIS_CACHE_HOSTNAME} -a ${REDIS_CACHE_KEY} --tls
    ```
 
-1. Once the connection is established, you can issue commands to your Azure Managed Redis instance. Run the following commands to view the session data:
+1. Once the connection is established, you can issue commands to your Azure Managed Redis instance. Run the following steps to check the session data:
 
-   ```text
-   scan 0 count 1000 match '*'
+   1. The session data is stored in the key `com.ibm.ws.session.attr.default_host%2F`. Run the following command to check if the key exists:
 
-   hgetall "com.ibm.ws.session.attr.default_host%2F"
-   ```
+      ```redis-cli
+      keys "com.ibm.ws.session.attr.default_host%2F"
+      ```
 
-1. You should see **cafe.model.entity.Coffee[id=1, name=Coffee 3, price=30.0]** from the output, that is the coffee you created and persisted in the Azure Managed Redis instance.
+      You should see `1) "com.ibm.ws.session.attr.default_host%2F"` in the output.
+
+   1. Run the following command to view the session data:
+
+      ```redis-cli
+      hgetall "com.ibm.ws.session.attr.default_host%2F"
+      ```
+
+      You should see a few entries listed in the output, and one of them contains the value `**cafe.model.entity.Coffee[id=1, name=Coffee 3, price=30.0]**`, which is the coffee you created and persisted in the Azure Managed Redis instance.
 
 ## Clean up resources
 
@@ -190,5 +197,10 @@ You can learn more from references used in this guide:
 * [Configuring Liberty session persistence with JCache](https://www.ibm.com/docs/en/was-liberty/base?topic=manually-configuring-liberty-session-persistence-jcache)
 * [JCache support of Redisson](https://redisson.org/glossary/jcache.html)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
+
+If you want to deploy the sample application to Azure, reference the following articles:
+
+* [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
+* [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
