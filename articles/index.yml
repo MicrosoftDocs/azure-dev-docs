@@ -239,7 +239,7 @@ additionalContent:
           url: https://code.visualstudio.com/docs/azure/extensions
         # Card
         - title: DevOps and Automation
-          summary: Automate the deployment of both code and infrastructure.
+          summary: Automate deployment with Infrastructure as Code (IaC).
           url: ./iac/index.yml
         # Card
         - title: Playwright
