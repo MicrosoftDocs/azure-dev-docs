@@ -93,7 +93,8 @@ ClientCertificateCredential clientCertificateCredential = new ClientCertificateC
   .clientId("<your client ID>")
   .pemCertificate("<path to PEM certificate>")
   // Choose between either a PEM certificate or a PFX certificate.
-  //.pfxCertificate("<path to PFX certificate>", "PFX CERTIFICATE PASSWORD")
+  //.pfxCertificate("<path to PFX certificate>")
+  //.clientCertificatePassword("PFX CERTIFICATE PASSWORD")
   .tenantId("<your tenant ID>")
   .build();
 
