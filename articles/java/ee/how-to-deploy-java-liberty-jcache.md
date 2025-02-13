@@ -205,13 +205,9 @@ Optionally, you can containerize the application and run it in a container. The 
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no longer needed, use the [`az group delete`](/cli/azure/group#az_group_delete) command to remove the resource group and all resources within it.
+To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no longer needed, find its resource group name and delete it from the Azure portal.
 
-To delete the Azure Managed Redis instance, find its resource group name and run the following command:
-
-```azurecli
-az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait
-```
+For more information, see [Delete resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#delete-resource-groups).
 
 ## Next steps
 
