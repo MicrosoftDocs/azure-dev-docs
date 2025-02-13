@@ -35,7 +35,7 @@ Follow these links to learn more about the specifics of each of these authentica
 
 ## Add the Maven dependencies
 
-Include the `azure-sdk-bom` in your project to take a dependency on the stable version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. To learn more about the BOM, see the [Azure SDK BOM README](https://learn.microsoft.com/azure/developer/java/sdk/get-started-maven#add-azure-sdk-for-java-to-an-existing-project).
+Include the `azure-sdk-bom` in your project to take a dependency on the stable version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. To learn more about the BOM, see [Add Azure SDK for Java to an existing project](../sdk/get-started-maven#add-azure-sdk-for-java-to-an-existing-project). section of [Get started with Azure SDK and Apache Maven](../sdk/get-started-maven).
 
 ```xml
 <dependencyManagement>
