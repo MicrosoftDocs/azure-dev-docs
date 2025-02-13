@@ -309,7 +309,7 @@ The sample Python app uses the [azure.identity](https://pypi.org/project/azure-i
 
 ## Clean up
 
-In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes with the [az group delete](/cli/azure/group#az_group_delete) command removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
+In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes with the [az group delete](/cli/azure/group#az-group-delete) command removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
 ```azurecli
 az group delete  --name $RESOURCE_GROUP_NAME 
