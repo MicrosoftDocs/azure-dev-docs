@@ -13,6 +13,9 @@ ms.author: vigera
 
 This article looks at how the Azure Identity library supports Microsoft Entra token authentication with user-provided credentials. This support is made possible through a set of TokenCredential implementations discussed in this article.
 
+> [!WARNING]
+> Microsoft recommends you do not use the ROPC flow; it's incompatible with multifactor authentication (MFA). In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when more secure flows aren't viable.
+
 This article covers the following subjects:
 
 * [Device code credential](#device-code-credential)
