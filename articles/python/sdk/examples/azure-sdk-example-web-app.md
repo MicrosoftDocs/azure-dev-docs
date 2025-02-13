@@ -100,7 +100,7 @@ If you still don't see the expected output, then:
 
 The script sets up the resources needed to host your web app and sets the deployment source to your fork using manual integration. With manual integration, you must trigger the web app to pull from the configured repository and branch.
 
-The script calls the [WebSiteManagementClient.web_apps.sync_repository](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient) method to trigger a pull from the web app. If you push subsequent code changes to your repository, you can redeploy your code by invoking this API or by using other Azure tooling like the Azure CLI or Azure portal.
+The script calls the [WebSiteManagementClient.web_apps.sync_repository](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient?view=azure-python#azure-mgmt-web-websitemanagementclient-web-apps) method to trigger a pull from the web app. If you push subsequent code changes to your repository, you can redeploy your code by invoking this API or by using other Azure tooling like the Azure CLI or Azure portal.
 
 You can deploy your code with the Azure CLI by running the [az webapp deployment source sync](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-sync)
  command:
