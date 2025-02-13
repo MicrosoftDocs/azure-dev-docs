@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Get started with Infrastructure-as-code (IaC)
-summary: Learn how to use Infrastructure-as-code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
+title: Get started with Infrastructure-as-Code (IaC)
+summary: Learn how to use Infrastructure-as-Code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
 brand: azure
 
 metadata:
-  title: Get started with Infrastructure-as-code (IaC)
-  description: Learn how to use Infrastructure-as-code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
+  title: Get started with Infrastructure-as-Code (IaC)
+  description: Learn how to use Infrastructure-as-Code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
   ms.service: azure
   author: TomArcherMsft
   ms.author: tarcher
@@ -16,7 +16,7 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-    - title: What is infrastructure as code (IaC)?
+    - title: What is Infrastructure as Code (IaC)?
       url: /devops/deliver/what-is-infrastructure-as-code
       itemType: concept
     - title: Deploy to Azure with IaC
