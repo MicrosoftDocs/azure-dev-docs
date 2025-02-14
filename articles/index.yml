@@ -238,6 +238,10 @@ additionalContent:
           summary: Use Azure directly from Visual Studio Code through extensions.
           url: https://code.visualstudio.com/docs/azure/extensions
         # Card
+        - title: DevOps and Automation
+          summary: Automate deployment with Infrastructure as Code (IaC).
+          url: ./iac/index.yml
+        # Card
         - title: Playwright
           summary: Reliable end-to-end testing for modern web apps
           url: https://playwright.dev/
@@ -253,38 +257,3 @@ additionalContent:
         - title: Maven
           summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
           url: https://github.com/Microsoft/azure-maven-plugins#readme
-    - title: DevOps and Automation Tools
-      summary: Automate the deployment of both code and infrastructure with these automation tools
-      items:
-        # Card
-        - title: Azure and GitHub integration
-          summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
-          url: ./github/index.yml      
-        # Card
-        - title: Azure DevOps
-          summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
-          url: /azure/devops/?view=azure-devops
-        # Card
-        - title: Jenkins
-          summary: Use Jenkins to automate continuous integration and delivery (CI/CD) for your software projects.
-          url: /azure/jenkins/
-        # Card
-        - title: REST API
-          summary: Use REST APIs to access your service's resources through HTTP operations.
-          url: /rest/api/
-        # Card
-        - title: ARM Templates
-          summary: Use Azure Resource Manager templates to define and configure your project with JSON files.
-          url: /azure/azure-resource-manager/templates/
-        # Card
-        - title: Terraform
-          summary: Use Hashicorp Terraform to provision and manage cloud infrastructure.
-          url: /azure/terraform/
-        # Card
-        - title: Ansible
-          summary: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
-          url: ./ansible/index.yml
-        # Card
-        - title: Chef
-          summary: Use Chef to transform your virtual machine infrastructure on Azure into code.
-          url: ./chef/index.yml
