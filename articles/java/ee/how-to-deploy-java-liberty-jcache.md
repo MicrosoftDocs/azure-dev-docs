@@ -65,7 +65,8 @@ create an Azure Managed Redis instance. Carefully note the following differences
 1. Run the following command to export the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY`:
 
    ```bash
-   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>
+   export REDIS_CACHE_PORT=6380
+   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>:$REDIS_CACHE_PORT
    export REDIS_CACHE_KEY=<your-primary-access-key>
    ```
 
