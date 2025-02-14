@@ -7,22 +7,25 @@ ms.reviewer: jiangma
 ms.topic: how-to
 ms.date: 02/14/2025
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
-#Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application that enables persistence of HTTP sessions using JCache, so that customers can manage HTTP session data using Azure Redis.
+#Customer intent: As a Java developer, I want to build an application that uses Azure Redis as the HTTP session cache for WebSphere Liberty or Open Liberty.
 ---
 
 # Using Azure Redis as session cache for WebSphere Liberty or Open Liberty
 
-This article describes how to use Azure Redis as session cache for WebSphere Liberty or Open Liberty application.
+This article describes how to use Azure Redis as the HTTP session cache for WebSphere Liberty or Open Liberty.
 
 In this guide, you'll:
 
 * Create an Azure Managed Redis instance as session cache.
-* Prepare a sample Liberty application that enables persistence of HTTP session.
+* Prepare a sample application that enables persistence of HTTP sessions.
 * Run the sample application locally.
 
-This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
+This article is intended to help you quickly get to deployment. Before going to production, you should 
+explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on 
+Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your 
+contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -34,9 +37,12 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Create an Azure Managed Redis instance
 
-[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis instance and note down its connection information. You use this information later to configure the sample application.
+[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on 
+the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis 
+instance and note down its connection information. You use this information later to configure the sample application.
 
-1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to create an Azure Managed Redis instance.
+1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to 
+create an Azure Managed Redis instance.
 
    1. At step 4 of section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), select **Public Endpoint** for the **Connectivity** option in this guide for simplicity. For production, you should consider using **Private Endpoint** for better security.
 
