@@ -1,23 +1,23 @@
 ---
-title: Use Java EE JCache with Open Liberty or WebSphere Liberty
-description: Use Java EE JCache with Open Liberty or WebSphere Liberty.
+title: Using Azure Redis as session cache for WebSphere Liberty or Open Liberty
+description: Using Azure Redis as session cache for WebSphere Liberty or Open Liberty.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: how-to
-ms.date: 02/11/2025
+ms.date: 02/14/2025
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
-#Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled so that customers can store session data in the Azure Managed Redis instance for session management.
+#Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application that enables persistence of HTTP sessions using JCache, so that customers can manage HTTP session data using Azure Redis.
 ---
 
-# Use Java EE JCache with Open Liberty or WebSphere Liberty
+# Using Azure Redis as session cache for WebSphere Liberty or Open Liberty
 
-This article describes how to use Java EE JCache in a sample Open Liberty or WebSphere Liberty application.
+This article describes how to use Azure Redis as session cache for WebSphere Liberty or Open Liberty application.
 
 In this guide, you'll:
 
-* Create an Azure Managed Redis instance to store session data.
-* Prepare a sample Liberty application with Java EE JCache backed by Azure Managed Redis instance.
+* Create an Azure Managed Redis instance as session cache.
+* Prepare a sample Liberty application that enables persistence of HTTP session.
 * Run the sample application locally.
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
@@ -34,7 +34,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Create an Azure Managed Redis instance
 
-[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis instance and note down its connection information. You use this information later.
+[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis instance and note down its connection information. You use this information later to configure the sample application.
 
 1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to create an Azure Managed Redis instance.
 
@@ -60,6 +60,8 @@ If you're interested in providing feedback or working closely on your migration 
    ```
 
 ## Prepare the sample application
+
+WebSphere Liberty or Open Liberty provides a session cache feature that enables you to store HTTP session data in a cache. In this guide, you use the [JCache Session Persistence](https://openliberty.io/docs/latest/reference/feature/sessionCache-1.0.html) feature to store the session data in the Azure Managed Redis instance.
 
 Use the following commands to clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article uses *java-app-jcache*.
 
@@ -99,7 +101,7 @@ The **pom-redisson.xml** file contains the dependencies for the Redisson client 
 
 The **java**, **resources**, and **webapp** directories contain the source code of the sample application.
 
-In the **liberty/config** directory, the **server.xml** file is used to configure session cache for the Open Liberty and WebSphere Liberty cluster.
+In the **liberty/config** directory, the **server.xml** file is used to configure HTTP session cache for the Open Liberty and WebSphere Liberty.
 
 In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection of the Azure Managed Redis instance.
 
