@@ -149,13 +149,16 @@ Open a web browser to [http://localhost:9080](http://localhost:9080) and you sho
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/run-succeeded-locally.png" alt-text="Screenshot of Java liberty application running successfully.":::
 
-In the form **New coffee in session**, set values for fields **Name** and **Price**, and then select **Submit**. After a few seconds,  you'll see **Submit count: 1** displayed at the left bottom of the page.
+In the form **New coffee in session**, set values for the fields **Name** and **Price**, and then select **Submit**. After a few seconds,  
+you'll see **Submit count: 1** displayed at the left bottom of the page.
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-session.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
 
-To demonstrate that the session cache is persisted and can be retrieved in the same session, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with `mvn liberty:dev` command. 
+To demonstrate that the session cache is persisted and can be retrieved in the same session, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the 
+application and restart it with the `mvn liberty:dev` command.
 
-Then, refresh the application home page. You should see the same data displayed in the section **New coffee in session**. Stop the application when you're done testing.
+Then, refresh the application home page. You should see the same data displayed in the section **New coffee in session**. Stop the application 
+when you're done testing.
 
 Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to demonstrate that the session data is persisted in the Azure Managed Redis instance. In this guide, you use [Azure Cloud Shell](/azure/cloud-shell/overview) where the `redis-cli` tool is preinstalled. If you want to use the `redis-cli` tool on your local machine, you can install it by following the instructions in the document [Use the Redis command-line tool with Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-how-to-redis-cli-tool).
 
