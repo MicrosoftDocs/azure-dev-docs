@@ -10,7 +10,7 @@ ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure
 
 # Upload an image to an Azure Storage blob with JavaScript
 
-Use a static web app to upload files directly to an Azure Storage blob using the @azure/storage-blob package. The API generates a SAS token following the [Valet Key pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/valet-key), which lets you securely delegate limited access without exposing full credentials.
+Use a static web app to upload files directly to an Azure Storage blob using the @azure/storage-blob package. The API generates a SAS token following the [Valet Key pattern](/azure/architecture/patterns/valet-key), which lets you securely delegate limited access without exposing full credentials.
 
 > [!CAUTION]
 > This tutorial shows you how to host your function app in a Consumption Plan. When you plan to secure your connections by using Microsoft Entra ID with managed identities, you should instead consider hosting your app in the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan). The Flex Consumption plan has been designed to optimize security by supporting the use of managed identities without any of the tradeoffs required when running in a Consumption or Premium plan. Flex Consumption also fully supports virtual network integration.  
@@ -43,14 +43,14 @@ This tutorial uses the following environments:
 * Local development with GitHub Codespaces or Visual Studio Code.
 * Build and deploy with GitHub Actions.
 
-## 1. Fork sample application repository with GitHub
+## Fork sample application repository with GitHub
 
 This tutorial uses GitHub actions to deploy the sample application to Azure. You need a GitHub account and a fork of the sample application repository to complete that deployment. 
 
 1. In a web browser, use the following link to begin the fork for your own account of the sample repository: [Azure-Samples/azure-typescript-e2e-apps](https://github.com/Azure-Samples/azure-typescript-e2e-apps/fork).
 1. Complete the steps to fork the sample with the **main** branch only. 
 
-## 2. Configure dev environment
+## Configure dev environment
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete every exercise in this project. You can run the development container in GitHub Codespaces or locally using Visual Studio Code.
 
@@ -163,7 +163,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## 3. Install dependencies
+## Install dependencies
 
 The sample app for this tutorial is in the `azure-upload-file-to-storage` folder. You won't need to use any other folders in the project. 
 
@@ -188,7 +188,7 @@ The sample app for this tutorial is in the `azure-upload-file-to-storage` folder
 
 <a name="3-create-storage-resource-with-visual-studio-extension"></a>
 
-## 4. Create Storage resource with Visual Studio extension
+## Create Storage resource with Visual Studio extension
 
 Create the Storage resource to use with the sample app. Storage is used for:
 
@@ -213,7 +213,7 @@ Create the Storage resource to use with the sample app. Storage is used for:
 
     :::image type="content" source="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-activity-log-storage-notification.png" lightbox="media/browser-file-upload-azure-storage-blob/visual-studio-code-azure-activity-log-storage-notification.png" alt-text="Screenshot of Visual Studio Code showing the Azure Activity Bar and the notification that the storage account was successfully created.":::
 
-## 5. Configure Storage CORS
+## Configure Storage CORS
 
 Because the browser is used to upload the file, the Azure Storage account needs to configure CORS to allow cross-origin requests. These CORS settings are used for this tutorial to simplify the steps and aren't meant to indicate best practices or security. Learn more about [CORS for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
@@ -229,14 +229,14 @@ Because the browser is used to upload the file, the Azure Storage account needs 
 
 1. Select **Save**.
 
-## 6. Grant anonymous access to storage
+## Grant anonymous access to storage
 
 After file upload, the tutorial scenario requires public access to the blob for viewing. For simplicity, this guide enables anonymous access for the uploaded files.
 
 1. To enable public access in the Azure portal, select the **Overview** page for your storage account, in the **Properties** section, select **Blob anonymous access** then select **Disabled**.
 1. On the **Configuration** page, enable **Allow Blob anonymous access**.
 
-## 7. Create upload container
+## Create upload container
 
 Create a private container which has publicly readable blobs.  
 
@@ -247,7 +247,7 @@ Create a private container which has publicly readable blobs.
     * Public access Level: `Blob`
 1. Select **Create**. 
 
-## 8. Grant yourself Blob Data access
+## Grant yourself Blob Data access
 
 While you created the resource, you don't have permission to view the contents of the container. That is reserved for specific IAM roles. Add your account so you can view the blobs in the containers.
 
@@ -259,7 +259,7 @@ While you created the resource, you don't have permission to view the contents o
 1. Select **Review + assign**.
 1. Select **Containers** then the **upload** container. You should be able to see there are no blobs in the container without authorization errors. 
 
-## 9. Get Storage resource credentials
+## Get Storage resource credentials
 
 The Storage resource credentials are used in the Azure Functions API app to connect to the Storage resource. 
 
@@ -276,7 +276,7 @@ The Storage resource credentials are used in the Azure Functions API app to conn
 
 It may seem like you entered the same account credentials twice, once as a key and once as a connection string. You did, but specifically for this simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You'll only need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values which are used in source code.
 
-## 10. Run the API app
+## Run the API app
 
 Run the Functions App to make sure it works correctly before deploying it to Azure.
 
@@ -314,7 +314,7 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
     ```
 1. Copy the base of the API URL in the browser address bar (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`. You will paste this into the client app environment variable file in the next section.
 
-## 11. Configure and run the client app
+## Configure and run the client app
 
 1. Rename the `./azure-upload-file-to-storage/app/.env.sample` file to `.env`.
 1. Open the `.env` file and paste the base URL from the previous section as the value for the `VITE_API_SERVER`.
@@ -353,12 +353,12 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
 
 1. The client app and the API app successfully worked together in a containerized developer environment. 
 
-## 12. Commit code changes
+## Commit code changes
 
 1. In Visual Studio Code, open the **Source Control** tab.
 1. Select the **+** icon to stage all changes. These changes should only include new package-lock.json files for the `app` and `api` folders for this tutorial.
 
-## 13. Deploy static web app to Azure 
+## Deploy static web app to Azure 
 
 The Azure Functions app is using a preview feature, it must be deployed to **West US 2** to function properly.
 
@@ -417,7 +417,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
 1. Go to the Overview page to find the **URL** for your deployed app.
 1. The deployment of the app is complete.
 
-## 14. Configure API with Storage resource name and key
+## Configure API with Storage resource name and key
 
 The app needs the Azure Storage resource name and key before the API works correctly.
 
@@ -435,7 +435,7 @@ The app needs the Azure Storage resource name and key before the API works corre
 > [!NOTE]
 > You don't need to set the client app's env variable **VITE_API_SERVER** because the client app and the API are hosted from the same domain. 
 
-## 15. Use the Azure-deployed static web app
+## Use the Azure-deployed static web app
 
 Verify the deploy and configuration succeeded by using the web site. 
 
@@ -444,7 +444,7 @@ Verify the deploy and configuration succeeded by using the web site.
 1. Select **Get sas token**. This action passes the file name to the API and receives the SAS token URL necessary to upload the file.  
 1. Select **Upload file** to use the SAS token URL to upload the file. The browser displays the thumbnail and URL of the uploaded file. 
 
-## 16. Clean up resources
+## Clean up resources
 
 In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on your resource group then select **Delete**.
 
