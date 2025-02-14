@@ -145,7 +145,7 @@ To learn more about the `liberty-maven-plugin`, see [Building a web application 
 
 ### Test the application
 
-Open a web browser to `http://localhost:9080/` and you should see the application home page.
+Open a web browser to http://localhost:9080 and you should see the application home page.
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/run-succeeded-locally.png" alt-text="Screenshot of Java liberty application running successfully.":::
 
