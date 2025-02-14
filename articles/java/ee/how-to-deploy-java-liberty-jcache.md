@@ -122,13 +122,18 @@ and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
 
 ## Run the sample application locally
 
-Use the following steps to build and run your sample application locally. These steps use Maven and `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+Use the following steps to build and run your sample application locally. These steps use Maven and the `liberty-maven-plugin`. 
+To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 1. Verify the current working directory is **java-app-jcache** in your local clone.
 1. Run the Maven command `mvn clean package` and package the application.
-1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step also inserts the values of the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
-1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson client library and its dependencies to the shared resources directory of the Liberty server.
-1. Run the Maven command `mvn liberty:dev` and start the application. If the application is successfully started, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
+1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the correct target location. This step also inserts the values of 
+   the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by 
+   the **server.xml** file.
+1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson 
+   client library and its dependencies to the shared resources directory of the Liberty server.
+1. Run the Maven command `mvn liberty:dev` and start the application. If the application is successfully started, you should 
+   see `The defaultServer server is ready to run a smarter planet.` in the command output.
    You should see output similar to the following if the Redis connection is successful.
 
    ```output
