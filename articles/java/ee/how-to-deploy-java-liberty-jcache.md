@@ -55,7 +55,8 @@ create an Azure Managed Redis instance. Carefully note the following differences
       key authorization. For more information about using managed identities with your cache, 
       see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
-1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, find and select your Azure Managed Redis instance.
+1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, 
+   find, and select your Azure Managed Redis instance.
 
 1. On the **Overview** page, note down the **Endpoint** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
 
