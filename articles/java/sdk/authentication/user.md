@@ -97,6 +97,9 @@ SecretClient client = new SecretClientBuilder()
 
 The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi-factor authentication. The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must not have multi-factor auth turned on.
 
+> [!WARNING]
+> Microsoft recommends you do not use the Resource Owner Password Credentials (ROPC) flow implemented by this credential; it's incompatible with multifactor authentication (MFA). In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when more secure flows aren't viable.
+
 ```java
 /**
  * Authenticate with username, password.

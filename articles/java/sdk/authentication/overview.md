@@ -35,14 +35,31 @@ Follow these links to learn more about the specifics of each of these authentica
 
 ## Add the Maven dependencies
 
-To add the Maven dependency, include the following XML in the project's **pom.xml** file. Replace `{version_number}` with the latest stable release's version number, as shown on the [Azure Identity library page](https://search.maven.org/artifact/com.azure/azure-identity).
+Include the `azure-sdk-bom` in your project to take a dependency on the stable version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. To learn more about the BOM, see the [Add Azure SDK for Java to an existing project](../get-started-maven.md#add-azure-sdk-for-java-to-an-existing-project) section of [Get started with Azure SDK and Apache Maven](../get-started-maven.md).
 
 ```xml
-<dependency>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+Then include the direct dependency in the `dependencies` section without the version tag:
+
+```xml
+<dependencies>
+  <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
-    <version>{version_number}</version>
-</dependency>
+  </dependency>
+</dependencies>
 ```
 
 ## Key concepts
