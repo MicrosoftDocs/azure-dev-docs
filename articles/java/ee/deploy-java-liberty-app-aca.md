@@ -1,7 +1,7 @@
 ---
-title: Deploy a Java Application with Open Liberty or WebSphere Liberty on Azure Container Apps
+title: Deploy a Java Application with Open Liberty on Azure Container Apps
 recommendations: false
-description: Shows you how to deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps.
+description: Shows you how to deploy a Java application with Open Liberty on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
@@ -9,11 +9,11 @@ ms.date: 11/27/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps
+# Deploy a Java application with Open Liberty on Azure Container Apps
 
-This article shows you how to run Open Liberty or WebSphere Liberty on Azure Container Apps. You do the following activities in this article:
+This article shows you how to run Open Liberty on Azure Container Apps. You do the following activities in this article:
 
-* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
+* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty runtime.
 * Build the application Docker image using Liberty container images.
 * Deploy the containerized application to Azure Container Apps.
 
@@ -274,7 +274,7 @@ az sql server firewall-rule create `
 
 ## Configure and build the application image
 
-To deploy and run your Liberty application on Azure Container Apps, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
+To deploy and run your Liberty application on Azure Container Apps, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker).
 
 Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven.
 
