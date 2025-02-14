@@ -113,11 +113,12 @@ The **pom-redisson.xml** file contains the dependencies for the Redisson client 
 
 The **java**, **resources**, and **webapp** directories contain the source code of the sample application.
 
-In the **liberty/config** directory, the **server.xml** file is used to configure HTTP session cache for the Open Liberty and WebSphere Liberty.
+In the **liberty/config** directory, the **server.xml** file is used to configure the HTTP session cache for Open Liberty and WebSphere Liberty.
 
-In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection of the Azure Managed Redis instance.
+In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection to the Azure Managed Redis instance.
 
-The **docker** directory contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
+The **docker** directory contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty 
+and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
 
 ## Run the sample application locally
 
