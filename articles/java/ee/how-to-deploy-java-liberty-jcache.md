@@ -71,7 +71,9 @@ create an Azure Managed Redis instance. Carefully note the following differences
 
 ## Prepare the sample application
 
-WebSphere Liberty or Open Liberty provides a session cache feature that enables you to store HTTP session data in a cache. In this guide, you use the [JCache Session Persistence](https://openliberty.io/docs/latest/reference/feature/sessionCache-1.0.html) feature to store the session data in the Azure Managed Redis instance.
+WebSphere Liberty and Open Liberty provide a session cache feature that enables you to store HTTP session data in an external cache. 
+In this guide, you use the [JCache Session Persistence](https://openliberty.io/docs/latest/reference/feature/sessionCache-1.0.html) 
+feature to store the session data in the Azure Managed Redis instance.
 
 Use the following commands to clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article uses *java-app-jcache*.
 
