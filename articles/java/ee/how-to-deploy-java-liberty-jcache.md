@@ -58,7 +58,7 @@ create an Azure Managed Redis instance. Carefully note the following differences
 1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, 
    find, and select your Azure Managed Redis instance.
 
-1. On the **Overview** page, note down the **Endpoint** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
+1. On the **Overview** page, note down the **Host name** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
 
 1. Select **Settings** > **Authentication**. Select **Access keys** and note down the **Primary** value. You use this value as the `REDIS_CACHE_KEY` environment variable later.
 
