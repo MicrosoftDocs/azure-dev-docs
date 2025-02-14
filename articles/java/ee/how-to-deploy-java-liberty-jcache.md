@@ -42,7 +42,7 @@ the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follo
 instance and note down its connection information. You use this information later to configure the sample application.
 
 1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to 
-create an Azure Managed Redis instance. Carefully note the following:
+create an Azure Managed Redis instance. Carefully note the following differences:
 
    1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), 
       select **Public Endpoint** for the **Connectivity** option in this guide for simplicity. For production, you should consider 
