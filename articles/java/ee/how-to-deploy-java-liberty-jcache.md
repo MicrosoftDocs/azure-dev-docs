@@ -28,7 +28,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-* Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+* Install a Java Standard Edition (SE) implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Ensure that [Git](https://git-scm.com) is installed.
 
@@ -46,7 +46,7 @@ If you're interested in providing feedback or working closely on your migration 
 
       * Set **Clustering policy** to **Enterprise** for a nonclustered cache, which works for this guide where single node configuration is used. For more information, see [Clustering on Enterprise](/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers#clustering-on-enterprise).
 
-1. After the deployment completes, select **Go to resource** if you're on the **Deoplyment** page. Otherwise, navigate to the Azure portal, find and select your Azure Managed Redis instance.
+1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, find and select your Azure Managed Redis instance.
 
 1. On the **Overview** page, note down the **Endpoint** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
 
@@ -112,10 +112,10 @@ The **docker** directory contains two Dockerfiles. **Dockerfile** is used to bui
 Use the following steps to build and run your sample application locally. These steps use Maven and `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 1. Verify the current working directory is **java-app-jcache** in your local clone.
-1. Run `mvn clean package` to package the application.
+1. Run the Maven command `mvn clean package` to package the application.
 1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step also inserts the values of the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
 1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson client library and its dependencies to the shared resources directory of the Liberty server.
-1. Run `mvn liberty:dev` to start the application. If the application is successful started, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
+1. Run the Maven command `mvn liberty:dev` to start the application. If the application is successfully started, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
    You should see output similar to the following if the Redis connection is successful.
 
    ```output
@@ -142,7 +142,7 @@ Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/
 
 1. Launch the Azure Cloud Shell from the Azure portal. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started/classic?tabs=azurecli). 
    * Select **Bash** as the shell environment.
-   * Set your subscrition that is used to create the Azure Managed Redis instance.
+   * Set your subscription that is used to create the Azure Managed Redis instance.
 
 1. Run the similar command in Cloud Shell console with the values of the Redis endpoint and the primary access key you noted down earlier:
 
