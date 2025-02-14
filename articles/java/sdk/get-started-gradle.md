@@ -3,7 +3,7 @@ title: Get started with Azure SDK and Gradle
 description: Learn how to build projects using Azure SDK and Gradle.
 author: KarlErickson
 ms.author: jogiles
-ms.date: 02/14/2025 
+ms.date: 02/14/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
