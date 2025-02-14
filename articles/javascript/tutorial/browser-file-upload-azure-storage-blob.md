@@ -3,7 +3,7 @@ title: "JavaScript: Upload image to Blob Storage"
 titleSuffix: JavaScript on Azure
 description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 02/14/2025
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 # CustomerIntent: As a JavaScript developer new to Azure, I want learn how to upload a file to Azure Storage in a web app so that know how to browser to do the actual file upload without exposing authentication secrets on the client.'
 ---
