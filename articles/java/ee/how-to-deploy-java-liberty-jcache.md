@@ -37,36 +37,30 @@ contact information. The team of program managers, architects, and engineers wil
 
 ## Create an Azure Managed Redis instance
 
-[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on 
-the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis 
-instance and note down its connection information. You use this information later to configure the sample application.
+[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis instance and note down its connection information. You use this information later to configure the sample application.
 
-1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to 
-create an Azure Managed Redis instance. Carefully note the following differences:
+1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to create an Azure Managed Redis instance. Carefully note the following differences:
 
-   1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), 
-      select **Public Endpoint** for the **Connectivity** option in this guide for simplicity. For production, you should consider 
-      using **Private Endpoint** for better security.
+   1. At step 3 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Basics** tab, select the **Cache SKU** that supports Azure Managed Redis. In this guide, you select **Balanced (For general purpose workloads with typical performance requirements)**. For more information, see [Choosing the right tier](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview#choosing-the-right-tier).
 
-   1. At step 5 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance),
-      enable **Access Keys Authentication** for the **Authentication** in this guide for simplicity. For optimal security, you're 
-      recommended to use Microsoft Entra ID with managed identities to authorize requests against your cache, if possible. 
-      Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access 
-      key authorization. For more information about using managed identities with your cache, 
-      see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+   1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Networking** tab, select **Public Endpoint** for the **Connectivity** option in this guide for simplicity. For production, you should consider using **Private Endpoint** for better security.
 
-1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, 
-   find, and select your Azure Managed Redis instance.
+   1. At step 5 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Advanced** tab, configure the following settings:
+   
+      * Enable **Access Keys Authentication** for the **Authentication** in this guide for simplicity. For optimal security, you're recommended to use Microsoft Entra ID with managed identities to authorize requests against your cache, if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
-1. On the **Overview** page, note down the **Host name** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
+      * Set **Clustering policy** to **Enterprise** for a nonclustered cache, which works for this guide where single node configuration is used. For more information, see [Clustering on Enterprise](/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers#clustering-on-enterprise).
+
+1. After the deployment completes, select **Go to resource** if you're on the **Deoplyment** page. Otherwise, navigate to the Azure portal, find, and select your Azure Managed Redis instance.
+
+1. On the **Overview** page, note down the **Endpoint** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
 
 1. Select **Settings** > **Authentication**. Select **Access keys** and note down the **Primary** value. You use this value as the `REDIS_CACHE_KEY` environment variable later.
 
 1. Run the following command to export the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY`:
 
    ```bash
-   export REDIS_CACHE_PORT=6380
-   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>:$REDIS_CACHE_PORT
+   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>
    export REDIS_CACHE_KEY=<your-primary-access-key>
    ```
 
