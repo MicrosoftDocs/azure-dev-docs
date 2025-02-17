@@ -154,50 +154,6 @@ application and restart it with the `mvn liberty:dev` command.
 Then, refresh the application home page. You should see the same data displayed in the section **New coffee in session**. Stop the application 
 when you're done testing.
 
-Optionally, you can use the [redis-cli command-line tool](https://redis.io/docs/connect/cli/) to demonstrate that the session data is persisted in the Azure Managed Redis instance. In this guide, you use [Azure Cloud Shell](/azure/cloud-shell/overview) where the `redis-cli` tool is preinstalled. If you want to use the `redis-cli` tool on your local machine, you can install it by following the instructions in the document [Use the Redis command-line tool with Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-how-to-redis-cli-tool).
-
-1. Launch the Azure Cloud Shell from the Azure portal. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started/classic?tabs=azurecli). 
-   * Select **Bash** as the shell environment.
-   * Set your subscription that is used to create the Azure Managed Redis instance.
-
-1. Run the similar command in Cloud Shell console with the values of the Redis endpoint and the primary access key you noted down earlier:
-
-   ```bash
-   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>
-   export REDIS_CACHE_KEY=<your-primary-access-key>
-   ```
-
-1. Run the following command to retrieve the hostname and port of the Azure Managed Redis instance:
-
-   ```bash
-   REDIS_CACHE_HOSTNAME=$(echo $REDIS_CACHE_ENDPOINT | cut -d':' -f1)
-   REDIS_CACHE_PORT=$(echo $REDIS_CACHE_ENDPOINT | cut -d':' -f2)
-   ```
-
-1. Run the following command to connect to the Azure Managed Redis instance:
-
-   ```bash
-   redis-cli -p ${REDIS_CACHE_PORT} -h ${REDIS_CACHE_HOSTNAME} -a ${REDIS_CACHE_KEY} --tls
-   ```
-
-1. Once the connection is established, you can issue commands to your Azure Managed Redis instance. Run the following steps to check the session data:
-
-   1. The session data is stored in the key `com.ibm.ws.session.attr.default_host%2F`. Run the following command to check if the key exists:
-
-      ```redis-cli
-      keys "com.ibm.ws.session.attr.default_host%2F"
-      ```
-
-      You should see `1) "com.ibm.ws.session.attr.default_host%2F"` in the output.
-
-   1. Run the following command to view the session data:
-
-      ```redis-cli
-      hgetall "com.ibm.ws.session.attr.default_host%2F"
-      ```
-
-      You should see a few entries listed in the output, and one of them contains the value `**cafe.model.entity.Coffee[id=1, name=Coffee 3, price=30.0]**`, which is the coffee you created and persisted in the Azure Managed Redis instance.
-
 ### Containerize the application
 
 Optionally, you can containerize the application and run it in a container. The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. This guide uses Docker and the Dockerfile for Open Liberty to containerize the application, but you can use the Dockerfile for WebSphere Liberty by following the similar steps.
