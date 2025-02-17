@@ -32,7 +32,7 @@ contact information. The team of program managers, architects, and engineers wil
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 * Install a Java Standard Edition (SE) implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
-* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
 * Ensure that [Git](https://git-scm.com) is installed.
 
 ## Create an Azure Managed Redis instance
@@ -53,29 +53,27 @@ contact information. The team of program managers, architects, and engineers wil
 
 1. After the deployment completes, select **Go to resource** if you're on the **Deoplyment** page. Otherwise, navigate to the Azure portal, find, and select your Azure Managed Redis instance.
 
-1. On the **Overview** page, note down the **Endpoint** value. You use this value as the `REDIS_CACHE_ENDPOINT` environment variable later.
+1. On the **Overview** page, note down the **Endpoint** value. You use this value in the `REDIS_CACHE_ADDRESS` environment variable later.
 
 1. Select **Settings** > **Authentication**. Select **Access keys** and note down the **Primary** value. You use this value as the `REDIS_CACHE_KEY` environment variable later.
 
-1. Run the following command to export the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY`:
+1. Run the following command to export the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY`:
 
    ```bash
-   export REDIS_CACHE_ENDPOINT=<your-redis-cache-endpoint>
+   export REDIS_CACHE_ADDRESS=rediss://<your-redis-cache-endpoint>
    export REDIS_CACHE_KEY=<your-primary-access-key>
    ```
 
 ## Prepare the sample application
 
-WebSphere Liberty and Open Liberty provide a session cache feature that enables you to store HTTP session data in an external cache. 
-In this guide, you use the [JCache Session Persistence](https://openliberty.io/docs/latest/reference/feature/sessionCache-1.0.html) 
-feature to store the session data in the Azure Managed Redis instance.
+WebSphere Liberty and Open Liberty provide a session cache feature that enables you to store HTTP session data in an external cache. In this guide, you use the [JCache Session Persistence](https://openliberty.io/docs/latest/reference/feature/sessionCache-1.0.html) feature to store the session data in the Azure Managed Redis instance.
 
 Use the following commands to clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article uses *java-app-jcache*.
 
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20250212
+git checkout 20250217
 cd java-app-jcache
 ```
 
@@ -104,7 +102,7 @@ java-app-jcache/
 
 The **pom.xml** file is the Maven project file that contains the dependencies and plugins for the sample application. 
 
-The **pom-redisson.xml** file contains the dependencies for the Redisson client library, and is used to copy dependencies to the shared resources directory of the Liberty server later.
+The **pom-redisson.xml** file is used to copy dependencies for the Redisson client library to the shared resources directory of the Liberty server later.
 
 The **java**, **resources**, and **webapp** directories contain the source code of the sample application.
 
@@ -123,7 +121,7 @@ To learn more about the `liberty-maven-plugin`, see [Building a web application 
 1. Verify the current working directory is **java-app-jcache** in your local clone.
 1. Run the Maven command `mvn clean package` and package the application.
 1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the correct target location. This step also inserts the values of 
-   the environment variables `REDIS_CACHE_ENDPOINT` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by 
+   the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by 
    the **server.xml** file.
 1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson 
    client library and its dependencies to the shared resources directory of the Liberty server.
@@ -143,16 +141,15 @@ Open a web browser to [http://localhost:9080](http://localhost:9080) and you sho
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/run-succeeded-locally.png" alt-text="Screenshot of Java liberty application running successfully.":::
 
-In the form **New coffee in session**, set values for the fields **Name** and **Price**, and then select **Submit**. After a few seconds,  
-you'll see **Submit count: 1** displayed at the left bottom of the page.
+In the form **New coffee**, set values for the fields **Name** and **Price**, and then select **Submit**. The application creates a new coffee, persists it in the Azure Managed Redis instance, and stores it in the session that is also persisted in the Azure Managed Redis instance.
 
-:::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-session.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
+After a few seconds, you'll see the new coffee displayed in the table **Our coffees**.
 
-To demonstrate that the session cache is persisted and can be retrieved in the same session, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the 
-application and restart it with the `mvn liberty:dev` command.
+:::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-cache.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
 
-Then, refresh the application home page. You should see the same data displayed in the section **New coffee in session**. Stop the application 
-when you're done testing.
+To demonstrate that the new coffee is persisted in the Azure Managed Redis instance and the session data can be retrieved from the same session, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with the `mvn liberty:dev` command.
+
+Then, refresh the application home page. You should see the same data displayed in the sections **Our coffees** and **New coffee**. Stop the application when you're done testing.
 
 ### Containerize the application
 
@@ -171,6 +168,8 @@ Optionally, you can containerize the application and run it in a container. The 
    ```bash
    docker run -it --rm \
       -p 9080:9080 \
+      -e REDIS_CACHE_ADDRESS=${REDIS_CACHE_ADDRESS} \
+      -e REDIS_CACHE_KEY=${REDIS_CACHE_KEY} \
       --mount type=bind,source=$(pwd)/target/liberty/wlp/usr/servers/defaultServer/redisson-config.yaml,target=/config/redisson-config.yaml \
       javaee-cafe-jcache:v1
    ```
