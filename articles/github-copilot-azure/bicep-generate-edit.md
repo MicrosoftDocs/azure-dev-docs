@@ -100,21 +100,19 @@ Finally, if you're unsure about how to deploy the bicep file, you can create a p
 
 You may receive a response similar to the following.
 
-```
-To execute a Bicep file and deploy its resources to Azure, you can use the Azure CLI with the following steps:
 
-Login to Azure: Ensure you're logged in to your Azure account using:
+> To execute a Bicep file and deploy its resources to Azure, you can use the Azure CLI with the following steps:
 
-az login
+  Login to Azure: Ensure you're logged in to your Azure account using:
 
-Deploy the Bicep File: Use the following command to deploy the Bicep file. Replace the placeholders with your actual values:
+  `az login`
 
-az deployment group create --resource-group <YourResourceGroupName> --template-file <PathToYourBicepFile>
+  Deploy the Bicep File: Use the following command to deploy the Bicep file. Replace the placeholders with your actual values:
 
-<YourResourceGroupName>: Name of the resource group where you want the resources to be deployed. You must create the resource group beforehand if it doesn't exist.
-<PathToYourBicepFile>: Path to the Bicep file in your workspace, e.g., ./iac/storageAccount.bicep.
+  `az deployment group create --resource-group <YourResourceGroupName> --template-file <PathToYourBicepFile>`
 
-```
+  `<YourResourceGroupName>`: Name of the resource group where you want the resources to be deployed. You must create the resource group beforehand if it doesn't exist.
+  `<PathToYourBicepFile>`: Path to the Bicep file in your workspace, e.g., `./iac/storageAccount.bicep`.
 
 
 ## Edit Bicep files
@@ -129,7 +127,7 @@ Suppose you have taken over support for an existing application that has several
 
 GitHub Copilot for Azure allows you to ask specific questions about the file that is currently in the code editor. In the chat pane, below the prompt, there's a bicep icon, followed by the name of the file that's open in the main editor, and the words `Current file` followed by an eye icon.
 
-   :::image type="content" source="media/bicep-generate-edit/ghcpa-bicep-edit.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
+   :::image type="content" source="media/bicep-generate-edit/ghcpa-chat-current-file.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
 
 ### Example prompt
 
