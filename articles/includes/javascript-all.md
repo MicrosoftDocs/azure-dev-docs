@@ -111,7 +111,7 @@
 | Storage - Blobs | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-blob/v/12.26.0) | [docs](/javascript/api/overview/azure/storage-blob-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.26.0/sdk/storage/storage-blob/) |
 | Storage - Blobs Changefeed | npm [12.0.0-preview.4](https://www.npmjs.com/package/@azure/storage-blob-changefeed/v/12.0.0-preview.4) | [docs](/javascript/api/overview/azure/storage-blob-changefeed-readme) | GitHub [12.0.0-preview.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob-changefeed_12.0.0-preview.4/sdk/storage/storage-blob-changefeed/) |
 | Storage - Files Data Lake | npm [12.25.0](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.25.0) | [docs](/javascript/api/overview/azure/storage-file-datalake-readme) | GitHub [12.25.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.25.0/sdk/storage/storage-file-datalake/) |
-| Storage - Files Share | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-file-share/v/12.26.0) | [docs](/javascript/api/overview/azure/storage-file-share-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.26.0/sdk/storage/storage-file-share/) |
+| Storage - Files Share | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-file-share/v/12.26.0)<br>npm [12.27.0-beta.1](https://www.npmjs.com/package/@azure/storage-file-share/v/12.27.0-beta.1) | [docs](/javascript/api/overview/azure/storage-file-share-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.26.0/sdk/storage/storage-file-share/)<br>GitHub [12.27.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.27.0-beta.1/sdk/storage/storage-file-share/) |
 | Storage - Queues | npm [12.25.0](https://www.npmjs.com/package/@azure/storage-queue/v/12.25.0) | [docs](/javascript/api/overview/azure/storage-queue-readme) | GitHub [12.25.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.25.0/sdk/storage/storage-queue/) |
 | Synapse - Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
 | Tables | npm [13.3.0](https://www.npmjs.com/package/@azure/data-tables/v/13.3.0) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.3.0/sdk/tables/data-tables/) |
@@ -493,7 +493,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250213.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250213.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250217.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250217.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -532,7 +532,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.19](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.19) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.20](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.20) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
