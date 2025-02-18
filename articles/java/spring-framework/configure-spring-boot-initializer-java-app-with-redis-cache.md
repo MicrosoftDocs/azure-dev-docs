@@ -52,7 +52,7 @@ To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add th
      <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
    </dependency>
    <dependency>
-     <groupId>com.azure.spring</groupId>
+     <groupId>org.springframework.boot</groupId>
      <artifactId>spring-boot-starter-data-redis</artifactId>
    </dependency>
   </dependencies>
