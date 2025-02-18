@@ -511,7 +511,7 @@ BING_SEARCH_KEY = os.getenv("BING_SEARCH_KEY")
 BING_HEADERS = {"Ocp-Apim-Subscription-Key": BING_SEARCH_KEY}
 ```
 
-[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/microsoft-entra-id-akv-new.md)]
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/microsoft-entra-id-akv-expanded.md)]
 
 The `_make_endpoint` function constructs a full URL by combining a base endpoint with a specific path, with exactly one slash (`/`) between them. This helper function is useful for creating properly formatted URLs for API requests.
 
