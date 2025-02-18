@@ -20,3 +20,7 @@ items:
       href: troubleshoot-examples.md
     - name: Optimize your application
       href: optimize-examples.md
+    - name: Advanced scenarios
+      items: 
+        - name: Create and edit bicep templates
+          href: bicep-generate-edit.md
