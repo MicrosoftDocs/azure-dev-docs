@@ -73,7 +73,7 @@ Use the following commands to clone the sample code for this guide. The sample i
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20250217
+git checkout 20250218
 cd java-app-jcache
 ```
 
