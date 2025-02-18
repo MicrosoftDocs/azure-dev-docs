@@ -100,20 +100,25 @@ Finally, if you're unsure about how to deploy the bicep file, you can create a p
 
 You may receive a response similar to the following.
 
+```
+To execute a Bicep file and deploy its resources to Azure, you can use the 
+Azure CLI with the following steps:
 
-> To execute a Bicep file and deploy its resources to Azure, you can use the Azure CLI with the following steps:
+Login to Azure: Ensure you're logged in to your Azure account using:
 
-  Login to Azure: Ensure you're logged in to your Azure account using:
+`az login`
 
-  `az login`
+Deploy the Bicep File: Use the following command to deploy the Bicep file. 
+Replace the placeholders with your actual values:
 
-  Deploy the Bicep File: Use the following command to deploy the Bicep file. Replace the placeholders with your actual values:
+`az deployment group create --resource-group <YourResourceGroupName> --template-file <PathToYourBicepFile>`
 
-  `az deployment group create --resource-group <YourResourceGroupName> --template-file <PathToYourBicepFile>`
+`<YourResourceGroupName>`: Name of the resource group where you want the 
+resources to be deployed. You must create the resource group beforehand if 
+it doesn't exist.
 
-  `<YourResourceGroupName>`: Name of the resource group where you want the resources to be deployed. You must create the resource group beforehand if it doesn't exist.
-  `<PathToYourBicepFile>`: Path to the Bicep file in your workspace, e.g., `./iac/storageAccount.bicep`.
-
+`<PathToYourBicepFile>`: Path to the Bicep file in your workspace, e.g., `./iac/storageAccount.bicep`.
+```
 
 ## Edit Bicep files
 
