@@ -2,7 +2,7 @@
 title: Use Azure Event Grid in Spring
 description: Configure a Spring Boot application created with the Spring Initializr to use the Azure Event Grid.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 09/07/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

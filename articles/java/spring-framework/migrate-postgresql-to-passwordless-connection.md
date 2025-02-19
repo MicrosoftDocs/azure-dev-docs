@@ -3,7 +3,7 @@ title: Migrate an application to use passwordless connections with Azure Databas
 description: Learn how to migrate existing applications using Azure Database for PostgreSQL away from authentication patterns such as passwords to more secure approaches like Managed Identity.
 ms.topic: how-to
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 01/18/2023
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---

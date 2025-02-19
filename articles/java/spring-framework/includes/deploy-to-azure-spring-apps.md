@@ -1,7 +1,7 @@
 ---
 ms.date: 02/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ---
 
 ## Deploy to Azure Spring Apps

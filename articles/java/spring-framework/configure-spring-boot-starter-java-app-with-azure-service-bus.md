@@ -2,7 +2,7 @@
 title: Use JMS in Spring to access Azure Service Bus
 description: This tutorial demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 04/06/2023
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, passwordless-java

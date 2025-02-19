@@ -2,7 +2,7 @@
 title: Spring Cloud Function in Azure
 description: Learn about using Spring Cloud Function in Azure.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 12/06/2023
 ms.topic: article
 ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
