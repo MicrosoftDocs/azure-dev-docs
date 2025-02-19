@@ -101,7 +101,7 @@ You'll need a user-managed identity for Azure Image Builder(AIB) to distribute i
 
 Use your GitHub secret with the [Azure Login action](https://github.com/Azure/login) to authenticate to Azure.
 
-# [Open ID Connect](#tab/openid)
+# [OpenID Connect](#tab/openid)
 
 For Open ID Connect you'll use a federated credential associated with your Active Directory app.
 
@@ -125,7 +125,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 ```
 
-# [Service principal](#tab/principal)
+# [Service principal](#tab/userlevel)
 
 In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
 
@@ -153,7 +153,7 @@ Set up the Java environment with the [Java Setup SDK action](https://github.com/
 
 [GitHub artifacts](https://docs.github.com/en/actions/guides/storing-workflow-data-as-artifacts) are a way to share files in a workflow between jobs. You'll create an artifact to hold the JAR file and then add it to the virtual machine image.
 
-# [Open ID Connect](#tab/openid)
+# [OpenID Connect](#tab/openid)
 
 ```yaml
 on: [push]
@@ -195,7 +195,7 @@ jobs:
         path: staging
 ```
 
-# [Service principal](#tab/principal)
+# [Service principal](#tab/userlevel)
 
 ```yaml
 on: [push]
@@ -305,7 +305,7 @@ As a last step, create a virtual machine from your image.
 
 ### Complete YAML
 
-# [Open ID Connect](#tab/openid)
+# [OpenID Connect](#tab/openid)
 
 ```yaml
   on: [push]
@@ -363,7 +363,7 @@ As a last step, create a virtual machine from your image.
               --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
 ```
 
-# [Service principal](#tab/principal)
+# [Service principal](#tab/userlevel)
 
 ```yaml
   on: [push]
