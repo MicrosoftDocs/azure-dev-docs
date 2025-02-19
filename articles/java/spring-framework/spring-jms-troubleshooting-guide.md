@@ -3,7 +3,7 @@ title: Spring JMS troubleshooting guide
 description: Describes how to troubleshoot known issues and common errors when using Spring JMS.
 ms.date: 08/17/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

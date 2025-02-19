@@ -5,7 +5,7 @@ ms.date: 07/22/2022
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ---
 
 # Enable HTTPS in Spring Boot with Azure Key Vault certificates

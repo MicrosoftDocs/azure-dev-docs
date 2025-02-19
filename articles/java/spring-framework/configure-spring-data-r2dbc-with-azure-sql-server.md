@@ -1,7 +1,7 @@
 ---
 title: Use Spring Data R2DBC with Azure SQL Database
 description: Learn how to use Spring Data R2DBC with an Azure SQL Database.
-ms.author: hangwan
+ms.author: seal
 ms.date: 07/22/2022
 author: KarlErickson
 ms.topic: article

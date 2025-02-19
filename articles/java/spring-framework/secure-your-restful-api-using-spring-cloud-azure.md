@@ -2,7 +2,7 @@
 title: Secure your REST API using Spring Cloud Azure
 description: Shows you how to secure REST API by Microsoft Entra ID.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 08/28/2024
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

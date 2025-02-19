@@ -2,7 +2,7 @@
 title: Deploy application to Azure hosting services
 description: This article tells how to deploy application to Azure hosting services
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 04/06/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

@@ -3,7 +3,7 @@ title: Spring Cloud Azure Auto-configure Azure SDK clients
 description: This reference doc contains Spring Cloud Azure how to Auto-configure Azure SDK clients.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

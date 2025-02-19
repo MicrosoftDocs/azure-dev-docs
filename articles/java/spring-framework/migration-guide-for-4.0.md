@@ -2,7 +2,7 @@
 title: Migration guide for Spring Cloud Azure 4.0
 description: Helps with migration to Spring Cloud Azure 4.0 from legacy Azure Spring libraries.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 04/06/2023
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
