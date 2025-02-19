@@ -6,7 +6,7 @@ ms.author: jukullam
 ms.topic: quickstart
 ms.service: azure-virtual-machines
 ms.subservice: imaging
-ms.date: 06/09/2023
+ms.date: 02/12/2025
 ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-extended-java, linux-related-content
 ---
 
@@ -101,27 +101,7 @@ You'll need a user-managed identity for Azure Image Builder(AIB) to distribute i
 
 Use your GitHub secret with the [Azure Login action](https://github.com/Azure/login) to authenticate to Azure.
 
-# [Service principal](#tab/principal)
-
-In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
-
-
-```yaml
-on: [push]
-
-name: Create Custom VM Image
-
-jobs:
-  build-image:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Log in with Azure
-        uses: azure/login@v1
-        with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
-```
-
-# [Open ID Connect](#tab/openid)
+# [OpenID Connect](#tab/openid)
 
 For Open ID Connect you'll use a federated credential associated with your Active Directory app.
 
@@ -138,11 +118,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log in with Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+```
+
+# [Service principal](#tab/userlevel)
+
+In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
+
+
+```yaml
+on: [push]
+
+name: Create Custom VM Image
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in with Azure
+        uses: azure/login@v2
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
 ```
 
 ___
@@ -153,7 +153,7 @@ Set up the Java environment with the [Java Setup SDK action](https://github.com/
 
 [GitHub artifacts](https://docs.github.com/en/actions/guides/storing-workflow-data-as-artifacts) are a way to share files in a workflow between jobs. You'll create an artifact to hold the JAR file and then add it to the virtual machine image.
 
-# [Service principal](#tab/principal)
+# [OpenID Connect](#tab/openid)
 
 ```yaml
 on: [push]
@@ -172,7 +172,7 @@ jobs:
       uses: actions/checkout@v3    
 
     - name: Login via Az module
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 
@@ -195,7 +195,7 @@ jobs:
         path: staging
 ```
 
-# [Open ID Connect](#tab/openid)
+# [Service principal](#tab/userlevel)
 
 ```yaml
 on: [push]
@@ -214,7 +214,7 @@ jobs:
       uses: actions/checkout@v3    
 
     - name: Login via Az module
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
 
@@ -236,7 +236,6 @@ jobs:
         name: Package
         path: staging
 ```
-
 ___
 
 ## Build your image 
@@ -306,7 +305,7 @@ As a last step, create a virtual machine from your image.
 
 ### Complete YAML
 
-# [Service principal](#tab/principal)
+# [OpenID Connect](#tab/openid)
 
 ```yaml
   on: [push]
@@ -321,63 +320,7 @@ As a last step, create a virtual machine from your image.
         uses: actions/checkout@v2    
 
       - name: Login via Az module
-        uses: azure/login@v1
-        with:
-          creds: ${{secrets.AZURE_CREDENTIALS}}
-
-      - name: Setup Java 1.8.x
-        uses: actions/setup-java@v1
-        with:
-          java-version: '1.8.x'
-          
-      - name: Build Java
-        run: mvn --batch-mode --update-snapshots verify
-
-      - run: mkdir staging && cp target/*.jar staging
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: staging
-
-      - name: Create App Baked Image
-        id: imageBuilder
-        uses: azure/build-vm-image@v0
-        with:
-          location: 'eastus2'
-          resource-group-name: '{rgName}'
-          managed-identity: '{Identity}' # Managed identity
-          source-os-type: 'windows'
-          source-image-type: 'platformImage'
-          source-image: MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest #unique identifier of source image
-          dist-type: 'SharedImageGallery'
-          dist-resource-id: '/subscriptions/{subscriptionID}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}/versions/0.1.${{ GITHUB.RUN_ID }}' #Replace with the resource id of your shared image  gallery's image definition
-          dist-location: 'eastus2'
-
-      - name: CREATE VM
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.0.72
-          inlineScript: |
-          az vm create --resource-group ghactions-vMimage  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myuser --admin-password "${{ secrets.VM_PWD }}" --location  eastus2 \
-              --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
-```
-
-# [Open ID Connect](#tab/openid)
-
-```yaml
-  on: [push]
-
-  name: Create Custom VM Image
-
-  jobs:
-    build-image:
-      runs-on: ubuntu-latest    
-      steps:
-      - name: Checkout
-        uses: actions/checkout@v2    
-
-      - name: Login via Az module
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -419,6 +362,63 @@ As a last step, create a virtual machine from your image.
           az vm create --resource-group ghactions-vMimage  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myuser --admin-password "${{ secrets.VM_PWD }}" --location  eastus2 \
               --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
 ```
+
+# [Service principal](#tab/userlevel)
+
+```yaml
+  on: [push]
+
+  name: Create Custom VM Image
+
+  jobs:
+    build-image:
+      runs-on: ubuntu-latest    
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v2    
+
+      - name: Login via Az module
+        uses: azure/login@v2
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: Setup Java 1.8.x
+        uses: actions/setup-java@v1
+        with:
+          java-version: '1.8.x'
+          
+      - name: Build Java
+        run: mvn --batch-mode --update-snapshots verify
+
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
+
+      - name: Create App Baked Image
+        id: imageBuilder
+        uses: azure/build-vm-image@v0
+        with:
+          location: 'eastus2'
+          resource-group-name: '{rgName}'
+          managed-identity: '{Identity}' # Managed identity
+          source-os-type: 'windows'
+          source-image-type: 'platformImage'
+          source-image: MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest #unique identifier of source image
+          dist-type: 'SharedImageGallery'
+          dist-resource-id: '/subscriptions/{subscriptionID}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}/versions/0.1.${{ GITHUB.RUN_ID }}' #Replace with the resource id of your shared image  gallery's image definition
+          dist-location: 'eastus2'
+
+      - name: CREATE VM
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+          az vm create --resource-group ghactions-vMimage  --name "app-vm-${{ GITHUB.RUN_NUMBER }}"  --admin-username myuser --admin-password "${{ secrets.VM_PWD }}" --location  eastus2 \
+              --image "${{ steps.imageBuilder.outputs.custom-image-uri }}"              
+```
+
 ---
 
 
