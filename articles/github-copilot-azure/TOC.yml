@@ -24,3 +24,5 @@ items:
       items: 
         - name: Create and edit bicep templates
           href: bicep-generate-edit.md
+        - name: Create and edit Terraform templates
+          href: terraform-generate-edit.md          
