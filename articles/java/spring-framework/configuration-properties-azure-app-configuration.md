@@ -2,7 +2,7 @@
 title: Azure App Configuration configuration properties
 description: This reference doc contains all Azure App Configuration configuration properties.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 05/10/2023
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

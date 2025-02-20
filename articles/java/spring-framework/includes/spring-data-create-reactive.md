@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.date: 07/22/2022
-ms.author: hangwan
+ms.author: seal
 ---
 
 ## Create a reactive Spring Boot application

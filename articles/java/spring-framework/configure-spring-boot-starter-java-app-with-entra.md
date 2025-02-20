@@ -2,7 +2,7 @@
 title: Add sign-in with Microsoft Entra account to a Spring web app
 description: Shows you how to develop a Spring web app that supports sign-in by Microsoft Entra account.
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.date: 01/17/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

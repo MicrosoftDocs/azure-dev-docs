@@ -3,7 +3,7 @@ title: Spring Cloud Azure Redis support
 description: This article describes how Spring Cloud Azure and Azure Redis can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

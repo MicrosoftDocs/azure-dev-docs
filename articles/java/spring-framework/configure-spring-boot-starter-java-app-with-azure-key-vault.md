@@ -5,7 +5,7 @@ ms.date: 04/06/2023
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ---
 
 # Load a secret from Azure Key Vault in a Spring Boot application

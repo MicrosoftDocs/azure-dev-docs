@@ -1,7 +1,7 @@
 ---
 ms.date: 02/22/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: seal
 ---
 
 ## Configure a firewall rule for your Azure SQL Database server
