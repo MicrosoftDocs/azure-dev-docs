@@ -64,9 +64,9 @@ resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-0
 }
 ```
 
-Create a new main.bicep file, then copy the response from GitHub Copilt for Azure and paste into the new file.
+Create a new main.bicep file, then copy the response from GitHub Copilot for Azure and paste into the new file.
 
-Modify the place holder text for values like `blobContainerName` and `filesharename`, and modify values that affect the 
+Modify the place holder text for values like `blobContainerName` and `filesharename`, and modify values that affect the names, location, SKUs, etc.
 
 ## Refine the response
 
