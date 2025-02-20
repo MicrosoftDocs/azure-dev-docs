@@ -79,6 +79,7 @@ on: [push]
 
 permissions:
   id-token: write # Require write permission to Fetch an OIDC token.
+  contents: read  # This is required for actions/checkout
       
 jobs: 
   test:
