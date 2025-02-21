@@ -71,7 +71,7 @@ This starter provides the following 3 parts of configuration options:
 This section contains the configuration options used for connecting to Azure Event Hubs.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-eventhubs:
 
@@ -391,7 +391,7 @@ This starter provides the following 2 parts of configuration options:
 This section contains the configuration options used for connecting to Azure Service Bus.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-servicebus:
 
@@ -708,7 +708,7 @@ This starter provides the following configuration options:
 This section contains the configuration options used for connecting to Azure Storage Queue.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-storage-queue:
 

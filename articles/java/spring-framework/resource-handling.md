@@ -46,7 +46,7 @@ The `spring-cloud-azure-starter-storage-file-share` dependency is only required 
 ## Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id).
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-storage-blob`:
 
