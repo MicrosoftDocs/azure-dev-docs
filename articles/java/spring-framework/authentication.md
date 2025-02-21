@@ -23,35 +23,38 @@ With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC
 1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
 1. Next, the token is passed as part of a request to the Azure service to authorize access to the specified resource.
 
-### Credential Types
+### Credential types
 
-Spring Cloud Azure allows you to configure different credential types to authenticate, including `DefaultAzureCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, `AzureCliCredential`, etc.
+Spring Cloud Azure enables you to configure different credential types for authentication, including `DefaultAzureCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, `AzureCliCredential`, and so on.
 
 #### DefaultAzureCredential
 
-The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to be run in the Azure Cloud, which is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
+`DefaultAzureCredential` is appropriate for most scenarios where the application is intended to run in the Azure Cloud, because it combines the following credentials:
+
+- Credentials commonly used to authenticate when deployed.
+- Credentials used to authenticate in a development environment.
 
 > [!NOTE]
-> `DefaultAzureCredential` is intended to simplify getting started with the Azure SDK by handling common scenarios with reasonable default behaviors. If you want more control or the default settings doesn't meet your scenario, you should use other credential types.
+> `DefaultAzureCredential` is intended to simplify getting started with the Azure SDK by handling common scenarios with reasonable default behaviors. If you want more control or the default settings don't support your scenario, you should use other credential types.
 
-The `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order:
+`DefaultAzureCredential` attempts to authenticate via the following mechanisms in order:
 
 :::image type="content" source="media/spring-cloud-azure/default-azure-credential-authentication.png" alt-text="Diagram showing the authentication mechanism for `DefaultAzureCredential`." border="false":::
 
-* Environment - The `DefaultAzureCredential` tries to read account information specified via environment variables and use it to authenticate.
-* Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` tries to authenticate with that account.
-* Workload Identity - If the application is deployed to a virtual machines (VMs), the `DefaultAzureCredential` tries to authenticate with that account.
-* Shared Token Cache - If you authenticated via Visual Studio, the `DefaultAzureCredential` tries to authenticate with that account.
-* IntelliJ - If you authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` tries to authenticate with that account.
-* Azure CLI - If you authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` tries to authenticate with that account.
-* Azure PowerShell - If you authenticated via the Azure PowerShell, the `DefaultAzureCredential` tries to authenticate with that account.
-* Azure Developer CLI - If you authenticated via the Azure Developer CLI, the `DefaultAzureCredential` tries to authenticate with that account.
+* Environment - `DefaultAzureCredential` tries to read account information specified via environment variables and use it to authenticate.
+* Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, `DefaultAzureCredential` tries to authenticate with that account.
+* Workload Identity - If the application is deployed to a virtual machines (VM), `DefaultAzureCredential` tries to authenticate with that account.
+* Shared Token Cache - If you authenticated via Visual Studio, `DefaultAzureCredential` tries to authenticate with that account.
+* IntelliJ - If you authenticated via Azure Toolkit for IntelliJ, `DefaultAzureCredential` tries to authenticate with that account.
+* Azure CLI - If you authenticated an account via the Azure CLI `az login` command, `DefaultAzureCredential` tries to authenticate with that account.
+* Azure PowerShell - If you authenticated via Azure PowerShell, `DefaultAzureCredential` tries to authenticate with that account.
+* Azure Developer CLI - If you authenticated via the Azure Developer CLI, `DefaultAzureCredential` tries to authenticate with that account.
 
 > [!TIP]
 > Be sure the security principal has sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-microsoft-entra-id).
 
 > [!NOTE]
-> Since Spring Cloud Azure AutoConfigure 4.1.0, register a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` to manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
+> Since Spring Cloud Azure AutoConfigure 4.1.0, you must register a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` to manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
 
 #### Managed identities
 
@@ -76,7 +79,7 @@ For more information about managed identity, see [What are managed identities fo
 
 #### Other credential types
 
-If you want more control, the `DefaultAzureCredential` or the default settings doesn't meet your scenario, you should use other credential types.
+If you want more control than what's provided by `DefaultAzureCredential`, or the default settings don't support your scenario, you should use other credential types.
 
 <a name='authenticate-with-microsoft-entra-id'></a>
 
@@ -100,7 +103,7 @@ The following table lists authentication properties:
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
-The application looks in several places to find an available credential, each Azure SDK client builder factory adopts a custom bean of type `TokenCredential` first if the property `token-credential-bean-name` is specified, and fall back to use `DefaultAzureCredential` if no credential properties are configured.
+The application looks in several places to find an available credential. Each Azure SDK client builder factory adopts a custom bean of type `TokenCredential` first if the property `token-credential-bean-name` is specified, and falls back to use `DefaultAzureCredential` if no credential properties are configured.
 
 #### Authenticate using a customized TokenCredential bean
 
