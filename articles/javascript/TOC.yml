@@ -126,11 +126,6 @@
     href: learn-azure-javascript.md  
   - name: Samples
     items: 
-    - name: Contoso Real Estate
-      items: 
-      - name: "GitHub: contoso-real-estate"
-        href: https://github.com/Azure-Samples/contoso-real-estate
-        displayName: contoso, composable, sample, example, real-estate
     - name: Azure Samples browser
       href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: npm Packages
