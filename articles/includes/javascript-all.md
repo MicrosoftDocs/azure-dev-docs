@@ -382,7 +382,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.51.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.51.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.51.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.51.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.15.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.15.3) |  |  |
-| @azure-tools/typespec-go | npm [0.3.7](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.7) |  |  |
+| @azure-tools/typespec-go | npm [0.3.8](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.8) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.7.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -406,7 +406,7 @@
 | App Configuration Provider File Source | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.0.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.11](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.11) |  |  |
-| Unknown Display Name | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.8) |  |  |
+| Unknown Display Name | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.9) |  |  |
 | Unknown Display Name | npm [0.9.1](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.9.1) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.65.0](https://www.npmjs.com/package/@typespec/events/v/0.65.0) |  |  |
@@ -494,7 +494,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250221.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250221.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250223.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250223.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -572,7 +572,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.70](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.70) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.28.4](https://www.npmjs.com/package/@autorest/python/v/6.28.4) |  | GitHub [6.28.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
