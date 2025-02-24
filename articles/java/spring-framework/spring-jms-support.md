@@ -131,6 +131,8 @@ spring:
       pricing-tier: ${PRICING_TIER}
 ```
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 ## Connections
 
 Spring Cloud Azure provides the following three Connection Factory options for connecting to Azure Service Bus JMS:
