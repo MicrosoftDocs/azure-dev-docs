@@ -164,7 +164,7 @@ git clone https://github.com/<your-github-id>/terraform.git
 
 The folder contains several files, but you're unsure what they contain or how they can be used. You open the `main.tf` file in the code editor to preview the file.
 
-   :::image type="content" source="media/bicep-generate-edit/ghcpa-bicep-edit.png" alt-text="Screenshot that shows Visual Studio Code with a project open in the Explorer pane and a main.bicep file open in the .":::
+   :::image type="content" source="media/terraform-generate-edit/ghcpa-terraform-edit.png" alt-text="Screenshot that shows Visual Studio Code with a project open in the Explorer pane and a main.tf file open in the .":::
 
 GitHub Copilot for Azure allows you to ask specific questions about the file that is currently in the code editor. In the chat pane, below the prompt, there's a bicep icon, followed by the name of the file that's open in the main editor, and the words `Current file` followed by an eye icon.
 
@@ -185,7 +185,7 @@ GitHub Copilot for Azure may respond by walking through the various sections and
 You could follow up with questions such as:
 
 ```
-What app service plan is currently being used?
+@azure What app service plan is currently being used?
 ```
 
 ```
