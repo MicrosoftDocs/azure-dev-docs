@@ -227,6 +227,8 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                      mode: MANUAL
      ```
 
+     [!INCLUDE [security-note](../includes/security-note.md)]
+
    * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
@@ -640,6 +642,8 @@ Connection to multiple Event Hubs namespaces is also supported by using multiple
    > [!NOTE]
    > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
 1. We need define two suppliers and two consumers:
 
    ```java
@@ -864,6 +868,8 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                      producer:
                        entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
+
+     [!INCLUDE [security-note](../includes/security-note.md)]
 
    * For credentials as service principal, configure the following properties in your **application.yml** file:
 
@@ -1213,6 +1219,8 @@ Connection to multiple Service Bus namespaces is also supported by using multipl
 
    > [!NOTE]
    > The previous application file shows how to configure a single default poller for application to all bindings. If you want to configure the poller for a specific binding, you can use a configuration such as `spring.cloud.stream.bindings.<binding-name>.producer.poller.fixed-delay=3000`.
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
 1. we need define two suppliers and two consumers
 

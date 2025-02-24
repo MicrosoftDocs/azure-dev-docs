@@ -697,6 +697,8 @@ spring:
             account-key: ${AZURE_STORAGE_ACCOUNT_KEY}
 ```
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 #### API changes
 
 * For the changes to the listener annotations, see the migration guide of the <<migration-azure-spring-cloud-messaging, azure-spring-cloud-messaging>> library.
@@ -1258,6 +1260,8 @@ spring:
                   inclusive: false
 ```
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 If you use security principals instead of connection strings, in versions before 4.0 the application will firstly connect to Azure Resource Manager (ARM) with the provided security principal, and then retrieve the connection string of the specified namespace with ARM. In the end the application uses the retrieved connection string to connect to Azure Event Hubs. In this way the provided security principal should be granted with the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role to retrieve of the associated Azure Event Hubs namespace.
 
 For Azure Spring Apps 4.0, we provide two ways of leveraging security principals for authentication. One is still using the principals to connect to ARM and retrieve the connection strings where the `Contributor` role is required for the principals. The other leverages security principals to authenticate to Microsoft Entra ID and then connect to Azure Event Hubs directly. In this case, the `Contributor` role isn't necessary anymore, while other `Data` related roles are required for messaging operations. To make sure the security principal has been granted the sufficient permission to access the Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id).
@@ -1450,6 +1454,8 @@ spring:
             producer:
               entity-type: queue #set as topic if needed
 ```
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 If you use security principals instead of connection strings, in versions before 4.0 the application will firstly connect to Azure Resource Manager (ARM) with the provided security principal, and then retrieve the connection string of the specified namespace with ARM. In the end the application uses the retrieved connection string to connect to Azure Service Bus. In this way the provided security principal should be granted with the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role to retrieve of the associated Azure Service Bus namespace.
 
