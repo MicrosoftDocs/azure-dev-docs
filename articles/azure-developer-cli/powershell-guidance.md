@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Troubleshoot PowerShell issues with Azure Developer CLI templates
 
-Azure Developer CLI (`azd`) templates often use [hooks](/azure/developer/azure-developer-cli/azd-extensibility) to execute custom scripts before and after `azd` lifecycle events, such as provisioning and deployment. Users can choose between Bash or PowerShell to write these custom scripts, depending on their preference and the environment they are working in. If you plan to use templates that rely on PowerShell to execute scripts, make sure you have [PowerShell 7.4 or higher installed](/powershell/scripting/install/installing-powershell) to avoid potential errors.
+Azure Developer CLI (`azd`) templates often use [hooks](/azure/developer/azure-developer-cli/azd-extensibility) to execute custom scripts before and after `azd` lifecycle events, such as provisioning and deployment. Users can choose between Bash or PowerShell to write these custom scripts, depending on their preference and the environment they're working in. If you plan to use templates that rely on PowerShell to execute scripts, make sure you have [PowerShell 7.4 or higher installed](/powershell/scripting/install/installing-powershell) to avoid potential errors.
 
 ## PowerShell considerations
 
-If a template relies on PowerShell to execute hook scripts, you will encounter an error when running commands like `azd up` if PowerShell version 7.x is not installed. The Azure Developer CLI (`azd`) does not check for PowerShell installation before running commands; it only checks when executing a PowerShell hook script.
+If a template relies on PowerShell to execute hook scripts, you'll encounter an error when running commands like `azd up` if PowerShell version 7.x isn't installed. The Azure Developer CLI (`azd`) doesn't check for PowerShell installation before running commands; it only checks when executing a PowerShell hook script.
 
 To avoid these errors:
 
@@ -47,7 +47,7 @@ services:
       run: ./scripts/prepdocs.ps1
 ```
 
-For the `postprovision` hook, note that PowerShell is specified as the shell environment for the `prepdocs.ps1` script. This template would encounter an error during command workflows such as `azd up` or `azd provision` if PowerShell 7.x is not installed on the device. When you see these types of PowerShell configurations in a template `azure.yaml` file, verify that PowerShell is installed on your device before running the template.
+For the `postprovision` hook, note that PowerShell is specified as the shell environment for the `prepdocs.ps1` script. This template would encounter an error during command workflows such as `azd up` or `azd provision` if PowerShell 7.x isn't installed on the device. When you see these types of PowerShell configurations in a template `azure.yaml` file, verify that PowerShell is installed on your device before running the template.
 
 ### PowerShell version differences
 
