@@ -1,7 +1,7 @@
 ---
 title: Build Advanced Retrieval-Augmented Generation Systems
 description: As a developer, learn about real-world considerations and patterns for retrieval-augmented generation (RAG)-based chat systems.
-ms.date: 11/19/2024
+ms.date: 01/15/2025
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
 ---
@@ -140,7 +140,7 @@ To get the most accurate and efficient completions, you must account for many fa
 - How do you evaluate the LLM's response to ensure that the LLM's completion answers the user's original query?
 - How do you ensure that the LLM's response complies with the organization's policies?
 
-The entire inference pipeline runs in real time. There isn't one right way to design your preprocessing and post-processing steps. You likely will choose a combination of programming logic and other LLM calls. One of the most important considerations is the trade-off between building the most accurate and compliant pipeline possible and the cost and latency required to make it happen.
+The entire inference pipeline runs in real time. There isn't one right way to design your preprocessing and post-processing steps. You likely choose a combination of programming logic and other LLM calls. One of the most important considerations is the trade-off between building the most accurate and compliant pipeline possible and the cost and latency required to make it happen.
 
 Let's identify specific strategies in each stage of the inference pipeline.
 
