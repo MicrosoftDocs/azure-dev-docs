@@ -48,8 +48,6 @@
       href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Express.js with MERN
       href: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app?tabs=github-codespace&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Express.js convert text to speech
-      href: tutorial/convert-text-to-speech-cognitive-services.md
     - name: Add easy authentication
       href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Use Microsoft Identity provider (MSAL.js)
