@@ -48,3 +48,18 @@ services:
 ```
 
 For the `postprovision` hook, note that PowerShell is specified as the shell environment for the `prepdocs.ps1` script. This template would encounter an error during command workflows such as `azd up` or `azd provision` if PowerShell 7.x is not installed on the device. When you see these types of PowerShell configurations in a template `azure.yaml` file, verify that PowerShell is installed on your device before running the template.
+
+## PowerShell version considerations
+
+There are a number of [differences between PowerShell 7.x and PowerShell 5.1](/powershell/scripting/whats-new/differences-from-windows-powershell) that are worth exploring, including the following:
+
+- PowerShell 7 is cross-platform (Windows, macOS, Linux), while PowerShell 5 is Windows-only.
+- PowerShell 7 is built on .NET Core, whereas PowerShell 5 is built on .NET Framework.
+- PowerShell 7 offers improved performance and faster startup.
+- PowerShell 7 includes new cmdlets, modules, operators, and other features.
+- PowerShell 7 is actively developed with regular updates, while PowerShell 5 receives only security updates and bug fixes.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Customize your Azure Developer CLI workflows using command event hooks](azd-extensibility.md)
