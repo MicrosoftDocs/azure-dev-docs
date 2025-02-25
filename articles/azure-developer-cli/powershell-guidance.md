@@ -49,7 +49,7 @@ services:
 
 For the `postprovision` hook, note that PowerShell is specified as the shell environment for the `prepdocs.ps1` script. This template would encounter an error during command workflows such as `azd up` or `azd provision` if PowerShell 7.x is not installed on the device. When you see these types of PowerShell configurations in a template `azure.yaml` file, verify that PowerShell is installed on your device before running the template.
 
-## PowerShell version considerations
+### PowerShell version differences
 
 There are a number of [differences between PowerShell 7.x and PowerShell 5.1](/powershell/scripting/whats-new/differences-from-windows-powershell) that are worth exploring, including the following:
 
