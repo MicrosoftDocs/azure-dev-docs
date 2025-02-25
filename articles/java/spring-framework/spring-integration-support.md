@@ -130,6 +130,8 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
                  account-key: ${CHECKPOINT-ACCESS-KEY}
      ```
 
+     [!INCLUDE [security-note](../includes/security-note.md)]
+
    * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
@@ -424,6 +426,8 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
            servicebus:
              connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
      ```
+
+     [!INCLUDE [security-note](../includes/security-note.md)]
 
    * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
@@ -740,6 +744,8 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
              queue:
                connection-string: ${AZURE_STORAGE_QUEUE_CONNECTION_STRING}
      ```
+
+     [!INCLUDE [security-note](../includes/security-note.md)]
 
    * For credentials as managed identities, configure the following properties in your **application.yml** file:
 

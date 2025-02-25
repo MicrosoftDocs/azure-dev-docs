@@ -111,6 +111,8 @@ Use the following steps to configure your application to send an event by using 
                  auto-complete: false
    ```
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
 1. Edit the startup class file to show the following content. This code generates completions.
 
    ```java
