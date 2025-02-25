@@ -76,13 +76,12 @@ This workflow authenticates with OpenID Connect and uses Azure CLI to get the de
 ```yaml
 name: Run Azure CLI Login with OpenID Connect
 on: [push]
-
-permissions:
-  id-token: write # Require write permission to Fetch an OIDC token.
-  contents: read  # This is required for actions/checkout
-      
+     
 jobs: 
   test:
+    permissions:
+      id-token: write # Require write permission to Fetch an OIDC token.
+
     runs-on: ubuntu-latest
     steps:
     - name: Azure CLI Login
@@ -108,12 +107,12 @@ This workflow authenticates with OpenID Connect and uses both Azure CLI and Azur
 ```yaml
 name: Run Azure Login with OpenID Connect
 on: [push]
-
-permissions:
-  id-token: write # Require write permission to Fetch an OIDC token.
       
 jobs: 
   test:
+    permissions:
+      id-token: write # Require write permission to Fetch an OIDC token.
+
     runs-on: ubuntu-latest
     steps:
     - name: Azure Login
