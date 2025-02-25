@@ -32,7 +32,7 @@ pwsh --version
 
 ### Check if PowerShell is a dependency
 
-Before running commands like `azd up`, users should verify if their template includes PowerShell scripts. This can be done by checking the `hooks` section of the `azure.yaml` file, which defines custom scripts to run at various stages of the workflow.
+Before running commands like `azd up`, users should verify if their template includes PowerShell scripts by checking the `hooks` section of the `azure.yaml` file, which defines custom scripts to run at various stages of the workflow.
 
 Consider the following `azure.yaml` file that includes hooks:
 
@@ -47,4 +47,4 @@ services:
       run: ./scripts/prepdocs.ps1
 ```
 
-For the `postprovision` hook, note that PowerShell is specified as the shell environment for the `prepdocs.ps1` script. This template would encounter an error during command workflows such as `azd up` or `azd provision` if PowerShell is not installed on the device. When you see these types of PowerShell configurations in a template `azure.yaml` file, verify that PowerShell is installed on your device before running the template.
+For the `postprovision` hook, note that PowerShell is specified as the shell environment for the `prepdocs.ps1` script. This template would encounter an error during command workflows such as `azd up` or `azd provision` if PowerShell 7.x is not installed on the device. When you see these types of PowerShell configurations in a template `azure.yaml` file, verify that PowerShell is installed on your device before running the template.
