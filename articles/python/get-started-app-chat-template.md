@@ -1,7 +1,7 @@
 ---
 title: Get started with the chat using your own data sample for Python
 description: Get started with Python and search across your own data by using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 12/20/2024
+ms.date: 02/25/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -105,7 +105,7 @@ Use the following instructions to deploy a preconfigured development environment
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI:
 
     ```bash
-    azd auth login
+    azd auth login --use-device-code
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -155,7 +155,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy the chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it's fully executed.
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes.
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -216,8 +216,8 @@ The intelligence of the chat is determined by the Azure OpenAI model and the set
 |**Use semantic ranker for retrieval**|Enables the Azure AI Search [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), which is a model that reranks search results based on semantic similarity to the user's query.|
 |**Use semantic captions**|Sends semantic captions to the LLM instead of the full search result. A semantic caption is extracted from a search result during the process of semantic ranking.|
 |**Suggest follow-up questions**|Asks the LLM to suggest follow-up questions based on the user's query.|
-|**Retrieval mode**|Sets the retrieval mode for the Azure AI Search query. **Vectors + Text (Hybrid)** uses a combination of vector search and full text search. **Vectors** uses only vector search. **Text** uses only full text search. Hybrid is generally optimal.|
-|**Stream chat completion responses**|Continuously streams the response to the chat UI as it's generated.|
+|**Retrieval mode**|Sets the retrieval mode for the Azure AI Search query. **Vectors + Text (Hybrid)** uses a combination of vector search and full text search. **Vectors** uses only vector search. **Text** uses only full text search. Hybrid is optimal.|
+|**Stream chat completion responses**|Continuously streams the generated response to the chat UI.|
 
 The following steps walk you through the process of changing the settings.
 
@@ -296,7 +296,7 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You can always delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
