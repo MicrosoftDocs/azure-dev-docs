@@ -75,6 +75,8 @@
     items:
     - name: Troubleshoot
       href: troubleshoot.md
+    - name: Troubleshoot PowerShell errors
+      href: powershell-guidance.md
     - name: Monitor your project
       href: monitor-your-app.md
   - name: Feature versioning and release strategy
