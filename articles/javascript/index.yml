@@ -186,9 +186,6 @@ conceptualContent:
           - itemType: tutorial
             text: Express.js with MERN
             url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
-          - itemType: how-to-guide
-            text: Express.js convert text to speech
-            url: ./tutorial/convert-text-to-speech-cognitive-services.md
 # --------------------------------------------------------------
 additionalContent:
   sections:
