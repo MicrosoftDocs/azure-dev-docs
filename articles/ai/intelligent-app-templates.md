@@ -15,6 +15,7 @@ zone_pivot_groups: intelligent-apps-languages-top-four
 This section of the documentation introduces you to the *AI app templates* and related articles that use these templates to demonstrate how to perform key developer tasks. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. The following sections introduce some of the key templates in each category for the programming language you selected at the top of this article.
+
 :::zone pivot="dotnet"
 
 To browse a comprehensive list including these and other C# templates, see the AI app templates on the [AI App Template gallery](https://azure.github.io/ai-app-templates/?tags=dotnetCsharp).
