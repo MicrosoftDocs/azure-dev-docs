@@ -129,7 +129,7 @@ The troubleshooting steps might differ, depending on the root cause.
 
 1. Verify that you've specified an environment name that's the same as your environment name.
 
-1. Go to `https://github.com/<your repo>/actions`, and then refer to the log file in the pipeline run for more information.
+1. Go to the **Actions** tab of the impacted GitHub repo and investigate the log file in the pipeline run for more information.
 
 For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
