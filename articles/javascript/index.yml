@@ -58,6 +58,9 @@ conceptualContent:
           - itemType: overview
             text: Develop AI apps with JavaScript
             url: ./ai/azure-ai-for-javascript-developers.md
+          - itemType: concept
+            text: Generative AI for JavaScript developers
+            url: ./ai/generative-ai-for-javascript-developers.md
           - itemType: quickstart
             url: ./ai/get-started-app-chat-template.md
             text: Get started with Enterprise chat
