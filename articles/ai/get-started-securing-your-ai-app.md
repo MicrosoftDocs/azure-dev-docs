@@ -523,7 +523,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 :::zone pivot="python"
 
-1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-app-quickstart) GitHub repository.
 
@@ -533,7 +533,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 :::zone pivot="dotnet"
 
-1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart-dotnet`](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet) GitHub repository.
 
