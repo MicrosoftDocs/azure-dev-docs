@@ -1221,7 +1221,7 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
 
    ```bash
    # Create JDBC driver and module directory
-   jdbcDriverModuleDirectory="$EAP_HOME"/wildfly/modules/com/postgresql/main
+   jdbcDriverModuleDirectory=$EAP_HOME/modules/com/postgresql/main
    
    sudo mkdir -p "$jdbcDriverModuleDirectory"
    
