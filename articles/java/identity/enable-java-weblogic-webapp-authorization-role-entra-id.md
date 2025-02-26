@@ -3,7 +3,8 @@ title: Secure Java WebLogic apps using roles and role claims
 titleSuffix: Azure
 description: Shows you how to add authorization using app roles and role claims to Java WebLogic app that signs in users with the Microsoft identity platform.
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java

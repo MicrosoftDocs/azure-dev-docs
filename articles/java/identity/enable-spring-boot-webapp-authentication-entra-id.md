@@ -3,7 +3,8 @@ title: Secure Java Spring Boot apps using Microsoft Entra ID
 titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Microsoft Entra account.
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java

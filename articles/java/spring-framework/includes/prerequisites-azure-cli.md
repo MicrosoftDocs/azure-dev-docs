@@ -1,7 +1,8 @@
 ---
 author: KarlErickson
 ms.date: 07/15/2022
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: include
 ---

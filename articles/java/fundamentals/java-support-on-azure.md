@@ -2,7 +2,8 @@
 title: Java JDKs Support for Azure Development
 description: This article provides details of support for developing for or deploying Java applications to Azure and Azure Stack.
 author: KarlErickson
-ms.author: brborges
+ms.author: karler
+ms.reviewer: brborges
 ms.date: 07/13/2024
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java

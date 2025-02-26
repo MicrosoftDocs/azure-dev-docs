@@ -2,7 +2,8 @@
 title: Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
 description: Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
 author: KarlErickson
-ms.author: edburns
+ms.author: karler
+ms.reviewer: edburns
 ms.topic: conceptual
 ms.date: 09/30/2022
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java

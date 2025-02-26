@@ -5,7 +5,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: anuchan
+ms.author: karler
+ms.reviewer: anuchan
 ---
 
 # Long-running operations in the Azure SDK for Java

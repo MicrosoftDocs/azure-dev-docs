@@ -2,7 +2,8 @@
 title: Install a JDK for Azure Development
 description: How to install a Java Development Kit (JDK) for Azure development with Windows, Linux, and Mac.
 author: KarlErickson
-ms.author: brborges
+ms.author: karler
+ms.reviewer: brborges
 ms.date: 02/14/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content

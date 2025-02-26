@@ -2,7 +2,8 @@
 title: "Tutorial: Migrate WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery"
 description: Shows how to deploy WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery.
 author: KarlErickson
-ms.author: jiangma
+ms.author: karler
+ms.reviewer: jiangma
 ms.topic: tutorial
 ms.date: 12/10/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-was, devx-track-javaee-was-vm, migration-java, devx-track-extended-java

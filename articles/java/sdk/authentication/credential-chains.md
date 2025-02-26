@@ -4,7 +4,8 @@ description: 'This article describes the DefaultAzureCredential and ChainedToken
 ms.date: 11/12/2024
 ms.topic: conceptual
 author: scottaddie
-ms.author: scaddie
+ms.author: karler
+ms.reviewer: scaddie
 ---
 
 # Credential chains in the Azure Identity client library for Java

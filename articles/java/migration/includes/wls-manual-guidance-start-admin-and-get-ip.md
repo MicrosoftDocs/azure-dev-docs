@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.date: 01/24/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---

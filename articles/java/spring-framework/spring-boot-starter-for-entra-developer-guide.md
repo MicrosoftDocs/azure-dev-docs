@@ -4,7 +4,8 @@ description: This guide describes the features, issues, workarounds, and diagnos
 ms.date: 04/06/2023
 ms.topic: article
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 ---
 

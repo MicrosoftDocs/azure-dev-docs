@@ -3,7 +3,8 @@ title: Spring Cloud Azure support for Spring Messaging
 description: Spring Cloud Azure support for Spring Messaging provides integration with Azure services such as Event Hubs, Service Bus, and Storage Queue.
 ms.date: 04/07/2023
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

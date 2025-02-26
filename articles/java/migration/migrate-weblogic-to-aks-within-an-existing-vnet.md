@@ -2,7 +2,8 @@
 title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) within a custom virtual network"
 description: Shows how to deploy WebLogic Server to Azure Kubernetes Service (AKS) within a custom virtual network.
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.topic: conceptual
 ms.date: 08/22/2022
 recommendations: false
