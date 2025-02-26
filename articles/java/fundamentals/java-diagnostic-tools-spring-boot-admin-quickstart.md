@@ -2,7 +2,8 @@
 title: Get Started with the Spring Boot Admin Component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service.
 description: Shows you how to get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service.
 author: KarlErickson
-ms.author: xuycao
+ms.author: karler
+ms.reviewer: xuycao
 ms.topic: quickstart
 ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java

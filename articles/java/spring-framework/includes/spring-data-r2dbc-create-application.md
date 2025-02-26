@@ -1,7 +1,8 @@
 ---
 ms.date: 05/06/2020
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ---
 
 Create a new `Todo` Java class, next to the `DemoApplication` class, using the following code:

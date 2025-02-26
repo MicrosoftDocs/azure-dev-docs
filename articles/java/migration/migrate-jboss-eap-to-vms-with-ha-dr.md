@@ -2,7 +2,8 @@
 title: "Tutorial: Migrate JBoss EAP Application Server to Azure Virtual Machines with high availability and disaster recovery"
 description: Shows how to deploy JBoss EAP Application Server to Azure Virtual Machines with high availability and disaster recovery.
 author: KarlErickson
-ms.author: zhihaoguo
+ms.author: karler
+ms.reviewer: zhihaoguo
 ms.topic: tutorial
 ms.date: 12/12/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java

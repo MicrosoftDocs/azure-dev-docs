@@ -3,7 +3,8 @@ title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty
 recommendations: false
 description: Shows you how to manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: KarlErickson
-ms.author: edburns
+ms.author: karler
+ms.reviewer: edburns
 ms.topic: conceptual
 ms.date: 10/29/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java

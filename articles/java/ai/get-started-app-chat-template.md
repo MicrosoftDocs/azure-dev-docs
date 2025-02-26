@@ -1,7 +1,7 @@
 ---
 title: Get started with the Chat Using your Own Data Sample for Java
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 02/05/2025
+ms.date: 02/25/2025
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
@@ -89,7 +89,7 @@ Begin now with a development environment that has all the dependencies installed
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-java)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create Codespace**.
+1. On the **Create codespace** page, review the codespace configuration settings, and then select **Create Codespace**.
 
     :::image type="content" source="./media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
@@ -98,7 +98,7 @@ Begin now with a development environment that has all the dependencies installed
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
-    azd auth login
+    azd auth login --use-device-code
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -150,7 +150,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it's fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
 
 1. Provision the Azure resources and deploy the source code by running the following command:
 
@@ -283,7 +283,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You can always delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 

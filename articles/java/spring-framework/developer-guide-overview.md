@@ -3,7 +3,8 @@ title: Spring Cloud Azure overview
 description: This reference doc contains Spring Cloud Azure overview.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

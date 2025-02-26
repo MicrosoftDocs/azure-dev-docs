@@ -311,6 +311,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/tutorial/convert-text-to-speech-cognitive-services.md",
+      "redirect_url": "/azure/developer/javascript/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/javascript/tutorial/static-web-app-image-analysis.md",
       "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app",
       "redirect_document_id": false

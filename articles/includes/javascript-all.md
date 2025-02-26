@@ -373,7 +373,7 @@
 | Resource Management - Workloads SAP Virtual Instance | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-workloadssapvirtualinstance/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-workloadssapvirtualinstance-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0-beta.1/sdk/workloads/arm-workloadssapvirtualinstance/) |
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.10.10](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.10) |  |  |
+| @autorest/openapi-to-typespec | npm [0.10.11](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.11) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.8) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -382,7 +382,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.51.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.51.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.51.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.51.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.15.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.15.3) |  |  |
-| @azure-tools/typespec-go | npm [0.3.8](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.8) |  |  |
+| @azure-tools/typespec-go | npm [0.3.9](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.9) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.7.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -407,7 +407,7 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.11](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.11) |  |  |
 | Unknown Display Name | npm [0.1.9](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.9) |  |  |
-| Unknown Display Name | npm [0.9.1](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.9.1) |  |  |
+| Unknown Display Name | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.10.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.65.0](https://www.npmjs.com/package/@typespec/events/v/0.65.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/http-client/v/0.1.0) |  |  |
@@ -427,7 +427,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.33.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.33.1) |  | GitHub [1.33.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.33.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.33.2) |  | GitHub [1.33.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.32](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.32) |  | GitHub [1.0.0-beta.32](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -494,7 +494,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250223.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250223.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250226.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250226.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -566,7 +566,7 @@
 | AutoRest - Azure Resource Schema | npm [3.0.109](https://www.npmjs.com/package/@autorest/azureresourceschema/v/3.0.109) |  | GitHub [3.0.109](https://github.com/Azure/autorest.azureresourceschema) |
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
-| AutoRest - Compare | npm [0.5.0](https://www.npmjs.com/package/@autorest/compare/v/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/autorest.compare) |
+| AutoRest - Compare | npm [0.5.1](https://www.npmjs.com/package/@autorest/compare/v/0.5.1) |  | GitHub [0.5.1](https://github.com/Azure/autorest.compare) |
 | AutoRest - Core | npm [3.10.3](https://www.npmjs.com/package/@autorest/core/v/3.10.3) |  | GitHub [3.10.3](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |

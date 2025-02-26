@@ -2,7 +2,8 @@
 title: Use Spring Data JPA with Azure SQL Database
 description: Learn how to use Spring Data JPA with an Azure SQL Database.
 ms.date: 08/28/2024
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 author: KarlErickson
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java

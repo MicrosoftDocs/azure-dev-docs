@@ -1,7 +1,7 @@
 ---
 title: Get started with the chat using your own data sample for JavaScript
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 12/10/2024
+ms.date: 02/25/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -39,7 +39,7 @@ A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="../media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat sample application is built for a fictitious company called _Contoso Real Estate_, and the intelligent chat experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy and a support guide. The documents are ingested into the architecture during deployment.
+The chat sample application is built for a fictitious company called _Contoso Real Estate_, and the intelligent chat experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy, and a support guide. The documents are ingested into the architecture during deployment.
 
 The application is made from multiple components, including:
 
@@ -51,7 +51,7 @@ The application is made from multiple components, including:
 
 ## Cost
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you're done with the article, you can delete the resources to stop incurring charges.
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, the resources generate a charge but it's minimal. When you're done with the article, you can delete the resources to stop incurring charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-javascript#cost-estimation).
 
@@ -86,14 +86,14 @@ Use the following instructions to deploy a preconfigured development environment
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
 1. Right-click on the following button, and select _Open link in new window_ in order to have both the development environment and the documentation available at the same time. 
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+1. On the **Create codespace** page, review the codespace configuration settings, and then select **Create new codespace**
 
     :::image type="content" source="../media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
@@ -102,7 +102,7 @@ Use the following instructions to deploy a preconfigured development environment
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
     ```bash
-    azd auth login
+    azd auth login --use-device-code
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -151,7 +151,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -163,8 +163,8 @@ The sample repository contains all the code and configuration files you need to 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
-1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
-1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
+1. Wait until app is deployed. It might take 5-10 minutes for the deployment to complete.
+1. After the application successfully deploys, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
     :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="../media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
@@ -259,7 +259,7 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="../media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You can always delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 

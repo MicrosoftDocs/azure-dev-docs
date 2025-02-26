@@ -15,7 +15,8 @@ metadata:
   ms.topic: hub-page # Required
   ms.collection: collection # Optional; Remove if no collection is used.
   author: KarlErickson #Required; your GitHub user alias, with correct capitalization.
-  ms.author: fangjimmy #Required; microsoft alias of author; optional team alias.
+  ms.author: karler
+  ms.reviewer: fangjimmy #Required; microsoft alias of author; optional team alias.
   ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
   ms.custom: devx-track-java, devx-track-extended-java, spring-cloud-azure
 

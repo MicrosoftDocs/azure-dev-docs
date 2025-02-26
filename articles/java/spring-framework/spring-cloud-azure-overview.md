@@ -2,7 +2,8 @@
 title: Spring Cloud Azure Overview
 description: Spring Cloud Azure is a project that helps make it easier to use Azure services in Spring Boot applications by providing a group of Java libraries.
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: overview
 ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java

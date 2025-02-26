@@ -3,7 +3,8 @@ title: Deploy to Azure Container Apps using IntelliJ IDEA
 description: Deploy Java projects to Azure Container Apps using IntelliJ IDEA.
 ms.service: azure-container-apps
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 01/09/2025
 

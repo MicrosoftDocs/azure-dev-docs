@@ -5,7 +5,8 @@ ms.date: 02/14/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: jogiles
+ms.author: karler
+ms.reviewer: jogiles
 ---
 
 # Troubleshooting overview for the Azure SDK for Java

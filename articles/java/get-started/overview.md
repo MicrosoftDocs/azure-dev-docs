@@ -3,7 +3,8 @@ title: Code, deploy, and Scale Java your Way
 titleSuffix: Azure
 description: This article provides an overview to a collection of articles that describe the tooling options for coding, deploying, and scaling Java applications with Azure.
 author: KarlErickson
-ms.author: asirveda
+ms.author: karler
+ms.reviewer: asirveda
 ms.topic: conceptual
 ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-extended-java

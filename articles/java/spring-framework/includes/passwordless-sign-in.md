@@ -1,7 +1,8 @@
 ---
 ms.date: 08/17/2022
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ---
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
