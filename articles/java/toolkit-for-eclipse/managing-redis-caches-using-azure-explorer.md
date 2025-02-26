@@ -2,7 +2,8 @@
 title: Managing Redis Caches using the Azure Explorer for Eclipse
 description: Learn how to manage your Azure redis caches by using the Azure Explorer for Eclipse.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 02/01/2018
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java

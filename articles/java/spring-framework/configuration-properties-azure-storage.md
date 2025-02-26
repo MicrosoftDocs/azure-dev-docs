@@ -2,7 +2,8 @@
 title: Azure Storage configuration properties
 description: This reference doc contains all Azure Storage configuration properties.
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.date: 05/10/2023
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

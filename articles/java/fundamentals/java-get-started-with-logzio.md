@@ -4,7 +4,8 @@ description: This tutorial shows how to integrate and configure Logz.io for Java
 ms.topic: tutorial
 ms.date: 05/12/2023
 author: KarlErickson
-ms.author: judubois
+ms.author: karler
+ms.reviewer: judubois
 ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java
 ---
 

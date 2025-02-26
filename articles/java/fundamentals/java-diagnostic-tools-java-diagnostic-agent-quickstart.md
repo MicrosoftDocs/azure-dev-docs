@@ -2,7 +2,8 @@
 title: Get Started with the Java Diagnostic Agent
 description: Describes how to get started using the Java Diagnostic Agent.
 author: KarlErickson
-ms.author: fenzho
+ms.author: karler
+ms.reviewer: fenzho
 ms.topic: quickstart
 ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java

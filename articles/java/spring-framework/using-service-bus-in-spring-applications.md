@@ -2,7 +2,8 @@
 title: Use Azure Service Bus in Spring applications
 description: Shows you how to use Azure Service Bus in Java applications built with the Spring framework.
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.date: 04/21/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

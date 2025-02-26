@@ -2,7 +2,8 @@
 title: Deploy an Open Liberty Web App to Azure App Service with Maven
 description: Learn how to deploy an Open Liberty App to App Service on Linux using the Maven Plugin for Azure Web App.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 01/13/2022
 ms.topic: article
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-azurecli, devx-track-extended-java, linux-related-content

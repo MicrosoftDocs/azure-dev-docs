@@ -3,7 +3,8 @@ title: Use Spring Data with Azure Cosmos DB for MongoDB API
 description: Learn how to use Spring Data MongoDB API with Azure Cosmos DB.
 ms.date: 08/28/2024
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

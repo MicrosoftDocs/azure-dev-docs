@@ -3,7 +3,8 @@ title: Manage storage accounts with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for IntelliJ.
 ms.date: 03/14/2022
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---

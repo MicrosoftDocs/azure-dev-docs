@@ -2,7 +2,8 @@
 title: Deploy a Helidon Web App to Azure App Service with Maven
 description: Learn how to deploy a Helidon App to App Service on Linux using the Maven Plugin for Azure Web App.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 06/10/2020
 ms.topic: article
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-helidon, devx-track-azurecli, devx-track-extended-java, linux-related-content

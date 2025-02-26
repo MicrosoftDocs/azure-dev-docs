@@ -2,7 +2,8 @@
 title: "Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)"
 description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, set up a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.topic: how-to
 ms.date: 09/18/2024
 recommendations: false

@@ -3,7 +3,8 @@ title: Spring Cloud Azure secret management
 description: This article describes Spring Cloud Azure secret management.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

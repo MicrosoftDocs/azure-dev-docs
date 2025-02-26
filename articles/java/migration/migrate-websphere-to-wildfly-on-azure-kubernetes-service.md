@@ -2,7 +2,8 @@
 title: Migrate WebSphere applications to WildFly on Azure Kubernetes Service
 description: This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on WildFly in an Azure Kubernetes Service container.
 author: KarlErickson
-ms.author: manriem
+ms.author: karler
+ms.reviewer: manriem
 ms.topic: conceptual
 ms.date: 09/20/2024
 ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-extended-java
