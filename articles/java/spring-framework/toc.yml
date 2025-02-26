@@ -134,6 +134,8 @@ items:
       href: authentication.md
     - name: Production ready
       href: production-ready.md
+    - name: Azure Identity Extensions
+      href: /java/api/overview/azure/identity-extensions-readme?view=azure-java-stable
     - name: Autoconfigure Azure SDK clients
       href: auto-configure-azure-sdk-clients.md
     - name: Resource handling
