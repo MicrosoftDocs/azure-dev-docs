@@ -23,13 +23,13 @@ You can also report bugs by opening GitHub Issues in the [Azure Developer CLI Gi
 
 ## Using the `--debug` switch
 
-If you encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
+If you encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable more debugging and diagnostic output. 
 
 ```bash
 azd up --debug
 ```
 
-You can also send the debugging output to a local text file for improved usability. This approach allows the debugging info to be ingested by other monitoring systems and can also be useful when filing an issue on GitHub.
+You can also send the debugging output to a local text file for improved usability. This approach allows other monitoring systems to ingest the debugging and can also be useful when filing an issue on GitHub.
 
 > [!IMPORTANT]
 > Make sure to redact any sensitive information when submitting debug logs on GitHub or saving them to other diagnostics systems.
@@ -44,7 +44,7 @@ Azure Developer CLI assumes that any directories that are stored in the `.azure`
 
 ## Not logged in to Azure or token expired in Visual Studio
 
-After you've run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must reauthorize the OAuth Application `Visual Studio`."
+After you run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must reauthorize the OAuth Application `Visual Studio`."
 
 ### Solution
 
@@ -52,7 +52,7 @@ Run `azd auth login` to refresh the access token.
 
 ## Updated Azure account permissions don't refresh in `azd`
 
- By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`. To solve this issue, log out and then log back in to `azd` using the following commands:
+ By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to more subscriptions, these changes may not be immediately reflected in `azd`. To solve this issue, log out and then log back in to `azd` using the following commands:
 
 ```bash
 azd auth logout
@@ -76,7 +76,7 @@ Cloud Shell may time out during a long deployment or other long-running tasks. M
 
 ### Cloud Shell interface
 
-Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
+Cloud Shell is primarily a command-line interface and has fewer features than an integrated development environment
 like Visual Studio Code.
 
 ### Cannot connect to the Docker daemon in Cloud Shell
@@ -85,13 +85,13 @@ Cloud Shell uses a container to host your shell environment, so tasks that requi
 
 ## Install different version of azd in Cloud Shell
 
-In some cases it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
+In some cases, it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
 
 1. Run `mkdir -p ~/bin` to ensure that the `~/bin` folder is present
 1. Run `mkdir -p ~/azd` to ensure that a local `~/azd` folder is present
 1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released version like `1.0.0` can also be specified).  
 
-Once installed, the version of `azd` symbolically linked in `~/bin` will take precedence over the
+Once installed, the version of `azd` symbolically linked in `~/bin` takes precedence over the
 version of `azd` symbolically linked in `/usr/local/bin`.
 
 To revert to using the version of `azd` already installed on Cloud Shell in bash:
@@ -127,7 +127,7 @@ The troubleshooting steps might differ, depending on the root cause.
 
 1. Select **Deployments** to get more information.
 
-1. Verify that you've specified an environment name that's the same as your environment name.
+1. Verify that you specified an environment name that's the same as your environment name.
 
 1. Go to the **Actions** tab of the impacted GitHub repo and investigate the log file in the pipeline run for more information.
 
@@ -137,7 +137,7 @@ For other resources, see [Troubleshoot common Azure deployment errors - Azure Re
 
 Before `azd version = azure-dev-cli_0.2.0-beta.1`, `azd` would create an `.azd` folder with `drw-r--r--` access.
 
-This will cause an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc.) already provides an `.azd` folder with read-only mode.
+This causes an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc.) already provides an `.azd` folder with read-only mode.
 
 ### Solution
 
@@ -155,7 +155,7 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 ## Unable to authenticate in Codespaces environments
 
-If you're experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in.
+If you're experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command opens a browser tab that allows you to sign-in.
 
 ## Static Web Apps fail to deploy despite success message
 
