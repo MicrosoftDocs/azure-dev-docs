@@ -87,10 +87,10 @@ Use the following instructions to deploy a preconfigured development environment
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
 1. Fork the sample repository by selecting this [Azure-Samples/azure-openai-assistant-javascript](https://github.com/Azure-Samples/azure-openai-assistant-javascript/fork) link.
-1. Clone your fork repository. Replace `<YOUR-GITHUB-ACCOUNT>` with your GitHub account name.
+1. Clone your fork repository. Replace `<github-username>` with your GitHub account name.
 
     ```console
-    git clone https://github.com/<YOUR-GITHUB-ACCOUNT>/azure-openai-assistant-javascript
+    git clone https://github.com/<github-username>/azure-openai-assistant-javascript
     ```
 
 1. Open **Visual Studio Code** in the new folder.
