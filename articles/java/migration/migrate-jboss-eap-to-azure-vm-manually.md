@@ -1295,7 +1295,7 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    ```bash
    # Register JDBC driver
    sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-   "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
+   "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource,driver-class-name=org.postgresql.Driver)"
    ```
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
