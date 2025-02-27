@@ -51,7 +51,7 @@ contact information. The team of program managers, architects, and engineers wil
 
       * Set **Clustering policy** to **Enterprise** for a nonclustered cache, which works for this guide where single node configuration is used. For more information, see [Clustering on Enterprise](/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers#clustering-on-enterprise).
 
-1. After the deployment completes, select **Go to resource** if you're on the **Deoplyment** page. Otherwise, navigate to the Azure portal, find, and select your Azure Managed Redis instance.
+1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, find, and select your Azure Managed Redis instance.
 
 1. On the **Overview** page, note down the **Endpoint** value. You use this value in the `REDIS_CACHE_ADDRESS` environment variable later.
 
