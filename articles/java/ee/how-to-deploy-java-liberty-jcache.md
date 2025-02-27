@@ -141,7 +141,9 @@ Open a web browser to [http://localhost:9080](http://localhost:9080) and you sho
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/run-succeeded-locally.png" alt-text="Screenshot of Java liberty application running successfully.":::
 
-In the form **New coffee**, set values for the fields **Name** and **Price**, and then select **Submit**. The application creates a new coffee, persists it in the Azure Managed Redis instance, and stores it in the session that is also persisted in the Azure Managed Redis instance.
+In the form **New coffee**, set values for the fields **Name** and **Price**, and then select **Submit**. 
+The application creates a new coffee, persists it, and also stores the HTTP session in the Azure Managed Redis 
+instance.
 
 After a few seconds, you'll see the new coffee displayed in the table **Our coffees**.
 
