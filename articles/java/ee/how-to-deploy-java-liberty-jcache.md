@@ -41,7 +41,7 @@ contact information. The team of program managers, architects, and engineers wil
 
 1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to create an Azure Managed Redis instance. Carefully note the following differences:
 
-   1. At step 3 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Basics** tab, select the **Cache SKU** that supports Azure Managed Redis. In this guide, you select **Balanced (For general purpose workloads with typical performance requirements)**. For more information, see [Choosing the right tier](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview#choosing-the-right-tier).
+   1. At step 3 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Basics** tab, select a **Cache SKU** that supports Azure Managed Redis. In this guide, you select **Balanced (For general purpose workloads with typical performance requirements)**. For more information, see [Choosing the right tier](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview#choosing-the-right-tier).
 
    1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Networking** tab, select **Public Endpoint** for the **Connectivity** option in this guide for simplicity. For production, you should consider using **Private Endpoint** for better security.
 
