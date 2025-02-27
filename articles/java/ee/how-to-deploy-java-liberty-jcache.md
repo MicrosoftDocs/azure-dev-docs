@@ -149,9 +149,11 @@ After a few seconds, you'll see the new coffee displayed in the table **Our coff
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-cache.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
 
-To demonstrate that the new coffee is persisted in the Azure Managed Redis instance and the session data can be retrieved from the same session, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with the `mvn liberty:dev` command.
+To demonstrate that the session data can be retrieved from Redis, 
+use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with the `mvn liberty:dev` command.
 
-Then, refresh the application home page. You should see the same data displayed in the sections **Our coffees** and **New coffee**. Stop the application when you're done testing.
+Then, refresh the application home page. You should see the same session data displayed in the 
+section **New coffee**. Stop the application when you're done testing.
 
 ### Containerize the application
 
