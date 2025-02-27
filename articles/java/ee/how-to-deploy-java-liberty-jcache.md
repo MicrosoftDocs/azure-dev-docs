@@ -157,7 +157,10 @@ section **New coffee**. Stop the application when you're done testing.
 
 ### Containerize the application
 
-Optionally, you can containerize the application and run it in a container. The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. This guide uses Docker and the Dockerfile for Open Liberty to containerize the application, but you can use the Dockerfile for WebSphere Liberty by following the similar steps.
+Optionally, you can package and run the application in a container. 
+The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. 
+This guide uses the Dockerfile for Open Liberty, but you can use the Dockerfile for WebSphere Liberty by 
+following similar steps.
 
 1. Install Docker for your OS. For more information, see [Get Docker](https://docs.docker.com/get-docker/).
 
