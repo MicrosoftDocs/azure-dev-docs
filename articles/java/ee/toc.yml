@@ -43,7 +43,7 @@ items:
         href: liberty-on-aro.md
       - name: IBM WebSphere Liberty/Open Liberty on AKS
         href: howto-deploy-java-liberty-app-manual.md
-      - name: IBM WebSphere Liberty/Open Liberty on Azure Container Apps
+      - name: Open Liberty on Azure Container Apps
         href: deploy-java-liberty-app-aca.md
       - name: IBM WebSphere (Traditional) on Azure VMs
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
