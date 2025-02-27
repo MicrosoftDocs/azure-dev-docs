@@ -181,11 +181,13 @@ following similar steps.
       javaee-cafe-jcache:v1
    ```
 
-   Once the container is started, you can test it with similar steps as running the application locally.
+   Once the container is started, you can test it with similar steps as running the application locally 
+   without Docker.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no longer needed, find its resource group name and delete it from the Azure portal.
+To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no 
+longer needed, find its resource group name and delete it from the Azure portal.
 
 For more information, see [Delete resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#delete-resource-groups).
 
@@ -204,4 +206,3 @@ If you want to deploy the sample application to Azure, reference the following a
 * [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
-g
