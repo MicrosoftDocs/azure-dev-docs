@@ -39,7 +39,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Sign in to the [GitHub Codespaces dashboard](<https://github.com/codespaces>).
+1. Sign in to the [GitHub Codespaces dashboard](https://github.com/codespaces).
 
 1. Locate your currently running codespaces that are sourced from the [azure-samples/openai-aca-lb](https://github.com/azure-samples/openai-aca-lb) GitHub repository.
 

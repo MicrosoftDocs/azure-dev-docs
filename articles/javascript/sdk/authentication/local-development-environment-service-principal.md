@@ -1,7 +1,7 @@
 ---
 title: "Local dev: Auth JS apps to Azure services with service principal"
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript during local development using dedicated application service principals.
-ms.date: 12/01/2022
+ms.date: 02/25/2025
 ms.topic: how-to
 ms.custom: dexx-track-js, devx-track-azurecli, devx-track-js
 ---
@@ -21,7 +21,7 @@ An application service principal is set up for the app when the app is registere
 
 During local development, environment variables are set with the application service principal's identity. The Azure SDK for JavaScript reads these environment variables and uses this information to authenticate the app to the Azure resources it needs.
 
-## 1 - Register the application in Azure
+## Register the application in Azure
 
 Application service principal objects are created with an app registration in Azure. You can create service principals using either the Azure portal or Azure CLI.
 
@@ -49,7 +49,7 @@ First, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-r
 az ad sp create-for-rbac --name {service-principal-name}
 ```
 
-The output of this command looks like the following JSON object.  It's recommended to copy this output into a temporary file in a text editor as you'll need these values in a future step as this is the only place you ever see the client secret (password) for the service principal.  You can, however, add a new password later without invalidating the service principal or existing passwords if need be.
+The output of this command looks like the following JSON object. It's recommended to copy this output into a temporary file in a text editor as you'll need these values in a future step as this is the only place you ever see the client secret (password) for the service principal. You can, however, add a new password later without invalidating the service principal or existing passwords if need be.
 
 ```json
 {
@@ -64,9 +64,9 @@ The output of this command looks like the following JSON object.  It's recommend
 
 <a name='2---create-an-azure-ad-security-group-for-local-development'></a>
 
-## 2 - Create a Microsoft Entra security group for local development
+## Create a Microsoft Entra security group for local development
 
-Since there typically multiple developers who work on an application, it's recommended to create a Microsoft Entra group to encapsulate the roles (permissions) the app needs in local development rather than assigning the roles to individual service principal objects.  This offers the following advantages.
+Since there typically multiple developers who work on an application, it's recommended to create a Microsoft Entra group to encapsulate the roles (permissions) the app needs in local development rather than assigning the roles to individual service principal objects. This offers the following advantages.
 
 - Every developer is assured to have the same roles assigned since roles are assigned at the group level.
 - If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
@@ -79,13 +79,13 @@ Since there typically multiple developers who work on an application, it's recom
 | [!INCLUDE [Create app AD group step 1](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-1.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to search for and navigate to the Microsoft Entra ID page." lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-1.png"::: |
 | [!INCLUDE [Create app AD group step 2](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-2.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Groups menu item in the left-hand menu of the Microsoft Entra ID Default Directory page." lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-2.png"::: |
 | [!INCLUDE [Create app AD group step 3](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-3.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-3-240px.png" alt-text="A screenshot showing the location of the New Group button in the All groups page." lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-3.png"::: |
-| [!INCLUDE [Create app AD group step 4](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-4.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-4-240px.png" alt-text="A screenshot showing how to create a new Microsoft Entra group for the application.  " lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-4.png"::: |
+| [!INCLUDE [Create app AD group step 4](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-4.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-4-240px.png" alt-text="A screenshot showing how to create a new Microsoft Entra group for the application. " lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-4.png"::: |
 | [!INCLUDE [Create app AD group step 5](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-5.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-5-240px.png" alt-text="A screenshot of the Add members dialog box showing how to select application service principals to be included in the group." lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-5.png"::: |
 | [!INCLUDE [Create app AD group step 6](<../../../includes/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-6.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-6-240px.png" alt-text="A screenshot of the New Group page showing how to complete the process by selecting the Create button." lightbox="../../../includes/media/sdk-auth-passwordless/local-dev-app-ad-group-azure-portal-6.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
-The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
+The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID. The `--display-name` and `--main-nickname` parameters are required. The name given to the group should be based on the name of the application. It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
 
 ```azurecli
 az ad group create \
@@ -94,7 +94,7 @@ az ad group create \
     --description \<group-description>
 ```
 
-To add members to the group, you'll need the object ID of the application service principal, which is different that the application ID.  Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown.  The `--query` parameter limits to columns to only those of interest.
+To add members to the group, you'll need the object ID of the application service principal, which is different that the application ID. Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals. The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown. The `--query` parameter limits to columns to only those of interest.
 
 ```azurecli
 az ad sp list \
@@ -103,7 +103,7 @@ az ad sp list \
     --output table
 ```
 
-The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.  
+The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups. 
 
 ```azurecli
 az ad group member add \
@@ -113,9 +113,9 @@ az ad group member add \
 
 ---
 
-## 3 - Assign roles to the application
+## Assign roles to the application
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles are assigned to the Microsoft Entra group created in step 2.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. In this example, the roles are assigned to the Microsoft Entra group created in step 2. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -161,11 +161,11 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## 4 - Set local development environment variables
+## Set local development environment variables
 
-The `DefaultAzureCredential` object looks for the service principal information in a set of environment variables at runtime.  Since most developers work on multiple applications, it's recommended to use a package like [dotenv](https://www.npmjs.com/package/dotenv) to access environment from a `.env` file stored in the application's directory during development.  This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
+The `DefaultAzureCredential` object looks for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to use a package like [dotenv](https://www.npmjs.com/package/dotenv) to access environment from a `.env` file stored in the application's directory during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
 
-The `.env` file is never checked into source control since it contains the application secret key for Azure.  The standard [.gitignore](https://github.com/github/gitignore/blob/main/Node.gitignore#L76) file for JavaScript automatically excludes the `.env` file from check-in.
+The `.env` file is never checked into source control since it contains the application secret key for Azure. The standard [.gitignore](https://github.com/github/gitignore/blob/main/Node.gitignore#L76) file for JavaScript automatically excludes the `.env` file from check-in.
 
 To use the `dotenv` package, first install the package in your application.
 
@@ -173,7 +173,7 @@ To use the `dotenv` package, first install the package in your application.
 npm install dotenv
 ```
 
-Then, create a `.env` file in your application root directory.  Set the environment variable values with values obtained from the app registration process as follows: 
+Then, create a `.env` file in your application root directory. Set the environment variable values with values obtained from the app registration process as follows: 
 
 - `AZURE_CLIENT_ID` &rarr; The app ID value.
 - `AZURE_TENANT_ID` &rarr; The tenant ID value.
@@ -191,9 +191,9 @@ Finally, in the startup code for your application, use the `dotenv` library to r
 import 'dotenv/config'
 ```
 
-## 5 - Implement DefaultAzureCredential in your application
+## Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package.  In this scenario, `DefaultAzureCredential` detects the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`,  and `AZURE_CLIENT_SECRET` are set and read those variables to get the application service principal information to connect to Azure with.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package. In this scenario, `DefaultAzureCredential` detects the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`,  and `AZURE_CLIENT_SECRET` are set and read those variables to get the application service principal information to connect to Azure with.
 
 Start by adding the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
