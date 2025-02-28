@@ -51,7 +51,7 @@ items:
         href: ../migration/migrate-websphere-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere Liberty/Open Liberty to AKS with HADR
         href: ../migration/migrate-liberty-to-aks-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: JCache with WebSphere/Open Liberty
+      - name: WebSphere/Open Liberty with Azure Redis
         href: how-to-deploy-java-liberty-jcache.md
       - name: WebLogic to Azure VMs with HADR
         href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
