@@ -45,7 +45,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Datastax Java Driver for Apache Cassandra]: https://github.com/datastax/java-driver/tree/4.x
 [Gremlin Java Driver]: https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver
 [JEDIS client]: https://github.com/redis/jedis
-[LETTUCE client]: https://github.com/lettuce-io/lettuce-core
+[LETTUCE client]: https://github.com/redis/lettuce
 [Maven Repository: com.azure » azure-storage-blob]: https://mvnrepository.com/artifact/com.azure/azure-storage-blob
 [JMS + AMQP]: /azure/service-bus-messaging/how-to-use-java-message-service-20#downloading-the-java-message-service-jms-client-library
 [Azure Service Bus client library for Java]: /java/api/overview/azure/messaging-servicebus-readme
