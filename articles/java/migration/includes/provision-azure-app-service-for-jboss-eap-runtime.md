@@ -26,5 +26,5 @@ az webapp create \
     --name $jbossWebApp \
     --plan $jbossAppServicePlan \
     --runtime "JBOSSEAP|8-java17"
-    #  Or use "JBOSSEAP:8-java11" if you're using Java 11
+    #  Or use "JBOSSEAP|8-java11" if you're using Java 11
 ```
