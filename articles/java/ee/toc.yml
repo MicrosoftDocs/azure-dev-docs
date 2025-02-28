@@ -32,7 +32,7 @@ items:
         href: /azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic Server on AKS
         href: /azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere products on Azure
+      - name: WebSphere family on Azure
         href: websphere-family.md
       - name: JBoss EAP on Azure
         href: jboss-on-azure.md
