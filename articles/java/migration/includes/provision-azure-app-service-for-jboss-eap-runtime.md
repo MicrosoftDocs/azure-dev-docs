@@ -20,11 +20,11 @@ az appservice plan create \
     --resource-group $resourceGroup \
     --name $jbossAppService \
     --is-linux \
-    --sku P1V2
+    --sku P0v3
 az webapp create \
     --resource-group $resourceGroup \
     --name $jbossWebApp \
     --plan $jbossAppServicePlan \
-    --runtime "JBOSSEAP|7-java8"
-    #  Or use "JBOSSEAP|7-java11" if you're using Java 11
+    --runtime "JBOSSEAP|8-java17"
+    #  Or use "JBOSSEAP:8-java11" if you're using Java 11
 ```
