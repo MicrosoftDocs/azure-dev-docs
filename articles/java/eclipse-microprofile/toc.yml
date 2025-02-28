@@ -12,14 +12,6 @@ items:
         items:
         - name: Deploy Quarkus
           href: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
-        - name: Deploy Open Liberty
-          href: deploy-microprofile-open-liberty-java-app-with-maven-plugin.md
-        - name: Deploy Helidon
-          href: deploy-microprofile-helidon-java-app-with-maven-plugin.md
-        - name: Deploy Payara Micro
-          href: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
-        - name: Deploy KumuluzEE
-          href: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
       - name: ConfigSource for Azure Key Vault
         href: configure-microprofile-with-keyvault.md
       - name: CI/CD for MicroProfile applications using Azure Pipelines
@@ -49,8 +41,6 @@ items:
             href: https://www.payara.fish/products/payara-micro/
           - name: Red Hat JBoss EAP XP
             href: https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/
-          - name: Azure Web App for Containers
-            href: deploy-microprofile-to-web-app-for-containers.md
       - name: MicroProfile project generators
         expanded: false
         items: 

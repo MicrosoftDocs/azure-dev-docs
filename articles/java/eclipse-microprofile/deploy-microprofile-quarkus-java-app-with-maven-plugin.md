@@ -345,8 +345,3 @@ For more information about the various technologies discussed in this article, s
 
 [Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
-
-<!-- IMG List -->
-
-[AP01]: media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
-[AP02]: media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png
