@@ -14,6 +14,26 @@
             "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
         },
         {
+            "source_path": "eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/deploy-microprofile-to-web-app-for-containers.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/deploy-microprofile-open-liberty-java-app-with-maven-plugin.md",
+            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
+        {
           "source_path": "ee/jboss-eap-single-server-azure-vm.md",
           "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },

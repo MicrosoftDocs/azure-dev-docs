@@ -61,10 +61,6 @@ items:
         href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JBoss EAP on Azure Red Hat OpenShift
         href: jboss-eap-on-aro.md
-      - name: Helidon on Azure App Service
-        href: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: Payara Micro on Azure App Service
-        href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Passwordless database connections
         href: how-to-configure-passwordless-datasource.md
   - name: Migrate WebSphere to Azure
