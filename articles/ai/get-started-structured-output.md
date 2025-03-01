@@ -21,7 +21,7 @@ This article uses one or more [AI app templates](./intelligent-app-templates.md)
 
 By following the instructions in this article, you will:
 
-- Deploy a model [from the list of models supported for structured outputs](https://learn.microsoft.com/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure#supported-models).
+- Deploy a model [from the list of models supported for structured outputs](/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure#supported-models).
 - Run the example Python files that use the [openai Python package](https://pypi.org/project/openai/) and [Pydantic models](https://docs.pydantic.dev/) to make requests for structured outputs.
 
 Structured outputs in Azure OpenAI make sure the AI model's responses follow a predefined [JSON Schema](https://json-schema.org/overview/what-is-jsonschema). This feature provides several key benefits by:
@@ -36,13 +36,13 @@ Use this same general approach for entity extraction across many file types, as 
 
 > [!NOTE]
 > Currently structured outputs aren't supported with:
-> - [Bring your own data](../concepts/use-your-data.md) scenarios.
-> - [Assistants](../how-to/assistant.md) or [Azure AI Agents Service](../../agents/overview.md).
+> - [Bring your own data](/azure/ai-services/openai/concepts/use-your-data.md) scenarios.
+> - [Assistants](/azure/ai-services/openai/how-to/assistant.md) or [Azure AI Agents Service](/azure/ai-services/agents/overview.md).
 > - `gpt-4o-audio-preview` and `gpt-4o-mini-audio-preview` version: `2024-12-17`.
 
 ## Architectural diagram
 
-:::image type="content" source="./media/get-started-structured-output/architecture-diagram.png" lightbox="/media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services":::
+:::image type="content" source="./media/get-started-structured-output/architecture-diagram.png" lightbox="./media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services":::
 
 ## Cost
 
@@ -61,7 +61,6 @@ To use this article, you need to fulfill the following prerequisites:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 
 - Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
 ---
 
 ## Open a development environment
@@ -607,7 +606,6 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 > [!TIP]
 > After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
-
 ---
 
 ## Get help
