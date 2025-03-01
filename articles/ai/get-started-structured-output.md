@@ -679,6 +679,95 @@ print(plant_inventory)
  
 ### Example 6: Parses a local PDF receipt by converting to Markdown and then extracting order details
 
+This example shows how to use the Azure OpenAI service to extract structured information from a PDF receipt. The `Item` and `Receipt` models define the expected output structure, ensuring the data is well-structured and validated. The example converts the PDF to markdown text, sends it to the GPT model, and checks the response against the `Receipt` model. Using PDF files as input needs extra steps for content extraction and conversion, but the process is similar to using text for structured output.
+
+#### Extracting from PDF files
+
+Similar to using images as input, you extract the PDF as text. You can use a hosted service like [Azure Document Intelligence]() or a local Python package like [pymupdf](https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html#).
+
+#### Using PDF Files for input vs. using text
+
+Using PDF files as input for structured output differs from using text in several ways:
+
+1. **Input Format**: Convert PDF files to markdown text before sending them to the GPT model. Text can be sent directly.
+2. **Content Extraction**: Extract and convert the PDF content to markdown text that the GPT model can process.
+3. **Processing**: The GPT model processes the extracted text from the PDF and converts it into structured data based on the provided schema.
+
+#### Defining the `Item` and `Receipt` models
+
+The `Item` and `Receipt` models are Pydantic models that define the structure of the expected output from the GPT model. This approach makes sure the extracted information follows a specific schema.
+
+- **Item**: Represents individual items on the receipt with fields for product name, price, and quantity.
+
+    ```python
+    class Item(BaseModel):
+        product: str
+        price: float
+        quantity: int
+    ```
+
+    - **product**: The name of the product.
+    - **price**: The price of the product.
+    - **quantity**: The quantity of the product.
+
+- **Receipt**: Represents the overall receipt, including fields for total amount, shipping cost, payment method, a list of items, and the order number. The `Receipt` model uses the `Item` model to represent a structured receipt with detailed information about each item.
+
+    ```python
+    class Receipt(BaseModel):
+        total: float
+        shipping: float
+        payment_method: str
+        items: list[Item]
+        order_number: int
+    ```
+
+    - **total**: The total amount of the receipt.
+    - **shipping**: The shipping cost.
+    - **payment_method**: The payment method used.
+    - **items**: A list of `Item` objects on the receipt.
+    - **order_number**: The order number.
+
+#### Using the Models in the Call to the GPT Model
+
+The example sends a request to the GPT model to extract information from a PDF receipt using structured outputs. The `Receipt` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
+
+```python
+completion = client.beta.chat.completions.parse(
+    model=model_name,
+    messages=[
+        {"role": "system", "content": "Extract the information from the receipt"},
+        {"role": "user", "content": md_text},
+    ],
+    response_format=Receipt,
+)
+```
+
+- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `Receipt` model.
+
+### Parsing and validating the response
+
+Next, the following code snippet parses and validates the response from the GPT model against the `Receipt` model.
+
+```python
+output = completion.choices[0].message.parsed
+receipt = Receipt.model_validate(output)
+```
+
+- **output**: Extracts the parsed response from the GPT model.
+- **Receipt.model_validate**: Validates the parsed response against the `Receipt` model, ensuring that the data conforms to the expected structure and types.
+
+### Printing the Extracted Receipt Information
+
+Finally, the script prints the validated `Receipt` object in a readable format.
+
+```python
+print(receipt)
+```
+
+- **print**: Prints the validated `Receipt` object, making it easy to read and understand the extracted information.
+
 ### Example 7: Parse a blog post and extract metadata
 
 ## Clean up resources
