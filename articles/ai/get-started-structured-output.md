@@ -315,7 +315,7 @@ class Technology(str, Enum):
 > [!NOTE]
 > While Example 1 focuses on a simple text input and uses a basic `CalendarEvent` Pydantic model, Example 2 introduces a more complex `HackSubmission` model with enumerations for technologies. This approach ensures the extracted information follows specific types and values. It shows how to handle more detailed and varied data while keeping the structured output approach from Example 1.
 
-### How `HackSubmission` Is Used in the Call to the Model
+#### How `HackSubmission` Is Used in the Call to the Model
 
 The `HackSubmission` model is used to specify the expected response format when sending a request to the GPT model. This approach makes sure the extracted information follows a specific schema.
 
@@ -336,7 +336,7 @@ completion = client.beta.chat.completions.parse(
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `HackSubmission` model.
 
-### Parsing and validating the response
+#### Parsing and validating the response
 
 Next, the following code snippet parses and validates the response from the GPT model against the `HackSubmission` model.
 
@@ -348,7 +348,7 @@ hack_submission = HackSubmission.model_validate(output)
 - **output**: Extracts the parsed response from the GPT model.
 - **HackSubmission.model_validate**: Validates the parsed response against the `HackSubmission` model, ensuring that the data conforms to the expected structure and types.
 
-### Printing the Extracted Hack Submission
+#### Printing the Extracted Hack Submission
 
 Finally, the script prints the validated `HackSubmission` object in a readable format.
 
@@ -366,7 +366,7 @@ This example shows how to use the Azure OpenAI service to get structured informa
 
 The `RepoOverview` model uses the `Language`, `AzureService`, and `Framework` enumerations to define a structured and validated schema for the extracted information. This model is used in the call to the GPT model to ensure that the response adheres to the expected format, providing type safety, validation, and readability. The script then parses, validates, and prints the extracted information, making it easy to work with in downstream applications.
 
-##### `RepoOverview` Model Definition
+#### `RepoOverview` Model Definition
 
 The `RepoOverview` model is a Pydantic model that defines the structure of the expected output from the GPT model. It uses the other defined models (`Language`, `AzureService`, and `Framework`) to ensure that the extracted information adheres to specific enumerations and types.
 
@@ -385,7 +385,7 @@ class RepoOverview(BaseModel):
 - **azure_services**: A list of `AzureService` enumeration values, representing the Azure services used in the project.
 - **frameworks**: A list of `Framework` enumeration values, representing the frameworks used in the project.
 
-##### Enumerations Used in `RepoOverview`
+#### Enumerations Used in `RepoOverview`
 
 - **Language**: Defines possible values for programming languages.
 
@@ -629,7 +629,7 @@ image_url = open_image_as_base64("example_table_plants.png")
 - **open_image_as_base64**: A function that reads an image file, encodes it in base64, and returns it as a data URI.
 - **image_url**: The base64-encoded URI of the image, used as input for the GPT model.
 
-### Using the models in the call to the GPT model
+#### Using the models in the call to the GPT model
 
 The following code snippet sends a request to the GPT model to extract information from an image of a table using structured outputs. The `PlantInventory` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
 
@@ -758,7 +758,7 @@ receipt = Receipt.model_validate(output)
 - **output**: Extracts the parsed response from the GPT model.
 - **Receipt.model_validate**: Validates the parsed response against the `Receipt` model, ensuring that the data conforms to the expected structure and types.
 
-### Printing the Extracted Receipt Information
+#### Printing the extracted receipt information
 
 Finally, the script prints the validated `Receipt` object in a readable format.
 
