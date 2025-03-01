@@ -2,7 +2,8 @@
 title: Deploy a Quarkus Web App to Azure App Service with Maven
 description: Learn how to deploy a Quarkus App to App Service on Linux using the Maven Plugin for Azure Web App.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 06/10/2020
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-appsvc, linux-related-content
@@ -344,8 +345,3 @@ For more information about the various technologies discussed in this article, s
 
 [Java Development Kit (JDK)]: ../fundamentals/java-support-on-azure.md
 <!-- http://www.oracle.com/technetwork/java/javase/downloads/ -->
-
-<!-- IMG List -->
-
-[AP01]: media/deploy-spring-boot-java-app-with-maven-plugin/web-app-listed-azure-portal.png
-[AP02]: media/deploy-spring-boot-java-app-with-maven-plugin/determine-web-app-url.png

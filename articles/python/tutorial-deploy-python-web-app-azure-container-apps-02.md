@@ -84,10 +84,10 @@ Fork and clone the sample code to your developer environment:
 
     ```console
     # Django
-    git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-apps.git python-container
+    git clone https://github.com/<github-username>/msdocs-python-django-azure-container-apps.git python-container
     
     # Flask
-    # git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-apps.git python-container
+    # git clone https://github.com/<github-username>/msdocs-python-flask-azure-container-apps.git python-container
     ```
 
 1. Change the directory:

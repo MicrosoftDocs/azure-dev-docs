@@ -1,7 +1,8 @@
 ---
 author: KarlErickson
 ms.date: 04/19/2023
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ---
 
 ### [Service Connector (Recommended)](#tab/service-connector)

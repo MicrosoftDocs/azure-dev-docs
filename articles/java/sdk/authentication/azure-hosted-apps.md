@@ -6,7 +6,8 @@ ms.date: 10/15/2024
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: vigera
+ms.author: karler
+ms.reviewer: vigera
 ---
 
 # Authenticate Azure-hosted Java applications

@@ -5,7 +5,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: savaity
+ms.author: karler
+ms.reviewer: savaity
 ---
 
 # Configure tracing in the Azure SDK for Java

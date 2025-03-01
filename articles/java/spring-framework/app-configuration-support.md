@@ -2,7 +2,8 @@
 title: Developers Guide for using Spring Cloud Azure App Configuration
 description: This developer guide walks you through using Spring Cloud Azure App Configuration.
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: tutorial
 ms.date: 08/18/2023
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli

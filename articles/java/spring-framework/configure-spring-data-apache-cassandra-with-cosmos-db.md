@@ -3,7 +3,8 @@ title: How to use Spring Data with Azure Cosmos DB for Apache Cassandra
 description: Learn how to use Spring Data with Azure Cosmos DB for Apache Cassandra.
 ms.date: 07/15/2022
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

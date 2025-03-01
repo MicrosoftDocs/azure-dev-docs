@@ -2,7 +2,8 @@
 title: Migrate WebSphere applications to JBoss EAP on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on Azure App Service using JBoss EAP.
 author: KarlErickson
-ms.author: dbrittain
+ms.author: karler
+ms.reviewer: dbrittain
 ms.topic: conceptual
 ms.date: 09/20/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java, devx-track-javaee-websphere, linux-related-content

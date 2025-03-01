@@ -6,7 +6,8 @@ ms.date: 02/23/2024
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: jogiles
+ms.author: karler
+ms.reviewer: jogiles
 ---
 
 # Troubleshoot Azure Service Bus

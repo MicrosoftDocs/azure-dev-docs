@@ -2,7 +2,8 @@
 title: Enable end-user Authorization and Authentication with Microsoft Entra ID when Migrating Java Apps on WebLogic Server to Azure
 description: This guide describes how to configure Oracle WebLogic Server to connect with Microsoft Entra ID Domain Services via LDAP.
 author: KarlErickson
-ms.author: edburns
+ms.author: karler
+ms.reviewer: edburns
 ms.topic: tutorial
 ms.date: 10/21/2024
 recommendations: false

@@ -392,20 +392,20 @@ Use the following steps to install:
 
    ```bash
    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
-   echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' >> ~/.bash_profile
+   echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share/wildfly"' >> ~/.bash_profile
    source ~/.bash_profile
    sudo touch /etc/profile.d/eap_env.sh
-   echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
+   echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share/wildfly"' | sudo tee -a /etc/profile.d/eap_env.sh
    ```
 
     ### [JBOSS EAP 8](#tab/jboss-eap-8)
     
     ```bash
     echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap8/wildfly/eap8-domain.conf"' >> ~/.bash_profile
-    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' >> ~/.bash_profile
+    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share/wildfly"' >> ~/.bash_profile
     source ~/.bash_profile
     sudo touch /etc/profile.d/eap_env.sh
-    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
+    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share/wildfly"' | sudo tee -a /etc/profile.d/eap_env.sh
     ```
 
     ---
@@ -626,7 +626,7 @@ export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
 
 
 #-Configure the HA profile and JGroups using AZURE_PING protocol
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --echo-command \
 'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-master.xml',\
 ':write-attribute(name=name,value=domain1)',\
 '/profile=ha/subsystem=jgroups/stack=tcp:remove',\
@@ -652,7 +652,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
 
 # Save a copy of the domain.xml, later you need to share it with all host controllers
-cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
+cp $EAP_HOME/domain/configuration/domain.xml /tmp/domain.xml
 ```
 
 The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
@@ -680,7 +680,7 @@ echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
 # Configure JBoss EAP management user
 export JBOSS_EAP_USER=jbossadmin
 export JBOSS_EAP_PASSWORD=Secret123456
-sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+sudo $EAP_HOME/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
 ```
 
 The output should look similar to the following example:
@@ -742,7 +742,7 @@ export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
 
 
 #-Configure the HA profile and JGroups using AZURE_PING protocol
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --echo-command \
 'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-primary.xml',\
 ':write-attribute(name=name,value=domain1)',\
 '/profile=ha/subsystem=jgroups/stack=tcp:remove',\
@@ -768,7 +768,7 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 "/host=primary/interface=public:add(inet-address=${HOST_VM_IP})"
 
 # Save a copy of the domain.xml, later you need to share it with all host controllers
-cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
+cp $EAP_HOME/domain/configuration/domain.xml /tmp/domain.xml
 ```
 
 The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
@@ -796,7 +796,7 @@ echo 'WILDFLY_HOST_CONFIG=host-primary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
 # Configure JBoss EAP management user
 export JBOSS_EAP_USER=jbossadmin
 export JBOSS_EAP_PASSWORD=Secret123456
-sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+sudo $EAP_HOME/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
 ```
 
 The output should look similar to the following example:
@@ -894,12 +894,12 @@ export JBOSS_EAP_USER=jbossadmin
 export JBOSS_EAP_PASSWORD=Secret123456
 
 # Save default domain configuration as backup
-sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
+sudo -u jboss mv $EAP_HOME/domain/configuration/domain.xml $EAP_HOME/domain/configuration/domain.xml.backup
 
 # Fetch domain.xml from domain controller
 scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml /tmp/domain.xml
-sudo mv /tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
-sudo chown jboss:jboss $EAP_HOME/wildfly/domain/configuration/domain.xml
+sudo mv /tmp/domain.xml $EAP_HOME/domain/configuration/domain.xml
+sudo chown jboss:jboss $EAP_HOME/domain/configuration/domain.xml
 ```
 
 Use the following commands to apply host controller changes to `mspVM1`:
@@ -908,7 +908,7 @@ Use the following commands to apply host controller changes to `mspVM1`:
 
 ```bash
 # Setup host controller
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --echo-command \
 "embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-slave.xml",\
 "/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-one:remove",\
 "/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-two:remove",\
@@ -982,7 +982,7 @@ Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **ex
 
 ```bash
 # Setup host controller
-sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --echo-command \
 "embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-secondary.xml",\
 "/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-one:remove",\
 "/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-two:remove",\
@@ -1221,7 +1221,7 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
 
    ```bash
    # Create JDBC driver and module directory
-   jdbcDriverModuleDirectory="$EAP_HOME"/wildfly/modules/com/postgresql/main
+   jdbcDriverModuleDirectory=$EAP_HOME/modules/com/postgresql/main
    
    sudo mkdir -p "$jdbcDriverModuleDirectory"
    
@@ -1273,11 +1273,11 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
 1. Use the following commands to copy the JDBC driver to the host controllers:
 
    ```bash
-   scp -rp $EAP_HOME/wildfly/modules/com/postgresql azureuser@mspvm1:/tmp/
-   ssh azureuser@mspvm1 "sudo mkdir -p $EAP_HOME/wildfly/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/wildfly/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
+   scp -rp $EAP_HOME/modules/com/postgresql azureuser@mspvm1:/tmp/
+   ssh azureuser@mspvm1 "sudo mkdir -p $EAP_HOME/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
    
-   scp -rp $EAP_HOME/wildfly/modules/com/postgresql azureuser@mspvm2:/tmp/
-   ssh azureuser@mspvm2 "sudo mkdir -p $EAP_HOME/wildfly/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/wildfly/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
+   scp -rp $EAP_HOME/modules/com/postgresql azureuser@mspvm2:/tmp/
+   ssh azureuser@mspvm2 "sudo mkdir -p $EAP_HOME/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
    ```
 
    ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
@@ -1294,8 +1294,8 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
 
    ```bash
    # Register JDBC driver
-   sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-   "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
+   sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+   "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource,driver-class-name=org.postgresql.Driver)"
    ```
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
@@ -1316,7 +1316,7 @@ You started the database server, obtained the necessary resource ID, and install
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
 
-   sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+   sudo -u jboss $EAP_HOME/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
    "data-source add --driver-name=postgresql --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} "
    ```
 

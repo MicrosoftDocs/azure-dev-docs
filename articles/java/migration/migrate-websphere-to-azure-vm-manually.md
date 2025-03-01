@@ -2,7 +2,8 @@
 title: "Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure Virtual Machines (VMs)"
 description: Get step-by-step guidance to install IBM WebSphere Application Server on Azure VMs, set up a cluster, and expose the cluster with Azure Application Gateway.
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.topic: how-to
 ms.date: 10/29/2024
 recommendations: false

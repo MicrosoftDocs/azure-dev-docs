@@ -193,7 +193,7 @@ sections:
 
       - question: What are all the secrets stored in GitHub?
         answer: |
-          The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION, and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-GH-account>/<your-repo>/secrets/actions`.
+          The command stores four secrets in GitHub: AZURE_CREDENTIALS, AZURE_ENV_NAME, AZURE_LOCATION, and AZURE_SUBSCRIPTION_ID. You can override the value of each secret by going to `https://github.com/<your-github-account>/<your-repo>/secrets/actions`.
 
       - question: What is OpenID Connect (OIDC), and is it supported?  
         answer: |
@@ -208,7 +208,7 @@ sections:
 
       - question: How do I reset the Azure service principal that's stored in GitHub Actions?
         answer: |
-          Go to `https://github.com/<your-GH-account>/<your-repo>settings/secrets/actions`, and then update `AZURE_CREDENTIALS` by copying and pasting the entire JSON object for the new service principal. For example: 
+          Go to `https://github.com/<your-github-account>/<your-repo>settings/secrets/actions`, and then update `AZURE_CREDENTIALS` by copying and pasting the entire JSON object for the new service principal. For example: 
 
           ```
           {
@@ -230,7 +230,7 @@ sections:
 
       - question: Where can I find the log for the GitHub Actions job that I triggered when I ran `azd pipeline config`?
         answer: |
-          Go to `https://github.com/<your-GH-account>/<your-repo>/actions`, and then refer to the log file in the workflow run.
+          Go to `https://github.com/<your-github-account>/<your-repo>/actions`, and then refer to the log file in the workflow run.
   
   - name: "Building a container application locally"
     questions: 

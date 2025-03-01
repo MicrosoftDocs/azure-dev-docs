@@ -2,7 +2,8 @@
 title: Azure Service Bus configuration properties
 description: This reference doc contains all Azure Service Bus configuration properties.
 author: KarlErickson
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.date: 05/10/2023
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -113,7 +114,7 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 > | spring.cloud.azure.servicebus.processor.entity-name                                                                   | The name of a Service Bus Queue or Topic.                                                                                                                                                          |
 > | spring.cloud.azure.servicebus.processor.entity-type                                                                   | The type of Service Bus entity, which is a Queue or a Topic.                                                                                                                                       |
 > | spring.cloud.azure.servicebus.processor.max-auto-lock-renew-duration                                                  | Amount of time to continue auto-renewing the lock.                                                                                                                                                 |
-> | spring.cloud.azure.servicebus.processor.max-concurrent-calls                                                          | Max concurrent messages to process. When session enabled, it applies to each session.                                                                                                              |
+> | spring.cloud.azure.servicebus.processor.max-concurrent-calls                                                          | Max concurrent messages to process. When session enabled, it applies to each session. For detailed information on concurrency, see [Concurrency in ServiceBusProcessorClient](../sdk/troubleshooting-messaging-service-bus-overview.md#concurrency-in-servicebusprocessorclient). |
 > | spring.cloud.azure.servicebus.processor.max-concurrent-sessions                                                       | Maximum number of concurrent sessions to process at any given time.                                                                                                                                |
 > | spring.cloud.azure.servicebus.processor.namespace                                                                     | The namespace of a service bus, which is the prefix of the FQDN. A FQDN should be composed of &lt;NamespaceName&gt;.&lt;DomainName&gt;                                                             |
 > | spring.cloud.azure.servicebus.processor.prefetch-count                                                                | Prefetch count of the consumer.                                                                                                                                                                    |

@@ -36,10 +36,10 @@ The quickest way to create an App Service instance is to use the [Azure command-
 **Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For example, if you're using the Flask sample app the command is:
 
 ```bash
-git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial.git
+git clone https://github.com/<github-username>/python-sample-vscode-flask-tutorial.git
 ```
 
-Replace \<github-user> with the name of the GitHub account where you forked the repo. If you're using a different app repo, this repo is where you'll set up GitHub Actions.
+Replace \<github-username\> with the name of the GitHub account where you forked the repo. If you're using a different app repo, this repo is where you'll set up GitHub Actions.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
@@ -90,7 +90,7 @@ In the steps below, you'll set up continuous deployment (CD), which means a new 
 
 ```bash
 az webapp deployment github-actions add \
-  --repo "<github-user>/<github-repo>" \
+  --repo "<github-username>/<github-repo>" \
   --resource-group <resource-group-name> \
   --branch <branch-name> \
   --name <app-service-name> \
@@ -222,7 +222,7 @@ Disconnect GitHub Actions with Azure CLI [az webapp deployment github-actions re
 
 ```bash
 az webapp deployment github-actions remove \
-  --repo "<github-user>/<github-repo>" \
+  --repo "<github-username>/<github-repo>" \
   --resource-group <resource-group-name> \
   --branch <branch-name> \
   --name <app-service-name> \

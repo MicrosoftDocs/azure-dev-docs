@@ -2,7 +2,8 @@
 title: Deploy Java Spring Boot apps to Azure Container Apps
 description: Shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Container Apps.
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 10/04/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java

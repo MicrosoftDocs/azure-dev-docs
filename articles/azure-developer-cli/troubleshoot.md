@@ -23,13 +23,13 @@ You can also report bugs by opening GitHub Issues in the [Azure Developer CLI Gi
 
 ## Using the `--debug` switch
 
-If you encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable additional debugging and diagnostic output. 
+If you encounter an unexpected issue while working with `azd`, rerun the command with the `--debug` switch to enable more debugging and diagnostic output. 
 
 ```bash
 azd up --debug
 ```
 
-You can also send the debugging output to a local text file for improved usability. This approach allows the debugging info to be ingested by other monitoring systems and can also be useful when filing an issue on GitHub.
+You can also send the debugging output to a local text file for improved usability. This approach allows other monitoring systems to ingest the debugging and can also be useful when filing an issue on GitHub.
 
 > [!IMPORTANT]
 > Make sure to redact any sensitive information when submitting debug logs on GitHub or saving them to other diagnostics systems.
@@ -44,15 +44,15 @@ Azure Developer CLI assumes that any directories that are stored in the `.azure`
 
 ## Not logged in to Azure or token expired in Visual Studio
 
-After you've run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must reauthorize the OAuth Application `Visual Studio`."
+After you run `azd init -t <template-name>` in Visual Studio, you get the following error: "To access remote: this repository, you must reauthorize the OAuth Application `Visual Studio`."
 
 ### Solution
 
 Run `azd auth login` to refresh the access token.
 
-## Updated Azure account permissions do not refresh in `azd`
+## Updated Azure account permissions don't refresh in `azd`
 
- By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to additional subscriptions, these changes may not be immediately reflected in `azd`. To solve this issue, log out and then log back in to `azd` using the following commands:
+ By default, `azd` caches your Azure credentials and permissions. If your Azure account is assigned new roles and permissions, or is added to more subscriptions, these changes may not be immediately reflected in `azd`. To solve this issue, log out and then log back in to `azd` using the following commands:
 
 ```bash
 azd auth logout
@@ -68,15 +68,15 @@ There are some limitations to running `azd` in Cloud Shell:
 
 ### Docker support in Cloud Shell
 
-Cloud Shell does not support running docker `build` or `run` commands  because the docker daemon is not running. For more information, see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
+Cloud Shell doesn't support running docker `build` or `run` commands  because the docker daemon isn't running. For more information, see [Cloud Shell Troubleshooting](/azure/cloud-shell/troubleshooting#you-cant-run-the-docker-daemon).
 
 ### Cloud Shell timeout
 
-Cloud Shell may time out during a long deployment or other long-running tasks. Make sure the session does not become idle. See [Cloud Shell Usage limits](/azure/cloud-shell/limitations#usage-limits).
+Cloud Shell may time out during a long deployment or other long-running tasks. Make sure the session doesn't become idle. See [Cloud Shell Usage limits](/azure/cloud-shell/limitations#usage-limits).
 
 ### Cloud Shell interface
 
-Cloud Shell is primarily a command-line interface and will have fewer features than an integrated development environment
+Cloud Shell is primarily a command-line interface and has fewer features than an integrated development environment
 like Visual Studio Code.
 
 ### Cannot connect to the Docker daemon in Cloud Shell
@@ -85,13 +85,13 @@ Cloud Shell uses a container to host your shell environment, so tasks that requi
 
 ## Install different version of azd in Cloud Shell
 
-In some cases it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
+In some cases, it may be necessary to install a different version of `azd` than the version already in use in Cloud Shell. To do this in bash: 
 
 1. Run `mkdir -p ~/bin` to ensure that the `~/bin` folder is present
 1. Run `mkdir -p ~/azd` to ensure that a local `~/azd` folder is present
 1. Run `curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --install-folder ~/azd --symlink-folder ~/bin --version <version>` (`<version>` would be `stable` by default but a specific released version like `1.0.0` can also be specified).  
 
-Once installed, the version of `azd` symbolically linked in `~/bin` will take precedence over the
+Once installed, the version of `azd` symbolically linked in `~/bin` takes precedence over the
 version of `azd` symbolically linked in `/usr/local/bin`.
 
 To revert to using the version of `azd` already installed on Cloud Shell in bash:
@@ -109,7 +109,7 @@ Use another host to perform tasks that require the docker daemon. One option is 
 
 ### Solution
 
-Previously, Bicep was a preqrequisite for installing and using `azd `. `azd` now automatically installs Bicep within the local `azd` scope (not globally) and this issue should now be resolved. However, if you want to use a different version, you can set the environment variable: `AZD_BICEP_TOOL_PATH` to point to the location of the version you need.
+Previously, Bicep was a prerequisite for installing and using `azd `. `azd` now automatically installs Bicep within the local `azd` scope (not globally) and this issue should now be resolved. However, if you want to use a different version, you can set the environment variable: `AZD_BICEP_TOOL_PATH` to point to the location of the version you need.
 
 ## `azd up` or `azd provision` fails
 
@@ -127,9 +127,9 @@ The troubleshooting steps might differ, depending on the root cause.
 
 1. Select **Deployments** to get more information.
 
-1. Verify that you've specified an environment name that's the same as your environment name.
+1. Verify that you specified an environment name that's the same as your environment name.
 
-1. Go to `https://github.com/<your repo>/actions`, and then refer to the log file in the pipeline run for more information.
+1. Go to the **Actions** tab of the impacted GitHub repo and investigate the log file in the pipeline run for more information.
 
 For other resources, see [Troubleshoot common Azure deployment errors - Azure Resource Manager](/azure/azure-resource-manager/troubleshooting/common-deployment-errors).
 
@@ -137,7 +137,7 @@ For other resources, see [Troubleshoot common Azure deployment errors - Azure Re
 
 Before `azd version = azure-dev-cli_0.2.0-beta.1`, `azd` would create an `.azd` folder with `drw-r--r--` access.
 
-This will cause an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc.) already provides an `.azd` folder with read-only mode.
+This causes an issue, as using this or any prior version on any Linux set-up (WSL, ssh-remote, devcontainer, etc.) already provides an `.azd` folder with read-only mode.
 
 ### Solution
 
@@ -155,24 +155,24 @@ This will cause an issue, as using this or any prior version on any Linux set-up
 
 ## Unable to authenticate in Codespaces environments
 
-If you are experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command will open a browser tab that allows you to sign-in.
+If you're experiencing authentication issues in Codespaces, make sure the template Dockerfile includes the `sudo apt-get update && sudo apt-get install xdg-utils` commands. The `xdg-utils` command opens a browser tab that allows you to sign-in.
 
 ## Static Web Apps fail to deploy despite success message
 
-A known issue exists when deploying to Azure Static Web Apps in which the default `azd up` output may state the action was successful, but the changes were not actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
+A known issue exists when deploying to Azure Static Web Apps in which the default `azd up` output may state the action was successful, but the changes weren't actually deployed. You can diagnose this problem by running the `azd up` command with the `--debug` flag enabled. In the output logs you may see the following message:
 
 ```bash
 Preparing deployment. Please wait...
 An unknown exception has occurred
 ```
 
-You are most likely to encounter this issue when `azd` is run from a GitHub action. As a workaround, after you build your site, copy `staticwebapp.config.json` into the build folder. You can automate this step this by using a prepackage or predeploy [command hook](/azure/developer/azure-developer-cli/azd-extensibility), which allows you to execute custom scripts at various points in the azd command workflows.
+You're most likely to encounter this issue when `azd` is run from a GitHub action. As a workaround, after you build your site, copy `staticwebapp.config.json` into the build folder. You can automate this step this by using a prepackage or predeploy [command hook](/azure/developer/azure-developer-cli/azd-extensibility), which allows you to execute custom scripts at various points in the azd command workflows.
 
 The product team is working to resolve this issue.
 
 ## GitHub Actions error - "Does not have secrets get permission on key vault"
 
-Sharing the same environment or resource group name when provisioning resources locally and in GitHub Actions can produce the error `Does not have secrets get permission on key vault..` from the Key Vault service. Key Vault does not support incremental permissions updates through Bicep, which effectively means the GitHub Actions workflow overwrites the Access Policy permissions of the local user.
+Sharing the same environment or resource group name when provisioning resources locally and in GitHub Actions can produce the error `Does not have secrets get permission on key vault..` from the Key Vault service. Key Vault doesn't support incremental permissions updates through Bicep, which effectively means the GitHub Actions workflow overwrites the Access Policy permissions of the local user.
 
 The recommended solution to this issue is to use separate environment names for local development and GitHub Actions workflows. Read more about [using multiple environments](/azure/developer/azure-developer-cli/faq#what-is-an-environment-name) with the `azd env` command on the FAQ page.
 
@@ -225,7 +225,7 @@ ERROR: failed to create or update service principal: failed retrieving applicati
 {"error":"invalid_grant","error_description":"AADSTS50005: User tried to log in to a device from a platform (Unknown) that's currently not supported through Conditional Access policy. Supported device platforms are: iOS, Android, Mac, and Windows flavors.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: 2022-12-16 21:10:37Z","error_codes":[50005],"timestamp":"2022-12-16 21:10:37Z","trace_id":"0000aaaa-11bb-cccc-dd22-eeeeee333333","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
 ```
 
-This error is related to your Microsoft Entra tenant enablement of Conditional Access Policies. The specific policy requires that you are signed in into a supported device platform. 
+This error is related to your Microsoft Entra tenant enablement of Conditional Access Policies. The specific policy requires that you're signed in into a supported device platform. 
 
 You may also be receiving this error due to being logged in using the device code mechanism, which prevents Microsoft Entra ID from detecting your device platform correctly.
 

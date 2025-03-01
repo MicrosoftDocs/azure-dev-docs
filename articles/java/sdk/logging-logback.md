@@ -5,7 +5,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: srnagar
+ms.author: karler
+ms.reviewer: srnagar
 ---
 
 # Log with the Azure SDK for Java and Logback

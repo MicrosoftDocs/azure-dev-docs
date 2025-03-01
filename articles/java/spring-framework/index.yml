@@ -9,7 +9,8 @@ metadata:
   ms.date: 01/30/2023
   ms.topic: landing-page
   author: KarlErickson
-  ms.author: seal
+  ms.author: karler
+  ms.reviewer: seal
   ms.custom: spring-cloud-azure, devx-track-java, devx-track-extended-java
 
 landingContent:

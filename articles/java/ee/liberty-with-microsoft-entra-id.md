@@ -3,7 +3,8 @@ title: WebSphere Liberty/Open Liberty with Microsoft Entra ID
 titlesSuffix: Azure
 description: Shows you how to secure IBM WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OpenID Connect (OIDC).
 author: KarlErickson
-ms.author: jiangma
+ms.author: karler
+ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 10/07/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-entra-id, devx-track-extended-java, devx-track-azurecli

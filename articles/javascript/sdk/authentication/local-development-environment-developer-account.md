@@ -1,7 +1,7 @@
 ---
 title: "Local dev: Auth JS apps to Azure services with dev accounts"
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript during local development using developer accounts.
-ms.date: 05/19/2022
+ms.date: 02/25/2025
 ms.topic: how-to
 ms.custom: dexx-track-js, devx-track-azurecli, devx-track-azurepowershell, devx-track-js
 ---
@@ -12,21 +12,21 @@ When you create cloud applications, developers need to debug and test applicatio
 
 :::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript/local-dev-dev-accounts-overview.png" alt-text="A diagram showing a local dev app running obtaining a service principal from an .env file and use that identity to connect to Azure resources.":::
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the Visual Studio Code Azure Tools extension, the Azure CLI, or Azure PowerShell.  The Azure SDK for JavaScript is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
+For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the Visual Studio Code Azure Tools extension, the Azure CLI, or Azure PowerShell. The Azure SDK for JavaScript is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
 This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app runs with in production. As an alternative, you can create application service principals to use during local development, which can be scoped to have only the access needed by the app.
 
 <a name='1---create-azure-ad-group-for-local-development'></a>
 
-## 1 - Create Microsoft Entra group for local development
+## Create Microsoft Entra group for local development
 
-Since there are almost always multiple developers who work on an application, it's recommended to first create a Microsoft Entra group to encapsulate the roles (permissions) the app needs in local development.  This offers the following advantages.
+Since there are almost always multiple developers who work on an application, it's recommended to first create a Microsoft Entra group to encapsulate the roles (permissions) the app needs in local development. This offers the following advantages.
 
 - Every developer is assured to have the same roles assigned since roles are assigned at the group level.
 - If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
 - If a new developer joins the team, they simply must be added to the correct Microsoft Entra group to get the correct permissions to work on the app.
 
-If you have an existing Microsoft Entra group for your development team, you can use that group.  Otherwise, complete the following steps to create a Microsoft Entra group.
+If you have an existing Microsoft Entra group for your development team, you can use that group. Otherwise, complete the following steps to create a Microsoft Entra group.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -41,7 +41,7 @@ If you have an existing Microsoft Entra group for your development team, you can
 
 ### [Azure CLI](#tab/azure-cli)
 
-The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID.  The `--display-name` and `--main-nickname` parameters are required.  The name given to the group should be based on the name of the application.  It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
+The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID. The `--display-name` and `--main-nickname` parameters are required. The name given to the group should be based on the name of the application. It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
 
 ```azurecli
 az ad group create \
@@ -50,7 +50,7 @@ az ad group create \
     --description <group-description>
 ```
 
-To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter returns specified columns.
+To add members to the group, you'll need the object ID of Azure user. Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals. The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown. The `--query` parameter returns specified columns.
 
 ```azurecli
 az ad user list \
@@ -59,7 +59,7 @@ az ad user list \
     --output table
 ```
 
-The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.  
+The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups. 
 
 ```azurecli
 az ad group member add \
@@ -71,9 +71,9 @@ az ad group member add \
 
 <a name='2---assign-roles-to-the-azure-ad-group'></a>
 
-## 2 - Assign roles to the Microsoft Entra group
+## Assign roles to the Microsoft Entra group
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles are assigned to the Microsoft Entra group created in step 1.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. In this example, the roles are assigned to the Microsoft Entra group created in step 1. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -118,7 +118,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## 3 - Sign-in to Azure using VS Code, the Azure CLI, or Azure PowerShell
+## Sign-in to Azure using VS Code, the Azure CLI, or Azure PowerShell
 
 ### [Azure PowerShell](#tab/sign-in-azure-powershell)
 
@@ -130,9 +130,9 @@ Connect-AzAccount
 
 ---
 
-## 4 - Implement DefaultAzureCredential in your application
+## Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the VS Code Azure tools extension, the Azure CLI, or Azure PowerShell.  If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure with.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the VS Code Azure tools extension, the Azure CLI, or Azure PowerShell. If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure with.
 
 Start by adding the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
@@ -148,7 +148,7 @@ Next, for any JavaScript code that creates an Azure SDK client object in your ap
 
 An example of this is shown in the following code segment.
 
-```JavaScript
+```typescript
 import { BlobServiceClient } from '@azure/storage-blob';
 import { DefaultAzureCredential } from '@azure/identity';
 
@@ -160,4 +160,5 @@ const blobServiceClient = BlobServiceClient(
         tokenCredential
 );
 ```
+
 `DefaultAzureCredential` will automatically detect the authentication mechanism configured for the app and obtain the necessary tokens to authenticate the app to Azure. If an application makes use of more than one SDK client, the same credential object can be used with each SDK client object.

@@ -5,7 +5,8 @@ ms.date: 02/14/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: srnagar
+ms.author: karler
+ms.reviewer: srnagar
 ---
 
 # Asynchronous programming in the Azure SDK for Java
