@@ -15,9 +15,10 @@ ms.collection: ce-skilling-ai-copilot
 
 In this quickstart, you explore several examples to extract different types of entities. The app demonstrates how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
 
-The quickstart sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI gpt-4o model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
+> [!NOTE]
+> This article uses one or more [AI app templates](./intelligent-app-templates.md) for examples and guidance. AI app templates give you well-maintained, easy-to-deploy reference implementations, ensuring a high-quality starting point for your AI apps.
 
-This article uses one or more [AI app templates](./intelligent-app-templates.md) for examples and guidance. AI app templates give you well-maintained, easy-to-deploy reference implementations, ensuring a high-quality starting point for your AI apps.
+The quickstart sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI gpt-4o model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
 
 By following the instructions in this article, you will:
 
@@ -36,8 +37,8 @@ Use this same general approach for entity extraction across many file types, as 
 
 > [!NOTE]
 > Currently structured outputs aren't supported with:
-> - [Bring your own data](/azure/ai-services/openai/concepts/use-your-data.md) scenarios.
-> - [Assistants](/azure/ai-services/openai/how-to/assistant.md) or [Azure AI Agents Service](/azure/ai-services/agents/overview.md).
+> - [Bring your own data](/azure/ai-services/openai/concepts/use-your-data) scenarios.
+> - [Assistants](/azure/ai-services/openai/how-to/assistant) or [Azure AI Agents Service](/azure/ai-services/agents/overview).
 > - `gpt-4o-audio-preview` and `gpt-4o-mini-audio-preview` version: `2024-12-17`.
 
 ## Architectural diagram
@@ -241,9 +242,9 @@ completion = client.beta.chat.completions.parse(
 
 **client.beta.chat.completions.parse**: Sends a request to the GPT model to parse the input text and extract information.
 
-  - **model**: Specifies the GPT model to use.
-  - **messages**: A list of messages to send to the model. The system message gives instructions, and the user message contains the input text.
-  - **response_format**: Specifies the expected response format using the `CalendarEvent` model.
+- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `CalendarEvent` model.
 
 #### Parsing and validating the response
 
@@ -254,7 +255,7 @@ output = completion.choices[0].message.parsed
 event = CalendarEvent.model_validate(output)
 ```
 
-- **output**: Extracts the parsed response from the GPT model.
+- **output**: Gets the parsed response from the GPT model.
 - **CalendarEvent.model_validate**: Validates the parsed response against the `CalendarEvent` model.
 
 > [NOTE!]
@@ -274,7 +275,7 @@ This example shows how to use the Azure OpenAI service to extract structured inf
 
 #### `HackSubmission` Model Definition
 
-The `HackSubmission` model is a Pydantic model that defines the structure of the expected output from the GPT model. 
+The `HackSubmission` model is a Pydantic model that defines the structure of the expected output from the GPT model.
 
 ```python
 class HackSubmission(BaseModel):
@@ -331,9 +332,9 @@ completion = client.beta.chat.completions.parse(
 )
 ```
 
-- **model**: Specifies the GPT model to use.
-- **messages**: A list of messages to send to the model. The system message provides instructions, and the user message contains the issue body.
-- **response_format**: Specifies the expected response format using the `HackSubmission` model.
+- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `HackSubmission` model.
 
 ### Parsing and validating the response
 
@@ -425,9 +426,9 @@ class RepoOverview(BaseModel):
 
 The `RepoOverview` model specifies the expected response format when sending a request to the GPT model. This approach makes sure the extracted information follows a specific schema.
 
-- **model**: Specifies the GPT model to use.
-- **messages**: A list of messages to send to the model. The system message gives instructions, and the user message contains the README content.
-- **response_format**: Specifies the expected response format using the `RepoOverview` model.
+- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `RepoOverview` model.
 
 ```python
 completion = client.beta.chat.completions.parse(
@@ -453,7 +454,7 @@ repo_overview = RepoOverview.model_validate(output)
 ```
 
 - **output**: Extracts the parsed response from the GPT model.
-- **RepoOverview.model_validate**: Validates the parsed response against the `RepoOverview` model, ensuring that the data conforms to the expected structure and types.
+- **RepoOverview.model_validate**: Checks the parsed response against the `RepoOverview` model to make sure the data follows the expected structure and types.
 
 #### Printing the extracted repository overview
 
@@ -531,9 +532,9 @@ completion = client.beta.chat.completions.parse(
 )
 ```
 
-- **model**: Specifies the GPT model to use.
-- **messages**: A list of messages to send to the model. The system message provides instructions, and the user message contains the image URL.
-- **response_format**: Specifies the expected response format using the `Graph` model.
+- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `Graph` model.
 
 #### Using images for input vs. using text
 
@@ -552,8 +553,8 @@ output = completion.choices[0].message.parsed
 graph = Graph.model_validate(output)
 ```
 
-- **output**: Extracts the parsed response from the GPT model.
-- **Graph.model_validate**: Validates the parsed response against the `Graph` model, ensuring that the data conforms to the expected structure and types.
+- **output**: Gets the parsed response from the GPT model.
+- **Graph.model_validate**: Checks the parsed response against the `Graph` model to make sure the data follows the expected structure and types.
 
 #### Printing the extracted graph information
 
@@ -567,6 +568,115 @@ print(graph)
 
 ### Example 5: Parse a local image with tables and extract nested tabular data
 
+This example shows how to use the Azure OpenAI service to extract structured information from an image of a table. The example converts the image to a base64-encoded URI, sends it to the GPT model, and validates the response against the `PlantInventory` model. The `Plant` and `PlantInventory` models define the expected output structure, ensuring that the extracted data is well-structured and validated.
+
+#### Defining the `Plant` and `PlantInventory` models
+
+The `Plant` and `PlantInventory` models are Pydantic models that define the structure of the expected output from the GPT model. This approach makes sure the extracted information follows a specific schema.
+
+- **Plant**: Represents individual plant entries with fields for species, common name, quantity, size, price, county, and notes.
+
+    ```python
+    class Plant(BaseModel):
+        species: str
+        common_name: str
+        quantity: int
+        size: str
+        price: float
+        county: str
+        notes: str
+    ```
+    
+    - **species**: The plant's species.
+    - **common_name**: The plant's common name.
+    - **quantity**: The number of plants.
+    - **size**: The plant's size.
+    - **price**: The plant's price.
+    - **county**: The county where the plant is located.
+    - **notes**: Any other notes about the plant.
+
+- **PlantInventory**: Represents the overall inventory, categorizing plants into lists of annuals, bulbs, and grasses.
+
+    ```python
+    class PlantInventory(BaseModel):
+        annuals: list[Plant]
+        bulbs: list[Plant]
+        grasses: list[Plant]
+    ```
+
+    - **annuals**: A list of `Plant` objects that are annuals.
+    - **bulbs**: A list of `Plant` objects that are bulbs.
+    - **grasses**: A list of `Plant` objects that are grasses.
+
+#### How `PlantInventory` Uses the `Plant` Model
+
+The `PlantInventory` model groups multiple `Plant` objects into lists. Each category (annuals, bulbs, grasses) is a list of `Plant` objects. This structure helps the example organize and check the plant data.
+
+#### Preparing the Image for Input
+
+To use an image as input, the following code snippet converts the image to a base64-encoded URI. This approach lets the image be sent in the request to the GPT model.
+
+```python
+def open_image_as_base64(filename):
+    with open(filename, "rb") as image_file:
+        image_data = image_file.read()
+    image_base64 = base64.b64encode(image_data).decode("utf-8")
+    return f"data:image/png;base64,{image_base64}"
+
+image_url = open_image_as_base64("example_table_plants.png")
+```
+
+- **open_image_as_base64**: A function that reads an image file, encodes it in base64, and returns it as a data URI.
+- **image_url**: The base64-encoded URI of the image, used as input for the GPT model.
+
+### Using the models in the call to the GPT model
+
+The following code snippet sends a request to the GPT model to extract information from an image of a table using structured outputs. The `PlantInventory` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
+
+#### Sending a request to the GPT model
+
+```python
+completion = client.beta.chat.completions.parse(
+    model=model_name,
+    messages=[
+        {"role": "system", "content": "Extract the information from the table"},
+        {
+            "role": "user",
+            "content": [
+                {"image_url": {"url": image_url}, "type": "image_url"},
+            ],
+        },
+    ],
+    response_format=PlantInventory,
+)
+```
+
+- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `PlantInventory` model.
+
+#### Parsing and validating the response
+
+Next, the following code snippet parses and validates the response from the GPT model against the `PlantInventory` model.
+
+```python
+output = completion.choices[0].message.parsed
+plant_inventory = PlantInventory.model_validate(output)
+```
+
+- **output**: Gets the parsed response from the GPT model.
+- **PlantInventory.model_validate**: Checks the parsed response against the `PlantInventory` model to make sure the data follows the expected structure and types.
+
+#### Printing the extracted plant inventory
+
+Finally, the script prints the validated `PlantInventory` object in a readable format.
+
+```python
+print(plant_inventory)
+```
+
+- **print**: Prints the validated `PlantInventory` object, making it easy to read and understand the extracted information.
+ 
 ### Example 6: Parses a local PDF receipt by converting to Markdown and then extracting order details
 
 ### Example 7: Parse a blog post and extract metadata
