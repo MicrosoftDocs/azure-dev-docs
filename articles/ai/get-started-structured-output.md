@@ -199,7 +199,7 @@ This AI App Template contains several examples highlighting different structured
 
 This example demonstrates how to use the Azure OpenAI service to extract structured information from a text input. It sets up Azure authentication, initializes the OpenAI client, defines a Pydantic model for the expected output, sends a request to the GPT model, and validates and prints the response. This approach ensures that the extracted information is well-structured and validated, making it easier to work with in downstream applications.
 
-#### 1. Defining the Data Model
+#### Defining the data model
 
 Defining a [Pydantic model](https://docs.pydantic.dev/latest/concepts/models/) ensures that the extracted information from the Azure OpenAI service is well-structured and validated. Pydantic models provide a clear schema for the expected output, which helps in:
 
@@ -746,7 +746,7 @@ completion = client.beta.chat.completions.parse(
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `Receipt` model.
 
-### Parsing and validating the response
+#### Parsing and validating the response
 
 Next, the following code snippet parses and validates the response from the GPT model against the `Receipt` model.
 
