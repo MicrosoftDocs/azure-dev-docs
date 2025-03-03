@@ -340,6 +340,8 @@ Use the following steps to install:
    sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
    ```
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    You should see output similar to the following example:
 
    ```output
@@ -683,6 +685,8 @@ export JBOSS_EAP_PASSWORD=Secret123456
 sudo $EAP_HOME/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
 ```
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
 The output should look similar to the following example:
 
 ```output
@@ -799,6 +803,8 @@ export JBOSS_EAP_PASSWORD=Secret123456
 sudo $EAP_HOME/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
 ```
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
 The output should look similar to the following example:
 
 ```output
@@ -901,6 +907,8 @@ scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml /tmp/domain.xml
 sudo mv /tmp/domain.xml $EAP_HOME/domain/configuration/domain.xml
 sudo chown jboss:jboss $EAP_HOME/domain/configuration/domain.xml
 ```
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
 Use the following commands to apply host controller changes to `mspVM1`:
 
