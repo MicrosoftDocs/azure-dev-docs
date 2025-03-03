@@ -20,6 +20,7 @@ As an open source language, TypeSpec can describe any API, not just Azure APIs. 
 ## Benefits of TypeSpec
 
 * **Simplifies API Development**: Provides a clear and concise way to define APIs, allowing developers to focus on logic and functionality.
+* **Accelerates Deployment**: TypeSpec enables rapid service and client code generation from a single API definition, streamlining deployment and ensuring consistency.
 * **Ensures Compliance**: Uses reusable components to adhere to established guidelines and standards, reducing errors and inconsistencies.
 * **Enhances Compatibility**: Includes an OpenAPI emitter for compatibility with existing tools and workflows, making integration easier.
 * **Supports Extensibility**: Flexible and extensible, allowing customization and extension of API definitions for various scenarios.
