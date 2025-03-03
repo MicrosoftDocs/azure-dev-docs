@@ -46,7 +46,7 @@ landingContent:
             url: liberty-with-microsoft-entra-id.md
           - text: Java app with JBoss EAP to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-          - text: Java EE JCache with WebSphere/Open Liberty
+          - text: Azure Redis as WebSphere Liberty/Open Liberty session cache
             url: how-to-deploy-java-liberty-jcache.md
           - text: Traditional WebSphere on Azure VMs
             url: traditional-websphere-application-server-virtual-machines.md

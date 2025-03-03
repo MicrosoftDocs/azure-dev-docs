@@ -1,25 +1,24 @@
 ---
-title: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) Cluster
-description: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
+title: Using Azure Redis as session cache for WebSphere Liberty or Open Liberty
+description: Using Azure Redis as session cache for WebSphere Liberty or Open Liberty.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: how-to
-ms.date: 12/19/2024
+ms.date: 03/04/2025
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
-#Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled and deploy it on Azure Kubernetes Service cluster so that customers can store session data in the Azure Cache for Redis for session management.
+#Customer intent: As a Java developer, I want to build an application that uses Azure Redis as the HTTP session cache for WebSphere Liberty or Open Liberty.
 ---
 
-# Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+# Using Azure Redis as session cache for WebSphere Liberty or Open Liberty
 
-This article describes how to use Java EE JCache in a containerized application deployed to AKS.
+This article describes how to use Azure Redis as the HTTP session cache for WebSphere Liberty or Open Liberty.
 
 In this guide, you'll:
 
-* Create the infrastructure to run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
-* Use Java EE JCache backed by Azure Cache for Redis as session cache.
-* Build the application Docker image using Open Liberty or WebSphere Liberty container images.
-* Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
+* Create an Azure Managed Redis instance as session cache.
+* Prepare a sample application that enables persistence of HTTP sessions.
+* Run the sample application locally.
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -29,182 +28,49 @@ If you're interested in providing feedback or working closely on your migration 
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-* [Install the Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
-    * Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-    * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-    * Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-* Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
-* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Install a Java Standard Edition (SE) implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
 * Ensure that [Git](https://git-scm.com) is installed.
-* Be sure you've been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles for the subscription. You can verify your assignments by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-or-group).
 
-## Create the infrastructure
+## Create an Azure Managed Redis instance
 
-The steps in this section guide you to create the application infrastructure on Azure. After completing these steps, you have an Azure Container Registry, an Azure Kubernetes Service cluster, and an Azure Cache for Redis instance for running the sample application.
+[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Use the following steps to create an Azure Managed Redis instance, and then note down its connection information. You use this information later to configure the sample application.
 
-### Create a resource group
+1. Create an Azure Managed Redis instance by following the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis). Carefully note the following differences:
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed.
+   1. At step 3 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Basics** tab, select a **Cache SKU** that supports Azure Managed Redis. For this guide, select **Balanced (For general purpose workloads with typical performance requirements)**. For more information, see [Choosing the right tier](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview#choosing-the-right-tier).
 
-Create a resource group called `java-liberty-project` using the [`az group create`](/cli/azure/group#az_group_create) command  in the `eastus` location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
+   1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Networking** tab, for the **Connectivity** option, select **Public Endpoint**. This option is the best choice for simplicity when using this guide. For production, you should consider using **Private Endpoint** for better security.
 
-```azurecli
-export RESOURCE_GROUP_NAME=java-liberty-project
-az group create --name $RESOURCE_GROUP_NAME --location eastus
-```
+   1. At step 5 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Advanced** tab, configure the following settings:
 
-### Create an ACR instance
+      * For **Authentication**, enable **Access Keys Authentication**. This option is the best choice for simplicity when using this guide. For optimal security, we recommend using Microsoft Entra ID with managed identities to authorize requests against your cache, if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
-Use the [`az acr create`](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
+      * Set **Clustering policy** to **Enterprise** for a nonclustered cache, which works for this guide where single node configuration is used. For more information, see [Clustering on Enterprise](/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers#clustering-on-enterprise).
 
-```azurecli
-export REGISTRY_NAME=youruniqueacrname
-az acr create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $REGISTRY_NAME \
-    --sku Basic
-```
+1. After the deployment completes, select **Go to resource** if you're on the **Deployment** page. Otherwise, navigate to the Azure portal, find, and select your Azure Managed Redis instance.
 
-After a short time, you should see a JSON output that contains:
+1. On the **Overview** page, note down the **Endpoint** value. You use this value in the `REDIS_CACHE_ADDRESS` environment variable later.
 
-```output
-  "provisioningState": "Succeeded",
-  "publicNetworkAccess": "Enabled",
-  "resourceGroup": "java-liberty-project",
-```
+1. Select **Settings** > **Authentication**. Select **Access keys** and note down the **Primary** value. You use this value as the `REDIS_CACHE_KEY` environment variable later.
 
-Alternatively, you can create an Azure container registry instance by following the steps in [Quickstart: Create an Azure container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
-
-#### Connect to the ACR instance
-
-You need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
-
-```azurecli
-export LOGIN_SERVER=$(az acr show \
-    --name $REGISTRY_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query 'loginServer' \
-    --output tsv)
-
-az acr login \
-    --name $REGISTRY_NAME \
-    --resource-group $RESOURCE_GROUP_NAME
-```
-
-> [!NOTE]
-> The use of username and password credentials to grant access to a container registry is discouraged. If your particular usage requirements suggest credential based access is the best approach, you can obtain the username and password using `az acr credential show` and use these values with `docker login`.
-
-You should see `Login Succeeded` at the end of command output if you signed into the ACR instance successfully.
-
-If you see a problem signing in to the Azure container registry, see [Troubleshoot registry login](/azure/container-registry/container-registry-troubleshoot-login).
-
-### Create an AKS cluster
-
-Use the [`az aks create`](/cli/azure/aks#az_aks_create) command to create an AKS cluster and grant it image pull permission from the ACR instance. The following example creates a cluster named `myAKSCluster` with one node. This command takes several minutes to complete.
-
-```azurecli
-export CLUSTER_NAME=myAKSCluster
-az aks create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --node-count 1 \
-    --generate-ssh-keys \
-    --enable-managed-identity \
-    --attach-acr $REGISTRY_NAME
-```
-
-After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following lines:
-
-```output
-  "nodeResourceGroup": "MC_java-liberty-project_myAKSCluster_eastus",
-  "privateFqdn": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "java-liberty-project",
-```
-
-#### Connect to the AKS cluster
-
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. To install `kubectl` locally, use the [`az aks install-cli`](/cli/azure/aks#az_aks_install_cli) command:
-
-```azurecli
-az aks install-cli
-```
-
-To configure `kubectl` to connect to your Kubernetes cluster, use the [`az aks get-credentials`](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
-
-```azurecli
-az aks get-credentials \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --overwrite-existing
-```
-
-To verify the connection to your cluster, use the [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
-
-```bash
-kubectl get nodes
-```
-
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is `Ready`.
-
-```output
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
-```
-
-### Install Open Liberty Operator
-
-After creating and connecting to the cluster, install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by running the following commands.
-
-```bash
-# Install cert-manager Operator
-CERT_MANAGER_VERSION=v1.11.2
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
-
-# Install Open Liberty Operator
-export OPERATOR_VERSION=1.3.3
-mkdir -p overlays/watch-all-namespaces
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -q -P ./overlays/watch-all-namespaces
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/cluster-roles.yaml -q -P ./overlays/watch-all-namespaces
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/kustomization.yaml -q -P ./overlays/watch-all-namespaces
-mkdir base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/kustomization.yaml -q -P ./base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-crd.yaml -q -P ./base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-operator.yaml -q -P ./base
-wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-roles.yaml -q -P ./base
-kubectl create namespace open-liberty
-kubectl apply --server-side -k overlays/watch-all-namespaces
-```
-
-### Create an Azure Cache for Redis instance
-
-[Azure Cache for Redis](/azure/azure-cache-for-redis/) backs the persistence of the `HttpSession` for a Java application running within an Open Liberty or WebSphere Liberty server. Follow the steps in this section to create an Azure Cache for Redis instance and note down its connection information. We'll use this information later.
-
-1. Follow the steps in [Quickstart: Use Azure Cache for Redis in Java](/azure/azure-cache-for-redis/cache-java-get-started) up to, but not including **Understanding the Java sample**.
-
-   > [!NOTE]
-   > In step 7 of section [Create an Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started#create-an-azure-cache-for-redis), select **Access Keys Authentication** for the **Authentication** option on the **Advanced** pane for this guide. For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache, if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
-
-1. Copy **Host name** and **Primary access key** for your Azure Cache for Redis instance, and then run the following commands to add environment variables:
+1. Use the following command to export the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY`:
 
    ```bash
-   export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>
-   export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+   export REDIS_CACHE_ADDRESS=rediss://<your-redis-cache-endpoint>
+   export REDIS_CACHE_KEY=<your-primary-access-key>
    ```
 
-## Build the application
+## Prepare the sample application
 
-Follow the steps in this section to build and containerize the sample application. These steps use Maven, `liberty-maven-plugin`, and [`az acr build`](/cli/azure/acr#az_acr_build). To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
-
-### Check out the application
+WebSphere Liberty and Open Liberty provide a session cache feature that enables you to store HTTP session data in an external cache. In this guide, you use the [JCache Session Persistence](https://openliberty.io/docs/latest/reference/feature/sessionCache-1.0.html) feature to store the session data in the Azure Managed Redis instance.
 
 Use the following commands to clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article uses *java-app-jcache*.
 
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20240909
+git checkout 20250228
 cd java-app-jcache
 ```
 
@@ -215,10 +81,9 @@ The application has the following file structure:
 ```text
 java-app-jcache/
 ├── pom.xml
+├── pom-redisson.xml
 └── src
     └── main
-        ├── aks
-        │   └── openlibertyapplication.yaml
         ├── docker
         │   ├── Dockerfile
         │   └── Dockerfile-wlp
@@ -232,155 +97,82 @@ java-app-jcache/
         └── webapp
 ```
 
+The **pom.xml** file is the Maven project file that contains the dependencies and plugins for the sample application.
+
+The **pom-redisson.xml** file is used to copy dependencies for the Redisson client library to the shared resources directory of the Liberty server later.
+
 The **java**, **resources**, and **webapp** directories contain the source code of the sample application.
 
-In the **aks** directory, the deployment file **openlibertyapplication.yaml** is used to deploy the application image.
+In the **liberty/config** directory, the **server.xml** file is used to configure the HTTP session cache for Open Liberty and WebSphere Liberty.
 
-In the **docker** directory, we place two Dockerfiles. **Dockerfile** is used to build image with Open Liberty and **Dockerfile-wlp** is used to build image with WebSphere Liberty.
+In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection to the Azure Managed Redis instance.
 
-In the **liberty/config** directory, the **server.xml** file is used to configure session cache for the Open Liberty and WebSphere Liberty cluster.
+The **docker** directory contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
 
-In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection of the Azure Cache for Redis instance.
+## Run the sample application locally
 
-### Containerize the application
-
-To deploy and run your Liberty application on the AKS cluster, use the following steps to containerize your application as a Docker image. You can use [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
+Use the following steps to build and run your sample application locally. These steps use Maven and the `liberty-maven-plugin`. For more information about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 1. Verify the current working directory is **java-app-jcache** in your local clone.
-1. Run `mvn clean package` to package the application.
-1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step inserts the values of the environment variables `REDISCACHEHOSTNAME` and `REDISCACHEKEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
-1. Run `mvn liberty:dev` to test the application. If the test is successful, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
+1. Run the Maven command `mvn clean package` and package the application.
+1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the correct target location. This step also inserts the values of the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
+1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson client library and its dependencies to the shared resources directory of the Liberty server.
+1. Run the Maven command `mvn liberty:dev` and start the application. If the application is successfully started, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
+
    You should see output similar to the following if the Redis connection is successful.
 
    ```output
-   [INFO] [err] [Default Executor-thread-5] INFO org.redisson.Version - Redisson 3.23.4
-   [INFO] [err] [redisson-netty-2-7] INFO org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
-   [INFO] [err] [redisson-netty-2-20] INFO org.redisson.connection.pool.MasterConnectionPool - 24 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
+   [INFO] [err] [Default Executor-thread-3] INFO org.redisson.Version - Redisson 3.23.4
+   [INFO] [err] [redisson-netty-2-7] INFO org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for redacted.<region>.redis.azure.net/<ip_address>:10000
+   [INFO] [err] [redisson-netty-2-20] INFO org.redisson.connection.pool.MasterConnectionPool - 24 connections initialized for redacted.<region>.redis.azure.net/<ip_address>:10000
    ```
-
-1. You can visit `http://localhost:9080/` to see the application running, but the proof of Redis working is the output listed in the preceding step.
-1. Use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application.
-1. Use the following commands to retrieve values for properties `artifactId` and `version` defined in the **pom.xml** file:
-
-   ```bash
-   export artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-   export version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-   ```
-
-1. Run `cd target` to change directory to the build of the sample.
-1. Run one of the following commands to build the application image and push it to the ACR instance.
-   * Use the following command to build with an Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java&trade; runtime:
-
-     ```azurecli
-     # Build and tag application image. This causes the ACR instance to pull the necessary Open Liberty base images.
-     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME .
-     ```
-
-   * Use the following command to build with a WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
-
-     ```azurecli
-     # Build and tag application image. This causes the ACR instance to pull the necessary WebSphere Liberty base images.
-     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME --file=Dockerfile-wlp .
-     ```
-
-## Deploy the application
-
-Follow the steps in this section to deploy the containerized sample application on the AKS cluster.
-
-1. Verify the current working directory is **java-app-jcache/target** in your local clone.
-1. Use the following commands to create a secret with Redisson configuration information. With this secret, the application can connect to the created Azure Cache for Redis instance.
-
-   ```bash
-   export REDISSON_CONFIG_SECRET_NAME=redisson-config-secret
-   kubectl create secret generic ${REDISSON_CONFIG_SECRET_NAME} --from-file=$(pwd)/liberty/wlp/usr/servers/defaultServer/redisson-config.yaml
-   ```
-
-1. Use the following commands to deploy your Liberty application with three replicas to the AKS cluster. The command output is also shown inline.
-
-   ```bash
-   # Set number of application replicas
-   export REPLICAS=3
-
-   # Create OpenLibertyApplication "javaee-cafe-jcache-cluster"
-   envsubst < openlibertyapplication.yaml | kubectl create -f -
-
-   openlibertyapplication.openliberty.io/javaee-cafe-jcache-cluster created
-
-   # Check if OpenLibertyApplication instance is created
-   kubectl get openlibertyapplication ${artifactId}-cluster
-
-   NAME                               IMAGE                                                         EXPOSED      RECONCILED   AGE
-   javaee-cafe-jcache-cluster         youruniqueacrname.azurecr.io/javaee-cafe-jcache:1.0.0                      True         59s
-
-   # Check if deployment created by Operator is ready
-   kubectl get deployment ${artifactId}-cluster --watch
-
-   NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
-   javaee-cafe-jcache-cluster         0/3     3            0           20s
-   ```
-
-1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use Ctrl+C to stop the `kubectl` watch process.
 
 ### Test the application
 
-When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
+Open a web browser to [http://localhost:9080](http://localhost:9080) and you should see the application home page.
 
-To monitor progress, use the [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
+:::image type="content" source="media/how-to-deploy-java-liberty-jcache/run-succeeded-locally.png" alt-text="Screenshot of Java liberty application running successfully.":::
 
-```bash
-kubectl get service ${artifactId}-cluster --watch
+In the **New coffee** form, set values for the fields **Name** and **Price**, and then select **Submit**. The application creates a new coffee, persists it, and also stores the HTTP session in the Azure Managed Redis instance.
 
-NAME                               TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-cafe-jcache-cluster         LoadBalancer   10.0.50.29     20.84.16.169    80:31732/TCP     68s
-```
+After a few seconds, you see the new coffee displayed in the table **Our coffees**.
 
-After the `EXTERNAL-IP` address changes from `pending` to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
+:::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-cache.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
 
-Open a web browser to the external IP address of your service (`20.84.16.169` for the previous example) to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page (**javaee-cafe-jcache-cluster-77d54bccd4-5xnzx** for this case).
+To demonstrate that the session data can be retrieved from Redis, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with the `mvn liberty:dev` command.
 
-:::image type="content" source="media/how-to-deploy-java-liberty-jcache/deploy-succeeded.png" alt-text="Screenshot of Java liberty application successfully deployed on A K S.":::
+Then, refresh the application home page. You should see the same session data displayed in the section **New coffee**. Stop the application when you're done testing.
 
-In the form **New coffee in session**, set values for fields **Name** and **Price**, and then select **Submit**. After a few seconds,  you'll see **Submit count: 1** displayed at the left bottom of the page.
+### Containerize the application
 
-:::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-session.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
+Optionally, you can package and run the application in a container by using the following steps. The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. This guide uses the Dockerfile for Open Liberty, but you can use the Dockerfile for WebSphere Liberty by following similar steps.
 
-To demonstrate that the session cache is persisted across all replicas of the application, run the following command to delete the current replica with pod name `javaee-cafe-jcache-cluster-<pod id from your running app>`:
+1. Install Docker for your OS. For more information, see [Get Docker](https://docs.docker.com/get-docker/).
 
-```bash
-kubectl delete pod javaee-cafe-jcache-cluster-77d54bccd4-5xnzx
+1. Use the following command to build the Docker image:
 
-pod "javaee-cafe-jcache-cluster-77d54bccd4-5xnzx" deleted
-```
-
-Then, refresh the application home page. You see the same data displayed in the section **New coffee in session** but a different pod name displayed at the top-left of the page.
-
-Finally, use the following steps to demonstrate that the session data is persisted in the Azure Cache for Redis instance. You can issue commands to your Azure Cache for Redis instance using the [Redis Console](/azure/azure-cache-for-redis/cache-configure#redis-console).
-
-1. Find your Azure Cache for Redis instance from the Azure portal.
-1. Select **Console** to open Redis console.
-1. Run the following commands to view the session data:
-
-   ```text
-   scan 0 count 1000 match '*'
-
-   hgetall "com.ibm.ws.session.attr.default_host%2F"
+   ```bash
+   docker build -t javaee-cafe-jcache:v1 -f src/main/docker/Dockerfile .
    ```
 
-1. Search for **cafe.model.entity.Coffee[id=1, name=Coffee 3, price=30.0]** from the web page, which is the coffee you created and persisted in the Azure Cache for Redis instance.
+1. Use the following command to start the Docker container:
+
+   ```bash
+   docker run -it --rm \
+      -p 9080:9080 \
+      -e REDIS_CACHE_ADDRESS=${REDIS_CACHE_ADDRESS} \
+      -e REDIS_CACHE_KEY=${REDIS_CACHE_KEY} \
+      --mount type=bind,source=$(pwd)/target/liberty/wlp/usr/servers/defaultServer/redisson-config.yaml,target=/config/redisson-config.yaml \
+      javaee-cafe-jcache:v1
+   ```
+
+   After the container starts, you can test it by using steps similar to the ones you use to run the application locally without Docker.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [`az group delete`](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no longer needed, find its resource group name and delete it from the Azure portal.
 
-```azurecli
-az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
-```
-
-To delete the Azure Cache for Redis instance, find its resource group name and run the following command:
-
-```azurecli
-az group delete --name <AZURE_CACHE_FOR_REDIS_RESOURCE_GROUP_NAME> --yes --no-wait
-```
+For more information, see [Delete resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#delete-resource-groups).
 
 ## Next steps
 
@@ -389,5 +181,11 @@ You can learn more from references used in this guide:
 * [Configuring Liberty session persistence with JCache](https://www.ibm.com/docs/en/was-liberty/base?topic=manually-configuring-liberty-session-persistence-jcache)
 * [JCache support of Redisson](https://redisson.org/glossary/jcache.html)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
+
+If you want to deploy the sample application to Azure, reference the following articles:
+
+* [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app)
+* [Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app)
+* [Deploy a Java application with Open Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
