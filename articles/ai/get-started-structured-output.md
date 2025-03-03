@@ -1,7 +1,7 @@
 ---
 title: "Get Started with Entity Extraction Using Azure OpenAI Structured Outputs Mode"
 description: "Learn how to improve your Azure OpenAI model responses with structured outputs."
-ms.date: 02/28/2025
+ms.date: 03/04/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer, I want to learn how to use Azure OpenAI  structured outputs to improve my model responses from a simple example.
 ---
-# Quickstart: Get started with Entity Extraction using Azure OpenAI Structured Outputs Mode
+# Quickstart: Entity Extraction using Azure OpenAI Structured Outputs Mode
 
-In this quickstart, you explore several examples to extract different types of entities. The app demonstrates how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
+In this quickstart, you explore several examples to extract different types of entities. These examples demonstrate how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
 
 > [!NOTE]
 > This article uses one or more [AI app templates](./intelligent-app-templates.md) for examples and guidance. AI app templates give you well-maintained, easy-to-deploy reference implementations, ensuring a high-quality starting point for your AI apps.
