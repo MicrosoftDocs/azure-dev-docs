@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 03/04/2025
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to build an application that uses Azure Redis as the HTTP session cache for WebSphere Liberty or Open Liberty.
 ---
@@ -20,12 +20,9 @@ In this guide, you'll:
 * Prepare a sample application that enables persistence of HTTP sessions.
 * Run the sample application locally.
 
-This article is intended to help you quickly get to deployment. Before going to production, you should 
-explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
+This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on 
-Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your 
-contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -37,17 +34,17 @@ contact information. The team of program managers, architects, and engineers wil
 
 ## Create an Azure Managed Redis instance
 
-[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Follow the steps in this section to create an Azure Managed Redis instance and note down its connection information. You use this information later to configure the sample application.
+[Azure Managed Redis](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview) provides an in-memory data store based on the [Redis Enterprise](https://redis.io/about/redis-enterprise/) software. Use the following steps to create an Azure Managed Redis instance, and then note down its connection information. You use this information later to configure the sample application.
 
-1. Follow the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis) to create an Azure Managed Redis instance. Carefully note the following differences:
+1. Create an Azure Managed Redis instance by following the steps in [Quickstart: Create an Azure Managed Redis Instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis). Carefully note the following differences:
 
-   1. At step 3 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Basics** tab, select a **Cache SKU** that supports Azure Managed Redis. In this guide, you select **Balanced (For general purpose workloads with typical performance requirements)**. For more information, see [Choosing the right tier](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview#choosing-the-right-tier).
+   1. At step 3 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Basics** tab, select a **Cache SKU** that supports Azure Managed Redis. For this guide, select **Balanced (For general purpose workloads with typical performance requirements)**. For more information, see [Choosing the right tier](/azure/azure-cache-for-redis/managed-redis/managed-redis-overview#choosing-the-right-tier).
 
-   1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Networking** tab, select **Public Endpoint** for the **Connectivity** option in this guide for simplicity. For production, you should consider using **Private Endpoint** for better security.
+   1. At step 4 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Networking** tab, for the **Connectivity** option, select **Public Endpoint**. This option is the best choice for simplicity when using this guide. For production, you should consider using **Private Endpoint** for better security.
 
    1. At step 5 of the section [Create a Redis instance](/azure/azure-cache-for-redis/quickstart-create-managed-redis#create-a-redis-instance), where you're on the **Advanced** tab, configure the following settings:
-   
-      * Enable **Access Keys Authentication** for the **Authentication** in this guide for simplicity. For optimal security, you're recommended to use Microsoft Entra ID with managed identities to authorize requests against your cache, if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+
+      * For **Authentication**, enable **Access Keys Authentication**. This option is the best choice for simplicity when using this guide. For optimal security, we recommend using Microsoft Entra ID with managed identities to authorize requests against your cache, if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
       * Set **Clustering policy** to **Enterprise** for a nonclustered cache, which works for this guide where single node configuration is used. For more information, see [Clustering on Enterprise](/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers#clustering-on-enterprise).
 
@@ -57,7 +54,7 @@ contact information. The team of program managers, architects, and engineers wil
 
 1. Select **Settings** > **Authentication**. Select **Access keys** and note down the **Primary** value. You use this value as the `REDIS_CACHE_KEY` environment variable later.
 
-1. Run the following command to export the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY`:
+1. Use the following command to export the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY`:
 
    ```bash
    export REDIS_CACHE_ADDRESS=rediss://<your-redis-cache-endpoint>
@@ -100,7 +97,7 @@ java-app-jcache/
         └── webapp
 ```
 
-The **pom.xml** file is the Maven project file that contains the dependencies and plugins for the sample application. 
+The **pom.xml** file is the Maven project file that contains the dependencies and plugins for the sample application.
 
 The **pom-redisson.xml** file is used to copy dependencies for the Redisson client library to the shared resources directory of the Liberty server later.
 
@@ -110,23 +107,18 @@ In the **liberty/config** directory, the **server.xml** file is used to configur
 
 In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection to the Azure Managed Redis instance.
 
-The **docker** directory contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty 
-and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
+The **docker** directory contains two Dockerfiles. **Dockerfile** is used to build an image with Open Liberty and **Dockerfile-wlp** is used to build an image with WebSphere Liberty.
 
 ## Run the sample application locally
 
-Use the following steps to build and run your sample application locally. These steps use Maven and the `liberty-maven-plugin`. 
-To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+Use the following steps to build and run your sample application locally. These steps use Maven and the `liberty-maven-plugin`. For more information about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 1. Verify the current working directory is **java-app-jcache** in your local clone.
 1. Run the Maven command `mvn clean package` and package the application.
-1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the correct target location. This step also inserts the values of 
-   the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by 
-   the **server.xml** file.
-1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson 
-   client library and its dependencies to the shared resources directory of the Liberty server.
-1. Run the Maven command `mvn liberty:dev` and start the application. If the application is successfully started, you should 
-   see `The defaultServer server is ready to run a smarter planet.` in the command output.
+1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the correct target location. This step also inserts the values of the environment variables `REDIS_CACHE_ADDRESS` and `REDIS_CACHE_KEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
+1. Run `mvn dependency:copy-dependencies -f pom-redisson.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources` to copy the Redisson client library and its dependencies to the shared resources directory of the Liberty server.
+1. Run the Maven command `mvn liberty:dev` and start the application. If the application is successfully started, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
+
    You should see output similar to the following if the Redis connection is successful.
 
    ```output
@@ -141,36 +133,29 @@ Open a web browser to [http://localhost:9080](http://localhost:9080) and you sho
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/run-succeeded-locally.png" alt-text="Screenshot of Java liberty application running successfully.":::
 
-In the form **New coffee**, set values for the fields **Name** and **Price**, and then select **Submit**. 
-The application creates a new coffee, persists it, and also stores the HTTP session in the Azure Managed Redis 
-instance.
+In the **New coffee** form, set values for the fields **Name** and **Price**, and then select **Submit**. The application creates a new coffee, persists it, and also stores the HTTP session in the Azure Managed Redis instance.
 
-After a few seconds, you'll see the new coffee displayed in the table **Our coffees**.
+After a few seconds, you see the new coffee displayed in the table **Our coffees**.
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/new-coffee-in-cache.png" alt-text="Screenshot of sample application showing new coffee created and persisted in the session of the application.":::
 
-To demonstrate that the session data can be retrieved from Redis, 
-use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with the `mvn liberty:dev` command.
+To demonstrate that the session data can be retrieved from Redis, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application and restart it with the `mvn liberty:dev` command.
 
-Then, refresh the application home page. You should see the same session data displayed in the 
-section **New coffee**. Stop the application when you're done testing.
+Then, refresh the application home page. You should see the same session data displayed in the section **New coffee**. Stop the application when you're done testing.
 
 ### Containerize the application
 
-Optionally, you can package and run the application in a container. 
-The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. 
-This guide uses the Dockerfile for Open Liberty, but you can use the Dockerfile for WebSphere Liberty by 
-following similar steps.
+Optionally, you can package and run the application in a container by using the following steps. The sample application provides two Dockerfiles for Open Liberty and WebSphere Liberty. This guide uses the Dockerfile for Open Liberty, but you can use the Dockerfile for WebSphere Liberty by following similar steps.
 
 1. Install Docker for your OS. For more information, see [Get Docker](https://docs.docker.com/get-docker/).
 
-1. Run the following command to build the Docker image:
+1. Use the following command to build the Docker image:
 
    ```bash
    docker build -t javaee-cafe-jcache:v1 -f src/main/docker/Dockerfile .
    ```
 
-1. Run the following command to start the Docker container:
+1. Use the following command to start the Docker container:
 
    ```bash
    docker run -it --rm \
@@ -181,13 +166,11 @@ following similar steps.
       javaee-cafe-jcache:v1
    ```
 
-   Once the container is started, you can test it with similar steps as running the application locally 
-   without Docker.
+   After the container starts, you can test it by using steps similar to the ones you use to run the application locally without Docker.
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no 
-longer needed, find its resource group name and delete it from the Azure portal.
+To avoid Azure charges, you should clean up unnecessary resources. When the Azure Managed Redis instance is no longer needed, find its resource group name and delete it from the Azure portal.
 
 For more information, see [Delete resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal#delete-resource-groups).
 
