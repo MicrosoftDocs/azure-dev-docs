@@ -147,6 +147,8 @@ Follow the next steps to build and run the application locally.
    mvn wildfly-jar:run
    ```
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    If you want to learn more about the underlying runtime used by this demo, the [Galleon Feature Pack for integrating datasources](https://github.com/jbossas/eap-datasources-galleon-pack/blob/main/doc/mssqlserver/README.md) documentation has a complete list of available environment variables. For details on the concept of feature-pack, see [the WildFly documentation](https://docs.wildfly.org/galleon/#_feature_packs).
 
    If you receive an error with text similar to the following example:
@@ -176,6 +178,8 @@ Follow the next steps to build and run the application locally.
    export MSSQLSERVER_PORT=1433
    mvn wildfly-jar:run -Dwildfly.bootable.arguments="-Djboss.node.name=node2 -Djboss.socket.binding.port-offset=1000"
    ```
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
    If your cluster is working, you can see on the server console log a trace similar to the following one:
 
@@ -271,6 +275,8 @@ The next steps explain how you can deploy the application with a Helm chart usin
        --from-literal app-driver-version=${MSSQLSERVER_DRIVER_VERSION} \
        --from-literal app-ds-jndi=${MSSQLSERVER_JNDI}
    ```
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
 1. Open the OpenShift console and navigate to the developer view. You can discover the console URL for your OpenShift cluster by running this command. Sign in with the `kubeadmin` userid and password you obtained from a preceding step.
 
