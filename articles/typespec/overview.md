@@ -9,7 +9,7 @@ ms.custom: devx-track-typespec
 
 # What is TypeSpec?
 
-[TypeSpec](https://typespec.io/) is a powerful and flexible language from Microsoft for describing APIs. It allows developers to define APIs in an extensible and easy-to-understand way. With TypeSpec, you can generate API specifications, client code, and server-side code directly from your API definition using a robust system of emitters.
+[TypeSpec](https://typespec.io/) is a powerful and flexible language by Microsoft for describing APIs. It allows developers to define APIs in an extensible and easy-to-understand way. With TypeSpec, you can generate API specifications, client code, and server-side code directly from your API definition using a robust system of emitters.
 
 :::image type="content" source="media/tool-chain.png" alt-text="Diagram showing TypeSpec and the generated specification happen before API generation.":::
 
