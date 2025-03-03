@@ -400,7 +400,7 @@ class RepoOverview(BaseModel):
 
   ```python
   class AzureService(str, Enum):
-      AISTUDIO = "AI Foundry"
+      AIFOUNDRY = "AI Foundry"
       AISEARCH = "AI Search"
       POSTGRESQL = "PostgreSQL"
       COSMOSDB = "CosmosDB"
