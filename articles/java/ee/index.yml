@@ -38,8 +38,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Java app with Helidon to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
@@ -50,8 +48,6 @@ landingContent:
             url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java EE JCache with WebSphere/Open Liberty
             url: how-to-deploy-java-liberty-jcache.md
-          - text: Java app with Payara Micro to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Traditional WebSphere on Azure VMs
             url: traditional-websphere-application-server-virtual-machines.md
           - text: Passwordless database connections
