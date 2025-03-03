@@ -66,13 +66,30 @@ The TypeSpec compiler can generate outputs for OpenAPI specifications, client co
 3. **Generate Server-Side Stub Code**  
    *The service-side emitter generates server stub code to kickstart API implementation.*
 
-## Service-Side code generation with TypeSpec
+## Comprehensive code generation with TypeSpec
+
+### Client code generation
+
+TypeSpec streamlines client code generation by automatically creating code to consume APIs directly from TypeSpec definitions. This process leverages key capabilities such as standard runtime interfaces that ensure seamless integration, custom code extensibility to tailor the output for specific client needs, and comprehensive generation that spans the entire development stack. As a result, developers can maintain consistency across applications, reduce manual coding effort, and quickly integrate APIs with existing toolchains while enjoying a more efficient and scalable development workflow.
+
+Languages supported:
+
+* .NET
+* Java
+* JavaScript
+* Python
+
+### Server code generation
 
 TypeSpec supports generating server-side stub code directly from TypeSpec definitions. This streamlines the development process and ensures consistency across client and server implementations.
 
+Languages supported:
+
+* .NET
+* JavaScript
+
 Key capabilities:
 
-* **Model Generation**: TypeSpec acts as the source of truth for APIs, making model generation from TypeSpec emitters straightforward. The C# prototype emitter uses a canonical service model, generating mapping code between versioned and canonical models.
 * **Standard Runtime Interfaces**: The standard emitter focuses on generating runtime interfaces initially, ensuring flexibility and easy integration with various runtime stacks.
 * **Custom Code Extensibility**: TypeSpec emitters offer custom code extensibility, allowing developers to tailor the generated code to specific needs, making it adaptable to different environments.
 * **Comprehensive Code Generation**: TypeSpec supports code generation across the entire development stack, from clients to servers, including different protocols and asset types, ensuring a unified development approach.
