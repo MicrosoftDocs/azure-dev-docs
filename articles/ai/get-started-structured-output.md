@@ -770,6 +770,92 @@ print(receipt)
 
 ### Example 7: Parse a blog post and extract metadata
 
+This example shows how to use the Azure OpenAI service to extract structured information from a blog post. The `BlogPost` model defines the expected output structure, ensuring the extracted data is well-structured and validated. The example fetches the webpage, extracts the relevant content, sends it to the GPT model, and validates the response against the `BlogPost` model.
+
+#### Using Web Pages for input vs. using text
+
+Using web pages as input for structured output differs from using text in several ways:
+
+1. **Input Format**: Fetch and parse web pages to extract relevant content before sending them to the GPT model. Text can be sent directly.
+2. **Content Extraction**: Extract and convert the webpage content to a text format that the GPT model can process.
+3. **Processing**: The GPT model processes the extracted text from the webpage and converts it into structured data based on the provided schema.
+
+#### Defining the `BlogPost` model
+
+The `BlogPost` model is a Pydantic model that defines the structure of the expected output from the GPT model. This approach makes sure the extracted information follows a specific schema.
+
+```python
+class BlogPost(BaseModel):
+    title: str
+    summary: str = Field(..., description="A 1-2 sentence summary of the blog post")
+    tags: list[str] = Field(..., description="A list of tags for the blog post, like 'python' or 'openai'")
+```
+
+- **title**: The blog post's title.
+- **summary**: A brief summary of the blog post.
+- **tags**: Tags associated with the blog post.
+
+#### Preparing the Webpage for input
+
+To use a webpage as input for structured output, the following code snippet fetches the webpage content and extracts the relevant parts (title and body) using the BeautifulSoup Python library. This process prepares the content of the webpage to be sent to the GPT model.
+
+```python
+url = "https://blog.pamelafox.org/2024/09/integrating-vision-into-rag-applications.html"
+response = requests.get(url)
+if response.status_code != 200:
+    print(f"Failed to fetch the page: {response.status_code}")
+    exit(1)
+soup = BeautifulSoup(response.content, "html.parser")
+post_title = soup.find("h3", class_="post-title")
+post_contents = soup.find("div", class_="post-body").get_text(strip=True)
+```
+
+- **requests.get**: Sends a GET request to fetch the webpage content.
+- **BeautifulSoup**: Parses the HTML content of the webpage.
+- **post_title**: Extracts the title of the blog post.
+- **post_contents**: Extracts the body of the blog post."
+
+#### Using `BlogPost` in the call to the model
+
+The following code snippet sends a request to the GPT model to extract information from the prepared web page text (`post_title` and `post_contents`) using structured outputs. The `BlogPost` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
+
+```python
+completion = client.beta.chat.completions.parse(
+    model=model_name,
+    messages=[
+        {"role": "system", "content": "Extract the information from the blog post"},
+        {"role": "user", "content": f"{post_title}\n{post_contents}"},
+    ],
+    response_format=BlogPost,
+)
+```
+
+- **model**- **model**: The GPT model to use.
+- **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
+- **response_format**: The expected response format using the `BlogPost` model.
+
+#### Parsing and validating the response
+
+Next, the following code snippet parses and validates the response from the GPT model against the `BlogPost` model.
+
+```python
+output = completion.choices[0].message.parsed
+blog_post = BlogPost.model_validate(output)
+```
+
+- **output**: Extracts the parsed response from the GPT model.
+- **BlogPost.model_validate**: Validates the parsed response against the `BlogPost` model, ensuring the data follows the expected structure and types.
+
+#### Printing the extracted blog post information
+
+Finally, the following code snippet prints the validated `BlogPost` object in a readable format.
+
+```python
+print(blog_post)
+```
+
+- **print**: Prints the validated `BlogPost` object, making it easy to read and understand the extracted information.
+
 ## Clean up resources
 
 ### Clean up Azure resources
