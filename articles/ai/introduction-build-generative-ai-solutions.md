@@ -132,7 +132,7 @@ Some of the logic that you need to implement your generative AI vision can be bu
 
 |Product|Description|
 |---|---|
-|**Azure AI Foundry**| You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
+|**Azure AI Foundry**| You can use [Azure AI Foundry](https://ai.azure.com/) to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use [Azure AI Foundry](https://ai.azure.com/) to customize response generation or to improve the relevance of retrieved information.|
 
 ### Vector database
 
