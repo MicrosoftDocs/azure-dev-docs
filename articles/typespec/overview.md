@@ -43,7 +43,7 @@ By addressing these challenges, TypeSpec simplifies the API design process, ensu
 
 The following diagram illustrates the key stages involved in developing APIs with TypeSpec. The process starts with two options: creating a new API specification from scratch or migrating from an existing OpenAPI spec. Once you begin, the API is defined using TypeSpec, using its modular and reusable components. The TypeSpec compiler then processes these definitions, using a robust set of emitters to automatically generate API specifications, client code, and server-side stub code. Finally, the generated artifacts are integrated with existing toolchains, ensuring a smooth and consistent workflow.
 
-![TypeSpec Workflow](./media/typespec-toolchain-diagram.png)
+[ ![Diagram showing a TypeSpec workflow.](./media/typespec-toolchain-diagram.png) ](./media/typespec-toolchain-diagram.png#lightbox)
 
 **Workflow Steps**
 
