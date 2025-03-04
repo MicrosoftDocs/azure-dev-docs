@@ -1,7 +1,7 @@
 ---
 title: Install JavaScript Azure SDK library packages
 description: How to install, uninstall, and verify Azure SDK for JavaScript libraries using npm. Includes details on installing specific versions and preview packages.
-ms.date: 08/08/2022
+ms.date: 03/04/2025
 ms.topic: conceptual
 ms.custom: devx-track-js
 adobe-target: true
@@ -9,13 +9,25 @@ adobe-target: true
 
 # How to install Azure library packages for JavaScript
 
-The Azure SDK for JavaScript is composed solely of many individual libraries that can be installed in standard JavaScript environments.
 
-Libraries for standard JavaScript environments are listed in the [package index](../azure-sdk-library-package-index.md). Azure packages have names that begin with the `@azure` scope.
+The Azure SDK for JavaScript is composed of many independently versioned libraries that can be installed in standard JavaScript environments. This modular approach allows you to install only the packages you need and manage them individually for better control over dependencies and updates.
 
-With these Azure libraries you can provision and manage resources on Azure services (using the management libraries, whose names begin with `@azure/arm-`) and connect with those resources from app code.
+**Libraries for standard JavaScript environments** are listed in the [package index](../azure-sdk-library-package-index.md), and all Azure packages are published under the `@azure` scope. This structure enables you to easily provision and manage Azure resources using management libraries (with names starting with `@azure/arm-`) as well as interact with these resources from your application code.
+
+## Prerequisites
+
+
+- [Node.js LTS](https://nodejs.org/).  
+  Learn more about [Node.js compatibility for Azure](choose-nodejs-version.md).  
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/).  
+  Ensure that your package manager is up-to-date to avoid installation issues.
+
+If you run into problems while installing packages, please refer to our [troubleshooting guide](#troubleshooting).
 
 ## Install the latest version of a library
+
+When you install a library without specifying a version, the package manager retrieves the latest version available from the package index.
+
 
 # [npm](#tab/npm-install)
 
@@ -23,23 +35,17 @@ With these Azure libraries you can provision and manage resources on Azure servi
 npm install <library>
 ```
 
-`npm install` retrieves the latest version of a library in your current JavaScript environment.
-
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 # [yarn](#tab/yarn-install)
 
 ```cmd
 yarn add <library>
 ```
 
-`yarn add` retrieves the latest version of a library in your current JavaScript environment.
-
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 ---
 
 ## Install specific library versions
+
+Sometimes you may need to install a particular version or a preview version of a library. This is useful for compatibility testing or gaining early access to new features.
 
 # [npm](#tab/npm-install-version)
 
@@ -48,19 +54,17 @@ You can use any package name listed in the [package index](../azure-sdk-library-
 npm install <library>@<version-number>
 ```
 
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 # [yarn](#tab/yarn-install-version)
 
 ```cmd
 yarn add <library>@<version-number>
 ```
 
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 ---
 
 ## Verify a library installation
+
+After installation, you can verify that the correct version of the library is installed.
 
 # [npm](#tab/npm-list)
 
@@ -68,15 +72,11 @@ You can use any package name listed in the [package index](../azure-sdk-library-
 npm list <library>
 ```
 
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 # [yarn](#tab/yarn-list)
 
 ```cmd
 yarn list <library>
 ```
-
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
 
 ---
 
@@ -88,14 +88,24 @@ You can use any package name listed in the [package index](../azure-sdk-library-
 npm uninstall <library>
 ```
 
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 # [yarn](#tab/yarn-uninstall)
 
 ```cmd
 yarn remove <library>
 ```
 
-You can use any package name listed in the [package index](../azure-sdk-library-package-index.md).
-
 ---
+
+## Troubleshooting
+
+* **Installation errors**: Ensure that Node.js and your package manager (npm or yarn) are up-to-date.
+* **Version conflicts**: Check that the version specified is available in the package index.
+* **Network issues**: Verify your internet connection and proxy settings if package downloads are slow or failing.
+* **Preview packages**: When installing preview versions, look for pre-release tags (for example, `npm install <library>@next`) and be aware that these packages might not be as stable as the general release.
+
+## Additional resources
+
+* Azure SDK Library Index – [Browse available packages](azure-sdk-library-package-index.md).
+* Node.js Compatibility for Azure – [Learn about supported Node.js versions](choose-nodejs-version.md).
+* Troubleshooting [npm](https://docs.npmjs.com/common-errors) and [yarn](https://yarnpkg.com/advanced/error-codes) issues – Common error troubleshooting guidelines.
+* [Azure SDK GitHub repository](https://github.com/Azure/azure-sdk-for-js) – For reporting issues and contributing.
