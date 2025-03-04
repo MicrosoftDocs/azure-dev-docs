@@ -12,7 +12,7 @@ adobe-target: true
 
 The Azure SDK for JavaScript is composed of many independently versioned libraries that can be installed in standard JavaScript environments. This modular approach allows you to install only the packages you need and manage them individually for better control over dependencies and updates.
 
-**Libraries for standard JavaScript environments** are listed in the [package index](../azure-sdk-library-package-index.md), and all Azure packages are published under the `@azure` scope. This structure enables you to easily provision and manage Azure resources using management libraries (with names starting with `@azure/arm-`) and interact with these resources from your application code.
+[!INCLUDE [javascript-sdk-libraries](../includes/libraries.md)]
 
 ## Prerequisites
 
@@ -43,7 +43,8 @@ yarn add <library>
 
 ## Install specific library versions
 
-Sometimes you may need to install a particular version or a preview version of a library. This version specificity is useful for compatibility testing or gaining early access to new features.
+Sometimes you may need to install a particular version or a preview version of a library for compatibility testing or to gain early access to new features. When you install a specific version, you are **pinning** your dependency, which means that your project will continue using that version and will not automatically receive updates or fixes. While pinning can be useful in certain scenarios, we generally recommend using the latest version whenever possible to benefit from ongoing improvements and security updates.
+
 
 ### [npm](#tab/npm-install-version)
 
