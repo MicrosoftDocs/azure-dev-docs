@@ -239,7 +239,7 @@ Use the following steps to run the `liberty:devc` command to locally run and tes
 
 ## Prepare the application image
 
-To deploy and run your Liberty application on an Azure Red Hat OpenShift cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
+To deploy and run your Liberty application on an Azure Red Hat OpenShift cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1).
 
 ### Build the application and push to the image stream
 
@@ -397,6 +397,6 @@ You can learn more from references used in this guide:
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
-* [WebSphere Liberty Container Images](https://github.com/WASdev/ci.docker)
+* [WebSphere Liberty Container Images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
