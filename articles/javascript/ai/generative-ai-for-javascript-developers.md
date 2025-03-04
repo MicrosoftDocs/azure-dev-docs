@@ -30,7 +30,7 @@ In this course:
 * Use text and image generation to integrate AI into the app experience
 * Learn architectural patterns for AI applications
 
-:::image type="content" source="media/generative-ai-for-javascript-developers/leonardo-talk.png" alt-text="Image of Leonardo Da Vinci used in the companion app to talk to historical characters.":::
+:::image type="content" source="media/generative-ai-for-javascript-developers/leonardo-talk.png" alt-text="An AI-generated image of Leonardo Da Vinci used in the companion app to talk to historical characters.":::
 
 [Use the companion application to talk to historical characters](https://github.com/microsoft/generative-ai-with-javascript/app/README.md)
 
