@@ -8,9 +8,7 @@ ms.custom: devx-track-js, devx-track-ts
 
 # Use Azure client libraries for JavaScript and TypeScript
 
-To programmatically access your Azure services, use the Azure client libraries for JavaScript. 
-
-[!INCLUDE [javascript-sdk-libraries](../includes/libraries.md)]
+To programmatically access your Azure services, use the Azure client libraries for JavaScript.  Typically, these libraries are scoped with the [@azure](https://www.npmjs.com/search?q=%40azure) npm package scope published by [microsoft1es](https://www.npmjs.com/~microsoft1es). 
 
 ## Differences between client libraries and REST APIs
 
@@ -18,27 +16,27 @@ Use the following information to understand when to use which type of access.
 
 * The [Azure client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. These libraries abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * [Azure REST APIs](/rest/api/azure/) are the preferred method if you are:
-  * Working with preview services that do not have Azure client libraries available. Consider your code as preview, which should be updated when the service is generally available with client libraries.
+  * Working with preview services that don't have Azure client libraries available. Consider your code as preview, which should be updated when the service is generally available with client libraries.
   * Want to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.
 
 ## Azure client and management libraries
 
-The Azure client library [releases](https://azure.github.io/azure-sdk/releases/latest/js.html) are available as:
+The Azure client library [releases](../azure-sdk-library-package-index) are available as:
 
-* [Management](https://github.com/azure/azure-sdk-for-js#management): Management libraries enable you to create and manage Azure resources. You can recognize these libraries by `arm-` in their package names. The term ARM indicates the Azure Resource Manager.
+* [Management](https://github.com/azure/azure-sdk-for-js#management): Management libraries enable you to create and manage Azure resources. You can recognize these libraries by `arm-` in their package names. The term `arm` indicates the Azure Resource Manager.
   * [Documentation and code samples](https://aka.ms/azsdk/js/mgmt)
 * [Client](https://github.com/azure/azure-sdk-for-js#client): Given an Azure resource already exists, use the client libraries to consume it and interact with it.
   * Each package README.md includes documentation and samples.
 
 ## Install Azure npm packages
 
-Azure client libraries are freely available from [NPM](https://www.npmjs.com/). Install individual SDKs as needed. Each SDK provides TypeScript definitions.
+Azure client libraries are freely available from [NPM and Yarn](azure-sdk-install.md). Install individual SDKs as needed. Each SDK provides TypeScript definitions.
 
 For client/browser usage, Azure client libraries need to be added to your [bundling](#bundling) process.
 
 ## Use Azure npm package sample code
 
-Each package includes documentation to quickly get you started with the package. Refer to the specific NPM packages you use to learn how to use them.
+Each package includes documentation to quickly get you started with the package. Refer to the specific package's documentation you use to learn how to use them.
 
 ## Provide authentication credentials
 
@@ -89,9 +87,9 @@ Learn more about long running operations on Azure:
 The [@azure/abort-controller](https://www.npmjs.com/package/@azure/abort-controller) package provides AbortController and AbortSignal classes. Use the AbortController to create an AbortSignal, which can then be passed to Azure SDK operations to cancel pending work. Azure SDK operations can be:
 
 * Aborted based on your own logic
-* Aborted based on a timeout limit
+* Aborted based on a time out limit
 * Aborted based on a parent task's signal
-* Aborted based on a parent task's signal _or_ a timeout limit
+* Aborted based on a parent task's signal _or_ a time out limit
 
 Learn more:
 
@@ -99,7 +97,7 @@ Learn more:
 
 ## Verbose logging from the SDK
 
-When using an Azure SDK, there may be times when you need to debug your application.
+When you developer with an Azure SDK, there may be times when you need to debug your application.
 
 * To enable logging at **build-time**, set the AZURE_LOG_LEVEL environment variable to `info`.
 * To enable logging at **run-time**, use the [@azure/logger](https://www.npmjs.com/package/@azure/logger) package:
