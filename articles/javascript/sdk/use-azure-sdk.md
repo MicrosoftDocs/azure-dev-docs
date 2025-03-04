@@ -21,7 +21,7 @@ Use the following information to understand when to use which type of access.
 
 ## Azure client and management libraries
 
-The Azure client library [releases](../azure-sdk-library-package-index) are available as:
+The Azure client library [releases](../azure-sdk-library-package-index.md) are available as:
 
 * [Management](https://github.com/azure/azure-sdk-for-js#management): Management libraries enable you to create and manage Azure resources. You can recognize these libraries by `arm-` in their package names. The term `arm` indicates the Azure Resource Manager.
   * [Documentation and code samples](https://aka.ms/azsdk/js/mgmt)
