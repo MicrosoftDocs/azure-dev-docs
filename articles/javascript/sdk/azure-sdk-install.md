@@ -12,17 +12,17 @@ adobe-target: true
 
 The Azure SDK for JavaScript is composed of many independently versioned libraries that can be installed in standard JavaScript environments. This modular approach allows you to install only the packages you need and manage them individually for better control over dependencies and updates.
 
-**Libraries for standard JavaScript environments** are listed in the [package index](../azure-sdk-library-package-index.md), and all Azure packages are published under the `@azure` scope. This structure enables you to easily provision and manage Azure resources using management libraries (with names starting with `@azure/arm-`) as well as interact with these resources from your application code.
+**Libraries for standard JavaScript environments** are listed in the [package index](../azure-sdk-library-package-index.md), and all Azure packages are published under the `@azure` scope. This structure enables you to easily provision and manage Azure resources using management libraries (with names starting with `@azure/arm-`) and interact with these resources from your application code.
 
 ## Prerequisites
 
 
 - [Node.js LTS](https://nodejs.org/).  
-  Learn more about [Node.js compatibility for Azure](choose-nodejs-version.md).  
+  Learn more about [Node.js compatibility for Azure](../choose-nodejs-version.md).  
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/).  
   Ensure that your package manager is up-to-date to avoid installation issues.
 
-If you run into problems while installing packages, please refer to our [troubleshooting guide](#troubleshooting).
+If you run into problems while installing packages, refer to our [troubleshooting guide](#troubleshooting).
 
 ## Install the latest version of a library
 
@@ -45,7 +45,7 @@ yarn add <library>
 
 ## Install specific library versions
 
-Sometimes you may need to install a particular version or a preview version of a library. This is useful for compatibility testing or gaining early access to new features.
+Sometimes you may need to install a particular version or a preview version of a library. This version specificity is useful for compatibility testing or gaining early access to new features.
 
 # [npm](#tab/npm-install-version)
 
@@ -61,6 +61,13 @@ yarn add <library>@<version-number>
 ```
 
 ---
+
+## Preview packages
+
+When installing preview packages, look for prerelease tags. These packages provide early access to new features but might not be as stable as general releases. For example:
+
+* `next`: This tag is used for the current beta version of the upcoming release.
+* `dev`: This tag is used for the current alpha version of the upcoming release.
 
 ## Verify a library installation
 
@@ -101,11 +108,10 @@ yarn remove <library>
 * **Installation errors**: Ensure that Node.js and your package manager (npm or yarn) are up-to-date.
 * **Version conflicts**: Check that the version specified is available in the package index.
 * **Network issues**: Verify your internet connection and proxy settings if package downloads are slow or failing.
-* **Preview packages**: When installing preview versions, look for pre-release tags (for example, `npm install <library>@next`) and be aware that these packages might not be as stable as the general release.
 
 ## Additional resources
 
-* Azure SDK Library Index – [Browse available packages](azure-sdk-library-package-index.md).
-* Node.js Compatibility for Azure – [Learn about supported Node.js versions](choose-nodejs-version.md).
+* Azure SDK Library Index – [Browse available packages](../azure-sdk-library-package-index.md).
+* Node.js Compatibility for Azure – [Learn about supported Node.js versions](../choose-nodejs-version.md).
 * Troubleshooting [npm](https://docs.npmjs.com/common-errors) and [yarn](https://yarnpkg.com/advanced/error-codes) issues – Common error troubleshooting guidelines.
 * [Azure SDK GitHub repository](https://github.com/Azure/azure-sdk-for-js) – For reporting issues and contributing.
