@@ -16,15 +16,15 @@ This article describes how to use passwordless authentication to securely connec
 ## Supported Azure Services
 Spring Cloud Azure now supports passwordless authentication for the following services:
 
-### [Connect to MySQL](mysql-support.md#connect-to-azure-mysql-locally-without-password)
+- [Connect to MySQL](mysql-support.md#connect-to-azure-mysql-locally-without-password)
 
-### [Connect to PostgreSQL](postgresql-support.md#connect-to-azure-postgresql-locally-without-password)
+- [Connect to PostgreSQL](postgresql-support.md#connect-to-azure-postgresql-locally-without-password)
 
-### [Connect to Redis](redis-support.md#connect-to-azure-cache-for-redis-with-passwordless)
+- [Connect to Redis](redis-support.md#connect-to-azure-cache-for-redis-with-passwordless)
 
-### [Connect to Kafka](kafka-support.md#use-oauth-authentication)
+- [Connect to Kafka](kafka-support.md#use-oauth-authentication)
 
-### [Connect to Azure Service Bus JMS](spring-jms-support.md#connect-to-azure-service-bus-jms-using-passwordless)
+- [Connect to Azure Service Bus JMS](spring-jms-support.md#connect-to-azure-service-bus-jms-using-passwordless)
 
 ## [Azure Identity Extensions](/java/api/overview/azure/identity-extensions-readme)
 
