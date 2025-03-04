@@ -2,7 +2,7 @@
 title: Use Azure client libraries for JavaScript
 description: To programmatically access your Azure services, use the Azure client libraries (SDKs) for JavaScript or TypeScript development.
 ms.topic: concept-article
-ms.date: 08/23/2024
+ms.date: 03/04/2025
 ms.custom: devx-track-js, devx-track-ts
 ---
 
