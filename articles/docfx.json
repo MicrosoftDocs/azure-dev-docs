@@ -71,7 +71,8 @@
         "tutorial-vscode-docker-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
         "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues",
-        "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure/issues"
+        "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure/issues",
+        "typespec/**/*.md": "https://github.com/microsoft/typespec/"
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
@@ -108,6 +109,8 @@
         "python/**/*.yml": "bobtabor-msft",
         "terraform/**/*.md": "TomArcherMsft",
         "terraform/**/*.yml": "TomArcherMsft",
+        "typespec/**/*.md": "diberry",
+        "typespec/**/*.yml": "diberry",
         "intro/**/*.md": "mcleanbyron",
         "intro/**/*.yml": "mcleanbyron",
         "ai/**/*.md": "ms-johnalex",
@@ -148,6 +151,8 @@
         "python/**/*.yml": "rotabor",
         "terraform/**/*.md": "tarcher",
         "terraform/**/*.yml": "tarcher",
+        "typespec/**/*.md": "diberry",
+        "typespec/**/*.yml": "diberry",
         "intro/**/*.md": "mcleans",
         "intro/**/*.yml": "mcleans",
         "ai/**/*.md": "johalexander",
@@ -178,7 +183,8 @@
         "dev-tunnels/**/*.md": "dev-tunnels",
         "intro/**/*.md": "azure",
         "ai/**/*.md": "azure",
-        "github-copilot-azure/**/*.md": "azure"
+        "github-copilot-azure/**/*.md": "azure",
+        "typespec": "typespec"
       },
       "ms.subservice": {
         "ai/**/*.md": "intelligent-apps",
@@ -193,7 +199,8 @@
         "python/**/*.md": "Python on Azure",
         "java/**/*.md": "Java on Azure",
         "go/**/*.md": "Go on Azure",
-        "github-copilot-azure/**/*.md": "GitHub Copilot for Azure"        
+        "github-copilot-azure/**/*.md": "GitHub Copilot for Azure",
+        "typespec/**/*.md": "TypeSpec"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
@@ -209,6 +216,7 @@
       "ms.custom": {
         "**/ai/**/*.md": "build-2024-intelligent-apps",
         "**/ai/**/*.yml": "build-2024-intelligent-apps"
+
       },
       "ms.collection": {
         "**/ai/**/*.md": "ce-skilling-ai-copilot",
