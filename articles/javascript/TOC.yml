@@ -6,7 +6,9 @@
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
-      href: ai/azure-ai-for-javascript-developers.md    
+      href: ai/azure-ai-for-javascript-developers.md
+    - name: Generative AI for JavaScript developers
+      href: ai/generative-ai-for-javascript-developers.md
     - name: Get started with Enterprise chat
       href: ai/get-started-app-chat-template.md
     - name: Get started with serverless chat with LangChainjs
