@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Messaging
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.0
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 This article describes how you can use Spring Cloud Azure and Spring Messaging together. The Spring Framework provides extensive support for integrating with messaging systems. Spring Messaging for Azure supports the following services:
 
