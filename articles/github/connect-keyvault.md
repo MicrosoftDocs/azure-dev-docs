@@ -46,6 +46,7 @@ To ensure seamless integration between GitHub Actions and Azure Key Vault, confi
   ___
    
 2. **CLI**:  Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through CLI
+
 # [OpenID Connect](#tab/openid)
 
 ### What is Federated Identity?
@@ -89,7 +90,7 @@ Federated identity allows external identities, like GitHub, to access Azure reso
    ```sh
    az keyvault set-policy --name <KEYVAULT_NAME> --spn <CLIENT_ID> --secret-permissions get list
    ```
-
+___
 # [Service principal](#tab/userlevel)
 
 ### Step 1: Create a Service Principal
