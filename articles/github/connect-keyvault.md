@@ -1,18 +1,23 @@
+--- 
+title: Securely Manage Secrets with GitHub Actions and Azure Key Vault
+description: Learn how to integrate GitHub Actions with Azure Key Vault to securely store and retrieve secrets in your workflows.
+author: theluckyprogrammer 
+ms.author: theluckyprogrammer 
+ms.topic: quickstart
+ms.service: azure-keyvault
+ms.subservice: 
+ms.date: 05/03/2025
+ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-githubactions
+---
+
 # Connecting GitHub Actions to Azure Key Vault
 
-## In this article
-- [Prerequisites](#prerequisites)
-- [Configuring Azure Key Vault](#configuring-azure-key-vault)
-- [Approach 1: Authentication Using OpenID Connect (OIDC) (Recommended)](#approach-1-authentication-using-openid-connect-oidc-recommended)
-- [Approach 2: Authentication Using a Service Principal with a Client Secret](#approach-2-authentication-using-a-service-principal-with-a-client-secret)
-- [Updating GitHub Actions Workflow (Same for Both Approaches)](#updating-github-actions-workflow-same-for-both-approaches)
-- [Limitations](#limitations)
-- [Security Best Practices](#security-best-practices)
-- [Next Steps](#next-steps)
+By integrating Azure Key Vault into our GitHub Actions workflows, we aim to securely manage sensitive credentials in a centralized repository. This approach minimizes the risk of accidental exposure or unauthorized access to vulnerable data. Azure KeyVault integration helps achieve:
+- **Enhanced Security**: Storing credentials within Azure Key Vault ensures that secrets are not exposed in the repository or logs, providing robust protection against unauthorized access.  
+- **Streamlined Operations**: Automated retrieval of credentials within GitHub Actions simplifies deployments and reduces the potential for human error.  
+- **Governance and Compliance**: Azure Key Vault offers built-in auditing and access control features, helping organizations maintain compliance with internal policies and industry regulations.
 
 ## Prerequisites
-
-Before starting, ensure you have:
 
 - An **Azure subscription**.
 - An **Azure Key Vault** created and configured.
@@ -26,21 +31,22 @@ Before starting, ensure you have:
 
 To ensure seamless integration between GitHub Actions and Azure Key Vault, configure your key vault as follows:
 
-1. **Set Access Policies or RBAC**: Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow.
-   - Using **Access Policies**:
+1. **Azure Portal**: Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through Azure Portal
+   # [OpenID Connect](#tab/openid)
      - Navigate to your Key Vault in the Azure Portal.
      - Select **Access policies** > **Add Access Policy**.
      - Assign **Get** and **List** permissions for secrets.
      - Select the service principal or managed identity and save the policy.
-   - Using **Azure RBAC**:
+   ___
+   # [Service principal](#tab/userlevel)
      - Navigate to your Key Vault in the Azure Portal.
      - Select **Access control (IAM)** > **Add role assignment**.
      - Choose the **Key Vault Secrets User** role.
      - Assign it to the service principal or managed identity.
-
-2. **Network Configuration**: Ensure that your Key Vault is accessible from GitHub Actions. If you have network restrictions, such as firewall rules or virtual network service endpoints, configure them to allow access from GitHub's IP ranges or service tags.
-
-## Approach 1: Authentication Using OpenID Connect (OIDC) (Recommended)
+  ___
+   
+2. **CLI**:  Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through CLI
+# [OpenID Connect](#tab/openid)
 
 ### What is Federated Identity?
 
@@ -84,7 +90,7 @@ Federated identity allows external identities, like GitHub, to access Azure reso
    az keyvault set-policy --name <KEYVAULT_NAME> --spn <CLIENT_ID> --secret-permissions get list
    ```
 
-## Approach 2: Authentication Using a Service Principal with a Client Secret
+# [Service principal](#tab/userlevel)
 
 ### Step 1: Create a Service Principal
 
@@ -102,6 +108,9 @@ Go to **Settings > Secrets and Variables > Actions** in your GitHub repository a
 - `AZURE_TENANT_ID`: `tenant`
 - `AZURE_SUBSCRIPTION_ID`: `<SUBSCRIPTION_ID>`
 - `KEYVAULT_NAME`: `<KEYVAULT_NAME>`
+___
+
+3. **Network Configuration**: Ensure that your Key Vault is accessible from GitHub Actions. If you have network restrictions, such as firewall rules or virtual network service endpoints, configure them to allow access from GitHub's IP ranges or service tags.
 
 ## Updating GitHub Actions Workflow (Same for Both Approaches)
 
@@ -150,7 +159,7 @@ jobs:
 ## Limitations
 
 - **OIDC authentication requires defining specific branches**. Wildcard (`*`) usage for all branches is not supported.
-- **OIDC access token is valid one hour**.
+- **OIDC access token is valid for one hour**.
 - **OIDC authentication is limited to GitHub Actions** and cannot be used in external scripts.
 - **Service Principal authentication requires secret management and secret rotation**.
 
@@ -162,8 +171,11 @@ jobs:
 - Enable auditing in Azure Key Vault to monitor access attempts.
 - Use GitHub Actions environment protection rules to restrict workflows running with elevated permissions.
 - Always use `echo "::add-mask::"` when handling secrets in workflows to prevent accidental exposure in logs.
+- Creating Service Principal, consider least privileged role
 
 ## Additional References
 
 - **[Federated Identity](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b)**
 - **[Service Tags in Network Security Rules](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview)**
+- **[Sing-in with OpenID Connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect)**
+- **[Sign in with a service principal and secret](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-secret)**
