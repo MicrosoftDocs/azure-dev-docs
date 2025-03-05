@@ -16,9 +16,9 @@ ms.collection: ce-skilling-ai-copilot
 In this article, you explore several examples to extract different types of entities. These examples demonstrate how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
 
 > [!NOTE]
-> This article uses one or more [AI app templates](./intelligent-app-templates.md) for examples and guidance. AI app templates give you well-maintained, easy-to-deploy reference implementations, ensuring a high-quality starting point for your AI apps.
+> This article uses one or more [AI app templates](../intelligent-app-templates.md) for examples and guidance. AI app templates give you well-maintained, easy-to-deploy reference implementations, ensuring a high-quality starting point for your AI apps.
 
-The sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI gpt-4o model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
+The sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI `gpt-4o` model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
 
 By following the instructions in this article, you will:
 
