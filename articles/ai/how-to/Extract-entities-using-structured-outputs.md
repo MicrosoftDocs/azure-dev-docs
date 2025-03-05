@@ -103,13 +103,7 @@ Use the following steps to create a new GitHub codespace on the `main` branch of
 1. In the terminal at the bottom of the screen, sign in to Azure by using the Azure Developer CLI:
 
     ```azdeveloper
-    azd auth login
-    ```
-
-1. In the terminal at the bottom of the screen, sign in to Azure by using the Azure CLI:
-
-    ```bash
-    az login --use-device-code
+    azd auth login --use-device-code
     ```
 
 1. Open the URL in the terminal.
