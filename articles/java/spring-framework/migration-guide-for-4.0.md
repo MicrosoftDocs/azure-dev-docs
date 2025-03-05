@@ -64,7 +64,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.20.0</version>
+      <version>5.20.1</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

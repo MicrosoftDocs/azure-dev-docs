@@ -507,7 +507,7 @@ kubectl apply --server-side -k overlays/watch-all-namespaces
 
 ## Configure and build the application image
 
-To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
+To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1).
 
 Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven.
 
@@ -825,7 +825,7 @@ You can learn more from references used in this guide:
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
-* [WebSphere Liberty Container Images](https://github.com/WASdev/ci.docker)
+* [WebSphere Liberty Container Images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
 
 To incorporate Azure Cache for Redis into a Java app, see [Use Azure Cache for Redis in Java with Redisson Redis client](/azure/azure-cache-for-redis/cache-java-redisson-get-started).
 
