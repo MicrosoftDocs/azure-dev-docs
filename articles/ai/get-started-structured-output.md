@@ -1,8 +1,8 @@
 ---
-title: "Get Started with Entity Extraction Using Azure OpenAI Structured Outputs Mode"
+title: "Extract Entities Using Azure OpenAI Structured Outputs Mode"
 description: "Learn how to improve your Azure OpenAI model responses with structured outputs."
-ms.date: 03/04/2025
-ms.topic: get-started
+ms.date: 03/05/2025
+ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 content_well_notification: 
@@ -11,14 +11,14 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer, I want to learn how to use Azure OpenAI  structured outputs to improve my model responses from a simple example.
 ---
-# Quickstart: Entity Extraction using Azure OpenAI Structured Outputs Mode
+# Extract Entities using Azure OpenAI Structured Outputs Mode
 
-In this quickstart, you explore several examples to extract different types of entities. These examples demonstrate how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
+In this article, you explore several examples to extract different types of entities. These examples demonstrate how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
 
 > [!NOTE]
 > This article uses one or more [AI app templates](./intelligent-app-templates.md) for examples and guidance. AI app templates give you well-maintained, easy-to-deploy reference implementations, ensuring a high-quality starting point for your AI apps.
 
-The quickstart sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI gpt-4o model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
+The sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI gpt-4o model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
 
 By following the instructions in this article, you will:
 
@@ -62,6 +62,21 @@ To use this article, you need to fulfill the following prerequisites:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 
 - Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+
+#### [Visual Studio Code](#tab/visual-studio-code)
+
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+
+- Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+
+- [Azure Developer CLI](/azure/developer/azure-developer-cli)
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+- [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 
+
 ---
 
 ## Open a development environment
@@ -179,15 +194,15 @@ The sample repository has all the code and configuration files for an Azure Open
 
 The sample includes the following examples:
 
-| Example filename | Description |
-|------------------|-------------|
-| `basic_azure.py` | A basic example that uses a deployed Azure OpenAI resource to extract information from an input string. |
-| `extract_github_issue.py` | This example fetches a public GitHub issue using the GitHub API and then extracts details. |
-| `extract_github_repo.py`| This example fetches a public README using the GitHub API and then extracts details. |
-| `extract_image_graph.py`| This example parses a local image of a graph and extracts details like title, axis, legend. |
-| `extract_image_table.py`| This example parses a local image with tables and extracts nested tabular data. |
-| `extract_pdf_receipt.py` | This example parses a local PDF receipt using the `pymupdf` package to first convert it to Markdown and then extract order details. |
-| `extract_webpage.py` | This example parses a blog post using the `BeautifulSoup` package, and extracts metadata (title, description, and tags.). |
+| Example walkthrough | Example filename | Description |
+|---------------------|------------------|-------------|
+|[Example 1](#example-1-use-a-deployed-azure-openai-resource-to-extract-information-from-an-input-string) | `basic_azure.py` | A basic example that uses a deployed Azure OpenAI resource to extract information from an input string. |
+|[Example 2](#example-2-fetch-a-public-github-issue-using-the-github-api-and-then-extract-details)| `extract_github_issue.py` | This example fetches a public GitHub issue using the GitHub API and then extracts details. |
+|[Example 3](#example-3-fetch-a-public-readme-using-the-github-api-and-then-extract-details)| `extract_github_repo.py`| This example fetches a public README using the GitHub API and then extracts details. |
+|[Example 4](#example-4-parse-a-local-image-of-a-graph-and-extract-details-like-title-axis-and-legend)| `extract_image_graph.py`| This example parses a local image of a graph and extracts details like title, axis, legend. |
+|[Example 5](#example-5-parse-a-local-image-with-tables-and-extract-nested-tabular-data)| `extract_image_table.py`| This example parses a local image with tables and extracts nested tabular data. |
+|[Example 6](#example-6-parses-a-local-pdf-receipt-by-converting-to-markdown-and-then-extracting-order-details)| `extract_pdf_receipt.py` | This example parses a local PDF receipt using the `pymupdf` package to first convert it to Markdown and then extract order details. |
+|[Example 7](#example-7-parse-a-blog-post-and-extract-metadata)| `extract_webpage.py` | This example parses a blog post using the `BeautifulSoup` package, and extracts metadata (title, description, and tags.). |
 
 Run an example by either typing python `<example filename>.py` or clicking the Run button on the opened file.
 
@@ -219,9 +234,9 @@ class CalendarEvent(BaseModel):
     participants: list[str]
 ```
 
-- `name`: A string for the event's name.
-- `date`: A string for the event's date.
-- `participants`: A list of strings for the event's participants.
+- `name`: The event's name.
+- `date`: The event's date.
+- `participants`: A list of the event's participants.
 
 #### How `CalendarEvent` is used in the call to the model
 
@@ -248,76 +263,87 @@ completion = client.beta.chat.completions.parse(
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `CalendarEvent` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-event = CalendarEvent.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    rich.print(message.refusal)
+else:
+    rich.print(message.parsed)
 ```
 
-- **output**: Gets the parsed response from the GPT model.
-- **CalendarEvent.model_validate**: Validates the parsed response against the `CalendarEvent` model.
+#### Why checking for refusal is important
 
-> [NOTE!]
-> Why Use `model_validate`? The `model_validate` method makes sure the data from the GPT model follows the structure defined by the `CalendarEvent` Pydantic model.
+1. **Error Handling**: The code checks if the GPT model refused to process the request. If it did, it prints the refusal message. This approach helps the user understand the issue and improve the input data or request format.
 
-#### Printing the extracted event
+1. **Validation of Extracted Data**: The code prints the parsed response to show the extracted information in a readable format. This approach helps verify that the data matches the expected structure defined by the `CalendarEvent` model.
 
-The following code snippet prints the validated `CalendarEvent` object in a readable format.
+1. **User Feedback**: The code provides feedback about the success or failure of the extraction process. This approach helps users understand if the extraction was successful or if there were issues to address.
 
-```python
-rich.print(event)
-```
+1. **Structured Output**: Using structured outputs ensures the extracted data follows a predefined schema. This approach makes it easier to work with the data in other applications, providing type safety and readability.
 
 ### Example 2: Fetch a public GitHub issue using the GitHub API and then extract details
 
 This example shows how to use the Azure OpenAI service to extract structured information from a GitHub issue. This walkthrough focuses only on the example code dealing with structured output.
 
-#### `HackSubmission` Model Definition
+#### Defining the `Issue` model
 
-The `HackSubmission` model is a Pydantic model that defines the structure of the expected output from the GPT model.
+The `Issue` model is a Pydantic model that defines the structure of the expected output from the GPT model.
 
 ```python
-class HackSubmission(BaseModel):
-    name: str
+class Issue(BaseModel):
+    title: str
     description: str = Field(..., description="A 1-2 sentence description of the project")
-    technologies: list[Technology]
-    repository_url: str
-    video_url: str
-    team_members: list[str]
+    type: IssueType
+    operating_system: str
 ```
 
-- **name**: A string representing the name of the submission.
-- **description**: A string providing a brief description of the project.
-- **technologies**: A list of `Technology` enumeration values, representing the technologies used in the project.
-- **repository_url**: A string representing the URL of the project's repository.
-- **video_url**: A string representing the URL of the project's video.
-- **team_members**: A list of strings representing the team members involved in the project.
+- **title**: The issue's title.
+- **description**: A brief description of the issue.
+- **type**: The type of issue from the `IssueType` enumeration.
+- **operating_system**: The operating system related to the issue.
 
-It uses the `Technology` enumeration to ensure that the extracted information adheres to specific enumerations and types.
+#### `IssueType` Enumeration Definition
 
-#### `Technology` Enumeration Definition
-
-The `Technology` class is a Python class that defines possible values for technologies used in the project.
+The `IssueType` Python class is an enumeration that defines possible values for the type of issue (for example, Bug Report, Feature, Documentation, Regression).
 
 ```python
-class Technology(str, Enum):
-    JAVASCRIPT = "JavaScript"
-    PYTHON = "Python"
-    DOTNET = ".NET"
-    AISTUDIO = "AI Studio"
-    AISEARCH = "AI Search"
-    POSTGRESQL = "PostgreSQL"
-    COSMOSDB = "CosmosDB"
-    AZURESQL = "Azure SQL"
+class IssueType(str, Enum):
+    BUGREPORT = "Bug Report"
+    FEATURE = "Feature"
+    DOCUMENTATION = "Documentation"
+    REGRESSION = "Regression"
 ```
+
+#### Relationship between `Issue` and `IssueType`
+
+The `Issue` model uses the `IssueType` enumeration to ensure that the `type` field contains only valid values. This relationship enforces consistency and validation in the extracted data.
+
 
 > [!NOTE]
-> While Example 1 focuses on a simple text input and uses a basic `CalendarEvent` Pydantic model, Example 2 introduces a more complex `HackSubmission` model with enumerations for technologies. This approach ensures the extracted information follows specific types and values. It shows how to handle more detailed and varied data while keeping the structured output approach from Example 1.
+> While Example 1 focuses on a simple text input and uses a basic `CalendarEvent` Pydantic model, Example 2 introduces a more complex `Issue` model with enumerations for issue types. This approach ensures the extracted information follows specific types and values. It shows how to handle more detailed and varied data while keeping the structured output approach from Example 1.
 
-#### How `HackSubmission` Is Used in the Call to the Model
+#### Fetching the GitHub Issue
 
-The `HackSubmission` model is used to specify the expected response format when sending a request to the GPT model. This approach makes sure the extracted information follows a specific schema.
+The following code snippet fetches the issue from a specified GitHub repository.
+
+```python
+url = "https://api.github.com/repos/Azure-Samples/azure-search-openai-demo/issues/2231"
+response = requests.get(url)
+if response.status_code != 200:
+    logging.error(f"Failed to fetch issue: {response.status_code}")
+    exit(1)
+issue_body = response.json()["body"]
+```
+
+- **requests.get**: Sends a GET request to fetch the issue from the GitHub API.
+- **response.status_code**: Checks if the request was successful.
+- **issue_body**: Extracts the body of the issue from the JSON response.
+
+#### How `Issue` Is Used in the Call to the Model
+
+The `Issue` model is used to specify the expected response format when sending a request to the GPT model. This approach makes sure the extracted information follows a specific schema.
 
 #### Sending a Request to the GPT Model
 
@@ -325,38 +351,33 @@ The `HackSubmission` model is used to specify the expected response format when 
 completion = client.beta.chat.completions.parse(
     model=model_name,
     messages=[
-        {"role": "system", "content": "Extract the info from the GitHub issue markdown about this hack submission."},
+        {"role": "system", "content": "Extract the info from the GitHub issue markdown."},
         {"role": "user", "content": issue_body},
     ],
-    response_format=HackSubmission,
+    response_format=Issue,
 )
 ```
 
 - **model**: The GPT model to use.
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
-- **response_format**: The expected response format using the `HackSubmission` model.
+- **response_format**: The expected response format using the `Issue` model.
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `HackSubmission` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-hack_submission = HackSubmission.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    print(message.refusal)
+else:
+    print(message.parsed)
 ```
 
-- **output**: Extracts the parsed response from the GPT model.
-- **HackSubmission.model_validate**: Validates the parsed response against the `HackSubmission` model, ensuring that the data conforms to the expected structure and types.
-
-#### Printing the Extracted Hack Submission
-
-Finally, the script prints the validated `HackSubmission` object in a readable format.
-
-```python
-print(hack_submission)
-```
-
-- **print**: Prints the validated `HackSubmission` object, making it easy to read and understand the extracted information.
+- **message**: Extracts the message from the first choice in the response.
+- **message.refusal**: Checks if the GPT model refused to process the request.
+- **print(message.refusal)**: Prints the refusal message if the model refused the request.
+- **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
 ### Example 3: Fetch a public README using the GitHub API and then extract details
 
@@ -446,25 +467,20 @@ completion = client.beta.chat.completions.parse(
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `RepoOverview` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-repo_overview = RepoOverview.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    print(message.refusal)
+else:
+    print(message.parsed)
 ```
 
-- **output**: Extracts the parsed response from the GPT model.
-- **RepoOverview.model_validate**: Checks the parsed response against the `RepoOverview` model to make sure the data follows the expected structure and types.
-
-#### Printing the extracted repository overview
-
-Finally, the example prints the validated `RepoOverview` object in a readable format.
-
-```python
-rich.print(repo_overview)
-```
-
-- **rich.print**: Prints the validated `RepoOverview` object, making it easy to read and understand the extracted information.
+- **message**: Extracts the message from the first choice in the response.
+- **message.refusal**: Checks if the GPT model refused to process the request.
+- **print(message.refusal)**: Prints the refusal message if the model refused the request.
+- **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
 ### Example 4: Parse a local image of a graph and extract details like title, axis, and legend
 
@@ -546,25 +562,20 @@ Using images as input for structured output differs from using text in several w
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `Graph` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-graph = Graph.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    print(message.refusal)
+else:
+    print(message.parsed)
 ```
 
-- **output**: Gets the parsed response from the GPT model.
-- **Graph.model_validate**: Checks the parsed response against the `Graph` model to make sure the data follows the expected structure and types.
-
-#### Printing the extracted graph information
-
-Finally, this code snippet prints the validated `Graph` object in a readable format.
-
-```python
-print(graph)
-```
-
-- **print**: Prints the validated `Graph` object, making it easy to read and understand the extracted information.
+- **message**: Extracts the message from the first choice in the response.
+- **message.refusal**: Checks if the GPT model refused to process the request.
+- **print(message.refusal)**: Prints the refusal message if the model refused the request.
+- **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
 ### Example 5: Parse a local image with tables and extract nested tabular data
 
@@ -657,25 +668,20 @@ completion = client.beta.chat.completions.parse(
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `PlantInventory` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-plant_inventory = PlantInventory.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    print(message.refusal)
+else:
+    print(message.parsed)
 ```
 
-- **output**: Gets the parsed response from the GPT model.
-- **PlantInventory.model_validate**: Checks the parsed response against the `PlantInventory` model to make sure the data follows the expected structure and types.
-
-#### Printing the extracted plant inventory
-
-Finally, the script prints the validated `PlantInventory` object in a readable format.
-
-```python
-print(plant_inventory)
-```
-
-- **print**: Prints the validated `PlantInventory` object, making it easy to read and understand the extracted information.
+- **message**: Extracts the message from the first choice in the response.
+- **message.refusal**: Checks if the GPT model refused to process the request.
+- **print(message.refusal)**: Prints the refusal message if the model refused the request.
+- **print(message.parsed)**: Prints the parsed response if the extraction was successful.
  
 ### Example 6: Parses a local PDF receipt by converting to Markdown and then extracting order details
 
@@ -748,25 +754,20 @@ completion = client.beta.chat.completions.parse(
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `Receipt` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-receipt = Receipt.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    print(message.refusal)
+else:
+    print(message.parsed)
 ```
 
-- **output**: Extracts the parsed response from the GPT model.
-- **Receipt.model_validate**: Validates the parsed response against the `Receipt` model, ensuring that the data conforms to the expected structure and types.
-
-#### Printing the extracted receipt information
-
-Finally, the script prints the validated `Receipt` object in a readable format.
-
-```python
-print(receipt)
-```
-
-- **print**: Prints the validated `Receipt` object, making it easy to read and understand the extracted information.
+- **message**: Extracts the message from the first choice in the response.
+- **message.refusal**: Checks if the GPT model refused to process the request.
+- **print(message.refusal)**: Prints the refusal message if the model refused the request.
+- **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
 ### Example 7: Parse a blog post and extract metadata
 
@@ -836,25 +837,20 @@ completion = client.beta.chat.completions.parse(
 
 #### Parsing and validating the response
 
-Next, the following code snippet parses and validates the response from the GPT model against the `BlogPost` model.
+The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
 ```python
-output = completion.choices[0].message.parsed
-blog_post = BlogPost.model_validate(output)
+message = completion.choices[0].message
+if (message.refusal):
+    print(message.refusal)
+else:
+    print(message.parsed)
 ```
 
-- **output**: Extracts the parsed response from the GPT model.
-- **BlogPost.model_validate**: Validates the parsed response against the `BlogPost` model, ensuring the data follows the expected structure and types.
-
-#### Printing the extracted blog post information
-
-Finally, the following code snippet prints the validated `BlogPost` object in a readable format.
-
-```python
-print(blog_post)
-```
-
-- **print**: Prints the validated `BlogPost` object, making it easy to read and understand the extracted information.
+- **message**: Extracts the message from the first choice in the response.
+- **message.refusal**: Checks if the GPT model refused to process the request.
+- **print(message.refusal)**: Prints the refusal message if the model refused the request.
+- **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
 ## Clean up resources
 
@@ -891,6 +887,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 > [!TIP]
 > After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
+
 ---
 
 ## Get help
