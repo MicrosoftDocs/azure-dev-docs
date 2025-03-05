@@ -2,7 +2,8 @@
 title: "Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)"
 description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, set up a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.topic: how-to
 ms.date: 09/18/2024
 recommendations: false
@@ -136,8 +137,8 @@ ssh-keygen -t rsa -b 2048 -f ~/.ssh/wls-vm-key
 
 This command creates the following files:
 
-- *~/.ssh/wls-vm-key*: The private key.
-- *~/.ssh/wls-vm-key.pub*: The public key.
+- **~/.ssh/wls-vm-key**: The private key.
+- **~/.ssh/wls-vm-key.pub**: The public key.
 
 
 ```azurecli
@@ -179,7 +180,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 [!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
 
-3. Copy the SSH key *~/.ssh/wls-vm-key* to the Windows VM and save it to *C:\Users\azureuser\.ssh*.
+3. Copy the SSH key **~/.ssh/wls-vm-key** to the Windows VM and save it to **C:\Users\azureuser\.ssh**.
 
 ### Create Oracle Linux machines for managed servers
 
@@ -271,7 +272,7 @@ The following section shows how to create a new WebLogic Server domain on the `a
    bash /u01/app/wls/install/oracle/middleware/oracle_home/oracle_common/common/bin/config.sh
    ```
 
-The Oracle Configuration Wizard starts and directs you to configure the domain. The following page asks for domain type and location. Select **Create a new domain** and set domain location to */u01/domains/wlsd*. The domain configuration is saved to this folder.
+The Oracle Configuration Wizard starts and directs you to configure the domain. The following page asks for domain type and location. Select **Create a new domain** and set domain location to **/u01/domains/wlsd**. The domain configuration is saved to this folder.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-location.png" alt-text="Screenshot of Oracle Configuration Wizard - Create Domain." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-location.png":::
 
@@ -279,7 +280,7 @@ Select **Next**, then select **Create Domain Using Product Templates**. Keep the
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png" alt-text="Screenshot of Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png":::
 
-Select **Next**, then input **Administration Account**. Set the **Name** as *weblogic* and **Password** as *Secret123456*.
+Select **Next**, then input **Administration Account**. Set the **Name** as **weblogic** and **Password** as **Secret123456**.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Account." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png":::
 
@@ -291,11 +292,11 @@ Select **Next**. For advanced configurations, select **Administration Server**, 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png" alt-text="Screenshot of Oracle Configuration Wizard - Advanced Configurations." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png":::
 
-Select **Next** and fill in the **Administration Server** name with *admin*. Fill in the **Listen IP Address** with the private IP of `adminVM`. The value is *192.168.0.4* in this example.
+Select **Next** and fill in the **Administration Server** name with **admin**. Fill in the **Listen IP Address** with the private IP of `adminVM`. The value is **192.168.0.4** in this example.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
 
-Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with */u01/domains/wlsd/nodemanager*. For **Node Manager Credentials**, the username is *weblogic* and the password is *Secret123456*.
+Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with **/u01/domains/wlsd/nodemanager**. For **Node Manager Credentials**, the username is **weblogic** and the password is **Secret123456**.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png" alt-text="Screenshot of Oracle Configuration Wizard - Node Manager." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png":::
 
@@ -374,7 +375,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    >>  succeed: close template
    ```
 
-   Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password *Secret123456* when prompted.
+   Use the following commands to copy **/tmp/cluster.jar** to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password **Secret123456** when prompted.
 
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
@@ -393,9 +394,9 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh -i %SSH_KEY% azureuser@%MSPVM1_IP%
    ```
 
-   Enter the password for the connection. For this example, the password is *Secret123456*.
+   Enter the password for the connection. For this example, the password is `Secret123456`.
 
-   You logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to `oracle`:
+   You logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of **/tmp/cluster.jar** to `oracle`:
 
    ```bash
    sudo su
@@ -443,9 +444,9 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh -i %SSH_KEY% azureuser@%MSPVM2_IP%
    ```
 
-   Enter the password for the connection. For this example, the password is *Secret123456*.
+   Enter the password for the connection. For this example, the password is **Secret123456**.
 
-   You logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration:
+   You logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of **/tmp/cluster.jar** and initialize the folder for domain configuration:
 
    ```bash
    sudo su
@@ -489,7 +490,7 @@ If you aren't working with the `oracle` user, sign in with `oracle`:
 sudo su - oracle
 ```
 
-The following command persists the `admin` account to */u01/domains/wlsd/servers/admin/security/boot.properties* to enable automatically starting the `admin` server without asking for credentials:
+The following command persists the `admin` account to **/u01/domains/wlsd/servers/admin/security/boot.properties** to enable automatically starting the `admin` server without asking for credentials:
 
 Replace the username and password with yours.
 
@@ -638,7 +639,7 @@ If you aren't working with `oracle` user, sign in with `oracle`:
 sudo su - oracle
 ```
 
-Persist the `admin` account to */u01/domains/wlsd/servers/msp1/security/boot.properties* to enable automatically starting `msp1` without asking for credentials. Replace the username and password with yours.
+Persist the `admin` account to **/u01/domains/wlsd/servers/msp1/security/boot.properties** to enable automatically starting `msp1` without asking for credentials. Replace the username and password with yours.
 
 ```bash
 mkdir -p /u01/domains/wlsd/servers/msp1/security
@@ -738,7 +739,7 @@ If you aren't working with the `oracle` user, sign in with `oracle`:
 sudo su - oracle
 ```
 
-Persist the `admin` account to */u01/domains/wlsd/servers/msp2/security/boot.properties* to enable automatically starting `msp2` without asking for credentials. Replace the username and password with yours.
+Persist the `admin` account to **/u01/domains/wlsd/servers/msp2/security/boot.properties** to enable automatically starting `msp2` without asking for credentials. Replace the username and password with yours.
 
 ```bash
 
@@ -885,15 +886,15 @@ To download the Oracle JDK 11 and Oracle WebLogic 14c Windows installer, follow 
 
 1. Connect to `adminVM` if needed, and open the Microsoft Edge browser.
 
-1. Navigate to the [Oracle JDK 11 downloads page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html). Select the **Windows x64 Installer**, accept the Oracle License Agreement, and download EXE file. You get a file similar to *jdk-11.\*_windows-x64_bin.exe*.
+1. Navigate to the [Oracle JDK 11 downloads page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html). Select the **Windows x64 Installer**, accept the Oracle License Agreement, and download EXE file. You get a file name similar to **jdk-11.\*_windows-x64_bin.exe**.
 
-1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file similar to *fmw_14.\*_wls_lite_Disk1_1of1.zip*. Pay attention to the support lifetime of the WebLogic Server version you download. For more information, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
+1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file name similar to **fmw_14.\*_wls_lite_Disk1_1of1.zip**. Pay attention to the support lifetime of the WebLogic Server version you download. For more information, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
 
 ### Install Oracle JDK 11
 
 This section shows you how to install Oracle JDK 11 on Windows Server.
 
-Open the download folder that contains JDK installer. Here the installer name is *jdk-11.0.16_windows-x64_bin.exe*. Right click the file and select **Run as administrator**. Install the JDK to the default folder *C:\Program Files\Java\jdk-11.0.16\\*.
+Open the download folder that contains JDK installer. Here the installer name is **jdk-11.0.16_windows-x64_bin.exe**. Right click the file and select **Run as administrator**. Install the JDK to the default folder **C:\Program Files\Java\jdk-11.0.16\**.
 
 After the installation finishes, you can validate its version in a command prompt by running the command `java -version`, with output similar to the following example:
 
@@ -907,7 +908,7 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.16+11-LTS-199, mixed mode)
 
 This section shows you how to install WebLogic Server 14c on Windows Server.
 
-Open the download folder that contains WebLogic Server installer ZIP file. Here the file name is *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*. Right click the file and select **Extract all** to the default path.
+Open the download folder that contains WebLogic Server installer ZIP file. Here the file name is **fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip**. Right click the file and select **Extract all** to the default path.
 
 Open a command prompt, then use the following commands to install WebLogic Server:
 
@@ -920,7 +921,7 @@ The command launches the WebLogic Server installer, as shown in the following sc
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-welcome.png" alt-text="Screenshot of Oracle WebLogic Server Installation Welcome." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-welcome.png":::
 
-Select **Next**. Allow **Skip Auto Updates** to remain selected and select **Next**. Set **Oracle Home** to *C:\Oracle\Middleware\Oracle_Home*, which should be the default value. Select **Next**.
+Select **Next**. Allow **Skip Auto Updates** to remain selected and select **Next**. Set **Oracle Home** to **C:\Oracle\Middleware\Oracle_Home**, which should be the default value. Select **Next**.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-location.png" alt-text="Windows - Oracle WebLogic Server Installation Location." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-location.png":::
 
@@ -955,14 +956,14 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use the following steps to take a snapshot of the `adminVM` OS disk:
 
-   1. Open `adminVM` from the Azure portal. Under **Settings**, select **Disks**, then **OS Disk**. Select the OS disk starting with *adminVM_OsDisk_*.
-   1. Select **Create snapshot**. Under **Instance details**, fill in **Name** with *snapshotAdminVMOsDisk*.
+   1. Open `adminVM` from the Azure portal. Under **Settings**, select **Disks**, then **OS Disk**. Select the OS disk starting with **adminVM_OsDisk_**.
+   1. Select **Create snapshot**. Under **Instance details**, fill in **Name** with **snapshotAdminVMOsDisk**.
    1. Select **Review and create** then **Create**. It takes several seconds to take the snapshot.
 
 1. Use the following steps to create `mspVM1`:
 
-   1. First, create the OS disk for `mspVM1`. Open the snapshot you created in previous step, **snapshotAdminVMOsDisk**. Select **Create disk**. Under **Disk details**, fill in **Disk name** with *mspVM1_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
-   1. Create the virtual machine `mspVM1`. Open the OS disk you created previously. In this example, its name is `mspVM1_Os_Disk_1`. Select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM1*. Select **Review and create** then **Create**. Ensure you have no errors before proceeding. The process takes several minutes.
+   1. First, create the OS disk for `mspVM1`. Open the snapshot you created in previous step, **snapshotAdminVMOsDisk**. Select **Create disk**. Under **Disk details**, fill in **Disk name** with **mspVM1_Os_Disk_1**. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
+   1. Create the virtual machine `mspVM1`. Open the OS disk you created previously. In this example, its name is `mspVM1_Os_Disk_1`. Select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with **mspVM1**. Select **Review and create** then **Create**. Ensure you have no errors before proceeding. The process takes several minutes.
    1. The machine is created from the snapshot of `adminVM`, so it has the same computer name as `adminVM`. To change computer name to `mspVM1`, first remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command:
 
       ```powershell
@@ -971,8 +972,8 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use the following steps to create `mspVM2`:
 
-   1. Create the OS disk for `mspVM2`. Open the snapshot you created previously. In this example, its name is `snapshotAdminVMOsDisk`. If you can't find the disk, search for *snapshotAdminVMOsDisk* in the **Search resources, services and docs**. Select **Create disk**. Under **Disk details**, fill in **Name** with *mspVM2_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
-   1. Create virtual machine `mspVM2`. Open the OS disk you created previously, `mspVM2_Os_Disk_1`， select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM2*. Select **Review + create** then **Create**. It takes several minutes.
+   1. Create the OS disk for `mspVM2`. Open the snapshot you created previously. In this example, its name is `snapshotAdminVMOsDisk`. If you can't find the disk, search for **snapshotAdminVMOsDisk** in the **Search resources, services and docs**. Select **Create disk**. Under **Disk details**, fill in **Name** with **mspVM2_Os_Disk_1**. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
+   1. Create virtual machine `mspVM2`. Open the OS disk you created previously, `mspVM2_Os_Disk_1`， select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with **mspVM2**. Select **Review + create** then **Create**. It takes several minutes.
    1. Remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal. Use the following command to change the computer name:
 
       ```powershell
@@ -1004,7 +1005,7 @@ cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
 config.cmd
 ```
 
-The Oracle Configuration Wizard directs you to configure the domain. The following page asks for domain type and location. Select **Create a new domain** and set domain location to *C:\domains\wlsd*. The domain configuration is saved to this folder.
+The Oracle Configuration Wizard directs you to configure the domain. The following page asks for domain type and location. Select **Create a new domain** and set domain location to **C:\domains\wlsd**. The domain configuration is saved to this folder.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-location.png" alt-text="Windows - Oracle Configuration Wizard - Domain Location." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-location.png":::
 
@@ -1012,7 +1013,7 @@ Select **Next**, select **Create Domain Using Product Templates**, and keep the 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-templates.png" alt-text="Windows - Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-templates.png":::
 
-Select **Next**, then input the **Administration Account** name as *weblogic* and the password as *Secret123456*, as shown in the following screenshot:
+Select **Next**, then input the **Administration Account** name as **weblogic** and the password as **Secret123456**, as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png" alt-text="Windows - Oracle Configuration Wizard - Administration Account." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png":::
 
@@ -1024,11 +1025,11 @@ Select **Next**. For advanced configurations, select **Administration Server**, 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png" alt-text="Windows - Oracle Configuration Wizard - Advanced Configurations." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png":::
 
-Select **Next**, fill in the administration **Server Name** with *admin*. Fill in the **Listen IP Address** with the private IP for the  `adminVM` you obtained previously. In this example, the value is `192.168.0.4`.
+Select **Next**, fill in the administration **Server Name** with **admin**. Fill in the **Listen IP Address** with the private IP for the  `adminVM` you obtained previously. In this example, the value is `192.168.0.4`.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Windows - Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
 
-Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in the location with *C:\domains\wlsd\nodemanager*. This location should be filled in as the default. For **Node Manager Credentials**, the username is *weblogic* and the password is *Secret123456*.
+Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in the location with **C:\domains\wlsd\nodemanager**. This location should be filled in as the default. For **Node Manager Credentials**, the username is **weblogic** and the password is **Secret123456**.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-nodemanager.png" alt-text="Windows - Oracle Configuration Wizard - Node Manager." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-nodemanager.png":::
 
@@ -1107,7 +1108,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    >>  succeed: close template
    ```
 
-   Then, copy *C:\Temp\cluster.jar* to `mspVM1` and `mspVM2` and save to the same path.
+   Then, copy **C:\Temp\cluster.jar** to `mspVM1` and `mspVM2` and save to the same path.
 
 1. Next, apply the domain configuration to `mspVM1`.
 
@@ -1135,7 +1136,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    >>  succeed: close template
    ```
 
-   Next, rename the configuration file *config_bootstrap.xml* to *config.xml*. In the command prompt, run the following commands:
+   Next, rename the configuration file **config_bootstrap.xml** to **config.xml**. In the command prompt, run the following commands:
 
    ```cmd
    cd C:\domains\wlsd\config
@@ -1151,7 +1152,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    unpack.cmd -domain=C:\domains\wlsd -template=C:\Temp\cluster.jar
    ```
 
-   Then, rename the configuration file *config_bootstrap.xml* to *config.xml*:
+   Then, rename the configuration file **config_bootstrap.xml** to **config.xml**:
 
    ```cmd
    cd C:\domains\wlsd\config
@@ -1159,7 +1160,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ```
 
 > [!NOTE]
-> The unpack command generates the *config_bootstrap.xml* file based on the *config.xml* file in the template, which may cause error `java.io.FileNotFoundException: C:\domains\wlsd\.\config\config.xml (The system cannot find the file specified)` when starting the managed server. This tutorial renames *config_bootstrap.xml* to *config.xml* to avoid this problem.
+> The unpack command generates the **config_bootstrap.xml** file based on the **config.xml** file in the template, which may cause error `java.io.FileNotFoundException: C:\domains\wlsd\.\config\config.xml (The system cannot find the file specified)` when starting the managed server. This tutorial renames **config_bootstrap.xml** to **config.xml** to avoid this problem.
 
 You replicated the domain configuration on `mspVM1` and `mspVM2`, so you're ready to start the servers.
 
@@ -1174,7 +1175,7 @@ This section uses a Windows service to configure Oracle WebLogic Server to start
 
 You're now ready to start the Administration Server. Use the following instructions to create a Windows service to start the Administration Server:
 
-Remote connect to `adminVM`. In the command prompt, change to the directory *C:\domains\wlsd*. Enter *startWebLogic.cmd*. For the credentials of the admin account, enter *weblogic* for the username and *Secret123456* for the password. If the server is running, it prints a line to standard out that is similar to the following output:
+Remote connect to `adminVM`. In the command prompt, change to the directory **C:\domains\wlsd**. Enter **startWebLogic.cmd**. For the credentials of the admin account, enter **weblogic** for the username and **Secret123456** for the password. If the server is running, it prints a line to standard out that is similar to the following output:
 
 ```output
 ... ...
@@ -1185,7 +1186,7 @@ Enter password to boot WebLogic server:Secret123456
 <Oct 18, 2022, 6:48:56,997 AM Coordinated Universal Time> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to RUNNING.>
 ```
 
-Create a Boot Identity file *C:\domains\wlsd\servers\admin\security\boot.properties* and save the admin account user name and password to the file. For more information, see [Boot Identity Files](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/start/overview.html#GUID-FAA04F2F-41F3-4632-8B40-620B8A67E856). Paste the following text into a command prompt:
+Create a Boot Identity file **C:\domains\wlsd\servers\admin\security\boot.properties** and save the admin account user name and password to the file. For more information, see [Boot Identity Files](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/start/overview.html#GUID-FAA04F2F-41F3-4632-8B40-620B8A67E856). Paste the following text into a command prompt:
 
 ```cmd
 MKDIR C:\domains\wlsd\servers\admin\security
@@ -1213,7 +1214,7 @@ call "C:\Oracle\Middleware\Oracle_Home\wlserver\server\bin\installSvc.cmd"
 ENDLOCAL
 ```
 
-Run the newly created file. Enter *C:\domains\wlsd\autoStartup.cmd*. The command prompt runs the script as a batch file.
+Run the newly created file. Enter **C:\domains\wlsd\autoStartup.cmd**. The command prompt runs the script as a batch file.
 
 If the script runs successfully, it creates a Windows service named `wlsd_admin` and prints a line to standard out that is similar to the following output:
 
@@ -1224,7 +1225,7 @@ wlsvc wlsd_admin installed.
 
 This example uses node manager to control managed servers. Create a Windows service for node manager on `adminVM`.
 
-In the command prompt, change to the directory *C:\domains\wlsd\bin*. Enter *installNodeMgrSvc.cmd*. If the service is created successfully, it prints a line to standard out that is similar to the following output:
+In the command prompt, change to the directory **C:\domains\wlsd\bin**. Enter **installNodeMgrSvc.cmd**. If the service is created successfully, it prints a line to standard out that is similar to the following output:
 
 ```output
 ... ...
@@ -1237,7 +1238,7 @@ Finally, restart the machine to activate the Windows services.
 
 Next, set up the node manager as a Windows service on `mspVM1` and `mspVM2`.
 
-Remote connect to `mspVM1` and `mspVM2`, open a command prompt, and then change to directory *C:\domains\wlsd\bin*. Enter *installNodeMgrSvc.cmd*. If the service is created successfully, it prints a line to standard out that is similar to the following output:
+Remote connect to `mspVM1` and `mspVM2`, open a command prompt, and then change to directory **C:\domains\wlsd\bin**. Enter **installNodeMgrSvc.cmd**. If the service is created successfully, it prints a line to standard out that is similar to the following output:
 
 ```output
 ... ...
@@ -1274,9 +1275,9 @@ The steps in this section show how to create a Windows service for each of the m
    ENDLOCAL
    ```
 
-   Enter *C:\domains\wlsd\autoStartup.cmd*. The command prompt runs the script as a batch file.
+   Enter **C:\domains\wlsd\autoStartup.cmd**. The command prompt runs the script as a batch file.
 
-   Create a Boot Identity file *C:\domains\wlsd\servers\msp1\security\boot.properties* and save the admin account user name and password to the file.
+   Create a Boot Identity file **C:\domains\wlsd\servers\msp1\security\boot.properties** and save the admin account user name and password to the file.
 
    Paste the following text into a command prompt:
 
@@ -1309,9 +1310,9 @@ The steps in this section show how to create a Windows service for each of the m
    ENDLOCAL
    ```
 
-   Enter *C:\domains\wlsd\autoStartup.cmd*. The command prompt runs the script as a batch file.
+   Enter **C:\domains\wlsd\autoStartup.cmd**. The command prompt runs the script as a batch file.
 
-   Create a Boot Identity file *C:\domains\wlsd\servers\msp1\security\boot.properties* and save the admin account user name and password to the file.
+   Create a Boot Identity file **C:\domains\wlsd\servers\msp1\security\boot.properties** and save the admin account user name and password to the file.
 
    Paste the following text into a command prompt:
 
@@ -1599,7 +1600,7 @@ This section shows you how to deploy an application to the WebLogic Server clust
 1. Open a web browser.
 1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
 1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
-1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *testwebapp.war* built in the preceding step. Select **Next** then **Next**.
+1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the **testwebapp.war** built in the preceding step. Select **Next** then **Next**.
 1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
 1. Under **Available targets for testwebapp**, select deployment target `cluster1`, select **Next**, then select **Finish**.
 1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as `Future changes will automatically be activated as you modify, add or delete items in this domain` exists under **Change Center**.

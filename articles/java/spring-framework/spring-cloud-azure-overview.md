@@ -2,7 +2,8 @@
 title: Spring Cloud Azure Overview
 description: Spring Cloud Azure is a project that helps make it easier to use Azure services in Spring Boot applications by providing a group of Java libraries.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: overview
 ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java
@@ -40,7 +41,7 @@ The following section demonstrates the benefits of using Spring Cloud Azure. In 
 
 Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, you need to the following steps:
 
-1. Add the following dependencies to your *pom.xml* file:
+1. Add the following dependencies to your **pom.xml** file:
 
    ```xml
    <dependency>
@@ -149,7 +150,7 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
    }
    ```
 
-1. Add the necessary properties to your *application.yml* file, as shown in the following example:
+1. Add the necessary properties to your **application.yml** file, as shown in the following example:
 
    ```yaml
    azure:
@@ -166,7 +167,7 @@ Without Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key 
 
 With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vault, the requirements are simpler, as shown in the following steps:
 
-1. Add the following dependencies to your *pom.xml* file:
+1. Add the following dependencies to your **pom.xml** file:
 
    ```xml
    <dependencies>
@@ -185,7 +186,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.17.1</version>
+         <version>5.20.1</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
@@ -195,10 +196,10 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
 
    > [!NOTE]
    > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
    > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
-1. Add the following properties to your *application.yml* file:
+1. Add the following properties to your **application.yml** file:
 
    ```yaml
    spring:
@@ -288,5 +289,5 @@ If you need support for Spring Cloud Azure, you can ask for help in the followin
 ## Next steps
 
 - [Tutorial: Read a secret from Azure Key Vault in a Spring Boot application](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
-- [Secure REST API using Spring Security 5 and Microsoft Entra ID](configure-spring-boot-starter-java-app-with-azure-active-directory.md)
+- [Secure REST API using Spring Security 5 and Microsoft Entra ID](configure-spring-boot-starter-java-app-with-entra.md)
 - [How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL](configure-spring-boot-starter-java-app-with-cosmos-db.md)

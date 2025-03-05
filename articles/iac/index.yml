@@ -1,0 +1,75 @@
+### YamlMime:Hub
+
+title: Get started with Infrastructure as Code (IaC)
+summary: Learn how to use Infrastructure-as-Code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
+brand: azure
+
+metadata:
+  title: Get started with Infrastructure as Code (IaC)
+  description: Learn how to use Infrastructure-as-Code (IaC) tools to reliably provision virtual machines and other infrastructure on Azure.
+  ms.service: azure
+  author: TomArcherMsft
+  ms.author: tarcher
+  ms.topic: hub-page
+  ms.date: 02/14/2025
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    - title: What is Infrastructure as Code (IaC)?
+      url: /devops/deliver/what-is-infrastructure-as-code
+      itemType: concept
+    - title: Deploy to Azure with IaC
+      url: /devops/deliver/iac-github-actions
+      itemType: concept
+    - title: Comparing Bicep and Terraform
+      url: /azure/developer/terraform/comparing-terraform-and-bicep?tabs=comparing-bicep-terraform-integration-features
+      itemType: overview
+
+conceptualContent:
+  sections:
+    - title: Get started with IaC
+      summary: Learn how IaC allows you to deploy your infrastructure multiple times using the same code.
+      items:
+      - title: Deploying with IaC
+        links:
+        - text: What is IaC?
+          url: /devops/deliver/what-is-infrastructure-as-code
+          itemType: concept
+        - text: Deploy with IaC
+          url: /devops/deliver/iac-github-actions
+          itemType: deploy
+        - text: Azure and GitHub integration
+          url: /azure/developer/github/
+          itemType: concept
+      - title: Use IaC tools
+        links:
+        - text: Deploy with Bicep
+          url: /azure/azure-resource-manager/bicep/overview?tabs=bicep
+          itemType: get-started
+        - text: Deploy with Terraform providers
+          url: /azure/developer/terraform/overview
+          itemType: get-started
+        - text: (Legacy) Deploy with ARM templates
+          url: /azure/azure-resource-manager/management/overview
+          itemType: get-started
+
+additionalContent:
+  sections:
+  - title: Third-party Azure IaC providers
+    items:
+      - title: Terraform
+        summary: Use HCL (HashiCorp Language) to codify infrastructure in configuration files that describe the desired state for your topology.
+        url: /azure/developer/terraform/overview
+      - title: Chef
+        summary: Use Chef Automate to collaborate on application and infrastructure changes with speed and at scale.
+        url: https://docs.chef.io/azure_marketplace/
+      - title: Jenkins
+        summary: Use Jenkins to set up continuous integration and delivery (CI/CD) for software projects.
+        url: https://www.jenkins.io/
+      - title: Ansible
+        summary: Use Ansible to automate provisioning, configuration management, application deployment, orchestration, and many other IT processes.
+        url: https://www.redhat.com/en/ansible-collaborative
+      - title: Pulumi
+        summary: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
+        url: https://www.pulumi.com/docs/iac/clouds/azure/

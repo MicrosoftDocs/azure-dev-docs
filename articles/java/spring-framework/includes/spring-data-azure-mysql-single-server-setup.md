@@ -1,7 +1,8 @@
 ---
 author: KarlErickson
 ms.date: 04/06/2023
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ---
 
 ## Configure a firewall rule for your MySQL server
@@ -21,7 +22,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 > [!IMPORTANT]
 > To use passwordless connections, create a Microsoft Entra admin user for your Azure Database for MySQL instance. For more information, see the [Setting the Microsoft Entra Admin user](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication#setting-the-azure-ad-admin-user) section of [Use Microsoft Entra ID for authentication with MySQL](/azure/mysql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
-Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id --output tsv)
@@ -45,7 +46,7 @@ mysql -h mysqlsingletest.mysql.database.azure.com --user <your_mysql_ad_admin_us
 
 ### [Password](#tab/password)
 
-Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 cat << EOF > create_user.sql
@@ -70,7 +71,7 @@ mysql -h mysqlsingletest.mysql.database.azure.com --user <your_mysql_admin_usern
 
 Now that you have an Azure Database for MySQL Single Server instance, you can store data by using Spring Cloud Azure.
 
-To install the Spring Cloud Azure Starter JDBC MySQL module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Starter JDBC MySQL module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -80,7 +81,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.17.1</version>
+        <version>5.20.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -90,7 +91,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC MySQL artifact:

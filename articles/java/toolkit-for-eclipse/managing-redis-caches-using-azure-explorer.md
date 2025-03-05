@@ -2,7 +2,8 @@
 title: Managing Redis Caches using the Azure Explorer for Eclipse
 description: Learn how to manage your Azure redis caches by using the Azure Explorer for Eclipse.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 02/01/2018
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -30,7 +31,7 @@ The following steps walk you through the steps to create a redis cache using the
 
    ![Create New Redis Cache Dialog Box][CR02]
 
-   a. **DNS Name**: Specifies the DNS subdomain for the new redis cache, which is prepended to ".redis.cache.windows.net"; for example: *wingtiptoys.redis.cache.windows.net*.
+   a. **DNS Name**: Specifies the DNS subdomain for the new redis cache, which is prepended to **.redis.cache.windows.net**, for example, **wingtiptoys.redis.cache.windows.net**.
 
    b. **Subscription**: Specifies the Azure subscription you want to use for the new redis cache.
 
@@ -38,7 +39,7 @@ The following steps walk you through the steps to create a redis cache using the
       * **Create New**: Specifies that you want to create a new resource group.
       * **Use Existing**: Specifies that you will choose from a list of resource groups associated with your Azure account.
 
-   d. **Location**: Specifies the location where your redis cache is created; for example, *West US*.
+   d. **Location**: Specifies the location where your redis cache is created; for example, **West US**.
 
    e. **Pricing Tier**: Specifies which pricing tier your redis cache uses; this setting determines the number of client connections. (For more information, see [Redis Cache Pricing].)
 

@@ -9,9 +9,9 @@ ms.custom: devx-track-python
 
 # Containerize tutorial cleanup and next steps
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work. 
+This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work.
 
-## 1. Clean up resources
+## Clean up resources
 
 In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
 
@@ -19,29 +19,40 @@ In this tutorial, all the Azure resources were created in the same resource grou
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-[!INCLUDE [Clean up resources CLI](<./includes/general-clean-up-steps/clean-up-resources-cli.md>)]
+Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
+
+```azurecli
+az group delete \
+    --name $RESOURCE_GROUP_NAME 
+```
+
+You can optionally add the `--no-wait` argument to allow the command to return before the operation is complete.
 
 ### [VS Code](#tab/vscode-aztools)
 
 To work with Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group Visual Studio Code 1](<./includes/general-clean-up-steps/remove-resource-group-visual-studio-code-1.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-visual-studio-code-1-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-visual-studio-code-1.png" alt-text="A screenshot showing how to delete a resource group in Visual Studio Code." ::: |
+1. In the Azure Tools extension for Visual Studio Code, expand **RESOURCES** and find your subscription.
+
+1. Make sure you're filtering by **Group by Resource Group**
+
+1. Find your resource group, right-click, and select **Delete Resource Group**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/remove-resource-group-visual-studio-code.png" lightbox="./media/tutorial-container-web-app/remove-resource-group-visual-studio-code.png" alt-text="A screenshot that shows how to delete a resource group in Visual Studio Code." :::
+
+1. Enter the name of the resource group in the dialog box to confirm deletion.
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to delete a resource group.
+1. Navigate to your resource group in the [Azure portal](https://portal.azure.com/). For example, you can search for the name of your resource group and select it under **Resource Groups** in the results.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Remove resource group Azure portal 1](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-1.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-azure-portal-1-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-azure-portal-1.png" alt-text="A screenshot showing how to find resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 2](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-2.md>)] | :::image type="content" source="./media/general-clean-up-steps/remove-resource-group-azure-portal-2-240px.png" lightbox="./media/general-clean-up-steps/remove-resource-group-azure-portal-2.png" alt-text="A screenshot showing how to delete a resource group in the Azure portal." ::: |
-| [!INCLUDE [Remove resource group Azure portal 3](<./includes/general-clean-up-steps/remove-resource-group-azure-portal-3.md>)] | |
+1. Select **Overview** on the **service menu**, then select **Delete Resource Group** in the top menu.
+
+1. In the **Delete a resource group** confirmation dialog, enter the name of your resource group to confirm deletion, then select **Delete**.
 
 ----
 
-## 2. Next steps
+## Next steps
 
 After completing this tutorial, here are some next steps you can take to build upon what you learned and move the tutorial code and deployment closer to production ready:
 
@@ -57,7 +68,7 @@ After completing this tutorial, here are some next steps you can take to build u
 
 * Create reusable infrastructure as code with [Azure Developer CLI (azd)](../azure-developer-cli/overview.md). 
 
-## 3. Related Learn modules
+## Related Learn modules
 
 The following are some Learn modules that explore the technologies and themes covered in this tutorial:
 

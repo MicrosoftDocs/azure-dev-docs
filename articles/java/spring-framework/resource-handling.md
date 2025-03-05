@@ -3,14 +3,15 @@ title: Spring Cloud Azure resource handling
 description: This article describes Spring Cloud Azure resource handling.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure resource handling
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 The Spring project provides a [Spring Resources](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources) abstraction to access a number of low-level resources. The project provides interfaces like `Resource`, `ResourceLoader` and `ResourcePatternResolver`. Spring Cloud Azure implements these interfaces for Azure Storage services, which allows you to interact with Azure storage Blob and File Share using the Spring programming model. Spring Cloud Azure provides `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-storage-file-share` to auto-configure Azure Storage Blob and Azure Storage File Share.
 
@@ -41,12 +42,12 @@ The `spring-cloud-azure-starter-storage-blob` dependency is only required when y
 The `spring-cloud-azure-starter-storage-file-share` dependency is only required when you're using Azure Storage File Share.
 
 > [!TIP]
-> We also provide `spring-cloud-azure-starter-storage` to support all the features of Storage. If you choose to use it, `spring.cloud.azure.storage.enable` is the property to configure and the default value is *true*. You can then use `spring.cloud.azure.storage.<storage-service>.enable` to disable unneeded services.
+> We also provide `spring-cloud-azure-starter-storage` to support all the features of Storage. If you choose to use it, `spring.cloud.azure.storage.enable` is the property to configure and the default value is `true`. You can then use `spring.cloud.azure.storage.<storage-service>.enable` to disable unneeded services.
 
 ## Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id).
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-storage-blob`:
 
@@ -70,7 +71,7 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 
 ## Basic usage
 
-Add the following properties to your *application.yml* file:
+Add the following properties to your **application.yml** file:
 
 ```yaml
 spring:

@@ -1,7 +1,8 @@
 ---
 title: Use Spring Data R2DBC with Azure SQL Database
 description: Learn how to use Spring Data R2DBC with an Azure SQL Database.
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 07/22/2022
 author: KarlErickson
 ms.topic: article
@@ -44,6 +45,8 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
 - `<AZ_SQL_SERVER_ADMIN_PASSWORD>` and `<AZ_SQL_SERVER_NON_ADMIN_PASSWORD>`: The password of your Azure SQL Database server, which should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 Next, create a resource group by using the following command:
 
@@ -131,7 +134,9 @@ az sql db create \
 
 This step will create a non-admin user and grant all permissions on the `demo` database to it.
 
-Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```bash
 cat << EOF > create_user.sql
@@ -167,7 +172,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ## Add the reactive Azure SQL Database driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
+Open the generated project's **pom.xml** file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
 After the `spring-boot-starter-webflux` dependency, add the following text:
 
@@ -181,7 +186,7 @@ After the `spring-boot-starter-webflux` dependency, add the following text:
 
 ### Configure Spring Boot to use Azure SQL Database
 
-Open the *src/main/resources/application.properties* file, and add the following text:
+Open the **src/main/resources/application.properties** file, and add the following text:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG

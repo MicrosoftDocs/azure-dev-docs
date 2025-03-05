@@ -37,7 +37,7 @@ This article illustrates how to use Blob storage as a repository of build artifa
     - **Kind**: Select **Username with password**.
     - **Username**: Specify the `appId` of the service principal.
     - **Password**: Specify the `password` of the service principal.
-    - **ID**: Specify a credential identifer, such as `azuresp`.
+    - **ID**: Specify a credential identifier, such as `azuresp`.
     - **Description**: Optionally, include a meaningful description for your environment.
 
 1. Select **OK** to create the credential.

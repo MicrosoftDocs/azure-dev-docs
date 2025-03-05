@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ---
 
@@ -11,7 +12,7 @@ Use the following steps to configure the plugin:
 1. Run the following command to configure the deployment. This command helps you to set up the Azure App Service operating system, Java version, and Tomcat version.
 
    ```bash
-   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
+   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
    ```
 
 1. For **Create new run configuration**, press <kbd>Y</kbd>, then press <kbd>Enter</kbd>.
@@ -47,9 +48,9 @@ Confirm (Y/N) [Y]: [INFO] Saving configuration to pom.
 [INFO] ------------------------------------------------------------------------
 ```
 
-After you've confirmed your choices, the plugin adds the required plugin element and settings to your project's *pom.xml* file to configure your app to run in Azure App Service.
+After you've confirmed your choices, the plugin adds the required plugin element and settings to your project's **pom.xml** file to configure your app to run in Azure App Service.
 
-The relevant portion of the *pom.xml* file should look similar to the following example:
+The relevant portion of the **pom.xml** file should look similar to the following example:
 
 ```xml
 <build>
@@ -69,7 +70,7 @@ The relevant portion of the *pom.xml* file should look similar to the following 
 </build>
 ```
 
-You can modify the configurations for App Service directly in your *pom.xml*. Some common configurations are listed in the following table:
+You can modify the configurations for App Service directly in your **pom.xml**. Some common configurations are listed in the following table:
 
 | Property         | Required | Description                                                                                                                                                                                                                                                                        |
 |------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

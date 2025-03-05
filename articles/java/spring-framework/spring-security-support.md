@@ -3,14 +3,15 @@ title: Spring Cloud Azure Spring Security support
 description: This article describes how Spring Cloud Azure and Spring Security can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Security
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
@@ -81,26 +82,6 @@ Now, start your application and access your application through the browser. You
 
 ##### Add extra security configurations
 
-###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
-
-    /**
-     * Add configuration logic as needed.
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.authorizeRequests()
-                .anyRequest().authenticated();
-        // Do some custom configuration
-    }
-}
-```
-
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -121,6 +102,26 @@ public class AadOAuth2LoginSecurityConfig {
            // Do some custom configuration.
        return http.build();
    }
+}
+```
+
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
+
+    /**
+     * Add configuration logic as needed.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.authorizeRequests()
+                .anyRequest().authenticated();
+        // Do some custom configuration
+    }
 }
 ```
 
@@ -238,7 +239,7 @@ Developers can customize the redirect-uri.
 
 :::image type="content" source="media/spring-cloud-azure/system-diagram-redirect-uri.png" alt-text="System diagram for redirect URIs." border="false":::
 
-Add `redirect-uri-template` properties in your *application.yml* file.
+Add `redirect-uri-template` properties in your **application.yml** file.
 
 ```yaml
 spring:
@@ -254,27 +255,6 @@ Update `redirect-uri` in the Azure portal.
 :::image type="content" source="media/spring-cloud-azure/web-application-configuration-redirect-uri.png" alt-text="Configure Redirect URI Template." lightbox="media/spring-cloud-azure/web-application-configuration-redirect-uri.png":::
 
 After we set `redirect-uri-template`, we need to update the security builder:
-
-###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
-    /**
-     * Add configuration logic as needed.
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.oauth2Login()
-                .loginProcessingUrl("${REDIRECT-URI-TEMPLATE}")
-                .and()
-            .authorizeRequests()
-                .anyRequest().authenticated();
-    }
-}
-```
 
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -299,6 +279,27 @@ public class AadOAuth2LoginSecurityConfig {
                 .anyRequest().authenticated();
         // @formatter:on
         return http.build();
+    }
+}
+```
+
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
+    /**
+     * Add configuration logic as needed.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.oauth2Login()
+                .loginProcessingUrl("${REDIRECT-URI-TEMPLATE}")
+                .and()
+            .authorizeRequests()
+                .anyRequest().authenticated();
     }
 }
 ```
@@ -539,23 +540,6 @@ For more information about the access token, see [MS docs about Microsoft identi
 
 ##### Add extra security configurations
 
-###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
-    /**
-     * Add configuration logic as needed.
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
-    }
-}
-```
-
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -576,6 +560,23 @@ public class AadOAuth2ResourceServerSecurityConfig {
             .anyRequest().authenticated();
         // @formatter:on
         return http.build();
+    }
+}
+```
+
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
+    /**
+     * Add configuration logic as needed.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
     }
 }
 ```
@@ -642,8 +643,8 @@ By doing this, when access `/app-role1` endpoint, the following claims in access
 To use a JSON Web Token (JWT) for client authentication, use the following steps:
 
 1. See the [Register your certificate with Microsoft identity platform](/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-microsoft-identity-platform) section of [Microsoft identity platform application authentication certificate credentials](/azure/active-directory/develop/active-directory-certificate-credentials).
-1. Upload a *.pem* certificate to the application registered in the Azure portal.
-1. Configure the certificate path and password of a *.PFX* or *.P12* certificate.
+1. Upload a **.pem** certificate to the application registered in the Azure portal.
+1. Configure the certificate path and password of a **.PFX** or **.P12** certificate.
 1. Add the property `spring.cloud.azure.active-directory.authorization-clients.azure.client-authentication-method=private_key_jwt` configuration to the client to be authenticated through JWT client authentication.
 
 The following example configuration file is for a web application scenario. The certificate information is configured in the global properties.
@@ -869,40 +870,6 @@ spring:
 
 Configure multiple `SecurityFilterChain` instances. `AadWebApplicationAndResourceServerConfig` contains two security filter chain configurations for resource server and web application.
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadWebApplicationAndResourceServerConfig {
-
-    @Order(1)
-    @Configuration
-    public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
-        protected void configure(HttpSecurity http) throws Exception {
-            super.configure(http);
-            // All the paths that match `/api/**`(configurable) work as `Resource Server`, other paths work as `Web application`.
-            http.antMatcher("/api/**")
-                .authorizeRequests().anyRequest().authenticated();
-        }
-    }
-
-    @Configuration
-    public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            super.configure(http);
-            // @formatter:off
-            http.authorizeRequests()
-                    .antMatchers("/login").permitAll()
-                    .anyRequest().authenticated();
-            // @formatter:on
-        }
-    }
-}
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -933,6 +900,40 @@ public class AadWebApplicationAndResourceServerConfig {
                 .anyRequest().authenticated();
         // @formatter:on
         return http.build();
+    }
+}
+```
+
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadWebApplicationAndResourceServerConfig {
+
+    @Order(1)
+    @Configuration
+    public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
+        protected void configure(HttpSecurity http) throws Exception {
+            super.configure(http);
+            // All the paths that match `/api/**`(configurable) work as `Resource Server`, other paths work as `Web application`.
+            http.antMatcher("/api/**")
+                .authorizeRequests().anyRequest().authenticated();
+        }
+    }
+
+    @Configuration
+    public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            super.configure(http);
+            // @formatter:off
+            http.authorizeRequests()
+                    .antMatchers("/login").permitAll()
+                    .anyRequest().authenticated();
+            // @formatter:on
+        }
     }
 }
 ```
@@ -1055,34 +1056,7 @@ Grant admin consent for ***Graph*** permissions.
 
 :::image type="content" source="media/spring-cloud-azure/add-graph-permissions.png" alt-text="Azure portal screenshot showing API permissions screen for an app, with graph permissions highlighted." lightbox="media/spring-cloud-azure/add-graph-permissions.png":::
 
-Add the following dependencies to your *pom.xml* file.
-
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```xml
-<dependencies>
-   <dependency>
-       <groupId>com.azure.spring</groupId>
-       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-web</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-thymeleaf</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-security</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.thymeleaf.extras</groupId>
-       <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-   </dependency>
-</dependencies>
-```
+Add the following dependencies to your **pom.xml** file.
 
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -1111,9 +1085,36 @@ Add the following dependencies to your *pom.xml* file.
 </dependencies>
 ```
 
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```xml
+<dependencies>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-thymeleaf</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-security</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.thymeleaf.extras</groupId>
+       <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+   </dependency>
+</dependencies>
+```
+
 ---
 
-Add properties to your *application.yml* file using the values you created earlier, as shown in the following example:
+Add properties to your **application.yml** file using the values you created earlier, as shown in the following example:
 
 ```yaml
 spring:
@@ -1164,30 +1165,6 @@ public class WebController {
 
 For your security configuration code, you can refer to the following example:
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-   private final AadB2cOidcLoginConfigurer configurer;
-
-   public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
-       this.configurer == configurer;
-   }
-
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       // @formatter:off
-       http.authorizeRequests()
-               .anyRequest().authenticated()
-               .and()
-           .apply(configurer);
-       // @formatter:off
-   }
-}
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -1214,11 +1191,35 @@ public class WebSecurityConfiguration {
 }
 ```
 
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+   private final AadB2cOidcLoginConfigurer configurer;
+
+   public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
+       this.configurer == configurer;
+   }
+
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       // @formatter:off
+       http.authorizeRequests()
+               .anyRequest().authenticated()
+               .and()
+           .apply(configurer);
+       // @formatter:off
+   }
+}
+```
+
 ---
 
-Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
+Copy the **home.html** from [`aad-b2c-web-application` sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
 
-Build and test your app. Let `Webapp` run on port *8080*.
+Build and test your app. Let `Webapp` run on port `8080`.
 
 After your application is built and started by Maven, open `http://localhost:8080/` in a web browser. You should be redirected to the login page.
 
@@ -1334,7 +1335,7 @@ public class SampleConfiguration {
 
 To write your `WebApiA` Java code, see the **Accessing a resource server** section.
 
-Build and test your app. Let `Webapp` and `WebApiA` run on port *8080* and *8081* respectively. Start the `Webapp` and `WebApiA` applications. Return to the home page after logging in successfully. You can then access `http://localhost:8080/webapp/webApiA` to get the `WebApiA` resource response.
+Build and test your app. Let `Webapp` and `WebApiA` run on port `8080` and `8081` respectively. Start the `Webapp` and `WebApiA` applications. Return to the home page after logging in successfully. You can then access `http://localhost:8080/webapp/webApiA` to get the `WebApiA` resource response.
 
 #### Usage 3: Accessing a resource server
 
@@ -1344,7 +1345,7 @@ To build your `WebApiA` permission, see [Usage 2: Web Application Accessing Reso
 
 Add `WebApiA` permission and grant admin consent for your web application.
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependencies>
@@ -1402,23 +1403,6 @@ class Demo {
 
 For your security configuration code, you can refer to the following example:
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class ResourceServerConfiguration extends WebSecurityConfigurerAdapter {
-
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests((requests) -> requests.anyRequest().authenticated())
-           .oauth2ResourceServer()
-           .jwt()
-               .jwtAuthenticationConverter(new AadJwtBearerTokenAuthenticationConverter());
-   }
-}
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -1444,9 +1428,26 @@ public class ResourceServerConfiguration {
 }
 ```
 
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class ResourceServerConfiguration extends WebSecurityConfigurerAdapter {
+
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       http.authorizeRequests((requests) -> requests.anyRequest().authenticated())
+           .oauth2ResourceServer()
+           .jwt()
+               .jwtAuthenticationConverter(new AadJwtBearerTokenAuthenticationConverter());
+   }
+}
+```
+
 ---
 
-Build and test your app. Let `WebApiA` run on port *8081*. Get the access token for the `webApiA` resource and then access `http://localhost:8081/webApiA/sample` as the Bearer authorization header.
+Build and test your app. Let `WebApiA` run on port `8081`. Get the access token for the `webApiA` resource and then access `http://localhost:8081/webApiA/sample` as the Bearer authorization header.
 
 #### Usage 4: Resource server accessing other resource servers
 
@@ -1473,7 +1474,7 @@ Grant admin consent for `WebApiB` permissions.
 
 :::image type="content" source="media/spring-cloud-azure/application-api-permissions-web-api-a.png" alt-text="Azure portal screenshot showing application WebApiA API permissions screen." lightbox="media/spring-cloud-azure/application-api-permissions-web-api-a.png":::
 
-On the basis of **Accessing a resource server**, add the following dependency to your *pom.xml* file.
+On the basis of **Accessing a resource server**, add the following dependency to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -1560,7 +1561,7 @@ public class SampleConfiguration {
 }
 ```
 
-Build and test your app. Let `WebApiA` and `WebApiB` run on port *8081* and *8082* respectively. Start the `WebApiA` and `WebApiB` applications, get the access token for `webApiA` resource, and access `http://localhost:8081/webApiA/webApiB/sample` as the Bearer authorization header.
+Build and test your app. Let `WebApiA` and `WebApiB` run on port `8081` and `8082` respectively. Start the `WebApiA` and `WebApiB` applications, get the access token for `webApiA` resource, and access `http://localhost:8081/webApiA/webApiB/sample` as the Bearer authorization header.
 
 ### Samples
 

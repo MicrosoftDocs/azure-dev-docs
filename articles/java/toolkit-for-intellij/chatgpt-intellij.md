@@ -3,7 +3,8 @@ title: "Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI S
 description: Shows you how to get started with Azure OpenAI Service and make your first chat completions call with IntelliJ IDEA.
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 01/26/2024
 ms.collection: ce-skilling-ai-copilot
@@ -44,7 +45,7 @@ The following steps walk you through the Azure sign-in process in your IntelliJ 
 1. After the sign-in workflow, right-click the Azure OpenAI item in Azure Explorer and select **Create Azure OpenAI Service**.
 1. In the **Create Azure OpenAI Service** dialog box, specify the following information and then select **OK**:
 
-   - **Name**: A descriptive name for your Azure OpenAI Service resource, such as *MyOpenAIResource*. This name is also your custom domain name in your endpoint. Your resource name can only include alphanumeric characters and hyphens, and can't start or end with a hyphen.
+   - **Name**: A descriptive name for your Azure OpenAI Service resource, such as **MyOpenAIResource**. This name is also your custom domain name in your endpoint. Your resource name can only include alphanumeric characters and hyphens, and can't start or end with a hyphen.
    - **Region**: The location of your instance. Certain models are only available in specific regions. For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models).
    - **Sku**: Standard Azure OpenAI resources are billed based on token usage. For more information, see [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 

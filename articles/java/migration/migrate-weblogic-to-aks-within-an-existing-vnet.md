@@ -1,15 +1,16 @@
 ---
-title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network"
-description: Shows how to deploy WebLogic Server to Azure Kubernetes Service within a custom virtual network.
+title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) within a custom virtual network"
+description: Shows how to deploy WebLogic Server to Azure Kubernetes Service (AKS) within a custom virtual network.
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.topic: conceptual
 ms.date: 08/22/2022
 recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
 ---
 
-# Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service within a custom virtual network
+# Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) within a custom virtual network
 
 This tutorial shows you how to deploy the Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS) offer that integrates with a custom virtual network in the consumer's subscription. The WLS on AKS offer lets you decide whether to create a new virtual network or use an existing one.
 
@@ -97,9 +98,9 @@ export AKS_SUBNET_ID=$(az network vnet subnet show \
 Use the following command to create an AKS cluster in your virtual network and subnet by using the [az aks create](/cli/azure/aks#az-aks-create) command.
 
 > [!NOTE]
-> This example creates an AKS cluster using *kubenet* and a system-assigned identity. Azure CLI will grant [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role to the system-assigned identity after the cluster is created.
+> This example creates an AKS cluster using kubenet and a system-assigned identity. Azure CLI will grant [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role to the system-assigned identity after the cluster is created.
 >
-> If you want to use *Azure CNI*, see [Configure Azure CNI networking in AKS](/azure/aks/configure-azure-cni) to create an *Azure CNI* enabled AKS cluster.
+> If you want to use Azure CNI, see [Configure Azure CNI networking in AKS](/azure/aks/configure-azure-cni) to create an Azure CNI enabled AKS cluster.
 >
 > If you want to use a user-assigned managed identity, see [Create an AKS cluster with system-assigned managed identities](/azure/aks/configure-kubenet#create-an-aks-cluster-with-user-assigned-managed-identities).
 
@@ -117,7 +118,7 @@ az aks create \
 
 ## Store Java EE applications in a Storage account
 
-You can deploy a Java EE Application along with the WLS on AKS offer deployment. You have to upload the application file (*.war*, *.ear*, or *.jar*) to a pre-existing Azure Storage Account and Storage Container within that account.
+You can deploy a Java EE Application along with the WLS on AKS offer deployment. You have to upload the application file (**.war**, **.ear**, or **.jar**) to a pre-existing Azure Storage Account and Storage Container within that account.
 
 Create an Azure Storage Account using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command, as shown in the following example:
 
@@ -187,7 +188,7 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
 1. For **Application package (.war,.ear,.jar)**, select **Browse**.
    - Select the storage account you created. The name starts with `stgwlsaks` in this example.
    - Select your container in **Containers** page. This example uses `mycontainer`.
-   - Check your application listed in the container. This example uses *testwebapp.war*.
+   - Check your application listed in the container. This example uses **testwebapp.war**.
    - Select **Select**.
 1. For other fields, keep the default values.
 

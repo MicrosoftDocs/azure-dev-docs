@@ -6,9 +6,9 @@ ms.date: 09/20/2024
 
 ### Recommendations
 
-* If you opted to use the */home* directory for file storage, consider replacing it with Azure Storage. For more information, see [Mount Azure Storage as a local share in a custom container in App Service](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
+* If you opted to use the **/home**  directory for file storage, consider replacing it with Azure Storage. For more information, see [Mount Azure Storage as a local share in a custom container in App Service](/azure/app-service/containers/how-to-serve-content-from-azure-storage).
 
-* If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of Azure Key Vault and parameter injection with application settings where possible. For more information, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references) and [Configure an App Service app](/azure/app-service/configure-common).
+* If you have configuration in the **/home**  directory that contains connection strings, SSL keys, and other secret information, consider using a combination of Azure Key Vault and parameter injection with application settings where possible. For more information, see [Use Key Vault references for App Service and Azure Functions](/azure/app-service/app-service-key-vault-references) and [Configure an App Service app](/azure/app-service/configure-common).
 
 * Consider using deployment slots for reliable deployments with zero downtime. For more information, see [Set up staging environments in Azure App Service](/azure/app-service/deploy-staging-slots).
 

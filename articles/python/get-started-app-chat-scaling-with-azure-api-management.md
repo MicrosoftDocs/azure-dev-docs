@@ -1,12 +1,12 @@
 ---
 title: Scale Azure OpenAI for Python with Azure API Management
 description: Learn how to add load balancing with Azure API Management to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 05/16/2024
+ms.date: 12/20/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a python developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
+# CustomerIntent: As a Python developer new to Azure OpenAI Service, I want to scale my Azure OpenAI capacity to avoid rate limit errors.
 ---
 
 # Scale Azure OpenAI for Python with Azure API Management
@@ -15,21 +15,18 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Prerequisites
 
-* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-* Access granted to Azure OpenAI in the desired Azure subscription.
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* [Dev containers](https://containers.dev/) are available for both samples, with all the dependencies that are required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
-
-* [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
-
-    #### [Codespaces (recommended)](#tab/github-codespaces)
+    #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
     
-    * Only a [GitHub account](https://www.github.com/login) is required to use Codespaces
+    * Only a [GitHub account](https://www.github.com/login) is required to use GitHub Codespaces.
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/)
-    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+    * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Start Docker Desktop if it's not already running.
+    * [Visual Studio Code](https://code.visualstudio.com/).
+    * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
     
     ---
 
@@ -43,12 +40,12 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Sample code
 
-Samples used in this article include: 
+Samples used in this article include:
 
 * [Python chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo)
-* [Load Balancer with Azure API Management](https://github.com/Azure-Samples/openai-apim-lb)
+* [Azure Load Balancer with Azure API Management](https://github.com/Azure-Samples/openai-apim-lb)
 
-## Next step
+## Related content
 
-* [View Azure API Management diagnostic data in Azure Monitor](/azure/api-management/api-management-howto-use-azure-monitor#view-diagnostic-data-in-azure-monitor)
-* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with 
+* View [Azure API Management diagnostic data in Azure Monitor](/azure/api-management/api-management-howto-use-azure-monitor#view-diagnostic-data-in-azure-monitor).
+* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app.

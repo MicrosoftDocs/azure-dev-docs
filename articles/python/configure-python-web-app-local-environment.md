@@ -2,7 +2,7 @@
 title: "Configure your local environment for developing and deploying Python web apps to Azure using popular frameworks like Django, Flask, and FastAPI."
 description: Configure your local Python environment for working with Python web apps and deploying them to Azure using popular framework like Django, Flask, and FastAPI.
 ms.topic: conceptual
-ms.date: 7/24/2023
+ms.date: 02/04/2025
 ms.custom: devx-track-python, devx-track-azurecli
 adobe-target: true
 ---
@@ -11,7 +11,7 @@ adobe-target: true
 
 This article walks you through setting up your local environment to develop Python *web apps* and deploy them to Azure. Your web app can be pure Python or use one of the common Python-based web frameworks like [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), or [FastAPI](https://fastapi.tiangolo.com/).
 
-Python web apps developed locally can be deployed to services such as [Azure App Service](/azure/app-service/), [Azure Container Apps](/azure/container-apps/), or [Azure Static Web Apps](/azure/static-web-apps/). There are many options for deployment. For example for App Service deployment, you can choose to deploy from code, a Docker container, or a Static Web App. If you deploy from code, you can deploy with Visual Studio Code, with the Azure CLI, from a local Git repository, or with GitHub actions. If you deploy in a Docker Container, you can do so from Azure Container Registry, Docker Hub, or any private registry.
+Python web apps developed locally can be deployed to services such as [Azure App Service](/azure/app-service/), [Azure Container Apps](/azure/container-apps/), or [Azure Static Web Apps](/azure/static-web-apps/). There are many options for deployment. For example, for App Service deployment, you can choose to deploy from code, a Docker container, or a Static Web App. If you deploy from code, you can deploy with Visual Studio Code, with the Azure CLI, from a local Git repository, or with GitHub actions. If you deploy in a Docker Container, you can do so from Azure Container Registry, Docker Hub, or any private registry.
 
 Before continuing with this article, we suggest you review the [Set up your dev environment](configure-local-development-environment.md) for guidance on setting up your dev environment for Python and Azure. Below, we'll discuss setup and configuration specific to Python web app development.
 
@@ -26,7 +26,7 @@ After you get your local environment setup for Python web app development, you'l
 The [Visual Studio Code](https://code.visualstudio.com/) integrated development environment (IDE) is an easy way to develop Python web apps and work with Azure resources that web apps use.
 
 > [!TIP]
-> Make sure you have [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension installed. For an overview of working with Python in VS Code, see [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
+> Make sure you have the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension installed. For an overview of working with Python in VS Code, see [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial).
 
 In VS Code, you work with Azure resources through [VS Code extensions](https://code.visualstudio.com/docs/editor/extension-marketplace). You can install extensions from the **Extensions** View or the key combination Ctrl+Shift+X. For Python web apps, you'll likely be working with one or more of the following extensions:
  
@@ -48,10 +48,10 @@ Extensions in Visual Studio Code are accessible as you would expect in a typical
 
 ### Working with Dev Containers in Visual Studio Code
 
-Python developers often rely on virtual environments  to create an isolated and self-contained environment for a specific project. Virtual environments allow developers to manage dependencies, packages, and Python versions separately for each project, avoiding conflicts between different projects that might require different package versions.
+Python developers often rely on virtual environments to create an isolated and self-contained environment for a specific project. Virtual environments allow developers to manage dependencies, packages, and Python versions separately for each project, avoiding conflicts between different projects that might require different package versions.
 
 While there are popular options available in Python for managing environments like `virtualenv` or `venv`, the [*Visual Studio Code Dev Container*](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 
-extension (based on the [open Dev Container specification](https://containers.dev)) lets you use a [Docker container](https://docker.com/) as a full-featured containerized environment. It enables developers to define a consistent and easily reproducible toolchain with all the necessary tools, dependencies, and extensions pre-configured. This means if you have system requirements, shell configurations, or use other languages entirely you can use a Dev Container to explicity configure all of those parts of your project that might live outside of a basic Python environment.
+extension (based on the [open Dev Container specification](https://containers.dev)) lets you use a [Docker container](https://docker.com/) as a full-featured containerized environment. It enables developers to define a consistent and easily reproducible toolchain with all the necessary tools, dependencies, and extensions pre-configured. This means if you have system requirements, shell configurations, or use other languages entirely, you can use a Dev Container to explicitly configure all of those parts of your project that might live outside of a basic Python environment.
 
 For example, a developer can configure a single Dev Container to include everything needed to work on a project, including a PostgreSQL database server along with the project database and sample data, a Redis server, Nginx, front-end code, client libraries like React, and so on. In addition, the container would contain the project code, the Python runtime, and all the Python project dependencies with the correct versions. Finally, the container can specify Visual Studio Code extensions to be installed so the entire team has the same tooling available. So when a new developer joins the team, the whole environment, including tooling, dependencies, and data, is ready to be cloned to their local machine, and they can begin working immediately.
 
@@ -60,7 +60,7 @@ See [Developing inside a Container](https://code.visualstudio.com/docs/devcontai
 
 ## Working with Visual Studio 2022
 
-[Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is a full featured integrated development environment (IDE) with support for Python application development and many built-in tools and extensions to access and deploy to Azure resources. While most documentation for building Python web apps on Azure focuses
+[Visual Studio 2022](https://visualstudio.microsoft.com/vs/) is a full-featured integrated development environment (IDE) with support for Python application development and many built-in tools and extensions to access and deploy to Azure resources. While most documentation for building Python web apps on Azure focuses
 on using Visual Studio Code, Visual Studio 2022 is a great option if you already
 have it installed, you're comfortable with using it, and are using it for .NET or 
 C++ projects.
@@ -92,12 +92,12 @@ When working locally with web apps using the [Azure CLI](/cli/azure/) commands, 
 
 |Command   |Description|
 |----------|-----------|
-|[az webapp](/cli/azure/webapp) | Manages web apps. Includes the subcommands [create](/cli/azure/webapp#az-webapp-create) to create a web app and the [up](/cli/azure/webapp#az-webapp-up) to create and deploy from a local workspace |
+|[az webapp](/cli/azure/webapp) | Manages web apps. Includes the subcommands [create](/cli/azure/webapp#az-webapp-create) and [up](/cli/azure/webapp#az-webapp-up) to create a web app or to create and deploy from a local workspace, respectively. |
 |[az&nbsp;container&nbsp;app](/cli/azure/containerapp) | Manages Azure Container Apps. |
 |[az&nbsp;staticwebapp](/cli/azure/staticwebapp) | Manages Azure Static Web Apps. |
-|[az group](/cli/azure/group)  | Manages resource groups and template deployments. Use the subcommand [create](/cli/azure/group#az-group-create) to a resource group to put your Azure resources in.|
+|[az group](/cli/azure/group)  | Manages resource groups and template deployments. Use the subcommand [create](/cli/azure/group#az-group-create) to make a resource group to put your Azure resources in.|
 |[az appservice](/cli/azure/appservice) | Manages App Service plans.  |
-|[az config](/cli/azure/reference-index#az-config) | Managed Azure CLI configuration. To save keystrokes, you can define a default location or resource group that other commands use automatically.|
+|[az config](/cli/azure/reference-index#az-config) | Manages Azure CLI configuration. To save keystrokes, you can define a default location or resource group that other commands use automatically.|
 
 Here's an example Azure CLI command to create a web app and associated resources, and deploy it to Azure in one command using [az webapp up](/cli/azure/webapp#az-webapp-up). Run the command in the root directory of your web app.
 
@@ -127,7 +127,7 @@ Keep in mind that for some of your Azure workflow you can also use the Azure CLI
 
 ## Azure SDK key packages
 
-In your Python web apps, you can refer programmatically to Azure services using the [Azure SDK for Python](/python/api/overview/azure/). This SDK is discussed extensively in the section [Use the Azure libraries (SDK) for Python](https://azure.github.io/azure-sdk-for-python/). In this section, we'll briefly mention some key packages of the SDK that you'll use in web development. And, we'll show an example around the best-practice for authenticating your code with Azure resources.
+In your Python web apps, you can refer programmatically to Azure services using the [Azure SDK for Python](/python/api/overview/azure/). This SDK is discussed extensively in the section [Use the Azure libraries (SDK) for Python](https://azure.github.io/azure-sdk-for-python/). In this section, we'll briefly mention some key packages of the SDK that you'll use in web development. And, we'll show an example around the best practices for authenticating your code with Azure resources.
 
 Below are some of the packages commonly used in web app development. You can install packages in your virtual environment directly with `pip`. Or put the Python package index (Pypi) name in your *requirements.txt* file.
 
@@ -154,7 +154,7 @@ The `DefaultAzureCredential` will look in predefined locations for account infor
 
 ## Python-based web frameworks
 
-In Python web app development, you often work with Python-based web frameworks. These frameworks provide functionality such page templates, session management, database access, and easy access to HTTP request and response objects. Frameworks enable you to avoid the need for you to have to reinvent the wheel for common functionality.
+In Python web app development, you often work with Python-based web frameworks. These frameworks provide functionality, such as page templates, session management, database access, and easy access to HTTP request and response objects. Frameworks enable you to avoid the need for you to have to reinvent the wheel for common functionality.
 
 Three common Python web frameworks are [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/2.1.x/), or [FastAPI](https://fastapi.tiangolo.com/). These and other web frameworks can be used with Azure.
 

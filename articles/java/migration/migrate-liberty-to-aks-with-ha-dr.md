@@ -1,14 +1,15 @@
 ---
-title: "Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service with high availability and disaster recovery"
-description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kubernetes Service with high availability and disaster recovery.
+title: "Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery"
+description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery.
 author: KarlErickson
-ms.author: jiangma
+ms.author: karler
+ms.reviewer: jiangma
 ms.topic: tutorial
-ms.date: 05/16/2024
+ms.date: 12/10/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, migration-java, devx-track-extended-java
 ---
 
-# Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service with high availability and disaster recovery
+# Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery
 
 This tutorial shows you a simple and effective way to implement high availability and disaster recovery (HA/DR) for Java using WebSphere Liberty/Open Liberty on Azure Kubernetes Service (AKS). The solution illustrates how to achieve a low Recovery Time Objective (RTO) and Recovery Point Objective (RPO) using a simple database-driven Jakarta EE application running on WebSphere Liberty/Open Liberty.
 
@@ -42,6 +43,10 @@ This tutorial was written with the Azure Backup and Azure SQL Database services 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 - Prepare a local machine with Windows, Linux, or macOS installed.
+- [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
+  - Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 - Install a Java SE implementation, version 17 or later - for example, [the Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.9.3 or later.
@@ -78,6 +83,9 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
    1. In step 5 for configuring the **Databases within the group**, select the database you created in the primary server - for example, `mySampleDatabase`.
 
 1. After you complete all the steps in the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover), keep the failover group page open and use it for the failover test of the WebSphere Liberty/Open Liberty clusters later.
+
+> [!NOTE]
+> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. For information on how to configure the database connection with Microsoft Entra authentication, see [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app?tabs=in-bash).
 
 ## Set up the primary WebSphere Liberty/Open Liberty cluster on AKS
 
@@ -180,18 +188,18 @@ Use the following steps to verify these key components before you move to the ne
 
 Use the following steps to get the name and DNS name of the public IP address of the Azure Application Gateway. You use them for app deployment and the Azure Traffic Manager setup later.
 
-1. In the Azure portal, in the search box, enter *Resource groups* and select **Resource groups** from the search results.
-1. Select the name of resource group for your primary region - for example, `liberty-aks-eastus-mjg032524`.
-1. Find the **Public IP address** resource prefixed with `gwip`, then copy and save aside its name.
-1. Select the **Public IP address** resource, then copy and save aside the **DNS name** - for example, `olgw3984d1.eastus.cloudapp.azure.com`.
+1. In the Azure portal, in the search box, enter **Resource groups** and select **Resource groups** from the search results.
+1. Select the name of resource group for your primary region - for example, **liberty-aks-eastus-mjg032524**.
+1. Find the **Public IP address** resource prefixed with **gwip**, then copy and save aside its name.
+1. Select the **Public IP address** resource, then copy and save aside the **DNS name** value - for example, **olgw3984d1.eastus.cloudapp.azure.com**.
 
 ### Enable geo-replications for the ACR instance
 
 The ACR instance is designed to store application images for both primary and secondary clusters. Use the following steps to enable geo-replications for the ACR instance:
 
-1. In the Azure portal, in the search box, enter *Resource groups* and select **Resource groups** from the search results.
-1. Select the name of resource group for your primary region - for example, `liberty-aks-eastus-mjg032524`.
-1. Find the **Container registry** resource prefixed with `acr`, then select it to open it.
+1. In the Azure portal, in the search box, enter **Resource groups** and select **Resource groups** from the search results.
+1. Select the name of resource group for your primary region - for example, **liberty-aks-eastus-mjg032524**.
+1. Find the **Container registry** resource prefixed with **acr**, then select it to open it.
 1. Select **Properties**. For **Pricing plan**, select **Premium**, then select **Save**. Wait until completion.
 1. Select **Geo-replications**, then select **Add**. For **Location**, select **West US**, then select **Create**. Wait until completion.
 1. Wait for a while, select **Refresh**. Repeat the operation until you see two locations are listed and **Status** is **Ready**.
@@ -201,7 +209,10 @@ The ACR instance is designed to store application images for both primary and se
 Use the following steps to get the ACR sign-in credentials. You use them for app deployment later.
 
 1. Select **Access keys**.
-1. Copy and save aside the value for **Login server**, **Username**, and **password**.
+1. Copy and save aside the values for **Registry name** and **Login server**.
+
+   > [!NOTE]
+   > This article uses the [`az acr build`](/cli/azure/acr#az-acr-build) command to build and push the Docker image to the Container Registry, without using `username` and `password` of the Container Registry. It's still possible to use username and password with `docker login` and `docker push`. Using username and password is less secure than passwordless authentication.
 
 ### Deploy a sample app
 
@@ -216,7 +227,7 @@ Use the following steps to deploy and run a sample CRUD Java/Jakarta EE applicat
    git checkout 20240325
    ```
 
-   The application configures a data source [jdbc/JavaEECafeDB](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed previously. The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. The sample app also configures a [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data `coffee` in the same datasource. Notice that the context root of the sample is configured as */* in the [server.xml](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L24-L26) file.
+   The application configures a data source [jdbc/JavaEECafeDB](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed previously. The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. The sample app also configures a [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data `coffee` in the same datasource. Notice that the context root of the sample is configured as `/` in the [server.xml](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L24-L26) file.
 
 1. Use the following commands to define environment variables with the values that you saved aside previously:
 
@@ -225,26 +236,29 @@ Use the following steps to deploy and run a sample CRUD Java/Jakarta EE applicat
    export DB_NAME=mySampleDatabase
    export DB_USER=azureuser@<failover-group-name>
    export DB_PASSWORD='<SQL-Server-admin-login-password>'
+   export REGISTRY_NAME=<ACR-registry-name>
    export LOGIN_SERVER=<ACR-login-server>
-   export USER_NAME=<ACR-username>
-   export PASSWORD='<ACR-password>'
    export INGRESS_TLS_SECRET=<TLS-secret-name>
    ```
 
-1. Use the following commands to package the app, build the Docker image, push the image to the ACR instance, and deploy the sample to the AKS cluster:
+1. Use the [`az acr build`](/cli/azure/acr#az-acr-build) command to build and push the Docker image to the Container Registry, as shown in the following example:
 
-   ```bash
+   ```azurecli
    cd $BASE_DIR/java-app
    mvn clean install
 
    cd $BASE_DIR/java-app/target
-
    # If you deployed WebSphere Liberty Operator previously, use "Dockerfile-wlp" instead of "Dockerfile"
-   docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
-   docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
-   docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
-   docker push ${LOGIN_SERVER}/javaee-cafe:v1
+   az acr build \
+       --registry ${REGISTRY_NAME} \
+       --image javaee-cafe:v1 \
+       --file Dockerfile \
+       .
+   ```
 
+1. Use the following commands to deploy the sample app to the AKS cluster:
+
+   ```bash
    cd $BASE_DIR/java-app/target
    kubectl apply -f db-secret.yaml
 
@@ -284,7 +298,7 @@ Use the following steps to deploy and run a sample CRUD Java/Jakarta EE applicat
 1. Use the following steps to verify that the app is running as expected:
 
    1. In a new browser tab, open the DNS name of the public IP address of the Azure Application Gateway that you saved aside previously. Use the `https` protocol - for example, `https://olgw3984d1.eastus.cloudapp.azure.com`. You should see the welcome page of sample app.
-   1. Create a new coffee with name and price - for example, *Coffee 1* with price *10* - which is persisted into both the application data table and the session table of the database. The UI that you see should be similar to the following screenshot:
+   1. Create a new coffee with name and price - for example, **Coffee 1** with price **10** - which is persisted into both the application data table and the session table of the database. The UI that you see should be similar to the following screenshot:
 
       :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png":::
 
@@ -342,7 +356,7 @@ Before you continue, use the following steps to install the AKS Backup Extension
 
 Use the following steps to back up the AKS cluster:
 
-1. In the Azure portal, in the search box, search for *Backup vaults*. You see it listed under **Services**. Select it.
+1. In the Azure portal, in the search box, search for **Backup vaults**. You see it listed under **Services**. Select it.
 1. Follow the steps in [Back up Azure Kubernetes Service by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) to enable AKS Backup for the primary cluster. Execute the steps up to, but not including, the [Use hooks during AKS backup](/azure/backup/azure-kubernetes-service-cluster-backup#use-hooks-during-aks-backup) section, and use the rest of the steps in this section to make adjustments as you go.
 
 1. When you reach the [Create a Backup vault](/azure/backup/azure-kubernetes-service-cluster-backup#create-a-backup-vault) section, use the following steps:
@@ -441,14 +455,14 @@ Create an Azure Traffic Manager profile by following the steps in [Quickstart: C
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints), use the following steps:
    1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, use the following steps:
-      1. For **DNS time to live (TTL)**, enter *10*.
-      1. Under **Endpoint monitor settings**, for **Protocol**, select **https**, and for **Port**, enter *443*.
+      1. For **DNS time to live (TTL)**, enter **10**.
+      1. Under **Endpoint monitor settings**, for **Protocol**, select **https**, and for **Port**, enter **443**.
       1. Under **Fast endpoint failover settings**, use the following values:
          - For **Probing internal**, select **10**.
-         - For **Tolerated number of failures**, enter *3*.
-         - For **Probe timeout**, enter *5*.
+         - For **Tolerated number of failures**, enter **3**.
+         - For **Probe timeout**, enter **5**.
       1. Select **Save**. Wait until it completes.
-   1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
+   1. In step 4 for adding the primary endpoint **myPrimaryEndpoint**, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
       1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the Azure Application Gateway in the East US region that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
    1. In step 6 for adding a failover/secondary endpoint `myFailoverEndpoint`, use the following steps:
@@ -461,7 +475,7 @@ Next, use the following steps to verify that the sample app deployed to the prim
 1. Select **Overview** of the Traffic Manager profile you created.
 1. Check and copy down the DNS name of the Traffic Manager profile, replacing the protocol `http` with `https`. For example, `https://tmprofile-mjg032524.trafficmanager.net`.
 1. Open the URL in a new browser tab. You should see that the coffee you created previously is listed in the page.
-1. Create another coffee with a different name and price - for example, *Coffee 2* with price *20* - which is persisted into both the application data table and the session table of the database. The UI that you see should be similar to the following screenshot:
+1. Create another coffee with a different name and price - for example, **Coffee 2** with price **20** - which is persisted into both the application data table and the session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI with the second coffee." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-2nd-coffee.png":::
 
@@ -505,8 +519,8 @@ Now, use the following steps to failover the Azure SQL Database from the primary
 
 Next, use the following steps to restore the backup of the primary AKS cluster to the secondary AKS cluster:
 
-1. In the Azure portal, in the search box, enter *Backup center* and select **Backup center** from the search results.
-1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. Find the backup instance you created in the previous section - for example, `<aks-cluster-name>\akseastusmjg032524`.
+1. In the Azure portal, in the search box, enter **Backup center** and select **Backup center** from the search results.
+1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. Find the backup instance you created in the previous section - for example, **\<aks-cluster-name\>\akseastusmjg032524**.
 1. Select the backup instance.
 1. Select **Restore**.
 1. On the **Restore** page, the default pane is **Restore point**. Select **Previous** to change to the **Basics** pane. For **Restore Region**, select **Secondary Region**, then select **Next: Restore point**.
@@ -626,7 +640,7 @@ If you're not going to continue to use the WebSphere Liberty/Open Liberty cluste
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
 1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
-1. In the Azure portal, in the search box, enter *Backup vaults* and select **Backup vaults** from the search results. You should see two Backup vaults listed - for example, `aks-backup-vault-eastus-mjg032524` and `aks-backup-vault-westus-mjg032524`. For each of them, use the following steps:
+1. In the Azure portal, in the search box, enter **Backup vaults** and select **Backup vaults** from the search results. You should see two Backup vaults listed - for example, **aks-backup-vault-eastus-mjg032524** and **aks-backup-vault-westus-mjg032524**. For each of them, use the following steps:
    1. Select to open the Backup vault.
    1. Select **Manage** > **Properties** > **Soft delete** > **Update**. Next to **Enable soft Delete**, unselect the checkbox, and then select **Update**.
    1. Select **Manage** > **Backup instances**. Filter on the datasource type **Kubernetes Services**. Select the instance you created and then delete it.

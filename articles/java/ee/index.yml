@@ -9,7 +9,8 @@ metadata:
   ms.service: azure-java
   ms.topic: landing-page
   author: KarlErickson
-  ms.author: edburns
+  ms.author: karler
+  ms.reviewer: edburns
   ms.date: 06/27/2022
   ms.custom: devx-track-java, devx-track-extended-java
 
@@ -37,8 +38,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Java app with Helidon to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
@@ -47,10 +46,8 @@ landingContent:
             url: liberty-with-microsoft-entra-id.md
           - text: Java app with JBoss EAP to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-          - text: Java EE JCache with WebSphere/Open Liberty
+          - text: Azure Redis as WebSphere Liberty/Open Liberty session cache
             url: how-to-deploy-java-liberty-jcache.md
-          - text: Java app with Payara Micro to Azure App Service
-            url: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Traditional WebSphere on Azure VMs
             url: traditional-websphere-application-server-virtual-machines.md
           - text: Passwordless database connections
@@ -93,6 +90,10 @@ landingContent:
             url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
             url: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to Azure VMs with Elastic
+            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to Azure VMs with Entra ID
+            url: ../migration/migrate-weblogic-with-entra-id-via-ldap.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: quickstart

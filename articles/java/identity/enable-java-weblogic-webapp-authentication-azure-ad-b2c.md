@@ -3,7 +3,8 @@ title: Enable sign-in for Java WebLogic apps using MSAL4J
 titleSuffix: Azure Active Directory B2C
 description: Shows you how to develop a Java WebLogic app that supports sign-in by Azure Active Directory B2C.
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
@@ -33,7 +34,7 @@ These instructions assume that you installed WebLogic and set up some server dom
 
 Before you can deploy to WebLogic, use the following steps to make some configuration changes in the sample itself and then build or rebuild the package:
 
-1. In the sample, find the *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
+1. In the sample, find the **application.properties** or **authentication.properties** file where you configured the client ID, tenant, redirect URL, and so on.
 
 1. In this file, change references to `localhost:8080` or `localhost:8443` to the URL and port that WebLogic runs on, which by default should be `localhost:7001`.
 
@@ -41,11 +42,11 @@ Before you can deploy to WebLogic, use the following steps to make some configur
 
 Use the following steps to deploy the sample to WebLogic via the web console:
 
-1. Start the WebLogic server by using *DOMAIN_NAME\bin\startWebLogic.cmd*.
+1. Start the WebLogic server by using **DOMAIN_NAME\bin\startWebLogic.cmd**.
 
 1. Navigate to the WebLogic web console in your browser at `http://localhost:7001/console`.
 
-1. Go to Domain Structure > Deployments, select **Install**, select **Upload your files**, and then find the *.war* file that you built by using Maven.
+1. Go to Domain Structure > Deployments, select **Install**, select **Upload your files**, and then find the **.war** file that you built by using Maven.
 
 1. Select Install this deployment as an application, select **Next**, select **Finish**, and then select **Save**.
 

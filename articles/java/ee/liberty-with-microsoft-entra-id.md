@@ -1,8 +1,10 @@
 ---
-title: "WebSphere Liberty/Open Liberty with Microsoft Entra ID"
+title: WebSphere Liberty/Open Liberty with Microsoft Entra ID
+titlesSuffix: Azure
 description: Shows you how to secure IBM WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OpenID Connect (OIDC).
 author: KarlErickson
-ms.author: jiangma
+ms.author: karler
+ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 10/07/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-entra-id, devx-track-extended-java, devx-track-azurecli
@@ -199,7 +201,7 @@ Use the following steps to prepare the sample app:
    git checkout 2024-09-26
    ```
 
-   If you see a message about being in *detached HEAD* state, this message is safe to ignore. This message just means you checked out a tag.
+   If you see a message about being in `detached HEAD` state, this message is safe to ignore. This message just means you checked out a tag.
 
 1. Use the following commands to define the following environment variables with the values you wrote down earlier:
 
@@ -274,7 +276,7 @@ Use the following steps to exercise the functionality:
 
    :::image type="content" source="media/liberty-with-microsoft-entra-id/admin-profile.png" alt-text="Screenshot of the sample application that shows the admin profile." lightbox="media/liberty-with-microsoft-entra-id/admin-profile.png":::
 
-1. Sign out again and try to **Sign in as admin**  with the regular user you created earlier. You should see an error message because the regular user doesn't have the `admin` role.
+1. Sign out again and try to **Sign in as admin** with the regular user you created earlier. You should see an error message because the regular user doesn't have the `admin` role.
 
    :::image type="content" source="media/liberty-with-microsoft-entra-id/forbidden.png" alt-text="Screenshot of the sample application that shows the access denied message." lightbox="media/liberty-with-microsoft-entra-id/forbidden.png":::
 

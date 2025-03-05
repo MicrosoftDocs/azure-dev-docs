@@ -2,7 +2,8 @@
 title: Use JMS in Spring to access Azure Service Bus
 description: This tutorial demonstrates how to use the Spring JMS Starter to send messages to and receive messages from Azure Service Bus.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 04/06/2023
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, passwordless-java
@@ -47,7 +48,7 @@ SAS authentication uses the connection string of your Azure Service Bus namespac
 
 With a queue or topic for Azure Service Bus, you can send and receive messages using Spring Cloud Azure Service Bus JMS.
 
-To install the Spring Cloud Azure Service Bus JMS Starter module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Service Bus JMS Starter module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -57,7 +58,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.17.1</version>
+        <version>5.20.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -67,7 +68,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Service Bus JMS Starter artifact:
@@ -83,7 +84,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
 
 Use the following steps to configure your application to use a Service Bus queue or topic to send and receive messages.
 
-1. Configure the Service Bus credentials by adding the following properties to your *application.properties* file.
+1. Configure the Service Bus credentials by adding the following properties to your **application.properties** file.
 
    #### [Use a Service Bus queue](#tab/use-a-service-bus-queue)
 

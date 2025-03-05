@@ -3,7 +3,8 @@ title: Use Spring Data JDBC with Azure Database for MySQL
 description: Learn how to use Spring Data JDBC with an Azure Database for MySQL database.
 author: KarlErickson
 ms.date: 08/28/2024
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java
 zone_pivot_group_filename: java/java-zone-pivot-groups.json
@@ -41,7 +42,7 @@ In this tutorial, you'll code a sample application. If you want to go faster, th
 
 To store data from Azure Database for MySQL using Spring Data JDBC, follow these steps to configure the application:
 
-1. Configure Azure Database for MySQL credentials by adding the following properties to your *application.properties* configuration file.
+1. Configure Azure Database for MySQL credentials by adding the following properties to your **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -71,7 +72,7 @@ To store data from Azure Database for MySQL using Spring Data JDBC, follow these
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
    >
    > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
 
@@ -91,7 +92,7 @@ In this article, you'll code a sample application. If you want to go faster, thi
 
 To store data from Azure Database for MySQL using Spring Data JDBC, follow these steps to configure the application:
 
-1. Configure Azure Database for MySQL credentials by adding the following properties to your *application.properties* configuration file.
+1. Configure Azure Database for MySQL credentials by adding the following properties to your **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -121,14 +122,14 @@ To store data from Azure Database for MySQL using Spring Data JDBC, follow these
     ---
 
    > [!WARNING]
-   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the *schema.sql* file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
+   > The configuration property `spring.sql.init.mode=always` means that Spring Boot will automatically generate a database schema, using the **schema.sql** file that you'll create next, each time the server is started. This feature is great for testing, but remember that it will delete your data at each restart, so you shouldn't use it in production.
    >
    > The configuration property `spring.datasource.url` has `?serverTimezone=UTC` appended to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Without this parameter, your Java server wouldn't use the same date format as the database, which would result in an error.
 
 ::: zone-end
 
 <!-- NOTE: The numbering must start with 2 here to continue the sequence after the previous step, otherwise the numbering will reset to 1. -->
-2. Create the *src/main/resources/schema.sql* configuration file to configure the database schema, then add the following contents.
+2. Create the **src/main/resources/schema.sql** configuration file to configure the database schema, then add the following contents.
 
    ```sql
    DROP TABLE IF EXISTS todo;

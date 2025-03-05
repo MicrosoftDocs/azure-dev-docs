@@ -2,7 +2,8 @@
 title: Installing the Azure Toolkit for Eclipse
 description: Learn how to install the Azure Toolkit for Eclipse plug-in to create and deploy cloud applications to Azure.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 11/19/2021
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -52,7 +53,7 @@ The Eclipse Marketplace wizard in the Eclipse IDE allows users to browse the [Ec
 
 ## Install new software
 
-You can install the Azure Toolkit for Eclipse directly from the *Help* menu in the form of new software.
+You can install the Azure Toolkit for Eclipse directly from the **Help** menu in the form of new software.
 
 1. Click the **Help** menu, and then click **Install New Software**.
 

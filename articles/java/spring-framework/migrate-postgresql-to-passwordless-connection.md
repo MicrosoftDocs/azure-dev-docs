@@ -3,7 +3,8 @@ title: Migrate an application to use passwordless connections with Azure Databas
 description: Learn how to migrate existing applications using Azure Database for PostgreSQL away from authentication patterns such as passwords to more secure approaches like Managed Identity.
 ms.topic: how-to
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 01/18/2023
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
@@ -126,7 +127,7 @@ az postgres flexible-server firewall-rule create \
 
 Next, create a non-admin Microsoft Entra user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
-Create a SQL script called *create_ad_user_local.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_ad_user_local.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 cat << EOF > create_ad_user_local.sql
@@ -169,7 +170,7 @@ Next, use the following steps to update your code to use passwordless connection
    </dependency>
    ```
 
-1. Enable the Azure PostgreSQL authentication plugin in JDBC URL. Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure Database for PostgreSQL. Update `url` and `user` in your *application.properties* file to match the following values:
+1. Enable the Azure PostgreSQL authentication plugin in JDBC URL. Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure Database for PostgreSQL. Update `url` and `user` in your **application.properties** file to match the following values:
 
    ```properties
    url=jdbc:postgresql://$AZ_DATABASE_SERVER_NAME.postgres.database.azure.com:5432/$AZ_DATABASE_NAME?sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
@@ -192,7 +193,7 @@ Next, use the following steps to update your code to use passwordless connection
    > [!NOTE]
    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Microsoft Entra user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
+1. Update the **application.yaml** or **application.properties** file as shown in the following example. Change the `spring.datasource.username` to the Microsoft Entra user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
 
    ```yaml
    spring:
@@ -397,7 +398,7 @@ If you connected your services using Service Connector, the previous step's comm
 
 The following steps will create a Microsoft Entra user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
-First, create a SQL script called *create_ad_user_mi.sql* for creating a non-admin user. Add the following contents and save it locally:
+First, create a SQL script called **create_ad_user_mi.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_POSTGRESQL_AD_MI_USERNAME=$(az ad sp show \
@@ -441,7 +442,7 @@ properties.put("user", "$AZ_POSTGRESQL_AD_MI_USERNAME");
 
 ### [Spring](#tab/spring)
 
-Update the *application.yaml* or *application.properties* file. Change the `spring.datasource.username` to the user created for the managed identity.
+Update the **application.yaml** or **application.properties** file. Change the `spring.datasource.username` to the user created for the managed identity.
 
 ```yaml
 spring:

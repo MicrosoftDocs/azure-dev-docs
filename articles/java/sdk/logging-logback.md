@@ -5,7 +5,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: srnagar
+ms.author: karler
+ms.reviewer: srnagar
 ---
 
 # Log with the Azure SDK for Java and Logback
@@ -15,13 +16,13 @@ This article provides an overview of how to add logging using Logback to applica
 To enable Logback logging, you must do two things:
 
 1. Include the Logback library as a dependency,
-2. Create a file called *logback.xml* in the */src/main/resources* project directory.
+2. Create a file called **logback.xml** in the **/src/main/resources** project directory.
 
 For more information related to configuring Logback, see [Logback configuration](https://logback.qos.ch/manual/configuration.html) in the Logback documentation.
 
 ## Add the Maven dependency
 
-To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *1.2.3* version number with the latest released version number shown on the [Logback Classic Module page](https://mvnrepository.com/artifact/ch.qos.logback/logback-classic).
+To add the Maven dependency, include the following XML in the project's **pom.xml** file. Replace the `1.2.3` version number with the latest released version number shown on the [Logback Classic Module page](https://mvnrepository.com/artifact/ch.qos.logback/logback-classic).
 
 ```xml
 <dependency>
@@ -33,7 +34,7 @@ To add the Maven dependency, include the following XML in the project's *pom.xml
 
 ## Add logback.xml to your project
 
-[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks. To enable Logback logging, create a file called *logback.xml* in the *./src/main/resources* directory of your project. This file contains the logging configurations to customize your logging needs. For more information on configuring *logback.xml*, see [Logback configuration](https://logback.qos.ch/manual/configuration.html) in the Logback documentation.
+[Logback](https://logback.qos.ch/manual/introduction.html) is one of the popular logging frameworks. To enable Logback logging, create a file called **logback.xml** in the **./src/main/resources** directory of your project. This file contains the logging configurations to customize your logging needs. For more information on configuring **logback.xml**, see [Logback configuration](https://logback.qos.ch/manual/configuration.html) in the Logback documentation.
 
 ### Console logging
 
@@ -108,7 +109,7 @@ The previous examples log to the console, which isn't normally the preferred loc
 
 ### Spring applications
 
-The Spring framework works by reading the Spring *application.properties* file for various configurations, including the logging configuration. It's possible to configure the Spring application to read Logback configurations from any file, however. To do so, configure the `logging.config` property to point to the *logback.xml* configuration file by adding the following line into your Spring */src/main/resources/application.properties* file:
+The Spring framework works by reading the Spring **application.properties** file for various configurations, including the logging configuration. It's possible to configure the Spring application to read Logback configurations from any file, however. To do so, configure the `logging.config` property to point to the **logback.xml** configuration file by adding the following line into your Spring **/src/main/resources/application.properties** file:
 
 ```properties
 logging.config=classpath:logback.xml

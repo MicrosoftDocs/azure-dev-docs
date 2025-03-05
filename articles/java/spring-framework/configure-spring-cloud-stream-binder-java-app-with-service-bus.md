@@ -2,7 +2,8 @@
 title: Spring Cloud Stream with Azure Service Bus
 description: This article demonstrates how to use Spring Cloud Stream Binder to send messages to and receive messages from Azure Service Bus.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 08/28/2024
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -38,7 +39,7 @@ Azure provides an asynchronous messaging platform called [Azure Service Bus](/az
 
 With a queue or topic for Azure Service Bus, you can send and receive messages using Spring Cloud Azure Stream Binder Service Bus.
 
-To install the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Stream Binder Service Bus module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -48,7 +49,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.17.1</version>
+        <version>5.20.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -58,7 +59,7 @@ To install the Spring Cloud Azure Stream Binder Service Bus module, add the foll
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Service Bus artifact:
@@ -96,11 +97,11 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.azure.servicebus.namespace`                                     | Specify the namespace you obtained in your Service Bus from the Azure portal.                                                                                           |
    | `spring.cloud.stream.bindings.consume-in-0.destination`                       | Specify the Service Bus queue or Service Bus topic you used in this tutorial.                                                                                           |
    | `spring.cloud.stream.bindings.supply-out-0.destination`                       | Specify the same value used for input destination.                                                                                                                      |
-   | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
+   | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as `false`, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
    | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
-   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*. The recommended value is *60000*.                                                                                 |
-   | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
+   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is `1000 L`. The recommended value is `60000`.                                                                                 |
+   | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is `0`.                                                                                                  |
 
    #### [Use a Service Bus topic](#tab/use-a-service-bus-topic)
 
@@ -124,11 +125,11 @@ Use the following steps to configure your application to use a Service Bus queue
    | `spring.cloud.stream.bindings.consume-in-0.destination`                       | Specify the Service Bus queue or Service Bus topic you used in this tutorial.                                                                                           |
    | `spring.cloud.stream.bindings.consume-in-0.group`                             | If you used a Service Bus topic, specify the topic subscription.                                                                                                        |
    | `spring.cloud.stream.bindings.supply-out-0.destination`                       | Specify the same value used for input destination.                                                                                                                      |
-   | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as *false*, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
+   | `spring.cloud.stream.servicebus.bindings.consume-in-0.consumer.auto-complete` | Specify whether to settle messages automatically. If set as `false`, a message header of `Checkpointer` will be added to enable developers to settle messages manually. |
    | `spring.cloud.stream.servicebus.bindings.supply-out-0.producer.entity-type`   | Specify the entity type for the output binding, can be `queue` or `topic`.                                                                                              |
    | `spring.cloud.function.definition`                                            | Specify which functional bean to bind to the external destination(s) exposed by the bindings.                                                                           |
-   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*. The recommended value is *60000*.                                                                                 |
-   | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is *0*.                                                                                                  |
+   | `spring.cloud.stream.poller.fixed-delay`                                      | Specify fixed delay for default poller in milliseconds. The default value is `1000 L`. The recommended value is `60000`.                                                                                 |
+   | `spring.cloud.stream.poller.initial-delay`                                    | Specify initial delay for periodic triggers. The default value is `0`.                                                                                                  |
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
     ---

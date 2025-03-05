@@ -1,8 +1,9 @@
 ---
-title: Use Azure Key Vault to deliver TLS/SSL certificates to Apache Tomcat
+title: Use Azure Key Vault to Deliver TLS/SSL Certificates to Apache Tomcat
 description: Use Azure Key Vault to deliver TLS/SSL certificates to Apache Tomcat
 author: KarlErickson
-ms.author: manriem
+ms.author: karler
+ms.reviewer: manriem
 ms.topic: article
 ms.date: 12/09/2021
 ms.custom: devx-track-java, devx-track-extended-java
@@ -14,11 +15,11 @@ This article describes how to integrate Azure Key Vault into Apache Tomcat to de
 
 ## Be sure the JVM can access the TLS/SSL certificates
 
-Be sure you've followed all the steps outlined in [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](java-azure-keyvault-ssl-integration-jvm.md).
+Be sure you followed all the steps outlined in [Use Azure Key Vault to deliver TLS/SSL certificates to the JVM](java-azure-keyvault-ssl-integration-jvm.md).
 
 ## Add the TLS/SSL configuration to server.xml
 
-Add the following configuration to the *server.xml* file in Tomcat. Be sure to replace the *`<your-certificate>`* placeholder with the name of the certificate in Azure Key Vault that you want to use for server-side TLS/SSL.
+Add the following configuration to the **server.xml** file in Tomcat. Be sure to replace the `<your-certificate>` placeholder with the name of the certificate in Azure Key Vault that you want to use for server-side TLS/SSL.
 
 ```xml
 <Connector port="8443"
@@ -38,10 +39,10 @@ Add the following configuration to the *server.xml* file in Tomcat. Be sure to r
 
 ## Set the required startup properties
 
-Use the `JAVA_OPTS` and `CLASSPATH` environment variables to set up your environment before starting Tomcat. One way to specify the environment variables is by creating a *setenv.sh* or *setenv.bat* script in the Tomcat *bin* directory.
+Use the `JAVA_OPTS` and `CLASSPATH` environment variables to set up your environment before starting Tomcat. One way to specify the environment variables is by creating a **setenv.sh** or **setenv.bat** script in the Tomcat **bin** directory.
 
 > [!NOTE]
-> You can also use other approaches to set the environment variables. We've tested by running Tomcat's *catalina.sh* script or *catalina.bat* script, and by running the Tomcat for Windows Service.
+> You can also use other approaches to set the environment variables. We've tested by running Tomcat's **catalina.sh** script or **catalina.bat** script, and by running the Tomcat for Windows Service.
 
 ### [Linux](#tab/linux)
 

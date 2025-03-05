@@ -3,7 +3,8 @@ title: Manage storage accounts with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure storage accounts by using the Azure Explorer for IntelliJ.
 ms.date: 03/14/2022
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -43,13 +44,13 @@ To create a storage account by using the Azure Explorer, use the following steps
 
       * **Account name**: Specifies the name for the new storage account, which must be between 3 and 24 characters long, start with a letter, and contain only lowercase letters and numbers.
 
-      * **Account location**:  Specifies the location where your storage account will be created (for example, *West US*).
+      * **Account location**:  Specifies the location where your storage account will be created - for example, **West US**.
 
-      * **Performance**: Specifies which storage account offering to use from the selected publisher (for example, *Premium*). For more information, see [Azure storage scalability and performance targets].
+      * **Performance**: Specifies which storage account offering to use from the selected publisher - for example, **Premium**. For more information, see [Azure storage scalability and performance targets].
 
-      * **Redundancy**: Specifies the replication for the storage account (for example, *Zone-Redundant*). For more information, see [Azure storage replication].
+      * **Redundancy**: Specifies the replication for the storage account - for example, **Zone-Redundant**. For more information, see [Azure storage replication].
 
-      * **Kind**: Specifies the type of storage account to create (for example, *Block Blobs storage*). And this option will show only if you choose "Premium" in the **Performance**. For more information, see [About Azure storage accounts].
+      * **Kind**: Specifies the type of storage account to create - for example, **Block Blobs storage**. And this option will show only if you choose "Premium" in the **Performance**. For more information, see [About Azure storage accounts].
 
 1. When you've specified all of the preceding options, click **OK**.
 

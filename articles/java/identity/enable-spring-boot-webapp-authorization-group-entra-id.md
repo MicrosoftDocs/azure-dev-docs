@@ -3,7 +3,8 @@ title: Secure Java Spring Boot apps using groups and group claims
 titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app to restrict access to routes using security groups with the Microsoft identity platform.
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
@@ -49,7 +50,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 4-spring-web-app/3-Authorization-II/groups
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -88,7 +89,7 @@ To register the app, use the following steps:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations: **6 months**, **12 months**, or **Custom**.
 
@@ -121,16 +122,16 @@ To create security groups, use the following steps:
 1. In the **Groups** pane, select **New Group**, and then provide the following information:
 
    - For **Group Type**, select **Security**.
-   - For **Group Name**, enter *AdminGroup*.
-   - For **Group Description**, enter *Admin Security Group*.
+   - For **Group Name**, enter **AdminGroup**.
+   - For **Group Description**, enter **Admin Security Group**.
    - Add **Group Owners** and **Group Members** that you want to use and test in this sample.
    - Select **Create**.
 
 1. In the **Groups** pane, select **New Group**, and then provide the following information:
 
-   - For **Group Type**, select *Security*.
-   - For **Group Name**, enter *UserGroup*.
-   - For **Group Description**, enter *User Security Group*.
+   - For **Group Type**, select **Security**.
+   - For **Group Name**, enter **UserGroup**.
+   - For **Group Description**, enter **User Security Group**.
    - Add **Group Owners** and **Group Members** that you want to use and test in this sample.
    - Select **Create**.
 
@@ -219,7 +220,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the *src\main\resources\application.yml* file.
+1. Open the **src\main\resources\application.yml** file.
 
 1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
@@ -231,7 +232,7 @@ Use the following steps to configure the app:
 
 1. Find the placeholder `Enter_Your_User_Group_ID_Here` and replace the existing value with the `objectId` value of your **UserGroup**.
 
-1. Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java* file.
+1. Open the **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java** file.
 
 1. Find the placeholder `Enter_Your_Admin_Group_ID_Here` and replace the existing value with the `objectId` value of your **AdminGroup**.
 
@@ -320,17 +321,17 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
-| *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
-| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
-| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
-| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
-| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
-| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
-| *LICENSE*                                                                     | The license for the sample.                                                               |
+| **pom.xml**                                                                     | Application dependencies.                                                                 |
+| **src/main/resources/templates/**                                               | Thymeleaf Templates for UI.                                                               |
+| **src/main/resources/application.yml**                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
+| **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/** | This directory contains the main application entry point, controller, and config classes. |
+| **.../MsIdentitySpringBootWebappApplication.java**                              | Main class.                                                                               |
+| **.../SampleController.java**                                                   | Controller with endpoint mappings.                                                        |
+| **.../SecurityConfig.java**                                                     | Security configuration - for example, which routes require authentication.                |
+| **.../Utilities.java**                                                          | Utility class - for example, filter ID token claims.                                      |
+| **CHANGELOG.md**                                                                | List of changes to the sample.                                                            |
+| **CONTRIBUTING.md**                                                             | Guidelines for contributing to the sample.                                                |
+| **LICENSE**                                                                     | The license for the sample.                                                               |
 
 ### ID token claims
 
@@ -362,7 +363,7 @@ The groups claim of the token includes the names of the groups that the signed-i
 
 A common way to access the group names is documented in the [ID token claims](#id-token-claims) section.
 
-Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed-in user's `Authorities`. This configuration enables developers to make use of groups with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
+Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed-in user's `Authorities`. This configuration enables developers to make use of groups with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in **SampleController.java**:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -417,7 +418,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only signed-in users can access them. The app configures these routes using the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/3-Authorization-II/groups/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only signed-in users can access them. The app configures these routes using the `app.protect.authenticated` property from the **application.yml** file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/3-Authorization-II/groups/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
@@ -451,7 +452,7 @@ Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automati
 
 #### Create the overage scenario for testing
 
-You can use the *BulkCreateGroups.ps1* file provided in the *AppCreationScripts* folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the *BulkCreateGroups.ps1* script.
+You can use the **BulkCreateGroups.ps1** file provided in the **AppCreationScripts** folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the **BulkCreateGroups.ps1** script.
 
 Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [User.Read](/graph/permissions-reference#user-permissions) and [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permissions for the [getMemberGroups](/graph/api/user-getmembergroups) function to execute successfully.
 
@@ -473,7 +474,7 @@ To update the app registration, use the following steps:
 1. In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment - for example, `https://java-spring-webapp-groups.azurewebsites.net/login/oauth2/code/`.
 
 > [!IMPORTANT]
-> If your app is using an *in-memory* storage, Azure App Services spins down your web site if it's inactive, and any records that your app was keeping are emptied. Also, if you increase the instance count of your website, requests are distributed among the instances. Thus, your apps records aren't the same on each instance.
+> If your app is using an in-memory storage, Azure App Services spins down your web site if it's inactive, and any records that your app was keeping are emptied. Also, if you increase the instance count of your website, requests are distributed among the instances. Thus, your apps records aren't the same on each instance.
 
 ## More information
 

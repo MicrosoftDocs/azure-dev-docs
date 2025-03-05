@@ -2,7 +2,8 @@
 title: Use Spring Data JPA with Azure SQL Database
 description: Learn how to use Spring Data JPA with an Azure SQL Database.
 ms.date: 08/28/2024
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 author: KarlErickson
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java
@@ -42,7 +43,7 @@ In this tutorial, you'll code a sample application. If you want to go faster, th
 
 With an Azure SQL Database instance, you can store data by using Spring Cloud Azure.
 
-To install the Spring Cloud Azure Starter module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Starter module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -52,7 +53,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.17.1</version>
+        <version>5.20.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -62,7 +63,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:
@@ -75,13 +76,13 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   ```
   
   > [!NOTE]
-  > As this is a dependency, it should be added in the `<dependencies>` section of the *pom.xml*. Its version is not configured here, as it is managed by the BOM that we added previously.
+  > As this is a dependency, it should be added in the `<dependencies>` section of the **pom.xml**. Its version is not configured here, as it is managed by the BOM that we added previously.
 
 ### Configure Spring Boot to use Azure SQL Database
 
 To store data from Azure SQL Database using Spring Data JPA, follow these steps to configure the application:
 
-1. Configure an Azure SQL Database credentials in the *application.properties* configuration file.
+1. Configure an Azure SQL Database credentials in the **application.properties** configuration file.
 
    #### [Passwordless (Recommended)](#tab/passwordless)
 

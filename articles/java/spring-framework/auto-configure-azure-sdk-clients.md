@@ -3,14 +3,15 @@ title: Spring Cloud Azure Auto-configure Azure SDK clients
 description: This reference doc contains Spring Cloud Azure how to Auto-configure Azure SDK clients.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Auto-configure Azure SDK clients
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 Spring Boot simplifies the Spring Cloud Azure development experience. Spring Cloud Azure starters are a set of convenient dependency descriptors to include in your application. The starters handle the object instantiation and configuration logic, so you don’t have to. Every starter depends on `spring-cloud-azure-starter` to provide critical bits of configuration, like the Azure cloud environment and authentication information. You can configure these as properties in, for example, a YAML file, as shown in the following example:
 
@@ -61,7 +62,7 @@ The second way is to avoid adding Azure SDK dependencies and instead include the
 ## Configuration
 
 > [!NOTE]
-> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory).
+> If you use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id).
 
 Configuration properties for each Azure service are under prefix `spring.cloud.azure.<azure-service>`.
 
@@ -70,7 +71,7 @@ Configuration properties for each Azure service are under prefix `spring.cloud.a
 
 ## Basic usage
 
-Adding the following properties to your *application.yaml* file will autoconfigure the Azure Cosmos DB client for you.
+Adding the following properties to your **application.yaml** file will autoconfigure the Azure Cosmos DB client for you.
 
 ```yaml
 spring:

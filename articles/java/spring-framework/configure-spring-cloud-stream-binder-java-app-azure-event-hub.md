@@ -2,7 +2,8 @@
 title: Spring Cloud Stream with Azure Event Hubs
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 04/06/2023
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -38,7 +39,7 @@ This tutorial demonstrates how to send and receive messages using Azure Event Hu
 
 With an Azure Storage Account and an Azure Event hub, you can send and receive messages using Spring Cloud Azure Stream Binder Event Hubs.
 
-To install the Spring Cloud Azure Stream Binder Event Hubs module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Stream Binder Event Hubs module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -48,7 +49,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.17.1</version>
+        <version>5.20.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -58,7 +59,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Stream Binder Event Hubs artifact:
@@ -74,7 +75,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
 
 Use the following steps to configure your application to produce and consume messages using Azure Event Hubs.
 
-1. Configure the Event hub credentials by adding the following properties to your *application.properties* file.
+1. Configure the Event hub credentials by adding the following properties to your **application.properties** file.
 
    ```properties
     spring.cloud.azure.eventhubs.namespace=${AZURE_EVENTHUBS_NAMESPACE}
@@ -101,8 +102,8 @@ Use the following steps to configure your application to produce and consume mes
    | `spring.cloud.stream.bindings.supply-out-0.destination`                        | Specify the same event hub you used in this tutorial.                                         |
    | `spring.cloud.stream.eventhubs.bindings.consume-in-0.consumer.checkpoint.mode` | Specify `MANUAL`.                                                                             |
    | `spring.cloud.function.definition`                                             | Specify which functional bean to bind to the external destination(s) exposed by the bindings. |
-   | `spring.cloud.stream.poller.initial-delay`                                     | Specify initial delay for periodic triggers. The default value is *0*.                        |
-   | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is *1000 L*.        |
+   | `spring.cloud.stream.poller.initial-delay`                                     | Specify initial delay for periodic triggers. The default value is `0`.                        |
+   | `spring.cloud.stream.poller.fixed-delay`                                       | Specify fixed delay for default poller in milliseconds. The default value is `1000 L`.        |
 
 1. Edit the startup class file to show the following content.
 

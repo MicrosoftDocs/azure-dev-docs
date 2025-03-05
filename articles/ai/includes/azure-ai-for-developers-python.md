@@ -1,13 +1,24 @@
+---
+ms.custom: overview
+ms.topic: include
+ms.date: 12/05/2024
+ms.author: johalexander
+author: ms-johnalex
+ms.service: azure
+---
 ## Resources for Azure OpenAI Service
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI SDK, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
+
+>[!INFO]
+>While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints.
 
 ### SDKs and libraries
 
 |Link|Description|
 |---|---|
 |[OpenAI SDK for Python](https://github.com/openai/openai-python/blob/main/README.md)|The GitHub source code version of the OpenAI Python library provides convenient access to the OpenAI API from applications written in the Python language.|
-|[openai Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
+|[OpenAI Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance article on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|A notebook containing example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
 |[Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|A notebook demonstrating operations how to use embeddings that can be done using the Azure endpoints. This example focuses on embeddings but also touches some other operations that are also available using the API.|
@@ -30,7 +41,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 ## Resources for other Azure AI services
 
-In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ### Samples
 
@@ -52,10 +63,10 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |---|---|---|---|
 |[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/python/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-python)|
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/python/api/overview/azure/ai-formrecognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-python)|
-|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Text Analytics API reference](/python/api/overview/azure/ai-textanalytics-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-python)|
+|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural language understanding capabilities.|[Text Analytics API reference](/python/api/overview/azure/ai-textanalytics-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-python)|
 |[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/python/api/overview/azure/search)|[Quickstart](/azure/search/search-get-started-text?tabs=python)|
 |[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Speech API reference](/python/api/overview/azure/cognitiveservices/speech)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-python)|
-|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translation API reference](/python/api/overview/azure/ai-translation-document-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-python)|
+|[Translator](/azure/ai-services/translator/)|Use AI-powered translation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translation API reference](/python/api/overview/azure/ai-translation-document-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-python)|
 |[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos.|[Image Analysis API reference](/python/api/overview/azure/ai-vision-imageanalysis-readme)|[Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-python)|
 
 ## Training
@@ -72,6 +83,6 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 
 AI app templates provide you with well-maintained, easy to deploy reference implementations that provide a high-quality starting point for your AI apps.
 
-There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
+There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documentation, source code, and deployment to allow you to take and extend for your own purposes.
 
 To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [AI App Template gallery](https://azure.github.io/ai-app-templates?tags=azureopenai&tags=python).

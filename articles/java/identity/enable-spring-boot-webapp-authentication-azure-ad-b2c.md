@@ -2,7 +2,8 @@
 title: Secure Spring Boot apps using Azure Active Directory B2C
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Azure Active Directory B2C.
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
@@ -42,7 +43,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 4-spring-web-app/1-Authentication/sign-in-b2c
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -91,7 +92,7 @@ To register the app, use the following steps:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations as per your security concerns - for example, **In 2 years**.
 
@@ -108,7 +109,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the *src/main/resources/application.yml* file.
+1. Open the **src/main/resources/application.yml** file.
 
 1. Find the `client-id` property and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 
@@ -122,7 +123,7 @@ Use the following steps to configure the app:
 
 1. Find the `password-reset` property and replace it with the name of the edit profile user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
-1. Open the *src/main/resources/templates/navbar.html* file.
+1. Open the **src/main/resources/templates/navbar.html** file.
 
 1. Find the references to the `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
@@ -207,17 +208,17 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
-| *src/main/resources/application.yml*                                          | Application and Microsoft Entra Boot Starter library configuration.                       |
-| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
-| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
-| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
-| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
-| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
-| *LICENSE*                                                                     | The license for the sample.                                                               |
+| **pom.xml**                                                                     | Application dependencies.                                                                 |
+| **src/main/resources/templates/**                                               | Thymeleaf Templates for UI.                                                               |
+| **src/main/resources/application.yml**                                          | Application and Microsoft Entra Boot Starter library configuration.                       |
+| **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/** | This directory contains the main application entry point, controller, and config classes. |
+| **.../MsIdentitySpringBootWebappApplication.java**                              | Main class.                                                                               |
+| **.../SampleController.java**                                                   | Controller with endpoint mappings.                                                        |
+| **.../SecurityConfig.java**                                                     | Security configuration - for example, which routes require authentication.                |
+| **.../Utilities.java**                                                          | Utility class - for example, filter ID token claims.                                      |
+| **CHANGELOG.md**                                                                | List of changes to the sample.                                                            |
+| **CONTRIBUTING.md**                                                             | Guidelines for contributing to the sample.                                                |
+| **LICENSE**                                                                     | The license for the sample.                                                               |
 
 ### ID token claims
 
@@ -264,7 +265,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with WebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the **application.yml** file. To configure your app's specific requirements, you can extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity

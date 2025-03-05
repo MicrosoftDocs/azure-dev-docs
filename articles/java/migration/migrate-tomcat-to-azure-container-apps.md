@@ -2,7 +2,7 @@
 title: Migrate Tomcat Applications to Azure Container Apps
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Container Apps.
 author: KarlErickson
-ms.author: manriem
+ms.author: karler
 ms.topic: conceptual
 ms.date: 08/05/2022
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
@@ -25,7 +25,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Identify session persistence mechanism
 
-To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
+To identify the session persistence manager in use, inspect the **context.xml** files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
 Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as ACA. ACA may load balance among several instances and transparently restart any instance at any time, so persisting mutable state to a file system isn't recommended.
 
@@ -49,7 +49,7 @@ Inventory any scheduled jobs, inside or outside the application server.
 
 [MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On ACA, you'll need to add this file to the container image or upload it to shared storage that is made available to containers. (For more information, see the [Identify session persistence mechanism](#identify-session-persistence-mechanism) section.) The `pathName` parameter will have to be modified accordingly.
 
-To determine whether `MemoryRealm` is currently used, inspect your *server.xml* and *context.xml* files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
+To determine whether `MemoryRealm` is currently used, inspect your **server.xml** and **context.xml** files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
 
 ### In-place testing
 
@@ -57,9 +57,11 @@ Before you create container images, migrate your application to the JDK and Tomc
 
 ### Parameterize the configuration
 
-In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
+In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in **server.xml** and **context.xml** files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
 
-For example, suppose the *context.xml* file contains the following element:
+[!INCLUDE [security-note](../includes/security-note.md)]
+
+For example, suppose the **context.xml** file contains the following element:
 
 ```xml
 <Resource
@@ -68,7 +70,7 @@ For example, suppose the *context.xml* file contains the following element:
     url="jdbc:postgresql://postgresdb.contoso.com/wickedsecret?ssl=true"
     driverClassName="org.postgresql.Driver"
     username="postgres"
-    password="t00secure2gue$$"
+    password="{password}"
 />
 ```
 
@@ -96,7 +98,9 @@ Clone the [Tomcat on Containers Quickstart](https://github.com/Azure/tomcat-cont
 
 #### Add JNDI resources
 
-Edit *server.xml* to add the resources you prepared in the pre-migration steps, such as Data Sources, as shown in the following example:
+Edit **server.xml** to add the resources you prepared in the pre-migration steps, such as Data Sources, as shown in the following example:
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```xml
 <!-- Global JNDI resources
@@ -130,7 +134,7 @@ Edit *server.xml* to add the resources you prepared in the pre-migration steps, 
 
 ### Build and push the image
 
-The simplest way to build and upload the image to Azure Container Registry (ACR) for use by ACA is to use the `az acr build` command. This command doesn't require Docker to be installed on your computer. For example, if you have the Dockerfile from the [tomcat-container-quickstart](https://github.com/Azure/tomcat-container-quickstart) repo and the application package *petclinic.war* in the current directory, you can build the container image in ACR with the following command:
+The simplest way to build and upload the image to Azure Container Registry (ACR) for use by ACA is to use the `az acr build` command. This command doesn't require Docker to be installed on your computer. For example, if you have the Dockerfile from the [tomcat-container-quickstart](https://github.com/Azure/tomcat-container-quickstart) repo and the application package **petclinic.war** in the current directory, you can build the container image in ACR with the following command:
 
 ```azurecli
 az acr build \
@@ -140,7 +144,7 @@ az acr build \
     --build-arg SERVER_XML=prod.server.xml .
 ```
 
-You can omit the `--build-arg APP_FILE...` parameter if your WAR file is named *ROOT.war*. You can omit the `--build-arg SERVER_XML...` parameter if your server XML file is named *server.xml*. Both files must be in the same directory as *Dockerfile*.
+You can omit the `--build-arg APP_FILE...` parameter if your WAR file is named **ROOT.war**. You can omit the `--build-arg SERVER_XML...` parameter if your server XML file is named **server.xml**. Both files must be in the same directory as **Dockerfile**.
 
 Alternatively, you can use Docker CLI to build the image locally by using the following commands. This approach can simplify testing and refining the image before initial deployment to ACR. However, it requires Docker CLI to be installed and Docker daemon to be running.
 
@@ -188,7 +192,7 @@ Now that you've migrated your application to ACA, you should verify that it work
 
 * Design and implement a business continuity and disaster recovery strategy. For mission-critical applications, consider a multi-region deployment architecture. For more information, see [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-multi-region).
 
-* Evaluate the items in the *logging.properties* file. Consider eliminating or reducing some of the logging output to improve performance.
+* Evaluate the items in the **logging.properties** file. Consider eliminating or reducing some of the logging output to improve performance.
 
 * Consider monitoring the code cache size and adding the parameters `-XX:InitialCodeCacheSize` and `-XX:ReservedCodeCacheSize` to the `JAVA_OPTS` variable in the Dockerfile to further optimize performance. For more information, see [Codecache Tuning](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/codecache.htm) in the Oracle documentation.
 

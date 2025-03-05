@@ -3,14 +3,15 @@ title: Spring Cloud Azure support for Spring Integration
 description: This article describes how Spring Cloud Azure and Spring Integration can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Integration
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 Spring Integration Extension for Azure provides Spring Integration adapters for the various services provided by the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/). We provide Spring Integration support for these Azure services: Event Hubs, Service Bus, Storage Queue. The following is a list of supported adapters:
 
@@ -71,7 +72,7 @@ This starter provides the following 3 parts of configuration options:
 This section contains the configuration options used for connecting to Azure Event Hubs.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-eventhubs:
 
@@ -115,7 +116,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
 
 1. Fill the credential configuration options.
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -130,7 +131,9 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
                  account-key: ${CHECKPOINT-ACCESS-KEY}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+     [!INCLUDE [security-note](../includes/security-note.md)]
+
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -147,7 +150,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
                  account-name: ${ACCOUNT_NAME}
      ```
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -391,7 +394,7 @@ This starter provides the following 2 parts of configuration options:
 This section contains the configuration options used for connecting to Azure Service Bus.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-servicebus:
 
@@ -415,7 +418,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 
 1. Fill the credential configuration options.
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -425,7 +428,9 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
              connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+     [!INCLUDE [security-note](../includes/security-note.md)]
+
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -443,7 +448,7 @@ developers can use `ServiceBusContainerProperties` for the configuration. See [t
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -615,7 +620,7 @@ Mapping between Service Bus Headers and Spring Headers:
 
 This starter supports [Service Bus partitioning](/azure/service-bus-messaging/service-bus-partitioning) by allowing setting partition key and session ID in the message header. This section introduces how to set partition key for messages.
 
-*Recommended:* Use `ServiceBusMessageHeaders.PARTITION_KEY` as the key of the header.
+Recommended: Use `ServiceBusMessageHeaders.PARTITION_KEY` as the key of the header.
 
 ```java
 public class SampleController {
@@ -630,7 +635,7 @@ public class SampleController {
 }
 ```
 
-*Not recommended but currently supported:* `AzureHeaders.PARTITION_KEY` as the key of the header.
+Not recommended but currently supported: `AzureHeaders.PARTITION_KEY` as the key of the header.
 
 ```java
 public class SampleController {
@@ -708,7 +713,7 @@ This starter provides the following configuration options:
 This section contains the configuration options used for connecting to Azure Storage Queue.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-starter-integration-storage-queue:
 
@@ -730,7 +735,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 
 1. Fill the credential configuration options.
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -741,7 +746,9 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
                connection-string: ${AZURE_STORAGE_QUEUE_CONNECTION_STRING}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+     [!INCLUDE [security-note](../includes/security-note.md)]
+
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -760,7 +767,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:

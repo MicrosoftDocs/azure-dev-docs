@@ -46,6 +46,21 @@ productDirectory:
 #  summary:
   items:
     # Card
+    - title: GitHub Copilot for Azure Preview
+      imageSrc: ./github-copilot-azure/media/logo/ghcpa-logo.svg
+      links:
+        - url: ./github-copilot-azure/introduction.md
+          text: What is GitHub Copilot for Azure?
+        - url: ./github-copilot-azure/get-started.md
+          text: Get started
+        - url: ./github-copilot-azure/quickstart-build-deploy-applications.md
+          text: Quickstart
+        - url: ./github-copilot-azure/learn-examples.md
+          text: Get information about Azure and your apps
+        - url: ./github-copilot-azure/deploy-examples.md
+          text: Deploy your apps
+        - url: ./github-copilot-azure/troubleshoot-examples.md
+          text: Troubleshoot your apps
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:
@@ -85,7 +100,7 @@ productDirectory:
           text: Deploy an app to Azure Spring Apps by using the Azure portal
         - url: /azure/app-service/app-service-web-get-started-java
           text: Create a Java app in Azure App Service
-        - url: ./java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
+        - url: ./java/spring-framework/configure-spring-boot-starter-java-app-with-entra.md
           text: Use Spring Boot Starter for Microsoft Entra ID
         - url: ./java/migration/migration-overview.md
           text: Migrate Java Applications to Azure
@@ -179,19 +194,6 @@ productDirectory:
           text: Make your project compatible with azd
         - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-    - title: DevContainers
-      imageSrc: includes/media/dev-containers/dev-container.svg
-      links:
-        - url: https://containers.dev/
-          text: What are development containers?
-        - url: https://code.visualstudio.com/docs/devcontainers/tutorial
-          text: Visual Studio Code Dev Containers
-        - url: https://code.visualstudio.com/docs/devcontainers/create-dev-container
-          text: Create your own Dev Container
-        - url: https://containers.dev/features
-          text: Available Features
-        - url: https://containers.dev/templates
-          text: Available Templates
     - title: Dev tunnels
       imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
       links:
@@ -236,6 +238,10 @@ additionalContent:
           summary: Use Azure directly from Visual Studio Code through extensions.
           url: https://code.visualstudio.com/docs/azure/extensions
         # Card
+        - title: DevOps and Automation
+          summary: Automate deployment with Infrastructure as Code (IaC).
+          url: ./iac/index.yml
+        # Card
         - title: Playwright
           summary: Reliable end-to-end testing for modern web apps
           url: https://playwright.dev/
@@ -251,38 +257,3 @@ additionalContent:
         - title: Maven
           summary: Use Maven to automate the way you build and manage Java projects. It works with other languages too.
           url: https://github.com/Microsoft/azure-maven-plugins#readme
-    - title: DevOps and Automation Tools
-      summary: Automate the deployment of both code and infrastructure with these automation tools
-      items:
-        # Card
-        - title: Azure and GitHub integration
-          summary: Use GitHub and GitHub Actions to automate, customize, and execute your software development workflows from within your repository.
-          url: ./github/index.yml      
-        # Card
-        - title: Azure DevOps
-          summary: Use Azure DevOps to plan work, collaborate on code development, and build and deploy applications.
-          url: /azure/devops/?view=azure-devops
-        # Card
-        - title: Jenkins
-          summary: Use Jenkins to automate continuous integration and delivery (CI/CD) for your software projects.
-          url: /azure/jenkins/
-        # Card
-        - title: REST API
-          summary: Use REST APIs to access your service's resources through HTTP operations.
-          url: /rest/api/
-        # Card
-        - title: ARM Templates
-          summary: Use Azure Resource Manager templates to define and configure your project with JSON files.
-          url: /azure/azure-resource-manager/templates/
-        # Card
-        - title: Terraform
-          summary: Use Hashicorp Terraform to provision and manage cloud infrastructure.
-          url: /azure/terraform/
-        # Card
-        - title: Ansible
-          summary: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
-          url: ./ansible/index.yml
-        # Card
-        - title: Chef
-          summary: Use Chef to transform your virtual machine infrastructure on Azure into code.
-          url: ./chef/index.yml

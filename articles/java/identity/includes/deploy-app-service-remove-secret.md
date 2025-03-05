@@ -1,11 +1,12 @@
 ---
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
-The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also be taking a risk if you commit it to a Git repository.
+The **authentication.properties** file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also be taking a risk if you commit it to a Git repository.
 
 As an security extra step, you can store this value in [Azure Key Vault](/azure/key-vault/general/basic-concepts) and use [Key Vault References](/azure/app-service/app-service-key-vault-references?tabs=azure-cli) to make it available in your application.
 
@@ -63,13 +64,13 @@ Use the following steps to move the value of `aad.secret` to Key Vault and use i
        --settings AADSECRET='@Microsoft.KeyVault(VaultName=$KEY_VAULT;SecretName=AADSECRET)'
    ```
 
-1. Use the following code to load this value from the environment variables. In the *\src\main\java\com\microsoft\azuresamples\msal4j\helpers\Config.java* file, on line 41, change the current statement to the following line:
+1. Use the following code to load this value from the environment variables. In the **\src\main\java\com\microsoft\azuresamples\msal4j\helpers\Config.java** file, on line 41, change the current statement to the following line:
 
    ```java
    public static final String SECRET = System.getenv("AADSECRET");
    ```
 
-1. You can now delete the `aad.secret` key and value from the *authentication.properties* file.
+1. You can now delete the `aad.secret` key and value from the **authentication.properties** file.
 
 1. Rebuild the code by using the following command:
 

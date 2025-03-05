@@ -2,7 +2,8 @@
 title: Migrate WebSphere applications to JBoss EAP on Azure App Service
 description: This guide describes what you should be aware of when you want to migrate an existing WebSphere application to run on Azure App Service using JBoss EAP.
 author: KarlErickson
-ms.author: dbrittain
+ms.author: karler
+ms.reviewer: dbrittain
 ms.topic: conceptual
 ms.date: 09/20/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java, devx-track-javaee-websphere, linux-related-content
@@ -20,7 +21,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Inventory all secrets
 
-Check all properties and configuration files on the production server or servers for any secrets and passwords. Be sure to check *ibm-web-bnd.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application. These files may include, for Spring Boot applications, the *application.properties* or *application.yml* files.
+Check all properties and configuration files on the production server or servers for any secrets and passwords. Be sure to check **ibm-web-bnd.xml** in your WARs. Configuration files that contain passwords or credentials may also be found inside your application. These files may include, for Spring Boot applications, the **application.properties** or **application.yml** files.
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
@@ -40,7 +41,7 @@ Inventory all JNDI resources. Some resources, such as JMS message brokers, may r
 
 #### Inside your application
 
-Inspect the *WEB-INF/ibm-web-bnd.xml* file and/or the *WEB-INF/web.xml* file.
+Inspect the **WEB-INF/ibm-web-bnd.xml** file and/or the **WEB-INF/web.xml** file.
 
 ### Determine whether databases are used
 
@@ -105,7 +106,7 @@ If your application needs a Resource Adapter (RA), it needs to be compatible wit
 
 ### Determine whether your application is packaged as an EAR
 
-If your application is packaged as an EAR file, be sure to examine the *application.xml* and *ibm-application-bnd.xml* files and capture their configurations.
+If your application is packaged as an EAR file, be sure to examine the **application.xml** and **ibm-application-bnd.xml** files and capture their configurations.
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 

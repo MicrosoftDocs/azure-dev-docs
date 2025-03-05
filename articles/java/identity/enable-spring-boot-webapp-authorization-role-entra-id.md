@@ -3,7 +3,8 @@ title: Secure Java Spring Boot apps using roles and role claims
 titleSuffix: Azure
 description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform.
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
@@ -27,7 +28,7 @@ The app uses the Microsoft Entra ID Spring Boot Starter client library for Java 
 
 This kind of authorization is implemented using RBAC. With RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to certain content and functionality.
 
-This sample application defines the following two *Application Roles*:
+This sample application defines the following two Application Roles:
 
 - `PrivilegedAdmin`: Authorized to access the **Admins Only** and the **Regular Users** pages.
 - `RegularUser`: Authorized to access the **Regular Users** page.
@@ -58,7 +59,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 4-spring-web-app/3-Authorization-II/roles
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -97,7 +98,7 @@ To register the app, use the following steps:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
@@ -113,17 +114,17 @@ To define the app roles, use the following steps:
 
 1. Select **Create app role**, then enter the following values:
 
-   - For **Display name**, enter a suitable name - for example, *PrivilegedAdmin*.
+   - For **Display name**, enter a suitable name - for example, **PrivilegedAdmin**.
    - For **Allowed member types**, choose **User**.
-   - For **Value**, enter *PrivilegedAdmin*.
-   - For **Description**, enter *PrivilegedAdmins who can view the Admin Page*.
+   - For **Value**, enter **PrivilegedAdmin**.
+   - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
 
 1. Select **Create app role**, then enter the following values:
 
-   - For **Display name**, enter a suitable name - for example, *RegularUser*.
+   - For **Display name**, enter a suitable name - for example, **RegularUser**.
    - For **Allowed member types**, choose **User**.
-   - For **Value**, enter *RegularUser*.
-   - For **Description**, enter *RegularUsers who can view the User Page*.
+   - For **Value**, enter **RegularUser**.
+   - For **Description**, enter **RegularUsers who can view the User Page**.
 
 1. Select **Apply** to save your changes.
 
@@ -142,7 +143,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the *src\main\resources\application.yml* file.
+1. Open the **src\main\resources\application.yml** file.
 
 1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
@@ -150,7 +151,7 @@ Use the following steps to configure the app:
 
 1. Find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-roles` copied from the Azure portal.
 
-1. Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootapplication/Sample.Controller.java* file.
+1. Open the **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootapplication/Sample.Controller.java** file.
 
 1. Find the references to the `PrivilegedAdmin` and `RegularUser` app roles in this file. If necessary, change them to reflect the app role names you chose in the previous steps.
 
@@ -237,17 +238,17 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
-| *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
-| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
-| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
-| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
-| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
-| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
-| *LICENSE`*                                                                    | The license for the sample.                                                               |
+| **pom.xml**                                                                     | Application dependencies.                                                                 |
+| **src/main/resources/templates/**                                               | Thymeleaf Templates for UI.                                                               |
+| **src/main/resources/application.yml**                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
+| **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/** | This directory contains the main application entry point, controller, and config classes. |
+| **.../MsIdentitySpringBootWebappApplication.java**                              | Main class.                                                                               |
+| **.../SampleController.java**                                                   | Controller with endpoint mappings.                                                        |
+| **.../SecurityConfig.java**                                                     | Security configuration - for example, which routes require authentication.                |
+| **.../Utilities.java**                                                          | Utility class - for example, filter ID token claims.                                      |
+| **CHANGELOG.md**                                                                | List of changes to the sample.                                                            |
+| **CONTRIBUTING.md**                                                             | Guidelines for contributing to the sample.                                                |
+| **LICENSE`**                                                                    | The license for the sample.                                                               |
 
 ### ID token claims
 
@@ -279,7 +280,7 @@ The roles claim of the token includes the names of the roles that the signed-in 
 
 A common way to access the role names is documented in the [ID token claims](#id-token-claims) section.
 
-Microsoft Entra ID Boot Starter v3.3 and higher also parses the roles claim automatically and adds each role to the signed-in user's `Authorities`, prefixing each with the string `APPROLE_`. This configuration enables developers to make use of app roles with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
+Microsoft Entra ID Boot Starter v3.3 and higher also parses the roles claim automatically and adds each role to the signed-in user's `Authorities`, prefixing each with the string `APPROLE_`. This configuration enables developers to make use of app roles with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in **SampleController.java**:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -334,7 +335,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the **application.yml** file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity

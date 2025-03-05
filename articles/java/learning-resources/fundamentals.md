@@ -93,7 +93,7 @@ The following sections provide links to resources that can help you understand h
 
 - [Configure app for JDK Flight Recorder](/azure/app-service/configure-language-java?pivots=platform-linux#flight-recorder)
 - [Profiling with New Relic](/azure/app-service/configure-language-java?pivots=platform-linux#configure-new-relic)
-- [Configure New Relic for Azure Spring Apps](https://github.com/selvasingh/spring-petclinic-microservices)
+- [Configure New Relic for Azure Spring Apps](https://github.com/Azure-Samples/spring-petclinic-microservices)
 
 ### Support on Azure
 

@@ -6,7 +6,7 @@ ms.date: 2/12/2020
 
 #### Databases
 
-For a Spring Boot application, connection strings typically appear in configuration files when it depends on an external database.  Here's an example from an *application.properties* file:
+For a Spring Boot application, connection strings typically appear in configuration files when it depends on an external database.  Here's an example from an **application.properties** file:
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/mysql_db
@@ -14,7 +14,7 @@ spring.datasource.username=dbuser
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
 
-Here's an example from an *application.yaml* file:
+Here's an example from an **application.yaml** file:
 
 ```yaml
 spring:

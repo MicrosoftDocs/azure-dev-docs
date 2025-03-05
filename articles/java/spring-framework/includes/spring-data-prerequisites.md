@@ -1,7 +1,8 @@
 ---
 ms.date: 05/06/2020
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ---
 
 ## Prerequisites

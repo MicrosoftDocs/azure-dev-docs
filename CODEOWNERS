@@ -8,6 +8,10 @@
 /.openpublishing.publish.config.json @KarlErickson @mcleanbyron
 /CODEOWNERS @KarlErickson @mcleanbyron
 
+# AI
+
+/articles/ai/ @ms-johnalex
+
 # Intro
 /articles/intro/ @mcleanbyron
 
@@ -18,8 +22,9 @@
 
 # Tools
 /articles/azure-cli/ @alexwolfmsft
+/articles/typespect/ @diberry
 
 # Azure SDK authentication topics
 /articles/java/sdk/authentication/ @scottaddie @g2vinay @billwert
-/articles/javascript/sdk/authentication/ @scottaddie @KarishmaGhiya @maorleger
+/articles/javascript/sdk/authentication/ @scottaddie @KarishmaGhiya @minhanh-phan @maorleger
 /articles/python/sdk/authentication/ @scottaddie @pvaneck @xiangyan99

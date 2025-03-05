@@ -3,14 +3,15 @@ title: Spring Cloud Azure support for Spring Messaging
 description: Spring Cloud Azure support for Spring Messaging provides integration with Azure services such as Event Hubs, Service Bus, and Storage Queue.
 ms.date: 04/07/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Messaging
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 This article describes how you can use Spring Cloud Azure and Spring Messaging together. The Spring Framework provides extensive support for integrating with messaging systems. Spring Messaging for Azure supports the following services:
 
@@ -63,7 +64,7 @@ Use the following steps to send messages:
 
 1. Fill in the credential configuration options using one of the following approaches:
 
-   * For credentials as `DefaultAzureCredential`, configure the following properties in your *application.yml* file:
+   * For credentials as `DefaultAzureCredential`, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -77,7 +78,7 @@ Use the following steps to send messages:
                  account-name: ${CHECKPOINT-STORAGE-ACCOUNT}
      ```
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -92,7 +93,7 @@ Use the following steps to send messages:
                  account-key: ${CHECKPOINT-ACCESS-KEY}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -109,7 +110,7 @@ Use the following steps to send messages:
                  account-name: ${ACCOUNT_NAME}
      ```
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -226,7 +227,7 @@ Use the following steps to send messages:
 
 1. Fill in the credential configuration options using one of the following approaches:
 
-   * For credentials as `DefaultAzureCredential`, configure the following properties in your *application.yml* file:
+   * For credentials as `DefaultAzureCredential`, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -237,7 +238,7 @@ Use the following steps to send messages:
              entity-type: ${AZURE_SERVICE_BUS_ENTITY_TYPE}
      ```
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -248,7 +249,7 @@ Use the following steps to send messages:
              entity-type: ${AZURE_SERVICE_BUS_ENTITY_TYPE}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -267,7 +268,7 @@ Use the following steps to send messages:
 > [!NOTE]
 > The following values are allowed for `tenant-id`: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -391,7 +392,7 @@ Use the following steps to send and receive messages:
 
 1. Fill in the credential configuration options using one of the following approaches:
 
-   * For credentials as `DefaultAzureCredential`, configure the following properties in your *application.yml* file:
+   * For credentials as `DefaultAzureCredential`, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -402,7 +403,7 @@ Use the following steps to send and receive messages:
                account-name: ${AZURE_STORAGE_QUEUE_ACCOUNT_NAME}
      ```
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -413,7 +414,7 @@ Use the following steps to send and receive messages:
                connection-string: ${AZURE_STORAGE_QUEUE_CONNECTION_STRING}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -432,7 +433,7 @@ Use the following steps to send and receive messages:
 > [!NOTE]
 > The following values are allowed for `tenant-id`: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:

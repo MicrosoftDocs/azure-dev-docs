@@ -6,7 +6,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: vigera
+ms.author: karler
+ms.reviewer: vigera
 ---
 
 # Azure authentication with user credentials
@@ -40,7 +41,7 @@ These steps enable the application to authenticate, but it still doesn't have pe
 
 You also need to be the admin of your tenant to grant consent to your application when you sign in for the first time.
 
-If you can't configure the device code flow option on your Microsoft Entra ID, then it may require your app to be multi- tenant. To make your app multi-tenant, navigate to the **Authentication** panel, then select **Accounts in any organizational directory**. Then, select *yes* for **Treat application as Public Client**.
+If you can't configure the device code flow option on your Microsoft Entra ID, then it may require your app to be multi- tenant. To make your app multi-tenant, navigate to the **Authentication** panel, then select **Accounts in any organizational directory**. Then, select **yes** for **Treat application as Public Client**.
 
 ### Authenticate a user account with device code flow
 
@@ -96,6 +97,9 @@ SecretClient client = new SecretClientBuilder()
 ## Username password credential
 
 The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi-factor authentication. The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must not have multi-factor auth turned on.
+
+> [!WARNING]
+> Microsoft recommends you do not use the Resource Owner Password Credentials (ROPC) flow implemented by this credential; it's incompatible with multifactor authentication (MFA). In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when more secure flows aren't viable.
 
 ```java
 /**

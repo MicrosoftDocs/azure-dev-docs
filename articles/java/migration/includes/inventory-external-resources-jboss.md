@@ -10,7 +10,7 @@ External resources, such as data sources, JMS message brokers, and others are in
 
 #### Inside your application
 
-Inspect the *WEB-INF/jboss-web.xml* and/or *WEB-INF/web.xml* files. Look for `<Resource>` elements inside the `<Context>` element.
+Inspect the **WEB-INF/jboss-web.xml** and/or **WEB-INF/web.xml** files. Look for `<Resource>` elements inside the `<Context>` element.
 
 #### Datasources
 

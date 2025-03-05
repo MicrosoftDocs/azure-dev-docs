@@ -2,7 +2,8 @@
 title: Use Spring Data with Azure Cosmos DB for Apache Cassandra API
 description: This article will walk you through the process of building, configuring, deploying, troubleshooting, and scaling Java Web apps in Azure App Service on Linux.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 08/28/2024
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java, linux-related-content
@@ -34,7 +35,7 @@ The following prerequisites are required in order to follow the steps in this ar
 
 For this exercise you'll be using the Spring Todo app, which is a Java application built using [Spring Boot](https://spring.io/projects/spring-boot), [Spring Data for Azure Cosmos DB](./configure-spring-boot-starter-java-app-with-cosmos-db.md) and [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction).
 
-1. Clone the Spring Todo app and copy the contents of the *.prep* folder to initialize the project:
+1. Clone the Spring Todo app and copy the contents of the **.prep** folder to initialize the project:
 
    For bash:
 
@@ -152,7 +153,7 @@ The following procedure runs the application on the development computer.
 
 The following procedure deploys the application to Linux on Azure.
 
-1. Open the *pom.xml* file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the following *pom.xml* file. If the version isn't set to **1.14.0**, then update the value.
+1. Open the **pom.xml** file that you previously copied to the **initial/spring-todo-app** directory of the repository. Ensure that the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) is included as seen in the following **pom.xml** file. If the version isn't set to **1.14.0**, then update the value.
 
    ```xml
    <plugins> 

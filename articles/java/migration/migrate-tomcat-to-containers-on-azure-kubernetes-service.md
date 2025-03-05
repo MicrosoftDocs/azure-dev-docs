@@ -1,6 +1,6 @@
 ---
-title: Migrate Tomcat Applications to containers on Azure Kubernetes Service
-description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run in an Azure Kubernetes Service container.
+title: Migrate Tomcat Applications to containers on Azure Kubernetes Service (AKS)
+description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run in an Azure Kubernetes Service (AKS) container.
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-exte
 recommendations: false
 ---
 
-# Migrate Tomcat applications to containers on Azure Kubernetes Service
+# Migrate Tomcat applications to containers on Azure Kubernetes Service (AKS)
 
 This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Kubernetes Service (AKS).
 
@@ -28,7 +28,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Identify session persistence mechanism
 
-To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
+To identify the session persistence manager in use, inspect the **context.xml** files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
 Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as Kubernetes. AKS may load balance among several pods and transparently restart any pod at any time, persisting mutable state to a file system isn't recommended.
 
@@ -52,7 +52,7 @@ If your application contains any code that is accommodating the OS your applicat
 
 [MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Kubernetes, this file will need to be added to the container image or uploaded to [shared storage that is made available to containers](#identify-session-persistence-mechanism). The `pathName` parameter will have to be modified accordingly.
 
-To determine whether `MemoryRealm` is currently used, inspect your *server.xml* and *context.xml* files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
+To determine whether `MemoryRealm` is currently used, inspect your **server.xml** and **context.xml** files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
 
 #### Determine whether SSL session tracking is used
 
@@ -68,9 +68,11 @@ Before you create container images, migrate your application to the JDK and Tomc
 
 ### Parameterize the configuration
 
-In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
+In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in **server.xml** and **context.xml** files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
 
-For example, suppose the *context.xml* file contains the following element:
+[!INCLUDE [security-note](../includes/security-note.md)]
+
+For example, suppose the **context.xml** file contains the following element:
 
 ```xml
 <Resource
@@ -79,7 +81,7 @@ For example, suppose the *context.xml* file contains the following element:
     url="jdbc:postgresql://postgresdb.contoso.com/wickedsecret?ssl=true"
     driverClassName="org.postgresql.Driver"
     username="postgres"
-    password="t00secure2gue$$"
+    password="{password}"
 />
 ```
 
@@ -128,17 +130,17 @@ Clone the [Tomcat On Containers Quickstart GitHub repository](https://github.com
 
 #### Open ports for clustering, if needed
 
-If you intend to use [Tomcat Clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) on AKS, ensure that the necessary port ranges are exposed in the Dockerfile. In order to specify the server IP address in *server.xml*, be sure to use a value from a variable that is initialized at container startup to the pod's IP address.
+If you intend to use [Tomcat Clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) on AKS, ensure that the necessary port ranges are exposed in the Dockerfile. In order to specify the server IP address in **server.xml**, be sure to use a value from a variable that is initialized at container startup to the pod's IP address.
 
 Alternatively, session state can be [persisted to an alternate location](#identify-session-persistence-mechanism) to be available across replicas.
 
-To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the *server.xml* file.
+To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the **server.xml** file.
 
 #### Add JNDI resources
 
-Edit *server.xml* to add the resources you prepared in the pre-migration steps, such as Data Sources.
+Edit **server.xml** to add the resources you prepared in the pre-migration steps, such as Data Sources, as shown in the following example:
 
-For example:
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```xml
 <!-- Global JNDI resources
@@ -172,7 +174,7 @@ For example:
 
 ### Build and push the image
 
-The simplest way to build and upload the image to Azure Container Registry (ACR) for use by AKS is to use the `az acr build` command. This command doesn't require Docker to be installed on your computer. For example, if you have the Dockerfile above and the application package *petclinic.war* in the current directory, you can build the container image in ACR with one step:
+The simplest way to build and upload the image to Azure Container Registry (ACR) for use by AKS is to use the `az acr build` command. This command doesn't require Docker to be installed on your computer. For example, if you have the Dockerfile above and the application package **petclinic.war** in the current directory, you can build the container image in ACR with one step:
 
 ```azurecli
 az acr build \
@@ -182,7 +184,7 @@ az acr build \
     --build-arg=prod.server.xml .
 ```
 
-You can omit the `--build-arg APP_FILE...` parameter if your WAR file is named *ROOT.war*. You can omit the `--build-arg SERVER_XML...` parameter if your server XML file is named *server.xml*. Both files must be in the same directory as *Dockerfile*.
+You can omit the `--build-arg APP_FILE...` parameter if your WAR file is named **ROOT.war**. You can omit the `--build-arg SERVER_XML...` parameter if your server XML file is named **server.xml**. Both files must be in the same directory as **Dockerfile**.
 
 Alternatively, you can use Docker CLI to build the image locally. This approach can simplify testing and refining the image before initial deployment to ACR. However, it requires Docker CLI to be installed and Docker daemon to be running.
 
@@ -234,13 +236,15 @@ Include [externalized parameters as environment variables](https://kubernetes.io
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 
-You might want to create a Persistent Volume using Azure Files mounted to the Tomcat logs directory (*/tomcat_logs*) to retain logs centrally. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](/azure/aks/azure-files-dynamic-pv).
+You might want to create a Persistent Volume using Azure Files mounted to the Tomcat logs directory **/tomcat_logs** to retain logs centrally. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](/azure/aks/azure-files-dynamic-pv).
 
 ### Configure KeyVault FlexVolume
 
 [Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
 
-You'll need to modify the startup script (*startup.sh* in the [Tomcat on Containers](https://github.com/Azure/tomcat-container-quickstart) GitHub repository) to import the certificates into the local keystore on the container.
+You'll need to modify the startup script (**startup.sh** in the [Tomcat on Containers](https://github.com/Azure/tomcat-container-quickstart) GitHub repository) to import the certificates into the local keystore on the container.
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ### Migrate scheduled jobs
 
@@ -266,6 +270,6 @@ Now that you've migrated your application to AKS, you should verify that it work
 
 * Have all team members responsible for cluster administration and application development review the pertinent [AKS best practices](/azure/aks/best-practices).
 
-* Evaluate the items in the *logging.properties* file. Consider eliminating or reducing some of the logging output to improve performance.
+* Evaluate the items in the **logging.properties** file. Consider eliminating or reducing some of the logging output to improve performance.
 
 * Consider [monitoring the code cache size](https://docs.oracle.com/javase/8/embedded/develop-apps-platforms/codecache.htm) and adding the parameters `-XX:InitialCodeCacheSize` and `-XX:ReservedCodeCacheSize` to the `JAVA_OPTS` variable in the Dockerfile to further optimize performance.

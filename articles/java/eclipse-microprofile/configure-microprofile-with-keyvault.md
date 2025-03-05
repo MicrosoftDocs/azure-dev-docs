@@ -2,7 +2,8 @@
 title: Configure MicroProfile with Azure Key Vault
 description: Learn how to inject secrets into a MicroProfile web service with Azure Key Vault
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 10/09/2024
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-track-javaee, devx-track-javaee-mp, devx-track-javaee-mp-aca
@@ -14,16 +15,16 @@ This tutorial demonstrates how to configure a [MicroProfile](http://microprofile
 
 ## Prerequisites
 
-- An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
-- Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
-  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.61.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
+- The Azure CLI for Unix-like environments. This article requires only the Bash variant of the Azure CLI.
+    - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
+    - This article requires at least version 2.61.0 of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 - Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
-  - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
-  - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-  - Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
-  - Install [cURL](https://curl.se/download.html).
+    - Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+    - Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+    - Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
+    - Install [cURL](https://curl.se/download.html).
 
 ## Connecting MicroProfile Config with Azure Key Vault
 
@@ -56,16 +57,14 @@ Here are the steps required to run this code on your local machine, starting wit
 
 ## Create an Azure Key Vault resource
 
-You use the Azure CLI to create the Azure Key Vault resource and populate it with two secrets.
-
-First, sign into the Azure and set a subscription to be the current active subscription.
+You use the Azure CLI to create the Azure Key Vault resource and populate it with two secrets. First, sign in to the Azure and set a subscription to be the current active subscription.
 
 ```azurecli-interactive
 az login
 az account set --subscription <subscription-id>
 ```
 
-Next, create a resource group with a unique name, for example, *mp-kv-rg-ejb010424*.
+Next, create a resource group with a unique name, for example, **mp-kv-rg-ejb010424**.
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME=mp-kv-rg-ejb010424
@@ -74,7 +73,7 @@ az group create \
     --location eastus
 ```
 
-Now create an Azure Key Vault resource with a unique name (for example, *kvejb010424*), add two secrets, and export the Key Vault uri as an environment variable.
+Now create an Azure Key Vault resource with a unique name - for example, **kvejb010424** - add two secrets, and export the Key Vault uri as an environment variable.
 
 ```azurecli-interactive
 export KEY_VAULT_NAME=kv-ejb010424
@@ -124,7 +123,7 @@ If you see a message about `You are in 'detached HEAD' state`, this message is s
 >
 > Since you've authenticated an account via the Azure CLI `az login` command locally, `DefaultAzureCredential` authenticates with that account to access the Azure Key Vault.
 
-Wait until you see output similar to `The defaultServer server is ready to run a smarter planet`. Open a new terminal and run the following commands to test the sample:
+Wait until you see output similar to `The defaultServer server is ready to run a smarter planet`. Open a new terminal and use the following commands to test the sample:
 
 ```azurecli-interactive
 # Get the value of secret "secret" stored in the Azure key vault. You should see 1234 in the response.
@@ -140,7 +139,7 @@ echo $(curl -s http://localhost:9080/config/propertyNames -X GET)
 echo $(curl -s http://localhost:9080/config/properties -X GET)
 ```
 
-You should see the expected outputs described in the comments. Switch back to the terminal where the app is running. Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the app.
+You should see the expected outputs described in the comments. Switch back to the terminal where the app is running. To stop the app, press <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
 ## Examine the sample app
 
@@ -220,7 +219,7 @@ Switch back to the terminal where you ran the app locally, and use it throughout
 
 You use the Azure Container Registry to containerize the app and store the app image.
 
-First, create an Azure Container Registry with a unique name, for example, *acrejb010424*.
+First, create an Azure Container Registry with a unique name, for example, **acrejb010424**.
 
 ```azurecli-interactive
 export ACR_NAME=acrejb010424
@@ -234,7 +233,7 @@ Wait a few minutes after this command returns before continuing.
 
 ### Containerize the app
 
-Next, containerize the app and push the app image to your Azure Container Registry. Make sure you're in the path of the sample app, for example, *azure-microprofile/integration-tests/open-liberty-sample*.
+Next, containerize the app and push the app image to your Azure Container Registry. Make sure you're in the path of the sample app, for example, **azure-microprofile/integration-tests/open-liberty-sample**.
 
 ```azurecli-interactive
 az acr build \
@@ -258,7 +257,7 @@ export ACR_LOGIN_SERVER=$(az acr show \
 
 As stated earlier, the library uses [Default Azure credential](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential) to authenticate in Azure. When you deploy the app to Azure Container Apps, you set the environment variable `AZURE_CLIENT_ID` to configure [DefaultAzureCredential](/azure/developer/java/sdk/identity-azure-hosted-auth#configure-defaultazurecredential) to authenticate as a user-defined managed identity, which has permissions to access the Azure Key Vault and is assigned to Azure Container Apps later.
 
-First, use the following commands to create a user-assigned managed identity with a unique name, for example, *uamiejb010424*. For more information, see [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1).
+First, use the following commands to create a user-assigned managed identity with a unique name, for example, **uamiejb010424**. For more information, see [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1).
 
 ```azurecli-interactive
 export USER_ASSIGNED_IDENTITY_NAME=uamiejb010424
@@ -319,7 +318,7 @@ echo $USER_ASSIGNED_IDENTITY_CLIENT_ID
 
 You containerized the app and configured a user-assigned managed identity to access the Azure Key Vault. Now you can deploy the containerized app on Azure Container Apps.
 
-First, create an environment for Azure Container Apps. An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment with a unique name (for example, *acaenvejb010424*), as shown in the following example:
+First, create an environment for Azure Container Apps. An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment with a unique name - for example, **acaenvejb010424** - as shown in the following example:
 
 ```azurecli-interactive
 export ACA_ENV=acaenvejb010424
@@ -329,7 +328,7 @@ az containerapp env create \
     --name $ACA_ENV
 ```
 
-Next, use the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command to create a Container Apps instance with a unique name (for example, *acaappejb010424*) to run the app after pulling the image from the Container Registry, as shown in the following example:
+Next, use the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command to create a Container Apps instance with a unique name - for example, **acaappejb010424** - to run the app after pulling the image from the Container Registry, as shown in the following example:
 
 ```azurecli-interactive
 export ACA_NAME=acaappejb010424

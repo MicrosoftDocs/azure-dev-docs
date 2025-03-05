@@ -3,14 +3,15 @@ title: Spring Cloud Azure secret management
 description: This article describes Spring Cloud Azure secret management.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure secret management
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azure Key Vault Secrets.
 
@@ -24,7 +25,7 @@ Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azur
 ```
 
 > [!TIP]
-> We also provide `spring-cloud-azure-starter-keyvault` to support all the features of Key Vault. If you choose to use it, `spring.cloud.azure.keyvault.enable` is the property to configure and the default value is *true*. You can then use `spring.cloud.azure.keyvault.<keyvault-service>.enable` to disable unneeded services.
+> We also provide `spring-cloud-azure-starter-keyvault` to support all the features of Key Vault. If you choose to use it, `spring.cloud.azure.keyvault.enable` is the property to configure and the default value is `true`. You can then use `spring.cloud.azure.keyvault.<keyvault-service>.enable` to disable unneeded services.
 
 ## Basic usage
 
@@ -85,7 +86,7 @@ Key Vault secret names support only characters in `[0-9a-zA-Z-]`. For more infor
 
 #### Use property placeholders
 
-For example, suppose you're setting this property in your *application.properties* file:
+For example, suppose you're setting this property in your **application.properties** file:
 
 ```properties
 property.with.special.character__=${propertyWithoutSpecialCharacter}
@@ -119,7 +120,7 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 
 ### Configure token credential for Key Vault property source
 
-If you need to use a specified token credential for Key Vault `PropertySource`, you can register the `TokenCredential` bean in the `ConfigurableBootstrapContext` for `KeyVaultEnvironmentPostProcessor`, this feature is supported from Spring Cloud Azure 5.17.1. Here is an example to use `AzureCliCredential`:
+If you need to use a specified token credential for Key Vault `PropertySource`, you can register the `TokenCredential` bean in the `ConfigurableBootstrapContext` for `KeyVaultEnvironmentPostProcessor`, this feature is supported from Spring Cloud Azure 5.20.1. Here is an example to use `AzureCliCredential`:
 
 ```java
 public static void main(String[] args) {
@@ -149,7 +150,7 @@ public static void main(String[] args) {
 > | *spring.cloud.azure.keyvault.secret*.property-sources[].proxy            |               | Proxy related properties.                                                                              |
 > | *spring.cloud.azure.keyvault.secret*.property-sources[].retry            |               | Retry related properties.                                                                              |
 
-* See [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
+* See [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
 * If common properties like `client`, `credential`, `profile`, `proxy`, `retry` aren't configured in `spring.cloud.azure.keyvault.secret.property-sources[].xxx`, `spring.cloud.azure.xxx` will be used. See [Spring Cloud Azure configuration](configuration-properties-global.md) to get more information about these common properties.
 * See [Spring Cloud Azure configuration properties](configuration-properties-all.md) to get more information about nested properties.
 

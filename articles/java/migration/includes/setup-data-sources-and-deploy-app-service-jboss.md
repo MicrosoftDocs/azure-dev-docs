@@ -12,7 +12,7 @@ To set up data sources, use the following steps.
 
 1. Obtain your database's JDBC driver.
 
-2. Create an XML module definition file for the JDBC driver. The example shown below is a module definition for PostgreSQL. Be sure to replace the `resource-root path` value with the path to the JDBC driver you use.
+1. Create an XML module definition file for the JDBC driver. The example shown below is a module definition for PostgreSQL. Be sure to replace the `resource-root path` value with the path to the JDBC driver you use.
 
    ```xml
    <?xml version="1.0" ?>
@@ -28,7 +28,9 @@ To set up data sources, use the following steps.
    </module>
    ```
 
-3. Put your JBoss CLI commands into a file named *jboss-cli-commands.cli*. The JBoss commands must add the module and register it as a data source. The example below shows the JBoss CLI commands for PostgreSQL.
+1. Put your JBoss CLI commands into a file named **jboss-cli-commands.cli**. The JBoss commands must add the module and register it as a data source. The example below shows the JBoss CLI commands for PostgreSQL.
+
+   [!INCLUDE [security-note](../../includes/security-note.md)]
 
    ```bash
    module add --name=org.postgres --resources=/home/site/deployments/tools/postgresql-42.2.12.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
@@ -38,20 +40,20 @@ To set up data sources, use the following steps.
    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
    ```
 
-4. Create a startup script called *startup_script.sh* that calls the JBoss CLI commands. The example below shows how to call your *jboss-cli-commands.cli* file. Later you will configure App Service to run this script when the instance starts.
+1. Create a startup script called **startup_script.sh** that calls the JBoss CLI commands. The example below shows how to call your **jboss-cli-commands.cli** file. Later you will configure App Service to run this script when the instance starts.
 
    ```bash
    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
    ```
 
-5. Using an FTP client of your choice, upload your JDBC driver, *jboss-cli-commands.cli*, *startup_script.sh*, and the module definition to */site/deployments/tools/*.
+1. Using an FTP client of your choice, upload your JDBC driver, **jboss-cli-commands.cli**, **startup_script.sh**, and the module definition to **/site/deployments/tools/**.
 
-6. Configure your site to run *startup_script.sh* when the container starts. In the Azure portal, navigate to **Configuration > General Settings > Startup Command**. Set the startup command field to */home/site/deployments/tools/startup_script.sh*, then select **Save**.
+1. Configure your site to run **startup_script.sh** when the container starts. In the Azure portal, navigate to **Configuration > General Settings > Startup Command**. Set the startup command field to **/home/site/deployments/tools/startup_script.sh**, then select **Save**.
 
-7. Restart the web app, which will cause it to run the configuration script.
+1. Restart the web app, which will cause it to run the configuration script.
 
-8. Update the JTA datasource configuration for your application.
-Open the *src/main/resources/META-INF/persistence.xml* file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
+1. Update the JTA datasource configuration for your application.
+Open the **src/main/resources/META-INF/persistence.xml** file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
 
    ```bash
    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>

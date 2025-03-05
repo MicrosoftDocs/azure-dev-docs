@@ -1,0 +1,37 @@
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'tertiaryBorderColor': '#fff',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+graph TD
+    A1[Start: Write API Spec using TypeSpec]
+    A2[Start: Migrate from existing OpenAPI Spec]
+    A1 --> B[TypeSpec Definition]
+    A2 --> B
+    B --> C[TypeSpec Compiler]
+    C --> D1[OpenAPI Emitter]
+    C --> D2[Client Code Emitter]
+    C --> D3[Service-Side Code Emitter]
+    D1 --> E1[OpenAPI Specification]
+    D2 --> E2[Client Code]
+    D3 --> E3[Server-Side Stub Code]
+    E1 --> F[Integration]
+    E2 --> F
+    E3 --> F
+
+    classDef veryLightGreen fill:#E0FFE0,stroke:#333,stroke-width:2px;
+    classDef lightGreen fill:#B2FFB2,stroke:#333,stroke-width:2px;
+    classDef green fill:#80FF80,stroke:#333,stroke-width:2px;
+    classDef emitter fill:#66CC66,stroke:#333,stroke-width:2px;
+    classDef integration fill:#ADD8E6,stroke:#333,stroke-width:2px;
+
+    class A1,A2 veryLightGreen;
+    class B lightGreen;
+    class C green;
+    class D1,D2,D3 emitter;
+    class F integration;

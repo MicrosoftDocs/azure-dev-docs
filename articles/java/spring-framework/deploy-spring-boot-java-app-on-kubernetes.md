@@ -1,20 +1,20 @@
 ---
-title: Deploy Spring Boot Application to the Azure Kubernetes Service
-titleSuffix: Azure Kubernetes Service
+title: Deploy Spring Boot Application to Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 08/28/2024
 ms.topic: article
 ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
 ---
 
-# Deploy Spring Boot Application to the Azure Kubernetes Service
+# Deploy Spring Boot Application to Azure Kubernetes Service
 
 > [!NOTE]
-> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still choose to use Azure Kubernetes Service as a destination. For more information, see [Choose the right Azure services for your Java applications](../get-started/choose.md).
+> For Spring Boot applications, we recommend using Azure Container Apps. However, you can still choose to use Azure Kubernetes Service as a destination. For more information, see [Choose the right Azure services for your Java applications](../get-started/choose.md).
 
-This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
+This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and [Azure Kubernetes Service (AKS)] to host your application.
 
 [Kubernetes] and [Docker] are open-source solutions that help developers automate the deployment, scaling, and management of their applications running in containers.
 
@@ -117,13 +117,13 @@ The following steps walk you through building a Spring Boot web application and 
    az acr login
    ```
 
-1. Open the *pom.xml* file with a text editor; for example [Visual Studio Code](https://code.visualstudio.com/docs).
+1. Open the **pom.xml** file with a text editor; for example [Visual Studio Code](https://code.visualstudio.com/docs).
 
    ```bash
    code pom.xml
    ```
 
-1. Update the `<properties>` collection in the *pom.xml* file with the registry name for your Azure Container Registry and the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Update the `<properties>` collection in the **pom.xml** file with the registry name for your Azure Container Registry and the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
@@ -134,7 +134,7 @@ The following steps walk you through building a Spring Boot web application and 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/openjdk/jdk:11-ubuntu`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/containers).
+1. Update the `<plugins>` collection in the **pom.xml** file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/openjdk/jdk:11-ubuntu`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/containers).
 
    ```xml
    <plugin>
@@ -159,11 +159,11 @@ The following steps walk you through building a Spring Boot web application and 
    ```
 
 > [!NOTE]
-> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a *401 Unauthorized* error, you can run the `az acr login --name <your registry name>` command again to reauthenticate. If you see a *Read timed out* error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
+> Due to the security concern of Azure Cli and Azure Container Registry, the credential created by `az acr login` is valid for 1 hour. If you see a `401 Unauthorized` error, you can run the `az acr login --name <your registry name>` command again to reauthenticate. If you see a `Read timed out` error, you can try increasing timeouts with `mvn -Djib.httpTimeout=7200000 jib:dockerBuild`, or `-Djib.httpTimeout=0` for an infinite timeout.
 
 ## Create a Kubernetes Cluster on AKS using the Azure CLI
 
-1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-akscluster* as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and *wingtiptoys-kubernetes* as the DNS prefix:
+1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a kubernetes cluster in the `wingtiptoys-kubernetes` resource group, with `wingtiptoys-akscluster` as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and `wingtiptoys-kubernetes` as the DNS prefix:
 
    ```azurecli
    az aks create --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster \

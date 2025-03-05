@@ -163,7 +163,80 @@ A local development environment is a great choice for traditional development wo
 
     > [!NOTE]
     > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
-    > The deployment may due to a resource being undeployable in the selected region. Because this is a quick start, it is safe to delete the `.azure` directory and try `azd up` again. When asked, select a different region. In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
+    > The deployment may fail due to a resource being undeployable in the selected region. Because this is a quick start, it is safe to delete the `.azure` directory and try `azd up` again. When asked, select a different region. In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
+
+## [Visual Studio Code](#tab/visual-studio-code)
+
+The Azure Developer CLI provides a Visual Studio Code extension to streamline working with `azd` features. For example, you can use the command palette interface to run `azd` commands. You'll  need to install the Azure Developer CLI extension for Visual Studio Code to complete the steps ahead.
+
+### Install the Azure Developer CLI extension
+
+1. Open Visual Studio Code.
+
+1. From the **View** menu, select **Extensions**.
+
+1. In the search field, enter `Azure Developer CLI`.
+
+    :::image type="content" source="media/get-started/install-extension.png" alt-text="Screenshot of the extension installation.":::
+
+1. Select **Install** and wait for the installation process to complete.
+
+### Initialize a new app
+
+1. Open an empty directory in Visual Studio Code.
+
+2. From the **View** menu, select **Command Palette...**.
+
+3. Search for the `Azure Developer CLI (azd): Initialize app (init)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.
+
+    :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
+
+4. Choose the **Select a template** workflow.
+
+   :::image type="content" source="media/debug/cmd-select-workflow.png" alt-text="Screenshot of the option to select a workflow.":::
+
+::: zone pivot="programming-language-nodejs"
+5. Search for the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template and press enter to select it.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
+::: zone-end
+
+::: zone pivot="programming-language-python"
+5. Search for the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) template and press enter to select it.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+5. Search for the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template and press enter to select it.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
+::: zone-end
+
+::: zone pivot="programming-language-java"
+5. Search for the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template and press enter to select it.awesome-azd.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
+::: zone-end
+
+6. After the template is cloned, Visual Studio Code opens a terminal to prompt you for an environment name. Enter a short name of your choosing such as *azdvscode* and press enter.
+
+    ```output
+    Enter a new environment name: [? for help] azdvscode
+    ```
+
+    The environment name influences the naming of resources provisioned in Azure and creates a folder in the `.azure` template directory to store certain environment settings.
+
+### Provision and deploy the app resources
+
+1. Open the Command Palette and search for the `Azure Developer CLI (azd): Package, Provision and Deploy(up)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.
+
+    Visual Studio Code opens a terminal window to display the progress of the provisioning and deployment process. `azd` uses the subscription and location settings you selected during the `init` process when deploying resources.
+
+    > [!NOTE]
+    > The provisioning and deployment process can take several minutes.
+
+1. When the deploy process complete, select the link in the output window provided by `azd` to launch your site in the browser.
 
 ## [Codespaces](#tab/codespaces)
 

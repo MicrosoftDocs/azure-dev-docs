@@ -1,8 +1,8 @@
 ---
 title: Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 description: Use CI/CD with GitHub Actions to automatically build, test, and deploy Python web apps to Azure App Service on Linux.
-ms.topic: conceptual
-ms.date: 08/03/2023
+ms.topic: concept-article
+ms.date: 12/02/2024
 ms.custom: devx-track-python, devx-track-azurecli, linux-related-content
 ---
 
@@ -36,10 +36,10 @@ The quickest way to create an App Service instance is to use the [Azure command-
 **Step 4.** In the Cloud Shell, clone your repository using [git clone][18]. For example, if you're using the Flask sample app the command is:
 
 ```bash
-git clone https://github.com/<github-user>/python-sample-vscode-flask-tutorial.git
+git clone https://github.com/<github-username>/python-sample-vscode-flask-tutorial.git
 ```
 
-Replace \<github-user> with the name of the GitHub account where you forked the repo. If you're using a different app repo, this repo is where you'll set up GitHub Actions.
+Replace \<github-username\> with the name of the GitHub account where you forked the repo. If you're using a different app repo, this repo is where you'll set up GitHub Actions.
 
 > [!NOTE]
 > The Cloud Shell is backed by an Azure Storage account in a resource group called *cloud-shell-storage-\<your-region>*. That storage account contains an image of the Cloud Shell's file system, which stores the cloned repository. There's a small cost for this storage. You can delete the storage account at the end of this article, along with other resources you create.
@@ -90,7 +90,7 @@ In the steps below, you'll set up continuous deployment (CD), which means a new 
 
 ```bash
 az webapp deployment github-actions add \
-  --repo "<github-user>/<github-repo>" \
+  --repo "<github-username>/<github-repo>" \
   --resource-group <resource-group-name> \
   --branch <branch-name> \
   --name <app-service-name> \
@@ -206,7 +206,7 @@ As noted earlier in this article, you can use GitHub Actions to deploy Django ap
 
 As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. When you used the `webapp config set` command to set the startup command, you used the `--startup-file` parameter to specify the file that contains the app object. The `webapp config set` command isn't available in the webapps-deploy action. Instead, you can use the `startup-command` parameter to specify the startup command. For example, the following code snippet shows how to specify the startup command in the workflow file:
 
-```yml
+```yaml
 startup-command: startup.txt
 ```
 
@@ -222,7 +222,7 @@ Disconnect GitHub Actions with Azure CLI [az webapp deployment github-actions re
 
 ```bash
 az webapp deployment github-actions remove \
-  --repo "<github-user>/<github-repo>" \
+  --repo "<github-username>/<github-repo>" \
   --resource-group <resource-group-name> \
   --branch <branch-name> \
   --name <app-service-name> \

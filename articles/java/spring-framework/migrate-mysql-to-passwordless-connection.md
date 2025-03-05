@@ -3,7 +3,8 @@ title: Migrate an application to use passwordless connections with Azure Databas
 description: Learn how to migrate existing applications using Azure Database for MySQL away from authentication patterns such as passwords to more secure approaches like Managed Identity.
 ms.topic: how-to
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 01/18/2023
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
@@ -154,7 +155,7 @@ az mysql server firewall-rule create \
 
 Next, create a non-admin Microsoft Entra user and grant all permissions on the `$AZ_DATABASE_NAME` database to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
-Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id --output tsv)
@@ -202,7 +203,7 @@ Next, use the following steps to update your code to use passwordless connection
    </dependency>
    ```
 
-1. Enable the Azure MySQL authentication plugin in the JDBC URL. Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure Database for MySQL. Update `url` and `user` in your *application.properties* file to match the following values:
+1. Enable the Azure MySQL authentication plugin in the JDBC URL. Identify the locations in your code that currently create a `java.sql.Connection` to connect to Azure Database for MySQL. Update `url` and `user` in your **application.properties** file to match the following values:
 
    ```properties
    url=jdbc:mysql://$AZ_DATABASE_SERVER_NAME.mysql.database.azure.com:3306/$AZ_DATABASE_NAME?serverTimezone=UTC&sslMode=REQUIRED&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin
@@ -235,7 +236,7 @@ Next, use the following steps to update your code to use passwordless connection
    > [!NOTE]
    > For more information about how to manage Spring Cloud Azure library versions by using a bill of materials (BOM), see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Update the *application.yaml* or *application.properties* file as shown in the following example. Change the `spring.datasource.username` to the Microsoft Entra user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
+1. Update the **application.yaml** or **application.properties** file as shown in the following example. Change the `spring.datasource.username` to the Microsoft Entra user, remove the `spring.datasource.password` property, and add `spring.datasource.azure.passwordless-enabled=true`.
 
    ```yaml
    spring:
@@ -279,7 +280,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn’t support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity for your Azure hosting environment. However, Azure portal doesn't support configuring Azure Database this way, so you need to use Azure CLI to assign the identity.
 
 ##### [Container Apps](#tab/container-apps)
 
@@ -447,7 +448,7 @@ Next, grant permissions to the managed identity you assigned to access your MySQ
 
 These steps will create a Microsoft Entra user for the managed identity and grant all permissions for the database `$AZ_DATABASE_NAME` to it. You can change the database name `$AZ_DATABASE_NAME` to fit your needs.
 
-First, create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+First, create a SQL script called **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 export AZ_MYSQL_AD_MI_USERID=$(az ad sp show --id $AZ_MI_OBJECT_ID --query appId --output tsv)
@@ -486,7 +487,7 @@ properties.put("user", "$AZ_MYSQL_AD_MI_USERNAME");
 
 ### [Spring](#tab/spring)
 
-Update the *application.yaml* or *application.properties* file. Change the `spring.datasource.username` to the user created for the managed identity.
+Update the **application.yaml** or **application.properties** file. Change the `spring.datasource.username` to the user created for the managed identity.
 
 ```yaml
 spring:

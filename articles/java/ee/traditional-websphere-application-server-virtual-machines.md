@@ -1,15 +1,16 @@
 ---
-title: "Deploy WebSphere Application Server Cluster on Azure VMs"
+title: Deploy WebSphere Application Server Cluster on Azure VMs
 description: Shows you how to deploy a traditional WebSphere Application Server cluster on Azure Virtual Machines using Azure Marketplace offer.
 author: KarlErickson
-ms.author: jiangma
+ms.author: karler
+ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 06/18/2024
+ms.date: 10/29/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere
 #customer intent: As a developer, I want to deploy a WebSphere Application Server cluster on Azure VMs so that I can run my applications in a scalable and reliable environment.
 ---
 
-# Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines
+# Quickstart: Deploy WebSphere Application Server Network Deployment cluster on Azure Virtual Machines
 
 In this quickstart, you quickly deploy a cluster of traditional WebSphere Application Server (WAS) Network Deployment (ND) instances on Azure Virtual Machines (VMs). This article uses the Azure Marketplace offer for IBM WAS ND cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including latest Red Hat Enterprise Linux (RHEL) VMs with fixes, latest WebSphere Application Server ND 9.0.5.x on each VM with fixes, latest IBM Java Development Kit (JDK) 8 with fixes on each VM, a Deployment Manager on one of the VMs with Administrative Console enabled, and optionally an IBM HTTP Server (IHS) or Azure Application Gateway as load balancer. Visit Azure portal to see the offer [IBM WAS ND cluster on Azure VMs](https://aka.ms/twas-cluster-portal). 
 
@@ -29,14 +30,14 @@ The steps in this section direct you to deploy an IBM WAS ND cluster on Azure VM
 
 Use the following steps to find the IBM WAS ND cluster on Azure VMs offer:
 
-1. Sign in to the Azure portal by visiting https://aka.ms/publicportal.
-1. In the search bar at the top of the Azure portal, enter *IBM WAS ND*. In the search results, in the **Marketplace** section, select **IBM WAS ND cluster on Azure VMs**.
+1. Sign in to the Azure portal.
+1. In the search bar at the top of the Azure portal, enter **IBM WAS ND**. In the search results, in the **Marketplace** section, select **IBM WAS ND cluster on Azure VMs**.
 
    :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/marketplace-search-results.png" alt-text="Screenshot of the Azure portal that shows IBM WAS ND cluster on Azure VMs in the search results." lightbox="media/traditional-websphere-application-server-virtual-machines/marketplace-search-results.png":::
 
 Alternatively, you can also go directly to the [IBM WAS ND cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer.
 
-In either case, this offer deployes an IBM WAS ND cluster on Azure VMs. The cluster includes the following components:
+In either case, this offer deploys an IBM WAS ND cluster on Azure VMs. The cluster includes the following components:
 
 - One Deployment Manager instance for managing the applications and application servers.
 - One IBM HTTP Server instance for managing load balancing.
@@ -57,7 +58,7 @@ The following steps show you how to fill out the **Basics** pane shown in the fo
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png" alt-text="Screenshot of the Azure portal that shows the IBM WAS ND cluster on Azure VMs Basics pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png":::
 
 1. On the **Basics** pane, ensure that the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *jm070924wasndcluster*.
+1. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, **jm070924wasndcluster**.
 1. Under **Instance details**, select the region for the deployment.
 1. Leave the default option **Evaluation** for **Deploy with existing WebSphere entitlement or with evaluation license?**.
 
@@ -73,10 +74,10 @@ The following steps show you how to fill out the **Cluster configuration** pane 
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-cluster-configuration-tab.png" alt-text="Screenshot of the Azure portal that shows the IBM WAS ND cluster on Azure VMs Cluster configuration pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-cluster-configuration-tab.png":::
 
-1. Use the default value *4* for **Number of VMs**.
+1. Use the default value **4** for **Number of VMs**.
 1. Leave the default VM size for **VM size**.
 1. Leave the default value **websphere** for **VM administrator**.
-1. Leave the default option **Password** for **Authentication type**.
+1. Leave the default option **Password** for **Authentication type**. You can also select **SSH Public Key** which is more secure.
 1. Provide a password for **Password for VM administrator**. Use the same value for **Confirm password**.
 1. Leave the default value **wsadmin** for **WebSphere administrator**.
 1. Provide a password for **Password for WebSphere administrator**. Use the same value for **Confirm password**.
@@ -87,14 +88,14 @@ The following steps show you how to fill out the **Load balancer** pane shown in
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-load-balancer-tab.png" alt-text="Screenshot of the Azure portal that shows the IBM WAS ND cluster on Azure VMs Load balancer pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-load-balancer-tab.png":::
 
-1. Leave the default option **IBM HTTP Server** for **Select a load balancer**.   
+1. Leave the default option **IBM HTTP Server** for **Select a load balancer**.
 
    > [!NOTE]
    > You use IBM HTTP Server (IHS) as the load balancer in this quickstart. Alternatively, you can use **Azure Application Gateway** as the load balancer. For more information on Azure Application Gateway, see [What is Azure Application Gateway?](/azure/application-gateway/overview).
 
 1. Under **IBM HTTP Server settings**, leave the default VM size for **VM size**.
 1. Leave the default value **ihsadmin** for **VM administrator**.
-1. Leave the default option **Password** for **Authentication type**.
+1. Leave the default option **Password** for **Authentication type**. You can also select **SSH Public Key** which is more secure.
 1. Provide a password for **Password for VM administrator**. Use the same value for **Confirm password**.
 1. Leave the default value **ihsadmin** for **IBM HTTP Server administrator**.
 1. Provide a password for **Password for IBM HTTP Server administrator**. Use the same value for **Confirm password**.
@@ -150,7 +151,7 @@ First, use the following steps to enable the option **Synchronize changes with N
 
 Now, follow these instructions if you'd like to try out an application in the cluster:
 
-1. On the administrative console that you signed into earlier, select **Applications > New Application** and then select **New Enterprise Application**.
+1. On the administrative console that you signed into earlier, select **Applications** > **New Application** and then select **New Enterprise Application**.
 
 2. On the next panel, select **Remote file system** and then select **Browse…**. You're given the option to browse the file systems of your installed servers.
 
@@ -174,7 +175,7 @@ After you complete all the steps, select **Finish**, and then on the next page s
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/nodes-synchronized-message-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' synchronized to all nodes." lightbox="media/traditional-websphere-application-server-virtual-machines/nodes-synchronized-message-page.png":::
 
-Next, you need to start the application. Go to **Applications > All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
+Next, you need to start the application. Go to **Applications** > **All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
 
 You should see success messages, as shown in the following screenshot:
 

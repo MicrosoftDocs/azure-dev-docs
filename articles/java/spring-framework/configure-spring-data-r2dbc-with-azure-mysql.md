@@ -1,7 +1,8 @@
 ---
 title: Use Spring Data R2DBC with Azure Database for MySQL
 description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 07/22/2022
 author: KarlErickson
 ms.topic: article
@@ -42,6 +43,8 @@ Replace the placeholders with the following values, which are used throughout th
 - `<YOUR_DATABASE_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by using `az account list-locations`.
 - `<YOUR_MYSQL_ADMIN_PASSWORD>` and `<YOUR_MYSQL_NON_ADMIN_PASSWORD>`: The password of your MySQL database server, which should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 Next, create a resource group:
 
@@ -119,7 +122,9 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
-First, create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+First, create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```bash
 cat << EOF > create_user.sql
@@ -153,7 +158,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ## Add the reactive MySQL driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/asyncer-io/r2dbc-mysql).
+Open the generated project's **pom.xml** file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/asyncer-io/r2dbc-mysql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
@@ -167,7 +172,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ## Configure Spring Boot to use Azure Database for MySQL
 
-Open the *src/main/resources/application.properties* file, and add:
+Open the **src/main/resources/application.properties** file, and add:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG

@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.date: 04/29/2024
 ---
 
@@ -27,4 +28,4 @@ Use the following steps to build and package the sample:
    mvn clean package
    ```
 
-When the package is successfully generated, you can find it at *\<parent-path-to-your-local-clone>/azure-cafe/weblogic-cafe/target/weblogic-cafe.war*. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
+When the package is successfully generated, you can find it at **\<parent-path-to-your-local-clone>/azure-cafe/weblogic-cafe/target/weblogic-cafe.war**. If you don't see the package, you must troubleshoot and resolve the issue before you continue.

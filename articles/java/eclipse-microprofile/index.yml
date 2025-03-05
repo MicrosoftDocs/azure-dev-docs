@@ -7,7 +7,8 @@ metadata:
   title: Eclipse MicroProfile on Azure documentation
   description: Learn about MicroProfile, an Eclipse Foundation project for applying and evolving Enterprise Java technologies toward distributed microservice architectures.
   author: KarlErickson
-  ms.author: yoterada
+  ms.author: karler
+  ms.reviewer: yoterada
   ms.date: 06/06/2022
   ms.topic: landing-page
   ms.custom: team=cloud_advocates, kr2b-contr-experiment, devx-track-java, devx-track-extended-java
@@ -27,14 +28,6 @@ landingContent:
     links:
       - text: Deploy Quarkus
         url: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
-      - text: Deploy Open Liberty
-        url: deploy-microprofile-open-liberty-java-app-with-maven-plugin.md
-      - text: Deploy Helidon
-        url: deploy-microprofile-helidon-java-app-with-maven-plugin.md
-      - text: Deploy Payara Micro
-        url: deploy-microprofile-payara-micro-java-app-with-maven-plugin.md
-      - text: Deploy KumuluzEE
-        url: deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md
 - title: Code samples
   linkLists:
   - linkListType: sample

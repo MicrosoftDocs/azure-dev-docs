@@ -1,7 +1,8 @@
 ---
 ms.date: 02/22/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ---
 
 ## Configure a firewall rule for your Azure SQL Database server
@@ -47,7 +48,7 @@ The Microsoft Entra admin you created is an SQL database admin user, so you don'
 
 ### [Password](#tab/password)
 
-1. First, create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+1. First, create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
    ```bash
    cat << EOF > create_user.sql

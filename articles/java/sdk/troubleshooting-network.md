@@ -5,7 +5,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: alzimmer
+ms.author: karler
+ms.reviewer: alzimmer
 ---
 
 # Troubleshoot networking issues
@@ -31,8 +32,8 @@ The following steps show you how to use the Java Runtime Environment (JRE) to tr
 #### [Linux/macOS](#tab/linux-macos)
 
 1. Export Fiddler's certificate.
-1. Find the JRE's keytool (usually in *jre/bin*).
-1. Find the JRE's cacert (usually in *jre/lib/security*).
+1. Find the JRE's keytool (usually in **jre/bin**).
+1. Find the JRE's cacert (usually in **jre/lib/security**).
 1. Open a Bash window and use the following command to import the certificate:
 
    ```bash
@@ -45,8 +46,8 @@ The following steps show you how to use the Java Runtime Environment (JRE) to tr
 #### [Windows](#tab/windows)
 
 1. Export Fiddler's certificate. The certificate is typically exported to the desktop.
-1. Find the JRE's keytool (usually in *jre\bin*).
-1. Find the JRE's cacert (usually in *jre\lib\security*).
+1. Find the JRE's keytool (usually in **jre\bin**).
+1. Find the JRE's cacert (usually in **jre\lib\security**).
 1. Open a PowerShell window in administrator mode and use the following command to import the certificate:
 
    ```powershell

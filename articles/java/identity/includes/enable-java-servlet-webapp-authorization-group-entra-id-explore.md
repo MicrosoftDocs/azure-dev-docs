@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 03/11/2024
 ---
 
@@ -26,7 +27,7 @@ Use the following steps to explore the sample:
 
 This sample uses MSAL for Java (MSAL4J) to sign a user in and obtain an ID token that might contain the groups claim. If there are too many groups for emission in the ID token, the sample uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain the group membership data from Microsoft Graph. Based on the groups the user belongs to, the signed-in user can access either none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
 
-If you want to replicate this sample's behavior, you must add MSAL4J and Microsoft Graph SDK to your projects using Maven. You can copy the *pom.xml* file and the contents of the *helpers* and *authservlets* folders in the *src/main/java/com/microsoft/azuresamples/msal4j* folder. You also need the *authentication.properties* file. These classes and files contain generic code that you can use in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
+If you want to replicate this sample's behavior, you must add MSAL4J and Microsoft Graph SDK to your projects using Maven. You can copy the **pom.xml** file and the contents of the **helpers** and **authservlets** folders in the **src/main/java/com/microsoft/azuresamples/msal4j** folder. You also need the **authentication.properties** file. These classes and files contain generic code that you can use in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
 ## Contents
 
@@ -34,16 +35,16 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                     | Description                                                                                 |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| *src/main/java/com/microsoft/azuresamples/msal4j/groupswebapp/* | This directory contains the classes that define the app's backend business logic.           |
-| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.       |
-| *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
-| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                          |
-| *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
-| *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                               |
-| *src/main/webapp/*                                              | This directory contains the UI - JSP templates                                              |
-| *CHANGELOG.md*                                                  | List of changes to the sample.                                                              |
-| *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                                  |
-| *LICENSE*                                                       | The license for the sample.                                                                 |
+| **src/main/java/com/microsoft/azuresamples/msal4j/groupswebapp/** | This directory contains the classes that define the app's backend business logic.           |
+| **src/main/java/com/microsoft/azuresamples/msal4j/authservlets/** | This directory contains the classes that are used for sign in and sign out endpoints.       |
+| **\*Servlet.java**                                              | All of the endpoints available are defined in Java classes with names ending in `Servlet`. |
+| **src/main/java/com/microsoft/azuresamples/msal4j/helpers/**      | Helper classes for authentication.                                                          |
+| **AuthenticationFilter.java**                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
+| **src/main/resources/authentication.properties**                  | Microsoft Entra ID and program configuration.                                               |
+| **src/main/webapp/**                                              | This directory contains the UI - JSP templates                                              |
+| **CHANGELOG.md**                                                  | List of changes to the sample.                                                              |
+| **CONTRIBUTING.md**                                               | Guidelines for contributing to the sample.                                                  |
+| **LICENSE**                                                       | The license for the sample.                                                                 |
 
 ## Process a groups claim in tokens, including handling overage
 
@@ -89,17 +90,17 @@ The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single P
 
 To create the overage scenario, you can use the following steps:
 
-1. You can use the *BulkCreateGroups.ps1* file provided in the *AppCreationScripts* folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the *BulkCreateGroups.ps1* script.
+1. You can use the **BulkCreateGroups.ps1** file provided in the **AppCreationScripts** folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the **BulkCreateGroups.ps1** script.
 
-1. When you run this sample and an overage occurs, you see the `_claim_names` in the home page after the user signs in.
+1. When you run this sample and an overage occurs, you see the **_claim_names** in the home page after the user signs in.
 
 1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).
 
 1. In case you can't avoid running into group overage, we suggest you use the following steps to process the groups claim in your token:
 
-   1. Check for the claim `_claim_names` with one of the values being *groups*. This claim indicates overage.
-   1. If found, make a call to the endpoint specified in `_claim_sources` to fetch user's groups.
-   1. If none found, look into the *groups*  claim for user's groups.
+   1. Check for the claim **_claim_names** with one of the values being **groups**. This claim indicates overage.
+   1. If found, make a call to the endpoint specified in **_claim_sources** to fetch user's groups.
+   1. If none found, look into the **groups**  claim for user's groups.
 
 > [!NOTE]
 > Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permission for the [getMemberObjects](/graph/api/user-getmemberobjects) function to execute successfully.
@@ -108,7 +109,7 @@ To create the overage scenario, you can use the following steps:
 
 ### ConfidentialClientApplication
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file, as shown in the following example. This object helps craft the Microsoft Entra authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the **AuthHelper.java** file, as shown in the following example. This object helps craft the Microsoft Entra authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 // getConfidentialClientInstance method
@@ -125,7 +126,7 @@ The following parameters are used for instantiation:
 - The client secret, which is a requirement for Confidential Client Applications.
 - The Microsoft Entra ID Authority, which includes your Microsoft Entra tenant ID.
 
-In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
+In this sample, these values are read from the **authentication.properties** file using a properties reader in the **Config.java** file.
 
 ### Step-by-step walkthrough
 
@@ -148,7 +149,7 @@ The following steps provide a walkthrough of the app's functionality:
    - `REDIRECT_URI`: Where Microsoft Entra redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com).
    - `SCOPES`: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
-     - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes, such as `User.Read`.
+     - Full list of scopes requested by the app can be found in the **authentication.properties** file. You can add more scopes, such as `User.Read`.
 
 1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
@@ -192,11 +193,11 @@ The following steps provide a walkthrough of the app's functionality:
 
 1. After previous step, you can extract group memberships by calling `context.getGroups()` using an instance of `IdentityContextData`.
 
-1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might be empty if not for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signaling that an overage occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in *AuthHelper.java* to see how this application uses `context.setGroups()` when there's an overage.
+1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might be empty if not for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signaling that an overage occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in **AuthHelper.java** to see how this application uses `context.setGroups()` when there's an overage.
 
 ### Protect the routes
 
-See *AuthenticationFilter.java* to see how the sample app filters access to routes. In the *authentication.properties* file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access, as shown in the following example:
+See **AuthenticationFilter.java** to see how the sample app filters access to routes. In the **authentication.properties** file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access, as shown in the following example:
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special groups claim
@@ -223,7 +224,7 @@ app.protect.groups=/admin_only admin, /regular_user admin user
 
 Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon sign-in. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 
-For the scopes requested by the application, see *authentication.properties*. By default, the application sets the scopes value to `GroupMember.Read.All`. This particular Microsoft Graph API scope is required in case the application needs to call Graph for getting the user's group memberships.
+For the scopes requested by the application, see **authentication.properties**. By default, the application sets the scopes value to `GroupMember.Read.All`. This particular Microsoft Graph API scope is required in case the application needs to call Graph for getting the user's group memberships.
 
 ## More information
 

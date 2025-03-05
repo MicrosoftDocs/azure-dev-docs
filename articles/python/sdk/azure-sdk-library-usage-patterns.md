@@ -76,7 +76,7 @@ The full example is on GitHub at [use_blob_auth_async.py](https://github.com/Mic
 
 ### Long running operations
 
-Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.operations.virtualmachinesoperations#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2022_09_01.models.site) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
+Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2022_09_01.models.site) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
 
 > [!NOTE]
 > You may notice differences in method names in a library, which is due to

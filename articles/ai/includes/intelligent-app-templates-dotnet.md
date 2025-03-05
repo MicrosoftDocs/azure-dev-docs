@@ -46,12 +46,12 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Apps<br>|Azure OpenAI<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio<br>Azure SQL<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
+|Azure Container Apps<br>|Azure OpenAI<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Foundry<br>Azure SQL<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
 
 
 ### Process automation with speech to text and summarization with .NET and GPT 3.5 Turbo
 
-This template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input or pre-recorded as audio files. The solution translates audio input from speech to text and then uses an LLM and Prompty or Promptflow to summarize the issue and return the results in a format specified by the solution.
+This template is a process automation solution that receives issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input or pre-recorded as audio files. The solution translates audio input from speech to text and then uses an LLM and Prompty or Promptflow to summarize the issue and return the results in a format specified by the solution.
 
 To access the source code and read in-depth details about the template, see the [summarization-openai-csharp-prompty](https://github.com/Azure-Samples/summarization-openai-csharp-prompty) GitHub repo.
 

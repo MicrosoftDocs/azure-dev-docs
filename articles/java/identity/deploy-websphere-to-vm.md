@@ -2,7 +2,8 @@
 title: Deploy WebSphere to Traditional WebSphere on Azure VMs
 description: Shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on Azure Virtual Machines.
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
@@ -26,7 +27,7 @@ This article shows you how to deploy a Java WebSphere web app with sign-in by Mi
 
 When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. Use the following steps to change these settings in your properties file:
 
-1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use, as shown in the following example:
+1. Navigate to your app's **authentication.properties** file and change the value of `app.homePage` to your server URL and port number you're planning to use, as shown in the following example:
 
    ```ini
    # app.homePage is by default set to dev server address and app context path on the server
@@ -40,7 +41,7 @@ When you deploy your application to WebSphere Application Server, your redirect 
    mvn clean package
    ```
 
-1. After the code finishes building, copy the *.war* file over to your target server's file system.
+1. After the code finishes building, copy the **.war** file over to your target server's file system.
 
 ## Update your Microsoft Entra ID app registration
 
@@ -66,7 +67,7 @@ To deploy the application, use the following steps:
 
 1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 
-1. Choose the *.war* file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step.
+1. Choose the **.war** file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step.
 
 1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://<server-url>:9080/msal4j-servlet-auth/`, then the context root should just be `msal4j-servlet-auth`.
 
@@ -74,7 +75,7 @@ To deploy the application, use the following steps:
 
 1. After the application finishes installing, go to the **WebSphere enterprise applications** section of the **Applications** tab.
 
-1. Select the *.war* file you installed from the list of applications and then select **Start** to deploy.
+1. Select the **.war** file you installed from the list of applications and then select **Start** to deploy.
 
 1. After it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application.
 

@@ -3,7 +3,8 @@ title: Spring JMS troubleshooting guide
 description: Describes how to troubleshoot known issues and common errors when using Spring JMS.
 ms.date: 08/17/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -34,7 +35,7 @@ Caused by: org.apache.qpid.jms.provider.ProviderException: The link 'G0:36906660
 
 #### Cause analysis
 
-The exceptions occur for [Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot) when the AMQP connection and link are active but no calls (for example, send or receive calls) are made using the link for 10 minutes. In this case, the link is closed. And when all links in the connection have been closed because there was no activity (idle) and a new link hasn't been created in 5 minutes, the connection is closed.
+The exceptions occur for [Azure Service Bus](/azure/service-bus-messaging/service-bus-amqp-troubleshoot) when the AMQP connection and link are active but no calls - for example, send or receive calls - are made using the link for 10 minutes. In this case, the link is closed. And when all links in the connection have been closed because there was no activity (idle) and a new link hasn't been created in 5 minutes, the connection is closed.
 
 For the Service Bus JMS starter, the [CachingConnectionFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/connection/CachingConnectionFactory.html) is used by default, which caches the session, producer, and consumer. When the `JmsProducer` is idle for more than 10 minutes but less than 15, the link that the cached producer is occupying has been closed. Messages can't be sent out during this interval. Then, after another 5 minutes idle, the whole connection is closed. Thus, any sending operation after the 15 minute idle interval causes the `CachingConnectionFactory` to create a new connection to send. The sending operation becomes available after 15 minutes.
 
@@ -352,7 +353,7 @@ When filing GitHub issues, the following details are requested:
   - What tier is the namespace (standard or premium)?
   - What type of messaging entity is being used (queue or topic)? and its configuration.
   - What is the average size of each Message?
-- What is the traffic pattern like? (that is, the number messages per minute and wehther the Client is always busy or has slow traffic periods.)
+- What is the traffic pattern like? (that is, the number messages per minute and whether the Client is always busy or has slow traffic periods.)
 - Repro code and steps
   - This is important as we often can't reproduce the issue in our environment.
 - Logs

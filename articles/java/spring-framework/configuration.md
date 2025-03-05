@@ -3,20 +3,21 @@ title: Spring Cloud Azure configuration
 description: This reference doc contains all Spring Cloud Azure common configuration.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure configuration
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 This article describes all the Spring Cloud Azure common configuration properties.
 
 ## Configuration for each Azure Service SDK
 
-Most of Azure Service SDKs can be divided into two categories by transport type: HTTP-based or AMQP-based. There are properties that are common to all SDKs, such as authentication principals and Azure environment settings, or common to HTTP-based clients, such as logging level to log HTTP requests and responses. In Spring Cloud Azure 4.0, we added five common categories of configuration properties that you can specify for each Azure service.
+Most of Azure Service SDKs can be divided into two categories by transport type: HTTP-based or AMQP-based. There are properties that are common to all SDKs, such as authentication principals and Azure environment settings, or common to HTTP-based clients, such as logging level to log HTTP requests and responses. Starting with Spring Cloud Azure 4.0, we added five common categories of configuration properties that you can specify for each Azure service.
 
 The following table lists properties common to multiple services:
 
@@ -27,9 +28,9 @@ The following table lists properties common to multiple services:
 > | *spring.cloud.azure.azure-service*.credential | Configures authentication with Microsoft Entra ID for one Azure service SDK. |
 > | *spring.cloud.azure.azure-service*.profile    | Configures the Azure cloud environment for one Azure service SDK.                |
 > | *spring.cloud.azure.azure-service*.proxy      | Configures the proxy options for one Azure service SDK.                          |
-> | *spring.cloud.azure.azure-service*.retry      | Configures the retry options applicable to one Azure service SDK. The retry options has supported part of the SDKs, there’s no spring.cloud.azure.cosmos.retry.                                                                     |
+> | *spring.cloud.azure.azure-service*.retry      | Configures the retry options applicable to one Azure service SDK. The retry options has supported part of the SDKs, there's no spring.cloud.azure.cosmos.retry.                                                                     |
 
-The configuration properties' prefixes have been unified to the `spring.cloud.azure` namespace since Spring Cloud Azure 4.0 to make configuration properties more consistent and more intuitive. The following table provides a quick review of the prefixes for supported Azure services:
+The configuration properties prefixes have been unified to the `spring.cloud.azure` namespace since Spring Cloud Azure 4.0 to make configuration properties more consistent and more intuitive. The following table provides a quick review of the prefixes for supported Azure services:
 
 | Azure service               | Configuration property prefix             | Configuration properties link                                                                                          |
 |-----------------------------|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|

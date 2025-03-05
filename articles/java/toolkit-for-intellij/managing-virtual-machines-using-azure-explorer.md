@@ -3,7 +3,8 @@ title: Manage virtual machines with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for IntelliJ.
 ms.date: 03/14/2022
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -44,17 +45,17 @@ To create a virtual machine by using the Azure Explorer, use the following steps
 
          * **Virtual machine name**: Specifies the name for your new virtual machine, which must start with a letter and contain only letters, numbers, and hyphens.
 
-         * **Region**: Specifies where your virtual machine will be created (for example, *West US*).
+         * **Region**: Specifies where your virtual machine will be created - for example, **West US**.
 
          * **Availability options**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set, or if your virtual machine won't belong to an availability set, select **(No infrastructure redundancy required)**.
 
          * **Image**: Specifies that you'll choose a marketplace image by providing the following information (use Shift+Enter to navigate between fields):
 
-            * **Publisher**: Specifies the publisher that created the image that you'll use for your virtual machine (for example, *Microsoft*).
+            * **Publisher**: Specifies the publisher that created the image that you'll use for your virtual machine - for example, **Microsoft**.
 
-            * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, *JDK*).
+            * **Offer**: Specifies the virtual machine offering to use from the selected publisher - for example, **JDK**.
 
-            * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering (for example, *JDK_8*).
+            * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering - for example, **JDK_8**.
 
             * **Image**: Specifies which version of the selected image to use.
 

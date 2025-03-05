@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 03/11/2024
 ---
 
@@ -17,7 +18,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 3-java-servlet-web-app/2-Authorization-I/call-graph
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -66,7 +67,7 @@ Then, use the following steps to complete the registration:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
@@ -97,7 +98,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the *./src/main/resources/authentication.properties* file.
+1. Open the **./src/main/resources/authentication.properties** file.
 
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with one of the following values:
 
@@ -112,10 +113,10 @@ Use the following steps to configure the app:
 
 ## Build the sample
 
-To build the sample using Maven, navigate to the directory containing the *pom.xml* file for the sample, and then run the following command:
+To build the sample using Maven, navigate to the directory containing the **pom.xml** file for the sample, and then run the following command:
 
 ```bash
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on various application servers.
+This command generates a **.war** file that you can run on various application servers.

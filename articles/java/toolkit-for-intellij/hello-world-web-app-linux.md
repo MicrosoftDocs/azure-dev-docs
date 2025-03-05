@@ -3,7 +3,8 @@ title: Deploy a Hello World web app to a Linux container
 titleSuffix: Azure Toolkit for IntelliJ
 description: Run a basic Hello World web app in a Linux container and deploy it to the cloud using the Azure Toolkit for IntelliJ.
 author: KarlErickson
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 ms.date: 09/09/2020
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
@@ -56,8 +57,8 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
 
    * **Name**: The name of your web app. This will automatically fill in the web app's **ArtifactId** field.
-   * **GroupId**: The name of the artifact group, usually a company domain. (e.g. *com.microsoft.azure*)
-   * **Version**: We'll keep the default version *1.0-SNAPSHOT*.
+   * **GroupId**: The name of the artifact group, usually a company domain. - for example, **com.microsoft.azure**.
+   * **Version**: We'll keep the default version **1.0-SNAPSHOT**.
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
 
@@ -97,9 +98,9 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    * **Registry Name**: Specifies the name for the new container registry.
 
-   * **Location**: Specifies the region where your container registry will be created (for example, "West US").
+   * **Location**: Specifies the region where your container registry will be created - for example, **West US**.
 
-   * **SKU**: Specifies the service tier for your container registry. For this tutorial, select *Basic*. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
+   * **SKU**: Specifies the service tier for your container registry. For this tutorial, select **Basic**. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
 
 1. Click **Review + create** and verify that the information is correct. Finish by clicking **Create**.
 
@@ -113,19 +114,19 @@ The following steps walk you through configuring Docker support for your web app
 
    :::image type="content" source="media/hello-world-web-app-linux/docker-support-file.png" alt-text="The docker support file.":::
 
-1. After you have added Docker support, right-click your project in the project explorer, expand **Azure**, and then click **Run on Web App for Containers**.
+1. After you have added Docker support, right-click your project in the project explorer, expand **Azure**, and then click **Deploy Image to Web App**.
 
-1. On the **Run on Web App for Containers** dialog box, fill in the following information:
+1. On the **Deploy Image to Web App** dialog box, fill in the following information:
 
    * **Name**: This specifies the friendly name which is displayed in the Azure Toolkit. 
 
-   * **Container Registry**: Choose the container registry from the drop-down menu that you created in the previous section of this article. The fields for **Server URL**, **Username**, and **Password** will be automatically populated.
+   * **Container Registry**: Create a new one or choose the container registry from the drop-down menu that you created in the previous section of this article. The fields for **Server URL**, **Username**, and **Password** will be automatically populated.
 
-   * **Image and tag**: Specifies the container image name; typically this will use the following syntax: "*registry*.azurecr.io/*appname*:latest", where: 
-      * *registry* is your container registry from the previous section of this article 
-      * *appname* is the name of your web app 
+   * **Image and tag**: Specifies the container image name; typically this will use the following syntax: **\<registry>.azurecr.io/\<appname>:latest**, where:
+      * **\<registry>** is your container registry from the previous section of this article
+      * **\<appname>** is the name of your web app
 
-   * **Use Existing Web App** or **Create New Web App**: Specifies whether you will deploy your container to an existing web app or create a new web app. The **App name** that you specify will create the URL for your web app; for example: *wingtiptoys.azurewebsites.net*.
+   * **Use Existing Web App** or **Create New Web App**: Specifies whether you will deploy your container to an existing web app or create a new web app. The **App name** that you specify will create the URL for your web app; for example: **wingtiptoys.azurewebsites.net**.
 
    * **Resource Group**: Specifies whether you will use an existing or create a new resource group. 
 
@@ -133,7 +134,7 @@ The following steps walk you through configuring Docker support for your web app
 
 1. When you have finished configuring the settings listed above, click **Run**. When your web app has been successfully deployed, the status will be displayed in the **Run** window.
 
-1. After your web app has been published, you can browse to the URL that specified earlier for your web app; for example: *wingtiptoys.azurewebsites.net*.
+1. After your web app has been published, you can browse to the URL that specified earlier for your web app; for example: **wingtiptoys.azurewebsites.net**.
 
    ![Browsing to your web app][browsing-to-web-app]
 

@@ -3,14 +3,15 @@ title: Spring Cloud Azure support for Testcontainers
 description: Describes how to integrate Spring Cloud Azure with Testcontainers to write effective integration tests for your applications.
 ms.date: 09/20/2024
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Testcontainers
 
-**This article applies to:** ✔️ Version 5.17.1
+**This article applies to:** ✅ Version 5.20.1
 
 This article describes how to integrate Spring Cloud Azure with [Testcontainers](https://testcontainers.com/) to write effective integration tests for your applications.
 

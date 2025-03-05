@@ -2,7 +2,8 @@
 title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 08/28/2024
 ms.topic: article
 ms.custom: mvc, devx-track-java, spring-cloud-azure, devx-track-extended-java, linux-related-content
@@ -99,9 +100,9 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 ## Configure Maven to build image to your Azure Container Registry
 
-1. Navigate to the completed project directory for your Spring Boot application, (for example: "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
+1. Navigate to the completed project directory for your Spring Boot application - for example, **C:\SpringBoot\gs-spring-boot-docker\complete** or **/users/robert/SpringBoot/gs-spring-boot-docker/complete** - and open the **pom.xml** file with a text editor.
 
-1. Update the `<properties>` collection in the *pom.xml* file with the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), login server value, and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
+1. Update the `<properties>` collection in the **pom.xml** file with the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), login server value, and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
 
    ```xml
    <properties>
@@ -111,7 +112,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
    </properties>
    ```
 
-1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 3.2.0.
+1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the **pom.xml** file.  This example uses version 3.2.0.
 
    Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/openjdk/jdk:11-ubuntu`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
@@ -141,7 +142,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 > [!NOTE]
 > 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you need to provide `<username>` and `<password>` for jib-maven-plugin, see [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
-> 1. When you're using Jib to push your image to the Azure Container Registry, the image won't use the *Dockerfile*, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
+> 1. When you're using Jib to push your image to the Azure Container Registry, the image won't use the Dockerfile. See [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
 >
 
 ## Create a web app on Linux on Azure App Service using your container image
@@ -158,11 +159,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * Choose an existing **Resource Group**, or specify a name to create a new resource group.
 
-   * Enter a unique name for the **App name**; for example: "*wingtiptoyslinux*"
+   * Enter a unique name for the **App name**; for example: **wingtiptoyslinux**
 
    * Specify `Docker Container` to **Publish**.
 
-   * Choose *Linux* as the **Operating System**.
+   * For the **Operating System** field, choose **Linux**.
 
    * Select **Region**.
 
@@ -176,11 +177,11 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * Select **Single Container**.
 
-   * **Registry**: Choose your container, for example: "*wingtiptoysregistry*"
+   * **Registry**: Choose your container, for example: **wingtiptoysregistry**.
 
-   * **Image**: Select the image created previously, for example: "*spring-boot-docker*"
+   * **Image**: Select the image created previously, for example: **spring-boot-docker**.
 
-   * **Tag**: Choose the tag for the image; for example: "*latest*"
+   * **Tag**: Choose the tag for the image, for example: **latest**.
 
    * **Startup Command**: Keep it blank since the image already has the start up command
 
@@ -217,13 +218,13 @@ When the deployment is complete, select **Go to resource**.  The deployment page
 
 The embedded Tomcat server in the sample Spring Boot application is configured to run on port 8080 by default. However, if you want to run the embedded Tomcat server to run on a different port, such as port 80 for local testing, you can configure the port by using the following steps.
 
-1. Go to the *resources* directory (or create the directory if it does not exist); for example:
+1. Go to the **resources** directory (or create the directory if it does not exist); for example:
 
    ```bash
    cd src/main/resources
    ```
 
-1. Open the *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
+1. Open the **application.yml** file in a text editor if it exists, or create a new YAML file if it does not exist.
 
 1. Modify the **server** setting so that the server runs on port 80; for example:
 
@@ -232,7 +233,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
       port: 80
    ```
 
-1. Save and close the *application.yml* file.
+1. Save and close the **application.yml** file.
 -->
 
 ## Clean up resources

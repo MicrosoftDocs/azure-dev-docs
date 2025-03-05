@@ -5,7 +5,8 @@ ms.date: 10/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: limolkova
+ms.author: karler
+ms.reviewer: limolkova
 ---
 
 # Troubleshoot dependency version conflicts

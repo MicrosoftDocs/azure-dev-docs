@@ -3,7 +3,8 @@ title: Enable Spring Boot app sign-in & access to Microsoft Graph
 titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
@@ -38,7 +39,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 4-spring-web-app/2-Authorization-I/call-graph
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -77,7 +78,7 @@ To register the app, use the following steps:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
@@ -106,7 +107,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the *src\main\resources\application.yml* file.
+1. Open the **src\main\resources\application.yml** file.
 
 1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
@@ -196,17 +197,17 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
-| *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
-| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
-| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
-| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
-| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
-| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
-| *LICENSE*                                                                     | The license for the sample.                                                               |
+| **pom.xml**                                                                     | Application dependencies.                                                                 |
+| **src/main/resources/templates/**                                               | Thymeleaf Templates for UI.                                                               |
+| **src/main/resources/application.yml**                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
+| **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/** | This directory contains the main application entry point, controller, and config classes. |
+| **.../MsIdentitySpringBootWebappApplication.java**                              | Main class.                                                                               |
+| **.../SampleController.java**                                                   | Controller with endpoint mappings.                                                        |
+| **.../SecurityConfig.java**                                                     | Security configuration - for example, which routes require authentication.                |
+| **.../Utilities.java**                                                          | Utility class - for example, filter ID token claims.                                      |
+| **CHANGELOG.md**                                                                | List of changes to the sample.                                                            |
+| **CONTRIBUTING.md**                                                             | Guidelines for contributing to the sample.                                                |
+| **LICENSE**                                                                     | The license for the sample.                                                               |
 
 ### ID token claims
 
@@ -253,7 +254,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the **application.yml** file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
@@ -278,7 +279,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 
 When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the Microsoft Entra ID boot starter prepared. The app asks the `GraphServiceClient` to call the `/me` endpoint and displays details for the current signed-in user. `GraphServiceClient` is from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java).
 
-The `Oauth2AuthorizedClient` must be prepared with the correct scopes. See the *application.yml* file and the following [Scopes](#scopes) section. The `Oauth2AuthorizedClient` is used to surface the access token and place it in the `Authorization` header of `GraphServiceClient` requests, as shown in the following example:
+The `Oauth2AuthorizedClient` must be prepared with the correct scopes. See the **application.yml** file and the following [Scopes](#scopes) section. The `Oauth2AuthorizedClient` is used to surface the access token and place it in the `Authorization` header of `GraphServiceClient` requests, as shown in the following example:
 
 ```java
 //see SampleController.java
@@ -291,7 +292,7 @@ public String callGraph(@RegisteredOAuth2AuthorizedClient("graph") OAuth2Authori
 }
 ```
 
-The following example from the *application.yml* file shows the scopes requested:
+The following example from the **application.yml** file shows the scopes requested:
 
 ```yml
 # see application.yml file
@@ -303,7 +304,7 @@ authorization-clients:
 
 ### Scopes
 
-[Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see *application.yml*.
+[Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see **application.yml**.
 
 By default, the application sets the scopes value to `https://graph.microsoft.com/User.Read`. The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me). Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
 

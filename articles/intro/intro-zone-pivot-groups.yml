@@ -26,3 +26,22 @@ groups:
     title: JavaScript
   - id: java
     title: Java
+- id: intelligent-apps-languages-python-dotnet
+  title: Intelligent Apps Python Dotnet
+  prompt: Choose a programming language
+  pivots:
+  - id: python
+    title: Python
+  - id: dotnet
+    title: .NET
+# Dina created just for Securing AI article
+- id: intelligent-apps-languages-python-dotnet-typescript
+  title: Intelligent Apps Python Dotnet TypeScript
+  prompt: Choose a programming language
+  pivots:
+  - id: python
+    title: Python
+  - id: dotnet
+    title: .NET
+  - id: typescript
+    title: TypeScript

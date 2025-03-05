@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bbanerjee
+ms.author: karler
+ms.reviewer: bbanerjee
 ms.date: 03/11/2024
 ---
 
@@ -21,7 +22,7 @@ Use the following steps to explore the sample:
 
 This sample shows how to use MSAL for Java (MSAL4J) to sign in users into your Microsoft Entra ID tenant. If you'd like to use MSAL4J in your own applications, you must add it to your projects using Maven.
 
-If you want to replicate this sample's behavior, you can copy the *pom.xml* file and the contents of the *helpers* and *authservlets* folders in the *src/main/java/com/microsoft/azuresamples/msal4j* folder. You also need the *authentication.properties* file. These classes and files contain generic code that you can use in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
+If you want to replicate this sample's behavior, you can copy the **pom.xml** file and the contents of the **helpers** and **authservlets** folders in the **src/main/java/com/microsoft/azuresamples/msal4j** folder. You also need the **authentication.properties** file. These classes and files contain generic code that you can use in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
 ### Contents
 
@@ -29,20 +30,20 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                     | Description                                                                                 |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| *src/main/java/com/microsoft/azuresamples/msal4j/authwebapp/*   | This directory contains the classes that define the app's backend business logic.           |
-| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.       |
-| *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
-| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                          |
-| *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
-| *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                               |
-| *src/main/webapp/*                                              | This directory contains the UI - JSP templates                                              |
-| *CHANGELOG.md*                                                  | List of changes to the sample.                                                              |
-| *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                                  |
-| *LICENSE*                                                       | The license for the sample.                                                                 |
+| **src/main/java/com/microsoft/azuresamples/msal4j/authwebapp/**   | This directory contains the classes that define the app's backend business logic.           |
+| **src/main/java/com/microsoft/azuresamples/msal4j/authservlets/** | This directory contains the classes that are used for sign in and sign out endpoints.       |
+| **\*Servlet.java**                                              | All of the endpoints available are defined in Java classes with names ending in `Servlet`. |
+| **src/main/java/com/microsoft/azuresamples/msal4j/helpers/**      | Helper classes for authentication.                                                          |
+| **AuthenticationFilter.java**                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
+| **src/main/resources/authentication.properties**                  | Microsoft Entra ID and program configuration.                                               |
+| **src/main/webapp/**                                              | This directory contains the UI - JSP templates                                              |
+| **CHANGELOG.md**                                                  | List of changes to the sample.                                                              |
+| **CONTRIBUTING.md**                                               | Guidelines for contributing to the sample.                                                  |
+| **LICENSE**                                                       | The license for the sample.                                                                 |
 
 ### ConfidentialClientApplication
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file, as shown in the following example. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the **AuthHelper.java** file, as shown in the following example. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 // getConfidentialClientInstance method
@@ -59,7 +60,7 @@ The following parameters are used for instantiation:
 - The client secret, which is a requirement for Confidential Client Applications.
 - The Microsoft Entra ID Authority, which includes your Microsoft Entra ID tenant ID.
 
-In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
+In this sample, these values are read from the **authentication.properties** file using a properties reader in the **Config.java** file.
 
 ### Step-by-step walkthrough
 
@@ -82,7 +83,7 @@ The following steps provide a walkthrough of the app's functionality:
    - `REDIRECT_URI`: Where Microsoft Entra ID redirects the browser - along with the auth code - after collecting the user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com).
    - `SCOPES`: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application. Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
 
-     You can find a full list of scopes requested by the app in the *authentication.properties* file. You can add more scopes, such as `User.Read`.
+     You can find a full list of scopes requested by the app in the **authentication.properties** file. You can add more scopes, such as `User.Read`.
 
 1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
@@ -123,7 +124,7 @@ The following steps provide a walkthrough of the app's functionality:
 
 ### Protect the routes
 
-For information about how the sample app filters access to routes, see *AuthenticationFilter.java*. In the *authentication.properties* file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access, as shown in the following example:
+For information about how the sample app filters access to routes, see **AuthenticationFilter.java**. In the **authentication.properties** file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access, as shown in the following example:
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special roles claim(s)
@@ -136,7 +137,7 @@ app.protect.authenticated=/token_details
 
 Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon sign-in. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 
-For the scopes requested by the application, see *authentication.properties*. These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
+For the scopes requested by the application, see **authentication.properties**. These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
 
 ## More information
 

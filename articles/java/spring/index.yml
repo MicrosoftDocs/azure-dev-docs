@@ -15,7 +15,8 @@ metadata:
   ms.topic: hub-page # Required
   ms.collection: collection # Optional; Remove if no collection is used.
   author: KarlErickson #Required; your GitHub user alias, with correct capitalization.
-  ms.author: fangjimmy #Required; microsoft alias of author; optional team alias.
+  ms.author: karler
+  ms.reviewer: fangjimmy #Required; microsoft alias of author; optional team alias.
   ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
   ms.custom: devx-track-java, devx-track-extended-java, spring-cloud-azure
 
@@ -35,7 +36,7 @@ highlightedContent:
     # Card
     - title: Secure your app using the Spring Boot Starter for Microsoft Entra ID
       itemType: tutorial
-      url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
+      url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra.md
 
 
 # conceptualContent section (optional)
@@ -78,10 +79,10 @@ conceptualContent:
             - url: /azure/active-directory/fundamentals/active-directory-whatis
               itemType: overview
               text: Microsoft Entra overview
-            - url: ../spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md
+            - url: ../spring-framework/spring-boot-starter-for-entra-developer-guide.md
               itemType: overview
               text: Spring developer's guide to Microsoft Entra ID
-            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
+            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra.md
               itemType: tutorial
               text: Secure a Spring app by using Microsoft Entra ID
             - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
@@ -148,7 +149,7 @@ conceptualContent:
             - url: https://github.com/Azure-Samples/azure-spring-boot-samples
               itemType: sample
               text: Spring Cloud Azure samples
-            - url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/spring-petclinic-microservices
+            - url: https://github.com/Azure-Samples/azure-spring-boot-samples
               itemType: sample
               text: Spring Petclinic Microservices sample
             - url: https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
@@ -191,9 +192,6 @@ conceptualContent:
             - url: ../spring-framework/deploy-spring-boot-java-app-on-linux.md
               itemType: quickstart
               text: Deploy to Azure App Service
-            - url: ../spring-framework/spring-app-service-e2e.md
-              itemType: quickstart
-              text: End-to-end App Service with MySQL
         - title: Training
           links:
             - url: /training/paths/deploy-run-java-applications-azure-spring-apps

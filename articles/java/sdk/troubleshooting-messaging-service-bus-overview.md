@@ -6,7 +6,8 @@ ms.date: 02/23/2024
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: jogiles
+ms.author: karler
+ms.reviewer: jogiles
 ---
 
 # Troubleshoot Azure Service Bus
@@ -23,15 +24,15 @@ In addition to enabling logging, setting the log level to `VERBOSE` or `DEBUG` p
 
 Use the following steps to configure Log4J 2:
 
-1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
-1. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/docs/log4j2.xml) to your *src/main/resources* folder.
+1. Add the dependencies in your **pom.xml** using ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for Log4j2" section.
+1. Add [log4j2.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/docs/log4j2.xml) to your **src/main/resources** folder.
 
 ### Configure logback
 
 Use the following steps to configure logback:
 
-1. Add the dependencies in your *pom.xml* using ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for logback" section.
-1. Add [logback.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/docs/logback.xml) to your *src/main/resources* folder.
+1. Add the dependencies in your **pom.xml** using ones from the [logging sample pom.xml][LoggingPom], in the "Dependencies required for logback" section.
+1. Add [logback.xml](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/docs/logback.xml) to your **src/main/resources** folder.
 
 ### Enable AMQP transport logging
 
@@ -41,7 +42,7 @@ To trace the AMQP transport frames, set the `PN_TRACE_FRM=1` environment variabl
 
 #### Sample logging.properties file
 
-The following configuration file logs TRACE level output from Proton-J to the file *proton-trace.log*:
+The following configuration file logs TRACE level output from Proton-J to the file **proton-trace.log**:
 
 ```properties
 handlers=java.util.logging.FileHandler
@@ -120,46 +121,6 @@ The number of lock renew tasks in the client is equal to the `maxMessages` or `m
 If the host is not sufficiently resourced, the lock can still be lost even if there are only a few lock renew tasks running. If you're running the Java application on a container, then we recommend using two or more vCPU cores. We don't recommend selecting anything less than 1 vCPU core when running Java applications on containerized environments. For in-depth recommendations on resourcing, see [Containerize your Java applications](../containers/overview.md).
 
 The same remarks about locks are also relevant for a Service Bus queue or a topic subscription that has session enabled. When the receiver client connects to a session in the resource, the broker applies an initial lock to the session. To maintain the lock on the session, the lock renew task in the client has to keep renewing the session lock before it expires. For a session enabled resource, the underlying partitions sometimes move to achieve load balancing across Service Bus nodes - for example, when new nodes are added to share the load. When that happens, session locks can be lost. If the application tries to complete or abandon a message after the session lock is lost, the API call fails with the error `com.azure.messaging.servicebus.ServiceBusException: The session lock was lost. Request a new session receiver`.
-
-## Upgrade to 7.15.x or latest
-
-If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.
-
-Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessorClient`.
-
-Version 7.15.x and later also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
-
-### Using the latest clients
-
-The new underlying framework with these improvements - in version 7.15.x and later - is called the V2-Stack. This release line includes both the previous generation of the underlying stack - the stack that version 7.14.x uses - and the new V2-Stack.
-
-By default, some of the client types use the V2-Stack, while others require V2-Stack opt-in. You can accomplish the opt-in or opt-out of a specific stack (V2 or the previous generation) for a client type by providing `com.azure.core.util.Configuration` values when you build the client.
-
-For example, V2-Stack-based session receive with `ServiceBusSessionReceiverClient` requires opt-in as shown in the following example:
-
-```java
-ServiceBusSessionReceiverClient sessionReceiver = new ServiceBusClientBuilder()
-    .connectionString(Config.CONNECTION_STRING)
-    .configuration(new com.azure.core.util.ConfigurationBuilder()
-        .putProperty("com.azure.messaging.servicebus.session.syncReceive.v2", "true") // 'false' by default, opt-in for V2-Stack.
-        .build())
-    .sessionReceiver()
-    .queueName(Config.QUEUE_NAME)
-    .buildClient();
-```
-
-The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.17.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
-
-| Client type                                       | Configuration name                                                 | Is on V2-Stack by default? |
-|---------------------------------------------------|--------------------------------------------------------------------|----------------------------|
-| Sender and management client                      | `com.azure.messaging.servicebus.sendAndManageRules.v2`             | yes                        |
-| Non-session processor and reactor receiver client | `com.azure.messaging.servicebus.nonSession.asyncReceive.v2`        | yes                        |
-| Session processor receiver client                 | `com.azure.messaging.servicebus.session.processor.asyncReceive.v2` | yes                        |
-| Session reactor receiver client                   | `com.azure.messaging.servicebus.session.reactor.asyncReceive.v2`   | yes                        |
-| Non-session synchronous receiver client           | `com.azure.messaging.servicebus.nonSession.syncReceive.v2`         | no                         |
-| Session synchronous receiver client               | `com.azure.messaging.servicebus.session.syncReceive.v2`            | no                         |
-
-As an alternative to using `com.azure.core.util.Configuration`, you can do the opt-in or opt-out by setting the same configuration names using environment variables or system properties.
 
 ## Next steps
 

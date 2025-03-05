@@ -2,7 +2,8 @@
 title: Migrate WebSphere applications to Azure Red Hat OpenShift
 description: This guide describes what you should be aware of when you want to migrate WebSphere applications to Azure Red Hat OpenShift.
 author: KarlErickson
-ms.author: haiche
+ms.author: karler
+ms.reviewer: haiche
 ms.topic: conceptual
 ms.date: 09/20/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, migration-java, template-how-to, linux-related-content
@@ -63,7 +64,7 @@ After you have a solid inventory of certificates, configure them by using the fo
 
 [!INCLUDE [inventory-was-jndi-resources](includes/inventory-was-jndi-resources.md)]
 
-If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what the offer supports. For WebSphere Liberty on AKS, you can make an object available in the default Java Naming and Directory Interface (JNDI) namespace. For more information, see [Developing with the JNDI default namespace in a Liberty feature](https://www.ibm.com/docs/was-liberty/core?topic=liberty-developing-jndi-default-namespace-in-feature). For Open Liberty, see [Java Naming and Directory Interface](https://openliberty.io/docs/latest/reference/feature/jndi-1.0.html).
+If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what the offer supports. For WebSphere Liberty on Azure Kubernetes Service (AKS), you can make an object available in the default Java Naming and Directory Interface (JNDI) namespace. For more information, see [Developing with the JNDI default namespace in a Liberty feature](https://www.ibm.com/docs/was-liberty/core?topic=liberty-developing-jndi-default-namespace-in-feature). For Open Liberty, see [Java Naming and Directory Interface](https://openliberty.io/docs/latest/reference/feature/jndi-1.0.html).
 
 [!INCLUDE [inspect-your-profile-configuration](includes/inspect-your-profile-configuration-liberty.md)]
 
@@ -155,7 +156,7 @@ You can't do cloud without mastering logging. The operator provides different ap
 
 ### Migrate your applications
 
-Whether or not you chose to provide an application image at deployment time, you need to update the application via CI/CD. The OpenShift documentation has samples that show how to do this update. For more information, see [OpenShift Container Platform CI/CD overview](https://docs.openshift.com/container-platform/4.13/cicd/index.html).
+Whether or not you chose to provide an application image at deployment time, you need to update the application via CI/CD. The OpenShift documentation has samples that show how to do this update. For more information, see [OpenShift Container Platform CI/CD overview](https://docs.openshift.com/container-platform/4.17/cicd/overview/index.html).
 
 ### Configure tests
 
@@ -165,7 +166,7 @@ You must configure any in-container tests against applications to access the new
 
 After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. The following articles provide information on post-migration enhancements:
 
-- Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. To achieve a native Kubernetes optimized scaling solution, follow the OpenShift documentation [Recommended performance and scalability practices](https://docs.redhat.com/en/documentation/openshift_container_platform/4.13/html/scalability_and_performance/recommended-performance-and-scalability-practices).
+- Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. To achieve a native Kubernetes optimized scaling solution, follow the OpenShift documentation [Recommended performance and scalability practices](https://docs.redhat.com/en/documentation/openshift_container_platform/4.13/html/scalability_and_performance/recommended-performance-and-scalability-practices-2).
 
 - Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 

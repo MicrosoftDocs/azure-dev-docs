@@ -2,7 +2,8 @@
 title: Spring Cloud Function in Azure
 description: Learn about using Spring Cloud Function in Azure.
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ms.date: 12/06/2023
 ms.topic: article
 ms.custom: devx-track-java, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
@@ -39,7 +40,7 @@ The project is available in the [Spring Cloud Function in Azure](https://github.
 
 We're going to create an empty Maven project, and configure it with Spring Cloud Function and Azure Functions.
 
-In an empty folder, create a new *pom.xml* file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure/azure-functions-java-worker/blob/dev/samples/spring-cloud-example/pom.xml) file.
+In an empty folder, create a new **pom.xml** file and copy/paste the content from the sample project's [pom.xml](https://github.com/Azure/azure-functions-java-worker/blob/dev/samples/spring-cloud-example/pom.xml) file.
 
 > [!NOTE]
 > This file uses Maven dependencies from both Spring Boot and Spring Cloud Function, and it configures
@@ -51,7 +52,7 @@ You need to customize a few properties for your application:
 - `<functionAppRegion>` is the name of the Azure region where your Function is deployed
 - `<functionResourceGroup>` is the name of the Azure resource group you're using
 
-Change those properties directly near the top of the *pom.xml* file, as shown in the following example:
+Change those properties directly near the top of the **pom.xml** file, as shown in the following example:
 
 ```xml
     <properties>
@@ -61,7 +62,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
         <start-class>com.example.DemoApplication</start-class>
 
         <!-- customize those properties. WARNING: the functionAppName should be unique across Azure -->
-        <azure.functions.maven.plugin.version>1.29.0</azure.functions.maven.plugin.version>
+        <azure.functions.maven.plugin.version>1.36.0</azure.functions.maven.plugin.version>
         <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
         <functionAppServicePlanName>my-spring-function-service-plan</functionAppServicePlanName>
         <functionAppName>my-spring-function</functionAppName>
@@ -73,9 +74,9 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
 
 ## Create Azure configuration files
 
-Create a *src/main/resources* folder and add the following Azure Functions configuration files to it.
+Create a **src/main/resources** folder and add the following Azure Functions configuration files to it.
 
-*host.json*:
+**host.json**:
 
 ```json
 {
@@ -88,7 +89,7 @@ Create a *src/main/resources* folder and add the following Azure Functions confi
 }
 ```
 
-*local.settings.json*:
+**local.settings.json**:
 
 ```json
 {
@@ -108,9 +109,9 @@ Azure Functions can receive and send objects in JSON format.
 We're now going to create our `User` and `Greeting` objects, which represent our domain model.
 You can create more complex objects, with more properties, if you want to customize this quickstart and make it more interesting for you.
 
-Create a *src/main/java/com/example/model* folder and add the following two files:
+Create a **src/main/java/com/example/model** folder and add the following two files:
 
-*User.java*:
+**User.java**:
 
 ```java
 package com.example.model;
@@ -136,7 +137,7 @@ public class User {
 }
 ```
 
-*Greeting.java*:
+**Greeting.java**:
 
 ```java
 package com.example.model;
@@ -169,9 +170,9 @@ This application manages all business logic, and has access to the full Spring B
 - It doesn't rely on the Azure Functions APIs, so you can easily port it to other systems. For example, you can reuse it in a normal Spring Boot application.
 - You can use all the `@Enable` annotations from Spring Boot to add new features.
 
-In the *src/main/java/com/example* folder, create the following file, which is a normal Spring Boot application:
+In the **src/main/java/com/example** folder, create the following file, which is a normal Spring Boot application:
 
-*DemoApplication.java*:
+**DemoApplication.java**:
 
 ```java
 package com.example;
@@ -187,9 +188,9 @@ public class DemoApplication {
 }
 ```
 
-Now create the following file in the *src/main/java/com/example/hello* folder. This code contains a Spring Boot component that represents the Function we want to run:
+Now create the following file in the **src/main/java/com/example/hello** folder. This code contains a Spring Boot component that represents the Function we want to run:
 
-*Hello.java*:
+**Hello.java**:
 
 ```java
 package com.example.hello;
@@ -218,9 +219,9 @@ public class Hello implements Function<User, Greeting> {
 
 To benefit from the full Azure Functions API, we now code an Azure Function that delegates its execution to the Spring Cloud Function created in the previous step.
 
-In the *src/main/java/com/example/hello* folder, create the following Azure Function class file:
+In the **src/main/java/com/example/hello** folder, create the following Azure Function class file:
 
-*HelloHandler.java*:
+**HelloHandler.java**:
 
 ```java
 package com.example.hello;
@@ -266,9 +267,9 @@ This Java class is an Azure Function, with the following interesting features:
 
 This step is optional but recommended to validate that the application works correctly.
 
-Create a *src/test/java/com/example* folder and add the following JUnit tests:
+Create a **src/test/java/com/example** folder and add the following JUnit tests:
 
-*HelloTest.java*:
+**HelloTest.java**:
 
 ```java
 package com.example;
@@ -364,7 +365,7 @@ Mark the breakpoints you want to debug. The Intellij IDEA will enter debugging m
 
 ### Debug using Visual Studio Code
 
-Open the project in Visual Studio Code, then configure the following *launch.json* file content:
+Open the project in Visual Studio Code, then configure the following **launch.json** file content:
 
 ```json
 {
@@ -398,7 +399,7 @@ Start project debugging in Visual Studio Code, then mark the breakpoints you wan
 
 ## Deploy the Function to Azure Functions
 
-Now, you're going to publish the Azure Function to production. Remember that the `<functionAppName>`, `<functionAppRegion>`, and `<functionResourceGroup>` properties you've defined in your *pom.xml* file are used to configure your function.
+Now, you're going to publish the Azure Function to production. Remember that the `<functionAppName>`, `<functionAppRegion>`, and `<functionResourceGroup>` properties you've defined in your **pom.xml** file are used to configure your function.
 
 > [!NOTE]
 > The Maven plugin needs to authenticate with Azure. If you have Azure CLI installed, use `az login` before continuing.

@@ -68,14 +68,14 @@ You need to update all applications to use supported versions of Spring Cloud. F
 
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Cloud applications, you can typically find the configuration for such resources in one of the following locations:
 
-* In the *src/main/resources* folder, in a file typically called *application.properties* or *application.yml*.
+* In the **src/main/resources** folder, in a file typically called **application.properties** or **application.yml**.
 * In the Spring Cloud Config Server repository that you identified in the previous step.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
-After you've identified the broker or brokers in use, find the corresponding settings. In Spring Cloud applications, you can typically find them in the *application.properties* and *application.yml* files in the application directory, or in the Spring Cloud Config Server repository.
+After you've identified the broker or brokers in use, find the corresponding settings. In Spring Cloud applications, you can typically find them in the **application.properties** and **application.yml** files in the application directory, or in the Spring Cloud Config Server repository.
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 

@@ -1,6 +1,7 @@
 ---
 author: KarlErickson
-ms.author: givermei
+ms.author: karler
+ms.reviewer: givermei
 ms.date: 03/11/2024
 ---
 
@@ -10,7 +11,7 @@ You're now ready to deploy your app to Azure App Service. Use the following comm
 az login
 ```
 
-With all the configuration ready in your *pom.xml* file, you can now use the following command to deploy your Java app to Azure:
+With all the configuration ready in your **pom.xml** file, you can now use the following command to deploy your Java app to Azure:
 
 ```bash
 mvn package azure-webapp:deploy

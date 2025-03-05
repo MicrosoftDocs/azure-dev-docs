@@ -2,9 +2,10 @@
 title: "Tutorial: Migrate WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery"
 description: Shows how to deploy WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery.
 author: KarlErickson
-ms.author: jiangma
+ms.author: karler
+ms.reviewer: jiangma
 ms.topic: tutorial
-ms.date: 05/08/2024
+ms.date: 12/10/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-was, devx-track-javaee-was-vm, migration-java, devx-track-extended-java
 ---
 
@@ -107,6 +108,9 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
 
 1. After you complete all the steps in the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover), keep the failover group page open and use it for the failover test of the WebSphere clusters later.
 
+> [!NOTE]
+> This article guides you to create an Azure SQL Database single database with SQL authentication. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. SQL authentication is required for the WebSphere cluster to connect to the database for session persistence later. For more information, see [Configuring for database session persistence](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=sessions-configuring-database-session-persistence).
+
 ## Set up the primary WebSphere cluster on Azure VMs
 
 In this section, you create the primary WebSphere clusters on Azure VMs using the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer. The secondary cluster is restored from the primary cluster during the failover using Azure Site Recovery later.
@@ -118,7 +122,7 @@ First, open the [IBM WebSphere Application Server Cluster on Azure VMs](https://
 Use the following steps to fill out the **Basics** pane:
 
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, `was-cluster-eastus-mjg022624`.
+1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, `was-cluster-eastus-mjg022624`.
 1. Under **Instance details**, for **Region**, select **East US**.
 1. For **Deploy with existing WebSphere entitlement or with evaluation license?**, select **Evaluation** for this tutorial. You can also select **Entitled** and provide your IBMid credential.
 1. Select **I have read and accept the IBM License Agreement.**.
@@ -129,7 +133,7 @@ Use the following steps to fill out the **Basics** pane:
 
 Use the following steps to fill out the **Cluster configuration** pane:
 
-1. For **Password for VM administrator**, provide a password.
+1. For **Password for VM administrator**, provide a password. For better security, consider using **SSH Public Key** as the VM authentication type.
 1. For **Password for WebSphere administrator**, provide a password. Save aside the username and password for **WebSphere administrator**.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Load balancer** pane.
@@ -138,7 +142,7 @@ Use the following steps to fill out the **Cluster configuration** pane:
 
 Use the following steps to fill out the **Load balancer** pane:
 
-1. For **Password for VM administrator**, provide a password.
+1. For **Password for VM administrator**, provide a password. For better security, consider using **SSH Public Key** as the VM authentication.
 1. For **Password for IBM HTTP Server administrator**, provide a password.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Networking** pane.
@@ -153,7 +157,7 @@ The following steps show you how to fill out the **Database** pane:
 
 1. For **Connect to database?**, select **Yes**.
 1. For **Choose database type**, select **Microsoft SQL Server** .
-1. For **JNDI Name**, enter *jdbc/WebSphereCafeDB*.
+1. For **JNDI Name**, enter **jdbc/WebSphereCafeDB**.
 1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you saved aside in the preceding section for the failover group for the Azure SQL Database - for example, `jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase`.
 1. For **Database username**, enter the server admin sign-in name and the failover group name you saved aside in the preceding section - for example, `azureuser@failovergroup-mjg022624`.
    > [!NOTE]
@@ -164,6 +168,9 @@ The following steps show you how to fill out the **Database** pane:
 1. Wait until **Running final validation...** successfully completes, then select **Create**.
 
 :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Database pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-database.png":::
+
+> [!NOTE]
+> This article guides you to connect to an Azure SQL Database with SQL authentication. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. SQL authentication is required for the WebSphere cluster to connect to the database for session persistence later. For more information, see [Configuring for database session persistence](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=sessions-configuring-database-session-persistence).
 
 After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
 
@@ -201,7 +208,7 @@ First, use the following steps to enable the option **Synchronize changes with N
 1. In the navigation pane, select **System administration** > **Console Preferences**.
 1. In the **Console Preferences** pane, select **Synchronize changes with Nodes**, and then select **Apply**. You should see the message **Your preferences have been changed.**
 
-Then, use the following steps to configure database *distributed sessions* for all application servers:
+Then, use the following steps to configure database distributed sessions for all application servers:
 
 1. In the navigation pane, select **Servers** > **Server Types** > **WebSphere application servers**.
 1. In the **Application servers** pane, you should see 3 application servers listed. For each application server, use the following instructions to configure the database distributed sessions:
@@ -210,10 +217,10 @@ Then, use the following steps to configure database *distributed sessions* for a
    1. In the **Additional Properties** section, select **Distributed environment settings**.
    1. For **Distributed sessions**, select **Database (Supported for Web container only.)**.
    1. Select **Database** and use the following steps:
-      1. For **Datasource JNDI name**, enter *jdbc/WebSphereCafeDB*.
+      1. For **Datasource JNDI name**, enter **jdbc/WebSphereCafeDB**.
       1. For **User ID**, enter the server admin sign-in name and the failover group name that you saved aside in the preceding section - for example, `azureuser@failovergroup-mjg022624`.
       1. Fill in the Azure SQL server admin sign-in password that you saved aside previously for **Password**.
-      1. For **Table space name**, enter *sessions*.
+      1. For **Table space name**, enter **sessions**.
       1. Select **Use multi row schema**.
       1. Select **OK**. You're directed back to the **Distributed environment settings** pane.
    1. Under the **Additional Properties** section, select **Custom tuning parameters**.
@@ -245,13 +252,13 @@ mvn clean package
 
 If you see a message about being in a `Detached HEAD` state, this message is safe to ignore.
 
-The package should be successfully generated and located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear*. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
+The package should be successfully generated and located at **\<parent-path-to-your-local-clone\>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear**. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
 
 Then, use the following steps to deploy the sample app to the cluster:
 
 1. Switch back to the WebSphere Integrated Solutions Console and sign in again if you're signed out.
 1. In the navigation pane, select **Applications** > **Application Types** > **WebSphere enterprise applications**.
-1. In the **Enterprise Applications** pane, select **Install** > **Choose File**. Then, find the package located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear* and select **Open**. Select **Next** > **Next** > **Next**.
+1. In the **Enterprise Applications** pane, select **Install** > **Choose File**. Then, find the package located at **\<parent-path-to-your-local-clone\>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear** and select **Open**. Select **Next** > **Next** > **Next**.
 1. In the **Map modules to servers** pane, press <kbd>Ctrl</kbd> and select all the items listed under **Clusters and servers**. Select the checkbox next to **websphere-cafe.war**. Select **Apply**. Select **Next** until you see the **Finish** button.
 1. Select **Finish** > **Save**, then wait until completion. Select **OK**.
 1. Select the installed application `websphere-cafe`, and then select **Start**. Wait until you see messages indicating application successfully started. If you aren't able to see the successful message, you must troubleshoot and resolve the issue before you continue.
@@ -259,7 +266,7 @@ Then, use the following steps to deploy the sample app to the cluster:
 Now, use the following steps to verify that the app is running as expected:
 
 1. Switch back to the IHS console. Append the context root `/websphere-cafe/` of the deployed app to the address bar - for example, `http://ihs70685e.eastus.cloudapp.azure.com/websphere-cafe/`, and then press <kbd>Enter</kbd>. You should see the welcome page of the sample app.
-1. Create a new coffee with a name and price - for example, *Coffee 1* with price *$10* - which is persisted into both the application data table and the session table of the database. The UI that you see should be similar to the following screenshot:
+1. Create a new coffee with a name and price - for example, **Coffee 1** with price **$10** - which is persisted into both the application data table and the session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
 
@@ -339,9 +346,9 @@ You also need further network configuration to enable and protect external acces
    1. In step 2, select the network security group you created - for example, `nsg-westus-mjg022624`.
    1. In step 3, select **Inbound security rules**.
    1. In step 4, customize the following settings:
-      1. For **Destination port ranges**, enter *9060,9080,9043,9443,80*.
+      1. For **Destination port ranges**, enter **9060,9080,9043,9443,80**.
       1. For **Protocol**, select **TCP**.
-      1. For **Name**, enter *ALLOW_HTTP_ACCESS*.
+      1. For **Name**, enter **ALLOW_HTTP_ACCESS**.
 
 1. Associate the network security group with a subnet by following the instructions in the [Associate or dissociate a network security group to or from a subnet](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet) section of the same article, with the following customizations:
    1. In step 2, select the network security group you created - for example, `nsg-westus-mjg022624`.
@@ -359,12 +366,12 @@ Create an Azure Traffic Manager profile by following the instructions in [Quicks
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints), use the following steps:
    1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, use the following steps:
-      1. For **DNS time to live (TTL)**, enter *10*.
-      1. Under **Endpoint monitor settings**, for **Path**, enter */websphere-cafe/*, which is the context root of the deployed sample app.
+      1. For **DNS time to live (TTL)**, enter **10**.
+      1. Under **Endpoint monitor settings**, for **Path**, enter **/websphere-cafe/**, which is the context root of the deployed sample app.
       1. Under **Fast endpoint failover settings**, use the following values:
-         - For **Probing internal**, select *10*.
-         - For **Tolerated number of failures**, enter *3*.
-         - For **Probe timeout**, use *5*.
+         - For **Probing internal**, select **10**.
+         - For **Tolerated number of failures**, enter **3**.
+         - For **Probe timeout**, use **5**.
       1. Select **Save**. Wait until it completes.
    1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
@@ -379,7 +386,7 @@ Next, use the following steps to verify that the sample app deployed to the prim
 1. Select **Overview** for the Traffic Manager profile you created.
 1. Select and copy the domain name system (DNS) name of the Traffic Manager profile, then append it with `/websphere-cafe/` - for example, `http://tmprofile-mjg022624.trafficmanager.net/websphere-cafe/`.
 1. Open the URL in a new tab of the browser. You should see the coffee you created previously listed on the page.
-1. Create another coffee with a different name and price - for example, *Coffee 2* with price *20* - which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
+1. Create another coffee with a different name and price - for example, **Coffee 2** with price **20** - which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI with the second coffee." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png":::
 
@@ -401,7 +408,7 @@ First, use the following steps to failover the Azure SQL Database from the prima
 
 Next, use the following steps to failover the WebSphere cluster with the recovery plan:
 
-1. In the search box at the top of the Azure portal, enter *Recovery Services vaults* and then select **Recovery Services vaults** in the search results.
+1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and then select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, `recovery-service-vault-westus-mjg022624`.
 1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Select the recovery plan you created - for example, `recovery-plan-mjg022624`.
 1. Select **Failover**. Select **I understand the risk. Skip test failover.**. Leave the default values for other fields and select **OK**.
@@ -423,7 +430,7 @@ Next, use the following steps to failover the WebSphere cluster with the recover
 
 Then, use the following steps to enable the external access to the WebSphere Integrated Solutions Console and sample app in the secondary region:
 
-1. In the search box at the top of the Azure portal, enter *Resource groups* and then select **Resource groups** in the search results.
+1. In the search box at the top of the Azure portal, enter **Resource groups** and then select **Resource groups** in the search results.
 1. Select the name of resource group for your secondary region - for example, `was-cluster-westus-mjg022624`. Sort items by **Type** in the **Resource Group** page.
 1. Select **Network Interface** prefixed with `dmgr`. Select **IP configurations** > **ipconfig1**. Select **Associate public IP address**. For **Public IP address**, select the public IP address prefixed with `dmgr`. This address is the one you created previously. In this article, the address is named `dmgr-public-ip-westus-mjg022624`. Select **Save**, and then wait until it completes.
 1. Switch back to the resource group, and select the **Network Interface** prefixed with `ihs`. Select **IP configurations** > **ipconfig1**. Select **Associate public IP address**. For **Public IP address**, select the public IP address prefixed with `ihs`. This address is the one you created previously. In this article, the address is named `ihs-public-ip-westus-mjg022624`. Select **Save**, and then wait until it completes.
@@ -442,7 +449,7 @@ Now, use the following steps to verify that the failover works as expected:
 
    1. To validate the cluster configuration in the secondary region, follow the steps in the [Configure the cluster](#configure-the-cluster) section. You should see that the settings for **Synchronize changes with Nodes** and **Distributed sessions** are replicated to the failover cluster, as shown in the following screenshots:
 
-      :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png" alt-text="Screenshot of the Dmgr WebSphere Integrated Solutions Console that shows the selected state of the Synchonize changes with Nodes checkbox." lightbox="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png":::
+      :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png" alt-text="Screenshot of the Dmgr WebSphere Integrated Solutions Console that shows the selected state of the Synchronize changes with Nodes checkbox." lightbox="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png":::
 
       :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/distributed-sessions-secondary.png" alt-text="Screenshot of Dmgr WebSphere Integrated Solutions Console that shows the Database settings page with the state of the distributed sessions setting." lightbox="media/migrate-websphere-to-vms-with-ha-dr/distributed-sessions-secondary.png":::
 
@@ -458,7 +465,7 @@ Now, use the following steps to verify that the failover works as expected:
 
 Use the following steps to commit the failover after you're satisfied the failover result:
 
-1. In the search box at the top of the Azure portal, enter *Recovery Services vaults* and then select **Recovery Services vaults** in the search results.
+1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and then select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, `recovery-service-vault-westus-mjg022624`.
 1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Select the recovery plan you created - for example, `recovery-plan-mjg022624`.
 1. Select **Commit** > **OK**.
@@ -491,35 +498,35 @@ The secondary region is now the failover site and active. You should reprotect i
 
 First, use the following steps to clean up resources that are unused and that the Azure Site Recovery service is going to replicate in your primary region later. You can't just delete the resource group, because the site recovery restores resources into the existing resource group.
 
-1. In the search box at the top of the Azure portal, enter *Resource groups* and then select **Resource groups** in the search results.
+1. In the search box at the top of the Azure portal, enter **Resource groups** and then select **Resource groups** in the search results.
 1. Select the name of resource group for your primary region - for example, `was-cluster-eastus-mjg022624`. Sort items by **Type** on the **Resource Group** page.
 1. Use the following steps to delete the virtual machines:
    1. Select the **Type** filter, then select **Virtual machine** from the **Value** dropdown list.
    1. Select **Apply**.
-   1. Select all virtual machines, select **Delete**, then enter *delete* to confirm deletion.
+   1. Select all virtual machines, select **Delete**, then enter **delete** to confirm deletion.
    1. Select **Delete**.
    1. Monitor the process in notifications until it completes.
 1. Use the following steps to delete the disks:
    1. Select the **Type** filter, then select **Disks** from the **Value** dropdown list.
    1. Select **Apply**.
-   1. Select all disks, select **Delete**, then enter *delete* to confirm deletion.
+   1. Select all disks, select **Delete**, then enter **delete** to confirm deletion.
    1. Select **Delete**.
    1. Monitor the process in notifications, and wait until it completes.
 1. Use the following steps to delete the endpoints:
    1. Select the **Type** filter, select **Private endpoint** from the **Value** dropdown list.
    1. Select **Apply**.
-   1. Select all private endpoints, select **Delete**, then enter *delete* to confirm deletion.
+   1. Select all private endpoints, select **Delete**, then enter **delete** to confirm deletion.
    1. Select **Delete**.
    1. Monitor the process in notifications until it completes. Ignore this step if type **Private endpoint** isn't listed.
 1. Use the following steps to delete the network interfaces:
-   1. Select the **Type** filter > select *Network Interface* from the **Value** dropdown list.
+   1. Select the **Type** filter > select **Network Interface** from the **Value** dropdown list.
    1. Select **Apply**.
-   1. Select all network interfaces, select **Delete**, then enter *delete* to confirm deletion.
+   1. Select all network interfaces, select **Delete**, then enter **delete** to confirm deletion.
    1. Select **Delete**. Monitor the process in notifications until it completes.
 1. Use the following steps to delete storage accounts:
-   1. Select the **Type** filter > select *Storage account* from the **Value** dropdown list.
+   1. Select the **Type** filter > select **Storage account** from the **Value** dropdown list.
    1. Select **Apply**.
-   1. Select all storage accounts, select **Delete**, then enter *delete* to confirm deletion.
+   1. Select all storage accounts, select **Delete**, then enter **delete** to confirm deletion.
    1. Select **Delete**. Monitor the process in notifications until it completes.
 
 Next, use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) section for the primary region, except for the following differences:
@@ -565,7 +572,7 @@ If you're not going to continue to use the WebSphere clusters and other componen
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
 1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
-1. In the search box at the top of the Azure portal, enter *Recovery Services vaults* and then select **Recovery Services vaults** in the search results.
+1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and then select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, `recovery-service-vault-westus-mjg022624`.
 1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Select the recovery plan you created - for example, `recovery-plan-mjg022624`.
 1. Use the same steps in the [Disable the replication](#disable-the-replication) section to remove locks on replicated items.

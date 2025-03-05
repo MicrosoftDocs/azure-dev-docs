@@ -6,7 +6,8 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 author: KarlErickson
-ms.author: vigera
+ms.author: karler
+ms.reviewer: vigera
 ---
 
 # Azure authentication with service principal
@@ -93,7 +94,8 @@ ClientCertificateCredential clientCertificateCredential = new ClientCertificateC
   .clientId("<your client ID>")
   .pemCertificate("<path to PEM certificate>")
   // Choose between either a PEM certificate or a PFX certificate.
-  //.pfxCertificate("<path to PFX certificate>", "PFX CERTIFICATE PASSWORD")
+  //.pfxCertificate("<path to PFX certificate>")
+  //.clientCertificatePassword("PFX CERTIFICATE PASSWORD")
   .tenantId("<your tenant ID>")
   .build();
 

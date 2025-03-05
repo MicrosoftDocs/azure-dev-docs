@@ -5,7 +5,8 @@ ms.date: 07/22/2022
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 author: KarlErickson
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: seal
 ---
 
 # Enable HTTPS in Spring Boot with Azure Key Vault certificates
@@ -65,7 +66,7 @@ You now have a VM and a Key Vault instance and have granted the VM access to Key
 
 When the TLS/SSL certificate for the inbound connection comes from Azure Key Vault, configure the application by following these steps:
 
-1. Add the following dependencies to your *pom.xml* file:
+1. Add the following dependencies to your **pom.xml** file:
 
    ```xml
    <dependency>
@@ -75,7 +76,7 @@ When the TLS/SSL certificate for the inbound connection comes from Azure Key Vau
    </dependency>
    ```
 
-1. Configure Key Vault credentials in the *application.properties* configuration file.
+1. Configure Key Vault credentials in the **application.properties** configuration file.
 
    ```properties
    server.ssl.key-alias=<the name of the certificate in Azure Key Vault to use>
@@ -180,7 +181,7 @@ Now that you've seen the *load* and *present* actions with a self-signed TLS/SSL
 
 In this section, you modify the code in the previous section so that the TLS/SSL certificate for outbound connections comes from Azure Key Vault. Therefore, the *load*, *present*, and *accept* actions are satisfied from the Azure Key Vault.
 
-1. Add the Apache HTTP client dependency to your *pom.xml* file:
+1. Add the Apache HTTP client dependency to your **pom.xml** file:
 
    ```xml
    <dependency>
@@ -311,4 +312,4 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 > [!div class="nextstepaction"]
 > [Azure for Spring developers](../spring/index.yml)
-> [Spring Cloud Azure Key Vault certificates samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/azure-spring-boot-starter-keyvault-certificates)
+> [Spring Cloud Azure Key Vault certificates samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-boot-2.x/keyvault/azure-spring-boot-starter-keyvault-certificates)
