@@ -1,7 +1,7 @@
 ---
 title: "Extract Entities Using Azure OpenAI Structured Outputs Mode"
 description: "Learn how to improve your Azure OpenAI model responses with structured outputs."
-ms.date: 03/05/2025
+ms.date: 03/06/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -43,7 +43,7 @@ Use this same general approach for entity extraction across many file types, as 
 
 ## Architectural diagram
 
-:::image type="content" source="./media/get-started-structured-output/architecture-diagram.png" lightbox="./media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services":::
+:::image type="content" source="../media/get-started-structured-output/architecture-diagram.png" lightbox="../media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services":::
 
 ## Cost
 
@@ -640,6 +640,9 @@ image_url = open_image_as_base64("example_table_plants.png")
 - **open_image_as_base64**: A function that reads an image file, encodes it in base64, and returns it as a data URI.
 - **image_url**: The base64-encoded URI of the image, used as input for the GPT model.
 
+> [!NOTE]
+> Example 5 shows how to extract structured information from an image of a table. It introduces the `Plant` and `PlantInventory` Pydantic models to define the expected output structure, ensuring the extracted data is well-organized and validated. This approach shows how to handle more detailed and nested data while keeping the structured output method used in Example 4.
+
 #### Using the models in the call to the GPT model
 
 The following code snippet sends a request to the GPT model to extract information from an image of a table using structured outputs. The `PlantInventory` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
@@ -733,6 +736,9 @@ The `Item` and `Receipt` models are Pydantic models that define the structure of
     - **items**: A list of `Item` objects on the receipt.
     - **order_number**: The order number.
 
+> [!NOTE]
+> Example 6 builds on Example 5 by extending the concept of extracting structured information from images to handling PDF files. Example 6 shows an extra step converting the PDF file to markdown text as input to the GPT model, while keeping the structured output method used in Example 5.
+
 #### Using the Models in the Call to the GPT Model
 
 The example sends a request to the GPT model to extract information from a PDF receipt using structured outputs. The `Receipt` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
@@ -815,6 +821,9 @@ post_contents = soup.find("div", class_="post-body").get_text(strip=True)
 - **BeautifulSoup**: Parses the HTML content of the webpage.
 - **post_title**: Extracts the title of the blog post.
 - **post_contents**: Extracts the body of the blog post."
+
+> [!NOTE]
+> Example 7 builds on Example 6 by extending the concept of extracting structured information from PDFs to handling web pages. This approach shows how to handle web content by parsing the webpage with BeautifulSoup. Then the parsed content is sent to the GPT model and returns structured output as the `BlogPost` model.
 
 #### Using `BlogPost` in the call to the model
 
