@@ -177,7 +177,6 @@ The sample repository has all the code and configuration files for an Azure Open
 
 > [!NOTE]
 > If you get an error or time-out during deployment, try changing the location. There might be availability constraints for the OpenAI resource. To change the location run:
-
 >    ```shell
 >    azd env set AZURE_LOCATION "yournewlocationname"
 >    ```
