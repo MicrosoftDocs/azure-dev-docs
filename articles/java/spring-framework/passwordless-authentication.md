@@ -23,7 +23,7 @@ Azure Identity Extensions are built on top of the Azure Identity library and sim
 - `ManagedIdentityCredential`
 - `DefaultAzureCredential`
 
-  Once the token is acquired, it serves as a substitute for a traditional password. Additionally, the extensions include the following plugins to facilitate database authentication using Microsoft Entra ID:
+Once the token is acquired, it serves as a substitute for a traditional password. Additionally, the extensions include the following plugins to facilitate database authentication using Microsoft Entra ID:
 - `AzureMysqlAuthenticationPlugin`
 - `AzurePostgresqlAuthenticationPlugin`
 
