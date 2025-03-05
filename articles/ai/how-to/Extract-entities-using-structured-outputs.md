@@ -692,7 +692,7 @@ This example shows how to use the Azure OpenAI service to extract structured inf
 
 #### Extracting from PDF files
 
-Similar to using images as input, you extract the PDF as text. You can use a hosted service like [Azure Document Intelligence]() or a local Python package like [pymupdf](https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html#).
+Similar to using images as input, you extract the PDF as text. You can use a hosted service like [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) or a local Python package like [pymupdf](https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html#).
 
 #### Using PDF Files for input vs. using text
 
