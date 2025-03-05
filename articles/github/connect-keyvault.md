@@ -43,7 +43,7 @@ To ensure seamless integration between GitHub Actions and Azure Key Vault, confi
      - Select **Access control (IAM)** > **Add role assignment**.
      - Choose the **Key Vault Secrets User** role.
      - Assign it to the service principal or managed identity.
-  ___
+   ___
    
 2. **CLI**:  Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through CLI
 
