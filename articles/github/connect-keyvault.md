@@ -30,22 +30,8 @@ By integrating Azure Key Vault into our GitHub Actions workflows, we aim to secu
 ## Configuring Azure Key Vault
 
 To ensure seamless integration between GitHub Actions and Azure Key Vault, configure your key vault as follows:
-
-1. **Azure Portal**: Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through Azure Portal
-   # [OpenID Connect](#tab/openid)
-     - Navigate to your Key Vault in the Azure Portal.
-     - Select **Access policies** > **Add Access Policy**.
-     - Assign **Get** and **List** permissions for secrets.
-     - Select the service principal or managed identity and save the policy.
-   ___
-   # [Service principal](#tab/userlevel)
-     - Navigate to your Key Vault in the Azure Portal.
-     - Select **Access control (IAM)** > **Add role assignment**.
-     - Choose the **Key Vault Secrets User** role.
-     - Assign it to the service principal or managed identity.
-   ___
    
-2. **CLI**:  Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through CLI
+1. **CLI**:  Grant the necessary permissions to the service principal or managed identity used by your GitHub Actions workflow through CLI
 
 # [OpenID Connect](#tab/openid)
 
@@ -111,7 +97,7 @@ Go to **Settings > Secrets and Variables > Actions** in your GitHub repository a
 - `KEYVAULT_NAME`: `<KEYVAULT_NAME>`
 ___
 
-3. **Network Configuration**: Ensure that your Key Vault is accessible from GitHub Actions. If you have network restrictions, such as firewall rules or virtual network service endpoints, configure them to allow access from GitHub's IP ranges or service tags.
+2. **Network Configuration**: Ensure that your Key Vault is accessible from GitHub Actions. If you have network restrictions, such as firewall rules or virtual network service endpoints, configure them to allow access from GitHub's IP ranges or service tags.
 
 ## Updating GitHub Actions Workflow (Same for Both Approaches)
 
