@@ -13,7 +13,7 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 This article describes the available solutions for hosting JBoss EAP on Azure, including the features and benefits of each option so you can choose the best one for your deployment.
 
-There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines/VM Scale Sets. All three solutions are jointly developed and supported by Red Hat and Microsoft.
+There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines. All three solutions are jointly developed and supported by Red Hat and Microsoft.
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -43,9 +43,8 @@ Virtual machines are a mature, proven migration path to the cloud that provides 
 
 - A [single JBoss EAP instance on Azure VM](https://aka.ms/eap-vm-single-portal).
 - A [static JBoss EAP cluster on Azure VMs](https://aka.ms/eap-vm-cluster-portal) - that is, a JBoss EAP cluster on a fixed number of VMs, with or without domain mode enabled. This option is very similar to traditional on-premises JBoss EAP clusters.
-- A [dynamic JBoss EAP cluster on Azure VM Scale Sets](https://aka.ms/eap-vm-vmss-portal). Virtual machine scale sets provide groups of load-balanced virtual machines that can be scaled up or down in response to demand. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/). The JBoss EAP cluster is formed using Azure Ping and is suitable for stateful applications. This option doesn't support domain mode.
 
-Azure solution templates help accelerate migrating JBoss EAP workloads. The solutions automatically provision several Azure resources to quickly create a JBoss EAP deployment on Azure Virtual Machines or virtual machine scale sets. The automatically provisioned resources include virtual network, storage, network security group, OpenJDK, Red Hat Enterprise Linux (RHEL), JBoss EAP, Azure App Gateway, and database connectivity (Azure SQL, Oracle Database, PostgreSQL, MySQL). The solutions support the latest versions of JBoss EAP 7, OpenJDK 8, and RHEL 8.
+Azure solution templates help accelerate migrating JBoss EAP workloads. The solutions automatically provision several Azure resources to quickly create a JBoss EAP deployment on Azure Virtual Machines. The automatically provisioned resources include virtual network, storage, network security group, OpenJDK, Red Hat Enterprise Linux (RHEL), JBoss EAP, Azure App Gateway, and database connectivity (Azure SQL, Oracle Database, PostgreSQL, MySQL). The solutions support the latest versions of JBoss EAP 7, OpenJDK 8, and RHEL 8.
 
 The offers require a JBoss EAP subscription and work on a Bring-Your-Own-Subscription (BYOS) basis. For the RHEL part of the offer, you have a choice to use either Pay-As-You-Go (PAYGO) or BYOS. In case of PAYGO, there's an extra hourly RHEL subscription charge for using the offer on top of the normal Azure compute, network and storage costs. To use RHEL BYOS, you must [contact Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to get your subscription enabled on Azure. Once you do so, the RHEL BYOS options will become visible as plans.
 
