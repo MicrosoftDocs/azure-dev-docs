@@ -100,10 +100,6 @@ The offers described in the following sections are available for JBoss EAP on Az
 
 During the deployment of an offer, you're asked to choose the virtual machine size for your JBoss EAP server nodes. It's important to consider all aspects of sizing (memory, processor, disk) in your choice of VM size. For more information, see [Sizes for Cloud Services (classic)](/azure/cloud-services/cloud-services-sizes-specs).
 
-### JBoss EAP on Azure Virtual Machine Scale Sets
-
-Virtual Machine Scale Sets provide groups of load-balanced, highly scalable virtual machines for workloads of any size. For more information, see [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)
-
 ### JBoss EAP on Clustered Virtual Machines
 
 If you prefer, a traditional cluster of VMs using the JBoss EAP clustering mechanism is suitable for a lift and shift from deployments that are already using this feature. For more information, see [Clustering in Web Applications](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/clustering_in_web_applications) in the JBoss EAP documentation. The prebuilt Azure Marketplace offer includes support for domain mode. For an overview of EAP Domains and domain mode, see [Domain Management](https://aka.ms/eap-vms-domain-mode).
