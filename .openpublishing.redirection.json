@@ -311,6 +311,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/core/use-azure-sdk.md",
+      "redirect_url": "/azure/developer/javascript/sdk/use-azure-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/javascript/tutorial/convert-text-to-speech-cognitive-services.md",
       "redirect_url": "/azure/developer/javascript/",
       "redirect_document_id": false
