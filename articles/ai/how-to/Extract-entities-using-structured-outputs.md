@@ -166,9 +166,9 @@ The sample repository has all the code and configuration files for an Azure Open
     azd provision
     ```
 
-1. Use the following table to answer the prompts:
+1. Use the following table to answer each parameter:
 
-    |Prompt|Answer|
+    |Parameter|Answer|
     |--|--|
     |Environment name|Keep it short and lowercase. Add your name or alias. For example, `struct-output`. It's used as part of the resource group name.|
     |Subscription|Select the subscription to create the resources in. |
@@ -276,6 +276,14 @@ else:
 
 1. **Structured Output**: Using structured outputs ensures the extracted data follows a predefined schema. This approach makes it easier to work with the data in other applications, providing type safety and readability.
 
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+CalendarEvent(name='Science Fair', date='Friday', participants=['Alice', 'Bob'])
+```
+
 ### Example 2: Fetch a public GitHub issue using the GitHub API and then extract details
 
 This example shows how to use the Azure OpenAI service to extract structured information from a GitHub issue. This walkthrough focuses only on the example code dealing with structured output.
@@ -372,6 +380,19 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+Issue(
+    title='Bug with groups metadata tag not updating in Azure Deployment',
+    description='After setting up the app with authentication and access control turned on, and running necessary scripts, the groups metadata tag does not update with group IDs.',
+    type=<IssueType.BUGREPORT: 'Bug Report'>,
+    operating_system='Windows 10'
+)
+```
+
 ### Example 3: Fetch a public README using the GitHub API and then extract details
 
 This example shows how to use the Azure OpenAI service to get structured information from a GitHub repository's README file. This walkthrough focuses only on the example code dealing with structured output.
@@ -450,7 +471,7 @@ completion = client.beta.chat.completions.parse(
     messages=[
         {
             "role": "system",
-            "content": "Extract the information from the GitHub issue markdown about this hack submission.",
+            "content": "Extract the info from the GitHub issue markdown.",
         },
         {"role": "user", "content": readme_content},
     ],
@@ -474,6 +495,20 @@ else:
 - **message.refusal**: Checks if the GPT model refused to process the request.
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
+
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+RepoOverview(
+    name='Job Finder Chatbot with RAG',
+    description='A chatbot application aimed at helping users find job opportunities and get relevant answers using Retrieval-Augmented Generation (RAG), leveraging Azure services for efficient search results.',
+    languages=[<Language.JAVASCRIPT: 'JavaScript'>],
+    azure_services=[<AzureService.AISTUDIO: 'AI Studio'>, <AzureService.AISEARCH: 'AI Search'>, <AzureService.POSTGRESQL: 'PostgreSQL'>],
+    frameworks=[<Framework.SPRINGBOOT: 'Spring Boot'>]
+)
+```
 
 ### Example 4: Parse a local image of a graph and extract details like title, axis, and legend
 
@@ -549,8 +584,8 @@ completion = client.beta.chat.completions.parse(
 
 Using images as input for structured output differs from using text in several ways:
 
-1. **Input Format**: Images need to be converted to a base64-encoded URI before being sent to the GPT model, whereas text can be sent directly.
-2. **Content Type**: The content type for images is specified as `image_url`, while text is sent as plain text.
+1. **Input Format**: Convert images to a base64-encoded URI before sending them to the GPT model, while text can be sent directly.
+2. **Content Type**: You must specify the content type for images as `image_url`, while text is sent as plain text.
 3. **Processing**: The GPT model processes images differently from text, extracting visual information and converting it into structured data based on the provided schema.
 
 #### Parsing and validating the response
@@ -569,6 +604,20 @@ else:
 - **message.refusal**: Checks if the GPT model refused to process the request.
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
+
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+Graph(
+    title='Global tree cover: annual loss',
+    description='This graph shows the annual loss of global tree cover by region from 2000 to 2020.',
+    x_axis='Year (2000-2020)',
+    y_axis='Thousand square kilometers/miles of tree cover lost',
+    legend=['Boreal', 'Temperate', 'Subtropical', 'Tropical']
+)
+```
 
 ### Example 5: Parse a local image with tables and extract nested tabular data
 
@@ -678,6 +727,43 @@ else:
 - **message.refusal**: Checks if the GPT model refused to process the request.
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
+
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+PlantInventory(
+    annuals=[
+        Plant(species='Centromadia pungens', common_name='Common tarweed', quantity=8, size='4"S', price=1.83, county='Unknown', notes='75% off sale'),
+        Plant(species='Epilobium densiflorum', common_name='Dense Spike-primrose', quantity=3, size='4"S', price=3.65, county='San Mateo', notes='50% off sale'),
+        Plant(species='Eschscholzia caespitosa', common_name='Tufted Poppy', quantity=119, size='D-16S', price=3.6, county='Unknown', notes='50% off sale'),
+        Plant(species='Eschscholzia californica', common_name='California poppy', quantity=85, size='D-16S', price=3.6, county='Bay Area', notes='50% off sale'),
+        Plant(species="Eschscholzia californica 'Purple Gleam'", common_name='Purple Gleam Poppy', quantity=2, size='D-16S', price=3.6, county='Unknown', notes='50% off sale'),
+        Plant(species='Eschscholzia californica var. maritima', common_name='Coastal California Poppy', quantity=137, size='D-16S', price=3.6, county='Unknown', notes='50% off sale'),
+        Plant(species='Madia elegans', common_name='Tarweed', quantity=6, size='4"S', price=1.83, county='Unknown', notes='75% off sale'),
+        Plant(species='Menzelia lindleyi', common_name="Lindley's Blazing Star", quantity=35, size='4"S', price=3.65, county='Unknown', notes='50% off sale'),
+        Plant(species='Symphyotrichum subulatum', common_name='Slim marsh aster', quantity=10, size='D-16S', price=5.4, county='Contra Costa', notes='25% off sale'),
+        Plant(species='Trichostema lanceolatum', common_name='Vinegar weed', quantity=11, size='D-16S', price=5.4, county='Contra Costa', notes='25% off sale'),
+        Plant(species='Trichostema lanceolatum', common_name='Vinegar weed', quantity=20, size='D-16S', price=5.4, county='Stanislaus', notes='25% off sale')
+    ],
+    bulbs=[
+        Plant(species='Brodiaea californica', common_name='California brodiaea', quantity=31, size='D-16', price=7.3, county='Bay Area', notes=''),
+        Plant(species='Chlorogalum pomeridianum', common_name='Soap plant', quantity=20, size='1-Gal', price=15.7, county='E. Marin', notes=''),
+        Plant(species='Epipactis gigantea', common_name='Stream orchid', quantity=19, size='1-Gal', price=15.7, county='Unknown', notes=''),
+        Plant(species='Wyethia angustifolia', common_name='Narrowleaf mule ears', quantity=31, size='D-16', price=7.3, county='Marin', notes=''),
+        Plant(species='Wyethia angustifolia', common_name='Narrowleaf mule ears', quantity=43, size='D-16', price=7.3, county='Sonoma', notes=''),
+        Plant(species='Wyethia angustifolia', common_name='Narrowleaf mule ears', quantity=2, size='D-40', price=10.9, county='Sonoma', notes=''),
+        Plant(species='Wyethia mollis', common_name="Woolly Mule's Ear's", quantity=2, size='D-40', price=10.9, county='Sonoma', notes='')
+    ],
+    grasses=[
+        Plant(species='Agrostis pallens', common_name='Thingrass', quantity=564, size='StubS', price=0.58, county='Unknown', notes='75% off sale'),
+        Plant(species='Anthoxanthum occidentale', common_name='Vanilla grass', quantity=146, size='Stub', price=2.3, county='Unknown', notes=''),
+        Plant(species='Bouteloua gracilis', common_name='Blue grama', quantity=111, size='StubS', price=1.15, county='Unknown', notes='50% off sale'),
+        Plant(species='Bouteloua gracilis', common_name='Blue grama', quantity=57, size='D-16S', price=5.4, county='Unknown', notes='25% off sale')
+    ]
+)
+```
  
 ### Example 6: Parses a local PDF receipt by converting to Markdown and then extracting order details
 
@@ -768,6 +854,14 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+Receipt(total=242.05, shipping=0.0, payment_method='Credit Card', items=[Item(product='Die Cut ID: 158484 • 3 × 3 • Lamination: Glossy • Shape: Contour', price=242.05, quantity=500)], order_number=43962)
+```
+
 ### Example 7: Parse a blog post and extract metadata
 
 This example shows how to use the Azure OpenAI service to extract structured information from a blog post. The `BlogPost` model defines the expected output structure, ensuring the extracted data is well-structured and validated. The example fetches the webpage, extracts the relevant content, sends it to the GPT model, and validates the response against the `BlogPost` model.
@@ -853,6 +947,18 @@ else:
 - **message.refusal**: Checks if the GPT model refused to process the request.
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
+
+#### Viewing the response
+
+The parsed response should be similar to the following snippet:
+
+```json
+BlogPost(
+    title='Integrating Vision into RAG Applications',
+    summary='This blog post discusses the integration of vision into Retrieval Augmented Generation (RAG) applications, allowing models to utilize image sources alongside text. It introduces multimodal LLMs and embedding models via Azure, demonstrating how these enable RAG to process both text and images, improving responses to queries that involve image data.',
+    tags=['RAG', 'LLM', 'Azure', 'AI', 'Multimodal', 'OpenAI', 'GPT-4', 'Machine Learning', 'Image Processing']
+)
+```
 
 ## Clean up resources
 
