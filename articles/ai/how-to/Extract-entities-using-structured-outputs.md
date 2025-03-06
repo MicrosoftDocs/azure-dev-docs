@@ -198,7 +198,7 @@ The sample includes the following examples:
 
 Run an example by either typing python `<example filename>.py` or clicking the Run button on the opened file.
 
-## Exploring the sample code examples
+## Exploring the code examples
 
 This AI App Template contains several examples highlighting different structured output use cases. The next sections walk through the relevant code in each example.  
 
