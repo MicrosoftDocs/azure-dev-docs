@@ -172,8 +172,7 @@ The sample repository has all the code and configuration files for an Azure Open
     |--|--|
     |Environment name|Keep it short and lowercase. Add your name or alias. For example, `struct-output`. It's used as part of the resource group name.|
     |Subscription|Select the subscription to create the resources in. |
-    |Location (for hosting)|Select a location near you from the list.|
-    |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
+    |Location for the OpenAI model|Select a location near you from the list.|
 
 > [!NOTE]
 > If you get an error or time-out during deployment, try changing the location. There might be availability constraints for the OpenAI resource. To change the location run:
@@ -268,19 +267,15 @@ else:
 
 #### Why checking for refusal is important
 
-1. **Error Handling**: The code checks if the GPT model refused to process the request. If it did, it prints the refusal message. This approach helps the user understand the issue and improve the input data or request format.
+1. **Error Handling**: The code checks if the GPT model refused to process the request. If it did, it prints the refusal message. This approach helps you (or the user) understand if the extraction was successful or if there were issues to address.
 
 1. **Validation of Extracted Data**: The code prints the parsed response to show the extracted information in a readable format. This approach helps verify that the data matches the expected structure defined by the `CalendarEvent` model.
-
-1. **User Feedback**: The code provides feedback about the success or failure of the extraction process. This approach helps users understand if the extraction was successful or if there were issues to address.
-
-1. **Structured Output**: Using structured outputs ensures the extracted data follows a predefined schema. This approach makes it easier to work with the data in other applications, providing type safety and readability.
 
 #### Viewing the response
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 CalendarEvent(name='Science Fair', date='Friday', participants=['Alice', 'Bob'])
 ```
 
@@ -384,7 +379,7 @@ else:
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 Issue(
     title='Bug with groups metadata tag not updating in Azure Deployment',
     description='After setting up the app with authentication and access control turned on, and running necessary scripts, the groups metadata tag does not update with group IDs.',
@@ -500,7 +495,7 @@ else:
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 RepoOverview(
     name='Job Finder Chatbot with RAG',
     description='A chatbot application aimed at helping users find job opportunities and get relevant answers using Retrieval-Augmented Generation (RAG), leveraging Azure services for efficient search results.',
@@ -609,7 +604,7 @@ else:
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 Graph(
     title='Global tree cover: annual loss',
     description='This graph shows the annual loss of global tree cover by region from 2000 to 2020.',
@@ -732,7 +727,7 @@ else:
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 PlantInventory(
     annuals=[
         Plant(species='Centromadia pungens', common_name='Common tarweed', quantity=8, size='4"S', price=1.83, county='Unknown', notes='75% off sale'),
@@ -858,7 +853,7 @@ else:
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 Receipt(total=242.05, shipping=0.0, payment_method='Credit Card', items=[Item(product='Die Cut ID: 158484 • 3 × 3 • Lamination: Glossy • Shape: Contour', price=242.05, quantity=500)], order_number=43962)
 ```
 
@@ -952,7 +947,7 @@ else:
 
 The parsed response should be similar to the following snippet:
 
-```json
+```python
 BlogPost(
     title='Integrating Vision into RAG Applications',
     summary='This blog post discusses the integration of vision into Retrieval Augmented Generation (RAG) applications, allowing models to utilize image sources alongside text. It introduces multimodal LLMs and embedding models via Azure, demonstrating how these enable RAG to process both text and images, improving responses to queries that involve image data.',
