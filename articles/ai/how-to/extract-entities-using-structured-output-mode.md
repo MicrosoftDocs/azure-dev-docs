@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer, I want to learn how to use Azure OpenAI  structured outputs to improve my model responses from a simple example.
 ---
-# Extract Entities using Azure OpenAI Structured Outputs Mode
+# Extract entities using Azure OpenAI structured outputs mode
 
 In this article, you explore several examples to extract different types of entities. These examples demonstrate how to create an object schema and get a response from the Azure OpenAI model. It uses Python and the Azure OpenAI Structured Outputs Mode.
 
@@ -23,13 +23,13 @@ The sample provides everything you need. It includes the infrastructure and Pyth
 By following the instructions in this article, you will:
 
 - Deploy a model [from the list of models supported for structured outputs](/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure#supported-models).
-- Run the example Python files that use the [openai Python package](https://pypi.org/project/openai/) and [Pydantic models](https://docs.pydantic.dev/) to make requests for structured outputs.
+- Run the example Python files that use the [OpenAI Python package](https://pypi.org/project/openai/) and [Pydantic models](https://docs.pydantic.dev/) to make requests for structured outputs.
 
 Structured outputs in Azure OpenAI make sure the AI model's responses follow a predefined [JSON Schema](https://json-schema.org/overview/what-is-jsonschema). This feature provides several key benefits by:
 
-1. Making sure the responses match the defined schema, reducing errors and inconsistencies.
-1. Helping turn unstructured data into well-defined, structured formats, making integration with other systems easier.
-1. Reducing the need for post-processing, optimizing token usage and improving efficiency.
+- Making sure the responses match the defined schema, reducing errors and inconsistencies.
+- Helping turn unstructured data into well-defined, structured formats, making integration with other systems easier.
+- Reducing the need for post-processing, optimizing token usage and improving efficiency.
 
 Structured outputs are useful for function calling, extracting structured data, and building complex multi-step workflows.
 
@@ -43,7 +43,7 @@ Use this same general approach for entity extraction across many file types, as 
 
 ## Architectural diagram
 
-:::image type="content" source="../media/get-started-structured-output/architecture-diagram.png" lightbox="../media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services":::
+:::image type="content" source="../media/get-started-structured-output/architecture-diagram.png" lightbox="../media/get-started-structured-output/architecture-diagram.png" alt-text="Diagram that shows Microsoft Entra managed identity connecting to Azure AI services.":::
 
 ## Cost
 
@@ -156,9 +156,9 @@ Complete the remaining exercises in this project within this development contain
 
 ## Deploy and run
 
-The sample repository has all the code and configuration files for an Azure OpenAI gpt-4o model deployment. It also performs entity extraction using Structured Outputs mode and the Python `openai` SDK. Follow these steps to go through the sample Entity extraction app Azure deployment process:
+The sample repository has all the code and configuration files for an Azure OpenAI gpt-4o model deployment. It also performs entity extraction using Structured Outputs mode and the Python `openai` SDK. Follow these steps to go through the sample Entity extraction example Azure deployment process:
 
-### Deploy Entity extraction app to Azure
+### Deploy entity extraction example to Azure
 
 1. Provision the OpenAI account:
 
@@ -174,15 +174,15 @@ The sample repository has all the code and configuration files for an Azure Open
     |Subscription|Select the subscription to create the resources in. |
     |Location for the OpenAI model|Select a location near you from the list.|
 
-> [!NOTE]
-> If you get an error or time-out during deployment, try changing the location. There might be availability constraints for the OpenAI resource. To change the location run:
->    ```shell
->    azd env set AZURE_LOCATION "yournewlocationname"
->    ```
+    > [!NOTE]
+    > If you get an error or time-out during deployment, try changing the location. There might be availability constraints for the OpenAI resource. To change the location run:
+    >    ```shell
+    >    azd env set AZURE_LOCATION "yournewlocationname"
+    >    ```
 
 1. Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
 
-## Run the entity extraction examples
+### Run the entity extraction examples
 
 The sample includes the following examples:
 
@@ -198,7 +198,7 @@ The sample includes the following examples:
 
 Run an example by either typing python `<example filename>.py` or clicking the Run button on the opened file.
 
-## Exploring the code examples
+## Explore the code examples
 
 This AI App Template contains several examples highlighting different structured output use cases. The next sections walk through the relevant code in each example.  
 
@@ -206,14 +206,14 @@ This AI App Template contains several examples highlighting different structured
 
 This example demonstrates how to use the Azure OpenAI service to extract structured information from a text input. It sets up Azure authentication, initializes the OpenAI client, defines a Pydantic model for the expected output, sends a request to the GPT model, and validates and prints the response. This approach ensures that the extracted information is well-structured and validated, making it easier to work with in downstream applications.
 
-#### Defining the data model
+#### Define the data model
 
 Defining a [Pydantic model](https://docs.pydantic.dev/latest/concepts/models/) ensures that the extracted information from the Azure OpenAI service is well-structured and validated. Pydantic models provide a clear schema for the expected output, which helps in:
 
-1. Ensuring the extracted data matches the expected types and formats.
-1. Reducing errors and inconsistencies by enforcing a predefined structure.
-1. Making it easier to work with the extracted data in other applications by providing a clear and consistent data model.
-1. Helping integrate with other systems by converting unstructured data into well-defined, structured formats.
+- Ensuring the extracted data matches the expected types and formats.
+- Reducing errors and inconsistencies by enforcing a predefined structure.
+- Making it easier to work with the extracted data in other applications by providing a clear and consistent data model.
+- Helping integrate with other systems by converting unstructured data into well-defined, structured formats.
 
 #### `CalendarEvent` model definition
 
@@ -253,7 +253,7 @@ completion = client.beta.chat.completions.parse(
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `CalendarEvent` model.
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -267,11 +267,11 @@ else:
 
 #### Why checking for refusal is important
 
-1. **Error Handling**: The code checks if the GPT model refused to process the request. If it did, it prints the refusal message. This approach helps you (or the user) understand if the extraction was successful or if there were issues to address.
+- **Error Handling**: The code checks if the GPT model refused to process the request. If it did, it prints the refusal message. This approach helps you (or the user) understand if the extraction was successful or if there were issues to address.
 
-1. **Validation of Extracted Data**: The code prints the parsed response to show the extracted information in a readable format. This approach helps verify that the data matches the expected structure defined by the `CalendarEvent` model.
+- **Validation of Extracted Data**: The code prints the parsed response to show the extracted information in a readable format. This approach helps verify that the data matches the expected structure defined by the `CalendarEvent` model.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
@@ -283,7 +283,7 @@ CalendarEvent(name='Science Fair', date='Friday', participants=['Alice', 'Bob'])
 
 This example shows how to use the Azure OpenAI service to extract structured information from a GitHub issue. This walkthrough focuses only on the example code dealing with structured output.
 
-#### Defining the `Issue` model
+#### Define the `Issue` model
 
 The `Issue` model is a Pydantic model that defines the structure of the expected output from the GPT model.
 
@@ -320,7 +320,7 @@ The `Issue` model uses the `IssueType` enumeration to ensure that the `type` fie
 > [!NOTE]
 > While Example 1 focuses on a simple text input and uses a basic `CalendarEvent` Pydantic model, Example 2 introduces a more complex `Issue` model with enumerations for issue types. This approach ensures the extracted information follows specific types and values. It shows how to handle more detailed and varied data while keeping the structured output approach from Example 1.
 
-#### Fetching the GitHub Issue
+#### Fetch the GitHub Issue
 
 The following code snippet fetches the issue from a specified GitHub repository.
 
@@ -337,11 +337,11 @@ issue_body = response.json()["body"]
 - **response.status_code**: Checks if the request was successful.
 - **issue_body**: Extracts the body of the issue from the JSON response.
 
-#### How `Issue` Is Used in the Call to the Model
+#### How `Issue` is used in the call to the model
 
 The `Issue` model is used to specify the expected response format when sending a request to the GPT model. This approach makes sure the extracted information follows a specific schema.
 
-#### Sending a Request to the GPT Model
+#### Send a request to the GPT model
 
 ```python
 completion = client.beta.chat.completions.parse(
@@ -358,7 +358,7 @@ completion = client.beta.chat.completions.parse(
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `Issue` model.
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -375,7 +375,7 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
@@ -392,11 +392,11 @@ Issue(
 
 This example shows how to use the Azure OpenAI service to get structured information from a GitHub repository's README file. This walkthrough focuses only on the example code dealing with structured output.
 
-#### How `RepoOverview` Uses the Other Defined Models
+#### How `RepoOverview` uses the other defined models
 
 The `RepoOverview` model uses the `Language`, `AzureService`, and `Framework` enumerations to define a structured and validated schema for the extracted information. This model is used in the call to the GPT model to ensure that the response adheres to the expected format, providing type safety, validation, and readability. The script then parses, validates, and prints the extracted information, making it easy to work with in downstream applications.
 
-#### `RepoOverview` Model Definition
+#### `RepoOverview` model definition
 
 The `RepoOverview` model is a Pydantic model that defines the structure of the expected output from the GPT model. It uses the other defined models (`Language`, `AzureService`, and `Framework`) to ensure that the extracted information adheres to specific enumerations and types.
 
@@ -415,7 +415,7 @@ class RepoOverview(BaseModel):
 - **azure_services**: A list of `AzureService` enumeration values, representing the Azure services used in the project.
 - **frameworks**: A list of `Framework` enumeration values, representing the frameworks used in the project.
 
-#### Enumerations Used in `RepoOverview`
+#### Enumerations used in `RepoOverview`
 
 - **Language**: Defines possible values for programming languages.
 
@@ -474,7 +474,7 @@ completion = client.beta.chat.completions.parse(
 )
 ```
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -491,7 +491,7 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
@@ -509,7 +509,7 @@ RepoOverview(
 
 This example shows how to use the Azure OpenAI service to get structured information from an image of a graph. The `Graph` model defines the expected output structure, making sure the data is well-structured and validated. The script converts the image to a base64-encoded URI, sends it to the GPT model, and checks the response against the `Graph` model. This approach ensures the information is reliable and easy to work with, providing type safety and readability.
 
-#### Defining the `Graph` model
+#### Define the `Graph` model
 
 The `Graph` model is a Pydantic model that defines the structure of the expected output from the GPT model.
 
@@ -531,7 +531,7 @@ class Graph(BaseModel):
 > [!NOTE]
 > Using images as input needs extra steps for encoding and specifying the content type, but the overall process is similar to using text for structured output.
 
-#### Preparing the image for input
+#### Prepare the image for input
 
 To use an image as input for structured output, the script converts the image to a base64-encoded URI. This approach allows the image to be sent as part of the request to the GPT model.
 
@@ -551,7 +551,7 @@ image_url = open_image_as_base64("example_graph_treecover.png")
 > [!NOTE]
 > Example 4 builds on Example 3 by extending the concept of extracting structured information from text sources to extracting details from images. Example 4 shows how to handle visual data by converting a graph image to a base64-encoded URI and sending it to the GPT model. Example 4 introduces the `Graph` Pydantic model to make sure the extracted information from the image is well-structured and validated, similar to the approach used for text in Example 3.
 
-#### Sending a request to the GPT model
+#### Send a request to the GPT model
 
 The script sends a request to the GPT model to extract information from the image using structured outputs. The `Graph` model is specified as the expected response format. This approach makes sure the extracted information follows a specific schema.
 
@@ -579,11 +579,11 @@ completion = client.beta.chat.completions.parse(
 
 Using images as input for structured output differs from using text in several ways:
 
-1. **Input Format**: Convert images to a base64-encoded URI before sending them to the GPT model, while text can be sent directly.
-2. **Content Type**: You must specify the content type for images as `image_url`, while text is sent as plain text.
-3. **Processing**: The GPT model processes images differently from text, extracting visual information and converting it into structured data based on the provided schema.
+- **Input Format**: Convert images to a base64-encoded URI before sending them to the GPT model, while text can be sent directly.
+- **Content Type**: You must specify the content type for images as `image_url`, while text is sent as plain text.
+- **Processing**: The GPT model processes images differently from text, extracting visual information and converting it into structured data based on the provided schema.
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -600,7 +600,7 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
@@ -618,7 +618,7 @@ Graph(
 
 This example shows how to use the Azure OpenAI service to extract structured information from an image of a table. The example converts the image to a base64-encoded URI, sends it to the GPT model, and validates the response against the `PlantInventory` model. The `Plant` and `PlantInventory` models define the expected output structure, ensuring that the extracted data is well-structured and validated.
 
-#### Defining the `Plant` and `PlantInventory` models
+#### Define the `Plant` and `PlantInventory` models
 
 The `Plant` and `PlantInventory` models are Pydantic models that define the structure of the expected output from the GPT model. This approach makes sure the extracted information follows a specific schema.
 
@@ -656,11 +656,11 @@ The `Plant` and `PlantInventory` models are Pydantic models that define the stru
     - **bulbs**: A list of `Plant` objects that are bulbs.
     - **grasses**: A list of `Plant` objects that are grasses.
 
-#### How `PlantInventory` Uses the `Plant` Model
+#### How `PlantInventory` uses the `Plant` model
 
 The `PlantInventory` model groups multiple `Plant` objects into lists. Each category (annuals, bulbs, grasses) is a list of `Plant` objects. This structure helps the example organize and check the plant data.
 
-#### Preparing the Image for Input
+#### Prepare the image for input
 
 To use an image as input, the following code snippet converts the image to a base64-encoded URI. This approach lets the image be sent in the request to the GPT model.
 
@@ -680,11 +680,11 @@ image_url = open_image_as_base64("example_table_plants.png")
 > [!NOTE]
 > Example 5 shows how to extract structured information from an image of a table. It introduces the `Plant` and `PlantInventory` Pydantic models to define the expected output structure, ensuring the extracted data is well-organized and validated. This approach shows how to handle more detailed and nested data while keeping the structured output method used in Example 4.
 
-#### Using the models in the call to the GPT model
+#### Use the models in the call to the GPT model
 
 The following code snippet sends a request to the GPT model to extract information from an image of a table using structured outputs. The `PlantInventory` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
 
-#### Sending a request to the GPT model
+#### Send a request to the GPT model
 
 ```python
 completion = client.beta.chat.completions.parse(
@@ -706,7 +706,7 @@ completion = client.beta.chat.completions.parse(
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `PlantInventory` model.
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -723,7 +723,7 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
@@ -759,12 +759,12 @@ PlantInventory(
     ]
 )
 ```
- 
-### Example 6: Parses a local PDF receipt by converting to Markdown and then extracting order details
+
+### Example 6: Parse a local PDF receipt by converting to Markdown and then extracting order details
 
 This example shows how to use the Azure OpenAI service to extract structured information from a PDF receipt. The `Item` and `Receipt` models define the expected output structure, ensuring the data is well-structured and validated. The example converts the PDF to markdown text, sends it to the GPT model, and checks the response against the `Receipt` model. Using PDF files as input needs extra steps for content extraction and conversion, but the process is similar to using text for structured output.
 
-#### Extracting from PDF files
+#### Extract from PDF files
 
 Similar to using images as input, you extract the PDF as text. You can use a hosted service like [Azure Document Intelligence](/azure/ai-services/document-intelligence/overview) or a local Python package like [pymupdf](https://pymupdf.readthedocs.io/en/latest/pymupdf4llm/index.html#).
 
@@ -772,11 +772,11 @@ Similar to using images as input, you extract the PDF as text. You can use a hos
 
 Using PDF files as input for structured output differs from using text in several ways:
 
-1. **Input Format**: Convert PDF files to markdown text before sending them to the GPT model. Text can be sent directly.
-2. **Content Extraction**: Extract and convert the PDF content to markdown text that the GPT model can process.
-3. **Processing**: The GPT model processes the extracted text from the PDF and converts it into structured data based on the provided schema.
+- **Input Format**: Convert PDF files to markdown text before sending them to the GPT model. Text can be sent directly.
+- **Content Extraction**: Extract and convert the PDF content to markdown text that the GPT model can process.
+- **Processing**: The GPT model processes the extracted text from the PDF and converts it into structured data based on the provided schema.
 
-#### Defining the `Item` and `Receipt` models
+#### Define the `Item` and `Receipt` models
 
 The `Item` and `Receipt` models are Pydantic models that define the structure of the expected output from the GPT model. This approach makes sure the extracted information follows a specific schema.
 
@@ -813,7 +813,7 @@ The `Item` and `Receipt` models are Pydantic models that define the structure of
 > [!NOTE]
 > Example 6 builds on Example 5 by extending the concept of extracting structured information from images to handling PDF files. Example 6 shows an extra step converting the PDF file to markdown text as input to the GPT model, while keeping the structured output method used in Example 5.
 
-#### Using the Models in the Call to the GPT Model
+#### Use the models in the call to the GPT Model
 
 The example sends a request to the GPT model to extract information from a PDF receipt using structured outputs. The `Receipt` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
 
@@ -832,7 +832,7 @@ completion = client.beta.chat.completions.parse(
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `Receipt` model.
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -849,7 +849,7 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
@@ -861,15 +861,15 @@ Receipt(total=242.05, shipping=0.0, payment_method='Credit Card', items=[Item(pr
 
 This example shows how to use the Azure OpenAI service to extract structured information from a blog post. The `BlogPost` model defines the expected output structure, ensuring the extracted data is well-structured and validated. The example fetches the webpage, extracts the relevant content, sends it to the GPT model, and validates the response against the `BlogPost` model.
 
-#### Using Web Pages for input vs. using text
+#### Using web pages for input vs. using text
 
 Using web pages as input for structured output differs from using text in several ways:
 
-1. **Input Format**: Fetch and parse web pages to extract relevant content before sending them to the GPT model. Text can be sent directly.
-2. **Content Extraction**: Extract and convert the webpage content to a text format that the GPT model can process.
-3. **Processing**: The GPT model processes the extracted text from the webpage and converts it into structured data based on the provided schema.
+- **Input Format**: Fetch and parse web pages to extract relevant content before sending them to the GPT model. Text can be sent directly.
+- **Content Extraction**: Extract and convert the webpage content to a text format that the GPT model can process.
+- **Processing**: The GPT model processes the extracted text from the webpage and converts it into structured data based on the provided schema.
 
-#### Defining the `BlogPost` model
+#### Define the `BlogPost` model
 
 The `BlogPost` model is a Pydantic model that defines the structure of the expected output from the GPT model. This approach makes sure the extracted information follows a specific schema.
 
@@ -884,7 +884,7 @@ class BlogPost(BaseModel):
 - **summary**: A brief summary of the blog post.
 - **tags**: Tags associated with the blog post.
 
-#### Preparing the Webpage for input
+#### Prepare the webpage for input
 
 To use a webpage as input for structured output, the following code snippet fetches the webpage content and extracts the relevant parts (title and body) using the BeautifulSoup Python library. This process prepares the content of the webpage to be sent to the GPT model.
 
@@ -907,7 +907,7 @@ post_contents = soup.find("div", class_="post-body").get_text(strip=True)
 > [!NOTE]
 > Example 7 builds on Example 6 by extending the concept of extracting structured information from PDFs to handling web pages. This approach shows how to handle web content by parsing the webpage with BeautifulSoup. Then the parsed content is sent to the GPT model and returns structured output as the `BlogPost` model.
 
-#### Using `BlogPost` in the call to the model
+#### Use `BlogPost` in the call to the model
 
 The following code snippet sends a request to the GPT model to extract information from the prepared web page text (`post_title` and `post_contents`) using structured outputs. The `BlogPost` model is specified as the expected response format, which ensures that the extracted data is structured according to the defined schema.
 
@@ -922,11 +922,11 @@ completion = client.beta.chat.completions.parse(
 )
 ```
 
-- **model**- **model**: The GPT model to use.
+- **model**: The GPT model to use.
 - **messages**: A list of messages for the model. The system message gives instructions, and the user message has the image URL.
 - **response_format**: The expected response format using the `BlogPost` model.
 
-#### Parsing and validating the response
+#### Parse and validate the response
 
 The following code snippet handles the response from the GPT model. It first extracts the message from the response. Then, it checks if the model refused to process the request. If there's a refusal, it prints the refusal message. Otherwise, it prints the parsed response, which contains the structured information extracted. This approach ensures that the script can handle both successful and unsuccessful responses from the GPT model.
 
@@ -943,7 +943,7 @@ else:
 - **print(message.refusal)**: Prints the refusal message if the model refused the request.
 - **print(message.parsed)**: Prints the parsed response if the extraction was successful.
 
-#### Viewing the response
+#### View the response
 
 The parsed response should be similar to the following snippet:
 
