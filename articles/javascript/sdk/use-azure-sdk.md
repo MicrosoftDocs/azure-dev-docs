@@ -97,7 +97,7 @@ Learn more:
 
 ## Verbose logging from the SDK
 
-When you developer with an Azure SDK, there may be times when you need to debug your application.
+When you're developing using the Azure SDK, there may be times when you need to debug your application.
 
 * To enable logging at **build-time**, set the AZURE_LOG_LEVEL environment variable to `info`.
 * To enable logging at **run-time**, use the [@azure/logger](https://www.npmjs.com/package/@azure/logger) package:
