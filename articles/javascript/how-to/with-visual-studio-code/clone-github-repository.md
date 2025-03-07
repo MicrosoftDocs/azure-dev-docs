@@ -42,13 +42,13 @@ This action isn't available from this feature. Select a different tab.
 1. Clone your repo with the following git command:
 
     ```bash
-    git clone https://github.com/YOUR-NAME-OR-ORGANIZATION/YOUR-REPO-NAME
+    git clone https://github.com/<ACCOUNT>/<REPOSITORY>
     ```
 
 1. Open in Visual Studio Code:
 
     ```bash
-    code YOUR-REPO-NAME
+    code <REPOSITORY>
     ```
 
 ---
@@ -57,7 +57,7 @@ Visual Studio Code uses Git authentication provided by the operating system (suc
 
 ## Open your local repository
 
-If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and display the relevant information. 
+If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and displays the relevant information. 
 
 ### [Activity bar](#tab/activity-bar)
 
@@ -170,7 +170,7 @@ Create a new branch to capture changes and isolate from the main or default bran
 
 ## Commit changes locally
 
-Once you have made changes on your branch, commit the changes.
+Once you make changes to files on your branch, commit the changes.
 
 ### [Activity bar](#tab/activity-bar)
 
@@ -220,7 +220,7 @@ This action isn't available from this feature. Select a different tab.
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Push`.
-1. If you have multiple upstream remotes, select the remote then press <kbd>Enter</kbd>.
+1. If you have multiple upstream remotes, select a remote name then press <kbd>Enter</kbd>.
 
 
 ### [Integrated terminal](#tab/integrated-terminal)
@@ -236,7 +236,7 @@ This action isn't available from this feature. Select a different tab.
 
 ## View Git output
 
-You can view the Git commands run when you use the Source control extension. This helps debug when a command fails.
+You can view the Git commands output when you use the Source control extension. This helps debug when a command fails.
 
 1. Select the Source Control icon from the activity bar.
 1. Select the ellipsis (...) then select **Show Git Output**.
