@@ -1,6 +1,6 @@
 items:
 - name: Spring Cloud Azure
-  href: index.yml
+  hr  ef: index.yml
   items:
   - name: Overview
     expanded: true
@@ -168,6 +168,12 @@ items:
       href: redis-support.md
     - name: Azure Resource Manager
       href: resource-manager.md
+    - name: Native image applications
+      items:
+      - name: Configuration
+        href: native-applications.md
+      - name: Monitoring
+        href: "https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-monitor/README.md"
     - name: Testing
       items:
       - name: Testcontainers
