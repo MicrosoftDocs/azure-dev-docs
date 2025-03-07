@@ -11,8 +11,8 @@ ms.custom: devx-track-terraform
 
 The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows across various Azure workflows. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure.
 
-[!NOTE]
-You do not need to register to this resource provider to deploy Azure resources in Terraform.**
+> [!NOTE]
+> You do not need to register to this resource provider to deploy Azure resources in Terraform.**
 
 ## Registration
 ### Terminal
