@@ -38,10 +38,11 @@ This article provides setup instructions to create and validate a local developm
     :::column-end:::
     :::column span="2":::
         If you already have a subscription, access your existing subscription with:
-* [Azure portal](https://portal.azure.com)
-* [Azure CLI](/cli/azure/install-azure-cli)
-* [Azure client libraries for JavaScript](../azure-sdk-library-package-index.md)
-* [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
+
+        * [Azure portal](https://portal.azure.com)
+        * [Azure CLI](/cli/azure/install-azure-cli)
+        * [Azure client libraries for JavaScript](../azure-sdk-library-package-index.md)
+        * [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
     :::column-end:::
 :::row-end:::
 :::row:::
