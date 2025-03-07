@@ -8,7 +8,7 @@ ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 
 # Configure your JavaScript develop environment for Azure
 
-When creating cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar environment.
+When you create cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar environment.
 
 This article provides setup instructions to create and validate a local development environment that's suitable for JavaScript with Azure.
 
@@ -55,7 +55,7 @@ This article provides setup instructions to create and validate a local developm
 
 ## One-time software installation
 
-Azure development with JavaScript on your local workstation, we suggest you install the following:
+Azure development with JavaScript on your local workstation, we suggest you install the following tools:
 
 |Name/Installer|Description|
 |--|--|
@@ -136,7 +136,7 @@ set AZURE_CLIENT_SECRET="<REPLACE-WITH-YOUR-AZURE-CLIENT-SECRET>"
 
 ---
 
-Replace the values shown in these commands with those of your specific environment variable.
+Replace the values in `<>` brackets in these commands with those of your specific environment variable.
 
 ### Create `.env` file 
 
@@ -158,9 +158,9 @@ For every project, we recommend that you always create a separate folder, and it
     npm init -y
     ```
 
-    This creates the package.json file and initializes the minimum properties.
+    This command creates the package.json file and initializes the minimum properties.
 
-1. Install the Azure cl libraries you need, such as this example:
+1. Install the Azure client libraries you need, such as this authentication client library example:
 
     ```console
     npm install @azure/identity
