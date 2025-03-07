@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform
 The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows across various Azure workflows. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure.
 
 > [!NOTE]
-> You do not need to register to this resource provider to deploy Azure resources in Terraform.**
+> You do not need to register to this resource provider to deploy Azure resources in Terraform.
 
 ## Registration
 ### Terminal
@@ -28,16 +28,16 @@ Export functionality is based on the preexisting [Azure Export for Terraform too
 The Portal experience is coming soon.
 
 ### Azure CLI
-Follow the [Azure CLI guide](/cli/azure/terraform)
+Follow the [Azure CLI guide](/cli/azure/terraform).
 
 ### Azure PowerShell
-Follow the [Azure PowerShell guide](/powershell/module/az.terraform/)
+Follow the [Azure PowerShell guide](/powershell/module/az.terraform/).
 
 ### REST
-Follow the [REST API reference](/rest/api/terraform/terraform/)
+Follow the [REST API reference](/rest/api/terraform/terraform/).
 
 ### Go SDK
-Follow the [Go SDK reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/terraform/armterraform)
+Follow the [Go SDK reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/terraform/armterraform).
 
 ### Export Limitations
 As the export experience is based on [Azure Export for Terraform](../azure-export-for-terraform/export-terraform-overview.md), its limitations are nearly identical to the binary. Refer to the [limitations section of the binary documentation](../azure-export-for-terraform/export-terraform-concepts.md).
