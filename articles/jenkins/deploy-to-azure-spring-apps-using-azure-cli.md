@@ -234,7 +234,7 @@ The sample pipeline uses Maven to build and Azure CLI to deploy to the service i
 
 1. For **SCM**, select **Git**.
 
-1. Enter the GitHub URL for your forked repo: `https://github.com/&lt;your GitHub id&gt;/piggymetrics.git`
+1. Enter the GitHub URL for your forked repo: `https://github.com/&lt;your GitHub id&gt;/piggymetrics.git`.
 
 1. For **Branch Specifier (black for 'any')**, select **/Azure**.
 
