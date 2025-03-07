@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 01/07/2025
+ms.date: 03/07/2025
 ms.topic: how-to
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -180,10 +180,10 @@ We recommend that you get into the habit of creating a source control repository
 
 1. Create a new repository on [GitHub](https://github.com/new) and copy the repository URL for the next few step. 
 
-1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `YOUR-ALIAS` and `YOUR-REPOSITORY` with your own values.
+1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `<YOUR-ACCOUNT>` and `<REPOSITORY>` with your own values.
 
     ```bash
-    git remote add origin https://github.com/YOUR-ALIAS/YOUR-REPOSITORY
+    git remote add origin https://github.com/<YOUR-ACCOUNT>/<REPOSITORY>
     ```
 
 Visual Studio Code includes many built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).

@@ -126,10 +126,10 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     >
     > :::image type="content" source="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" lightbox="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
-1. Clone your fork into the current directory. Replace `YOUR-ACCOUNT` in the following command with your account name.
+1. Clone your fork into the current directory. Replace `<YOUR-ACCOUNT>` in the following command with your account name.
 
     ```bash
-    git clone https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps
+    git clone https://github.com/<YOUR-ACCOUNT>/azure-typescript-e2e-apps
     ```
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
@@ -406,7 +406,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
     ###### End of Repository/Build Configurations ######
     ```
 
-1. Go to your GitHub fork of the sample, `https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps/actions` to verify the build and deploy action, named `Azure Static Web Apps CI/CD`, completed successfully. This may take a few minutes to complete.
+1. Go to your GitHub fork of the sample, `https://github.com/<YOUR-ACCOUNT>/azure-typescript-e2e-apps/actions` to verify the build and deploy action, named `Azure Static Web Apps CI/CD`, completed successfully. This may take a few minutes to complete.
 
 1. Go to your Azure portal for your app and view the **APIs** section of **Settings**. The **Backend Resource Name** in the production environment is `(managed)` indicating your APIs are successfully deployed. 
 1. Select **(managed)** to see the list of APIs loaded in the app:

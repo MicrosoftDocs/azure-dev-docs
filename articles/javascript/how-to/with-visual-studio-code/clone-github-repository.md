@@ -42,13 +42,13 @@ This action isn't available from this feature. Select a different tab.
 1. Clone your repo with the following git command:
 
     ```bash
-    git clone https://github.com/YOUR-NAME-OR-ORGANIZATION/YOUR-REPO-NAME
+    git clone https://github.com/<ACCOUNT>/<REPOSITORY>
     ```
 
 1. Open in Visual Studio Code:
 
     ```bash
-    code YOUR-REPO-NAME
+    code <REPOSITORY>
     ```
 
 ---
