@@ -49,7 +49,7 @@ This article provides setup instructions to create and validate a local developm
     :::column span="1":::
         Across multiple subscriptions
     :::column-end:::
-    :::column span="2" :::
+    :::column span="2":::
         If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.
     :::column-end:::
 :::row-end:::
