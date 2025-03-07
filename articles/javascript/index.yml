@@ -25,7 +25,7 @@ highlightedContent:
       url: ./core/configure-local-development-environment.md
     - itemType: get-started
       title: Azure SDK for JavaScript
-      url: ./core/use-azure-sdk.md
+      url: ./sdk/use-azure-sdk.md
     - itemType: quickstart
       title: Authenticate to Azure SDK
       url: ./sdk/authentication/local-development-environment-service-principal.md
@@ -145,7 +145,7 @@ conceptualContent:
         links:
           - itemType: concept
             text: Getting started
-            url: ./core/use-azure-sdk.md
+            url: ./sdk/use-azure-sdk.md
           - itemType: how-to-guide
             text: Install Azure client libraries
             url: ./sdk/azure-sdk-install.md
