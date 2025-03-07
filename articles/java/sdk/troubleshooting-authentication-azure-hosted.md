@@ -73,10 +73,10 @@ When you use `ManagedIdentityCredential`, you can optionally try/catch for `Cred
 
 #### Verify that the App Service Managed Identity endpoint is available
 
-If you have access to SSH into the App Service instance, you can verify that managed identity is available in the environment. First, ensure that you've set the environment variables `MSI_ENDPOINT` and `MSI_SECRET` in the environment. Then, you can verify that the managed identity endpoint is available using `curl`, as shown in the following example:
+If you have access to SSH into the App Service instance, you can verify that managed identity is available in the environment. Use `curl` to validate that the managed identity is available, as shown in the following example:
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?resource=https://management.core.windows.net&api-version=2018-02-01' -H "Metadata: true"
+curl "$IDENTITY_ENDPOINT?resource=https://management.core.windows.net&api-version=2019-08-01" -H "X-IDENTITY-HEADER: $IDENTITY_HEADER"
 ```
 
 > [!WARNING]
