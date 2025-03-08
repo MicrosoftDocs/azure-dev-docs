@@ -79,8 +79,8 @@
       items:
         - name: AI + Machine Learning
           items:
-            - name: 
-              items: Azure AI Foundry
+            - name: Azure AI Foundry 
+              items: 
                 - name: Create an Azure AI Foundry hub
                   href: /azure/ai-foundry/how-to/create-hub-terraform
             - name: Azure AI services
