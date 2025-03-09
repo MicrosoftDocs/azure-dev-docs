@@ -4,8 +4,9 @@ description: Learn how to integrate GitHub Actions with Azure Key Vault to secur
 ms.author: jukullam
 author: juliakm
 ms.topic: quickstart
-ms.service: azure-keyvault
+ms.service: azure-key-vault
 ms.subservice: secrets
+ms.date: /3/9/2025
 ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-githubactions
 ---
 
@@ -161,7 +162,7 @@ jobs:
 
 ## Additional References
 
-- **[Federated Identity](../../../../entra-docs/docs/external-id/what-is-b2b.md)**
-- **[Service Tags in Network Security Rules](../../../../azure-docs/articles/virtual-network/service-tags-overview.md)**
+- **[Federated Identity](~/_entra-docs/docs/external-id/what-is-b2b.md)**
+- **[Service Tags in Network Security Rules](~/_azure-docs/articles/virtual-network/service-tags-overview.md)**
 - **[Sing-in with OpenID Connect](connect-from-azure-openid-connect.md)**
 - **[Sign in with a service principal and secret](connect-from-azure-secret.md)**
