@@ -1,12 +1,11 @@
 --- 
 title: Securely Manage Secrets with GitHub Actions and Azure Key Vault
 description: Learn how to integrate GitHub Actions with Azure Key Vault to securely store and retrieve secrets in your workflows.
-author: theluckyprogrammer 
-ms.author: theluckyprogrammer 
+ms.author: jukullam
+author: juliakm
 ms.topic: quickstart
 ms.service: azure-keyvault
-ms.subservice: 
-ms.date: 05/03/2025
+ms.subservice: secrets
 ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-githubactions
 ---
 
@@ -48,34 +47,34 @@ Federated identity allows external identities, like GitHub, to access Azure reso
 ### Step 1: Configure Federated Identity in Azure
 
 1. **Sign in to Azure**:
-   ```sh
-   az login
-   ```
+```sh
+az login
+```
 
 2. **Set your subscription**:
-   ```sh
-   az account set --subscription <SUBSCRIPTION_ID>
-   ```
+```sh
+az account set --subscription <SUBSCRIPTION_ID>
+```
 
 3. **Create a Service Principal**:
-   ```sh
-   az ad sp create --id <CLIENT_ID>
-   ```
+```sh
+az ad sp create --id <CLIENT_ID>
+```
 
 4. **Create a Federated Credential**:
-   ```sh
-   az ad app federated-credential create --id <CLIENT_ID> --parameters '{
-     "name": "github-oidc",
-     "issuer": "https://token.actions.githubusercontent.com",
-     "subject": "repo:<GITHUB_ORG>/<REPO>:ref:refs/heads/main",
-     "audiences": ["api://AzureADTokenExchange"]
-   }'
-   ```
+```sh
+az ad app federated-credential create --id <CLIENT_ID> --parameters '{
+  "name": "github-oidc",
+  "issuer": "https://token.actions.githubusercontent.com",
+  "subject": "repo:<GITHUB_ORG>/<REPO>:ref:refs/heads/main",
+  "audiences": ["api://AzureADTokenExchange"]
+}'
+```
 
 5. **Grant Key Vault Access**:
-   ```sh
-   az keyvault set-policy --name <KEYVAULT_NAME> --spn <CLIENT_ID> --secret-permissions get list
-   ```
+```sh
+az keyvault set-policy --name <KEYVAULT_NAME> --spn <CLIENT_ID> --secret-permissions get list
+```
 ___
 # [Service principal](#tab/userlevel)
 
@@ -157,12 +156,12 @@ jobs:
 - Rotate secrets regularly when using a service principal.
 - Enable auditing in Azure Key Vault to monitor access attempts.
 - Use GitHub Actions environment protection rules to restrict workflows running with elevated permissions.
-- Always use `echo "::add-mask::"` when handling secrets in workflows to prevent accidental exposure in logs.
+- Use `echo "::add-mask::"` when handling secrets in workflows to prevent accidental exposure in logs.
 - Creating Service Principal, consider least privileged role
 
 ## Additional References
 
-- **[Federated Identity](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b)**
-- **[Service Tags in Network Security Rules](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview)**
-- **[Sing-in with OpenID Connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect)**
-- **[Sign in with a service principal and secret](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-secret)**
+- **[Federated Identity](../../../../entra-docs/docs/external-id/what-is-b2b.md)**
+- **[Service Tags in Network Security Rules](../../../../azure-docs/articles/virtual-network/service-tags-overview.md)**
+- **[Sing-in with OpenID Connect](connect-from-azure-openid-connect.md)**
+- **[Sign in with a service principal and secret](connect-from-azure-secret.md)**
