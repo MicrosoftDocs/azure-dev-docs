@@ -9,7 +9,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 07/10/2024
+  ms.date: 03/10/2025
   ms.topic: landing-page
   ms.service: azure-javascript
   ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
@@ -53,6 +53,9 @@ conceptualContent:
           - itemType: how-to-guide
             text: Deployment choices for your web app to Azure
             url: ./how-to/deploy-web-app.md
+          - itemType: overview
+            text: API development
+            url: /azure/developer/typespec
       - title: Create AI apps
         links:
           - itemType: overview
@@ -160,6 +163,9 @@ conceptualContent:
             url: ./sdk/loop-over-data.md
       - title: Developer guides
         links:
+          - itemType: concept
+            text: Containerized apps for JS developers
+            url: /azure/container-apps/javascript-overview
           - itemType: concept
             text: GraphQL for Azure
             url: ./graphql-developer-guide.md
