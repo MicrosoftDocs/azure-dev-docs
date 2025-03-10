@@ -430,7 +430,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.33.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.33.2) |  | GitHub [1.33.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.33.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.33.3) |  | GitHub [1.33.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.32](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.32) |  | GitHub [1.0.0-beta.32](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -497,7 +497,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250306.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250306.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250309.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250309.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
