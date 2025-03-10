@@ -32,7 +32,7 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 **Samples**:
 
 * [Static Web Apps community samples](https://github.com/microsoft/static-web-apps-gallery-code-samples) are a great way to find a code to use a starter for your project.
-* [Static Web App starter projects](https://github.com/staticwebdev/) are another great way to start your project.
+
 
 ## What is a Static Web App?
 
@@ -74,7 +74,7 @@ Including Azure Functions allows you to develop a full-stack web site without ne
 
 Use the Visual Studio Code [extension for Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) to create your local folder structure and initial dependencies.
 
-1. Fork one of the [GitHub templates repositories](https://github.com/staticwebdev/) for your client and API choice or [create a new repository](https://github.com/new).
+1. [Create a new repository](https://github.com/new).
 1. In Visual Studio Code, create a new Static Web App.
 1. In the creation steps, select your repository fork and branch.
 

@@ -1,14 +1,14 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 01/07/2025
+ms.date: 03/07/2025
 ms.topic: how-to
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
 
 # Configure your JavaScript develop environment for Azure
 
-When creating cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar environment.
+When you create cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar environment.
 
 This article provides setup instructions to create and validate a local development environment that's suitable for JavaScript with Azure.
 
@@ -38,24 +38,25 @@ This article provides setup instructions to create and validate a local developm
     :::column-end:::
     :::column span="2":::
         If you already have a subscription, access your existing subscription with:
-* [Azure portal](https://portal.azure.com)
-* [Azure CLI](/cli/azure/install-azure-cli)
-* [Azure client libraries for JavaScript](../azure-sdk-library-package-index.md)
-* [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
+
+        * [Azure portal](https://portal.azure.com)
+        * [Azure CLI](/cli/azure/install-azure-cli)
+        * [Azure client libraries for JavaScript](../azure-sdk-library-package-index.md)
+        * [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="1":::
         Across multiple subscriptions
     :::column-end:::
-    :::column span="2" :::
+    :::column span="2":::
         If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.
     :::column-end:::
 :::row-end:::
 
 ## One-time software installation
 
-Azure development with JavaScript on your local workstation, we suggest you install the following:
+Azure development with JavaScript on your local workstation, we suggest you install the following tools:
 
 |Name/Installer|Description|
 |--|--|
@@ -136,7 +137,7 @@ set AZURE_CLIENT_SECRET="<REPLACE-WITH-YOUR-AZURE-CLIENT-SECRET>"
 
 ---
 
-Replace the values shown in these commands with those of your specific environment variable.
+Replace the values in `<>` brackets in these commands with those of your specific environment variable.
 
 ### Create `.env` file 
 
@@ -158,9 +159,9 @@ For every project, we recommend that you always create a separate folder, and it
     npm init -y
     ```
 
-    This creates the package.json file and initializes the minimum properties.
+    This command creates the package.json file and initializes the minimum properties.
 
-1. Install the Azure cl libraries you need, such as this example:
+1. Install the Azure client libraries you need, such as this authentication client library example:
 
     ```console
     npm install @azure/identity
@@ -180,10 +181,10 @@ We recommend that you get into the habit of creating a source control repository
 
 1. Create a new repository on [GitHub](https://github.com/new) and copy the repository URL for the next few step. 
 
-1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `YOUR-ALIAS` and `YOUR-REPOSITORY` with your own values.
+1. In the Visual Studio integrated terminal, use the following [git](https://git-scm.com/docs) command to add your remote repository to your local repository. Replace `<YOUR-ACCOUNT>` and `<REPOSITORY>` with your own values.
 
     ```bash
-    git remote add origin https://github.com/YOUR-ALIAS/YOUR-REPOSITORY
+    git remote add origin https://github.com/<YOUR-ACCOUNT>/<REPOSITORY>
     ```
 
 Visual Studio Code includes many built-in git features. For more information, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol).
