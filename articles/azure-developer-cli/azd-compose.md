@@ -35,11 +35,17 @@ The `azd` compose feature introduces a third option to add Azure resources to yo
 
 The `azd compose` feature supports adding resources for the following Azure Services:
 
+- Azure AI Services models and Azure AI Foundry
 - Azure Container Apps
-- Azure OpenAI with Microsoft Entra ID authentication
+- Azure Cosmos DB
 - Azure Cosmos DB for MongoDB
 - Azure Cosmos DB for PostgreSQL
 - Azure Cache for Redis
+- Azure Database for MySQL
+- Azure Key Vault
+- Azure OpenAI with Microsoft Entra ID authentication
+- Azure Service Bus and Azure Event Hubs
+- Azure Blob Storage
 
 ## Enable the compose feature
 
