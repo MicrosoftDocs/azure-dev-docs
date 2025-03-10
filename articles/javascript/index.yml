@@ -54,7 +54,7 @@ conceptualContent:
             text: Deployment choices for your web app to Azure
             url: ./how-to/deploy-web-app.md
           - itemType: overview
-            text: API development
+            text: API development with TypeSpec
             url: /azure/developer/typespec
       - title: Create AI apps
         links:
