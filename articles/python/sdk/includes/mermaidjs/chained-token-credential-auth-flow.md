@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/07/2024
+ms.date: 03/10/2025
 ---
 
 ```mermaid
@@ -21,9 +21,8 @@ ms.date: 08/07/2024
 }%%
 
 flowchart LR;
-    C(Managed Identity):::deployed --> D(Azure CLI):::developer;
+    E(Azure CLI):::developer --> G(Azure Developer CLI):::developer;
 
     %% Define styles for credential type boxes
-    classDef deployed fill:#95C37E, stroke:#71AD4C, stroke-width:2px;
     classDef developer fill:#F5AF6F, stroke:#EB7C39, stroke-width:2px;
 ```
