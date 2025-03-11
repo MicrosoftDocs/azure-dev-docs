@@ -1,16 +1,16 @@
 ---
-title: 'Credential chains in the Azure Identity client library for Java'
+title: 'Credential chains in the Azure Identity library for Java'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
-ms.date: 11/12/2024
+ms.date: 03/10/2025
 ms.topic: conceptual
 author: scottaddie
 ms.author: karler
 ms.reviewer: scaddie
 ---
 
-# Credential chains in the Azure Identity client library for Java
+# Credential chains in the Azure Identity library for Java
 
-The Azure Identity client library provides *credentials* - public classes that implement the Azure Core library's [TokenCredential](/java/api/com.azure.core.credential.tokencredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/java/api/com.azure.core.credential.tokencredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
@@ -105,36 +105,32 @@ import com.azure.identity.AzureCliCredential;
 import com.azure.identity.AzureCliCredentialBuilder;
 import com.azure.identity.ChainedTokenCredential;
 import com.azure.identity.ChainedTokenCredentialBuilder;
-import com.azure.identity.ManagedIdentityCredential;
-import com.azure.identity.ManagedIdentityCredentialBuilder;
+import com.azure.identity.IntelliJCredential;
+import com.azure.identity.IntelliJCredentialBuilder;
 
 // Code omitted for brevity
 
-ManagedIdentityCredential miCredential = new ManagedIdentityCredentialBuilder()
-    .clientId(userAssignedClientId)
-    .build();
 AzureCliCredential cliCredential = new AzureCliCredentialBuilder()
+    .build();
+IntelliJCredential ijCredential = new IntelliJCredentialBuilder()
     .build();
 
 ChainedTokenCredential credential = new ChainedTokenCredentialBuilder()
-    .addLast(miCredential)
     .addLast(cliCredential)
+    .addLast(ijCredential)
     .build();
 ```
 
-The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
+The preceding code sample creates a tailored credential chain comprised of two development-time credentials. `AzureCliCredential` is attempted first, followed by `IntelliJCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of managed identity credential and Azure CLI credential.":::
+:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of the Azure CLI and IntelliJ credentials.":::
 
 > [!TIP]
-> For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
+> For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
 
 ## Usage guidance for DefaultAzureCredential
 
-`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
-
-- A specific credential implementation, such as `ManagedIdentityCredential`.
-- A pared-down `ChainedTokenCredential` implementation optimized for the Azure environment in which your app runs.
+`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`.
 
 Here's why:
 
@@ -162,7 +158,6 @@ In the preceding output, notice that:
 
 - `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `IntelliJCredential` each failed to acquire a Microsoft Entra access token, in that order.
 - The `AzureCliCredential.getToken` call succeeds, as indicated by the `returns a token`-suffixed entry. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
-
 
 <!-- LINKS -->
 [env-vars]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md#environment-variables

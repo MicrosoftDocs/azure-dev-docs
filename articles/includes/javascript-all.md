@@ -403,20 +403,20 @@
 | @typespec/tspd | npm [0.47.0-dev.0](https://www.npmjs.com/package/@typespec/tspd/v/0.47.0-dev.0) |  |  |
 | @typespec/xml | npm [0.66.0](https://www.npmjs.com/package/@typespec/xml/v/0.66.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
-| App Configuration Provider | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/1.0.1-preview) |  |  |
+| App Configuration Provider | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/1.1.1-preview) |  |  |
 | App Configuration Provider | npm [2.0.1](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.0.1) |  |  |
-| App Configuration Provider File Source | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.0.1-preview) |  |  |
+| App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.11](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.11) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.2.0) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.2.1) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.11.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.66.0](https://www.npmjs.com/package/@typespec/events/v/0.66.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.1.12](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.12) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.7.0) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.11](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.11) |  |  |
+| Unknown Display Name | npm [0.7.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.7.1) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.12](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.12) |  |  |
 | Unknown Display Name | npm [0.66.0](https://www.npmjs.com/package/@typespec/sse/v/0.66.0) |  |  |
 | Unknown Display Name | npm [0.66.0](https://www.npmjs.com/package/@typespec/streams/v/0.66.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
@@ -430,7 +430,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.33.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.33.2) |  | GitHub [1.33.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.33.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.33.3) |  | GitHub [1.33.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.32](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.32) |  | GitHub [1.0.0-beta.32](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -497,7 +497,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250306.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250306.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250309.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250309.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -578,7 +578,7 @@
 | AutoRest - Go | npm [4.0.0-preview.70](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.70) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.29.0](https://www.npmjs.com/package/@autorest/python/v/6.29.0) |  | GitHub [6.29.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.29.1](https://www.npmjs.com/package/@autorest/python/v/6.29.1) |  | GitHub [6.29.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |

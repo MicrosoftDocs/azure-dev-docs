@@ -1,20 +1,20 @@
 ---
-title: Credential chains in the Azure Identity client library for Python
+title: Credential chains in the Azure Identity library for Python
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
-ms.date: 11/12/2024
+ms.date: 03/10/2025
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Credential chains in the Azure Identity client library for Python
+# Credential chains in the Azure Identity library for Python
 
-The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
 At runtime, a credential chain attempts to authenticate using the sequence's first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. The following sequence diagram illustrates this behavior:
 
-:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Diagram that shows Credential chain sequence.":::
+:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Diagram that shows credential chain sequence.":::
 
 ## Why use credential chains
 
@@ -48,16 +48,16 @@ There are two disparate philosophies to credential chaining:
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
-| Order | Credential          | Description | Enabled by default? |
-|-------|---------------------|-------------|---------------------|
-| 1     | [Environment][env-cred]         |Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally.             | Yes                 |
-| 2     | [Workload Identity][wi-cred]   |If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.             | Yes                 |
-| 3     | [Managed Identity][mi-cred]    |If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.             | Yes                 |
-| 4     | [Shared Token Cache][vs-cred]       |On Windows only, if the developer authenticated to Azure by logging into Visual Studio, authenticate the app to Azure using that same account.           | Yes                 |
-| 5     | [Azure CLI][az-cred]           |If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.             | Yes                 |
-| 6     | [Azure PowerShell][pwsh-cred]    |If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.             | Yes                 |
-| 7     | [Azure Developer CLI][azd-cred] |If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.             | Yes                 |
-| 8     | [Interactive browser][int-cred]         |If enabled, interactively authenticate the developer via the current system's default browser.             | No                  |
+| Order | Credential                      | Description                                                                                                                                                                                                                                                                                                                                    | Enabled by default? |
+|-------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| 1     | [Environment][env-cred]         | Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally. | Yes                 |
+| 2     | [Workload Identity][wi-cred]    | If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.                                                                                                                                                                                                                                             | Yes                 |
+| 3     | [Managed Identity][mi-cred]     | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                              | Yes                 |
+| 4     | [Shared Token Cache][vs-cred]   | On Windows only, if the developer authenticated to Azure by logging into Visual Studio, authenticate the app to Azure using that same account.                                                                                                                                                                                                 | Yes                 |
+| 5     | [Azure CLI][az-cred]            | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                                           | Yes                 |
+| 6     | [Azure PowerShell][pwsh-cred]   | If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.                                                                                                                                                                                            | Yes                 |
+| 7     | [Azure Developer CLI][azd-cred] | If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.                                                                                                                                                                                                                  | Yes                 |
+| 8     | [Interactive browser][int-cred] | If enabled, interactively authenticate the developer via the current system's default browser.                                                                                                                                                                                                                                                 | No                  |
 
 [env-cred]: /python/api/azure-identity/azure.identity.environmentcredential
 [wi-cred]: /python/api/azure-identity/azure.identity.workloadidentitycredential
@@ -134,24 +134,21 @@ credential = ChainedTokenCredential(
 
 ```python
 credential = ChainedTokenCredential(
-    ManagedIdentityCredential(client_id=user_assigned_client_id),
-    AzureCliCredential()
+    AzureCliCredential(),
+    AzureDeveloperCliCredential()
 )
 ```
 
-The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
+The preceding code sample creates a tailored credential chain comprised of two development-time credentials. `AzureCliCredential` is attempted first, followed by `AzureDeveloperCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of managed identity credential and Azure CLI credential.":::
+:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of Azure CLI and Azure Developer CLI credentials.":::
 
 > [!TIP]
-> For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
+> For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
 
 ## Usage guidance for DefaultAzureCredential
 
-`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
-
-- A specific credential implementation, such as `ManagedIdentityCredential`.
-- A pared-down `ChainedTokenCredential` implementation optimized for the Azure environment in which your app runs.
+`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`.
 
 Here's why:
 
