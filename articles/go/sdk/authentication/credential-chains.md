@@ -27,7 +27,7 @@ A chained credential can offer the following benefits:
     if os.Getenv("WEBSITE_HOSTNAME") != "" {
         clientID := azidentity.ClientID("abcd1234-...")
         opts := azidentity.ManagedIdentityCredentialOptions{ID: clientID}
-        cred, err := azidentity.NewManagedIdentityCredential(&opts)
+        credential, err := azidentity.NewManagedIdentityCredential(&opts)
         
         if err != nil {
           // TODO: handle error
