@@ -32,8 +32,7 @@ A chained credential can offer the following benefits:
         if err != nil {
           // TODO: handle error
         }
-    }
-    else {
+    } else {
         // Use Azure CLI Credential
         credential, err = azidentity.NewAzureCLICredential(nil)
 
