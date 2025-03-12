@@ -27,9 +27,22 @@ JBoss EAP is available on different App Service Linux plans - including the Free
 
 ## JBoss EAP on Azure Red Hat OpenShift
 
-Azure Red Hat OpenShift provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on Azure Red Hat OpenShift is a compelling option. Red Hat and Microsoft provide a marketplace solution template that automates common boilerplate provisioning tasks to deploy JBoss EAP on Azure Red Hat OpenShift. The solution can automatically provision an Azure Red Hat OpenShift cluster, the JBoss EAP Operator, a sample application or your own application deployed using Source-to-Image (S2I) technology. You can launch the solution [JBoss EAP on Azure Red Hat OpenShift](https://aka.ms/eap-aro-portal) from the Azure portal.
+Azure Red Hat OpenShift provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. 
+If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on Azure Red Hat OpenShift is a compelling option. 
+Red Hat and Microsoft provide a marketplace solution template that automates common boilerplate provisioning tasks to deploy 
+JBoss EAP on Azure Red Hat OpenShift. The solution can automatically provision the following resources.
 
-As an alternative to the solution template, Red Hat and Microsoft also provide a step-by-step guide on how to deploy JBoss EAP on Azure Red Hat OpenShift using Helm Charts instead of the Operator. For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](jboss-eap-on-aro.md).
+* Azure Red Hat OpenShift cluster (alternatively, you can deploy to an existing cluster)
+* JBoss EAP Operator
+* Sample getting started application - optional
+* Custom application deployment using Source-to-Image (S2I) - optional
+* Virtual network and subnet
+
+You can launch the solution [JBoss EAP on Azure Red Hat OpenShift](https://aka.ms/eap-aro-portal) from the Azure portal.
+
+As an alternative to the solution template, Red Hat and Microsoft also provide a detailed step-by-step guide on how to deploy JBoss EAP on Azure Red Hat 
+OpenShift. For more information, see 
+[Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](jboss-eap-on-aro.md).
 
 ## JBoss EAP on Azure Virtual Machines
 
