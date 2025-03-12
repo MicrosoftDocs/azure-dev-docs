@@ -67,6 +67,10 @@
         {
             "names": ["python"],
             "heading": "Azure for Python"
+        },
+        {
+            "names": ["typespec"],
+            "heading": "TypeSpec"
         }
     ]
 }
