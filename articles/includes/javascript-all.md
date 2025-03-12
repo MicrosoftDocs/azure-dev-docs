@@ -70,7 +70,7 @@
 | Health Insights Cancer Profiling | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-cancerprofiling/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/health-insights-cancerprofiling-rest/) |
 | Health Insights Clinical Matching | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-clinicalmatching/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/health-insights-clinicalmatching-rest/) |
 | Health Insights Radiology Insights | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
-| Identity | npm [4.7.0](https://www.npmjs.com/package/@azure/identity/v/4.7.0) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.7.0/sdk/identity/identity/) |
+| Identity | npm [4.8.0](https://www.npmjs.com/package/@azure/identity/v/4.8.0) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.8.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.8.0/sdk/identity/identity/) |
 | Identity Broker | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.2.0/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.3/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -377,7 +377,7 @@
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
 | @autorest/openapi-to-typespec | npm [0.10.12](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.12) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
-| @azure-tools/rest-api-diff | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.8) |  |  |
+| @azure-tools/rest-api-diff | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.0) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | @azure-tools/typespec-autorest-canonical | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.13.0) |  |  |
@@ -408,7 +408,7 @@
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.11](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.11) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.2.2) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.11.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.66.0](https://www.npmjs.com/package/@typespec/events/v/0.66.0) |  |  |
