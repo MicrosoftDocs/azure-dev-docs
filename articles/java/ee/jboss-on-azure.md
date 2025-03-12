@@ -5,29 +5,23 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: overview
-ms.date: 10/03/2023
+ms.date: 03/12/2025
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-extended-java, linux-related-content
 ---
 
-# Red Hat JBoss EAP on Azure
+# JBoss EAP on Azure
 
-This article describes the available solutions for hosting JBoss EAP on Azure, including the features and benefits of each option so you can choose the best one for your deployment.
+This article describes the available solutions for hosting Red Hat JBoss Enterprise Application Platform (JBoss EAP) on Azure, including the features and benefits of each option so you can choose the best one for your deployment.
 
-There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines. All three solutions are jointly developed and supported by Red Hat and Microsoft.
+There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines. All three solutions are jointly developed and supported by Red Hat and Microsoft. When you open a support case on the Azure portal about your JBoss EAP applications, Azure support will automatically contact Red Hat technical support when necessary.
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## JBoss EAP on Azure App Service
 
-Azure App Service is a fully managed platform for web and API applications, with built-in infrastructure maintenance, security patching, and scaling. App Service integrates with networking features such as virtual networks, Private Endpoints, and Hybrid Connections. This integration allows you to secure and isolate your infrastructure as necessary. You can deploy rapidly with GitHub Actions and Azure Pipelines integration, and monitor your applications with Azure Monitor Application Insights. For more information, see [Azure App Service overview](/azure/app-service/overview).
+Azure App Service is a fully managed platform for web applications, with built-in infrastructure maintenance, security, patching, and scaling. You can use your favorite development tools like Visual Studio Code, deploy rapidly with Maven and GitHub Actions, or monitor your applications with Application Insights. For more information, see [Azure App Service overview](/azure/app-service/overview).
 
-JBoss EAP is available on the Linux variants of Premium v3 and Isolated v2 App Service plans. For more information about these plans, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/). The Isolated plans host your application in a private, dedicated Azure environment. You can purchase Premium v3 and Isolated v2 plans on a Pay-As-You-Go basis, or on one to three-year reservations to reduce costs up to 50%. For more information, see [What are Azure Reservations?](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [How reservation discounts apply to Azure App Service](/azure/cost-management-billing/reservations/reservation-discount-app-service).
-
-JBoss EAP is offered with versions 7.3 and 7.4 on App Service. As new versions of JBoss EAP are released by Red Hat, they're offered on App Service as part of the regular platform upgrades. For a full list of the minor versions available for JBoss EAP on Azure App Service, go to your JBoss EAP web app in the Azure portal, then select **Settings** > **Configuration** > **General Settings** > **Java Web Server Version**.
-
-JBoss EAP on Azure App Service is jointly supported by Red Hat and Microsoft. When you open a support case on the Azure portal about your JBoss EAP apps, Azure support will automatically contact Red Hat technical support when necessary. This integrated support is provided to all JBoss EAP applications running on App Service, pricing information is available on the [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/#jboss) page. JBoss EAP sites can't opt out of the integrated support, but you can [purchase a reservation](/azure/cost-management-billing/reservations/prepay-jboss-eap-integrated-support-app-service) for the integrated support to reduce costs.
-
-<br>
+JBoss EAP is available on different App Service Linux plans - including the Free Tier. For more information about App Service Linux plans, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/). JBoss EAP clustering is fully supported on the Isolated plans. All Red Hat supported versions of JBoss EAP are available on App Service including 8.0 and 7.4. As new versions of JBoss EAP are released, they're offered on App Service as part of regular platform upgrades. For a full list available versions, go to your JBoss EAP web application in the Azure portal, then select **Settings** > **Configuration** > **General Settings** > **Java Web Server Version**. JBoss EAP commercial support is built into App Service. JBoss EAP pricing information is available on the [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/#jboss) page.
 
 > [!VIDEO https://www.youtube.com/embed/8b_Wiuw8l-8]
 
