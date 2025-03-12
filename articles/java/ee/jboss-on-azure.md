@@ -11,16 +11,11 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 # JBoss EAP on Azure
 
-This article describes the available solutions for hosting Red Hat JBoss Enterprise Application Platform (EAP) on Azure, including the features and 
-benefits of each option so you can choose the best one for your deployment.
+This article describes the available solutions for hosting Red Hat JBoss Enterprise Application Platform (EAP) on Azure, including the features and benefits of each option so you can choose the best one for your deployment.
 
-There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines (VMs). Red Hat and Microsoft 
-jointly develop and support all three solutions. When you open a support case on the Azure portal about your 
-JBoss EAP applications, Azure support automatically contacts Red Hat technical support when necessary.
+There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines (VMs). Red Hat and Microsoft jointly develop and support all three solutions. When you open a support case on the Azure portal about your JBoss EAP applications, Azure support automatically contacts Red Hat technical support when necessary.
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure 
-solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. 
-Our team of program managers, architects, and engineers promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers promptly get in touch with you to initiate close collaboration.
 
 ## JBoss EAP on Azure App Service
 
@@ -32,31 +27,24 @@ JBoss EAP is available on different App Service Linux plans - including the Free
 
 ## JBoss EAP on Azure Red Hat OpenShift
 
-Azure Red Hat OpenShift provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. 
-If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on Azure Red Hat OpenShift is a compelling option. 
-Red Hat and Microsoft provide a marketplace solution template that automates common boilerplate provisioning tasks to deploy 
-JBoss EAP on Azure Red Hat OpenShift. The solution can automatically provision the following resources:
+Azure Red Hat OpenShift provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. If you're already using or planning to adopt containers/Kubernetes, deploying JBoss EAP on Azure Red Hat OpenShift is a compelling option. Red Hat and Microsoft provide a marketplace solution template that automates common boilerplate provisioning tasks to deploy JBoss EAP on Azure Red Hat OpenShift. The solution can automatically provision the following resources:
 
-* Azure Red Hat OpenShift cluster (alternatively, you can deploy to an existing cluster)
-* JBoss EAP Operator
-* Sample getting started application - optional
-* Custom application deployment using Source-to-Image (S2I) - optional
-* Virtual network and subnet
+* An Azure Red Hat OpenShift cluster. Alternatively, you can deploy to an existing cluster.
+* A JBoss EAP Operator.
+* Optionally, a sample getting started application.
+* Optionally, a custom application deployment using Source-to-Image (S2I).
+* A virtual network and subnet.
 
 You can launch the solution [JBoss EAP on Azure Red Hat OpenShift](https://aka.ms/eap-aro-portal) from the Azure portal.
 
-As an alternative to the solution template, Red Hat and Microsoft also provide a detailed step-by-step guide on how to deploy JBoss EAP on Azure Red Hat 
-OpenShift. For more information, see 
-[Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](jboss-eap-on-aro.md).
+As an alternative to the solution template, Red Hat and Microsoft also provide a detailed step-by-step guide on how to deploy JBoss EAP on Azure Red Hat OpenShift. For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](jboss-eap-on-aro.md).
 
 ## JBoss EAP on Azure Virtual Machines
 
-Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important 
-for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to 
-Azure Virtual Machines. There are two solution templates that you can launch from the Azure portal to match your use case:
+Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to Azure Virtual Machines. There are two solution templates that you can launch from the Azure portal to match your use case:
 
-- A [single JBoss EAP instance on an Azure Virtual Machine](https://aka.ms/eap-vm-single-portal)
-- A [JBoss EAP cluster on Azure Virtual Machines](https://aka.ms/eap-vm-cluster-portal)
+- A [single JBoss EAP instance on an Azure Virtual Machine](https://aka.ms/eap-vm-single-portal).
+- A [JBoss EAP cluster on Azure Virtual Machines](https://aka.ms/eap-vm-cluster-portal).
 
 The solution templates help accelerate migrating workloads. They can automatically provision the following resources:
 
@@ -72,16 +60,9 @@ The solution templates help accelerate migrating workloads. They can automatical
 * Storage account for setting up Azure ping protocol for JGroups usage (if applicable)
 * Storage account for sharing configuration files between VMs (if applicable)
 
-The solutions support various versions of JBoss EAP, OpenJDK, and RHEL such as JBoss EAP 8 with OpenJDK 17 on RHEL 9. They can work on a 
-bring-your-own-subscription or pay-as-you-go basis. To use bring-your-own-subscription, you must 
-[contact Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to get your subscription enabled on Azure. 
-Once you do so, the bring-your-own-subscription options become visible as plans.
+The solutions support various versions of JBoss EAP, OpenJDK, and RHEL such as JBoss EAP 8 with OpenJDK 17 on RHEL 9. They can work on a bring-your-own-subscription or pay-as-you-go basis. To use bring-your-own-subscription, you must [contact Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) to get your subscription enabled on Azure. After you do so, the bring-your-own-subscription options become visible as plans.
 
-In addition to the solution templates, Red Hat and Microsoft also publish basic Virtual Machine images for JBoss EAP in Azure Marketplace. 
-The images represent certified, supported, up-to-date, and secure JBoss EAP, OpenJDK, and RHEL combinations. The images are available on a 
-pay-as-you-go basis only. For customers that need even more flexibility and control, Red Hat and Microsoft provide a 
-[detailed step-by-step guide](/azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually) on how to deploy 
-JBoss EAP on Azure Virtual Machines.
+In addition to the solution templates, Red Hat and Microsoft also publish basic Virtual Machine images for JBoss EAP in Azure Marketplace. The images represent certified, supported, up-to-date, and secure JBoss EAP, OpenJDK, and RHEL combinations. The images are available on a pay-as-you-go basis only. For customers that need even more flexibility and control, Red Hat and Microsoft provide a [detailed step-by-step guide](/azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually) on how to deploy JBoss EAP on Azure Virtual Machines.
 
 ## Next steps
 
