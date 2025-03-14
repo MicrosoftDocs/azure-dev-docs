@@ -1,22 +1,37 @@
 ---
 title: "How to Test Azure SDK Integration in JavaScript Applications"
 description: "Learn how to test Azure SDK integration in JavaScript apps using Jest. Discover best practices for using live dependencies, doubles, and mocks with Azure client libraries."
-ms.date: 01/27/2025
+ms.date: 03/14/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-# How to Test Azure SDK Integration in JavaScript Applications Using Jest
+# How to Test Azure SDK Integration in JavaScript Applications
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide shows you how to effectively test Azure SDK integration in your JavaScript applications a testing framework. 
 
-When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use Jest as the test framework for testing SDK integration. Other comparable test frameworks can also be used.
+When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use a test framework for testing SDK integration. Other comparable test frameworks can also be used.
 
 ## Prerequisites
 
-- [Node.js LTS](https://nodejs.org)
+- [Node.js LTS](https://nodejs.org).
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) is part of the Node.js installation. 
+
+### [Jest](#tab/test-with-jest)
+
+- [Jest](https://jestjs.io/)
+
+### [Vitest](#tab/test-with-vitest)
+
+- [Vitest](https://main.vitest.dev/)
+
+---
+
 
 ### Mocking cloud services
 
