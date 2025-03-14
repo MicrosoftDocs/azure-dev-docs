@@ -77,7 +77,27 @@ In the following examples, you have 2 functions:
 - **someTestFunction**: The function you need to test. It calls a dependency, `dependencyFunction`, which you didn't write and don't need to test.
 - **dependencyFunctionMock**: Mock of the dependency.
 
-```javascript
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+```typescript
+import { mock } from 'node:test';
+import assert from 'node:assert';
+
+// setup
+const dependencyFunctionMock = mock.fn();
+
+// perform test
+// Mock replaces the call to dependencyFunction with dependencyFunctionMock
+const { name } = someTestFunction()
+
+// verify behavior
+assert.strictEqual(dependencyFunctionMock.mock.callCount(), 1);
+```
+
+
+### [Jest](#tab/test-with-jest)
+
+```typescript
 // setup
 const dependencyFunctionMock = jest.fn();
 
@@ -88,6 +108,26 @@ const { name } = someTestFunction()
 // verify behavior
 expect(dependencyFunctionMock).toHaveBeenCalled();
 ```
+
+### [Vitest](#tab/test-with-vitest)
+
+```typescript
+import { expect, vi } from 'vitest';
+
+// setup
+const dependencyFunctionMock = vi.fn();
+
+// perform test
+// Mock replaces the call to dependencyFunction with dependencyFunctionMock
+const { name } = someTestFunction()
+
+// verify behavior
+expect(dependencyFunctionMock).toHaveBeenCalledTimes(1);
+```
+
+---
+
+
 
 The purpose of the test is to ensure that someTestFunction behaves correctly without actually invoking the dependency code. The test validates that the mock of the dependency was called. 
 
@@ -102,7 +142,32 @@ When you decide to mock a dependency, you can choose to mock just what you need 
 
 The purpose of a stub is to replace a function's return data to simulate different scenarios. You use a stub to allow your code to call the function and receive various states, including successful results, failures, exceptions, and edge cases. **State verification** ensures your code handles these scenarios correctly.
 
-```javascript
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+```typescript
+import { describe, it, beforeEach, mock } from 'node:test';
+import assert from 'node:assert';
+
+// setup
+const fakeDatabaseData = {first: 'John', last: 'Jones'};
+
+const dependencyFunctionMock = mock.fn();
+dependencyFunctionMock.mock.mockImplementation((arg) => {
+    return fakeDatabaseData;
+});
+
+// perform test
+// Mock replaces the call to dependencyFunction with dependencyFunctionMock
+const { name } = someTestFunction()
+
+// verify behavior
+assert.strictEqual(name, `${fakeDatabaseData.first} ${fakeDatabaseData.last}`);
+```
+
+
+### [Jest](#tab/test-with-jest)
+
+```typescript
 // ARRANGE
 const dependencyFunctionMock = jest.fn();
 const fakeDatabaseData = {first: 'John', last: 'Jones'};
@@ -113,8 +178,32 @@ dependencyFunctionMock.mockReturnValue(fakeDatabaseData);
 const { name } = someTestFunction()
 
 // ASSERT
-expect(name).toBe(`${first} ${last}`);
+expect(name).toBe(`${fakeDatabaseData.first} ${fakeDatabaseData.last}`);
 ```
+
+### [Vitest](#tab/test-with-vitest)
+
+```typescript
+import { it, expect, vi } from 'vitest';
+
+// ARRANGE
+const fakeDatabaseData = {first: 'John', last: 'Jones'};
+
+const dependencyFunctionMock = vi.fn();
+dependencyFunctionMock.mockReturnValue(fakeDatabaseData);
+
+// ACT
+// date is returned by mock then transformed in SomeTestFunction()
+const { name } = someTestFunction()
+
+// ASSERT
+expect(name).toBe(`${fakeDatabaseData.first} ${fakeDatabaseData.last}`);
+```
+
+
+---
+
+
 
 The purpose of the preceding test is to ensure that the work done by `someTestFunction` meets the expected outcome. In this simple example, the function's task is to concatenate the first and family names. By using fake data, you know the expected result and can validate that the function performs the work correctly.
 
