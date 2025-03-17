@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial provides a simple step-by-step guide showing ho to containerize and deploy a Python web app to Azure using [Azure App Service][1] and [Azure Cosmos DB for MongoDB][2]. Azure App Service's Web App for Containers abstracts container orchestration, streamlining the deployment process, and allowing you to focus on development. Data is stored in Cosmos DB. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial provides a simple step-by-step guide showing how to containerize and deploy a Python web app to Azure. The app is hosted using [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. Azure App Service's [Web App for Containers][3] abstracts container orchestration, streamlining the deployment process, and allowing you to focus on development. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
@@ -32,13 +32,13 @@ The components supporting the developer environment in this tutorial include:
 
 * **Local Development System**: A personal computer used for coding, building, and testing the Docker container.
 
-* **Docker Containerization**: Docker is employed to package the application and its dependencies into a portable container.
+* **Docker Containerization**: Docker is employed to package the app and its dependencies into a portable container.
 
 * **Development Tools**: Includes a code editor and other necessary tools for software development.
 
-* **Local MongoDB Instance**: A local MongoDB database is utilized for data storage during development.
+* **Local MongoDB Instance**: A local MongoDB database utilized for data storage during development.
 
-* **MongoDB Connection**: Access to the local MongoDB database is provided through a connection string.
+* **MongoDB Connection**: Access to the local MongoDB database provided through a connection string.
 
 ### Azure environment
 
@@ -46,22 +46,22 @@ The components supporting the Azure environment in this tutorial include:
 
 * [Azure App Service][1]
 
-  * Web App for Containers in Azure App Service uses the [Docker][4] container technology to provide container hosting of both built-in images and custom images using Docker.
-  * Web App for Containers uses a webhook in the Azure Container Registry (ACR) to get notified of new images. When a new image is pushed to the registry, the webhook notification triggers App Service to pull the update and restart the application.
+  * In Azure App Service, Web App for Containers uses the [Docker][4] container technology to provide container hosting of both built-in images and custom images using Docker.
+  * Web App for Containers uses a webhook in the Azure Container Registry (ACR) to get notified of new images. When a new image is pushed to the registry, the webhook notification triggers App Service to pull the update and restart the app.
 
 * [Azure Container Registry][11]
 
-  * Azure Container Registry allows you to store and manage Docker images and their components in Azure. It provides a registry located near your deployments in Azure, giving you the ability to control over access using your Microsoft Entra groups and permissions.
+  * Azure Container Registry allows you to store and manage Docker images and their components in Azure. It provides a registry located near your deployments in Azure that gives you the ability to control over access using your Microsoft Entra groups and permissions.
 
   * In this tutorial, Azure Container Registry is the registry source, but you can also use Docker Hub or a private registry with minor modifications.
 
 * [Azure Cosmos DB for MongoDB][2]
 
-  * The Azure Cosmos DB for MongoDB is a NoSQL database that is utilized in this tutorial for data storage.
+  * The Azure Cosmos DB for MongoDB is a NoSQL database used in this tutorial for data storage.
 
-  * The containerized application accesses the Azure Cosmos DB resource through a connection string, which is provided as an environment variable.
+  * The containerized app accesses the Azure Cosmos DB resource through a connection string, which is stored as an environment variable.
 
-  * Access to Azure Cosmos DB resource by the containerized application is via a connection string, which is passed as an environment variable to the containerized app.
+  * Access to Azure Cosmos DB resource by the containerized app is via a connection string, which is passed as an environment variable to the containerized app.
 
 ## Authentication
 
@@ -90,11 +90,11 @@ To complete this tutorial, you need:
 
 * [Docker][4] installed locally. *This is optional and is only required if you want to run the container locally*.
 
-## Sample application
+## Sample app
 
-In this tutorial, you build a Python restaurant review application that utilizes MongoDB for data storage. For an example using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
+In this tutorial, you build a Python restaurant review app that utilizes MongoDB for data storage. For an example using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
 
-The end result of this tutorial is a restaurant review application, deployed and running in Azure, that looks like the following screenshot.
+The end result of this tutorial is a restaurant review app, deployed and running in Azure, that looks like the following screenshot.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png":::
 
@@ -111,7 +111,7 @@ The end result of this tutorial is a restaurant review application, deployed and
 [6]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
 [7]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice
 [8]: https://pypi.org/project/pymongo/
-[9]: https://flask.palletsprojects.com/en/stable/
+[9]: https://flask.palletsprojects.com/
 [10]: https://www.djangoproject.com/
 [11]: https://azure.microsoft.com/services/container-registry/
 [12]: /azure/cosmos-db/mongodb/create-mongodb-python
