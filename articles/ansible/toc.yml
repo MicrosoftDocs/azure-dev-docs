@@ -41,8 +41,6 @@
       href: aks-configure-clusters.md
     - name: Configure Azure CNI networking
       href: aks-configure-cni-networking.md
-    - name: Configure kubenet networking
-      href: aks-configure-kubenet-networking.md
     - name: Configure RBAC roles in AKS cluster
       href: aks-configure-rbac.md
   - name: Azure HDInsight
