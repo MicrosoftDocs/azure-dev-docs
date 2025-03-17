@@ -20,7 +20,7 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-The [Node.js test runner](https://nodejs.org/learn/test-runner/introduction) is part of the Node.js installation. 
+The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) is part of the Node.js installation. 
 
 > [!CAUTION]
 > The sample provided for the Node.js test runner uses the experimental node:test module with mock.fn(). Keep in mind that Node’s built‐in test runner doesn't yet offer a fully supported mocking API. Make sure that your target Node version supports the experimental APIs or consider using a third‑party mocking library (or stub functions) instead.
@@ -437,6 +437,6 @@ The following Jest test file shows how to test the **insertDocument** function.
 
 - [Jest Mocking Best Practices](https://devblogs.microsoft.com/ise/jest-mocking-best-practices/)
 - [Vitest mocking](https://vitest.dev/guide/mocking)
-- [Node.js Test runner](https://nodejs.org/learn/test-runner/introduction)
+- [Node.js Test runner](https://nodejs.org/en/learn/test-runner/introduction)
 - [The Difference between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler
 
