@@ -1,7 +1,7 @@
 ---
 title: Scale Azure OpenAI for JavaScript chat sample using RAG
 description: Learn how to add load balancing to your JavaScript solution to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 12/19/2024
+ms.date: 03/17/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
@@ -50,3 +50,7 @@ Samples used in this article include:
 ## Next step
 
 * Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with Azure Load Testing Service.
+- Learn more about AZD in this template
+    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
+

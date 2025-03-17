@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LangChain.js"
 description: "Use LangChainjs to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
 ms.topic: get-started 
-ms.date: 12/11/2024
+ms.date: 03/17/2025
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started with Serverless AI Chat with RAG using LangChain.js
 
-Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses enterprise documents to generate AI responses.
+Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses enterprise documents to generate AI responses. 
 
 The code includes sample data for a fictitious company. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
@@ -247,3 +247,6 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 ## Related content
 
 - [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
+- Learn more about AZD in this template
+    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
