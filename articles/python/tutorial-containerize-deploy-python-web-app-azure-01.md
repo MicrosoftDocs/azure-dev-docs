@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial guides you through containerizing a Python web app and deploying it to Azure. [Azure App Service][1] hosts the single container web app and uses [MongoDB for Azure Cosmos DB][2] to store data. With App Service [Web App for Containers][3], you can focus on building and deploying your containers without worrying about managing and maintaining an underlying container orchestrator. When developing web apps, Azure App Service is a good option for taking your first steps with containers. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial guides you through containerizing a Python web app and deploying it to Azure. [Azure App Service][1] hosts the single container web app and uses [MongoDB for Azure Cosmos DB][2] to store data. With App Service [Web App for Containers][3], you can focus on building and deploying your containers without worrying about managing and maintaining an underlying container orchestrator. When you are developing web apps, Azure App Service is a good option for taking your first steps with containers. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
@@ -18,7 +18,7 @@ In this tutorial you:
 
 * Configure an App Service to create a web app based on the Docker container image.
 
-Upon completing this tutorial, you have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
+Upon completion of this tutorial, you have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service overview
 
@@ -77,7 +77,7 @@ To complete this tutorial, you need:
   * [Azure App Service][1]
   * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database,follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure).
 
-* [Visual Studio Code][16] or [Azure CLI][17], depending on your tool of choice. If you use Visual Studio Code, you'll need the [Docker extension][6] and [Azure App Service extension][7].
+* [Visual Studio Code][16] or [Azure CLI][17], depending on your tool of choice. If you use Visual Studio Code, you need the [Docker extension][6] and [Azure App Service extension][7].
 
 * These Python packages:
 
@@ -88,9 +88,9 @@ To complete this tutorial, you need:
 
 ## Sample application
 
-In this tutorial, you build builds a Python restaurant review application that utilizes MongoDB for data storage. For an example using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
+In this tutorial, you build a Python restaurant review application that utilizes MongoDB for data storage. For an example using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
 
-By the end of this tutorial, you’ll have a fully deployed restaurant review app running in Azure that looks like the screenshot below.
+The end result of this tutorial is a restaurant review application, deployed and running in Azure, that looks like the following screenshot.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png":::
 
