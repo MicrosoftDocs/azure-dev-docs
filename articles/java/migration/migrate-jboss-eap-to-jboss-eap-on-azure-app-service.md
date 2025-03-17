@@ -81,13 +81,13 @@ When using JBoss EAP on App Service, be sure to take the following notes into co
 * **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools. Further configuration of JBoss resources can be achieved using the JBoss CLI during the application startup.
 * **Transactions**: The Transactions API is supported and there is support for automatic transaction recovery. For more information, see [Managing transactions on JBoss EAP](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html/managing_transactions_on_jboss_eap/index) in the Red Hat documentation.
 * **Managed domain mode**: In a multi-server production environment, Managed Domain mode in JBoss EAP offers centralized managed capabilities. However with JBoss EAP on App Service, the App Service platform assumes the responsibility for configuration and management of your server instances. App Service eliminates the need for JBoss EAP's managed domain mode. Domain mode is a good choice for virtual machine-based multi-server deployments. For more information, see [About managed domains](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/administration_and_configuration_guide/about_managed_domains) in the Red Hat documentation.
-* **Server-to-server clustering**: As of September 28th, 2023, clustered deployment of JBoss EAP is Generally Available. This support means that you no longer have to remove the following features from your applications before you can deploy them to App Service:
+* **Server-to-server clustering**: App Service fully supports JBoss EAP clustered deployments. This means you can confidently use:
 
   * Stateful session beans.
   * Distributed transactions.
   * Similar features that require instance-to-instance communication or high availability.
 
-  For more information, see the [release announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/recently-announced-advanced-clustering-features-for-jboss-eap-on/ba-p/3939672) and the [Clustering](/azure/app-service/configure-language-java?pivots=java-jboss#clustering) section of [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=java-jboss).
+  For more information, see the [Clustering](/azure/app-service/configure-language-java?pivots=java-jboss#clustering) section of [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=java-jboss).
 
 ## Migration
 
