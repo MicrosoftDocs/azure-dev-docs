@@ -249,4 +249,4 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 - [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
 - Learn more about how AZD is used in this template:
     - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
-    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
+    - [Reactor video](https://youtu.be/aLUhhq7Y0ao?si=ulzadCkRLpn8tsij)
