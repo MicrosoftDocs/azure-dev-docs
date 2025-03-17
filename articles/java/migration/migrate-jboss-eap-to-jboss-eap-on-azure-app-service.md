@@ -70,7 +70,9 @@ If your application is packaged as an EAR file, be sure to examine the **applica
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
-[!INCLUDE [perform-in-place-testing](includes/perform-in-place-testing-jboss.md)]
+### Perform in-place testing
+
+Before creating your Web Apps, migrate your application to the JDK and JBoss EAP versions that you intend to use on App Service. Test the application thoroughly to ensure compatibility and performance.
 
 ### JBoss EAP on App Service feature notes
 
