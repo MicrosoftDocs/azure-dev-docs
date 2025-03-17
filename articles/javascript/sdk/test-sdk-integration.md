@@ -16,7 +16,7 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 ## Prerequisites
 
-- [Node.js LTS](https://nodejs.org). LTS [release status](https://nodejs.org/about/previous-releases) is "long-term support", which typically guarantees that critical bugs will be fixed for a total of 30 months.
+[Node.js LTS](https://nodejs.org). LTS [release status](https://nodejs.org/about/previous-releases) is "long-term support", which typically guarantees that critical bugs will be fixed for a total of 30 months.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
@@ -27,11 +27,11 @@ The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) 
 
 ### [Jest](#tab/test-with-jest)
 
-- [Jest](https://jestjs.io/)
+[Jest](https://jestjs.io/)
 
 ### [Vitest](#tab/test-with-vitest)
 
-- [Vitest](https://main.vitest.dev/)
+[Vitest](https://main.vitest.dev/)
 
 ---
 
@@ -86,14 +86,14 @@ In the following examples, you have 2 functions:
 import { mock } from 'node:test';
 import assert from 'node:assert';
 
-// setup
+// ARRANGE
 const dependencyFunctionMock = mock.fn();
 
-// perform test
+// ACT
 // Mock replaces the call to dependencyFunction with dependencyFunctionMock
 const { name } = someTestFunction()
 
-// verify behavior
+// ASSERT
 assert.strictEqual(dependencyFunctionMock.mock.callCount(), 1);
 ```
 
@@ -101,14 +101,14 @@ assert.strictEqual(dependencyFunctionMock.mock.callCount(), 1);
 ### [Jest](#tab/test-with-jest)
 
 ```typescript
-// setup
+// ARRANGE
 const dependencyFunctionMock = jest.fn();
 
-// perform test
+// ACT
 // Jest replaces the call to dependencyFunction with dependencyFunctionMock
 const { name } = someTestFunction()
 
-// verify behavior
+// ASSERT
 expect(dependencyFunctionMock).toHaveBeenCalled();
 ```
 
@@ -117,14 +117,14 @@ expect(dependencyFunctionMock).toHaveBeenCalled();
 ```typescript
 import { expect, vi } from 'vitest';
 
-// setup
+// ARRANGE
 const dependencyFunctionMock = vi.fn();
 
-// perform test
+// ACT
 // Mock replaces the call to dependencyFunction with dependencyFunctionMock
 const { name } = someTestFunction()
 
-// verify behavior
+// ASSERT
 expect(dependencyFunctionMock).toHaveBeenCalledTimes(1);
 ```
 
@@ -151,7 +151,7 @@ The purpose of a stub is to replace a function's return data to simulate differe
 import { describe, it, beforeEach, mock } from 'node:test';
 import assert from 'node:assert';
 
-// setup
+// ARRANGE
 const fakeDatabaseData = {first: 'John', last: 'Jones'};
 
 const dependencyFunctionMock = mock.fn();
@@ -159,11 +159,11 @@ dependencyFunctionMock.mock.mockImplementation((arg) => {
     return fakeDatabaseData;
 });
 
-// perform test
+// ACT
 // Mock replaces the call to dependencyFunction with dependencyFunctionMock
 const { name } = someTestFunction()
 
-// verify behavior
+// ASSERT
 assert.strictEqual(name, `${fakeDatabaseData.first} ${fakeDatabaseData.last}`);
 ```
 
@@ -214,8 +214,6 @@ The purpose of the preceding test is to ensure that the work done by `someTestFu
 
 Fakes substitute a functionality that you wouldn't normally use in production, such as using an in-memory database instead of a cloud database.
 
-- [Node.js LTS](https://nodejs.org).
-
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
 ### [Jest](#tab/test-with-jest)
@@ -235,8 +233,6 @@ The purpose of the preceding test is to ensure that `someTestFunction` correctly
 Imagine you have an application that needs to write a new document to Cosmos DB _if_ all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application shouldn't enter the data.
 
 Cosmos DB is used as an example, however the concepts apply to most of the Azure SDKs for JavaScript. The following function captures this functionality:
-
-- [Node.js LTS](https://nodejs.org).
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
