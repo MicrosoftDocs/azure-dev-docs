@@ -29,7 +29,11 @@ You can use Key Vault secrets in your App Service instance with Key Vault refere
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
 
-[!INCLUDE [validate-that-the-supported-java-version-works-correctly-jboss-eap](includes/validate-that-the-supported-java-version-works-correctly-jboss-eap.md)]
+### Validate that the supported Java version works correctly
+
+JBoss EAP on App Service requires a supported version of Java. For guidance on which version of the JDK to use, see [Supported Configurations](https://access.redhat.com/articles/6961381?extIdCarryOver=true&sc_cid=RHCTN0250000439448) in the Red Hat documentation.
+
+[!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
 [!INCLUDE [inventory-external-resources](includes/inventory-external-resources-jboss.md)]
 
