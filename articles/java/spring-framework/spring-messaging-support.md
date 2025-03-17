@@ -306,7 +306,7 @@ Use the following steps to send messages:
    }
    ```
 
-#### Receive messages from Azure Event Hubs
+#### Receive messages from Azure Service Bus
 
 Use the following steps to receive messages:
 
