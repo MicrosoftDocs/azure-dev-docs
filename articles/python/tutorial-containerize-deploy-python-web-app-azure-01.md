@@ -2,15 +2,15 @@
 title: Deploy a containerized Python web app on Azure with MongoDB
 description: An overview of how to create and deploy a containerized Python web app (Django or Flask) on Azure App Service with MongoDB.
 ms.topic: conceptual
-ms.date: 02/07/2025
+ms.date: 03/17/2025
 ms.custom: devx-track-python
 ---
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial shows you how to containerize a Python web app and deploy it to Azure. The single container web app is hosted in [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. App Service [Web App for Containers][3] allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When building web apps, Azure App Service is a good option for taking your first steps with containers. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial shows you how to containerize a Python web app and deploy it to Azure. [Azure App Service][1] hosts the single container web app and uses [MongoDB for Azure Cosmos DB][2] to store data. With App Service [Web App for Containers][3], you can focus on building and deploying your containers without worrying about managing and maintaining an underlying container orchestrator. When developing web apps, Azure App Service is a good option for taking your first steps with containers. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
-In this tutorial you will:
+In this tutorial you:
 
 * Build and run a [Docker][4] container locally. *This step is optional.*
 
@@ -18,25 +18,36 @@ In this tutorial you will:
 
 * Configure an App Service to create a web app based on the Docker container image.
 
-Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
+Upon completing this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service overview
 
-The service diagram supporting this tutorial shows two environments (developer environment and Azure) and the different Azure services used in the tutorial.
+The service diagram supporting this tutorial shows two environments: developer environment and Azure. It highlights the key Azure services used in the development process.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png" alt-text="A screenshot of the services used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png":::
 
-The components supporting this tutorial and shown in the diagram above are:
+### Developer environment
+
+The components supporting the developer environment in this tutorial include:
+
+* Local Development System: A personal computer used for coding, building, and testing the Docker container.
+* Docker Containerization: Docker is employed to package the application and its dependencies into a portable container.
+* Development Tools: Includes a code editor and other necessary tools for software development.
+* Local MongoDB Instance: A local MongoDB database is utilized for data storage during development.
+* MongoDB Connection: Access to the local MongoDB database is provided through a connection string.
+
+### Azure environment
+
+The components supporting the Azure environment in this tutorial include:
 
 * [Azure App Service][1]
 
-  * The underlying App Service functionality that enables containerization is Web App for Containers. Azure App Service uses the [Docker][4] container technology to host both built-in images and custom images.  In this tutorial, you'll build an image from Python code and deploy it to Web App for Containers.
-
-  * Web App for Containers uses a webhook in the registry to get notified of new images. A push of a new image to the repository triggers App Service to pull the image and restart. 
+  * Web App for Containers in Azure App Service uses the [Docker][4] container technology to provide container hosting of both built-in images and custom images using Docker.
+  * Web App for Containers uses a webhook in the Azure Container Registry to get notified of new images. When a new image is pushed to the registry, the webhook notification triggers App Service to pull the update and restart the application.
 
 * [Azure Container Registry][11]
 
-  * Azure Container Registry enables you to work with Docker images and its components in Azure. It provides a registry that's close to your deployments in Azure and that gives you control over access, making it possible to use your Microsoft Entra groups and permissions.
+  * Azure Container Registry allows you to manage Docker images and their components in Azure. It provides a registry that's close to your deployments in Azure, giving you control over access, making it possible to use your Microsoft Entra groups and permissions.
 
   * In this tutorial, the registry source is Azure Container Registry, but you can also use Docker Hub or a private registry with minor modifications.
 
