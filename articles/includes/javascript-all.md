@@ -415,7 +415,7 @@
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.1.12](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.12) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.7.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.7.1) |  |  |
+| Unknown Display Name | npm [0.8.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.8.0) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.12](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.12) |  |  |
 | Unknown Display Name | npm [0.66.0](https://www.npmjs.com/package/@typespec/sse/v/0.66.0) |  |  |
 | Unknown Display Name | npm [0.66.0](https://www.npmjs.com/package/@typespec/streams/v/0.66.0) |  |  |
@@ -497,7 +497,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250313.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250313.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250315.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250315.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -536,7 +536,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.22](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.22) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.23](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.23) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -570,7 +570,7 @@
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Compare | npm [0.5.1](https://www.npmjs.com/package/@autorest/compare/v/0.5.1) |  | GitHub [0.5.1](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.10.3](https://www.npmjs.com/package/@autorest/core/v/3.10.3) |  | GitHub [3.10.3](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.10.4](https://www.npmjs.com/package/@autorest/core/v/3.10.4) |  | GitHub [3.10.4](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
