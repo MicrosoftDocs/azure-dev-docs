@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial guides you through containerizing a Python web app and deploying it to Azure. [Azure App Service][1] hosts the single container web app and uses [MongoDB for Azure Cosmos DB][2] to store data. With App Service [Web App for Containers][3], you can focus on building and deploying your containers without worrying about managing and maintaining an underlying container orchestrator. When you are developing web apps, Azure App Service is a good option for taking your first steps with containers. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial provides a simple step-by-step guide showing ho to containerize and deploy a Python web app to Azure using [Azure App Service][1] and [Azure Cosmos DB for MongoDB][2]. Azure App Service's Web App for Containers abstracts container orchestration, streamlining the deployment process, and allowing you to focus on development. Data is stored in Cosmos DB. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
@@ -31,9 +31,13 @@ The service diagram supporting this tutorial shows two environments: developer e
 The components supporting the developer environment in this tutorial include:
 
 * **Local Development System**: A personal computer used for coding, building, and testing the Docker container.
+
 * **Docker Containerization**: Docker is employed to package the application and its dependencies into a portable container.
+
 * **Development Tools**: Includes a code editor and other necessary tools for software development.
+
 * **Local MongoDB Instance**: A local MongoDB database is utilized for data storage during development.
+
 * **MongoDB Connection**: Access to the local MongoDB database is provided through a connection string.
 
 ### Azure environment
