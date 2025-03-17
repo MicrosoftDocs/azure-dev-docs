@@ -50,7 +50,7 @@ Samples used in this article include:
 ## Next step
 
 * Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with Azure Load Testing Service.
-- Learn more about AZD in this template
+- Learn more about how AZD is used in this template:
     - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
     - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
 
