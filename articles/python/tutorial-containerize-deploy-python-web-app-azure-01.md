@@ -107,7 +107,7 @@ By the end of this tutorial, you’ll have a fully deployed restaurant review ap
 [6]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
 [7]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice
 [8]: https://pypi.org/project/pymongo/
-[9]: https://flask.palletsprojects.com/en/2.1.x/
+[9]: https://flask.palletsprojects.com/en/stable/
 [10]: https://www.djangoproject.com/
 [11]: https://azure.microsoft.com/services/container-registry/
 [12]: /azure/cosmos-db/mongodb/create-mongodb-python
