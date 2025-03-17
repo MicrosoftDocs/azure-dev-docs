@@ -37,10 +37,6 @@ JBoss EAP on App Service requires a supported version of Java. For guidance on w
 
 [!INCLUDE [inventory-external-resources](includes/inventory-external-resources-jboss.md)]
 
-### Determine whether session replication is used
-
-If your application relies on session replication, you'll have to change your application to remove this dependency. App Service does not allow instances to communicate directly with one another.
-
 ### Determine whether and how the file system is used
 
 Any usage of the file system on the application server will require reconfiguration or, in rare cases, architectural changes. The file system may be used by JBoss EAP modules or by your application code. You may identify some or all of the scenarios described in the following sections.
