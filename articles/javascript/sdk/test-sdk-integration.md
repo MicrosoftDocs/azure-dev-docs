@@ -16,11 +16,14 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 ## Prerequisites
 
-- [Node.js LTS](https://nodejs.org).
+- [Node.js LTS](https://nodejs.org). LTS [release status](https://nodejs.org/about/previous-releases) is "long-term support", which typically guarantees that critical bugs will be fixed for a total of 30 months.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) is part of the Node.js installation. 
+The [Node.js test runner](https://nodejs.org/learn/test-runner/introduction) is part of the Node.js installation. 
+
+> [!CAUTION]
+> The sample provided for the Node.js test runner uses the experimental node:test module with mock.fn(). Keep in mind that Node’s built‐in test runner doesn't yet offer a fully supported mocking API. Make sure that your target Node version supports the experimental APIs or consider using a third‑party mocking library (or stub functions) instead.
 
 ### [Jest](#tab/test-with-jest)
 
@@ -52,9 +55,9 @@ The [Node.js test runner](https://nodejs.org/en/learn/test-runner/introduction) 
 
 **Pros:**
 
-- Is a realistic environment that closely mirrors production.
-- Is useful for integration tests to ensure different parts of the system work together.
-- Is helpful to identify issues related to network reliability, service availability, and actual data handling.
+- Is a realistic environment that closely mirrors production?
+- Is useful for integration tests to ensure different parts of the system work together?
+- Is helpful to identify issues related to network reliability, service availability, and actual data handling?
 
 **Cons:**
 
@@ -211,7 +214,19 @@ The purpose of the preceding test is to ensure that the work done by `someTestFu
 
 Fakes substitute a functionality that you wouldn't normally use in production, such as using an in-memory database instead of a cloud database.
 
+- [Node.js LTS](https://nodejs.org).
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+### [Jest](#tab/test-with-jest)
+
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/fakes/fake-in-mem-db.spec.ts" :::
+
+### [Vitest](#tab/test-with-vitest)
+
+---
+
+
 
 The purpose of the preceding test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
 
@@ -221,7 +236,19 @@ Imagine you have an application that needs to write a new document to Cosmos DB 
 
 Cosmos DB is used as an example, however the concepts apply to most of the Azure SDKs for JavaScript. The following function captures this functionality:
 
+- [Node.js LTS](https://nodejs.org).
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+### [Jest](#tab/test-with-jest)
+
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.ts":::
+
+### [Vitest](#tab/test-with-vitest)
+
+---
+
+
 
 > [!NOTE]
 > TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it's essential for writing type-safe JavaScript.
@@ -236,15 +263,56 @@ The functions in this application are:
 
 ### Install test framework dependency
 
-This article uses [Jest](https://jestjs.io/) as the test framework. There are other test frameworks, which are comparable you can also use. 
+- [Node.js LTS](https://nodejs.org).
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+This framework is provided as part of Node.js LTS.
+
+### [Jest](#tab/test-with-jest)
+
 
 In the root of the application directory, install Jest with the following command:
 
 ```console
-npm install jest
+npm install -D jest
 ```
 
+### [Vitest](#tab/test-with-vitest)
+
+In the root of the application directory, install Vitest with the following command:
+
+```console
+npm install -D vitest
+```
+
+
+---
+
+
+
 ### Configure package to run test
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+
+Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Test runner looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Test runner:
+
+- ***.test.js**: For example, math.test.js
+- ***.spec.js**: For example, math.spec.js
+- **Files located in a *__tests__* directory**, such as __tests__/math.js
+
+Add a script to the *package.json* to support that test file pattern with Test runner:
+
+```JSON
+"scripts": {
+    "test": "node --test --experimental-test-coverage --experimental-test-module-mocks --trace-exit"
+}
+```
+
+
+### [Jest](#tab/test-with-jest)
+
 
 Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Jest:
 
@@ -256,11 +324,33 @@ Add a script to the *package.json* to support that test file pattern with Jest:
 
 ```JSON
 "scripts": {
-    "test": "jest dist",
+    "test": "jest dist --coverage",
 }
 ```
 
 The TypeScript source code is generated into the `dist` subfolder. Jest runs the `.spec.js` files found in the `dist` subfolder.
+
+
+### [Vitest](#tab/test-with-vitest)
+
+
+
+Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Vitest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Vitest:
+
+- ***.test.js**: For example, math.test.js
+- ***.spec.js**: For example, math.spec.js
+- **Files located in a *__tests__* directory**, such as __tests__/math.js
+
+Add a script to the *package.json* to support that test file pattern with Vitest:
+
+```JSON
+"scripts": {
+    "test": "vitest run --coverage",
+}
+```
+
+---
+
 
 ### Set up unit test for Azure SDK 
 
@@ -280,20 +370,45 @@ When testing, think in terms of the test setup, the test itself, and the verific
     * Behavior indicates functionality in your test function, which can be verified. One example is that some dependency was called.
     * State indicates the data returned from the function.  
 
-Jest, similar with other test frameworks, has test file template to define your test file. 
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+### [Jest](#tab/test-with-jest)
+
+Jest has a test file template to define your test file. 
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/test-boilerplate/boilerplate.spec.ts":::
+
+### [Vitest](#tab/test-with-vitest)
+
+
+---
+
+
 
 When you use mocks in your tests, that template code needs to use mocking to test the function without calling the underlying dependency used in the function, such as the Azure client libraries. 
 
 ## Create the test file
 
-The test file with mocks, to simulate a call to a dependency, has extra setup. There are several parts to the test file:
+The test file with mocks, to simulate a call to a dependency, has an extra setup. 
+
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+### [Jest](#tab/test-with-jest)
+
+There are several parts to the test file:
 
 - `import`: The import statements allow you to use or mock out any of your test.
 - `jest.mock`: Create the default mock behavior you want. Each test can alter as needed. 
 - `describe`: Test group family for the `insert.ts` file.
 - `test`: Each test for the `insert.ts` file.
+
+
+### [Vitest](#tab/test-with-vitest)
+
+
+---
+
 
 The test file covers three tests for the `insert.ts` file, which can be divided into two validation types:
 
@@ -303,12 +418,25 @@ The test file covers three tests for the `insert.ts` file, which can be divided 
 |Error path: `should return verification error if input is not verified`|Data failed validation and returned an error.|
 |Error path:`should return error if db insert fails`|The mocked database method was called, and returned an error.|
 
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+### [Jest](#tab/test-with-jest)
+
 The following Jest test file shows how to test the **insertDocument** function.
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.spec.ts":::
 
+
+### [Vitest](#tab/test-with-vitest)
+
+
+---
+
 ## Additional information 
 
 - [Jest Mocking Best Practices](https://devblogs.microsoft.com/ise/jest-mocking-best-practices/)
+- [Vitest mocking](https://vitest.dev/guide/mocking)
+- [Node.js Test runner](https://nodejs.org/learn/test-runner/introduction)
 - [The Difference between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler
 
