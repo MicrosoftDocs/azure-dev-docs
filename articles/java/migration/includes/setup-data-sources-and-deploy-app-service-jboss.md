@@ -1,12 +1,12 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 05/27/2021
+ms.date: 03/18/2025
 ---
 
 ### Set up data sources
 
-There are three core steps when registering a data source with JBoss EAP: uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. For more information, see [Datasource Management](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management) in the JBoss EAP documentation. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
+There are three core steps when registering a data source with JBoss EAP: uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. For more information, see [Datasource Management](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html/configuration_guide/datasource_management) in the JBoss EAP documentation. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
 
 To set up data sources, use the following steps.
 
