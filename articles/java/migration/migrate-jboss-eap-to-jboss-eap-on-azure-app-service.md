@@ -21,7 +21,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Inventory all secrets
 
-Check all properties and configuration files on the production servers for any secrets and passwords. Be sure to check **jboss-web.xml** in your Web Application Archive (WAR) files. Configuration files that contain passwords or credentials may also be found inside your application.
+Check all properties and configuration files on the production servers for any secrets and passwords. Be sure to check **jboss-web.xml** in your Web Application Archive (WAR) files. Configuration files that contain passwords or credentials can also be found inside your application.
 
 Consider storing those secrets in Azure KeyVault. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
@@ -39,7 +39,7 @@ JBoss EAP on App Service requires a supported version of Java. For guidance on w
 
 ### Determine whether and how the file system is used
 
-Any usage of the file system on the application server requires reconfiguration or, in rare cases, architectural changes. JBoss EAP modules or your application code can use the file system. You may identify some or all of the scenarios described in the following sections.
+Any usage of the file system on the application server requires reconfiguration or, in rare cases, architectural changes. JBoss EAP modules or your application code can use the file system. You can identify some or all of the scenarios described in the following sections.
 
 [!INCLUDE [static-content](includes/static-content.md)]
 
