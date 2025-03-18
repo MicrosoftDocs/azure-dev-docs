@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial provides a simple step-by-step guide showing how to containerize and deploy a Python web app to Azure. The app is hosted using [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. Azure App Service's [Web App for Containers][3] abstracts container orchestration, streamlining the deployment process, and allowing you to focus on development. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial provides a step-by-step guide showing how to containerize and deploy a Python web app to Azure. The app is hosted using [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. Azure App Service's [Web App for Containers][3] abstracts container orchestration, streamlining the deployment process, and allowing you to focus on development. For more information about Azure container options, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
