@@ -12,7 +12,13 @@ ai-usage: ai-assisted
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide shows you how to effectively test Azure SDK integration in your JavaScript applications a testing framework. 
 
-When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use a test framework for testing SDK integration. Other comparable test frameworks can also be used.
+When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use a test framework for testing SDK integration. The application code inserts a document into Cosmos DB. The test code mocks out that resource usage so the cloud resource isn't used. 
+
+The frameworks used are:
+
+* Jest with CommonJs
+* Vitest with ESM
+* Node.js Test runner with ESM
 
 ## Prerequisites
 
@@ -216,11 +222,17 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/fakes/fake-in-mem-db.spec.ts" :::
+
+
 ### [Jest](#tab/test-with-jest)
 
-:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/fakes/fake-in-mem-db.spec.ts" :::
+:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/fakes/fake-in-mem-db.spec.ts" :::
 
 ### [Vitest](#tab/test-with-vitest)
+
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/fakes/fake-in-mem-db.spec.ts" :::
+
 
 ---
 
@@ -236,11 +248,17 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/mock-function/lib/insert.ts":::
+
+
 ### [Jest](#tab/test-with-jest)
 
-:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
+
+
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/mock-function/lib/insert.ts":::
 
 ---
 
@@ -282,10 +300,7 @@ In the root of the application directory, install Vitest with the following comm
 npm install -D vitest
 ```
 
-
 ---
-
-
 
 ### Configure package to run test
 
@@ -368,14 +383,18 @@ When testing, think in terms of the test setup, the test itself, and the verific
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/test-boilerplate/boilerplate.spec.ts":::
+
+
 ### [Jest](#tab/test-with-jest)
 
 Jest has a test file template to define your test file. 
 
-:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/test-boilerplate/boilerplate.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/test-boilerplate/boilerplate.spec.ts":::
 
 ### [Vitest](#tab/test-with-vitest)
 
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/test-boilerplate/boilerplate.spec.ts":::
 
 ---
 
@@ -415,17 +434,42 @@ The test file covers three tests for the `insert.ts` file, which can be divided 
 |Error path:`should return error if db insert fails`|The mocked database method was called, and returned an error.|
 
 
+The following test file shows how to test the **insertDocument** function.
+
+
 ### [Node.js test runner](#tab/test-with-node-testrunner)
+
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/mock-function/lib/insert.spec.ts":::
+
 
 ### [Jest](#tab/test-with-jest)
 
-The following Jest test file shows how to test the **insertDocument** function.
 
-:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-jest/src/mock-function/lib/insert.spec.ts":::
 
 
 ### [Vitest](#tab/test-with-vitest)
 
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/mock-function/lib/insert.spec.ts":::
+
+
+---
+
+## Troubleshooting
+
+Most of the code in this article comes from the [MicrosoftDocs/node-essentials](https://github.com/MicrosoftDocs/node-essentials/) GitHub repository. If you want to insert into a Cosmos DB Cloud resource, [create the resourcce with this script](https://github.com/MicrosoftDocs/node-essentials/scripts/create-cosmos-db-resources.sh).
+
+### [Node.js test runner](#tab/test-with-node-testrunner)
+
+[Sample code](https://github.com/MicrosoftDocs/node-essentials/test-with-node-testrunner)
+
+### [Jest](#tab/test-with-jest)
+
+[Sample code](https://github.com/MicrosoftDocs/node-essentials/test-with-node-jest)
+
+### [Vitest](#tab/test-with-vitest)
+
+[Sample code](https://github.com/MicrosoftDocs/node-essentials/test-with-vitest)
 
 ---
 
