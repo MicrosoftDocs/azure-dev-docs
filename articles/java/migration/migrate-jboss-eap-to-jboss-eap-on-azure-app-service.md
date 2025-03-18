@@ -11,7 +11,7 @@ recommendations: false
 
 # Migrate JBoss EAP applications to JBoss EAP on Azure App Service
 
-This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on JBoss EAP in an Azure App Service instance.
+This guide describes what you should be aware of when you want to migrate an existing Red Hat JBoss Enterprise Application Platform (EAP) application to run on JBoss EAP in an Azure App Service instance.
 
 ## Pre-migration
 
@@ -21,7 +21,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Inventory all secrets
 
-Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check **jboss-web.xml** in your WARs. Configuration files that contain passwords or credentials may also be found inside your application.
+Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check **jboss-web.xml** in your Web Application Archive (WAR) files. Configuration files that contain passwords or credentials may also be found inside your application.
 
 Consider storing those secrets in Azure KeyVault. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
@@ -31,7 +31,7 @@ You can use Key Vault secrets in your App Service instance with Key Vault refere
 
 ### Validate that the supported Java version works correctly
 
-JBoss EAP on App Service requires a supported version of Java. For guidance on which version of the JDK to use, see [Supported Configurations](https://access.redhat.com/articles/6961381?extIdCarryOver=true&sc_cid=RHCTN0250000439448) in the Red Hat documentation.
+JBoss EAP on App Service requires a supported version of Java. For guidance on which version of the Java Development Kit (JDK) to use, see [Supported Configurations](https://access.redhat.com/articles/6961381?extIdCarryOver=true&sc_cid=RHCTN0250000439448) in the Red Hat documentation.
 
 [!INCLUDE [note-obtain-your-current-java-version](includes/note-obtain-your-current-java-version.md)]
 
@@ -53,7 +53,7 @@ Any usage of the file system on the application server will require reconfigurat
 
 ### Determine whether JCA connectors are in use
 
-If your application uses JCA connectors, validate that you can use the JCA connector on JBoss EAP. If you can use the JCA connector on JBoss EAP, then for it to be available, you must add the JARs to the server classpath and put the necessary configuration files in the correct location in the JBoss EAP server directories.
+If your application uses Java Connector Architecture (JCA) connectors, validate that you can use the JCA connector on JBoss EAP. If you can use the JCA connector on JBoss EAP, then for it to be available, you must add the JARs to the server classpath and put the necessary configuration files in the correct location in the JBoss EAP server directories.
 
 [!INCLUDE [determine-whether-jaas-is-in-use](includes/determine-whether-jaas-is-in-use-jboss.md)]
 
