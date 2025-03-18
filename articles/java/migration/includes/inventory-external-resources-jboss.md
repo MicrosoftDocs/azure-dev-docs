@@ -6,7 +6,7 @@ ms.date: 03/17/2025
 
 ### Inventory external resources
 
-External resources, such as data sources, JMS message brokers, and others are injected via Java Naming and Directory Interface (JNDI). Some such resources may require migration or reconfiguration.
+External resources, such as data sources, Java Message Service (JMS) message brokers, and others are injected via Java Naming and Directory Interface (JNDI). Some such resources may require migration or reconfiguration.
 
 #### Inside your application
 
@@ -18,9 +18,9 @@ Datasources are JNDI resources with the `type` attribute set to `javax.sql.DataS
 
 * What is the datasource name?
 * What is the connection pool configuration?
-* Where can I find the JDBC driver JAR file?
+* Where can I find the Java Database Connectivity (JDBC) driver JAR file?
 
-For more information, see [About JBoss EAP Datasources](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
+For more information, see [About JBoss Enterprise Application Platform (EAP) Datasources](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 #### All other external resources
 
