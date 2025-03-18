@@ -25,6 +25,8 @@ items:
         href: deploy-java-quarkus-app.md
       - name: Quarkus with Microsoft Entra ID
         href: quarkus-with-microsoft-entra-id.md
+      - name: Quarkus with Azure App Configuration
+        href: quarkus-with-app-configuration.md
   - name: Java application servers on Azure
     expanded: true
     items:
