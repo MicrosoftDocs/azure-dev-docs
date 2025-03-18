@@ -6,7 +6,7 @@ ms.date: 03/17/2025
 
 ### Provision Azure App Service for JBoss EAP runtime
 
-Use the following commands to create a resource group and an Azure App Service Plan. After the App Service Plan is created, a Linux web app plan is created using the JBoss EAP runtime.
+Use the following commands to create a resource group and an Azure App Service Plan. After the App Service Plan is created, a Linux web app plan is created using the JBoss Enterprise Application Platform (EAP) runtime.
 
 Be sure the specified environment variables have appropriate values.
 
