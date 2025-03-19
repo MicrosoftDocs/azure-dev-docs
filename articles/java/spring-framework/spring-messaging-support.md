@@ -23,7 +23,7 @@ This article describes how you can use Spring Cloud Azure and Spring Messaging t
 
 ### Key concepts
 
-Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. The Spring Messaging for Azure Event Hubs project applies core Spring concepts to the development of event hubs-based messaging solutions. It provides a *template* as a high-level abstraction for sending messages. It also provides support for message-driven plain old Java objects (      ) with `@EventHubsListener` annotations and a *listener container*. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
+Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. The Spring Messaging for Azure Event Hubs project applies core Spring concepts to the development of event hubs-based messaging solutions. It provides a *template* as a high-level abstraction for sending messages. It also provides support for message-driven plain old Java objects (POJOs) with `@EventHubsListener` annotations and a *listener container*. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
 
 ### Dependency setup
 
@@ -168,6 +168,9 @@ Use the following steps to receive messages:
        }
    }
    ```
+
+   > [!NOTE]
+   > To avoid repetition, since version 5.21.0, Spring Cloud Azure Auto-configure enabled annotation `@EnableAzureMessaging` automatically.
 
 1. When the Event Hubs infrastructure is present, you can annotate any bean with `@EventHubsListener` to create a listener endpoint. The following component creates a listener endpoint on the `EVENT_HUB_NAME` event hub and the `$Default` consumer group:
 
@@ -323,6 +326,8 @@ Use the following steps to receive messages:
        }
    }
    ```
+   > [!NOTE]
+   > To avoid repetition, since version 5.21.0, Spring Cloud Azure Auto-configure enabled annotation `@EnableAzureMessaging` automatically.
 
 1. When the ServiceBus infrastructure is present, you can annotate any bean with `@ServiceBusListener` to create a listener endpoint. The following component creates a listener endpoint on the `QUEUE_NAME` queue:
 
