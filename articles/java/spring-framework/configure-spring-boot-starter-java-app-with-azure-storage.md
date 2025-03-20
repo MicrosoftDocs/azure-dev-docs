@@ -160,4 +160,4 @@ For more information about additional Azure storage APIs that you can call from 
 - [How to use Queue Storage from Java](/azure/storage/queues/storage-quickstart-queues-java)
 - [How to use Azure Table client library for Java](/azure/cosmos-db/table-storage-how-to-use-java)
 - [Develop for Azure Files with Java SE](/azure/storage/files/storage-java-how-to-use-file-storage)
-- [Quickstart: Quarkus extension for Azure Blob Storage](/azure/storage/files/storage-quickstart-blobs-java-quarkus)
+- [Quickstart: Quarkus extension for Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-java-quarkus)
