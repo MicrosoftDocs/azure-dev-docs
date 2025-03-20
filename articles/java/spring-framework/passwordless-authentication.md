@@ -19,7 +19,6 @@ This article introduces the **[Azure Identity Extensions](/java/api/overview/azu
 Azure Identity Extensions are built on top of the Azure Identity library and simplify the authentication to Microsoft Entra ID and other Azure services. It provides a common template framework for users to obtain a token from Microsoft Entra ID using a variety of credential types, including:
 - `ClientSecretCredential`
 - `ClientCertificateCredential`
-- `UsernamePasswordCredential`
 - `ManagedIdentityCredential`
 - `DefaultAzureCredential`
 
