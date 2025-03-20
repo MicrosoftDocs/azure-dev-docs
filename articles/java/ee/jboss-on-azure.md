@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: overview
-ms.date: 03/12/2025
+ms.date: 03/20/2025
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-extended-java, linux-related-content
 ---
 
@@ -37,13 +37,13 @@ Azure Red Hat OpenShift provides highly available, fully managed OpenShift clust
 * Optionally, a custom application deployment using Source-to-Image (S2I).
 * A virtual network and subnet.
 
-You can launch the solution [JBoss EAP on Azure Red Hat OpenShift](https://aka.ms/eap-aro-portal) from the Azure portal.
+You can launch the solution [JBoss EAP on Azure Red Hat OpenShift](https://aka.ms/eap-aro-portal) from the Azure portal (just click on the link).
 
 As an alternative to the solution template, Red Hat and Microsoft also provide a detailed step-by-step guide on how to deploy JBoss EAP on Azure Red Hat OpenShift. For more information, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](jboss-eap-on-aro.md).
 
 ## JBoss EAP on Azure Virtual Machines
 
-Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to Azure Virtual Machines. There are two solution templates that you can launch from the Azure portal to match your use case:
+Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to Azure Virtual Machines. There are two solution templates that you can launch from the Azure portal to match your use case (just click on the links):
 
 - A [single JBoss EAP instance on an Azure Virtual Machine](https://aka.ms/eap-vm-single-portal).
 - A [JBoss EAP cluster on Azure Virtual Machines](https://aka.ms/eap-vm-cluster-portal).
