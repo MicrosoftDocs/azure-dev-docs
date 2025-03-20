@@ -1,5 +1,5 @@
 ---
-title: Upload a file to an Azure Blob Storage
+title: Use Spring Boot to upload a file to Azure Blob Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 author: KarlErickson
 ms.author: karler
@@ -9,7 +9,7 @@ ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
-# Upload a file to an Azure Blob Storage
+# Use Spring Boot to upload a file to Azure Blob Storage
 
 This tutorial shows you how to upload and read from container blobs in an Azure Blob Storage account from a Spring Boot application.
 
@@ -159,4 +159,5 @@ For more information about additional Azure storage APIs that you can call from 
 - [Quickstart: Azure Blob Storage client library for Java](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
 - [How to use Queue Storage from Java](/azure/storage/queues/storage-quickstart-queues-java)
 - [How to use Azure Table client library for Java](/azure/cosmos-db/table-storage-how-to-use-java)
-- [Developer for Azure Files with Java](/azure/storage/files/storage-java-how-to-use-file-storage)
+- [Develop for Azure Files with Java SE](/azure/storage/files/storage-java-how-to-use-file-storage)
+- [Quickstart: Quarkus extension for Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-java-quarkus)
