@@ -319,7 +319,7 @@ java-app
 
 The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the **java-app** root directory, there is a Dockerfile to create the application image with Open Liberty.
+In the **java-app** root directory, there's a Dockerfile to create the application image with Open Liberty.
 
 In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
