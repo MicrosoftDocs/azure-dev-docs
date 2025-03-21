@@ -8,17 +8,17 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial shows you how to containerize a Python web app and deploy it to Azure. The single container web app is hosted in [Azure App Service][1] and uses [MongoDB for Azure Cosmos DB][2] to store data. App Service [Web App for Containers][3] allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When building web apps, Azure App Service is a good option for taking your first steps with containers. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. The single container web app can use either a local MongoDB instance or [MongoDB for Azure Cosmos DB][2] to store data. App Service [Web App for Containers][3] allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When building web apps, Azure App Service is a good option for taking your first steps with containers. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you will:
 
-* Build and run a [Docker][4] container locally. *This step is optional.*
+* Build and run a [Docker][4] container locally. See [Build and run a containerized Python web app locally](tutorial-containerize-deploy-python-web-app-azure-02.md). *This step is optional.*
 
-* Build a [Docker][4] container image directly in Azure.
+* Build a [Docker][4] container image directly in Azure. See [Build a containerized Python web app in Azure](tutorial-containerize-deploy-python-web-app-azure-03.md).
 
-* Configure an App Service to create a web app based on the Docker container image.
+* Configure an App Service to create a web app based on the Docker container image. See [Deploy a containerized Python app to App Service](tutorial-containerize-deploy-python-web-app-azure-04.md).
 
-Following this tutorial, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
+After completingthe articles in this tutorial series, you'll have the basis for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service overview
 
