@@ -392,7 +392,7 @@ You can now use the following steps to run and test the project locally before d
     mvn liberty:run
     ```
 
-1. Verify that the application works as expected. If successful, you should see a message similar to `[INFO] [AUDIT   ] CWWKZ0001I: Application javaee-cafe started in 11.086 seconds.` in the command output. Go to [http://localhost:9080/](http://localhost:9080/) in your browser to verify that the application is accessible and all functions are working.
+1. Verify that the application works as expected. If successful, you should see a message similar to `[INFO] [AUDIT   ] CWWKZ0001I: Application javaee-cafe started in 11.086 seconds.` in the command output. Go to `http://localhost:9080/` in your browser to verify that the application is accessible and all functions are working.
 
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select <kbd>Y</kbd> if you're asked to terminate the batch job.
 
