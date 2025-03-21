@@ -1,6 +1,6 @@
 items:
 - name: Spring Cloud Azure
-  hr  ef: index.yml
+  href: index.yml
   items:
   - name: Overview
     expanded: true
