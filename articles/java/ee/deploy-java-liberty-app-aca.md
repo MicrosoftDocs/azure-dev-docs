@@ -286,6 +286,7 @@ Use the following commands to prepare the sample code for this guide. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 export BASE_DIR=$PWD
+git checkout 20241118
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -294,6 +295,7 @@ export BASE_DIR=$PWD
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 $Env:BASE_DIR = $PWD
+git checkout 20241118
 ```
 
 ---
