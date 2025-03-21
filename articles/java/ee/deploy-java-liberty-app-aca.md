@@ -286,7 +286,6 @@ Use the following commands to prepare the sample code for this guide. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 export BASE_DIR=$PWD
-git checkout 20241118
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -295,7 +294,6 @@ git checkout 20241118
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 $Env:BASE_DIR = $PWD
-git checkout 20241118
 ```
 
 ---
@@ -313,16 +311,15 @@ java-app
 │  ├─ resources/
 │  ├─ webapp/
 ├─ Dockerfile
-├─ Dockerfile-wlp
 ├─ pom.xml
 ├─ pom-azure-identity.xml
 ```
 
 The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the **java-app** root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the **java-app** root directory, there is a Dockerfile to create the application image with Open Liberty.
 
-In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
 The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
@@ -622,6 +619,5 @@ You can learn more from the references used in this guide:
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
-* [WebSphere Liberty Container Images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
