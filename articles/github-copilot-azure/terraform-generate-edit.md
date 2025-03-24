@@ -141,6 +141,37 @@ Confirm the action: Type yes when prompted to confirm and apply the changes.
 This will execute the Terraform configuration and create the resources described in your template.
 ```
 
+While running `terraform plan` or `terraform apply` in the terminal window you may see an error message:
+
+```
+Planning failed. Terraform encountered an error while generating this plan.
+
+╷
+│ Error: subscription_id is a required provider property when performing a plan/apply operation
+│
+│ with provider["registry.terraform.io/hashicorp/azurerm"],
+│ on main.tf line 3, in provider "azurerm":
+│ 3: provider "azurerm" {
+│
+```
+
+To resolve this, you can create a prompt by copying the error message from the terminal and pasting to the chat pane. Doing so should reply with a response that is similar to the following:
+
+```
+To resolve the error, you need to specify the subscription_id in the provider block of your Terraform configuration. Here's how you can update your main.tf file:
+
+provider "azurerm" {
+  features {}
+  subscription_id = "your-subscription-id"
+}
+
+Replace "your-subscription-id" with your actual Azure subscription ID. You can find your subscription ID in the Azure portal under "Subscriptions." After updating the file, run terraform init again, followed by terraform plan and terraform apply.
+```
+
+Modify your `main.tf` file to include the `subscription_id = "your-subscription-id"` per the instructions in the response and try again. It should work this time.
+
+
+
 ## Edit Terraform files
 
 Understanding and modifying an existing bicep files can also be a daunting task if you're new to the syntax, but is made easier with GitHub Copilot for Azure.
