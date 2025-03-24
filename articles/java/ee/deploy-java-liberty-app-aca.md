@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 11/27/2024
+ms.date: 03/21/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -14,25 +14,22 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 This article shows you how to run Open Liberty on Azure Container Apps. You do the following activities in this article:
 
-* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty runtime.
+* Run your Java, Java Enterprise Edition (EE), Jakarta EE, or MicroProfile application on the Open Liberty runtime.
 * Build the application Docker image using Liberty container images.
 * Deploy the containerized application to Azure Container Apps.
 
-For more information about Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information about IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+For more information about Open Liberty, see [the Open Liberty project page](https://openliberty.io/). This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://openliberty.io/docs/latest/performance-tuning.html).
 
-This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
-
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing Java on Azure solutions, fill out this short [survey on Azure migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with either Windows or Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 * [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
-    * Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-    * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    * If you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-* Install a Java SE implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
+* Install a Java Standard Edition (SE) implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
 * Ensure that [Git](https://git-scm.com) is installed.
 
@@ -316,16 +313,15 @@ java-app
 │  ├─ resources/
 │  ├─ webapp/
 ├─ Dockerfile
-├─ Dockerfile-wlp
 ├─ pom.xml
 ├─ pom-azure-identity.xml
 ```
 
 The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the **java-app** root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the **java-app** root directory, there's a Dockerfile to create the application image with Open Liberty.
 
-In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
 The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
@@ -625,6 +621,5 @@ You can learn more from the references used in this guide:
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
-* [WebSphere Liberty Container Images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
