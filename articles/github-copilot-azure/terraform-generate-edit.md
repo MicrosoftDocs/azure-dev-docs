@@ -1,6 +1,6 @@
 ---
-title: Use GitHub Copilot for Azure to Generate and Edit Terraform files
-description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create and edit Terraform files to deploy Azure resources.
+title: Use GitHub Copilot for Azure to Generate Terraform files
+description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create Terraform files to deploy Azure resources.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Generate Terraform files using GitHub Copilot for Azure
 
-There are many ways to create new resources on Azure, however, Terraform provides an infrastructure-as-code (IaC) approach that is declarative, scalable, and cloud-agnostic. It enables automation, state management, and modular configurations while offering improved maintainability and collaboration through version control. Compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI, Terraform allows for efficient resource provisioning with dependency management and reusable modules. GitHub Copilot for Azure can help you create and edit Terraform configurations.
+There are many ways to create new resources on Azure, however, Terraform provides an infrastructure-as-code (IaC) approach that is declarative, scalable, and cloud-agnostic. It enables automation, state management, and modular configurations while offering improved maintainability and collaboration through version control. Compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI, Terraform allows for efficient resource provisioning with dependency management and reusable modules. GitHub Copilot for Azure can help you create Terraform configurations.
 
 ## Generate Terraform files
 
@@ -27,6 +27,9 @@ Create a New Chat (Ctrl + L), then copy and paste the following prompt into GitH
 ```
 @azure Show me a Terraform template that creates an Azure Storage account with a blob container and a file share.
 ```
+
+> [!IMPORTANT]
+> This scenario uses *Ask* mode, not *Edit* mode, nor *Agent* mode. Choosing a different mode will yield different results.
 
 ### Example response
 
@@ -169,76 +172,6 @@ Replace "your-subscription-id" with your actual Azure subscription ID. You can f
 ```
 
 Modify your `main.tf` file to include the `subscription_id = "your-subscription-id"` per the instructions in the response and try again. It should work this time.
-
-
-
-## Edit Terraform files
-
-Understanding and modifying an existing bicep files can also be a daunting task if you're new to the syntax, but is made easier with GitHub Copilot for Azure.
-
-### Example Scenario
-
-Suppose you have taken over support for an existing application that has several bicep templates defined. You do not work with Terraform often and may need some help when working with Terraform files.
-
-If you want to follow along exactly with the:
-
-1. Within GitHub, fork `https://github.com/Azure/terraform.git` to your personal account.
-2. From a command prompt, navigate to the directory where you work on source code (like `c:\source` in the following example), then clone your fork locally.
-
-```
-cd c:\source
-git clone https://github.com/<your-github-id>/terraform.git
-```
-
-3. In Visual Studio Code, open the `c:\source\terraform\quickstart\101-app-service-app-deploy` directory.
-
-
-The folder contains several files, but you're unsure what they contain or how they can be used. You open the `main.tf` file in the code editor to preview the file.
-
-   :::image type="content" source="media/terraform-generate-edit/ghcpa-terraform-edit.png" alt-text="Screenshot that shows Visual Studio Code with a project open in the Explorer pane and a main.tf file open in the .":::
-
-GitHub Copilot for Azure allows you to ask specific questions about the file that is currently in the code editor. In the chat pane, below the prompt, there's a bicep icon, followed by the name of the file that's open in the main editor, and the words `Current file` followed by an eye icon.
-
-   :::image type="content" source="media/bicep-generate-edit/ghcpa-chat-current-file.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
-
-### Example prompt
-
-You could ask GitHub Copilot for Azure about this file (or any of the files in the folder) to understand more.
-
-```
-@azure Explain what this Terraform file does.
-```
-
-### Example response
-
-GitHub Copilot for Azure may respond by walking through the various sections and explaining the keyword tokens used in the file.
-
-You could follow up with questions such as:
-
-```
-@azure What app service plan is currently being used?
-```
-
-```
-The App Service Plan being used is defined by the azurerm_app_service_plan resource. The specific SKU (Stock Keeping Unit) tier and size are configured using the variables var.app_service_plan_sku_tier and var.app_service_plan_sku_size. To know the exact tier and size being used, you would need to check the values assigned to these variables in your Terraform variables file or wherever they are defined.
-```
-
-The answer indicates that the values are set by variables which are likely stored in another file. You spot a `variables.tf` file and open it in the main editor. Ask the question again.
-
-```
-@azure What app service plan is currently being used?
-```
-
-This time, GitHub Copilot for Azure identifies the service plan in use.
-
-```
-The App Service Plan currently being used is set with the following configuration:
-
-- Tier: PremiumV3
-- Size: P0v3
-
-These values are specified by default in the variables.tf file under app_service_plan_sku_tier and app_service_plan_sku_size.
-```
 
 
 ## Related content
