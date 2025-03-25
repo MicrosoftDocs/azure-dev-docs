@@ -6,7 +6,7 @@ ms.date: 10/09/2023
 ms.custom: devx-track-python, py-fresh-zinc, devx-track-azurecli
 ---
 
-# Build a containerized Python web app in the cloud
+# Build a containerized Python web app in Azure
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
