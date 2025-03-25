@@ -494,12 +494,12 @@ Successful output is a JSON object including the property `"type": "Microsoft.Ap
 Then, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
 
 1. Open the Azure portal in your browser and navigate to the Azure Container Apps instance you created in the previous step.
-1. In the left pane, select **Settings** > **Service Connector (preview)**.
-1. Select **Create**, and you should see the popup window **Create connection**.
-1. In the **Basic** pane, select **SQL Database** for **Service type**, select **Java** for **Client type**, and leave other fields as default. Select **Next: Authentication**.
-1. In the **Authentication** pane, select **System assigned managed identity** for **Authentication type**. Select **Next: Networking**.
+1. In the navigation pane, select **Settings** > **Service Connector (preview)**.
+1. Select **Create**. You should see the popup window **Create connection**.
+1. In the **Basic** pane, for **Service type**, select **SQL Database**.  For **Client type**, select **Java**. Leave other fields a at their default values, then select **Next: Authentication**.
+1. In the **Authentication** pane, for **Authentication type**, select **System assigned managed identity**, then select **Next: Networking**.
 1. In the **Networking** pane, select **Next: Review + create**.
-1. In the **Review + create** pane, wait for the validation to pass, and then select **Create on Cloud Shell**. It opens Cloud Shell and executes the commands to create the connection. Wait for the command to finish and close the Cloud Shell.
+1. In the **Review + create** pane, wait for the validation to pass, and then select **Create on Cloud Shell**. The Cloud Shell opens and then executes the commands to create the connection. Wait for the commands to finish and then close the Cloud Shell.
 
 > [!NOTE]
 > The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from the [User-assigned managed identity](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) section of [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java).
