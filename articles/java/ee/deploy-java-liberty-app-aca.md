@@ -493,75 +493,13 @@ Successful output is a JSON object including the property `"type": "Microsoft.Ap
 
 Then, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
 
-#### [Bash](#tab/in-bash)
-
-1. This sample uses Service Connector to facilitate connecting to the database. For more information about Service Connector, see [What is Service Connector?](/azure/service-connector/overview) Install the passwordless extension for the Azure CLI by using the following command:
-
-    ```azurecli
-    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-    ```
-
-1. Connect the database to the container app with a system-assigned managed identity by using the following command:
-
-    ```azurecli
-    az containerapp connection create sql \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --name $ACA_NAME \
-        --target-resource-group $RESOURCE_GROUP_NAME \
-        --server $SQL_SERVER_NAME \
-        --database $DB_NAME \
-        --system-identity \
-        --container $ACA_NAME \
-        --client-type java
-    ```
-
-    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
-
-#### [PowerShell](#tab/in-powershell)
-
-1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
-
-    ```azurepowershell
-    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-    ```
-
-1. Connect the database to the container app with a system-assigned managed identity by using the following command:
-
-    ```azurepowershell
-    az containerapp connection create sql `
-        --resource-group $Env:RESOURCE_GROUP_NAME `
-        --name $Env:ACA_NAME `
-        --target-resource-group $Env:RESOURCE_GROUP_NAME `
-        --server $Env:SQL_SERVER_NAME `
-        --database $Env:DB_NAME `
-        --system-identity `
-        --container $Env:ACA_NAME `
-        --client-type java
-    ```
-
-    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
-
-    > [!NOTE]
-    > You must take further action if the command fails with an error message similar to the following example:
-    >
-    > ```output
-    > The command failed with an unexpected error. Here is the traceback:
-    > Dependency pyodbc can't be installed, please install it manually with `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe -m pip install pyodbc`.
-    > ```
-    >
-    > In this case, install the `pyodbc` package manually by using the following steps:
-    >
-    > 1. Open Windows PowerShell with administrator privileges. For more information, see the [With Administrative privileges (Run as administrator)](/powershell/scripting/windows-powershell/starting-windows-powershell#with-administrative-privileges-run-as-administrator) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
-    >
-    > 1. Run the following command in the PowerShell window:
-    >
-    >    ```powershell
-    >    & "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe" -m pip install pyodbc
-    >    ```
-    >
-    > After the installation is complete, run the previous `az containerapp connection create sql` command again.
-
----
+1. Open the Azure portal in your browser and navigate to the Azure Container Apps instance you created in the previous step.
+1. In the left pane, select **Settings** > **Service Connector (preview)**.
+1. Select **Create**, and you should see the popup window **Create connection**.
+1. In the **Basic** pane, select **SQL Database** for **Service type**, select **Java** for **Client type**, and leave other fields as default. Select **Next: Authentication**.
+1. In the **Authentication** pane, select **System assigned managed identity** for **Authentication type**. Select **Next: Networking**.
+1. In the **Networking** pane, select **Next: Review + create**.
+1. In the **Review + create** pane, wait for the validation to pass, and then select **Create on Cloud Shell**. It opens Cloud Shell and executes the commands to create the connection. Wait for the command to finish and close the Cloud Shell.
 
 > [!NOTE]
 > The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from the [User-assigned managed identity](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) section of [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java).
