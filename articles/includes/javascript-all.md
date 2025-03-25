@@ -408,16 +408,16 @@
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.6.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.12.0) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.0) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/events/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@typespec/http-client/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.9.0-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.9.0-dev.1) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.15](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.15) |  |  |
+| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.8.2) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.16](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.16) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/sse/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/streams/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
@@ -498,7 +498,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250324.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250324.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250324.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250324.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -508,7 +508,7 @@
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
 | @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.3-ci.9c24a33e6.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.3-ci.9c24a33e6.0) |  |  |
-| @autorest/typescript | npm [6.0.36](https://www.npmjs.com/package/@autorest/typescript/v/6.0.36) |  |  |
+| @autorest/typescript | npm [6.0.37](https://www.npmjs.com/package/@autorest/typescript/v/6.0.37) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -545,7 +545,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.38.4](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.38.4) |  |  |
+| @azure-tools/rlc-common | npm [0.38.5](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.38.5) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.3.1) |  |  |
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
@@ -579,7 +579,7 @@
 | AutoRest - Go | npm [4.0.0-preview.70](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.70) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.30.0](https://www.npmjs.com/package/@autorest/python/v/6.30.0) |  | GitHub [6.30.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.31.0](https://www.npmjs.com/package/@autorest/python/v/6.31.0) |  | GitHub [6.31.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
