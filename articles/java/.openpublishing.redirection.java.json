@@ -577,6 +577,10 @@
         {
           "source_path": "spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md",
           "redirect_url": "/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide"
+        },
+        {
+          "source_path": "sdk/troubleshooting-authentication-user-credential.md",
+          "redirect_url": "/azure/developer/java/sdk/troubleshooting-authentication-overview"
         }
     ]
 }
