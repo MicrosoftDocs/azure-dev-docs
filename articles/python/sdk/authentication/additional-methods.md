@@ -1,12 +1,10 @@
 ---
 title: Additional methods to authenticate to Azure resources from Python apps
 description: This article describes additional, less common methods you can use to authenticate your Python app to Azure resources. 
-ms.date: 05/28/2024
+ms.date: 03/25/2025
 ms.topic: how-to
 ms.custom: devx-track-python, passwordless-python
 ---
-
-# Additional methods to authenticate to Azure resources from Python apps
 
 This article lists additional methods that apps can use to authenticate to Azure resources. The methods in this article are less commonly used; when possible, we encourage you to use one of the methods outlined in [authenticating Python apps to Azure using the Azure SDK overview](./overview.md).
 
@@ -148,14 +146,3 @@ This method interactively authenticates a user on devices with limited UI (typic
 For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
 
 Device code authentication in a development environment enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. However, you can use this method with a specific client ID, rather than the default, for which you can assign specific permissions.
-
-## Authentication with a username and password
-
-This method authenticates an application using previous-collected credentials and the [`UsernamePasswordCredential`](/python/api/azure-identity/azure.identity.usernamepasswordcredential) object.
-
-> [!IMPORTANT]
-> This method of authentication is discouraged because it's less secure than other flows. Also, this method isn't interactive and is therefore **not compatible with any form of multi-factor authentication or consent prompting.** The application must already have consent from the user or a directory administrator.
->
-> Furthermore, this method authenticates only work and school accounts; Microsoft accounts aren't supported. For more information, see [Sign up your organization to use Microsoft Entra ID](/azure/active-directory/fundamentals/sign-up-organization).
-
-:::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_username_password.py":::
