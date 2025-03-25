@@ -1,31 +1,34 @@
 ---
 title: Build and run a containerized Python web app locally with MongoDB
-description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB in preparation for deployment to Azure App Service.
+description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB or using Azure Cosmos DB for MongoDB. In later tutorials, you learn to deploy a Python web app to Azure App Service.
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 03/24/2025
 ms.custom: devx-track-python
 ---
 
 # Build and run a containerized Python web app locally
 
-In this article, you'll learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local machine. You can build and run this app using either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to store data. This article is part 2 of a 5-part series. If you haven't already, we recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
+In this article, you'll learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local machine. You can build and run this Pyhton app using either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to store data. This article is part 2 of a 5-part tutorial series. We recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
 
-> [!NOTE]
+> [!TIP]
 > The steps in this article are optional and aren't required to complete the remaining articles in this tutorial series. You can always return to this article after completing the subsequent articles in this series.
 
-The following service diagram highlights the local components covered in this article. In this article, you also learn how to use Azure Cosmos DB for MongdoDB with a local Docker image.
+The following service diagram highlights the local components covered in this article In this article, you also learn how to use Azure Cosmos DB for MongdoDB with a local Docker image, rather than a local instance of MongoDB.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
-## Clone or download the sample app
+> [!IMPORTANT]
+> The commands in this article are formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly. This and subsequent commands use the line continuation character for Bash.
 
-In this section, you clone or download the sample app that you'll use to build a Docker image. You can choose between a Django or Flask web app. If you have your own Python web app, you can use that instead. Make sure your app has a *Dockerfile* in the root folder and can connect to a MongoDB database.
+## Clone or download the sample Python app
+
+In this section, you clone or download the sample Python app that you'll use to build a Docker image. You can choose between a Django or Flask Python web app. If you have your own Python web app, you can use that instead. Make sure your own Python app has a *Dockerfile* in the root folder and can connect to a MongoDB database.
 
 ### [Git clone](#tab/sample-app-git-clone)
 
-1. Launch your terminal application and clone either the Django or Flask repository into a local folder:
+1. Open a bash shell (such as Bash on Linux/macOS or Git Bash on Windows) and clone either the Django or Flask repository into a local folder:
 
-    ```terminal
+    ```bash
     # Django
     git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
     
@@ -33,9 +36,9 @@ In this section, you clone or download the sample app that you'll use to build a
     git clone https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
     ```
 
-1. Then navigate to the root folder:
+1. Navigate to the root folder for your cloned repository:
 
-    ```terminal
+    ```bash
     # Django
     cd msdocs-python-django-container-web-app
     
@@ -49,20 +52,21 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 
 1. Select **Code**, and then select **Download ZIP**.
 
-1. Unpack the ZIP file into a folder and then open a terminal window in that folder.
+1. Unpack the ZIP file into a local folder.
+1. Open a bash shell in that folder.
 
 ---
 
 ## Build a Docker image
 
-If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to proceed. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular, the *Dockerfile* in the root directory.
+If you're using either the [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) sample Python web apps, you're set to proceed. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular, the *Dockerfile* in the root directory.
 
 ### [VS Code](#tab/vscode-docker)
 
-[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image using Visual Studio Code. Once these are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
+[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image using Visual Studio Code. Install these before continuing. Once these are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
 > [!NOTE]
-> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
+> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/) to start the daemon before proceeding.
 
 1. In VS Code, open the Docker extension and then select the **Docker** extension on the Activity Bar.
 
@@ -80,28 +84,28 @@ If you're using one of the framework sample apps available for [Django](https://
   
 ### [Docker CLI](#tab/docker-cli)
 
-[Docker](https://docs.docker.com/get-docker/) is required to build the Docker image using the Docker CLI. Once Docker is installed, open a terminal window and navigate to the sample folder you cloned or downloaded.
+[Docker](https://docs.docker.com/get-docker/) is required to build the Docker image using the Docker CLI. Once Docker is installed, open a bash shell and navigate to the sample folder you cloned or downloaded.
 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
 Start in the root folder of the sample app you cloned or downloaded.
 
-1. Launch your terminal application, and then enter the following command to confirm that Docker is accessible.
+1. Open a bash shell and then run the following command to confirm that Docker is accessible.
 
-    ```Docker
+    ```bash
     docker
     ```
 
-    If, after running this command, you see help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), you can continue. Otherwise, make sure Docker is installed and that your shell has access to the Docker CLI.
+    If, after running this command, you see help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), Docker is accessible. Otherwise, make sure Docker is installed and that your shell has access to the Docker CLI.
   
-1. Build the Docker image for the Python web app by using the [Docker build](https://docs.docker.com/engine/reference/commandline/build/)  command.
+1. Build the Docker image for the Python web app by using the [Docker build](https://docs.docker.com/engine/reference/commandline/build/) command.
 
     The general form of the command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
 
     If you're at the root folder of the project, use the following command to build the Docker image:
   
-    ```Docker
+    ```bash
     docker build --rm --pull \
       --file "Dockerfile" \
       --label "com.microsoft.create-by=docker-cli" \
@@ -109,11 +113,11 @@ Start in the root folder of the sample app you cloned or downloaded.
       .
     ```
   
-    The dot (".") at the end of the command refers to the current directory in which the command runs. You can add `--no-cache` to force a rebuild.
+    The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
   
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
-    ```Docker
+    ```bash
     docker images
     ```
 
@@ -137,32 +141,27 @@ A MongoDB database named *restaurants_reviews* and a collection named *restauran
 
 1. Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) (if it isn't already installed).
 
-    You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/) in your terminal.
+    You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/) in your terminal. If these commands don't work, you may need to explicitly [install mongosh](https://www.mongodb.com/docs/mongodb-shell/install/) or [connect mongosh to your MongoDB server](https://www.mongodb.com/docs/mongodb-shell/connect/).
   
-    * Use the following command to enter the MongoDB shell and get the version of both mongosh and mongoDB server installed on your system:
+    * Use one of the following commands to enter the MongoDB shell and get the version of both mongosh and mongoDB server installed on your system:
 
-      ```terminal
-      mongosh
-      ```
+        ```bash
+        mongosh
+        ```
 
     * To return just the version of MongoDB server installed on your system, close and re-open the MongoDB shell and use the following command:
 
-        ```terminal
+        ```bash
         mongosh --quiet --exec 'db.version()'
         ```
 
-    If these commands don't work, you might need to explicitly [install mongosh](https://www.mongodb.com/docs/mongodb-shell/install/) or [connect mongosh to your MongoDB server](https://www.mongodb.com/docs/mongodb-shell/connect/).
-
     In some setups, an alternative is to directly invoke the Mongo daemon.
 
-    ```terminal
+    ```bash
     mongod --version
     ```
 
-1. Edit the *mongod.cfg* file to add your computer's IP address.
-
-    > [!IMPORTANT]
-    > You will need administrative privileges to save the changes to this configuration file.
+1. Edit the *mongod.cfg* file in the `\MongoDB\Server\8.0\bin` folder and add your computer's local IP address to the `bindIP` key.
 
     The [MongoD configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample Python web app running locally in a Docker container communicates to the host machine with this address.
 
@@ -174,13 +173,14 @@ A MongoDB database named *restaurants_reviews* and a collection named *restauran
       bindIp: 127.0.0.1,<local-ip-address>
     ```
 
+1. Save your changes to this configuration file.
+
+    > [!IMPORTANT]
+    > You will need administrative privileges to save the changes you make to this configuration file.
+
 1. Restart MongoDB to pick up changes to the configuration file.
 
-1. Create a database and collection in the local MongoDB database.
-
-    Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
-
-    For the MongoDB shell, here are example commands to create the database and collection:
+1. Open a MongoDB shell to create a database and collection in the local MongoDB database.
 
     ```mongosh
     > help
@@ -190,17 +190,19 @@ A MongoDB database named *restaurants_reviews* and a collection named *restauran
     > exit
     ```
 
+    There commands set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can also create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb) or any other MondoDB-aware tool.
+
 After you complete these steps, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
 
 ### [Azure Cosmos DB for MongoDB](#tab/mongodb-azure)
 
 You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account and then create the required database and collection for this tutorial. If you haven't used the Azure CLI before, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
-Before running the following script, replace the location and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you're finished with the tutorial. If you arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
+Before running the following script, replace the location (optional) and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you're finished with the tutorial. If you arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
 
-The script assumes that you're using a Bash shell. If you want to use a different shell, you need to change the variable declaration and substitution syntax. The script might take a few minutes to run.
+The script takes a few minutes to run.
 
-```azurecli
+```bash
 #!/bin/bash
 
 # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
@@ -234,6 +236,7 @@ echo "Copy the Primary MongoDB Connection String from the list above"
 ```
 
 When the script completes, copy the *Primary MongoDB Connection String* from the output of the last command.
+ to your clipboard or other location.
 
 ```output
 {
@@ -250,7 +253,7 @@ When the script completes, copy the *Primary MongoDB Connection String* from the
 }
 ```
 
-At this point, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`, a database named `restaurants_reviews`, and a collection named `restaurants_reviews`.
+At this point, you have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`, a database named `restaurants_reviews`, and a collection named `restaurants_reviews`.
 
 For more detail about using the Azure CLI to create a Cosmos DB for MongoDB account and to create databases and collections, see [Create a database and collection for MongoDB for Azure Cosmos DB using Azure CLI](/azure/cosmos-db/scripts/cli/mongodb/create). You can also use [PowerShell](/azure/cosmos-db/scripts/powershell/mongodb/create), the VS Code [Azure Databases extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb), and [Azure portal](/azure/cosmos-db/mongodb/create-mongodb-python).
 
@@ -261,7 +264,7 @@ For more detail about using the Azure CLI to create a Cosmos DB for MongoDB acco
 
 ## Run the image locally in a container
 
-With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
+You're now ready to run the Docker container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
 > [!NOTE]
 > When deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
@@ -302,11 +305,11 @@ With information on how to connect to a MongoDB, you're ready to run the contain
     > [!IMPORTANT]
     > This step fails if the default terminal profile is set to (Windows) Command Prompt. To change the default profile, open the VS Code **Command Palette** (**Ctrl+Shift+P**), enter "Terminal: Select Default Profile", and then select a different profile from the dropdown menu; for example *Git Bash* or *PowerShell*.
 
-1. Confirm that the container is running.
+1. Confirm that the Docker container is running.
 
     1. In the **CONTAINERS** section of the Docker extension, find the container.
   
-    1. Expand the **Individual Containers** node and confirm that "msdocspythoncontainerwebapp" is running. You should see a green triangle symbol next to the container name if it's running.
+    1. Expand the **Individual Containers** node and confirm that the "msdocspythoncontainerwebapp" container is running. You'll see a green triangle symbol next to the container name if it's running.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." :::
 
@@ -325,7 +328,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" alt-text="A screenshot showing how to stop a running Docker container in Visual Studio Code." :::
 
 > [!TIP]
-> You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select.  For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
+> You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
 ### [Docker CLI](#tab/docker-cli)
 
@@ -333,7 +336,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
     ### [Local MongoDB](#tab/mongodb-local)
 
-    ```Docker
+    ```bash
     # PORT=8000 for Django and 5000 for Flask
     export PORT=<port-number>
     export YOUR_IP_ADDRESS=<your-machine-ip-address>
@@ -344,13 +347,12 @@ With information on how to connect to a MongoDB, you're ready to run the contain
       --env CONNECTION_STRING=mongodb://mongoservice:27017 \
       --env DB_NAME=restaurants_reviews \
       --env COLLECTION_NAME=restaurants_reviews \
-      --env --env SECRET_KEY=supersecretkeythatyougenerate \
       msdocspythoncontainerwebapp:latest  
     ```
 
     ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
-    ```Docker
+    ```bash
     # PORT=8000 for Django and 5000 for Flask
     export PORT=<port-number>
     export CONNECTION_STRING="<connection-string>"
@@ -366,25 +368,23 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
     ---
 
-    The docker command is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
-
     Passing in sensitive information as shown here is for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
-1. Confirm that the container is running. Open a second shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+1. Confirm that the container is running. Open a second bash shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
-    ```Docker
+    ```bash
     docker container ls
     ```
 
-    You should see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Note the `NAMES` column of the output and the `PORTS` column. You can use the name to stop the container.
+    You'll see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Notice the `NAMES` column of the output and the `PORTS` column. Use the container name to stop the container.
 
 1. Test the web app.
 
-    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask when running with local MongoDB.
+    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask.
 
 1. Shut down the container.
 
-    ```Docker
+    ```bash
     docker container stop <container-name>
     ```
 
