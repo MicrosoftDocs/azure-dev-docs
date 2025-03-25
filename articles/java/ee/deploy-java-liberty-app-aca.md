@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 03/21/2025
+ms.date: 03/25/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -68,14 +68,16 @@ Create a resource group called `java-liberty-project` using the [`az group creat
 
 ```azurecli
 export RESOURCE_GROUP_NAME=java-liberty-project
-az group create --name $RESOURCE_GROUP_NAME --location eastus2
+export LOCATION=eastus2
+az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
 $Env:RESOURCE_GROUP_NAME = "java-liberty-project"
-az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
+$Env:LOCATION = "eastus2"
+az group create --name $Env:RESOURCE_GROUP_NAME --location $Env:LOCATION
 ```
 
 ---
@@ -151,6 +153,7 @@ An environment in Azure Container Apps creates a secure boundary around a group 
 export ACA_ENV=youracaenvname
 az containerapp env create \
     --resource-group $RESOURCE_GROUP_NAME \
+    --location $LOCATION \
     --name $ACA_ENV
 ```
 
@@ -160,6 +163,7 @@ az containerapp env create \
 $Env:ACA_ENV = "youracaenvname"
 az containerapp env create `
     --resource-group $Env:RESOURCE_GROUP_NAME `
+    --location $Env:LOCATION `
     --name $Env:ACA_ENV
 ```
 
