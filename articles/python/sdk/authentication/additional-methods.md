@@ -6,6 +6,8 @@ ms.topic: how-to
 ms.custom: devx-track-python, passwordless-python
 ---
 
+# Additional methods to authenticate to Azure resources from Python apps
+
 This article lists additional methods that apps can use to authenticate to Azure resources. The methods in this article are less commonly used; when possible, we encourage you to use one of the methods outlined in [authenticating Python apps to Azure using the Azure SDK overview](./overview.md).
 
 ## Interactive browser authentication

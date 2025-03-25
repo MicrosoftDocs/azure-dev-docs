@@ -10,6 +10,8 @@ ms.author: karler
 ms.reviewer: vigera
 ---
 
+# Azure authentication with user credentials
+
 This article looks at how the Azure Identity library supports Microsoft Entra token authentication with user-provided credentials. This support is made possible through a set of TokenCredential implementations discussed in this article.
 
 This article covers the following subjects:
