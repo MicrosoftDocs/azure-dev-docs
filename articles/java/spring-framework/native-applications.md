@@ -1,21 +1,27 @@
 ---
-title: Spring Boot native applications
-description: This article describes the usage of Spring Boot native image applications with Spring Cloud Azure libraries
+title: Spring Boot Native Applications
+description: Shows you how to enable Spring Cloud Azure libraries to work with Spring Boot native image applications.
 ms.date: 03/10/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
-ms.custom: devx-track-java, devx-track-arm-template, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-arm-template
 ---
 
 # Spring Boot native image applications
 
-You can use Spring Cloud Azure libraries in [Spring Boot native image applications](https://docs.spring.io/spring-boot/reference/packaging/native-image/introducing-graalvm-native-images.html).
+This article shows you how to enable Spring Cloud Azure libraries to work with Spring Boot native image applications.
 
-Azure SDK JARs are signed. However, Spring Boot doesn't support the JAR signature verification for native images. 
+For more information about using Spring Cloud Azure libraries in Spring Boot native image applications, see [Introducing GraalVM Native Images](https://docs.spring.io/spring-boot/reference/packaging/native-image/introducing-graalvm-native-images.html) in the Spring documentation.
 
-To solve this issue, disable the JAR signature verification.
+Azure SDK JARs are signed. However, Spring Boot doesn't support the JAR signature verification for native images.
+
+To solve this issue, you must disable the JAR signature verification, as described in this article.
+
+## Disable JAR signature verification
+
+Use the following steps to disable signature verification:
 
 1. Create a **custom.security** file in **src/main/resources** with the following contents:
 
@@ -48,4 +54,3 @@ To solve this issue, disable the JAR signature verification.
      }
    }
    ```
-   
