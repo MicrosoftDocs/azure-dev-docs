@@ -28,9 +28,6 @@ Create a New Chat (Ctrl + L), then copy and paste the following prompt into GitH
 @azure Show me a Terraform template that creates an Azure Storage account with a blob container and a file share.
 ```
 
-> [!IMPORTANT]
-> This scenario uses *Ask* mode, not *Edit* mode, nor *Agent* mode. Choosing a different mode will yield different results.
-
 ### Example response
 
 > [!NOTE]
@@ -175,3 +172,7 @@ Modify your `main.tf` file to include the `subscription_id = "your-subscription-
 
 
 ## Related content
+
+- [Terraform overview](/azure/developer/terraform/overview)
+- [What is GitHub Copilot for Azure Preview?](introduction.md)
+- [Get started with GitHub Copilot for Azure Preview](get-started.md)
