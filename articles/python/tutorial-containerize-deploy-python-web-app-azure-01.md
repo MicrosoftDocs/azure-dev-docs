@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. The single container web app can use either a local MongoDB instance or [MongoDB for Azure Cosmos DB][2] to store data. App Service [Web App for Containers][3] allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When building web apps, Azure App Service is a good option for taking your first steps with containers. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. App Service [Web App for Containers][3] allows you to focus on building your containers without worrying about managing and maintaining an underlying container orchestrator. When building web apps, Azure App Service is a good option for taking your first steps with containers. This container web app can use either a local MongoDB instance or [MongoDB for Azure Cosmos DB][2] to store data. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
@@ -22,7 +22,7 @@ After completing the articles in this tutorial series, you'll have the basis for
 
 ## Service overview
 
-The service diagram supporting this tutorial shows two environments: developer environment and Azure. It highlights the key Azure services used in the development process.
+The service diagram supporting this tutorial shows two environments: developer environment and Azure environment. It highlights the key Azure services used in the development process.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png" alt-text="A screenshot of the services used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-overview.png":::
 
@@ -51,7 +51,7 @@ The components supporting the Azure environment in this tutorial include:
 
 * [Azure Container Registry][11]
 
-  * Azure Container Registry allows you to store and manage Docker images and their components in Azure. It provides a registry located near your deployments in Azure that gives you the ability to control over access using your Microsoft Entra groups and permissions.
+  * Azure Container Registry allows you to store and manage Docker images and their components in Azure. It provides a registry located near your deployments in Azure that gives you the ability to control access using your Microsoft Entra groups and permissions.
 
   * In this tutorial, Azure Container Registry is the registry source, but you can also use Docker Hub or a private registry with minor modifications.
 
@@ -59,13 +59,11 @@ The components supporting the Azure environment in this tutorial include:
 
   * The Azure Cosmos DB for MongoDB is a NoSQL database used in this tutorial for data storage.
 
-  * The containerized app accesses the Azure Cosmos DB resource through a connection string, which is stored as an environment variable.
-
-  * Access to Azure Cosmos DB resource by the containerized app is via a connection string, which is passed as an environment variable to the containerized app.
+  * The containerized application connects to and accesses the Azure Cosmos DB resource using a connection string, which is stored as an environment variable and provided to the app.
 
 ## Authentication
 
-In this tutorial, you build a Docker image, either locally or directly in Azure, and then deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
+In this tutorial, you build a Docker image, either locally or in Azure, and then deploy it to Azure App Service. The App Service pulls the container image from an Azure Container Registry repository.
 
 To securely pull images from the repository, App Service utilizes a system-assigned managed identity. This managed identity grants the web app permissions to interact with other Azure resources, eliminating the need for explicit credentials. For this tutorial, the managed identity is configured during setup of App Service to use a registry container image.
 
@@ -85,18 +83,18 @@ To complete this tutorial, you need:
 
 * These Python packages:
 
-  * [PyMongo][8] for connecting to MongoDB.
+  * [MongoDB Shell (mongosh)][8] for connecting to MongoDB.
   * [Flask][9] or [Django][10] as a web framework.
 
 * [Docker][4] installed locally. *This is optional and is only required if you want to run the container locally*.
 
 ## Sample app
 
-In this tutorial, you build a Python restaurant review app that utilizes MongoDB for data storage. For an example using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
-
 The end result of this tutorial is a restaurant review app, deployed and running in Azure, that looks like the following screenshot.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-web-app/containerization-of-python-web-app-sample-app-screenshot.png":::
+
+In this tutorial, you build a Python restaurant review app that utilizes MongoDB for data storage. For an example app using PostgreSQL, see [Create and deploy a Flask web app to Azure with a managed identity](./tutorial-python-managed-identity-cli.md).
 
 ## Next step
 
@@ -110,7 +108,7 @@ The end result of this tutorial is a restaurant review app, deployed and running
 [5]: /azure/active-directory/managed-identities-azure-resources/overview
 [6]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
 [7]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice
-[8]: https://pypi.org/project/pymongo/
+[8]: https://www.mongodb.com/docs/mongodb-shell/
 [9]: https://flask.palletsprojects.com/
 [10]: https://www.djangoproject.com/
 [11]: https://azure.microsoft.com/services/container-registry/
