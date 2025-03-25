@@ -194,7 +194,7 @@ After you complete the previous step, the local MongoDB connection string is "mo
 You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account and then create the required database and collection.
 
 > [!TIP]
-> If you are new to the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
+> If you're new to the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
 Before running the following script, replace the location (optional) and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. We recommend using the same resource group for all the Azure resources created in this tutorial to make them easier to delete when you're finished.
 
@@ -365,7 +365,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
     ---
 
-    Passing in sensitive information as shown here is for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
+    Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
 1. Confirm that the container is running. Open a second bash shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 

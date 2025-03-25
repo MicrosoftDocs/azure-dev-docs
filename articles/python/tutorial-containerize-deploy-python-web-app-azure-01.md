@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. App Service [Web App for Containers][3] allows you to focus on building your containers without worrying about managing and maintaining an underlying container orchestrator. When building web apps, Azure App Service is a good option for taking your first steps with containers. This container web app can use either a local MongoDB instance or [MongoDB for Azure Cosmos DB][2] to store data. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. App Service [Web App for Containers][3] allows you to focus on building your containers without worrying about managing and maintaining an underlying container orchestrator. When you are building web apps, Azure App Service is a good option for taking your first steps with containers. This container web app can use either a local MongoDB instance or [MongoDB for Azure Cosmos DB][2] to store data. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
@@ -77,7 +77,7 @@ To complete this tutorial, you need:
 
   * [Azure Container Registry][11]
   * [Azure App Service][1]
-  * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database,follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure).
+  * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database, follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure).
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on your tool of choice. If you use Visual Studio Code, you need the [Docker extension][6] and [Azure App Service extension][7].
 
@@ -86,7 +86,7 @@ To complete this tutorial, you need:
   * [MongoDB Shell (mongosh)][8] for connecting to MongoDB.
   * [Flask][9] or [Django][10] as a web framework.
 
-* [Docker][4] installed locally. *This is optional and is only required if you want to run the container locally*.
+* [Docker][4] installed locally. *Installing Docker locally is optional and is only required if you want to run the container locally*.
 
 ## Sample app
 
