@@ -101,7 +101,7 @@ In this section, you build a Docker image for the Python web app using either Vi
     If you're at the root folder of the project, use the following command to build the Docker image:
 
     ```azurecli-interactive
-    # Bash variable block
+    #!/bin/bash
     docker build --rm --pull \
       --file "Dockerfile" \
       --label "com.microsoft.create-by=docker-cli" \
@@ -122,7 +122,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
-    ```bash
+    ```azurecli-interactive
     docker images
     ```
 
@@ -150,7 +150,7 @@ Your Python web app requires a MongoDB database named *restaurants_reviews* and 
 
     * Use the following command to open the MongoDB shell and get the version of both the MongoDB shell and the MongoDB server:
 
-        ```bash
+        ```azurecli-interactive
         mongosh
         ```
 
