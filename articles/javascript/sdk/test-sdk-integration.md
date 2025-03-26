@@ -1,7 +1,7 @@
 ---
 title: "How to Test Azure SDK Integration in JavaScript Applications"
 description: "Learn how to test Azure SDK integration in JavaScript apps using Jest. Discover best practices for using live dependencies, doubles, and mocks with Azure client libraries."
-ms.date: 03/14/2025
+ms.date: 03/26/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
