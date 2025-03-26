@@ -575,7 +575,9 @@ For local development, use LangChain Studio to work with your agent.
 
 1. Select **+ Message** to add a user question then select **Submit**. 
 
-    |`Does the NorthWind Health plus plan cover eye exams?`|This question is relevant to HR and general enough that the HR documents such as the employee handbook, the benefits handbook, and the employee role library should be able to answer it.|
+    |Question|Relevance to HR documents|
+    |--|--|
+    `Does the NorthWind Health plus plan cover eye exams?`|This question is relevant to HR and general enough that the HR documents such as the employee handbook, the benefits handbook, and the employee role library should be able to answer it.|
     |`What is included in the NorthWind Health plus plan that is not included in the standard?`|This question is relevant to HR and general enough that the HR documents such as the employee handbook, the benefits handbook, and the employee role library should be able to answer it.|
     |`How much of my perks + benefit have I spent`|This question isn't relevant to the general, impersonal HR documents. This question should be sent to an agent which has access to employee data. |
 
@@ -585,7 +587,7 @@ For local development, use LangChain Studio to work with your agent.
 
     View the LangGraph Studio run the agent. 
 
-1. If the question isn't relevant to the HR docs, the **ANSWER_NODE** is skipped and the flow goes directly to **__end__**
+1. If the question isn't relevant to the HR docs, the flow goes directly to **__end__**
 
 If the agent makes an incorrect decision, that can indicate an issue with one of the following:
 
