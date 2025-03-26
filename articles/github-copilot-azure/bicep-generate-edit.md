@@ -1,6 +1,6 @@
 ---
-title: Use GitHub Copilot for Azure to Generate and Edit Bicep files
-description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create and edit bicep files to deploy Azure resources.
+title: Use GitHub Copilot for Azure to Generate Bicep files
+description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create bicep files to deploy Azure resources.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Generate bicep files using GitHub Copilot for Azure
 
- There are many ways to create new resources on Azure, however bicep templates provide a declarative, modular, and reusable approach to defining Azure resources, offering improved readability, maintainability, and native integration with Azure Resource Manager (ARM) compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI.  GitHub Copilot for Azure can help you create and edit bicep templates. 
+ There are many ways to create new resources on Azure, however bicep templates provide a declarative, modular, and reusable approach to defining Azure resources, offering improved readability, maintainability, and native integration with Azure Resource Manager (ARM) compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI.  GitHub Copilot for Azure can help you create bicep templates. 
 
 ## Generate bicep files
 
@@ -120,42 +120,9 @@ it doesn't exist.
 `<PathToYourBicepFile>`: Path to the Bicep file in your workspace, e.g., `./iac/storageAccount.bicep`.
 ```
 
-## Edit Bicep files
-
-Understanding and modifying an existing bicep files can also be a daunting task if you're new to the syntax, but is made easier with GitHub Copilot for Azure.
-
-### Example Scenario
-
-Suppose you have taken over support for an existing application that has several bicep templates defined. You see an `\infra` folder containing several files, but you're unsure what they contain or how they can be used. You open the `main.bicep` file in the code editor to preview the file.
-
-   :::image type="content" source="media/bicep-generate-edit/ghcpa-bicep-edit.png" alt-text="Screenshot that shows Visual Studio Code with a project open in the Explorer pane and a main.bicep file open in the .":::
-
-GitHub Copilot for Azure allows you to ask specific questions about the file that is currently in the code editor. In the chat pane, below the prompt, there's a bicep icon, followed by the name of the file that's open in the main editor, and the words `Current file` followed by an eye icon.
-
-   :::image type="content" source="media/bicep-generate-edit/ghcpa-chat-current-file.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
-
-### Example prompt
-
-You could ask GitHub Copilot for Azure about this file (or any of the files in the `\infra` folder) to understand more.
-
-```
-@azure (Microsoft) Explain what this bicep file does.
-```
-
-### Example response
-
-GitHub Copilot for Azure may respond by walking through the various sections and explaining the keyword tokens used in the file.
-
-You could follow up with questions such as:
-
-```
-How can I modify this to use Azure SQL instead of Azure Database for PostgreSQL?
-```
-
-... or ...
-
-```
-Where can I adjust the Redis SKU that is used?
-```
 
 ## Related content
+
+- [Bicep overview](/azure/azure-resource-manager/bicep/overview)
+- [What is GitHub Copilot for Azure Preview?](introduction.md)
+- [Get started with GitHub Copilot for Azure Preview](get-started.md)
