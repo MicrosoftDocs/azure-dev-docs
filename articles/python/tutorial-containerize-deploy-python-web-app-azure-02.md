@@ -88,7 +88,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 1. Open a terminal window in the root folder of the sample app.
 1. Confirm that Docker is accessible by running the following command.
 
-    ```azurecli-interactive
+    ```terminal
     docker
     ```
 
@@ -100,7 +100,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
-    ```azurecli-interactive
+    ```terminal
     #!/bin/bash
     docker build --rm --pull \
       --file "Dockerfile" \
@@ -109,7 +109,7 @@ In this section, you build a Docker image for the Python web app using either Vi
       .
     ```
 
-    ```azurecli-interactive
+    ```terminal
     # PowerShell syntax
     docker build --rm --pull `
     --file "Dockerfile" `
@@ -241,9 +241,8 @@ Before running the following script, replace the location (optional) and Azure C
 
 The script takes a few minutes to run.
 
-```bash
+```azurecli-interactive
 #!/bin/bash
-
 # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
 # RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
 # ACCOUNT_NAME: The Azure Cosmos DB for MongDB account name, which can contain lowercase letters, hyphens, and numbers.
@@ -272,6 +271,40 @@ echo "Get the connection string for the MongoDB account"
 az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --type connection-strings
 
 echo "Copy the Primary MongoDB Connection String from the list above"
+```
+
+```azurecli-interactive
+# PowerShell syntax
+# LOCATION: The Azure region. Use "az account list-locations -o table" to find a region near you.
+# RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
+# ACCOUNT_NAME: The Azure Cosmos DB for MongoDB account name, which can contain lowercase letters, hyphens, and numbers.
+
+$LOCATION = "eastus"
+$RESOURCE_GROUP_NAME = "msdocs-web-app-rg"
+$ACCOUNT_NAME = "<cosmos-db-account-name>"
+
+# Create a resource group
+Write-Output "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
+az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
+
+# Create a Cosmos account for MongoDB API
+Write-Output "Creating $ACCOUNT_NAME. This command may take a while to complete."
+az cosmosdb create --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --kind MongoDB
+
+# Create a MongoDB API database
+Write-Output "Creating database restaurants_reviews"
+az cosmosdb mongodb database create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --name "restaurants_reviews"
+
+# Create a MongoDB API collection
+Write-Output "Creating collection restaurants_reviews"
+az cosmosdb mongodb collection create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --database-name "restaurants_reviews" --name "restaurants_reviews"
+
+# Get the connection string for the MongoDB database
+Write-Output "Getting the connection string for the MongoDB account..."
+az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --type connection-strings
+
+Write-Output "Copy the Primary MongoDB Connection String from the list above."
+
 ```
 
 When the script completes, copy the *Primary MongoDB Connection String* from the output of the last command to your clipboard or other location.
