@@ -57,64 +57,20 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 
 In this section, you build a Docker image for the Python web app using either Visual Studio Code or the Azure CLI. The Docker image contains the Python web app, its dependencies, and the Python runtime. The Docker image is built from a *Dockerfile* that defines the image's contents and behavior. The *Dockerfile* is in the root folder of the sample app you cloned or downloaded (or provided yourself).
 
-Conceptual tabs
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-    #!/bin/bash
-    Azure CLI script that will only run in Bash...
-```
-
-```azurecli
-    # PowerShell script
-    Azure CLI script that will only run in PowerShell...
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-    # Azure PowerShell script
-```
-
-Conceptual 2
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
     Azure CLI script that will only run in Bash...
 ```
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
     Azure CLI script that will only run in PowerShell...
 ```
 
 ---
-
----
-
-stack
-
-```azurecli-interactive
-#!/bin/bash
-let randomIdentifier=$RANDOM*$RANDOM
-resourceGroup="msdocs-rg-$randomIdentifier"
-az command --p1 $resource-group \
-    --query "[?allowBlobPublicAccess == \`true\`].name" \
-    --body '{"properties": {"agentUpgrade": {"enableAutomaticUpgrade": false}}}'
-```
-
-```azurecli-interactive
-# PowerShell syntax
-$randomIdentifier = $(Get-Random)
-$resourceGroup = "msdocs-rg-$randomIdentifier"
-az command --p1 $resource-group `
-    --query "[?allowBlobPublicAccess == ``true``].name" `
-    --body '{\"properties\": {\"agentUpgrade\": {\"enableAutomaticUpgrade\": false}}}' 
-```
-
 
 
 ### [VS Code](#tab/vscode-docker)
