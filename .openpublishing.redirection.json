@@ -1816,6 +1816,10 @@
     {
       "source_path": "articles/ansible/aks-configure-kubenet-networking.md",
       "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking"
+    },
+    {
+      "source_path": "articles/java/spring-framework/spring-messaging-support.md",
+      "redirect_url": "articles/java/spring-framework/spring-messaging-event-hubs-support.md"
     }
   ]
 }
