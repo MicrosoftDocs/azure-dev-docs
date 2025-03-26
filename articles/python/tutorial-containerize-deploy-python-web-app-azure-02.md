@@ -58,21 +58,6 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 In this section, you build a Docker image for the Python web app using either Visual Studio Code or the Azure CLI. The Docker image contains the Python web app, its dependencies, and the Python runtime. The Docker image is built from a *Dockerfile* that defines the image's contents and behavior. The *Dockerfile* is in the root folder of the sample app you cloned or downloaded (or provided yourself).
 
 
-# [Bash](#tab/bash)
-
-```bash
-    Azure CLI script that will only run in Bash...
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-    Azure CLI script that will only run in PowerShell...
-```
-
----
-
-
 ### [VS Code](#tab/vscode-docker)
 
 [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
@@ -116,35 +101,35 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
-    # [Bash](#tab/docker-cli)
+    # [Bash](#tab/bash)
     
-    ```dockercli
+    ```bash
         #!/bin/bash
-        Azure CLI script that will only run in Bash...
-    docker build --rm --pull \
+        docker build --rm --pull \
       --file "Dockerfile" \
       --label "com.microsoft.create-by=docker-cli" \
       --tag "msdocspythoncontainerwebapp:latest" \
       .
     ```
-    
+
     # [PowerShell](#tab/powershell)
-    
+
     ```powershell
     docker build --rm --pull `
     --file "Dockerfile" `
     --label "com.microsoft.create-by=docker-cli" `
     --tag "msdocspythoncontainerwebapp:latest" `
     .
+
     ```
-    
+
     ---
-    
+
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
 
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
-    ```azurecli-interactive
+    ```terminal
     docker images
     ```
 
@@ -172,7 +157,7 @@ Your Python web app requires a MongoDB database named *restaurants_reviews* and 
 
     * Use the following command to open the MongoDB shell and get the version of both the MongoDB shell and the MongoDB server:
 
-        ```azurecli-interactive
+        ```terminal
         mongosh
         ```
 
@@ -181,7 +166,7 @@ Your Python web app requires a MongoDB database named *restaurants_reviews* and 
 
     In some setups, you can also directly invoke the Mongo daemon in your bash shell.
 
-    ```bash
+    ```terminal
     mongod --version
     ```
 
