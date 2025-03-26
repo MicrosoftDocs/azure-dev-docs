@@ -496,7 +496,7 @@ Then, connect the Azure SQL Database server to the container app using Service C
 1. Open the Azure portal in your browser and navigate to the Azure Container Apps instance you created in the previous step.
 1. In the navigation pane, select **Settings** > **Service Connector (preview)**.
 1. Select **Create**. You should see the popup window **Create connection**.
-1. In the **Basic** pane, for **Service type**, select **SQL Database**.  For **Client type**, select **Java**. Leave other fields a at their default values, then select **Next: Authentication**.
+1. In the **Basic** pane, for **Service type**, select **SQL Database**.  For **Client type**, select **Java**. Leave other fields at their default values, then select **Next: Authentication**.
 1. In the **Authentication** pane, for **Authentication type**, select **System assigned managed identity**, then select **Next: Networking**.
 1. In the **Networking** pane, select **Next: Review + create**.
 1. In the **Review + create** pane, wait for the validation to pass, and then select **Create on Cloud Shell**. The Cloud Shell opens and then executes the commands to create the connection. Wait for the commands to finish and then close the Cloud Shell.
