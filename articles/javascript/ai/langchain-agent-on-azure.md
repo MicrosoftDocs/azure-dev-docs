@@ -11,7 +11,7 @@ Use LangChainjs, as an AI framework to quickly create an AI agent which allows a
 
 NorthWind has two data sources it pulls from: HR documentation internally available to all employees, and an HR database of confidential employee data that is secured to HR. Let's build an agent to determine if the employee's question can be answered by the internally public documents. If the question can be answered from these documents, provide the answer. 
 
-![Agent workflow](./media/agent-workflow.png)
+![Agent workflow](./media/langchain-agent-on-azure/agent-workflow.png)
 
 
 ## Agent architecture
@@ -571,7 +571,7 @@ For local development, use LangChain Studio to work with your agent.
 
 1. View the agent in the LangGraph Studio.
 
-    ![](media/langgraph-platform-studio.png)
+    ![](media/langchain-agent-on-azure/langgraph-platform-studio.png)
 
 1. Select **+ Message** to add a user question then select **Submit**. 
 
