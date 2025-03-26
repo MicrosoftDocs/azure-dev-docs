@@ -21,14 +21,11 @@ The following service diagram highlights the local components covered in this ar
 
 In this section, you clone or download the sample Python app that you use to build a Docker image. You can choose between a Django or Flask Python web app. If you have your own Python web app, you can choose to use that instead. If you use your own Python web app, make sure your app has a *Dockerfile* in the root folder and can connect to a MongoDB database.
 
-> [!IMPORTANT]
-> The commands in this article are formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly. This and subsequent commands use the line continuation character for Bash.
-
 ### [Git clone](#tab/sample-app-git-clone)
 
-1. Open a bash shell (such as Bash on Linux/macOS or Git Bash on Windows) and clone either the Django or Flask repository into a local folder by using one of the following commands:
+1. In a terminal window, clone either the Django or Flask repository into a local folder by using one of the following commands:
 
-    ```bash
+    ```terminal
     # Django
     git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
     
@@ -38,7 +35,7 @@ In this section, you clone or download the sample Python app that you use to bui
 
 1. Navigate to the root folder for your cloned repository.
 
-    ```bash
+    ```terminal
     # Django
     cd msdocs-python-django-container-web-app
     
@@ -53,7 +50,6 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 1. Select **Code**, and then select **Download ZIP**.
 
 1. Unpack the ZIP file into a local folder.
-1. Open a bash shell in that folder.
 
 ---
 
@@ -84,16 +80,15 @@ In this section, you build a Docker image for the Python web app using either Vi
 
 ### [Docker CLI](#tab/docker-cli)
 
-[Docker](https://docs.docker.com/get-docker/) is required to build the Docker image using the Docker CLI. Once Docker is installed, open a bash shell and navigate to the sample folder.
+[Docker](https://docs.docker.com/get-docker/) is required to build the Docker image using the Docker CLI. Once Docker is installed, open a terminal window and navigate to the sample folder.
 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
-Start in the root folder of the sample app.
+1. Open a terminal window in the root folder of the sample app.
+1. Confirm that Docker is accessible by running the following command.
 
-1. Confirm that Docker is accessible by running the following command in a bash shell.
-
-    ```bash
+    ```azurecli-interactive
     docker
     ```
 
@@ -105,12 +100,22 @@ Start in the root folder of the sample app.
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
-    ```bash
+    ```azurecli-interactive
+    # Bash variable block
     docker build --rm --pull \
       --file "Dockerfile" \
       --label "com.microsoft.create-by=docker-cli" \
       --tag "msdocspythoncontainerwebapp:latest" \
       .
+    ```
+
+    ```azurecli-interactive
+    # PowerShell syntax
+    docker build --rm --pull `
+    --file "Dockerfile" `
+    --label "com.microsoft.create-by=docker-cli" `
+    --tag "msdocspythoncontainerwebapp:latest" `
+    .
     ```
 
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
