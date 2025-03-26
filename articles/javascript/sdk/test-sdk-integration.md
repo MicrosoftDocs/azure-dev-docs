@@ -222,7 +222,7 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/fakes/fake-in-mem-db.spec.ts" :::
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/fake-in-mem-db.test.ts" :::
 
 
 ### [Jest](#tab/test-with-jest)
@@ -231,7 +231,7 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/fakes/fake-in-mem-db.spec.ts" :::
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/fake-in-mem-db.test.ts" :::
 
 
 ---
@@ -248,7 +248,7 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/mock-function/lib/insert.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/lib/insert.ts":::
 
 
 ### [Jest](#tab/test-with-jest)
@@ -258,7 +258,7 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 ### [Vitest](#tab/test-with-vitest)
 
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/mock-function/lib/insert.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/lib/insert.ts":::
 
 ---
 
@@ -383,7 +383,7 @@ When testing, think in terms of the test setup, the test itself, and the verific
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/test-boilerplate/boilerplate.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/boilerplate.test.ts":::
 
 
 ### [Jest](#tab/test-with-jest)
@@ -394,7 +394,7 @@ Jest has a test file template to define your test file.
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/test-boilerplate/boilerplate.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/boilerplate.test.ts":::
 
 ---
 
@@ -439,7 +439,7 @@ The following test file shows how to test the **insertDocument** function.
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/src/mock-function/lib/insert.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-node-testrunner/test/insert.test.ts":::
 
 
 ### [Jest](#tab/test-with-jest)
@@ -450,7 +450,7 @@ The following test file shows how to test the **insertDocument** function.
 
 ### [Vitest](#tab/test-with-vitest)
 
-:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/src/mock-function/lib/insert.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/test-with-vitest/tests/insert.test.ts":::
 
 
 ---
