@@ -14,11 +14,11 @@ There are many ways to create new resources on Azure, however, Terraform provide
 
 ## Generate Terraform files
 
-Creating Terraform templates can be a daunting task if you're new to the syntax.
+Getting started with Terraform templates may require some learning if you're new to the syntax, but tools like GitHub Copilot for Azure can help.
 
 ### Example Scenario
 
-Suppose you want an easy want to create a repeatable, automated process for creating a Blob container and file share. You may be familiar with how to do this in the Azure portal, but unsure how to use Terraform templates to accomplish this task.
+Suppose you want an easy way to create a repeatable, automated process for creating a Blob container and file share. You may be familiar with how to do this in the Azure portal, but unsure how to use Terraform templates to accomplish this task.
 
 ### Example prompt
 
@@ -75,7 +75,7 @@ Modify the place holder text for values like `example-resources`, `examplestorac
 
 ## Refine the response
 
-However, if you're new to bicep files, you may need more information. Continue prompting in the same chat sesssion to understand next steps.
+However, if you're new to Terraform files, you may need more information. Continue prompting in the same chat sesssion to understand next steps.
 
 For example, you may want specific instructions on which values to change.
 
@@ -103,13 +103,13 @@ Or, you may want to ask where this Terraform file should be created in your VS C
 @azure Where in my workspace should I create the Terraform file and what should I call it?
 ```
 
-It may respond by suggesting a folder and file name for your new bicep file.
+It may respond by suggesting a folder and file name for your new Terraform file.
 
 ```
 In your workspace, you should create a Terraform configuration file with the .tf extension, commonly named main.tf. You can place it in the root directory of your Terraform project or in any organized directory named to suit your Azure resources, such as /terraform/.
 ```
 
-If you're unsure about how to deploy the bicep file, you can create a prompt that asks for instructions.
+If you're unsure about how to deploy the Terraform file, you can create a prompt that asks for instructions.
 
 ```
 @azure How do I execute the Terraform file?

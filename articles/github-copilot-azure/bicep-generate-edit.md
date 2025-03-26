@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Generate bicep files
 
-Creating bicep files can be a daunting task if you're new to the syntax.
+Getting started with Terraform templates may require some learning if you're new to the syntax, but tools like GitHub Copilot for Azure can help.
 
 ### Example Scenario
 
