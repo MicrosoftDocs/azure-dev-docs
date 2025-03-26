@@ -100,28 +100,9 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
-    ```terminal
-    #!/bin/bash
-    docker build --rm --pull \
-      --file "Dockerfile" \
-      --label "com.microsoft.create-by=docker-cli" \
-      --tag "msdocspythoncontainerwebapp:latest" \
-      .
-    ```
-
-    ```terminal
-    # PowerShell syntax
-    docker build --rm --pull `
-    --file "Dockerfile" `
-    --label "com.microsoft.create-by=docker-cli" `
-    --tag "msdocspythoncontainerwebapp:latest" `
-    .
-    ```
-
-
-    # [Azure CLI](#tab/azure-cli)
+    # [Bash](#tab/docker-cli)
     
-    ```azurecli
+    ```dockercli
         #!/bin/bash
         Azure CLI script that will only run in Bash...
     docker build --rm --pull \
@@ -131,53 +112,16 @@ In this section, you build a Docker image for the Python web app using either Vi
       .
     ```
     
-    ```azurecli
-        # PowerShell script
-        Azure CLI script that will only run in PowerShell...
-    docker build --rm --pull `
-    --file "Dockerfile" `
-    --label "com.microsoft.create-by=docker-cli" `
-    --tag "msdocspythoncontainerwebapp:latest" `
-    .
-    ```
-    
-    # [Azure PowerShell](#tab/azure-powershell)
-    
-    ```azurepowershell
-    # Azure PowerShell script
-    docker build --rm --pull `
-    --file "Dockerfile" `
-    --label "com.microsoft.create-by=docker-cli" `
-    --tag "msdocspythoncontainerwebapp:latest" `
-    .
-    ```
-    
-    ---
-
-
-
-    # [Bash](#tab/bash)
-    
-    ```azurecli
-        Azure CLI script that will only run in Bash...
-        docker build --rm --pull \
-          --file "Dockerfile" \
-          --label "com.microsoft.create-by=docker-cli" \
-          --tag "msdocspythoncontainerwebapp:latest" \
-          .
-        ```
-    
     # [PowerShell](#tab/powershell)
     
-    ```azurecli
-        Azure CLI script that will only run in PowerShell...
-        docker build --rm --pull `
-        --file "Dockerfile" `
-        --label "com.microsoft.create-by=docker-cli" `
-        --tag "msdocspythoncontainerwebapp:latest" `
-        .    
+    ```powershell
+    docker build --rm --pull `
+    --file "Dockerfile" `
+    --label "com.microsoft.create-by=docker-cli" `
+    --tag "msdocspythoncontainerwebapp:latest" `
+    .
     ```
-
+    
     ---
     
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
