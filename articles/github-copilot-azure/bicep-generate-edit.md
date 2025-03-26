@@ -122,19 +122,19 @@ You may receive a response similar to the following.
 To execute the Bicep file, you can use the Azure CLI with the following steps:
 
 1. **Install Azure CLI and Bicep CLI**: Ensure you have the Azure CLI and Bicep CLI installed. You can install Bicep using the Azure CLI with the command:
-   ```bash
+
    az bicep install
-   ```
+
 
 2. **Log in to Azure**: Use the Azure CLI to log in to your Azure account:
-   ```bash
+
    az login
-   ```
+
 
 3. **Deploy the Bicep file**: Use the `az deployment group create` command to deploy the Bicep file to a resource group. Replace `<resource-group-name>` with your resource group name and `<location>` with your desired Azure region:
-   ```bash
+  
    az deployment group create --resource-group <resource-group-name> --template-file infra/storageAccount.bicep --parameters storageAccountName=<your-storage-account-name> containerName=<your-container-name> fileShareName=<your-file-share-name> location=<location>
-   ```
+
 
 This command will deploy the resources defined in your Bicep file to the specified resource group in Azure.
 
