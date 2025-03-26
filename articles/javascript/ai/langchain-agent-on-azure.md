@@ -636,4 +636,4 @@ The two functions are:
 
 ## Troubleshooting
 
-* For any issues with the procedure, create an issue on the [sample code repository]()
+* For any issues with the procedure, create an issue on the [sample code repository](https://github.com/Azure-Samples/azure-typescript-langchainjs/issues)
