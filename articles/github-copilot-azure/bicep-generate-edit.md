@@ -16,7 +16,7 @@ ms.collection: ce-skilling-ai-copilot
 
 Getting started with Bicep files might require some learning if you're new to the syntax, but tools like GitHub Copilot for Azure can help.
 
-### Example Scenario
+### Example scenario
 
 Suppose you want an easy way to create a repeatable, automated process for creating a Blob container and file share. You might be familiar with how to create a Blob container and file share using the Azure portal, but unsure how to use Bicep files to accomplish the same task.
 
