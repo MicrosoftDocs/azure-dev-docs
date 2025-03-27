@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 03/25/2025
+ms.date: 03/27/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -290,7 +290,7 @@ Use the following commands to prepare the sample code for this guide. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 export BASE_DIR=$PWD
-git checkout 20241118
+git checkout 20250327
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -299,7 +299,7 @@ git checkout 20241118
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 $Env:BASE_DIR = $PWD
-git checkout 20241118
+git checkout 20250327
 ```
 
 ---
