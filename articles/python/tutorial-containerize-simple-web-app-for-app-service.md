@@ -325,7 +325,7 @@ For more information, see the following resources:
 [2]: https://azure.microsoft.com/products/app-service/containers
 [3]:./containers-in-azure-overview-python.md
 [4]: ./tutorial-containerize-simple-web-app.md
-[5]: https://flask.palletsprojects.com/en/2.1.x/
+[5]: https://flask.palletsprojects.com/
 [6]: https://fastapi.tiangolo.com/
 [7]: https://docs.docker.com/engine/reference/commandline/cli/
 [8]: /cli/azure/what-is-azure-cli
