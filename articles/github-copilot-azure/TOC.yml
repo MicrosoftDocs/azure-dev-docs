@@ -22,7 +22,5 @@ items:
       href: optimize-examples.md
     - name: Advanced scenarios
       items: 
-        - name: Create and edit bicep templates
+        - name: Create Bicep files
           href: bicep-generate-edit.md
-        - name: Create and edit Terraform templates
-          href: terraform-generate-edit.md          
