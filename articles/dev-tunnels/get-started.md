@@ -6,7 +6,7 @@ author: derekbekoe
 ms.author: debekoe
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
-ms.date: 11/17/2023 
+ms.date: 03/27/2025
 ---
 # Create and host a dev tunnel
 

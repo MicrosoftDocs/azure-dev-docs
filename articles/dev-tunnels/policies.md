@@ -6,7 +6,7 @@ author: derekbekoe
 ms.author: debekoe
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
-ms.date: 03/27/2024 
+ms.date: 03/27/2025
 ---
 
 # Configure and deploy Group Policy Administrative Templates for Dev Tunnels
