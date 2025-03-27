@@ -102,7 +102,7 @@ In this section, you build a Docker image for the Python web app using either Vi
     If you're at the root folder of the project, use the following command to build the Docker image:
 
     # [Bash](#tab/bash)
-    
+
     ```bash
         #!/bin/bash
         docker build --rm --pull \
@@ -306,7 +306,7 @@ For more information about how to use the Azure CLI to create a Cosmos DB for Mo
 
 ## Run the image locally in a container
 
-You're now ready to run the Docker container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
+You're now ready to run the Docker container locally. The sample app expects MongoDB connection information to be passed in to it with environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
 > [!NOTE]
 > When deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
@@ -376,36 +376,48 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
 1. Run the latest version of the image.
 
-    ### [Local MongoDB](#tab/mongodb-local)
+    # [Bash](#tab/bash)
 
     ```bash
-    # PORT=8000 for Django and 5000 for Flask
-    export PORT=<port-number>
-    export YOUR_IP_ADDRESS=<your-computer-ip-address>
+    #!/bin/bash
     
+    # Set the port number based on the framework being used:
+    # 8000 for Django, 5000 for Flask
+    export PORT=<port-number>  # Replace with actual port (e.g., 8000 or 5000)
+    
+    # Set your computer''s IP address (replace with actual IP)
+    export YOUR_IP_ADDRESS=<your-computer-ip-address>  # Replace with actual IP address
+    
+    # Run the Docker container with the required environment variables
     docker run --rm -it \
-      --publish $PORT:$PORT --publish 27017:27017 \
-      --add-host mongoservice:$YOUR_IP_ADDRESS \
-      --env CONNECTION_STRING=mongodb://mongoservice:27017 \
-      --env DB_NAME=restaurants_reviews \
-      --env COLLECTION_NAME=restaurants_reviews \
-      msdocspythoncontainerwebapp:latest  
+        --publish $PORT:$PORT \  # Map the application port
+        --publish 27017:27017 \  # Expose MongoDB default port
+        --add-host mongoservice:$YOUR_IP_ADDRESS \  # Map MongoDB service to local IP
+        --env CONNECTION_STRING="mongodb://mongoservice:27017" \  # MongoDB connection string
+        --env DB_NAME="restaurants_reviews" \  # Database name
+        --env COLLECTION_NAME="restaurants_reviews" \  # Collection name
+        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" \  # Application secret key
+        msdocspythoncontainerwebapp:latest  # Docker image name
     ```
 
-    ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
+    # [PowerShell](#tab/powershell)
 
-    ```bash
-    # PORT=8000 for Django and 5000 for Flask
-    export PORT=<port-number>
-    export CONNECTION_STRING="<connection-string>"
+    ```powershell
+
+    # Define variables
+    $PORT = "your_port_number"  # Replace with your actual port number
+    $YOUR_IP_ADDRESS = "your_ip_address"  # Replace with your actual IP address
     
-    docker run --rm -it \
-      --publish $PORT:$PORT/tcp \
-      --env CONNECTION_STRING=$CONNECTION_STRING \
-      --env DB_NAME=restaurants_reviews \
-      --env COLLECTION_NAME=restaurants_reviews \
-      --env SECRET_KEY=supersecretkeythatyougenerate \
-      msdocspythoncontainerwebapp:latest  
+    # Run the Docker container with the required environment variables
+    docker run --rm -it `
+        --publish $PORT:$PORT `  # Map the application port
+        --publish 27017:27017 `  # Expose MongoDB default port
+        --add-host mongoservice:$YOUR_IP_ADDRESS `  # Map MongoDB service to local IP
+        --env CONNECTION_STRING="mongodb://mongoservice:27017" `  # MongoDB connection string
+        --env DB_NAME="restaurants_reviews" `  # Database name
+        --env COLLECTION_NAME="restaurants_reviews" `  # Collection name
+        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `  # Application secret key
+        msdocspythoncontainerwebapp:latest  # Docker image name    
     ```
 
     ---
