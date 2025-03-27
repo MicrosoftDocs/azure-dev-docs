@@ -413,7 +413,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
     
     # Run the Docker container with the required environment variables
     docker run --rm -it `
-        --publish "${PORT}:${PORT}" `
+        --publish "$(PORT):$(PORT)" `
         --publish 27017:27017 `
         --add-host "mongoservice:$YOUR_IP_ADDRESS" `
         --env CONNECTION_STRING="mongodb://mongoservice:27017" `
