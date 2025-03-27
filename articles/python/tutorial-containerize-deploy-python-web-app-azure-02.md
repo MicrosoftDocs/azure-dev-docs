@@ -381,6 +381,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
     ```bash
     #!/bin/bash
     
+    # Define variables
     # Set the port number based on the framework being used:
     # 8000 for Django, 5000 for Flask
     export PORT=<port-number>  # Replace with actual port (e.g., 8000 or 5000)
@@ -390,14 +391,14 @@ You're now ready to run the Docker container locally. The sample app expects Mon
     
     # Run the Docker container with the required environment variables
     docker run --rm -it \
-        --publish $PORT:$PORT \  # Map the application port
-        --publish 27017:27017 \  # Expose MongoDB default port
-        --add-host mongoservice:$YOUR_IP_ADDRESS \  # Map MongoDB service to local IP
-        --env CONNECTION_STRING="mongodb://mongoservice:27017" \  # MongoDB connection string
-        --env DB_NAME="restaurants_reviews" \  # Database name
-        --env COLLECTION_NAME="restaurants_reviews" \  # Collection name
-        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" \  # Application secret key
-        msdocspythoncontainerwebapp:latest  # Docker image name
+      --publish "$PORT:$PORT" \
+      --publish 27017:27017 \
+      --add-host "mongoservice:$YOUR_IP_ADDRESS" \
+      --env CONNECTION_STRING=mongodb://mongoservice:27017 \
+      --env DB_NAME=restaurants_reviews \
+      --env COLLECTION_NAME=restaurants_reviews \
+      --env SECRET_KEY="supersecretkeythatispassedtopythonapp" \
+      msdocspythoncontainerwebapp:latest
     ```
 
     # [PowerShell](#tab/powershell)
@@ -405,28 +406,30 @@ You're now ready to run the Docker container locally. The sample app expects Mon
     ```powershell
 
     # Define variables
+    # Set the port number based on the framework being used:
+    # 8000 for Django, 5000 for Flask
     $PORT = "your_port_number"  # Replace with your actual port number
     $YOUR_IP_ADDRESS = "your_ip_address"  # Replace with your actual IP address
     
     # Run the Docker container with the required environment variables
     docker run --rm -it `
-        --publish $PORT:$PORT `  # Map the application port
-        --publish 27017:27017 `  # Expose MongoDB default port
-        --add-host mongoservice:$YOUR_IP_ADDRESS `  # Map MongoDB service to local IP
-        --env CONNECTION_STRING="mongodb://mongoservice:27017" `  # MongoDB connection string
-        --env DB_NAME="restaurants_reviews" `  # Database name
-        --env COLLECTION_NAME="restaurants_reviews" `  # Collection name
-        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `  # Application secret key
-        msdocspythoncontainerwebapp:latest  # Docker image name    
+        --publish "${PORT}:${PORT}" `
+        --publish 27017:27017 `
+        --add-host "mongoservice:$YOUR_IP_ADDRESS" `
+        --env CONNECTION_STRING="mongodb://mongoservice:27017" `
+        --env DB_NAME="restaurants_reviews" `
+        --env COLLECTION_NAME="restaurants_reviews" `
+        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `
+        msdocspythoncontainerwebapp:latest 
     ```
 
     ---
 
     Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
-1. Confirm that the container is running. Open a second bash shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+1. Confirm that the container is running. Open a second terminal window and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
-    ```bash
+    ```terminal
     docker container ls
     ```
 
@@ -438,7 +441,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
 1. Shut down the container.
 
-    ```bash
+    ```terminal
     docker container stop <container-name>
     ```
 
