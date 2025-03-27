@@ -81,7 +81,7 @@ productDirectory:
       links:
         - url: ./ai/azure-ai-for-developers.md?pivots=javascript
           text: Develop Azure AI apps with JavaScript
-        - url: /javascript/ai/generative-ai-for-javascript-developers.md
+        - url: ./javascript/ai/generative-ai-for-javascript-developers.md
           text: Generative AI for JavaScript developers
         - url: ./javascript/tutorial/azure-function-cosmos-db-mongo-api.md
           text: Deploy a serverless application
