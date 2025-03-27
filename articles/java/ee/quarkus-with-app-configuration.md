@@ -1,15 +1,12 @@
 ---
 title: Quickstart for Azure App Configuration with Java Quarkus
-description: In this quickstart, create a Java Quarkus app with Azure App Configuration to centralize storage and management of application settings separate from your code.
-services: azure-app-configuration
+description: Shows you how to create a Java Quarkus app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 author: KarlErickson
-ms.service: azure-app-configuration
-ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/18/2025
-ms.custom: devx-track-java, mode-api, devx-track-extended-java, passwordless-java, devx-track-javaee-quarkus, devx-track-javaee-quarkus-app-configuration
-ms.author: jiangma
-#Customer intent: As a Java Quarkus developer, I want to manage all my app settings in one place.
+ms.date: 03/31/2025
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-javaee-quarkus, devx-track-javaee-quarkus-app-configuration
+ms.author: karler
+ms.reviewer: jiangma
 ---
 
 # Quickstart: Create a Java Quarkus app with Azure App Configuration
