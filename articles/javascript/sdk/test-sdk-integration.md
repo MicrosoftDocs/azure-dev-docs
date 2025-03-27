@@ -339,7 +339,7 @@ Add a script to the *package.json* to support that test file pattern with Jest:
 }
 ```
 
-The TypeScript source code is generated into the `dist` subfolder. Jest runs the `.spec.js` files found in the `dist` subfolder.
+The TypeScript source code is generated into the `dist` subfolder where Jest finds and runs the `*.spec.js` files.
 
 
 ### [Vitest](#tab/test-with-vitest)
@@ -409,6 +409,14 @@ The test file with mocks, to simulate a call to a dependency, has an extra setup
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
+
+There are several parts to the test file:
+
+- `import`: The import statements allow you to use or mock out any of your test.
+- `mock`: Create the default mock behavior you want. Each test can alter as needed. 
+- `describe`: Test group family for the `insert.ts` file.
+- `it`: Each test for the `insert.ts` file.
+
 ### [Jest](#tab/test-with-jest)
 
 There are several parts to the test file:
@@ -421,6 +429,12 @@ There are several parts to the test file:
 
 ### [Vitest](#tab/test-with-vitest)
 
+There are several parts to the test file:
+
+- `import`: The import statements allow you to use or mock out any of your test.
+- `vi.spyOn`: Create the default spy then add mock behavior with `.mockReturnValue`. Each test can alter as needed. 
+- `describe`: Test group family for the `insert.ts` file.
+- `it`: Each test for the `insert.ts` file.
 
 ---
 
