@@ -264,7 +264,7 @@
                 - name: Configure private DNS zones in Azure
                   href: /azure/dns/dns-private-zone-terraform
                 - name: Create an Azure DNS Private Resolver
-                  name: /azure/dns/dns-private-resolver-get-started-terraform
+                  href: /azure/dns/dns-private-resolver-get-started-terraform
             - name: Azure ExpressRoute
               items:
                 - name: Create an ExpressRoute circuit
