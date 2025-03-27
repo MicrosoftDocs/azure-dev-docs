@@ -81,14 +81,14 @@ productDirectory:
       links:
         - url: ./ai/azure-ai-for-developers.md?pivots=javascript
           text: Develop Azure AI apps with JavaScript
-        - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
-          text: Develop a static website
+        - url: ./javascript/ai/generative-ai-for-javascript-developers.md
+          text: Generative AI for JavaScript developers
+        - url: ./javascript/tutorial/azure-function-cosmos-db-mongo-api.md
+          text: Deploy a serverless application
+        - url: /azure/container-apps/javascript-overview
+          text: Azure Container Apps for Node.js
         - url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli
           text: Deploy to Azure App Service
-        - url: ./javascript/tutorial/azure-function-cosmos-db-mongo-api.md?tabs=bash
-          text: Deploy a serverless application
-        - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
-          text: Deploy Docker containers
         - url: ./javascript/index.yml
           text: See more in the JavaScript developer center
     - title: Java
