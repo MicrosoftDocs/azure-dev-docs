@@ -121,6 +121,7 @@
 | Token Cache Persistence Plugin | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/) |
 | unknown | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.3/sdk/ai/ai-projects/) |
 | unknown | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/eventgrid-systemevents/v/1.0.0-beta.6) | [docs](/javascript/api/overview/azure/eventgrid-systemevents-readme) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.0-beta.6/sdk/eventgrid/eventgrid-systemevents/) |
+| unknown | npm [0.2.1](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.2.1) |  | GitHub [0.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.1/sdk/core/@typespec/ts-http-runtime/) |
 | VS Code Authentication Plugin | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.1.4](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.4) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.4/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub Client | npm [1.0.2](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.2) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.2/sdk/web-pubsub/web-pubsub-client/) |
@@ -383,8 +384,8 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.14.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.14.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.53.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.53.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.53.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.53.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.15.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.15.3) |  |  |
-| @azure-tools/typespec-go | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.16.0) |  |  |
+| @azure-tools/typespec-go | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -416,11 +417,10 @@
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@typespec/http-client/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.8.2) |  |  |
+| Unknown Display Name | npm [0.8.3-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.8.3-dev.1) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.16](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.16) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/sse/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/streams/v/0.67.1) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -498,7 +498,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250324.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250324.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250326.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250326.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -576,7 +576,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.70](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.70) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.71](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.71) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.31.0](https://www.npmjs.com/package/@autorest/python/v/6.31.0) |  | GitHub [6.31.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
