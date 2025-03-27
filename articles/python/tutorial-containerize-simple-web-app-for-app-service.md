@@ -221,10 +221,10 @@ The `--detach` option runs the container in the background. The `--publish` opti
 1. Create a group with the [az group create][18] command.
 
     ```azurecli
-    az group create --name web-app-simple-rg --location eastus
+    az group create --name web-app-simple-rg --location <location>
     ```
 
-    An Azure resource group is a logical container into which Azure resources are deployed and managed. When creating a resource group, you specify a location, such as *eastus*.
+    An Azure resource group is a logical container into which Azure resources are deployed and managed. When creating a resource group, you specify a location such as *eastus*. Replace `<location>` with the location you choose. Certain SKUs are unavailable in certain locations, so you might get an error indicating this. Use a different location and try again.
 
 1. Create an Azure Container Registry with the [az acr create][19] command. Replace `<container-registry-name>` with a unique name for your instance.
 
