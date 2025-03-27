@@ -64,12 +64,17 @@
     href: how-to/develop-serverless-apps.md
   - name: Developer Guides
     items: 
+    - name: Container apps
+      href: /azure/container-apps/javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+      display: Azure Container Apps, ACA, docker, images, containers
     - name: GraphQL
       href: graphql-developer-guide.md
     - name: Serverless
       href: /azure/azure-functions/functions-reference?tabs=blob&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Storage
       href: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: API development with TypeSpec
+      href: /azure/developer/typespec
     - name: Databases
       item: 
       - name: Cosmos DB for NoSQL developer guide

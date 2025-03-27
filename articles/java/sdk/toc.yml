@@ -81,8 +81,6 @@ items:
         href: troubleshooting-authentication-dev-env.md
       - name: Service principal authentication
         href: troubleshooting-authentication-service-principal.md
-      - name: User credential authentication
-        href: troubleshooting-authentication-user-credential.md
       - name: Multi-tenant authentication
         href: troubleshooting-authentication-multi-tenant.md
       expanded: false

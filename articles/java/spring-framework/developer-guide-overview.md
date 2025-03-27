@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure developer guide
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.21.0
 
 Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
 
@@ -65,7 +65,7 @@ If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagem
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.20.1</version>
+      <version>5.21.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -177,44 +177,6 @@ The following table lists starters for PostgreSQL support:
 > | Name                                         | Description                                                                       |
 > |----------------------------------------------|-----------------------------------------------------------------------------------|
 > | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
-
-### Configuring Spring Boot 3
-
-Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't support the JAR signature verification for ahead-of-time (AOT) mode on a JVM and for native images. For more information, see [Using Ahead-of-time Processing With the JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
-
-To solve this issue, disable the JAR signature verification.
-
-1. Create a **custom.security** file in **src/main/resources** with the following contents:
-
-   ```
-   jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA
-   ```
-
-1. If you're using Maven, add the following configuration:
-
-   ```xml
-   <plugin>
-       <groupId>org.graalvm.buildtools</groupId>
-       <artifactId>native-maven-plugin</artifactId>
-       <configuration>
-           <buildArgs>
-               <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
-           </buildArgs>
-       </configuration>
-   </plugin>
-   ```
-
-   If you're using Gradle, add the following configuration:
-
-   ```groovy
-   graalvmNative {
-     binaries {
-       main {
-         buildArgs('-Djava.security.properties=' + file("$rootDir/custom.security").absolutePath)
-       }
-     }
-   }
-   ```
 
 ### Learning Spring Cloud Azure
 

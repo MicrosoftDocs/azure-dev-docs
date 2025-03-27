@@ -11,7 +11,7 @@ ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-exte
 
 # Spring Boot Starter for Microsoft Entra developer's guide
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.21.0
 
 This article describes the features and core scenarios of the Spring Boot Starter for Microsoft Entra ID. The article also includes guidance on common issues, workarounds, and diagnostic steps.
 

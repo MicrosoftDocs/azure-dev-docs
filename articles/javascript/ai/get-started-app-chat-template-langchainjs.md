@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LangChain.js"
 description: "Use LangChainjs to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
 ms.topic: get-started 
-ms.date: 12/11/2024
+ms.date: 03/17/2025
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -247,3 +247,6 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 ## Related content
 
 - [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
+- Learn more about how AZD is used in this template:
+    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+    - [Reactor video](https://youtu.be/aLUhhq7Y0ao?si=ulzadCkRLpn8tsij)

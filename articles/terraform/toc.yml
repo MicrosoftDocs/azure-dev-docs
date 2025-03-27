@@ -79,6 +79,10 @@
       items:
         - name: AI + Machine Learning
           items:
+            - name: Azure AI Foundry 
+              items: 
+                - name: Create an Azure AI Foundry hub
+                  href: /azure/ai-foundry/how-to/create-hub-terraform
             - name: Azure AI services
               items:
                 - name: Create a resource
@@ -345,6 +349,10 @@
               items:
                 - name: Create a file system
                   href: /azure/azure-managed-lustre/create-aml-file-system-terraform
+            - name: Azure NetApp Files
+              items:
+                - name: Set up Azure NetApp Files and create an NFS volume
+                  href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
             - name: Azure Recovery Services
               items:
                 - name: Create an Azure Recovery Services vault

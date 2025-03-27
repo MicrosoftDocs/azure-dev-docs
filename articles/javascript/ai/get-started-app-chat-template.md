@@ -1,7 +1,7 @@
 ---
 title: Get started with the chat using your own data sample for JavaScript
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 02/25/2024
+ms.date: 03/17/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -276,5 +276,8 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
 * [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
+- Learn more about how AZD is used in this template:
+    - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
+    - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
 
 
