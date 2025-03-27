@@ -81,14 +81,14 @@ productDirectory:
       links:
         - url: ./ai/azure-ai-for-developers.md?pivots=javascript
           text: Develop Azure AI apps with JavaScript
-        - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
-          text: Develop a static website
+        - url: /javascript/ai/generative-ai-for-javascript-developers.md
+          text: Generative AI for JavaScript developers
+        - url: ./javascript/tutorial/azure-function-cosmos-db-mongo-api.md
+          text: Deploy a serverless application
+        - url: /azure/container-apps/javascript-overview
+          text: Azure Container Apps for Node.js
         - url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli
           text: Deploy to Azure App Service
-        - url: ./javascript/tutorial/azure-function-cosmos-db-mongo-api.md?tabs=bash
-          text: Deploy a serverless application
-        - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
-          text: Deploy Docker containers
         - url: ./javascript/index.yml
           text: See more in the JavaScript developer center
     - title: Java
@@ -194,15 +194,13 @@ productDirectory:
           text: Make your project compatible with azd
         - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-    - title: Dev tunnels
-      imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
+    - title: TypeSpec
+      imageSrc: ./typespec/media/branded-image/dev-tunnels-icon.svg
       links:
-        - url: ./dev-tunnels/overview.md
-          text: What are dev tunnels
-        - url: ./dev-tunnels/get-started.md
-          text: Get started
-        - url: ./dev-tunnels/index.yml
-          text: See more in the dev tunnels developer center
+        - url: ./typespec/overview.md
+          text: TypeSpec overview
+        - url: ./typespec/resources.md
+          text: Resources
     - title: Dev Proxy
       imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
       links:
