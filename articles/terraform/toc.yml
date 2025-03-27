@@ -257,6 +257,10 @@
               items:
                 - name: Create an Azure DNS zone and record
                   href: /azure/dns/dns-get-started-terraform
+                - name: Configure private DNS zones in Azure
+                  href: /azure/dns/dns-private-zone-terraform
+                - name: Create an Azure DNS Private Resolver
+                  name: /azure/dns/dns-private-resolver-get-started-terraform
             - name: Azure ExpressRoute
               items:
                 - name: Create an ExpressRoute circuit
@@ -341,10 +345,18 @@
               items:
                 - name: Create a file system
                   href: /azure/azure-managed-lustre/create-aml-file-system-terraform
+            - name: Azure Recovery Services
+              items:
+                - name: Create an Azure Recovery Services vault
+                  href: /azure/site-recovery/quickstart-create-vault-terraform
             - name: Azure Storage
               items:
                 - name: Deploy a static website
                   href: /azure/storage/blobs/storage-quickstart-static-website-terraform
+            - name: Azure Storage Actions
+              items:
+                - name: Create a storage task
+                  href: /azure/storage-actions/storage-tasks/storage-task-quickstart-terraform
         - name: Web
           items:
             - name: API Management
