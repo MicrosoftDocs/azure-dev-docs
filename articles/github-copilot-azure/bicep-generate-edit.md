@@ -1,6 +1,6 @@
 ---
 title: Use GitHub Copilot for Azure to Generate Bicep files
-description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create bicep files to deploy Azure resources.
+description: This article provides sample prompts and example responses from GitHub Copilot for Azure to create Bicep files to deploy Azure resources.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
@@ -8,24 +8,24 @@ ms.date: 2/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Generate bicep files using GitHub Copilot for Azure
+# Generate Bicep files using GitHub Copilot for Azure
 
- There are many ways to create new resources on Azure. Bicep templates provide a declarative, modular, and reusable approach to defining Azure resources. Bicep templates offer improved readability, maintainability, and native integration with Azure Resource Manager (ARM) compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI. GitHub Copilot for Azure can help you create bicep templates. 
+ There are many ways to create new resources on Azure. Bicep files provide a declarative, modular, and reusable approach to defining Azure resources. Bicep templates offer improved readability, maintainability, and native integration with Azure Resource Manager (ARM) compared to JSON-based ARM templates or imperative scripting methods like PowerShell and Azure CLI. GitHub Copilot for Azure can help you create Bicep files. 
 
-## Generate bicep files
+## Generate Bicep files
 
-Getting started with bicep templates might require some learning if you're new to the syntax, but tools like GitHub Copilot for Azure can help.
+Getting started with Bicep files might require some learning if you're new to the syntax, but tools like GitHub Copilot for Azure can help.
 
 ### Example Scenario
 
-Suppose you want an easy way to create a repeatable, automated process for creating a Blob container and file share. You might be familiar with how to create a Blob container and file share using the Azure portal, but unsure how to use bicep templates to accomplish the same task.
+Suppose you want an easy way to create a repeatable, automated process for creating a Blob container and file share. You might be familiar with how to create a Blob container and file share using the Azure portal, but unsure how to use Bicep files to accomplish the same task.
 
 ### Example prompt
 
 Create a New Chat (Ctrl + L), then copy and paste the following prompt into GitHub Copilot's chat pane.
 
 ```
-@azure Show me a bicep template that creates an Azure Storage account with a blob container and a file share.
+@azure Show me a Bicep file that creates an Azure Storage account with a blob container and a file share.
 ```
 
 ### Example response
@@ -33,7 +33,7 @@ Create a New Chat (Ctrl + L), then copy and paste the following prompt into GitH
 > [!NOTE]
 > The following response is an example. GitHub Copilot for Azure responses are nondeterministic, so you might get a different response from the one shown here.
 
-GitHub Copilot for Azure generates a bicep file similar to the following.
+GitHub Copilot for Azure generates a Bicep file similar to the following.
 
 ```
 @description('Specifies the name of the Azure Storage account.')
@@ -89,9 +89,9 @@ resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-0
 
 Create a new main.bicep file, then copy the response from GitHub Copilot for Azure and paste into the new file.
 
-When using the Azure CLI to execute the bicep template, you can set the params declared as `storageAccountName`, `blobContainerName`, and `fileShareName`.
+When using the Azure CLI to execute the Bicep file, you can set the params declared as `storageAccountName`, `blobContainerName`, and `fileShareName`.
 
-Alternatively, you can edit the bicep template initializing the `storageAccountName` param to your desired value.
+Alternatively, you can edit the Bicep file initializing the `storageAccountName` param to your desired value.
 
 ```
 param storageAccountName string = '<your-storage-account-name>'
@@ -100,20 +100,20 @@ param storageAccountName string = '<your-storage-account-name>'
 
 ## Refine the response
 
-However, if you're new to bicep files, you might need more information. Continue prompting in the same chat session to understand next steps.
+However, if you're new to Bicep files, you might need more information. Continue prompting in the same chat session to understand next steps.
 
-For example, you might ask where this bicep file should be created in your VS Code workspace.
-
-```
-@azure Where in my workspace should I create the bicep file and what should I call it?
-```
-
-It might respond by suggesting a folder and file name for your new bicep file. For example, `infra/storageAccount.bicep`.
-
-Finally, if you're unsure about how to deploy the bicep file, you can create a prompt that asks for instructions.
+For example, you might ask where this Bicep file should be created in your VS Code workspace.
 
 ```
-@azure How do I execute the bicep file?
+@azure Where in my workspace should I create the Bicep file and what should I call it?
+```
+
+It might respond by suggesting a folder and file name for your new Bicep file. For example, `infra/storageAccount.bicep`.
+
+Finally, if you're unsure about how to deploy the Bicep file, you can create a prompt that asks for instructions.
+
+```
+@azure How do I execute the Bicep file?
 ```
 
 You might receive a response similar to the following.
