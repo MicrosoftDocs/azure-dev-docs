@@ -25,8 +25,8 @@ In this quickstart, you incorporate Azure App Configuration into a Java Quarkus 
 
 Add the following key-value to the App Configuration store. For more information about how to add key-values to a store using the Azure CLI, go to [Create a key-value](/azure/azure-app-configuration/quickstart-azure-app-configuration-create?tabs=azure-cli#create-a-key-value).
 
-| Key | Value |
-|---|---|
+| Key                         | Value |
+|-----------------------------|-------|
 | /application/config.message | Hello |
 
 ## Create a Quarkus app
@@ -44,7 +44,7 @@ mvn io.quarkus.platform:quarkus-maven-plugin:create \
     -DjavaVersion="17"
 ```
 
-The app is created in a new directory named *quarkus-app-configuration*. Here is the primary structure of the app:
+The app is created in a new directory named **quarkus-app-configuration**. Here is the primary structure of the app:
 
 ```output
 quarkus-app-configuration
@@ -56,7 +56,7 @@ quarkus-app-configuration
 ├── pom.xml
 ```
 
-The `pom.xml` file contains the dependencies for the app, including the Azure App Configuration extension and the REST extension. For example:
+The **pom.xml** file contains the dependencies for the app, including the Azure App Configuration extension and the REST extension. For example:
 
 ```xml
 <dependency>
@@ -69,9 +69,9 @@ The `pom.xml` file contains the dependencies for the app, including the Azure Ap
 </dependency>
 ```
 
-The `GreetingResource.java` file contains the REST service, you modify this file to return the configuration value from the App Configuration store later.
+The **GreetingResource.java** file contains the REST service, you modify this file to return the configuration value from the App Configuration store later.
 
-The `GreetingResourceTest.java` file contains the unit test for the REST service. You modify this file to assert the value returned from the REST service equals the value in the App Configuration store later.
+The **GreetingResourceTest.java** file contains the unit test for the REST service. You modify this file to assert the value returned from the REST service equals the value in the App Configuration store later.
 
 ## Connect to an App Configuration store
 
@@ -79,69 +79,69 @@ Now that you have an App Configuration store and a Quarkus app with the Azure Ap
 
 ### Code the application
 
-To use the Quarkus Azure App Configuration extension to have your application communicate with the App Configuration store that you create, configure the application by using the following steps.
+To use the Quarkus Azure App Configuration extension to have your application communicate with the App Configuration store that you create, configure the application by using the following steps:
 
-1. Open the Java file named *GreetingResource.java* in the *src/main/java/com/example* directory, and replace the contents with the following code:
+1. Open the Java file named **GreetingResource.java** in the **src/main/java/com/example** directory, and replace the contents with the following code:
 
-   ```java
-   package com.example;
+    ```java
+    package com.example;
 
-   import jakarta.ws.rs.GET;
-   import jakarta.ws.rs.Path;
-   import jakarta.ws.rs.Produces;
-   import jakarta.ws.rs.core.MediaType;
+    import jakarta.ws.rs.GET;
+    import jakarta.ws.rs.Path;
+    import jakarta.ws.rs.Produces;
+    import jakarta.ws.rs.core.MediaType;
 
-   import org.eclipse.microprofile.config.inject.ConfigProperty;
+    import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-   @Path("/hello")
-   public class GreetingResource {
+    @Path("/hello")
+    public class GreetingResource {
 
-       @ConfigProperty(name = "/application/config.message")
-       String value;
+        @ConfigProperty(name = "/application/config.message")
+        String value;
+ 
+        @GET
+        @Produces(MediaType.TEXT_PLAIN)
+        public String hello() {
+             return value;
+        }
+    }
+    ```
 
-       @GET
-       @Produces(MediaType.TEXT_PLAIN)
-       public String hello() {
-            return value;
-       }
-   }
-   ```
+    The modified code uses the MicroProfile Config `@ConfigProperty` annotation to inject the value of the key `/application/config.message` from the App Configuration store into the `value` field, and returns the value in the REST service.
 
-   The modified code uses the MicroProfile Config `@ConfigProperty` annotation to inject the value of the key `/application/config.message` from the App Configuration store into the `value` field, and returns the value in the REST service.
+1. Open the auto-generated unit test named **GreetingResourceTest.java** in the **src/test/java/com/example** directory, and replace the contents with the following code:
 
-1. Open the auto-generated unit test named *GreetingResourceTest.java* in the *src/test/java/com/example* directory, and replace the contents with the following code:
+    ```java
+    package com.example;
 
-   ```java
-   package com.example;
+    import io.quarkus.test.junit.QuarkusTest;
+    import org.junit.jupiter.api.Test;
 
-   import io.quarkus.test.junit.QuarkusTest;
-   import org.junit.jupiter.api.Test;
+    import javax.inject.Inject;
 
-   import javax.inject.Inject;
+    import static io.restassured.RestAssured.given;
+    import static org.hamcrest.CoreMatchers.is;
 
-   import static io.restassured.RestAssured.given;
-   import static org.hamcrest.CoreMatchers.is;
+    @QuarkusTest
+    public class GreetingResourceTest {
+        @Test
+        public void testHelloEndpoint() {
+            given()
+                .when().get("/hello")
+                .then()
+                .statusCode(200)
+                .body(is("Hello"));
+        }
+    }
+    ```
 
-   @QuarkusTest
-   public class GreetingResourceTest {
-       @Test
-       public void testHelloEndpoint() {
-           given()
-               .when().get("/hello")
-               .then()
-               .statusCode(200)
-               .body(is("Hello"));
-       }
-   }
-   ```
-
-   The modified code asserts that the value returned from the REST service equals the value in the App Configuration store, which is **Hello** for the key `/application/config.message` that you added earlier.
+    The modified code asserts that the value returned from the REST service equals the value in the App Configuration store, which is `Hello` for the key `/application/config.message` that you added earlier.
 
 These are all required code changes to the application. Before running the application, you need to configure the authentication and connection to the App Configuration store.
 
 ### Authenticate to the App Configuration store
 
-Besides authentication with access keys, the Quarkus Azure App Configuration extension supports authentication with Microsoft Entra ID using the `DefaultAzureCredential` from Azure Identity client library. 
+Besides authentication with access keys, the Quarkus Azure App Configuration extension supports authentication with Microsoft Entra ID using the `DefaultAzureCredential` from Azure Identity client library.
 
 You use Microsoft Entra ID for authentication in this quickstart. For more information, see [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
@@ -150,9 +150,9 @@ First, find the resource group name and App Configuration store name you created
 ```bash
 RESOURCE_GROUP_NAME="<resource-group-name>"
 APP_CONFIG_NAME="<app-configuration-store-name>"
-``` 
+```
 
-Next, run the following commands to assign the **App Configuration Data Reader** role to the signed-in user:
+Next, run the following commands to assign the `App Configuration Data Reader` role to the signed-in user:
 
 ```azurecli
 # Retrieve the app configuration resource ID
@@ -195,13 +195,13 @@ mvn clean package
 java -jar ./target/quarkus-app/quarkus-run.jar
 ```
 
-After your application is running, use *curl* to test your application, for example:
+After your application is running, use `curl` to test your application, for example:
 
 ```bash
 curl localhost:8080/hello
 ```
 
-You should see **Hello** from the output, which is the value of the key `/application/config.message` you added to the App Configuration store.
+You should see `Hello` from the output, which is the value of the key `/application/config.message` you added to the App Configuration store.
 Press <kbd>Control</kbd>+<kbd>C</kbd> to stop the application.
 
 Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see the [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
@@ -221,17 +221,12 @@ To avoid Azure charges, you should clean up unneeded resources. When the App Con
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
-## Next steps
+## See also
 
 In this quickstart, you created a new App Configuration store and used it with a Java Quarkus app. To learn more, explore the following resources:
 
-> [!div class="nextstepaction"]
-> [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/)
-> [!div class="nextstepaction"]
-> [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./quarkus-with-microsoft-entra-id.md)
-> [!div class="nextstepaction"]
-> [Deploy a Java application with Quarkus on Azure Container Apps](./deploy-java-quarkus-app.md)
-> [!div class="nextstepaction"]
-> [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
-> [!div class="nextstepaction"]
-> [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
+- [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/)
+- [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./quarkus-with-microsoft-entra-id.md)
+- [Deploy a Java application with Quarkus on Azure Container Apps](./deploy-java-quarkus-app.md)
+- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
+- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
