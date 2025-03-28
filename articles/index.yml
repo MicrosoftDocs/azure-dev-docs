@@ -195,7 +195,7 @@ productDirectory:
         - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
     - title: TypeSpec
-      imageSrc: ./typespec/media/branded-image/dev-tunnels-icon.svg
+      imageSrc: ./typespec/media/icon-for-hub/typespec-hub-icon.svg
       links:
         - url: ./typespec/overview.md
           text: TypeSpec overview
