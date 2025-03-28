@@ -102,18 +102,18 @@ In this section, you build a Docker image for the Python web app using either Vi
     ```console
     #!/bin/bash
     docker build --rm --pull \
-        --file "Dockerfile" \
-        --label "com.microsoft.create-by=docker-cli" \
-        --tag "msdocspythoncontainerwebapp:latest" \
+      --file "Dockerfile" \
+      --label "com.microsoft.create-by=docker-cli" \
+      --tag "msdocspythoncontainerwebapp:latest" \
         .
     ```
 
     ```console
     # PowerShell syntax
     docker build --rm --pull `
-        --file "Dockerfile" `
-        --label "com.microsoft.create-by=docker-cli" `
-        --tag "msdocspythoncontainerwebapp:latest" `
+      --file "Dockerfile" `
+      --label "com.microsoft.create-by=docker-cli" `
+      --tag "msdocspythoncontainerwebapp:latest" `
         .
     ```
 
