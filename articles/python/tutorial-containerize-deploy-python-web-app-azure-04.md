@@ -278,7 +278,7 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
 In this step, you specify environment variables needed to connect to MongoDB.
 
-If you need to create an Azure Cosmos DB for MongoDB, we recommend you follow the steps to [set up Cosmos DB for MangoDB](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_4_mongodb-azure) in part **2. Build and test container locally** of this tutorial. When you're finished, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`.
+If you need to create an Azure Cosmos DB for MongoDB, we recommend you follow the steps to [set up Cosmos DB for MangoDB](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure) in part **2. Build and test container locally** of this tutorial. When you're finished, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`.
 
 You need the MongoDB connection string to follow the steps below.
 
