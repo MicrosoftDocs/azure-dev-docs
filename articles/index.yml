@@ -198,7 +198,13 @@ productDirectory:
       imageSrc: ./typespec/media/icon-for-hub/typespec-hub-icon.svg
       links:
         - url: ./typespec/overview.md
-          text: TypeSpec overview
+          text: Overview
+        - url: ./typespec/resources.md#getting-started-guide
+          text: Get started
+        - url: ./typespec/resoures.md#language-reference
+          text: Language reference
+        - url: ./typespec/resources.md#typespec-playground
+          text: Playground
         - url: ./typespec/resources.md
           text: Resources
     - title: Dev Proxy
