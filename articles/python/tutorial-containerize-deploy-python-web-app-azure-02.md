@@ -373,7 +373,7 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
 
 1. Run the latest version of the image.
 
-    ```console
+    ```bash
     #!/bin/bash
     
     # Define variables
@@ -418,7 +418,7 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
 
     #### Using your Azure Cosmos DB for MongoDB instance
 
-    ```azurecli-interactive
+    ```bash
     #!/bin/bash
     # PORT=8000 for Django and 5000 for Flask
     export PORT=<port-number>
@@ -433,7 +433,7 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
       msdocspythoncontainerwebapp:latest
     ```
 
-    ```azurecli-interactive
+    ```powershell
     # PowerShell syntax
     # PORT=8000 for Django and 5000 for Flask
     $PORT=<port-number>
