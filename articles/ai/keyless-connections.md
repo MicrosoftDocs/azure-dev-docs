@@ -62,6 +62,9 @@ Explore the Python [End to end Azure OpenAI Keyless Authentication Building Bloc
 
 Select a tool for [authentication during local development](/dotnet/api/overview/azure/identity-readme#authenticate-the-client).
 
+> [!IMPORTANT]
+> For access to your Azure resources during local development, you must [sign-in to a local development tool](/dotnet/azure/sdk/authentication/local-development-dev-accounts#sign-in-to-azure-using-developer-tooling) using the Azure account you assigned the `Azure AI Developer` role to. For example, Visual Studio or the Azure CLI.
+
 #### [Go](#tab/go)
 
 Select a tool for [authentication during local development](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity#authenticating-during-local-development).
@@ -145,7 +148,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
     ### [Bicep](#tab/bicep)
 
-    When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment is set to the `principalId` parameter. 
+    When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment is set to the `principalId` parameter.
 
     The following `main.parameters.json` variable is set to the identity running the process.
 
@@ -327,7 +330,7 @@ For more information on `DefaultAzureCredential` for .NET, see the [`DefaultAzur
 
 Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` uses the value of this environment variable, if present.
 
     ```csharp
     using Azure;
@@ -396,7 +399,7 @@ For more information on `DefaultAzureCredential` for Java,  see the [`DefaultAzu
 
 Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` uses the value of this environment variable, if present.
 
     ```java
     import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -436,7 +439,7 @@ For more information on `DefaultAzureCredential` for JavaScript, see the [`Defau
 
 Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` uses the value of this environment variable, if present.
 
     ```javascript
     import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
@@ -482,7 +485,7 @@ For more information on `DefaultAzureCredential` for Python, see the [`DefaultAz
 
 Take one of the following approaches to set the user-assigned managed identity's client ID:
 
-- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` will use the value of this environment variable, if present.
+- Set environment variable `AZURE_CLIENT_ID`. The parameterless constructor of `DefaultAzureCredential` uses the value of this environment variable, if present.
 
     ```python
     import openai
