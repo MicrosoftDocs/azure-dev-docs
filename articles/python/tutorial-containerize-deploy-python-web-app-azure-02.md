@@ -23,9 +23,9 @@ In this section, you clone or download the sample Python app that you use to bui
 
 ### [Git clone](#tab/sample-app-git-clone)
 
-1. In a terminal window, clone either the Django or Flask repository into a local folder by using one of the following commands:
+1. Clone either the Django or Flask repository into a local folder by using one of the following commands:
 
-    ```terminal
+    ```console
     # Django
     git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
     
@@ -35,7 +35,7 @@ In this section, you clone or download the sample Python app that you use to bui
 
 1. Navigate to the root folder for your cloned repository.
 
-    ```terminal
+    ```console
     # Django
     cd msdocs-python-django-container-web-app
     
@@ -56,7 +56,6 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 ## Build a Docker image
 
 In this section, you build a Docker image for the Python web app using either Visual Studio Code or the Azure CLI. The Docker image contains the Python web app, its dependencies, and the Python runtime. The Docker image is built from a *Dockerfile* that defines the image's contents and behavior. The *Dockerfile* is in the root folder of the sample app you cloned or downloaded (or provided yourself).
-
 
 ### [VS Code](#tab/vscode-docker)
 
@@ -86,10 +85,9 @@ In this section, you build a Docker image for the Python web app using either Vi
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
-1. Open a terminal window in the root folder of the sample app.
-1. Confirm that Docker is accessible by running the following command.
+1. Confirm that Docker is accessible by running the following command in the root folder of the sample app.
 
-    ```terminal
+    ```console
     docker
     ```
 
@@ -101,9 +99,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```console
         #!/bin/bash
         docker build --rm --pull \
       --file "Dockerfile" \
@@ -112,9 +108,8 @@ In this section, you build a Docker image for the Python web app using either Vi
       .
     ```
 
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
+    ```console
+    # PowerShell syntax
     docker build --rm --pull `
     --file "Dockerfile" `
     --label "com.microsoft.create-by=docker-cli" `
@@ -123,13 +118,11 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     ```
 
-    ---
-
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
 
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
-    ```terminal
+    ```console
     docker images
     ```
 
@@ -157,7 +150,7 @@ Your Python web app requires a MongoDB database named *restaurants_reviews* and 
 
     * Use the following command to open the MongoDB shell and get the version of both the MongoDB shell and the MongoDB server:
 
-        ```terminal
+        ```console
         mongosh
         ```
 
@@ -166,7 +159,7 @@ Your Python web app requires a MongoDB database named *restaurants_reviews* and 
 
     In some setups, you can also directly invoke the Mongo daemon in your bash shell.
 
-    ```terminal
+    ```console
     mongod --version
     ```
 
@@ -311,7 +304,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 > [!NOTE]
 > When deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
 
-### [VS Code](#tab/vscode-docker)
+### Using VS Code
 
 1. In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag. The *settings.json* file contains two templates each for the `(MongoDB local)` and `(MongoDB Azure)` scenarios.
 
@@ -372,13 +365,15 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
-### [Docker CLI](#tab/docker-cli)
+### Using the Docker CLI
+
+You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB.
+
+#### Using your local MongoDB instance
 
 1. Run the latest version of the image.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```console
     #!/bin/bash
     
     # Define variables
@@ -401,10 +396,8 @@ You're now ready to run the Docker container locally. The sample app expects Mon
       msdocspythoncontainerwebapp:latest
     ```
 
-    # [PowerShell](#tab/powershell)
-
     ```powershell
-
+    # PowerShell syntax
     # Define variables
     # Set the port number based on the framework being used:
     # 8000 for Django, 5000 for Flask
@@ -423,13 +416,43 @@ You're now ready to run the Docker container locally. The sample app expects Mon
         msdocspythoncontainerwebapp:latest 
     ```
 
-    ---
+    #### Using your Azure Cosmos DB for MongoDB instance
 
+    ```azurecli-interactive
+    #!/bin/bash
+    # PORT=8000 for Django and 5000 for Flask
+    export PORT=<port-number>
+    export CONNECTION_STRING="<connection-string>"
+
+    docker run --rm -it \
+      --publish $PORT:$PORT/tcp \
+      --env CONNECTION_STRING=$CONNECTION_STRING \
+      --env DB_NAME=restaurants_reviews \
+      --env COLLECTION_NAME=restaurants_reviews \
+      --env SECRET_KEY=supersecretkeythatyougenerate \
+      msdocspythoncontainerwebapp:latest
+    ```
+
+    ```azurecli-interactive
+    # PowerShell syntax
+    # PORT=8000 for Django and 5000 for Flask
+    $PORT=<port-number>
+    $ CONNECTION_STRING="<connection-string>"
+
+    docker run --rm -it `
+      --publish $PORT:$PORT/tcp `
+      --env CONNECTION_STRING=$CONNECTION_STRING `
+      --env DB_NAME=restaurants_reviews `
+      --env COLLECTION_NAME=restaurants_reviews `
+      --env SECRET_KEY=supersecretkeythatyougenerate `
+      msdocspythoncontainerwebapp:latest
+    ```
+    
     Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
 1. Confirm that the container is running. Open a second terminal window and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
-    ```terminal
+    ```console
     docker container ls
     ```
 
@@ -441,7 +464,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
 1. Shut down the container.
 
-    ```terminal
+    ```console
     docker container stop <container-name>
     ```
 
