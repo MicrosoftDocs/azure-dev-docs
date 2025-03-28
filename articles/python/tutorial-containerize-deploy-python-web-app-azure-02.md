@@ -315,13 +315,13 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
     * Replace both instances of `<CONNECTION_STRING>` with the connection string for your MongoDB database.
 
-    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive code blocks: ```-e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'```.
+    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks: ```-e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'```.
 
     If you're using an Azure Cosmos DB for MongoDB database:
 
     * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
 
-    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive code blocks: ```-e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'```.
+    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks: ```-e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'```.
 
 1. Set the `docker.dockerPath` configuration setting used by the templates. To set `docker.dockerPath`, open the VS Code **Command Palette** (**Ctrl+Shift+P**), enter "Preferences: Open Workspace Settings", then enter "docker.dockerPath" in the **Search settings** box. Enter "docker" (without the quotes) for the value of the setting.
 
