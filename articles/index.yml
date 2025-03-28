@@ -194,15 +194,19 @@ productDirectory:
           text: Make your project compatible with azd
         - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-    - title: Dev tunnels
-      imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
+    - title: TypeSpec
+      imageSrc: ./typespec/media/icon-for-hub/typespec-hub-icon.svg
       links:
-        - url: ./dev-tunnels/overview.md
-          text: What are dev tunnels
-        - url: ./dev-tunnels/get-started.md
+        - url: ./typespec/overview.md
+          text: Overview
+        - url: ./typespec/resources.md#getting-started-guide
           text: Get started
-        - url: ./dev-tunnels/index.yml
-          text: See more in the dev tunnels developer center
+        - url: ./typespec/resources.md#language-reference
+          text: Language reference
+        - url: ./typespec/resources.md#typespec-playground
+          text: Playground
+        - url: ./typespec/resources.md
+          text: Resources
     - title: Dev Proxy
       imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
       links:
