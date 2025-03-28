@@ -315,9 +315,13 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
     * Replace both instances of `<CONNECTION_STRING>` with the connection string for your MongoDB database.
 
+    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive code blocks: `-e `SECRET_KEY=supersecretkeythatispassedtopythonapp``.
+
     If you're using an Azure Cosmos DB for MongoDB database:
 
     * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
+
+    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive code blocks: `-e `SECRET_KEY=supersecretkeythatispassedtopythonapp```.
 
 1. Set the `docker.dockerPath` configuration setting used by the templates. To set `docker.dockerPath`, open the VS Code **Command Palette** (**Ctrl+Shift+P**), enter "Preferences: Open Workspace Settings", then enter "docker.dockerPath" in the **Search settings** box. Enter "docker" (without the quotes) for the value of the setting.
 
@@ -446,7 +450,7 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
       --env SECRET_KEY=supersecretkeythatyougenerate `
       msdocspythoncontainerwebapp:latest
     ```
-    
+
     Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
 1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
