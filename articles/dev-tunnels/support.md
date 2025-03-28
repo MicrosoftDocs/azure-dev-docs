@@ -6,7 +6,7 @@ author: derekbekoe
 ms.author: debekoe
 ms.topic: reference
 ms.service: azure-dev-tunnels
-ms.date: 06/07/2023 
+ms.date: 03/27/2025
 ---
 
 # Troubleshooting, feedback, and support
@@ -29,5 +29,3 @@ GitHub [issues](https://aka.ms/devtunnels/issues) is a great way to connect with
 - Request a feature
 - Submit a bug
 - Provide feedback
-
-If you are an enterprise looking to adopt dev tunnels in your organization with specific questions on security, enterprise management or support, please email us at tunnelsfeedback@microsoft.com.

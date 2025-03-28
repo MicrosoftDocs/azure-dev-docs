@@ -409,7 +409,7 @@
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.6.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.0) |  |  |
-| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.2) |  |  |
 | Unknown Display Name | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.0) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.3.0) |  |  |
