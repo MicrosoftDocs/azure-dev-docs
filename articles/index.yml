@@ -201,7 +201,7 @@ productDirectory:
           text: Overview
         - url: ./typespec/resources.md#getting-started-guide
           text: Get started
-        - url: ./typespec/resoures.md#language-reference
+        - url: ./typespec/resources.md#language-reference
           text: Language reference
         - url: ./typespec/resources.md#typespec-playground
           text: Playground
