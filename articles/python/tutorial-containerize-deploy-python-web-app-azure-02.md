@@ -100,22 +100,21 @@ In this section, you build a Docker image for the Python web app using either Vi
     If you're at the root folder of the project, use the following command to build the Docker image:
 
     ```console
-        #!/bin/bash
-        docker build --rm --pull \
-      --file "Dockerfile" \
-      --label "com.microsoft.create-by=docker-cli" \
-      --tag "msdocspythoncontainerwebapp:latest" \
-      .
+    #!/bin/bash
+    docker build --rm --pull \
+        --file "Dockerfile" \
+        --label "com.microsoft.create-by=docker-cli" \
+        --tag "msdocspythoncontainerwebapp:latest" \
+        .
     ```
 
     ```console
     # PowerShell syntax
     docker build --rm --pull `
-    --file "Dockerfile" `
-    --label "com.microsoft.create-by=docker-cli" `
-    --tag "msdocspythoncontainerwebapp:latest" `
-    .
-
+        --file "Dockerfile" `
+        --label "com.microsoft.create-by=docker-cli" `
+        --tag "msdocspythoncontainerwebapp:latest" `
+        .
     ```
 
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
@@ -154,14 +153,14 @@ Your Python web app requires a MongoDB database named *restaurants_reviews* and 
         mongosh
         ```
 
-    > [!TIP]
-    > To return just the version of MongoDB server installed on your system, close and reopen the MongoDB shell and use the following command: `mongosh --quiet --exec 'db.version()'`
+        > [!TIP]
+        > To return just the version of MongoDB server installed on your system, close and reopen the MongoDB shell and use the following command: `mongosh --quiet --exec 'db.version()'`
 
-    In some setups, you can also directly invoke the Mongo daemon in your bash shell.
+        In some setups, you can also directly invoke the Mongo daemon in your bash shell.
 
-    ```console
-    mongod --version
-    ```
+        ```console
+        mongod --version
+        ```
 
 1. Edit the *mongod.cfg* file in the `\MongoDB\Server\8.0\bin` folder and add your computer's local IP address to the `bindIP` key.
 
@@ -367,7 +366,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
 ### Using the Docker CLI
 
-You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB.
+You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB instance.
 
 #### Using your local MongoDB instance
 
