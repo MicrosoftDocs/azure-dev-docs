@@ -203,6 +203,16 @@ Build and run the app locally by using the following steps:
     java -jar ./target/quarkus-app/quarkus-run.jar
     ```
 
+    > [!NOTE]
+    > Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
+    >
+    > Use the following commands to build and execute the native executable in a Linux environment:
+    >
+    > ```bash
+    > mvn package -Dnative -Dquarkus.native.container-build
+    > ./target/storage-blob-1.0.0-SNAPSHOT-runner
+    > ```
+
 1. Test your application by using the following command:
 
     ```bash
@@ -213,14 +223,7 @@ Build and run the app locally by using the following steps:
 
 1. Press <kbd>Control</kbd>+<kbd>C</kbd> to stop the application.
 
-Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
 
-Use the following commands to build and execute the native executable in a Linux environment:
-
-```bash
-mvn package -Dnative -Dquarkus.native.container-build
-./target/storage-blob-1.0.0-SNAPSHOT-runner
-```
 
 ## Clean up resources
 
