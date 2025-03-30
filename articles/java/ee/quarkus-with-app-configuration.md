@@ -204,7 +204,7 @@ Build and run the app locally by using the following steps:
     ```
 
     > [!NOTE]
-    > Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
+    > As an alternative to using `mvn clean package` and `java -jar ./target/quarkus-app/quarkus-run.jar`, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
     >
     > Use the following commands to build and execute the native executable in a Linux environment:
     >
