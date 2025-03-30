@@ -44,7 +44,7 @@ mvn io.quarkus.platform:quarkus-maven-plugin:create \
     -DjavaVersion="17"
 ```
 
-The app is created in a new directory named **quarkus-app-configuration**. Here is the structure of the app:
+The app is created in a new directory named **quarkus-app-configuration**. Here's the structure of the app:
 
 ```
 quarkus-app-configuration
@@ -81,7 +81,7 @@ Now that you have an App Configuration store and a Quarkus app with the Azure Ap
 
 Configure the application by using the following steps:
 
-1. Open the Java file named **GreetingResource.java** in the **src/main/java/com/example** directory, and replace the contents with the following code:
+1. Open the **GreetingResource.java** file in the **src/main/java/com/example** directory, and replace the contents with the following code:
 
     ```java
     package com.example;
@@ -109,7 +109,7 @@ Configure the application by using the following steps:
 
     The modified code uses the MicroProfile Config `@ConfigProperty` annotation to inject the value of the key `/application/config.message` from the App Configuration store into the `value` field, and returns the value in the REST service.
 
-1. Open the auto-generated unit test named **GreetingResourceTest.java** in the **src/test/java/com/example** directory, and replace the contents with the following code:
+1. Open the auto-generated unit test **GreetingResourceTest.java** file in the **src/test/java/com/example** directory, and replace the contents with the following code:
 
     ```java
     package com.example;
@@ -135,17 +135,17 @@ Configure the application by using the following steps:
     }
     ```
 
-    The modified code asserts that the value returned from the REST service equals the value in the App Configuration store, which is `Hello` for the key `/application/config.message` that you added earlier.
+    The modified code asserts that the value returned from the REST service equals the value in the App Configuration store. This value is `Hello` for the key `/application/config.message` that you added earlier.
 
 These code changes to the application are all required. Before running the application, you need to configure the authentication and connection to the App Configuration store.
 
-### Authenticate to the App Configuration store
+### Configure authentication to the App Configuration store
 
 Besides authentication with access keys, the Quarkus Azure App Configuration extension supports authentication with Microsoft Entra ID using the `DefaultAzureCredential` credential from the Azure Identity client library.
 
-You use Microsoft Entra ID for authentication in this quickstart. For more information, see [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
+You use Microsoft Entra ID for authentication in this quickstart. For more information, see [`DefaultAzureCredential`](/java/api/overview/azure/identity-readme#defaultazurecredential) in [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
 
-
+Configure authentication to the App Configuration store by using the following steps:
 
 1. Set environment variables by using the following commands, replacing the placeholders (`<...>`) with values you previously created:
 
@@ -204,7 +204,7 @@ Build and run the app locally by using the following steps:
     ```
 
     > [!NOTE]
-    > As an alternative to using `mvn clean package` and `java -jar ./target/quarkus-app/quarkus-run.jar`, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
+    > As an alternative to using `mvn clean package` and `java -jar ./target/quarkus-app/quarkus-run.jar`, you can run the sample in native mode. To use this method, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you don't have Docker installed, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
     >
     > Use the following commands to build and execute the native executable in a Linux environment:
     >
@@ -219,11 +219,9 @@ Build and run the app locally by using the following steps:
     curl localhost:8080/hello
     ```
 
-    You should see `Hello` from the output, which is the value of the key `/application/config.message` you added to the App Configuration store.
+    You should see `Hello` in the output, because `Hello` is the value of the `/application/config.message` key you added to the App Configuration store.
 
 1. Press <kbd>Control</kbd>+<kbd>C</kbd> to stop the application.
-
-
 
 ## Clean up resources
 
@@ -238,8 +236,8 @@ az group delete \
 
 ## See also
 
-- [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/)
-- [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./quarkus-with-microsoft-entra-id.md)
-- [Deploy a Java application with Quarkus on Azure Container Apps](./deploy-java-quarkus-app.md)
-- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
-- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
+- [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/).
+- [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./quarkus-with-microsoft-entra-id.md).
+- [Deploy a Java application with Quarkus on Azure Container Apps](./deploy-java-quarkus-app.md).
+- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app).
+- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus).
