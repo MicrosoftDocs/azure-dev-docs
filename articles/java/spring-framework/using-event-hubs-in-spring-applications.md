@@ -190,8 +190,7 @@ To send messages to and receive messages from Event Hubs, configure the applicat
            eventHubProducerClient.send(Collections.singletonList(new EventData("Hello World")));
            LOGGER.info("Successfully sent a message to Event Hubs.");
            eventHubProducerClient.close();
-           LOGGER.info("Stopping and closing the processor");
-           eventProcessorClient.stop();
+           LOGGER.info("Skip stopping and closing the processor since the processor may not complete the receiving process yet.");
        }
 
    }
