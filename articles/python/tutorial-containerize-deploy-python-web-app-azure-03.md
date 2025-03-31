@@ -14,9 +14,9 @@ App Service enables you to run containerized web apps and deploy them through th
 
 Azure App Service lets you deploy and run containerized web apps leveraging CI/CD pipelines from platforms like Docker Hub, Azure Container Registry, and Azure DevOps. This article is part 3 of a 5-part tutorial series.
 
-In the previous *optional* part of this  (part 2), you built and ran the container image locally. In contrast, in this part of the tutorial, you build (containerize) the same Python web app directly into a Docker image in the [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
+In part 2 of this tutorial series, you built and ran the container image locally. In contrast, in this part of the tutorial, you build (containerize) the same Python web app directly into a Docker image in the [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
-Unlike the optional part 2 of this tutorial series, where you built the container image locally, this article guides you through building the same Python web app's Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). This Azure-native build process is typically faster and easier, and it bypasses the need for local Docker setup.
+Unlike part 2 of this tutorial series, where you built the container image locally, this article guides you through building the same Python web app's Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). This Azure-native build process is typically faster and easier, and it bypasses the need for local Docker setup.
 
 Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service.
 
@@ -30,40 +30,13 @@ If you have an existing Azure Container Registry you wish to use, skip this next
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli). If you run the commands in this section in the Azure Cloud Shell, you can skip **Step 3** in this section.
+Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-1. Create a new resource group (if needed) with the [az group create](/cli/azure/group#az-group-create) command. If you have already set up an Azure Cosmos DB for MongoDB account in Part 2 of this tutorial series, **Build and Run a Containerized Python Web App Locally**, set the `RESOURCE_GROUP_NAME` environment variable to the resource group name you use for that account, then proceed to the next step.
-
-    ```azurecli-interactive
-    #!/bin/bash
-    # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
-    # RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
-
-    LOCATION='eastus'
-    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-    
-    # Create a resource group
-    echo "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
-    az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
-    ```
-
-    ```azurecli-interactive
-    # PowerShell syntax
-    # LOCATION: The Azure region. Use "az account list-locations -o table" to find a region near you.
-    # RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
-    
-    $LOCATION = "eastus"
-    $RESOURCE_GROUP_NAME = "msdocs-web-app-rg"
-    
-    # Create a resource group
-    Write-Output "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
-    az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
-    ```
-
-1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
+1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command using the resource group you created in part 2 of this tutorial series.
 
     ```azurecli-interactive
     #!/bin/bash
+    RESOURCE_GROUP_NAME='<your resource group name>'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
     REGISTRY_NAME='<your Azure Container Registry name>'
 
@@ -73,6 +46,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli-interactive
     # PowerShell syntax
+    $RESOURCE_GROUP_NAME='<your resource group name>'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
     $REGISTRY_NAME='<your Azure Container Registry name>'
 
@@ -95,67 +69,24 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 ### [VS Code](#tab/vscode-aztools)
 
-[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, open VS Code with the command `code .`.
+> [!IMPORTANT]
+> The steps in this section require that you previously completed the *VS Code* section of [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md#vscode).
 
 1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
 
     Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription, and select **Create Registry**. This action starts the same create registry task.
 
-1. Click **Connect Registry** when prompted that no registry providers are connected.
-1. Select **Azure** to connect to the Azure Container Registry.
-
-1. 1. Follow the prompts and enter the following values:
+1. Follow the prompts and enter the following values:
 
     * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
 
     * **SKU**: Select **Standard**.
 
-    * **Resource group**: Use an existing group or create a new one. If you've already set up an Azure Cosmos DB for MongoDB account in part 2 of this tutorial series **Build and run a containerized Python web app locally**, set the resource group name to the name of the resource group you used for that account.
-
-    * **Location**: If you're using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" alt-text="An animated GIF showing how to create a registry in Visual Studio Code." :::
+    * **Resource group**: Use your existing resource group.
 
 1. In the Docker extension, in the **REGISTRIES** section, find the registry you created, right-click, and select **View Properties**.
 
     Look for the `loginServer` key value pair in the output. The value is the fully qualified name of the registry.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties.png" alt-text="A screenshot showing how to get the properties of a registry in Visual Studio Code." :::
-
-### [Azure portal](#tab/azure-portal)
-
-Follow these steps to create a new Azure Container Registry in the Azure portal.
-
-1. In the [Azure portal](https://portal.azure.com/), search for "container registry" and select **Container Registry** under **Marketplace** in the results.
-
-1. Under the **Basics** tab on the **Create container registry** form, enter the following values:
-
-    * **Resource group**: Use an existing group or create a new one. If you've already set up an Azure Cosmos DB for MongoDB account in part 2 of this tutorial series **Build and run a containerized Python web app locally**, set the resource group name to the name of the resource group you used for that account.
-    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
-    * **Location**: If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
-    * **SKU**: Select **Standard**.
-
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." :::
-
-    When you're finished, select **Review + create**. After the validation is complete, select **Create**.
-
-1. After the deployment completes, go to the new registry, and find the fully qualified name.
-
-    1. On the **service menu**, select **Overview**.
-    1. Copy the **Login server** value. It should be a fully qualified name with "azurecr.io".
-
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot that shows how to find the login server value for the registry in Azure portal." :::
-
-1. The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers.
-
-    1. On the **service menu**, select **Access Keys**.
-    1. Select **Enabled** for the **Admin User**.
-
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot that shows how to enable the admin user for the registry in Azure portal." :::
-
-    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. The admin account is only used during the creation of the App Service. After creating the App Service, the managed identity pulls images from the registry, allowing the admin account to be disabled.
-
----
 
 ## Build an image in Azure Container Registry
 
@@ -171,22 +102,12 @@ If you skipped part 2 of this tutorial series, follow the instructions in [Clone
 
 Azure CLI commands can be run in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli) or in [Azure Cloud Shell](https://shell.azure.com/).
 
-1. In your console, change to the 
-1. Navigate to the root folder for your cloned repository from part 2 of this tutorial series.
+1. In the consolde, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
 1. Build the container image using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
     ```azurecli
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
     ```
-
-    In this command:
-
-    * The dot (".") at the end of the command refers to the current directory in which the command runs. If you aren't running this command in the sample app root directory, specify the path to the code. To force a rebuild, add `--no-cache`.
-
-        > [!TIP]
-        > Rather than a path to the code in your environment, you can, optionally, specify a path to the sample GitHub repo: https://github.com/Azure-Samples/msdocs-python-django-container-web-app or https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.
-
-    * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
 
 1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
@@ -209,10 +130,10 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 1. Input the following values and follow the prompts to create the image.
 
     * **Tag image**: Use the image name "msdocspythoncontainerwebapp:latest".
+    * **Registry provider**: Select **Azure**.
+    * **Subscription**: Select the subscription you used to create the registry.
     * **Registry**: Select the registry you created or one to which you have access.
     * **Base OS image**: Select **Linux**.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" alt-text="A screenshot showing how to provide information to  build container in Azure in Visual Studio Code." :::
 
     Check the **OUTPUT** window for progress and information on the build. If you get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
 
@@ -223,34 +144,6 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
     1. Confirm the name and tag "latest".
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
-
-### [Azure portal](#tab/azure-portal)
-
-Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps.
-
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview).
-
-    :::image type="content" source="./media/tutorial-container-web-app/portal-cloud-shell-icon.png" alt-text="A screenshot of the Azure portal showing the Cloud Shell icon." :::
-
-1. Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
-
-    ```azurecli
-    az acr build \
-      -r <registry-name> \
-      -g <resource-group> \
-      -t msdocspythoncontainerwebapp:latest \
-      <repo-path>
-    ```
-
-    The last argument in the command is the fully qualified path to the repo. Use https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git for the Django sample app and https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git for the Flask sample app.
-
-1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
-
-    ```azurecli
-    az acr repository list -n <registry-name>
-    ```
-
----
 
 ## Next step
 
