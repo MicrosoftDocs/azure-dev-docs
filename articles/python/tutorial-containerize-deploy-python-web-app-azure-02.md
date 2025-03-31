@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Build and run a containerized Python web app locally
 
-In this article, you learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local computer. To store data for this app, you can use either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction). This article is part 2 of a 5-part tutorial series about how to containerize and deploy a Python web app to Azure App Service. We recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
+In this article, you learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local computer. To store data for this app, you can use either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction). This article is part 2 of a 5-part tutorial series. We recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
 
 > [!TIP]
 > The steps in this article are optional and aren't required to complete the remaining articles in this tutorial series. You can always return to this article after completing the subsequent articles in this series.
@@ -117,7 +117,7 @@ In this section, you build a Docker image for the Python web app using either Vi
         .
     ```
 
-    The dot (".") at the end of the command refers to the current directory in which the command runs. f you aren't running this command in the sample app root directory, specify the path to the code. To force a rebuild, add `--no-cache`.
+    The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
 
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
