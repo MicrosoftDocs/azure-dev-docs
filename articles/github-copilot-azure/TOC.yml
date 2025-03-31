@@ -21,6 +21,7 @@ items:
     - name: Optimize your application
       href: optimize-examples.md
     - name: Advanced scenarios
+      expanded: true
       items: 
         - name: Create Bicep files
           href: bicep-generate-edit.md
