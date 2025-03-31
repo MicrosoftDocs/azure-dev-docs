@@ -17,7 +17,6 @@ This article covers failure investigation techniques, common errors for the cred
 * [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md)
 * [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md)
 * [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md)
-* [Troubleshoot user credential authentication](troubleshooting-authentication-user-credential.md)
 * [Troubleshoot multi-tenant authentication](troubleshooting-authentication-multi-tenant.md)
 
 The remainder of this article covers general troubleshooting techniques and guidance that apply to all credential types.
