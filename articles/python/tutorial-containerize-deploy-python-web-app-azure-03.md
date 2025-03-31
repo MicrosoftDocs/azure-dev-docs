@@ -88,6 +88,39 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     Look for the `loginServer` key value pair in the output. The value is the fully qualified name of the registry.
 
+### [Azure portal](#tab/azure-portal)
+
+Follow these steps to create a new Azure Container Registry in the Azure portal.
+
+1. In the [Azure portal](https://portal.azure.com/), search for "container registry" and select **Container Registry** under **Marketplace** in the results.
+
+1. Under the **Basics** tab on the **Create container registry** form, enter the following values:
+
+    * **Subscription**: Select the subscription you want to use.
+    * **Resource group**: Use an existing group or create a new one. If you've already set up an Azure Cosmos DB for MongoDB account in part 2 of this tutorial series **Build and run a containerized Python web app locally**, set the resource group name to the name of the resource group you used for that account.
+    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * **Location**: Use the location that you used in part 2 of this tutorial series.
+    * **SKU**: Select **Standard**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." :::
+
+    When you're finished, select **Review + create**. After the validation is complete, select **Create**.
+
+1. After the deployment completes, click **Go to resource** to view the fully qualified name for the new registry on the **Overview tab**.
+
+1. Copy the **Login server** value. It should be a fully qualified name with "azurecr.io".
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot that shows how to find the login server value for the registry in Azure portal." :::
+
+1. The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers.
+
+    1. On the **service menu**, click **Settings**, and then select **Access Keys**.
+    1. Select **Enabled** for the **Admin User**.
+
+    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. The admin account is only used during the creation of the App Service. After creating the App Service, the managed identity pulls images from the registry, allowing the admin account to be disabled.
+
+---
+
 ## Build an image in Azure Container Registry
 
 You can generate the container image directly in Azure through various approaches:
@@ -144,6 +177,47 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
     1. Confirm the name and tag "latest".
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
+
+### [Azure portal](#tab/azure-portal)
+
+Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps.
+
+1. Build the image in [Azure Cloud Shell](/azure/cloud-shell/overview) with the [az acr build](/cli/azure/acr#az-acr-build) command.
+
+    ```azurecli-interactive
+    #!/bin/bash
+    RESOURCE_GROUP_NAME='<your resource group name>'
+    # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
+    REGISTRY_NAME='<your Azure Container Registry name>'
+
+    az acr build
+      -r $REGISTRY_NAME$ \
+      -g $RESOURCE_GROUP_NAME$ \
+      -t msdocspythoncontainerwebapp:latest \
+      <repo-path>
+    ```
+
+    ```azurecli-interactive
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME='<your resource group name>'
+    # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
+    $REGISTRY_NAME='<your Azure Container Registry name>'
+
+    az acr build
+      -r $REGISTRY_NAME$ `
+      -g $RESOURCE_GROUP_NAME$ `
+      -t msdocspythoncontainerwebapp:latest `
+      <repo-path>
+    ```
+
+    The last argument in the command is the fully qualified path to the repo. Use https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git for the Django sample app and https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git for the Flask sample app.
+
+1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
+
+    ```azurecli
+    az acr repository list -n <registry-name>    ```
+
+---
 
 ## Next step
 
