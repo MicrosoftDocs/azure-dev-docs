@@ -59,7 +59,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
 ### [VS Code](#tab/vscode-docker)
 
-[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
+[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/) to start the daemon before proceeding.
