@@ -70,8 +70,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 ### [VS Code](#tab/vscode-aztools)
 
 > [!IMPORTANT]
-> The steps in this section require that you previously completed the *VS Code* section of [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md#vscode).
+> The steps in this section assume that you previously completed the **VS Code** sections of [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md).
 
+1. In the Docker extension, go to **REGISTRIES** and connect to Azure.
 1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
 
     Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription, and select **Create Registry**. This action starts the same create registry task.
@@ -96,8 +97,6 @@ Follow these steps to create a new Azure Container Registry in the Azure portal.
 
 1. Under the **Basics** tab on the **Create container registry** form, enter the following values:
 
-    * **Subscription**: Select the subscription you want to use.
-    * **Resource group**: Use an existing group or create a new one. If you've already set up an Azure Cosmos DB for MongoDB account in part 2 of this tutorial series **Build and run a containerized Python web app locally**, set the resource group name to the name of the resource group you used for that account.
     * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
     * **Location**: Use the location that you used in part 2 of this tutorial series.
     * **SKU**: Select **Standard**.
@@ -126,7 +125,7 @@ Follow these steps to create a new Azure Container Registry in the Azure portal.
 You can generate the container image directly in Azure through various approaches:
 
   * The Azure Cloud Shell allows you to construct the image entirely in the cloud, independent of your local environment.
-  * Alternatively, you can employ VS Code or the Azure CLI to create it in Azure from your local setup, without needing Docker to be running locally.
+  * Alternatively, you can use VS Code or the Azure CLI to create it in Azure from your local setup, without needing Docker to be running locally.
 
 > [!IMPORTANT]
 If you skipped part 2 of this tutorial series, follow the instructions in [Clone or download the sample app](tutorial-containerize-deploy-python-web-app-azure-02.md#clone-or-download-the-sample-python-app) in part 2 of this tutorial to clone the sample Flask or Django web app to your local development environment.
@@ -138,7 +137,7 @@ Azure CLI commands can be run in your local development environment with the [Az
 1. In the consolde, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
 1. Build the container image using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
     ```
 
@@ -150,7 +149,7 @@ Azure CLI commands can be run in your local development environment with the [Az
 
 ### [VS Code](#tab/vscode-aztools)
 
-These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code. VS Code needs to be opened in the working folder of your web app.
+These steps require that VS Code be opened in the working folder of your web app.
 
 1. In the Docker extension, go to **REGISTRIES** and connect to Azure.
 
