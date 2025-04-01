@@ -10,9 +10,6 @@ ms.custom: devx-track-python
 
 In this article, you learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local computer. To store data for this app, you can use either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction). This article is part 2 of a 5-part tutorial series. We recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
 
-> [!TIP]
-> The steps in this article are optional and aren't required to complete the remaining articles in this tutorial series. You can always return to this article after completing the subsequent articles in this series.
-
 The following service diagram highlights the local components covered in this article In this article, you also learn how to use Azure Cosmos DB for MongdoDB with a local Docker image, rather than a local instance of MongoDB.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
@@ -59,7 +56,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
 ### [VS Code](#tab/vscode-docker)
 
-[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
+[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/) to start the daemon before proceeding.

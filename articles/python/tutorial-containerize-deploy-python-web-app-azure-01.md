@@ -12,7 +12,7 @@ This tutorial series shows you how to containerize a Python web app and then eit
 
 In this tutorial you:
 
-* Build and run a [Docker][4] container locally. See [Build and run a containerized Python web app locally](tutorial-containerize-deploy-python-web-app-azure-02.md). *This step is optional.*
+* Build and run a [Docker][4] container locally. See [Build and run a containerized Python web app locally](tutorial-containerize-deploy-python-web-app-azure-02.md).
 
 * Build a [Docker][4] container image directly in Azure. See [Build a containerized Python web app in Azure](tutorial-containerize-deploy-python-web-app-azure-03.md).
 
@@ -86,7 +86,7 @@ To complete this tutorial, you need:
   * [MongoDB Shell (mongosh)][8] for connecting to MongoDB.
   * [Flask][9] or [Django][10] as a web framework.
 
-* [Docker][4] installed locally. *Installing Docker locally is optional and is only required if you want to run the container locally*.
+* [Docker][4] installed locally.
 
 ## Sample app
 
