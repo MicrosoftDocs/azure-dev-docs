@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc, devx-track-azurecli
 
 # Build a containerized Python web app in Azure
 
-In this article, you learn how to build a containerized Python web app directly in [Azure Container Registry](/azure/container-registry/container-registry-intro) without installing Docker locally. Building the Docker image in Azure is often faster and easier than creating the image locally and then pushing it to the Azure Container Registry. Additionally, cloud-based image building eliminates the need for Docker to run in your development environment.
+In this part of the tutorial seriese, you learn how to build a containerized Python web app directly in [Azure Container Registry](/azure/container-registry/container-registry-intro) without installing Docker locally. Building the Docker image in Azure is often faster and easier than creating the image locally and then pushing it to the Azure Container Registry. Additionally, cloud-based image building eliminates the need for Docker to run in your development environment.
 
 App Service enables you to run containerized web apps and deploy them through the continuous integration/continuous deployment (CI/CD) capabilities of Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 3 of a 5-part tutorial series about how to containerize and deploy a Python web app to Azure App Service. In this part of the tutorial, you learn how to build the containerized Python web app in Azure.
 
@@ -35,31 +35,33 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
-    RESOURCE_GROUP_NAME='<your resource group name>'
+    # RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
-    REGISTRY_NAME='<your Azure Container Registry name>'
+    REGISTRY_NAME='msdocscontainerregistryname'
 
     echo "Creating Azure Container Registry $REGISTRY_NAME..."
     az acr create -g $RESOURCE_GROUP_NAME -n $REGISTRY_NAME --sku Standard
     ```
 
-    ```azurecli-interactive
+    ```azurecli
     # PowerShell syntax
-    $RESOURCE_GROUP_NAME='<your resource group name>'
+    # $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
-    $REGISTRY_NAME='<your Azure Container Registry name>'
+    $REGISTRY_NAME='msdocscontainerregistryname'
 
     Write-Output "Creating Azure Container Registry $REGISTRY_NAME..."
     az acr create -g $RESOURCE_GROUP_NAME -n $REGISTRY_NAME --sku Standard
     ```
 
+    RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in part 2 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
+
     In the JSON output of the command, locate the `loginServer` value. This represents the fully qualified registry name (all lowercase) and contains the registry name.
 
 1. If you're using the Azure CLI on your local machine, execute the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the container registry.
 
-    ```azurecli-interactive
+    ```azurecli
     az acr login -n $REGISTRY_NAME
     ```
 
@@ -80,7 +82,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Follow the prompts and enter the following values:
 
-    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * **Registry name**: Enter **msdocscontainerregistryname**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
 
     * **SKU**: Select **Standard**.
 
@@ -132,16 +134,16 @@ You can generate the container image directly in Azure through various approache
 
 Azure CLI commands can be run in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli) or in [Azure Cloud Shell](https://shell.azure.com/).
 
-1. In the consolde, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
+1. In the console, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
 1. Build the container image using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
-    ```azurecli-interactive
+    ```azurecli
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
     ```
 
 1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
-    ```azurecli-interactive
+    ```azurecli
     az acr repository list -n $REGISTRY_NAME
     ```
 
@@ -160,8 +162,6 @@ These steps require that VS Code be opened in the working folder of your web app
 1. Input the following values and follow the prompts to create the image.
 
     * **Tag image**: Use the image name "msdocspythoncontainerwebapp:latest".
-    * **Registry provider**: Select **Azure**.
-    * **Subscription**: Select the subscription you used to create the registry.
     * **Registry**: Select the registry you created or one to which you have access.
     * **Base OS image**: Select **Linux**.
 
@@ -181,11 +181,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps
 
 1. Build the image in [Azure Cloud Shell](/azure/cloud-shell/overview) with the [az acr build](/cli/azure/acr#az-acr-build) command.
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
-    RESOURCE_GROUP_NAME='<your resource group name>'
+    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
-    REGISTRY_NAME='<your Azure Container Registry name>'
+    REGISTRY_NAME='msdocscontainerregistryname'
 
     az acr build
       -r $REGISTRY_NAME$ \
@@ -194,11 +194,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps
       <repo-path>
     ```
 
-    ```azurecli-interactive
+    ```azurecli
     # PowerShell syntax
     $RESOURCE_GROUP_NAME='<your resource group name>'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
-    $REGISTRY_NAME='<your Azure Container Registry name>'
+    $REGISTRY_NAME='msdocscontainerregistryname'
 
     az acr build
       -r $REGISTRY_NAME$ `

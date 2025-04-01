@@ -3,17 +3,15 @@ title: Deploy a Python web app container to Azure App Service
 description: How to deploy a Python web app container (Django or Flask) to App Service using managed identity authentication with Azure Container Registry.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2023
+ms.date: 04/01/2025
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Deploy a containerized Python app to App Service
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services.
+In this part of the tutorial series, you learn how to deploy a containerized Python web application to Azure App Service using the [App Service Web App for Containers](/azure.microsoft.com/services/app-service/containers/). This service lets you focus on building and managing your containers without the complexity of maintaining a container orchestrator. With App Service, you can run containerized web apps and streamline deployment using continuous integration/continuous deployment (CI/CD) with Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 4 of a 5-part tutorial series.
 
-In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
-
-After following the steps in this article, you finish with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
+By the end of this article, you'll have a fully deployed App Service website running on a Docker container image. App Service uses managed identity to authenticate with Azure Container Registry and retrieve the initial image.
 
 This service diagram highlights the components covered in this article.
 
@@ -27,7 +25,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Get the resource ID of the group containing Azure Container Registry with the [az group show](/cli/azure/group#az-group-show) command.
 
-    ```azurecli
+    ```azurecli-interactive
+    #!/bin/bash
     # RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     
     RESOURCE_ID=$(az group show \
@@ -37,11 +36,23 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in part **3. Build container in Azure** of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
+    ```azurecli-interactive
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+
+    RESOURCE_ID=$(az group show `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --query id `
+      --output tsv)
+    echo $RESOURCE_ID
+    ```
+
+    RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
-    ```azurecli
+    ```azurecli-interactive
+    #!/bin/bash
     APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
     
     az appservice plan create \
@@ -51,11 +62,23 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
+    ```azurecli-interactive
+    # PowerShell syntax
+    $APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
+    
+    
+    ```az appservice plan create `
+        --name $APP_SERVICE_PLAN_NAME `
+        --resource-group $RESOURCE_GROUP_NAME `
+        --sku B1 `
+        --is-linux
+
 1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
     The following command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles?tabs=azure-cli) on the specified resource--in this case, the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
 
-    ```azurecli
+    ```azurecli-interactive
+    #!/bin/bash
     APP_SERVICE_NAME='<website-name>'
     # REGISTRY_NAME='<your Azure Container Registry name>'
     CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
@@ -67,6 +90,21 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --assign-identity '[system]' \
       --scope $RESOURCE_ID \
       --role acrpull \
+      --deployment-container-image-name $CONTAINER_NAME 
+    ```
+
+    ```azurecli-interactive
+    $APP_SERVICE_NAME='<website-name>'
+    # REGISTRY_NAME='<your Azure Container Registry name>'
+    $CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
+    
+    az webapp create `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --plan $APP_SERVICE_PLAN_NAME `
+      --name $APP_SERVICE_NAME `
+      --assign-identity '[system]' `
+      --scope $RESOURCE_ID `
+      --role acrpull `
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
@@ -160,10 +198,19 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
-    ```azurecli
+    ```azurecli-interactive
+    #!/bin/bash
     az webapp config set \
       --resource-group $RESOURCE_GROUP_NAME \
       --name $APP_SERVICE_NAME \
+      --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+    ```
+
+    ```azurecli-interactive
+    # PowerShell syntax
+    az webapp config set `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --name $APP_SERVICE_NAME `
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
@@ -171,7 +218,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
-    ```azurecli
+    ```azurecli-interactive
+    #!/bin/bash
     CREDENTIAL=$(az webapp deployment list-publishing-credentials \
       --resource-group $RESOURCE_GROUP_NAME \
       --name $APP_SERVICE_NAME \
@@ -180,9 +228,20 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     echo $CREDENTIAL 
     ```
 
+    ```azurecli-interactive
+    # PowerShell syntax
+    CREDENTIAL=$(az webapp deployment list-publishing-credentials `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --name $APP_SERVICE_NAME `
+      --query publishingPassword `
+      --output tsv)
+    echo $CREDENTIAL 
+    ```
+
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
-    ```azurecli
+    ```azurecli-interactive
+    #!/bin/bash
     SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.azurewebsites.net/api/registry/webhook'
     
     az acr webhook create \
@@ -191,6 +250,16 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
       --scope msdocspythoncontainerwebapp:* \
       --uri $SERVICE_URI \
       --actions push 
+    ```
+
+    ```azurecli-interactive
+    # PowerShell syntax
+    CREDENTIAL=$(az webapp deployment list-publishing-credentials `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --name $APP_SERVICE_NAME `
+      --query publishingPassword `
+      --output tsv)
+    echo $CREDENTIAL 
     ```
 
     By default, this command creates the webhook in the same resource group and location as the specified Azure Container registry. If desired, you can use the `--resource-group` and `--location` parameters to override this behavior.
@@ -286,7 +355,8 @@ You need the MongoDB connection string to follow the steps below.
 
 To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
 MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
 MONGO_DB_NAME=restaurants_reviews
 MONGO_COLLECTION_NAME=restaurants_reviews
@@ -296,6 +366,20 @@ az webapp config appsettings set \
    --name $APP_SERVICE_NAME \
    --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING \
               DB_NAME=$MONGO_DB_NAME  \
+              COLLECTION_NAME=$MONGO_COLLECTION_NAME 
+```
+
+```azurecli-interactive
+# PowerShell syntax
+$MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
+$MONGO_DB_NAME=restaurants_reviews
+$MONGO_COLLECTION_NAME=restaurants_reviews
+
+az webapp config appsettings set `
+   --resource-group $RESOURCE_GROUP_NAME `
+   --name $APP_SERVICE_NAME `
+   --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING `
+              DB_NAME=$MONGO_DB_NAME  `
               COLLECTION_NAME=$MONGO_COLLECTION_NAME 
 ```
 

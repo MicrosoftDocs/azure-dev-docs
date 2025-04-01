@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Build and run a containerized Python web app locally
 
-In this article, you learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local computer. To store data for this app, you can use either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction). This article is part 2 of a 5-part tutorial series. We recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
+In this part of the tutorial series, you learn how to build and run a containerized [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) or a [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app) Python web app on your local computer. To store data for this app, you can use either a local MongoDB instance or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction). This article is part 2 of a 5-part tutorial series. We recommend that you complete [part 1](tutorial-containerize-deploy-python-web-app-azure-01.md) before starting this article.
 
 The following service diagram highlights the local components covered in this article In this article, you also learn how to use Azure Cosmos DB for MongdoDB with a local Docker image, rather than a local instance of MongoDB.
 
@@ -206,7 +206,7 @@ The script takes a few minutes to run.
 # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
 # RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
 # ACCOUNT_NAME: The Azure Cosmos DB for MongDB account name, which can contain lowercase letters, hyphens, and numbers.
-LOCATION='eastus'
+LOCATION='westus'
 RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 ACCOUNT_NAME='<cosmos-db-account-name>'
 
@@ -239,9 +239,9 @@ echo "Copy the Primary MongoDB Connection String from the list above"
 # RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
 # ACCOUNT_NAME: The Azure Cosmos DB for MongoDB account name, which can contain lowercase letters, hyphens, and numbers.
 
-$LOCATION = "eastus"
+$LOCATION = "westus"
 $RESOURCE_GROUP_NAME = "msdocs-web-app-rg"
-$ACCOUNT_NAME = "<cosmos-db-account-name>"
+$ACCOUNT_NAME = "msdocs-cosmos-db-account-name"
 
 # Create a resource group
 Write-Output "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
@@ -445,10 +445,10 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
     # PowerShell syntax
     # PORT=8000 for Django and 5000 for Flask
     $PORT=<port-number>
-    $ CONNECTION_STRING="<connection-string>"
+    $CONNECTION_STRING="<connection-string>"
 
     docker run --rm -it `
-      --publish $PORT:$PORT/tcp `
+      --publish ${PORT}:${PORT}/tcp `
       --env CONNECTION_STRING=$CONNECTION_STRING `
       --env DB_NAME=restaurants_reviews `
       --env COLLECTION_NAME=restaurants_reviews `
