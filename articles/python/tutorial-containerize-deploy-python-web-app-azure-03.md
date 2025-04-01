@@ -29,7 +29,6 @@ If you have an existing Azure Container Registry you wish to use, skip this next
 ### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli).
-
 > [!NOTE]
 > Use the same names as in part 2 of this tutorial series.
 
@@ -61,7 +60,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. If you're using the Azure CLI on your local machine, execute the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the container registry.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr login -n $REGISTRY_NAME
     ```
 
@@ -137,13 +136,13 @@ Azure CLI commands can be run in your local development environment with the [Az
 1. In the console, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
 1. Build the container image using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
     ```
 
 1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr repository list -n $REGISTRY_NAME
     ```
 
@@ -199,6 +198,19 @@ Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps
     $RESOURCE_GROUP_NAME='<your resource group name>'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
     $REGISTRY_NAME='msdocscontainerregistryname'
+
+    az acr build
+      -r $REGISTRY_NAME$ `
+      -g $RESOURCE_GROUP_NAME$ `
+      -t msdocspythoncontainerwebapp:latest `
+      <repo-path>
+    ```
+
+    ```azurecli-interactive
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME='<your resource group name>'
+    # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
+    $REGISTRY_NAME='<your Azure Container Registry name>'
 
     az acr build
       -r $REGISTRY_NAME$ `
