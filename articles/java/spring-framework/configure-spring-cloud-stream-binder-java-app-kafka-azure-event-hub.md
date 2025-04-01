@@ -138,10 +138,14 @@ Use the following steps to configure your application to produce and consume mes
    spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
    spring.cloud.stream.bindings.consume-in-0.group=$Default
    spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
+   spring.cloud.stream.binders.kafka.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration
    ```
 
    > [!TIP]
    > We recommend that you don't use connection strings to connect to Azure Event Hubs for Kafka in version 4.3.0 or higher. This functionality is being removed in the future, so you should consider using passwordless connections instead.
+   > 
+   > If you are using Spring Cloud Azure 4.x version, update property `spring.cloud.stream.binders.kafka.environment.spring.main.sources` value to `com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`.
+   > 
 
    The following table describes the fields in the configuration:
 
