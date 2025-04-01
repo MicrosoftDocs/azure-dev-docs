@@ -112,17 +112,17 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     * APP_SERVICE_NAME must be globally unique as it becomes the website name in the URL `https://<website-name>.azurewebsites.net`.
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
-    * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If it isn't, uncomment the line where it's set in the code snippet and set it to the name you used.
+    * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
 
     > [!NOTE]
-    > You may see an error similar to the following when running the command:
+    > You may see an error similar to the following output when running the previous command:
     >
     >    ```output
     >    No credential was provided to access Azure Container Registry. Trying to look up...
     >    Retrieving credentials failed with an exception:'No resource or more than one were found with name ...'
     >    ```
     >
-    > This error occurs because the web app defaults to using the Azure Container Registry's admin credentials to authenticate with the registry and admin credentials haven't been enabled on the registry. You can safely ignore this error because you will set the web app to use the system-assigned managed identity for authentication in the next command.
+    > This error arises from the web app's default attempt to use Azure Container Registry admin credentials, which are disabled. It's safe to disregard this error, as the subsequent command configures the web app to use system-assigned managed identity for authentication.
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -136,7 +136,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "Docker Registries", and select the **Docker Registries: Deploy Image to Azure App Service...** task.
 
-1. Follow the prompts and enter the following values to deploy the image:
+1. Enter the following values as prompted to deploy the image:
 
     * Select registry provider: "Azure"
     * Select registry: Enter the name of the registry you created earlier in this tutorial.
@@ -164,7 +164,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 1. On the basic settings of the App Service, specify:
 
     * **Resource Group**: Use the same resource group that the Azure Container Registry is in.
-    * **Name**: Use a unique name that will be `http://<app-name>.azurewebsites.net`.
+    * **Name**: Use **msdocs-app-service.
     * **Publish**: Use **Docker container** so that the registry image you build is used.
     * **Operating System**: **Linux**
     * **Region**: Use the same region as the resource group and Azure Container Registry.
@@ -186,7 +186,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
     :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" alt-text="A screenshot showing how to fill out the Docker deployment information about a web app in the Azure portal." :::
 
-    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account isn't enabled, you'll see an error when specifying the **Image**. After the App Service is created, managed identity is used to pull images from the registry, and the admin account can be disabled.
+    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account isn't enabled, you see an error when specifying the **Image**. After the App Service is created, managed identity is used to pull images from the registry, and the admin account can be disabled.
 
 1. Select **Review + Create**. When validation completes, select **Create**.
 
@@ -214,7 +214,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
-    Because you enabled the system-assigned managed identity when you created the web app, it will be the managed identity used to pull from the Azure Container Registry.
+    Because you enabled the system-assigned managed identity when you created the web app, the managed identity is used to pull from the Azure Container Registry.
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
@@ -349,7 +349,7 @@ In this step, you specify environment variables needed to connect to MongoDB.
 
 If you need to create an Azure Cosmos DB for MongoDB, we recommend you follow the steps to [set up Cosmos DB for MangoDB](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure) in part **2. Build and test container locally** of this tutorial. When you're finished, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`.
 
-You need the MongoDB connection string to follow the steps below.
+You need the MongoDB connection string for the next steps.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -395,7 +395,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
     1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
-    1. Expand **App Services** and find the web app you just created.
+    1. Expand **App Services** and find the web app you created.
 
     1. Expand your web app and right-click on **Application Settings**.
 

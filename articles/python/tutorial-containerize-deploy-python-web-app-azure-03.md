@@ -12,7 +12,7 @@ In this part of the tutorial seriese, you learn how to build a containerized Pyt
 
 App Service enables you to run containerized web apps and deploy them through the continuous integration/continuous deployment (CI/CD) capabilities of Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 3 of a 5-part tutorial series about how to containerize and deploy a Python web app to Azure App Service. In this part of the tutorial, you learn how to build the containerized Python web app in Azure.
 
-Azure App Service lets you deploy and run containerized web apps leveraging CI/CD pipelines from platforms like Docker Hub, Azure Container Registry, and Azure DevOps. This article is part 3 of a 5-part tutorial series.
+Azure App Service lets you deploy and run containerized web apps using CI/CD pipelines from platforms like Docker Hub, Azure Container Registry, and Azure DevOps. This article is part 3 of a 5-part tutorial series.
 
 In [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md) series, you built and ran the container image locally. In contrast, in this part of the tutorial, you build (containerize) the same Python web app directly into a Docker image in the [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
@@ -56,7 +56,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in part 2 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
-    In the JSON output of the command, locate the `loginServer` value. This represents the fully qualified registry name (all lowercase) and contains the registry name.
+    In the JSON output of the command, locate the `loginServer` value. This value represents the fully qualified registry name (all lowercase) and contains the registry name.
 
 1. If you're using the Azure CLI on your local machine, execute the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the container registry.
 
@@ -148,7 +148,7 @@ Azure CLI commands can be run in your local development environment with the [Az
 
 ### [VS Code](#tab/vscode-aztools)
 
-These steps require that VS Code be opened in the working folder of your web app.
+These steps require that VS Code is opened in the working folder of your web app.
 
 1. In the Docker extension, go to **REGISTRIES** and connect to Azure.
 
