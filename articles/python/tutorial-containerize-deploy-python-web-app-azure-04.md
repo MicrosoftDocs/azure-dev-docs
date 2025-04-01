@@ -9,7 +9,7 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 # Deploy a containerized Python app to App Service
 
-In this part of the tutorial series, you learn how to deploy a containerized Python web application to Azure App Service using the [App Service Web App for Containers](/azure.microsoft.com/services/app-service/containers/). This service lets you focus on building and managing your containers without the complexity of maintaining a container orchestrator. With App Service, you can run containerized web apps and streamline deployment using continuous integration/continuous deployment (CI/CD) with Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 4 of a 5-part tutorial series.
+In this part of the tutorial series, you learn how to deploy a containerized Python web application to Azure App Service using the [App Service Web App for Containers](/azure/services/app-service/containers/). This service lets you focus on building and managing your containers without the complexity of maintaining a container orchestrator. With App Service, you can run containerized web apps and streamline deployment using continuous integration/continuous deployment (CI/CD) with Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 4 of a 5-part tutorial series.
 
 By the end of this article, you'll have a fully deployed App Service website running on a Docker container image. App Service uses managed identity to authenticate with Azure Container Registry and retrieve the initial image.
 
