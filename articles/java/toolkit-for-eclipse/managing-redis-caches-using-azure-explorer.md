@@ -91,8 +91,8 @@ For more information about Azure redis caches, configuration settings and pricin
 
 [Redis Cache Pricing]: https://azure.microsoft.com/pricing/details/cache/
 [Azure Redis Cache]: https://azure.microsoft.com/services/cache/
-[Redis Cache Documentation]: /azure/redis-cache/
-[How to configure Azure Redis Cache]: /azure/redis-cache/cache-configure
+[Redis Cache Documentation]: /azure/azure-cache-for-redis/
+[How to configure Azure Redis Cache]: /azure/azure-cache-for-redis/cache-configure
 
 <!-- IMG List -->
 
