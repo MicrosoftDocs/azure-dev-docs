@@ -38,9 +38,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli-interactive
     # PowerShell syntax
-    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    # $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 
-    RESOURCE_ID=$(az group show `
+    $RESOURCE_ID=$(az group show `
       --resource-group $RESOURCE_GROUP_NAME `
       --query id `
       --output tsv)
@@ -72,6 +72,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --resource-group $RESOURCE_GROUP_NAME `
         --sku B1 `
         --is-linux
+    ```
 
 1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
@@ -79,9 +80,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli-interactive
     #!/bin/bash
-    APP_SERVICE_NAME='<website-name>'
+    APP_SERVICE_NAME='msdocs-website-name'
     # REGISTRY_NAME='<your Azure Container Registry name>'
     CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
+
     
     az webapp create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -94,9 +96,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     ```
 
     ```azurecli-interactive
-    $APP_SERVICE_NAME='<website-name>'
+    # Powershell syntax
+    $APP_SERVICE_NAME='msdocs-website-name'
     # REGISTRY_NAME='<your Azure Container Registry name>'
-    $CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
+    $CONTAINER_NAME = "$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
     
     az webapp create `
       --resource-group $RESOURCE_GROUP_NAME `
@@ -211,7 +214,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     az webapp config set `
       --resource-group $RESOURCE_GROUP_NAME `
       --name $APP_SERVICE_NAME `
-      --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+      --generic-configurations "{\""acrUseManagedIdentityCreds\"": true}"
     ```
 
     Because you enabled the system-assigned managed identity when you created the web app, the managed identity is used to pull from the Azure Container Registry.
@@ -230,7 +233,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
     ```azurecli-interactive
     # PowerShell syntax
-    CREDENTIAL=$(az webapp deployment list-publishing-credentials `
+    $CREDENTIAL=$(az webapp deployment list-publishing-credentials `
       --resource-group $RESOURCE_GROUP_NAME `
       --name $APP_SERVICE_NAME `
       --query publishingPassword `
@@ -243,7 +246,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     ```azurecli-interactive
     #!/bin/bash
     SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.azurewebsites.net/api/registry/webhook'
-    
+
     az acr webhook create \
       --name webhookforwebapp \
       --registry $REGISTRY_NAME \
@@ -254,12 +257,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
     ```azurecli-interactive
     # PowerShell syntax
-    CREDENTIAL=$(az webapp deployment list-publishing-credentials `
-      --resource-group $RESOURCE_GROUP_NAME `
-      --name $APP_SERVICE_NAME `
-      --query publishingPassword `
-      --output tsv)
-    echo $CREDENTIAL 
+    $SERVICE_URI = "https://${APP_SERVICE_NAME}:${CREDENTIAL}@${APP_SERVICE_NAME}.scm.azurewebsites.net/api/registry/webhook"
+    az acr webhook create `
+      --name webhookforwebapp `
+      --registry $REGISTRY_NAME `
+      --scope msdocspythoncontainerwebapp:* `
+      --uri $SERVICE_URI `
+      --actions push
     ```
 
     By default, this command creates the webhook in the same resource group and location as the specified Azure Container registry. If desired, you can use the `--resource-group` and `--location` parameters to override this behavior.
@@ -365,22 +369,35 @@ az webapp config appsettings set \
    --resource-group $RESOURCE_GROUP_NAME \
    --name $APP_SERVICE_NAME \
    --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING \
-              DB_NAME=$MONGO_DB_NAME  \
-              COLLECTION_NAME=$MONGO_COLLECTION_NAME 
+        DB_NAME=$MONGO_DB_NAME  \
+        COLLECTION_NAME=$MONGO_COLLECTION_NAME \
+        SECRET_KEY='supersecretkeythatispassedtopythonapp'
 ```
 
 ```azurecli-interactive
 # PowerShell syntax
-$MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
-$MONGO_DB_NAME=restaurants_reviews
-$MONGO_COLLECTION_NAME=restaurants_reviews
+# Create a settings.json file with all the app settings (avoids string parsing issues with PowerShell with `&` characters)
+$Settings = @{
+    "CONNECTION_STRING" = "your Mongo DB connection string in double quotes"
+    "DB_NAME" = "restaurants_reviews"
+    "COLLECTION_NAME" = "restaurants_reviews"
+    "SECRET_KEY" = "supersecretkeythatispassedtopythonapp"
+}
 
+# Convert to JSON and save to file
+$Settings | ConvertTo-Json -Depth 10 | Out-File -FilePath ".\appsettings.json" -Encoding utf8
+
+# Use the JSON file with the az command
+Write-Host "Setting app settings from JSON file..."
 az webapp config appsettings set `
-   --resource-group $RESOURCE_GROUP_NAME `
-   --name $APP_SERVICE_NAME `
-   --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING `
-              DB_NAME=$MONGO_DB_NAME  `
-              COLLECTION_NAME=$MONGO_COLLECTION_NAME 
+    --resource-group $RESOURCE_GROUP_NAME `
+    --name $APP_SERVICE_NAME `
+    --settings "@appsettings.json"
+Write-Host "App settings configured successfully!"
+
+# Clean up
+Remove-Item -Path ".\appsettings.json"
+
 ```
 
 * CONNECTION_STRING: A connection string that starts with "mongodb://".
