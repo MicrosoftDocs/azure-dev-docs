@@ -4,7 +4,7 @@ description: Learn how to install and use extensions into your IDE to be more pr
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jogiles
-ms.date: 11/15/2021
+ms.date: 04/01/2025 
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
