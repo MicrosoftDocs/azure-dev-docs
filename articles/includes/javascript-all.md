@@ -414,8 +414,8 @@
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.6.0](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.0) |  |  |
-| Unknown Display Name | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.2) |  |  |
-| Unknown Display Name | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.0) |  |  |
+| Unknown Display Name | npm [0.3.3](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.3) |  |  |
+| Unknown Display Name | npm [0.13.1](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.1) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.67.1) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.67.1](https://www.npmjs.com/package/@typespec/events/v/0.67.1) |  |  |
@@ -556,7 +556,7 @@
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
-| @azure/static-web-apps-cli | npm [2.0.4](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.4) |  |  |
+| @azure/static-web-apps-cli | npm [2.0.5](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.5) |  |  |
 | @cadl-lang/compiler | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.40.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.40.0) |  |  |

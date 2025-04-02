@@ -465,6 +465,7 @@
 | Spring Cloud Azure Stream Binder Test | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-test/4.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-container-apps-maven-plugin/0.2.0/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-mysql/1.0.2/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-sdktypes/1.0.0/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.hdinsight/hdi-oauth-token-utils-shaded/1.0.2/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0/jar/) |  |  |
