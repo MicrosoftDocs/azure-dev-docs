@@ -208,7 +208,7 @@ The script takes a few minutes to run.
 # ACCOUNT_NAME: The Azure Cosmos DB for MongDB account name, which can contain lowercase letters, hyphens, and numbers.
 LOCATION='westus'
 RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-ACCOUNT_NAME='<cosmos-db-account-name>'
+ACCOUNT_NAME='msdocs-cosmos-db-account-name'
 
 # Create a resource group
 echo "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
@@ -300,7 +300,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 > [!NOTE]
 > When deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
 
-### Using VS Code
+### [VS Code](#tab/vscode)
 
 1. In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag. The *settings.json* file contains two templates each for the `(MongoDB local)` and `(MongoDB Azure)` scenarios.
 
@@ -373,7 +373,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
-### Using the Docker CLI
+### [Azure CLI](#tab/azure-cli)
 
 You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB instance.
 
