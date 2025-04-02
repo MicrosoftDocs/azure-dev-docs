@@ -11,11 +11,11 @@ ms.reviewer: srnagar
 
 # Log with the Azure SDK for Java and java.util.logging
 
-This article provides an overview of how to add logging using java.util.logging to applications that use the Azure SDK for Java. The java.util.logging framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [java.util.logging](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
+This article provides an overview of how to add logging using `java.util.logging` to applications that use the Azure SDK for Java. The `java.util.logging` framework is part of the JDK. As mentioned in [Configure logging in the Azure SDK for Java](logging-overview.md), all Azure client libraries log through [SLF4J](http://www.slf4j.org/), so you can use logging frameworks such as [`java.util.logging`](https://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html).
 
-To enable java.util.logging, you must do two things:
+To enable `java.util.logging`, you must do two things:
 
-1. Include the SLF4J adapter for java.util.logging as a dependency,
+1. Include the SLF4J adapter for `java.util.logging` as a dependency,
 2. Create a file called **logging.properties** under the **/src/main/resources** project directory.
 
 For more information related to configuring your logger, see [Configuring Logging Output](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm) in the Oracle documentation.
