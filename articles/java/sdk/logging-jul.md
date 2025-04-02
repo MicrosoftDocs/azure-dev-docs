@@ -15,7 +15,7 @@ This article provides an overview of how to add logging using `java.util.logging
 
 To enable `java.util.logging`, you must do two things:
 
-1. Include the SLF4J adapter for `java.util.logging` as a dependency,
+1. Include the Simple Logging Facade for Java (SLF4J) adapter for `java.util.logging` as a dependency,
 2. Create a file called **logging.properties** under the **/src/main/resources** project directory.
 
 For more information related to configuring your logger, see [Configuring Logging Output](https://docs.oracle.com/cd/E23549_01/doc.1111/e14568/handler.htm) in the Oracle documentation.
