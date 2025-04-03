@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/13/2024
+ms.date: 04/03/2025
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -36,6 +36,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd down](#azd-down): Delete Azure resources for an application.
 * [azd env](#azd-env): Manage environments.
 * [azd hooks](#azd-hooks): Develop, test and run hooks for an application. (Beta)
+* [azd infra](#azd-infra): Manage your Azure infrastructure.
 * [azd init](#azd-init): Initialize a new application.
 * [azd monitor](#azd-monitor): Monitor a deployed application. (Beta)
 * [azd package](#azd-package): Packages the application's code to be deployed to Azure. (Beta)
@@ -473,7 +474,7 @@ azd deploy <service> [flags]
       --all                   Deploys all services that are listed in azure.yaml
       --docs                  Opens the documentation for azd deploy in your web browser.
   -e, --environment string    The name of the environment to use.
-      --from-package string   Deploys the application from an existing package.
+      --from-package string   Deploys the packaged service located at the provided path. Supports zipped file packages (file path) or container images (image tag).
   -h, --help                  Gets help for deploy.
 ```
 
@@ -547,6 +548,7 @@ Manage environments.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Manage your environment settings.
+* [azd env set-secret](#azd-env-set-secret): Set a <name> as a reference to a Key Vault secret in the environment.
 * [Back to top](#azd)
 
 ## azd env get-value
@@ -752,6 +754,40 @@ azd env set <key> <value> [flags]
 * [azd env](#azd-env): Manage environments.
 * [Back to top](#azd)
 
+## azd env set-secret
+
+Set a <name> as a reference to a Key Vault secret in the environment.
+
+### Synopsis
+
+You can either create a new Key Vault secret or select an existing one.
+The provided name is the key for the .env file which holds the secret reference to the Key Vault secret.
+
+```azdeveloper
+azd env set-secret <name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd env set-secret in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for set-secret.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd env](#azd-env): Manage environments.
+* [Back to top](#azd)
+
 ## azd hooks
 
 Develop, test and run hooks for an application. (Beta)
@@ -807,6 +843,60 @@ azd hooks run <name> [flags]
 * [azd hooks](#azd-hooks): Develop, test and run hooks for an application. (Beta)
 * [Back to top](#azd)
 
+## azd infra
+
+Manage your Azure infrastructure.
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd infra in your web browser.
+  -h, --help   Gets help for infra.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd infra synth](#azd-infra-synth): Write IaC for your project to disk, allowing you to manage it by hand. (Alpha)
+* [Back to top](#azd)
+
+## azd infra synth
+
+Write IaC for your project to disk, allowing you to manage it by hand. (Alpha)
+
+```azdeveloper
+azd infra synth [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd infra synth in your web browser.
+  -e, --environment string   The name of the environment to use.
+      --force                Overwrite any existing files without prompting
+  -h, --help                 Gets help for synth.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd infra](#azd-infra): Manage your Azure infrastructure.
+* [Back to top](#azd)
+
 ## azd init
 
 Initialize a new application.
@@ -827,6 +917,7 @@ azd init [flags]
   -l, --location string       Azure location for the new environment
   -s, --subscription string   Name or ID of an Azure subscription to use for the new environment
   -t, --template string       Initializes a new application from a template. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization.
+      --up                    Provision and deploy to Azure after initializing the project from a template.
 ```
 
 ### Options inherited from parent commands
