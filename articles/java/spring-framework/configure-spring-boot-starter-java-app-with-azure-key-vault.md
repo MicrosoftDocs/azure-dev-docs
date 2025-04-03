@@ -196,9 +196,9 @@ To retrieve the URL of an H2 database from Key Vault and store data from the H2 
 1. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that will be automatically created by JPA. The following code ignores the `getters` and `setters` methods.
 
    ```java
-   import javax.persistence.Entity;
-   import javax.persistence.GeneratedValue;
-   import javax.persistence.Id;
+   import jakarta.persistence.Entity;
+   import jakarta.persistence.GeneratedValue;
+   import jakarta.persistence.Id;
 
    @Entity
    public class Todo {
