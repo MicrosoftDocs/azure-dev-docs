@@ -144,13 +144,10 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
     * Select registry provider: "Azure"
     * Select registry: Enter the name of the registry you created earlier in this tutorial.
     * Select repository: Enter the repository name "msdocspythoncontainerwebapp". If you don't see this repo, refresh the Docker extension **REGISTRIES** section.
-    * Select tag: "latest"
+    * Select tag: "latest" for the image tag.
     * Enter a globally unique name for the web app: Enter a name that is globally unique to Azure App Service. For example, if you use "msdocs-python-container-web-app", the web app URL would be `http://msdocs-python-container-web-app.azurewebsites.net`.
     * Select a resource group: Use the resource group that contains the Azure Container Registry you created earlier.
-    * Select a location: Use the same location as the resource group.
     * Select a Linux App Service plan: Use an existing or create a new one.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" alt-text="A screenshot showing how to specify the information to deploy Docker image to App Service in Visual Studio Code." :::
 
 1. View the **OUTPUT** window for details of the deployment. One of the output lines is "Granting permission for App Service to pull image from ACR...", which the App Service accesses the registry using managed identity.
 
@@ -158,27 +155,34 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     The final site `https://<app-name>.azurewebsites.net` isn't ready yet because you need to specify MongoDB info.
 
+    When you deploy with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by viewing logs in the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-output.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-output.png" alt-text="A screenshot showing how to confirm managed identity was set for an App Service in the Visual Studio Code output window." :::
+
 ### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create the web app.
 
-1. Search for "App Services" and select **App Services** under **Services** in the search results. Then select **++ Create** at the top of the page to start the create process.
+1. Search for "App Services" and select **App Services** under **Services** in the search results. 
+
+1. Select **+ Create** at the top of the page and then select **+ Web App** to start the create process.
 
 1. On the basic settings of the App Service, specify:
 
+    * **Subscription**: Use the same subscription that the Azure Container Registry is in.
     * **Resource Group**: Use the same resource group that the Azure Container Registry is in.
     * **Name**: Use **msdocs-app-service.
     * **Publish**: Use **Docker container** so that the registry image you build is used.
     * **Operating System**: **Linux**
     * **Region**: Use the same region as the resource group and Azure Container Registry.
     * **Linux Plan**: Select an existing Linux plan or use a new one.
-    * **Sku and size**: Select **Basic B1**. Select the **Change size** link to access more options.
     * **Zone redundancy**: Select **Disabled** if this option is available for the SKU selected.
 
     Select **Next: Docker** to continue.
 
     :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-basics.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-basics.png" alt-text="A screenshot showing how to fill out the basic deployment information about a web app in the Azure portal." :::
 
+1. Click **Next: Database**.
 1. Specify Docker information of the App Service, including:
 
     * **Options**: Select **Single Container**.
@@ -270,16 +274,12 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [VS Code](#tab/vscode-aztools)
 
-1. When you deploy with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by viewing logs in the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
+During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-output.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-output.png" alt-text="A screenshot showing how to confirm managed identity was set for an App Service in the Visual Studio Code output window." :::
+> [!IMPORTANT]
+> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The registry opens in the Azure portal. Select **Webhooks** on the **service menu** of the registry.
 
-1. During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
-
-    > [!IMPORTANT]
-    > Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The registry opens in the Azure portal. Select **Webhooks** on the **service menu** of the registry.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
+:::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
 
 ### [Azure portal](#tab/azure-portal)
 
