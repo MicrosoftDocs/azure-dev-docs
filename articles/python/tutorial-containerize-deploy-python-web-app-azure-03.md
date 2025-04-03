@@ -117,6 +117,13 @@ If you have an existing Azure Container Registry you wish to use, skip this next
 
     Look for the `loginServer` key value pair in the output. The value is the fully qualified name of the registry.
 
+## Build an image in Azure Container Registry
+
+You can generate the container image directly in Azure through various approaches:
+
+  * The Azure Cloud Shell allows you to construct the image entirely in the cloud, independent of your local environment.
+  * Alternatively, you can use VS Code or the Azure CLI to create it in Azure from your local setup, without needing Docker to be running locally.
+
 These steps require that VS Code is opened in the working folder of your web app.
 
 1. In the Docker extension, click **REGISTRIES** and then click **Azure**.
