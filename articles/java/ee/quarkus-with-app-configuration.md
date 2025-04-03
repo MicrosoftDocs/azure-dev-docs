@@ -3,7 +3,7 @@ title: Quickstart for Azure App Configuration with Java Quarkus
 description: Shows you how to create a Java Quarkus app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 author: KarlErickson
 ms.topic: quickstart
-ms.date: 03/31/2025
+ms.date: 04/04/2025
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-javaee-quarkus, devx-track-javaee-quarkus-app-configuration
 ms.author: karler
 ms.reviewer: jiangma
@@ -17,8 +17,8 @@ In this quickstart, you incorporate Azure App Configuration into a Java Quarkus 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - [Azure CLI](/cli/azure/install-azure-cli) 2.68.0 or above.
-- [An App Configuration store](/azure/azure-app-configuration/quickstart-azure-app-configuration-create?tabs=azure-cli#create-an-app-configuration-store).
-- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 17.
+- An App Configuration store. For more information, see [Quickstart: Create an Azure App Configuration store](/azure/azure-app-configuration/quickstart-azure-app-configuration-create?tabs=azure-cli).
+- [Java Development Kit (JDK)](/java/openjdk) version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.9.8 or above.
 
 ## Add a key-value pair
@@ -31,8 +31,7 @@ Add the following key-value pair to the App Configuration store. For more inform
 
 ## Create a Quarkus app
 
-In this section, you create a Quarkus app with the Azure App Configuration extension and the REST extension. The REST extension is used to create a REST service that returns the configuration value from the App Configuration store.
-For more information, see [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/).
+In this section, you create a Quarkus app with the Azure App Configuration extension and the REST extension. The REST extension is used to create a REST service that returns the configuration value from the App Configuration store. For more information, see [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/).
 
 Create a Quarkus app by using the following command:
 
@@ -98,18 +97,18 @@ Configure the application by using the following steps:
 
         @ConfigProperty(name = "/application/config.message")
         String value;
- 
+
         @GET
         @Produces(MediaType.TEXT_PLAIN)
         public String hello() {
-             return value;
+            return value;
         }
     }
     ```
 
     The modified code uses the MicroProfile Config `@ConfigProperty` annotation to inject the value of the key `/application/config.message` from the App Configuration store into the `value` field, and returns the value in the REST service.
 
-1. Open the auto-generated unit test **GreetingResourceTest.java** file in the **src/test/java/com/example** directory, and replace the contents with the following code:
+1. Open the auto-generated unit test, which is in the **GreetingResourceTest.java** file in the **src/test/java/com/example** directory. Replace the contents of the file with the following code:
 
     ```java
     package com.example;
@@ -141,13 +140,13 @@ These code changes to the application are all required. Before running the appli
 
 ### Configure authentication to the App Configuration store
 
-Besides authentication with access keys, the Quarkus Azure App Configuration extension supports authentication with Microsoft Entra ID using the `DefaultAzureCredential` credential from the Azure Identity client library.
+Besides authentication with access keys, the Quarkus Azure App Configuration extension supports authentication with Microsoft Entra ID using `DefaultAzureCredential` from the Azure Identity client library.
 
 You use Microsoft Entra ID for authentication in this quickstart. For more information, see [`DefaultAzureCredential`](/java/api/overview/azure/identity-readme#defaultazurecredential) in [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
 
 Configure authentication to the App Configuration store by using the following steps:
 
-1. Set environment variables by using the following commands, replacing the placeholders (`<...>`) with values you previously created:
+1. Set environment variables by using the following commands, replacing the `<...>` placeholders with the values you created previously:
 
     ```bash
     export RESOURCE_GROUP_NAME="<resource-group-name>"
@@ -158,16 +157,14 @@ Configure authentication to the App Configuration store by using the following s
 
     ```azurecli
     # Retrieve the app configuration resource ID
-    APP_CONFIGURATION_RESOURCE_ID=$(az appconfig show \
+    export APP_CONFIGURATION_RESOURCE_ID=$(az appconfig show \
         --resource-group $RESOURCE_GROUP_NAME \
         --name "${APP_CONFIG_NAME}" \
         --query 'id' \
         --output tsv)
     # Assign the "App Configuration Data Reader" role to the current signed-in identity
     az role assignment create \
-        --assignee $(az ad signed-in-user show \
-        --query 'id' \
-        --output tsv) \
+        --assignee $(az ad signed-in-user show --query 'id' --output tsv) \
         --role "App Configuration Data Reader" \
         --scope $APP_CONFIGURATION_RESOURCE_ID
     ```
@@ -176,14 +173,14 @@ Configure authentication to the App Configuration store by using the following s
 
     ```azurecli
     export QUARKUS_AZURE_APP_CONFIGURATION_ENDPOINT=$(az appconfig show \
-      --resource-group "${RESOURCE_GROUP_NAME}" \
-      --name "${APP_CONFIG_NAME}" \
-      --query endpoint \
-      --output tsv)
+        --resource-group "${RESOURCE_GROUP_NAME}" \
+        --name "${APP_CONFIG_NAME}" \
+        --query endpoint \
+        --output tsv)
     ```
 
     > [!NOTE]
-    > The value of the environment variable `QUARKUS_AZURE_APP_CONFIGURATION_ENDPOINT` is used in the config property `quarkus.azure.app.configuration.endpoint` of the Quarkus Azure App Configuration extension in order to set up the connection to the Azure App Configuration store. You can also configure this property in the **application.properties** file in the **src/main/resources** directory by setting it directly, as in the following example. Be sure to replace `<your-app-configuration-store-endpoint>` with your actual value.
+    > The value of the environment variable `QUARKUS_AZURE_APP_CONFIGURATION_ENDPOINT` is used in the configuration property `quarkus.azure.app.configuration.endpoint` of the Quarkus Azure App Configuration extension in order to set up the connection to the Azure App Configuration store. Alternatively, you can configure this property in the **application.properties** file in the **src/main/resources** directory by setting it directly, as in the following example. Be sure to replace `<your-app-configuration-store-endpoint>` with your actual value.
     >
     > ```properties
     > quarkus.azure.app.configuration.endpoint=<your-app-configuration-store-endpoint>
@@ -204,7 +201,7 @@ Build and run the app locally by using the following steps:
     ```
 
     > [!NOTE]
-    > As an alternative to using `mvn clean package` and `java -jar ./target/quarkus-app/quarkus-run.jar`, you can run the sample in native mode. To use this method, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you don't have Docker installed, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
+    > As an alternative, you can run the sample in native mode. To use native mode, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you don't have Docker installed, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
     >
     > Use the following commands to build and execute the native executable in a Linux environment:
     >
@@ -228,16 +225,13 @@ Build and run the app locally by using the following steps:
 To avoid Azure charges, you should clean up unneeded resources. When you no longer need the App Configuration store, use the following command to remove the resource group and all related resources:
 
 ```azurecli
-az group delete \
-    --name $RESOURCE_GROUP_NAME \
-    --yes \
-    --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## See also
 
-- [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/).
-- [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./quarkus-with-microsoft-entra-id.md).
-- [Deploy a Java application with Quarkus on Azure Container Apps](./deploy-java-quarkus-app.md).
-- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app).
-- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus).
+- [Quarkus Azure App Configuration](https://quarkus.io/extensions/io.quarkiverse.azureservices/quarkus-azure-app-configuration/)
+- [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./quarkus-with-microsoft-entra-id.md)
+- [Deploy a Java application with Quarkus on Azure Container Apps](./deploy-java-quarkus-app.md)
+- [Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-quarkus-app)
+- [Deploy serverless Java apps with Quarkus on Azure Functions](/azure/azure-functions/functions-create-first-quarkus)
