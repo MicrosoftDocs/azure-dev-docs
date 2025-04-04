@@ -66,8 +66,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     # PowerShell syntax
     $APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
     
-    
-    ```az appservice plan create `
+    az appservice plan create `
         --name $APP_SERVICE_PLAN_NAME `
         --resource-group $RESOURCE_GROUP_NAME `
         --sku B1 `
