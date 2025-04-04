@@ -373,11 +373,8 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
-### [Azure CLI](#tab/azure-cli)
-
-You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB instance.
-
-#### Using your local MongoDB instance
+### [Azure CLI-Local Mongdb](#tab/azure-cli-local-mongodb)
+You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB instance. The following commands are for using your local instance of MongoDB. If you want to use your Azure Cosmos DB for MongoDB instance, see the next section.
 
 1. Run the latest version of the image.
 
@@ -424,7 +421,26 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
         msdocspythoncontainerwebapp:latest 
     ```
 
-#### Using your Azure Cosmos DB for MongoDB instance
+1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+
+    ```console
+    docker container ls
+    ```
+
+    See your container "msdocspythoncontainerwebapp:latest:latest" in the list. Notice the `NAMES` column of the output and the `PORTS` column. Use the container name to stop the container.
+
+1. Test the web app.
+
+    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask.
+
+1. Shut down the container.
+
+    ```console
+    docker container stop <container-name>
+    ```
+
+### [Azure CLI-Azure Cosmos DB for Mongdb](#tab/azure-cli-azure-mongodb)
+You can either use your local instance of MongoDB or your Azure Cosmos DB for MongoDB instance. The following commands are for using your Azure Cosmos DB for MongoDB instance. If you want to use your local instance of MongoDB, see the previous section.
 
 1. Run the latest version of the image.
 
