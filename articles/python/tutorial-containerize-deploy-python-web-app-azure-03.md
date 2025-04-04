@@ -126,9 +126,7 @@ You can generate the container image directly in Azure through various approache
 
 These steps require that VS Code is opened in the working folder of your web app.
 
-1. In the Docker extension, click **REGISTRIES** and then click **Azure**.
-
-1. Click **Connect Registry**
+1. In the Docker extension, click **REGISTRIES** and then click **Azure** to connect to the Azure Container Registry.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." :::
 

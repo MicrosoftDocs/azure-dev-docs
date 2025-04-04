@@ -424,7 +424,7 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
         msdocspythoncontainerwebapp:latest 
     ```
 
-    #### Using your Azure Cosmos DB for MongoDB instance
+#### Using your Azure Cosmos DB for MongoDB instance
 
     ```bash
     #!/bin/bash

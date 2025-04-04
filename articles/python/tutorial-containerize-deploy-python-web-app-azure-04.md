@@ -290,6 +290,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 1. Enter the following values as prompted to deploy the image:
 
     * Select registry provider: "Azure"
+    * Subscription: Select the subscription that contains the Azure Container Registry you created earlier.
     * Select registry: Enter the name of the registry you created earlier in this tutorial.
     * Select repository: Enter the repository name "msdocspythoncontainerwebapp". If you don't see this repo, refresh the Docker extension **REGISTRIES** section.
     * Select tag: "latest" for the image tag.
@@ -304,8 +305,6 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
     The final site `https://<app-name>.azurewebsites.net` isn't ready yet because you need to specify MongoDB info.
 
     When you deploy with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by viewing logs in the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-output.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-output.png" alt-text="A screenshot showing how to confirm managed identity was set for an App Service in the Visual Studio Code output window." :::
 
 ## Configure managed identity and webhook
 
