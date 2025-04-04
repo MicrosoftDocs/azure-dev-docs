@@ -80,7 +80,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     ```azurecli-interactive
     #!/bin/bash
     APP_SERVICE_NAME='msdocs-website-name'
-    # REGISTRY_NAME='<your Azure Container Registry name>'
+    # REGISTRY_NAME='msdocscontainerregistryname'
     CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
 
     
@@ -97,7 +97,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     ```azurecli-interactive
     # Powershell syntax
     $APP_SERVICE_NAME='msdocs-website-name'
-    # REGISTRY_NAME='<your Azure Container Registry name>'
+    # $REGISTRY_NAME='msdocscontainerregistryname'
     $CONTAINER_NAME = "$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
     
     az webapp create `
@@ -200,7 +200,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
 
 > [!IMPORTANT]
-> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The registry opens in the Azure portal. Select **Webhooks** on the **service menu** of the registry.
+> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open your resource group in the Azure Portal and then open the **webhookforwebapp** webhook. Click **Configure** and then review the **Service URI**. The URI should look like this:
+> `https://<app-service-name>:<credential>@<app-service-name>.scm.azurewebsites.net/api/registry/webhook`.
+> If the URI doesn't end with "/api/registry/webhook", you need to delete the webhook and create a new one.
+> To delete the webhook, use the [az acr webhook delete](/cli/azure/acr/webhook#az-acr-webhook-delete) command.
 
 :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
 
