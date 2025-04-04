@@ -312,7 +312,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
     * Replace both instances of `<CONNECTION_STRING>` with the connection string for your MongoDB database.
 
-    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks: 
+    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks:
 
         ```python
         -e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'
@@ -322,7 +322,7 @@ You're now ready to run the Docker container locally. The sample app expects Mon
 
     * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
 
-    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks: 
+    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks:
 
         ```python
         -e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'
@@ -425,6 +425,8 @@ You can either use your local instance of MongoDB or your Azure Cosmos DB for Mo
     ```
 
 #### Using your Azure Cosmos DB for MongoDB instance
+
+1. Run the latest version of the image.
 
     ```bash
     #!/bin/bash
