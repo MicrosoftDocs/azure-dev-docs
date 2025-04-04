@@ -21,7 +21,7 @@ ms.date: 03/10/2025
 }%%
 
 flowchart LR;
-    A(Azure CLI):::developer --> B(Azure Developer CLI):::developer;
+    D(Azure CLI):::developer --> E(Azure Developer CLI):::developer;
 
     %% Define styles for credential type boxes
     classDef developer fill:#F5AF6F, stroke:#EB7C39, stroke-width:2px;
