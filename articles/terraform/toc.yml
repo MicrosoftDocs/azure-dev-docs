@@ -341,6 +341,10 @@
                   href: /azure/key-vault/keys/quick-create-terraform
         - name: Storage
           items:
+            - name: Azure Backup
+              items:
+                - name: Back up a virtual machine in Azure
+                  href: /azure/backup/quick-backup-vm-terraform
             - name: Azure confidential ledger
               items:
                 - name: Create an Azure confidential ledger 
