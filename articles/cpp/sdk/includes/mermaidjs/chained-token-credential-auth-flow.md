@@ -8,7 +8,7 @@ ms.date: 04/03/2025
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i default-azure-credential-auth-flow.md -o default-azure-credential-auth-flow.svg
+%% 2. Run command: mmdc -i chained-token-credential-auth-flow.md -o ../../media/mermaidjs/chained-token-credential-auth-flow.svg
 
 %%{
   init: {
@@ -21,15 +21,8 @@ ms.date: 04/03/2025
 }%%
 
 flowchart LR;
-    subgraph CREDENTIAL TYPES;
-        direction LR;
-        Deployed(Deployed service):::deployed ~~~ Developer(Developer):::developer;
-    end;
-
-    subgraph CREDENTIALS;
-        direction LR;
-        A(Environment):::deployed ==> B(Workload Identity):::deployed ==> C(Azure CLI):::developer ==> D(Managed Identity):::deployed;
-    end;
+    direction LR;
+    A(Azure CLI):::developer ==> B(Managed Identity):::deployed;
 
     %% Define styles for credential type boxes
     classDef deployed fill:#95C37E, stroke:#71AD4C;
