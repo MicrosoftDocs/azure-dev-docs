@@ -116,7 +116,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 :::image type="content" source="./media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of Azure CLI credential and managed identity credential.":::
 
 > [!TIP]
-> For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
+> For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
 
 ## Usage guidance for DefaultAzureCredential
 
