@@ -22,4 +22,8 @@ landingContent:
         links:
           - text: Install and Integrate the Azure SDK for C++
             url: sdk/install-and-integrate-the-sdk.md
+      - linkListType: overview
+        links:
+          - text: Credential chains in the Azure Identity client library for C++
+            url: sdk/credential-chains.md
             

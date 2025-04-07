@@ -20,7 +20,7 @@ At runtime, a credential chain attempts to authenticate using the sequence's fir
 
 :::image type="content" source="./media/mermaidjs/chain-sequence.svg" alt-text="Diagram that shows credential chain sequence.":::
 
-## Why use credential chains
+## Why use credential chains?
 
 A chained credential can offer the following benefits:
 
