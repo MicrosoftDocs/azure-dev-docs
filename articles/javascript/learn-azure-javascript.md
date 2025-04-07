@@ -2,7 +2,7 @@
 title: Training with Azure and JavaScript 
 description: Use Microsoft's training platform to expand your understanding of Azure with JavaScript.
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 03/28/2025
 ms.custom: devx-track-js
 ---
 
