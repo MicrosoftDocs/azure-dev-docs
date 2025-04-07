@@ -120,10 +120,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 
 ## Usage guidance for DefaultAzureCredential
 
-`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
-
-- A specific credential implementation, such as `ManagedIdentityCredential`.
-- A pared-down `ChainedTokenCredential` implementation optimized for the Azure environment in which your app runs.
+`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`.
 
 Here's why:
 
