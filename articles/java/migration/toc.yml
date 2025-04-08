@@ -14,7 +14,7 @@ items:
         - name: Spring Cloud to Azure Container Apps
           href: migrate-spring-cloud-to-azure-container-apps.md
         - name: Spring Boot to Azure App Service
-          href: migrate-spring-boot-to-azure-app-service.md
+          href: migrate-spring-boot-to-app-service.md
     - name: Tomcat to Azure
       expanded: true
       items:
