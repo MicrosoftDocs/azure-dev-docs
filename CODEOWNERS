@@ -19,6 +19,7 @@
 /articles/java/ @KarlErickson
 /articles/python/ @bobtabor-msft
 /articles/go/ @bobtabor-msft
+/articles/cpp/ @ronniegeraghty @antkmsft
 
 # Tools
 /articles/azure-cli/ @alexwolfmsft
@@ -29,3 +30,4 @@
 /articles/java/sdk/authentication/          @scottaddie @g2vinay @billwert
 /articles/javascript/sdk/authentication/    @scottaddie @KarishmaGhiya @minhanh-phan @maorleger
 /articles/python/sdk/authentication/        @scottaddie @pvaneck @xiangyan99
+/articles/cpp/sdk/authentication/           @scottaddie @antkmsft @ronniegeraghty

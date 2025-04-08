@@ -25,5 +25,5 @@ landingContent:
       - linkListType: overview
         links:
           - text: Credential chains in the Azure Identity client library for C++
-            url: sdk/credential-chains.md
+            url: sdk/authentication/credential-chains.md
             

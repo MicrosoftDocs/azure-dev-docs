@@ -6,5 +6,5 @@ items:
   - name: How to install the Azure SDK for C++
     href: sdk/install-and-integrate-the-sdk.md
   - name: Credential chains in the Azure Identity client library for C++
-    href: sdk/credential-chains.md
+    href: sdk/authentication/credential-chains.md
     
