@@ -48,6 +48,37 @@ The `@azure` part indicates that you want to include the Azure chat participant 
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
+## Enable Agent mode
+
+Beginning in Visual Studio Code version 1.99, GitHub Copilot has enabled Agent mode, an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
+
+To use Agent mode, you have to enable it.
+
+1. In Visual Studio Code, open **Settings** using the **Manage** icon (gear).
+
+:::image type="content" source="media/get-started/vscode-settings.png" alt-text="Screenshot that shows the VSCode settings menu by selecting the Manage button.":::
+
+
+1. In the Settings' Search bar, search for `chat.agent.enabled`.
+1. Check the box next to **Chat > Agent: Enabled**.
+
+:::image type="content" source="media/get-started/chat-agent-enabled.png" alt-text="Screenshot that shows the settings dialog with settings filtered to chat.agent.enabled.":::
+
+1. If the Chat window is not already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
+
+:::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the the Open Chat menu option.":::
+
+1. In the chat pane, in the chat prompt, select the mode dropdown and choose **Agent**.
+
+:::image type="content" source="media/get-started/mode-agent.png" alt-text="Screenshot that shows the pop-up menu in the Chat box with Agent selected.":::
+
+1. The chat pane will confirm that you are currently in Agent mode.
+
+:::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you are now in Agent mode.":::
+
+
+
+
 ## Optional: Set your default tenant
 
 If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, You can set a default tenant using the following prompt:
