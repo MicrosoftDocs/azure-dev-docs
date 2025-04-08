@@ -18,7 +18,7 @@ By default, some Azure Developer CLI commands display Azure subscription IDs in 
 Demo mode behavior is based on the environment variable: `AZD_DEMO_MODE`. To enable demo mode, run:
 
 ```bash
-export AZD_DEMO_MODE true
+export AZD_DEMO_MODE=true
 ```
 
 To persist demo mode across reboots, you can also run:
