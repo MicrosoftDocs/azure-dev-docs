@@ -3,7 +3,7 @@ title: Clean up Azure resources used in Python container tutorial
 description: How to clean up resources used in a tutorial showing how to containerize a Python web app (Django or Flask) and deploy it to App Service.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2023
+ms.date: 12/27/2024
 ms.custom: devx-track-python
 ---
 

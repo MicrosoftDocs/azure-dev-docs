@@ -5,7 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 author: bobtabor-msft
 ms.author: rotabor
-ms.date: 04/18/2024
+ms.date: 09/20/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
