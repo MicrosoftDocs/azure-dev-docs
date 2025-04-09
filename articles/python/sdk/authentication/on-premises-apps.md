@@ -1,7 +1,7 @@
 ---
 title: Authenticate to Azure resources from Python apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications. 
-ms.date: 11/29/2023
+ms.date: 10/16/2024
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
