@@ -18,7 +18,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * See a list of available authentication methods.
-> * Select select and authentication method.
+> * Select an authentication method.
 > * Verify that you're authenticated.
 
 ## 1. Configure your environment
