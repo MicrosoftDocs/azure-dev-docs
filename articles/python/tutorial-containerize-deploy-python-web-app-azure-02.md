@@ -459,7 +459,7 @@ The following commands are for using your local instance of MongoDB to run the D
     docker container stop <container-name>
     ```
 
-### [Azure CLI - Azure Cosmos DB for Mongdb](#tab/azure-cli-azure-mongodb)
+### [Azure CLI](#tab/azure-cli-azure-mongodb)
 
 The following commands are for using your Azure Cosmos DB for MongoDB instance to run the Docker image locally.
 
