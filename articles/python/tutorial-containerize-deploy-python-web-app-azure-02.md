@@ -197,17 +197,17 @@ You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account 
 > [!TIP]
 > If you're new to the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
-Before running the following script, replace the location (optional) and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. We recommend using the same resource group for all the Azure resources created in this tutorial to make them easier to delete when you're finished.
+Before running the following script, replace the location, the resource group, and Azure Cosmos DB for MongoDB account name with appropriate values (optional). We recommend using the same resource group for all the Azure resources created in this tutorial to make them easier to delete when you're finished.
 
 The script takes a few minutes to run.
 
 ```azurecli-interactive
 #!/bin/bash
 # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
-# RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
-# ACCOUNT_NAME: The Azure Cosmos DB for MongDB account name, which can contain lowercase letters, hyphens, and numbers.
 LOCATION='westus'
+# RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
 RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+# ACCOUNT_NAME: The Azure Cosmos DB for MongDB account name, which can contain lowercase letters, hyphens, and numbers.
 ACCOUNT_NAME='msdocs-cosmos-db-account-name'
 
 # Create a resource group
@@ -322,7 +322,7 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
 
     * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
 
-    * Add the following environment variable to the string of variables passed to the Docker run command for the MongoDB local templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks:
+    * Add the following environment variable to the string of variables passed to the Docker run command for the Azure CosmosDB for MongoDB templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks:
 
         ```python
         -e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'
@@ -363,7 +363,7 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
     The browser opens into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
 
     > [!NOTE]
-    > If you recieve a timeout error, verify that the MongoDB service is running.
+    > If you recieve a timeout error, verify that the MongoDB service is running. If not, stop the Docker container in VS Code and restart the MongoDB service. Then, start the Docker container again and try to access the web app in your browser.
 
 1. Stop the container.
 
