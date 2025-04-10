@@ -14,30 +14,6 @@ The following service diagram highlights the local components covered in this ar
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
-## test
-
-# [Azure CLI](#tab/azure-cli/linux)
-
-Azure CLI content for Linux...
-
-# [Azure CLI](#tab/azure-cli/windows)
-
-Azure CLI content for Windows...
-
-# [Azure PowerShell](#tab/azure-powershell/linux)
-
-Azure PowerShell content for Linux...
-
-# [Azure PowerShell](#tab/azure-powershell/windows)
-
-Azure PowerShell content for Windows...
-
-# [Azure portal](#tab/azure-portal)
-
-Azure portal content, independent of platform...
-
----
-
 ## Clone or download the sample Python app
 
 In this section, you clone or download the sample Python app that you use to build a Docker image. You can choose between a Django or Flask Python web app. If you have your own Python web app, you can choose to use that instead. If you use your own Python web app, make sure your app has a *Dockerfile* in the root folder and can connect to a MongoDB database.
