@@ -68,6 +68,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```azurecli-interactive
     #!/bin/bash
     APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
@@ -78,6 +80,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --sku B1 \
         --is-linux
     ```
+
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
     ```azurecli-interactive
     # PowerShell syntax
@@ -94,13 +98,14 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     The following command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles?tabs=azure-cli) on the specified resource--in this case, the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```azurecli-interactive
     #!/bin/bash
     APP_SERVICE_NAME='msdocs-website-name'
     # Use the same rregistry name as in part 2 of this tutorial series.
     REGISTRY_NAME='msdocscontainerregistryname'
     CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
-
     
     az webapp create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -111,6 +116,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --role acrpull \
       --deployment-container-image-name $CONTAINER_NAME 
     ```
+
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
     ```azurecli-interactive
     # Powershell syntax
@@ -149,6 +156,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```azurecli-interactive
     #!/bin/bash
     az webapp config set \
@@ -156,6 +165,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --name $APP_SERVICE_NAME \
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
+
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
     ```azurecli-interactive
     # PowerShell syntax
@@ -169,6 +180,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```azurecli-interactive
     #!/bin/bash
     CREDENTIAL=$(az webapp deployment list-publishing-credentials \
@@ -178,6 +191,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --output tsv)
     echo $CREDENTIAL 
     ```
+
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
     ```azurecli-interactive
     # PowerShell syntax
@@ -191,6 +206,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```azurecli-interactive
     #!/bin/bash
     SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.azurewebsites.net/api/registry/webhook'
@@ -202,6 +219,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --uri $SERVICE_URI \
       --actions push 
     ```
+
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
     ```azurecli-interactive
     # PowerShell syntax
@@ -232,6 +251,8 @@ In this step, you specify environment variables needed to connect to MongoDB.
 
 To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
+### [Azure CLI - Bash](#tab/azure-cli-bash)
+
 ```azurecli-interactive
 #!/bin/bash
 MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
@@ -246,6 +267,8 @@ az webapp config appsettings set \
         COLLECTION_NAME=$MONGO_COLLECTION_NAME \
         SECRET_KEY='supersecretkeythatispassedtopythonapp'
 ```
+
+### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
 ```azurecli-interactive
 # PowerShell syntax

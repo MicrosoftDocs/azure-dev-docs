@@ -376,7 +376,7 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
-### [Azure CLI-Local Mongdb](#tab/azure-cli-local-mongodb)
+### [Azure CLI - Local Mongdb](#tab/azure-cli-local-mongodb)
 
 The following commands are for using your local instance of MongoDB to run the Docker image locally.
 
@@ -443,7 +443,7 @@ The following commands are for using your local instance of MongoDB to run the D
     docker container stop <container-name>
     ```
 
-### [Azure CLI-Azure Cosmos DB for Mongdb](#tab/azure-cli-azure-mongodb)
+### [Azure CLI - Azure Cosmos DB for Mongdb](#tab/azure-cli-azure-mongodb)
 
 The following commands are for using your Azure Cosmos DB for MongoDB instance to run the Docker image locally.
 
