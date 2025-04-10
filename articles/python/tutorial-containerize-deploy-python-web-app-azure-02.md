@@ -48,7 +48,7 @@ In this section, you clone or download the sample Python app that you use to bui
     ```    
 
     ### [Flask](#tab/Flask)
-    
+
     ```console
     # Flask
     cd msdocs-python-flask-container-web-app
@@ -112,8 +112,6 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
-    ### [Bash](#tab/bash)
-
     ```console
     #!/bin/bash
     docker build --rm --pull \
@@ -122,8 +120,6 @@ In this section, you build a Docker image for the Python web app using either Vi
       --tag "msdocspythoncontainerwebapp:latest" \
         .
     ```
-
-    ### [PowerShell](#tab/powershell)
 
     ```console
     # PowerShell syntax
@@ -135,8 +131,6 @@ In this section, you build a Docker image for the Python web app using either Vi
     ```
 
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
-
-    ---
 
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
@@ -221,8 +215,6 @@ Before running the following script, replace the location, the resource group, a
 
 The script takes a few minutes to run.
 
-### [Bash](#tab/azure-cli/bash)
-
 ```azurecli-interactive
 #!/bin/bash
 # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
@@ -254,8 +246,6 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 
 echo "Copy the Primary MongoDB Connection String from the list above"
 ```
-
-### [PowerShell](#tab/azure-cli/powershell)
 
 ```azurecli-interactive
 # PowerShell syntax
@@ -290,8 +280,6 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 Write-Output "Copy the Primary MongoDB Connection String from the list above."
 
 ```
-
----
 
 When the script completes, copy the *Primary MongoDB Connection String* from the output of the last command to your clipboard or other location.
 
@@ -408,8 +396,6 @@ The following commands are for using your local instance of MongoDB to run the D
 
 1. Run the latest version of the image.
 
-    ### [Azure CLI](#tab/azure-cli/bash)
-
     ```bash
     #!/bin/bash
     
@@ -432,8 +418,6 @@ The following commands are for using your local instance of MongoDB to run the D
       --env SECRET_KEY="supersecretkeythatispassedtopythonapp" \
       msdocspythoncontainerwebapp:latest
     ```
-
-    ### [Azure CLI](#tab/azure-cli/powershell)
 
     ```powershell
     # PowerShell syntax
@@ -481,8 +465,6 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
 
 1. Run the latest version of the image.
 
-    ### [Azure CLI](#tab/azure-cli/bash)
-
     ```bash
     #!/bin/bash
     # PORT=8000 for Django and 5000 for Flask
@@ -497,8 +479,6 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
       --env SECRET_KEY=supersecretkeythatyougenerate \
       msdocspythoncontainerwebapp:latest
     ```
-
-    ### [Azure CLI](#tab/azure-cli/powershell)
 
     ```powershell
     # PowerShell syntax
