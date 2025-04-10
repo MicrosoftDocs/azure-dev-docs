@@ -38,12 +38,76 @@ Key features of the Azure CLI include:
 
 While both the Azure Developer CLI and Azure CLI provide command-line interfaces for Azure, they serve different purposes and audiences:
 
-- **Azure Developer CLI**: Focuses on simplifying the developer experience by providing an opinionated workflow for building and deploying applications. It abstracts much of the complexity of resource management and is tailored for application-centric tasks.
-- **Azure CLI**: Offers granular control over Azure resources and is designed for a broader audience, including IT administrators, DevOps engineers, and developers. It provides flexibility for managing individual resources but requires knowledge of specific Azure services.
+| Azure Developer CLI (`azd`)                   | Azure CLI (`az`)                                    |
+|----------------------------------------------|-----------------------------------------------------|
+| Focuses on simplifying the developer experience by providing an opinionated workflow for building and deploying applications. It abstracts much of the complexity of resource management and is tailored for application-centric tasks. | Offers granular control over Azure resources and is designed for a broader audience, including IT administrators, DevOps engineers, and developers. It provides flexibility for managing individual resources but requires knowledge of specific Azure services. |
+
+For example, if you run the Azure Developer CLI command `azd help` to view information about the tool and available commands, you'll see the following:
+
+```output
+Usage
+  azd [command]
+
+Commands
+  Configure and develop your app
+    auth        : Authenticate with Azure.
+    config      : Manage azd configurations (ex: default Azure subscription, location).
+    hooks       : Develop, test and run hooks for an application. (Beta)
+    init        : Initialize a new application.
+    restore     : Restores the application's dependencies. (Beta)
+    template    : Find and view template details. (Beta)
+
+  Manage Azure resources and app deployments
+    deploy      : Deploy the application's code to Azure.
+    down        : Delete Azure resources for an application.
+    env         : Manage environments.
+    package     : Packages the application's code to be deployed to Azure. (Beta)
+    provision   : Provision the Azure resources for an application.
+    up          : Provision Azure resources, and deploy your project with a single command.
+
+  Monitor, test and release your app
+    monitor     : Monitor a deployed application. (Beta)
+    pipeline    : Manage and configure your deployment pipelines. (Beta)
+    show        : Display information about your app and its resources.
+```
+
+Notice that the command in the preceding output map to high level development workflow concerns, such as managing app deployments, app configuration, and monitoring.
+
+However, if you run the `az help` command for the Azure CLI, you'll see output that resembles the following snippet:
+
+```output
+Group
+    az
+
+Subgroups:
+    account                       : Manage Azure subscription information.
+    acr                           : Manage private registries with Azure Container Registries.
+    ad                            : Manage Microsoft Entra ID (formerly known as Azure Active
+                                    Directory, Azure AD, AAD) entities needed for Azure role-based
+                                    access control (Azure RBAC) through Microsoft Graph API.
+    advisor                       : Manage Azure Advisor.
+    afd                           : Manage Azure Front Door Standard/Premium.
+    aks                           : Manage Azure Kubernetes Services.
+    ams                           : Manage Azure Media Services resources.
+    apim                          : Manage Azure API Management services.
+    appconfig                     : Manage App Configurations.
+    appservice                    : Manage App Service plans.
+    aro                           : Manage Azure Red Hat OpenShift clusters.
+    backup                        : Manage Azure Backups.
+    batch                         : Manage Azure Batch.
+    bicep                         : Bicep CLI command group.
+    billing                       : Manage Azure Billing.
+    bot                           : Manage Microsoft Azure Bot Service.
+    cache                         : Commands to manage CLI objects cached using the `--defer`
+    
+    (omitted for brevity...)
+```
+
+In the preceding output, notice that all of the commands focus on managing specific Azure resources.
 
 The following table highlights the key differences between the Azure Developer CLI and the Azure CLI in more detail:
 
-| Functionality         | Azure Developer CLI (`azd`)                              | Azure CLI (`az`)                                    |
+| Functionality         | Azure Developer CLI (`azd`)                   | Azure CLI (`az`)                                    |
 |-------------------------|---------------------------------------------------------|----------------------------------------------------|
 | **Primary audience**   | Developers focused on building cloud-native apps       | Developers, IT admins, and DevOps engineers        |
 | **Primary use case**    | End-to-end app lifecycle management        | Azure resource administration & management  |
