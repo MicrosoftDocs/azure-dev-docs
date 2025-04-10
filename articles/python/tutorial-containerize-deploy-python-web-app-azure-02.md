@@ -481,7 +481,7 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
 
 1. Run the latest version of the image.
 
-    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+    ### [Azure CLI](#tab/azure-cli/bash)
 
     ```bash
     #!/bin/bash
@@ -498,7 +498,7 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
       msdocspythoncontainerwebapp:latest
     ```
 
-    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
+    ### [Azure CLI](#tab/azure-cli/powershell)
 
     ```powershell
     # PowerShell syntax
