@@ -408,7 +408,7 @@ The following commands are for using your local instance of MongoDB to run the D
 
 1. Run the latest version of the image.
 
-    ### [Azure CLI](#tab/azure-cli-bash)
+    ### [Azure CLI](#tab/azure-cli/bash)
 
     ```bash
     #!/bin/bash
@@ -433,7 +433,7 @@ The following commands are for using your local instance of MongoDB to run the D
       msdocspythoncontainerwebapp:latest
     ```
 
-    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
+    ### [Azure CLI](#tab/azure-cli/powershell)
 
     ```powershell
     # PowerShell syntax
