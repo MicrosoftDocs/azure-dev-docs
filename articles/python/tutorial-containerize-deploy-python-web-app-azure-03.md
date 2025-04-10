@@ -29,6 +29,7 @@ This service diagram highlights the components covered in this article.
 If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli).
+
 > [!NOTE]
 > Use the same names as in part 2 of this tutorial series.
 

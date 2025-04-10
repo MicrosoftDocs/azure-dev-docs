@@ -36,6 +36,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli-interactive
     #!/bin/bash
+    # Use the same resource group name as in part 2 of this tutorial series.
     RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     
     RESOURCE_ID=$(az group show \
@@ -47,6 +48,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli-interactive
     # PowerShell syntax
+    # Use the same resource group name as in part 2 of this tutorial series.
     $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 
     $RESOURCE_ID=$(az group show `
@@ -89,7 +91,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     ```azurecli-interactive
     #!/bin/bash
     APP_SERVICE_NAME='msdocs-website-name'
-    # REGISTRY_NAME='msdocscontainerregistryname'
+    # Use the same rregistry name as in part 2 of this tutorial series.
+    REGISTRY_NAME='msdocscontainerregistryname'
     CONTAINER_NAME=$REGISTRY_NAME'.azurecr.io/msdocspythoncontainerwebapp:latest'
 
     
@@ -106,7 +109,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     ```azurecli-interactive
     # Powershell syntax
     $APP_SERVICE_NAME='msdocs-website-name'
-    # $REGISTRY_NAME='msdocscontainerregistryname'
+    # Use the same rregistry name as in part 2 of this tutorial series.
+    $REGISTRY_NAME='msdocscontainerregistryname'
     $CONTAINER_NAME = "$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
     
     az webapp create `
