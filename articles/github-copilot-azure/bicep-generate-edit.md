@@ -4,7 +4,7 @@ description: This article provides sample prompts and example responses from Git
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 2/18/2024
+ms.date: 3/27/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

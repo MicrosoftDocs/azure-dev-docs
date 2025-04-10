@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat private endpoints"
 description: "Secure the chat app with a virtual network."
-ms.date: 06/03/2024
+ms.date: 02/26/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
