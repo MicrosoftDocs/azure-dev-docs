@@ -133,10 +133,10 @@ At this point, you have a local Docker image named "msdocspythoncontainerwebapp"
 
 ## Set up MongoDB
 
-Your Python web app requires a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews* are required to store data. In this tutorial, you use a local installation of MongoDB and then use [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection.
+Your Python web app requires a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews* are required to store data. In this tutorial, you use a local installation of MongoDB and then use [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection. In part 4 of this tutorial series, you need to use the Azure Cosmos DB for MongoDB instance to run the web app in Azure App Service.
 
 > [!IMPORTANT]
-> Don't use a MongoDB database you use in production. In this tutorial, you store the MongoDB connection string in an environment variable (which is observable by anyone capable of inspecting your container - such as by using `docker inspect`).
+> Don't use a MongoDB database you use in production. In this tutorial, you store the MongoDB connection string to the one of these MongoDB instances in an environment variable (which is observable by anyone capable of inspecting your container - such as by using `docker inspect`).
 
 ### Local MongoDB
 
@@ -361,6 +361,9 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" alt-text="A screenshot that shows how to browse the endpoint of a Docker container in Visual Studio Code." :::
 
     The browser opens into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
+
+    > [!NOTE]
+    > If you recieve a timeout error, verify that the MongoDB service is running.
 
 1. Stop the container.
 
