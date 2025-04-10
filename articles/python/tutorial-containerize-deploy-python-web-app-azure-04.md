@@ -46,7 +46,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # PowerShell syntax
     # Use the same resource group name as in part 2 of this tutorial series.
     $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
@@ -75,7 +75,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # PowerShell syntax
     $APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
     
@@ -109,7 +109,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # Powershell syntax
     $APP_SERVICE_NAME='msdocs-website-name'
     # Use the same rregistry name as in part 2 of this tutorial series.
@@ -156,7 +156,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # PowerShell syntax
     az webapp config set `
       --resource-group $RESOURCE_GROUP_NAME `
@@ -180,7 +180,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # PowerShell syntax
     $CREDENTIAL=$(az webapp deployment list-publishing-credentials `
       --resource-group $RESOURCE_GROUP_NAME `
@@ -206,7 +206,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --actions push 
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # PowerShell syntax
     $SERVICE_URI = "https://${APP_SERVICE_NAME}:${CREDENTIAL}@${APP_SERVICE_NAME}.scm.azurewebsites.net/api/registry/webhook"
     az acr webhook create `
@@ -252,7 +252,7 @@ az webapp config appsettings set \
         SECRET_KEY='supersecretkeythatispassedtopythonapp'
 ```
 
-```azurecli-interactive
+```powershell-interactive
 # PowerShell syntax
 # Create a settings.json file with all the app settings (avoids string parsing issues with PowerShell with `&` characters)
 $Settings = @{

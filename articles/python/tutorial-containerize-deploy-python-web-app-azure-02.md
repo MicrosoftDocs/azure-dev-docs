@@ -70,7 +70,7 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 
 In this section, you build a Docker image for the Python web app using either Visual Studio Code or the Azure CLI. The Docker image contains the Python web app, its dependencies, and the Python runtime. The Docker image is built from a *Dockerfile* that defines the image's contents and behavior. The *Dockerfile* is in the root folder of the sample app you cloned or downloaded (or provided yourself).
 
-### [VS Code](#tab/vscode-docker)
+### [VS Code](#tab/vscode)
 
 [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
@@ -247,7 +247,7 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 echo "Copy the Primary MongoDB Connection String from the list above"
 ```
 
-```azurecli-interactive
+```powershell-interactive
 # PowerShell syntax
 # LOCATION: The Azure region. Use "az account list-locations -o table" to find a region near you.
 # RESOURCE_GROUP_NAME: The resource group name, which can contain underscores, hyphens, periods, parenthesis, letters, and numbers.
