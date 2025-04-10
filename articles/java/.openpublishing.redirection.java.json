@@ -199,10 +199,6 @@
             "redirect_url": "/azure/developer/java/migration/index"
         },
         {
-            "source_path": "migration/migrate-spring-boot-to-app-service.md",
-            "redirect_url": "/azure/developer/java/migration/index"
-        },
-        {
             "source_path": "migration/migrate-spring-boot-to-azure-spring-apps.md",
             "redirect_url": "/azure/developer/java/migration/index"
         },

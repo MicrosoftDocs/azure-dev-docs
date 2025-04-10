@@ -7,7 +7,7 @@ summary: |
 metadata:
   title: Azure for Python developers
   description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Container Apps, Azure Machine Learning, Azure Storage, Azure Database for PostgreSQL, and the Azure SDK for Python.
-  ms.date: 1/24/2024
+  ms.date: 7/10/2024
   ms.topic: landing-page
   ms.collection: collection
   ms.service: azure-python

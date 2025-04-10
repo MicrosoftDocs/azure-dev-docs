@@ -11,11 +11,11 @@
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | AI Model Inference | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.6) |  | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/) |
 | AI Projects | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.4/sdk/ai/ai-projects/) |
-| App Configuration | npm [1.8.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.8.0)<br>npm [1.9.0-beta.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.9.0-beta.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.8.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.8.0/sdk/appconfiguration/app-configuration/)<br>GitHub [1.9.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0-beta.1/sdk/appconfiguration/app-configuration/) |
+| App Configuration | npm [1.9.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.9.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.16) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.16](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Search | npm [12.1.0](https://www.npmjs.com/package/@azure/search-documents/v/12.1.0)<br>npm [12.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/12.2.0-beta.2) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0/sdk/search/search-documents/)<br>GitHub [12.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.2/sdk/search/search-documents/) |
-| Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0-beta.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
+| Azure Blob Storage Checkpoint Store | npm [2.0.0](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/2.0.0) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Azure Monitor OpenTelemetry | npm [1.9.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.9.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.9.0/sdk/monitor/monitor-opentelemetry/) |
 | Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Batch | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.2/sdk/batch/batch-rest/) |
@@ -63,7 +63,7 @@
 | Event Grid | npm [5.11.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.11.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.11.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.11.0/sdk/eventgrid/eventgrid/) |
 | Event Grid Namespaces | npm [1.0.0](https://www.npmjs.com/package/@azure/eventgrid-namespaces/v/1.0.0) | [docs](/javascript/api/overview/azure/eventgrid-namespaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-namespaces_1.0.0/sdk/eventgrid/eventgrid-namespaces/) |
 | Event Grid System Events | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/eventgrid-system-events/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/eventgrid-system-events-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.5/sdk/eventgrid/eventgrid-system-events/) |
-| Event Hubs | npm [5.12.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.12.2)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/event-hubs/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.12.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.2/sdk/eventhub/event-hubs/)<br>GitHub [6.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0-beta.1/sdk/eventhub/event-hubs/) |
+| Event Hubs | npm [6.0.0](https://www.npmjs.com/package/@azure/event-hubs/v/6.0.0) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0/sdk/eventhub/event-hubs/) |
 | Face | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.3/sdk/face/ai-vision-face-rest/) |
 | farmbeats | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.3/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
@@ -383,14 +383,14 @@
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
 | @autorest/openapi-to-typespec | npm [0.10.14](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.14) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
-| @azure-tools/rest-api-diff | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.0) |  |  |
+| @azure-tools/rest-api-diff | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.1) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | @azure-tools/typespec-autorest-canonical | npm [0.15.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.15.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.54.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.54.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.54.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.54.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.18.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.18.0) |  |  |
-| @azure-tools/typespec-go | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.2) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.19.0) |  |  |
+| @azure-tools/typespec-go | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.3) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -421,7 +421,7 @@
 | TypeSpec HTTP Client | npm [0.4.0](https://www.npmjs.com/package/@typespec/http-client/v/0.4.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.3.1](https://www.npmjs.com/package/@typespec/http-client-java/v/0.3.1) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.3.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.3.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.9.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.9.1) |  |  |
+| TypeSpec HTTP Client Python | npm [0.9.2-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.9.2-dev.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.17](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.17) |  |  |
 | TypeSpec Rust | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.3) |  |  |
 | TypeSpec SSE | npm [0.68.0](https://www.npmjs.com/package/@typespec/sse/v/0.68.0) |  |  |
@@ -503,7 +503,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250407.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250407.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250409.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250409.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |

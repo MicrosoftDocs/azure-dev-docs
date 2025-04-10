@@ -30,6 +30,8 @@ landingContent:
             url: migrate-spring-boot-to-azure-container-apps.md
           - text: Spring Cloud to Azure Container Apps
             url: migrate-spring-cloud-to-azure-container-apps.md
+          - text: Spring Boot to Azure App Service
+            url: migrate-spring-boot-to-app-service.md
   - title: Migrate Tomcat to Azure
     linkLists:
       - linkListType: how-to-guide
