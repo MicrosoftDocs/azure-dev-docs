@@ -19,27 +19,27 @@ Azure Developer CLI templates are predefined project structures that include app
 
 Key features of Azure Developer CLI templates:
 
-- Include infrastructure as code files to create app resources such as like App Service, Azure Functions, and databases
-- Define deployment configurations to package and deploy apps built with various languages and frameworks
+- Include infrastructure as code to create app resources like Azure App Service or Azure OpenAI
+- Define deployment configurations to package and deploy apps built with various languages
 - Enable simplified, automated workflows for provisioning resources and deploying applications
-- Can provide sample starting points or architecture examples for building and managing cloud-native applications
+- Provide starting points or architectural examples for building cloud-native apps
 
 For more detailed information on `azd` templates, visit the [templates overview](/azure/developer/azure-developer-cli/azd-templates) page.
 
-## What are the Azure Developer CLI template galleries?
+## What are template galleries?
 
-Template galleries serve as curated collections of reusable Azure Developer CLI templates. They provide developers with various ready-to-use templates for different use cases, such as web applications, AI-powered solutions, and microservices architectures.
+Template galleries offer curated collections of reusable `azd` templates. They provide developers with various ready-to-use templates for different use cases, such as web applications, AI-powered solutions, and microservices architectures.
 
 These galleries help developers:
 
 - Quickly prototype and deploy applications
 - Explore sample architectures for specific scenarios
-- Learn best practices for Azure application development
+- Learn best practices for Azure app development
 - Share and build on community-contributed templates
 
 ## Explore the galleries
 
-Azure Developer CLI template galleries provide many templates to help you get started with building and deploying applications on Azure. You can explore the templates in these galleries using friendly tools like Visual Studio Code or GitHub Codespaces, or your editor of choice. The following sections highlight two key galleries that showcase different types of templates for various use cases.
+Azure Developer CLI template galleries provide many templates to help you get started with building and deploying applications on Azure. You can explore the templates in these galleries using a local editor like Visual Studio Code, or directly in the browser with GitHub Codespaces. The following sections highlight two key galleries that showcase different types of templates for various use cases.
 
 ### Awesome AZD
 
