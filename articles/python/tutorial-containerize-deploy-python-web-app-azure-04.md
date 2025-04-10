@@ -23,11 +23,20 @@ This service diagram highlights the components covered in this article.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
+>[!IMPORTANT]
+> We recommend using Cloud Shell for all CLI based operations in this tutorial because:
+>
+> * Cloud Shell comes pre-authenticated with Azure, eliminating potential login issues
+> * All required Azure CLI extensions are pre-installed
+> * It provides consistent behavior regardless of local environment differences
+> * There's no need to worry about Docker Desktop or local networking issues
+> * Cloud Shell has direct connectivity to Azure services, which can help avoid firewall or network configuration problems
+
 1. Get the resource ID of the group containing Azure Container Registry with the [az group show](/cli/azure/group#az-group-show) command.
 
     ```azurecli-interactive
     #!/bin/bash
-    # RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     
     RESOURCE_ID=$(az group show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -38,7 +47,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli-interactive
     # PowerShell syntax
-    # $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 
     $RESOURCE_ID=$(az group show `
       --resource-group $RESOURCE_GROUP_NAME `
