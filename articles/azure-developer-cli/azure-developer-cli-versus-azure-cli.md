@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli
 
 # Azure Developer CLI vs Azure CLI overview
 
-Azure provides multiple command-line tools to help users interact with its cloud services. Two of the most commonly used tools are the Azure Developer CLI (`azd`) and the Azure CLI (`az`). While both tools enable users to manage and deploy resources on Azure, they are designed and intended for different audiences and use cases. This document provides an overview of each tool, highlights their differences, and offers a comparison to help you choose the right tool for your needs.
+Azure provides multiple command-line tools to help users interact with cloud services. Two of the most commonly used tools are the Azure Developer CLI (`azd`) and the Azure CLI (`az`). While both tools enable users to manage and deploy resources on Azure, they are designed for different audiences and use cases. The following sections provides an overview of each tool, highlights their differences, and offers comparisons to help you select the right tool for different situations.
 
 ## What is the Azure Developer CLI?
 
-The Azure Developer CLI (`azd`) is a developer-centric command-line interface designed to simplify the process of building, deploying, and managing full-stack applications on Azure. It provides opinionated workflows that integrates application templates, infrastructure provisioning, and CI/CD pipeline setup, enabling developers to focus on coding rather than managing cloud resources.
+The Azure Developer CLI (`azd`) is a developer-centric command-line interface designed to simplify the process of building, provisioning, deploying, and managing full-stack application resources on Azure. It provides opinionated workflows that integrate application templates, infrastructure provisioning, and CI/CD pipeline setup, enabling developers to focus on coding rather than managing cloud resources.
 
 Key features of the Azure Developer CLI include:
 
@@ -23,7 +23,7 @@ Key features of the Azure Developer CLI include:
 - Automated provisioning of Azure resources using Infrastructure as Code (IaC)
 - Automated app deployment to various Azure hosting services
 - Predefined templates for common application architectures
-- Supports apps built in various development frameworks, including Python, .NET, JavaScript and Java
+- Support for apps built in various development stacks or frameworks, including Python, .NET, JavaScript and Java
 - Built-in support for CI/CD pipeline configuration
 
 ## What is the Azure CLI?
@@ -44,23 +44,49 @@ While both tools are command-line interfaces for Azure, they serve different pur
 - **Azure Developer CLI**: Focuses on simplifying the developer experience by providing an opinionated workflow for building and deploying applications. It abstracts much of the complexity of resource management and is tailored for application-centric tasks.
 - **Azure CLI**: Offers granular control over Azure resources and is designed for a broader audience, including IT administrators, DevOps engineers, and developers. It provides flexibility for managing individual resources but requires knowledge of specific Azure services.
 
-## Feature and Audience Comparisons
+## Feature and audience comparisons
 
 The following table highlights the key differences between the Azure Developer CLI and the Azure CLI:
 
 | Functionality         | Azure Developer CLI (`azd`)                              | Azure CLI (`az`)                                    |
 |-------------------------|---------------------------------------------------------|----------------------------------------------------|
-| **Intended Audience**   | Developers building cloud native applications       | Developers, IT admins, and DevOps engineers        |
-| **Primary Use Case**    | End-to-end "code to cloud" app lifecycle management        | Manage individual Azure resources          |
-| **Type of Tasks**       | Resource provisioning, app deployment, CI/CD setup   | Resource creation, updates, monitoring, and scripting |
-| **Command Behavior**    | Opinionated, high-level commands for common workflows   | Flexible, low-level commands for granular control  |
-| **Templates**           | Includes predefined templates for common architectures | No templates; requires manual resource configuration |
-| **Infrastructure as Code** | Built-in support for IaC tools like Bicep and Terraform | Requires separate IaC setup and integration        |
+| **Intended users**   | Developers building cloud native applications       | Developers, IT admins, and DevOps engineers        |
+| **Primary use case**    | End-to-end "code to cloud" app lifecycle management        | Manage individual Azure resources          |
+| **Type of tasks**       | Resource provisioning, app deployment, CI/CD setup   | Resource creation, updates, monitoring, and scripting |
+| **Command behavior**    | Opinionated, high-level commands for common workflows   | Flexible, low-level commands for granular control  |
+| **Template support**           | Includes predefined templates for common architectures | No templates; requires manual resource configuration |
+| **IaC support** | Built-in support for IaC tools like Bicep and Terraform | Requires separate IaC setup and integration        |
 | **CI/CD Integration**   | Automates pipeline setup for GitHub Actions or Azure DevOps | No built-in CI/CD automation                       |
 
-## Example Workflow Comparisons
+## Compare use cases
 
-To better understand how the Azure Developer CLI (`azd`) and Azure CLI (`az`) are used in real-world scenarios, here's an example of a common use case: deploying a web application with a database.
+### When to Use the Azure Developer CLI (`azd`)
+
+The Azure Developer CLI is best suited for scenarios where you need a streamlined, end-to-end workflow for application development and deployment. Example use cases include:
+
+- Building and deploying full-stack cloud-native applications.
+- Quickly provisioning resources and deploying applications using predefined templates.
+- Setting up CI/CD pipelines for GitHub Actions or Azure DevOps with minimal configuration.
+- Managing the entire lifecycle of an application, from development to deployment.
+- Working on projects where Infrastructure as Code (IaC) is already integrated into the workflow.
+- Simplifying the deployment of applications across multiple environments (e.g., dev, staging, production).
+
+### When to Use the Azure CLI (`az`)
+
+The Azure CLI is ideal for scenarios that require granular control over individual Azure resources or advanced scripting capabilities. Example use cases include:
+
+- Creating, updating, or deleting specific Azure resources (e.g., virtual machines, storage accounts, databases).
+- Automating resource management tasks using custom scripts.
+- Monitoring and troubleshooting Azure resources with detailed commands.
+- Managing resources across multiple subscriptions or environments.
+- Configuring advanced settings for Azure services that are not covered by `azd`.
+- Integrating Azure resource management into broader DevOps workflows or custom automation pipelines.
+
+By understanding these use cases, you can determine which tool is better suited for your specific needs or use both tools in combination to maximize efficiency.
+
+## Example workflow comparisons
+
+In some cases you can accomplish the same task using either tool, but the user experience is much different. Consider this example of a common use case: deploying a web application with a database.
 
 ### Use the Azure Developer CLI
 
