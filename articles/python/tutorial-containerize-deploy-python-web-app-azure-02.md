@@ -382,6 +382,8 @@ The following commands are for using your local instance of MongoDB to run the D
 
 1. Run the latest version of the image.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```bash
     #!/bin/bash
     
@@ -405,6 +407,8 @@ The following commands are for using your local instance of MongoDB to run the D
       msdocspythoncontainerwebapp:latest
     ```
 
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
+
     ```powershell
     # PowerShell syntax
     # Define variables
@@ -424,6 +428,8 @@ The following commands are for using your local instance of MongoDB to run the D
         --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `
         msdocspythoncontainerwebapp:latest 
     ```
+
+    ---
 
 1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
@@ -449,6 +455,8 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
 
 1. Run the latest version of the image.
 
+    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+
     ```bash
     #!/bin/bash
     # PORT=8000 for Django and 5000 for Flask
@@ -463,6 +471,8 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
       --env SECRET_KEY=supersecretkeythatyougenerate \
       msdocspythoncontainerwebapp:latest
     ```
+
+    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
 
     ```powershell
     # PowerShell syntax
