@@ -221,7 +221,7 @@ Before running the following script, replace the location, the resource group, a
 
 The script takes a few minutes to run.
 
-### [Bash](#tab/azure-cli-bash)
+### [Bash](#tab/azure-cli/bash)
 
 ```azurecli-interactive
 #!/bin/bash
@@ -255,7 +255,7 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 echo "Copy the Primary MongoDB Connection String from the list above"
 ```
 
-### [PowerShell](#tab/azure-cli-powershell)
+### [PowerShell](#tab/azure-cli/powershell)
 
 ```azurecli-interactive
 # PowerShell syntax
