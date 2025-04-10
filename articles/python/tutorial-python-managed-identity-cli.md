@@ -3,7 +3,7 @@ title: Create and deploy a Flask Python web app to Azure with system-assigned ma
 description: Use the Azure CLI to create and deploy a Flask Python web app to Azure App Service using a system-assigned managed identity.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/16/2024
+ms.date: 9/20/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 

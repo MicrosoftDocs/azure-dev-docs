@@ -45,7 +45,7 @@ The following steps walk you through the steps to create a Redis cache using the
 
       * **Location**: Specifies the location where your Redis cache is created - for example, **West US**.
 
-      * **Pricing Tier**: Specifies which pricing tier your Redis cache uses. This setting determines the number of client connections. (For more information, see [Redis Cache Pricing].)
+      * **Pricing Tier**: Specifies which pricing tier your Redis cache uses. This setting determines the number of client connections. (For more information, see [Azure Cache for Redis pricing].)
 
       * **Non-TLS port**: Specifies whether your Redis cache allows non-TLS connections. By default, the non-TLS port is disabled. For more information, see [Azure Cache for Redis management FAQs].
 
@@ -58,7 +58,7 @@ The following steps walk you through the steps to create a Redis cache using the
    ![Redis Cache in Azure Explorer][CR03]
 
 > [!NOTE]
-> For more information about configuring your Azure Redis cache settings, see [How to configure Azure Redis Cache].
+> For more information about configuring your Azure Cache for Redis cache settings, see [How to configure Azure Cache for Redis].
 
 ## Display the properties for your Redis Cache in IntelliJ
 
@@ -84,20 +84,20 @@ The following steps walk you through the steps to create a Redis cache using the
 
 For more information about Azure Redis caches, configuration settings and pricing, see the following links:
 
-* [Azure Redis Cache]
-* [Redis Cache Documentation]
-* [Redis Cache Pricing]
-* [How to configure Azure Redis Cache]
+* [Azure Cache for Redis]
+* [Azure Cache for Redis documentation]
+* [Azure Cache for Redis pricing]
+* [How to configure Azure Cache for Redis]
 
 [!INCLUDE [additional-resources](includes/additional-resources.md)]
 
 <!-- URL List -->
 
-[Redis Cache Pricing]: https://azure.microsoft.com/pricing/details/cache/
-[Azure Redis Cache]: https://azure.microsoft.com/services/cache/
+[Azure Cache for Redis pricing]: https://azure.microsoft.com/pricing/details/cache/
+[Azure Cache for Redis]: https://azure.microsoft.com/services/cache/
 [Azure Cache for Redis management FAQs]: /azure/azure-cache-for-redis/cache-management-faq
-[Redis Cache Documentation]: /azure/redis-cache
-[How to configure Azure Redis Cache]: /azure/redis-cache/cache-configure
+[Azure Cache for Redis documentation]: /azure/azure-cache-for-redis
+[How to configure Azure Cache for Redis]: /azure/azure-cache-for-redis/cache-configure
 [Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
 
 <!-- IMG List -->

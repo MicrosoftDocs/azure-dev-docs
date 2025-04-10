@@ -2,7 +2,7 @@
 title: Troubleshoot development environment authentication
 titleSuffix: Azure SDK for Java
 description: Provides an overview of how to troubleshoot development environment authentication issues.
-ms.date: 09/07/2023
+ms.date: 04/02/2025 
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson

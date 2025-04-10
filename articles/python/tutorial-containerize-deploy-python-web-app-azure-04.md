@@ -3,7 +3,7 @@ title: Deploy a Python web app container to Azure App Service
 description: How to deploy a Python web app container (Django or Flask) to App Service using managed identity authentication with Azure Container Registry.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/01/2025
+ms.date: 04/10/2025
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 

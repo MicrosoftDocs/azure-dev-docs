@@ -2,7 +2,7 @@
 title: Configure CI/CD for a Python Web App in Azure Container Apps
 description: Set up CI/CD for a Python web app container in Azure Container Apps by using GitHub Actions triggered on changes (like pull requests) to the main branch of a repo.
 ms.topic: tutorial
-ms.date: 01/31/2024
+ms.date: 1/03/2025
 ms.custom: devx-track-python
 ---
 
