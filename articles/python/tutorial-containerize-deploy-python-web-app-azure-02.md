@@ -245,7 +245,7 @@ Before running the following script, replace the location, the resource group, a
 
 The script takes a few minutes to run.
 
-### [Azure CLI - Bash](#tab/azure-cli-bash)
+### [Bash](#tab/azure-cli-bash)
 
 ```azurecli-interactive
 #!/bin/bash
@@ -279,7 +279,7 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 echo "Copy the Primary MongoDB Connection String from the list above"
 ```
 
-### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
+### [PowerShell](#tab/azure-cli-powershell)
 
 ```azurecli-interactive
 # PowerShell syntax
@@ -426,13 +426,13 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
-### [Azure CLI - Local Mongdb](#tab/azure-cli-local-mongodb)
+### [Azure CLI](#tab/azure-cli-local-mongodb)
 
 The following commands are for using your local instance of MongoDB to run the Docker image locally.
 
 1. Run the latest version of the image.
 
-    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+    ### [Azure CLI](#tab/azure-cli-bash)
 
     ```bash
     #!/bin/bash
