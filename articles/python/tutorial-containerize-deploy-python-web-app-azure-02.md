@@ -2,7 +2,7 @@
 title: Build and run a containerized Python web app locally with MongoDB
 description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB or using Azure Cosmos DB for MongoDB. In later articles in this tutorial series, you learn to deploy a Python web app to Azure App Service.
 ms.topic: conceptual
-ms.date: 03/24/2025
+ms.date: 04/10/2025
 ms.custom: devx-track-python
 ---
 
