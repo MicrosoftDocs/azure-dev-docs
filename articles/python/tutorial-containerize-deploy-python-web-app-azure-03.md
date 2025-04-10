@@ -32,11 +32,33 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 > [!NOTE]
 > Use the same names as in part 2 of this tutorial series.
 
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+
+    > [!NOTE]
+    > If you already have this resource group from part 2 of this tutorial series, you can skip this step. If you don't have one, create it with the following command.
+
+    ```azurecli
+    #!/bin/bash
+    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    LOCATION='westus'
+
+    echo "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
+    az group create -n $RESOURCE_GROUP_NAME -l $LOCATION
+    ```
+
+    ```azurecli
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    $LOCATION='westus'
+
+    Write-Output "Creating resource group $RESOURCE_GROUP_NAME in $LOCATION..."
+    az group create -n $RESOURCE_GROUP_NAME -l $LOCATION
+    ```
+
 1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
 
     ```azurecli
     #!/bin/bash
-    # RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
     REGISTRY_NAME='msdocscontainerregistryname'
 
@@ -46,7 +68,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```azurecli
     # PowerShell syntax
-    # $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     # REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
     $REGISTRY_NAME='msdocscontainerregistryname'
 
