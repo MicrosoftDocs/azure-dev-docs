@@ -34,7 +34,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Get the resource ID of the group containing Azure Container Registry with the [az group show](/cli/azure/group#az-group-show) command.
 
-    ### [Azure CLI - Bash](#tab/azure-cli-bash)
+    ### [Azure CLI](#tab/azure-cli/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -48,7 +48,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    ### [Azure CLI - PowerShell](#tab/azure-cli-powershell)
+    ### [Azure CLI](#tab/azure-cli/powershell)
 
     ```azurecli-interactive
     # PowerShell syntax
