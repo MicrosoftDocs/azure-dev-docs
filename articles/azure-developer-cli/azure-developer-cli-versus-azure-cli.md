@@ -44,21 +44,17 @@ While both tools are command-line interfaces for Azure, they serve different pur
 - **Azure Developer CLI**: Focuses on simplifying the developer experience by providing an opinionated workflow for building and deploying applications. It abstracts much of the complexity of resource management and is tailored for application-centric tasks.
 - **Azure CLI**: Offers granular control over Azure resources and is designed for a broader audience, including IT administrators, DevOps engineers, and developers. It provides flexibility for managing individual resources but requires knowledge of specific Azure services.
 
-## Feature and audience comparisons
-
 The following table highlights the key differences between the Azure Developer CLI and the Azure CLI:
 
 | Functionality         | Azure Developer CLI (`azd`)                              | Azure CLI (`az`)                                    |
 |-------------------------|---------------------------------------------------------|----------------------------------------------------|
-| **Intended users**   | Developers building cloud native applications       | Developers, IT admins, and DevOps engineers        |
+| **Primary audience**   | Developers building cloud native applications       | Developers, IT admins, and DevOps engineers        |
 | **Primary use case**    | End-to-end "code to cloud" app lifecycle management        | Manage individual Azure resources          |
 | **Type of tasks**       | Resource provisioning, app deployment, CI/CD setup   | Resource creation, updates, monitoring, and scripting |
 | **Command behavior**    | Opinionated, high-level commands for common workflows   | Flexible, low-level commands for granular control  |
 | **Template support**           | Includes predefined templates for common architectures | No templates; requires manual resource configuration |
 | **IaC support** | Built-in support for IaC tools like Bicep and Terraform | Requires separate IaC setup and integration        |
 | **CI/CD Integration**   | Automates pipeline setup for GitHub Actions or Azure DevOps | No built-in CI/CD automation                       |
-
-## Compare use cases
 
 ### When to Use the Azure Developer CLI (`azd`)
 
@@ -83,52 +79,6 @@ The Azure CLI is ideal for scenarios that require granular control over individu
 - Integrating Azure resource management into broader DevOps workflows or custom automation pipelines.
 
 By understanding these use cases, you can determine which tool is better suited for your specific needs or use both tools in combination to maximize efficiency.
-
-## Example workflow comparisons
-
-In some cases you can accomplish the same task using either tool, but the user experience is much different. Consider this example of a common use case: deploying a web application with a database.
-
-### Use the Azure Developer CLI
-
-1. Initialize an `azd` app template. Many starter app templates are available in the `azd` template galleries for common app architectures, or you can create your own template.
-
-    ```bash
-    azd init --template todo-nodejs-mongo
-    ```
-
-    This command clones an app GitHub repository that is structured as an `azd` template. The template includes the application code, infrastructure as code (IaC) files, and CI/CD pipeline configuration. It also initializes the template with some key `azd` environment variables and configuration files.
-
-1. Provision and deploy the app resources using the `azd up` command. `azd` uses the Bicep or Terraform infrastructure-as-code (IaS) files defined in the template and the app hosting configurations defined in the template `azure.yaml` file.
-
-    ```bash
-    azd up
-    ```
-
-### Use the Azure CLI
-
-1. Create a resource group for the app resources:
-
-    ```azurecli
-    az group create --name myResourceGroup --location eastus
-    ```
-
-1. Create an App Service to host the web application:
-
-    ```azurecli
-    az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myWebApp --runtime "NODE|14-lts"
-    ```
-
-1. Create an Azure Cosmos DB for MongoDB database:
-
-    ```azurecli
-    az cosmosdb create --name myCosmosDB --resource-group myResourceGroup --kind MongoDB
-    ```
-
-1. Use a deployment method like ZIP deployment to upload your application code:
-
-    ```azurecli
-    az webapp deployment source config-zip --resource-group myResourceGroup --name myWebApp --src myApp.zip
-    ```
 
 ## Conclusion
 
