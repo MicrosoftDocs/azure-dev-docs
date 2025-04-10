@@ -22,23 +22,39 @@ In this section, you clone or download the sample Python app that you use to bui
 
 1. Clone either the Django or Flask repository into a local folder by using one of the following commands:
 
+    ### [Django](#tab/Django)
+
     ```console
     # Django
     git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
+    ```
+
+    ### [Flask](#tab/Flask)
     
+    ```console
     # Flask
     git clone https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
     ```
 
+    ---
+
 1. Navigate to the root folder for your cloned repository.
+
+    ### [Django](#tab/Django)
 
     ```console
     # Django
     cd msdocs-python-django-container-web-app
+    ```    
+
+    ### [Flask](#tab/Flask)
     
+    ```console
     # Flask
     cd msdocs-python-flask-container-web-app
     ```
+
+    ---
 
 ### [Download](#tab/sample-app-download)
 
@@ -120,6 +136,8 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
 
+    ---
+
 1. Confirm the image was built successfully by using the [Docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
     ```console
@@ -127,8 +145,6 @@ In this section, you build a Docker image for the Python web app using either Vi
     ```
 
     The command returns a list of images by REPOSITORY name, TAG, and CREATED date among other image characteristics.
-
----
 
 At this point, you have a local Docker image named "msdocspythoncontainerwebapp" with the tag "latest". Tags help define version details, intended use, stability, and other relevant information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
