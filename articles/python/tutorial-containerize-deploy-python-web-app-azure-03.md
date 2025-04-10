@@ -46,7 +46,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     az acr create -g $RESOURCE_GROUP_NAME -n $REGISTRY_NAME --sku Standard
     ```
 
-    ```azurecli-interactive
+    ```powershell-interactive
     # PowerShell syntax
     # Use the resource group that you created in part 2 of this tutorial series.
     $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
