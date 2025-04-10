@@ -96,6 +96,8 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     If you're at the root folder of the project, use the following command to build the Docker image:
 
+    ### [Bash](#tab/bash)
+
     ```console
     #!/bin/bash
     docker build --rm --pull \
@@ -104,6 +106,8 @@ In this section, you build a Docker image for the Python web app using either Vi
       --tag "msdocspythoncontainerwebapp:latest" \
         .
     ```
+
+    ### [PowerShell](#tab/powershell)
 
     ```console
     # PowerShell syntax
