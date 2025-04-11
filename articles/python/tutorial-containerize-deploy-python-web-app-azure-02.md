@@ -91,7 +91,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot that shows how to confirm the built image in Visual Studio Code." :::
 
-### [Docker CLI](#tab/docker-cli)
+### [Azure CLI](#tab/azure-cli)
 
 [Docker](https://docs.docker.com/get-docker/) is required to build the Docker image using the Docker CLI. Once Docker is installed, open a terminal window and navigate to the sample folder.
 
@@ -394,6 +394,8 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
 
 ### [Azure CLI](#tab/azure-cli)
 
+### MongoDB local
+
 The following commands are for using your local instance of MongoDB to run the Docker image locally.
 
 1. Run the latest version of the image.
@@ -459,7 +461,7 @@ The following commands are for using your local instance of MongoDB to run the D
     docker container stop <container-name>
     ```
 
-### [Azure CLI](#tab/azure-cli)
+### Azure Cosmos DB for MongoDB
 
 The following commands are for using your Azure Cosmos DB for MongoDB instance to run the Docker image locally.
 
