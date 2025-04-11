@@ -58,8 +58,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    ---
-
     RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
@@ -85,8 +83,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --sku B1 `
         --is-linux
     ```
-
-    ---
 
 1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
@@ -126,8 +122,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
-    ---
-
     Where:
 
     * APP_SERVICE_NAME must be globally unique as it becomes the website name in the URL `https://<website-name>.azurewebsites.net`.
@@ -166,8 +160,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     Because you enabled the system-assigned managed identity when you created the web app, the managed identity is used to pull from the Azure Container Registry.
 
-    ---
-
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
     ```azurecli-interactive
@@ -189,8 +181,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --output tsv)
     echo $CREDENTIAL 
     ```
-
-    ---
 
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
@@ -216,8 +206,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --uri $SERVICE_URI `
       --actions push
     ```
-
-    ---
 
     By default, this command creates the webhook in the same resource group and location as the specified Azure Container registry. If desired, you can use the `--resource-group` and `--location` parameters to override this behavior.
 
@@ -277,8 +265,6 @@ Write-Host "App settings configured successfully!"
 Remove-Item -Path ".\appsettings.json"
 
 ```
-
----
 
 * CONNECTION_STRING: A connection string that starts with "mongodb://".
 * DB_NAME: Use "restaurants_reviews".
