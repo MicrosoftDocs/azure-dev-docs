@@ -223,6 +223,8 @@ Before running the following script, replace the location, the resource group, a
 
 The script takes a few minutes to run.
 
+    ### [Bash](#tab/bash)
+
 ```azurecli-interactive
 #!/bin/bash
 # LOCATION: The Azure region. Use the "az account list-locations -o table" command to find a region near you.
@@ -254,6 +256,8 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 
 echo "Copy the Primary MongoDB Connection String from the list above"
 ```
+
+    ### [PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # PowerShell syntax
@@ -288,6 +292,8 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 Write-Output "Copy the Primary MongoDB Connection String from the list above."
 
 ```
+
+---
 
 When the script completes, copy the *Primary MongoDB Connection String* from the output of the last command to your clipboard or other location.
 
@@ -406,6 +412,8 @@ The following commands are for using your local instance of MongoDB to run the D
 
 1. Run the latest version of the image.
 
+    ### [Bash](#tab/bash)
+
     ```bash
     #!/bin/bash
     
@@ -429,6 +437,8 @@ The following commands are for using your local instance of MongoDB to run the D
       msdocspythoncontainerwebapp:latest
     ```
 
+    ### [PowerShell](#tab/powershell)
+
     ```powershell
     # PowerShell syntax
     # Define variables
@@ -448,6 +458,8 @@ The following commands are for using your local instance of MongoDB to run the D
         --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `
         msdocspythoncontainerwebapp:latest 
     ```
+
+    ---
 
 1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
@@ -473,6 +485,8 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
 
 1. Run the latest version of the image.
 
+    ### [Bash](#tab/bash)
+
     ```bash
     #!/bin/bash
     # PORT=8000 for Django and 5000 for Flask
@@ -488,6 +502,8 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
       msdocspythoncontainerwebapp:latest
     ```
 
+    ### [PowerShell](#tab/powershell)
+
     ```powershell
     # PowerShell syntax
     # PORT=8000 for Django and 5000 for Flask
@@ -502,6 +518,8 @@ The following commands are for using your Azure Cosmos DB for MongoDB instance t
       --env SECRET_KEY=supersecretkeythatyougenerate `
       msdocspythoncontainerwebapp:latest
     ```
+
+    ---
 
     Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
