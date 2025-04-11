@@ -36,7 +36,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -68,7 +68,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -106,7 +106,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
     * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -160,7 +160,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -186,7 +186,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -214,7 +214,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -255,7 +255,7 @@ To set environment variables in App Service, you create *app settings* with the 
 * DB_NAME: Use "restaurants_reviews".
 * COLLECTION_NAME: Use "restaurants_reviews".
 
-    ### [Bashl](#tab/bash)
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -269,7 +269,7 @@ To set environment variables in App Service, you create *app settings* with the 
        --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING \
             DB_NAME=$MONGO_DB_NAME  \
             COLLECTION_NAME=$MONGO_COLLECTION_NAME \
-            SECRET_KEY='supersecretkeythatispassedtopythonapp'
+            SECRET_KEY="supersecretkeythatispassedtopythonapp"
     ```
 
     ### [Powershell](#tab/powershell)
@@ -383,6 +383,7 @@ To configure environment variables for the web app from VS Code, you must have t
     * DB_NAME: Use "restaurants_reviews".
     * COLLECTION_NAME: Use "restaurants_reviews".
     * WEBSITES_PORT: Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.
+    * SECRET_KEY: Use "supersecretkeythatispassedtopythonapp".
 
 ## Browse the site
 

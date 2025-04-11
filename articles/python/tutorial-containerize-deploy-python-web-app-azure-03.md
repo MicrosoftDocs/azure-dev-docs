@@ -74,7 +74,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you see the message "Login Succeeded".
 
     > [!NOTE]
-    > In the Azure Cloud Shell, the az `acr login command` is not necessary, as authentication is handled automatically through your Cloud Shell session. However, if you encounter authentication issues, you can still use it.
+    > In the Azure Cloud Shell, the az `acr login command` isn't necessary, as authentication is handled automatically through your Cloud Shell session. However, if you encounter authentication issues, you can still use it.
 
 ## Build an image in Azure Container Registry
 
@@ -86,10 +86,14 @@ You can generate the container image directly in Azure through various approache
 Azure CLI commands can be run in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli) or in [Azure Cloud Shell](https://shell.azure.com/).
 
 1. In the console, navigate to the root folder for your cloned repository from part 2 of this tutorial series.
+
 1. Build the container image using the [az acr build](/cli/azure/acr#az-acr-build) command.
 
     ```azurecli-interactive
     az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
+    # When using Azure Cloud Shell, run one of the following commands instead:
+    # az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git
+    # az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
     ```
 
     The last argument in the command is the fully qualified path to the repo. When running in Azure Cloud Shell, use https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git for the Django sample app and https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git for the Flask sample app.
