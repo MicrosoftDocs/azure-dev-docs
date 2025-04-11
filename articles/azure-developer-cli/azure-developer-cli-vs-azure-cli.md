@@ -120,7 +120,11 @@ The following table highlights the key differences between the Azure Developer C
 | **IaC support** | Native support for IaC tools like Bicep and Terraform | Requires separate IaC setup and integration        |
 | **CI/CD Integration**   | Automates pipeline setup for GitHub Actions or Azure Pipelines | No built-in CI/CD automation                       |
 
-### When to Use the Azure Developer CLI
+### Compare use cases
+
+Choosing the right tool depends on your specific needs and the tasks you want to accomplish. Below are examples of scenarios where each tool excels to help you decide which one to use for your workflow.
+
+#### When to Use the Azure Developer CLI
 
 The Azure Developer CLI is best suited for scenarios where you need to manage the end-to-end workflow for application development and deployment. Example use cases include:
 
@@ -128,7 +132,7 @@ The Azure Developer CLI is best suited for scenarios where you need to manage th
 - Quickly provisioning sample app architectures using predefined templates for rapid prototyping
 - Setting up CI/CD pipelines for GitHub Actions or Azure Pipelines with minimal effort
 
-### When to Use the Azure CLI
+#### When to Use the Azure CLI
 
 The Azure CLI is ideal for scenarios that require granular control over individual Azure resources or advanced scripting capabilities. Example use cases include:
 
