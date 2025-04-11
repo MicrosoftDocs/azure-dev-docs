@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure Redis support
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.22.0
+**This article applies to:** ✅ Version 4.20.0 ✅ Version 5.22.0
 
 This article describes how you can use Spring Cloud Azure and Spring Data Redis together and provide various types of credentials for authentication to Azure Cache for Redis.
 

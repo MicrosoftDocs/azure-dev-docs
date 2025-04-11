@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure secret management
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.22.0
+**This article applies to:** ✅ Version 4.20.0 ✅ Version 5.22.0
 
 Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azure Key Vault Secrets.
 
