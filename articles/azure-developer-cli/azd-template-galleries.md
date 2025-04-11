@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
-# Explore Azure Developer CLI Template Galleries
+# Explore the Azure Developer CLI template galleries
 
-Azure Developer CLI (`azd`) templates simplify the process of building, provisioning, and deploying applications on Azure. This document explores what these templates are, their purpose, and the available galleries, including Awesome AZD and the AI Template Gallery.
+Azure Developer CLI (`azd`) templates simplify the process of building, provisioning, and deploying applications on Azure. This document explores what these templates are, their purpose, and the available galleries, including [Awesome AZD](#awesome-azd) and the [AI Template Gallery](#the-ai-template-gallery).
 
 ## What are Azure Developer CLI templates?
 
-Azure Developer CLI templates are predefined project structures that include application code, Infrastructure as Code (IaC) files, and deployment configurations. These templates are designed to help developers quickly set up and deploy full-stack applications on Azure. They provide a starting point for common application architectures and integrate seamlessly with Azure services.
+[Azure Developer CLI templates]((/azure/developer/azure-developer-cli/azd-templates) are standardized project structures that include application code, infrastructure as code (IaC) files, and deployment configurations. These templates are designed to help developers quickly set up and deploy full-stack applications on Azure. They provide a starting point for common application architectures and integrate seamlessly with Azure services.
 
 Key features of Azure Developer CLI templates:
 
@@ -68,6 +68,28 @@ Key highlights of the AI Template Gallery:
 - Examples of how to use AI capabilities in cloud-native applications.
 
 The AI Template Gallery simplifies the process of building and deploying AI-driven applications by providing ready-to-use templates and best practices.
+
+### Add your own custom template sources
+
+In addition to using the predefined galleries, you can also [add your own template sources](/azure/developer/azure-developer-cli/configure-template-sources) to customize your development workflow. This allows you to create and share templates tailored to your specific needs or organization.
+
+To add a custom template source:
+
+1. Create a repository containing your templates. Each template should follow the Azure Developer CLI template structure, including application code, infrastructure as code files, and deployment configurations.
+
+1. Use the `azd template` command to add your repository as a source. For example:
+
+   ```bash
+   azd template add --source <repository-url>
+   ```
+
+1. Once added, you can list and use your custom templates just like the predefined ones:
+
+   ```bash
+   azd template list
+   ```
+
+By adding your own template sources, you can extend the capabilities of the Azure Developer CLI and streamline development for your team or projects.
 
 ## Conclusion
 
