@@ -36,6 +36,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -49,6 +50,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
+    ### [Powershell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -62,10 +64,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    
+    ---
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -78,6 +81,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
+    ### [Powershell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -90,7 +94,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
-  
+    ---
 
 1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
@@ -102,6 +106,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
     * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
 
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -120,6 +125,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
+    ### [Powershell](#tab/powershell)
 
     ```powershell-interactive
     # Powershell syntax
@@ -138,7 +144,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
-    
+    ---
 
     > [!NOTE]
     > You may see an error similar to the following output when running the previous command:
