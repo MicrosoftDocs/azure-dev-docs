@@ -13,9 +13,6 @@ All `azd` templates share a similar file structure based on `azd` conventions. H
 - **`.azure` folder** - Contains essential Azure configurations and environment variables, such as the location to deploy resources or other subscription information.
 - **`src` folder** - Contains all of the deployable app source code. Some `azd` templates exclude the `src` folder and only provide infrastructure assets so you can add your own application code.
 
-  > [!NOTE]
-  > Templates that exclude the `src` folder are generally designed as infrastructure starter templates.
-
 `azd` templates also optionally include one or more of the following folders:
 
 - **`.github` folder** - Holds the CI/CD workflow files for GitHub Actions, the default CI/CD provider for azd.

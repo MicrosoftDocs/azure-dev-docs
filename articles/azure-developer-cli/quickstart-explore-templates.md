@@ -24,13 +24,21 @@ In this quickstart, you'll explore and customize the **`hello-azd`** Azure Devel
 
 ## Access the template
 
-The `hello-azd` template provides a simple yet powerful starting point for building and deploying applications to Azure. Follow the steps below to access the template so you can explore and customize it in the later sections.
+`hello-azd` is a sample template that's designed to showcase essential features of `azd`. The template provides a fully functional app you can deploy to Azure using a single command. The app includes a friendly user interface with information about `azd` and a small demo tool that allows you to upload and view support tickets.
+
+The template supports the following features:
+
+- Packages and deploys a containerized app to Azure Container Apps
+- Creates the Azure resources needed by the app, such as an Azure Storage Account and an Azure Cosmos DB database
+- Can automatically create a CI/CD pipeline using the `azd pipeline config` command
+
+Follow the steps below to access the template so you can explore and customize it in the later sections.
 
 ## [Codespaces](#tab/codespaces)
 
-1. Navigate to the [hello-azd template repository](https://github.com/Azure-Samples/hello-azd) on GitHub.
+1. Open the [hello-azd template repository](https://github.com/Azure-Samples/hello-azd) on GitHub.
 2. Click the **Code** button and select **Codespaces**.
-3. Create a new Codespace or open an existing one. This will launch a fully configured development environment in your browser.
+3. Create a new Codespace to launch a fully configured development environment in your browser.
 
 ## [Visual Studio Code](#tab/vs-code)
 
@@ -52,63 +60,51 @@ The `hello-azd` template provides a simple yet powerful starting point for build
 
 ## Explore the template
 
-`hello-azd` is a sample template that's designed to showcase essential features of `azd`. The template provides a fully functional app you can deploy to Azure using a single command. The app includes a friendly user interface with information about `azd` and a small demo tool that allows you to upload and view support tickets. 
-
-The template supports the following features:
-
-- Packages and deploys a containerized app to Azure Container Apps
-- Creates the Azure resources needed by the app, such as an Azure Storage Account and an Azure Cosmos DB database
-- Can automatically create a CI/CD pipeline using the `azd pipeline config` command
-
 With the template open in your tool of choice, you can browse the folder structure to explore how `azd` templates work. For example, complete the following tasks:
 
-1. Expand the `src` folder to explore the source code of the app:
-    - The `hello-azd` template features a containerized .NET Blazor app that provides a simple UI to learn about `azd` and manage sample ticket data.
-    - During the `azd up` workflow, a container image for the Blazor app is created and deployed to Azure Container Apps.
-    - `azd` supports other languages and frameworks for both front-end and back-end development, such as Python or JavaScript.
+1. Expand the `src` folder to view the source code of the app.
+    - The `hello-azd` template includes a containerized .NET Blazor app that provides a simple UI to learn about `azd` and manage sample ticket data. `azd` also supports other languages like JavaScript and Python.
+    - When you run the template, the Blazor app is packaged as a container image and deployed to Azure Container Apps.
 
 1. Expand the `infra` folder to explore the infrastructure as code files.
     - This template uses Bicep files (`.bicep`) to create Azure resources, but you can also use Terraform (`.tf`).
     - The `main.bicep` file orchestrates resource provisioning. Browse the contents of this file for examples of how to create app resources such as an Azure Storage account or an Azure Container App.
-    - The code in the `main.bicep` file references files in the `core` and `app` folders to create resources.
-        - The `core` folder contains reusable Bicep modules that any template can use.
-        - The `app` folder contains Bicep files specific to the `hello-azd` template.
 
-    ```bicep
-    // Create a storage account
-    module storage './core/storage/storage-account.bicep' = {
-        name: 'storage'
-        scope: rg
-        params: {
-        name: !empty(storageAccountName) ? storageAccountName : '${abbrs.storageStorageAccounts}${resourceToken}'
-        location: location
-        tags: tags
-        containers: [
-            {
-            name: 'attachments'
+        ```bicep
+        // Create a storage account
+        module storage './core/storage/storage-account.bicep' = {
+            name: 'storage'
+            scope: rg
+            params: {
+            name: !empty(storageAccountName) ? storageAccountName : '${abbrs.storageStorageAccounts}${resourceToken}'
+            location: location
+            tags: tags
+            containers: [
+                {
+                name: 'attachments'
+                }
+            ]
             }
-        ]
         }
-    }
-    ```
+        ```
 
 1. Open the `azure.yaml` file to view essential template configurations:
     - The template defines one service called `aca`.
     - The `aca` service configuration instructs `azd` to package and deploy the source code in the `src` folder to the Azure Container App provisioned by the Bicep modules you explored previously.
     - The docker configurations instruct `azd` to package and deploy the app as a container.
-
-    ```yml
-    metadata:
-      template: hello-azd-dotnet
-    name: azd-starter
-    services:
-      aca:
-        project: ./src
-        language: csharp
-        host: containerapp
-        docker:
-          path: ./Dockerfile
-    ```
+    
+        ```yml
+        metadata:
+          template: hello-azd-dotnet
+        name: azd-starter
+        services:
+          aca:
+            project: ./src
+            language: csharp
+            host: containerapp
+            docker:
+              path: ./Dockerfile
+        ```
 
 ## Update the Template
 
@@ -116,6 +112,8 @@ You can make changes to the template to influence the deployed app and resources
 
 - Update the app header welcome text to your own message
 - Update the created storage account so that it creates an additional blob container
+
+Complete the following steps to make these changes:
 
 1. In the `src > Components > Pages` folder, open the `Home.razor` component.
 1. Replace the *Hello, Azure Developer CLI!* header text at the top of the page with a different message, such as *Hello, customized template!* and save your changes.
@@ -169,9 +167,9 @@ You can make changes to the template to influence the deployed app and resources
 
 ## Run the Template
 
-After making your changes, use the `azd up` command to provision resources and deploy the application:
+After making your changes, use the `azd up` command to provision and deploy the app resources:
 
-1. Open a terminal in your editor that is set to the project directory.
+1. Open a terminal in the project directory.
 1. Run the following command:
 
    ```azdeveloper
@@ -180,13 +178,13 @@ After making your changes, use the `azd up` command to provision resources and d
 
    This command will:
 
-   - Package your app for deployment
-   - Provision the required Azure resources.
-   - Deploy your application with the updated changes.
-   - Provide the URL to access your application.
+   - Package the app for deployment
+   - Provision the required Azure resources
+   - Deploy your application with the updated changes
+   - Print the URL to access your application
 
-    > [!NOTE]
-    > If you haven't signed-in already, you will need to run the `azd auth login` to authenticate `azd` with your Azure account.
+        > [!NOTE]
+        > If you haven't signed-in already, you will need to run the `azd auth login` to authenticate `azd` with your Azure account.
 
 1. Open the URL printed in the `azd` console output logs in your browser to see your updated application live.
 
@@ -196,4 +194,12 @@ After making your changes, use the `azd up` command to provision resources and d
 
     :::image type="content" source="media/get-started/explore-templates-blob-container.png" alt-text="A screenshot showing the created blob containers.":::
 
-That's it! You've successfully explored, customized, and deployed the `hello-azd` template.
+## Conclusion
+
+In this quickstart, you explored the structure of the `hello-azd` template, customized its application and infrastructure, and deployed it to Azure using the Azure Developer CLI. For more advanced scenarios, explore additional templates or dive deeper into the `azd` documentation.
+
+## Next steps
+
+- [What are Azure Developer CLI commands?](/azure/developer/azure-developer-cli/azd-commands)
+- [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates)
+- [Create Azure Developer CLI tempaltes overview](/azure/developer/azure-developer-cli/make-azd-compatible)
