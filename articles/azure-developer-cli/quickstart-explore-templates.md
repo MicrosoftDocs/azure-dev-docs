@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
-# Explore and Customize an Azure Developer CLI Template
+# Explore and customize an Azure Developer CLI Template
 
 In this quickstart, you'll explore and customize the **`hello-azd`** Azure Developer CLI template. **hello-azd** provides a simple starting point for building and deploying applications to Azure using the Azure Developer CLI (`azd`). This quickstart expands on the concepts shown in the [Quickstart - Deploy an azd template](/azure/developer/azure-developer-cli/get-started) article, so it's recommended that you complete that quickstart first, or already have some experience using `azd`.
 
@@ -17,19 +17,21 @@ In this quickstart, you'll explore and customize the **`hello-azd`** Azure Devel
 
 - [Install the Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd) on your local machine
 - [Install Visual Studio Code](https://code.visualstudio.com/download) or your editor of choice
+  
   OR
+
 - Have access to GitHub Codespaces
 
 [!INCLUDE [azd-template-structure](includes/azd-template-structure.md)]
 
-## Access the template
+## Access the sample template
 
 `hello-azd` is a sample template that's designed to showcase essential features of `azd`. The template provides a fully functional app you can deploy to Azure using a single command. The app includes a friendly user interface with information about `azd` and a small demo tool that allows you to upload and view support tickets.
 
 The template supports the following features:
 
 - Packages and deploys a containerized app to Azure Container Apps
-- Creates the Azure resources needed by the app, such as an Azure Storage Account and an Azure Cosmos DB database
+- Creates the Azure resources needed by the app, such as an Azure Cosmos DB database
 - Can automatically create a CI/CD pipeline using the `azd pipeline config` command
 
 Follow the steps below to access the template so you can explore and customize it in the later sections.
@@ -45,7 +47,7 @@ Follow the steps below to access the template so you can explore and customize i
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/Azure-Samples/hello-azd.git
+   azd init -t hello-azd
    ```
 
 2. Open the project folder in Visual Studio Code:
@@ -53,8 +55,6 @@ Follow the steps below to access the template so you can explore and customize i
    ```bash
    code hello-azd
    ```
-
-3. Ensure you have the Azure Developer CLI and other dependencies installed locally.
 
 ---
 
@@ -88,11 +88,11 @@ With the template open in your tool of choice, you can browse the folder structu
         }
         ```
 
-1. Open the `azure.yaml` file to view essential template configurations:
+1. At the root of the template, open the `azure.yaml` file to view essential template configurations:
     - The template defines one service called `aca`.
     - The `aca` service configuration instructs `azd` to package and deploy the source code in the `src` folder to the Azure Container App provisioned by the Bicep modules you explored previously.
-    - The docker configurations instruct `azd` to package and deploy the app as a container.
-    
+    - The `docker` configurations instruct `azd` to package and deploy the app as a container.
+
         ```yml
         metadata:
           template: hello-azd-dotnet
