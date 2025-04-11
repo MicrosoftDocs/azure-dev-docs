@@ -389,7 +389,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.15.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.15.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.54.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.54.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.54.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.54.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.19.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.20.0) |  |  |
 | @azure-tools/typespec-go | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.3) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -413,7 +413,7 @@
 | App Configuration Provider | npm [2.0.1](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.0.1) |  |  |
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| Spec Gen SDK | npm [0.3.5](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.3.5) |  |  |
+| Spec Gen SDK | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.4.0) |  |  |
 | tmlanguage-generator | npm [0.6.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.1) |  |  |
 | TypeSpec Asset Emitter | npm [0.68.0](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.68.0) |  |  |
 | TypeSpec Emitter Framework | npm [0.4.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.4.0) |  |  |
@@ -503,7 +503,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250409.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250409.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250410.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250410.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
