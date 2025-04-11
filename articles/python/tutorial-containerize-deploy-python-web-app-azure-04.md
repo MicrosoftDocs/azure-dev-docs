@@ -160,6 +160,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -169,6 +170,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
+    ### [PowwerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -178,12 +180,13 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations "{\""acrUseManagedIdentityCreds\"": true}"
     ```
 
-    
+    ---
 
     Because you enabled the system-assigned managed identity when you created the web app, the managed identity is used to pull from the Azure Container Registry.
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -195,6 +198,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -206,7 +210,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
-    
+    ---
 
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
