@@ -36,7 +36,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
-    ### [Bash](#tab/bash)
+    ### [Powershell](#tab/powershell)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -68,7 +68,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
-    ### [Bash](#tab/bash)
+    ### [Powershell](#tab/powershell)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -106,7 +106,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
     * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
 
-    ### [Bash](#tab/bash)
+    ### [Powershell](#tab/powershell)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -160,7 +160,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
-    ### [Bash](#tab/bash)
+    ### [Powershell](#tab/powershell)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -170,7 +170,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
-    ### [PowwerShell](#tab/powershell)
+    ### [Powershell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -186,7 +186,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
-    ### [Bash](#tab/bash)
+    ### [Powershell](#tab/powershell)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -198,7 +198,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
-    ### [PowerShell](#tab/powershell)
+    ### [Powershell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -214,6 +214,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
+    ### [Powershell](#tab/powershell)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -227,6 +228,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --actions push 
     ```
 
+    ### [Powershell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -239,19 +241,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --actions push
     ```
 
-    
+    ---
 
     By default, this command creates the webhook in the same resource group and location as the specified Azure Container registry. If desired, you can use the `--resource-group` and `--location` parameters to override this behavior.
-
-During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
-
-> [!IMPORTANT]
-> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open your resource group in the Azure Portal and then open the **webhookforwebapp** webhook. Click **Configure** and then review the **Service URI**. The URI should look like this:
-> `https://<app-service-name>:<credential>@<app-service-name>.scm.azurewebsites.net/api/registry/webhook`.
-> If the URI doesn't end with "/api/registry/webhook", you need to delete the webhook and create a new one.
-> To delete the webhook, use the [az acr webhook delete](/cli/azure/acr/webhook#az-acr-webhook-delete) command.
-
-:::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
 
 ## Configure connection to MongoDB
 
