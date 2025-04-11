@@ -105,7 +105,7 @@ In this section, you build a Docker image for the Python web app using either Vi
         .
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```console
     # PowerShell syntax
@@ -324,7 +324,7 @@ For more information about how to use the Azure CLI to create a Cosmos DB for Mo
 
 ## Run the image locally in a container
 
-You're now ready to run the Docker container locally using either your local MongoDB instance or your Cosmos DB for MongoDB instance. In this section of the tutorial, you learn to use either VS Code or the Azure CLI to run the image locally.The sample app expects the MongoDB connection information to be passed in to it with environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
+You're now ready to run the Docker container locally using either your local MongoDB instance or your Cosmos DB for MongoDB instance. In this section of the tutorial, you learn to use either VS Code or the Azure CLI to run the image locally. The sample app expects the MongoDB connection information to be passed in to it with environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
 > [!NOTE]
 > When the web app is deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
@@ -490,7 +490,7 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
 
     * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
 
-    * Add the following environment variable to the string of variables passed to the Docker run command for the Azure CosmosDB for MongoDB templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks:
+    * Add the following environment variable to the string of variables passed to the Docker run command for the Azure Cosmos DB for MongoDB templates for both the "docker.commands.run" and "docker.commands.runInteractive" code blocks:
 
         ```python
         -e 'SECRET_KEY=supersecretkeythatispassedtopythonapp'
