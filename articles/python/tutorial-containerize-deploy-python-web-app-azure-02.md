@@ -45,7 +45,7 @@ In this section, you clone or download the sample Python app that you use to bui
     ```console
     # Django
     cd msdocs-python-django-container-web-app
-    ```    
+    ```
 
     ### [Flask](#tab/Flask)
 
@@ -139,6 +139,8 @@ In this section, you build a Docker image for the Python web app using either Vi
     ```
 
     The command returns a list of images by REPOSITORY name, TAG, and CREATED date among other image characteristics.
+
+---
 
 At this point, you have a local Docker image named "msdocspythoncontainerwebapp" with the tag "latest". Tags help define version details, intended use, stability, and other relevant information. For more information, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
@@ -438,8 +440,6 @@ The following commands are for using your local instance of MongoDB to run the D
         --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `
         msdocspythoncontainerwebapp:latest 
     ```
-
-    ---
 
 1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
