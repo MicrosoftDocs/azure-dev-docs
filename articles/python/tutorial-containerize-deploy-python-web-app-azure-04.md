@@ -36,7 +36,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
-    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -50,7 +49,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    ### [PowerShell](#tab/powewrshell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -64,11 +62,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    ---
+    
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
-    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -81,7 +78,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
-    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -94,7 +90,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
-  ---
+  
 
 1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
 
@@ -106,7 +102,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
     * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
 
-    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -125,7 +120,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
-    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # Powershell syntax
@@ -144,7 +138,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
-    ---
+    
 
     > [!NOTE]
     > You may see an error similar to the following output when running the previous command:
@@ -160,7 +154,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
-    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -170,7 +163,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
-    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -180,13 +172,12 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations "{\""acrUseManagedIdentityCreds\"": true}"
     ```
 
-    ---
+    
 
     Because you enabled the system-assigned managed identity when you created the web app, the managed identity is used to pull from the Azure Container Registry.
 
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
-    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -198,7 +189,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
-    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -210,11 +200,10 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
-    ---
+    
 
 1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
 
-    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -228,7 +217,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --actions push 
     ```
 
-    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -241,7 +229,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --actions push
     ```
 
-    ---
+    
 
     By default, this command creates the webhook in the same resource group and location as the specified Azure Container registry. If desired, you can use the `--resource-group` and `--location` parameters to override this behavior.
 
@@ -265,8 +253,7 @@ To set environment variables in App Service, you create *app settings* with the 
 * DB_NAME: Use "restaurants_reviews".
 * COLLECTION_NAME: Use "restaurants_reviews".
 
-    ### [Bash](#tab/bash)
-    
+
     ```azurecli-interactive
     #!/bin/bash
     MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
@@ -281,9 +268,8 @@ To set environment variables in App Service, you create *app settings* with the 
             COLLECTION_NAME=$MONGO_COLLECTION_NAME \
             SECRET_KEY='supersecretkeythatispassedtopythonapp'
     ```
-    
-    ### [PowerShell](#tab/powershell)
-    
+
+
     ```powershell-interactive
     # PowerShell syntax
     # Create a settings.json file with all the app settings (avoids string parsing issues with PowerShell with `&` characters)
@@ -309,9 +295,9 @@ To set environment variables in App Service, you create *app settings* with the 
     Remove-Item -Path ".\appsettings.json"
     
     ```
+
     
-    ---
-    
+
 ## Browse the site
 
 To verify the site is running, go to `https://<website-name>.azurewebsites.net`; where website name is your app service name. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant and a review for that restaurant to confirm the sample app is functioning.
