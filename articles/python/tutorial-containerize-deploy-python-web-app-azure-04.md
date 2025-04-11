@@ -339,7 +339,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
 
 > [!IMPORTANT]
-> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The registry opens in the Azure portal. Select **Webhooks** on the **service menu** of the registry.
+> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The comtainer registry opens in the Azure portal. Click **Services** and then click **Webhooks**. Open the context menu and click **Configure**.
 
 :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
 
@@ -377,9 +377,7 @@ In the Azure Tools extension for Visual Studio Code:
 
 1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
-1. Right-click the App Service and select **Browse Website**.
-
-    :::image type="content" source="./media/tutorial-container-web-app/app-service-vs-code-browse.png" lightbox="./media/tutorial-container-web-app/app-service-vs-code-browse.png" alt-text="A screenshot showing how to browse an App Service in VS Code." :::
+1. Right-click your web app and select **Browse Website**.
 
 ---
 
@@ -390,9 +388,9 @@ If you don't see the sample app, try the following steps.
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page in the Azure portal. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
 * Try to restart the App Service and see if that resolves your issue.
 * If there are programming errors, those errors show up in the application logs. On the Azure portal page for the App Service, select **Diagnose and solve problems**/**Application logs**.
-* The sample app relies on a connection to MongoDB. Confirm that the App Service has application settings with the correct connection info.
+* The sample app relies on a connection to Azure Cosmos DB for MongoDB. Confirm that the App Service has application settings with the correct connection info.
 * Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. On the Azure portal page for the App Service, go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
-* Check that the webhook is defined in the Azure Container Registry. The webhook enables the App Service to pull the container image. In particular, check that Service URI ends with "/api/registry/webhook".
+* Check that the webhook is defined in the Azure Container Registry. The webhook enables the App Service to pull the container image. In particular, check that Service URI ends with "/api/registry/webhook". If not, add it.
 * [Different Azure Container Registry skus](/azure/container-registry/container-registry-skus) have different features, including number of webhooks. If you're reusing an existing registry, you could see the message: "Quota exceeded for resource type webhooks for the registry SKU Basic. Learn more about different SKU quotas and upgrade process: https://aka.ms/acr/tiers". If you see this message, use a new registry, or reduce the number of [registry webhooks](/azure/container-registry/container-registry-webhook) in use.
 
 ## Next step
