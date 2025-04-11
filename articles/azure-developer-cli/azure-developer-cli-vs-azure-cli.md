@@ -41,6 +41,8 @@ While both the Azure Developer CLI and Azure CLI provide command-line interfaces
 - **Azure Developer CLI**: Focuses on simplifying the developer experience by providing an opinionated workflow for building and deploying applications. It abstracts much of the complexity of resource management and is tailored for application-centric tasks.
 - **Azure CLI**: Offers granular control over Azure resources and is designed for a broader audience, including IT administrators, DevOps engineers, and developers. It provides flexibility for managing individual resources but requires knowledge of specific Azure services.
 
+### Compare commands
+
 You can print the available commands for both CLI tools to visualize these differences. For example, if you run the Azure Developer CLI command `azd help` to view information about the tool and available commands, you see the following output:
 
 ```output
@@ -103,6 +105,8 @@ Subgroups:
 ```
 
 In the preceding output, all of the commands focus on managing configurations for specific Azure resources, such as Azure Container Registries or Azure Billing services.
+
+### Compare features
 
 The following table highlights the key differences between the Azure Developer CLI and the Azure CLI in more detail:
 
