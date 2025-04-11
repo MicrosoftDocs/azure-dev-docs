@@ -53,7 +53,7 @@ To install the Spring Cloud Azure Storage Queue Starter module, add the followin
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.21.0</version>
+         <version>5.22.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -243,7 +243,7 @@ To install the Spring Messaging Azure Storage Queue module, add the following de
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.21.0</version>
+         <version>5.22.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -350,7 +350,7 @@ To install the Spring Integration Azure Storage Queue module, add the following 
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.21.0</version>
+         <version>5.22.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
