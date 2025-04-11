@@ -61,9 +61,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     az acr create -g $RESOURCE_GROUP_NAME -n $REGISTRY_NAME --sku Standard
     ```
 
-    In the JSON output of the command, locate the `loginServer` value. This value represents the fully qualified registry name (all lowercase) and contains the registry name.
-
     ---
+
+    In the JSON output of the command, locate the `loginServer` value. This value represents the fully qualified registry name (all lowercase) and contains the registry name.
 
 1. If you're using the Azure CLI on your local machine, execute the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the container registry.
 

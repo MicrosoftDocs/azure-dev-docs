@@ -113,7 +113,7 @@ In this section, you build a Docker image for the Python web app using either Vi
 
     The general form of the command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
 
-    If you're at the root folder of the project, use the following command to build the Docker image:
+    If you're at the root folder of the project, use the following command to build the Docker image. The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
 
     ### [Bash](#tab/bash)
 
@@ -136,8 +136,6 @@ In this section, you build a Docker image for the Python web app using either Vi
       --tag "msdocspythoncontainerwebapp:latest" `
         .
     ```
-
-    The dot (".") at the end of the command refers to the current directory in which the command runs. To force a rebuild, add `--no-cache`.
 
     ---
 

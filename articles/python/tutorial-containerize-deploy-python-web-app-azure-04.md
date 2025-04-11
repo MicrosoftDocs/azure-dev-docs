@@ -265,53 +265,53 @@ To set environment variables in App Service, you create *app settings* with the 
 * DB_NAME: Use "restaurants_reviews".
 * COLLECTION_NAME: Use "restaurants_reviews".
 
-### [Bash](#tab/bash)
-
-```azurecli-interactive
-#!/bin/bash
-MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
-MONGO_DB_NAME=restaurants_reviews
-MONGO_COLLECTION_NAME=restaurants_reviews
-
-az webapp config appsettings set \
-   --resource-group $RESOURCE_GROUP_NAME \
-   --name $APP_SERVICE_NAME \
-   --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING \
-        DB_NAME=$MONGO_DB_NAME  \
-        COLLECTION_NAME=$MONGO_COLLECTION_NAME \
-        SECRET_KEY='supersecretkeythatispassedtopythonapp'
-```
-
-### [PowerShell](#tab/powershell)
-
-```powershell-interactive
-# PowerShell syntax
-# Create a settings.json file with all the app settings (avoids string parsing issues with PowerShell with `&` characters)
-$Settings = @{
-    "CONNECTION_STRING" = "your Mongo DB connection string in double quotes"
-    "DB_NAME" = "restaurants_reviews"
-    "COLLECTION_NAME" = "restaurants_reviews"
-    "SECRET_KEY" = "supersecretkeythatispassedtopythonapp"
-}
-
-# Convert to JSON and save to file
-$Settings | ConvertTo-Json -Depth 10 | Out-File -FilePath ".\appsettings.json" -Encoding utf8
-
-# Use the JSON file with the az command
-Write-Host "Setting app settings from JSON file..."
-az webapp config appsettings set `
-    --resource-group $RESOURCE_GROUP_NAME `
-    --name $APP_SERVICE_NAME `
-    --settings "@appsettings.json"
-Write-Host "App settings configured successfully!"
-
-# Clean up
-Remove-Item -Path ".\appsettings.json"
-
-```
-
----
-
+    ### [Bash](#tab/bash)
+    
+    ```azurecli-interactive
+    #!/bin/bash
+    MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
+    MONGO_DB_NAME=restaurants_reviews
+    MONGO_COLLECTION_NAME=restaurants_reviews
+    
+    az webapp config appsettings set \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $APP_SERVICE_NAME \
+       --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING \
+            DB_NAME=$MONGO_DB_NAME  \
+            COLLECTION_NAME=$MONGO_COLLECTION_NAME \
+            SECRET_KEY='supersecretkeythatispassedtopythonapp'
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    ```powershell-interactive
+    # PowerShell syntax
+    # Create a settings.json file with all the app settings (avoids string parsing issues with PowerShell with `&` characters)
+    $Settings = @{
+        "CONNECTION_STRING" = "your Mongo DB connection string in double quotes"
+        "DB_NAME" = "restaurants_reviews"
+        "COLLECTION_NAME" = "restaurants_reviews"
+        "SECRET_KEY" = "supersecretkeythatispassedtopythonapp"
+    }
+    
+    # Convert to JSON and save to file
+    $Settings | ConvertTo-Json -Depth 10 | Out-File -FilePath ".\appsettings.json" -Encoding utf8
+    
+    # Use the JSON file with the az command
+    Write-Host "Setting app settings from JSON file..."
+    az webapp config appsettings set `
+        --resource-group $RESOURCE_GROUP_NAME `
+        --name $APP_SERVICE_NAME `
+        --settings "@appsettings.json"
+    Write-Host "App settings configured successfully!"
+    
+    # Clean up
+    Remove-Item -Path ".\appsettings.json"
+    
+    ```
+    
+    ---
+    
 ## Browse the site
 
 To verify the site is running, go to `https://<website-name>.azurewebsites.net`; where website name is your app service name. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant and a review for that restaurant to confirm the sample app is functioning.
