@@ -73,27 +73,6 @@ In this section, you build a Docker image for the Python web app using either Vi
 > [!TIP]
 > If you're new to the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
-### [VS Code](#tab/vscode)
-
-[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
-
-> [!NOTE]
-> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/) to start the daemon before proceeding.
-
-1. In VS Code, open the Docker extension and then select the **Docker** extension on the Activity Bar.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot that shows how to open the Docker extension in Visual Studio Code." :::
-
-    If the Docker extension reports a "Failed to connect" error, make sure [Docker](https://docs.docker.com/get-docker/) is installed and running.
-
-1. To build the Docker image, right-click the *Dockerfile* and then select **Build Image...**.
-
-    For more information about Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
-
-1. To confirm the image was built, expand the **IMAGES** section of the Docker extension and look for the recently built image. The name of this container image is "msdocspythoncontainerwebapp" (this value is set in the *.vscode/tasks.json* file).
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot that shows how to confirm the built image in Visual Studio Code." :::
-
 ### [Azure CLI](#tab/azure-cli)
 
 [Docker](https://docs.docker.com/get-docker/) is required to build the Docker image using the Docker CLI. Once Docker is installed, open a terminal window and navigate to the sample folder.
@@ -146,6 +125,27 @@ In this section, you build a Docker image for the Python web app using either Vi
     ```
 
     The command returns a list of images by REPOSITORY name, TAG, and CREATED date among other image characteristics.
+
+### [VS Code](#tab/vscode)
+
+[Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
+
+> [!NOTE]
+> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/) to start the daemon before proceeding.
+
+1. In VS Code, open the Docker extension and then select the **Docker** extension on the Activity Bar.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot that shows how to open the Docker extension in Visual Studio Code." :::
+
+    If the Docker extension reports a "Failed to connect" error, make sure [Docker](https://docs.docker.com/get-docker/) is installed and running.
+
+1. To build the Docker image, right-click the *Dockerfile* and then select **Build Image...**.
+
+    For more information about Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+
+1. To confirm the image was built, expand the **IMAGES** section of the Docker extension and look for the recently built image. The name of this container image is "msdocspythoncontainerwebapp" (this value is set in the *.vscode/tasks.json* file).
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot that shows how to confirm the built image in Visual Studio Code." :::
 
 ---
 
@@ -329,6 +329,143 @@ You're now ready to run the Docker container locally using either your local Mon
 > [!NOTE]
 > When the web app is deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
 
+### [Azure CLI](#tab/azure-cli)
+
+### MongoDB local
+
+Use the following commands with your local instance of MongoDB to run the Docker image locally.
+
+1. Run the latest version of the image.
+
+    ### [Bash](#tab/bash)
+
+    ```bash
+    #!/bin/bash
+    
+    # Define variables
+    # Set the port number based on the framework being used:
+    # 8000 for Django, 5000 for Flask
+    export PORT=<port-number>  # Replace with actual port (e.g., 8000 or 5000)
+    
+    # Set your computer''s IP address (replace with actual IP)
+    export YOUR_IP_ADDRESS=<your-computer-ip-address>  # Replace with actual IP address
+    
+    # Run the Docker container with the required environment variables
+    docker run --rm -it \
+      --publish "$PORT:$PORT" \
+      --publish 27017:27017 \
+      --add-host "mongoservice:$YOUR_IP_ADDRESS" \
+      --env CONNECTION_STRING=mongodb://mongoservice:27017 \
+      --env DB_NAME=restaurants_reviews \
+      --env COLLECTION_NAME=restaurants_reviews \
+      --env SECRET_KEY="supersecretkeythatispassedtopythonapp" \
+      msdocspythoncontainerwebapp:latest
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell
+    # PowerShell syntax
+    # Define variables
+    # Set the port number based on the framework being used:
+    # 8000 for Django, 5000 for Flask
+    $PORT = "your_port_number"  # Replace with your actual port number
+    $YOUR_IP_ADDRESS = "your_ip_address"  # Replace with your actual IP address
+    
+    # Run the Docker container with the required environment variables
+    docker run --rm -it `
+        --publish "${PORT}:${PORT}" `
+        --publish 27017:27017 `
+        --add-host "mongoservice:$YOUR_IP_ADDRESS" `
+        --env CONNECTION_STRING="mongodb://mongoservice:27017" `
+        --env DB_NAME="restaurants_reviews" `
+        --env COLLECTION_NAME="restaurants_reviews" `
+        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `
+        msdocspythoncontainerwebapp:latest 
+    ```
+
+    ---
+
+1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+
+    ```console
+    docker container ls
+    ```
+
+    See your container "msdocspythoncontainerwebapp:latest:latest" in the list. Notice the `NAMES` column of the output and the `PORTS` column. Use the container name to stop the container.
+
+1. Test the web app.
+
+    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask.
+
+1. Shut down the container.
+
+    ```console
+    docker container stop <container-name>
+    ```
+
+### Azure Cosmos DB for MongoDB
+
+Use the following commands with your Azure Cosmos DB for MongoDB instance to run the Docker image in Azure.
+
+1. Run the latest version of the image.
+
+    ### [Bash](#tab/bash)
+
+    ```bash
+    #!/bin/bash
+    # PORT=8000 for Django and 5000 for Flask
+    export PORT=<port-number>
+    export CONNECTION_STRING="<connection-string>"
+
+    docker run --rm -it \
+      --publish $PORT:$PORT/tcp \
+      --env CONNECTION_STRING=$CONNECTION_STRING \
+      --env DB_NAME=restaurants_reviews \
+      --env COLLECTION_NAME=restaurants_reviews \
+      --env SECRET_KEY=supersecretkeythatyougenerate \
+      msdocspythoncontainerwebapp:latest
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell
+    # PowerShell syntax
+    # PORT=8000 for Django and 5000 for Flask
+    $PORT=<port-number>
+    $CONNECTION_STRING="<connection-string>"
+
+    docker run --rm -it `
+      --publish ${PORT}:${PORT}/tcp `
+      --env CONNECTION_STRING=$CONNECTION_STRING `
+      --env DB_NAME=restaurants_reviews `
+      --env COLLECTION_NAME=restaurants_reviews `
+      --env SECRET_KEY=supersecretkeythatyougenerate `
+      msdocspythoncontainerwebapp:latest
+    ```
+
+    ---
+
+    Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
+
+1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+
+    ```console
+    docker container ls
+    ```
+
+    See your container "msdocspythoncontainerwebapp:latest:latest" in the list. Notice the `NAMES` column of the output and the `PORTS` column. Use the container name to stop the container.
+
+1. Test the web app.
+
+    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask.
+
+1. Shut down the container.
+
+    ```console
+    docker container stop <container-name>
+    ```
+
 ### [VS Code](#tab/vscode)
 
 In this section of the tutorial, you use the Docker extension in Visual Studio Code to run the container. You can use either the connection string to your local MongoDB instance or your Cosmos DB for MongoDB instance within VS Code.
@@ -406,143 +543,6 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
 
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select. For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
-
-### [Azure CLI](#tab/azure-cli)
-
-### MongoDB local
-
-The following commands are for using your local instance of MongoDB to run the Docker image locally.
-
-1. Run the latest version of the image.
-
-    ### [Bash](#tab/bash)
-
-    ```bash
-    #!/bin/bash
-    
-    # Define variables
-    # Set the port number based on the framework being used:
-    # 8000 for Django, 5000 for Flask
-    export PORT=<port-number>  # Replace with actual port (e.g., 8000 or 5000)
-    
-    # Set your computer''s IP address (replace with actual IP)
-    export YOUR_IP_ADDRESS=<your-computer-ip-address>  # Replace with actual IP address
-    
-    # Run the Docker container with the required environment variables
-    docker run --rm -it \
-      --publish "$PORT:$PORT" \
-      --publish 27017:27017 \
-      --add-host "mongoservice:$YOUR_IP_ADDRESS" \
-      --env CONNECTION_STRING=mongodb://mongoservice:27017 \
-      --env DB_NAME=restaurants_reviews \
-      --env COLLECTION_NAME=restaurants_reviews \
-      --env SECRET_KEY="supersecretkeythatispassedtopythonapp" \
-      msdocspythoncontainerwebapp:latest
-    ```
-
-    ### [PowerShell](#tab/powershell)
-
-    ```powershell
-    # PowerShell syntax
-    # Define variables
-    # Set the port number based on the framework being used:
-    # 8000 for Django, 5000 for Flask
-    $PORT = "your_port_number"  # Replace with your actual port number
-    $YOUR_IP_ADDRESS = "your_ip_address"  # Replace with your actual IP address
-    
-    # Run the Docker container with the required environment variables
-    docker run --rm -it `
-        --publish "${PORT}:${PORT}" `
-        --publish 27017:27017 `
-        --add-host "mongoservice:$YOUR_IP_ADDRESS" `
-        --env CONNECTION_STRING="mongodb://mongoservice:27017" `
-        --env DB_NAME="restaurants_reviews" `
-        --env COLLECTION_NAME="restaurants_reviews" `
-        --env SECRET_KEY="supersecretkeythatispassedtopythonapp" `
-        msdocspythoncontainerwebapp:latest 
-    ```
-
-    ---
-
-1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
-
-    ```console
-    docker container ls
-    ```
-
-    See your container "msdocspythoncontainerwebapp:latest:latest" in the list. Notice the `NAMES` column of the output and the `PORTS` column. Use the container name to stop the container.
-
-1. Test the web app.
-
-    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask.
-
-1. Shut down the container.
-
-    ```console
-    docker container stop <container-name>
-    ```
-
-### Azure Cosmos DB for MongoDB
-
-The following commands are for using your Azure Cosmos DB for MongoDB instance to run the Docker image locally.
-
-1. Run the latest version of the image.
-
-    ### [Bash](#tab/bash)
-
-    ```bash
-    #!/bin/bash
-    # PORT=8000 for Django and 5000 for Flask
-    export PORT=<port-number>
-    export CONNECTION_STRING="<connection-string>"
-
-    docker run --rm -it \
-      --publish $PORT:$PORT/tcp \
-      --env CONNECTION_STRING=$CONNECTION_STRING \
-      --env DB_NAME=restaurants_reviews \
-      --env COLLECTION_NAME=restaurants_reviews \
-      --env SECRET_KEY=supersecretkeythatyougenerate \
-      msdocspythoncontainerwebapp:latest
-    ```
-
-    ### [PowerShell](#tab/powershell)
-
-    ```powershell
-    # PowerShell syntax
-    # PORT=8000 for Django and 5000 for Flask
-    $PORT=<port-number>
-    $CONNECTION_STRING="<connection-string>"
-
-    docker run --rm -it `
-      --publish ${PORT}:${PORT}/tcp `
-      --env CONNECTION_STRING=$CONNECTION_STRING `
-      --env DB_NAME=restaurants_reviews `
-      --env COLLECTION_NAME=restaurants_reviews `
-      --env SECRET_KEY=supersecretkeythatyougenerate `
-      msdocspythoncontainerwebapp:latest
-    ```
-
-    ---
-
-    Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
-
-1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
-
-    ```console
-    docker container ls
-    ```
-
-    See your container "msdocspythoncontainerwebapp:latest:latest" in the list. Notice the `NAMES` column of the output and the `PORTS` column. Use the container name to stop the container.
-
-1. Test the web app.
-
-    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask.
-
-1. Shut down the container.
-
-    ```console
-    docker container stop <container-name>
-    ```
 
 ---
 
