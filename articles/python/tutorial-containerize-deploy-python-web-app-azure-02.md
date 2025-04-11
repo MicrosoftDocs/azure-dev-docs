@@ -448,7 +448,7 @@ Use the following commands with your Azure Cosmos DB for MongoDB instance to run
 
     Passing in sensitive information is only shown for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
-1. Confirm that the container is running. In another console window, run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+1. Open a new console window, run the following [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command to confirm that the container is running.
 
     ```console
     docker container ls

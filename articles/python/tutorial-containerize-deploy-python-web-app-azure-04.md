@@ -96,15 +96,13 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ---
 
-1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command.
-
-    The following command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles?tabs=azure-cli) on the specified resource--in this case, the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
-
-    Where:
+1. Create a web app with the [az webapp create](/cli/azure/webapp#az-webapp-create) command using the following variables:
 
     * APP_SERVICE_NAME must be globally unique as it becomes the website name in the URL `https://<website-name>.azurewebsites.net`.
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
     * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
+
+    This command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles?tabs=azure-cli) on the specified resource--in this case, the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
 
     ### [Bash](#tab/bash)
 
@@ -177,8 +175,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     az webapp config set `
       --resource-group $RESOURCE_GROUP_NAME `
       --name $APP_SERVICE_NAME `
-      --generic-configurations "{\""acrUseManagedIdentityCreds\"": true}"
-    ```
+      --generic-configurations '{ "acrUseManagedIdentityCreds": true }'
 
     ---
 
@@ -276,28 +273,17 @@ To set environment variables in App Service, you create *app settings* with the 
 
     ```powershell-interactive
     # PowerShell syntax
-    # Create a settings.json file with all the app settings (avoids string parsing issues with PowerShell with `&` characters)
-    $Settings = @{
-        "CONNECTION_STRING" = "your Mongo DB connection string in double quotes"
-        "DB_NAME" = "restaurants_reviews"
-        "COLLECTION_NAME" = "restaurants_reviews"
-        "SECRET_KEY" = "supersecretkeythatispassedtopythonapp"
-    }
-    
-    # Convert to JSON and save to file
-    $Settings | ConvertTo-Json -Depth 10 | Out-File -FilePath ".\appsettings.json" -Encoding utf8
-    
-    # Use the JSON file with the az command
-    Write-Host "Setting app settings from JSON file..."
+    $MONGO_CONNECTION_STRING="your Mongo DB connection string in double quotes"
+    $MONGO_DB_NAME="restaurants_reviews"
+    $MONGO_COLLECTION_NAME="restaurants_reviews"
+
     az webapp config appsettings set `
-        --resource-group $RESOURCE_GROUP_NAME `
-        --name $APP_SERVICE_NAME `
-        --settings "@appsettings.json"
-    Write-Host "App settings configured successfully!"
-    
-    # Clean up
-    Remove-Item -Path ".\appsettings.json"
-    
+       --resource-group $RESOURCE_GROUP_NAME `
+       --name $APP_SERVICE_NAME `
+       --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING `
+            DB_NAME=$MONGO_DB_NAME  `
+            COLLECTION_NAME=$MONGO_COLLECTION_NAME `
+            SECRET_KEY="supersecretkeythatispassedtopythonapp"        
     ```
 
     ---
