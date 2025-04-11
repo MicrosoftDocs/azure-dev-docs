@@ -317,12 +317,12 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 1. Enter the following values as prompted to deploy the image:
 
-    * Select registry provider: "Azure"
+    * Select registry provider: **Azure**
     * Subscription: Select the subscription that contains the Azure Container Registry you created earlier.
     * Select registry: Enter the name of the registry you created earlier in this tutorial.
-    * Select repository: Enter the repository name "msdocspythoncontainerwebapp". If you don't see this repo, refresh the Docker extension **REGISTRIES** section.
-    * Select tag: "latest" for the image tag.
-    * Enter a globally unique name for the web app: Enter a name that is globally unique to Azure App Service. For example, if you use "msdocs-python-container-web-app", the web app URL would be `http://msdocs-python-container-web-app.azurewebsites.net`.
+    * Select repository: Enter the repository name **msdocspythoncontainerwebapp**. If you don't see this repo, refresh the Docker extension **REGISTRIES** section.
+    * Select tag: **latest** for the image tag.
+    * Enter a globally unique name for the web app: Enter a name that is globally unique to Azure App Service. For example, if you use **msdocs-python-container-web-app**, the web app URL would be `http://msdocs-python-container-web-app.azurewebsites.net`.
     * Select a resource group: Use the resource group that contains the Azure Container Registry you created earlier.
     * Select a Linux App Service plan: Use an existing or create a new one.
 

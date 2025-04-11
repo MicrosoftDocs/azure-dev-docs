@@ -113,7 +113,7 @@ If you have an existing Azure Container Registry you wish to use, skip this next
 > [!IMPORTANT]
 > The steps in this section assume that you previously completed the **VS Code** sections of part 2 of this tutorial series.
 
-1. In the Docker extension in VS Code, go to **REGISTRIES** and click **Azure** to connect to Azure Container Registry.
+1. In the Docker extension in VS Code, go to **REGISTRIES** and click **Azure** to connect to the Azure Container Registry.
 1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
 
     Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription, and select **Create Registry**. This action starts the same create registry task.
@@ -161,7 +161,7 @@ These steps require that VS Code is opened in the working folder of your web app
 
     1. In the Docker extension, in the **REGISTRIES** section, find the container image created. You may need to close and re-open VS Code to see the image.
 
-    1. Confirm the name and tag "latest".
+    1. Confirm the name and tag **latest**.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
 
