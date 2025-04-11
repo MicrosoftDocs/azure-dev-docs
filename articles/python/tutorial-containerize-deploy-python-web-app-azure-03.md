@@ -26,7 +26,7 @@ This service diagram highlights the components covered in this article.
 
 ## Create an Azure Container Registry
 
-If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry.
+If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry using the Azure CLI.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or in your local development environment with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -34,6 +34,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 > Use the same names as in part 2 of this tutorial series.
 
 1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
+
+
+    ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
@@ -45,6 +48,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo "Creating Azure Container Registry $REGISTRY_NAME..."
     az acr create -g $RESOURCE_GROUP_NAME -n $REGISTRY_NAME --sku Standard
     ```
+
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -100,12 +105,12 @@ Azure CLI commands can be run in your local development environment with the [Az
 
 ## Create an Azure Container Registry
 
-If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry.
+If you have an existing Azure Container Registry you wish to use, skip this next step and proceed to the next step. Otherwise, create a new Azure Container Registry using VS Code.
 
 > [!IMPORTANT]
 > The steps in this section assume that you previously completed the **VS Code** sections of part 2 of this tutorial series.
 
-1. In the Docker extension, go to **REGISTRIES** and click **Azure** to connect to Azure Container Registry.
+1. In the Docker extension in VS Code, go to **REGISTRIES** and click **Azure** to connect to Azure Container Registry.
 1. In Visual Studio Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
 
     Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription, and select **Create Registry**. This action starts the same create registry task.
