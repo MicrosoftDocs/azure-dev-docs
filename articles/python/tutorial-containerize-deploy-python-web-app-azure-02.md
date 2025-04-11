@@ -70,6 +70,9 @@ Visit [https://github.com/Azure-Samples/msdocs-python-django-container-web-app](
 
 In this section, you build a Docker image for the Python web app using either Visual Studio Code or the Azure CLI. The Docker image contains the Python web app, its dependencies, and the Python runtime. The Docker image is built from a *Dockerfile* that defines the image's contents and behavior. The *Dockerfile* is in the root folder of the sample app you cloned or downloaded (or provided yourself).
 
+> [!TIP]
+> If you're new to the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
+
 ### [VS Code](#tab/vscode)
 
 [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) are required to build the Docker image locally using Visual Studio Code. Install Visual Studio Code and the Docker extension before continuing. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
@@ -155,12 +158,14 @@ At this point, you have a local Docker image named "msdocspythoncontainerwebapp"
 
 ## Set up MongoDB
 
-Your Python web app requires a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews* are required to store data. In this tutorial, you use a local installation of MongoDB and then use [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection. In part 4 of this tutorial series, you need to use the Azure Cosmos DB for MongoDB instance to run the web app in Azure App Service.
+Your Python web app requires a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews* are required to store data. In this tutorial, you use both a local installation of MongoDB and a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) instance to create and access the database and collection.
 
 > [!IMPORTANT]
 > Don't use a MongoDB database you use in production. In this tutorial, you store the MongoDB connection string to the one of these MongoDB instances in an environment variable (which is observable by anyone capable of inspecting your container - such as by using `docker inspect`).
 
 ### Local MongoDB
+
+Let's start by creating a local instance of MongoDB using the Azure CLI.
 
 1. Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) (if it isn't already installed).
 
@@ -214,16 +219,16 @@ After you complete the previous step, the local MongoDB connection string is "mo
 
 ### Azure Cosmos DB for MongoDB
 
-You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account and then create the required database and collection.
+Now, let's also create an Azure Cosmos DB for MongoDB instance using the Azure CLI. 
 
-> [!TIP]
-> If you're new to the Azure CLI, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
+>[!NOTE]
+> In part 4 of this tutorial series, you use the Azure Cosmos DB for MongoDB instance to run the web app in Azure App Service.
 
 Before running the following script, replace the location, the resource group, and Azure Cosmos DB for MongoDB account name with appropriate values (optional). We recommend using the same resource group for all the Azure resources created in this tutorial to make them easier to delete when you're finished.
 
 The script takes a few minutes to run.
 
-    ### [Bash](#tab/bash)
+### [Bash](#tab/bash)
 
 ```azurecli-interactive
 #!/bin/bash
@@ -257,7 +262,7 @@ az cosmosdb keys list --name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME
 echo "Copy the Primary MongoDB Connection String from the list above"
 ```
 
-    ### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # PowerShell syntax
