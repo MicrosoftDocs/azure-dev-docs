@@ -55,7 +55,7 @@ Key highlights of Awesome AZD:
 
 To learn more or contribute to the Awesome AZD gallery, visit the [Awesome AZD GitHub repository](https://github.com/Azure/awesome-azd).
 
-### The AI Template Gallery
+### The AI App Templates gallery
 
 The [**AI App Templates**](https://azure.github.io/ai-app-templates/) gallery is a specialized collection of Azure Developer CLI templates focused on AI-powered applications. These templates integrate Azure AI services, such as Azure OpenAI, Cognitive Services, and Azure Machine Learning, to help developers quickly build intelligent solutions.
 
