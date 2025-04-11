@@ -35,7 +35,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 1. Create an Azure container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
 
-
     ### [Bash](#tab/bash)
 
     ```azurecli-interactive
