@@ -179,8 +179,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ---
 
-    Because you enabled the system-assigned managed identity when you created the web app, the managed identity is used to pull from the Azure Container Registry.
-
 1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
 
     ### [Bash](#tab/bash)
