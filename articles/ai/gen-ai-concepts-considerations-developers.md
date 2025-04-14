@@ -155,7 +155,7 @@ To review required and optional parameters to pass that can affect various aspec
 
 ## Microsoft OpenAI safeguards
 
-In addition to keeping the LLM's responses bound to specific subject matter or domains, you also likely are concern about the kinds of questions your users are asking of the LLM. It's important to consider the kinds of answers it's generating.
+In addition to keeping the LLM's responses bound to specific subject matter or domains, you also likely are concerned about the kinds of questions your users are asking of the LLM. It's important to consider the kinds of answers it's generating.
 
 First, API calls to Microsoft OpenAI Services automatically filter content that the API finds potentially offensive and reports this back to you in many filtering categories.
 
