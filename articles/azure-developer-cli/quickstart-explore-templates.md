@@ -15,11 +15,16 @@ In this quickstart, you explore and customize an Azure Developer CLI template. T
 
 ## Prerequisites
 
+To complete this quickstart in your browser you'll need:
+
+- Access to GitHub Codespaces
+
+Alternatively, to complete this quickstart using local tooling:
+
 - [The Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed on your local machine
 - [Visual Studio Code](https://code.visualstudio.com/download) or your editor of choice
 - Docker desktop installed on your local machine
-  OR
-- Access to GitHub Codespaces
+
 
 [!INCLUDE [azd-template-structure-minimal](includes/azd-template-structure-minimal.md)]
 
@@ -34,6 +39,19 @@ The template supports the following features:
 - Can automatically [Configure a CI/CD pipeline](configure-devops-pipeline.md) using the `azd pipeline config` command
 
 Follow these steps to set up the template:
+
+## [Codespaces](#tab/codespaces)
+
+1. Open the [hello-azd template repository](https://github.com/Azure-Samples/hello-azd) on GitHub.
+1. Select the **Code** button and then select **Codespaces**.
+1. Create a new Codespace to launch a fully configured development environment in your browser. You might need to wait a moment for the environment to initialize.
+1. After the Codespaces environment loads, initialize the `azd` template using the `azd init` command:
+
+    ```bash
+   azd init -t hello-azd
+   ```
+
+1. When prompted, enter a name for the `azd` environment, such as `helloazd`.
 
 ## [Visual Studio Code](#tab/vs-code)
 
@@ -50,19 +68,6 @@ Follow these steps to set up the template:
    ```bash
    code .
    ```
-
-## [Codespaces](#tab/codespaces)
-
-1. Open the [hello-azd template repository](https://github.com/Azure-Samples/hello-azd) on GitHub.
-1. Select the **Code** button and then select **Codespaces**.
-1. Create a new Codespace to launch a fully configured development environment in your browser. You might need to wait a moment for the environment to initialize.
-1. After the Codespaces environment loads, initialize the `azd` template using the `azd init` command:
-
-    ```bash
-   azd init -t hello-azd
-   ```
-
-1. When prompted, enter a name for the `azd` environment, such as `helloazd`.
 
 ---
 
