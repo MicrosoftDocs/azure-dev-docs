@@ -3,17 +3,25 @@ title: Clean up Azure resources used in Python container tutorial
 description: How to clean up resources used in a tutorial showing how to containerize a Python web app (Django or Flask) and deploy it to App Service.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/27/2024
+ms.date: 04/14/2025
 ms.custom: devx-track-python
 ---
 
 # Containerize tutorial cleanup and next steps
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. In this article, you'll clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered. You can leave the Azure resources running if you want to use them for further development work.
+In this part of the tutorial series, you learn how to clean up resources used in Azure so you don't incur other charges and help keep your Azure subscription uncluttered.
 
 ## Clean up resources
 
+At the end of a tutorial or project, it's important to clean up any Azure resources you no longer need. This helps you:
+
+* Avoid unnecessary charges – Resources left running can continue to accrue costs.
+* Keep your Azure subscription organized – Removing unused resources makes it easier to manage and navigate your subscription.
+
 In this tutorial, all the Azure resources were created in the same resource group. Removing the resource group removes all resources in the resource group and is the fastest way to remove all Azure resources used for your app.
+
+> [!TIP]
+> If you plan to continue development or testing, you can leave the resources running. Just be aware of potential costs.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -21,10 +29,23 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
-```azurecli
-az group delete \
-    --name $RESOURCE_GROUP_NAME 
-```
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    az group delete --name $RESOURCE_GROUP_NAME 
+    ```
+
+    ### [Powershell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    az group delete --name $RESOURCE_GROUP_NAME 
+    ```
+
+    ---
 
 You can optionally add the `--no-wait` argument to allow the command to return before the operation is complete.
 
@@ -32,23 +53,17 @@ You can optionally add the `--no-wait` argument to allow the command to return b
 
 To work with Azure resources in VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-1. In the Azure Tools extension for Visual Studio Code, expand **RESOURCES** and find your subscription.
+1. In the Azure view in VS Code (from the Azure Tools extension), expand **RESOURCES** and find your subscription.
 
-1. Make sure you're filtering by **Group by Resource Group**
+1. Make sure the view is set to **Group by Resource Group**.
 
-1. Find your resource group, right-click, and select **Delete Resource Group**.
+1. Locate the resource group you want to delete.
 
-    :::image type="content" source="./media/tutorial-container-web-app/remove-resource-group-visual-studio-code.png" lightbox="./media/tutorial-container-web-app/remove-resource-group-visual-studio-code.png" alt-text="A screenshot that shows how to delete a resource group in Visual Studio Code." :::
+1. Right-click the resource group and select **Delete Resource Group**.
 
-1. Enter the name of the resource group in the dialog box to confirm deletion.
+1. In the confirmation dialog, enter the exact name of the resource group.
 
-### [Azure portal](#tab/azure-portal)
-
-1. Navigate to your resource group in the [Azure portal](https://portal.azure.com/). For example, you can search for the name of your resource group and select it under **Resource Groups** in the results.
-
-1. Select **Overview** on the **service menu**, then select **Delete Resource Group** in the top menu.
-
-1. In the **Delete a resource group** confirmation dialog, enter the name of your resource group to confirm deletion, then select **Delete**.
+1. Press **ENTER** to confirm and delete the resource group..
 
 ----
 
