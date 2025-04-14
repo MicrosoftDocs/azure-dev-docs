@@ -8,7 +8,7 @@ ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-# How to Test Azure SDK Integration in JavaScript Applications
+# How to Test Azure SDK integration in JavaScript applications
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide shows you how to effectively test Azure SDK integration in your JavaScript applications a testing framework. 
 
@@ -471,7 +471,7 @@ The following test file shows how to test the **insertDocument** function.
 
 ## Troubleshooting
 
-Most of the code in this article comes from the [MicrosoftDocs/node-essentials](https://github.com/MicrosoftDocs/node-essentials/) GitHub repository. If you want to insert into a Cosmos DB Cloud resource, [create the resourcce with this script](https://github.com/MicrosoftDocs/node-essentials/scripts/create-cosmos-db-resources.sh).
+Most of the code in this article comes from the [MicrosoftDocs/node-essentials](https://github.com/MicrosoftDocs/node-essentials/) GitHub repository. If you want to insert into a Cosmos DB Cloud resource, [create the resource with this script](https://github.com/MicrosoftDocs/node-essentials/scripts/create-cosmos-db-resources.sh).
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
