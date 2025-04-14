@@ -32,7 +32,7 @@ In this course:
 
 :::image type="content" source="media/generative-ai-for-javascript-developers/leonardo-talk.png" alt-text="An AI-generated image of Leonardo Da Vinci used in the companion app to talk to historical characters.":::
 
-[Use the companion application to talk to historical characters](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/README.md)
+[Use the companion application to talk to historical characters](https://github.com/microsoft/generative-ai-with-javascript/blob/main/README.md)
 
 ## What you need to know about LLMs?
 
