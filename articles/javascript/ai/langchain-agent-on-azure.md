@@ -1,7 +1,7 @@
 ---
 title: Build a LangChain agent for Azure
 description: 
-ms.date: 03/26/2025
+ms.date: 04/14/2025
 ms.topic: tutorial
 ms.custom: devx-track-ts, devx-track-ts-ai
 ---
@@ -29,11 +29,13 @@ The Azure service integration includes:
 
 ## Prerequisities
 
-* Node.js LTS
-* TypeScript
-* LangChain.js and a LangSmith project name, its key, and its endpoint. 
-* Azure AI resource: the resource endpoint, the admin key to insert the documents, the query key to read the documents, and the index name. 
-* Azure OpenAI resource: the resource instance name, the key, and 2 models and their API versions. An API version is not the same thing as a model version.
+* [Node.js LTS](https://nodejs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
+* [LangChain.js](https://www.npmjs.com/package/langchain)
+* Optional [LangSmith](https://www.langchain.com/langsmith) project name, its key, and its endpoint. LangSmith allows you to observe your usage of AI. 
+* Optional [LangGraph Studio](https://studio.langchain.com). This allows you to run and debug your LangGraph chains and agents.  
+* [Azure AI Search resource](/azure/search/search-what-is-azure-search): the resource endpoint, the admin key to insert the documents, the query key to read the documents, and the index name. 
+* [Azure OpenAI resource](/azure/ai-services/openai/): the resource instance name, the key, and 2 models and their API versions. An API version is not the same thing as a model version.
     * Embeddings model such as `text-embedding-ada-002` and its API version.
     * Large language model such as `gpt-35-turbo-instruct` and its API version. 
 * Create a .env for local development with the to hold this information. 
@@ -64,6 +66,8 @@ The Azure service integration includes:
     LANGSMITH_PROJECT=""
     NORTHWIND_PDF_LOADED=true
     ```
+
+    The LangSmith functionality is optional and requires a LangSmith account. Set `LANGSMITH_TRACING` to true only for local development. Set this environment variable to false or remove it when you run the code in production. 
 
 
 ## Initialize your Node.js project
@@ -515,9 +519,9 @@ Run the chains with **retrievalChain.invoke** and the user's question as input t
     npm run build
     ```
 
-## Run the agent in local development with LangChain Studio
+## Optional - run the agent in local development with LangChain Studio
 
-For local development, use LangChain Studio to work with your agent. 
+Optionally, for local development, use LangChain Studio to work with your agent. 
 
 1. Create a `langgraph.json` file to define the graph.
 
