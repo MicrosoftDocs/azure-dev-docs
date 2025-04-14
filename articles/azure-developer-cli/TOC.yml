@@ -17,7 +17,7 @@
       href: azd-templates.md
     - name: Supported languages and environments
       href: supported-languages-environments.md
-    - name: Azure Developer CLI vs Azure ClI
+    - name: Azure Developer CLI vs Azure CLI
       href: azure-developer-cli-vs-azure-cli.md
     - name: Explore the template galleries
       href: azd-template-galleries.md
