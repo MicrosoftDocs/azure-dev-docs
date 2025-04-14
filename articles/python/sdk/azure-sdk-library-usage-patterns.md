@@ -77,7 +77,7 @@ Many client and management libraries provide async versions (`.aio`). The `async
 
 Examples of Azure Python SDK libraries with async versions include: [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio), [azure.servicebus.aio](/python/api/azure-servicebus/azure.servicebus.aio), [azure.mgmt.keyvault.aio](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.aio), and [azure.mgmt.compute.aio](/python/api/azure-mgmt-compute/azure.mgmt.compute.aio).
 
-These libraries need an async transport such as `aiohttp` to work. The `azure-core` library provides an async transport, `AioHttpTransport`, which is used by the async libraries.
+These libraries need an async transport such as `aiohttp` to work. The `azure-core` library provides an async transport, `AioHttpTransport`, which is used by the async libraries, so you may not need to install `aiohttp` separately.
 
 The following code shows how create a python file thath demonstrates how to create a client for the async version of the Azure Blob Storage library:
 
@@ -87,11 +87,10 @@ The full example is on GitHub at [use_blob_auth_async.py](https://github.com/Mic
 
 ### Long running operations
 
-Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebSiteManagementClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2022_09_01.models.site) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
+Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebAppsClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2022_09_01.models.site)) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
 
 > [!NOTE]
-> You may notice differences in method names in a library, which is due to
-version differences. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are long polling operations. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
+> You may notice differences in method names in a library depending on its version and whether it's based on azure.core. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are long polling operations. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.
 
 The [`LROPoller`](/python/api/azure-core/azure.core.polling.lropoller) return type means that the operation is asynchronous. Accordingly, you must call that poller's `result` method to wait for the operation to finish and obtain its result.
 
