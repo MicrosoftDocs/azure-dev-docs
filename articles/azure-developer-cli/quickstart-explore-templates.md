@@ -1,9 +1,9 @@
 ---
-title: Explore and Customize an Azure Developer CLI Template
+title: Explore and customize an Azure Developer CLI Template
 description: Learn the basics of how to work with and customize Azure Developer CLI templates.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/10/2025
+ms.date: 04/14/2025
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -15,7 +15,7 @@ In this quickstart, you explore and customize the **`hello-azd`** Azure Develope
 
 ## Prerequisites
 
-- [Install the Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd) on your local machine
+- [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) on your local machine
 - [Install Visual Studio Code](https://code.visualstudio.com/download) or your editor of choice
 - Have access to GitHub Codespaces (optional)
 
@@ -23,7 +23,7 @@ In this quickstart, you explore and customize the **`hello-azd`** Azure Develope
 
 ## Set up the sample template
 
-`hello-azd` is a sample template designed to showcase essential features of `azd`. The template provides a fully functional app you can deploy to Azure using a single command. The app includes a friendly UI with information about `azd` and a small demo tool that allows you to upload and view support tickets.
+`hello-azd` is a sample template designed to showcase essential features of `azd` that you can deploy to Azure using a single command. The template provides a friendly UI with information about `azd` and a small demo tool that allows you to upload and view support tickets.
 
 The template supports the following features:
 
@@ -31,7 +31,7 @@ The template supports the following features:
 - Creates the Azure resources needed by the app, such as an Azure Cosmos DB database
 - Can automatically create a CI/CD pipeline using the `azd pipeline config` command
 
-Follow these steps to access the template so you can explore and customize it in the later sections.
+Follow these steps to set up the template:
 
 ## [Visual Studio Code](#tab/vs-code)
 
@@ -41,7 +41,9 @@ Follow these steps to access the template so you can explore and customize it in
    azd init -t hello-azd
    ```
 
-2. Open the project folder in Visual Studio Code:
+1. When prompted, enter a name for the `azd` environment, such as `helloazd`.
+
+1. Open the project folder in Visual Studio Code:
 
    ```bash
    code hello-azd
@@ -50,8 +52,15 @@ Follow these steps to access the template so you can explore and customize it in
 ## [Codespaces](#tab/codespaces)
 
 1. Open the [hello-azd template repository](https://github.com/Azure-Samples/hello-azd) on GitHub.
-2. Select the **Code** button and then select **Codespaces**.
-3. Create a new Codespace to launch a fully configured development environment in your browser.
+1. Select the **Code** button and then select **Codespaces**.
+1. Create a new Codespace to launch a fully configured development environment in your browser. You might need to wait a moment for the environment to initialize.
+1. After the Codespaces environment loads, initialize the `azd` template using teh following command:
+
+    ```bash
+   azd init -t hello-azd
+   ```
+
+1. When prompted, enter a name for the `azd` environment, such as `helloazd`.
 
 ---
 
