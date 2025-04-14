@@ -151,7 +151,13 @@ items:
     - name: Spring Cloud Stream support
       href: spring-cloud-stream-support.md
     - name: Spring Messaging support
-      href: spring-messaging-support.md
+      items:
+        - name: Spring Messaging Azure Event Hubs
+          href: spring-messaging-event-hubs-support.md
+        - name: Spring Messaging Azure Service Bus
+          href: spring-messaging-service-bus-support.md
+        - name: Spring Messaging Azure Storage Queue
+          href: spring-messaging-storage-queue-support.md
     - name: Spring JMS support
       items:
       - name: Use Azure Service Bus with JMS

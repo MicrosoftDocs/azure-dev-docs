@@ -19,6 +19,8 @@
       href: supported-languages-environments.md
     - name: Azure Developer CLI vs Azure ClI
       href: azure-developer-cli-vs-azure-cli.md
+    - name: Explore the template galleries
+      href: azd-template-galleries.md
   - name: Deployment
     items:
     - name: Configure deployment pipeline
