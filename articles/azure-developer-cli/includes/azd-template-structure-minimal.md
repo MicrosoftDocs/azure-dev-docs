@@ -9,11 +9,11 @@ ms.date: 08/01/2022
 `azd` templates are standard code repositories with additional assets included. All `azd` templates share a similar file structure based on `azd` conventions:
 
 - **`infra` folder** - Contains all of the Bicep or Terraform infrastructure as code files for the `azd` template. `azd` executes these files to create the Azure resources required by your app.
+- **`src` folder** - Contains the app source code. `azd` packages and deploys the code based on configurations in `azure.yaml`.
 - **`azure.yaml` file** - A configuration file that maps source code folders in your project to Azure resources defined in the `infra` folder for deployment. For example, you might define an API service and a web front-end service in separate folders and map them to different Azure resources for deployment.
-- **`.azure` folder** - Contains essential Azure configurations and environment variables, such as the location to deploy resources.
-- **`src` folder** - Contains all of the deployable app source code.
+- **`.azure` folder** - Contains essential Azure configurations, such as the location to deploy resources.
 
-For example, a common `azd` template might match the following folder structure:
+For example, most `azd` templates match the following folder structure:
 
 :::image type="content" source="../media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
