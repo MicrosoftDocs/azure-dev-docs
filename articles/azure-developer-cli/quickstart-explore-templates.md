@@ -21,9 +21,9 @@ In this quickstart, you explore and customize the **`hello-azd`** Azure Develope
 
 [!INCLUDE [azd-template-structure](includes/azd-template-structure.md)]
 
-## Access the sample template
+## Set up the sample template
 
-`hello-azd` is a sample template designed to showcase essential features of `azd`. The template provides a fully functional app you can deploy to Azure using a single command. The app includes a friendly user interface with information about `azd` and a small demo tool that allows you to upload and view support tickets.
+`hello-azd` is a sample template designed to showcase essential features of `azd`. The template provides a fully functional app you can deploy to Azure using a single command. The app includes a friendly UI with information about `azd` and a small demo tool that allows you to upload and view support tickets.
 
 The template supports the following features:
 
@@ -65,9 +65,11 @@ With the template open in your tool of choice, you can browse the folder structu
 
 1. Expand the `infra` folder to explore the infrastructure as code files.
     - This template uses Bicep files (`.bicep`) to create Azure resources, but you can also use Terraform (`.tf`).
-    - The `main.bicep` file orchestrates resource provisioning. Browse the contents of this file for examples of how to create app resources such as an Azure Storage account or an Azure Container App.
+    - The `main.bicep` file orchestrates resource provisioning by referencing other Bicep modules in the `infra` folder. Browse the contents of this file for examples of how to create app resources, such as an Azure Storage account:
 
         ```bicep
+        // Omitted...
+
         // Create a storage account
         module storage './core/storage/storage-account.bicep' = {
             name: 'storage'
@@ -83,6 +85,8 @@ With the template open in your tool of choice, you can browse the folder structu
             ]
             }
         }
+
+        // Omitted...
         ```
 
 1. At the root of the template, open the `azure.yaml` file to view essential template configurations:

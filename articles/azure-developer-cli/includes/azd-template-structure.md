@@ -4,7 +4,7 @@ ms.topic: include
 ms.date: 08/01/2022
 ---
 
-## Understand Azure Developer CLI template structure
+## Explore Azure Developer CLI template structure
 
 `azd` templates are standard code repositories with some additional assets included. All `azd` templates share a similar file structure based on `azd` conventions:
 
