@@ -19,7 +19,7 @@ In this quickstart, you explore and customize the **`hello-azd`** Azure Develope
 - [Install Visual Studio Code](https://code.visualstudio.com/download) or your editor of choice
 - Have access to GitHub Codespaces (optional)
 
-[!INCLUDE [azd-template-structure](includes/azd-template-structure.md)]
+[!INCLUDE [azd-template-structure-minimal](includes/azd-template-structure-minimal.md)]
 
 ## Set up the sample template
 
@@ -171,13 +171,6 @@ To make these changes, complete the following steps:
 After making your changes, use the `azd up` command to provision and deploy the app resources:
 
 1. Open a terminal in the project directory.
-1. To initialize the template, run the `azd init` command:
-
-    ```azdeveloper
-    azd init
-    ```
-
-1. When prompted, enter a name for the environment. This name influences the naming of the provisioned Azure resources.
 
 1. To provision and deploy the template, run the `azd up` command:
 
