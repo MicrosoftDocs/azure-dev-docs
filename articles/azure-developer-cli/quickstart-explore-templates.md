@@ -107,15 +107,15 @@ With the template open in your tool of choice, you can browse the folder structu
 
         ```yml
         metadata:
-          template: hello-azd-dotnet
-        name: azd-starter
+          template: hello-azd-dotnet  # Specifies the template being used
+        name: azd-starter  # Name of the project
         services:
-          aca:
-            project: ./src
-            language: csharp
-            host: containerapp
+          aca:  # Define the Azure Container App service
+            project: ./src  # Path to the source code
+            language: csharp  # Programming language
+            host: containerapp  # Hosting service
             docker:
-              path: ./Dockerfile
+              path: ./Dockerfile  # Location of the Dockerfile
         ```
 
 ## Update the Template
