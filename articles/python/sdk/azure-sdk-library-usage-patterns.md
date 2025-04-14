@@ -1,5 +1,5 @@
 ---
-title: Usage patterns with the Azure libraries for Python
+title: Usage patterns with the Azure libraries for Python 
 description: An overview of common usage patterns in the Azure SDK libraries for Python
 ms.date:04/14/2025
 ms.topic: conceptual
