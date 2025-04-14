@@ -29,23 +29,23 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
-    ### [Bash](#tab/bash)
+### [Bash](#tab/bash)
 
-    ```azurecli-interactive
-    #!/bin/bash
-    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-    az group delete --name $RESOURCE_GROUP_NAME 
-    ```
+```azurecli-interactive
+#!/bin/bash
+RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+az group delete --name $RESOURCE_GROUP_NAME 
+```
 
-    ### [Powershell](#tab/powershell)
+### [Powershell](#tab/powershell)
 
-    ```powershell-interactive
-    # PowerShell syntax
-    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-    az group delete --name $RESOURCE_GROUP_NAME 
-    ```
+```powershell-interactive
+# PowerShell syntax
+$RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+az group delete --name $RESOURCE_GROUP_NAME 
+```
 
-    ---
+---
 
 You can optionally add the `--no-wait` argument to allow the command to return before the operation is complete.
 
