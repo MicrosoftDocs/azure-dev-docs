@@ -15,7 +15,7 @@ Azure provides multiple command-line tools to help users interact with cloud ser
 
 ## What is the Azure Developer CLI?
 
-The Azure Developer CLI (`azd`) is a developer-focused command-line tool designed to streamline the process of building, provisioning, deploying, and managing full-stack apps on Azure. Key features of the Azure Developer CLI include:
+The Azure Developer CLI (`azd`) is a developer-focused command-line tool designed to streamline the process of building, provisioning, deploying, and managing full-stack apps on Azure. Key features include:
 
 - High-level commands oriented around app lifecycle stages, such as provisioning and deployment
 - A template system to define infrastructure as code and deployment configurations for your app
@@ -25,9 +25,7 @@ The Azure Developer CLI (`azd`) is a developer-focused command-line tool designe
 
 ## What is the Azure CLI?
 
-The Azure CLI (`az`) is a general-purpose command-line interface for managing Azure resources. It provides a comprehensive set of commands to create, configure, delete, and monitor resources programmatically or interactively.
-
-Key features of the Azure CLI include:
+The Azure CLI (`az`) is a general-purpose command-line interface for managing Azure resources. It provides a comprehensive set of commands to create, configure, delete, and monitor resources programmatically or interactively. Key features include:
 
 - Granular administrative control over Azure resources
 - Support for scripting and task automation
@@ -43,7 +41,7 @@ While both the Azure Developer CLI and Azure CLI provide command-line interfaces
 
 ### Compare commands
 
-You can print the available commands for both CLI tools to visualize these differences. For example, if you run the Azure Developer CLI command `azd help` to view information about the tool and available commands, you see the following output:
+You can print the available commands for both CLI tools to visualize these differences. For example, run the Azure Developer CLI command `azd help` to view information about the tool and available commands:
 
 ```output
 Usage
@@ -72,7 +70,7 @@ Commands
     show        : Display information about your app and its resources.
 ```
 
-Notice that the commands in the preceding output map to high level development workflow concerns, such as managing app deployments, app configuration, and monitoring.
+The commands in the preceding output map to high level development workflow concerns, such as managing app deployments, app configuration, and monitoring.
 
 However, if you run the `az help` command for the Azure CLI, you see output that resembles the following output:
 
