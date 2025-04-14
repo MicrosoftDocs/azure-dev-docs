@@ -167,7 +167,15 @@ To make these changes, complete the following steps:
 After making your changes, use the `azd up` command to provision and deploy the app resources:
 
 1. Open a terminal in the project directory.
-1. Run the following command:
+1. To initialize the template, run the `azd init` command:
+
+    ```azdeveloper
+    azd init
+    ```
+
+1. When prompted, enter a name for the environment. This name influences the naming of the provisioned Azure resources.
+
+1. To provision and deploy the template, run the `azd up` command:
 
    ```azdeveloper
    azd up
@@ -180,14 +188,11 @@ After making your changes, use the `azd up` command to provision and deploy the 
    - Deploy your application with the updated changes
    - Print the URL for the deployed application
 
-        > [!NOTE]
-        > If you haven't signed-in already, run the `azd auth login` to authenticate `azd` with your Azure account.
-
 1. To see your updated application live, open the URL printed in the `azd` console output logs in your browser.
 
     :::image type="content" source="media/get-started/explore-templates-header.png" alt-text="A screenshot showing the updated app header.":::
 
-1. You can also navigate to the created storage account in the Azure portal to view the two blob containers that were created.
+1. To view the two blob containers that were created, navigate to the created storage account in the Azure portal.
 
     :::image type="content" source="media/get-started/explore-templates-blob-container.png" alt-text="A screenshot showing the created blob containers.":::
 
