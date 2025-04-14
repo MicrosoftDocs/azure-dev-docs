@@ -5,9 +5,9 @@ ms.date: 04/14/2025
 ms.topic: tutorial
 ms.custom: devx-track-ts, devx-track-ts-ai
 ---
-# Intelligent documentation search with LangChainjs and Azure AI Search
+# Intelligent documentation search with LangChain.js and Azure AI Search
 
-Use LangChainjs, as an AI framework to quickly create an AI agent which allows a _NorthWind_ company employee to ask human resources related questions. The benefit of adopting a framework is that much of the boilerplate code you need to write for AI agents and Azure service integration is abstracted away. This allows you to immediately focus on your business need.  
+Use LangChain.js, as an AI framework to quickly create an AI agent which allows a _NorthWind_ company employee to ask human resources related questions. The benefit of adopting a framework is that much of the boilerplate code you need to write for AI agents and Azure service integration is abstracted away. This allows you to immediately focus on your business need.  
 
 NorthWind has two data sources it pulls from: HR documentation internally available to all employees, and an HR database of confidential employee data that is secured to HR. Let's build an agent to determine if the employee's question can be answered by the internally public documents. If the question can be answered from these documents, provide the answer. 
 
@@ -16,10 +16,10 @@ NorthWind has two data sources it pulls from: HR documentation internally availa
 
 ## Agent architecture
 
-The LangChainjs framework provides the decision flow for the agent as a graph. This graph is an orchestration structure that connects various nodes (like agents, tools, and processing steps) to form a workflow. The agent is one such node that makes decisions and generates responses based on inputs and available tools. Essentially, the graph manages the flow and state transitions between nodes (including multiple invocations of the agent), while the agent handles the logic for interacting with language models and optionally its tools. The agent is a LangChainjs graph which integrates with Azure AI Search and Azure OpenAI. Much of the work of integrating to the Azure services has been abstracted away so you just need to set configurations for the Azure services, organize the workflow, and provide any business logic. 
+The LangChain.js framework provides the decision flow for the agent as a graph. This graph is an orchestration structure that connects various nodes (like agents, tools, and processing steps) to form a workflow. The agent is one such node that makes decisions and generates responses based on inputs and available tools. Essentially, the graph manages the flow and state transitions between nodes (including multiple invocations of the agent), while the agent handles the logic for interacting with language models and optionally its tools. The agent is a LangChain.js graph which integrates with Azure AI Search and Azure OpenAI. Much of the work of integrating to the Azure services has been abstracted away so you just need to set configurations for the Azure services, organize the workflow, and provide any business logic. 
 
 The Azure service integration includes: 
-* The Azure AI Search is used to provide a vector store for the HR documents. The document embeddings are created with an embeddings model from Azure OpenAI, such as `text-embedding-ada-002`, and inserted into the vector store using the _admin key_ for Azure AI Search.  
+* The Azure AI Search service is used to provide a vector store for the HR documents. The document embeddings are created with an embeddings model from Azure OpenAI, such as `text-embedding-ada-002`, and inserted into the vector store using the _admin key_ for Azure AI Search.  
 * The Azure OpenAI service is used as the large language model (LLM) such as `gpt-35-turbo-instruct` to be able to answer employee questions. It is also used to determine if the question is generally HR related so that the documents are relevant. 
 
 |Question|Relevance to HR documents|
@@ -122,13 +122,14 @@ export const VECTOR_STORE_ADMIN = {
 
 Typically, when using Azure AI Search, the developer needs to define a schema for how data is ingested into AI Search. By using LangChain.js, this need is abstracted away into a default schema which is usefully for most scenarios. 
 
-When uploading data into Azure AI Search, you need to use the  key.**admin** When querying the vector store, you should use the **query** key. In order to support these best practices, there are two configurations, one for admin and one for query. 
+When uploading data into Azure AI Search, you need to use the **admin** key. When querying the vector store, you should use the **query** key. In order to support these best practices, there are two configurations, one for admin and one for query. 
 
-The same methodology is used for Azure OpenAI. The architecture needs to AI models: 1 to create embeddings to insert into AI Search vector store, and one to query with the LLM. Each Azure OpenAI has its own model. 
+The same methodology is used for Azure OpenAI. The architecture needs two AI models: 1 to create embeddings to insert into AI Search vector store, and one to query with the LLM. Each Azure OpenAI has its own model. 
 
 This specificity and clarity of configuration allows you to use the resource with the correct permission or model. 
 
-CAUTION: This article uses keys to access resources. In a production environment, the recommended best practice is to use Azure RBAC and managed identity. This allows your to control authentication and access without managing or rotating keys.
+> [!WARNING]
+> This article uses keys to access resources. In a production environment, the recommended best practice is to use Azure RBAC and managed identity. This allows you to control authentication and access without managing or rotating keys.
 
 Create other configuration files to manage the separate resources:
 
@@ -216,7 +217,7 @@ This solution to loading the files relied on LangChain.js for almost all of the 
 
 ## Agent workflow
 
-In LangChainjs, build the agent with a LangGraph. This allows you to definition of the nodes, and edges:
+In LangChain.js, build the agent with a LangGraph. This allows you to definition of the nodes, and edges:
 
 * Node: where work is performed
 * Edge: define the connection between nodes
@@ -224,7 +225,7 @@ In LangChainjs, build the agent with a LangGraph. This allows you to definition 
 In this application, the two work nodes are:
 
 * **requiresHrResources** - determine if the question relevant to HR documentation with the Azure OpenAI LLM.
-* **getAnswer** - get the answer. The answer comes from a LangChainjs retriever chain which uses the document embeddings from Azure AI Search which are sent to the Azure OpenAI LLM. This is the essence of retrieval augmented generation. 
+* **getAnswer** - get the answer. The answer comes from a LangChain.js retriever chain which uses the document embeddings from Azure AI Search which are sent to the Azure OpenAI LLM. This is the essence of retrieval augmented generation. 
 
 The edges define where to start, end, and the condition needed to call the **getAnswer** answer node.
 
@@ -415,7 +416,7 @@ The **requiresHrResources** function sets a message in the updated state with `H
 
 ## Build the Azure AI Search integration
 
-The Azure AI Search integration provides the vector store documents so the LLM can augment the answer for the **getAnswer** node. LangChainjs again provides much of the abstraction so the required code is minimal. The 3 functions are:
+The Azure AI Search integration provides the vector store documents so the LLM can augment the answer for the **getAnswer** node. LangChain.js again provides much of the abstraction so the required code is minimal. The functions are:
 
 * **getReadOnlyVectorStore**: get the client with the query key
 * **getDocsFromVectorStore**: find relevant docs to the user's question
@@ -443,7 +444,7 @@ export async function getDocsFromVectorStore(
 }
 ```
 
-The LangChainjs integration code makes getting the relevant documents out of the vector store incredibly easy. 
+The LangChain.js integration code makes getting the relevant documents out of the vector store incredibly easy. 
 
 ## Get answer from LLM
 
@@ -599,7 +600,7 @@ If the agent makes an incorrect decision, that can indicate an issue with one of
 * Number of documents from vector store
 * Prompt used in the decision node. 
 
-## Run the agent in production
+## Run the agent from an app
 
 To call the agent from a parent application, such as a web API, you need to provide the invocation of the agent.
 
