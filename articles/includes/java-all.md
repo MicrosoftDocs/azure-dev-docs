@@ -515,7 +515,7 @@
 | Event Hubs - Spark | Maven [2.3.22](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-spark_2.12/2.3.22/jar/) |  |  |
 | Functions - Archetype | Maven [1.64](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/1.64/jar/) |  |  |
 | Functions - Java Core | Maven [1.0.0-beta-3](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-java-core/1.0.0-beta-3/jar/) |  |  |
-| Functions - Java Library | Maven [3.1.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/3.1.0/jar/)<br>Maven [3.1.1-alpha](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/3.1.1-alpha/jar/) |  |  |
+| Functions - Java Library | Maven [3.1.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library/3.1.0/jar/) |  |  |
 | Functions - Java Library Cosmos DB Cassandra | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-cosmosdbcassandra/1.0.0/jar/) |  |  |
 | Functions - Java Library SignalR | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-signalr/1.0.0/jar/) |  |  |
 | Functions - Kotlin Archetype | Maven [1.23](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/1.23/jar/) |  |  |
