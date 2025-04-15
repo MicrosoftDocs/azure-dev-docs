@@ -122,7 +122,7 @@
 | TimeZones | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-timezone_1.0.0-beta.1/sdk/maps/maps-timezone-rest/) |
 | Token Cache Persistence Plugin | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/) |
 | TypeSpec HTTP Runtime | npm [0.2.1](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.2.1) |  | GitHub [0.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.1/sdk/core/ts-http-runtime) |
-| VS Code Authentication Plugin | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
+| VS Code Authentication Plugin | npm [1.0.1](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.1) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.1/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.1.4](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.4) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.4/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub Client | npm [1.0.2](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.2) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.2/sdk/web-pubsub/web-pubsub-client/) |
 | WebPubSub Client SDK Protobuf | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/web-pubsub-client-protobuf/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/web-pubsub-client-protobuf-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client-protobuf_1.0.0-beta.2/sdk/web-pubsub/web-pubsub-client-protobuf/) |
@@ -289,7 +289,7 @@
 | Resource Management - Migrate | npm [2.0.3](https://www.npmjs.com/package/@azure/arm-migrate/v/2.0.3) | [docs](/javascript/api/overview/azure/arm-migrate-readme) | GitHub [2.0.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate/arm-migrate) |
 | Resource Management - Migration Assessment | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-migrationassessment/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-migrationassessment-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-migrationassessment_1.0.0-beta.1/sdk/migrate/arm-migrationassessment/) |
 | Resource Management - Migration Discovery SAP | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-migrationdiscoverysap/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-migrationdiscoverysap-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-migrationdiscoverysap_1.0.0-beta.1/sdk/migrationdiscovery/arm-migrationdiscoverysap/) |
-| Resource Management - Mixed Reality | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.0.1)<br>npm [4.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-mixedreality-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality) |
+| Resource Management - Mixed Reality | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.0.1)<br>npm [4.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-mixedreality-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/1133631dbc5a5d6e7dd21aa735f91c48173f81b7/sdk/mixedreality/arm-mixedreality) |
 | Resource Management - ML Web Services | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-webservices/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-webservices-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices) |
 | Resource Management - Mobile Network | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-mobilenetwork/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-mobilenetwork-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_6.0.0/sdk/mobilenetwork/arm-mobilenetwork/) |
 | Resource Management - Mongo Cluster | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-mongocluster/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-mongocluster-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.1/sdk/mongocluster/arm-mongocluster/) |
@@ -421,7 +421,7 @@
 | TypeSpec HTTP Client | npm [0.4.0](https://www.npmjs.com/package/@typespec/http-client/v/0.4.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.3.1](https://www.npmjs.com/package/@typespec/http-client-java/v/0.3.1) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.3.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.3.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.9.2-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.9.2-dev.1) |  |  |
+| TypeSpec HTTP Client Python | npm [0.9.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.9.2) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.17](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.17) |  |  |
 | TypeSpec Rust | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.3) |  |  |
 | TypeSpec SSE | npm [0.68.0](https://www.npmjs.com/package/@typespec/sse/v/0.68.0) |  |  |
@@ -503,7 +503,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250410.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250410.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250414.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250414.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -542,7 +542,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.24](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.24) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.25](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.25) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -584,7 +584,7 @@
 | AutoRest - Go | npm [4.0.0-preview.71](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.71) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.32.2](https://www.npmjs.com/package/@autorest/python/v/6.32.2) |  | GitHub [6.32.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.32.3](https://www.npmjs.com/package/@autorest/python/v/6.32.3) |  | GitHub [6.32.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
