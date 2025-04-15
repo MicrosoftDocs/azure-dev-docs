@@ -548,7 +548,7 @@ Manage environments.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Manage your environment settings.
-* [azd env set-secret](#azd-env-set-secret): Set a <name> as a reference to a Key Vault secret in the environment.
+* [azd env set-secret](#azd-env-set-secret): Set a `<name>` as a reference to a Key Vault secret in the environment.
 * [Back to top](#azd)
 
 ## azd env get-value
@@ -756,7 +756,7 @@ azd env set <key> <value> [flags]
 
 ## azd env set-secret
 
-Set a <name> as a reference to a Key Vault secret in the environment.
+Set a `<name>` as a reference to a Key Vault secret in the environment.
 
 ### Synopsis
 
