@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Explore the `azd up` workflow
 
-The `azd up` command of the Azure Developer CLI (`azd`) is a powerful tool that simplifies the process of provisioning and deploying application resources on Azure. This guide provides a detailed breakdown of the `azd up` workflow stages and how they relate to the structure of an `azd` template.
+Thee Azure Developer CLI (`azd`) enables you to provision and deploy application resources on Azure with only a single command using `azd up`. This guide provides a detailed breakdown of `azd up` and how the different stages of this workflow command correlate to the structure of an `azd` template.
 
 ## Essential concepts
 
@@ -23,9 +23,9 @@ azd up
 
 `azd up` is designed so that you can repeatedly run the command as you develop your app, and the new changes are deployed incrementally. The command initiates a powerful workflow that essentially wraps three specific stages:
 
-1. **Packaging Stage**: Prepares the application code and dependencies for deployment.
-2. **Provisioning Stage**: Creates and configures the necessary Azure resources using infrastructure-as-code files.
-3. **Deployment Stage**: Deploys the packaged application to the provisioned Azure resources.
+1. **Packaging**: Prepares the application code and dependencies for deployment.
+2. **Provisioning**: Creates and configures the necessary Azure resources using infrastructure-as-code files.
+3. **Deployment**: Deploys the packaged application to the provisioned Azure resources.
 
 Each stage plays a critical role in ensuring a smooth and automated deployment process. You can influence the `azd up` workflow stages using configurations in the template `azure.yaml` file. The following sections explore each stage in more detail.
 
@@ -33,7 +33,7 @@ Each stage plays a critical role in ensuring a smooth and automated deployment p
 
 The packaging stage is the first step in the `azd up` workflow. During this stage:
 
-- The application code is prepared for deployment. Depending on the language or framework, packaging can involve building the application, bundling dependencies, or creating deployment artifacts such as Docker images or `.zip` files.
+- The app code is prepared for deployment. Depending on the programming language the template app is built with, packaging can involve building or compiling the app, bundling dependencies, or creating deployment artifacts such as Docker images.
 - The `azd` template structure typically includes a `src` folder where the application code resides. Build scripts or configuration files (such as a Dockerfile) can influence how the application should be packaged.
 - The `azure.yaml` file contains configuration mappings that tell `azd` where your app code lives and which language it uses so `azd` can package it appropriately.
 - This stage ensures that the application is in a deployable state before moving to the next step.
@@ -46,7 +46,7 @@ azd package
 
 ### Example packaging configuration
 
-`azd` can package apps built with different languages in different ways. For example, if your app uses a containerized approach, the `azd` template might include a `Dockerfile` in the `src` directory. The packaging stage builds a Docker image for the app based on this file. These configurations are managed through the `azure.yaml` file.
+`azd` can package apps built with different languages in different ways. For example, if your app uses a containerized approach, the `azd` template might include a `Dockerfile` in the app `src` directory. The packaging stage builds a Docker image for the app based on this file. These configurations are managed through the `azure.yaml` file.
 
 For example, consider the following project structure and configurations of the `hello-azd` starter template:
 
@@ -61,13 +61,15 @@ When you run `azd up` (or `azd package`), the Azure Developer CLI uses this comb
 
 ## The provisioning stage
 
-The provisioning stage is where the required Azure resources for your application are created and configured. For example, your app might require an Azure App Service instance to host the app itself, and an Azure Storage Account to hold uploaded files. The provisioning stage uses infrastructure-as-code (IaC) files included in the template to define the resources.
+The provisioning stage creates and configures the required Azure resources for your app. For example, your app might require an Azure App Service instance to host the app itself, and an Azure Storage Account to hold uploaded files. The provisioning stage uses infrastructure-as-code (IaC) files included in the template to define the resources.
 
 Some key points to understand about the provisioning stage include:
 
 1. `azd` supports both Bicep and Terraform for infrastructure-as-code tasks.
 1. By default, infrastructure-as-code files are stored in the `infra` folder, but this location can be customized.
 1. `azd` searches for a `main.bicep` or `main.tf` file to act as the main orchestration file for the IaC process.
+
+:::image type="content" source="media/core-concepts/provisioning-process.png" alt-text="A screenshot showing the provisioning stage of azd up.":::
 
 You can also run the provisioning process on its own outside of `azd up` using the `azd provision` command:
 
@@ -121,7 +123,7 @@ module containerAppsEnv './core/host/container-apps.bicep' = {
 // ...omitted code for other resource configurations
 ```
 
-Based on the preceding Bicep code, `azd` creates the following resources:
+Using the preceding Bicep code, `azd` creates the following resources:
 
 - An Azure Cosmos DB instance to store data submitted through the app
 - An Azure Storage account to store uploaded images
@@ -131,9 +133,9 @@ Based on the preceding Bicep code, `azd` creates the following resources:
 
 The deployment stage is the final step in the `azd up` workflow. During this stage:
 
-- The packaged application is deployed to the provisioned Azure resources.
-- `azd` uses configuration files in the template, such as `azure.yaml`, to determine how the application should be deployed.
-- Environment variables and connection strings are configured to ensure the application can interact with the provisioned resources.
+- The app artifacts created during the packaging stage are deployed to the provisioned Azure resources.
+- `azd` uses configuration files in the template, such as `azure.yaml`, to determine how to deploy the app.
+- Environment variables and connection strings are configured to ensure the app can interact with the provisioned resources.
 
 You can also run the deployment process on its own outside of `azd up` using the `azd deploy` command:
 
@@ -158,7 +160,7 @@ services:
       path: ./Dockerfile
 ```
 
-The preceding code instructs `azd` to deploy the code in the `src` folder to the `containerapp` that was created during the provisioning stage. You can also define multiple services and map each to a different host.
+The preceding code instructs `azd` to deploy the artifacts packaged from the code in the `src` folder to the `containerapp` that was created during the provisioning stage. You can also define multiple services and map each to a different host.
 
 ## Conclusion
 
