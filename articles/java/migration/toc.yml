@@ -15,11 +15,11 @@ items:
           href: migrate-github-copilot-app-modernization-java-on-azure-concepts.md
         - name: Predefined formula
           href: migrate-github-copilot-app-modernization-java-on-azure-predefined-formula.md
-        - name: Get started: use managed identities instead of passwords 
+        - name: Get started - use managed identities instead of passwords 
           href: migrate-github-copilot-app-modernization-java-on-azure-get-started-use-managed-identities-instead-of-passwords.md
-        - name: Get started: Create and apply your own formula
+        - name: Get started - Create and apply your own formula
           href: migrate-github-copilot-app-modernization-java-on-azure-get-started-create-and-apply-your-own-formula.md
-        - name: Tutorial: An end-to-end migration sample  
+        - name: Tutorial - An end-to-end migration sample  
           href: migrate-github-copilot-app-modernization-java-on-azure-tutorial-an-end-to-end-migration-sample.md
         - name: FAQ
           href: migrate-github-copilot-app-modernization-java-on-azure-faq.md
