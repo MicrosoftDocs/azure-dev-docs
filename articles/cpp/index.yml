@@ -10,6 +10,7 @@ metadata:
   ms.collection: collection
   ms.devlang: cpp
   ms.custom: devx-track-cpp
+  ms.service: azure
 
 landingContent:
   - title: Azure libraries (SDK)

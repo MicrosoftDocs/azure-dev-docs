@@ -15,7 +15,7 @@ ms.custom: devx-track-cpp
 
 ## Data vs Management Plane
 
-The Azure SDK for C++ provides libraries for data plane operations but does not offer libraries for management plane operations. Data plane libraries are used to interact with already provisioned Azure services. If you require management plane libraries for provisioning and managing Azure resources in C++, please leave an issue on our [GitHub repository](https://github.com/Azure/azure-sdk-for-cpp/issues/new/choose).
+The Azure SDK for C++ provides libraries for data plane operations but doesn't offer libraries for management plane operations. Data plane libraries are used to interact with already provisioned Azure services. If you require management plane libraries for provisioning and managing Azure resources in C++, leave an issue on our [GitHub repository](https://github.com/Azure/azure-sdk-for-cpp/issues/new/choose).
 
 ## Azure Core vs. Other Libraries
 
@@ -33,7 +33,7 @@ The main shared concepts of [`Azure::Core`](https://azuresdkdocs.z19.web.core.wi
 
 ## Package Naming Scheme
 
-The Azure SDK for C++ uses a consistent naming scheme: `azure-<group_name>-<service_name>-<sub_service_name>`. Each name starts with `azure-`, followed by the group, service, and optionally a sub-service. For example, `azure-security-keyvault-secrets` is for Azure Key Vault secrets.
+The Azure SDK for C++ uses a consistent naming scheme: `azure-<group_name>-<service_name>-<sub_service_name>`. Each name starts with `azure-`, followed by the group, service, and optionally a subservice. For example, `azure-security-keyvault-secrets` is for Azure Key Vault secrets.
 
 ## Client Objects
 
@@ -41,4 +41,4 @@ Client objects in the Azure SDK for C++ are used to interact with Azure services
 
 ## Options Parameter for Client Objects
 
-Client objects in the Azure SDK for C++ have methods that take an options parameter for customizing the interactions with the service. These options parameters can be used to set things like timeouts, retry policies, and other configurations.
+Client objects in the Azure SDK for C++ have methods that take an options parameter for customizing the interactions with the service. These options parameters can be used to set things like time-outs, retry policies, and other configurations.

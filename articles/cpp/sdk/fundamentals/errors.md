@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for C++ -- Errors
+title: Azure SDK for C++ - Errors
 description: Understand how to handle errors effectively when using the Azure SDK for C++. 
 author: ronniegeraghty
 ms.author: rgeraghty
@@ -13,7 +13,7 @@ ms.custom: devx-track-cpp
 
 # Error Handling in the Azure SDK for C++
 
-Error handling in the Azure SDK for C++ is primarily implemented through C++ exceptions. This approach aligns with standard C++ practices and allows for clear error reporting and handling across the SDK. When interacting with Azure services, operations may fail for various reasons such as authentication issues, service unavailability, invalid requests, or resource constraints. The SDK captures these errors as exceptions that provide detailed information about the failure.
+Error handling in the Azure SDK for C++ is primarily implemented through C++ exceptions. This approach aligns with standard C++ practices and allows for clear error reporting and handling across the SDK. When your C++ application interacts with Azure services, operations can fail for various reasons such as authentication issues, service unavailability, invalid requests, or resource constraints. The SDK captures these errors as exceptions that provide detailed information about the failure.
 
 ## Exception Hierarchy
 
@@ -40,13 +40,13 @@ The Azure SDK for C++ uses a hierarchy of exception classes, with the most impor
 
 Different Azure services extend the base exception types to provide service-specific error information:
 
-1. **`Azure::Storage::StorageException`** - Extends `RequestFailedException` with additional storage-specific information. This exception includes:
+1. **`Azure::Storage::StorageException`** - Extends `RequestFailedException` with other storage-specific information. This exception includes:
    - Storage-specific error codes
    - Additional information in response body
    - Details about the failed storage operation
 
-2. **`Azure::Messaging::EventHubs::EventHubsException`** - An exception specific to EventHubs operations. It includes:
-   - Error condition (symbolic value from AMQP)
+2. **`Azure::Messaging::EventHubs::EventHubsException`** - An exception specific to Event Hubs operations. It includes:
+   - Error condition (symbolic value from AMQP (Advanced Message Queuing Protocol))
    - Error description
    - Status code
    - Information about whether the error is transient
@@ -83,7 +83,7 @@ public:
 };
 ```
 
-Service-specific exceptions can add additional fields. For example, `StorageException` adds `AdditionalInformation`:
+Service-specific exceptions can add extra fields. For example, `StorageException` adds `AdditionalInformation`:
 
 ```cpp
 struct StorageException final : public Azure::Core::RequestFailedException {
@@ -139,7 +139,7 @@ catch (std::exception const& e) {
 
 ### Handling Transient Errors
 
-Some services, like EventHubs, provide information about whether an error is transient, allowing for retry logic:
+Some services, like Event Hubs, provide information about whether an error is transient, allowing for retry logic:
 
 ```cpp
 try {
@@ -155,7 +155,7 @@ catch (Azure::Messaging::EventHubs::EventHubsException& e) {
 }
 ```
 
-The SDK implements internal retry policies for transient failures, but you may need to handle specific cases in your application code.
+The SDK implements internal retry policies for transient failures, but you want to handle specific cases in your application code.
 
 ### Service-Specific Error Handling
 
@@ -207,5 +207,5 @@ The Azure SDK for C++ guarantees that client instance methods are thread-safe an
 
 When handling exceptions across threads, keep in mind:
 
-1. Exception objects should not be shared between threads unless properly synchronized
+1. Exception objects shouldn't be shared between threads unless properly synchronized
 2. The `RequestFailedException` includes a copy constructor that creates a deep copy, which can be used when needing to pass exception information between threads
