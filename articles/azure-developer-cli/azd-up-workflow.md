@@ -54,7 +54,7 @@ You can run the packaging process on its own outside of `azd up` using the `azd 
 azd package
 ```
 
-### Example packaging configuration
+### Example packaging configurations
 
 `azd` can package apps built with different languages in different ways. For example, if your app uses a containerized approach, the `azd` template might include a `Dockerfile` in the app `src` directory. The packaging stage builds a Docker image for the app based on this file. These configurations are managed through the `azure.yaml` file.
 
@@ -87,7 +87,7 @@ You can also run the provisioning process on its own outside of `azd up` using t
 azd provision
 ```
 
-### Example provisioning configuration
+### Example provisioning configurations
 
 Inside the `infra` folder, a `main.bicep` file generally defines the Azure resources that `azd` should create for the app. Consider the following snippet from `main.bicep` in the `hello-azd` starter template:
 
@@ -153,7 +153,7 @@ You can also run the deployment process on its own outside of `azd up` using the
 azd deploy
 ```
 
-### Example deployment configuration
+### Example deployment configurations
 
 Inside the `azure.yaml` file, you can specify which service in your project should be deployed to which Azure resource. For example, consider the following configurations for the `hello-azd` starter template:
 
