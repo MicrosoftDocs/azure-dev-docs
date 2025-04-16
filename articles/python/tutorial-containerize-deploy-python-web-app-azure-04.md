@@ -50,7 +50,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -81,7 +81,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
         --is-linux
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -123,7 +123,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # Powershell syntax
@@ -168,7 +168,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --generic-configurations '{"acrUseManagedIdentityCreds": true}'
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -193,7 +193,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $CREDENTIAL 
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -223,7 +223,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --actions push 
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -267,7 +267,7 @@ To set environment variables in App Service, you create *app settings* with the 
             SECRET_KEY="supersecretkeythatispassedtopythonapp"
     ```
 
-    ### [Powershell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
@@ -337,7 +337,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
 
 > [!IMPORTANT]
-> Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The comtainer registry opens in the Azure portal. Click **Services** and then click **Webhooks**. Open the context menu and click **Configure**.
+> Review the webhooks configuration in the Azure portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The container registry opens in the Azure portal. Click **Services** and then click **Webhooks**. Open the context menu and click **Configure**.
 
 :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
 
