@@ -11,6 +11,8 @@
       href: install-azd.md
     - name: Quickstart - Deploy an azd template
       href: get-started.md
+    - name: Quickstart - Explore and customize a template
+      href: quickstart-explore-templates.md
     - name: What are Azure Developer CLI commands?
       href: azd-commands.md
     - name: What are Azure Developer CLI templates?
