@@ -38,13 +38,6 @@ Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.
 
 Then create an environment variable named `REPO_URL` with the URL of your fork. The example code in the next section depends on this environment variable:
 
-# [cmd](#tab/cmd)
-
-```cmd
-set REPO_URL=<url_of_your_fork>
-set AZURE_SUBSCRIPTION_ID=<subscription_id>
-```
-
 # [bash](#tab/bash)
 
 ```bash
@@ -55,8 +48,8 @@ AZURE_SUBSCRIPTION_ID=<subscription_id>
 # [powershell](#tab/powershell)
 
 ```powershell
-$REPO_URL=<url_of_your_fork>
-AZURE_SUBSCRIPTION_ID='<subscription_id>' #use single quotes to avoid interpolation
+$env:REPO_URL=<url_of_your_fork>
+$env:AZURE_SUBSCRIPTION_ID='<subscription_id>' #use single quotes to avoid interpolation
 ```
 
 ---
@@ -130,26 +123,11 @@ To deploy your code from Azure portal:
 az group delete --name PythonAzureExample-WebApp-rg --no-wait
 ```
 
+You do not need to change resource group name (`--resource-group` option) unless you changed the value in the script.
+
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2021_04_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2021-04-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code.
-
-### For reference: equivalent Azure CLI commands
-
-The following Azure CLI commands complete the same provisioning steps as the Python script:
-
-# [cmd](#tab/cmd)
-
-:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.cmd":::
-
-# [bash](#tab/bash)
-
-:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.sh":::
-
-# [powershell](#tab/powershell)
-:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.ps1":::
-
----
 
 ## See also
 
