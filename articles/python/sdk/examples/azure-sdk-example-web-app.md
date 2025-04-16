@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create  and deploy a web app to Azure App Service. The app code is deployed from a GitHub repository.
 
-With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For examples, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
+With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For examples, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python).
 
 ## 1: Set up your local development environment
 
@@ -98,7 +98,7 @@ If you still don't see the expected output, then:
 
 The script sets up the resources needed to host your web app and sets the deployment source to your fork using manual integration. With manual integration, you must trigger the web app to pull from the configured repository and branch.
 
-The script calls the [WebSiteManagementClient.web_apps.sync_repository](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient?view=azure-python#azure-mgmt-web-websitemanagementclient-web-apps) method to trigger a pull from the web app. If you push subsequent code changes to your repository, you can redeploy your code by invoking this API or by using other Azure tooling like the Azure CLI or Azure portal.
+The script calls the [WebSiteManagementClient.web_apps.sync_repository](/python/api/azure-mgmt-web/azure.mgmt.web.websitemanagementclient#azure-mgmt-web-websitemanagementclient-web-apps) method to trigger a pull from the web app. If you push subsequent code changes to your repository, you can redeploy your code by invoking this API or by using other Azure tooling like the Azure CLI or Azure portal.
 
 You can deploy your code with the Azure CLI by running the [az webapp deployment source sync](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-sync)
  command:
