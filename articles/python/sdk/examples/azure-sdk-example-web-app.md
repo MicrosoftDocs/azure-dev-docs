@@ -48,7 +48,7 @@ AZURE_SUBSCRIPTION_ID=<subscription_id>
 # [powershell](#tab/powershell)
 
 ```powershell
-$env:REPO_URL=<url_of_your_fork>
+$env:REPO_URL='<url_of_your_fork>'
 $env:AZURE_SUBSCRIPTION_ID='<subscription_id>' #use single quotes to avoid interpolation
 ```
 
