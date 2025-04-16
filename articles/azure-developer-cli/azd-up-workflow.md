@@ -24,10 +24,10 @@ azd up
 `azd up` is designed so that you can repeatedly run the command as you develop your app, and the new changes are deployed incrementally. The command initiates a powerful workflow that essentially wraps three specific stages:
 
 1. **Packaging**: Prepares the application code and dependencies for deployment.
-2. **Provisioning**: Creates and configures the necessary Azure resources using infrastructure-as-code files.
+2. **Provisioning**: Creates and configures the necessary Azure resources required by the app using infrastructure-as-code files.
 3. **Deployment**: Deploys the packaged application to the provisioned Azure resources.
 
-Each stage plays a critical role in ensuring a smooth and automated deployment process. You can influence the `azd up` workflow stages using configurations in the template `azure.yaml` file. The following sections explore each stage in more detail.
+You can also run each of these stages individually using their respective command, but `azd up` provides a convenience wrapper to streamline the overall process. Each stage plays a critical role in ensuring a smooth and automated deployment process. You can influence the `azd up` workflow stages using configurations in the template `azure.yaml` file. The following sections explore each stage in more detail.
 
 ## The packaging stage
 
