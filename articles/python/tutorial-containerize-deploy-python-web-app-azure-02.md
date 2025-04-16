@@ -531,7 +531,7 @@ In this section of the tutorial, you use the Docker extension in Visual Studio C
     The browser opens into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
 
     > [!NOTE]
-    > If you recieve a timeout error, verify that the MongoDB service is running. If not, stop the Docker container in VS Code and restart the MongoDB service. Then, start the Docker container again and try to access the web app in your browser.
+    > If you receive a timeout error, verify that the MongoDB service is running. If not, stop the Docker container in VS Code and restart the MongoDB service. Then, start the Docker container again and try to access the web app in your browser.
 
 1. Stop the container.
 
