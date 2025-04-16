@@ -13,6 +13,16 @@ ms.custom: devx-track-azdevcli
 
 Thee Azure Developer CLI (`azd`) enables you to provision and deploy application resources on Azure with only a single command using `azd up`. This guide provides a detailed breakdown of `azd up` and how the different stages of this workflow command correlate to the structure of an `azd` template.
 
+## Follow along using a template
+
+The sections ahead use examples from the [`hello-azd`](https://github.com/Azure-Samples/hello-azd) template to demonstrate various `azd` concepts and patterns. You can follow along by initializing the template on your local machine:
+
+```azdeveloper
+azd init -t hello-azd
+```
+
+For more information about getting started with `azd` and the `hello-azd` template, visit the [Quickstart: Deploy an Azure Developer CLI template](get-started.md) article.
+
 ## Essential concepts
 
 When working with an `azd` template, you can provision and deploy your app resources on Azure using the `azd up` command. Run the command from a terminal window that is open to your template folder:
