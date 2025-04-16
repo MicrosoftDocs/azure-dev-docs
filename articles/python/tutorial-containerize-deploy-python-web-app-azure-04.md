@@ -349,7 +349,7 @@ You need the MongoDB connection string for the next steps.
 
 To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-1. In the Azure Tools extension for Visual Studio Code:
+1. In the Azure view in VS Code (from the Azure Tools extension):
 
     1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
@@ -371,7 +371,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ## Browse the site
 
-In the Azure Tools extension for Visual Studio Code:
+In the Azure view in VS Code (from the Azure Tools extension):
 
 1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
