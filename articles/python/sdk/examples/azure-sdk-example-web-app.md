@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a Python web app to Azure App Service using the Azure SDK libraries
 description: Use Azure SDK for Python to create a web app and then deploy app code from a GitHub repository to Azure App Service.
-ms.date: 12/28/2023
+ms.date: 04/15/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -11,8 +11,6 @@ ms.custom: devx-track-python, py-fresh-zinc
 This example demonstrates how to use the Azure SDK *management* libraries in a Python script to create  and deploy a web app to Azure App Service. The app code is deployed from a GitHub repository.
 
 With the management libraries (namespaces beginning with `azure-mgmt`, for example, `azure-mgmt-web`), you can write configuration and deployment programs to perform the same tasks that you can through the Azure portal, Azure CLI, or other resource management tools. For examples, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python). ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given at later in this article.)
-
-All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
@@ -28,7 +26,7 @@ Create a file named *requirements.txt* with the following contents:
 
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
-```cmd
+```console
 pip install -r requirements.txt
 ```
 
@@ -54,6 +52,13 @@ REPO_URL=<url_of_your_fork>
 AZURE_SUBSCRIPTION_ID=<subscription_id>
 ```
 
+# [powershell](#tab/powershell)
+
+```powershell
+$REPO_URL=<url_of_your_fork>
+AZURE_SUBSCRIPTION_ID='<subscription_id>' #use single quotes to avoid interpolation
+```
+
 ---
 
 ## 4: Write code to create and deploy a web app
@@ -72,7 +77,7 @@ Create a Python file named *provision_deploy_web_app.py* with the following code
 
 ## 5: Run the script
 
-```cmd
+```console
 python provision_deploy_web_app.py
 ```
 
@@ -81,10 +86,10 @@ python provision_deploy_web_app.py
 Visit the deployed web site by running the following command:
 
 ```azurecli
-az webapp browse --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
+az webapp browse --name <PythonAzureExample-WebApp-12345> --resource-group PythonAzureExample-WebApp-rg
 ```
 
-Replace the web app name (`--name` option) and resource group name (`--resource-group` option) with the values you used in the script. You should see "Hello, World!" in the browser.
+Replace the web app name (`--name` option) with the value generated in the script. You do not need to change resource group name (`--resource-group` option) unless you changed the value in the script. You should see "Hello, World!" in the browser.
 
 If you don't see the expected output, wait a few minutes and try again.
 
@@ -106,10 +111,10 @@ You can deploy your code with the Azure CLI by running the [az webapp deployment
  command:
 
 ```azurecli
-az webapp deployment source sync --name PythonAzureExample-WebApp-12345 --resource-group PythonAzureExample-WebApp-rg
+az webapp deployment source sync --name <PythonAzureExample-WebApp-12345> --resource-group PythonAzureExample-WebApp-rg
 ```
 
-Replace the web app name (`--name` option) and resource group name (`--resource-group` option) with the values you used in the script.
+Replace the web app name (`--name` option) with the value generated in the script. You do not need to change resource group name (`--resource-group` option) unless you changed the value in the script.
 
 To deploy your code from Azure portal:
 
@@ -117,7 +122,7 @@ To deploy your code from Azure portal:
 1. Select **Resource groups**, and find the resource group you created.
 1. Select the resource group name to view the resources it contains. Specifically, verify that there's an App Service Plan and the App Service.
 1. Select the App Service, and then select **Deployment Center**.
-1. On the top menu, select **Sync** to deploy your code.
+1. On the top menu, select **Sync** to deploy your code
 
 ## 8: Clean up resources
 
@@ -140,6 +145,9 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 # [bash](#tab/bash)
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.sh":::
+
+# [powershell](#tab/powershell)
+:::code language="azurecli" source="~/../python-sdk-docs-examples/webapp/provision.ps1":::
 
 ---
 
