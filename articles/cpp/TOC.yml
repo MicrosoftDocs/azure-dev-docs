@@ -1,10 +1,67 @@
 items: 
   - name: Azure for C++ developers
     href: index.yml
-  - name: What is the Azure SDK for C++?
-    href: sdk/overview.md
-  - name: How to install the Azure SDK for C++
-    href: sdk/install-and-integrate-the-sdk.md
-  - name: Credential chains in the Azure Identity client library for C++
-    href: sdk/authentication/credential-chains.md
+  - name: Get started
+    items:
+      - name: How to install the Azure SDK for C++
+        href: sdk/install-and-integrate-the-sdk.md
+  - name: Use the Azure SDK for C++
+    items: 
+      - name: Overview
+        href: sdk/overview.md 
+      - name: Fundamentals
+        items: 
+          - name: Overview
+            href: sdk/fundamentals/overview.md
+          - name: Errors
+            href: sdk/fundamentals/errors.md
+      - name: Security
+        items:
+          - name: Authentication
+            items: 
+              - name: Credential chains
+                href: sdk/security/authentication/credential-chains.md
+  - name: API reference
+    items: 
+      - name: Attestation
+        href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-security-attestation/latest/index.html
+      - name: Event Hubs
+        items: 
+          - name: Event Hubs
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-messaging-eventhubs/latest/index.html
+          - name: Event Hubs Blob Storage Checkpoint Store
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-messaging-eventhubs-checkpointstore-blob/latest/index.html
+      - name: Identity
+        href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/index.html
+      - name: Key Vault
+        items: 
+          - name: Administration
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-security-keyvault-administration/latest/index.html
+          - name: Certificates
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-security-keyvault-certificates/latest/index.html
+          - name: Keys
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-security-keyvault-keys/latest/index.html
+          - name: Secrets
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-security-keyvault-secrets/latest/index.html
+      - name: Storage
+        items: 
+          - name: Blobs
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/latest/index.html
+          - name: Files Datalake
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-files-datalake/latest/index.html
+          - name: Files Shares
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-files-shares/latest/index.html
+          - name: Queues
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-queues/latest/index.html
+      - name: Tables
+        href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-data-tables/latest/index.html
+      - name: Other
+        items: 
+          - name: Core
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/index.html
+          - name: Core - AMQP
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core-amqp/latest/index.html
+          - name: Core - Tracing Opentelemetry
+            href: https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core-tracing-opentelemetry/latest/index.html
+
     
