@@ -37,7 +37,7 @@ RESOURCE_GROUP_NAME='msdocs-web-app-rg'
 az group delete --name $RESOURCE_GROUP_NAME 
 ```
 
-### [Powershell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # PowerShell syntax
@@ -63,7 +63,7 @@ To work with Azure resources in VS Code, you must have the [Azure Tools extensio
 
 1. In the confirmation dialog, enter the exact name of the resource group.
 
-1. Press **ENTER** to confirm and delete the resource group..
+1. Press **ENTER** to confirm and delete the resource group.
 
 ----
 
