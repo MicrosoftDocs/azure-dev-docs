@@ -23,18 +23,18 @@ The Azure SDK for C++ uses a hierarchy of exception classes, with the most impor
 
 1. **`std::runtime_error`** - The base C++ standard exception from which Azure-specific exceptions inherit.
 
-2. **`Azure::Core::RequestFailedException`** - The base exception for all Azure service request failures. Defined in `azure/core/exception.hpp`, this exception is thrown when a request to an Azure service fails. It provides:
+2. **`Azure::Core::RequestFailedException`** - Derived from `std::runtime_error`, this is the base exception for all Azure service request failures. Defined in `azure/core/exception.hpp`, this exception is thrown when a request to an Azure service fails. It provides:
    - HTTP status code
    - Error codes from the service
    - Error messages
    - Request IDs for troubleshooting
    - The raw HTTP response
 
-3. **`Azure::Core::OperationCancelledException`** - Thrown when an operation is canceled, typically through a context object.
+3. **`Azure::Core::OperationCancelledException`** - Derived from `std::runtime_error`, this exception is thrown when an operation is canceled, typically through a context object.
 
-4. **`Azure::Core::Http::TransportException`** - Thrown when there's an error in the HTTP transport layer, such as connection failures.
+4. **`Azure::Core::Http::TransportException`** - Derived from `Azure::Core::RequestFailedException`, this exception is thrown when there's an error in the HTTP transport layer, such as connection failures.
 
-5. **`Azure::Core::Credentials::AuthenticationException`** - Thrown when authentication with Azure services fails.
+5. **`Azure::Core::Credentials::AuthenticationException`** - Derived from `std::exception`, this exception is thrown when authentication with Azure services fails.
 
 ### Service-Specific Exception Types
 
