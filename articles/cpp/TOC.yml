@@ -15,12 +15,10 @@ items:
             href: sdk/fundamentals/overview.md
           - name: Errors
             href: sdk/fundamentals/errors.md
-      - name: Security
-        items:
-          - name: Authentication
-            items: 
-              - name: Credential chains
-                href: sdk/security/authentication/credential-chains.md
+      - name: Authentication
+        items: 
+          - name: Credential chains
+            href: sdk/authentication/credential-chains.md
   - name: API reference
     items: 
       - name: Attestation
