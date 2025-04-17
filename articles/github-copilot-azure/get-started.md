@@ -52,7 +52,7 @@ The answer to your question depends on what's currently running in Azure in your
 
 Beginning in Visual Studio Code version 1.99, GitHub Copilot introduced [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode), an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
 
-GitHub Copilot for Azure provides "tools" to GitHub copilot to enrich the agentic experience with instructions and tools to increase the effectiveness of agentic actions.
+GitHub Copilot for Azure provides "tools" to GitHub copilot to enhance the agentic experience through deep integration with Azure.
 
 ### Enable agent mode
 
@@ -60,13 +60,13 @@ You may need to enable agent mode.
 
 1. In Visual Studio Code, open **Settings** using the **Manage** icon (gear).
 
-:::image type="content" source="media/get-started/vscode-settings.png" alt-text="Screenshot that shows the VSCode settings menu by selecting the Manage button.":::
+  :::image type="content" source="media/get-started/vscode-settings.png" alt-text="Screenshot that shows the VSCode settings menu by selecting the Manage button.":::
 
 
 1. In the Settings' Search bar, search for `chat.agent.enabled`.
 1. Check the box next to **Chat > Agent: Enabled**.
 
-:::image type="content" source="media/get-started/chat-agent-enabled.png" alt-text="Screenshot that shows the settings dialog with settings filtered to chat.agent.enabled.":::
+  :::image type="content" source="media/get-started/chat-agent-enabled.png" alt-text="Screenshot that shows the settings dialog with settings filtered to chat.agent.enabled.":::
 
 ### Use agent mode
 
@@ -74,25 +74,25 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
 
 1. If the Chat window is not already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
 
-:::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the the Open Chat menu option.":::
+  :::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the the Open Chat menu option.":::
 
 1. In the chat pane, in the chat prompt, select the mode dropdown and choose **Agent**.
 
-:::image type="content" source="media/get-started/mode-agent.png" alt-text="Screenshot that shows the pop-up menu in the Chat box with Agent selected.":::
+  :::image type="content" source="media/get-started/mode-agent.png" alt-text="Screenshot that shows the pop-up menu in the Chat box with Agent selected.":::
 
 1. The chat pane will confirm that you are currently in agent mode.
 
-:::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you are now in agent mode.":::
+  :::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you are now in agent mode.":::
 
 1. To see agent mode working, use the following prompt:
 
-```
-What are your tools?
-```
+  ```
+  What are your tools?
+  ```
 
-The completion response will display a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
+  The completion response will display a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
 
-```
+  ```
 I can assist you with various tasks using a range of tools. Here are the main tools I have available:
 
 1. Search and Navigation
@@ -135,18 +135,18 @@ I can assist you with various tasks using a range of tools. Here are the main to
 
 Would you like me to explain any specific tool in more detail or help you with a particular task?
 
-```
+  ```
 
 
 1. The last entry, `Azure Developer CLI tools`, could be employed with the following prompt: 
 
-```
+  ```
 What is the az command to list all my storage accounts ordered by location?
-```
+  ```
 
 The completion to that prompt might generate:
 
-```
+  ```
 
 I'll help you generate the Azure CLI command to list all your storage accounts ordered by location. Let me use the Azure CLI generator tool to get the correct syntax for this command.
 
@@ -166,7 +166,7 @@ az storage account list --query "sort_by(@, &location)[].[name,location]" -o tab
 
 Make sure you're logged into the Azure CLI before running this command. If you're not logged in yet, you can do so with az login.
 
-```
+  ```
 
 ### Enable and disable tools in agent mode
 
@@ -174,11 +174,11 @@ You may want to disable or re-enable certain tools available by GitHub Copilot f
 
 1. Select the tool icon in the chat pane.
 
-:::image type="content" source="media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the tool icon.":::
+  :::image type="content" source="media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the tool icon.":::
 
 1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
 
-:::image type="content" source="media/get-started/tool-list.png" alt-text="Screenshot of the list of tools in Visual Studio Code.":::
+  :::image type="content" source="media/get-started/tool-list.png" alt-text="Screenshot of the list of tools in Visual Studio Code.":::
 
 
 ### Best practices for working in agent mode
@@ -187,7 +187,7 @@ To get better agentic results, consider the following best practices.
 
 - **When prompted, add the `copilot-instructions.md` file to your workspace.** 
 
-:::image type="content" source="media/get-started/copilot-instructions.png" alt-text="Screenshot of the Visual Studio Code notification to add the copilot instructions file to the workspace.":::
+  :::image type="content" source="media/get-started/copilot-instructions.png" alt-text="Screenshot of the Visual Studio Code notification to add the copilot instructions file to the workspace.":::
 
 - **Keep your prompts as granular as possible.** Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a dozen or so smaller prompts each with a smaller scope of responsibility.
 
