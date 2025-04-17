@@ -48,7 +48,7 @@ To complete the steps in this article, make sure that you have:
    @azure Do I have any resources currently running?
    ```
 
-   :::image type="content" source="media/get-started/ask-mmode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
+   :::image type="content" source="media/get-started/ask-mode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
 
 By default, GitHub Copilot will use **ask** mode. Ask mode provides answers to your prompts in the chat pane. In a moment, you'll use **agent** mode to allow GitHub Copilot to take action in your workspace.
 
@@ -102,42 +102,42 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
    I can assist you with various tasks using a range of tools. Here are the main tools I have available:
    
    1. Search and Navigation
-     - Semantic search for code or documentation
-     - File search using glob patterns
-     - Text search (grep)
-     - List directory contents
-     - Read file contents
-     - List code usages/references
+     Semantic search for code or documentation
+     File search using glob patterns
+     Text search (grep)
+     List directory contents
+     Read file contents
+     List code usages/references
    
    2. Code Editing and Analysis
-     - Insert edits into files
-     - Get errors in code files
-     - Test search (find test files)
+     Insert edits into files
+     Get errors in code files
+     Test search (find test files)
    
    3. Terminal and Git Operations
-     - Run commands in terminal
-     - Get terminal output
-     - Get Git diffs and changed files
+     Run commands in terminal
+     Get terminal output
+     Get Git diffs and changed files
    
    4. Project Creation
-     - Create new workspaces
-     - Get project setup information
-     - Install VS Code extensions
-     - Create new Jupyter Notebooks
+     Create new workspaces
+     Get project setup information
+     Install VS Code extensions
+     Create new Jupyter Notebooks
    
    5. Web and API Tools
-     - Fetch webpage content
-     - Get VS Code API references
+     Fetch webpage content
+     Get VS Code API references
    
    6. Azure Tools
-     - Azure development best practices
-     - Microsoft Learn documentation
-     - Azure resource management
-     - Azure authentication tools
-     - AI model deployment and management
-     - Azure Bicep schemas
-     - Service configuration and deployment
-     - Azure Developer CLI tools
+     Azure development best practices
+     Microsoft Learn documentation
+     Azure resource management
+     Azure authentication tools
+     AI model deployment and management
+     Azure Bicep schemas
+     Service configuration and deployment
+     Azure Developer CLI tools
    
    Would you like me to explain any specific tool in more detail or help you with a particular task?
    
