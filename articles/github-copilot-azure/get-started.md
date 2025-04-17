@@ -168,21 +168,21 @@ Make sure you're logged into the Azure CLI before running this command. If you'r
 
 To get better agentic results, consider the following best practices.
 
-- When prompted, add the `copilot-instructions.md` file to your workspace.
+- **When prompted, add the `copilot-instructions.md` file to your workspace.** 
 
 :::image type="content" source="media/get-started/copilot-instructions.png" alt-text="Screenshot of the Visual Studio Code notification to add the copilot instructions file to the workspace.":::
 
-- Keep your prompts as granular as possible. Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a dozen or so smaller prompts each with a smaller scope of responsibility.
+- **Keep your prompts as granular as possible.** Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a dozen or so smaller prompts each with a smaller scope of responsibility.
 
-- Occassionally, GitHub Copilot will ask for permission to perform a task with a "Continue" button. While it is possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
+- **Allow GitHub Copilot to do work (instead of doing it yourself).**  Occassionally, GitHub Copilot will ask for permission to perform a task with a "Continue" button. While it is possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
 
-- Occassionally, GitHub Copilot will ask for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
+- **Allow GitHub Copilot to repeat itself.** Occassionally, GitHub Copilot will ask for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
 
-- If GitHub Copilot wants to perform an action and you would prefer it to take a different action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
+- **Express your preferences.** If GitHub Copilot wants to perform an action and you would prefer it to take a *different* action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
 
-```
-  Instead of nsming the folder .azure, please name it infra
-```
+  ```
+  Instead of naming the folder `.azure`, please name it `infra`
+  ```
 
 
 ## Optional: Set your default tenant
