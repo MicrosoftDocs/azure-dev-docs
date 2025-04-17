@@ -100,7 +100,7 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
 
    ```
    I can assist you with various tasks using a range of tools. Here are the main tools I have available:
-
+   
    1. Search and Navigation
      - Semantic search for code or documentation
      - File search using glob patterns
@@ -108,27 +108,27 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
      - List directory contents
      - Read file contents
      - List code usages/references
-
+   
    2. Code Editing and Analysis
      - Insert edits into files
      - Get errors in code files
      - Test search (find test files)
-
+   
    3. Terminal and Git Operations
      - Run commands in terminal
      - Get terminal output
      - Get Git diffs and changed files
-
+   
    4. Project Creation
      - Create new workspaces
      - Get project setup information
      - Install VS Code extensions
      - Create new Jupyter Notebooks
-
+   
    5. Web and API Tools
      - Fetch webpage content
      - Get VS Code API references
-  
+   
    6. Azure Tools
      - Azure development best practices
      - Microsoft Learn documentation
@@ -138,9 +138,9 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
      - Azure Bicep schemas
      - Service configuration and deployment
      - Azure Developer CLI tools
-
+   
    Would you like me to explain any specific tool in more detail or help you with a particular task?
-
+   
    ```
 
 
