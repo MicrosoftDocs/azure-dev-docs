@@ -96,7 +96,9 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
    What are your tools?
    ```
 
-  The completion response will display a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
+
+   The completion response will display a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
+
 
    ```
    I can assist you with various tasks using a range of tools. Here are the main tools I have available:
