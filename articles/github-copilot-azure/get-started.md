@@ -48,9 +48,13 @@ The `@azure` part indicates that you want to include the Azure chat participant 
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
-## Enable agent mode
+## Agent mode
 
 Beginning in Visual Studio Code version 1.99, GitHub Copilot has enabled agent mode, an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
+
+GitHub Copilot for Azure provides "tools" to GitHub copilot to enrich the agentic experience with instructions and tools to increase the effectiveness of agentic actions.
+
+### Enable agent mode
 
 To use agent mode, you have to enable it.
 
@@ -158,6 +162,26 @@ az storage account list --query "sort_by(@, &location)[].[name,location]" -o tab
 
 Make sure you're logged into the Azure CLI before running this command. If you're not logged in yet, you can do so with az login.
 
+```
+
+### Best practices for working in agent mode
+
+To get better agentic results, consider the following best practices.
+
+- When prompted, add the `copilot-instructions.md` file to your workspace.
+
+:::image type="content" source="media/get-started/copilot-instructions.png" alt-text="Screenshot of the Visual Studio Code notification to add the copilot instructions file to the workspace.":::
+
+- Keep your prompts as granular as possible. Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a dozen or so smaller prompts each with a smaller scope of responsibility.
+
+- Occassionally, GitHub Copilot will ask for permission to perform a task with a "Continue" button. While it is possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
+
+- Occassionally, GitHub Copilot will ask for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
+
+- If GitHub Copilot wants to perform an action and you would prefer it to take a different action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
+
+```
+  Instead of nsming the folder .azure, please name it infra
 ```
 
 
