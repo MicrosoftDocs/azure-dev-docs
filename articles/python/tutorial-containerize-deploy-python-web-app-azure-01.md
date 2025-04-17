@@ -77,7 +77,7 @@ To complete this tutorial, you need:
 
   * [Azure Container Registry][11]
   * [Azure App Service][1]
-  * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database, follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure).
+  * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database, follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md).
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on your tool of choice. If you use Visual Studio Code, you need the [Docker extension][6] and [Azure App Service extension][7].
 
