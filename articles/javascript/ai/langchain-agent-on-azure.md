@@ -112,7 +112,7 @@ To manage the various Azure resources and models used in this tutorial, create s
 
 The Azure AI Search configuration file uses the admin key to insert documents into the vector store. This key is essential for managing the ingestion of data into Azure AI Search. When querying the vector store, use the query key instead. This separation of keys ensures secure and efficient access to the resource.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/config/vector_store_admin.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/vector_store_admin.ts" :::
 
 LangChain.js abstracts the need to define a schema for data ingestion into Azure AI Search, providing a default schema suitable for most scenarios. This abstraction simplifies the process and reduces the need for custom schema definitions.
 
@@ -160,11 +160,11 @@ Key Considerations:
 
 2. **Load PDFs into LangChain.js**: Use the `loadPdfsFromDirectory` function to load the documents. This function utilizes the LangChain.js community's `PDFLoader.load` method to read each file and return a `Document[]` array. This array is a standard LangChain.js document format.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/find_pdfs.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/find_pdfs.ts" :::
 
 3. **Insert Documents into Azure AI Search**: Use the `loadDocsIntoAiSearchVector` function to send the document array to the Azure AI Search vector store. This function uses the embeddings client to process the documents and includes a basic wait function to handle throttling. For production, implement a robust retry/backoff mechanism.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/load_vector_store.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/load_vector_store.ts" :::
 
 ## Create agent workflow
 
@@ -186,7 +186,7 @@ The edges define where to start, end, and the condition needed to call the **get
 
 To use LangGraph Studio to run and debug the graph, export it as its own object.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/graph.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/graph.ts" :::
 
 In the **addNode**, **addEdge**, and **addConditionalEdges** methods, the first parameter is a name, as a string, to identify the object within the graph. The second parameter is either the function that should be called at that step or the name of the node to call.
 
@@ -214,7 +214,7 @@ The embeddings client and the LLM client serve distinct purposes. Do not reduce 
 
 The embeddings client is required whenever documents are retrieved from the vector store. It includes a configuration for **maxRetries** to handle transient errors.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/embeddings.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/embeddings.ts" :::
 
 ### LLM model
 
@@ -225,11 +225,11 @@ The LLM model is used to answer two types of questions:
 
 The LLM client is created and invoked when an answer is required.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/llm.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/llm.ts" :::
 
 The LangChain.js agent uses the LLM to decide whether the question is relevant to HR documentation or if the workflow should route to the end of the graph.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/requires_hr_documentation.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/requires_hr_documentation.ts" :::
 
 The **requiresHrResources** function sets a message in the updated state with `HR resources required detected` content. The router, **routeRequiresHrResources**, looks for that content to determine where to send the messages.
 
@@ -240,7 +240,7 @@ The Azure AI Search integration provides the vector store documents so the LLM c
 - **getReadOnlyVectorStore**: Retrieves the client with the query key.
 - **getDocsFromVectorStore**: Finds relevant documents to the user's question.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/vector_store.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/vector_store.ts" :::
 
 The LangChain.js integration code makes retrieving the relevant documents from the vector store incredibly easy.
 
@@ -248,7 +248,7 @@ The LangChain.js integration code makes retrieving the relevant documents from t
 
 Now that the integration components are built, create the **getAnswer** function to retrieve relevant vector store documents and generate an answer using the LLM.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/azure/get_answer.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/get_answer.ts" :::
 
 This function provides a prompt with two placeholders: one for the user's question and one for context. The context is all the relevant documents from the AI Search vector store. Pass the prompt and the LLM client to the **createStuffDocumentsChain** to create an LLM chain. Pass the LLM chain to **createRetrievalChain** to create a chain that includes the prompt, relevant documents, and the LLM.
 
@@ -274,7 +274,7 @@ Optionally, for local development, use LangChain Studio to work with your LangCh
 
 1. Create a `langgraph.json` file to define the graph.
 
-    :::code language="json" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/langgraph.json" :::
+    :::code language="json" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/langgraph.json" :::
 
 2. Install the LangGraph CLI.
 
@@ -340,7 +340,7 @@ If the LangChain.js agent makes an incorrect decision, that can indicate an issu
 
 To call the LangChain.js agent from a parent application, such as a web API, you need to provide the invocation of the LangChain.js agent.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph_agent/src/index.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/index.ts" :::
 
 The two functions are:
 
