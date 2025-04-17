@@ -4,7 +4,7 @@ description: This article describes the requirements and installation procedure 
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 11/18/2024
+ms.date: 4/17/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -26,7 +26,7 @@ To complete the steps in this article, make sure that you have:
 
 
 >[!IMPORTANT]
->GitHub Copilot is not included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
+>GitHub Copilot isn't included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
 
 ## Install GitHub Copilot for Azure Preview
 
@@ -38,9 +38,9 @@ To complete the steps in this article, make sure that you have:
 
 1. Ensure that the extension is installed, that you're properly authenticated, and that the extension is working correctly.
 
-1. If the Chat window is not already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
+1. If the Chat window isn't already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
 
-   :::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the the Open Chat menu option.":::
+   :::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the Open Chat menu option.":::
 
 1. In the chat text area at the bottom of the chat pane, enter the following prompt:
 
@@ -50,7 +50,7 @@ To complete the steps in this article, make sure that you have:
 
    :::image type="content" source="media/get-started/ask-mode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
 
-By default, GitHub Copilot will use **ask** mode. Ask mode provides answers to your prompts in the chat pane. In a moment, you'll use **agent** mode to allow GitHub Copilot to take action in your workspace.
+By default, GitHub Copilot uses **ask** mode. Ask mode provides answers to your prompts in the chat pane. **Agent** mode enables GitHub Copilot to take action in your workspace.
 
 In ask mode, the `@azure` part indicates that you want to include the Azure chat participant in the conversation. It scopes your prompt to a specific domain, namely, your Azure account.
 
@@ -62,15 +62,15 @@ Beginning in Visual Studio Code version 1.99, GitHub Copilot introduced [agent m
 
 GitHub Copilot for Azure provides "tools" to GitHub copilot to enhance the agentic experience through deep integration with Azure.
 
-In agent mode, you do not need to instruct GitHub Copilot to use GitHub Copilot for Azure with the `@azure` prefix.
+In agent mode, you don't need to instruct GitHub Copilot to use GitHub Copilot for Azure with the `@azure` prefix.
 
 ### Enable agent mode
 
-You may need to enable agent mode.
+You might need to enable agent mode.
 
 1. In Visual Studio Code, open **Settings** using the **Manage** icon (gear).
 
-   :::image type="content" source="media/get-started/vscode-settings.png" alt-text="Screenshot that shows the VSCode settings menu by selecting the Manage button.":::
+   :::image type="content" source="media/get-started/vscode-settings.png" alt-text="Screenshot that shows the Visual Studio Code settings menu by selecting the Manage button.":::
 
 
 1. In the Settings' Search bar, search for `chat.agent.enabled`.
@@ -86,9 +86,9 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
 
    :::image type="content" source="media/get-started/mode-agent.png" alt-text="Screenshot that shows the pop-up menu in the Chat box with Agent selected.":::
 
-1. The chat pane will confirm that you are currently in agent mode.
+1. The chat pane confirms that you're currently in agent mode.
 
-   :::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you are now in agent mode.":::
+   :::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you're now in agent mode.":::
 
 1. To see agent mode working, use the following prompt:
 
@@ -97,7 +97,7 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
    ```
 
 
-   The completion response will display a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
+   The completion response displays a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
 
 
    ```
@@ -178,7 +178,7 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
 
 ### Enable and disable tools in agent mode
 
-You may want to disable or re-enable certain tools available by GitHub Copilot for Azure.
+You might want to disable or re-enable certain tools available by GitHub Copilot for Azure.
 
 1. Select the tool icon in the chat pane.
 
@@ -199,11 +199,11 @@ To get better agentic results, consider the following best practices.
 
 - **Keep your prompts as granular as possible.** Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a few prompts each with a smaller scope of responsibility.
 
-- **Allow GitHub Copilot to do work (instead of doing it yourself).**  Occassionally, GitHub Copilot will ask for permission to perform a task with a "Continue" button. While it is possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
+- **Allow GitHub Copilot to do work (instead of doing it yourself).**  Occasionally, GitHub Copilot asks for permission to perform a task with a "Continue" button. While it's possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
 
-- **Allow GitHub Copilot to repeat itself.** Occassionally, GitHub Copilot will ask for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
+- **Allow GitHub Copilot to repeat itself.** Occasionally, GitHub Copilot asks for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
 
-- **Express your preferences.** If GitHub Copilot wants to perform an action and you would prefer it to take a *different* action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
+- **Express your preferences.** If GitHub Copilot wants to perform an action but you would prefer it to take a *different* action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
 
    ```
    Instead of naming the folder `.azure`, please name it `infra`
