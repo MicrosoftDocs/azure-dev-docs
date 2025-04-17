@@ -50,13 +50,13 @@ The answer to your question depends on what's currently running in Azure in your
 
 ## Agent mode
 
-Beginning in Visual Studio Code version 1.99, GitHub Copilot has enabled agent mode, an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
+Beginning in Visual Studio Code version 1.99, GitHub Copilot introduced [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode), an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
 
 GitHub Copilot for Azure provides "tools" to GitHub copilot to enrich the agentic experience with instructions and tools to increase the effectiveness of agentic actions.
 
 ### Enable agent mode
 
-To use agent mode, you have to enable it.
+You may need to enable agent mode.
 
 1. In Visual Studio Code, open **Settings** using the **Manage** icon (gear).
 
@@ -67,6 +67,10 @@ To use agent mode, you have to enable it.
 1. Check the box next to **Chat > Agent: Enabled**.
 
 :::image type="content" source="media/get-started/chat-agent-enabled.png" alt-text="Screenshot that shows the settings dialog with settings filtered to chat.agent.enabled.":::
+
+### Use agent mode
+
+There are three modes: ask (default), edit and agent. To use agent mode, you must select it in the chat pane.
 
 1. If the Chat window is not already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
 
