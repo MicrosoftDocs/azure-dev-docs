@@ -168,6 +168,19 @@ Make sure you're logged into the Azure CLI before running this command. If you'r
 
 ```
 
+### Enable and disable tools in agent mode
+
+You may want to disable or re-enable certain tools available by GitHub Copilot for Azure.
+
+1. Select the tool icon in the chat pane.
+
+:::image type="content" source="media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the tool icon.":::
+
+1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
+
+:::image type="content" source="media/get-started/tool-list.png" alt-text="Screenshot of the list of tools in Visual Studio Code.":::
+
+
 ### Best practices for working in agent mode
 
 To get better agentic results, consider the following best practices.
