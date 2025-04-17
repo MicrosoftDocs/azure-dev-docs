@@ -48,11 +48,11 @@ The `@azure` part indicates that you want to include the Azure chat participant 
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
-## Enable Agent mode
+## Enable agent mode
 
-Beginning in Visual Studio Code version 1.99, GitHub Copilot has enabled Agent mode, an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
+Beginning in Visual Studio Code version 1.99, GitHub Copilot has enabled agent mode, an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
 
-To use Agent mode, you have to enable it.
+To use agent mode, you have to enable it.
 
 1. In Visual Studio Code, open **Settings** using the **Manage** icon (gear).
 
@@ -72,11 +72,93 @@ To use Agent mode, you have to enable it.
 
 :::image type="content" source="media/get-started/mode-agent.png" alt-text="Screenshot that shows the pop-up menu in the Chat box with Agent selected.":::
 
-1. The chat pane will confirm that you are currently in Agent mode.
+1. The chat pane will confirm that you are currently in agent mode.
 
-:::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you are now in Agent mode.":::
+:::image type="content" source="media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you are now in agent mode.":::
+
+1. To see agent mode working, use the following prompt:
+
+```
+What are your tools?
+```
+
+The completion response will display a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
+
+```
+I can assist you with various tasks using a range of tools. Here are the main tools I have available:
+
+1. Search and Navigation
+  - Semantic search for code or documentation
+  - File search using glob patterns
+  - Text search (grep)
+  - List directory contents
+  - Read file contents
+  - List code usages/references
+
+2. Code Editing and Analysis
+  - Insert edits into files
+  - Get errors in code files
+  - Test search (find test files)
+
+3. Terminal and Git Operations
+  - Run commands in terminal
+  - Get terminal output
+  - Get Git diffs and changed files
+
+4. Project Creation
+  - Create new workspaces
+  - Get project setup information
+  - Install VS Code extensions
+  - Create new Jupyter Notebooks
+
+5. Web and API Tools
+  - Fetch webpage content
+  - Get VS Code API references
+  
+6. Azure Tools
+  - Azure development best practices
+  - Microsoft Learn documentation
+  - Azure resource management
+  - Azure authentication tools
+  - AI model deployment and management
+  - Azure Bicep schemas
+  - Service configuration and deployment
+  - Azure Developer CLI tools
+
+Would you like me to explain any specific tool in more detail or help you with a particular task?
+
+```
 
 
+1. The last entry, `Azure Developer CLI tools`, could be employed with the following prompt: 
+
+```
+What is the az command to list all my storage accounts ordered by location?
+```
+
+The completion to that prompt might generate:
+
+```
+
+I'll help you generate the Azure CLI command to list all your storage accounts ordered by location. Let me use the Azure CLI generator tool to get the correct syntax for this command.
+
+To list all your storage accounts ordered by location in Azure, you can use the following Azure CLI command:
+
+az storage account list --query "sort_by(@, &location)"
+
+This command will:
+
+1. Retrieve all storage accounts you have access to in your Azure subscription
+2. Sort the results based on the location (Azure region) of each storage account
+3. Display the full details of each storage account in the sorted order
+
+If you'd prefer a more concise output focusing on specific fields, you could modify the query. For example, to show only the name and location in a table format:
+
+az storage account list --query "sort_by(@, &location)[].[name,location]" -o table
+
+Make sure you're logged into the Azure CLI before running this command. If you're not logged in yet, you can do so with az login.
+
+```
 
 
 ## Optional: Set your default tenant
