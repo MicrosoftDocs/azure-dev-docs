@@ -37,14 +37,22 @@ To complete the steps in this article, make sure that you have:
 ## Write your first prompt
 
 1. Ensure that the extension is installed, that you're properly authenticated, and that the extension is working correctly.
-1. On the Activity Bar, select the **Chat** icon.
+
+1. If the Chat window is not already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
+
+   :::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the the Open Chat menu option.":::
+
 1. In the chat text area at the bottom of the chat pane, enter the following prompt:
 
    ```prompt
    @azure Do I have any resources currently running?
    ```
 
-The `@azure` part indicates that you want to include the Azure chat participant in the conversation. It scopes your prompt to a specific domain, namely, your Azure account.
+   :::image type="content" source="media/get-started/ask-mmode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
+
+By default, GitHub Copilot will use **ask** mode. Ask mode provides answers to your prompts in the chat pane. In a moment, you'll use **agent** mode to allow GitHub Copilot to take action in your workspace.
+
+In ask mode, the `@azure` part indicates that you want to include the Azure chat participant in the conversation. It scopes your prompt to a specific domain, namely, your Azure account.
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
@@ -53,6 +61,8 @@ The answer to your question depends on what's currently running in Azure in your
 Beginning in Visual Studio Code version 1.99, GitHub Copilot introduced [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode), an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
 
 GitHub Copilot for Azure provides "tools" to GitHub copilot to enhance the agentic experience through deep integration with Azure.
+
+In agent mode, you do not need to instruct GitHub Copilot to use GitHub Copilot for Azure with the `@azure` prefix.
 
 ### Enable agent mode
 
@@ -71,10 +81,6 @@ You may need to enable agent mode.
 ### Use agent mode
 
 There are three modes: ask (default), edit and agent. To use agent mode, you must select it in the chat pane.
-
-1. If the Chat window is not already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
-
-   :::image type="content" source="media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the the Open Chat menu option.":::
 
 1. In the chat pane, in the chat prompt, select the mode dropdown and choose **Agent**.
 
