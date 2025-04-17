@@ -229,7 +229,7 @@ The LLM client is created and invoked when an answer is required.
 
 The LangChain.js agent uses the LLM to decide whether the question is relevant to HR documentation or if the workflow should route to the end of the graph.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/requires_hr_documentation.ts" :::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/requires_hr_documents.ts" :::
 
 The **requiresHrResources** function sets a message in the updated state with `HR resources required detected` content. The router, **routeRequiresHrResources**, looks for that content to determine where to send the messages.
 
