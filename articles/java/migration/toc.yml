@@ -54,8 +54,6 @@ items:
           href: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
         - name: WebLogic Server to JBoss EAP on Azure App Service
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
-        - name: WebLogic Server to WildFly on AKS
-          href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
     - name: WebSphere to Azure
       expanded: true
       items:
@@ -73,8 +71,6 @@ items:
           href: migrate-websphere-to-vms-with-ha-dr.md
         - name: WebSphere to JBoss EAP on App Service
           href: migrate-websphere-to-jboss-eap-on-azure-app-service.md
-        - name: WebSphere to WildFly on AKS
-          href: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
     - name: JBoss EAP to Azure
       expanded: true
       items:
@@ -86,7 +82,3 @@ items:
           href: migrate-jboss-eap-to-vms-with-ha-dr.md
         - name: JBoss EAP to Azure Red Hat OpenShift
           href: migrate-jboss-eap-to-azure-redhat-openshift.md
-        - name: JBoss EAP to WildFly on AKS
-          href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
-    - name: WildFly to WildFly on AKS
-      href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
