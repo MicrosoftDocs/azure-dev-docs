@@ -3,8 +3,8 @@ title: Using Event Hubs in Spring applications
 description: This article shows you how to use Azure Event Hubs in Java applications built with Spring framework.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: seal
-ms.date: 09/11/2023
+ms.reviewer: xiada
+ms.date: 04/18/2025
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
