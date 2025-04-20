@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 10/29/2024
+ms.date: 04/20/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -467,7 +467,7 @@ CERT_MANAGER_VERSION=v1.11.2
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
 
 # Install Open Liberty Operator
-export OPERATOR_VERSION=1.4.0
+export OPERATOR_VERSION=1.4.2
 mkdir -p overlays/watch-all-namespaces
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -q -P ./overlays/watch-all-namespaces
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/cluster-roles.yaml -q -P ./overlays/watch-all-namespaces
@@ -489,7 +489,7 @@ $Env:CERT_MANAGER_VERSION = "v1.11.2"
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/$Env:CERT_MANAGER_VERSION/cert-manager.yaml
 
 # Install Open Liberty Operator
-$Env:OPERATOR_VERSION = "1.4.0"
+$Env:OPERATOR_VERSION = "1.4.2"
 mkdir -p overlays/watch-all-namespaces
 Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/$Env:OPERATOR_VERSION/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -OutFile ./overlays/watch-all-namespaces/olo-all-namespaces.yaml
 Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/$Env:OPERATOR_VERSION/kustomize/overlays/watch-all-namespaces/cluster-roles.yaml -OutFile ./overlays/watch-all-namespaces/cluster-roles.yaml
