@@ -36,7 +36,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-security-keyvault-secrets</artifactId>
-    <version>4.2.2.</version>
+    <version>4.9.4</version>
     <exclusions>
       <exclusion>
         <groupId>com.azure</groupId>
@@ -45,10 +45,18 @@ The following example shows you how to exclude the Netty dependency from a real 
     </exclusions>
 </dependency>
 
+<!-- OkHttp -->
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-http-okhttp</artifactId>
-  <version>1.3.3</version>
+  <version>1.12.10</version>
+</dependency>
+
+<!-- JDK 11 HttpClient -->
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-http-jdk-httpclient</artifactId>
+  <version>1.0.3</version>
 </dependency>
 ```
 
