@@ -26,7 +26,7 @@ For more information, see [Configure Python Apps - Container startup process](/a
 
 When you need a custom startup file, use the following steps:
 
-1. Create a file in your project named *startup.txt*, *startup.sh*, or another name of your choice that contains your startup command(s). See the later sections in this article for specifics on Django, Flask, and other frameworks.
+1. Create a file in your project named *startup.txt*, *startup.sh*, or another name of your choice that contains your startup commands. See the later sections in this article for specifics on Django, Flask, and other frameworks.
 
     A startup file can include multiple commands if needed.
 
@@ -37,11 +37,11 @@ When you need a custom startup file, use the following steps:
 1. In the [Azure portal](https://portal.azure.com/), on the **Configuration** page for the App Service, select **General settings**, enter the name of your startup file (like *startup.txt* or *startup.sh*) under **Stack settings** > **Startup Command**, then select **Save**.
 
     > [!NOTE]
-    > Instead of using a startup command file, you can put the startup command itself directly in the **Startup Command** field on the Azure portal. Using a command file is preferable, however, because this part of your configuration is then in your repository where you can audit changes and redeploy to a different App Service instance altogether.
+    > Instead of using a startup command file, you can put the startup command itself directly in the **Startup Command** field on the Azure portal. Using a startup command file is recommended because it stores your configuration in your repository. This enables version control to track changes and simplifies redeployment to other Azure App Service instances.
 
 1. Select **Continue** when prompted to restart the App Service.
 
-    If you haven't deployed your app code, however, visiting the site at this point shows "Application Error." This message indicates that the Gunicorn server started but failed to find the app, and therefore nothing is responding to HTTP requests.
+    If you access your Azure App Service site before deploying your application code, an "Application Error" appears because no code is available to process the request.
 
 ## Django startup commands
 
@@ -53,7 +53,7 @@ By default, Azure App Service locates the folder containing your wsgi.py file an
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want to modify any Gunicorn arguments, such as increasing the timeout to 1200 seconds(`--timeout 1200`), create a custom startup command file. This allows you to override the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
+If you want to modify any Gunicorn arguments, such as increasing the timeout value to 1,200 seconds(`--timeout 1200`), create a custom startup command file. This allows you to override the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
 
 ## Flask startup commands
 
