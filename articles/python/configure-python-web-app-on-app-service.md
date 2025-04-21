@@ -8,7 +8,7 @@ ms.custom: devx-track-python, linux-related-content
 
 # Configure a custom startup file for Python apps on Azure App Service
 
-In this article, you’ll learn when and how to configure a custom startup file for a Python web app hosted on Azure App Service. While a startup file isn't required for local development, Azure App Service runs your deployed web app within a Docker container that can utilize startup commands if provided.
+In this article, you learn when and how to configure a custom startup file for a Python web app hosted on Azure App Service. While a startup file isn't required for local development, Azure App Service runs your deployed web app within a Docker container that can utilize startup commands if provided.
 
 You need a custom startup file in the following situations:
 
