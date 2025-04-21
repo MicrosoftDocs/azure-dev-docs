@@ -2,7 +2,7 @@
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 04/21/2025
 ms.custom: devx-track-js, devx-track-azurecli, linux-related-content, devx-track-ts
 ---
 
