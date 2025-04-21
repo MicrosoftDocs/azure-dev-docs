@@ -36,7 +36,7 @@ Start your migration process with solution assessment, to understand what your c
 5. The assessor agent will verify your local environment first, if the AppCAT and its dependencies are not installed, then they need to be installed first, more details to visit https://aka.ms/appcat-install, after that, it will call AppCAT to evaluate the current project. This step could take several minutes to complete. 
 6. Upon completion of the scan, the assessor agent produces a categorized view of cloud readiness issues.
 7. With reviewing the summary report, you can click on the **Propose Solution** button at the bottom and move to the next step: choose your desired solution per category/sub category. 
-8. Click on the **Confirm solution** button. In the migrate step, click on the **Migrate** button.
+8.  After deciding on the solutions, you can click on the **Confirm solution** button to get into the migration step. You can click on the **Migrate** button per issue category/sub category to enter into the code remediation stage.
 
 ## Apply a predefined formula
 The migration Copilot provides predefined formulas for common migration scenarios that you may face when migrating to Azure. In this example you'll use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
