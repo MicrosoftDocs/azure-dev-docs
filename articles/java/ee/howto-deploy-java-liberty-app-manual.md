@@ -256,7 +256,7 @@ export DB_NAME=demodb
 Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
 ```azurecli
-export ENTRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName --output tsv)
+export ENTRA_ADMIN_NAME=$(az account show --query user.name --output tsv)
 
 az sql server create \
     --name $SQL_SERVER_NAME \
@@ -287,7 +287,7 @@ $Env:DB_NAME = "demodb"
 Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
 
 ```azurepowershell
-$Env:ENTRA_ADMIN_NAME = $(az ad signed-in-user show --query userPrincipalName --output tsv)
+$Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
 
 az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
 az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name $Env:DB_NAME --edition GeneralPurpose --compute-model Serverless --family Gen5 --capacity 2
