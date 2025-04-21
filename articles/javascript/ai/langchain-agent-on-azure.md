@@ -9,18 +9,23 @@ ms.custom: devx-track-ts, devx-track-ts-ai
 
 # Tutorial: Build a LangChain.js agent with Azure AI Search
 
-In this tutorial, you'll use LangChain.js to build a LangChain.js agent that enables NorthWind company employees to ask human resources–related questions. By leveraging the framework, you avoid boilerplate code typically required for LangChain.js agents and Azure service integration, allowing you to focus on your business needs.
+In this tutorial, you'll use LangChain.js to build a LangChain.js agent that enables the NorthWind company employees to ask human resources–related questions. By leveraging the framework, you avoid boilerplate code typically required for LangChain.js agents and Azure service integration, allowing you to focus on your business needs.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * [Set up a LangChain.js agent]
-> * [Integrate Azure resources into your LangChain.js agent]
-> * [Optionally test your LangChain.js agent in LangSmith Studio]
+> * Set up a LangChain.js agent
+> * Integrate Azure resources into your LangChain.js agent
+> * Optionally test your LangChain.js agent in LangSmith Studio
 
 NorthWind relies on two data sources: public HR documentation accessible to all employees and a confidential HR database containing sensitive employee data. This tutorial focuses on building a LangChain.js agent that determines whether an employee’s question can be answered using the public HR documents. If so, the LangChain.js agent provides the answer directly.
 
 :::image type="content" source="./media/langchain-agent-on-azure/agent-workflow.png" alt-text="Diagram illustrating the LangChain.js agent workflow and its decision branch to use HR documentation for answering questions.":::
+
+
+> [!WARNING]
+> This article uses keys to access resources. In a production environment, the recommended best practice is to use Azure RBAC and managed identity. This approach eliminates the need to manage or rotate keys, enhancing security and simplifying access control.
+
 
 ## Prerequisites
 
@@ -37,11 +42,11 @@ NorthWind relies on two data sources: public HR documentation accessible to all 
 
 ## Agent architecture
 
-The LangChain.js framework provides a decision flow for building intelligent agents as a graph. In this tutorial, you will create a LangChain.js agent that integrates with Azure AI Search and Azure OpenAI to answer HR-related questions. The agent's architecture is designed to:
+The LangChain.js framework provides a decision flow for building intelligent agents as a LangGraph. In this tutorial, you will create a LangChain.js agent that integrates with Azure AI Search and Azure OpenAI to answer HR-related questions. The agent's architecture is designed to:
 
 * Determine if a question is relevant to HR documentation.
 * Retrieve relevant documents from Azure AI Search.
-* Use Azure OpenAI to generate an answer based on the retrieved documents.
+* Use Azure OpenAI to generate an answer based on the retrieved documents and LLM model.
 
 **Key Components**:
 
@@ -50,16 +55,16 @@ The LangChain.js framework provides a decision flow for building intelligent age
    * **Edges** define the flow between nodes, determining the sequence of operations.
 
 2. **Azure AI Search Integration**:
-   * Stores HR documents as vector embeddings.
+   * Inserts HR documents into vector store as embeddings.
    * Uses an embeddings model (`text-embedding-ada-002`) to create these embeddings.
-   * Retrieves relevant documents using a query key.
+   * Retrieves relevant documents based on user prompt.
 
 3. **Azure OpenAI Integration**:
-   * Uses a large language model (`gpt-35-turbo-instruct`) to:
-     * Determine if a question is HR-related.
-     * Generate answers based on retrieved documents.
+   * Uses a large language model (`4o`) to:
+     * Determines if a question is answerable from general HR documents.
+     * Generates answer with prompt using context from documents and user question.
 
-**Workflow Example**:
+The following table has examples of user questions which are and aren't relevant and answerable from general Human resources documents:
 
 | Question | Relevance to HR Documents |
 |----------|----------------------------|
@@ -110,7 +115,7 @@ To manage the various Azure resources and models used in this tutorial, create s
 
 ### Azure AI Search configuration
 
-The Azure AI Search configuration file uses the admin key to insert documents into the vector store. This key is essential for managing the ingestion of data into Azure AI Search. When querying the vector store, use the query key instead. This separation of keys ensures secure and efficient access to the resource.
+The Azure AI Search configuration file uses the admin key to insert documents into the vector store. This key is essential for managing the ingestion of data into Azure AI Search. 
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/vector_store_admin.ts" :::
 
@@ -121,29 +126,37 @@ LangChain.js abstracts the need to define a schema for data ingestion into Azure
 The Azure OpenAI resource requires two models:
 
 1. **Embeddings Model**: Used to create embeddings for inserting documents into the Azure AI Search vector store.
+
+    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/embeddings.ts" :::
+
 2. **LLM Model**: Used to query the vector store and generate answers.
 
-Create configuration files to manage the separate resources:
-
-* [embeddings.ts](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/config/embeddings.ts)
-* [llm.ts](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/config/llm.ts)
+    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/llm.ts" :::
 
 ### Query configuration
 
 For querying the vector store, create a separate configuration file:
 
-* [vector_store_query.ts](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/config/vector_store_query.ts)
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/vector_store_query.ts" :::
+
+When querying the vector store, use the query key instead. This separation of keys ensures secure and efficient access to the resource.
 
 ### Constants and prompts
 
-AI applications often rely on constant strings and prompts. Create files to manage these constants:
+AI applications often rely on constant strings and prompts. Create files to manage these constants. 
 
-* [system_prompt.ts](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/config/system_prompt.ts)
-* [nodes.ts: define LangChain.js graph nodes](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/config/nodes.ts)
-* [user_queries.ts: example user queries](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/config.ts)
+Create the system prompt:
 
-> [!WARNING]
-> This article uses keys to access resources. In a production environment, the recommended best practice is to use Azure RBAC and managed identity. This approach eliminates the need to manage or rotate keys, enhancing security and simplifying access control.
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/system_prompt.ts" :::
+
+Create the nodes constants:
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/nodes.ts" :::
+
+Create example user queries:
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/user_queries.ts" :::
+
 
 ## Load documents into Azure AI Search
 
@@ -196,8 +209,14 @@ For the **addEdge** method, its name is START ("__start__" defined in the ./src/
 
 This app provides common LangChain functionality:
 
-- [state](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/langchain/state.ts)
-- [END route](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/src/langchain/check_route_end.ts)
+* state management:
+
+    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/langchain/state.ts" :::
+
+* route termination:
+
+    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/langchain/check_route_end.ts" :::
+
 
 The only custom route for this application is the **routeRequiresHrResources**. This route is used to determine if the answer from the **requiresHrResources** node indicates that the user's question should continue on to the **ANSWER_NODE** node. Because this route receives the output of **requiresHrResources**, it is in the same file.
 
@@ -208,7 +227,7 @@ The Azure OpenAI integration uses two different models:
 - **Embeddings**: Used to insert the documents into the vector store.
 - **LLM**: Used to answer questions by querying the vector store and generating responses.
 
-The embeddings client and the LLM client serve distinct purposes. Do not reduce them to a single model or client.
+The embeddings client and the LLM client serve different purposes. Do not reduce them to a single model or client.
 
 ### Embeddings model
 
