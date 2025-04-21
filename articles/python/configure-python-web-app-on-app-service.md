@@ -45,7 +45,7 @@ When you need a custom startup file, use the following steps:
 
 ## Django startup commands
 
-By default, App Service automatically locates the folder that contains your *wsgi.py* file and starts Gunicorn with the following command:
+By default, Azure App Service locates the folder containing your wsgi.py file and starts Gunicorn with the following command:
 
 ```sh
 # <module> is the folder that contains wsgi.py. If you need to use a subfolder,
@@ -53,27 +53,31 @@ By default, App Service automatically locates the folder that contains your *wsg
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want to change any of the Gunicorn arguments, such as using `--timeout 1200`, then create a command file with those modifications. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
+If you want to modify any Gunicorn arguments, such as increasing the timeout to 1200 seconds(`--timeout 1200`), create a custom startup command file. This allows you to override the default settings with your specific requirements. For more information, see [Container startup process - Django app](/azure/app-service/configure-language-python#django-app).
 
 ## Flask startup commands
 
-By default, the App Service on Linux container assumes that a Flask app's WSGI callable is named `app` and is contained in a file named *application.py* or *app.py* and resides in the app's root folder.
+By default, App Service on Linux assumes that your Flask application meets the following critear:
 
-If you use any of the following variations, then your custom startup command must identify the app object's location in the format *file:app_object*:
+* The WSGI callable is named `app`.
+* The application code is contained in a file named *application.py* or *app.py*.
+* The application file is located in the app's root folder.
 
-- **Different file name and/or app object name**: for example, if the app's main code file is *hello.py* and the app object is named `myapp`, the startup command is as follows:
+If your project differs from this structure, then your custom startup command must identify the app object's location in the format *file:app_object*:
+
+* **Different file name and/or app object name**: If the app's main code file is *hello.py* and the app object is named `myapp`, the startup command is as follows:
 
     ```text
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
     ```
 
-- **Startup file is in a subfolder**: for example, if the startup file is *myapp/website.py* and the app object is `app`, then use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
+* **Startup file is in a subfolder**: If the startup file is *myapp/website.py* and the app object is `app`, then use Gunicorn's `--chdir` argument to specify the folder and then name the startup file and app object as usual:
 
     ```text
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir myapp website:app
     ```
 
-- **Startup file is within a module**: in the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *\_\_init\_\_.py* file. The app object is named `app` and is defined in *\_\_init\_\_.py* and *webapp.py* uses a relative import.
+* **Startup file is within a module**: In the [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial) code, the *webapp.py* startup file is contained within the folder *hello_app*, which is itself a module with an *\_\_init\_\_.py* file. The app object is named `app` and is defined in *\_\_init\_\_.py* and *webapp.py* uses a relative import.
 
     Because of this arrangement, pointing Gunicorn to `webapp:app` produces the error, "Attempted relative import in non-package," and the app fails to start.
 
