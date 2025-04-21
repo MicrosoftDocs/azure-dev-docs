@@ -10,7 +10,7 @@
 To use GitHub Copilot, please sign in to your GitHub account in VSCode. Click the Copilot icon at the top of VSCode to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, refer to [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
 ## Installation
-In VSCode, open the Extensions view from Activity Bar, search **GitHub Copilot app modernization for Java on Azure** extension in marketplace. Select the **Install** button on the extension. For more information about installing a VSCode extension, refer to [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension). After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
+In VSCode, open the Extensions view from Activity Bar, search **GitHub Copilot App Modernization - Java on Azure** extension in marketplace. Select the **Install** button on the extension. For more information about installing a VSCode extension, refer to [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension). After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
 
 ## Configuration
 In VSCode, configure runtime arguments to enable the proposed API:
@@ -30,7 +30,7 @@ In VSCode, configure runtime arguments to enable the proposed API:
 ## Assess cloud readiness
 Start your migration process with solution assessment, to understand what your cloud readiness challenges are, how impactful they are and get recommended solutions. A solution can be references to set up Azure resources, adding configurations or making code changes.
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `mi-sql-public-demo` project folder.
-2. Click **GitHub Copilot app modernization for Java on Azure** blade on the sidebar, and then click **Assess** button in Assessment section.  
+2. Click **GitHub Copilot App Modernization - Java on Azure** blade on the sidebar, and then click **Assess** button in Assessment section.  
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" border="false" alt-text="Click Assess Button for Assessment" :::
 
