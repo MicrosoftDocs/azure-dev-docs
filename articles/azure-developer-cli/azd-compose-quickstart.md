@@ -11,10 +11,10 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Build a minimal template using the Azure Developer CLI compose feature
 
-The Azure Developer CLI (`azd`) composability (compose) feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. In this article, you learn how to work with the compose feature to build a simple template. Visit the [`azd` compose overview](azd-compose.md) article for more conceptual information about this feature.
+The Azure Developer CLI (`azd`) composability (compose) feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. In this article, you learn how to work with the compose feature to build a minimal template. Visit the [`azd` compose overview](azd-compose.md) article for more conceptual information about this feature.
 
 > [!NOTE]
-> The `azd` compose feature is currently in alpha and should not be used in production apps. Changes to Alpha features in subsequent releases may result in breaking changes. Visit the [azd feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) and [feature stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md) pages for more information. Select the **Feedback** button on the upper right to leave feedback about the `compose` feature and this article.
+> The `azd` compose feature is currently in alpha and shouldn't be used in production apps. Changes to alpha features in subsequent releases can result in breaking changes. Visit the [azd feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) and [feature stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md) pages for more information. Use the **Feedback** button on the upper right to share feedback about the `compose` feature and this article.
 
 ## Work with the compose feature
 
@@ -35,7 +35,7 @@ Complete the following steps to add new resources to your template without writi
     azd add
     ```
 
-1. Select one of the supported resources to add to your app. For this example, select database.
+1. Select one of the supported resources to add to your app. For this example, select `Database`.
 
     ```output
     ? What would you like to add?  [Use arrows to move, type to filter]
@@ -63,14 +63,14 @@ Complete the following steps to add new resources to your template without writi
     ? Input the name of the app database (PostgreSQL)
     ```
 
-1. If your app contains a service(s), `azd` prompts you to select the service(s) that uses this resource.
+1. If your app contains services, `azd` prompts you to select the service that uses this resource.
 
     ```output
     ? Select the service(s) that uses this resource
     > [✓]  webfrontend
     ```
 
-1. `azd` generates a preview of the changes it will apply to the `azure.yaml` file. Press enter to accept and apply the changes.
+1. `azd` generates a preview of the required changes to the `azure.yaml` file. Press **Enter** to accept and apply the changes.
 
     ```output
     Previewing changes to azure.yaml:
@@ -92,7 +92,7 @@ Complete the following steps to add new resources to your template without writi
 
 ## Explore the azure.yaml file
 
-`azure.yaml` is the configuration file that azd uses to manage your app. `azd` manages the services and resources composed through the `azd add` command using the corresponding `services` and `resources` nodes. Consider the following example of an `azure.yaml` file updated entirely through `azd add`:
+`azure.yaml` is the configuration file that `azd` uses to manage your app. `azd` manages the services and resources composed through the `azd add` command using the corresponding `services` and `resources` nodes. Consider the following example of an `azure.yaml` file updated entirely through `azd add`:
 
 ```yml
 name: azdcomposesample
