@@ -30,13 +30,19 @@ In VSCode, configure runtime arguments to enable the proposed API:
 ## Assess cloud readiness
 Start your migration process with solution assessment, to understand what your cloud readiness challenges are, how impactful they are and get recommended solutions. A solution can be references to set up Azure resources, adding configurations or making code changes.
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `mi-sql-public-demo` project folder.
-2. Click **App Modernization for Java on Azure** blade on sidebar,  and click “Assess” button on the Assessment section.  
-3. Now Github Copilot chat – agent mode will be opened and activated to call the assessor agent to execute assessment. Please click **Continue** button to confirm.
-4. The assessor agent now opens assessment.md as the configuration for running AppCAT to do app assessment and ask for your confirmation to continue. You can examine its content and make changes if necessary there. 
-5. The assessor agent will verify your local environment first, if the AppCAT and its dependencies are not installed, then they need to be installed first, more details to visit https://aka.ms/appcat-install, after that, it will call AppCAT to evaluate the current project. This step could take several minutes to complete. 
-6. Upon completion of the scan, the assessor agent produces a categorized view of cloud readiness issues.
+2. Click **GitHub Copilot app modernization for Java on Azure** blade on the sidebar, and then click **Assess** button in Assessment section.  
+
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" border="false" alt-text="Click Assess Button for Assessment" :::
+
+3. Now Github Copilot chat window with agent mode will be opened to call the modernization assessor to execute app modernization assessment. Please click **Continue** button to confirm.
+4. The modernization assessor now opens assessment.md as the configuration for running AppCAT to do app assessment and asks for your confirmation to continue. You can examine its content and make changes if necessary there. 
+5. The modernization assessor will verify your local environment first. If the AppCAT and its dependencies are not installed, then they need to be installed first - more details to visit https://aka.ms/appcat-install. After that, it will call AppCAT to assess the current project. This step could take several minutes to complete. 
+6. Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
+
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" border="false" alt-text="Summary Report of Assessment" :::
+
 7. With reviewing the summary report, you can click on the **Propose Solution** button at the bottom and move to the next step: choose your desired solution per category/sub category. 
-8.  After deciding on the solutions, you can click on the **Confirm solution** button to get into the migration step. You can click on the **Migrate** button per issue category/sub category to enter into the code remediation stage.
+8. After deciding on the solutions, you can click on the **Confirm solution** button to get into the migration step. You can click on the **Migrate** button per issue category/sub category to enter into the code remediation stage.
 
 ## Apply a predefined formula
 The migration Copilot provides predefined formulas for common migration scenarios that you may face when migrating to Azure. In this example you'll use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
