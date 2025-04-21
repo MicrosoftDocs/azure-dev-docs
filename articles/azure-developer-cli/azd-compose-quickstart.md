@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Build a minimal template using the Azure Developer CLI compose feature
 
-The Azure Developer CLI (`azd`) composability (compose) feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. In this article, you learn how to work with the compose feature to build a simple template. Visit the [`azd` compose overview](azd-compose-overview) article for more conceptual information about this feature.
+The Azure Developer CLI (`azd`) composability (compose) feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. In this article, you learn how to work with the compose feature to build a simple template. Visit the [`azd` compose overview](azd-compose.md) article for more conceptual information about this feature.
 
 > [!NOTE]
 > The `azd` compose feature is currently in alpha and should not be used in production apps. Changes to Alpha features in subsequent releases may result in breaking changes. Visit the [azd feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) and [feature stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md) pages for more information. Select the **Feedback** button on the upper right to leave feedback about the `compose` feature and this article.
@@ -39,9 +39,13 @@ Complete the following steps to add new resources to your template without writi
 
     ```output
     ? What would you like to add?  [Use arrows to move, type to filter]
-      Azure OpenAI
-    > Database
+    > AI
+      Database
       Host service
+      Key Vault
+      Messaging
+      Storage account
+      ~Existing resource
     ```
 
 1. For the type of database, select `PostgreSQL`.

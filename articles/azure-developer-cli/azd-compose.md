@@ -26,15 +26,41 @@ azd config set alpha.compose on
 
 ## What is the compose feature?
 
-The Azure Developer CLI (azd) composability feature offers a new way to get started with azd. Before the compose feature, developers had two primary options to configure the Azure resources to provision and deploy an application.
+The Azure Developer CLI (azd) compose feature offers a new way to get started with `azd`. Before the compose feature, developers had two primary options to configure the Azure resources to provision and deploy an application:
 
 - Start with a [prebuilt template](/azure/developer/azure-developer-cli/azd-templates), which defines resources and services that should be provisioned and deployed on Azure and then customize. Browse templates in the [AI template gallery](https://azure.github.io/ai-app-templates) or the [community gallery](https://azure.github.io/awesome-azd/)
-
 - Start from an existing codebase following the instructions of [simplified init flow](/azure/developer/azure-developer-cli/start-with-app-code).
 
 Any further customization required the user to modify the bicep files.
 
+### Streamline resource creation with the compose feature
+
 The `azd` compose feature introduces a third option to add Azure resources to your apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
+
+Run the `azd add` command to add a new resource and start the compose workflow:
+
+```bash
+azd add
+```
+
+This command begins a prompt-based workflow that allows you to select a new resource to create for your app:
+
+```output
+? What would you like to add?  [Use arrows to move, type to filter]
+> AI
+  Database
+  Host service
+  Key Vault
+  Messaging
+  Storage account
+  ~Existing resource
+```
+
+When you are finished adding resources with `azd add`, run `azd up` to create all of the resources you added in Azure. Resource creation is managed internally by `azd` until you [Generate Bicep for the resources](azd-compose-generate.md) to output the infrastructure-as-code files for further customization.
+
+Visit the [Build a minimal template using the compose feature](azd-compose-quickstart.md) article for a full walkthrough of this feature.
+
+### Services supported by the compose feature
 
 The `azd compose` feature supports adding resources for the following Azure Services:
 
