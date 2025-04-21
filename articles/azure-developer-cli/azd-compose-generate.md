@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
 ---
 
-## Introduction
+# Generate Bicep using the compose feature
 
 The Azure Developer CLI (`azd`) compose feature simplifies the process of building, deploying, and managing cloud applications. By leveraging `azd compose`, you can define and manage the infrastructure and application code for your project in a unified way. This guide walks you through how to generate Bicep code from the `azd compose` feature, enabling you to further tailor your cloud infrastructure to your specific needs.
 

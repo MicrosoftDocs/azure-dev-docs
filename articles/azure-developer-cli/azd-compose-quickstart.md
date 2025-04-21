@@ -1,6 +1,6 @@
 ---
 title: Build a template using the Azure Developer CLI compose feature
-description: Learn how to build a template using the Azure Developer CLI compose feature
+description: Learn how to build a minimal template using the Azure Developer CLI compose feature
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 04/22/2025
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep
 ---
 
-# Get started with the Azure Developer CLI compose feature
+# Build a minimal template using the Azure Developer CLI compose feature
 
 The Azure Developer CLI (`azd`) composability (compose) feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. In this article, you learn how to work with the compose feature to build a simple template. Visit the [`azd` compose overview](azd-compose-overview) article for more conceptual information about this feature.
 
@@ -23,7 +23,7 @@ Access `azd` compose features through the [`azd add`](/azure/developer/azure-dev
 - **Use code in the current directory** (for apps that target Azure Container Apps for hosting)
 - **Create a minimal project**
 
-Templates initialized through the **Select a template** flow aren't currently supported. The `azd` compose feature manages infrastructure for you and isn't compatible with templates that have existing `infra` folder assets. Visit the [Generate the Bicep code](#generate-the-bicep-code) section and [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible) page for more information.
+Templates initialized through the **Select a template** flow aren't currently supported. The `azd` compose feature manages infrastructure for you and isn't compatible with templates that have existing `infra` folder assets. Visit the [Generate the Bicep code](azd-compose-generate.md) article and [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible) page for more information.
 
 Complete the following steps to add new resources to your template without writing any code:
 
@@ -125,4 +125,4 @@ resources:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Generate Bicep code using the compose feature](/azure/developer/azure-developer-cli/azd-compose-generate)
+> [Generate Bicep code using the compose feature](azd-compose-generate.md)
