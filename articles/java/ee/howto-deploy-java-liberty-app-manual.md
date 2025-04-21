@@ -143,7 +143,7 @@ $Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer
 
 ## Create an AKS cluster
 
-Use the [`az aks create`](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named `myAKSCluster` with one node. This command takes several minutes to complete.
+Use the [`az aks create`](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named `myAKSCluster` with one node and attaches the Container Registry instance to the AKS cluster. This command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -154,14 +154,15 @@ az aks create \
     --name $CLUSTER_NAME \
     --node-count 1 \
     --generate-ssh-keys \
-    --enable-managed-identity
+    --enable-managed-identity \
+    --attach-acr $REGISTRY_NAME
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
 $Env:CLUSTER_NAME = "myAKSCluster"
-az aks create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
+az aks create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity --attach-acr $Env:REGISTRY_NAME
 ```
 
 ---
@@ -174,27 +175,6 @@ After a few minutes, the command completes and returns JSON-formatted informatio
   "provisioningState": "Succeeded",
   "resourceGroup": "java-liberty-project",
 ```
-
-### Attach the Container Registry instance to the AKS cluster
-
-Run the [`az aks update`](/cli/azure/aks#az-aks-update) command to attach the Container Registry instance to the AKS cluster so that the AKS cluster is authenticated to pull images from the Container Registry instance, as shown in the following example:
-
-### [Bash](#tab/in-bash)
-
-```azurecli
-az aks update \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --attach-acr $REGISTRY_NAME
-```
-
-### [PowerShell](#tab/in-powershell)
-
-```azurepowershell
-az aks update --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --attach-acr $Env:REGISTRY_NAME
-```
-
----
 
 ### Connect to the AKS cluster
 
