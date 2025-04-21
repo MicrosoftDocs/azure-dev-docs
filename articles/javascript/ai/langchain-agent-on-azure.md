@@ -109,11 +109,11 @@ Optional: If using LangSmith, set `LANGSMITH_TRACING` to `true` for local develo
     npm install --save-dev dotenv
     ```
 
-## Create resource configuration files
+## Create Azure AI search resource configuration files
 
 To manage the various Azure resources and models used in this tutorial, create specific configuration files for each resource. This approach ensures clarity and separation of concerns, making it easier to manage and maintain the configurations.
 
-### Azure AI Search configuration
+### Configuration to upload documents into vector store
 
 The Azure AI Search configuration file uses the admin key to insert documents into the vector store. This key is essential for managing the ingestion of data into Azure AI Search. 
 
@@ -121,19 +121,7 @@ The Azure AI Search configuration file uses the admin key to insert documents in
 
 LangChain.js abstracts the need to define a schema for data ingestion into Azure AI Search, providing a default schema suitable for most scenarios. This abstraction simplifies the process and reduces the need for custom schema definitions.
 
-### Azure OpenAI configuration
-
-The Azure OpenAI resource requires two models:
-
-1. **Embeddings Model**: Used to create embeddings for inserting documents into the Azure AI Search vector store.
-
-    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/embeddings.ts" :::
-
-2. **LLM Model**: Used to query the vector store and generate answers.
-
-    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/llm.ts" :::
-
-### Query configuration
+### Configuration to query vector store
 
 For querying the vector store, create a separate configuration file:
 
@@ -141,7 +129,25 @@ For querying the vector store, create a separate configuration file:
 
 When querying the vector store, use the query key instead. This separation of keys ensures secure and efficient access to the resource.
 
-### Constants and prompts
+
+## Create Azure OpenAI resource configuration files
+
+To manage the two different models, embeddings and LLM, create separate configuration files.This approach ensures clarity and separation of concerns, making it easier to manage and maintain the configurations.
+
+### Configuration for embeddings for vector store
+
+To create embeddings for inserting documents into the Azure AI Search vector store, create a configuration file:
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/embeddings.ts" :::
+
+## Configuration for LLM to generate answers
+
+To create answers from the large language model, create a configuration file:
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/config/llm.ts" :::
+
+
+## Constants and prompts
 
 AI applications often rely on constant strings and prompts. Create files to manage these constants. 
 
