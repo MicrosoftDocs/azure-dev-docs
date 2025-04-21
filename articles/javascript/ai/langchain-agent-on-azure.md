@@ -1,7 +1,7 @@
 ---
 title: Build a LangChain.js agent for Azure
 description: Create a LangChain.js agent with LangChain.js that queries HR documents using Azure AI Search and Azure OpenAI for intelligent document search and question answering.
-ms.date: 04/17/2025
+ms.date: 04/21/2025
 ms.topic: tutorial
 ms.custom: devx-track-ts, devx-track-ts-ai
 #customer intent: As a JavaScript developer, I want to use LangChain with Azure so that I can build an agentic workflow.
