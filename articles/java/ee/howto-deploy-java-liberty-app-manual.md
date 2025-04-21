@@ -300,7 +300,7 @@ az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SER
 
 ## Create a service connection in AKS with Service Connector
 
-Run the following commands to create a connection between the AKS cluster and the SQL database using Microsoft Entra Workload ID with Service Connector. For more information, see [Create a service connection in AKS with Service Connector (preview)](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli&pivots=workload-id#create-a-service-connection-in-aks-with-service-connector-preview).
+Run the following commands to create a connection between the AKS cluster and the SQL database using Microsoft Entra Workload ID with Service Connector. For more information, see [Create a service connection in AKS with Service Connector](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli&pivots=workload-id#create-a-service-connection-in-aks-with-service-connector).
 
 ### [Bash](#tab/in-bash)
 
@@ -724,7 +724,7 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 You can learn more from references used in this guide:
 
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
-* [Tutorial: Connect an AKS app to Azure SQL Database (preview)](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli)
+* [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli)
 * [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java%2Csql-secret-java)
 * [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true)
 * [Open Liberty](https://openliberty.io/)
