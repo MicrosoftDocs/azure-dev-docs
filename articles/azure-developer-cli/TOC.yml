@@ -55,17 +55,23 @@
       href: service-packaging-ignore-files.md
     - name: Configure template sources
       href: configure-template-sources.md
-  - name: Create templates
-    items:
-    - name: Building templates overview
-      href: make-azd-compatible.md
-    - name: Start with an existing template
-      href: start-with-existing-template.md
-    - name: Start with your app code
-      href: start-with-app-code.md
-    - name: Explore the compose feature
-      href: azd-compose.md
-    - name: Training - build and deploy azd templates
+    - name: Create templates
+      items:
+      - name: Building templates overview
+        href: make-azd-compatible.md
+      - name: Start with an existing template
+        href: start-with-existing-template.md
+      - name: Start with your app code
+        href: start-with-app-code.md
+      - name: Use the compose feature
+        items:
+        - name: Compose feature overview
+          href: azd-compose-overview.md
+        - name: Create a template using compose
+          href: azd-compose-quickstart.md
+        - name: Generate Bicep files using compose
+          href: azd-compose-generate.md
+      - name: Training - build and deploy azd templates
       href: /training/paths/azure-developer-cli
   - name: Integration and remote environments
     items:
