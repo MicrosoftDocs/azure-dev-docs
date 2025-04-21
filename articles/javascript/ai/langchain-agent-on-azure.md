@@ -38,7 +38,7 @@ NorthWind relies on two data sources: public HR documentation accessible to all 
 * [Azure AI Search resource](/azure/search/search-what-is-azure-search): Ensure you have the resource endpoint, admin key (for document insertion), query key (for reading documents), and index name.
 * [Azure OpenAI resource](/azure/ai-services/openai/): You'll need the resource instance name, key, and two models with their API versions:
   * An embeddings model like `text-embedding-ada-002`.
-  * A large language model like `gpt-35-turbo-instruct` or `40-mini`.
+  * A large language model like `4o`.
 
 ## Agent architecture
 
