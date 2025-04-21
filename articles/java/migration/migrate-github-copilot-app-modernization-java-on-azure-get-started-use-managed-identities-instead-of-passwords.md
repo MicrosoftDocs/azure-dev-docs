@@ -35,7 +35,7 @@ Start your migration process with solution assessment, to understand what your c
 4. The assessor agent now opens assessment.md as the configuration for running AppCAT to do app assessment and ask for your confirmation to continue. You can examine its content and make changes if necessary there. 
 5. The assessor agent will verify your local environment first, if the AppCAT and its dependencies are not installed, then they need to be installed first, more details to visit https://aka.ms/appcat-install, after that, it will call AppCAT to evaluate the current project. This step could take several minutes to complete. 
 6. Upon completion of the scan, the assessor agent produces a categorized view of cloud readiness issues.
-7. Click on the **Propose Solution** button and move to the next step. In the solutioning step, you can choose to fix one or multiple issue categories. You can click on the information icon next to each solution to get additional details on what each solution entails.
+7. With reviewing the summary report, you can click on the **Propose Solution** button at the bottom and move to the next step: choose your desired solution per category/sub category. 
 8. Click on the **Confirm solution** button. In the migrate step, click on the **Migrate** button.
 
 ## Apply a predefined formula
