@@ -30,18 +30,20 @@ In VSCode, configure runtime arguments to enable the proposed API:
 ## Assess cloud readiness
 Start your migration process with solution assessment, to understand what your cloud readiness challenges are, how impactful they are and get recommended solutions. A solution can be references to set up Azure resources, adding configurations or making code changes.
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `mi-sql-public-demo` project folder.
-2. Open the GitHub Copilot Chat by clicking the Copilot icon.
-3. Type `@migrate-java /assess` (without quotes) and press Enter.
-4. Wait for the assessment agent to call Azure AppCat and evaluate the project (this may take several minutes).
-5. Review the categorized list of cloud readiness issues.
-6. Click **Propose Solution**, choose one or more issue categories, and review details via the information icon.
-7. Click **Confirm solution**, then click **Migrate**.
+2. Click **App Modernization for Java on Azure** blade on sidebar,  and click “Assess” button on Assessment section.  
+3. Now Github Copilot chat – agent mode will be opened and activated to call the assessment agent to execute assessment.   
+4. The assessment agent now opens assessment.md as the configuration for running AppCAT to do app assessment and ask for your confirmation to continue. You can examine its content and make changes if necessary there. 
+5. The assessment agent will verify your local environment first, if the AppCAT and its dependencies are not installed, then they need to be installed first, more details to visit https://aka.ms/appcat-install, after that, it will call AppCAT to evaluate the current project. This step could take several minutes to complete. 
+6. Upon completion of the scan, the assessment agent produces a categorized view of cloud readiness issues.
+7. Click on the **Propose Solution** button and move to the next step. In the solutioning step, you can choose to fix one or multiple issue categories. You can click on the information icon next to each solution to get additional details on what each solution entails.
+8. Click on the **Confirm solution** button. In the migrate step, click on the **Migrate** button.
 
 ## Apply a predefined formula
-The migration Copilot provides predefined formulas for common migration scenarios that you may face when migrating to Azure. In this example you’ll use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
+The migration Copilot provides predefined formulas for common migration scenarios that you may face when migrating to Azure. In this example you'll use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
 1. After clicking the Migrate button in the Solution Report, Copilot chat window will be opened with Agent Mode.
 1. Click **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
-1. Review the generated code changes and click **Keep**.
+1. After each step, please manually input a response to confirm and proceed.
+1. Review the generated code changes and click **Keep** to confirm the code changes.
 
 ## Apply Build-fix
 When the **Java Application Build-Fix** tool is suggested to run, click **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
@@ -49,4 +51,4 @@ After the Build-Fix tool begins, click **Continue** to proceed and show progress
 
 
 ## Next steps
-Create and apply your own migration formula.
+[Create and apply your own migration formula](/azure/developer/java/migration/migrate-github-copilot-app-modernization-java-on-azure-get-started-create-and-apply-your-own-formula)
