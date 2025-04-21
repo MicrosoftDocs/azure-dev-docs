@@ -275,18 +275,6 @@ az sql db create \
     --capacity 2
 ```
 
-Then, add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
-
-```azurecli
-export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
-az sql server firewall-rule create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --server $SQL_SERVER_NAME \
-    --name AllowLocalIP \
-    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
-    --end-ip-address $AZ_LOCAL_IP_ADDRESS
-```
-
 ### [PowerShell](#tab/in-powershell)
 
 First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
@@ -303,13 +291,6 @@ $Env:ENTRA_ADMIN_NAME = $(az ad signed-in-user show --query userPrincipalName --
 
 az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
 az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name $Env:DB_NAME --edition GeneralPurpose --compute-model Serverless --family Gen5 --capacity 2
-```
-
-Then, add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
-
-```azurepowershell
-$Env:AZ_LOCAL_IP_ADDRESS = (Invoke-WebRequest https://whatismyip.akamai.com).Content
-az sql server firewall-rule create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP --start-ip-address $Env:AZ_LOCAL_IP_ADDRESS --end-ip-address $Env:AZ_LOCAL_IP_ADDRESS
 ```
 
 ---
@@ -575,60 +556,6 @@ $Env:SC_SECRET_NAME = $Env:SECRET_NAME
 
 mvn clean install
 mvn dependency:copy-dependencies -f pom-azure-identity.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources
-```
-
----
-
-### Test your project locally
-
-You can now run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
-
-> [!NOTE]
-> If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
-
-1. Start the application using `liberty:run`.
-
-   ### [Bash](#tab/in-bash)
-
-   ```bash
-   cd $BASE_DIR/java-app
-
-   # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
-   export AZURE_SQL_CONNECTIONSTRING="jdbc:sqlserver://$SQL_SERVER_NAME.database.windows.net:1433;databaseName=$DB_NAME;authentication=ActiveDirectoryDefault"
-   mvn liberty:run
-   ```
-
-   ### [PowerShell](#tab/in-powershell)
-
-   ```powershell
-   cd $Env:BASE_DIR/java-app
-
-   # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
-   $Env:AZURE_SQL_CONNECTIONSTRING = "jdbc:sqlserver://$Env:SQL_SERVER_NAME.database.windows.net:1433;databaseName=$Env:DB_NAME;authentication=ActiveDirectoryDefault"
-   mvn liberty:run
-   ```
-
-    ---
-
-1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
-
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select <kbd>Y</kbd> if you're asked to terminate the batch job.
-
-When you're finished, delete the firewall rule that allows your local IP address to access the Azure SQL Database by using the following command:
-
-### [Bash](#tab/in-bash)
-
-```azurecli
-az sql server firewall-rule delete \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --server $SQL_SERVER_NAME \
-    --name AllowLocalIP
-```
-
-### [PowerShell](#tab/in-powershell)
-
-```azurepowershell
-az sql server firewall-rule delete --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP
 ```
 
 ---
