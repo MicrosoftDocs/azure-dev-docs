@@ -179,11 +179,11 @@ Key Considerations:
 
 2. **Load PDFs into LangChain.js**: Use the `loadPdfsFromDirectory` function to load the documents. This function utilizes the LangChain.js community's `PDFLoader.load` method to read each file and return a `Document[]` array. This array is a standard LangChain.js document format.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/find_pdfs.ts" :::
+    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/find_pdfs.ts" :::
 
 3. **Insert Documents into Azure AI Search**: Use the `loadDocsIntoAiSearchVector` function to send the document array to the Azure AI Search vector store. This function uses the embeddings client to process the documents and includes a basic wait function to handle throttling. For production, implement a robust retry/backoff mechanism.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/load_vector_store.ts" :::
+    :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/load_vector_store.ts" :::
 
 ## Create agent workflow
 
