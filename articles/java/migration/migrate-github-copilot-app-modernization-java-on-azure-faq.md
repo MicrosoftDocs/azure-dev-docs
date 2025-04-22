@@ -1,4 +1,4 @@
-## FAQ
+![image](https://github.com/user-attachments/assets/a8d2a663-24b2-4b68-92e4-ac278fe8b649)## FAQ
 
 ---
 
@@ -57,6 +57,11 @@ To switch models:
 
 **Q: Why is the code regeneration process unstable?**  
 **A:** Java Migration Copilot is powered by AI, so occasional errors may occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
+
+---
+
+**Q: How to contact the product team?**  
+**A:** Please email us at appmod_support@microsoft.com.
 
 ---
 
