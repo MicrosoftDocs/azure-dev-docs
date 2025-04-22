@@ -45,16 +45,13 @@ Choose your approach based on your specific scenario:
 
 | If you want to... | Then you should... | Using these Azure services |
 |-------------------|--------------------|-----------------------------|
-| **Bring an existing GraphQL app to Azure** | Deploy your application without changing your code | Azure App Service, Azure Static Web Apps, or Azure Container Apps |
-| **Add GraphQL to your existing data** | Create GraphQL endpoints for your data with minimal coding | Data API builder with Azure SQL Database or Cosmos DB |
+| **Bring an existing GraphQL app to Azure** | Deploy your application without changing your code | Azure App Service or Azure Container Apps |
+| **Add GraphQL to your existing data** | Create GraphQL endpoints for your data with minimal coding | Data API builder |
 | **Build a GraphQL API layer** | Create a unified GraphQL interface over existing APIs | Azure API Management with GraphQL transformation |
-| **Start a new GraphQL project** | Use a modern JavaScript stack with built-in GraphQL support | Azure Static Web Apps with Data API builder |
 
 ## Hosting GraphQL applications on Azure
 
 You have a few good options depending on what type of application you're building:
-
-* **Static Web Apps**: Perfect for JavaScript front-end applications like React, Vue, or Angular. It automatically builds and deploys your site from GitHub and includes API support.
 
 * **App Service**: This is like a traditional web hosting service, but with extra features. It's great for most JavaScript applications that need a server.
 
@@ -113,29 +110,12 @@ If you want to learn more or start building with GraphQL on Azure, here are some
 * [Getting started with Data API Builder](https://aka.ms/dab)
 * [JavaScript GraphQL examples on Azure](https://learn.microsoft.com/samples/browse/?languages=graphql%2Cjavascript%2Ctypescript&products=azure&filter-languages=graphql)
 
-## Related Azure services for your GraphQL applications
-
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - Store structured data
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) - Store flexible, unstructured data
-* [Azure API Management](https://azure.microsoft.com/services/api-management/) - Create and manage APIs
-* [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/) - Host your JavaScript front-end applications
-
 ## Next steps
 
-Ready to get started with GraphQL on Azure? Here are specific next steps based on your scenario:
-
-**For existing GraphQL applications**
-
-1. Choose your hosting option:
-   - [Deploy to Static Web Apps](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
-   - [Deploy to App Service](/azure/app-service/quickstart-nodejs?tabs=windows)
-   - [Deploy to Container Apps](/azure/container-apps/javascript-overview)
-
-2. Set up CI/CD for automated deployments:
-   - [GitHub Actions with Static Web Apps](/azure/static-web-apps/github-actions-workflow)
-   - [GitHub Actions with App Service](/azure/app-service/deploy-github-actions)
-
-**For adding GraphQL to existing data**
-
-[Install Data API Builder](/azure/data-api-builder/get-started/get-started-with-data-api-builder)
+* [Install Data API Builder](/azure/data-api-builder/get-started/get-started-with-data-api-builder)
+* [Azure Container Apps](/azure/container-apps)
+* [Azure API Management](https://azure.microsoft.com/services/api-management/) - Create and manage APIs
+* [Azure App service](/azure/app-service)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - Store structured data
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) - Store flexible, unstructured data
 
