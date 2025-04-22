@@ -1,6 +1,6 @@
 # Concepts
 
-**GitHub Copilot App Modernization - Java on Azure** is a tool covering application migration to Azure end to end, from application assessment, plan, code remediation and build fix. It aims to help you migrate/run your applications to Azure with confidence and accelerate the whole cycle.
+**GitHub Copilot App Modernization - Java on Azure** is a tool covering application migration to Azure end to end, from application assessment, planning, code remediation and build fix. It aims to help you migrate/run your applications to Azure with confidence and accelerate the whole cycle, powered by the artificial intelligence of GitHub Copilot.
 
 ---
 
