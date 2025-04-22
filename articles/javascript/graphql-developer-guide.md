@@ -108,7 +108,7 @@ If you want to learn more or start building with GraphQL on Azure, here are some
 
 * [Introduction to GraphQL for beginners](https://graphql.org/learn/)
 * [Getting started with Data API Builder](https://aka.ms/dab)
-* [JavaScript GraphQL examples on Azure](https://learn.microsoft.com/samples/browse/?languages=graphql%2Cjavascript%2Ctypescript&products=azure&filter-languages=graphql)
+* [JavaScript GraphQL examples on Azure](/samples/browse/?languages=graphql%2Cjavascript%2Ctypescript&products=azure&filter-languages=graphql)
 
 ## Next steps
 
