@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/a8d2a663-24b2-4b68-92e4-ac278fe8b649)## FAQ
 
----
 
 **Q: What’s the product scope of the Java Migration Copilot?**  
 **A:** We recognize the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we are limiting the migration scope to **Java backend apps**.
@@ -75,10 +73,6 @@ To switch models:
 
 ---
 
-**Q: How to contact the product team?**  
-**A:** Please email us at appmod-support@microsoft.com.
-
----
 
 **Q: Does the tool store my source code?**  
 **A:** No. The tool uses GitHub Copilot in the same way you use it to modify code, which does **not retain** code snippets beyond the immediate session.  
