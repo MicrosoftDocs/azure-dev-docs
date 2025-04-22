@@ -61,7 +61,7 @@ To switch models:
 ---
 
 **Q: How to contact the product team?**  
-**A:** Please email us at appmod_support@microsoft.com.
+**A:** Please email us at appmod-support@microsoft.com.
 
 ---
 
