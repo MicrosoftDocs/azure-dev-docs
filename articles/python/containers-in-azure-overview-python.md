@@ -211,7 +211,7 @@ You can pass environment variables to containers in a few ways:
 1. Passed in as  `--secret` arguments with the Docker build command and [BuildKit][29] backend.
 1. Passed in as `--env` or `--env-file` arguments with the Docker [run][43] command.
 
-The first two options have the same drawback as noted above with *\.env* files, namely that you're hardcoding potentially sensitive information into a Docker image. You can inspect a Docker image and see the environment variables, for example, with the command [docker image inspect][28].
+The first two options have the same drawback as noted with *\.env* files, namely that you're hardcoding potentially sensitive information into a Docker image. You can inspect a Docker image and see the environment variables, for example, with the command [docker image inspect][28].
 
 The third option with BuildKit allows you to pass secret information to be used in the Dockerfile for building docker images in a safe way that won't end up stored in the final image.
 
