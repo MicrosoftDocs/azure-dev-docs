@@ -230,7 +230,7 @@ docker run --rm -it \
   <dockerimagename:tag>
 ```
 
-If you're using VS Code or PyCharm, the UI options for working with images and containers ultimately use Docker CLI commands like the one shown above.
+If you're using VS Code or PyCharm, the UI options for working with images and containers ultimately use Docker CLI commands like the one sho, such as the previous commandsw.
 
 Finally, specifying environment variables  when deploying a container in Azure is different than using environment variables in your dev environment. For example:
 
@@ -258,7 +258,7 @@ When you deploy a container in ***Azure***, you also have access to container lo
 | Azure Container Apps | Go to the environment resource **Diagnose and solve problems** to troubleshoot environment problems. More often, you want to see container logs. In the container resource, under **Application** - **Revision management**, select the revision and from there you can view system and console logs. For more detailed log queries and configuration, see the resources under **Monitoring**. |
 | Azure Container Instances | Go to the **Containers** resource and select **Logs**. |
 
-For the same services listed above, here are the Azure CLI commands to access logs.
+For these services, here are the Azure CLI commands to access logs.
 
 | Azure service | Azure CLI command to access logs |
 | -------------- | -------------------------------- |
