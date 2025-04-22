@@ -7,11 +7,12 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
+appliesto:
+- ✅ Version 4.20.0
+- ✅ Version 5.22.0
 ---
 
 # Spring Cloud Azure support for Spring Cloud Stream
-
-**This article applies to:** ✅ Version 4.20.0 ✅ Version 5.22.0
 
 Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 

@@ -7,11 +7,12 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
+appliesto:
+- ✅ Version 4.20.0
+- ✅ Version 5.22.0
 ---
 
 # Spring Cloud Azure support for Spring Integration
-
-**This article applies to:** ✅ Version 4.20.0 ✅ Version 5.22.0
 
 Spring Integration Extension for Azure provides Spring Integration adapters for the various services provided by the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/). We provide Spring Integration support for these Azure services: Event Hubs, Service Bus, Storage Queue. The following is a list of supported adapters:
 
