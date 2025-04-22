@@ -233,7 +233,7 @@ kubectl get nodes
 
 ---
 
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is **Ready**:
+The following example output shows the single node created in the previous steps. Make sure that the status of the node is `Ready`:
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
@@ -377,7 +377,7 @@ If you fail to run the command `az aks connection create sql` in your local mach
 
 ### [Bash](#tab/in-bash)
 
-* Error message: **Dependency pyodbc can't be installed, please install it manually**
+* Error message: `Dependency pyodbc can't be installed, please install it manually`
 
   This error message indicates that the `pyodbc` package can't be installed most likely because of the permssion issue.
 
@@ -387,7 +387,7 @@ If you fail to run the command `az aks connection create sql` in your local mach
      az --version
      ```
 
-     The output should contains **Python location**, for example, `Python location '/opt/az/bin/python3'`. Copy the value of the **Python location**.
+     The output should contains `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of the `Python location`.
 
   1. Run the following command in the Shell window to install the `pyodbc` package in `sudo` mode, using the Python location you copied in the previous step, for example:
 
@@ -395,7 +395,7 @@ If you fail to run the command `az aks connection create sql` in your local mach
      sudo /opt/az/bin/python3 -m pip install pyodbc
      ```
 
-* Error message: **Please manually install odbc 17/18 for SQL server**
+* Error message: `Please manually install odbc 17/18 for SQL server`
 
   This error message indicates that the `odbc` driver is not installed.
 
@@ -415,7 +415,7 @@ az aks connection create sql \
 
 ### [PowerShell](#tab/in-powershell)
 
-* Error message: **Dependency pyodbc can't be installed, please install it manually**
+* Error message: `Dependency pyodbc can't be installed, please install it manually`
 
   This error message indicates that the `pyodbc` package can't be installed most likely because of the permssion issue.
 
@@ -425,7 +425,7 @@ az aks connection create sql \
      az --version
      ```
 
-     The output should contains **Python location**, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of the **Python location**.
+     The output should contains `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of the `Python location`.
 
   1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
@@ -435,7 +435,7 @@ az aks connection create sql \
      & 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe' -m pip install pyodbc
      ```
 
-* Error message: **Please manually install odbc 17/18 for SQL server**.
+* Error message: `Please manually install odbc 17/18 for SQL server`.
 
   This error message indicates that the `odbc` driver is not installed.
 
