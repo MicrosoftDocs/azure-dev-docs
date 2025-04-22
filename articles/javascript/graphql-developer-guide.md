@@ -111,7 +111,7 @@ If you want to learn more or start building with GraphQL on Azure, here are some
 
 * [Introduction to GraphQL for beginners](https://graphql.org/learn/)
 * [Getting started with Data API Builder](https://aka.ms/dab)
-* [JavaScript GraphQL examples on Azure](https://learn.microsoft.com/samples/browse/?languages=javascript&products=azure&terms=graphql)
+* [JavaScript GraphQL examples on Azure](https://learn.microsoft.com/en-us/samples/browse/?languages=graphql%2Cjavascript%2Ctypescript&products=azure&filter-languages=graphql)
 
 ## Related Azure services for your GraphQL applications
 
@@ -129,7 +129,7 @@ Ready to get started with GraphQL on Azure? Here are specific next steps based o
 1. Choose your hosting option:
    - [Deploy to Static Web Apps](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
    - [Deploy to App Service](/azure/app-service/quickstart-nodejs?tabs=windows)
-   - [Deploy to Container Apps](/azure/container-apps/quickstart-nodejs)
+   - [Deploy to Container Apps](/azure/container-apps/javascript-overview)
 
 2. Set up CI/CD for automated deployments:
    - [GitHub Actions with Static Web Apps](/azure/static-web-apps/github-actions-workflow)
@@ -137,8 +137,5 @@ Ready to get started with GraphQL on Azure? Here are specific next steps based o
 
 **For adding GraphQL to existing data**
 
-1. [Install Data API Builder](/azure/data-api-builder/get-started/get-started-with-data-api-builder)
-2. Connect to your database:
-   - [Azure SQL Database setup](/azure/data-api-builder/get-started/azure-sql-db)
-   - [Cosmos DB setup](/azure/data-api-builder/get-started/cosmosdb-nosql)
-3. [Configure your GraphQL schema](/azure/data-api-builder/graphql)
+[Install Data API Builder](/azure/data-api-builder/get-started/get-started-with-data-api-builder)
+
