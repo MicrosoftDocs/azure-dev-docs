@@ -59,7 +59,7 @@ For containerizing Python projects, the key files are described in the following
 |--------------| ----------- |
 |*requirements.txt* | This file contains the definitive list of Python dependencies needed for your application. Docker uses this list during the image build process to install all required packages. This ensures consistency between development and deployment environments.|
 |*Dockerfile* | This file contains instructions for building your Python Docker image, including the base image selection, dependency installation, code copying, and container startup commands. It defines the complete execution environment for your application. For more information, see the section [Dockerfile instructions for Python](#python-dockerfile).|
-|*\.dockerignore* | This file specifies the files and directories that should be excluded when copying content to the Docker image with the `COPY` command in the *Dockerfile*. This file uses patterns similar to .gitignore for defining exclusions. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps image build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *\.env* and *\.venv* (virtual environments).|
+|*\.dockerignore* | This file specifies the files and directories that should be excluded when copying content to the Docker image with the `COPY` command in the Dockerfile. This file uses patterns similar to .gitignore for defining exclusions. The *\.dockerignore* file supports exclusion patterns similar to *\.gitignore* files. For more information, see [\.dockerignore file][40]. <br><br> Excluding files helps image build performance, but should also be used to avoid adding sensitive information to the image where it can be inspected. For example, the *\.dockerignore* should contain lines to ignore *\.env* and *\.venv* (virtual environments).|
 
 ## Container settings for web frameworks
 
@@ -81,7 +81,7 @@ The following table shows how to set the port for different Azure container solu
 
 ## Python Dockerfile
 
-A *Dockerfile* is a text file that contains instructions for building a Docker image for a Python application. The first instruction typically specifies the base image to start from. Subsequent instructions then detail actions such as installing necessary software, copying application files, and configuring the environment to create a runnable image. 
+A Dockerfile is a text file that contains instructions for building a Docker image for a Python application. The first instruction typically specifies the base image to start from. Subsequent instructions then detail actions such as installing necessary software, copying application files, and configuring the environment to create a runnable image. 
 The following table provides Python-specific examples for commonly used Dockerfile instructions.
 
 | Instruction | Purpose | Example |
@@ -146,7 +146,7 @@ Integrated development environments (IDEs) like Visual Studio Code (VS Code) and
 
 * Connect and work with container registries like Docker Hub, GitLab, JetBrains Space, Docker V2, and other self-hosted Docker registries.
 
-* (VS Code only) Add a *Dockerfile* and Docker compose files that are tailored for your Python project.
+* (VS Code only) Add a Dockerfile and Docker compose files that are tailored for your Python project.
 
 To set up VS Code and PyCharm to run Docker containers in your dev environment, use the following steps.
 
@@ -206,14 +206,14 @@ Packages like [python-dotenv][27] are often used to read key-value pairs from an
 
 You can pass environment variables to containers in a few ways:
 
-1. Defined in the *Dockerfile* as [ENV][45] instructions.
+1. Defined in the Dockerfile as [ENV][45] instructions.
 1. Passed in as `--build-arg` arguments with the Docker [build][42] command.
 1. Passed in as  `--secret` arguments with the Docker build command and [BuildKit][29] backend.
 1. Passed in as `--env` or `--env-file` arguments with the Docker [run][43] command.
 
 The first two options have the same drawback as noted above with *\.env* files, namely that you're hardcoding potentially sensitive information into a Docker image. You can inspect a Docker image and see the environment variables, for example, with the command [docker image inspect][28].
 
-The third option with BuildKit allows you to pass secret information to be used in the *Dockerfile* for building docker images in a safe way that won't end up stored in the final image.
+The third option with BuildKit allows you to pass secret information to be used in the Dockerfile for building docker images in a safe way that won't end up stored in the final image.
 
 The fourth option of passing in environment variables with the Docker run command means the Docker image doesn't contain the variables. However, the variables are still visible inspecting the container instance (for example, with [docker container inspect][51]). This option may be acceptable when access to the container instance is controlled or in testing or dev scenarios.
 
