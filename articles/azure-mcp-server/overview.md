@@ -4,7 +4,7 @@ description: Overview of the features and capabilities of the Azure MCP Server t
 author: ms-johnalex
 ms.author: johalexander
 ms.date: 04/22/2025
-ms.topic: conceptual
+ms.topic: overview 
 ms.custom: build-2025
 ---
 
