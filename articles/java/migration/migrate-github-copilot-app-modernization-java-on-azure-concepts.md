@@ -3,7 +3,7 @@
 **Azure Migrate application and code assessment (AppCAT)** is a code assessment tool that scans, discovers, and evaluates an application’s readiness for cloud migration.  
 See [AppCAT documentation](https://learn.microsoft.com/en-us/azure/migrate/appcat/java) for more details.
 
-AppCAT is part of the **GitHub Copilot App Modernization Assistant for Java on Azure**, and usually a good starting point in your app modernization journey.  
+AppCAT is integrated with the **GitHub Copilot App Modernization - Java on Azure**, and usually a good starting point in your app modernization journey.  
 Developers can invoke AppCAT to get an overview of the cloud readiness migration issues along with solution recommendations.  
 These solutions can include:
 - Instructions for setting up Azure resources  
@@ -12,7 +12,7 @@ These solutions can include:
 
 ---
 
-In scenarios where code changes are required, the **App Modernization Assistant for Java** guides developers to the code remediation step.  
+In scenarios where code changes are required, the **App Modernization - Java on Azure** guides developers to the code remediation step.  
 At this stage, developers can use predefined formulas for common issues, such as:
 
 - Switching from password-based authentication to **Managed Identities**
