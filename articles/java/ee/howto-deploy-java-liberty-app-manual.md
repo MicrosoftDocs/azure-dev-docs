@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 04/21/2025
+ms.date: 04/22/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -368,6 +368,84 @@ az identity create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_AS
 $Env:UAMI_RESOURCE_ID = $(az identity show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME --query id --output tsv)
 
 # Create a service connection between your AKS cluster and your SQL database using Microsoft Entra Workload ID
+az aks connection create sql --connection akssqlconn --client-type java --source-id $Env:AKS_CLUSTER_RESOURCE_ID --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME --workload-identity $Env:UAMI_RESOURCE_ID
+```
+
+---
+
+If you fail to run the command `az aks connection create sql` in your local machine with the following similar error messages, follow the steps below to fix the issue:
+
+### [Bash](#tab/in-bash)
+
+* Error message: **Dependency pyodbc can't be installed, please install it manually**
+
+  This error message indicates that the `pyodbc` package can't be installed most likely because of the permssion issue.
+
+  1. Find location of Python that works with Azure CLI by running the following command:
+
+     ```azurecli
+     az --version
+     ```
+
+     The output should contains **Python location**, for example, `Python location '/opt/az/bin/python3'`. Copy the value of the **Python location**.
+
+  1. Run the following command in the Shell window to install the `pyodbc` package in `sudo` mode, using the Python location you copied in the previous step, for example:
+
+     ```azurecli
+     sudo /opt/az/bin/python3 -m pip install pyodbc
+     ```
+
+* Error message: **Please manually install odbc 17/18 for SQL server**
+
+  This error message indicates that the `odbc` driver is not installed.
+
+  1. Depending on your Operating System, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) or [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true) in your browser.
+  1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
+
+After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
+
+```azurecli
+az aks connection create sql \
+    --connection akssqlconn \
+    --client-type java \
+    --source-id $AKS_CLUSTER_RESOURCE_ID \
+    --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
+    --workload-identity $UAMI_RESOURCE_ID
+```
+
+### [PowerShell](#tab/in-powershell)
+
+* Error message: **Dependency pyodbc can't be installed, please install it manually**
+
+  This error message indicates that the `pyodbc` package can't be installed most likely because of the permssion issue.
+
+  1. Find location of Python that works with Azure CLI by running the following command:
+
+     ```powershell
+     az --version
+     ```
+
+     The output should contains **Python location**, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of the **Python location**.
+
+  1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
+
+  1. Run the following command in the PowerShell window to install the `pyodbc` package, using the Python location you copied in the previous step, for example:
+
+     ```powershell
+     & 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe' -m pip install pyodbc
+     ```
+
+* Error message: **Please manually install odbc 17/18 for SQL server**.
+
+  This error message indicates that the `odbc` driver is not installed.
+
+  1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
+  1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
+  1. Run the installer and follow the instructions to install the driver.
+
+After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
+
+```powershell
 az aks connection create sql --connection akssqlconn --client-type java --source-id $Env:AKS_CLUSTER_RESOURCE_ID --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME --workload-identity $Env:UAMI_RESOURCE_ID
 ```
 
