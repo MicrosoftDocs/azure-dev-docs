@@ -1,6 +1,6 @@
 items:
 - name: Azure MCP Server
-  href: index.yml
+  href: overview.md
   items:
     - name: Overview
       href: overview.md
@@ -27,4 +27,4 @@ items:
         - name: Service Bus Operations
           href: commands/azmcp-servicebus.md
         - name: Storage Operations
-          href: commands/
+          href: commands/azmcp-storage.md
