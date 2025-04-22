@@ -87,7 +87,7 @@ The following table provides Python-specific examples for commonly used Dockerfi
 | Instruction | Purpose | Example |
 | ----------- | ------- | ------- |
 | [FROM][16] | Sets the base image for subsequent instructions. | `FROM python:3.8-slim` |
-| [EXPOSE][17] | Tells Docker that the container listens on the specified network ports at runtime. | `EXPOSE 5000` |
+| [EXPOSE][17] | Tells Docker that the container listens to a specified port at runtime. | `EXPOSE 5000` |
 | [COPY][38] | Copies files or directories from the specified source and adds them to the filesystem of the container at the specified destination path. | `COPY . /app` |
 | [RUN][18] | Runs a command inside the Docker image. For example, pull in dependencies. The command runs once at build time. | `RUN python -m pip install -r requirements.txt`|
 | [CMD][19] | The command provides the default for executing a container. There can only be one CMD instruction. | `CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"]` |
