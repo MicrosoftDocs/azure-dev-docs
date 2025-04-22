@@ -7,20 +7,11 @@ This journey involves:
 - Planning Azure resources  
 - Remediating issues so apps can be migrated to the cloud
 
-To ease the transition, we’ve previously introduced **Azure Migrate application and code assessment tools for .NET & Java** – aka **AppCAT**.  
-However, AppCAT relies on static analysis and is limited to solution assessment—leaving developers to:
-
-- Select the best fix themselves  
-- Manually change the code to remediate issues  
-- Verify the app still works
-
-For complex apps, this can take **days or even weeks** of effort.
-
 ---
 
-### GitHub Copilot App Modernization Assistant for Java on Azure
+### GitHub Copilot App Modernization - Java on Azure
 
-The **GitHub Copilot App Modernization Assistant for Java on Azure** is an **all-in-one migration assistant** that harnesses the power of AI to:
+The **GitHub Copilot App Modernization - Java on Azure** is an **all-in-one migration assistant** that harnesses the power of AI to:
 
 - Perform code assessment  
 - Suggest and apply remediation  
@@ -30,7 +21,7 @@ This improves developer **velocity**, **quality**, and **confidence**.
 
 ---
 
-### Common Use Cases of Azure Container Apps
+### Common Use Cases of GitHub Copilot App Modernization - Java on Azure
 
 - Assess applications’ cloud readiness issues  
 - Propose solutions and recommend target Azure services  
