@@ -3,18 +3,24 @@
 
 **Q: What’s the product scope of the Java Migration Copilot?**
 **A:** We recognize the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we are limiting the migration scope to Java backend apps.
+---
 
 **Q: Can I use the Java Migration Copilot to upgrade my Java version?**
 **A:** There is a separate [GitHub Copilot assistant for Java upgrade](https://devblogs.microsoft.com/java/technical-preview-github-copilot-upgrade-assistant-for-java), and you can use it together with the Java Migration Copilot.
+---
 
 **Q: Will the migration copilot be open sourced in the future?**
 **A:** We currently have **no plans to open source** the Java Migration Copilot.
+---
 
 **Q: What GitHub Copilot license plan do I need to use the Java Migration Copilot?**
 **A:** Any plan will work, including the free plan.
+---
 
 **Q: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for the migration copilot to go beyond Java or consolidate with the .NET experience?**
 **A:** Currently, the Java Migration Copilot is focused on assisting with **Java applications**. However, we are actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
+
+---
 
 **Q: Where are formulas stored on the local machine and how to share them?**  
 **A:**  
