@@ -440,6 +440,9 @@ wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/de
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/base/open-liberty-roles.yaml -q -P ./base
 kubectl create namespace open-liberty
 kubectl apply --server-side -k overlays/watch-all-namespaces
+
+# Remove the downloaded files
+rm -rf overlays base
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -462,6 +465,9 @@ Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-ope
 Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/$Env:OPERATOR_VERSION/kustomize/base/open-liberty-roles.yaml -OutFile ./base/open-liberty-roles.yaml
 kubectl create namespace open-liberty
 kubectl apply --server-side -k overlays/watch-all-namespaces
+
+# Remove the downloaded files
+Remove-Item -Recurse -Force overlays, base
 ```
 
 ---
