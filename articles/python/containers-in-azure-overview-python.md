@@ -63,7 +63,7 @@ For containerizing Python projects, the key files are described in the following
 
 ## Container settings for web frameworks
 
-Web frameworks typically bind to default ports (such as 5000 for Flask, 8000 for FastAPI). When deploying containers to Azure services such as Azure Container Instances, Azure Kubernetes Service (AKS), or App Service for Containers, it's crucial to explicitly expose and configure the container's listening port to ensure proper routing of inbound traffic. COnfiguring the correct port ensures that Azure’s infrastructure can direct requests to the correct endpoint inside your container.
+Web frameworks typically bind to default ports (such as 5000 for Flask, 8000 for FastAPI). When deploying containers to Azure services such as Azure Container Instances, Azure Kubernetes Service (AKS), or App Service for Containers, it's crucial to explicitly expose and configure the container's listening port to ensure proper routing of inbound traffic. Configuring the correct port ensures that Azure’s infrastructure can direct requests to the correct endpoint inside your container.
 
 | Web framework  | Port |
 | -------------- | ---- |
