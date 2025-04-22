@@ -63,7 +63,7 @@ For containerizing Python projects, the key files are:
 
 ## Container settings for web frameworks
 
-Web frameworks typically have default ports on which they listen for incoming web requests. When deploying to certain Azure container services, it's essential to explicitly specify the port your container is configured to listen on for receiving network traffic.
+Many web frameworks use default ports to listen for incoming requests. However, when deploying to certain Azure container services, such as Azure Container Instances, Azure Kubernetes Service (AKS), or App Service for Containers, you must explicitly specify the port your container listens on to ensure these service can correctly route network traffic to your application.
 
 This ensures that Azure’s infrastructure can direct requests to the correct endpoint inside your container.
 
