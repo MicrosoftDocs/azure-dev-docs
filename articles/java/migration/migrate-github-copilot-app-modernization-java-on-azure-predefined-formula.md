@@ -1,7 +1,7 @@
 # Predefined Formula
 
 Predefined formulas capture industry best practices for using Azure services.  
-Currently, **GitHub Copilot App Modernization Assistant for Java on Azure** offers **8 predefined formulas** that cover common migration scenarios.
+Currently, **GitHub Copilot App Modernization Assistant for Java on Azure** offers ** predefined formulas** that cover common migration scenarios.
 
 These formulas address topics such as:
 
