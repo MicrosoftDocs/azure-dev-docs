@@ -49,7 +49,7 @@ Choose your approach based on your specific scenario:
 | **Add GraphQL to your existing data** | Create GraphQL endpoints for your data with minimal coding | Data API builder |
 | **Build a GraphQL API layer** | Create a unified GraphQL interface over existing APIs | Azure API Management with GraphQL transformation |
 
-## Hosting GraphQL applications on Azure
+## Host GraphQL applications on Azure
 
 You have a few good options depending on what type of application you're building:
 
@@ -67,13 +67,13 @@ GraphQL needs to connect to your data. Azure offers several ways to do this:
   * SQL Database: For traditional table-based data
   * Cosmos DB: For flexible, scalable data storage without rigid schemas
 
-## Securing GraphQL applications
+## Secure GraphQL applications
 
 * **User login and security**: Azure's Identity platform helps you add login features to your application so only the right people can access your GraphQL data.
 * **Role-based access**: Control exactly which users can query or modify what data through your GraphQL endpoints.
 * **API protection**: Add rate limiting and monitoring to prevent abuse of your GraphQL APIs.
 
-## Creating GraphQL APIs for your existing data
+## Create GraphQL APIs for your existing data
 
 Already have data in Azure and want to access it with GraphQL? There are simple ways to do this:
 
