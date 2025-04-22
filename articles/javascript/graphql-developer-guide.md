@@ -1,68 +1,144 @@
 ---
-title: GraphQL Guide For Azure JavaScript Developers
-description: Discover the services and tools you need to build and deploy your GraphQL applications on Azure, whether you're hosting existing applications or creating new GraphQL endpoints.
+title: GraphQL on Azure for JavaScript developers
+description: Learn how to build and deploy GraphQL applications on Azure using JavaScript, and discover the Azure services that make your GraphQL implementation easier.
 ms.topic: concept-article
 ms.date: 04/22/2025
 ms.custom: devx-graphql
 #CustomerIntent: As a developer new to Azure, I want to understand how to find the right services and tools to bring or build GraphQL applications with Azure so that my application runs without any more work than is necessary. 
 ---
 
-# GraphQL for JavaScript developers on Azure?
+# GraphQL on Azure for JavaScript developers
 
-Discover the services and tools you need to build and deploy your GraphQL applications on Azure. Whether you're hosting your existing GraphQL applications or creating new GraphQL endpoints, Azure provides the resources to do so without changes to your code.
-
-Understand how to use [GraphQL](https://graphql.org/) on Azure. 
-
-* **Bring** GraphQL applications to the Azure web app hosting services such as Static Web Apps, App Service, and Azure Functions.
-* **Build** GraphQL endpoints to your existing data sources without adding GraphQL infrastructure. Integrate microservices, stitching together calls to existing backed services, using [API Management](/azure/api-management/graphql-apis-overview) or access to database via GraphQL using [Data API builder](/azure/data-api-builder/overview-to-data-api-builder).
+GraphQL helps your JavaScript applications retrieve exactly the data they need with a single request. This article explains what GraphQL is, why you might use it, and how Azure services can help you build GraphQL applications with minimal effort. Whether you're migrating an existing GraphQL application or building a new one, Azure provides tools and services to simplify the process.
 
 ## What is GraphQL?
 
-GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+GraphQL is a modern way for your web application to talk to servers and databases. Think of it as a smarter way to request exactly the information you need:
 
-GraphQL [language support](https://graphql.org/code/) is extensive, allowing you to choose your language of choice to build GraphQL applications. GraphQL is also supported by many [client libraries](https://graphql.org/code/#graphql-clients) and [server libraries](https://graphql.org/code/#graphql-servers).
+* It's like ordering a custom meal instead of accepting a fixed menu - you ask for exactly what you want
+* It works well with JavaScript applications like React, Vue, or Angular
+* It can make your web apps faster and easier to build
 
-JavaScript developers in particular benefit from GraphQL's ecosystem with powerful tooling such as Apollo Client 4.0, Relay, and the newer GraphQL Yoga integration. Recent advancements in incremental delivery and real-time features make GraphQL an even more compelling choice for modern web applications.
+Instead of making multiple requests to different server endpoints (like with traditional REST APIs - the standard way most web services communicate), GraphQL lets you make one precise request to get all the data you need.
 
-## Why use GraphQL in frontend applications?
+## Why would I want to use GraphQL in my web app?
 
-GraphQL offers several key advantages for frontend and client applications:
+GraphQL makes your JavaScript applications better in three main ways:
 
-* **Precise data fetching**: Frontend applications can request exactly the data they need and nothing more, reducing over-fetching and under-fetching issues common with REST APIs. This leads to smaller payloads, faster load times, and less bandwidth consumption - especially important for mobile web applications.
+* **Get exactly what you need**: Your app can ask for just the data it needs right now - no more, no less. This is like going to a buffet and taking only what you'll eat, instead of being served a giant fixed meal where most gets wasted. This makes your app faster because it downloads less data.
 
-* **Single request for complex data**: GraphQL enables frontend developers to retrieve complex, nested data from multiple resources in a single API call, eliminating the need for multiple round-trips to different endpoints that can slow down application performance and complicate state management.
+* **One request instead of many**: Need information from multiple places? Instead of making 5 different requests to 5 different endpoints, GraphQL lets you make just one request to get everything. This is like having one person gather all your shopping instead of you going to five different stores.
 
-* **Strong typing and self-documenting APIs**: The GraphQL schema provides frontend developers with a contract that defines available data and operations, enabling powerful tooling for autocomplete, validation, and type checking during development. This improves developer experience and reduces runtime errors through compile-time validation.
+* **Fewer mistakes with better tools**: GraphQL comes with tools that help catch errors while you're coding instead of when your app is running. It's like having spell-check that works while you type, rather than discovering typos after you've published your document.
 
-## Bring your GraphQL applications to Azure
+## Popular JavaScript tools for GraphQL
 
-When you bring your existing application to Azure, consider the following services and their uses:
-* **Hosting**: You can bring your existing applications to Azure and take advantage of the benefits of Azure's web app hosting services. Which service depends on how you deploy your application. 
-    * Use [Azure App Service](/azure/app-service/). 
-    * Use [Azure Container Apps](/azure/container-apps/) for containerized applications with built-in scaling, service discovery and enhanced observability.
-* **Authentication**: Use [Identity platform](/azure/active-directory/develop/) to add authentication to your application.
-* **Query and mutate data**: Use a data service to store data and take advantage of [Data API builder](/azure/data-api-builder/overview-to-data-api-builder) to use GraphQL to query and mutate data.
-    * **GraphQL for Databases**: Use [Data API builder](/azure/data-api-builder/graphql) to automatically turn your databases into GraphQL endpoints. 
-    * **Relational data**: Use [Azure SQL Database](/azure/sql-database/) or [Azure Database for PostgreSQL](/azure/postgresql/).
-    * **NoSQL data**: Use [Azure Cosmos DB](/azure/cosmos-db/).
-* **API** layer: Use [GraphQL APIs in Azure API Management](/azure/api-management/graphql-apis-overview) with enhanced schema stitching capabilities, federation support, and optimized JavaScript client integration. 
+When building with GraphQL and JavaScript, you'll likely use one of these popular tools:
 
-## Build GraphQL endpoints to your existing data sources
+* **Apollo Client**: The most widely used GraphQL client that works with React, Vue, Angular and plain JavaScript.
+* **URQL**: A lightweight alternative with good performance.
+* **Relay**: Created by Facebook (who also created GraphQL), best for large React applications.
 
-When you build GraphQL endpoints to your existing data sources, consider the following services and their uses:
+## Azure services for GraphQL applications
 
-* **Custom API endpoints**: Use [Azure API Management](/azure/api-management/graphql-apis-overview) to build a GraphQL endpoint to your existing Azure data sources. 
-* **Database integration**: Data API builder now supports GraphQL fragments, improved nested query performance, and transparent integration with popular JavaScript GraphQL clients.
-## Resources
+Choose your approach based on your specific scenario:
 
-Learn more about building GraphQL applications on Azure:
+| If you want to... | Then you should... | Using these Azure services |
+|-------------------|--------------------|-----------------------------|
+| **Bring an existing GraphQL app to Azure** | Deploy your application without changing your code | Azure App Service, Azure Static Web Apps, or Azure Container Apps |
+| **Add GraphQL to your existing data** | Create GraphQL endpoints for your data with minimal coding | Data API builder with Azure SQL Database or Cosmos DB |
+| **Build a GraphQL API layer** | Create a unified GraphQL interface over existing APIs | Azure API Management with GraphQL transformation |
+| **Start a new GraphQL project** | Use a modern JavaScript stack with built-in GraphQL support | Azure Static Web Apps with Data API builder |
 
-* [Azure API Management](/azure/api-management/graphql-apis-overview)
+## Hosting GraphQL applications on Azure
 
-## Related content
+You have a few good options depending on what type of application you're building:
 
-* [Azure SQL DB](/azure/azure-sql/)
-* [Azure Cosmos DB](/azure/cosmos-db/)
-* [Data API builder](/azure/data-api-builder/overview-to-data-api-builder)
-* [Azure API Management](/azure/api-management/graphql-apis-overview)
-* [Static Web Apps](/azure/static-web-apps/database-overview)
+* **Static Web Apps**: Perfect for JavaScript front-end applications like React, Vue, or Angular. It automatically builds and deploys your site from GitHub and includes API support.
+
+* **App Service**: This is like a traditional web hosting service, but with extra features. It's great for most JavaScript applications that need a server.
+
+* **Container Apps**: If your application is packaged in containers (like Docker), this service makes running and scaling them easy.
+
+## Data storage for GraphQL applications
+
+GraphQL needs to connect to your data. Azure offers several ways to do this:
+
+* **Turn your database into a GraphQL API**: The "Data API builder" tool can automatically create a GraphQL endpoint (a URL where your app can send GraphQL requests) from your existing database - no coding required!
+
+* **Store your data**: Azure offers databases for different needs:
+  * SQL Database: For traditional table-based data
+  * Cosmos DB: For flexible, scalable data storage without rigid schemas
+
+## Securing GraphQL applications
+
+* **User login and security**: Azure's Identity platform helps you add login features to your application so only the right people can access your GraphQL data.
+* **Role-based access**: Control exactly which users can query or modify what data through your GraphQL endpoints.
+* **API protection**: Add rate limiting and monitoring to prevent abuse of your GraphQL APIs.
+
+## Creating GraphQL APIs for your existing data
+
+Already have data in Azure and want to access it with GraphQL? There are simple ways to do this:
+
+* **API Management**: This service can create a GraphQL layer in front of your existing APIs or data sources. It's like adding a GraphQL translator to systems that don't speak GraphQL natively.
+
+* **Data API Builder**: This tool automatically creates GraphQL endpoints from your databases. It's the quickest way to add GraphQL to your existing data - just point it at your database and it does the work for you.
+
+## A simple example: Creating a GraphQL API for a product database
+
+Here's how the process works in simple terms:
+
+1. You have a database with product information (names, prices, descriptions)
+2. You set up Data API Builder to connect to your database
+3. Data API Builder creates a GraphQL endpoint automatically
+4. Your JavaScript application can now make GraphQL queries like:
+
+```graphql
+{
+  products(where: { price_lt: 50 }) {
+    name
+    price
+    description
+  }
+}
+```
+
+This query would get you all products under $50, showing just their names, prices, and descriptions.
+
+## Resources to help you get started
+
+If you want to learn more or start building with GraphQL on Azure, here are some helpful resources:
+
+* [Introduction to GraphQL for beginners](https://graphql.org/learn/)
+* [Getting started with Data API Builder](https://aka.ms/dab)
+* [JavaScript GraphQL examples on Azure](https://learn.microsoft.com/samples/browse/?languages=javascript&products=azure&terms=graphql)
+
+## Related Azure services for your GraphQL applications
+
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) - Store structured data
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) - Store flexible, unstructured data
+* [Azure API Management](https://azure.microsoft.com/services/api-management/) - Create and manage APIs
+* [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/) - Host your JavaScript front-end applications
+
+## Next steps
+
+Ready to get started with GraphQL on Azure? Here are specific next steps based on your scenario:
+
+**For existing GraphQL applications**
+
+1. Choose your hosting option:
+   - [Deploy to Static Web Apps](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
+   - [Deploy to App Service](/azure/app-service/quickstart-nodejs?tabs=windows)
+   - [Deploy to Container Apps](/azure/container-apps/quickstart-nodejs)
+
+2. Set up CI/CD for automated deployments:
+   - [GitHub Actions with Static Web Apps](/azure/static-web-apps/github-actions-workflow)
+   - [GitHub Actions with App Service](/azure/app-service/deploy-github-actions)
+
+**For adding GraphQL to existing data**
+
+1. [Install Data API Builder](/azure/data-api-builder/get-started/get-started-with-data-api-builder)
+2. Connect to your database:
+   - [Azure SQL Database setup](/azure/data-api-builder/get-started/azure-sql-db)
+   - [Cosmos DB setup](/azure/data-api-builder/get-started/cosmosdb-nosql)
+3. [Configure your GraphQL schema](/azure/data-api-builder/graphql)
