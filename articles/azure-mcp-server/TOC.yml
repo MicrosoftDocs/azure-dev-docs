@@ -1,0 +1,32 @@
+items:
+- name: Azure MCP Server
+  href: index.yml
+  items:
+    - name: Overview
+      href: overview.md
+    - name: Get started with the Azure MCP Server
+      href: get-started.md
+
+    - name: Tools and commands
+      items:
+        - name: Using tools and commands with the Azure MCP Server
+          href: commands/using-tools.md
+        - name: Azure MCP Server Operations
+          href: commands/azmcp-server.md
+        - name: App Configuration Operations
+          href: commands/azmcp-appconfig.md
+        - name: Azure CLI Extension Operations
+          href: commands/azmcp-extension.md
+        - name: Cosmos DB Operations
+          href: commands/azmcp-cosmos-db.md
+        - name: Key Vault Operations
+          href: commands/azmcp-keyvault.md
+        - name: Azure Monitor Operations
+          href: commands/azmcp-monitor.md
+        - name: Resource Group Operations
+          href: commands/azmcp-group.md
+        - name: Service Bus Operations
+          href: commands/azmcp-servicebus.md
+
+        - name: Storage Operations
+          href: commands/azmcp-storage.md

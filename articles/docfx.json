@@ -173,6 +173,8 @@
         "ansible/**/*.yml": "ansible",
         "azure-developer-cli/**/*.md": "azure-dev-cli",
         "azure-developer-cli/**/*.yml": "azure-dev-cli",
+        "azure-mcp-server/**/*.md": "azure",
+        "azure-mcp-server/**/*.yml": "azure",
         "chef/**/*.md": "chef",
         "chef/**/*.yml": "chef",
         "dev-tunnels/**/*.md": "azure-dev-tunnels",
@@ -230,6 +232,8 @@
       "ms.collection": {
         "**/ai/**/*.md": "ce-skilling-ai-copilot",
         "**/ai/**/*.yml": "ce-skilling-ai-copilot",
+        "**/azure-mcp-server/**/*.md": "ce-skilling-ai-copilot",
+        "**/azure-mcp-server/**/*.yml": "ce-skilling-ai-copilot",
         "**java/ai/**/*.md": "ce-skilling-ai-copilot",
         "**java/ai/**/*.yml": "ce-skilling-ai-copilot"
       },
