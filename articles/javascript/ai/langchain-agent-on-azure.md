@@ -60,7 +60,7 @@ The LangChain.js framework provides a decision flow for building intelligent age
    * Retrieves relevant documents based on user prompt.
 
 3. **Azure OpenAI Integration**:
-   * Uses a large language model (`4o`) to:
+   * Uses a large language model (`gpt-4o`) to:
      * Determines if a question is answerable from general HR documents.
      * Generates answer with prompt using context from documents and user question.
 
