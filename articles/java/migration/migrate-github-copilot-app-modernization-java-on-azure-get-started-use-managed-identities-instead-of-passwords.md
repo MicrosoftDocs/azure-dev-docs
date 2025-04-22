@@ -48,7 +48,7 @@ Start your migration process with solution assessment, to understand what your c
 The migration Copilot provides predefined formulas for common migration scenarios that you may face when migrating to Azure. In this example you'll use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
 1. After clicking the Migrate button in the Solution Report, Copilot chat window will be opened with Agent Mode.
 1. Click **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
-1. After each step, please manually input a response to confirm and proceed.
+1. After each step, please manually input **continue** to confirm and proceed.
 1. Wait the changed codes to be generated.
 ## Apply Build-fix
 1. When the **Java Application Build-Fix** tool is suggested to run, click **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
