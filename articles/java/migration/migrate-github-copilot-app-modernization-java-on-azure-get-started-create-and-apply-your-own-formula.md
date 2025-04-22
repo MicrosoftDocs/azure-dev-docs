@@ -9,7 +9,7 @@ In code development, enterprises often have different processes and controls to 
 - [AppCAT](https://aka.ms/appcat-install): Required for the app assessment feature.
 - [GitHub Copilot App Modernization - Java on Azure](/azure/developer/java/migration/migrate-github-copilot-app-modernization-java-on-azure-get-started-use-managed-identities-instead-of-passwords#installation): Please install it and add the required configuration.
 
-## Create and Apply Custom Formula
+## Create Custom Formula
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `rabbitmq-sender` project folder. Then, check out the project to the `expected` branch.
 2. Open **GitHub Copilot App Modernization - Java on Azure** extension blade from the Activity sidebar, and then click **Create formula from source control** button in Formulas section.  
 
@@ -27,14 +27,16 @@ In code development, enterprises often have different processes and controls to 
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/custom-formula-rabbitmq.png" border="false" alt-text="Custom formula created" :::
 
-7. Check out the project to the `main` branch. Find the custom formula just created in the Formulas section of `GitHub Copilot App Modernization - Java on Azure` blade. Run this formula by clicking **Run Formula** button.
+## Appy Custom Formula
+
+1. Check out the project to the `main` branch. Find the custom formula just created in the Formulas section of `GitHub Copilot App Modernization - Java on Azure` blade. Run this formula by clicking **Run Formula** button.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/run-formula.png" border="false" alt-text="Run formula" :::
 
-8. After triggering to run the formula, Copilot chat window will be opened with Agent Mode automatically.
-9. Click **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
-10. After each step, please manually input **continue** to confirm and proceed.
-11. Wait the changed codes to be generated.
-12. When the **Java Application Build-Fix** tool is suggested to run, click **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
-13. After the Build-Fix tool begins, click **Continue** to proceed and show progress.
-14. After all done, please review code changes and confirm by click **Keep** button.
+2. After triggering to run the formula, Copilot chat window will be opened with Agent Mode automatically.
+3. Click **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
+4. After each step, please manually input **continue** to confirm and proceed.
+5. Wait the changed codes to be generated.
+6. When the **Java Application Build-Fix** tool is suggested to run, click **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
+7. After the Build-Fix tool begins, click **Continue** to proceed and show progress.
+8. After all done, please review code changes and confirm by click **Keep** button.
