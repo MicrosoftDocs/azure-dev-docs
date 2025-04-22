@@ -314,7 +314,7 @@ There's also support for viewing logs in VS Code. You must have [Azure Tools for
 [33]: /azure/container-apps/manage-secrets
 [34]: /azure/service-connector/overview
 [35]: https://www.djangoproject.com/
-[36]: https://flask.palletsprojects.com/stable/
+[36]: https://flask.palletsprojects.com/en/stable/
 [37]: https://fastapi.tiangolo.com/
 [38]: https://docs.docker.com/engine/reference/builder/#copy
 [39]: https://www.jetbrains.com/help/pycharm/docker.html#enable_docker
