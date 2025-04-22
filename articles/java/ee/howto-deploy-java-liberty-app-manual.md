@@ -373,13 +373,13 @@ az aks connection create sql --connection akssqlconn --client-type java --source
 
 ---
 
-If you fail to run the command `az aks connection create sql` in your local machine with the following similar error messages, follow the steps below to fix the issue:
+If you fail to run the command `az aks connection create sql` in your local machine with the following or similar error messages, follow the steps below to fix the issue:
 
 ### [Bash](#tab/in-bash)
 
 * Error message: `Dependency pyodbc can't be installed, please install it manually`
 
-  This error message indicates that the `pyodbc` package can't be installed most likely because of the permssion issue.
+  This error message indicates that the `pyodbc` package can't be installed most likely because of permissions issues.
 
   1. Find location of Python that works with Azure CLI by running the following command:
 
@@ -387,7 +387,7 @@ If you fail to run the command `az aks connection create sql` in your local mach
      az --version
      ```
 
-     The output should contains `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of the `Python location`.
+     The output should contain `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of the `Python location`.
 
   1. Run the following command in the Shell window to install the `pyodbc` package in `sudo` mode, using the Python location you copied in the previous step, for example:
 
@@ -417,7 +417,7 @@ az aks connection create sql \
 
 * Error message: `Dependency pyodbc can't be installed, please install it manually`
 
-  This error message indicates that the `pyodbc` package can't be installed most likely because of the permssion issue.
+  This error message indicates that the `pyodbc` package can't be installed most likely because of permissions issues.
 
   1. Find location of Python that works with Azure CLI by running the following command:
 
@@ -425,7 +425,7 @@ az aks connection create sql \
      az --version
      ```
 
-     The output should contains `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of the `Python location`.
+     The output should contain `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of the `Python location`.
 
   1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
