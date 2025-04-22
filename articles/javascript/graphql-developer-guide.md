@@ -107,7 +107,7 @@ This query would get you all products under $50, showing just their names, price
 If you want to learn more or start building with GraphQL on Azure, here are some helpful resources:
 
 * [Introduction to GraphQL for beginners](https://graphql.org/learn/)
-* [Getting started with Data API Builder](https://aka.ms/dab)
+* [Getting started with Data API Builder](https://github.com/Azure/data-api-builder)
 * [JavaScript GraphQL examples on Azure](/samples/browse/?languages=graphql%2Cjavascript%2Ctypescript&products=azure&filter-languages=graphql)
 
 ## Next steps
