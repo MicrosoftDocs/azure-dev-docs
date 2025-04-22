@@ -19,11 +19,11 @@ In VSCode, configure runtime arguments to enable the proposed API:
 ```
 1. Press **Ctrl+Shift+P** and select **Preferences: Configure Runtime Arguments**.
 
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments" border="false" alt-text="Configure Runtime Arguments in VSCode" :::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" border="false" alt-text="Configure Runtime Arguments in VSCode" :::
 
 2. Add the above JSON snippet into the editor and save.
 
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.jpg" border="false" alt-text="Configure proposed API in VSCode runtime arguments" :::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" border="false" alt-text="Configure proposed API in VSCode runtime arguments" :::
 
 3. Restart VSCode.
 
