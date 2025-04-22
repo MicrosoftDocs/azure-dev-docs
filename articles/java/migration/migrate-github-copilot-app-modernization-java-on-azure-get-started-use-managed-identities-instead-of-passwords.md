@@ -42,7 +42,7 @@ Start your migration process with solution assessment, to understand what your c
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" border="false" alt-text="Summary Report of Assessment" :::
 
 7. With reviewing the summary report, you can click on the **Propose Solution** button at the bottom and move to the next step: choose your desired solution per category/sub category. 
-8. After deciding on the solutions, you can click on the **Confirm solution** button to get into the migration step. You can click on the **Migrate** button for the **Use Azure SQL Database** solution to enter into the code remediation stage.
+8. Confirm the selection of the **Use Azure SQL Database** solution by clicking on the **Confirm solution** button to proceed to the migration step. Then, click on the **Migrate** button for the **Use Azure SQL Database** solution to move to the code remediation stage.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" border="false" alt-text="Confirm Azure SQL Solution" :::
 
