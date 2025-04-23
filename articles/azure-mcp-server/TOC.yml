@@ -9,22 +9,22 @@ items:
     - name: Tools and commands
       items:
         - name: Using tools and commands with the Azure MCP Server
-          href: commands/using-tools.md
+          href: commands/use-tools.md
         - name: Azure MCP Server Operations
-          href: commands/azmcp-server.md
+          href: commands/azure-mcp-server-operations.md
         - name: App Configuration Operations
-          href: commands/azmcp-appconfig.md
+          href: commands/app-configuration-operations.md
         - name: Azure CLI Extension Operations
-          href: commands/azmcp-extension.md
+          href: commands/azure-cli-extension-operations.md
         - name: Cosmos DB Operations
-          href: commands/azmcp-cosmos-db.md
+          href: commands/cosmos-db-operations.md
         - name: Key Vault Operations
-          href: commands/azmcp-keyvault.md
+          href: commands/key-vault-operations.md
         - name: Azure Monitor Operations
-          href: commands/azmcp-monitor.md
+          href: commands/monitor-operations.md
         - name: Resource Group Operations
-          href: commands/azmcp-group.md
+          href: commands/resource-group-operations.md
         - name: Service Bus Operations
-          href: commands/azmcp-servicebus.md
+          href: commands/service-bus-operations.md
         - name: Storage Operations
-          href: commands/azmcp-storage.md
+          href: commands/storage-operations.md
