@@ -704,19 +704,19 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    ### [Bash](#tab/in-bash)
 
    ```bash
-   kubectl get openlibertyapplication javaee-cafe-cluster
+   kubectl get openlibertyapplication javaee-cafe-cluster --watch
    ```
 
    ### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   kubectl get openlibertyapplication javaee-cafe-cluster
+   kubectl get openlibertyapplication javaee-cafe-cluster --watch
    ```
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
     ---
 
-   You should see output similar to the following example:
+   You should see output similar to the following example in a few moments (use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit):
 
    ```output
    NAME                  IMAGE                                        EXPOSED   RECONCILED   RESOURCESREADY   READY   WARNING   AGE
