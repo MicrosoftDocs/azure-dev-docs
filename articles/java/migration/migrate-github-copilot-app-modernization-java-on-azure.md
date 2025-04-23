@@ -9,9 +9,9 @@ This journey involves:
 
 ---
 
-### GitHub Copilot App Modernization - Java on Azure
+### GitHub Copilot App Modernization for Java (Preview)
 
-The **GitHub Copilot App Modernization - Java on Azure** is an **all-in-one migration assistant** that harnesses the power of AI to:
+The **App Modernization for Java** is an **all-in-one migration assistant** that harnesses the power of AI to:
 
 - Perform code assessment  
 - Suggest and apply remediation  
@@ -30,7 +30,7 @@ This improves developer **velocity**, **quality**, and **confidence**.
 
 ---
 
-📺 *[Placeholder for demo video]*
+📺 **embed intro video. https://aka.ms/AM4Jov**
 
 ---
 
