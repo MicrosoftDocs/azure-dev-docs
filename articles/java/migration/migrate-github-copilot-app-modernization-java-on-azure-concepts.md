@@ -4,7 +4,7 @@
 
 ---
 
-**GitHub Copilot App Modernization for Java (Preview)** leverages **Azure Migrate application and code assessment (AppCAT)** to discover and assess your codes, and usually a good starting point in your app modernization journey. See [AppCAT documentation](https://learn.microsoft.com/en-us/azure/migrate/appcat/java) for more details.
+**GitHub Copilot App Modernization for Java (Preview)** leverages **Azure Migrate application and code assessment (AppCAT)** to discover and assess your codes, and usually a good starting point in your app modernization journey. See [AppCAT documentation](http://aka.ms/appcat-install) for more details.
 
 Developers can invoke **GitHub Copilot App Modernization - Java on Azure** to get an overview of the cloud readiness migration issues along with solution recommendations.  
 These solutions can include:
