@@ -21,7 +21,33 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
+* Configure a Python virtual environment using `venv` or your tool of choice. You can create the virtual environment locally. Be sure to activate the virtual environment to start using it. To install python, see [Install Python](https://www.python.org/downloads/).
+
+### [Bash](#tab/bash)
+
+```azurecli-interactive
+#!/bin/bash
+# Create a virtual environment
+source .venv/Scripts/activate #local dev environment
+# Activate the virtual environmen
+python -m venv .venv
+
+### [PowerShell](#tab/powershell)
+
+```powershell-interactive
+# PowerShell syntax.ps1
+.venv\Scripts\activate
+# Create a virtual environment
+python -m venv venv
+# Activate the virtual environment
+. .\venv\Scripts\Activate.ps1
+```
+
+---
+
+* Use a [conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html). To install Conda, see [Install Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+* Use a [Dev Container](https://containers.dev/) in [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://docs.github.com/en/codespaces/overview).
 
 ## 2: Install the Azure library packages
 

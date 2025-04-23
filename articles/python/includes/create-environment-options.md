@@ -9,9 +9,9 @@ ms.date: 12/14/2022
 
 ```azurecli-interactive
 #!/bin/bash
-# Create and activate virtual environment
+# Create a virtual environment
 source .venv/Scripts/activate #local dev environment
-source .venv/bin/activate #cloudshell
+# Activate the virtual environmen
 python -m venv .venv
 
 ### [PowerShell](#tab/powershell)
@@ -19,6 +19,10 @@ python -m venv .venv
 ```powershell-interactive
 # PowerShell syntax.ps1
 .venv\Scripts\activate
+# Create a virtual environment
+python -m venv venv
+# Activate the virtual environment
+. .\venv\Scripts\Activate.ps1
 ```
 
 ---
