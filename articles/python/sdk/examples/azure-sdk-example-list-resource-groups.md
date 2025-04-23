@@ -98,16 +98,16 @@ To use such code in a production script, you can set environment variables to us
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-    # [cmd](#tab/cmd)
-
-    ```cmd
-    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-    ```
-
     # [bash](#tab/bash)
 
     ```bash
-    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    export AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    # [powershell](#tab/powershell)
+
+    ```powershell
+    $env:AZURE_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
     ```
 
     ---
