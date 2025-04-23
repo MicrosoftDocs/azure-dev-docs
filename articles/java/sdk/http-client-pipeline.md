@@ -52,7 +52,7 @@ The following example shows you how to exclude the Netty dependency from a real 
   <version>1.12.10</version>
 </dependency>
 
-<!-- JDK 11 HttpClient -->
+<!-- JDK HttpClient -->
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-http-jdk-httpclient</artifactId>
@@ -67,7 +67,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 When you build a service client, it defaults to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex HTTP client, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
-The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
+The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
 
 ```java
 // Netty
@@ -82,7 +82,7 @@ HttpClient httpClient = new OkHttpAsyncHttpClientBuilder()
         .setCredentials("example", "weakPassword"))
     .build();
 
-// JDK 11 HttpClient
+// JDK HttpClient
 HttpClient client = new JdkAsyncHttpClientBuilder()
     .proxy(new ProxyOptions(ProxyOptions.Type.HTTP, new InetSocketAddress("localhost", 3128))
         .setCredentials("example", "weakPassword"))
