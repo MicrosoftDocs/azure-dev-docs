@@ -9,4 +9,4 @@ ms.topic: how-to
 ms.custom: build-2025
 ---
 
-# Cosmos DB Operations
+# Cosmos DB operations

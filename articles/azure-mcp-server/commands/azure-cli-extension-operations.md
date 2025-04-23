@@ -9,4 +9,4 @@ ms.topic: how-to
 ms.custom: build-2025
 ---
 
-# Azure CLI Extension Operations
+# Azure CLI Extension operations

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: build-2025
 ---
 
-# App Configuration Operations
+# App Configuration operations
 
 The Azure MCP Server provides a set of commands to manage App Configuration resources. 
 

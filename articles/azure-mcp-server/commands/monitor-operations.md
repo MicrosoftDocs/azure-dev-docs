@@ -9,4 +9,4 @@ ms.topic: how-to
 ms.custom: build-2025
 ---
 
-# Azure Monitor Operations
+# Azure Monitor operations
