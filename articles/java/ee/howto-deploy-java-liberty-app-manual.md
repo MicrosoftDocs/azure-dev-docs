@@ -63,7 +63,7 @@ az login
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
 >
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
+> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
 
 ## Create a resource group
 
@@ -214,7 +214,7 @@ az aks get-credentials --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLU
 ---
 
 > [!NOTE]
-> The above command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
+> The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
 
 To verify the connection to your cluster, use the [`kubectl get`]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
 
@@ -295,7 +295,7 @@ az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SER
 ---
 
 > [!NOTE]
-> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [`az sql server create`](/cli/azure/sql/server#az-sql-server-create) for more information.
+> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. For more information on enabling SQL authentication, see [`az sql server create`](/cli/azure/sql/server#az-sql-server-create).
 
 ## Create a service connection in AKS with Service Connector
 
@@ -372,7 +372,7 @@ az aks connection create sql --connection akssqlconn --client-type java --source
 
 ---
 
-If you fail to run the command `az aks connection create sql` in your local machine with the following or similar error messages, follow the steps below to fix the issue:
+If you fail to run the command `az aks connection create sql` in your local machine with the following or similar error messages, you'll need to resolve issues:
 
 ### [Bash](#tab/in-bash)
 
@@ -396,9 +396,9 @@ If you fail to run the command `az aks connection create sql` in your local mach
 
 * Error message: `Please manually install odbc 17/18 for SQL server`
 
-  This error message indicates that the `odbc` driver is not installed.
+  This error message indicates that the `odbc` driver isn't installed.
 
-  1. Depending on your Operating System, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) or [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true) in your browser.
+  1. Depending on your Operating System, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) or [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true) in your browser.
   1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
 
 After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
@@ -436,11 +436,11 @@ az aks connection create sql \
 
 * Error message: `Please manually install odbc 17/18 for SQL server`.
 
-  This error message indicates that the `odbc` driver is not installed.
+  This error message indicates that the `odbc` driver isn't installed.
 
   1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
   1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
-  1. Run the installer and follow the instructions to install the driver.
+  1. follow the instructions, run the installer, and install the driver.
 
 After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
 
@@ -451,7 +451,7 @@ az aks connection create sql --connection akssqlconn --client-type java --source
 ---
 
 > [!NOTE]
-> It's recommended to use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
+> You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
 
 ### Get service account and secret created by Service Connector
 
@@ -468,7 +468,7 @@ To authenticate to the Azure SQL Database, you need to get the service account a
             name: <secret-name>
    ```
 
-1. Replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step to define the following environment variables:
+1. Replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step and define the following environment variables:
 
    ### [Bash](#tab/in-bash)
 
@@ -489,7 +489,7 @@ To authenticate to the Azure SQL Database, you need to get the service account a
    These values are used in the next section to deploy the Liberty application to the AKS cluster.
 
 > [!NOTE]
-> The secret created by Service Connector contains the `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. See sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) for more information.
+> The secret created by Service Connector contains the `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
 
 ## Install Open Liberty Operator
 
@@ -607,7 +607,7 @@ In directory **liberty/config**, the **server.xml** file is used to configure th
 The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
-> This sample uses the `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
+> This sample uses the `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. For more information on using SQL authentication in your Liberty application, see [Relational database connections with Java Database Connectivity (JDBC)](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html).
 
 ### Build the project
 
@@ -777,12 +777,12 @@ After the `EXTERNAL-IP` address changes from `pending` to an actual public IP ad
 
 If some time passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
 
-Open a web browser to the external IP address of your service, making sure to use HTTP (`http://52.152.189.57` for the above example), to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
+Open a web browser to the external IP address of your service, making sure to use HTTP (`http://52.152.189.57` in the example), to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS.":::
 
 >[!NOTE]
-> Currently, the application doesn't use HTTPS. We recommend that you enable TLS with your own certificates. For more information, see [Use TLS with an ingress controller on Azure Kubernetes Service (AKS)](/azure/aks/ingress-tls).
+> Currently, the application doesn't use HTTPS. We recommend that you enable Transport Layer Security (TLS) with your own certificates. For more information, see [Use TLS with an ingress controller on Azure Kubernetes Service (AKS)](/azure/aks/ingress-tls).
 
 ## Clean up resources
 
