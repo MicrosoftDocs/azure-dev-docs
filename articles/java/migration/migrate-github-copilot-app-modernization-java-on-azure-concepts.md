@@ -1,10 +1,10 @@
 # Concepts
 
-**GitHub Copilot App Modernization - Java on Azure** is a tool covering application migration to Azure end to end, from application assessment, planning, code remediation and build fix. It aims to help you migrate/run your applications to Azure with confidence and accelerate the whole cycle, powered by the artificial intelligence of GitHub Copilot.
+**GitHub Copilot App Modernization for Java (Preview)** is a tool covering application migration to Azure end to end, from application assessment, planning, code remediation and build fix. It aims to help you migrate/run your applications to Azure with confidence and accelerate the whole cycle, powered by the artificial intelligence of GitHub Copilot.
 
 ---
 
-**GitHub Copilot App Modernization - Java on Azure** is leveraging **Azure Migrate application and code assessment (AppCAT)** to discover and assess your codes, and usually a good starting point in your app modernization journey. See [AppCAT documentation](https://learn.microsoft.com/en-us/azure/migrate/appcat/java) for more details.
+**GitHub Copilot App Modernization for Java (Preview)** leverages **Azure Migrate application and code assessment (AppCAT)** to discover and assess your codes, and usually a good starting point in your app modernization journey. See [AppCAT documentation](https://learn.microsoft.com/en-us/azure/migrate/appcat/java) for more details.
 
 Developers can invoke **GitHub Copilot App Modernization - Java on Azure** to get an overview of the cloud readiness migration issues along with solution recommendations.  
 These solutions can include:
@@ -14,7 +14,7 @@ These solutions can include:
 
 ---
 
-In scenarios where code changes are required, the **App Modernization - Java on Azure** guides developers to the code remediation step.  
+In scenarios where code changes are required, the **App Modernization for Java** guides developers to the code remediation step.  
 At this stage, developers can use predefined formulas for common issues, such as:
 
 - Switching from password-based authentication to **Managed Identities**
@@ -32,7 +32,7 @@ This enables rapid remediation across multiple applications—each successful mi
 
 ---
 
-Finally, the **GitHub Copilot App Modernization Assistant for Java on Azure** includes a **Build Fix Agent** designed to help with build-related errors.  
+Finally, the **App Modernization for Java** includes a **Build Fix Agent** designed to help with build-related errors.  
 Since AI-based suggestions can sometimes miss a parameter or change a method incorrectly, the Build Fix Agent intervenes to provide support and correction.
 
 ---
