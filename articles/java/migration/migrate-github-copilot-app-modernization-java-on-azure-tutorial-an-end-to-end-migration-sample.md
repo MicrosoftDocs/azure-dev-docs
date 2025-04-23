@@ -6,7 +6,7 @@ We have prepared a migration code sample, **Asset Manager**, that stores user-up
 - Local file system  
 - AWS S3  
 
-You can use **GitHub Copilot App Modernization Assistant - Java on Azure** to migrate the app estate to Azure using:
+You can use **GitHub Copilot App Modernization for Java (Preview)** to migrate the app estate to Azure using:
 
 - **AppCAT** for solution assessment  
 - Predefined and custom formulas to migrate code and configurations to:
