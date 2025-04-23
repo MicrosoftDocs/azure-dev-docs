@@ -95,3 +95,4 @@ Hosting options allow you to quickly use Azure for your application. The followi
 ## Next steps
 
 * [Learn recommended tools for Azure JavaScript developers](../node-azure-tools.md)
+[!INCLUDE [javascript-new-releases](../includes/javascript-new.md)]
