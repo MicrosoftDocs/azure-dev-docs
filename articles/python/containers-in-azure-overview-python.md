@@ -76,7 +76,7 @@ The following table shows how to set the port for different Azure container solu
 | Azure container solution | How to set web app port |
 | ------------------------ | ----------------------- |
 | Web App for Containers | By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. For more information, see [Configure a custom container for Azure App Service][14]. |
-| Azure Containers Apps | Azure Container Apps lets you to expose your container app to the public web, to your virtual network, or to other container apps within the same environment by enabling ingress. Set the ingress `targetPort` to the port your container listens to for incoming requests. Application ingress endpoint is always exposed on port 443. For more information, see [Set up HTTPS or TCP ingress in Azure Container Apps][15]. |
+| Azure Containers Apps | Azure Container Apps lets you expose your container app to the public web, to your virtual network, or to other container apps within the same environment by enabling ingress. Set the ingress `targetPort` to the port your container listens to for incoming requests. Application ingress endpoint is always exposed on port 443. For more information, see [Set up HTTPS or TCP ingress in Azure Container Apps][15]. |
 | Azure Container Instances, Azure Kubernetes | You define the port on which your app is listening during container or pod creation. Your container image should include a web framework, an application server (for example, gunicorn, uvicorn), and optionally a web server (for example, nginx). In more complex scenarios, you might split responsibilities across two containers—one for the application server and another for the web server. In that case, the web server container typically exposes ports 80 or 443 for external traffic. |
 
 ## Python Dockerfile
@@ -230,7 +230,7 @@ docker run --rm -it \
   <dockerimagename:tag>
 ```
 
-If you're using VS Code or PyCharm, the UI options for working with images and containers ultimately use Docker CLI commands like the one sho, such as the previous commandsw.
+In VS Code (Docker extension) or PyCharm (Docker plugin), UI tools simplify managing Docker images and containers by executing standard docker CLI commands (such as docker build, docker run) in the background.
 
 Finally, specifying environment variables  when deploying a container in Azure is different than using environment variables in your dev environment. For example:
 
