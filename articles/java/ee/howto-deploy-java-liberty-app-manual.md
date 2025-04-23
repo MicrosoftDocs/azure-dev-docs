@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 04/23/2024
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli
 ---
@@ -152,6 +152,7 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
+    --node-vm-size Standard_DS2_V2 \
     --generate-ssh-keys \
     --enable-managed-identity \
     --attach-acr $REGISTRY_NAME
@@ -161,7 +162,7 @@ az aks create \
 
 ```azurepowershell
 $Env:CLUSTER_NAME = "myAKSCluster"
-az aks create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity --attach-acr $Env:REGISTRY_NAME
+az aks create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --node-count 1 --node-vm-size Standard_DS2_V2 --generate-ssh-keys --enable-managed-identity --attach-acr $Env:REGISTRY_NAME
 ```
 
 ---
@@ -549,6 +550,8 @@ Remove-Item -Recurse -Force overlays, base
 
 ---
 
+This guide directs you to install the Open Liberty Operator. If you want to use the WebSphere Liberty Operator, follow the instructions in the [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
+
 ## Configure and build the application image
 
 To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1).
@@ -565,7 +568,7 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 export BASE_DIR=$PWD
-git checkout 20241029
+git checkout 20250423
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -574,7 +577,7 @@ git checkout 20241029
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 $Env:BASE_DIR = $PWD
-git checkout 20241029
+git checkout 20250423
 ```
 
 ---
@@ -717,7 +720,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
    ```output
    NAME                  IMAGE                                        EXPOSED   RECONCILED   RESOURCESREADY   READY   WARNING   AGE
-   javaee-cafe-cluster   jiangma102924acr.azurecr.io/javaee-cafe:v1             True         True             True              57s
+   javaee-cafe-cluster   <registry-name>.azurecr.io/javaee-cafe:v1              True         True             True              57s
    ```
 
 1. Determine whether the deployment created by the Operator is ready by running the following command:
@@ -750,34 +753,27 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
-To monitor progress, use the [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument, as shown in the following example:
+Use the [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to get the external IP address of the service when it's available.
 
 ### [Bash](#tab/in-bash)
 
 ```bash
-kubectl get service javaee-cafe-cluster --watch
+export APP_URL=http://$(kubectl get service javaee-cafe-cluster -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+echo $APP_URL
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
-kubectl get service javaee-cafe-cluster --watch
+$Env:APP_URL = "http://$(kubectl get service javaee-cafe-cluster -o jsonpath='{.status.loadBalancer.ingress[0].ip}')"
+echo $Env:APP_URL
 ```
 
 ---
 
-You should see output similar to the following example:
+If you don't see a valid URL from the output, wait for a while and run the command again.
 
-```output
-NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
-```
-
-After the `EXTERNAL-IP` address changes from `pending` to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
-
-If some time passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
-
-Open a web browser to the external IP address of your service, making sure to use HTTP (`http://52.152.189.57` in the example), and see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
+Open the URL in a web browser and check the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS.":::
 
