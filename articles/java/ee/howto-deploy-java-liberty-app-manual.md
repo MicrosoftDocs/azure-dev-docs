@@ -395,7 +395,7 @@ If you fail to run the command `az aks connection create sql` in your local mach
      sudo /opt/az/bin/python3 -m pip install pyodbc
      ```
 
-* Error message: `Please manually install odbc 17/18 for SQL server`
+* Error message: `libodbc.so: cannot open shared object file: No such file or directory` or `Please manually install odbc 17/18 for SQL server`
 
   This error message indicates that the `odbc` driver isn't installed.
 
