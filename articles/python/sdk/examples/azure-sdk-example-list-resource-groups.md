@@ -21,23 +21,21 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-* Configure a Python virtual environment using `venv` or your tool of choice. You can create the virtual environment locally. To start using the virtual environment, be sure to activate it. To install python, see [Install Python](https://www.python.org/downloads/).
+* Configure a Python virtual environment using `venv` or your tool of choice. To start using the virtual environment, be sure to activate it. To install python, see [Install Python](https://www.python.org/downloads/).
 
 ### [Bash](#tab/bash)
 
 ```azurecli-interactive
 #!/bin/bash
 # Create a virtual environment
-source .venv/Scripts/activate #local dev environment
-# Activate the virtual environmen
 python -m venv .venv
+# Activate the virtual environment
+source .venv/Scripts/activate # only required for Windows (Git Bash)
 ```
 
 ### [PowerShell](#tab/powershell)
 
 ```powershell-interactive
-# PowerShell syntax.ps1
-.venv\Scripts\activate
 # Create a virtual environment
 python -m venv venv
 # Activate the virtual environment
