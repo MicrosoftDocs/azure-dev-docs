@@ -550,7 +550,7 @@ Remove-Item -Recurse -Force overlays, base
 
 ---
 
-This guide directs you to install the Open Liberty Operator. If you want to use the WebSphere Liberty Operator, follow the instructions in the [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
+This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, follow the instructions in [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
 
 ## Configure and build the application image
 
