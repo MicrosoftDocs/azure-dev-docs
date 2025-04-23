@@ -31,6 +31,7 @@ If you haven't already, set up an environment where you can run this code. Here 
 source .venv/Scripts/activate #local dev environment
 # Activate the virtual environmen
 python -m venv .venv
+```
 
 ### [PowerShell](#tab/powershell)
 
