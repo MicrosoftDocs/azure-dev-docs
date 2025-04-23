@@ -21,7 +21,7 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-* Configure a Python virtual environment using `venv` or your tool of choice. You can create the virtual environment locally. Be sure to activate the virtual environment to start using it. To install python, see [Install Python](https://www.python.org/downloads/).
+* Configure a Python virtual environment using `venv` or your tool of choice. You can create the virtual environment locally. To start using the virtual environment, be sure to activate it. To install python, see [Install Python](https://www.python.org/downloads/).
 
 ### [Bash](#tab/bash)
 
@@ -99,13 +99,13 @@ To use such code in a production script, you can set environment variables to us
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-    # [bash](#tab/bash)
+    # [Bash](#tab/bash)
 
     ```bash
     export AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
     ```
 
-    # [powershell](#tab/powershell)
+    # [Powershell](#tab/powershell)
 
     ```powershell
     $env:AZURE_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
