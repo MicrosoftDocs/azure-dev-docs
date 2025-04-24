@@ -142,4 +142,4 @@ The following list includes tips and tricks Azure developers should know to be m
 ## Related content
 
 * [Set up your development environment](./core/configure-local-development-environment.md)
-* [Clone and use a GitHub repository in Visual Studio Code](./how-to/with-visual-studio-code/clone-github-repository)
+* [Clone and use a GitHub repository in Visual Studio Code](./how-to/with-visual-studio-code/clone-github-repository.md)
