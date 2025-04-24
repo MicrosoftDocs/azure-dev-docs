@@ -44,14 +44,18 @@ If you're interested in providing feedback or working closely on your migration 
 If you didn't do so already, use the following steps to sign in to your Azure subscription: by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
 1. Open the Azure CLI or use Powershell to sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+
+> [!NOTE]
+> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
+
 1. When you're prompted, install the Azure CLI extension. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
 1. Find the version and dependent libraries that are installed by using [`az version`](/cli/azure/reference-index?#az-version).
+
 1. Upgrade to the latest version by using [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
->
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
 
 ## Create a resource group
 
