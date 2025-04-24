@@ -34,17 +34,18 @@ If you're interested in providing feedback or working closely on your migration 
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.71.0+
-  - Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 * Java Standard Edition (SE), version 17 - for example, [Eclipse Open J9](https://www.eclipse.org/openj9/).
 * [Maven](https://maven.apache.org/download.cgi) version 3.5.0+
 * [Git](https://git-scm.com)
-* The `Owner` role or the `Contributor` and `User Access Administrator` roles in the Azure subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+* The `Owner` role or the `Contributor` and `User Access Administrator` roles in the Azure subscription. For more information about verifying the assignment, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 ## Sign in to Azure
 
 If you didn't do so already, sign in to your Azure subscription by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+
+  - Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 
 ### [Bash](#tab/in-bash)
 
