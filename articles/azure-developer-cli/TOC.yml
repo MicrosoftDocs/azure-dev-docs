@@ -63,10 +63,16 @@
       href: start-with-existing-template.md
     - name: Start with your app code
       href: start-with-app-code.md
-    - name: Explore the compose feature
-      href: azd-compose.md
+    - name: Use the compose feature
+      items:
+      - name: Compose feature overview
+        href: azd-compose.md
+      - name: Create a minimal template
+        href: compose-quickstart.md
+      - name: Generate Bicep files
+        href: compose-generate.md
     - name: Training - build and deploy azd templates
-      href: /training/paths/azure-developer-cli
+    href: /training/paths/azure-developer-cli
   - name: Integration and remote environments
     items:
     - name: Remote Environment Support
