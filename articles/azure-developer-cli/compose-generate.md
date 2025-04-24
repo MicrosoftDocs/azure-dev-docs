@@ -19,7 +19,7 @@ The Azure Developer CLI (`azd`) compose feature simplifies the process of buildi
 > azd config set alpha.infraSynth on
 > ```
 
-### How `azd compose` manages infrastructure state
+## How `azd compose` manages infrastructure state
 
 The `azd compose` feature tracks your infrastructure state in-memory during the composition process. This approach allows you to iteratively define and refine your application and infrastructure without immediately generating files or modifying your project directory.
 
@@ -28,7 +28,7 @@ When you run the `azd infra synth` command, the in-memory state is converted int
 > [!TIP]
 > Use `azd compose` to quickly prototype your infrastructure before committing to file-based changes with `azd infra synth`.
 
-### Generate the Bicep code
+## Generate the Bicep code
 
 To explore or customize the Bicep code used internally by `azd` to provision resources created by `azd add`, run the following command:
 
