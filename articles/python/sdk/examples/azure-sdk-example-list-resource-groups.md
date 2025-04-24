@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 01/15/2024
+ms.date: 04/23/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -21,7 +21,32 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
+* Configure a Python virtual environment using `venv` or your tool of choice. To start using the virtual environment, be sure to activate it. To install python, see [Install Python](https://www.python.org/downloads/).
+
+### [Bash](#tab/bash)
+
+```azurecli-interactive
+#!/bin/bash
+# Create a virtual environment
+python -m venv .venv
+# Activate the virtual environment
+source .venv/Scripts/activate # only required for Windows (Git Bash)
+```
+
+### [PowerShell](#tab/powershell)
+
+```powershell-interactive
+# Create a virtual environment
+python -m venv venv
+# Activate the virtual environment
+. .\venv\Scripts\Activate.ps1
+```
+
+---
+
+* Use a [conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html). To install Conda, see [Install Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+* Use a [Dev Container](https://containers.dev/) in [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [GitHub Codespaces](https://docs.github.com/en/codespaces/overview).
 
 ## 2: Install the Azure library packages
 
@@ -72,16 +97,16 @@ To use such code in a production script, you can set environment variables to us
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-    # [cmd](#tab/cmd)
-
-    ```cmd
-    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-    ```
-
-    # [bash](#tab/bash)
+    # [Bash](#tab/bash)
 
     ```bash
-    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    export AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    # [Powershell](#tab/powershell)
+
+    ```powershell
+    $env:AZURE_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
     ```
 
     ---
