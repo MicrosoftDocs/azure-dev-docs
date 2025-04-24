@@ -38,7 +38,7 @@ Complete the following steps to add new resources to your template without writi
 1. Select one of the supported resources to add to your app. For this example, select `Database`.
 
     ```output
-    ? What would you like to add?  [Use arrows to move, type to filter]
+    ? What would you like to add? [Use arrows to move, type to filter]
     > AI
       Database
       Host service
