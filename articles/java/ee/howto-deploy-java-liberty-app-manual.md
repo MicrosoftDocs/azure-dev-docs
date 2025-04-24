@@ -41,25 +41,12 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Sign in to Azure
 
-If you didn't do so already, sign in to your Azure subscription by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+If you didn't do so already, use the following steps to sign in to your Azure subscription: by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
-  - Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-
-### [Bash](#tab/in-bash)
-
-```azurecli
-az login
-```
-
-### [PowerShell](#tab/in-powershell)
-
-```azurepowershell
-az login
-```
-
----
+1. Open the Azure CLI or use Powershell to sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+1. When you're prompted, install the Azure CLI extension. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+1. Find the version and dependent libraries that are installed by using [`az version`](/cli/azure/reference-index?#az-version).
+1. Upgrade to the latest version by using [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
