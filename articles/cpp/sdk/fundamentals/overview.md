@@ -13,6 +13,8 @@ ms.custom: devx-track-cpp
 
 # Core Concepts of the Azure SDK for C++
 
+The Azure SDK for C++ provides a set of libraries designed to help C++ developers integrate Azure services into their applications. This article explores the fundamental concepts that underpin the SDK, including the distinction between data and management planes, the role of Azure Core, package naming conventions, client objects, and configuration options. Understanding these core concepts will enable you to effectively use the SDK in your C++ applications.
+
 ## Data vs Management Plane
 
 The Azure SDK for C++ provides libraries for data plane operations but doesn't offer libraries for management plane operations. Data plane libraries are used to interact with already provisioned Azure services. If you require management plane libraries for provisioning and managing Azure resources in C++, leave an issue on our [GitHub repository](https://github.com/Azure/azure-sdk-for-cpp/issues/new/choose).

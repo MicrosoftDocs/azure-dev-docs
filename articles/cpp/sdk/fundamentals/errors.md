@@ -11,13 +11,13 @@ ms.custom: devx-track-cpp
 
 ---
 
-# Error Handling in the Azure SDK for C++
+# Error handling in the Azure SDK for C++
 
 Error handling in the Azure SDK for C++ is primarily implemented through C++ exceptions. This approach aligns with standard C++ practices and allows for clear error reporting and handling across the SDK. When your C++ application interacts with Azure services, operations can fail for various reasons such as authentication issues, service unavailability, invalid requests, or resource constraints. The SDK captures these errors as exceptions that provide detailed information about the failure.
 
-## Exception Hierarchy
+## Exception hierarchy
 
-### Core Exception Types
+### Core exception types
 
 The Azure SDK for C++ uses a hierarchy of exception classes, with the most important ones being:
 
@@ -36,7 +36,7 @@ The Azure SDK for C++ uses a hierarchy of exception classes, with the most impor
 
 5. **`Azure::Core::Credentials::AuthenticationException`** - Derived from `std::exception`, this exception is thrown when authentication with Azure services fails.
 
-### Service-Specific Exception Types
+### Service-specific exception types
 
 Different Azure services extend the base exception types to provide service-specific error information:
 
@@ -51,7 +51,7 @@ Different Azure services extend the base exception types to provide service-spec
    - Status code
    - Information about whether the error is transient
 
-## Error Information in Exceptions
+## Error information in exceptions
 
 The `RequestFailedException` class contains rich information about service failures:
 
@@ -94,9 +94,9 @@ struct StorageException final : public Azure::Core::RequestFailedException {
 };
 ```
 
-## Exception Handling Patterns and Examples
+## Exception handling patterns and examples
 
-### Using Error Codes
+### Using error codes
 
 Service exceptions contain `ErrorCode` values that can be used to make decisions about how to handle failures. Here's an example with Storage services:
 
@@ -114,7 +114,7 @@ catch (Azure::Storage::StorageException& e) {
 }
 ```
 
-### Handling Basic Exceptions
+### Handling basic exceptions
 
 Basic pattern for handling exceptions in the Azure SDK:
 
@@ -137,7 +137,7 @@ catch (std::exception const& e) {
 }
 ```
 
-### Handling Transient Errors
+### Handling transient errors
 
 Some services, like Event Hubs, provide information about whether an error is transient, allowing for retry logic:
 
@@ -157,7 +157,7 @@ catch (Azure::Messaging::EventHubs::EventHubsException& e) {
 
 The SDK implements internal retry policies for transient failures, but you want to handle specific cases in your application code.
 
-### Service-Specific Error Handling
+### Service-specific error handling
 
 For storage services (Blobs, Files, Queues, etc.), you can handle errors based on both error codes and HTTP status codes:
 
@@ -201,7 +201,7 @@ catch (Azure::Core::RequestFailedException const& e) {
 }
 ```
 
-## Thread Safety Considerations
+## Thread safety considerations
 
 The Azure SDK for C++ guarantees that client instance methods are thread-safe and independent of each other. This means you can safely use a client instance across multiple threads without synchronization.
 
