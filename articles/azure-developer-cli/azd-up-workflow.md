@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Explore the `azd up` workflow
 
-Thee Azure Developer CLI (`azd`) enables you to provision and deploy application resources on Azure with only a single command using `azd up`. This guide provides a detailed breakdown of `azd up` and how the different stages of this workflow command correlate to the structure of an `azd` template.
+The Azure Developer CLI (`azd`) enables you to provision and deploy application resources on Azure with only a single command using `azd up`. This guide provides a detailed breakdown of `azd up` and how the different stages of this workflow command correlate to the structure of an `azd` template.
 
 ## Follow along using a template
 
