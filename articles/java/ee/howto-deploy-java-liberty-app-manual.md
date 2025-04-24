@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 04/23/2024
+ms.date: 04/24/2024
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli
 ---
@@ -568,7 +568,7 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 export BASE_DIR=$PWD
-git checkout 20250423
+git checkout 20250424
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -577,7 +577,7 @@ git checkout 20250423
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 $Env:BASE_DIR = $PWD
-git checkout 20250423
+git checkout 20250424
 ```
 
 ---
