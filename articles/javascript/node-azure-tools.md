@@ -1,7 +1,7 @@
 ---
 title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
-ms.topic: how-to
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.custom: devx-track-js, devx-track-azurecli, linux-related-content, devx-track-ts
 ---
@@ -76,13 +76,13 @@ The following integration tools for building and deployment increase your pipeli
 
 If you're looking for a Microsoft or Azure-specific Docker image, use the [Microsoft Container Registry](https://github.com/microsoft/containerregistry) (MRC) to [query for an image](https://mcr.microsoft.com/v2/_catalog). 
 
-### Tools for containers
+Tools for containers:
 
 * [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 
-### Tools for Development containers
+Tools for Development containers:
 
 * [Development containers](https://containers.dev/)
 * [Dev containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) 
@@ -139,6 +139,7 @@ The following list includes tips and tricks Azure developers should know to be m
 * Most Azure npm packages can use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). While the setup looks complicated, the benefit of no longer having to manage your local _and_ remote authentication to the Azure platform is great for security and time savings. 
 * All Azure JavaScript SDKs include TypeScript types. This functionality allows you to adopt strong types for your solutions easily and know they won't become out of sync with the SDK. 
 
-## Next steps
+## Related content
 
 * [Set up your development environment](core/configure-local-development-environment.md)
+* [Clone and use a GitHub repository in Visual Studio Code](./how-to/with-visual-studio-code/clone-github-repository)
