@@ -56,9 +56,9 @@ This command begins a prompt-based workflow that allows you to select a new reso
   ~Existing resource
 ```
 
-When you're finished adding resources with `azd add`, run `azd up` or `azd provision` to create the resources in Azure. `azd` manages resource creation internally until you [Generate Bicep files for the resources](azd-compose-generate.md) for further customization.
+When you're finished adding resources with `azd add`, run `azd up` or `azd provision` to create the resources in Azure. `azd` manages resource creation internally until you [Generate Bicep files for the resources](compose-generate.md) for further customization.
 
-Visit the [Build a minimal template using the compose feature](azd-compose-quickstart.md) article for a full walkthrough of this feature.
+Visit the [Build a minimal template using the compose feature](compose-quickstart.md) article for a full walkthrough of this feature.
 
 ### Services supported by the compose feature
 
@@ -79,4 +79,4 @@ The `azd compose` feature supports adding resources for the following Azure serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Compose quickstart](/azure/developer/azure-developer-cli/azd-compose-quickstart)
+> [Compose quickstart](compose-quickstart.md)

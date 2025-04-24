@@ -23,7 +23,7 @@ Access `azd` compose features through the [`azd add`](/azure/developer/azure-dev
 - **Use code in the current directory** (for apps that target Azure Container Apps for hosting)
 - **Create a minimal project**
 
-Templates initialized through the **Select a template** flow aren't currently supported. The `azd` compose feature manages infrastructure for you and isn't compatible with templates that have existing `infra` folder assets. Visit the [Generate the Bicep code](azd-compose-generate.md) article and [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible) page for more information.
+Templates initialized through the **Select a template** flow aren't currently supported. The `azd` compose feature manages infrastructure for you and isn't compatible with templates that have existing `infra` folder assets. Visit the [Generate the Bicep code](compose-generate.md) article and [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible) page for more information.
 
 Complete the following steps to add new resources to your template without writing any code:
 
@@ -129,4 +129,4 @@ resources:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Generate Bicep code using the compose feature](azd-compose-generate.md)
+> [Generate Bicep code using the compose feature](compose-generate.md)

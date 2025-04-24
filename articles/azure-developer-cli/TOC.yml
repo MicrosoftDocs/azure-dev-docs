@@ -68,9 +68,9 @@
       - name: Compose feature overview
         href: azd-compose.md
       - name: Create a minimal template
-        href: azd-compose-quickstart.md
+        href: compose-quickstart.md
       - name: Generate Bicep files
-        href: azd-compose-generate.md
+        href: compose-generate.md
     - name: Training - build and deploy azd templates
     href: /training/paths/azure-developer-cli
   - name: Integration and remote environments
