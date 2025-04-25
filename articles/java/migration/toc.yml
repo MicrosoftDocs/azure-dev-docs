@@ -6,13 +6,13 @@ items:
       href: migration-overview.md
     - name: Azure Migrate application and code assessment
       href: /azure/migrate/appcat/java-preview?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-    - name: GitHub Copilot App Modernization for Java (Preview)
+    - name: GitHub Copilot app modernization for Java (preview)
       expanded: true
       items:
         - name: Overview
           href: migrate-github-copilot-app-modernization-java-on-azure.md
-        - name: Concepts
-          href: migrate-github-copilot-app-modernization-java-on-azure-concepts.md
+        - name: FAQ
+          href: migrate-github-copilot-app-modernization-for-java-faq.yml
         - name: Predefined formula
           href: migrate-github-copilot-app-modernization-java-on-azure-predefined-formula.md
         - name: Get started - use managed identities instead of passwords
@@ -21,8 +21,6 @@ items:
           href: migrate-github-copilot-app-modernization-java-on-azure-get-started-create-and-apply-your-own-formula.md
         - name: Tutorial - An end-to-end migration sample
           href: migrate-github-copilot-app-modernization-java-on-azure-tutorial-an-end-to-end-migration-sample.md
-        - name: FAQ
-          href: migrate-github-copilot-app-modernization-java-on-azure-faq.md
     - name: Spring to Azure
       expanded: true
       items:

@@ -1,16 +1,18 @@
 ---
-title: 
-description: 
+title: "Quickstart: Use GitHub Copilot App Modernization for Java (Preview) with Managed Identities Instead of Passwords"
+description: Shows you how to use GitHub Copilot app modernization for Java (preview) with managed identities instead of passwords.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: 
-ms.topic: overview
+ms.reviewer: xiading
+ms.topic: quickstart
 ms.date: 05/19/2025
 ms.custom: devx-track-java
 ms.service: azure-java
 ---
 
-# Get started: use managed identities instead of passwords
+# Quickstart: use GitHub Copilot app modernization for Java (preview) with managed identities instead of passwords
+
+This quickstart shows you how to use GitHub Copilot app modernization for Java (preview) with managed identities instead of passwords.
 
 ## Prerequisites
 
@@ -93,4 +95,4 @@ The migration Copilot provides predefined formulas for common migration scenario
 
 ## Next step
 
-[Create and apply your own migration formula](migrate-github-copilot-app-modernization-java-on-azure-get-started-create-and-apply-your-own-formula)
+[Create and apply your own migration formula](migrate-github-copilot-app-modernization-java-on-azure-get-started-create-and-apply-your-own-formula.md)

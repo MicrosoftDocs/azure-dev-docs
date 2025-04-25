@@ -1,9 +1,9 @@
 ---
-title: 
-description: 
+title: Predefined Formulas
+description: Provides an overview of predefined formulas.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: 
+ms.reviewer: xiading
 ms.topic: overview
 ms.date: 05/19/2025
 ms.custom: devx-track-java
@@ -13,7 +13,8 @@ ms.service: azure-java
 # Predefined formulas
 
 Predefined formulas capture industry best practices for using Azure services.
-Currently, **GitHub Copilot App Modernization for Java (Preview)** offers **predefined formulas** that cover common migration scenarios.
+
+Currently, GitHub Copilot app modernization for Java (preview) offers predefined formulas that cover common migration scenarios.
 
 These formulas address topics such as:
 
