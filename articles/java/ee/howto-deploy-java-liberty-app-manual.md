@@ -154,7 +154,14 @@ az aks create \
 
 ```azurepowershell
 $Env:CLUSTER_NAME = "myAKSCluster"
-az aks create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --node-count 1 --node-vm-size Standard_DS2_V2 --generate-ssh-keys --enable-managed-identity --attach-acr $Env:REGISTRY_NAME
+az aks create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:CLUSTER_NAME `
+    --node-count 1 `
+    --node-vm-size Standard_DS2_V2 `
+    --generate-ssh-keys `
+    --enable-managed-identity `
+    --attach-acr $Env:REGISTRY_NAME
 ```
 
 ---
@@ -201,7 +208,11 @@ az aks get-credentials \
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
-az aks get-credentials --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --overwrite-existing --admin
+az aks get-credentials `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:CLUSTER_NAME `
+    --overwrite-existing `
+    --admin
 ```
 
 ---
@@ -281,8 +292,21 @@ Run the following command in your terminal to create a single database in Azure 
 ```azurepowershell
 $Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
 
-az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
-az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name $Env:DB_NAME --edition GeneralPurpose --compute-model Serverless --family Gen5 --capacity 2
+az sql server create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:SQL_SERVER_NAME `
+    --enable-ad-only-auth `
+    --external-admin-principal-type User `
+    --external-admin-name $Env:ENTRA_ADMIN_NAME 
+    --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+az sql db create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:DB_NAME `
+    --server $Env:SQL_SERVER_NAME `
+    --edition GeneralPurpose `
+    --compute-model Serverless `
+    --family Gen5 `
+    --capacity 2
 ```
 
 ---
@@ -349,18 +373,34 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
 
 # Retrieve the AKS cluster and Azure SQL Server resource IDs
-$Env:AKS_CLUSTER_RESOURCE_ID = $(az aks show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --query id --output tsv)
-$Env:AZURE_SQL_SERVER_RESOURCE_ID = $(az sql server show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:SQL_SERVER_NAME --query id --output tsv)
+$Env:AKS_CLUSTER_RESOURCE_ID = $(az aks show `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:CLUSTER_NAME `
+    --query id --output tsv)
+$Env:AZURE_SQL_SERVER_RESOURCE_ID = $(az sql server show `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:SQL_SERVER_NAME `
+    --query id `
+    --output tsv)
 
 # Create a user-assigned managed identity used for workload identity
 $Env:USER_ASSIGNED_IDENTITY_NAME = "workload-identity-uami"
 az identity create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME
 
 # Retrieve the user-assigned managed identity resource ID
-$Env:UAMI_RESOURCE_ID = $(az identity show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME --query id --output tsv)
+$Env:UAMI_RESOURCE_ID = $(az identity show `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:USER_ASSIGNED_IDENTITY_NAME `
+    --query id `
+    --output tsv)
 
 # Create a service connection between your AKS cluster and your SQL database using Microsoft Entra Workload ID
-az aks connection create sql --connection akssqlconn --client-type java --source-id $Env:AKS_CLUSTER_RESOURCE_ID --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME --workload-identity $Env:UAMI_RESOURCE_ID
+az aks connection create sql `
+    --connection akssqlconn `
+    --client-type java `
+    --source-id $Env:AKS_CLUSTER_RESOURCE_ID `
+    --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME `
+    --workload-identity $Env:UAMI_RESOURCE_ID
 ```
 
 ---
@@ -438,7 +478,12 @@ az aks connection create sql \
 After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
 
 ```powershell
-az aks connection create sql --connection akssqlconn --client-type java --source-id $Env:AKS_CLUSTER_RESOURCE_ID --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME --workload-identity $Env:UAMI_RESOURCE_ID
+az aks connection create sql `
+    --connection akssqlconn `
+    --client-type java `
+    --source-id $Env:AKS_CLUSTER_RESOURCE_ID `
+    --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME `
+    --workload-identity $Env:UAMI_RESOURCE_ID
 ```
 
 ---
