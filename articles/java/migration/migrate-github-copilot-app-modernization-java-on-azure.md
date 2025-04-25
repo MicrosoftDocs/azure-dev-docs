@@ -17,7 +17,7 @@ The **App Modernization for Java** is an **all-in-one migration assistant** that
 
 This improves developer **velocity**, **quality**, and **confidence**.
 
-## Common use cases of GitHub Copilot app modernization - Java on Azure
+## Common use cases of GitHub Copilot App Modernization for Java (Preview)
 
 - Assess applications' cloud readiness issues
 - Propose solutions and recommend target Azure services

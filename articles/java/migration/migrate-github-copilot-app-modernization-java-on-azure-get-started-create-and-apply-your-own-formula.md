@@ -8,13 +8,13 @@ In code development, enterprises often have different processes and controls to 
 - [A GitHub account with GitHub Copilot enabled](https://github.com/features/copilot): All plans are supported, including the Free plan.
 - [GitHub Copilot extension in VSCode](https://code.visualstudio.com/docs/copilot/overview): The latest version is recommended.
 - [AppCAT](https://aka.ms/appcat-install): Required for the app assessment feature.
-- [GitHub Copilot App Modernization - Java on Azure](migrate-github-copilot-app-modernization-java-on-azure-get-started-use-managed-identities-instead-of-passwords#installation): Please install it and add the required configuration.
+- [GitHub Copilot App Modernization for Java (Preview)](migrate-github-copilot-app-modernization-java-on-azure-get-started-use-managed-identities-instead-of-passwords#installation): Please install it and add the required configuration.
 
 ## Create a custom formula
 
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `rabbitmq-sender` project folder. Then, check out the project to the `expected` branch.
 
-1. Open **GitHub Copilot App Modernization - Java on Azure** extension blade from the Activity sidebar, and then click **Create formula from source control** button in Formulas section.
+1. Open **App Modernization for Java** extension blade from the Activity sidebar, and then click **Create formula from source control** button in Formulas section.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/create-formula-from-source-control.png" border="false" alt-text="Create formula from source control" :::
 
@@ -26,13 +26,13 @@ In code development, enterprises often have different processes and controls to 
 
 1. Default formula name will be generated. Give it a new name: "custom formula migrate rabbitmq". Press Enter to confirm. Then, formula description, and search patterns will be generated in order. Press Enter repeatedly to confirm.
 
-1. Now, the custom formula for migrating rabbitmq is generated and shows in the Formulas section of `GitHub Copilot App Modernization - Java on Azure` blade.
+1. Now, the custom formula for migrating rabbitmq is generated and shows in the Formulas section of `App Modernization for Java` blade.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/custom-formula-rabbitmq.png" border="false" alt-text="Custom formula created" :::
 
 ## Apply the custom formula
 
-1. Check out the project to the `main` branch. Find the custom formula just created in the Formulas section of `GitHub Copilot App Modernization - Java on Azure` blade. Run this formula by clicking **Run Formula** button.
+1. Check out the project to the `main` branch. Find the custom formula just created in the Formulas section of `App Modernization for Java` blade. Run this formula by clicking **Run Formula** button.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/run-formula.png" border="false" alt-text="Run formula" :::
 

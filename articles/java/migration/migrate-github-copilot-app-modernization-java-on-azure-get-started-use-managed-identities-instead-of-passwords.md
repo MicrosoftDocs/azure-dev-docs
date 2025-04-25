@@ -13,7 +13,7 @@ To use GitHub Copilot, please sign in to your GitHub account in VSCode. Click th
 
 ## Install
 
-In VSCode, open the Extensions view from Activity Bar, search **GitHub Copilot App Modernization - Java on Azure** extension in marketplace. Select the **Install** button on the extension. For more information about installing a VSCode extension, refer to [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension). After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
+In VSCode, open the Extensions view from Activity Bar, search **GitHub Copilot App Modernization for Java (Preview)** extension in marketplace. Select the **Install** button on the extension. For more information about installing a VSCode extension, refer to [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension). After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
 
 ## Configure
 
@@ -39,7 +39,7 @@ Start your migration process with solution assessment, to understand what your c
 
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `mi-sql-public-demo` project folder.
 
-1. Click **GitHub Copilot App Modernization - Java on Azure** blade on the sidebar, and then click **Assess** button in Assessment section.
+1. Click **App Modernization for Java** blade on the sidebar, and then click **Assess** button in Assessment section.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" border="false" alt-text="Click Assess Button for Assessment" :::
 
@@ -55,11 +55,9 @@ Start your migration process with solution assessment, to understand what your c
 
 1. With reviewing the summary report, you can click on the **Propose Solution** button at the bottom and move to the next step: choose your desired solution per category/sub category.
 
-1. Confirm the selection of the **Use Azure SQL Database** solution by clicking on the **Confirm solution** button to proceed to the migration step. Then, click on the **Migrate** button for the **Use Azure SQL Database** solution to move to the code remediation stage.
+1. Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution by clicking on the **Confirm solution** button to proceed to the migration step. Then, click on the **Migrate** button for the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution to move to the code remediation stage.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" border="false" alt-text="Confirm Azure SQL Solution" :::
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/migrate-sql-solution.png" border="false" alt-text="Migrate Azure SQL Solution" :::
 
 ## Apply a predefined formula
 
