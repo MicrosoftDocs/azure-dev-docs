@@ -433,7 +433,26 @@ This error message most likely indicates that the `pyodbc` package can't be inst
     sudo <python-location> -m pip install pyodbc
     ```
 
-### Two error messages: "libodbc.so: cannot open shared object file: No such file or directory" or "Please manually install odbc 17/18 for SQL server"
+### libodbc.so: cannot open shared object file: No such file or directory
+
+This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
+
+1. If you're using Linux, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
+
+1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
+
+1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
+
+    ```azurecli
+    az aks connection create sql \
+        --connection akssqlconn \
+        --client-type java \
+        --source-id $AKS_CLUSTER_RESOURCE_ID \
+        --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
+        --workload-identity $UAMI_RESOURCE_ID
+    ```
+
+### Please manually install odbc 17/18 for SQL server
 
 This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
@@ -468,7 +487,7 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
-1. Use the following command in the PowerShell window to install the `pyodbc` package. Replace <python-location> with the the Python location you copied in the previous step.
+1. Use the following command to install the `pyodbc` package. Replace <python-location> with the the Python location you copied in the previous step.
 
      ```powershell
      & '<python-location>' -m pip install pyodbc
