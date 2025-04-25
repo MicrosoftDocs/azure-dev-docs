@@ -61,7 +61,7 @@ If you didn't do so already, use the following steps to sign in to your Azure su
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called `java-liberty-project` using the [`az group create`](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
+Create a resource group called `java-liberty-project` by using the [`az group create`](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -81,15 +81,15 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ## Create a Container Registry instance
 
-Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
+Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named `<youruniqueacrname>`. Replace this placeholder with a value that is unique across Azure.
 
 > [!NOTE]
-> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
+> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use a username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using a username and password is less secure than passwordless authentication, however.
 
 ### [Bash](#tab/in-bash)
 
 ```azurecli
-export REGISTRY_NAME=youruniqueacrname
+export REGISTRY_NAME=<youruniqueacrname>
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $REGISTRY_NAME \
@@ -113,7 +113,7 @@ After a short time, you should see a JSON output that contains the following lin
 "resourceGroup": "java-liberty-project",
 ```
 
-Next, retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
+Retrieve the login server name for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
 
 ### [Bash](#tab/in-bash)
 
@@ -134,7 +134,7 @@ $Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer
 
 ## Create an AKS cluster
 
-Use the [`az aks create`](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named `myAKSCluster` with one node and attaches the Container Registry instance to the AKS cluster. This command takes several minutes to complete.
+Use the [`az aks create`](/cli/azure/aks#az-aks-create) command to create an AKS cluster, as shown in the following example, which creates an AKS cluster named `myAKSCluster` with one node and attaches the Container Registry instance to it. This command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -166,7 +166,7 @@ az aks create `
 
 ---
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following output:
+After the command completes, it returns JSON-formatted information about the cluster, including the following output:
 
 ```output
   "nodeResourceGroup": "MC_java-liberty-project_myAKSCluster_eastus2",
@@ -175,141 +175,143 @@ After a few minutes, the command completes and returns JSON-formatted informatio
   "resourceGroup": "java-liberty-project",
 ```
 
-### Connect to the AKS cluster
+## Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. To install `kubectl` locally, use the [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
+Use the following steps to manage your Kubernetes cluster:
 
-### [Bash](#tab/in-bash)
+1. Install [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client, by using [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
 
-```azurecli
-az aks install-cli
-```
+    ### [Bash](#tab/in-bash)
 
-### [PowerShell](#tab/in-powershell)
+    ```azurecli
+    az aks install-cli
+    ```
 
-```azurepowershell
-az aks install-cli
-```
+    ### [PowerShell](#tab/in-powershell)
+    
+    ```azurepowershell
+    az aks install-cli
+    ```
 
----
+    ---
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Use [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) to configure `kubectl` to connect to your Kubernetes cluster. This command downloads credentials and configures the Kubernetes CLI to use them, as shown in the following example:
 
-### [Bash](#tab/in-bash)
+    ### [Bash](#tab/in-bash)
 
-```azurecli
-az aks get-credentials \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
-    --overwrite-existing \
-    --admin
-```
+    ```azurecli
+    az aks get-credentials \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $CLUSTER_NAME \
+        --overwrite-existing \
+        --admin
+    ```
 
-### [PowerShell](#tab/in-powershell)
+    ### [PowerShell](#tab/in-powershell)
 
-```azurepowershell
-az aks get-credentials `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --name $Env:CLUSTER_NAME `
-    --overwrite-existing `
-    --admin
-```
+    ```azurepowershell
+    az aks get-credentials `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name $Env:CLUSTER_NAME `
+        --overwrite-existing `
+        --admin
+    ```
 
----
+    ---
 
-> [!NOTE]
-> The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
+    > [!NOTE]
+    > The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
 
-To verify the connection to your cluster, use the [`kubectl get`]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
+1. Verify the connection to your cluster by using [`kubectl get`]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to return a list of the cluster nodes, as shown in the following example:
 
-### [Bash](#tab/in-bash)
+    ### [Bash](#tab/in-bash)
+    
+    ```bash
+    kubectl get nodes
+    ```
 
-```bash
-kubectl get nodes
-```
+    ### [PowerShell](#tab/in-powershell)
+    
+    ```powershell
+    kubectl get nodes
+    ```
 
-### [PowerShell](#tab/in-powershell)
+    ---
 
-```powershell
-kubectl get nodes
-```
+    The following example output shows the single node created in the previous steps. Make sure that the status of the node is `Ready`:
 
----
-
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is `Ready`:
-
-```output
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    <none>  76s     v1.29.9
-```
+    ```output
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    <none>  76s     v1.29.9
+    ```
 
 ## Create an Azure SQL Database
 
-In this section, you create an Azure SQL Database single database for use with your app.
+Create an Azure SQL Database single database for your app by using the following steps:
 
 ### [Bash](#tab/in-bash)
 
-First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+1. Set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
-```bash
-export SQL_SERVER_NAME=<your-unique-sql-server-name>
-export DB_NAME=demodb
-```
+    ```bash
+    export SQL_SERVER_NAME=<your-unique-sql-server-name>
+    export DB_NAME=demodb
+    ```
 
-Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
-```azurecli
-export ENTRA_ADMIN_NAME=$(az account show --query user.name --output tsv)
+    ```azurecli
+    export ENTRA_ADMIN_NAME=$(az account show --query user.name --output tsv)
 
-az sql server create \
-    --name $SQL_SERVER_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --enable-ad-only-auth \
-    --external-admin-principal-type User \
-    --external-admin-name $ENTRA_ADMIN_NAME \
-    --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
-az sql db create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --server $SQL_SERVER_NAME \
-    --name $DB_NAME \
-    --edition GeneralPurpose \
-    --compute-model Serverless \
-    --family Gen5 \
-    --capacity 2
-```
+    az sql server create \
+        --name $SQL_SERVER_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --enable-ad-only-auth \
+        --external-admin-principal-type User \
+        --external-admin-name $ENTRA_ADMIN_NAME \
+        --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+    az sql db create \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --server $SQL_SERVER_NAME \
+        --name $DB_NAME \
+        --edition GeneralPurpose \
+        --compute-model Serverless \
+        --family Gen5 \
+        --capacity 2
+    ```
 
-### [PowerShell](#tab/in-powershell)
+    ### [PowerShell](#tab/in-powershell)
 
-First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+    1. Set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
-```powershell
-$Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
-$Env:DB_NAME = "demodb"
-```
+        ```powershell
+        $Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
+        $Env:DB_NAME = "demodb"
+        ```
 
-Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
+    1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
-```azurepowershell
-$Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
+    ```azurepowershell
+    $Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
+    
+    az sql server create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name $Env:SQL_SERVER_NAME `
+        --enable-ad-only-auth `
+        --external-admin-principal-type User `
+        --external-admin-name $Env:ENTRA_ADMIN_NAME 
+        --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+    az sql db create `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name $Env:DB_NAME `
+        --server $Env:SQL_SERVER_NAME `
+        --edition GeneralPurpose `
+        --compute-model Serverless `
+        --family Gen5 `
+        --capacity 2
+    ```
 
-az sql server create `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --name $Env:SQL_SERVER_NAME `
-    --enable-ad-only-auth `
-    --external-admin-principal-type User `
-    --external-admin-name $Env:ENTRA_ADMIN_NAME 
-    --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
-az sql db create `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --name $Env:DB_NAME `
-    --server $Env:SQL_SERVER_NAME `
-    --edition GeneralPurpose `
-    --compute-model Serverless `
-    --family Gen5 `
-    --capacity 2
-```
-
----
+    ---
 
 > [!NOTE]
 > You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. For more information on enabling SQL authentication, see [`az sql server create`](/cli/azure/sql/server#az-sql-server-create).
