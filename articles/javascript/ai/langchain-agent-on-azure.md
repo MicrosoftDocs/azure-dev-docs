@@ -2,6 +2,8 @@
 title: Build a LangChain.js agent for Azure
 description: Create a LangChain.js agent with LangChain.js that queries HR documents using Azure AI Search and Azure OpenAI for intelligent document search and question answering.
 ms.date: 04/21/2025
+ms.author: diberry
+author: diberry
 ms.topic: tutorial
 ms.custom: devx-track-ts, devx-track-ts-ai
 #customer intent: As a JavaScript developer, I want to use LangChain with Azure so that I can build an agentic workflow.
@@ -38,7 +40,7 @@ NorthWind relies on two data sources: public HR documentation accessible to all 
 * [Azure AI Search resource](/azure/search/search-what-is-azure-search): Ensure you have the resource endpoint, admin key (for document insertion), query key (for reading documents), and index name.
 * [Azure OpenAI resource](/azure/ai-services/openai/): You'll need the resource instance name, key, and two models with their API versions:
   * An embeddings model like `text-embedding-ada-002`.
-  * A large language model like `4o`.
+  * A large language model like `gpt-4o`.
 
 ## Agent architecture
 
