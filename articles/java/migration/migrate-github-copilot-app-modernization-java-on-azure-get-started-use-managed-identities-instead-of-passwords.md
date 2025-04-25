@@ -1,37 +1,49 @@
+---
+title: 
+description: 
+author: KarlErickson
+ms.author: karler
+ms.reviewer: 
+ms.topic: overview
+ms.date: 05/19/2025
+ms.custom: devx-track-java
+ms.service: azure-java
+---
+
 # Get started: use managed identities instead of passwords
 
 ## Prerequisites
 
-- [VSCode](https://code.visualstudio.com/): The latest version is recommended.
+- [Visual Studio Code](https://code.visualstudio.com/): The latest version is recommended.
 - [A GitHub account with GitHub Copilot enabled](https://github.com/features/copilot): All plans are supported, including the Free plan.
-- [GitHub Copilot extension in VSCode](https://code.visualstudio.com/docs/copilot/overview): The latest version is recommended.
+- [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview): The latest version is recommended.
 - [AppCAT](https://aka.ms/appcat-install): Required for the app assessment feature.
 
 ## Sign in to use Copilot
 
-To use GitHub Copilot, please sign in to your GitHub account in VSCode. Click the Copilot icon at the top of VSCode to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, refer to [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
+To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Click the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, refer to [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
 ## Install
 
-In VSCode, open the Extensions view from Activity Bar, search **GitHub Copilot App Modernization for Java (Preview)** extension in marketplace. Select the **Install** button on the extension. For more information about installing a VSCode extension, refer to [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension). After installation completes, you should see a notification in the bottom-right corner of VSCode confirming success.
+In Visual Studio Code, open the Extensions view from Activity Bar, search **GitHub Copilot App Modernization for Java (Preview)** extension in marketplace. Select the **Install** button on the extension. For more information about installing a Visual Studio Code extension, refer to [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension). After installation completes, you should see a notification in the bottom-right corner of Visual Studio Code confirming success.
 
 ## Configure
 
-In VSCode, configure runtime arguments to enable the proposed API:
+In Visual Studio Code, configure runtime arguments to enable the proposed API:
 
 ```json
-  "enable-proposed-api": ["Microsoft.migrate-java-to-azure"],
+"enable-proposed-api": ["Microsoft.migrate-java-to-azure"],
 ```
 
-1. Press **Ctrl+Shift+P** and select **Preferences: Configure Runtime Arguments**.
+1. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and then select **Preferences: Configure Runtime Arguments**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" border="false" alt-text="Configure Runtime Arguments in VSCode" :::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" border="false" alt-text="Configure Runtime Arguments in Visual Studio Code" :::
 
 1. Add the above JSON snippet into the editor and save.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" border="false" alt-text="Configure proposed API in VSCode runtime arguments" :::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" border="false" alt-text="Configure proposed API in Visual Studio Code runtime arguments" :::
 
-1. Restart VSCode.
+1. Restart Visual Studio Code.
 
 ## Assess cloud readiness
 
@@ -63,21 +75,21 @@ Start your migration process with solution assessment, to understand what your c
 
 The migration Copilot provides predefined formulas for common migration scenarios that you may face when migrating to Azure. In this example you'll use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
 
-1. After clicking the Migrate button in the Solution Report, Copilot chat window will be opened with Agent Mode.
+1. After selecting **Migrate** in the **Solution Report**, Copilot chat window will be opened with Agent Mode.
 
-1. Click **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
+1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
 
-1. After each step, please manually input **continue** to confirm and proceed.
+1. After each step, manually input *continue* to confirm and proceed.
 
 1. Wait the changed codes to be generated.
 
 ## Apply Build-fix
 
-1. When the **Java Application Build-Fix** tool is suggested to run, click **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
+1. When the Java Application Build-Fix tool is suggested to run, select **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
 
-1. After the Build-Fix tool begins, click **Continue** to proceed and show progress.
+1. After the Build-Fix tool begins, select **Continue** to proceed and show progress.
 
-1. After all done, please review code changes and confirm by click **Keep** button.
+1. After the process has completed, review the code changes and confirm them by selecting **Keep**.
 
 ## Next step
 

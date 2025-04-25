@@ -1,3 +1,15 @@
+---
+title: 
+description: 
+author: KarlErickson
+ms.author: karler
+ms.reviewer: 
+ms.topic: overview
+ms.date: 05/19/2025
+ms.custom: devx-track-java
+ms.service: azure-java
+---
+
 # Asset manager migration sample
 
 We have prepared a migration code sample, **Asset Manager**, that stores user-uploaded images and metadata in:
@@ -14,5 +26,5 @@ You can use **GitHub Copilot App Modernization for Java (Preview)** to migrate t
   - **Azure Blob Storage**
   - **Azure Service Bus**
 
-📦 The sample is available at:
+The sample is available at:
 [Asset Manager](https://github.com/Azure-Samples/java-migration-copilot-samples/blob/workshop/asset-manager/README.md)
