@@ -1,7 +1,7 @@
 ---
 title: Build a LangChain.js agent for Azure
 description: Create a LangChain.js agent with LangChain.js that queries HR documents using Azure AI Search and Azure OpenAI for intelligent document search and question answering.
-ms.date: 04/21/2025
+ms.date: 04/25/2025
 ms.author: diberry
 author: diberry
 ms.topic: tutorial
@@ -11,9 +11,9 @@ ms.custom: devx-track-ts, devx-track-ts-ai
 
 # Tutorial: Build a LangChain.js agent with Azure AI Search
 
-In this tutorial, you'll use LangChain.js to build a LangChain.js agent that enables the NorthWind company employees to ask human resources–related questions. By leveraging the framework, you avoid boilerplate code typically required for LangChain.js agents and Azure service integration, allowing you to focus on your business needs.
+In this tutorial, you use LangChain.js to build a LangChain.js agent that enables the NorthWind company employees to ask human resources–related questions. By using the framework, you avoid boilerplate code typically required for LangChain.js agents and Azure service integration, allowing you to focus on your business needs.
 
-In this tutorial, you will:
+In this tutorial, you:
 
 > [!div class="checklist"]
 > * Set up a LangChain.js agent
@@ -35,16 +35,16 @@ NorthWind relies on two data sources: public HR documentation accessible to all 
 * [Node.js LTS](https://nodejs.org/) installed on your system.
 * [TypeScript](https://www.typescriptlang.org/) for writing and compiling TypeScript code.
 * [LangChain.js](https://www.npmjs.com/package/langchain) library for building the agent.
-* Optional: [LangSmith](https://www.langchain.com/langsmith) for monitoring AI usage. You'll need the project name, key, and endpoint.
+* Optional: [LangSmith](https://www.langchain.com/langsmith) for monitoring AI usage. You need the project name, key, and endpoint.
 * Optional: [LangGraph Studio](https://studio.langchain.com) for debugging LangGraph chains and LangChain.js agents.
 * [Azure AI Search resource](/azure/search/search-what-is-azure-search): Ensure you have the resource endpoint, admin key (for document insertion), query key (for reading documents), and index name.
-* [Azure OpenAI resource](/azure/ai-services/openai/): You'll need the resource instance name, key, and two models with their API versions:
+* [Azure OpenAI resource](/azure/ai-services/openai/): You need the resource instance name, key, and two models with their API versions:
   * An embeddings model like `text-embedding-ada-002`.
   * A large language model like `gpt-4o`.
 
 ## Agent architecture
 
-The LangChain.js framework provides a decision flow for building intelligent agents as a LangGraph. In this tutorial, you will create a LangChain.js agent that integrates with Azure AI Search and Azure OpenAI to answer HR-related questions. The agent's architecture is designed to:
+The LangChain.js framework provides a decision flow for building intelligent agents as a LangGraph. In this tutorial, you create a LangChain.js agent that integrates with Azure AI Search and Azure OpenAI to answer HR-related questions. The agent's architecture is designed to:
 
 * Determine if a question is relevant to HR documentation.
 * Retrieve relevant documents from Azure AI Search.
@@ -73,7 +73,7 @@ The following table has examples of user questions which are and aren't relevant
 | `Does the NorthWind Health Plus plan cover eye exams?` | Relevant. The HR documents, such as the employee handbook, should provide an answer. |
 | `How much of my perks + benefits have I spent?` | Not relevant. This question requires access to confidential employee data, which is outside the scope of this agent. |
 
-By leveraging LangChain.js, much of the complexity of integrating with Azure services is abstracted. This allows you to focus on configuring the services, organizing the workflow, and implementing business logic.
+By using the framework, you avoid boilerplate code typically required for LangChain.js agents and Azure service integration, allowing you to focus on your business needs.
 
 ## Initialize your Node.js project
 
@@ -134,7 +134,7 @@ When querying the vector store, use the query key instead. This separation of ke
 
 ## Create Azure OpenAI resource configuration files
 
-To manage the two different models, embeddings and LLM, create separate configuration files.This approach ensures clarity and separation of concerns, making it easier to manage and maintain the configurations.
+To manage the two different models, embeddings and LLM, create separate configuration files. This approach ensures clarity and separation of concerns, making it easier to manage and maintain the configurations.
 
 ### Configuration for embeddings for vector store
 
@@ -151,7 +151,7 @@ To create answers from the large language model, create a configuration file:
 
 ## Constants and prompts
 
-AI applications often rely on constant strings and prompts. Create files to manage these constants. 
+AI applications often rely on constant strings and prompts. Manage these constants with separate files.
 
 Create the system prompt:
 
@@ -168,7 +168,7 @@ Create example user queries:
 
 ## Load documents into Azure AI Search
 
-To load documents into Azure AI Search, leverage LangChain.js to simplify the process. The documents, stored as PDFs, are converted into embeddings and inserted into the vector store. This process ensures that the documents are ready for efficient retrieval and querying.
+To load documents into Azure AI Search, use LangChain.js to simplify the process. The documents, stored as PDFs, are converted into embeddings and inserted into the vector store. This process ensures that the documents are ready for efficient retrieval and querying.
 
 Key Considerations:
 
@@ -189,7 +189,7 @@ Key Considerations:
 
 ## Create agent workflow
 
-In LangChain.js, build the LangChain.js agent with a LangGraph. This allows you to define the nodes and edges:
+In LangChain.js, build the LangChain.js agent with a LangGraph. LangGraph allows you to define the nodes and edges:
 
 - **Node**: where work is performed.
 - **Edge**: defines the connection between nodes.
@@ -357,7 +357,7 @@ Optionally, for local development, use LangChain Studio to work with your LangCh
 
 8. If the question isn't relevant to the HR docs, the flow goes directly to **__end__**.
 
-If the LangChain.js agent makes an incorrect decision, that can indicate an issue with one of the following:
+When the LangChain.js agent makes an incorrect decision, the issue may be:
 
 - LLM model used
 - Number of documents from vector store
@@ -372,7 +372,7 @@ To call the LangChain.js agent from a parent application, such as a web API, you
 The two functions are:
 
 * **ask_agent**: This function returns state so it allows you to add the LangChain.js agent to a LangChain multi-agent workflow.
-* **get_answer**: This function returns just the text of the answer. This function can be called from a API
+* **get_answer**: This function returns just the text of the answer. This function can be called from an API.
 
 
 ## Troubleshooting
