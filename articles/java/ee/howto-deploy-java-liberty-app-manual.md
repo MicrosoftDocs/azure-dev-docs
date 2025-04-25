@@ -318,7 +318,7 @@ Create an Azure SQL Database single database for your app by using the following
 
 ## Create a service connection in AKS with Service Connector
 
-Run the following commands to create a connection between the AKS cluster and the SQL database using Microsoft Entra Workload ID with Service Connector. For more information, see [Create a service connection in AKS with Service Connector](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli&pivots=workload-id#create-a-service-connection-in-aks-with-service-connector).
+Use the following commands to create a connection between the AKS cluster and the SQL database using Microsoft Entra Workload ID with Service Connector. For more information, see [Create a service connection in AKS with Service Connector](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli&pivots=workload-id#create-a-service-connection-in-aks-with-service-connector).
 
 ### [Bash](#tab/in-bash)
 
@@ -407,45 +407,50 @@ az aks connection create sql `
 
 ---
 
-If you fail to run the command `az aks connection create sql` in your local machine with the following or similar error messages, resolve the issues:
+If the `az aks connection create sql` command produces an error messages, use the instructions in the next section to troubleshoot the issue.
 
-### [Bash](#tab/in-bash)
+## Troubleshoot your error message from az aks connection create sql
 
-* Error message: `Dependency pyodbc can't be installed, please install it manually`
+If `az aks connection create sql` produced an error message, match your error message to the appropriate section that follows, and follow the troubleshooting instructions.
 
-  This error message indicates that the `pyodbc` package can't be installed most likely because of permissions issues.
+### Dependency pyodbc can't be installed, please install it manually
 
-  1. Find location of Python that works with Azure CLI by running the following command:
+This error message most likely indicates that the `pyodbc` package can't be installed due to permissions issues. Fix the problem by using the following steps:
 
-     ```azurecli
-     az --version
-     ```
+#### [Bash](#tab/in-bash)
 
-     The output should contain `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of the `Python location`.
+1. Find the location of Python that works with Azure CLI by running the following command:
 
-  1. Run the following command in the Shell window to install the `pyodbc` package in `sudo` mode, using the Python location you copied in the previous step, for example:
+    ```azurecli
+    az --version
+    ```
 
-     ```azurecli
-     sudo /opt/az/bin/python3 -m pip install pyodbc
-     ```
+1. The output should contain `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of `Python location`.
 
-* Error message: `libodbc.so: cannot open shared object file: No such file or directory` or `Please manually install odbc 17/18 for SQL server`
+1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace <python-location> with the the Python location you copied in the previous step.
 
-  This error message indicates that the `odbc` driver isn't installed.
+    ```azurecli
+    sudo <python-location> -m pip install pyodbc
+    ```
 
-  1. Depending on your Operating System, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) or [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true) in your browser.
-  1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
+### Two error messages: "libodbc.so: cannot open shared object file: No such file or directory" or "Please manually install odbc 17/18 for SQL server"
 
-After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
+This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
-```azurecli
-az aks connection create sql \
-    --connection akssqlconn \
-    --client-type java \
-    --source-id $AKS_CLUSTER_RESOURCE_ID \
-    --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
-    --workload-identity $UAMI_RESOURCE_ID
-```
+1. If you're using Linux, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
+
+1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
+
+1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
+
+    ```azurecli
+    az aks connection create sql \
+        --connection akssqlconn \
+        --client-type java \
+        --source-id $AKS_CLUSTER_RESOURCE_ID \
+        --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
+        --workload-identity $UAMI_RESOURCE_ID
+    ```
 
 ### [PowerShell](#tab/in-powershell)
 
@@ -453,40 +458,39 @@ az aks connection create sql \
 
   This error message indicates that the `pyodbc` package can't be installed most likely because of permissions issues.
 
-  1. Find location of Python that works with Azure CLI by running the following command:
+1. Find location of Python that works with Azure CLI by running the following command:
+
+    ```powershell
+    az --version
+    ```
+
+1. The output should contain `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of `Python location`.
+
+1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
+
+1. Use the following command in the PowerShell window to install the `pyodbc` package. Replace <python-location> with the the Python location you copied in the previous step.
 
      ```powershell
-     az --version
-     ```
-
-     The output should contain `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of the `Python location`.
-
-  1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
-
-  1. Run the following command in the PowerShell window to install the `pyodbc` package, using the Python location you copied in the previous step, for example:
-
-     ```powershell
-     & 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe' -m pip install pyodbc
+     & '<python-location>' -m pip install pyodbc
      ```
 
 * Error message: `Please manually install odbc 17/18 for SQL server`.
 
-  This error message indicates that the `odbc` driver isn't installed.
+This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
-  1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
-  1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
-  1. follow the instructions, run the installer, and install the driver.
+1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
+1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
+1. follow the instructions, run the installer, and install the driver.
+1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
 
-After the issue is fixed, run the command `az aks connection create sql` again to create the service connection.
-
-```powershell
-az aks connection create sql `
-    --connection akssqlconn `
-    --client-type java `
-    --source-id $Env:AKS_CLUSTER_RESOURCE_ID `
-    --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME `
-    --workload-identity $Env:UAMI_RESOURCE_ID
-```
+    ```powershell
+    az aks connection create sql `
+        --connection akssqlconn `
+        --client-type java `
+        --source-id $Env:AKS_CLUSTER_RESOURCE_ID `
+        --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME `
+        --workload-identity $Env:UAMI_RESOURCE_ID
+    ```
 
 ---
 
