@@ -56,7 +56,7 @@ The LangChain.js framework provides a decision flow for building intelligent age
    * **Nodes** perform specific tasks, such as decision-making or retrieving data.
    * **Edges** define the flow between nodes, determining the sequence of operations.
 
-* ***Azure AI Search integration**:
+* **Azure AI Search integration**:
    * Inserts HR documents into vector store as embeddings.
    * Uses an embeddings model (`text-embedding-ada-002`) to create these embeddings.
    * Retrieves relevant documents based on user prompt.
