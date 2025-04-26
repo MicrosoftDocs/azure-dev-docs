@@ -188,7 +188,7 @@ Use the following steps to manage your Kubernetes cluster:
     ```
 
     ### [PowerShell](#tab/in-powershell)
-    
+
     ```azurepowershell
     az aks install-cli
     ```
@@ -225,13 +225,13 @@ Use the following steps to manage your Kubernetes cluster:
 1. Verify the connection to your cluster by using [`kubectl get`]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to return a list of the cluster nodes, as shown in the following example:
 
     ### [Bash](#tab/in-bash)
-    
+
     ```bash
     kubectl get nodes
     ```
 
     ### [PowerShell](#tab/in-powershell)
-    
+
     ```powershell
     kubectl get nodes
     ```
@@ -280,16 +280,16 @@ Create an Azure SQL Database single database for your app by using the following
         --capacity 2
     ```
 
-    ### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/in-powershell)
 
-    1. Set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+1. Set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
-        ```powershell
-        $Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
-        $Env:DB_NAME = "demodb"
-        ```
+    ```powershell
+    $Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
+    $Env:DB_NAME = "demodb"
+    ```
 
-    1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
     ```azurepowershell
     $Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
@@ -311,7 +311,7 @@ Create an Azure SQL Database single database for your app by using the following
         --capacity 2
     ```
 
-    ---
+---
 
 > [!NOTE]
 > You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. For more information on enabling SQL authentication, see [`az sql server create`](/cli/azure/sql/server#az-sql-server-create).
@@ -433,6 +433,26 @@ This error message most likely indicates that the `pyodbc` package can't be inst
     sudo <python-location> -m pip install pyodbc
     ```
 
+#### [PowerShell](#tab/in-powershell)
+
+1. Find the location of Python that works with Azure CLI by running the following command:
+
+    ```powershell
+    az --version
+    ```
+
+1. The output should contain `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of `Python location`.
+
+1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
+
+1. Use the following command to install the `pyodbc` package. Replace <python-location> with the the Python location you copied in the previous step.
+
+     ```powershell
+     & '<python-location>' -m pip install pyodbc
+     ```
+
+---
+
 ### libodbc.so: cannot open shared object file: No such file or directory
 
 This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
@@ -456,6 +476,8 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
+#### [Bash](#tab/in-bash)
+
 1. If you're using Linux, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
 
 1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
@@ -471,35 +493,14 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
         --workload-identity $UAMI_RESOURCE_ID
     ```
 
-### [PowerShell](#tab/in-powershell)
-
-* Error message: `Dependency pyodbc can't be installed, please install it manually`
-
-  This error message indicates that the `pyodbc` package can't be installed most likely because of permissions issues.
-
-1. Find location of Python that works with Azure CLI by running the following command:
-
-    ```powershell
-    az --version
-    ```
-
-1. The output should contain `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of `Python location`.
-
-1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
-
-1. Use the following command to install the `pyodbc` package. Replace <python-location> with the the Python location you copied in the previous step.
-
-     ```powershell
-     & '<python-location>' -m pip install pyodbc
-     ```
-
-* Error message: `Please manually install odbc 17/18 for SQL server`.
-
-This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
+#### [PowerShell](#tab/in-powershell)
 
 1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
+
 1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
+
 1. follow the instructions, run the installer, and install the driver.
+
 1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
 
     ```powershell
@@ -514,7 +515,7 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 ---
 
 > [!NOTE]
-> You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
+> You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
 
 ### Get service account and secret created by Service Connector
 
