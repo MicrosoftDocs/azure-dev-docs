@@ -172,8 +172,8 @@ To load documents into Azure AI Search, use LangChain.js to simplify the process
 
 Key Considerations:
 
-- **LangChain.js Abstraction**: LangChain.js handles much of the complexity, such as schema definitions and client creation, making the process straightforward.
-- **Throttling and Retry Logic**: While the sample code includes a minimal wait function, production applications should implement comprehensive error handling and retry logic to manage throttling and transient errors.
+- **LangChain.js abstraction**: LangChain.js handles much of the complexity, such as schema definitions and client creation, making the process straightforward.
+- **Throttling and retry logic**: While the sample code includes a minimal wait function, production applications should implement comprehensive error handling and retry logic to manage throttling and transient errors.
 
 ### Steps to load documents
 
@@ -183,7 +183,7 @@ Key Considerations:
 
     :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/find_pdfs.ts" :::
 
-3. **Insert Documents into Azure AI Search**: Use the `loadDocsIntoAiSearchVector` function to send the document array to the Azure AI Search vector store. This function uses the embeddings client to process the documents and includes a basic wait function to handle throttling. For production, implement a robust retry/backoff mechanism.
+3. **Insert documents into Azure AI Search**: Use the `loadDocsIntoAiSearchVector` function to send the document array to the Azure AI Search vector store. This function uses the embeddings client to process the documents and includes a basic wait function to handle throttling. For production, implement a robust retry/backoff mechanism.
 
     :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/azure/load_vector_store.ts" :::
 
