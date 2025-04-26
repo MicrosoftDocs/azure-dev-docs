@@ -52,16 +52,16 @@ The LangChain.js framework provides a decision flow for building intelligent age
 
 **Key Components**:
 
-1. **Graph Structure**: The LangChain.js agent is represented as a graph, where:
+* **Graph structure**: The LangChain.js agent is represented as a graph, where:
    * **Nodes** perform specific tasks, such as decision-making or retrieving data.
    * **Edges** define the flow between nodes, determining the sequence of operations.
 
-2. **Azure AI Search Integration**:
+* ***Azure AI Search integration**:
    * Inserts HR documents into vector store as embeddings.
    * Uses an embeddings model (`text-embedding-ada-002`) to create these embeddings.
    * Retrieves relevant documents based on user prompt.
 
-3. **Azure OpenAI Integration**:
+* **Azure OpenAI integration**:
    * Uses a large language model (`gpt-4o`) to:
      * Determines if a question is answerable from general HR documents.
      * Generates answer with prompt using context from documents and user question.
@@ -217,11 +217,11 @@ For the **addEdge** method, its name is START ("__start__" defined in the ./src/
 
 This app provides common LangChain functionality:
 
-* state management:
+* State management:
 
     :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/langchain/state.ts" :::
 
-* route termination:
+* Route termination:
 
     :::code language="typescript" source="~/../azure-typescript-langchainjs/packages/langgraph-agent/src/langchain/check_route_end.ts" :::
 
@@ -247,8 +247,8 @@ The embeddings client is required whenever documents are retrieved from the vect
 
 The LLM model is used to answer two types of questions:
 
-1. **Relevance to HR**: Determines if the user's question is relevant to HR documentation.
-2. **Answer generation**: Provides an answer to the user's question, augmented with documents from Azure AI Search.
+* **Relevance to HR**: Determines if the user's question is relevant to HR documentation.
+* **Answer generation**: Provides an answer to the user's question, augmented with documents from Azure AI Search.
 
 The LLM client is created and invoked when an answer is required.
 
