@@ -392,7 +392,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.55.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.55.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.55.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.55.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.20.0) |  |  |
-| @azure-tools/typespec-go | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.3) |  |  |
+| @azure-tools/typespec-go | npm [0.4.4](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.4) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -511,7 +511,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250422.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250422.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250426.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250426.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
