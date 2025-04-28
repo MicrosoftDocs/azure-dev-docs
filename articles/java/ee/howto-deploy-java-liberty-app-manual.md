@@ -427,7 +427,7 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 1. The output should contain `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of `Python location`.
 
-1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace <python-location> with the the Python location you copied in the previous step.
+1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace `<python-location>` with the the Python location you copied in the previous step.
 
     ```azurecli
     sudo <python-location> -m pip install pyodbc
@@ -445,7 +445,7 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
-1. Use the following command to install the `pyodbc` package. Replace <python-location> with the the Python location you copied in the previous step.
+1. Use the following command to install the `pyodbc` package. Replace `<python-location>` with the the Python location you copied in the previous step.
 
      ```powershell
      & '<python-location>' -m pip install pyodbc
@@ -517,9 +517,11 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 > [!NOTE]
 > You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
 
-### Get service account and secret created by Service Connector
+## Get service account and secret created by Service Connector
 
-To authenticate to the Azure SQL Database, you need to get the service account and secret created by Service Connector. Follow the section [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container). Take the option **Directly create a deployment using the YAML sample code snippet provided** and execute the following steps:
+To authenticate to the Azure SQL Database, use the following steps:
+
+1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli). Take the option to directly create a deployment using the YAML sample code snippet provided.
 
 1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, as shown in the following example:
 
@@ -532,7 +534,7 @@ To authenticate to the Azure SQL Database, you need to get the service account a
             name: <secret-name>
    ```
 
-1. Replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step and define the following environment variables:
+1. Replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step, and define environment variables by using the following commands:
 
    ### [Bash](#tab/in-bash)
 
@@ -553,13 +555,13 @@ To authenticate to the Azure SQL Database, you need to get the service account a
    These values are used in the next section to deploy the Liberty application to the AKS cluster.
 
 > [!NOTE]
-> The secret created by Service Connector contains the `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
+> The secret created by Service Connector contains the value of `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
 
 ## Install Open Liberty Operator
 
 In this section, you install the Open Liberty Operator on the AKS cluster to host the Liberty application.
 
-Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by running the following commands:
+Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by using the following commands:
 
 ### [Bash](#tab/in-bash)
 
@@ -613,7 +615,7 @@ Remove-Item -Recurse -Force overlays, base
 
 ---
 
-This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, follow the instructions in [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
+This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, see [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
 
 ## Configure and build the application image
 
@@ -623,9 +625,9 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses the `java-app` sample. The important files are shown next.
+Clone the sample code for this guide by using the following commands. The sample is in the [Open Liberty/WebSphere Liberty on Azure Kubernetes Service Samples](https://github.com/Azure-Samples/open-liberty-on-aks) GitHub repo, which contains a few samples. This article uses the `java-app` sample.
 
-### [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
@@ -634,7 +636,7 @@ export BASE_DIR=$PWD
 git checkout 20250424
 ```
 
-### [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
@@ -645,7 +647,7 @@ git checkout 20250424
 
 ---
 
-If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag. Cloning the repo creates the following file structure:
 
 ```
 java-app
@@ -668,16 +670,16 @@ The directories **java**, **resources**, and **webapp** contain the source code 
 
 In the **aks** directory, the file **openlibertyapplication-passwordless-db.yaml** is used to deploy the application image. In the **docker** directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory **liberty/config**, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In directory **liberty/config**, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines an `azure.sql.connectionstring` variable that is used to connect to the Azure SQL Database.
 
-The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
+The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
 > This sample uses the `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. For more information on using SQL authentication in your Liberty application, see [Relational database connections with Java Database Connectivity (JDBC)](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html).
 
 ### Build the project
 
-Now that you gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in **src/main/aks**. You can do something similar for your application outside Maven if you prefer.
+Now that you gathered the necessary properties, build the application by using the following commands. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in **src/main/aks**. You can do something similar for your application outside Maven if you prefer.
 
 #### [Bash](#tab/in-bash)
 
@@ -711,9 +713,9 @@ mvn dependency:copy-dependencies -f pom-azure-identity.xml -DoutputDirectory=tar
 
 ### Build the image for AKS deployment
 
-You can now run the [`az acr build`](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
+Use [`az acr build`](/cli/azure/acr#az-acr-build) to build the image, as shown in the following example:
 
-### [Bash](#tab/in-bash)
+#### [Bash](#tab/in-bash)
 
 ```azurecli
 cd $BASE_DIR/java-app/target
@@ -724,7 +726,7 @@ az acr build \
     .
 ```
 
-### [PowerShell](#tab/in-powershell)
+#### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
 cd $Env:BASE_DIR/java-app/target
@@ -734,13 +736,13 @@ az acr build --registry $Env:REGISTRY_NAME --image javaee-cafe:v1 .
 
 ---
 
-The `az acr build` command uploads the artifacts specified in the Dockerfile to the Container Registry instance, builds the image, and stores it in the Container Registry instance.
+The `az acr build` command uploads the artifacts specified in the **Dockerfile** to the Container Registry instance, builds the image, and stores it in the Container Registry instance.
 
 ## Deploy the application to the AKS cluster
 
 Use the following steps to deploy the Liberty application on the AKS cluster:
 
-1. Apply the deployment file by running the following commands:
+1. Apply the deployment file by using the following commands:
 
    ### [Bash](#tab/in-bash)
 
@@ -762,7 +764,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
     ---
 
-1. Determine whether the `OpenLibertyApplication` instance is created by running the following command:
+1. Determine whether the `OpenLibertyApplication` instance is created by using the following command:
 
    ### [Bash](#tab/in-bash)
 
@@ -779,14 +781,14 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
     ---
 
-   You should see output similar to the following example in a few moments (use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit):
+    The following output is typical. Use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit.
 
    ```output
    NAME                  IMAGE                                        EXPOSED   RECONCILED   RESOURCESREADY   READY   WARNING   AGE
    javaee-cafe-cluster   <registry-name>.azurecr.io/javaee-cafe:v1              True         True             True              57s
    ```
 
-1. Determine whether the deployment created by the Operator is ready by running the following command:
+1. Determine whether the deployment created by the operator is ready by using the following command:
 
    ### [Bash](#tab/in-bash)
 
@@ -803,7 +805,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
     ---
 
-   You should see output similar to the following example:
+    The following output is typical:
 
    ```output
    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
@@ -812,11 +814,11 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
 1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
-### Test the application
+## Test the application
 
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
-Use the [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to get the external IP address of the service when it's available.
+Use [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to get the external IP address of the service when it's available, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -834,18 +836,19 @@ echo $Env:APP_URL
 
 ---
 
-If you don't see a valid URL from the output, wait for a while and run the command again.
+> [!NOTE]
+> If you don't see a valid URL from the output, wait for a while and run the command again.
 
-Open the URL in a web browser and check the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
+Open the URL in a web browser and check the application home page. If the page isn't loaded correctly, it's because the app is starting. If this happens, refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS.":::
 
->[!NOTE]
+> [!NOTE]
 > Currently, the application doesn't use HTTPS. We recommend that you enable Transport Layer Security (TLS) with your own certificates. For more information, see [Use TLS with an ingress controller on Azure Kubernetes Service (AKS)](/azure/aks/ingress-tls).
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [`az group delete`](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, database, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use [`az group delete`](/cli/azure/group#az-group-delete) to remove the resource group, container service, container registry, database, and all related resources.
 
 ### [Bash](#tab/in-bash)
 
@@ -863,7 +866,7 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 
 ## Next steps
 
-You can learn more from references used in this guide:
+You can learn more from the following references used in this guide:
 
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
 * [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli)
