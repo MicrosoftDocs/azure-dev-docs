@@ -98,15 +98,20 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 Azure Database for MySQL Flexible Server deployment model is a deployment mode designed to provide more granular control and flexibility over database management functions and configuration settings than the Azure Database for MySQL single server deployment mode. This section shows you how to create an Azure Database for MySQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
-Run the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
+Run the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<location>` with the Azure region that has available SKUs in which you want to create the server, for example, `westus`. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
 
 ```azurecli
+export LOCATION=<location>
+export ADMIN_PASSWORD='<server-admin-password>'
+export ADMIN_USER=adminuser
+export DATABASE_NAME=${RESOURCEGROUP}db
 az mysql flexible-server create \
     --name ${CLUSTER} \
     --resource-group ${RESOURCEGROUP} \
-    --admin-user admin${RESOURCEGROUP} \
-    --admin-password '<server-admin-password>' \
-    --database-name ${RESOURCEGROUP}db \
+    --location $LOCATION \
+    --admin-user $ADMIN_USER \
+    --admin-password $ADMIN_PASSWORD \
+    --database-name $DATABASE_NAME \
     --public-access 0.0.0.0 \
     --yes
 ```
@@ -120,7 +125,7 @@ az mysql flexible-server create \
 > az mysql flexible-server list-skus --location <location>
 > ```
 >
-> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command, but append the appropriate `--location <location>` parameter, leaving all the other parameters unchanged.
+> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command.
 
 It takes a few minutes to create the server, database, admin user, and firewall rule that accepts connections from all Azure resources. If the command is successful, the output looks similar to the following example:
 
@@ -128,15 +133,15 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 {
   "connectionString": "mysql <database-name> --host <server-name>.mysql.database.azure.com --user <server-admin-username> --password=<server-admin-password>",
   "databaseName": "<database-name>",
-  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-10_16-22-8",
+  "firewallName": "<firewall-name>",
   "host": "<server-name>.mysql.database.azure.com",
   "id": "/subscriptions/REDACTED/resourceGroups/<resource-group-of-the-OpenShift-cluster>/providers/Microsoft.DBforMySQL/flexibleServers/<server-name>",
-  "location": "West US",
+  "location": "<location>",
   "password": "<server-admin-password>",
   "resourceGroup": "<resource-group-of-the-OpenShift-cluster>",
   "skuname": "Standard_B1ms",
   "username": "<server-admin-username>",
-  "version": "5.7"
+  "version": "8.0.21"
 }
 ```
 
@@ -200,9 +205,9 @@ cd ${BASE_DIR}/3-integration/connect-db/mysql
 # The following variables are used for deployment file generation
 export DB_SERVER_NAME=$CLUSTER.mysql.database.azure.com
 export DB_PORT_NUMBER=3306
-export DB_NAME=${RESOURCEGROUP}db
-export DB_USER=admin${RESOURCEGROUP}
-export DB_PASSWORD='<server-admin-password>'
+export DB_NAME=$DATABASE_NAME
+export DB_USER=$ADMIN_USER
+export DB_PASSWORD=$ADMIN_PASSWORD
 export NAMESPACE=open-liberty-demo
 
 mvn clean install
@@ -261,7 +266,7 @@ Since you already successfully ran the app in the Liberty Docker container using
 1. Use the following command to change the project to `open-liberty-demo`:
 
    ```bash
-   oc project open-liberty-demo
+   oc project $NAMESPACE
    ```
 
 1. Use the following command to create an image stream:
@@ -351,7 +356,7 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
    cd ${BASE_DIR}/3-integration/connect-db/mysql/target
 
    # Change project to "open-liberty-demo"
-   oc project open-liberty-demo
+   oc project $NAMESPACE
 
    # Create database secret
    oc create -f db-secret.yaml
