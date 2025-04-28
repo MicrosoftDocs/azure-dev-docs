@@ -1,0 +1,9 @@
+groups:
+- id: typespec-quickstart-on-azure-languages
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: csharp
+    title: .NET
+  - id: typescript
+    title: TypeScript
