@@ -64,7 +64,7 @@ If you're interested in providing feedback or working closely on your migration 
   - Take note of the `kubeadmin` credentials.
   - Be sure to follow the steps in "Connect using the OpenShift CLI" with the `kubeadmin` credentials.
 
-### Install the Open Liberty OpenShift Operator
+### Install the Open Liberty Operator
 
 After you create and connect to the cluster, use the following steps to install the Open Liberty Operator. The main starting page for the Open Liberty Operator is on [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
 
