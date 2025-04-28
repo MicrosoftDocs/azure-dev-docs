@@ -89,7 +89,7 @@ After you create and connect to the cluster, use the following steps to install 
 
 ### Create an OpenShift namespace for the Java app
 
-Use the following steps to create an OpenShift namespace for use with your app:
+Use the following steps and create an OpenShift namespace for use with your app:
 
 1. Make sure you signed in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
