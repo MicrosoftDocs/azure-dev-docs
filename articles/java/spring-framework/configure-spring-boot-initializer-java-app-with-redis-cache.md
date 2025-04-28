@@ -3,8 +3,8 @@ title: Use Azure Redis Cache in Spring
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Cache for Redis.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: seal
-ms.date: 10/13/2020
+ms.reviewer: xiada
+ms.date: 04/18/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 zone_pivot_groups: redis-type
@@ -63,7 +63,7 @@ To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add th
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.21.0</version>
+        <version>5.22.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

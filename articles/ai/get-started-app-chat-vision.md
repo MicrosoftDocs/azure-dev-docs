@@ -1,7 +1,7 @@
 ---
 title: "Get started with multimodal chat apps using Azure OpenAI"
 description: "Learn how to effectively use Azure OpenAI multimodal models to generate responses to user messages and uploaded images. Easily deploy with Azure Developer CLI."
-ms.date: 10/28/2024
+ms.date: 04/15/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -276,7 +276,7 @@ Next, `bp.openai_client.chat.completions` gets chat completions via an Azure Ope
 ```python
         chat_coroutine = bp.openai_client.chat.completions.create(
             # Azure OpenAI takes the deployment name as the model name
-            model=os.environ["OPENAI_MODEL"],
+            model=bp.model_name,
             messages=all_messages,
             stream=True,
             temperature=request_json.get("temperature", 0.5),
