@@ -264,19 +264,22 @@ Create an Azure SQL Database single database for your app by using the following
 1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
     ```azurecli
-    export ENTRA_ADMIN_NAME=$(az account show --query user.name --output tsv)
+    export ENTRA_ADMIN_NAME=$(az account show \
+        --query user.name \
+        --output tsv)
 
     az sql server create \
-        --name $SQL_SERVER_NAME \
         --resource-group $RESOURCE_GROUP_NAME \
+        --name $SQL_SERVER_NAME \
         --enable-ad-only-auth \
         --external-admin-principal-type User \
         --external-admin-name $ENTRA_ADMIN_NAME \
         --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+
     az sql db create \
         --resource-group $RESOURCE_GROUP_NAME \
-        --server $SQL_SERVER_NAME \
         --name $DB_NAME \
+        --server $SQL_SERVER_NAME \
         --edition GeneralPurpose \
         --compute-model Serverless \
         --family Gen5 \
@@ -295,7 +298,9 @@ Create an Azure SQL Database single database for your app by using the following
 1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
     ```azurepowershell
-    $Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
+    $Env:ENTRA_ADMIN_NAME = $(az account show `
+        --query user.name `
+        --output tsv)
     
     az sql server create `
         --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -303,7 +308,9 @@ Create an Azure SQL Database single database for your app by using the following
         --enable-ad-only-auth `
         --external-admin-principal-type User `
         --external-admin-name $Env:ENTRA_ADMIN_NAME 
-        --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+        --external-admin-sid $(az ad signed-in-user show `
+        --query id --output tsv)
+
     az sql db create `
         --resource-group $Env:RESOURCE_GROUP_NAME `
         --name $Env:DB_NAME `
@@ -331,7 +338,10 @@ az provider register --namespace Microsoft.ServiceLinker --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 # Install the Service Connector passwordless extension
-az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+az extension add \
+    --name serviceconnector-passwordless \
+    --upgrade \
+    --allow-preview true
 
 # Retrieve the AKS cluster and Azure SQL Server resource IDs
 export AKS_CLUSTER_RESOURCE_ID=$(az aks show \
@@ -392,7 +402,9 @@ $Env:AZURE_SQL_SERVER_RESOURCE_ID = $(az sql server show `
 
 # Create a user-assigned managed identity used for workload identity
 $Env:USER_ASSIGNED_IDENTITY_NAME = "workload-identity-uami"
-az identity create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME
+az identity create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:USER_ASSIGNED_IDENTITY_NAME
 
 # Retrieve the user-assigned managed identity resource ID
 $Env:UAMI_RESOURCE_ID = $(az identity show `
@@ -572,7 +584,7 @@ Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-
 
 ```bash
 # Install cert-manager Operator
-CERT_MANAGER_VERSION=v1.11.2
+export CERT_MANAGER_VERSION=v1.11.2
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
 
 # Install Open Liberty Operator
@@ -675,7 +687,7 @@ The directories **java**, **resources**, and **webapp** contain the source code 
 
 In the **aks** directory, the file **openlibertyapplication-passwordless-db.yaml** is used to deploy the application image. In the **docker** directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory **liberty/config**, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines an `azure.sql.connectionstring` variable that is used to connect to the Azure SQL Database.
+In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines an `azure.sql.connectionstring` variable that is used to connect to the Azure SQL Database.
 
 The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
