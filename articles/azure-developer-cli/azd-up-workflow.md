@@ -1,6 +1,6 @@
 ---
-title: Explore the azd up workflow
-description: Learn about how the different stages of the azd up command workflows
+title: Explore the Azure Developer CLI up workflow
+description: Learn about how the different stages of the Azure Developer CLI provisioning and deployment workflows
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 04/15/2025
