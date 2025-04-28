@@ -1,105 +1,177 @@
 ---
-title: "Azure developer documentation docs: What's new for 7/1/2024 - 11/30/2024"
-description: "What's new in the Azure developer documentation docs for 7/1/2024 - 11/30/2024."
-ms.custom: November-2024
-ms.date: 12/03/2024
+title: "Azure developer documentation docs: What's new"
+description: "What's new in the Azure developer documentation docs."
+ms.date: 04/28/2025
+author: KarlErickson
+ms.author: karler
+ms.topic: article
 ---
 
-# Azure developer documentation docs: What's new for 7/1/2024 - 11/30/2024
+# Azure developer documentation docs: What's new
 
-Welcome to what's new in the Azure developer documentation docs for 7/1/2024 - 11/30/2024. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Azure developer documentation docs for 01/01/2025 - 02/01/2025. This article lists some of the major changes to docs during this period.
 
-## Azure AI
+## What's new for 01/01/2025 - 02/01/2025
+
+### Azure Developer CLI
+
+#### New articles
+
+- [Azure Developer CLI commands overview](./azure-developer-cli/azd-commands.md)
+- [CDN changes for the Azure Developer CLI installation endpoints](./azure-developer-cli/content-delivery-network-changes.md)
+
+### Azure and GitHub integration
+
+#### New articles
+
+- [Quickstart: Deploy your existing project to Azure with GitHub Copilot for Azure Preview](./github-copilot-azure/quickstart-deploy-existing-app.md)
+
+### Azure for Java
+
+#### New articles
+
+- [Choose the right Node.js Version for Azure](./javascript/choose-nodejs-version.md)
+
+## What's new for 02/01/2025 - 03/01/2025
+
+### Azure AI
+
+#### Updated articles
+
+- [Use Azure OpenAI without keys](./ai/keyless-connections.md) - Update "Use Azure OpenAI without keys" for more granular control
+
+### Azure Developer CLI
+
+#### New articles
+
+- [Troubleshoot PowerShell issues with Azure Developer CLI templates](./azure-developer-cli/powershell-guidance.md)
+
+### Azure for Java
+
+#### New articles
+
+- [Get started with the Java Diagnostic Agent](./java/fundamentals/java-diagnostic-tools-java-diagnostic-agent-quickstart.md)
+- [Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service](./java/fundamentals/java-diagnostic-tools-spring-boot-admin-quickstart.md)
+- [The Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)](./java/fundamentals/java-diagnostic-tools-on-aks-overview.md)
+
+#### Updated articles
+
+- [Spring Cloud Azure authentication](./java/spring-framework/authentication.md) - Add for token credential bean name
+
+## What's new for 03/01/2025 - 04/01/2025
+
+### Azure AI
+
+#### New articles
+
+- [Extract entities using Azure OpenAI structured outputs mode](./ai/how-to/extract-entities-using-structured-outputs.md)
+
+### Azure and GitHub integration
+
+#### New articles
+
+- [Generate Bicep files using GitHub Copilot for Azure](./github-copilot-azure/bicep-generate-edit.md)
+
+### Azure for Java
+
+#### New articles
+
+- [Spring Boot native image applications](./java/spring-framework/native-applications.md)
+- [Generative AI for JavaScript overview](./javascript/ai/generative-ai-for-javascript-developers.md)
+
+#### Updated articles
+
+- [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](./java/ee/how-to-deploy-java-liberty-jcache.md) - Refactoring: Using Azure Redis as session Cache for Liberty app
+
+### Azure for Python
+
+#### Updated articles
+
+- [Build a containerized Python web app in the cloud](./python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
+- [Build and run a containerized Python web app locally with MongoDB](./python/tutorial-containerize-deploy-python-web-app-azure-02.md)
+  - 259609.2
+  - 259609
+
+### TypeSpec
+
+#### New articles
+
+- [Resources for developing TypeSpec apps](./typespec/resources.md)
+- [TypeSpec documentation - Articles, samples, references, and resources](./typespec/index.yml)
+- [What is TypeSpec?](./typespec/overview.md)
+
+## What's new for 04/01/2025 - 05/01/2025
+
+### Azure Developer CLI
+
+#### New articles
+
+- [Generate Bicep using the compose feature](./azure-developer-cli/compose-generate.md)
+- [Build a minimal template using the Azure Developer CLI compose feature](./azure-developer-cli/compose-quickstart.md)
+- [Explore and customize an Azure Developer CLI template](./azure-developer-cli/quickstart-explore-templates.md)
+- [Explore the Azure Developer CLI template galleries](./azure-developer-cli/azd-template-galleries.md)
+- [Azure Developer CLI vs Azure CLI overview](./azure-developer-cli/azure-developer-cli-vs-azure-cli.md)
+
+#### Updated articles
+
+- [Azure Developer CLI reference](./azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.14.0
+
+### Azure and GitHub integration
+
+#### Updated articles
+
+- [Get started with GitHub Copilot for Azure Preview](./github-copilot-azure/get-started.md) - GHCPA Agent Mode Enabled
+
+### Azure for Java
+
+#### New articles
+
+- [Migrate Spring Boot applications to Azure App Service](./java/migration/migrate-spring-boot-to-app-service.md)
+- [Quickstart: Create a Java Quarkus app with Azure App Configuration](./java/ee/quarkus-with-app-configuration.md)
+
+## Azure Spring Apps
 
 ### New articles
 
-- [Get started with multimodal vision chat apps using Azure OpenAI](./ai/get-started-app-chat-vision.md)
-- [Get started with the Azure OpenAI security building block](./ai/get-started-securing-your-ai-app.md)
-- [Quickstart: Multi-agent applications using Azure OpenAI](./ai/get-started-multi-agents.md)
+- [Blue-green deployment to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-blue-green)
+- [Build a container image from a JAR or WAR](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-artifacts)
+- [Clients or automation tools for Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-automation)
+- [Containerize an application by using Paketo Buildpacks](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-buildpacks)
+- [Custom domain with TLS/SSL in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-custom-domain)
+- [Deprecation of Tanzu components](/azure/spring-apps/migration/migrate-off-deprecated-tanzu-components)
+- [Integrate application performance monitoring into container images](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-application-performance-monitoring)
+- [Log and Metrics in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-monitoring)
+- [Migrate API Portal with Azure Spring Apps Enterprise plan to Azure API Management](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-api-portal)
+- [Migrate Application Configuration Service to Config Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-application-configuration-service)
+- [Migrate Application Configuration Service to managed Spring Cloud Config Server](/azure/spring-apps/migration/migrate-enterprise-application-configuration-service)
+- [Migrate Application Live View to Managed Admin for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-live-view)
+- [Migrate Application Live View to Spring Boot Admin](/azure/spring-apps/migration/migrate-application-live-view)
+- [Migrate Azure Spring Apps to Azure Kubernetes Service](/azure/spring-apps/migration/migrate-to-aks-overview)
+- [Migrate Eureka Server or Tanzu Service Registry to managed Eureka Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-eureka)
+- [Migrate off Azure Spring Apps](/azure/spring-apps/migration/index)
+- [Migrate Spring Cloud Config Server from Azure Spring Apps to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-config-server)
+- [Migrate Spring Cloud Gateway for VMWare Tanzu to a self-hosted gateway application in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-gateway)
+- [Migrate to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)
+- [Migrating a custom virtual network](/azure/spring-apps/migration/migrate-to-azure-container-apps-network)
+- [Overview of application migration](/azure/spring-apps/migration/migrate-to-azure-container-apps-application-overview)
+- [Provision Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-provision)
+- [Migrate to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)
 
-### Updated articles
+### Azure for JavaScript
 
-- [Get started with the Azure OpenAI security building block](./ai/get-started-securing-your-ai-app.md)
-  - fixed zone pivots
-  - dotnet zone pivot
-  - Add AI App Security Quickstart and TOC security items
+#### New articles
 
-## Azure Developer CLI
+- [Tutorial: Build a LangChain.js agent with Azure AI Search](./javascript/ai/langchain-agent-on-azure.md)
 
-### New articles
+#### Updated articles
 
-- [Azure deployment stacks integration with the Azure Developer CLI](./azure-developer-cli/azure-deployment-stacks-integration.md)
-- [Configure service packaging file exclusions](./azure-developer-cli/service-packaging-ignore-files.md)
-- [Enable Azure Developer CLI demo mode](./azure-developer-cli/demo-mode.md)
-- [Environment variables FAQ](./azure-developer-cli/environment-variables-faq.md)
-- [Get started with the Azure Developer CLI compose feature](./azure-developer-cli/azd-compose.md)
+- [How to Test Azure SDK Integration in JavaScript Applications Using Jest](./javascript/sdk/test-sdk-integration.md) - JS - SDK testing with 3 test frameworks
+- [What is GraphQL for Azure?](./javascript/graphql-developer-guide.md) - JS - Freshness - GraphQL
 
-## Azure and GitHub integration
+### Azure for Python
 
-### New articles
+#### Updated articles
 
-- [Example prompts for deploying your application with GitHub Copilot for Azure Preview](./github-copilot-azure/deploy-examples.md)
-- [Example prompts for designing and developing your application with GitHub Copilot for Azure Preview](./github-copilot-azure/design-develop-examples.md)
-- [Example prompts for learning about Azure and your application with GitHub Copilot for Azure Preview](./github-copilot-azure/learn-examples.md)
-- [Example prompts for optimizing your application with GitHub Copilot for Azure Preview](./github-copilot-azure/optimize-examples.md)
-- [Example prompts for troubleshooting your application with GitHub Copilot for Azure Preview](./github-copilot-azure/troubleshoot-examples.md)
-- [Get started with GitHub Copilot for Azure Preview](./github-copilot-azure/get-started.md)
-- [GitHub Copilot for Azure Preview](./github-copilot-azure/index.yml)
-- [Quickstart: Build and deploy your application with GitHub Copilot for Azure Preview](./github-copilot-azure/quickstart-build-deploy-applications.md)
-- [Use the Azure Login action with a client secret](./github/connect-from-azure-secret.md)
-- [Use the Azure Login action with a managed identity](./github/connect-from-azure-identity.md)
-- [Use the Azure Login action with OpenID Connect](./github/connect-from-azure-openid-connect.md)
-- [What is GitHub Copilot for Azure Preview?](./github-copilot-azure/introduction.md)
-
-## Azure for Go
-
-### New articles
-
-- [ZZZ - Title not found in: #6008](./go/sdk/authentication-overview.md)
-
-### Updated articles
-
-- [Deploy a Go web app to Azure Container Apps](./go/deploy-container-apps.md) - Update deploy go to container apps article
-- [Manage resource groups with the Azure SDK for Go](./go/manage-resource-groups.md) - Refresh manage resource groups with azure sdk for go topic
-
-## Azure for Java
-
-### New articles
-
-- [Credential chains in the Azure Identity client library for Java](./java/sdk/authentication/credential-chains.md)
-- [Credential chains in the Azure Identity client library for JavaScript](./javascript/sdk/credential-chains.md)
-- [Enable end-user authorization and authentication when migrating Java apps on WebLogic Server to Azure](./java/migration/migrate-weblogic-with-entra-id-via-ldap.md)
-- [Get started with Serverless AI Chat with RAG using LlamaIndex](./javascript/ai/get-started-app-chat-template-llamaindex.md)
-- [How to log with Azure SDK client libraries](./javascript/sdk/debug-client-libraries.md)
-- [Iterate over data returned from the Azure SDK for JavaScript](./javascript/sdk/loop-over-data.md)
-- [Migrate Spring Cloud applications to Azure Container Apps](./java/migration/migrate-spring-cloud-to-azure-container-apps.md)
-- [Secure Quarkus applications with Microsoft Entra ID using OpenID Connect](./java/ee/quarkus-with-microsoft-entra-id.md)
-- [Secure WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OpenID Connect](./java/ee/liberty-with-microsoft-entra-id.md)
-- [Spring Cloud Azure support for Spring Messaging](./java/spring-framework/spring-messaging-support.md)
-- [Spring Cloud Azure support for Testcontainers](./java/spring-framework/testcontainers-support.md)
-- [Testing Azure SDK integration in JavaScript applications](./javascript/sdk/test-sdk-integration.md)
-- [Tutorial: Migrate JBoss EAP Application Server to Azure Virtual Machines with high availability and disaster recovery](./java/migration/migrate-jboss-eap-to-vms-with-ha-dr.md)
-
-### Updated articles
-
-- [Azure for JavaScript and Node.js developers](./javascript/index.yml) - JS Hub (wip)
-- [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](./java/ee/deploy-java-liberty-app-aca.md) - Passwordless support for liberty-on-aca guide
-- [Deploy a Java application with Quarkus on an Azure Container Apps](./java/ee/deploy-java-quarkus-app.md) - SFI: recommend to use passwordless db connection in quarkus-on-aca guide
-- [Logging, metrics, and alerts in Azure](./javascript/how-to/node-sdk-logging.md) - [AQ] edit pass: Articles about JavaScript in Azure
-- [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](./java/ee/howto-deploy-java-liberty-app-manual.md) - Passwordless support for liberty-on-aks manual guide
-- [Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](./java/ee/liberty-on-aro.md) - Update liberty on aro step-by-step guide
-- [Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines](./java/ee/traditional-websphere-application-server-virtual-machines.md) - Update twas on vm quickstart
-- [Testing for JavaScript applications on Azure](./javascript/core/test-azure-sdk-integrated-code.md) - [AQ] edit pass: Articles about JavaScript in Azure
-- [Tutorial: Build an image analysis web app with TypeScript](./javascript/tutorial/static-web-app-image-analysis.md) - JS- image analysis - linter fixes
-- [Tutorial: Install JBoss EAP on Azure Virtual Machines (VMs) manually](./java/migration/migrate-jboss-eap-to-azure-vm-manually.md)
-  - [SFI - Content Wave 3] Tutorial: Install JBoss EAP on Azure Virtual Machines (VMs) manually
-  - JBoss EAP step-by-step guidance upgrade to support EAP 8
-- [ZZZ - Title not found in: #6077](./javascript/tutorial/azure-function-cosmos-db-mongo-api.md) - JS - Fn + mongo tutorial - update
-
-## Azure for Python
-
-### New articles
-
-- [Authenticate to Azure resources from Python apps hosted on-premises](./python/sdk/authentication/on-premises-apps.md)
-- [Credential chains in the Azure Identity client library for Python](./python/sdk/authentication/credential-chains.md)
-
+- [Build a containerized Python web app in the cloud](./python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
+- [Build and run a containerized Python web app locally with MongoDB](./python/tutorial-containerize-deploy-python-web-app-azure-02.md) - 259616
+- [Deploy a containerized Python app to App Service](./python/tutorial-containerize-deploy-python-web-app-azure-04.md) - 259616
