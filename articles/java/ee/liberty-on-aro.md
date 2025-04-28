@@ -22,7 +22,7 @@ Specifically, you learn how to accomplish the following tasks:
 > * Build the application image
 > * Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
 
-For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) using Azure Marketplace offer.
+For a more automated solution that accelerates your journey to Azure Red Hat OpenShift, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) from the Azure portal.
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -40,10 +40,13 @@ If you're interested in providing feedback or working closely on your migration 
 - [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.61.0 or later.
-- An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) while using the following instructions:
+- An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster), while paying attention to the following differences:
 
-  - Though the "Get a Red Hat pull secret" step is labeled as optional, the step is required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
-
+  - Though instructions related to pull secrets are labeled optional, the pull secret is required for this article, especially for cluster creation. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+  - This article uses Azure MySQL as the demo database. Azure MySQL SKUs aren't available in all regions, so you should pick an Azure region that will work, such as `westus`. You can check if a given Azure region has available MySQL SKUs using the following command:
+    ```azurecli
+    az mysql flexible-server list-skus --location <location>
+    ``` 
   - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article:
 
     - `RESOURCEGROUP` - the name of the resource group in which the cluster is deployed.
