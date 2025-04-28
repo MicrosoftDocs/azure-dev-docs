@@ -101,7 +101,7 @@ Use the following steps and create an OpenShift namespace for use with your app:
 
 Azure Database for MySQL Flexible Server deployment model is a deployment mode designed to provide more granular control and flexibility over database management functions and configuration settings than the Azure Database for MySQL single server deployment mode. This section shows you how to create an Azure Database for MySQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
-Run the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<location>` with the Azure region that has available SKUs in which you want to create the server, for example, `westus`. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
+Run the following command in your terminal and create an Azure Database for MySQL Flexible Server instance. Replace `<location>` with the Azure region that has available SKUs in which you want to create the server, for example, `westus`. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
 
 ```azurecli
 export LOCATION=<location>
