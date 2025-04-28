@@ -13,7 +13,7 @@ JavaScript is an ecosystem of many tools. This article is a selection of tools b
 
 ## Azure portal
 
-The [Azure portal](https://portal.azure.com/) gives you access to all subscriptions and resources for your account. The new [Azure Portal enhancements](https://azure.microsoft.com/updates/category/azure-portal/) provide improved navigation and customization options.
+The [Azure portal](https://portal.azure.com/) gives you access to all subscriptions and resources for your account. The new [Azure portal enhancements](https://azure.microsoft.com/updates/category/azure-portal/) provide improved navigation and customization options.
 
 ## Visual Studio Code
 
