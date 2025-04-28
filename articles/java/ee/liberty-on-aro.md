@@ -150,7 +150,7 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 
 ## Prepare the Liberty application
 
-We use a Java EE 10 application as our example in this guide. Open Liberty is [Jakarta EE 10 full profile compatible](https://jakarta.ee/specifications/platform/10/apidocs/).
+We use a Jakarta EE 10 application as our example in this guide. Open Liberty is [Jakarta EE 10 full profile compatible](https://jakarta.ee/specifications/platform/10/apidocs/).
 
 ### Run the application on Open Liberty
 
