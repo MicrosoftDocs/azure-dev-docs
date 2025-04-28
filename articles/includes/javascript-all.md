@@ -392,7 +392,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.55.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.55.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.55.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.55.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.20.0) |  |  |
-| @azure-tools/typespec-go | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.3) |  |  |
+| @azure-tools/typespec-go | npm [0.4.4](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.4) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -511,7 +511,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250422.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250422.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250426.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250426.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -521,7 +521,7 @@
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
 | @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.3-ci.9c24a33e6.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.3-ci.9c24a33e6.0) |  |  |
-| @autorest/typescript | npm [6.0.38](https://www.npmjs.com/package/@autorest/typescript/v/6.0.38) |  |  |
+| @autorest/typescript | npm [6.0.39](https://www.npmjs.com/package/@autorest/typescript/v/6.0.39) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -558,7 +558,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.38.6](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.38.6) |  |  |
+| @azure-tools/rlc-common | npm [0.39.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.39.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.3.1) |  |  |
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
