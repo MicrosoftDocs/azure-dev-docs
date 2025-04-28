@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 04/28/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -142,7 +142,7 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 
 ## Prepare the Liberty application
 
-We use a Java EE 8 application as our example in this guide. Open Liberty is a [Java EE 8 full profile](https://javaee.github.io/javaee-spec/javadocs/) compatible server, so it can easily run the application. Open Liberty is also [Jakarta EE 8 full profile compatible](https://jakarta.ee/specifications/platform/8/apidocs/).
+We use a Java EE 10 application as our example in this guide. Open Liberty is [Jakarta EE 10 full profile compatible](https://jakarta.ee/specifications/platform/10/apidocs/).
 
 ### Run the application on Open Liberty
 
