@@ -26,13 +26,12 @@ In this tutorial, you:
 
 ::: zone pivot="csharp"
 
-TBD
 
 ::: zone-end
 
 ::: zone pivot="typescript"
 
-[!INCLUDE [ts-prereq](includes/quickstarts/prereqs-typescript.md)]
+[!INCLUDE [ts-prereq](includes/quickstart/prereqs-typescript.md)]
 
 ::: zone-end
 
