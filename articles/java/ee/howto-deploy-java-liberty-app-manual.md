@@ -45,8 +45,8 @@ If you didn't do so already, use the following steps to sign in to your Azure su
 
 1. Open the Azure CLI or use Powershell to sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
 
-> [!NOTE]
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
+    > [!NOTE]
+    > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
 
 1. When you're prompted, install the Azure CLI extension. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -127,7 +127,10 @@ export LOGIN_SERVER=$(az acr show \
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
-$Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer' --output tsv)
+$Env:LOGIN_SERVER = $(az acr show `
+    --name $Env:REGISTRY_NAME `
+    --query 'loginServer' `
+    --output tsv)
 ```
 
 ---
@@ -336,6 +339,7 @@ export AKS_CLUSTER_RESOURCE_ID=$(az aks show \
     --name $CLUSTER_NAME \
     --query id \
     --output tsv)
+
 export AZURE_SQL_SERVER_RESOURCE_ID=$(az sql server show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $SQL_SERVER_NAME \
@@ -379,6 +383,7 @@ $Env:AKS_CLUSTER_RESOURCE_ID = $(az aks show `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name $Env:CLUSTER_NAME `
     --query id --output tsv)
+
 $Env:AZURE_SQL_SERVER_RESOURCE_ID = $(az sql server show `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name $Env:SQL_SERVER_NAME `
@@ -525,34 +530,34 @@ To authenticate to the Azure SQL Database, use the following steps:
 
 1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, as shown in the following example:
 
-   ```yaml
-   serviceAccountName: <service-account-name>
-   containers:
-   - name: raw-linux
-      envFrom:
-         - secretRef:
-            name: <secret-name>
-   ```
+    ```yaml
+    serviceAccountName: <service-account-name>
+    containers:
+    - name: raw-linux
+       envFrom:
+          - secretRef:
+             name: <secret-name>
+    ```
 
 1. Replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step, and define environment variables by using the following commands:
 
-   ### [Bash](#tab/in-bash)
+    ### [Bash](#tab/in-bash)
 
-   ```bash
-   export SERVICE_ACCOUNT_NAME=<service-account-name>
-   export SECRET_NAME=<secret-name>
-   ```
+    ```bash
+    export SERVICE_ACCOUNT_NAME=<service-account-name>
+    export SECRET_NAME=<secret-name>
+    ```
 
-   ### [PowerShell](#tab/in-powershell)
+    ### [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   $Env:SERVICE_ACCOUNT_NAME = "<service-account-name>"
-   $Env:SECRET_NAME = "<secret-name>"
-   ```
+    ```powershell
+    $Env:SERVICE_ACCOUNT_NAME = "<service-account-name>"
+    $Env:SECRET_NAME = "<secret-name>"
+    ```
 
     ---
 
-   These values are used in the next section to deploy the Liberty application to the AKS cluster.
+    These values are used in the next section to deploy the Liberty application to the AKS cluster.
 
 > [!NOTE]
 > The secret created by Service Connector contains the value of `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
@@ -744,73 +749,73 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
 1. Apply the deployment file by using the following commands:
 
-   ### [Bash](#tab/in-bash)
+    ### [Bash](#tab/in-bash)
 
-   ```bash
-   cd $BASE_DIR/java-app/target
+    ```bash
+    cd $BASE_DIR/java-app/target
 
-   # Apply deployment file
-   kubectl apply -f openlibertyapplication-passwordless-db.yaml
-   ```
+    # Apply deployment file
+    kubectl apply -f openlibertyapplication-passwordless-db.yaml
+    ```
 
-   ### [PowerShell](#tab/in-powershell)
+    ### [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   cd $Env:BASE_DIR/java-app/target
+    ```powershell
+    cd $Env:BASE_DIR/java-app/target
 
-   # Apply deployment file
-   kubectl apply -f openlibertyapplication-passwordless-db.yaml
-   ```
+    # Apply deployment file
+    kubectl apply -f openlibertyapplication-passwordless-db.yaml
+    ```
 
     ---
 
 1. Determine whether the `OpenLibertyApplication` instance is created by using the following command:
 
-   ### [Bash](#tab/in-bash)
+    ### [Bash](#tab/in-bash)
 
-   ```bash
-   kubectl get openlibertyapplication javaee-cafe-cluster --watch
-   ```
+    ```bash
+    kubectl get openlibertyapplication javaee-cafe-cluster --watch
+    ```
 
-   ### [PowerShell](#tab/in-powershell)
+    ### [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   kubectl get openlibertyapplication javaee-cafe-cluster --watch
-   ```
+    ```powershell
+    kubectl get openlibertyapplication javaee-cafe-cluster --watch
+    ```
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
-    ---
+     ---
 
     The following output is typical. Use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit.
 
-   ```output
-   NAME                  IMAGE                                        EXPOSED   RECONCILED   RESOURCESREADY   READY   WARNING   AGE
-   javaee-cafe-cluster   <registry-name>.azurecr.io/javaee-cafe:v1              True         True             True              57s
-   ```
+    ```output
+    NAME                  IMAGE                                        EXPOSED   RECONCILED   RESOURCESREADY   READY   WARNING   AGE
+    javaee-cafe-cluster   <registry-name>.azurecr.io/javaee-cafe:v1              True         True             True              57s
+    ```
 
 1. Determine whether the deployment created by the operator is ready by using the following command:
 
-   ### [Bash](#tab/in-bash)
+    ### [Bash](#tab/in-bash)
 
-   ```bash
-   kubectl get deployment javaee-cafe-cluster --watch
-   ```
+    ```bash
+    kubectl get deployment javaee-cafe-cluster --watch
+    ```
 
-   ### [PowerShell](#tab/in-powershell)
+    ### [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   kubectl get deployment javaee-cafe-cluster --watch
-   ```
+    ```powershell
+    kubectl get deployment javaee-cafe-cluster --watch
+    ```
 
     <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
     ---
 
     The following output is typical:
 
-   ```output
-   NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-   javaee-cafe-cluster         0/3     3            0           20s
-   ```
+    ```output
+    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+    javaee-cafe-cluster         0/3     3            0           20s
+    ```
 
 1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, then use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
