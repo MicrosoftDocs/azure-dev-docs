@@ -133,6 +133,8 @@
     items: 
     - name: Azure Samples browser
       href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+  - name: JavaScript at Microsoft
+    href: https://developer.microsoft.com/javascript/
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
