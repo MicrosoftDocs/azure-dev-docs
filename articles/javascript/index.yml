@@ -203,7 +203,7 @@ additionalContent:
         - title: Microsoft Developer
           links:
             - text: "JavaScript: Everything from Microsoft for JavaScript developers"
-              url: https://developer.microsoft.com/en-us/javascript/
+              url: https://developer.microsoft.com/javascript/
             - text: "Developer experience: Optimizing DevEx improves business outcomes"
               url: https://developer.microsoft.com/developer-experience
             - text: AI for frictionless, intelligent builds with AI tools and services
