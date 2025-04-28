@@ -32,6 +32,34 @@ Welcome to what's new in the Azure developer documentation docs for 01/01/2025 -
 
 - [Choose the right Node.js Version for Azure](./javascript/choose-nodejs-version.md)
 
+### Azure Spring Apps
+
+#### New articles
+
+- [Migrate off Azure Spring Apps](/azure/spring-apps/migration/index)
+- [Deprecation of Tanzu components](/azure/spring-apps/migration/migrate-off-deprecated-tanzu-components)
+- [Migrate Application Configuration Service to managed Spring Cloud Config Server](/azure/spring-apps/migration/migrate-enterprise-application-configuration-service)
+- [Migrate Application Live View to Spring Boot Admin](/azure/spring-apps/migration/migrate-application-live-view)
+- [Migrate to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)
+- [Provision Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-provision)
+- [Overview of application migration](/azure/spring-apps/migration/migrate-to-azure-container-apps-application-overview)
+- [Custom domain with TLS/SSL in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-custom-domain)
+- [Blue-green deployment to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-blue-green)
+- [Migrate Application Configuration Service to Config Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-application-configuration-service)
+- [Migrate Eureka Server or Tanzu Service Registry to managed Eureka Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-eureka)
+- [Migrate Spring Cloud Gateway for VMWare Tanzu to a self-hosted gateway application in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-gateway)
+- [Migrate API Portal with Azure Spring Apps Enterprise plan to Azure API Management](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-api-portal)
+- [Migrate Application Live View to Managed Admin for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-live-view)
+- [Migrate Spring Cloud Config Server from Azure Spring Apps to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-config-server)
+- [Migrating a custom virtual network](/azure/spring-apps/migration/migrate-to-azure-container-apps-network)
+- [Log and Metrics in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-monitoring)
+- [Clients or automation tools for Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-automation)
+- [Migrate Azure Spring Apps to Azure Kubernetes Service](/azure/spring-apps/migration/migrate-to-aks-overview)
+- [Overview of containerization](/azure/spring-apps/migration/containerization-overview)
+- [Build a container image from a JAR or WAR](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-artifacts)
+- [Containerize an application by using Paketo Buildpacks](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-buildpacks)
+- [Integrate application performance monitoring into container images](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-application-performance-monitoring)
+
 ## What's new for 02/01/2025 - 03/01/2025
 
 ### Azure AI
@@ -115,6 +143,7 @@ Welcome to what's new in the Azure developer documentation docs for 01/01/2025 -
 #### Updated articles
 
 - [Azure Developer CLI reference](./azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.14.0
+- [Get started with the Azure Developer CLI compose feature](./azure-developer-cli/azd-compose.md) - Expand azd compose
 
 ### Azure and GitHub integration
 
@@ -128,34 +157,6 @@ Welcome to what's new in the Azure developer documentation docs for 01/01/2025 -
 
 - [Migrate Spring Boot applications to Azure App Service](./java/migration/migrate-spring-boot-to-app-service.md)
 - [Quickstart: Create a Java Quarkus app with Azure App Configuration](./java/ee/quarkus-with-app-configuration.md)
-
-## Azure Spring Apps
-
-### New articles
-
-- [Blue-green deployment to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-blue-green)
-- [Build a container image from a JAR or WAR](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-artifacts)
-- [Clients or automation tools for Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-automation)
-- [Containerize an application by using Paketo Buildpacks](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-buildpacks)
-- [Custom domain with TLS/SSL in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-custom-domain)
-- [Deprecation of Tanzu components](/azure/spring-apps/migration/migrate-off-deprecated-tanzu-components)
-- [Integrate application performance monitoring into container images](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-application-performance-monitoring)
-- [Log and Metrics in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-monitoring)
-- [Migrate API Portal with Azure Spring Apps Enterprise plan to Azure API Management](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-api-portal)
-- [Migrate Application Configuration Service to Config Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-application-configuration-service)
-- [Migrate Application Configuration Service to managed Spring Cloud Config Server](/azure/spring-apps/migration/migrate-enterprise-application-configuration-service)
-- [Migrate Application Live View to Managed Admin for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-live-view)
-- [Migrate Application Live View to Spring Boot Admin](/azure/spring-apps/migration/migrate-application-live-view)
-- [Migrate Azure Spring Apps to Azure Kubernetes Service](/azure/spring-apps/migration/migrate-to-aks-overview)
-- [Migrate Eureka Server or Tanzu Service Registry to managed Eureka Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-eureka)
-- [Migrate off Azure Spring Apps](/azure/spring-apps/migration/index)
-- [Migrate Spring Cloud Config Server from Azure Spring Apps to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-config-server)
-- [Migrate Spring Cloud Gateway for VMWare Tanzu to a self-hosted gateway application in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-gateway)
-- [Migrate to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)
-- [Migrating a custom virtual network](/azure/spring-apps/migration/migrate-to-azure-container-apps-network)
-- [Overview of application migration](/azure/spring-apps/migration/migrate-to-azure-container-apps-application-overview)
-- [Provision Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-provision)
-- [Migrate to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)
 
 ### Azure for JavaScript
 

@@ -15,6 +15,7 @@
             "isDefault": true
         }
     ],
+    "inclusionCriteria": { "minAdditionsToFile": 40 },
     "areas": [
         {
             "names": ["ai"],
