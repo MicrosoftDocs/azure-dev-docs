@@ -2,15 +2,16 @@
 title: "JavaScript: Upload image to Blob Storage"
 titleSuffix: JavaScript on Azure
 description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 02/14/2025
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 # CustomerIntent: As a JavaScript developer new to Azure, I want learn how to upload a file to Azure Storage in a web app so that know how to browser to do the actual file upload without exposing authentication secrets on the client.'
 ---
 
-# Upload an image to an Azure Storage blob with JavaScript
 
-Use a static web app to upload files directly to an Azure Storage blob using the @azure/storage-blob package. The API generates a SAS token following the [Valet Key pattern](/azure/architecture/patterns/valet-key), which lets you securely delegate limited access without exposing full credentials.
+# Tutorial: Upload an image to an Azure Storage blob with JavaScript
+
+In this tutorial you will use a static web app to upload files directly to an Azure Storage blob using the @azure/storage-blob package. The API generates a SAS token following the [Valet Key pattern](/azure/architecture/patterns/valet-key), which lets you securely delegate limited access without exposing full credentials.
 
 > [!CAUTION]
 > This tutorial shows you how to host your function app in a Consumption Plan. When you plan to secure your connections by using Microsoft Entra ID with managed identities, you should instead consider hosting your app in the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan). The **Flex Consumption** tier optimizes security by supporting the use of managed identities and virtual network integration.  
@@ -419,7 +420,7 @@ The Azure Functions app is using a preview feature. It must be deployed to **Wes
 
 ## Configure API with Storage resource name and key
 
-The app needs the Azure Storage resource name and key before the API works correctly.
+The app needs the Azure Storage resource name and key before the API works correctly. When deployed to Azure Static Web Apps, the client app and API are hosted from the same domain, eliminating the need to set the client app's environment variable VITE_API_SERVER.
 
 1. Still in the Azure Explorer, right-click on the **Static Web App resource** and select **Open in Portal**.
 1. Select **Configuration** in the **Settings** section.
@@ -431,9 +432,6 @@ The app needs the Azure Storage resource name and key before the API works corre
     |Azure_Storage_AccountKey|Azure Storage account key|Used in source code to connect to Storage resource.|
 
 1. Select **Save** on the Configuration page to save both settings.
-
-> [!NOTE]
-> You don't need to set the client app's env variable **VITE_API_SERVER** because the client app and the API are hosted from the same domain. 
 
 ## Use the Azure-deployed static web app
 
@@ -462,10 +460,7 @@ Report [issues](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issue
 
 * GitHub repository: [azure-upload-file-to-storage](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/azure-upload-file-to-storage)
 
-
 ## Related content
-
-If you would like to continue with this app, learn how to deploy the app to Azure for hosting with one of the following choices:
 
 * Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
 * @azure/storage-blob

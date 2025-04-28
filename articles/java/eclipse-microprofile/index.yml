@@ -22,12 +22,6 @@ landingContent:
         url: configure-microprofile-with-keyvault.md
       - text: CI/CD for MicroProfile applications using Azure DevOps
         url: cicd-microprofile.md
-- title: Deploy to Azure App Service with Maven
-  linkLists:
-  - linkListType: quickstart
-    links:
-      - text: Deploy Quarkus
-        url: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
 - title: Code samples
   linkLists:
   - linkListType: sample
