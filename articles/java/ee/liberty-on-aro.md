@@ -43,7 +43,7 @@ If you're interested in providing feedback or working closely on your migration 
 - An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster), while paying attention to the following differences:
 
   - Though instructions related to pull secrets are labeled optional, the pull secret is required for this article, especially for cluster creation. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
-  - This article uses Azure MySQL as the demo database. Azure MySQL SKUs aren't available in all regions, so you should pick an Azure region that will work, such as `westus`. You can check if a given Azure region has available MySQL SKUs using the following command:
+  - This article uses Azure MySQL as the demo database. Azure MySQL SKUs aren't available in all regions, so you should pick an Azure region that works, such as `westus`. You can check if a given Azure region has available MySQL SKUs using the following command:
     ```azurecli
     az mysql flexible-server list-skus --location <location>
     ``` 
