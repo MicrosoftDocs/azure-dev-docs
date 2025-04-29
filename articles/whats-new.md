@@ -26,7 +26,7 @@ Welcome to what's new in the Azure developer documentation docs for 01/01/2025 -
 
 - [Quickstart: Deploy your existing project to Azure with GitHub Copilot for Azure Preview](./github-copilot-azure/quickstart-deploy-existing-app.md)
 
-### Azure for Java
+### Azure for JavaScript
 
 #### New articles
 
@@ -105,11 +105,16 @@ Welcome to what's new in the Azure developer documentation docs for 01/01/2025 -
 #### New articles
 
 - [Spring Boot native image applications](./java/spring-framework/native-applications.md)
-- [Generative AI for JavaScript overview](./javascript/ai/generative-ai-for-javascript-developers.md)
 
 #### Updated articles
 
 - [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](./java/ee/how-to-deploy-java-liberty-jcache.md) - Refactoring: Using Azure Redis as session Cache for Liberty app
+
+### Azure for JavaScript
+
+#### New articles
+
+- [Generative AI for JavaScript overview](./javascript/ai/generative-ai-for-javascript-developers.md)
 
 ### Azure for Python
 
