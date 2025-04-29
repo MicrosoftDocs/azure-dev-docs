@@ -859,7 +859,7 @@ echo $Env:APP_URL
 
 Open the URL in a web browser and check the application home page. If the page doesn't load correctly, refresh the page later, after the app starts. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
-:::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Screenshot of the Java liberty application home page.":::
+:::image type="content" source="./media/howto-deploy-java-liberty-app-manual/deployment-succeeded.png" alt-text="Screenshot of the Java liberty application home page.":::
 
 > [!NOTE]
 > Currently, the application doesn't use HTTPS. We recommend that you enable Transport Layer Security (TLS) with your own certificates. For more information, see [Use TLS with an ingress controller on Azure Kubernetes Service (AKS)](/azure/aks/ingress-tls).
