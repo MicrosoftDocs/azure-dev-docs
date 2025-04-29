@@ -1,5 +1,6 @@
 ---
 title: Predefined Formulas
+titleSuffix: Azure
 description: Provides an overview of predefined formulas.
 author: KarlErickson
 ms.author: karler

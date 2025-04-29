@@ -1,5 +1,6 @@
 ---
 title: Asset Manager Migration Sample
+titleSuffix: Azure
 description: Introduces the Asset Manager migration sample.
 author: KarlErickson
 ms.author: karler
