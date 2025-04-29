@@ -4,13 +4,13 @@ description: Overview article introducing the resources available in this conten
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 10/29/2024
+ms.date: 04/28/2025
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
 ---
 
 # Overview of AI app development
 
-This documentation is designed for experienced developers who are new to building generative AI apps on Azure using Azure OpenAI Services and their favorite programming language.
+This documentation is designed for experienced developers who are new to building generative AI apps on Azure using Azure Services and their favorite programming language.
 
 ## Introduction to generative AI for developers
 
@@ -35,7 +35,6 @@ One of the most popular templates is the chat with your data sample using Azure 
 
 * [Get started with the chat using your own data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)
-* [Video](https://aka.ms/azai/net/video)
 
 # [Java](#tab/java)
 
@@ -47,13 +46,11 @@ One of the most popular templates is the chat with your data sample using Azure 
 
 * [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo)
-* [Video](https://aka.ms/azai/py/video)
 
 # [JavaScript](#tab/javascript)
 
 * [Get started with the chat using your own data sample for JavaScript](/azure/developer/javascript/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-javascript)
-* [Video (full stack)](https://aka.ms/azai/js/video)
 * [Video (JavaScript frontend and Python backend)](https://aka.ms/azai/js.py/video)
 
 ---

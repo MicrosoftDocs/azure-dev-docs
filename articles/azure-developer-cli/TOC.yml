@@ -17,6 +17,8 @@
       href: azd-commands.md
     - name: What are Azure Developer CLI templates?
       href: azd-templates.md
+    - name: Explore the azd up workflow
+      href: azd-up-workflow.md
     - name: Supported languages and environments
       href: supported-languages-environments.md
     - name: Azure Developer CLI vs Azure CLI

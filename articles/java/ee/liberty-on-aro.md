@@ -6,23 +6,23 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 04/29/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
 # Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 
-This article provides step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift cluster. It walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift cluster.
+This article provides step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift cluster. It walks you through preparing a Liberty application, building the application Docker image, and running the containerized application on an Azure Red Hat OpenShift cluster.
 
 Specifically, you learn how to accomplish the following tasks:
 
 > [!div class="checklist"]
 >
-> * Prepare the Liberty application
-> * Build the application image
-> * Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
+> - Prepare the Liberty application
+> - Build the application image
+> - Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
 
-For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) using Azure Marketplace offer.
+For a more automated solution that accelerates your journey to Azure Red Hat OpenShift, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -40,9 +40,14 @@ If you're interested in providing feedback or working closely on your migration 
 - [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.61.0 or later.
-- An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) while using the following instructions:
+- An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster), while paying attention to the following differences:
 
-  - Though the "Get a Red Hat pull secret" step is labeled as optional, the step is required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+  - Though instructions related to pull secrets are labeled optional, the pull secret is required for this article, especially for cluster creation. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+  - This article uses Azure MySQL as the demo database. Azure MySQL SKUs aren't available in all regions, so you should pick an Azure region that works, such as `westus`. You can check whether a given Azure region has available MySQL SKUs by using the following command:
+
+    ```azurecli
+    az mysql flexible-server list-skus --location <location>
+    ```
 
   - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article:
 
@@ -61,7 +66,7 @@ If you're interested in providing feedback or working closely on your migration 
   - Take note of the `kubeadmin` credentials.
   - Be sure to follow the steps in "Connect using the OpenShift CLI" with the `kubeadmin` credentials.
 
-### Install the Open Liberty OpenShift Operator
+### Install the Open Liberty Operator
 
 After you create and connect to the cluster, use the following steps to install the Open Liberty Operator. The main starting page for the Open Liberty Operator is on [GitHub](https://github.com/OpenLiberty/open-liberty-operator).
 
@@ -90,7 +95,7 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 1. Make sure you signed in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
-1. Fill in `open-liberty-demo` for **Name** and select **Create**, as shown next.
+1. For **Name**, fill in **open-liberty-demo**, and then select **Create**, as shown in the following screenshot.
 
    :::image type="content" source="media/liberty-on-aro/create-namespace.png" alt-text="Screenshot of the OpenShift web console that shows the Create Namespace dialog box." lightbox="media/liberty-on-aro/create-namespace.png":::
 
@@ -98,15 +103,20 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 Azure Database for MySQL Flexible Server deployment model is a deployment mode designed to provide more granular control and flexibility over database management functions and configuration settings than the Azure Database for MySQL single server deployment mode. This section shows you how to create an Azure Database for MySQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
-Run the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
+Use the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<location>` with the Azure region that has available SKUs in which you want to create the server - for example, `westus`. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
 
 ```azurecli
+export LOCATION=<location>
+export ADMIN_PASSWORD='<server-admin-password>'
+export ADMIN_USER=adminuser
+export DATABASE_NAME=${RESOURCEGROUP}db
 az mysql flexible-server create \
     --name ${CLUSTER} \
     --resource-group ${RESOURCEGROUP} \
-    --admin-user admin${RESOURCEGROUP} \
-    --admin-password '<server-admin-password>' \
-    --database-name ${RESOURCEGROUP}db \
+    --location $LOCATION \
+    --admin-user $ADMIN_USER \
+    --admin-password $ADMIN_PASSWORD \
+    --database-name $DATABASE_NAME \
     --public-access 0.0.0.0 \
     --yes
 ```
@@ -120,7 +130,7 @@ az mysql flexible-server create \
 > az mysql flexible-server list-skus --location <location>
 > ```
 >
-> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command, but append the appropriate `--location <location>` parameter, leaving all the other parameters unchanged.
+> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command.
 
 It takes a few minutes to create the server, database, admin user, and firewall rule that accepts connections from all Azure resources. If the command is successful, the output looks similar to the following example:
 
@@ -128,27 +138,27 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 {
   "connectionString": "mysql <database-name> --host <server-name>.mysql.database.azure.com --user <server-admin-username> --password=<server-admin-password>",
   "databaseName": "<database-name>",
-  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-10_16-22-8",
+  "firewallName": "<firewall-name>",
   "host": "<server-name>.mysql.database.azure.com",
   "id": "/subscriptions/REDACTED/resourceGroups/<resource-group-of-the-OpenShift-cluster>/providers/Microsoft.DBforMySQL/flexibleServers/<server-name>",
-  "location": "West US",
+  "location": "<location>",
   "password": "<server-admin-password>",
   "resourceGroup": "<resource-group-of-the-OpenShift-cluster>",
   "skuname": "Standard_B1ms",
   "username": "<server-admin-username>",
-  "version": "5.7"
+  "version": "8.0.21"
 }
 ```
 
 ## Prepare the Liberty application
 
-We use a Java EE 8 application as our example in this guide. Open Liberty is a [Java EE 8 full profile](https://javaee.github.io/javaee-spec/javadocs/) compatible server, so it can easily run the application. Open Liberty is also [Jakarta EE 8 full profile compatible](https://jakarta.ee/specifications/platform/8/apidocs/).
+We use a Jakarta EE 10 application as our example in this guide. Open Liberty is Jakarta EE 10 full profile compatible. For more information, see the [Jakarta EE Platform API](https://jakarta.ee/specifications/platform/10/apidocs/).
 
 ### Run the application on Open Liberty
 
 To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin isn't required to deploy the application to OpenShift. However, we use it in this example with Open Liberty's developer (dev) mode. Developer mode lets you easily run the application locally. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
-Follow the steps in this section to prepare the sample application for later use in this article. These steps use Maven and the `liberty-maven-plugin`.
+Follow the steps in this section to prepare the sample application for later use in this article.
 
 #### Check out the application
 
@@ -158,7 +168,7 @@ Use the following commands to clone the sample code for this guide. The sample i
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
 export BASE_DIR=$PWD
-git checkout 20240920
+git checkout 20250429
 cd ${BASE_DIR}/3-integration/connect-db/mysql
 ```
 
@@ -200,9 +210,9 @@ cd ${BASE_DIR}/3-integration/connect-db/mysql
 # The following variables are used for deployment file generation
 export DB_SERVER_NAME=$CLUSTER.mysql.database.azure.com
 export DB_PORT_NUMBER=3306
-export DB_NAME=${RESOURCEGROUP}db
-export DB_USER=admin${RESOURCEGROUP}
-export DB_PASSWORD='<server-admin-password>'
+export DB_NAME=$DATABASE_NAME
+export DB_USER=$ADMIN_USER
+export DB_PASSWORD=$ADMIN_PASSWORD
 export NAMESPACE=open-liberty-demo
 
 mvn clean install
@@ -261,7 +271,7 @@ Since you already successfully ran the app in the Liberty Docker container using
 1. Use the following command to change the project to `open-liberty-demo`:
 
    ```bash
-   oc project open-liberty-demo
+   oc project $NAMESPACE
    ```
 
 1. Use the following command to create an image stream:
@@ -351,7 +361,7 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
    cd ${BASE_DIR}/3-integration/connect-db/mysql/target
 
    # Change project to "open-liberty-demo"
-   oc project open-liberty-demo
+   oc project $NAMESPACE
 
    # Create database secret
    oc create -f db-secret.yaml
