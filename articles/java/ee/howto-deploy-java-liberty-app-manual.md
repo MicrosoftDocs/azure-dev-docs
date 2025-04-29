@@ -52,7 +52,7 @@ If you didn't do so already, use the following steps to sign in to your Azure su
 
 1. Find the version and dependent libraries that are installed by using [`az version`](/cli/azure/reference-index?#az-version).
 
-1. Upgrade to the latest version by using [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
+1. Upgrade to the latest version by using [`az upgrade`](/cli/azure/update-azure-cli#manual-update).
 
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
@@ -261,7 +261,7 @@ Create an Azure SQL Database single database for your app by using the following
     export DB_NAME=demodb
     ```
 
-1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli).
 
     ```azurecli
     export ENTRA_ADMIN_NAME=$(az account show \
@@ -474,7 +474,7 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
-1. If you're using Linux, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
+1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos).
 
 1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
 
@@ -498,7 +498,7 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 #### [Bash](#tab/in-bash)
 
-1. If you're using Linux, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
+1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos).
 
 1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
 
@@ -515,9 +515,9 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 #### [PowerShell](#tab/in-powershell)
 
-1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
+1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server) in your browser.
 
-1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
+1. From the [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server#download-for-windows) section, find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
 
 1. Follow the instructions, run the installer, and install the driver.
 
@@ -538,7 +538,7 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 To authenticate to the Azure SQL Database, use the following steps:
 
-1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli). Take the option to directly create a deployment using the YAML sample code snippet provided.
+1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string). Take the option to directly create a deployment using the YAML sample code snippet provided.
 
 1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, as shown in the following example:
 
@@ -578,7 +578,7 @@ To authenticate to the Azure SQL Database, use the following steps:
 
 In this section, you install the Open Liberty Operator on the AKS cluster to host the Liberty application.
 
-Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by using the following commands:
+[Install the Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by using the following commands:
 
 > [!NOTE]
 > This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, see [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
@@ -637,7 +637,7 @@ Remove-Item -Recurse -Force overlays, base
 
 ## Configure and build the application image
 
-To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1).
+To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty Images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1).
 
 Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven.
 
@@ -886,17 +886,17 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 
 You can learn more from the following references used in this guide:
 
-* [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
-* [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli)
-* [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java%2Csql-secret-java)
-* [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true)
+* [What is Azure Kubernetes Service (AKS)?](/azure/aks/what-is-aks)
+* [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string)
+* [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database)
+* [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication)
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
-* [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
+* [Open Liberty Server configuration overview](https://openliberty.io/docs/latest/reference/config/server-configuration-overview.html)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
-* [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
-* [WebSphere Liberty Container Images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
+* [Open Liberty Images](https://github.com/OpenLiberty/ci.docker)
+* [WebSphere Liberty container images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
 
-To incorporate Azure Cache for Redis into a Java app, see [Use Azure Cache for Redis in Java with Redisson Redis client](/azure/azure-cache-for-redis/cache-java-redisson-get-started).
+To incorporate Azure Cache for Redis into a Java app, see [Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client](/azure/redis/java-redisson-get-started).
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
