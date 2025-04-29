@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: conceptual
-ms.date: 04/28/2025
+ms.date: 04/29/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -166,7 +166,7 @@ Use the following commands to clone the sample code for this guide. The sample i
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
 export BASE_DIR=$PWD
-git checkout 20250428
+git checkout 20250429
 cd ${BASE_DIR}/3-integration/connect-db/mysql
 ```
 
