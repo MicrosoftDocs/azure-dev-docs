@@ -11,20 +11,21 @@ ms.custom: build-2025
 
 # App Configuration operations
 
+The Azure MCP Server allows you to manage Azure resources, including App Configuration stores.
+
 ## Example prompts
 
-Example prompts for using the Azure MCP Server with App Configuration. The Azure MCP Server is a command-line interface that allows you to manage Azure resources, including App Configuration stores.
+Example prompts for using the Azure MCP Server with App Configuration. 
 
+- **List App Configuration stores in a subscription**: "List all App Configuration stores in my subscription."
 
+## Command reference for automated tasks
 
-## Command reference
-
-The Azure MCP Server provides a set of commands to manage App Configuration resources. 
+The Azure MCP Server provides a set of commands to manage App Configuration resources. While most developers won't need to use these commands directly, they are available for advanced users and automation scenarios.
 
 | Name            | Description               |
 |-----------------|--------------------------|
 | [azmcp appconfig account list](#azmcp-appconfig-account-list) | List App Configuration stores in a subscription.|
-
 
 ## azmcp appconfig account list
 
