@@ -21,7 +21,7 @@ Example prompts for using the Azure MCP Server with App Configuration.
 
 ## Command reference for automated tasks
 
-The Azure MCP Server provides a set of commands to manage App Configuration resources. While most developers won't need to use these commands directly, they are available for advanced users and automation scenarios.
+The Azure MCP Server has commands to manage App Configuration resources. Advanced users and automation tools use these commands.
 
 | Name            | Description               |
 |-----------------|--------------------------|
