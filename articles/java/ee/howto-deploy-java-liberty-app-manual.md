@@ -41,9 +41,9 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Sign in to Azure
 
-If you didn't do so already, use the following steps to sign in to your Azure subscription: by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+If you didn't do so already, use the following steps to sign in to your Azure subscription by using [`az login`](/cli/azure/authenticate-azure-cli), and follow the on-screen directions:
 
-1. Open the Azure CLI or use Powershell to sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+1. Open the Azure CLI or use PowerShell to sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
 
     > [!NOTE]
     > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
@@ -113,7 +113,7 @@ After a short time, you should see a JSON output that contains the following lin
 "resourceGroup": "java-liberty-project",
 ```
 
-Retrieve the login server name for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
+Retrieve the sign-in server name for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
 
 ### [Bash](#tab/in-bash)
 
@@ -444,7 +444,7 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 1. The output should contain `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of `Python location`.
 
-1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace `<python-location>` with the the Python location you copied in the previous step.
+1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace `<python-location>` with the Python location you copied in the previous step.
 
     ```azurecli
     sudo <python-location> -m pip install pyodbc
@@ -462,7 +462,7 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
-1. Use the following command to install the `pyodbc` package. Replace `<python-location>` with the the Python location you copied in the previous step.
+1. Use the following command to install the `pyodbc` package. Replace `<python-location>` with the Python location you copied in the previous step.
 
      ```powershell
      & '<python-location>' -m pip install pyodbc
@@ -516,7 +516,7 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 1. From section [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows), find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
 
-1. follow the instructions, run the installer, and install the driver.
+1. Follow the instructions, run the installer, and install the driver.
 
 1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
 
@@ -833,7 +833,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
 ## Test the application
 
-When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
+When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take some time to complete.
 
 Use [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to get the external IP address of the service when it's available, as shown in the following example:
 
@@ -856,7 +856,7 @@ echo $Env:APP_URL
 > [!NOTE]
 > If you don't see a valid URL from the output, wait for a while and run the command again.
 
-Open the URL in a web browser and check the application home page. If the page isn't loaded correctly, it's because the app is starting. If this happens, refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
+Open the URL in a web browser and check the application home page. If the page doesn't load correctly, refresh the page later, after the app starts. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Screenshot of the Java liberty application home page.":::
 
