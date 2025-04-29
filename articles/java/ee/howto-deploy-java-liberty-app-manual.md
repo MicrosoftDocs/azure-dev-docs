@@ -200,6 +200,9 @@ Use the following steps to manage your Kubernetes cluster:
 
 1. Use [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) to configure `kubectl` to connect to your Kubernetes cluster. This command downloads credentials and configures the Kubernetes CLI to use them, as shown in the following example:
 
+    > [!NOTE]
+    > The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
+
     ### [Bash](#tab/in-bash)
 
     ```azurecli
@@ -221,9 +224,6 @@ Use the following steps to manage your Kubernetes cluster:
     ```
 
     ---
-
-    > [!NOTE]
-    > The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
 
 1. Verify the connection to your cluster by using [`kubectl get`]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to return a list of the cluster nodes, as shown in the following example:
 
@@ -493,6 +493,9 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
+> [!NOTE]
+> You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
+
 #### [Bash](#tab/in-bash)
 
 1. If you're using Linux, open [Install the Microsoft Open Database Connectivity (ODBC) driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
@@ -530,9 +533,6 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
     ```
 
 ---
-
-> [!NOTE]
-> You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
 
 ## Get service account and secret created by Service Connector
 
@@ -579,6 +579,9 @@ To authenticate to the Azure SQL Database, use the following steps:
 In this section, you install the Open Liberty Operator on the AKS cluster to host the Liberty application.
 
 Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by using the following commands:
+
+> [!NOTE]
+> This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, see [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
 
 ### [Bash](#tab/in-bash)
 
@@ -631,8 +634,6 @@ Remove-Item -Recurse -Force overlays, base
 ```
 
 ---
-
-This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, see [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
 
 ## Configure and build the application image
 
