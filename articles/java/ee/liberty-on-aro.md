@@ -18,11 +18,11 @@ Specifically, you learn how to accomplish the following tasks:
 
 > [!div class="checklist"]
 >
-> * Prepare the Liberty application
-> * Build the application image
-> * Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
+> - Prepare the Liberty application
+> - Build the application image
+> - Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
 
-For a more automated solution that accelerates your journey to Azure Red Hat OpenShift, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) from the Azure portal.
+For a more automated solution that accelerates your journey to Azure Red Hat OpenShift, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -43,10 +43,12 @@ If you're interested in providing feedback or working closely on your migration 
 - An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster), while paying attention to the following differences:
 
   - Though instructions related to pull secrets are labeled optional, the pull secret is required for this article, especially for cluster creation. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
-  - This article uses Azure MySQL as the demo database. Azure MySQL SKUs aren't available in all regions, so you should pick an Azure region that works, such as `westus`. You can check if a given Azure region has available MySQL SKUs using the following command:
+  - This article uses Azure MySQL as the demo database. Azure MySQL SKUs aren't available in all regions, so you should pick an Azure region that works, such as `westus`. You can check whether a given Azure region has available MySQL SKUs by using the following command:
+
     ```azurecli
     az mysql flexible-server list-skus --location <location>
-    ``` 
+    ```
+
   - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article:
 
     - `RESOURCEGROUP` - the name of the resource group in which the cluster is deployed.
@@ -89,11 +91,11 @@ After you create and connect to the cluster, use the following steps to install 
 
 ### Create an OpenShift namespace for the Java app
 
-Use the following steps and create an OpenShift namespace for use with your app:
+Use the following steps to create an OpenShift namespace for use with your app:
 
 1. Make sure you signed in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
-1. Fill in `open-liberty-demo` for **Name** and select **Create**, as shown next.
+1. For **Name**, fill in **open-liberty-demo**, and then select **Create**, as shown in the following screenshot.
 
    :::image type="content" source="media/liberty-on-aro/create-namespace.png" alt-text="Screenshot of the OpenShift web console that shows the Create Namespace dialog box." lightbox="media/liberty-on-aro/create-namespace.png":::
 
@@ -101,7 +103,7 @@ Use the following steps and create an OpenShift namespace for use with your app:
 
 Azure Database for MySQL Flexible Server deployment model is a deployment mode designed to provide more granular control and flexibility over database management functions and configuration settings than the Azure Database for MySQL single server deployment mode. This section shows you how to create an Azure Database for MySQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
-Run the following command in your terminal and create an Azure Database for MySQL Flexible Server instance. Replace `<location>` with the Azure region that has available SKUs in which you want to create the server, for example, `westus`. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
+Use the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<location>` with the Azure region that has available SKUs in which you want to create the server - for example, `westus`. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
 
 ```azurecli
 export LOCATION=<location>
@@ -150,7 +152,7 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 
 ## Prepare the Liberty application
 
-We use a Jakarta EE 10 application as our example in this guide. Open Liberty is [Jakarta EE 10 full profile compatible](https://jakarta.ee/specifications/platform/10/apidocs/).
+We use a Jakarta EE 10 application as our example in this guide. Open Liberty is Jakarta EE 10 full profile compatible. For more information, see the [Jakarta EE Platform API](https://jakarta.ee/specifications/platform/10/apidocs/).
 
 ### Run the application on Open Liberty
 
