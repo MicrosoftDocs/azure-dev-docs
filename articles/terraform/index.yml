@@ -80,8 +80,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Export your first resources
-            url: ./azure-terraform-resource-provider/get-started-export-resources-portal.md 
-        
+            url: ./azure-terraform-resource-provider/get-started-export-resources-portal.md         
   # Card
   - title: Popular Terraform Azure service articles
     linkLists:
