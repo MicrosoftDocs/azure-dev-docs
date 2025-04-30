@@ -24,6 +24,8 @@ items:
             href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-recommend?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: How-tos
       items:
+        - name: Extract entities using Azure OpenAI Structured Outputs Mode
+          href: how-to/extract-entities-using-structured-outputs.md
         - name: Switch between OpenAI and Azure OpenAI endpoints with Python
           href: /azure/ai-services/openai/how-to/switching-endpoints?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json    
         - name: Security

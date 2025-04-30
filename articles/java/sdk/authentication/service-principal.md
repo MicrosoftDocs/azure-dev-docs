@@ -2,7 +2,7 @@
 title: Azure authentication with service principal
 titleSuffix: Azure SDK for Java
 description: Provides an overview of the Azure SDK for Java concepts related to authenticating applications via service principal.
-ms.date: 02/02/2021
+ms.date: 04/01/2025 
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 author: KarlErickson

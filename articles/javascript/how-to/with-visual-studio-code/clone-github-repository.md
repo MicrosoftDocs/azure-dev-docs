@@ -2,7 +2,7 @@
 title: Clone GitHub repository with Visual Studio Code
 description: Clone a public repository or initialize a new repository from GitHub to your local computer with Visual Studio Code. 
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 03/17/2025
 ms.custom: devx-track-js
 
 # customer intent: As a developer, I want to know how to use GitHub repositories from Visual Studio Code, so that I can develop applications. 
@@ -22,6 +22,7 @@ Open your remote repository on your local computer.
 1. Install the [Remote repository extension](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
 1. Select the remote indicator in the lower left of Visual Studio Code. 
 1. Follow the prompts.
+
 ### [Status bar](#tab/status-bar)
 
 This action isn't available from this feature. Select a different tab.
@@ -42,22 +43,32 @@ This action isn't available from this feature. Select a different tab.
 1. Clone your repo with the following git command:
 
     ```bash
-    git clone https://github.com/YOUR-NAME-OR-ORGANIZATION/YOUR-REPO-NAME
+    git clone https://github.com/<ACCOUNT>/<REPOSITORY>
     ```
 
 1. Open in Visual Studio Code:
 
     ```bash
-    code YOUR-REPO-NAME
+    code <REPOSITORY>
     ```
 
 ---
 
 Visual Studio Code uses Git authentication provided by the operating system (such as macOS KeyChain or Windows Credential manager) with any git functionality. Output is visible in Command Palette > Git: Show Git Output.
 
+## Connect to Custom GitHub Domains
+
+By default, Visual Studio Code assumes your repositories are hosted on `github.com`. If you need to connect to a repository on a different domain (for example, an enterprise GitHub like `github.<company_name>.com`), you'll need to configure your Git path accordingly.
+
+To update the Git path in VS Code, open **File → Preferences → Settings** and search for `Git: Path`. This setting lets you specify the absolute path to the Git executable that works with your custom GitHub domain.
+
+:::image type="content" source="../../media/visual-studio-code-setting-git-path.png" alt-text="Screenshot of Visual Studio Code settings search bar for git path.":::
+
+Alternatively, you can add or update the `git.path` setting directly in your `settings.json` file to ensure VS Code uses the correct Git binary for all repository operations.
+
 ## Open your local repository
 
-If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and display the relevant information. 
+If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and displays the relevant information. 
 
 ### [Activity bar](#tab/activity-bar)
 
@@ -170,7 +181,7 @@ Create a new branch to capture changes and isolate from the main or default bran
 
 ## Commit changes locally
 
-Once you have made changes on your branch, commit the changes.
+Once you make changes to files on your branch, commit the changes.
 
 ### [Activity bar](#tab/activity-bar)
 
@@ -220,7 +231,7 @@ This action isn't available from this feature. Select a different tab.
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. In the command palette, filter with `Git` then select `Push`.
-1. If you have multiple upstream remotes, select the remote then press <kbd>Enter</kbd>.
+1. If you have multiple upstream remotes, select a remote name then press <kbd>Enter</kbd>.
 
 
 ### [Integrated terminal](#tab/integrated-terminal)
@@ -236,7 +247,7 @@ This action isn't available from this feature. Select a different tab.
 
 ## View Git output
 
-You can view the Git commands run when you use the Source control extension. This helps debug when a command fails.
+You can view the Git commands output when you use the Source control extension. This output helps debug when a command fails.
 
 1. Select the Source Control icon from the activity bar.
 1. Select the ellipsis (...) then select **Show Git Output**.

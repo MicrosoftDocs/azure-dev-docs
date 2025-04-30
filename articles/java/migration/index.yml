@@ -5,7 +5,7 @@ summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
   title: Java to Azure migration guidance documentation
-  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WildFly, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
+  description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
@@ -30,6 +30,8 @@ landingContent:
             url: migrate-spring-boot-to-azure-container-apps.md
           - text: Spring Cloud to Azure Container Apps
             url: migrate-spring-cloud-to-azure-container-apps.md
+          - text: Spring Boot to Azure App Service
+            url: migrate-spring-boot-to-app-service.md
   - title: Migrate Tomcat to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -72,14 +74,6 @@ landingContent:
             url: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
           - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
-          - text: WebLogic Server to WildFly on AKS
-            url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
-  - title: Migrate WildFly to Azure
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: WildFly to WildFly on AKS
-            url: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
   - title: Migrate WebSphere to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -92,8 +86,6 @@ landingContent:
             url: migrate-websphere-to-azure-redhat-openshift.md
           - text: WebSphere Application Server to Azure Virtual Machines
             url: migrate-websphere-to-virtual-machines.md
-          - text: WebSphere to WildFly on AKS
-            url: migrate-websphere-to-wildfly-on-azure-kubernetes-service.md
           - text: WebSphere to JBoss EAP on App Service
             url: migrate-websphere-to-jboss-eap-on-azure-app-service.md
           - text: "Tutorial: WebSphere to Azure VMs manual guidance"
@@ -110,8 +102,6 @@ landingContent:
             url: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
           - text: JBoss EAP to Azure Red Hat OpenShift
             url: migrate-jboss-eap-to-azure-redhat-openshift.md
-          - text: JBoss EAP to WildFly on AKS
-            url: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
           - text: "Tutorial: JBoss EAP to Azure VMs with high availability and disaster recovery"
             url: migrate-jboss-eap-to-vms-with-ha-dr.md
 

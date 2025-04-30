@@ -7,11 +7,6 @@ items:
   - name: Tutorials
     expanded: true
     items:
-      - name: Deploy to Azure App Service with Maven
-        expanded: false
-        items:
-        - name: Deploy Quarkus
-          href: deploy-microprofile-quarkus-java-app-with-maven-plugin.md
       - name: ConfigSource for Azure Key Vault
         href: configure-microprofile-with-keyvault.md
       - name: CI/CD for MicroProfile applications using Azure Pipelines

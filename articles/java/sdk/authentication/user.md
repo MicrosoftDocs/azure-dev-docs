@@ -2,7 +2,7 @@
 title: Azure authentication with user credentials
 titleSuffix: Azure SDK for Java
 description: Provides an overview of the Azure SDK for Java concepts related to authenticating applications with user credentials.
-ms.date: 02/02/2021
+ms.date: 03/25/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
@@ -18,9 +18,6 @@ This article covers the following subjects:
 
 * [Device code credential](#device-code-credential)
 * [Interactive browser credential](#interactive-browser-credential)
-* [Username password credential](#username-password-credential)
-
-For troubleshooting user credential authentication issues, see [Troubleshoot user credential authentication](../troubleshooting-authentication-user-credential.md).
 
 ## Device code credential
 
@@ -94,32 +91,6 @@ SecretClient client = new SecretClientBuilder()
     .buildClient();
 ```
 
-## Username password credential
-
-The `UsernamePasswordCredential` helps to authenticate a public client application using the user credentials that don't require multi-factor authentication. The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `UsernamePasswordCredential`. The user must not have multi-factor auth turned on.
-
-> [!WARNING]
-> Microsoft recommends you do not use the Resource Owner Password Credentials (ROPC) flow implemented by this credential; it's incompatible with multifactor authentication (MFA). In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when more secure flows aren't viable.
-
-```java
-/**
- * Authenticate with username, password.
- */
-UsernamePasswordCredential usernamePasswordCredential = new UsernamePasswordCredentialBuilder()
-    .clientId("<your app client ID>")
-    .username("<your username>")
-    .password("<your password>")
-    .build();
-
-// Azure SDK client builders accept the credential as a parameter.
-SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://<your Key Vault name>.vault.azure.net")
-    .credential(usernamePasswordCredential)
-    .buildClient();
-```
-
-For more information, see [Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials](/azure/active-directory/develop/v2-oauth-ropc).
-
 ## Next steps
 
 This article covered authentication with user credentials. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
@@ -127,8 +98,6 @@ This article covered authentication with user credentials. This form of authenti
 * [Azure authentication in development environments](dev-env.md)
 * [Authenticating applications hosted in Azure](azure-hosted-apps.md)
 * [Authentication with service principals](service-principal.md)
-
-If you run into issues related to user credential authentication, see [Troubleshoot user credential authentication](../troubleshooting-authentication-user-credential.md).
 
 After you've mastered authentication, see [Configure logging in the Azure SDK for Java](../logging-overview.md) for information on the logging functionality provided by the SDK.
 

@@ -2,18 +2,19 @@
 title: "JavaScript: Upload image to Blob Storage"
 titleSuffix: JavaScript on Azure
 description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 02/14/2025
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 # CustomerIntent: As a JavaScript developer new to Azure, I want learn how to upload a file to Azure Storage in a web app so that know how to browser to do the actual file upload without exposing authentication secrets on the client.'
 ---
 
-# Upload an image to an Azure Storage blob with JavaScript
 
-Use a static web app to upload files directly to an Azure Storage blob using the @azure/storage-blob package. The API generates a SAS token following the [Valet Key pattern](/azure/architecture/patterns/valet-key), which lets you securely delegate limited access without exposing full credentials.
+# Tutorial: Upload an image to an Azure Storage blob with JavaScript
+
+In this tutorial you will use a static web app to upload files directly to an Azure Storage blob using the @azure/storage-blob package. The API generates a SAS token following the [Valet Key pattern](/azure/architecture/patterns/valet-key), which lets you securely delegate limited access without exposing full credentials.
 
 > [!CAUTION]
-> This tutorial shows you how to host your function app in a Consumption Plan. When you plan to secure your connections by using Microsoft Entra ID with managed identities, you should instead consider hosting your app in the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan). The Flex Consumption plan has been designed to optimize security by supporting the use of managed identities without any of the tradeoffs required when running in a Consumption or Premium plan. Flex Consumption also fully supports virtual network integration.  
+> This tutorial shows you how to host your function app in a Consumption Plan. When you plan to secure your connections by using Microsoft Entra ID with managed identities, you should instead consider hosting your app in the [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan). The **Flex Consumption** tier optimizes security by supporting the use of managed identities and virtual network integration.  
 
 ## Prerequisites
 
@@ -126,10 +127,10 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     >
     > :::image type="content" source="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" lightbox="media/browser-file-upload-azure-storage-blob/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
-1. Clone your fork into the current directory. Replace `YOUR-ACCOUNT` in the following command with your account name.
+1. Clone your fork into the current directory. Replace `<YOUR-ACCOUNT>` in the following command with your account name.
 
     ```bash
-    git clone https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps
+    git clone https://github.com/<YOUR-ACCOUNT>/azure-typescript-e2e-apps
     ```
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
@@ -188,9 +189,9 @@ The sample app for this tutorial is in the `azure-upload-file-to-storage` folder
 
 <a name="3-create-storage-resource-with-visual-studio-extension"></a>
 
-## Create Storage resource with Visual Studio extension
+## Create storage resource with Visual Studio extension
 
-Create the Storage resource to use with the sample app. Storage is used for:
+Create the Azure Storage resource to use with the sample app. Storage is used for:
 
 * Triggers in the Azure Functions app
 * Blob (file) storage
@@ -206,7 +207,7 @@ Create the Storage resource to use with the sample app. Storage is used for:
 
     |Property|Value|
     |--|--|
-    |Enter a globally unique name for the new web app.| Enter a unique value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use only characters and numbers, up to 24 in length. You need this **account name** to use later.|
+    |Enter a globally unique name for the new web app.| Enter a unique value such as `fileuploadstor`, for your Storage resource name.<br><br> This unique name is **your resource name** used in the next section. Use a maximum of 24 alphanumeric characters in length. You need this **account name** to use later.|
     |Select a location for new resources.|Use the recommended location.|
 
 1. When the app creation process is complete, a notification appears with information about the new resource. 
@@ -249,9 +250,9 @@ Create a private container which has publicly readable blobs.
 
 ## Grant yourself Blob Data access
 
-While you created the resource, you don't have permission to view the contents of the container. That is reserved for specific IAM roles. Add your account so you can view the blobs in the containers.
+While you created the resource, you don't have permission to view the contents of the container. This authorization is reserved for specific IAM roles. Add your account so you can view the blobs in the containers.
 
-1. Still in the Azure portal storage account, select **Access Control (IAM)**.
+1. In the Azure portal storage account, select **Access Control (IAM)**.
 1. Select **Add role assignments**. 
 1. Search and select **Storage Blob Data Contributor**. Select **Next**. 
 1. Select **+ Select members**. 
@@ -265,7 +266,7 @@ The Storage resource credentials are used in the Azure Functions API app to conn
 
 1. While still in the Azure portal, in the **Security + networking** section, select **Access keys**.
 1. Copy the `Key ` key. 
-1. In Visual Studio Code, in the `./workspaces/azure-typescript-e2e-apps/azure-upload-file-to-storage/api`folder, **rename** the file from `local.settings.json.sample` to `local.settings.json`. The file is ignored by Git so it won't be checked into source control.
+1. In Visual Studio Code, in the `./workspaces/azure-typescript-e2e-apps/azure-upload-file-to-storage/api`folder, **rename** the file from `local.settings.json.sample` to `local.settings.json`. The file is ignored by Git so it isn't be checked into source control.
 1. Update the settings for `local.settings.json` using the following table.
 
     |Property|Value|Description|
@@ -274,7 +275,7 @@ The Storage resource credentials are used in the Azure Functions API app to conn
     |Azure_Storage_AccountKey|Azure Storage account key|Used in source code to connect to Storage resource.|
     |AzureWebJobsStorage|Azure Storage account connection string|Use by Azure Functions runtime to store state and logs.|
 
-It may seem like you entered the same account credentials twice, once as a key and once as a connection string. You did, but specifically for this simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You'll only need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values which are used in source code.
+It may seem like you entered the same account credentials twice, once as a key and once as a connection string. You did, but specifically for this simple tutorial. Generally speaking, Azure Functions apps should have a separate Storage resource that isn't reused for another purpose. When you create the Azure Function resource later in the tutorial, you won't need to set the **AzureWebJobsStorage** value for the cloud resource. You'll need to set the **Azure_Storage_AccountName** and **Azure_Storage_AccountKey** values which are used in source code.
 
 ## Run the API app
 
@@ -312,7 +313,7 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
         "url":"https://YOUR-STORAGE-RESOURCE.blob.core.windows.net/upload/test.png?sv=2023-01-03&spr=https&st=2023-07-26T22%3A15%3A59Z&se=2023-07-26T22%3A25%3A59Z&sr=b&sp=w&sig=j3Yc..."
     }
     ```
-1. Copy the base of the API URL in the browser address bar (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`. You will paste this into the client app environment variable file in the next section.
+1. Copy the base of the API URL in the browser address bar (not the SAS token URL in the JSON object) to use in the next step. The base URL is everything before `/api/sas`. You'll paste this base URL into the client app environment variable file in the next section.
 
 ## Configure and run the client app
 
@@ -339,7 +340,7 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
 
 1. Select the **Ports** tab in the bottom pane then right-click the **5173** port and select the globe icon.
 
-1. You should see the simple web app.
+1. You should see the web app.
 
     :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Screenshot of web browser showing web app with Select File button available.":::
 
@@ -360,7 +361,7 @@ Run the Functions App to make sure it works correctly before deploying it to Azu
 
 ## Deploy static web app to Azure 
 
-The Azure Functions app is using a preview feature, it must be deployed to **West US 2** to function properly.
+The Azure Functions app is using a preview feature. It must be deployed to **West US 2** to function properly.
 
 1. In Visual Studio Code, select the Azure explorer.
 
@@ -383,7 +384,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
     |*Choose build preset to configure default project structure.*|Select **Custom**.|
     |*Select the location of your application code*|`azure-upload-file-to-storage/app`|
     |*Select the location of your Azure Functions code*|`azure-upload-file-to-storage/api`|
-    |*Enter the path of your build output...*|`dist`<br><br>This is the path from your app to your static (generated) files.|
+    |*Enter the path of your build output...*|`dist`<br><br> value is the path from your app to your static (generated) files.|
     |*Select a location for new resources.*|Select a region close to you.|
 
 1. When the process is complete, a notification pop-up displays. Select **View/Edit Workflow**.
@@ -406,7 +407,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
     ###### End of Repository/Build Configurations ######
     ```
 
-1. Go to your GitHub fork of the sample, `https://github.com/YOUR-ACCOUNT/azure-typescript-e2e-apps/actions` to verify the build and deploy action, named `Azure Static Web Apps CI/CD`, completed successfully. This may take a few minutes to complete.
+1. Go to your GitHub fork of the sample, `https://github.com/<YOUR-ACCOUNT>/azure-typescript-e2e-apps/actions` to verify the build and deploy action, named `Azure Static Web Apps CI/CD`, completed successfully. This action may take a few minutes to complete.
 
 1. Go to your Azure portal for your app and view the **APIs** section of **Settings**. The **Backend Resource Name** in the production environment is `(managed)` indicating your APIs are successfully deployed. 
 1. Select **(managed)** to see the list of APIs loaded in the app:
@@ -419,7 +420,7 @@ The Azure Functions app is using a preview feature, it must be deployed to **Wes
 
 ## Configure API with Storage resource name and key
 
-The app needs the Azure Storage resource name and key before the API works correctly.
+The app needs the Azure Storage resource name and key before the API works correctly. When deployed to Azure Static Web Apps, the client app and API are hosted from the same domain, eliminating the need to set the client app's environment variable VITE_API_SERVER.
 
 1. Still in the Azure Explorer, right-click on the **Static Web App resource** and select **Open in Portal**.
 1. Select **Configuration** in the **Settings** section.
@@ -432,9 +433,6 @@ The app needs the Azure Storage resource name and key before the API works corre
 
 1. Select **Save** on the Configuration page to save both settings.
 
-> [!NOTE]
-> You don't need to set the client app's env variable **VITE_API_SERVER** because the client app and the API are hosted from the same domain. 
-
 ## Use the Azure-deployed static web app
 
 Verify the deploy and configuration succeeded by using the web site. 
@@ -446,13 +444,13 @@ Verify the deploy and configuration succeeded by using the web site.
 
 ## Clean up resources
 
-In Visual Studio Code, use the Azure explorer for Resource Groups, right-click on your resource group then select **Delete**.
+In Visual Studio Code, use the Azure explorer for Resource Groups. Right-click on your resource group then select **Delete**.
 
-This deletes all resources in the group, including your Storage and Static Web app resources.
+This action deletes all resources in the group, including your Storage and Static Web app resources.
 
 ## Troubleshooting
 
-Report [issues](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issues) with this sample in the GitHub repo noted below. Include the following with the issue:
+Report [issues](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issues) with this sample in the GitHub repo. Include the following with the issue:
 
 * The URL of the article
 * The step or context within the article that was problematic
@@ -462,10 +460,7 @@ Report [issues](https://github.com/Azure-Samples/azure-typescript-e2e-apps/issue
 
 * GitHub repository: [azure-upload-file-to-storage](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/azure-upload-file-to-storage)
 
-
 ## Related content
-
-If you would like to continue with this app, learn how to deploy the app to Azure for hosting with one of the following choices:
 
 * Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
 * @azure/storage-blob

@@ -7,7 +7,7 @@ ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 01/09/2025
-
+ms.custom: devx-track-java
 ---
 
 # Quickstart: Deploy to Azure Container Apps using IntelliJ IDEA

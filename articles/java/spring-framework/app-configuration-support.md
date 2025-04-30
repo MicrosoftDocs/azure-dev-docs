@@ -3,9 +3,9 @@ title: Developers Guide for using Spring Cloud Azure App Configuration
 description: This developer guide walks you through using Spring Cloud Azure App Configuration.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: seal
+ms.reviewer: xiada
+ms.date: 04/18/2025
 ms.topic: tutorial
-ms.date: 08/18/2023
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.
 ---
@@ -64,7 +64,7 @@ To use the feature in an application, you can build it as a Spring Boot applicat
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.20.1</version>
+      <version>5.22.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -96,7 +96,7 @@ To use the feature in an application, you can build it as a Spring Boot applicat
 ```
 
 > [!NOTE]
-> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
+> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
 > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 The following example shows a basic Spring Boot application using App Configuration:

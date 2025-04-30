@@ -311,6 +311,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/core/use-azure-sdk.md",
+      "redirect_url": "/azure/developer/javascript/sdk/use-azure-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/javascript/tutorial/convert-text-to-speech-cognitive-services.md",
       "redirect_url": "/azure/developer/javascript/",
       "redirect_document_id": false
@@ -1807,6 +1812,18 @@
     {
       "source_path": "articles/terraform/azure-terraform-resource-provider/get-started-export-resources-portal.md",
       "redirect_url": "/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview"
+    },
+    {
+      "source_path": "articles/ansible/aks-configure-kubenet-networking.md",
+      "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking"
+    },
+    {
+      "source_path": "articles/java/spring-framework/spring-messaging-support.md",
+      "redirect_url": "/azure/developer/java/spring-framework/spring-messaging-event-hubs-support"
+    },
+    {
+      "source_path": "articles/java/eclipse-microprofile/deploy-microprofile-quarkus-java-app-with-maven-plugin.md",
+      "redirect_url": "/azure/app-service/quickstart-java?tabs=quarkus&pivots=java-javase"
     }
   ]
 }

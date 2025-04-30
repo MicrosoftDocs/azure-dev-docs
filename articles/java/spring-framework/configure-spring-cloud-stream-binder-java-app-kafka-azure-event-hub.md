@@ -3,8 +3,8 @@ title: Use Spring Kafka with Azure Event Hubs for Kafka API
 description: Shows you how to configure a Java-based Spring Cloud Stream Binder to use Apache Kafka with Azure Event Hubs.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: seal
-ms.date: 04/06/2023
+ms.reviewer: xiada
+ms.date: 04/18/2025
 ms.topic: article
 ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -78,7 +78,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.20.1</version>
+        <version>5.22.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -87,7 +87,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
@@ -138,10 +138,13 @@ Use the following steps to configure your application to produce and consume mes
    spring.cloud.stream.bindings.consume-in-0.destination=${AZ_EVENTHUB_NAME}
    spring.cloud.stream.bindings.consume-in-0.group=$Default
    spring.cloud.stream.bindings.supply-out-0.destination=${AZ_EVENTHUB_NAME}
+   spring.cloud.stream.binders.kafka.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration
    ```
 
    > [!TIP]
    > We recommend that you don't use connection strings to connect to Azure Event Hubs for Kafka in version 4.3.0 or higher. This functionality is being removed in the future, so you should consider using passwordless connections instead.
+   > 
+   > If you're using Spring Cloud Azure version 4.x, update the `spring.cloud.stream.binders.kafka.environment.spring.main.sources` property value to `com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`.
 
    The following table describes the fields in the configuration:
 

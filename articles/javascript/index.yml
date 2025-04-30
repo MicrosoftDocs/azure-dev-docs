@@ -9,7 +9,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 07/10/2024
+  ms.date: 03/10/2025
   ms.topic: landing-page
   ms.service: azure-javascript
   ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
@@ -25,7 +25,7 @@ highlightedContent:
       url: ./core/configure-local-development-environment.md
     - itemType: get-started
       title: Azure SDK for JavaScript
-      url: ./core/use-azure-sdk.md
+      url: ./sdk/use-azure-sdk.md
     - itemType: quickstart
       title: Authenticate to Azure SDK
       url: ./sdk/authentication/local-development-environment-service-principal.md
@@ -53,6 +53,9 @@ conceptualContent:
           - itemType: how-to-guide
             text: Deployment choices for your web app to Azure
             url: ./how-to/deploy-web-app.md
+          - itemType: overview
+            text: API development with TypeSpec
+            url: /azure/developer/typespec
       - title: Create AI apps
         links:
           - itemType: overview
@@ -145,7 +148,7 @@ conceptualContent:
         links:
           - itemType: concept
             text: Getting started
-            url: ./core/use-azure-sdk.md
+            url: ./sdk/use-azure-sdk.md
           - itemType: how-to-guide
             text: Install Azure client libraries
             url: ./sdk/azure-sdk-install.md
@@ -160,6 +163,9 @@ conceptualContent:
             url: ./sdk/loop-over-data.md
       - title: Developer guides
         links:
+          - itemType: concept
+            text: Containerized apps for JS developers
+            url: /azure/container-apps/javascript-overview
           - itemType: concept
             text: GraphQL for Azure
             url: ./graphql-developer-guide.md
@@ -197,7 +203,7 @@ additionalContent:
         - title: Microsoft Developer
           links:
             - text: "JavaScript: Everything from Microsoft for JavaScript developers"
-              url: https://developer.microsoft.com/en-us/javascript/
+              url: https://developer.microsoft.com/javascript/
             - text: "Developer experience: Optimizing DevEx improves business outcomes"
               url: https://developer.microsoft.com/developer-experience
             - text: AI for frictionless, intelligent builds with AI tools and services

@@ -3,8 +3,8 @@ title: Use Azure Event Grid in Spring
 description: Configure a Spring Boot application created with the Spring Initializr to use the Azure Event Grid.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: seal
-ms.date: 09/07/2023
+ms.reviewer: xiada
+ms.date: 04/18/2025
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -53,7 +53,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.20.1</version>
+        <version>5.22.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -62,7 +62,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 

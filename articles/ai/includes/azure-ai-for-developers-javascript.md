@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 02/10/2025
+ms.date: 04/28/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -52,7 +52,7 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |Link|Description|
 |---|---|
 |[Integrate Speech into your apps with Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk)|A collection of samples for the Azure Cognitive Services Speech SDK. Links to samples for speech recognition, translation, speech synthesis, and more.|
-|[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md#azure-form-recognizer-client-library-samples-for-javascript)|A collection of samples for the Azure.AI.FormRecognizer client library.|
+|[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v5/javascript/README.md#azure-form-recognizer-client-library-samples-for-javascript)|A collection of samples for the Azure.AI.FormRecognizer client library.|
 |[Extract, classify, and understand text within documents using Text Analytics in JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true)|The client Library for Text Analytics. This is part of the [Azure AI Language](/azure/ai-services/language-service) service, which provides Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Document Translation in JavaScript](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-javascript)|A quickstart article that uses Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Analyze images](/azure/ai-services/computer-vision/sdk/overview-sdk)|Sample code and setup documents for the Microsoft Azure AI Image Analysis SDK.|
@@ -75,6 +75,7 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |---|---|
 |[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
 |[Generative AI for JavaScript developers](https://github.com/microsoft/generative-ai-with-javascript)|This covers the basics of generative AI and how to build AI applications using JavaScript, from local development to deployment on Azure, up to running and scaling your AI models. The [YouTube playlist of videos](https://www.youtube.com/playlist?list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk) includes a series of videos around 10 minutes long, each focusing on a specific topic.|
+|[AI Agents for Beginners Workshop](https://github.com/microsoft/ai-agents-for-beginners)|Learn the fundamentals of building Generative AI agents with our 10-lesson comprehensive course by Microsoft Cloud Advocates.|
 |[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
 |[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
 |[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|

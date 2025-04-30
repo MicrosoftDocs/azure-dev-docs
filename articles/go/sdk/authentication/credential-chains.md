@@ -1,14 +1,14 @@
 ---
-title: Credential chains in the Azure Identity client library for Go
-description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for Go.
-ms.date: 12/13/2024
+title: Credential chains in the Azure Identity library for Go
+description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for Go.
+ms.date: 03/10/2025
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
 
-# Credential chains in the Azure Identity client library for Go
+# Credential chains in the Azure Identity library for Go
 
-The Azure Identity client library provides *credentials*&mdash;public types that implement the Azure Core library's [TokenCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#TokenCredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity library provides *credentials*&mdash;public types that implement the Azure Core library's [TokenCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#TokenCredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
@@ -27,13 +27,12 @@ A chained credential can offer the following benefits:
     if os.Getenv("WEBSITE_HOSTNAME") != "" {
         clientID := azidentity.ClientID("abcd1234-...")
         opts := azidentity.ManagedIdentityCredentialOptions{ID: clientID}
-        cred, err := azidentity.NewManagedIdentityCredential(&opts)
+        credential, err = azidentity.NewManagedIdentityCredential(&opts)
         
         if err != nil {
           // TODO: handle error
         }
-    }
-    else {
+    } else {
         // Use Azure CLI Credential
         credential, err = azidentity.NewAzureCLICredential(nil)
 
@@ -102,35 +101,32 @@ if err != nil {
 [ChainedTokenCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ChainedTokenCredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
 ```go
-managed, err := azidentity.NewManagedIdentityCredential(nil)
-if err != nil {
-  // handle error
-}
-
 azCLI, err := azidentity.NewAzureCLICredential(nil)
 if err != nil {
   // handle error
 }
 
-chain, err := azidentity.NewChainedTokenCredential([]azcore.TokenCredential{managed, azCLI}, nil)
+azdCLI, err := azidentity.NewAzureDeveloperCLICredential(nil)
+if err != nil {
+  // handle error
+}
+
+chain, err := azidentity.NewChainedTokenCredential([]azcore.TokenCredential{azCLI, azdCLI}, nil)
 if err != nil {
   // handle error
 }
 ```
 
-The preceding code sample creates a tailored credential chain comprised of two credentials. `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
+The preceding code sample creates a tailored credential chain comprised of two credentials. `AzureCLICredential` is attempted first, followed by `AzureDeveloperCLICredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of managed identity credential and Azure CLI credential.":::
+:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of Azure CLI and Azure Developer CLI credentials.":::
 
 > [!TIP]
-> For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
+> For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
 
 ## Usage guidance for DefaultAzureCredential
 
-`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
-
-- A specific credential implementation, such as `ManagedIdentityCredential`.
-- A pared-down `ChainedTokenCredential` implementation optimized for the Azure environment in which your app runs.
+`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`.
 
 Here's why:
 

@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 04/02/2025 
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, linux-related-content
 recommendations: false
 ---

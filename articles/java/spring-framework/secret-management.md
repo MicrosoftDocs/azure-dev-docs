@@ -7,11 +7,12 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
+appliesto:
+- ✅ Version 4.20.0
+- ✅ Version 5.22.0
 ---
 
 # Spring Cloud Azure secret management
-
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.20.1
 
 Spring Cloud Azure construct `PropertySource` which holds secrets stored in Azure Key Vault Secrets.
 
@@ -120,7 +121,7 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 
 ### Configure token credential for Key Vault property source
 
-If you need to use a specified token credential for Key Vault `PropertySource`, you can register the `TokenCredential` bean in the `ConfigurableBootstrapContext` for `KeyVaultEnvironmentPostProcessor`, this feature is supported from Spring Cloud Azure 5.20.1. Here is an example to use `AzureCliCredential`:
+If you need to use a specified token credential for Key Vault `PropertySource`, you can register the `TokenCredential` bean in the `ConfigurableBootstrapContext` for `KeyVaultEnvironmentPostProcessor`, this feature is supported from Spring Cloud Azure 5.16.0. Here is an example to use `AzureCliCredential`:
 
 ```java
 public static void main(String[] args) {

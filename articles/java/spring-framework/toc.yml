@@ -151,7 +151,13 @@ items:
     - name: Spring Cloud Stream support
       href: spring-cloud-stream-support.md
     - name: Spring Messaging support
-      href: spring-messaging-support.md
+      items:
+        - name: Spring Messaging Azure Event Hubs
+          href: spring-messaging-event-hubs-support.md
+        - name: Spring Messaging Azure Service Bus
+          href: spring-messaging-service-bus-support.md
+        - name: Spring Messaging Azure Storage Queue
+          href: spring-messaging-storage-queue-support.md
     - name: Spring JMS support
       items:
       - name: Use Azure Service Bus with JMS
@@ -168,6 +174,12 @@ items:
       href: redis-support.md
     - name: Azure Resource Manager
       href: resource-manager.md
+    - name: Native image applications
+      items:
+      - name: Configuration
+        href: native-applications.md
+      - name: Monitoring
+        href: "https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-monitor/README.md"
     - name: Testing
       items:
       - name: Testcontainers

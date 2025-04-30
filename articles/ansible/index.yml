@@ -92,7 +92,5 @@ landingContent:
             url: aks-configure-clusters.md
           - text: Configure Azure CNI networking
             url: aks-configure-cni-networking.md
-          - text: Configure kubenet networking
-            url: aks-configure-kubenet-networking.md
           - text: Configure RBAC roles in AKS cluster
             url: aks-configure-rbac.md

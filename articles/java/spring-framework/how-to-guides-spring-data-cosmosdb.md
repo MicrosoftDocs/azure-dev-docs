@@ -238,5 +238,3 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [enable-client-logging]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#enable-client-logging
 [azure-spring-data-cosmos-samples]: https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples
 [spring-mvc-with-azure-cosmosdb-samples]: https://github.com/Azure-Samples/azure-spring-mvc-cosmos-db-java-sql-api-samples
-
-![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-java%2Fsdk%2Fcosmos%2F%2Fazure-spring-data-cosmos%2FREADME.png)

@@ -1,7 +1,7 @@
 ---
 title: Get started with the chat using your own data sample for Python
 description: Get started with Python and search across your own data by using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 02/25/2024
+ms.date: 12/20/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps

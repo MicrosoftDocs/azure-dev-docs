@@ -64,12 +64,17 @@
     href: how-to/develop-serverless-apps.md
   - name: Developer Guides
     items: 
+    - name: Container apps
+      href: /azure/container-apps/javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+      display: Azure Container Apps, ACA, docker, images, containers
     - name: GraphQL
       href: graphql-developer-guide.md
     - name: Serverless
       href: /azure/azure-functions/functions-reference?tabs=blob&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Storage
       href: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: API development with TypeSpec
+      href: /azure/developer/typespec
     - name: Databases
       item: 
       - name: Cosmos DB for NoSQL developer guide
@@ -93,7 +98,7 @@
   - name: Azure SDK for JavaScript
     items:
     - name: Getting started  
-      href: core/use-azure-sdk.md    
+      href: sdk/use-azure-sdk.md    
     - name: Install packages
       href: sdk/azure-sdk-install.md
     - name: Authentication
@@ -128,6 +133,8 @@
     items: 
     - name: Azure Samples browser
       href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+  - name: JavaScript at Microsoft
+    href: https://developer.microsoft.com/javascript/
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation

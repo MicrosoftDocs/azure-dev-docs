@@ -25,6 +25,8 @@ items:
         href: deploy-java-quarkus-app.md
       - name: Quarkus with Microsoft Entra ID
         href: quarkus-with-microsoft-entra-id.md
+      - name: Quarkus with Azure App Configuration
+        href: quarkus-with-app-configuration.md
   - name: Java application servers on Azure
     expanded: true
     items:
@@ -72,8 +74,6 @@ items:
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS
         href: ../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere to WildFly on AKS
-        href: ../migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to JBoss EAP on Azure App Service
         href: ../migration/migrate-websphere-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to Azure Red Hat OpenShift

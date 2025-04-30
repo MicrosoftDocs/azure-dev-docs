@@ -7,11 +7,11 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
+appliesto:
+- ✅ Version 5.22.0
 ---
 
 # Spring Cloud Azure support for Testcontainers
-
-**This article applies to:** ✅ Version 5.20.1
 
 This article describes how to integrate Spring Cloud Azure with [Testcontainers](https://testcontainers.com/) to write effective integration tests for your applications.
 

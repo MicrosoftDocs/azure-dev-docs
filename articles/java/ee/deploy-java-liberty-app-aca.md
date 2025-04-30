@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 11/27/2024
+ms.date: 03/27/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -14,25 +14,22 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 This article shows you how to run Open Liberty on Azure Container Apps. You do the following activities in this article:
 
-* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty runtime.
+* Run your Java, Java Enterprise Edition (EE), Jakarta EE, or MicroProfile application on the Open Liberty runtime.
 * Build the application Docker image using Liberty container images.
 * Deploy the containerized application to Azure Container Apps.
 
-For more information about Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information about IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+For more information about Open Liberty, see [the Open Liberty project page](https://openliberty.io/). This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://openliberty.io/docs/latest/performance-tuning.html).
 
-This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
-
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing Java on Azure solutions, fill out this short [survey on Azure migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with either Windows or Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 * [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
-    * Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-    * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    * If you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-* Install a Java SE implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
+* Install a Java Standard Edition (SE) implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
 * Ensure that [Git](https://git-scm.com) is installed.
 
@@ -71,14 +68,16 @@ Create a resource group called `java-liberty-project` using the [`az group creat
 
 ```azurecli
 export RESOURCE_GROUP_NAME=java-liberty-project
-az group create --name $RESOURCE_GROUP_NAME --location eastus2
+export LOCATION=eastus2
+az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
 $Env:RESOURCE_GROUP_NAME = "java-liberty-project"
-az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
+$Env:LOCATION = "eastus2"
+az group create --name $Env:RESOURCE_GROUP_NAME --location $Env:LOCATION
 ```
 
 ---
@@ -154,6 +153,7 @@ An environment in Azure Container Apps creates a secure boundary around a group 
 export ACA_ENV=youracaenvname
 az containerapp env create \
     --resource-group $RESOURCE_GROUP_NAME \
+    --location $LOCATION \
     --name $ACA_ENV
 ```
 
@@ -163,6 +163,7 @@ az containerapp env create \
 $Env:ACA_ENV = "youracaenvname"
 az containerapp env create `
     --resource-group $Env:RESOURCE_GROUP_NAME `
+    --location $Env:LOCATION `
     --name $Env:ACA_ENV
 ```
 
@@ -289,7 +290,7 @@ Use the following commands to prepare the sample code for this guide. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 export BASE_DIR=$PWD
-git checkout 20241118
+git checkout 20250327
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -298,7 +299,7 @@ git checkout 20241118
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
 $Env:BASE_DIR = $PWD
-git checkout 20241118
+git checkout 20250327
 ```
 
 ---
@@ -316,16 +317,15 @@ java-app
 │  ├─ resources/
 │  ├─ webapp/
 ├─ Dockerfile
-├─ Dockerfile-wlp
 ├─ pom.xml
 ├─ pom-azure-identity.xml
 ```
 
 The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the **java-app** root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the **java-app** root directory, there's a Dockerfile to create the application image with Open Liberty.
 
-In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
 The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
@@ -493,75 +493,13 @@ Successful output is a JSON object including the property `"type": "Microsoft.Ap
 
 Then, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
 
-#### [Bash](#tab/in-bash)
-
-1. This sample uses Service Connector to facilitate connecting to the database. For more information about Service Connector, see [What is Service Connector?](/azure/service-connector/overview) Install the passwordless extension for the Azure CLI by using the following command:
-
-    ```azurecli
-    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-    ```
-
-1. Connect the database to the container app with a system-assigned managed identity by using the following command:
-
-    ```azurecli
-    az containerapp connection create sql \
-        --resource-group $RESOURCE_GROUP_NAME \
-        --name $ACA_NAME \
-        --target-resource-group $RESOURCE_GROUP_NAME \
-        --server $SQL_SERVER_NAME \
-        --database $DB_NAME \
-        --system-identity \
-        --container $ACA_NAME \
-        --client-type java
-    ```
-
-    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
-
-#### [PowerShell](#tab/in-powershell)
-
-1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
-
-    ```azurepowershell
-    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-    ```
-
-1. Connect the database to the container app with a system-assigned managed identity by using the following command:
-
-    ```azurepowershell
-    az containerapp connection create sql `
-        --resource-group $Env:RESOURCE_GROUP_NAME `
-        --name $Env:ACA_NAME `
-        --target-resource-group $Env:RESOURCE_GROUP_NAME `
-        --server $Env:SQL_SERVER_NAME `
-        --database $Env:DB_NAME `
-        --system-identity `
-        --container $Env:ACA_NAME `
-        --client-type java
-    ```
-
-    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
-
-    > [!NOTE]
-    > You must take further action if the command fails with an error message similar to the following example:
-    >
-    > ```output
-    > The command failed with an unexpected error. Here is the traceback:
-    > Dependency pyodbc can't be installed, please install it manually with `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe -m pip install pyodbc`.
-    > ```
-    >
-    > In this case, install the `pyodbc` package manually by using the following steps:
-    >
-    > 1. Open Windows PowerShell with administrator privileges. For more information, see the [With Administrative privileges (Run as administrator)](/powershell/scripting/windows-powershell/starting-windows-powershell#with-administrative-privileges-run-as-administrator) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
-    >
-    > 1. Run the following command in the PowerShell window:
-    >
-    >    ```powershell
-    >    & "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe" -m pip install pyodbc
-    >    ```
-    >
-    > After the installation is complete, run the previous `az containerapp connection create sql` command again.
-
----
+1. Open the Azure portal in your browser and navigate to the Azure Container Apps instance you created in the previous step.
+1. In the navigation pane, select **Settings** > **Service Connector (preview)**.
+1. Select **Create**. You should see the popup window **Create connection**.
+1. In the **Basic** pane, for **Service type**, select **SQL Database**.  For **Client type**, select **Java**. Leave other fields at their default values, then select **Next: Authentication**.
+1. In the **Authentication** pane, for **Authentication type**, select **System assigned managed identity**, then select **Next: Networking**.
+1. In the **Networking** pane, select **Next: Review + create**.
+1. In the **Review + create** pane, wait for the validation to pass, and then select **Create on Cloud Shell**. The Cloud Shell opens and then executes the commands to create the connection. Wait for the commands to finish and then close the Cloud Shell.
 
 > [!NOTE]
 > The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from the [User-assigned managed identity](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) section of [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java).
@@ -625,6 +563,5 @@ You can learn more from the references used in this guide:
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
-* [WebSphere Liberty Container Images](https://www.ibm.com/docs/was-liberty/base?topic=images-liberty-container#cntr_r_images__wlicr__title__1)
 
 To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)

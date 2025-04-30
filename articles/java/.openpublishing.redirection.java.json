@@ -1,9 +1,9 @@
 {
     "redirections": [
         {
-          "source_path": "sdk/get-started.md",
-          "redirect_url": "/previous-versions/azure/developer/java/sdk/get-started",
-          "redirect_document_id": false
+            "source_path": "sdk/get-started.md",
+            "redirect_url": "/previous-versions/azure/developer/java/sdk/get-started",
+            "redirect_document_id": false
         },
         {
             "source_path": "eclipse-microprofile/cicd-microprofile-vsts.md",
@@ -34,16 +34,16 @@
             "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
         },
         {
-          "source_path": "ee/jboss-eap-single-server-azure-vm.md",
-          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
+            "source_path": "ee/jboss-eap-single-server-azure-vm.md",
+            "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
         {
-          "source_path": "ee/jboss-eap-cluster-azure-vms.md",
-          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
+            "source_path": "ee/jboss-eap-cluster-azure-vms.md",
+            "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
         {
-          "source_path": "ee/weblogic-server-azure-virtual-machine.md",
-          "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
+            "source_path": "ee/weblogic-server-azure-virtual-machine.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
         },
         {
             "source_path": "ee/weblogic-server-azure-kubernetes-service.md",
@@ -159,7 +159,7 @@
         },
         {
             "source_path": "migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service"
+            "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-azure-redhat-openshift"
         },
         {
             "source_path": "migrate-tomcat-to-containers-on-azure-kubernetes-service.md",
@@ -175,31 +175,27 @@
         },
         {
             "source_path": "migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service"
+            "redirect_url": "/azure/developer/java/migration/migrate-weblogic-to-azure-kubernetes-service"
         },
         {
             "source_path": "migrate-websphere-to-wildfly-on-azure-kubernetes-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service"
+            "redirect_url": "/azure/developer/java/migration/migrate-websphere-to-azure-kubernetes-service"
         },
         {
             "source_path": "migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md",
-            "redirect_url": "/azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service"
+            "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service"
         },
         {
             "source_path": "migration-overview.md",
             "redirect_url": "/azure/developer/java/migration/migration-overview"
         },
         {
-          "source_path": "migration/cloud-suitability-analyzer.md",
-          "redirect_url": "/previous-versions/azure/developer/java/migration/cloud-suitability-analyzer",
-          "redirect_document_id": false
+            "source_path": "migration/cloud-suitability-analyzer.md",
+            "redirect_url": "/previous-versions/azure/developer/java/migration/cloud-suitability-analyzer",
+            "redirect_document_id": false
         },
         {
             "source_path": "migration/migrate-java-se-to-java-se-app-service.md",
-            "redirect_url": "/azure/developer/java/migration/index"
-        },
-        {
-            "source_path": "migration/migrate-spring-boot-to-app-service.md",
             "redirect_url": "/azure/developer/java/migration/index"
         },
         {
@@ -547,36 +543,56 @@
             "redirect_url": "/azure/developer/java/sdk/authentication/overview"
         },
         {
-          "source_path": "sdk/identity-azure-hosted-auth.md",
-          "redirect_url": "/azure/developer/java/sdk/authentication/azure-hosted-apps"
+            "source_path": "sdk/identity-azure-hosted-auth.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/azure-hosted-apps"
         },
         {
-          "source_path": "sdk/identity-service-principal-auth.md",
-          "redirect_url": "/azure/developer/java/sdk/authentication/service-principal"
+            "source_path": "sdk/identity-service-principal-auth.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/service-principal"
         },
         {
-          "source_path": "sdk/identity-dev-env-auth.md",
-          "redirect_url": "/azure/developer/java/sdk/authentication/dev-env"
+            "source_path": "sdk/identity-dev-env-auth.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/dev-env"
         },
         {
-          "source_path": "sdk/identity-user-auth.md",
-          "redirect_url": "/azure/developer/java/sdk/authentication/user"
+            "source_path": "sdk/identity-user-auth.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/user"
         },
         {
-          "source_path": "identity/deploy-spring-boot-to-azure-spring-apps.md",
-          "redirect_url": "/azure/developer/java/identity/deploy-spring-boot-to-azure-container-apps"
+            "source_path": "identity/deploy-spring-boot-to-azure-spring-apps.md",
+            "redirect_url": "/azure/developer/java/identity/deploy-spring-boot-to-azure-container-apps"
         },
         {
-          "source_path": "spring-framework/configuration-properties-azure-active-directory.md",
-          "redirect_url": "/azure/developer/java/spring-framework/configuration-properties-entra"
+            "source_path": "spring-framework/configuration-properties-azure-active-directory.md",
+            "redirect_url": "/azure/developer/java/spring-framework/configuration-properties-entra"
         },
         {
-          "source_path": "spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md",
-          "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-entra"
+            "source_path": "spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md",
+            "redirect_url": "/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-entra"
         },
         {
-          "source_path": "spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md",
-          "redirect_url": "/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide"
+            "source_path": "spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md",
+            "redirect_url": "/azure/developer/java/spring-framework/spring-boot-starter-for-entra-developer-guide"
+        },
+        {
+            "source_path": "sdk/troubleshooting-authentication-user-credential.md",
+            "redirect_url": "/azure/developer/java/sdk/troubleshooting-authentication-overview"
+        },
+        {
+            "source_path": "migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-azure-redhat-openshift"
+        },
+        {
+            "source_path": "migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-weblogic-to-azure-kubernetes-service"
+        },
+        {
+            "source_path": "migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-websphere-to-azure-kubernetes-service"
+        },
+        {
+            "source_path": "migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service"
         }
     ]
 }
