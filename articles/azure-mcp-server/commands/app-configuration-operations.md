@@ -53,13 +53,15 @@ The Azure MCP Server has commands to manage App Configuration resources. Advance
 | azmcp appconfig account list | List App Configuration stores in a subscription.|
 
 ```console
-azmcp appconfig account list --subscription <SUBSCRIPTION_ID>
+azmcp appconfig account list \
+    --subscription <SUBSCRIPTION_ID>
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig account list --subscription "my-subscription-id"
+azmcp appconfig account list \
+    --subscription "my-subscription-id"
 ```
 
 #### Required parameters
@@ -89,21 +91,33 @@ The Azure MCP Server can list all key-value settings in an App Configuration sto
 | azmcp appconfig kv list | List key-value settings in an App Configuration store.|
 
 ```console
-azmcp appconfig kv list --subscription <SUBSCRIPTION_ID> --account-name <ACCOUNT_NAME> [--key <KEY>] [--label <LABEL>]
+azmcp appconfig kv list \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    [--key <KEY>] \
+    [--label <LABEL>]
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig kv list --subscription "my-subscription-id" --account-name "myappconfigstore"
+azmcp appconfig kv list \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore"
 ```
 
 ```console
-azmcp appconfig kv list --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:*"
+azmcp appconfig kv list \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:*"
 ```
 
 ```console
-azmcp appconfig kv list --subscription "my-subscription-id" --account-name "myappconfigstore" --label "dev"
+azmcp appconfig kv list \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --label "dev"
 ```
 
 #### Required parameters
@@ -135,17 +149,28 @@ The Azure MCP Server can retrieve a specific key-value setting from an App Confi
 | azmcp appconfig kv show | Show a specific key-value setting in an App Configuration store.|
 
 ```console
-azmcp appconfig kv show --subscription <SUBSCRIPTION_ID> --account-name <ACCOUNT_NAME> --key <KEY> [--label <LABEL>]
+azmcp appconfig kv show \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --key <KEY> \
+    [--label <LABEL>]
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig kv show --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:ConnectionString"
+azmcp appconfig kv show \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:ConnectionString"
 ```
 
 ```console
-azmcp appconfig kv show --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:Theme" --label "production"
+azmcp appconfig kv show \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:Theme" \
+    --label "production"
 ```
 
 #### Required parameters
@@ -177,17 +202,31 @@ The Azure MCP Server can create or update a key-value setting in an App Configur
 | azmcp appconfig kv set | Create or update a key-value setting in an App Configuration store.|
 
 ```console
-azmcp appconfig kv set --subscription <SUBSCRIPTION_ID> --account-name <ACCOUNT_NAME> --key <KEY> --value <VALUE> [--label <LABEL>]
+azmcp appconfig kv set \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --key <KEY> \
+    --value <VALUE> \
+    [--label <LABEL>]
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig kv set --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:ApiUrl" --value "https://api.example.com"
+azmcp appconfig kv set \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:ApiUrl" \
+    --value "https://api.example.com"
 ```
 
 ```console
-azmcp appconfig kv set --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:LogLevel" --value "Debug" --label "dev"
+azmcp appconfig kv set \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:LogLevel" \
+    --value "Debug" \
+    --label "dev"
 ```
 
 #### Required parameters
@@ -220,17 +259,28 @@ The Azure MCP Server can lock a key-value setting in an App Configuration store,
 | azmcp appconfig kv lock | Lock a key-value setting in an App Configuration store.|
 
 ```console
-azmcp appconfig kv lock --subscription <SUBSCRIPTION_ID> --account-name <ACCOUNT_NAME> --key <KEY> [--label <LABEL>]
+azmcp appconfig kv lock \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --key <KEY> \
+    [--label <LABEL>]
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig kv lock --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:ConnectionString"
+azmcp appconfig kv lock \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:ConnectionString"
 ```
 
 ```console
-azmcp appconfig kv lock --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:ApiKey" --label "production"
+azmcp appconfig kv lock \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:ApiKey" \
+    --label "production"
 ```
 
 #### Required parameters
@@ -262,17 +312,28 @@ The Azure MCP Server can unlock a previously locked key-value setting in an App 
 | azmcp appconfig kv unlock | Unlock a key-value setting in an App Configuration store.|
 
 ```console
-azmcp appconfig kv unlock --subscription <SUBSCRIPTION_ID> --account-name <ACCOUNT_NAME> --key <KEY> [--label <LABEL>]
+azmcp appconfig kv unlock \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --key <KEY> \
+    [--label <LABEL>]
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig kv unlock --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:ConnectionString"
+azmcp appconfig kv unlock \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:ConnectionString"
 ```
 
 ```console
-azmcp appconfig kv unlock --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:ApiKey" --label "production"
+azmcp appconfig kv unlock \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:ApiKey" \
+    --label "production"
 ```
 
 #### Required parameters
@@ -304,17 +365,28 @@ The Azure MCP Server can delete a key-value setting from an App Configuration st
 | azmcp appconfig kv delete | Delete a key-value setting from an App Configuration store.|
 
 ```console
-azmcp appconfig kv delete --subscription <SUBSCRIPTION_ID> --account-name <ACCOUNT_NAME> --key <KEY> [--label <LABEL>]
+azmcp appconfig kv delete \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --key <KEY> \
+    [--label <LABEL>]
 ```
 
 #### Examples
 
 ```console
-azmcp appconfig kv delete --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:TemporaryConfig"
+azmcp appconfig kv delete \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:TemporaryConfig"
 ```
 
 ```console
-azmcp appconfig kv delete --subscription "my-subscription-id" --account-name "myappconfigstore" --key "AppName:FeatureFlag" --label "test"
+azmcp appconfig kv delete \
+    --subscription "my-subscription-id" \
+    --account-name "myappconfigstore" \
+    --key "AppName:FeatureFlag" \
+    --label "test"
 ```
 
 #### Required parameters
