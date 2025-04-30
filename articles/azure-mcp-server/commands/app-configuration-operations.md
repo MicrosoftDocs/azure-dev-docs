@@ -59,6 +59,8 @@ azmcp appconfig account list \
 
 #### Examples
 
+List all App Configuration stores in the specified subscription.
+
 ```console
 azmcp appconfig account list \
     --subscription "my-subscription-id"
@@ -100,11 +102,15 @@ azmcp appconfig kv list \
 
 #### Examples
 
+List all key-value settings in the specified App Configuration store.
+
 ```console
 azmcp appconfig kv list \
     --subscription "my-subscription-id" \
     --account-name "myappconfigstore"
 ```
+
+List only key-value settings with keys that begin with app name, "AppName:*".
 
 ```console
 azmcp appconfig kv list \
@@ -112,6 +118,7 @@ azmcp appconfig kv list \
     --account-name "myappconfigstore" \
     --key "AppName:*"
 ```
+List only key-value settings that have the "dev" label.
 
 ```console
 azmcp appconfig kv list \
@@ -158,12 +165,16 @@ azmcp appconfig kv show \
 
 #### Examples
 
+Retrieve a key-value setting without a label from the App Configuration store.
+
 ```console
 azmcp appconfig kv show \
     --subscription "my-subscription-id" \
     --account-name "myappconfigstore" \
     --key "AppName:ConnectionString"
 ```
+
+Retrieve a key-value setting with a specific label from the App Configuration store.
 
 ```console
 azmcp appconfig kv show \
@@ -212,6 +223,8 @@ azmcp appconfig kv set \
 
 #### Examples
 
+Create a new key-value setting without a label in an App Configuration store.
+
 ```console
 azmcp appconfig kv set \
     --subscription "my-subscription-id" \
@@ -219,6 +232,8 @@ azmcp appconfig kv set \
     --key "AppName:ApiUrl" \
     --value "https://api.example.com"
 ```
+
+Create a new key-value setting with a specific label for environment-specific configuration.
 
 ```console
 azmcp appconfig kv set \
@@ -268,12 +283,16 @@ azmcp appconfig kv lock \
 
 #### Examples
 
+Lock a key without a label to make it read-only in the App Configuration store.
+
 ```console
 azmcp appconfig kv lock \
     --subscription "my-subscription-id" \
     --account-name "myappconfigstore" \
     --key "AppName:ConnectionString"
 ```
+
+Lock a key with a specific label to protect environment-specific configuration from changes.
 
 ```console
 azmcp appconfig kv lock \
@@ -311,15 +330,9 @@ The Azure MCP Server can unlock a previously locked key-value setting in an App 
 |-----------------|--------------------------|
 | azmcp appconfig kv unlock | Unlock a key-value setting in an App Configuration store.|
 
-```console
-azmcp appconfig kv unlock \
-    --subscription <SUBSCRIPTION_ID> \
-    --account-name <ACCOUNT_NAME> \
-    --key <KEY> \
-    [--label <LABEL>]
-```
-
 #### Examples
+
+Unlock a key without a label to make it editable in the specified App Configuration store.
 
 ```console
 azmcp appconfig kv unlock \
@@ -327,6 +340,8 @@ azmcp appconfig kv unlock \
     --account-name "myappconfigstore" \
     --key "AppName:ConnectionString"
 ```
+
+Unlock a key with a specific label, allowing edits to the production version only.
 
 ```console
 azmcp appconfig kv unlock \
@@ -374,12 +389,16 @@ azmcp appconfig kv delete \
 
 #### Examples
 
+Delete a key-value setting without a label from the App Configuration store.
+
 ```console
 azmcp appconfig kv delete \
     --subscription "my-subscription-id" \
     --account-name "myappconfigstore" \
     --key "AppName:TemporaryConfig"
 ```
+
+Delete a key-value setting with a specific label, useful for removing test configurations.
 
 ```console
 azmcp appconfig kv delete \
