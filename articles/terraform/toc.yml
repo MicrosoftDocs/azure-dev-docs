@@ -60,6 +60,11 @@
         items:
           - name: Azure Terraform Resource Provider
             href: ./azure-terraform-resource-provider/resource-provider-overview.md
+      - name: Quickstarts
+         expanded: true
+         items:
+           - name: Export resources in the Azure portal
+             href: ./azure-terraform-resource-provider/get-started-export-resources-portal.md
 - name: Quickstarts
   expanded: true
   items:
