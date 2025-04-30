@@ -9,6 +9,8 @@ author: stema
 ms.author: stema
 ---
 
+# Quickstart: Export a virtual machine in the Azure portal
+
 **Applies to:** :heavy_check_mark: Any management plane resources from the [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) or [AzAPI](/azure/templates/) provider.
 
 Existing Azure resources can be exported to Terraform through the Azure portal. This quickstart shows you how to use the Azure portal to export a resource group.
@@ -31,11 +33,9 @@ Sign in to the [Azure portal with the experimental Terraform feature flag enable
 ## Setup Virtual Machine
 
 ### Azure CLI or Azure PowerShell
-
 [!INCLUDE [Create sample virtual machine](../includes/create-vm.md)]
 
 ### Azure portal
-
 1. Under **Azure Services**, select **Virtual machines**. If you don't see **Virtual machines**, search for it in the search bar.
 1. In the **Virtual machines** page, select **Create**, to see a dropdown. Select **Azure virtual machine**.
 1. Under **Virtual Machine Name**, type in **myVM**.
@@ -46,7 +46,6 @@ Sign in to the [Azure portal with the experimental Terraform feature flag enable
 ## Register resource provider
 
 ### Azure CLI or Azure PowerShell
-
 1. Run the command `az provider register -n Microsoft.AzureTerraform`
 1. Register the feature flag: `az feature register --namespace Microsoft.AzureTerraform -n private`. This is a private preview feature thus you need to wait for manual approval from Microsoft internal team to use the feature. Check the status of your feature registration by running `az feature show --namespace Microsoft.AzureTerraform --name private`.
 
@@ -67,14 +66,12 @@ Export the existing resource group to Terraform.
 ## Clean up resources
 
 ### Delete resources
-
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 1. At the top of the page for the resource group, select **Delete resource group**. 
 1. A page opens warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 ### Auto-shutdown
-
 If the virtual machine is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you're not billed for unused resources.
 
 1. On the **Operations** section for the virtual machine, select the **Auto shutdown** option.
