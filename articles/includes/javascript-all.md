@@ -428,12 +428,12 @@
 | TypeSpec Rust | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.3) |  |  |
 | TypeSpec SSE | npm [0.69.0](https://www.npmjs.com/package/@typespec/sse/v/0.69.0) |  |  |
 | TypeSpec Streams | npm [0.69.0](https://www.npmjs.com/package/@typespec/streams/v/0.69.0) |  |  |
-| Unknown Display Name | npm [0.0.10](https://www.npmjs.com/package/@azure/mcp/v/0.0.10) |  |  |
-| Unknown Display Name | npm [0.0.10](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.0.10) |  |  |
-| Unknown Display Name | npm [0.0.10](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.0.10) |  |  |
-| Unknown Display Name | npm [0.0.10](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.0.10) |  |  |
-| Unknown Display Name | npm [0.0.10](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.0.10) |  |  |
-| Unknown Display Name | npm [0.0.10](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.0.10) |  |  |
+| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp/v/0.0.11) |  |  |
+| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.0.11) |  |  |
+| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.0.11) |  |  |
+| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.0.11) |  |  |
+| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.0.11) |  |  |
+| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.0.11) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
