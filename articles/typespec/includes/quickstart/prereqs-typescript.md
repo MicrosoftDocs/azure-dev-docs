@@ -11,4 +11,4 @@ ms.date: 04/23/2025
   npm install -g @typespec/compiler
   ```
 * [Visual Studio Code](https://code.visualstudio.com/) with the [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)
-* [Azure Cosmos DB account](/azure/cosmos-db/sql/create-cosmosdb-resources-portal) (for database integration)
+* [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)
