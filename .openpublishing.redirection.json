@@ -1810,10 +1810,6 @@
       "redirect_url": "/azure/developer/azure-developer-cli/get-started"
     },
     {
-      "source_path": "articles/terraform/azure-terraform-resource-provider/get-started-export-resources-portal.md",
-      "redirect_url": "/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview"
-    },
-    {
       "source_path": "articles/ansible/aks-configure-kubenet-networking.md",
       "redirect_url": "/azure/developer/ansible/aks-configure-cni-networking"
     },
