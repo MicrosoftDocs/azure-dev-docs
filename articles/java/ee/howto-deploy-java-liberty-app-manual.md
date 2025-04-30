@@ -5,14 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 04/30/2024
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli
 ---
 
 # Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
-This article provides step-by-step manual guidance for running Open/WebSphere Liberty on Azure.
+This article provides step-by-step guidance for manually running Open/WebSphere Liberty on Azure.
 
 Specifically, this article explains how to accomplish the following tasks:
 
@@ -61,7 +61,7 @@ If you didn't do so already, use the following steps to sign in to your Azure su
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called `java-liberty-project` by using the [`az group create`](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
+Create a resource group called `java-liberty-project` by using [`az group create`](/cli/azure/group#az-group-create) in the `eastus2` location. This resource group is used later for creating the Azure container registry instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -79,12 +79,12 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ---
 
-## Create a Container Registry instance
+## Create a container registry instance
 
-Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named `<youruniqueacrname>`. Replace this placeholder with a value that is unique across Azure.
+Use [`az acr create`](/cli/azure/acr#az-acr-create) to create the container registry instance. The following example creates a container registry instance named `<youruniqueacrname>`. Replace this placeholder with a value that is unique across Azure.
 
 > [!NOTE]
-> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use a username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using a username and password is less secure than passwordless authentication, however.
+> This article uses the recommended passwordless authentication mechanism for Azure Container Registry. It's still possible to use a username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using a username and password is less secure than passwordless authentication, however.
 
 ### [Bash](#tab/in-bash)
 
@@ -100,12 +100,15 @@ az acr create \
 
 ```azurepowershell
 $Env:REGISTRY_NAME = "youruniqueacrname"
-az acr create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:REGISTRY_NAME --sku Basic
+az acr create \
+    --resource-group $Env:RESOURCE_GROUP_NAME \
+    --name $Env:REGISTRY_NAME \
+    --sku Basic
 ```
 
 ---
 
-After a short time, you should see a JSON output that contains the following lines:
+After a short time, you should see JSON output that contains the following lines:
 
 ```output
 "provisioningState": "Succeeded",
@@ -113,7 +116,7 @@ After a short time, you should see a JSON output that contains the following lin
 "resourceGroup": "java-liberty-project",
 ```
 
-Retrieve the sign-in server name for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
+Retrieve the sign-in server name for the container registry instance. You need this value when you deploy the application image to the AKS cluster later.
 
 ### [Bash](#tab/in-bash)
 
@@ -137,7 +140,7 @@ $Env:LOGIN_SERVER = $(az acr show `
 
 ## Create an AKS cluster
 
-Use the [`az aks create`](/cli/azure/aks#az-aks-create) command to create an AKS cluster, as shown in the following example, which creates an AKS cluster named `myAKSCluster` with one node and attaches the Container Registry instance to it. This command takes several minutes to complete.
+Use [`az aks create`](/cli/azure/aks#az-aks-create) to create an AKS cluster, as shown in the following example, which creates an AKS cluster named `myAKSCluster` with one node and attaches the Container Registry instance to it. This command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -172,17 +175,17 @@ az aks create `
 After the command completes, it returns JSON-formatted information about the cluster, including the following output:
 
 ```output
-  "nodeResourceGroup": "MC_java-liberty-project_myAKSCluster_eastus2",
-  "privateFqdn": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "java-liberty-project",
+"nodeResourceGroup": "MC_java-liberty-project_myAKSCluster_eastus2",
+"privateFqdn": null,
+"provisioningState": "Succeeded",
+"resourceGroup": "java-liberty-project",
 ```
 
 ## Connect to the AKS cluster
 
 Use the following steps to manage your Kubernetes cluster:
 
-1. Install [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client, by using [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
+1. Install [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client, by using [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli), as shown in the following example:
 
     ### [Bash](#tab/in-bash)
 
@@ -307,7 +310,7 @@ Create an Azure SQL Database single database for your app by using the following
         --name $Env:SQL_SERVER_NAME `
         --enable-ad-only-auth `
         --external-admin-principal-type User `
-        --external-admin-name $Env:ENTRA_ADMIN_NAME 
+        --external-admin-name $Env:ENTRA_ADMIN_NAME `
         --external-admin-sid $(az ad signed-in-user show `
         --query id --output tsv)
 
@@ -452,7 +455,7 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 #### [PowerShell](#tab/in-powershell)
 
-1. Find the location of Python that works with Azure CLI by running the following command:
+1. Find the location of Python that works with Azure CLI by using the following command:
 
     ```powershell
     az --version
@@ -464,9 +467,9 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 1. Use the following command to install the `pyodbc` package. Replace `<python-location>` with the Python location you copied in the previous step.
 
-     ```powershell
-     & '<python-location>' -m pip install pyodbc
-     ```
+    ```powershell
+    & '<python-location>' -m pip install pyodbc
+    ```
 
 ---
 
@@ -540,6 +543,9 @@ To authenticate to the Azure SQL Database, use the following steps:
 
 1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string). Take the option to directly create a deployment using the YAML sample code snippet provided.
 
+    > [!NOTE]
+    > The secret created by Service Connector contains the value of `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
+
 1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, as shown in the following example:
 
     ```yaml
@@ -571,10 +577,7 @@ To authenticate to the Azure SQL Database, use the following steps:
 
     These values are used in the next section to deploy the Liberty application to the AKS cluster.
 
-> [!NOTE]
-> The secret created by Service Connector contains the value of `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
-
-## Install Open Liberty Operator
+## Install the Open Liberty Operator
 
 In this section, you install the Open Liberty Operator on the AKS cluster to host the Liberty application.
 
@@ -590,7 +593,7 @@ In this section, you install the Open Liberty Operator on the AKS cluster to hos
 export CERT_MANAGER_VERSION=v1.11.2
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
 
-# Install Open Liberty Operator
+# Install the Open Liberty Operator
 export OPERATOR_VERSION=1.4.2
 mkdir -p overlays/watch-all-namespaces
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -q -P ./overlays/watch-all-namespaces
@@ -615,7 +618,7 @@ rm -rf overlays base
 $Env:CERT_MANAGER_VERSION = "v1.11.2"
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/$Env:CERT_MANAGER_VERSION/cert-manager.yaml
 
-# Install Open Liberty Operator
+# Install the Open Liberty Operator
 $Env:OPERATOR_VERSION = "1.4.2"
 mkdir -p overlays/watch-all-namespaces
 Invoke-WebRequest https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/$Env:OPERATOR_VERSION/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -OutFile ./overlays/watch-all-namespaces/olo-all-namespaces.yaml
@@ -749,7 +752,9 @@ az acr build \
 ```azurepowershell
 cd $Env:BASE_DIR/java-app/target
 
-az acr build --registry $Env:REGISTRY_NAME --image javaee-cafe:v1 .
+az acr build `
+    --registry $Env:REGISTRY_NAME `
+    --image javaee-cafe:v1 .
 ```
 
 ---
@@ -796,7 +801,6 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
     kubectl get openlibertyapplication javaee-cafe-cluster --watch
     ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
      ---
 
     The following output is typical. Use <kbd>Ctrl</kbd>+<kbd>C</kbd> to exit.
@@ -820,7 +824,6 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
     kubectl get deployment javaee-cafe-cluster --watch
     ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it's rendered as a hard rule. -->
     ---
 
     The following output is typical:
