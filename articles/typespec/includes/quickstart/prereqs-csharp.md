@@ -6,11 +6,5 @@ ms.date: 04/23/2025
 * An active Azure account. [Create an account for free](https://azure.microsoft.com/free) if you don't have one.
 * [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 * [Node.js LTS](https://nodejs.org/) installed on your system.
-* [TypeSpec compiler](https://www.npmjs.com/package/@typespec/compiler) installed globally:
-
-  ```bash
-  npm install -g @typespec/compiler
-  ```
-
 * [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
 * [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)

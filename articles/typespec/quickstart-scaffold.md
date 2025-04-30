@@ -2,8 +2,8 @@
 title: Create a new API project using TypeSpec and TypeScript
 description: Learn how to generate and set up a new RESTful API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
-ms.date: 02/12/2025
-ms.custom: devx-track-typespec, devx-track-ts, devx-track-
+ms.date: 04/30/2025
+ms.custom: devx-track-typespec, devx-track-ts, devx-track-dotnet
 zone_pivot_groups: typespec-quickstart-on-azure-languages
 zone_pivot_group_filename: developer/typespec/zone-pivot-groups.json
 #customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
@@ -11,13 +11,13 @@ zone_pivot_group_filename: developer/typespec/zone-pivot-groups.json
 
 # Create a new API project with TypeSpec
 
-This tutorial demonstrates how to use TypeSpec to design and implement a RESTful JavaScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this tutorial, you'll learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
+This tutorial demonstrates how to use TypeSpec to design, generate, and implement a RESTful API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this tutorial, you'll learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
 > * Define your API using TypeSpec
-> * Create a TypeScript API server application
+> * Create an API server application
 > * Integrate Azure Cosmos DB for persistent storage
 > * Run and test your API locally
 > * Deploy to Azure
@@ -26,6 +26,7 @@ In this tutorial, you:
 
 ::: zone pivot="csharp"
 
+[!INCLUDE [dotnet-prereq](includes/quickstart/prereqs-csharp.md)]
 
 ::: zone-end
 
@@ -43,61 +44,138 @@ TypeSpec defines your API in a language-agnostic way and generates the server an
 * Generate consistent server and client code
 * Focus on implementing business logic rather than API infrastructure
 
-**What TypeSpec provides (auto-generated)**:
+**TypeSpec provides API service management**:
 
-* OpenAPI definitions for your API
-* Server-side middleware and routing code
-* Client SDKs for consuming your API
-* Type definitions for requests and responses
+* API definition language
+* Server-side routing middleware for API
+* Client libraries for consuming API
 
-**What you're responsible for:**
+**You provide client requests and server integrations:**
 
-* Implementing service interfaces with business logic
-* Integrating with data stores (like Azure Cosmos DB)
-* Integrating with build and deployment processes
+* Implement business logic in middleware
+* Integrating Azure services such as databases, storage, and messaging
 * Hosting your API (locally or in Azure)
 
-## Application file structure
+## Create a new application
 
-::: zone pivot="csharp"
+Create a new folder to hold the API server and TypeSpec files. 
 
-::: zone-end
-
-::: zone pivot="typescript"
-
-::: zone-end
+```console
+mkdir my_typespec_quickstart
+cd my_typespec_quickstart
+```
 
 ## Install TypeSpec
 
-::: zone pivot="csharp"
+1. Install the [TypeSpec compiler](https://www.npmjs.com/package/@typespec/compiler) globally:
 
-::: zone-end
+    ```bash
+    npm install -g @typespec/compiler
+    ```
 
-::: zone pivot="typescript"
+1. The TypeSpec files are in a separate `tsp` folder to establish separation of concerns.
 
-::: zone-end
-
-## Create a new TypeSpec application
-
-::: zone pivot="csharp"
-
-::: zone-end
-
-::: zone pivot="typescript"
-
-::: zone-end
+    ```
+    mkdir tsp
+    cd tsp
+    ```
 
 ## Configure TypeSpec compilation
 
+1. Create the `main.tsp` TypeSpec file for a simple Widget API. 
 
+    ```typescript
+    import "@typespec/http";
+    
+    using Http;
+    @service(#{ title: "Widget Service" })
+    namespace DemoService;
+    
+    model Widget {
+      @visibility(Lifecycle.Read, Lifecycle.Update)
+      @path
+      id: string;
+    
+      weight: int32;
+      color: "red" | "blue";
+    }
+    
+    @error
+    model Error {
+      code: int32;
+      message: string;
+    }
+    
+    @route("/widgets")
+    @tag("Widgets")
+    interface Widgets {
+      @get list(): Widget[] | Error;
+      @get read(@path id: string): Widget | Error;
+      @post create(...Widget): Widget | Error;
+      @patch update(...Widget): Widget | Error;
+      @delete delete(@path id: string): void | Error;
+    }
+    ```
 
-## Generate a TypeSpec API server
+## Configure and compile the API server generation.
 
 ::: zone pivot="csharp"
 
+1. Create the `tspconfig.yaml` configuration file.
+
+    ```yml
+    emit:
+    - "@typespec/openapi3"
+    - "@typespec/http-server-csharp"
+    options:
+      "@typespec/openapi3":
+        emitter-output-dir: "{project-root}/../server/wwwroot"
+      "@typespec/http-server-csharp":
+        emitter-output-dir: "{project-root}/../server"
+        use-swaggerui: true
+        overwrite: true
+        emit-mocks: "mocks-and-project-files"
+    ```
+
+1. Install the dependencies.
+
+    ```console
+    npm install @typespec/openapi3 @typespec/http-server-csharp
+    ```
+
+1. Generate the `OpenApi.yaml` and API Server.
+    ```console
+    tsp compile . --config ./tspconfig.yaml
+    ```
+    
 ::: zone-end
 
 ::: zone pivot="typescript"
+
+1. Create the `tspconfig.yaml` configuration file.
+
+    ```yml
+    emit:
+    - "@typespec/openapi3"
+    - "@typespec/http-server-js"
+    options:
+      "@typespec/openapi3":
+        emitter-output-dir: "{project-root}/../server/wwwroot"
+      "@typespec/http-server-js":
+        emitter-output-dir: "{project-root}/../server"
+        express: true
+    ```
+
+1. Install the dependencies.
+
+    ```console
+    npm install @typespec/openapi3 @typespec/http-server-js
+    ```
+
+1. Generate the `OpenApi.yaml` and API Server.
+    ```console
+    tsp compile . --config ./tspconfig.yaml
+    ```
 
 ::: zone-end
 
@@ -105,9 +183,36 @@ TypeSpec defines your API in a language-agnostic way and generates the server an
 
 ::: zone pivot="csharp"
 
+Verify the generated server works:
+
+```console
+cd ../server && dotnet build
+```
+
+
 ::: zone-end
 
 ::: zone pivot="typescript"
+
+Verify the generated server works:
+
+```console
+cd ../server && npm run build
+```
+
+::: zone-end
+
+## Application file structure
+
+::: zone pivot="csharp"
+
+[!INCLUDE [ts-file-structure](includes/quickstart/file-structure-csharp.md)]
+
+::: zone-end
+
+::: zone pivot="typescript"
+
+[!INCLUDE [ts-file-structure](includes/quickstart/file-structure-typescript.md)]
 
 ::: zone-end
 
@@ -115,11 +220,35 @@ TypeSpec defines your API in a language-agnostic way and generates the server an
 
 ::: zone pivot="csharp"
 
+1. Run the .NET 9 API server with:
+
+    ```console
+    dotnet run
+    ```
+
+1. When the browser opens, add the Swagger UI route: `/swagger/index.html`.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
 
+1. Run the Express.js server with: 
+
+    ```console
+    npm start
+    ```
+
+1. When the browser opens, add the Swagger UI route: `/swagger`.
+
 ::: zone-end
+
+The SwaggerUI displays and allows you to interact with the API, persisting to an in-memory store.
+
+## Change persistence to Azure Cosmos DB no-sql
+
+
+
+## Create Azure Developer CLI infrastructure 
 
 ## Deploy application to Azure
 
