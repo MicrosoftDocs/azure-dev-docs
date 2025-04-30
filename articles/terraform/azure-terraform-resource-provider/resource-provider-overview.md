@@ -9,9 +9,6 @@ ms.custom: devx-track-terraform
 
 The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows across various Azure workflows. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure.
 
-> [!NOTE]
-> You do not need to register to this resource provider to deploy Azure resources in Terraform.
-
 ## Registration
 
 ### Terraform
@@ -24,7 +21,7 @@ resource "azurerm_resource_provider_registration" "azureterraform" {
 }
 ```
 
-Note that you will need to have your `azurerm` provider configured as well for the run to succeed.
+You will need to have your `azurerm` provider configured as well for the run to succeed.
 
 ### Terminal
 
@@ -62,12 +59,12 @@ Follow the [Go SDK reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-
 
 As the export experience is based on [Azure Export for Terraform `aztfexport`](../azure-export-for-terraform/export-terraform-overview.md), its limitations are nearly identical to the binary. Refer to the [limitations section of the binary documentation](../azure-export-for-terraform/export-terraform-concepts.md).
 
-However, there are also specific resources not supported by the resource provider. These resources are not supported to ensure security from a usage standpoint. Two types of roles are not supported:
+However, there are also specific resources not supported by the resource provider. These resources aren't supported to ensure security from a usage standpoint. Two types of roles aren't supported:
 
-- POST roles. They are mostly used for listing credentials.
+- POST roles. They're mostly used for listing credentials.
 - Data plane roles. These roles are used to access user content.
 
-We are planning to keep these limitations to ensure security for users. If customers wish to export these types of resources, it's recommended to use the `aztfexport` tool instead.
+We're planning to keep these limitations in place to ensure security for users. If customers wish to export these types of resources, it's recommended to use the [`aztfexport`](https://github.com/Azure/aztfexport) tool instead.
 
 ## Next steps
 
