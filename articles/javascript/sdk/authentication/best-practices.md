@@ -37,7 +37,7 @@ const credential = new DefaultAzureCredential();
 
 const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 const blobServiceClient = new BlobServiceClient(
-  "https://stoorageAccountName.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
 ```
@@ -60,8 +60,9 @@ if (process.env.NODE_ENV === 'production') {
 // In development, use a chain of credentials appropriate for local work
 else {
   credential = new ChainedTokenCredential(
-    new EnvironmentCredential(),
-    new AzureCliCredential()
+    new AzureDeveloperCliCredential(),
+    new AzureCliCredential(),
+    new InteractiveBrowserCredential()
   );
 }
 
@@ -70,7 +71,7 @@ const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", cr
 
 // Initialize Blob Storage client
 const blobServiceClient = new BlobServiceClient(
-  "https://stoorageAccountName.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
 ```
@@ -82,7 +83,7 @@ import { DefaultAzureCredential } from "@azure/identity";
 import { SecretClient } from "@azure/keyvault-secrets";
 
 const credential = new DefaultAzureCredential();
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 ```
 
 Modify the preceding code to select a credential based on the environment in which the app is running:
@@ -103,33 +104,20 @@ if (process.env.NODE_ENV === 'production') {
 // In development, use a chain of credentials appropriate for local work
 else {
   credential = new ChainedTokenCredential(
-    new EnvironmentCredential(),
-    new AzureCliCredential()
+    new AzureDeveloperCliCredential(),
+    new AzureCliCredential(),
+    new InteractiveBrowserCredential()
   );
 }
 
 // Initialize Key Vault client
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 
 // Initialize Blob Storage client
 const blobServiceClient = new BlobServiceClient(
-  "https://mystorageaccount.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
-
-// Example: Using both services
-async function getSecretAndUploadBlob() {
-  // Get secret from Key Vault
-  const secret = await secretClient.getSecret("mySecret");
-  
-  // Use Blob Storage
-  const containerClient = blobServiceClient.getContainerClient("mycontainer");
-  const blockBlobClient = containerClient.getBlockBlobClient("myblob.txt");
-  
-  // Use data from secret for blob content (just an example)
-  await blockBlobClient.upload("This is secure content: " + secret.value, 
-                              Buffer.byteLength("This is secure content: " + secret.value));
-}
 ```
 
 ---
@@ -138,7 +126,7 @@ In this example, only `ManagedIdentityCredential` is used in production. The loc
 
 ## Reuse credential instances
 
-Reuse credential instances when possible to improve app resilience and reduce the number of access token requests issued to Microsoft Entra ID. When a credential is reused, an attempt is made to fetch a token from the app token cache managed by the underlying MSAL dependency.
+Reuse credential instances when possible to improve app resilience and reduce the number of access token requests issued to Microsoft Entra ID. When a credential is reused, an attempt is made to fetch a token from the app token cache managed by the underlying MSAL dependency. For more information, see [Token caching in the Azure Identity client library](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/TOKEN_CACHING.md).
 
 > [!IMPORTANT]
 > A high-volume app that doesn't reuse credentials may encounter HTTP 429 throttling responses from Microsoft Entra ID, which can lead to app outages.
@@ -160,9 +148,9 @@ const credential = process.env.NODE_ENV === 'production'
   : new DefaultAzureCredential();
 
 // Reuse the credential across different client objects
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 const blobServiceClient = new BlobServiceClient(
-  "https://mystorageaccount.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
 ```
@@ -184,7 +172,7 @@ app.locals.credential = process.env.NODE_ENV === 'production'
 // Reuse the credential in route handlers
 app.get('/api/secrets/:secretName', async (req, res) => {
   const secretClient = new SecretClient(
-    "https://myvault.vault.azure.net", 
+    "https://keyVaultName.vault.azure.net", 
     req.app.locals.credential
   );
   
@@ -218,9 +206,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Reuse the credential across different client objects
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 const blobServiceClient = new BlobServiceClient(
-  "https://mystorageaccount.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
 ```
@@ -259,7 +247,7 @@ export default async function handler(
   const { name } = req.query;
   
   const secretClient = new SecretClient(
-    "https://myvault.vault.azure.net", 
+    "https://keyVaultName.vault.azure.net", 
     getAzureCredential()
   );
   
@@ -293,9 +281,9 @@ import { BlobServiceClient } from "@azure/storage-blob";
 const credential = new DefaultAzureCredential();
 
 // When used with Azure SDK clients, token management is handled for you
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 const blobServiceClient = new BlobServiceClient(
-  "https://mystorageaccount.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
 
@@ -347,9 +335,9 @@ import { BlobServiceClient } from "@azure/storage-blob";
 const credential = new DefaultAzureCredential();
 
 // When used with Azure SDK clients, token management is handled for you
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 const blobServiceClient = new BlobServiceClient(
-  "https://mystorageaccount.blob.core.windows.net",
+  "https://storageAccountName.blob.core.windows.net",
   credential
 );
 
