@@ -1,7 +1,7 @@
 ---
-title: Authentication best practices with the Azure Identity library for JavaScript
+title: Authentication Best Practices With The Azure Identity Library For JavaScript
 description: This article describes authentication best practices to follow when using the Azure Identity library for JavaScript.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/01/2025
 ---
 
@@ -27,8 +27,8 @@ To prevent these types of subtle issues or silent failures in production apps, r
 For example, consider the following `DefaultAzureCredential` configuration in an Express.js project:
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+import { DefaultAzureCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
 
 const credential = new DefaultAzureCredential();
 const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
@@ -37,9 +37,9 @@ const secretClient = new SecretClient("https://myvault.vault.azure.net", credent
 Modify the preceding code to select a credential based on the environment in which the app is running:
 
 ```javascript
-const { DefaultAzureCredential, ManagedIdentityCredential, ChainedTokenCredential, 
-        EnvironmentCredential, AzureCliCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+import { DefaultAzureCredential, ManagedIdentityCredential, ChainedTokenCredential, 
+         EnvironmentCredential, AzureCliCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
 
 let credential;
 
@@ -75,9 +75,9 @@ The recommended credential reuse strategy differs by application framework.
 To implement credential reuse in JavaScript applications, create a single credential instance and reuse it across all client objects:
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { DefaultAzureCredential, ManagedIdentityCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 // Create a single credential instance
 const credential = process.env.NODE_ENV === 'production'
@@ -95,9 +95,9 @@ const blobServiceClient = new BlobServiceClient(
 In Express.js applications, you can store the credential in app settings and access it in your route handlers:
 
 ```javascript
-const express = require("express");
-const { DefaultAzureCredential, ManagedIdentityCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
+import express from "express";
+import { DefaultAzureCredential, ManagedIdentityCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
 
 const app = express();
 
@@ -248,7 +248,7 @@ The Azure Identity library for JavaScript allows you to authenticate via managed
 # [JavaScript](#tab/javascript)
 
 ```javascript
-const { ManagedIdentityCredential } = require("@azure/identity");
+import { ManagedIdentityCredential } from "@azure/identity";
 
 const credential = new ManagedIdentityCredential(
   process.env.AZURE_CLIENT_ID, // For user-assigned managed identity
