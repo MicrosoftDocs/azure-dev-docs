@@ -159,6 +159,9 @@ conceptualContent:
             text: Authenticate to Azure
             url: ./sdk/authentication/overview.md
           - itemType: concept
+            text: Authentication best practices
+            url: ./sdk/authentication/best-practices.md
+          - itemType: concept
             text: Test SDK integrations
             url: ./sdk/test-sdk-integration.md
           - itemType: concept
