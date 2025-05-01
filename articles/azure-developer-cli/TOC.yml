@@ -59,10 +59,6 @@
             href: configure-devops-pipeline.md
       - name: Monitoring and logging
         items:
-        - name: Troubleshoot
-          href: troubleshoot.md
-        - name: Troubleshoot PowerShell errors
-          href: powershell-guidance.md
         - name: Monitor your project
           href: monitor-your-app.md
       - name: Deployment configuration
@@ -109,6 +105,12 @@
       href: configure-template-sources.md
     - name: Use azd in sovereign clouds
       href: sovereign-clouds.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot
+      href: troubleshoot.md
+    - name: Troubleshoot PowerShell errors
+      href: powershell-guidance.md
   - name: Reference and resources
     items:
     - name: Frequently asked questions (FAQ)
