@@ -3,14 +3,14 @@
   items:
   - name: Azure Developer CLI overview
     href: index.yml
-  - name: What is Azure Developer CLI?
+  - name: What is the Azure Developer CLI?
     href: overview.md
   - name: Get started
     items:
     - name: Install or update azd
       href: install-azd.md
     - name: Quickstarts
-      -items: 
+      items: 
       - name: Quickstart - Deploy an azd template
         href: get-started.md
       - name: Quickstart - Explore and customize a template
@@ -53,8 +53,6 @@
         href: /training/paths/azure-developer-cli
   - name: Deployment and operations
     items:
-      - name: Switch to Terraform as IaC provider
-        href: use-terraform-for-azd.md
       - name: CI/CD
         items:
           - name: Configure deployment pipeline
@@ -91,6 +89,8 @@
           href: manage-environment-variables.md
         - name: Environment variables FAQ
           href: environment-variables-faq.md
+      - name: Use Terraform for infrastructure as code
+        href: use-terraform-for-azd.md
       - name: .NET Aspire support
         items:
         - name: .NET Aspire integration and deployment
@@ -115,7 +115,7 @@
       href: faq.yml
     - name: azure.yaml schema
       href: azd-schema.md
-    - name: Azure Developer CLI commands
+    - name: Commands reference
       href: reference.md
     - name: Blog posts and news
       items:
