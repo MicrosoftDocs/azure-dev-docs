@@ -9,7 +9,7 @@ author: stema
 ms.author: stema
 ---
 
-# Quickstart: Export a virtual machine in the Azure portal
+# Quickstart: Export a virtual machine into Terraform with the Azure portal
 
 **Applies to:** :heavy_check_mark: Any management plane resources from the [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) or [AzAPI](/azure/templates/) provider.
 
@@ -21,21 +21,21 @@ Existing Azure resources can be exported to Terraform through the Azure portal. 
 > * Export the state for the resource group and virtual machine from Azure to Terraform.
 > * Test that the local state matches the state of the resources in Azure.
 
+:::image type="content" source="./media/terraform-export-portal.png" alt-text="Screenshot of exporting Terraform resources within Azure Portal.":::
+
 ## Prerequisites
 
 - [Set up an Azure account](https://azure.microsoft.com/)
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
-## Sign in to Azure
+### Setup Virtual Machine
 
-Sign in to the [Azure portal with the experimental Terraform feature flag enabled](https://ms.portal.azure.com/?exp.terraformEnabled=true#home).
+#### Azure CLI or Azure PowerShell
 
-## Setup Virtual Machine
-
-### Azure CLI or Azure PowerShell
 [!INCLUDE [Create sample virtual machine](../includes/create-vm.md)]
 
-### Azure portal
+#### Azure portal
+
 1. Under **Azure Services**, select **Virtual machines**. If you don't see **Virtual machines**, search for it in the search bar.
 1. In the **Virtual machines** page, select **Create**, to see a dropdown. Select **Azure virtual machine**.
 1. Under **Virtual Machine Name**, type in **myVM**.
@@ -43,35 +43,41 @@ Sign in to the [Azure portal with the experimental Terraform feature flag enable
 1. Leave everything else as default. Select **Review + create**.
 1. Verify everything is configured properly, then select **Create**.
 
-## Register resource provider
+### Register resource provider
 
-### Azure CLI or Azure PowerShell
-1. Run the command `az provider register -n Microsoft.AzureTerraform`
-1. Register the feature flag: `az feature register --namespace Microsoft.AzureTerraform -n private`. This is a private preview feature thus you need to wait for manual approval from Microsoft internal team to use the feature. Check the status of your feature registration by running `az feature show --namespace Microsoft.AzureTerraform --name private`.
+If your subscription has not registered to the `Microsoft.AzureTerraform` resource provider, refer to the [registration instructions](./resource-provider-overview#registration).
+
+### Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Export resource group
 
 Export the existing resource group to Terraform.
 
 1. On the overview page for your resource group, expand the **Automation** tab, and select **Export Template**.
+:::image type="content" source="./media/terraform-export-blade.png" alt-text="Screenshot of where to find Export Terraform blade within Azure Portal.":::
 
 2. In the **Export Template** page, select Terraform.
 
 3. Select either the `AzureRM` or `AzAPI` provider. Code can also be generated for both providers at once for side by side comparison.
 
 4. Review the generated code.
+:::image type="content" source="./media/terraform-export-output.png" alt-text="Screenshot of Export Terraform output within Azure Portal.":::
 
-5. Use the copy template button to paste directly into your code editor. Alternatively, use the download button to get a ZIP folder with the terraform configuration file.
+5. Use the **copy template** button in the bottom right or **copy content** button on the top to paste directly into your code editor. Alternatively, use the download button to get a ZIP folder with the terraform configuration file. If the output isn't what you expected, check that you've registered the resource provider. If you're still seeing errors, please click the **Feedback** button to notify us of the bug.
 
 ## Clean up resources
 
 ### Delete resources
+
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 1. At the top of the page for the resource group, select **Delete resource group**. 
 1. A page opens warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 ### Auto-shutdown
+
 If the virtual machine is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you're not billed for unused resources.
 
 1. On the **Operations** section for the virtual machine, select the **Auto shutdown** option.
