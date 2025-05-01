@@ -45,7 +45,7 @@ Existing Azure resources can be exported to Terraform through the Azure portal. 
 
 ### Register resource provider
 
-If your subscription has not registered to the `Microsoft.AzureTerraform` resource provider, refer to the [registration instructions](/azure-terraform-resource-provider/resource-provider-overview.md#registration).
+If your subscription has not registered to the `Microsoft.AzureTerraform` resource provider, refer to the [registration instructions](./resource-provider-overview.md#registration).
 
 ### Sign in to Azure
 
