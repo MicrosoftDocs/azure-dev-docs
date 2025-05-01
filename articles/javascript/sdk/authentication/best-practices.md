@@ -132,6 +132,8 @@ In this example, only `ManagedIdentityCredential` is used in production. The loc
 
 Reuse credential instances when possible to improve app resilience and reduce the number of access token requests issued to Microsoft Entra ID. When a credential is reused, an attempt is made to fetch a token from the app token cache managed by the underlying MSAL dependency. For more information, see [Token caching in the Azure Identity client library](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/TOKEN_CACHING.md).
 
+Token caching behavior differs between browser and Node.js environments. In Node.js applications, tokens are cached in memory by default, which means the cache is lost when the application restarts. In browser applications, tokens can be persisted in browser storage (localStorage or sessionStorage) depending on the authentication flow and configuration. Understanding these differences is important when implementing credential reuse strategies for different application types.
+
 > [!IMPORTANT]
 > A high-volume app that doesn't reuse credentials may encounter HTTP 429 throttling responses from Microsoft Entra ID, which can lead to app outages.
 
@@ -224,7 +226,7 @@ app.listen(3000, () => console.log('Server running on port 3000'));
 
 To implement credential reuse in TypeScript applications, create a single credential instance and reuse it across all client objects:
 
-```javascript
+```typescript
 import { DefaultAzureCredential, ManagedIdentityCredential } from "@azure/identity";
 import { SecretClient } from "@azure/keyvault-secrets";
 import { BlobServiceClient } from "@azure/storage-blob";
