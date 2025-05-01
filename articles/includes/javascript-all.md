@@ -424,7 +424,7 @@
 | TypeSpec HTTP Client Java | npm [0.3.2](https://www.npmjs.com/package/@typespec/http-client-java/v/0.3.2) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.4.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.4.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.12.0-dev.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.0-dev.2) |  |  |
-| TypeSpec HTTP Specs | npm [0.1.0-alpha.20](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.20) |  |  |
+| TypeSpec HTTP Specs | npm [0.1.0-alpha.21](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.21) |  |  |
 | TypeSpec Rust | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.13.3) |  |  |
 | TypeSpec SSE | npm [0.69.0](https://www.npmjs.com/package/@typespec/sse/v/0.69.0) |  |  |
 | TypeSpec Streams | npm [0.69.0](https://www.npmjs.com/package/@typespec/streams/v/0.69.0) |  |  |
@@ -511,7 +511,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250426.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250426.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250430.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250430.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
