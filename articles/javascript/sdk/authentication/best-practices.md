@@ -83,6 +83,7 @@ import { SecretClient } from "@azure/keyvault-secrets";
 import { BlobServiceClient } from "@azure/storage-blob";
 
 const credential = new DefaultAzureCredential();
+
 const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
 const blobServiceClient = new BlobServiceClient(
   "https://storageAccountName.blob.core.windows.net",
@@ -221,6 +222,25 @@ app.listen(3000, () => console.log('Server running on port 3000'));
 
 #### [TypeScript](#tab/typescript)
 
+To implement credential reuse in TypeScript applications, create a single credential instance and reuse it across all client objects:
+
+```javascript
+import { DefaultAzureCredential, ManagedIdentityCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
+
+// Create a single credential instance
+const credential = process.env.NODE_ENV === 'production'
+  ? new ManagedIdentityCredential(process.env.AZURE_CLIENT_ID as string)
+  : new DefaultAzureCredential();
+
+// Reuse the credential across different client objects
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
+const blobServiceClient = new BlobServiceClient(
+  "https://storageAccountName.blob.core.windows.net",
+  credential
+);
+```
 
 In Express.js applications, you can store the credential in app settings and access it in your route handlers:
 
@@ -323,19 +343,16 @@ const credential = new ManagedIdentityCredential(
 
 ```typescript
 import { ManagedIdentityCredential } from "@azure/identity";
-import type { ManagedIdentityCredentialOptions } from "@azure/identity";
-
-const options: ManagedIdentityCredentialOptions = {
-  retryOptions: {
-    maxRetries: 3,           // Maximum number of retry attempts
-    retryDelayInMs: 500,     // Initial delay between retries (in milliseconds)
-    maxRetryDelayInMs: 5000  // Maximum delay between retries
-  }
-};
 
 const credential = new ManagedIdentityCredential(
   process.env.AZURE_CLIENT_ID as string, // For user-assigned managed identity
-  options
+  {
+    retryOptions: {
+      maxRetries: 3,           // Maximum number of retry attempts
+      retryDelayInMs: 500,     // Initial delay between retries (in milliseconds)
+      maxRetryDelayInMs: 5000  // Maximum delay between retries
+    }
+  }
 );
 ```
 
