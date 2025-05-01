@@ -85,6 +85,12 @@ The processor client often continually runs in a host application for days on en
 
 The `EventProcessorClient` and Event Hubs service guarantees an *at-least-once* delivery. You can add metadata to discern duplicate events. For more information, see [Does Azure Event Hubs guarantee an at-least once delivery?](https://stackoverflow.com/questions/33220685/does-azure-event-hub-guarantees-at-least-once-delivery/33577018#33577018) on Stack Overflow. If you require *only-once* delivery, you should consider Service Bus, which waits for an acknowledgment from the client. For a comparison of the messaging services, see [Choosing between Azure messaging services](/azure/event-grid/compare-messaging-services).
 
+## Low level Consumer client stops receiving
+
+The`EventHubConsumerAsyncClient` is a low-level consumer client provided by the Event Hubs library, designed for advanced users who require greater control and flexibility over their Reactive applications. This client offers a low-level interface, allowing users to manage backpressure, threading, and recovery within the Reactor chain. Unlike the `EventProcessorClient`, the `EventHubConsumerAsyncClient` does not include automatic recovery mechanisms for all terminal causes. Therefore, users must handle terminal events and select appropriate Reactor operators to implement recovery strategies.
+
+The `EventHubConsumerAsyncClient::receiveFromPartition` method emits a terminal error when the connection encounters a non-retriable error or when a series of connection recovery attempts fail consecutively, exhausting the maximum retry limit. While the low-level receiver attempts to recover from transient errors, users of the consumer client are expected to handle terminal events. If continuous event reception is desired, the application should adjust the Reactor chain to create a new consumer client on terminal event.
+
 ## Migrate from legacy to new client library
 
 The [migration guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) includes steps on migrating from the legacy client and migrating legacy checkpoints.
