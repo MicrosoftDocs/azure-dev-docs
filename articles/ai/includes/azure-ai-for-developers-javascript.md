@@ -29,7 +29,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
-|[LangChain.js with Azure OpenAI and Azure AI Search](https://github.com/Azure-Samples/azure-typescript-langchainjs)|Use LangChain.js to build a LangChain.js agent that enables the NorthWind company employees to ask human resources–related questions.|
+|[LangChain.js with Azure OpenAI and Azure AI Search](https://github.com/Azure-Samples/azure-typescript-langchainjs)|Build an intelligent RAG agent with LangChain.js that evaluates whether questions can be answered using unstructured data in Azure AI Search, and delivers contextually relevant responses from that knowledge base when possible.|
 |[More samples](https://aka.ms/oai/js/samples)|OpenAI samples covering a range of scenarios.|
 
 ### Documentation
@@ -43,7 +43,6 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
 |[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio)|How to programmatically ask the model to describe the contents of an image.|
 |[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-javascript)|Programmatically generate images using Dall-E based on a prompt.|
-|[Tutorial: Build a LangChain.js agent](/azure/developer/javascript/ai/langchain-agent-on-azure)|Use LangChain.js to build a LangChain.js agent that enables the NorthWind company employees to ask human resources–related questions.|
 
 ## Resources for other Azure AI services
 
