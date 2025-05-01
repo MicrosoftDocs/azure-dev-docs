@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 
 # Overview of the Azure Terraform Resource Provider
 
-The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows like exporting in the Auzre Portal. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure.
+The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows like exporting in the Azure portal. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure.
 
 ## Registration
 
@@ -23,7 +23,7 @@ resource "azurerm_resource_provider_registration" "azureterraform" {
 }
 ```
 
-You will need to have your `azurerm` provider configured as well for the run to succeed.
+You need to have your `azurerm` provider configured as well for the run to succeed.
 
 ### Terminal
 
@@ -66,7 +66,7 @@ However, there are also specific resources not supported by the resource provide
 - POST roles. They're mostly used for listing credentials.
 - Data plane roles. These roles are used to access user content.
 
-We're planning to keep these limitations in place to ensure security for users. If customers wish to export these types of resources, it's recommended to use the [`aztfexport`](https://github.com/Azure/aztfexport) tool instead.
+We're planning to keep these limitations in place to ensure security for users. If customers wish to export these types of resources, use the [`aztfexport`](https://github.com/Azure/aztfexport) tool instead.
 
 ## Next steps
 

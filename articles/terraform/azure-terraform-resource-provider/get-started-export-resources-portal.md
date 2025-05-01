@@ -21,7 +21,7 @@ Existing Azure resources can be exported to Terraform through the Azure portal. 
 > * Export the state for the resource group and virtual machine from Azure to Terraform.
 > * Test that the local state matches the state of the resources in Azure.
 
-:::image type="content" source="./media/terraform-export-portal.png" alt-text="Screenshot of exporting Terraform resources within Azure Portal.":::
+:::image type="content" source="./media/terraform-export-portal.png" alt-text="Screenshot of exporting Terraform resources within Azure portal.":::
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Existing Azure resources can be exported to Terraform through the Azure portal. 
 
 ### Register resource provider
 
-If your subscription has not registered to the `Microsoft.AzureTerraform` resource provider, refer to the [registration instructions](./resource-provider-overview.md#registration).
+If your subscription isn't registered to the `Microsoft.AzureTerraform` resource provider, refer to the [registration instructions](./resource-provider-overview.md#registration).
 
 ### Sign in to Azure
 
@@ -56,16 +56,16 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 Export the existing resource group to Terraform.
 
 1. On the overview page for your resource group, expand the **Automation** tab, and select **Export Template**.
-:::image type="content" source="./media/terraform-export-blade.png" alt-text="Screenshot of where to find Export Terraform blade within Azure Portal.":::
+:::image type="content" source="./media/terraform-export-blade.png" alt-text="Screenshot of where to find Export Terraform blade within Azure portal.":::
 
 2. In the **Export Template** page, select Terraform.
 
 3. Select either the `AzureRM` or `AzAPI` provider. Code can also be generated for both providers at once for side by side comparison.
 
 4. Review the generated code.
-:::image type="content" source="./media/terraform-export-output.png" alt-text="Screenshot of Export Terraform output within Azure Portal.":::
+:::image type="content" source="./media/terraform-export-output.png" alt-text="Screenshot of Export Terraform output within Azure portal.":::
 
-5. Use the **copy template** button in the bottom right or **copy content** button on the top to paste directly into your code editor. Alternatively, use the download button to get a ZIP folder with the terraform configuration file. If the output isn't what you expected, check that you've registered the resource provider. If you're still seeing errors, please click the **Feedback** button to notify us of the bug.
+5. Use the **copy template** button in the bottom right or **copy content** button on the top to paste directly into your code editor. Alternatively, use the download button to get a ZIP folder with the terraform configuration file. If the output isn't what you expected, check that you registered the resource provider. If you're still seeing errors, click the **Feedback** button to notify us of the bug.
 
 ## Clean up resources
 
