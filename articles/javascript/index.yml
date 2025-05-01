@@ -82,6 +82,9 @@ conceptualContent:
           - itemType: quickstart
             text: "Scale with Azure API Management"
             url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
+          - itemType: tutorial
+            text: Build a LangChain.js agent with Azure AI Search
+            url: ai/langchain-agent-on-azure.md
       - title: Add storage & data
         links:
           - itemType: concept

@@ -30,6 +30,9 @@
       href: ai/get-started-app-chat-scaling-with-azure-container-apps.md
     - name: Scale Azure OpenAI with Azure API Management
       href: ai/get-started-app-chat-scaling-with-azure-api-management.md
+    - name: Build a LangChain.js agent with Azure AI Search
+      href: ai/langchain-agent-on-azure.md
+      display: Azure OpenAI, OpenAI, AI, LangChain.js, Azure AI Search
   - name: Developer environment
     items:
     - name: Development environment
