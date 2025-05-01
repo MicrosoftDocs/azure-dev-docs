@@ -18,7 +18,7 @@ For example, consider the following hypothetical sequence of events:
 1. An organization's security team mandates all apps use managed identity to authenticate to Azure resources.
 1. For months, a JavaScript app hosted on an Azure Virtual Machine (VM) successfully uses `DefaultAzureCredential` to authenticate via managed identity.
 1. Without telling the support team, a developer installs the Azure CLI on that VM and runs the `az login` command to authenticate to Azure.
-1. Due to a separate configuration change in the Azure environment, authentication via the original managed identity unexpectedly begins to fail silently.
+1. Due to this new separate configuration change in the Azure environment, authentication via the original managed identity unexpectedly begins to fail silently.
 1. `DefaultAzureCredential` skips the failed `ManagedIdentityCredential` and searches for the next available credential, which is `AzureCliCredential`.
 1. The application starts utilizing the Azure CLI credentials rather than the managed identity, which may fail or result in unexpected elevation or reduction of privileges.
 
@@ -26,12 +26,20 @@ To prevent these types of subtle issues or silent failures in production apps, r
 
 For example, consider the following `DefaultAzureCredential` configuration in an Express.js project:
 
+#### [JavaScript](#tab/javascript)
+
 ```javascript
 import { DefaultAzureCredential } from "@azure/identity";
 import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 const credential = new DefaultAzureCredential();
-const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
+const blobServiceClient = new BlobServiceClient(
+  "https://stoorageAccountName.blob.core.windows.net",
+  credential
+);
 ```
 
 Modify the preceding code to select a credential based on the environment in which the app is running:
@@ -40,6 +48,7 @@ Modify the preceding code to select a credential based on the environment in whi
 import { DefaultAzureCredential, ManagedIdentityCredential, ChainedTokenCredential, 
          EnvironmentCredential, AzureCliCredential } from "@azure/identity";
 import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 let credential;
 
@@ -56,8 +65,74 @@ else {
   );
 }
 
+// Initialize Key Vault client
+const secretClient = new SecretClient("https://keyVaultName.vault.azure.net", credential);
+
+// Initialize Blob Storage client
+const blobServiceClient = new BlobServiceClient(
+  "https://stoorageAccountName.blob.core.windows.net",
+  credential
+);
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { DefaultAzureCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+
+const credential = new DefaultAzureCredential();
 const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
 ```
+
+Modify the preceding code to select a credential based on the environment in which the app is running:
+
+```typescript
+import { DefaultAzureCredential, ManagedIdentityCredential, ChainedTokenCredential, 
+         EnvironmentCredential, AzureCliCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
+
+let credential;
+
+// In production, use only ManagedIdentityCredential
+if (process.env.NODE_ENV === 'production') {
+  // For user-assigned managed identity, provide the client ID
+  credential = new ManagedIdentityCredential(process.env.AZURE_CLIENT_ID);
+}
+// In development, use a chain of credentials appropriate for local work
+else {
+  credential = new ChainedTokenCredential(
+    new EnvironmentCredential(),
+    new AzureCliCredential()
+  );
+}
+
+// Initialize Key Vault client
+const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+
+// Initialize Blob Storage client
+const blobServiceClient = new BlobServiceClient(
+  "https://mystorageaccount.blob.core.windows.net",
+  credential
+);
+
+// Example: Using both services
+async function getSecretAndUploadBlob() {
+  // Get secret from Key Vault
+  const secret = await secretClient.getSecret("mySecret");
+  
+  // Use Blob Storage
+  const containerClient = blobServiceClient.getContainerClient("mycontainer");
+  const blockBlobClient = containerClient.getBlockBlobClient("myblob.txt");
+  
+  // Use data from secret for blob content (just an example)
+  await blockBlobClient.upload("This is secure content: " + secret.value, 
+                              Buffer.byteLength("This is secure content: " + secret.value));
+}
+```
+
+---
 
 In this example, only `ManagedIdentityCredential` is used in production. The local development environment's authentication needs are then serviced by the sequence of credentials defined in the `else` clause.
 
@@ -70,7 +145,7 @@ Reuse credential instances when possible to improve app resilience and reduce th
 
 The recommended credential reuse strategy differs by application framework.
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 To implement credential reuse in JavaScript applications, create a single credential instance and reuse it across all client objects:
 
@@ -124,7 +199,7 @@ app.get('/api/secrets/:secretName', async (req, res) => {
 app.listen(3000, () => console.log('Server running on port 3000'));
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 For TypeScript applications, implementing credential reuse follows similar patterns with the benefit of type safety:
 
@@ -207,14 +282,76 @@ The Azure Identity library for JavaScript uses an in-memory token cache by defau
 
 When using Azure SDK clients, token acquisition, renewal, and caching are handled for you. However, if you're manually requesting tokens using the `getToken` method, you should implement caching logic to avoid excessive token requests.
 
-```typescript
+#### [JavaScript](#tab/javascript)
+
+```javascript
 import { DefaultAzureCredential } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 // Token cache is used automatically behind the scenes
 const credential = new DefaultAzureCredential();
 
-// When used with an Azure SDK client, token management is handled for you
-const secretClient = new SecretClient(vaultUrl, credential);
+// When used with Azure SDK clients, token management is handled for you
+const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const blobServiceClient = new BlobServiceClient(
+  "https://mystorageaccount.blob.core.windows.net",
+  credential
+);
+
+// When requesting tokens manually, implement your own caching logic
+let cachedToken = null;
+let tokenExpiresOnTimestamp = null;
+
+async function getAuthToken() {
+  const currentTimestamp = Date.now();
+  
+  // Check if we have a valid cached token
+  if (cachedToken && tokenExpiresOnTimestamp && currentTimestamp < tokenExpiresOnTimestamp) {
+    return cachedToken.token;
+  }
+  
+  // If not, request a new token
+  cachedToken = await credential.getToken("https://management.azure.com/.default");
+  // Set expiration time with a 5-minute buffer for safety
+  tokenExpiresOnTimestamp = new Date(cachedToken.expiresOnTimestamp).getTime() - (5 * 60 * 1000);
+  
+  return cachedToken.token;
+}
+
+// Example using both Key Vault and Blob Storage with manually acquired token
+async function manualTokenExample() {
+  const token = await getAuthToken();
+  
+  // Use token directly in fetch or other HTTP requests
+  const response = await fetch('https://management.azure.com/subscriptions?api-version=2020-01-01', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+  
+  // Process response
+  const data = await response.json();
+  console.log('Subscription data:', data);
+}
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { DefaultAzureCredential, AccessToken } from "@azure/identity";
+import { SecretClient } from "@azure/keyvault-secrets";
+import { BlobServiceClient } from "@azure/storage-blob";
+
+// Token cache is used automatically behind the scenes
+const credential = new DefaultAzureCredential();
+
+// When used with Azure SDK clients, token management is handled for you
+const secretClient = new SecretClient("https://myvault.vault.azure.net", credential);
+const blobServiceClient = new BlobServiceClient(
+  "https://mystorageaccount.blob.core.windows.net",
+  credential
+);
 
 // When requesting tokens manually, implement your own caching logic
 let cachedToken: AccessToken | null = null;
@@ -235,6 +372,22 @@ async function getAuthToken(): Promise<string> {
   
   return cachedToken.token;
 }
+
+// Example using both Key Vault and Blob Storage with manually acquired token
+async function manualTokenExample(): Promise<void> {
+  const token = await getAuthToken();
+  
+  // Use token directly in fetch or other HTTP requests
+  const response = await fetch('https://management.azure.com/subscriptions?api-version=2020-01-01', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+  
+  // Process response
+  const data = await response.json();
+  console.log('Subscription data:', data);
+}
 ```
 
 ## Understand the managed identity retry strategy
@@ -245,7 +398,7 @@ The Azure Identity library for JavaScript allows you to authenticate via managed
 - When used directly with `ManagedIdentityCredential` or as part of a `ChainedTokenCredential`, the credential will use the default retry policy, which is more resilient but may introduce delays during development.
 - You can customize the retry behavior by providing options when creating the credential:
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 import { ManagedIdentityCredential } from "@azure/identity";
@@ -262,7 +415,7 @@ const credential = new ManagedIdentityCredential(
 );
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 import { ManagedIdentityCredential, ManagedIdentityCredentialOptions } from "@azure/identity";
