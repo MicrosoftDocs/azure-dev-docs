@@ -245,7 +245,7 @@ The retry policy is special in that it can repeat the entire sequence of policie
 If you're experiencing issues with retries:
 
 1. **Enable Informational Logging**
-   - Set the log level to `Informational` to see retry attempts
+   - Set the `AZURE_LOG_LEVEL` environment variable to `Informational` to see retry attempts
 
 2. **Check for Transport Errors**
    - Network issues often manifest as transport exceptions

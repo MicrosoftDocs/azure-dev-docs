@@ -65,26 +65,35 @@ When an app runs on a developer's workstation during local development, it still
 
 ## Use DefaultAzureCredential in an application
 
-[DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
+[DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the [TokenCredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_credentials_1_1_token_credential.html) protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
 
-To use `DefaultAzureCredential` in a Python app, add the [azure-identity](https://pypi.org/project/azure-identity/) package to your application.
+To use `DefaultAzureCredential` in a C++ app, add the [azure-identity](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
-```terminal
-pip install azure-identity
+```bash
+vcpkg add port azure-identity-cpp
 ```
 
-Azure services are accessed using specialized client classes from the various Azure SDK client libraries. The following code example shows how to instantiate a `DefaultAzureCredential` object and use it with an Azure SDK client class. In this case, it's a `BlobServiceClient` object used to access Azure Blob Storage.
+Then, add the following in your CMake file:
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient
+```cmake
+find_package(azure-identity-cpp CONFIG REQUIRED)
+target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
+```
 
-# Acquire a credential object
-credential = DefaultAzureCredential()
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. The following code example shows how to instantiate a `DefaultAzureCredential` object and use it with an Azure SDK client class. In this case, it's a `SecretClient` object used to access Azure KeyVault Secrets.
 
-blob_service_client = BlobServiceClient(
-        account_url="https://<my_account_name>.blob.core.windows.net",
-        credential=credential)
+```cpp
+#include <azure/identity.hpp>
+#include <azure/keyvault/secrets.hpp>
+
+int main(){
+  
+  auto const keyVaultUrl = std::getenv("AZURE_KEYVAULT_URL");
+  auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+
+  
+  Azure::Security::KeyVault::Secrets::SecretClient secretClient(keyVaultUrl, credential);
+}
 ```
 
 When the preceding code runs on your local development workstation, it looks in the environment variables for an application service principal or at locally installed developer tools, such as the Azure CLI, for a set of developer credentials. Either approach can be used to authenticate the app to Azure resources during local development.
@@ -93,4 +102,4 @@ When deployed to Azure, this same code can also authenticate your app to Azure r
 
 ## Related content
 
-- [Azure Identity client library for Python README on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/README.md)
+- [Azure Identity client library for C++ README on GitHub](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
