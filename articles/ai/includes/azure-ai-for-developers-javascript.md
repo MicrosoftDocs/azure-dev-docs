@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 04/28/2025
+ms.date: 05/01/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -29,6 +29,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
+|[LangChain.js with Azure OpenAI and Azure AI Search](https://github.com/Azure-Samples/azure-typescript-langchainjs)|Build an intelligent RAG agent with LangChain.js that evaluates whether questions can be answered using unstructured data in Azure AI Search, and delivers contextually relevant responses from that knowledge base when possible.|
 |[More samples](https://aka.ms/oai/js/samples)|OpenAI samples covering a range of scenarios.|
 
 ### Documentation
@@ -56,6 +57,7 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |[Extract, classify, and understand text within documents using Text Analytics in JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true)|The client Library for Text Analytics. This is part of the [Azure AI Language](/azure/ai-services/language-service) service, which provides Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Document Translation in JavaScript](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-javascript)|A quickstart article that uses Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Analyze images](/azure/ai-services/computer-vision/sdk/overview-sdk)|Sample code and setup documents for the Microsoft Azure AI Image Analysis SDK.|
+
 
 ### Documentation
 
