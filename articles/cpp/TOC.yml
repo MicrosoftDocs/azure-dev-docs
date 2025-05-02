@@ -15,11 +15,11 @@ items:
             href: sdk/fundamentals/overview.md
           - name: Errors
             href: sdk/fundamentals/errors.md
-          - name: HTTP Pipelines & Retries
+          - name: HTTP pipelines & retries
             href: sdk/fundamentals/http-pipelines-and-retries.md
-          - name: Common Types
+          - name: Common types
             href: sdk/fundamentals/common-types.md
-          - name: Language Design Guidelines
+          - name: Language design guidelines
             href: https://azure.github.io/azure-sdk/cpp_introduction.html
       - name: Authentication
         items: 
