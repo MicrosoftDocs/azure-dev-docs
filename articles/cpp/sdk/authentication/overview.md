@@ -20,7 +20,7 @@ Use token-based authentication rather than connection strings for your apps when
 
 The specific type of token-based authentication an app uses to authenticate to Azure resources depends on where the app is being run. The types of token-based authentication are shown in the following diagram.
 
-:::image type="content" source="../../media/cpp-sdk-auth-strategy.png" alt-text="A diagram that shows the recommended token-based authentication strategies for an app depending on where it's running." :::
+:::image type="content" source="../media/cpp-sdk-auth-strategy.png" alt-text="A diagram that shows the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 - **When a developer is running an app during local development:** The app authenticates to Azure by using either an application service principal for local development or the developer's Azure credentials. These options are discussed in the section [Authentication during local development](#authentication-during-local-development).
 - **When an app is hosted on Azure:** The app authenticates to Azure resources by using a managed identity. This option is discussed in the section [Authentication in server environments](#authentication-in-server-environments).
@@ -51,8 +51,8 @@ When you're hosting in a server environment, each app is assigned a unique *appl
 
 | Authentication method | Description |
 |-----------------------|-------------|
-| Apps hosted in Azure  | [!INCLUDE [sdk-auth-overview-managed-identity](../../includes/sdk-auth-overview-managed-identity.md)]            |
-| Apps hosted outside of Azure<br>(for example, on-premises apps) | [!INCLUDE [sdk-auth-overview-service-principal](../../includes/sdk-auth-overview-service-principal.md)] |
+| Apps hosted in Azure  | [!INCLUDE [sdk-auth-overview-managed-identity](../includes/sdk-auth-overview-managed-identity.md)]            |
+| Apps hosted outside of Azure<br>(for example, on-premises apps) | [!INCLUDE [sdk-auth-overview-service-principal](../includes/sdk-auth-overview-service-principal.md)] |
 
 ## Authentication during local development
 
@@ -60,8 +60,8 @@ When an app runs on a developer's workstation during local development, it still
 
 | Authentication method | Description |
 |-----------------------|-------------|
-| Create dedicated application service principal objects to be used during local development. | [!INCLUDE [sdk-auth-overview-dev-service-principals](../../includes/sdk-auth-overview-dev-service-principals.md)] |
-| Authenticate the app to Azure by using the developer's credentials during local development. | [!INCLUDE [sdk-auth-overview-dev-accounts](../../includes/sdk-auth-overview-dev-accounts.md)] |
+| Create dedicated application service principal objects to be used during local development. | [!INCLUDE [sdk-auth-overview-dev-service-principals](../includes/sdk-auth-overview-dev-service-principals.md)] |
+| Authenticate the app to Azure by using the developer's credentials during local development. | [!INCLUDE [sdk-auth-overview-dev-accounts](../includes/sdk-auth-overview-dev-accounts.md)] |
 
 ## Use DefaultAzureCredential in an application
 

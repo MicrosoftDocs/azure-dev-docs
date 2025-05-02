@@ -47,7 +47,7 @@ A typical HTTP pipeline in the Azure SDK for C++ includes the following policies
 7. **Log Policy** (per-retry) - Handles logging requests and responses
 8. **Transport Policy** (per-retry) - Handles the actual sending of the HTTP request
 
-![HTTP Pipeline Architecture](https://learn.microsoft.com/en-us/azure/developer/java/sdk/media/http-pipeline.svg)
+:::image type="content" source="../media/http-pipeline.svg" alt-text="A diagram that shows the policy phases of the Azure SDK for C++ HTTP Pipeline." :::
 
 ## The Retry Policy
 
@@ -264,5 +264,5 @@ If you're experiencing issues with retries:
 For more information, see:
 
 - [Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/cpp_introduction.html)
-- [Retry Pattern](https://learn.microsoft.com/azure/architecture/patterns/retry)
-- [Circuit Breaker Pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker)
+- [Retry Pattern](/azure/architecture/patterns/retry)
+- [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker)
