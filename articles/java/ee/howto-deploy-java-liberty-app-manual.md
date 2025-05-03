@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/05/2025
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli
 ---
@@ -426,114 +426,108 @@ az aks connection create sql `
 
 ---
 
-If the `az aks connection create sql` command produces an error message, use the instructions in the next section to troubleshoot the issue.
+### Troubleshoot error messages
 
-## Troubleshoot your error message from az aks connection create sql
+If the `az aks connection create sql` command produces an error message, find the error message in the following list and then use the instructions to troubleshoot the issue:
 
-If `az aks connection create sql` produced an error message, match your error message to the appropriate section that follows, and follow the troubleshooting instructions.
+* `Dependency pyodbc can't be installed, please install it manually`
 
-### Dependency pyodbc can't be installed, please install it manually
+    This error message indicates that the `pyodbc` package can't be installed, most likely because of permissions issues. Fix the problem by using the following steps:
 
-This error message most likely indicates that the `pyodbc` package can't be installed due to permissions issues. Fix the problem by using the following steps:
+    #### [Bash](#tab/in-bash)
 
-#### [Bash](#tab/in-bash)
+    1. Find the location of Python that works with the Azure CLI by running the following command:
 
-1. Find the location of Python that works with the Azure CLI by running the following command:
+        ```azurecli
+        az --version
+        ```
 
-    ```azurecli
-    az --version
-    ```
+        The output should contain `Python location` - for example, `Python location '/opt/az/bin/python3'`.
 
-    The output should contain `Python location` - for example, `Python location '/opt/az/bin/python3'`.
+    1. Copy the `Python location` value.
 
-1. Copy the `Python location` value.
+    1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace `<python-location>` with the Python location you copied in the previous step.
 
-1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace `<python-location>` with the Python location you copied in the previous step.
+        ```azurecli
+        sudo <python-location> -m pip install pyodbc
+        ```
 
-    ```azurecli
-    sudo <python-location> -m pip install pyodbc
-    ```
+    #### [PowerShell](#tab/in-powershell)
 
-#### [PowerShell](#tab/in-powershell)
+    1. Find the location of Python that works with the Azure CLI by using the following command:
 
-1. Find the location of Python that works with the Azure CLI by using the following command:
+        ```powershell
+        az --version
+        ```
 
-    ```powershell
-    az --version
-    ```
+       The output should contain `Python location` - for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`.
 
-   The output should contain `Python location` - for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`.
+    1. Copy the `Python location` value.
 
-1. Copy the `Python location` value.
+    1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
-1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
+    1. Use the following command to install the `pyodbc` package. Replace `<python-location>` with the Python location you copied in the previous step.
 
-1. Use the following command to install the `pyodbc` package. Replace `<python-location>` with the Python location you copied in the previous step.
+        ```powershell
+        & '<python-location>' -m pip install pyodbc
+        ```
 
-    ```powershell
-    & '<python-location>' -m pip install pyodbc
-    ```
-
----
-
-### Errors for the ODBC driver
-
-The following errors indicate that the `odbc` driver isn't installed:
+    ---
 
 * libodbc.so: cannot open shared object file: No such file or directory
 * Please manually install odbc 17/18 for SQL server
 
-Fix the problem by using the following steps:
-
-> [!NOTE]
-> You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
-
-#### [Bash](#tab/in-bash)
-
-1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
-
-1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
-
-1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
-
-    ```azurecli
-    az aks connection create sql \
-        --connection akssqlconn \
-        --client-type java \
-        --source-id $AKS_CLUSTER_RESOURCE_ID \
-        --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
-        --workload-identity $UAMI_RESOURCE_ID
-    ```
-
-#### [PowerShell](#tab/in-powershell)
-
-1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
-
-1. From the [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows) section, find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
-
-1. Follow the instructions, run the installer, and install the driver.
-
-1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
-
-    ```powershell
-    az aks connection create sql `
-        --connection akssqlconn `
-        --client-type java `
-        --source-id $Env:AKS_CLUSTER_RESOURCE_ID `
-        --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME `
-        --workload-identity $Env:UAMI_RESOURCE_ID
-    ```
-
----
-
-## Get service account and secret created by Service Connector
-
-To authenticate to the Azure SQL Database, use the following steps:
-
-1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli). Take the option to directly create a deployment using the YAML sample code snippet provided.
+    These errors indicate that the `odbc` driver isn't installed. Fix the problem by using the following steps:
 
     > [!NOTE]
-    > The secret created by Service Connector contains the value of `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
+    > You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
+
+    #### [Bash](#tab/in-bash)
+
+    1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
+
+    1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
+
+    1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
+
+        ```azurecli
+        az aks connection create sql \
+            --connection akssqlconn \
+            --client-type java \
+            --source-id $AKS_CLUSTER_RESOURCE_ID \
+            --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
+            --workload-identity $UAMI_RESOURCE_ID
+        ```
+
+    #### [PowerShell](#tab/in-powershell)
+
+    1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
+
+    1. From the [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows) section, find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
+
+    1. Follow the instructions, run the installer, and install the driver.
+
+    1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
+
+        ```powershell
+        az aks connection create sql `
+            --connection akssqlconn `
+            --client-type java `
+            --source-id $Env:AKS_CLUSTER_RESOURCE_ID `
+            --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME `
+            --workload-identity $Env:UAMI_RESOURCE_ID
+        ```
+
+    ---
+
+## Get the service account and secret created by Service Connector
+
+To authenticate with Azure SQL Database, use the following steps:
+
+1. Get the service account and secret created by Service Connector by following the instructions in the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli). Use the option to directly create a deployment using the YAML sample code snippet provided.
+
+    > [!NOTE]
+    > The secret created by Service Connector contains an `AZURE_SQL_CONNECTIONSTRING` value, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from the [User-assigned managed identity](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) section of [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java).
 
 1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, as shown in the following example:
 
@@ -546,7 +540,7 @@ To authenticate to the Azure SQL Database, use the following steps:
              name: <secret-name>
     ```
 
-1. Replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step, and define environment variables by using the following commands:
+1. Define environment variables by using the following commands. Be sure to replace `<service-account-name>` and `<secret-name>` with the values you copied in the previous step:
 
     ### [Bash](#tab/in-bash)
 
