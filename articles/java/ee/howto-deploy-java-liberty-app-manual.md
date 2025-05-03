@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
-This article provides step-by-step guidance for manually running Open/WebSphere Liberty on Azure.
+This article provides step-by-step guidance for manually deploying Open/WebSphere Liberty on Azure.
 
 Specifically, this article explains how to accomplish the following tasks:
 
@@ -37,31 +37,31 @@ If you're interested in providing feedback or working closely on your migration 
 * Java Standard Edition (SE), version 17 - for example, [Eclipse Open J9](https://www.eclipse.org/openj9/).
 * [Maven](https://maven.apache.org/download.cgi) version 3.5.0+
 * [Git](https://git-scm.com)
-* The `Owner` role or the `Contributor` and `User Access Administrator` roles in the Azure subscription. For more information about verifying the assignment, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+* The `Owner` role or the `Contributor` and `User Access Administrator` roles in the Azure subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 ## Sign in to Azure
 
-If you didn't do so already, use the following steps to sign in to your Azure subscription by using [`az login`](/cli/azure/authenticate-azure-cli), and follow the on-screen directions:
+If you didn't do so already, use the following steps to sign in to your Azure subscription:
 
-1. Open the Azure CLI or use PowerShell to sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+1. Open the Azure CLI or PowerShell and then sign in by using [`az login`](/cli/azure/reference-index#az-login). To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
 
     > [!NOTE]
-    > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
-
-1. When you're prompted, install the Azure CLI extension. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify a tenant with the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
 
 1. Find the version and dependent libraries that are installed by using [`az version`](/cli/azure/reference-index?#az-version).
 
-1. Upgrade to the latest version by using [`az upgrade`](/cli/azure/update-azure-cli#manual-update).
+1. Upgrade to the latest version by using [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 
 > [!NOTE]
+> When using the Azure CLI, if you're prompted to install an Azure CLI extension, do so. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+>
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
 
 ## Create a resource group
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called `java-liberty-project` by using [`az group create`](/cli/azure/group#az-group-create) in the `eastus2` location. This resource group is used later for creating the Azure container registry instance and the AKS cluster.
+Create a resource group called `java-liberty-project` by using [`az group create`](/cli/azure/group#az-group-create) in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -81,7 +81,7 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ## Create a container registry instance
 
-Use [`az acr create`](/cli/azure/acr#az-acr-create) to create the container registry instance. The following example creates a container registry instance named `<youruniqueacrname>`. Replace this placeholder with a value that is unique across Azure.
+Use [`az acr create`](/cli/azure/acr#az-acr-create) to create the container registry instance. The following example creates a container registry instance named `<your-unique-ACR-name>`. Replace this placeholder with a value that is unique across Azure.
 
 > [!NOTE]
 > This article uses the recommended passwordless authentication mechanism for Azure Container Registry. It's still possible to use a username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using a username and password is less secure than passwordless authentication, however.
@@ -89,7 +89,7 @@ Use [`az acr create`](/cli/azure/acr#az-acr-create) to create the container regi
 ### [Bash](#tab/in-bash)
 
 ```azurecli
-export REGISTRY_NAME=<youruniqueacrname>
+export REGISTRY_NAME=<your-unique-ACR-name>
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $REGISTRY_NAME \
@@ -99,7 +99,7 @@ az acr create \
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
-$Env:REGISTRY_NAME = "youruniqueacrname"
+$Env:REGISTRY_NAME = "<your-unique-ACR-name>"
 az acr create \
     --resource-group $Env:RESOURCE_GROUP_NAME \
     --name $Env:REGISTRY_NAME \
@@ -140,7 +140,7 @@ $Env:LOGIN_SERVER = $(az acr show `
 
 ## Create an AKS cluster
 
-Use [`az aks create`](/cli/azure/aks#az-aks-create) to create an AKS cluster, as shown in the following example, which creates an AKS cluster named `myAKSCluster` with one node and attaches the Container Registry instance to it. This command takes several minutes to complete.
+Use [`az aks create`](/cli/azure/aks#az-aks-create) to create an AKS cluster, as shown in the following example. This example creates an AKS cluster named `myAKSCluster` with one node and attaches the container registry instance to it. The command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -204,7 +204,7 @@ Use the following steps to manage your Kubernetes cluster:
 1. Use [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) to configure `kubectl` to connect to your Kubernetes cluster. This command downloads credentials and configures the Kubernetes CLI to use them, as shown in the following example:
 
     > [!NOTE]
-    > The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
+    > The command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file by using `--file`.
 
     ### [Bash](#tab/in-bash)
 
@@ -257,14 +257,14 @@ Create an Azure SQL Database single database for your app by using the following
 
 ### [Bash](#tab/in-bash)
 
-1. Set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+1. Use the following commands to set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
     ```bash
     export SQL_SERVER_NAME=<your-unique-sql-server-name>
     export DB_NAME=demodb
     ```
 
-1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli).
+1. Use the following commands to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
     ```azurecli
     export ENTRA_ADMIN_NAME=$(az account show \
@@ -291,14 +291,14 @@ Create an Azure SQL Database single database for your app by using the following
 
 ### [PowerShell](#tab/in-powershell)
 
-1. Set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+1. Use the following commands to set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
     ```powershell
     $Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
     $Env:DB_NAME = "demodb"
     ```
 
-1. Use the following command to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+1. Use the following commands to create a single database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
     ```azurepowershell
     $Env:ENTRA_ADMIN_NAME = $(az account show `
@@ -311,8 +311,7 @@ Create an Azure SQL Database single database for your app by using the following
         --enable-ad-only-auth `
         --external-admin-principal-type User `
         --external-admin-name $Env:ENTRA_ADMIN_NAME `
-        --external-admin-sid $(az ad signed-in-user show `
-        --query id --output tsv)
+        --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
 
     az sql db create `
         --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -427,7 +426,7 @@ az aks connection create sql `
 
 ---
 
-If the `az aks connection create sql` command produces an error messages, use the instructions in the next section to troubleshoot the issue.
+If the `az aks connection create sql` command produces an error message, use the instructions in the next section to troubleshoot the issue.
 
 ## Troubleshoot your error message from az aks connection create sql
 
@@ -439,13 +438,15 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 #### [Bash](#tab/in-bash)
 
-1. Find the location of Python that works with Azure CLI by running the following command:
+1. Find the location of Python that works with the Azure CLI by running the following command:
 
     ```azurecli
     az --version
     ```
 
-1. The output should contain `Python location`, for example, `Python location '/opt/az/bin/python3'`. Copy the value of `Python location`.
+    The output should contain `Python location` - for example, `Python location '/opt/az/bin/python3'`.
+
+1. Copy the `Python location` value.
 
 1. Use the following command to install the `pyodbc` package in `sudo` mode. Replace `<python-location>` with the Python location you copied in the previous step.
 
@@ -455,13 +456,15 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 #### [PowerShell](#tab/in-powershell)
 
-1. Find the location of Python that works with Azure CLI by using the following command:
+1. Find the location of Python that works with the Azure CLI by using the following command:
 
     ```powershell
     az --version
     ```
 
-1. The output should contain `Python location`, for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`. Copy the value of `Python location`.
+   The output should contain `Python location` - for example, `Python location 'C:\Program Files\Microsoft SDKs\Azure\CLI2\python.exe'`.
+
+1. Copy the `Python location` value.
 
 1. Open Windows PowerShell with administrator privileges. For more information, see the [Run with administrative privileges](/powershell/scripting/windows-powershell/starting-windows-powershell#run-with-administrative-privileges) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 
@@ -473,35 +476,21 @@ This error message most likely indicates that the `pyodbc` package can't be inst
 
 ---
 
-### libodbc.so: cannot open shared object file: No such file or directory
+### Errors for the ODBC driver
 
-This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
+The following errors indicate that the `odbc` driver isn't installed:
 
-1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos).
+* libodbc.so: cannot open shared object file: No such file or directory
+* Please manually install odbc 17/18 for SQL server
 
-1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
-
-1. Use `az aks connection create sql` again to create the service connection, as shown in the following example:
-
-    ```azurecli
-    az aks connection create sql \
-        --connection akssqlconn \
-        --client-type java \
-        --source-id $AKS_CLUSTER_RESOURCE_ID \
-        --target-id $AZURE_SQL_SERVER_RESOURCE_ID/databases/$DB_NAME \
-        --workload-identity $UAMI_RESOURCE_ID
-    ```
-
-### Please manually install odbc 17/18 for SQL server
-
-This error message indicates that the `odbc` driver isn't installed. Fix the problem by using the following steps:
+Fix the problem by using the following steps:
 
 > [!NOTE]
 > You should use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the steps in this section and use the username and password to connect to the Azure SQL Database.
 
 #### [Bash](#tab/in-bash)
 
-1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos).
+1. If you're using Linux, open [Install the Microsoft ODBC driver for SQL Server (Linux)](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true). If you're using MacOS, open [Install the Microsoft ODBC driver for SQL Server (macOS)](/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=azuresqldb-current&preserve-view=true).
 
 1. Follow the instructions to install the Microsoft ODBC Driver (18 or 17) for SQL Server.
 
@@ -518,9 +507,9 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 #### [PowerShell](#tab/in-powershell)
 
-1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server) in your browser.
+1. Open [Download ODBC Driver for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true) in your browser.
 
-1. From the [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server#download-for-windows) section, find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
+1. From the [Download for Windows](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current&preserve-view=true#download-for-windows) section, find and download the appropriate installer for Microsoft ODBC Driver for SQL Server.
 
 1. Follow the instructions, run the installer, and install the driver.
 
@@ -541,7 +530,7 @@ This error message indicates that the `odbc` driver isn't installed. Fix the pro
 
 To authenticate to the Azure SQL Database, use the following steps:
 
-1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string). Take the option to directly create a deployment using the YAML sample code snippet provided.
+1. Get the service account and secret created by Service Connector by following the [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli#update-your-container) section of [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli). Take the option to directly create a deployment using the YAML sample code snippet provided.
 
     > [!NOTE]
     > The secret created by Service Connector contains the value of `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
@@ -581,7 +570,7 @@ To authenticate to the Azure SQL Database, use the following steps:
 
 In this section, you install the Open Liberty Operator on the AKS cluster to host the Liberty application.
 
-[Install the Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by using the following commands:
+Install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2) by using the following commands:
 
 > [!NOTE]
 > This guide directs you to install the Open Liberty Operator. To use the WebSphere Liberty Operator, see [Installing WebSphere Liberty operator with the Kubernetes CLI](https://www.ibm.com/docs/en/was-liberty/nd?topic=operator-installing-kubernetes-cli).
@@ -754,12 +743,13 @@ cd $Env:BASE_DIR/java-app/target
 
 az acr build `
     --registry $Env:REGISTRY_NAME `
-    --image javaee-cafe:v1 .
+    --image javaee-cafe:v1 `
+    .
 ```
 
 ---
 
-The `az acr build` command uploads the artifacts specified in the **Dockerfile** to the Container Registry instance, builds the image, and stores it in the Container Registry instance.
+The `az acr build` command uploads the artifacts specified in the **Dockerfile** to the container registry instance, builds the image, and stores it in the container registry instance.
 
 ## Deploy the application to the AKS cluster
 
@@ -890,9 +880,9 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 You can learn more from the following references used in this guide:
 
 * [What is Azure Kubernetes Service (AKS)?](/azure/aks/what-is-aks)
-* [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string)
-* [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database)
-* [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication)
+* [Tutorial: Connect an AKS app to Azure SQL Database](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?tabs=azure-cli)
+* [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java%2Csql-secret-java)
+* [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true)
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
 * [Open Liberty Server configuration overview](https://openliberty.io/docs/latest/reference/config/server-configuration-overview.html)
