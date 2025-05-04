@@ -100,9 +100,9 @@ az acr create \
 
 ```azurepowershell
 $Env:REGISTRY_NAME = "<your-unique-ACR-name>"
-az acr create \
-    --resource-group $Env:RESOURCE_GROUP_NAME \
-    --name $Env:REGISTRY_NAME \
+az acr create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --name $Env:REGISTRY_NAME `
     --sku Basic
 ```
 
