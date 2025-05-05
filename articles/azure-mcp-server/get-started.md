@@ -1,14 +1,138 @@
 ---
 title: Get started using the Azure MCP Server
-description: Learn how to get started with Azure MCP Server
+description: Learn how to connect to and consume Azure MCP Server operations
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 04/22/2025
 ms.topic: get-started
 ms.custom: build-2025
+zone_pivot_group: azure-mcp-server-tools-frameworks
 ---
 
-# Get started using the Azure MCP Server
+# Quickstart: Get started with the Azure MCP Server
 
-The Azure MCP Server is a powerful tool that helps developers be more productive when building and deploying apps to Azure. 
+The Model Context Protocol (MCP) is an open protocol designed to standardize integrations between AI apps and external tools and data sources. Using MCP, developers can create and consume MCP servers that enhance the capabilities of AI models and enable more accurate, relevant, and context-aware responses. The [Azure MCP Server](https://github.com/Azure/azure-mcp) exposes prebuilt operations to interact with Azure services for agentic usage, allowing for AI systems to perform operations that are context-aware of your Azure resources. For more information on Azure MCP Server, visit the [Azure MCP Server overview](overview.md).
+
+In this article, you learn how to complete the following:
+
+- Install and authenticate to the Azure MCP Server
+- Connect to Azure MCP Server using popular tools or frameworks
+- Run prompts to test Azure MCP Server operations and manage Azure resources
+
+### Prerequisites
+
+1. Install [VS Code]((https://code.visualstudio.com/download)):
+2. Install the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
+3. Install [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## Install the Azure MCP Server
+
+Select one of the following options to install the Azure MCP Server in VS Code:
+
+## [One-Click Install](#tab/one-click)
+
+1. Click the following link to install the Azure MCP Server for VS Code:
+
+    [![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-Install_Azure_MCP_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=Azure%20MCP%20Server&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40azure%2Fmcp%40latest%22%2C%22server%22%2C%22start%22%5D%7D) [!
+
+1. Open GitHub Pilot and select Agent Mode. To learn more about Agent Mode, visit the [VS Code Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).
+
+1. You may need to refresh the tools list to see Azure MCP Server as an available option.
+
+    :::image type="content" source="../azure-developer-cli/media/azure-mcp-server/github-copilot-integration.png" alt-text="A screenshot showing Azure MCP Server as GitHub Copilot tool.":::
+
+## [Manual Install](#tab/manual)
+
+1. At the root of your folder, create a `.vscode` folder if there isn't one already.
+1. Inside the `.vscode` folder, create a new file named `mcp.json` and add the following JSON:
+
+    ```json
+    {
+      "servers": {
+        "Azure MCP Server": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@azure/mcp@latest",
+            "server",
+            "start"
+          ]
+        }
+      }
+    }
+    ```
+
+1. Open GitHub Copilot and select Agent Mode. To learn more about Agent Mode, visit the [VS Code Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).
+
+1. You may need to refresh the tools list to see Azure MCP Server as an available option.
+
+    :::image type="content" source="../azure-developer-cli/media/azure-mcp-server/github-copilot-integration.png" alt-text="A screenshot showing Azure MCP Server as GitHub Copilot tool.":::
+
+---
+
+## Authenticate to Azure
+
+The Azure MCP Server provides a seamless authentication experience using Azure Identity. Internally, Azure MCP Server uses [`DefaultAzureCredential`](https://learn.microsoft.com/dotnet/azure/sdk/authentication/credential-chains?tabs=dac), which attempts to find credentials in the following order:
+
+1. **Environment Variables** (`EnvironmentCredential`)
+2. **Shared Token Cache** (`SharedTokenCacheCredential`)
+3. **Visual Studio** (`VisualStudioCredential`)
+4. **Azure CLI** (`AzureCliCredential`)
+5. **Azure PowerShell** (`AzurePowerShellCredential`)
+6. **Azure Developer CLI** (`AzureDeveloperCliCredential`)
+7. **Interactive Browser** (`InteractiveBrowserCredential`)
+
+For example, to follow along with this quickstart while working locally, sign-in to one of the following tools with your Azure account:
+
+## [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az login
+```
+
+## [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Connect-AzAccount
+```
+
+## [Azure Developer CLI](#tab/azure-developer-cli)
+
+```azdeveloper
+azd auth login
+```
+
+---
+
+Once you have signed-in successfully to one of the preceding tools, Azure MCP Server is able to discover your credentials and use them to authenticate and perform operations on Azure services.
+
+> [!NOTE]
+> Azure MCP Server will only be able to perform operations that the signed-in user has permissions to perform.
+
+If you experience issues with authentication, visit the [troubleshooting guide](/TROUBLESHOOTING.md).
+
+## Use prompts to test the Azure MCP Server
+
+1. Open GitHub Copilot and select Agent Mode.
+1. Enter a prompt that causes the agent to use the Azure MCP Server, such as *List my Azure resource groups*.
+1. GitHub Copilot prompts you for permissions to run the necessary Azure MCP Server operation. Select **Continue** or use the arrow to select a more specific behavior:
+    - **Current session** always runs the operation in the current GitHub Copilot Agent Mode session.
+    - **Current workspace** always runs the command for current Visual Studio Code workspace.
+    - **Always allow** sets the operation to always run for any GitHub Copilot Agent Mode session or any Visual Studio Code workspace.
+
+    :::image type="content" source="../azure-developer-cli/media/azure-mcp-server/run-command-prompt.png" alt-text="A screenshot showing the options available to run Azure MCP Server operations.":::
+
+    The output for the previous prompt should resemble the following:
+
+    ```output
+    The following resource groups are available for your subscription:
+
+    1. **DefaultResourceGroup-EUS** (Location: `eastus`)
+    2. **rg-testing** (Location: `centralus`)
+    3. **rg-azd** (Location: `eastus2`)
+    4. **msdocs-sample** (Location: `southcentralus`)
+    14. **ai-testing** (Location: `eastus2`)
+    
+    Let me know if you need further details or actions related to any of these resource groups!
+    ```
