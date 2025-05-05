@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with App Configuration.
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
-ms.date: 04/28/2025
+ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
@@ -57,6 +57,14 @@ azmcp appconfig account list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
+#### Required parameters
+
+- `--subscription`: The ID of the subscription to list App Configuration stores from. This parameter is required.
+ 
+#### Optional parameters
+
+None
+
 #### Examples
 
 List all App Configuration stores in the specified subscription.
@@ -65,14 +73,6 @@ List all App Configuration stores in the specified subscription.
 azmcp appconfig account list \
     --subscription "my-subscription-id"
 ```
-
-#### Required parameters
-
-- `--subscription`: The ID of the subscription to list App Configuration stores from. This parameter is required.
- 
-#### Optional parameters
-
-None
 
 ## List key-value settings
 
@@ -99,6 +99,18 @@ azmcp appconfig kv list \
     [--key <KEY>] \
     [--label <LABEL>]
 ```
+
+
+#### Required parameters
+
+- `--subscription`: The ID of the subscription containing the App Configuration store.
+- `--account-name`: The name of the App Configuration store.
+
+#### Optional parameters
+
+- `--key`: Filter results to only show settings with keys matching the specified pattern.
+- `--label`: Filter results to only show settings with the specified label.
+
 
 #### Examples
 
@@ -127,16 +139,6 @@ azmcp appconfig kv list \
     --label "dev"
 ```
 
-#### Required parameters
-
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-
-#### Optional parameters
-
-- `--key`: Filter results to only show settings with keys matching the specified pattern.
-- `--label`: Filter results to only show settings with the specified label.
-
 ## Show key-value setting
 
 The Azure MCP Server can retrieve a specific key-value setting from an App Configuration store. This is useful for checking the current value of a particular setting.
@@ -163,6 +165,16 @@ azmcp appconfig kv show \
     [--label <LABEL>]
 ```
 
+#### Required parameters
+
+- `--subscription`: The ID of the subscription containing the App Configuration store.
+- `--account-name`: The name of the App Configuration store.
+- `--key`: The key name of the setting to retrieve.
+
+#### Optional parameters
+
+- `--label`: The label of the setting to retrieve.
+
 #### Examples
 
 Retrieve a key-value setting without a label from the App Configuration store.
@@ -183,16 +195,6 @@ azmcp appconfig kv show \
     --key "AppName:Theme" \
     --label "production"
 ```
-
-#### Required parameters
-
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to retrieve.
-
-#### Optional parameters
-
-- `--label`: The label of the setting to retrieve.
 
 ## Set key-value setting
 
@@ -221,6 +223,17 @@ azmcp appconfig kv set \
     [--label <LABEL>]
 ```
 
+#### Required parameters
+
+- `--subscription`: The ID of the subscription containing the App Configuration store.
+- `--account-name`: The name of the App Configuration store.
+- `--key`: The key name of the setting to create or update.
+- `--value`: The value to set for the key.
+
+#### Optional parameters
+
+- `--label`: The label to apply to the setting.
+
 #### Examples
 
 Create a new key-value setting without a label in an App Configuration store.
@@ -244,16 +257,6 @@ azmcp appconfig kv set \
     --label "dev"
 ```
 
-#### Required parameters
-
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to create or update.
-- `--value`: The value to set for the key.
-
-#### Optional parameters
-
-- `--label`: The label to apply to the setting.
 
 ## Lock key-value setting
 
@@ -281,6 +284,16 @@ azmcp appconfig kv lock \
     [--label <LABEL>]
 ```
 
+#### Required parameters
+
+- `--subscription`: The ID of the subscription containing the App Configuration store.
+- `--account-name`: The name of the App Configuration store.
+- `--key`: The key name of the setting to lock.
+
+#### Optional parameters
+
+- `--label`: The label of the setting to lock.
+
 #### Examples
 
 Lock a key without a label to make it read-only in the App Configuration store.
@@ -302,16 +315,6 @@ azmcp appconfig kv lock \
     --label "production"
 ```
 
-#### Required parameters
-
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to lock.
-
-#### Optional parameters
-
-- `--label`: The label of the setting to lock.
-
 ## Unlock key-value setting
 
 The Azure MCP Server can unlock a previously locked key-value setting in an App Configuration store, making it editable again.
@@ -329,6 +332,16 @@ The Azure MCP Server can unlock a previously locked key-value setting in an App 
 | Name            | Description               |
 |-----------------|--------------------------|
 | azmcp appconfig kv unlock | Unlock a key-value setting in an App Configuration store.|
+
+#### Required parameters
+
+- `--subscription`: The ID of the subscription containing the App Configuration store.
+- `--account-name`: The name of the App Configuration store.
+- `--key`: The key name of the setting to unlock.
+
+#### Optional parameters
+
+- `--label`: The label of the setting to unlock.
 
 #### Examples
 
@@ -350,16 +363,6 @@ azmcp appconfig kv unlock \
     --key "AppName:ApiKey" \
     --label "production"
 ```
-
-#### Required parameters
-
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to unlock.
-
-#### Optional parameters
-
-- `--label`: The label of the setting to unlock.
 
 ## Delete key-value setting
 
@@ -387,6 +390,16 @@ azmcp appconfig kv delete \
     [--label <LABEL>]
 ```
 
+#### Required parameters
+
+- `--subscription`: The ID of the subscription containing the App Configuration store.
+- `--account-name`: The name of the App Configuration store.
+- `--key`: The key name of the setting to delete.
+
+#### Optional parameters
+
+- `--label`: The label of the setting to delete.
+
 #### Examples
 
 Delete a key-value setting without a label from the App Configuration store.
@@ -408,13 +421,4 @@ azmcp appconfig kv delete \
     --label "test"
 ```
 
-#### Required parameters
-
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to delete.
-
-#### Optional parameters
-
-- `--label`: The label of the setting to delete.
 
