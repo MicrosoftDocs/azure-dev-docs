@@ -71,7 +71,7 @@ Select one of the following options to install the Azure MCP Server in VS Code:
 
 ---
 
-## Authenticate to Azure
+## Azure MCP Server authentication
 
 The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Token-based authentication is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. Internally, Azure MCP Server uses [`DefaultAzureCredential`](https://learn.microsoft.com/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users, which searches for credentials in the following order:
 
@@ -83,7 +83,7 @@ The Azure MCP Server provides a seamless authentication experience using token-b
 6. **Azure Developer CLI** (`AzureDeveloperCliCredential`)
 7. **Interactive Browser** (`InteractiveBrowserCredential`)
 
-### Authenticate for local development
+### Sign-in for local development
 
 To follow along with this quickstart while working locally, sign-in to one of the following tools with your Azure account:
 
