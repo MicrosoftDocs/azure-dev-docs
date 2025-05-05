@@ -1820,6 +1820,10 @@
     {
       "source_path": "articles/java/eclipse-microprofile/deploy-microprofile-quarkus-java-app-with-maven-plugin.md",
       "redirect_url": "/azure/app-service/quickstart-java?tabs=quarkus&pivots=java-javase"
+    },
+    {
+      "source_path": "articles/ai/get-started-multi-agents.md",
+      "redirect_url": "/azure/developer/ai/azure-ai-for-developers"
     }
   ]
 }
