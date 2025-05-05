@@ -173,6 +173,12 @@ Get detailed properties of a storage container
 
 ### Example prompts
 
+- **View container details**: "Show me the details of the 'images' container in my storage account."
+- **Get container properties**: "What are the properties of the 'documents' container in mystorageaccount?"
+- **Check container settings**: "Tell me about my 'backups' container in contosostorage."
+- **View container metadata**: "Get the details of the 'media' container"
+- **Container information**: "What's the access level of my 'public' container?"
+
 ### Command reference
 
 
@@ -199,6 +205,14 @@ None.
 
 #### Examples
 
+Get details of a specific container.
+
+```console
+azmcp storage blob container details \
+    --subscription "my-subscription-id" \
+    --account-name "mystorageaccount" \
+    --container-name "images"
+```
 
 
 ## List storage tables
@@ -206,6 +220,12 @@ None.
 List tables in a Storage account
 
 ### Example prompts
+
+- **List all tables**: "Show me all the tables in my 'mystorageaccount' storage account."
+- **List tables**: "List all tables in my storage account"
+- **Get table names**: "What tables do I have in my 'devstorageaccount'?"
+- **View tables**: "List all tables from contosostorage"
+- **Check tables**: "Show me what tables are in my storage account"
 
 ### Command reference
 
@@ -231,4 +251,12 @@ azmcp storage table list \
 None.
 
 #### Examples
+
+List all tables in a storage account.
+
+```console
+azmcp storage table list \
+    --subscription "my-subscription-id" \
+    --account-name "mystorageaccount"
+```
 
