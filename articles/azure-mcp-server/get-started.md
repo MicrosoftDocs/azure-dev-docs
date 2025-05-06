@@ -11,7 +11,7 @@ zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-group
 zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
-# Quickstart: Get started with the Azure MCP Server
+# Quickstart: Get started with Azure MCP Server
 
 The Model Context Protocol (MCP) is an open protocol designed to standardize integrations between AI apps and external tools and data sources. Developers can create MCP clients and servers that enhance the capabilities of AI models for more accurate, relevant, and context-aware responses. [Azure MCP Server](https://github.com/Azure/azure-mcp) exposes prebuilt operations to interact with Azure services for agentic usage, allowing for AI systems to perform operations that are context-aware of your Azure resources.
 
