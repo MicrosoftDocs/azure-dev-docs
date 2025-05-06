@@ -17,6 +17,8 @@ A key strength of TypeSpec is that it enables the creation of modular, reusable 
 
 As an open source language, TypeSpec can describe any API, not just Azure APIs. This versatility makes it a valuable tool for API developers, architects, and managers who need to deliver high-quality APIs in a complex and evolving environment.
 
+> [!IMPORTANT]
+> **TypeSpec** is an open source project developed by Microsoft and supported by the community.
 
 
 ## Benefits of TypeSpec
@@ -127,9 +129,8 @@ TypeSpec has been successfully used in various industries to streamline API desi
 - **Finance**: A financial services company adopted TypeSpec to ensure consistency and compliance across their APIs, reducing the time and effort required for API governance.
 - **Healthcare**: A healthcare provider used TypeSpec to design APIs for patient data management, ensuring data consistency and security across their systems.
 
-## Community support
+## Open source support
 
-* **TypeSpec** is an open source project developed by Microsoft and supported by the community.
 * We value and encourage your ideas, feedback, and contributions to help improve the project.
 * For more information on how to contribute, refer to the [contributor guide](https://github.com/microsoft/typespec/blob/main/CONTRIBUTING.md).
 * If you have questions or need assistance, feel free to [ask the community](https://github.com/microsoft/typespec/discussions) or [submit an issue on GitHub](https://github.com/microsoft/typespec/issues).
