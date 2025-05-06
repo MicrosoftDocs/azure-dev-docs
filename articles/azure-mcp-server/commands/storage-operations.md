@@ -56,7 +56,7 @@ azmcp storage account list \
  
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -99,7 +99,7 @@ azmcp storage blob container list \
 
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -144,7 +144,7 @@ azmcp storage blob list \
 
 #### Optional parameters
 
-None.
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -200,7 +200,7 @@ azmcp storage blob container details \
 
 #### Optional parameters
 
-None.
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -247,7 +247,7 @@ azmcp storage table list \
 
 #### Optional parameters
 
-None.
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 

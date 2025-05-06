@@ -53,7 +53,7 @@ azmcp monitor workspace list \
  
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -99,7 +99,7 @@ azmcp monitor table list \
 
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 ## Query log with Kusto Query Language (KQL)
 
@@ -140,6 +140,8 @@ azmcp monitor logs query \
 
 `--hours`: The hours for which to query data.<br>
 `--limit`: The maximum limit of records to return.
+
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 

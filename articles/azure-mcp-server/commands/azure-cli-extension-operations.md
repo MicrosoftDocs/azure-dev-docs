@@ -55,7 +55,7 @@ azmcp extension az --command "<COMMAND>"
 
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 

@@ -57,7 +57,7 @@ azmcp cosmos account list \
  
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -99,7 +99,8 @@ azmcp cosmos database list \
 
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
 
 #### Examples
 
@@ -144,7 +145,8 @@ azmcp cosmos database container list \
 
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
 
 #### Examples
 
@@ -200,7 +202,10 @@ An example query is `"SELECT * FROM c"`.
 
 #### Optional parameters
 
-* `--query`: The full text of the [query](/azure/cosmos-db/nosql/query/). If the query isn't provided, the default query is used: `"SELECT * FROM c"`.
+`--query`: The full text of the [query](/azure/cosmos-db/nosql/query/). If the query isn't provided, the default query is used: `"SELECT * FROM c"`.
+
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
 
 #### Examples
 

@@ -51,7 +51,7 @@ azmcp appconfig account list \
  
 #### Optional parameters
 
-None
+View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 #### Examples
 
@@ -98,6 +98,8 @@ azmcp appconfig kv list \
 
 `--key`: Filter results to only show settings with keys matching the specified pattern.<br>
 `--label`: Filter results to only show settings with the specified label.
+
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
 
 
 #### Examples
@@ -163,6 +165,9 @@ azmcp appconfig kv show \
 
 `--label`: The label of the setting to retrieve.
 
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
+
 #### Examples
 
 Retrieve a key-value setting without a label from the App Configuration store.
@@ -221,6 +226,9 @@ azmcp appconfig kv set \
 #### Optional parameters
 
 `--label`: The label to apply to the setting.
+
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
 
 #### Examples
 
@@ -282,6 +290,9 @@ azmcp appconfig kv lock \
 
 `--label`: The label of the setting to lock.
 
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
+
 #### Examples
 
 Lock a key without a label to make it read-only in the App Configuration store.
@@ -330,6 +341,9 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 #### Optional parameters
 
 `--label`: The label of the setting to unlock.
+
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
 
 #### Examples
 
@@ -387,6 +401,9 @@ azmcp appconfig kv delete \
 #### Optional parameters
 
 `--label`: The label of the setting to delete.
+
+View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+
 
 #### Examples
 
