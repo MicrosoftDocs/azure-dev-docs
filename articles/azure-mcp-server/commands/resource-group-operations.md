@@ -8,7 +8,7 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-# Azure Resource Group operations
+# Azure Resource Group operations for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Resource Groups.
 
@@ -45,7 +45,7 @@ azmcp group list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription to list resource groups from. This parameter is required.
+`--subscription`: The ID of the subscription to list resource groups from. This parameter is required.
  
 #### Optional parameters
 

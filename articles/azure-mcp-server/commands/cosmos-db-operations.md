@@ -10,7 +10,7 @@ ms.custom: build-2025
 ---
 <!-- This is the proposed command article template for the Azure MCP Server documentation -->
 <!-- H1 will be <SERVICE-NAME> operations -->
-# Cosmos DB operations
+# Cosmos DB operations for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Cosmos DB databases and containers.
 
@@ -53,7 +53,7 @@ azmcp cosmos account list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription to list Cosmos DB accounts from. This parameter is required.
+`--subscription`: The ID of the subscription to list Cosmos DB accounts from. This parameter is required.
  
 #### Optional parameters
 
@@ -94,8 +94,8 @@ azmcp cosmos database list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the Cosmos DB account.
-- `--account-name`: The name of the Cosmos DB account.
+`--subscription`: The ID of the subscription containing the Cosmos DB account.
+`--account-name`: The name of the Cosmos DB account.
 
 #### Optional parameters
 
@@ -138,9 +138,9 @@ azmcp cosmos database container list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the Cosmos DB account.
-- `--account-name`: The name of the Cosmos DB account.
-- `--database-name`: The name of the database.
+`--subscription`: The ID of the subscription containing the Cosmos DB account.
+`--account-name`: The name of the Cosmos DB account.
+`--database-name`: The name of the database.
 
 #### Optional parameters
 
@@ -193,10 +193,10 @@ An example query is `"SELECT * FROM c"`.
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the Cosmos DB account.
-- `--database-name`: The name of the database.
-- `--container-name`: The name of the container.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the Cosmos DB account.
+`--database-name`: The name of the database.
+`--container-name`: The name of the container.
 
 #### Optional parameters
 

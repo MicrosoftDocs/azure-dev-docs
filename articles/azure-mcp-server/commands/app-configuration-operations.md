@@ -7,8 +7,8 @@ ms.author: diberry
 ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
----
-# App Configuration operations
+--- 
+# App Configuration operations for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including App Configuration stores.
 
@@ -47,7 +47,7 @@ azmcp appconfig account list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription to list App Configuration stores from. This parameter is required.
+`--subscription`: The ID of the subscription to list App Configuration stores from. This parameter is required.
  
 #### Optional parameters
 
@@ -91,13 +91,13 @@ azmcp appconfig kv list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the App Configuration store.
 
 #### Optional parameters
 
-- `--key`: Filter results to only show settings with keys matching the specified pattern.
-- `--label`: Filter results to only show settings with the specified label.
+`--key`: Filter results to only show settings with keys matching the specified pattern.
+`--label`: Filter results to only show settings with the specified label.
 
 
 #### Examples
@@ -155,13 +155,13 @@ azmcp appconfig kv show \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to retrieve.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the App Configuration store.
+`--key`: The key name of the setting to retrieve.
 
 #### Optional parameters
 
-- `--label`: The label of the setting to retrieve.
+`--label`: The label of the setting to retrieve.
 
 #### Examples
 
@@ -213,14 +213,14 @@ azmcp appconfig kv set \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to create or update.
-- `--value`: The value to set for the key.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the App Configuration store.
+`--key`: The key name of the setting to create or update.
+`--value`: The value to set for the key.
 
 #### Optional parameters
 
-- `--label`: The label to apply to the setting.
+`--label`: The label to apply to the setting.
 
 #### Examples
 
@@ -274,13 +274,13 @@ azmcp appconfig kv lock \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to lock.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the App Configuration store.
+`--key`: The key name of the setting to lock.
 
 #### Optional parameters
 
-- `--label`: The label of the setting to lock.
+`--label`: The label of the setting to lock.
 
 #### Examples
 
@@ -323,13 +323,13 @@ The Azure MCP Server can unlock a previously locked key-value setting in an App 
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to unlock.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the App Configuration store.
+`--key`: The key name of the setting to unlock.
 
 #### Optional parameters
 
-- `--label`: The label of the setting to unlock.
+`--label`: The label of the setting to unlock.
 
 #### Examples
 
@@ -380,13 +380,13 @@ azmcp appconfig kv delete \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the App Configuration store.
-- `--account-name`: The name of the App Configuration store.
-- `--key`: The key name of the setting to delete.
+`--subscription`: The ID of the subscription containing the App Configuration store.
+`--account-name`: The name of the App Configuration store.
+`--key`: The key name of the setting to delete.
 
 #### Optional parameters
 
-- `--label`: The label of the setting to delete.
+`--label`: The label of the setting to delete.
 
 #### Examples
 

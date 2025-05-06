@@ -10,7 +10,7 @@ ms.custom: build-2025
 ---
 <!-- This is the proposed command article template for the Azure MCP Server documentation -->
 <!-- H1 will be <SERVICE-NAME> operations -->
-# Azure Storage operations
+# Azure Storage operations for the Azure MCP Server
 
 The Azure MCP Server allows you to list Azure storage resource information such as [Blob](/azure/storage/blobs) storage and [Table](/azure/storage/tables/) storage.
 
@@ -52,7 +52,7 @@ azmcp storage account list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription to list storage accounts from. This parameter is required.
+`--subscription`: The ID of the subscription to list storage accounts from. This parameter is required.
  
 #### Optional parameters
 
@@ -94,8 +94,8 @@ azmcp storage blob container list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the storage account.
-- `--account-name`: The name of the storage account.
+`--subscription`: The ID of the subscription containing the storage account.
+`--account-name`: The name of the storage account.
 
 #### Optional parameters
 
@@ -138,9 +138,9 @@ azmcp storage blob list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the storage account.
-- `--account-name`: The name of the storage account.
-- `--container-name`: The name of the container to list blobs from.
+`--subscription`: The ID of the subscription containing the storage account.
+`--account-name`: The name of the storage account.
+`--container-name`: The name of the container to list blobs from.
 
 #### Optional parameters
 
@@ -194,9 +194,9 @@ azmcp storage blob container details \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the storage account.
-- `--account-name`: The name of the storage account.
-- `--container-name`: The name of the container to list blobs from.
+`--subscription`: The ID of the subscription containing the storage account.
+`--account-name`: The name of the storage account.
+`--container-name`: The name of the container to list blobs from.
 
 #### Optional parameters
 
@@ -242,8 +242,8 @@ azmcp storage table list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the storage account.
-- `--account-name`: The name of the storage account.
+`--subscription`: The ID of the subscription containing the storage account.
+`--account-name`: The name of the storage account.
 
 #### Optional parameters
 

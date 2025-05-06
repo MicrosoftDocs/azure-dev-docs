@@ -10,7 +10,7 @@ ms.custom: build-2025
 ---
 <!-- This is the proposed command article template for the Azure MCP Server documentation -->
 <!-- H1 will be <SERVICE-NAME> operations -->
-# Azure Monitor operations
+# Azure Monitor operations for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Azure Monitor logs and metrics.
 
@@ -53,7 +53,7 @@ azmcp monitor workspace list \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
+`--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
  
 #### Optional parameters
 
@@ -97,9 +97,9 @@ azmcp monitor table list \
 
 ### Required parameters
 
-- `--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
-- `--workspace`: The ID of the workspace.
-- `--resource-group`: The name of the resource group.
+`--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
+`--workspace`: The ID of the workspace.
+`--resource-group`: The name of the resource group.
 
 #### Optional parameters
 
@@ -135,15 +135,15 @@ azmcp monitor logs query \
 
 #### Required parameters
 
-- `--subscription`: The ID of the subscription containing the Log Analytics workspace.
-- `--workspace-name`: The name of the Log Analytics workspace.
-- `--table-name`: The Kusto table name.
-- `--query`: The Kusto query to run.
+`--subscription`: The ID of the subscription containing the Log Analytics workspace.
+`--workspace-name`: The name of the Log Analytics workspace.
+`--table-name`: The Kusto table name.
+`--query`: The Kusto query to run.
 
 #### Optional parameters
 
-- `--hours`: The hours for which to query data.
-- `--limit`: The maximum limit of records to return.
+`--hours`: The hours for which to query data.
+`--limit`: The maximum limit of records to return.
 
 #### Examples
 

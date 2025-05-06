@@ -8,7 +8,7 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-# Azure CLI extension operations
+# Azure CLI extension operations for the Azure MCP Server
 
 The Azure MCP Server allows you to execute any Azure CLI command.
 
@@ -51,7 +51,7 @@ azmcp extension az --command "<COMMAND>"
 
 #### Required parameters
 
-- `--command`: The command text.
+`--command`: The command text.
 
 #### Optional parameters
 
