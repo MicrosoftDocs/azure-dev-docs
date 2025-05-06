@@ -13,23 +13,25 @@ zone_pivot_groups: azure-mcp-server-tools-frameworks
 
 # Quickstart: Get started with the Azure MCP Server
 
-The [Azure MCP Server overview](overview.md)(MCP) is an open protocol designed to standardize integrations between AI apps and external tools and data sources. Developers can create MCP clients and servers that enhance the capabilities of AI models for more accurate, relevant, and context-aware responses. The [Azure MCP Server](https://github.com/Azure/azure-mcp) exposes prebuilt operations to interact with Azure services for agentic usage, allowing for AI systems to perform operations that are context-aware of your Azure resources.
+The Model Context Protocol (MCP) is an open protocol designed to standardize integrations between AI apps and external tools and data sources. Developers can create MCP clients and servers that enhance the capabilities of AI models for more accurate, relevant, and context-aware responses. [Azure MCP Server](https://github.com/Azure/azure-mcp) exposes prebuilt operations to interact with Azure services for agentic usage, allowing for AI systems to perform operations that are context-aware of your Azure resources.
 
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
-- Connect to Azure MCP Server using popular tools or frameworks
+- Connect to Azure MCP Server using popular tools and frameworks
 - Run prompts to test Azure MCP Server operations and manage Azure resources
 
 ## Prerequisites
 
-1. [VS Code](https://code.visualstudio.com/download)
-2. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
-3. [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [VS Code](https://code.visualstudio.com/download)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Azure MCP Server authentication
 
-The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Token-based authentication is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users. `DefaultAzureCredential` searches for credentials in order:
+The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Token-based authentication is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users.
+
+`DefaultAzureCredential` automatically searches for and uses credentials in the following order:
 
 1. **Environment Variables** (`EnvironmentCredential`)
 2. **Shared Token Cache** (`SharedTokenCacheCredential`)
@@ -66,7 +68,7 @@ azd auth login
 Once you have signed-in successfully to one of the preceding tools, Azure MCP Server can automatically discover your credentials and use them to authenticate and perform operations on Azure services.
 
 > [!NOTE]
-> Azure MCP Server is only able to perform operations that the signed-in user has permissions to perform.
+> Azure MCP Server is only able to run operations that the signed-in user has permissions to perform.
 
 ::: zone pivot="mcp-github-copilot"
 
@@ -174,11 +176,11 @@ Complete the following steps to create a .NET console app. The app connects to a
 1. In the terminal, run the following commands to add the necessary NuGet packages:
 
    ```bash
-   dotnet add package Azure.AI.OpenAI
+   dotnet add package Azure.AI.OpenAI --prerelease
    dotnet add package Azure.Identity
-   dotnet add package Microsoft.Extensions.AI
-   dotnet add package Microsoft.Extensions.AI.OpenAI
-   dotnet add package ModelContextProtocol
+   dotnet add package Microsoft.Extensions.AI --prerelease
+   dotnet add package Microsoft.Extensions.AI.OpenAI --prerelease
+   dotnet add package ModelContextProtocol --prerelease
    ```
 
 1. Verify that the packages were added by checking the `MCPHostApp.csproj` file.
@@ -189,7 +191,7 @@ Complete the following steps to create a .NET console app. The app connects to a
    dotnet build
    ```
 
-### Add the code
+### Add the app code
 
 Replace the contents of `Program.cs` with the following code:
 
@@ -248,9 +250,16 @@ while (true)
 }
 ```
 
+The preceding code accomplishes the following tasks:
+
+- Initializes an `IChatClient` abstraction using the [`Microsoft.Extensions.AI`](/dotnet/ai/microsoft-extensions-ai) libraries.
+- Creates an MCP client to interact with the Azure MCP Server using a standard I/O transport. The provided `npx` command and corresponding arguments download and start the Azure MCP Server.
+- Retrieves and displays a list of available tools from the MCP server, which is a standard MCP function.
+- Implements a conversational loop that processes user prompts and utilizes the tools for responses.
+
 ## Test the app
 
-Follow these steps to test your .NET host app:
+Complete the following steps to test your .NET host app:
 
 1. In a terminal window open to the root of your project, run the following command to start the app:
 
@@ -264,19 +273,19 @@ Follow these steps to test your .NET host app:
    List all of the resource groups in my subscription
    ```
 
-  The output for the previous prompt should resemble the following text:
-
-  ```output
-  The following resource groups are available for your subscription:
-
-  1. **DefaultResourceGroup-EUS** (Location: `eastus`)
-  2. **rg-testing** (Location: `centralus`)
-  3. **rg-azd** (Location: `eastus2`)
-  4. **msdocs-sample** (Location: `southcentralus`)
-  14. **ai-testing** (Location: `eastus2`)
-  
-  Let me know if you need further details or actions related to any of these resource groups!
-  ```
+      The output for the previous prompt should resemble the following text:
+    
+      ```output
+      The following resource groups are available for your subscription:
+    
+      1. **DefaultResourceGroup-EUS** (Location: `eastus`)
+      2. **rg-testing** (Location: `centralus`)
+      3. **rg-azd** (Location: `eastus2`)
+      4. **msdocs-sample** (Location: `southcentralus`)
+      14. **ai-testing** (Location: `eastus2`)
+      
+      Let me know if you need further details or actions related to any of these resource groups!
+      ```
 
 1. Consider testing other relevant prompts, such as:
 
@@ -287,8 +296,14 @@ Follow these steps to test your .NET host app:
 
 ::: zone-end
 
+::: zone pivot="mcp-python"
+
+## Python TBD
+
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure MCP Server overview](commands/overview.md)
+> [Azure MCP Server overview](overview.md)
 > [Azure MCP Server tools](commands/use-tools.md)
