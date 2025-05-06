@@ -4,7 +4,7 @@ description: Learn how to connect to and consume Azure MCP Server operations
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/22/2025
+ms.date: 05/06/2025
 ms.topic: get-started
 ms.custom: build-2025
 zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-groups.json
