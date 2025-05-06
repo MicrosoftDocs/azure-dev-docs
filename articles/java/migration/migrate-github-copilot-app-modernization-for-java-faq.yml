@@ -39,8 +39,8 @@ sections:
       - question: Why does App Modernization for Java stop after listing a plan without making any code changes?
         answer: Sometimes, App Modernization for Java requires explicit confirmation before proceeding. You can simply type `yes` or `continue` in the chat to allow the agent to move forward with the code modifications.
 
-      - question: Why does App Modernization for Java frequently prompt me to click "Continue"?
-        answer: To ensure safer operations, the GitHub Copilot Agent repeatedly asks for user confirmation. As a workaround, you can click the dropdown arrow next to the "Continue" button and select "Always allow", or update your VS Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools.
+      - question: Why does App Modernization for Java frequently prompt me to select **Continue**?
+        answer: To ensure safer operations, the GitHub Copilot Agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always allow**, or update your VS Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools.
 
       - question: How can I view more details about the code changes made by the agent?
         answer: The agent always includes explanations for its code changes in the chat window. However, these details may be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.

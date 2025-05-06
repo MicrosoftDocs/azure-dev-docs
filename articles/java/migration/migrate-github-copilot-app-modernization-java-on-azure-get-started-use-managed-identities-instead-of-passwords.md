@@ -24,7 +24,7 @@ This quickstart shows you how to use GitHub Copilot app modernization for Java (
 
 ## Sign in to use Copilot
 
-To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Click the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, refer to [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
+To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
 ## Install
 
@@ -40,11 +40,11 @@ In Visual Studio Code, configure runtime arguments to enable the proposed API:
 
 1. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and then select **Preferences: Configure Runtime Arguments**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" alt-text="Configure Runtime Arguments in Visual Studio Code":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" alt-text="Screenshot of the dialog box that shows Preferences: Configure Runtime Arguments.":::
 
 1. Add the above JSON snippet into the editor and save.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" alt-text="Configure proposed API in Visual Studio Code runtime arguments":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" alt-text="Screenshot of the editor that shows the JSON configuration file with the enable-proposed-api line highlighted.":::
 
 1. Restart Visual Studio Code.
 
@@ -54,11 +54,11 @@ Start your migration process with solution assessment, to understand what your c
 
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the `mi-sql-public-demo` project folder.
 
-1. Click **App Modernization for Java** blade on the sidebar, and then click **Assess** button in Assessment section.
+1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, select **Assess**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" alt-text="Click Assess Button for Assessment":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" alt-text="Screenshot of the Assessment section with the Assess button highlighted.":::
 
-1. Now Github Copilot chat window with agent mode will be opened to call the modernization assessor to execute app modernization assessment. Please click **Continue** button to confirm.
+1. The Github Copilot chat window with agent mode is opened to call the modernization assessor to execute app modernization assessment. Select **Continue** to confirm.
 
 1. The modernization assessor now opens assessment.md as the configuration for running AppCAT to do app assessment and asks for your confirmation to continue. You can examine its content and make changes if necessary there.
 
@@ -66,13 +66,13 @@ Start your migration process with solution assessment, to understand what your c
 
 1. Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" alt-text="Summary Report of Assessment":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" alt-text="Screenshot of the summary report of the assessment.":::
 
-1. With reviewing the summary report, you can click on the **Propose Solution** button at the bottom and move to the next step: choose your desired solution per category/sub category.
+1. With reviewing the summary report, you can select **Propose Solution** at the bottom and move to the next step: choose your desired solution per category/sub category.
 
-1. Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution by clicking on the **Confirm solution** button to proceed to the migration step. Then, click on the **Migrate** button for the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution to move to the code remediation stage.
+1. Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution by selecting **Confirm solution** to proceed to the migration step. Then, select **Migrate** for the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution to move to the code remediation stage.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" alt-text="Confirm Azure SQL Solution":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" alt-text="Screenshot of the Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
 ## Apply a predefined formula
 
@@ -80,7 +80,7 @@ The migration Copilot provides predefined formulas for common migration scenario
 
 1. After selecting **Migrate** in the **Solution Report**, Copilot chat window will be opened with Agent Mode.
 
-1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by clicking the `Continue` button.
+1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by selecting **Continue**.
 
 1. After each step, manually input *continue* to confirm and proceed.
 
