@@ -18,7 +18,7 @@ The Azure MCP Server allows you to manage Azure resources, including Cosmos DB d
 
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. It provides multiple data models including document, key-value, graph, and column-family for flexibility in application design.
 
-[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
 
 <!-- Each command is organized by intent - as an H2 that we can use for navigation -->
 ## List Cosmos DB accounts

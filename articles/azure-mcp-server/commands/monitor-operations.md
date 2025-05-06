@@ -18,7 +18,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Monit
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
 
 ## List Log Analytics workspaces
 

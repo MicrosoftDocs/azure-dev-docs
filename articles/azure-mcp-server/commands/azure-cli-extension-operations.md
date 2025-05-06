@@ -16,7 +16,7 @@ The Azure MCP Server allows you to execute any Azure CLI command.
 
 Find commands in the [reference documentation](/cli/azure/reference-index).
 
-[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
 
 ## Execute CLI command
 

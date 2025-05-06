@@ -18,7 +18,7 @@ The Azure MCP Server allows you to list Azure storage resource information such 
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud, including blobs, files, queues, and tables. Azure Storage is designed for applications requiring scalability, data accessibility, and durability.
 
-[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
 
 ## List storage accounts
 
