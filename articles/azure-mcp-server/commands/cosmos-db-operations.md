@@ -200,7 +200,7 @@ An example query is `"SELECT * FROM c"`.
 
 #### Optional parameters
 
-* `--query`: The full text of the [query](/azure/cosmos-db/nosql/query/).
+* `--query`: The full text of the [query](/azure/cosmos-db/nosql/query/). If the query isn't provided, the default query is used: `"SELECT * FROM c"`.
 
 #### Examples
 
