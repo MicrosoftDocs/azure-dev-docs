@@ -8,13 +8,9 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-<!-- This is the proposed command article template for the Azure MCP Server documentation -->
-<!-- H1 will be <SERVICE-NAME> operations -->
 # Azure Monitor operations for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Azure Monitor logs and metrics.
-
-<!-- Brief description of the service with link to the official documentation. -->
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
@@ -22,9 +18,9 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Monit
 
 ## List Log Analytics workspaces
 
-The Azure MCP Server can list Log Analytics workspaces in a subscription. This is useful for quickly checking your monitoring resources.
+The Azure MCP Server can list Log Analytics workspaces in a subscription. This functionality is useful for quickly checking your monitoring resources.
 
-<!-- the next subsection is for example prompts that would give the LLM a hint fort  -->
+
 ### Example prompts
 
 Example prompts for using the Azure MCP Server with Azure Monitor.
@@ -107,7 +103,7 @@ None
 
 ## Query log with Kusto Query Language (KQL)
 
-The Azure MCP Server can run analytics queries on logs in a Log Analytics workspace. This allows you to analyze your application's telemetry data.
+The Azure MCP Server can run analytics queries on logs in a Log Analytics workspace. This functionality allows you to analyze your application's telemetry data.
 
 ### Example prompts
 
