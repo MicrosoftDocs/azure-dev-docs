@@ -7,6 +7,7 @@ ms.author: alexwolf
 ms.date: 04/22/2025
 ms.topic: get-started
 ms.custom: build-2025
+zone_pivot_group_filename: azure-mcp-zone-pivot-groups.json
 zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
