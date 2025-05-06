@@ -18,10 +18,7 @@ The Azure MCP Server allows you to manage Azure resources, including Cosmos DB d
 
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. It provides multiple data models including document, key-value, graph, and column-family for flexibility in application design.
 
-> [!TIP]
-> When using the Azure MCP Server, required parameters need to be in the conversation context, but they don't always need to be in the exact prompt you use to call a command. If a parameter like an account name or subscription ID is already established in the conversation context, the MCP Server can use that information without requiring you to repeat it in every prompt. This creates a more natural conversational experience while still ensuring all necessary information is available.
-
-
+[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
 
 <!-- Each command is organized by intent - as an H2 that we can use for navigation -->
 ## List Cosmos DB accounts
@@ -160,7 +157,7 @@ azmcp cosmos database container list \
     --database-name "products"
 ```
 
-## Query container
+## Query data container
 
 [Execute a SQL query](/azure/cosmos-db/nosql/query/) against items in a Cosmos DB container.
 
@@ -189,8 +186,10 @@ azmcp cosmos database container item query \
     --account-name <ACCOUNT_NAME> \
     --database-name <DATABASE_NAME> \
     --container-name <CONTAINER-NAME> \
-    [--query "SELECT * FROM c"]
+    --query <QUERY>
 ```
+
+An example query is `"SELECT * FROM c"`.
 
 #### Required parameters
 
@@ -201,4 +200,61 @@ azmcp cosmos database container item query \
 
 #### Optional parameters
 
-* `--query`: The full text of the query.
+* `--query`: The full text of the [query](/azure/cosmos-db/nosql/query/).
+
+#### Examples
+
+Select all items from the container.
+
+```console
+azmcp cosmos database container item query \
+    --subscription "my-subscription-id" \
+    --account-name "mycosmosdb" \
+    --database-name "products" \
+    --container-name "cars" \
+    --query "SELECT * FROM c"
+```
+
+Filter items by a specific property.
+
+```console
+azmcp cosmos database container item query \
+    --subscription "my-subscription-id" \
+    --account-name "mycosmosdb" \
+    --database-name "products" \
+    --container-name "cars" \
+    --query "SELECT * FROM c WHERE c.make = 'Toyota'"
+```
+
+Select only specific properties from items.
+
+```console
+azmcp cosmos database container item query \
+    --subscription "my-subscription-id" \
+    --account-name "mycosmosdb" \
+    --database-name "products" \
+    --container-name "cars" \
+    --query "SELECT c.id, c.make, c.model, c.year FROM c"
+```
+
+Limit results and order them.
+
+```console
+azmcp cosmos database container item query \
+    --subscription "my-subscription-id" \
+    --account-name "mycosmosdb" \
+    --database-name "products" \
+    --container-name "cars" \
+    --query "SELECT TOP 5 * FROM c ORDER BY c.price DESC"
+```
+
+Use aggregation functions.
+
+```console
+azmcp cosmos database container item query \
+    --subscription "my-subscription-id" \
+    --account-name "mycosmosdb" \
+    --database-name "products" \
+    --container-name "cars" \
+    --query "SELECT AVG(c.price) AS averagePrice FROM c"
+```

@@ -8,25 +8,20 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-<!-- This is the proposed command article template for the Azure MCP Server documentation -->
-<!-- H1 will be <SERVICE-NAME> operations -->
 # Azure CLI extension operations
 
 The Azure MCP Server allows you to execute any Azure CLI command.
 
-<!-- Brief description of the service with link to the official documentation. -->
+[Azure Command-Line Interface (CLI)](/cli/azure) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. It allows the execution of commands through a terminal using interactive command-line prompts or a script.
 
-[Azure Command-Line Interface (CLI)](/cli/azure/reference-index?view=azure-cli-latest) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. It allows the execution of commands through a terminal using interactive command-line prompts or a script.
+Find commands in the [reference documentation](/cli/azure/reference-index).
 
-> [!TIP]
-> When using the Azure MCP Server, required parameters need to be in the conversation context, but they don't always need to be in the exact prompt you use to call a command. If a parameter like a subscription ID is already established in the conversation context, the MCP Server can use that information without requiring you to repeat it in every prompt. This creates a more natural conversational experience while still ensuring all necessary information is available.
-
+[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
 
 ## Execute CLI command
 
 The Azure MCP Server can execute Azure CLI commands. 
 
-<!-- the next subsection is for example prompts that would give the LLM a hint fort  -->
 ### Example prompts
 
 Example prompts for using the Azure MCP Server with Azure CLI extensions.
@@ -44,14 +39,14 @@ Example prompts for using the Azure MCP Server with Azure CLI extensions.
 
 ### Command reference
 
-The Azure MCP Server has commands to execute Azure CLI commands. 
+The Azure MCP Server has commands to execute Azure CLI commands.  
 
 | Name            | Description               |
 |-----------------|--------------------------|
-| azmcp extension az | Execute Azure CLI command.|
+| azmcp extension az | Execute Azure CLI command. |
 
 ```console
-azmcp extension az --command "<command>"
+azmcp extension az --command "<COMMAND>"
 ```
 
 #### Required parameters
@@ -64,20 +59,20 @@ None
 
 #### Examples
 
-List resource groups
+List resource groups with [group list](/cli/azure/group#az-group-list).
 
 ```console
 azmcp extension az --command "group list"
 ```
 
-Get storage account details
+Get storage account details with [storage account show](/cli/azure/storage/account#az-storage-account-show).
 
 ```console
-azmcp extension az --command "storage account show --name <account-name> --resource-group <resource-group>"
+azmcp extension az --command "storage account show --name <ACCOUNT-NAME> --resource-group <RESOURCE-GROUP>"
 ```
 
-List virtual machines
+List virtual machines with [vm list](/cli/azure/vm#az-vm-list).
 
 ```console
-azmcp extension az --command "vm list --resource-group <resource-group>"
+azmcp extension az --command "vm list --resource-group <RESOURCE-GROUP>"
 ```

@@ -12,14 +12,13 @@ ms.custom: build-2025
 <!-- H1 will be <SERVICE-NAME> operations -->
 # Azure Storage operations
 
-The Azure MCP Server allows you to list Azure storage resource information.
+The Azure MCP Server allows you to list Azure storage resource information such as [Blob](/azure/storage/blobs) storage and [Table](/azure/storage/tables/) storage.
 
 <!-- Brief description of the service with link to the official documentation. -->
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud, including blobs, files, queues, and tables. Azure Storage is designed for applications requiring scalability, data accessibility, and durability.
 
-> [!TIP]
-> When using the Azure MCP Server, required parameters need to be in the conversation context, but they don't always need to be in the exact prompt you use to call a command. If a parameter like a storage account name or subscription ID is already established in the conversation context, the MCP Server can use that information without requiring you to repeat it in every prompt. This creates a more natural conversational experience while still ensuring all necessary information is available.
+[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
 
 ## List storage accounts
 
@@ -71,7 +70,7 @@ azmcp storage account list \
 
 ## List storage containers
 
-The Azure MCP Server can list all blob containers in a storage account. This allows you to view your containers in one place.
+The Azure MCP Server can list all [blobs](/azure/storage/blobs) containers in a storage account. This allows you to view your containers in one place.
 
 ### Example prompts
 
@@ -107,14 +106,14 @@ None
 List all blob containers in the specified storage account.
 
 ```console
-azmcp storage container list \
+azmcp storage blob container list \
     --subscription "my-subscription-id" \
     --account-name "mystorageaccount"
 ```
 
 ## List storage blobs
 
-The Azure MCP Server can list blobs within a container in a storage account. This allows you to view the contents of a container.
+The Azure MCP Server can list [blobs](/azure/storage/blobs) within a container in a storage account. This allows you to view the contents of a container.
 
 ### Example prompts
 
@@ -149,7 +148,7 @@ None.
 
 #### Examples
 
-List all blobs in a container.
+List all [blobs](/azure/storage/blobs) in a container.
 
 ```console
 azmcp storage blob list \
@@ -169,7 +168,7 @@ azmcp storage blob list \
 
 ## Get storage blob properties
 
-Get detailed properties of a storage container
+Get detailed properties of a storage container.
 
 ### Example prompts
 
@@ -217,7 +216,7 @@ azmcp storage blob container details \
 
 ## List storage tables
 
-List tables in a Storage account
+List [tables](/azure/storage/tables/) in a Storage account.
 
 ### Example prompts
 

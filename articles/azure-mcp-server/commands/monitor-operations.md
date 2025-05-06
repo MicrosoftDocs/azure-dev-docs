@@ -18,15 +18,8 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Monit
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-> [!TIP]
-> When using the Azure MCP Server, required parameters need to be in the conversation context, but they don't always need to be in the exact prompt you use to call a command. If a parameter like a resource name or subscription ID is already established in the conversation context, the MCP Server can use that information without requiring you to repeat it in every prompt. This creates a more natural conversational experience while still ensuring all necessary information is available.
+[!INCLUDE [tip-about-params](./includes/commands/parameter-consideration.md)]
 
-<!--  
-In this article...
-Manage navigation by auto H2 links
--->
-
-<!-- Each command is organized by intent - as an H2 that we can use for navigation -->
 ## List Log Analytics workspaces
 
 The Azure MCP Server can list Log Analytics workspaces in a subscription. This is useful for quickly checking your monitoring resources.
@@ -77,9 +70,15 @@ azmcp monitor workspace list \
 
 ## List Log Analytics workspaces tables
 
-List tables in a Log Analytics workspace
+List tables in a Log Analytics workspace.
 
 ### Example prompts
+
+- **List tables**: "Show me all tables in my analytics workspace"
+- **View tables**: "What tables are available in my Log Analytics workspace?"
+- **Get table names**: "List tables in my monitoring workspace in the production resource group"
+- **Check tables**: "Show me the tables in my security-logs workspace"
+- **Find tables**: "What data tables does my application-insights workspace contain?"
 
 ### Command reference
 
@@ -101,6 +100,10 @@ azmcp monitor table list \
 - `--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
 - `--workspace`: The ID of the workspace.
 - `--resource-group`: The name of the resource group.
+
+#### Optional parameters
+
+None
 
 ## Query log with Kusto Query Language (KQL)
 
@@ -125,8 +128,8 @@ azmcp monitor logs query \
     --subscription <SUBSCRIPTION_ID> \
     --workspace-name <WORKSPACE_NAME> \
     --table-name <TABLE_NAME> \
-    --query <QUERY_STRING> \
-    [--timespan <TIMESPAN>] \
+    --query <KQL_QUERY_STRING> \
+    [--hours <HOURS>] \
     [--limit <LIMIT>]
 ```
 
@@ -139,7 +142,7 @@ azmcp monitor logs query \
 
 #### Optional parameters
 
-- `--timespan`: The timespan for which to query data, in ISO 8601 format (for example, 'PT1H' for 1 hour). Default is 'P1D' (1 day).
+- `--hours`: The hours for which to query data.
 - `--limit`: The maximum limit of records to return.
 
 #### Examples
@@ -151,8 +154,8 @@ azmcp monitor logs query \
     --subscription "my-subscription-id" \
     --workspace-name "myworkspace" \
     --table "Heartbeat" \
-    --query "| where TimeGenerated > ago(1h)" \
-    --timespan "PT1H"
+    --query "| order by TimeGenerated desc" \
+    --hours "1
 ```
 
 Run a query to find failed requests in the last day.
@@ -162,6 +165,10 @@ azmcp monitor logs query \
     --subscription "my-subscription-id" \
     --workspace-name "myworkspace" \
     --table "AppRequests" \
-    --query "| where TimeGenerated > ago(1d) | where Success == false" \
-    --timespan "P1D"
+    --query "| order by TimeGenerated desc" \
+    --hours "1"
+    --limit "5"
 ```
+
+
+
