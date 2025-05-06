@@ -142,6 +142,13 @@ Select one of the following options to install the Azure MCP Server in VS Code:
     Let me know if you need further details or actions related to any of these resource groups!
     ```
 
+1. Explore and test the Azure MCP operations using other relevant prompts, such as:
+
+    ```
+    List all of the storage accounts in my subscription
+    Get the available tables in my storage accounts
+    ```
+
 ::: zone-end
 
 ::: zone pivot="mcp-csharp"
@@ -257,7 +264,7 @@ The preceding code accomplishes the following tasks:
 - Retrieves and displays a list of available tools from the MCP server, which is a standard MCP function.
 - Implements a conversational loop that processes user prompts and utilizes the tools for responses.
 
-## Test the app
+## Run and test the app
 
 Complete the following steps to test your .NET host app:
 
@@ -287,7 +294,7 @@ Complete the following steps to test your .NET host app:
       Let me know if you need further details or actions related to any of these resource groups!
       ```
 
-1. Consider testing other relevant prompts, such as:
+1. Explore and test the Azure MCP operations using other relevant prompts, such as:
 
     ```
     List all of the storage accounts in my subscription
