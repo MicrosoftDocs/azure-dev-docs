@@ -64,7 +64,7 @@ azmcp appconfig account list \
 
 ## List key-value settings
 
-The Azure MCP Server can list all key-value settings in an App Configuration store. This allows you to view your application settings and their values in one place.
+The Azure MCP Server can list all [key-value settings](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. This allows you to view your application settings and their values in one place.
 
 ### Example prompts
 
@@ -129,7 +129,7 @@ azmcp appconfig kv list \
 
 ## Show key-value setting
 
-The Azure MCP Server can retrieve a specific key-value setting from an App Configuration store. This is useful for checking the current value of a particular setting.
+The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. This is useful for checking the current value of a particular setting.
 
 ### Example prompts
 
@@ -186,7 +186,7 @@ azmcp appconfig kv show \
 
 ## Set key-value setting
 
-The Azure MCP Server can create or update a key-value setting in an App Configuration store.
+The Azure MCP Server can create or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store.
 
 ### Example prompts
 
@@ -248,7 +248,7 @@ azmcp appconfig kv set \
 
 ## Lock key-value setting
 
-The Azure MCP Server can lock a key-value setting in an App Configuration store, making it read-only.
+The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.
 
 ### Example prompts
 
@@ -305,7 +305,7 @@ azmcp appconfig kv lock \
 
 ## Unlock key-value setting
 
-The Azure MCP Server can unlock a previously locked key-value setting in an App Configuration store, making it editable again.
+The Azure MCP Server can unlock a previously locked [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it editable again.
 
 ### Example prompts
 
@@ -354,7 +354,7 @@ azmcp appconfig kv unlock \
 
 ## Delete key-value setting
 
-The Azure MCP Server can delete a key-value setting from an App Configuration store.
+The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
 
 ### Example prompts
 

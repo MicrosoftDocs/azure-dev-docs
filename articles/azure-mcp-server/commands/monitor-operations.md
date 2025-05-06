@@ -18,7 +18,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Monit
 
 ## List Log Analytics workspaces
 
-The Azure MCP Server can list Log Analytics workspaces in a subscription. This functionality is useful for quickly checking your monitoring resources.
+The Azure MCP Server can list Log Analytics [workspaces](/azure/azure-monitor/metrics/azure-monitor-workspace-overview) in a subscription. This functionality is useful for quickly checking your monitoring resources.
 
 
 ### Example prompts
@@ -66,7 +66,7 @@ azmcp monitor workspace list \
 
 ## List Log Analytics workspaces tables
 
-List tables in a Log Analytics workspace.
+List tables in a Log Analytics [workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-overview).
 
 ### Example prompts
 
@@ -103,7 +103,7 @@ None
 
 ## Query log with Kusto Query Language (KQL)
 
-The Azure MCP Server can run analytics queries on logs in a Log Analytics workspace. This functionality allows you to analyze your application's telemetry data.
+The Azure MCP Server can run analytics queries with [Kusto](/kusto/query) on logs in a Log Analytics workspace. This functionality allows you to analyze your application's telemetry data.
 
 ### Example prompts
 

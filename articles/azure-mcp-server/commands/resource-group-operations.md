@@ -18,7 +18,7 @@ The Azure MCP Server allows you to manage Azure resources, including Resource Gr
 
 ## List resource groups
 
-The Azure MCP Server can list resource groups in a subscription. This is useful for quickly seeing all resource groups in your subscription.
+The Azure MCP Server can list [resource groups](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources) in a subscription. This is useful for quickly seeing all resource groups in your subscription.
 
 ### Example prompts
 

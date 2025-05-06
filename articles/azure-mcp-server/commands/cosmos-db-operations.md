@@ -70,7 +70,7 @@ azmcp cosmos account list \
 
 ## List databases
 
-The Azure MCP Server can list all databases in a Cosmos DB account. This allows you to view your databases in one place.
+The Azure MCP Server can list all [databases](/azure/cosmos-db/resource-model) in a Cosmos DB account. This allows you to view your databases in one place.
 
 ### Example prompts
 
@@ -113,7 +113,7 @@ azmcp cosmos database list \
 
 ## List containers
 
-The Azure MCP Server can list all containers in a Cosmos DB database. This allows you to view your containers in one place.
+The Azure MCP Server can list all [containers](/azure/cosmos-db/resource-model) in a Cosmos DB database. This allows you to view your containers in one place.
 
 ### Example prompts
 
@@ -159,7 +159,7 @@ azmcp cosmos database container list \
 
 ## Query data container
 
-[Execute a SQL query](/azure/cosmos-db/nosql/query/) against items in a Cosmos DB container.
+[Execute a SQL query](/azure/cosmos-db/nosql/query/) against items in a Cosmos DB [container](/azure/cosmos-db/resource-model).
 
 ### Example prompts
 
