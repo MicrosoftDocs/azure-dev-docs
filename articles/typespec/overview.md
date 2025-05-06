@@ -2,7 +2,7 @@
 title: Overview of TypeSpec - What is TypeSpec?
 description: Discover how TypeSpec enhances API design with reusable elements, seamless toolchain integration, and a great developer experience.
 ms.topic: overview
-ms.date: 02/12/2025
+ms.date: 05/06/2025
 ms.custom: devx-track-typespec
 #customer intent: As a developer or API designer, I want to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
 ---
@@ -16,6 +16,8 @@ ms.custom: devx-track-typespec
 A key strength of TypeSpec is that it enables the creation of modular, reusable components. This makes TypeSpec code more concise and ensures compliance with API guidelines. The standard TypeSpec library includes an OpenAPI emitter, ensuring compatibility with existing tools and workflows.
 
 As an open source language, TypeSpec can describe any API, not just Azure APIs. This versatility makes it a valuable tool for API developers, architects, and managers who need to deliver high-quality APIs in a complex and evolving environment.
+
+
 
 ## Benefits of TypeSpec
 
@@ -124,6 +126,13 @@ TypeSpec has been successfully used in various industries to streamline API desi
 - **E-commerce**: An online retail platform used TypeSpec to design and document their API, enabling seamless integration with third-party services and improving the overall developer experience.
 - **Finance**: A financial services company adopted TypeSpec to ensure consistency and compliance across their APIs, reducing the time and effort required for API governance.
 - **Healthcare**: A healthcare provider used TypeSpec to design APIs for patient data management, ensuring data consistency and security across their systems.
+
+## Community support
+
+* **TypeSpec** is an open source project developed by Microsoft with active community involvement.
+* We value and encourage your ideas, feedback, and contributions to help improve the project.
+* For more information on how to contribute, refer to the [contributor guide](https://github.com/microsoft/typespec/blob/main/CONTRIBUTING.md).
+* If you have questions or need assistance, feel free to [ask the community](https://github.com/microsoft/typespec/discussions) or [submit an issue on GitHub](https://github.com/microsoft/typespec/issues).
 
 ## Learn more
 
