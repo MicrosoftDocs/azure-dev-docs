@@ -8,5 +8,5 @@ groups:
     title: GitHub Copilot
   - id: mcp-csharp
     title: .NET
-  - id: mc-python
+  - id: mcp-python
     title: Python
