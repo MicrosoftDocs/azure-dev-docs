@@ -91,12 +91,12 @@ azmcp appconfig kv list \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
 `--account-name`: The name of the App Configuration store.
 
 #### Optional parameters
 
-`--key`: Filter results to only show settings with keys matching the specified pattern.
+`--key`: Filter results to only show settings with keys matching the specified pattern.<br>
 `--label`: Filter results to only show settings with the specified label.
 
 
@@ -155,8 +155,8 @@ azmcp appconfig kv show \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
-`--account-name`: The name of the App Configuration store.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
+`--account-name`: The name of the App Configuration store.<br>
 `--key`: The key name of the setting to retrieve.
 
 #### Optional parameters
@@ -213,9 +213,9 @@ azmcp appconfig kv set \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
-`--account-name`: The name of the App Configuration store.
-`--key`: The key name of the setting to create or update.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
+`--account-name`: The name of the App Configuration store.<br>
+`--key`: The key name of the setting to create or update.<br>
 `--value`: The value to set for the key.
 
 #### Optional parameters
@@ -274,8 +274,8 @@ azmcp appconfig kv lock \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
-`--account-name`: The name of the App Configuration store.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
+`--account-name`: The name of the App Configuration store.<br>
 `--key`: The key name of the setting to lock.
 
 #### Optional parameters
@@ -323,8 +323,8 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
-`--account-name`: The name of the App Configuration store.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
+`--account-name`: The name of the App Configuration store.<br>
 `--key`: The key name of the setting to unlock.
 
 #### Optional parameters
@@ -380,8 +380,8 @@ azmcp appconfig kv delete \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
-`--account-name`: The name of the App Configuration store.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
+`--account-name`: The name of the App Configuration store.<br>
 `--key`: The key name of the setting to delete.
 
 #### Optional parameters

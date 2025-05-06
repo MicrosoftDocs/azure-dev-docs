@@ -94,7 +94,7 @@ azmcp cosmos database list \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the Cosmos DB account.
+`--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
 `--account-name`: The name of the Cosmos DB account.
 
 #### Optional parameters
@@ -138,8 +138,8 @@ azmcp cosmos database container list \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the Cosmos DB account.
-`--account-name`: The name of the Cosmos DB account.
+`--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
+`--account-name`: The name of the Cosmos DB account.<br>
 `--database-name`: The name of the database.
 
 #### Optional parameters
@@ -193,9 +193,9 @@ An example query is `"SELECT * FROM c"`.
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the App Configuration store.
-`--account-name`: The name of the Cosmos DB account.
-`--database-name`: The name of the database.
+`--subscription`: The ID of the subscription containing the App Configuration store.<br>
+`--account-name`: The name of the Cosmos DB account.<br>
+`--database-name`: The name of the database.<br>
 `--container-name`: The name of the container.
 
 #### Optional parameters

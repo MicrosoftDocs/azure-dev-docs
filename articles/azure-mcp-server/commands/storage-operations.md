@@ -94,7 +94,7 @@ azmcp storage blob container list \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the storage account.
+`--subscription`: The ID of the subscription containing the storage account.<br>
 `--account-name`: The name of the storage account.
 
 #### Optional parameters
@@ -138,8 +138,8 @@ azmcp storage blob list \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the storage account.
-`--account-name`: The name of the storage account.
+`--subscription`: The ID of the subscription containing the storage account.<br>
+`--account-name`: The name of the storage account.<br>
 `--container-name`: The name of the container to list blobs from.
 
 #### Optional parameters
@@ -194,8 +194,8 @@ azmcp storage blob container details \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the storage account.
-`--account-name`: The name of the storage account.
+`--subscription`: The ID of the subscription containing the storage account.<br>
+`--account-name`: The name of the storage account.<br>
 `--container-name`: The name of the container to list blobs from.
 
 #### Optional parameters
@@ -242,7 +242,7 @@ azmcp storage table list \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the storage account.
+`--subscription`: The ID of the subscription containing the storage account.<br>
 `--account-name`: The name of the storage account.
 
 #### Optional parameters

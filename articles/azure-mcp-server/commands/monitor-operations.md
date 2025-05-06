@@ -93,8 +93,8 @@ azmcp monitor table list \
 
 ### Required parameters
 
-`--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
-`--workspace`: The ID of the workspace.
+`--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.<br>
+`--workspace`: The ID of the workspace.<br>
 `--resource-group`: The name of the resource group.
 
 #### Optional parameters
@@ -131,14 +131,14 @@ azmcp monitor logs query \
 
 #### Required parameters
 
-`--subscription`: The ID of the subscription containing the Log Analytics workspace.
-`--workspace-name`: The name of the Log Analytics workspace.
-`--table-name`: The Kusto table name.
+`--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
+`--workspace-name`: The name of the Log Analytics workspace.<br>
+`--table-name`: The Kusto table name.<br>
 `--query`: The Kusto query to run.
 
 #### Optional parameters
 
-`--hours`: The hours for which to query data.
+`--hours`: The hours for which to query data.<br>
 `--limit`: The maximum limit of records to return.
 
 #### Examples
