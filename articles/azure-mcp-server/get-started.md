@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.date: 04/22/2025
 ms.topic: get-started
 ms.custom: build-2025
-zone_pivot_group_filename: azure-mcp-zone-pivot-groups.json
+zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-groups.json
 zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
@@ -23,13 +23,13 @@ In this article, you learn how to complete the following tasks:
 
 ## Prerequisites
 
-1. [VS Code]((https://code.visualstudio.com/download)):
+1. [VS Code](https://code.visualstudio.com/download)
 2. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
 3. [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Azure MCP Server authentication
 
-The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Token-based authentication is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. Internally, Azure MCP Server uses [`DefaultAzureCredential`](https://learn.microsoft.com/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users. `DefaultAzureCredential` searches for credentials in order:
+The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Token-based authentication is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users. `DefaultAzureCredential` searches for credentials in order:
 
 1. **Environment Variables** (`EnvironmentCredential`)
 2. **Shared Token Cache** (`SharedTokenCacheCredential`)
@@ -67,8 +67,6 @@ Once you have signed-in successfully to one of the preceding tools, Azure MCP Se
 
 > [!NOTE]
 > Azure MCP Server is only able to perform operations that the signed-in user has permissions to perform.
-
-If you experience issues with authentication, visit the [troubleshooting guide](/TROUBLESHOOTING.md).
 
 ::: zone pivot="mcp-github-copilot"
 
