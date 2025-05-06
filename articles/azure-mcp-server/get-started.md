@@ -7,7 +7,7 @@ ms.author: alexwolf
 ms.date: 04/22/2025
 ms.topic: get-started
 ms.custom: build-2025
-zone_pivot_group: azure-mcp-server-tools-frameworks
+zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
 # Quickstart: Get started with the Azure MCP Server
