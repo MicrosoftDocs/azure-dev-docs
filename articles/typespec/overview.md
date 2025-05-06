@@ -129,7 +129,7 @@ TypeSpec has been successfully used in various industries to streamline API desi
 
 ## Community support
 
-* **TypeSpec** is an open source project developed by Microsoft with active community involvement.
+* **TypeSpec** is an open source project developed by Microsoft and supported by the community.
 * We value and encourage your ideas, feedback, and contributions to help improve the project.
 * For more information on how to contribute, refer to the [contributor guide](https://github.com/microsoft/typespec/blob/main/CONTRIBUTING.md).
 * If you have questions or need assistance, feel free to [ask the community](https://github.com/microsoft/typespec/discussions) or [submit an issue on GitHub](https://github.com/microsoft/typespec/issues).
