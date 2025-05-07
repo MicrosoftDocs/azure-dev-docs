@@ -23,7 +23,7 @@ In this article, you learn how to complete the following tasks:
 
 ## Prerequisites
 
-::: zone pivot="mcp-copilot"
+::: zone pivot="mcp-github-copilot"
 
 - [VS Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
@@ -37,7 +37,7 @@ In this article, you learn how to complete the following tasks:
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-## Azure MCP Server authentication
+## Sign-in for local development
 
 The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users.
 
