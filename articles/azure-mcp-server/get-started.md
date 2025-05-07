@@ -23,27 +23,25 @@ In this article, you learn how to complete the following tasks:
 
 ## Prerequisites
 
+::: zone pivot="mcp-copilot"
+
 - [VS Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
+
+::: zone-end
+
+::: zone pivot="mcp-csharp"
+
+- [VS Code](https://code.visualstudio.com/download)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) VS Code extension
+- [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ## Azure MCP Server authentication
 
-The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Token-based authentication is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users.
+The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users.
 
-`DefaultAzureCredential` automatically searches for and uses credentials in the following order:
-
-1. **Environment Variables** (`EnvironmentCredential`)
-2. **Shared Token Cache** (`SharedTokenCacheCredential`)
-3. **Visual Studio** (`VisualStudioCredential`)
-4. **Azure CLI** (`AzureCliCredential`)
-5. **Azure PowerShell** (`AzurePowerShellCredential`)
-6. **Azure Developer CLI** (`AzureDeveloperCliCredential`)
-7. **Interactive Browser** (`InteractiveBrowserCredential`)
-
-### Sign-in for local development
-
-To follow along with this quickstart while working locally, sign-in to one of the supported tools with your Azure account:
+You'll need to sign-in to one of the tools supported by `DefaultAzureCredential` locally with your Azure account to work with Azure MCP Server. Sign-in using a terminal window, such as the VS Code terminal:
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -65,10 +63,15 @@ azd auth login
 
 ---
 
+> [!NOTE]
+> You can also sign-in to Azure through Visual Studio.
+
 Once you have signed-in successfully to one of the preceding tools, Azure MCP Server can automatically discover your credentials and use them to authenticate and perform operations on Azure services.
 
 > [!NOTE]
 > Azure MCP Server is only able to run operations that the signed-in user has permissions to perform.
+
+::: zone-end
 
 ::: zone pivot="mcp-github-copilot"
 
@@ -76,9 +79,9 @@ Once you have signed-in successfully to one of the preceding tools, Azure MCP Se
 
 Select one of the following options to install the Azure MCP Server in VS Code:
 
-## [One-step install](#tab/one-click)
+## [Global install](#tab/one-click)
 
-1. Select the following link to install the Azure MCP Server for VS Code:
+1. To install the Azure MCP Server for VS Code in your user settings, select the following link:
 
     [![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-Install_Azure_MCP_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=Azure%20MCP%20Server&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40azure%2Fmcp%40latest%22%2C%22server%22%2C%22start%22%5D%7D)
 1. Open GitHub Pilot and select Agent Mode. To learn more about Agent Mode, visit the [VS Code Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).
@@ -86,9 +89,12 @@ Select one of the following options to install the Azure MCP Server in VS Code:
 
     :::image type="content" source="../azure-developer-cli/media/azure-mcp-server/github-copilot-integration.png" alt-text="A screenshot showing Azure MCP Server as GitHub Copilot tool.":::
 
-## [Manual install](#tab/manual)
+## [Directory install](#tab/manual)
 
-1. At the root of your folder, create a `.vscode` folder if there isn't one already.
+You can also manually install VS Code for a specific directory:
+
+1. Open an empty directory or an existing project directory in VS Code.
+1. At the root of the folder, create a `.vscode` folder if there isn't one already.
 1. Inside the `.vscode` folder, create a new file named `mcp.json` add the following JSON:
 
     ```json
@@ -120,8 +126,13 @@ Select one of the following options to install the Azure MCP Server in VS Code:
 ## Use prompts to test the Azure MCP Server
 
 1. Open GitHub Copilot and select Agent Mode.
-1. Enter a prompt that causes the agent to use the Azure MCP Server, such as *List my Azure resource groups*.
-1. GitHub Copilot might prompt you for permission to run the necessary Azure MCP Server operation. Select **Continue** or use the arrow to select a more specific behavior:
+1. Enter a prompt that causes the agent to use Azure MCP Server tools, such as *List my Azure resource groups*.
+1. In order to authenticate Azure MCP Server, Copilot will prompt you to sign-in to Azure using the browser workflow.
+
+    > [!NOTE]
+    > Copilot will not prompt you to sign-in to Azure if you are already authenticated via other local tooling such as the Azure CLI.
+
+1. Copilot requests permission to run the necessary Azure MCP Server operation for your prompt. Select **Continue** or use the arrow to select a more specific behavior:
     - **Current session** always runs the operation in the current GitHub Copilot Agent Mode session.
     - **Current workspace** always runs the command for current Visual Studio Code workspace.
     - **Always allow** sets the operation to always run for any GitHub Copilot Agent Mode session or any Visual Studio Code workspace.
