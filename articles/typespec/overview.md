@@ -2,14 +2,14 @@
 title: Overview of TypeSpec - What is TypeSpec?
 description: Discover how TypeSpec enhances API design with reusable elements, seamless toolchain integration, and a great developer experience.
 ms.topic: overview
-ms.date: 02/12/2025
+ms.date: 05/06/2025
 ms.custom: devx-track-typespec
 #customer intent: As a developer or API designer, I want to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
 ---
 
 # What is TypeSpec?
 
-[TypeSpec](https://typespec.io/) is a powerful and flexible language by Microsoft for describing APIs. It allows developers to define APIs in an extensible and easy-to-understand way. With TypeSpec, you can generate API specifications, client code, and server-side code directly from your API definition using a robust system of emitters.
+[TypeSpec](https://typespec.io/) is a powerful and flexible language by Microsoft for describing APIs. It allows developers to define APIs in an extensible and easy-to-understand way. With TypeSpec, you can generate API specifications, client code, and server-side code directly from your API definition using a robust system of emitters. TypeSpec is an [open source project](#open-source-support) developed by Microsoft and supported by the community.
 
 :::image type="content" source="media/tool-chain.png" alt-text="Diagram showing TypeSpec and the generated specification happen before API generation.":::
 
@@ -124,6 +124,12 @@ TypeSpec has been successfully used in various industries to streamline API desi
 - **E-commerce**: An online retail platform used TypeSpec to design and document their API, enabling seamless integration with third-party services and improving the overall developer experience.
 - **Finance**: A financial services company adopted TypeSpec to ensure consistency and compliance across their APIs, reducing the time and effort required for API governance.
 - **Healthcare**: A healthcare provider used TypeSpec to design APIs for patient data management, ensuring data consistency and security across their systems.
+
+## Open source support
+
+* We value and encourage your ideas, feedback, and contributions to help improve the project.
+* For more information on how to contribute, refer to the [contributor guide](https://github.com/microsoft/typespec/blob/main/CONTRIBUTING.md).
+* If you have questions or need assistance, feel free to [ask the community](https://github.com/microsoft/typespec/discussions) or [submit an issue on GitHub](https://github.com/microsoft/typespec/issues).
 
 ## Learn more
 
