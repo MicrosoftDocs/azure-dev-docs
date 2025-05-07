@@ -13,13 +13,13 @@ ms.service: azure-java
 
 # Asset Manager migration sample
 
-We have prepared a migration code sample, Asset Manager, that stores user-uploaded images and metadata in:
+We have prepared a migration code sample, Asset Manager, that stores user-uploaded images and metadata in the following locations:
 
 - RabbitMQ
 - Local file system
 - AWS S3
 
-You can use GitHub Copilot app modernization for Java (preview) to migrate the app estate to Azure using:
+You can use GitHub Copilot app modernization for Java (preview) to migrate the app estate to Azure using the following features:
 
 - AppCAT for solution assessment
 - Predefined and custom formulas to migrate code and configurations to:

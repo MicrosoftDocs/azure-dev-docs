@@ -32,19 +32,19 @@ In Visual Studio Code, open the Extensions view from Activity Bar, search **GitH
 
 ## Configure
 
-In Visual Studio Code, configure runtime arguments to enable the proposed API:
+Use the following steps to configure Visual Studio Code:
 
-```json
-"enable-proposed-api": ["Microsoft.migrate-java-to-azure"],
-```
+1. In Visual Studio Code, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and then select **Preferences: Configure Runtime Arguments**.
 
-1. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and then select **Preferences: Configure Runtime Arguments**.
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/configure-runtime-arguments.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/configure-runtime-arguments.png" alt-text="Screenshot of the dialog box that shows Preferences: Configure Runtime Arguments.":::
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/configure-runtime-arguments.png" alt-text="Screenshot of the dialog box that shows Preferences: Configure Runtime Arguments.":::
+1. Add the following JSON snippet into the editor and then save:
 
-1. Add the above JSON snippet into the editor and save.
+   ```json
+   "enable-proposed-api": ["Microsoft.migrate-java-to-azure"],
+   ```
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/config-api-for-extension.png" alt-text="Screenshot of the editor that shows the JSON configuration file with the enable-proposed-api line highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/config-api-for-extension.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/config-api-for-extension.png" alt-text="Screenshot of the editor that shows the JSON configuration file with the enable-proposed-api line highlighted.":::
 
 1. Restart Visual Studio Code.
 
@@ -56,7 +56,7 @@ Start your migration process with solution assessment, to understand what your c
 
 1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, select **Assess**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/assess-button-of-assessment.png" alt-text="Screenshot of the Assessment section with the Assess button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" alt-text="Screenshot of the Assessment section with the Assess button highlighted.":::
 
 1. The Github Copilot chat window with agent mode is opened to call the modernization assessor to execute app modernization assessment. Select **Continue** to confirm.
 
@@ -66,13 +66,13 @@ Start your migration process with solution assessment, to understand what your c
 
 1. Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/assessment-summary-report.png" alt-text="Screenshot of the summary report of the assessment.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" alt-text="Screenshot of the summary report of the assessment.":::
 
 1. With reviewing the summary report, you can select **Propose Solution** at the bottom and move to the next step: choose your desired solution per category/sub category.
 
 1. Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution by selecting **Confirm solution** to proceed to the migration step. Then, select **Migrate** for the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution to move to the code remediation stage.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/confirm-sql-solution.png" alt-text="Screenshot of the Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
 ## Apply a predefined formula
 
@@ -86,7 +86,9 @@ The migration Copilot provides predefined formulas for common migration scenario
 
 1. Wait the changed codes to be generated.
 
-## Apply Build-fix
+## Apply the Build-Fix tool
+
+Use the following steps to apply the Build-Fix tool:
 
 1. When the Java Application Build-Fix tool is suggested to run, select **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
 
@@ -96,4 +98,4 @@ The migration Copilot provides predefined formulas for common migration scenario
 
 ## Next step
 
-[Create and apply your own migration formula](migrate-github-copilot-app-modernization-java-on-azure-get-started-create-and-apply-your-own-formula.md)
+[Create and apply your own migration formula](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)

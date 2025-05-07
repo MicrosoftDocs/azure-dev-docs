@@ -19,11 +19,11 @@ In code development, enterprises often have different processes and controls to 
 
 ## Prerequisites
 
-- [Visual Studio Code](https://code.visualstudio.com/): The latest version is recommended.
-- [A GitHub account with GitHub Copilot enabled](https://github.com/features/copilot): All plans are supported, including the Free plan.
-- [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview): The latest version is recommended.
-- [AppCAT](https://aka.ms/appcat-install): Required for the app assessment feature.
-- [GitHub Copilot app modernization for Java (preview)](migrate-github-copilot-app-modernization-java-on-azure-get-started-use-managed-identities-instead-of-passwords.md#install): Please install it and add the required configuration.
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/)
+- [A GitHub account with GitHub Copilot enabled](https://github.com/features/copilot). All plans are supported, including the Free plan.
+- The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
+- [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
+- [GitHub Copilot app modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java-quickstart-use-managed-identities-instead-of-passwords.md#install). Install this tool and add the required configuration.
 
 ## Create a custom formula
 
@@ -33,11 +33,11 @@ Use the following steps to create a custom formula:
 
 1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane and then, in the **Formulas** section, select **Create formula from source control**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/create-formula-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/create-formula-from-source-control.png" alt-text="Screenshot of the button for Create formula from source control.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" alt-text="Screenshot of the button for Create formula from source control.":::
 
 1. Type *update expected changes for rabbitmq* to search for the commit that migrates RabbitMQ. Then select the corresponding commit and select **OK**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/commit-for-custom-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/commit-for-custom-formula.png" alt-text="Screenshot of the dialog box for Select commits you want to save.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" alt-text="Screenshot of the dialog box for Select commits you want to save.":::
 
 1. Select **Create New** to create a new custom formula.
 
@@ -45,19 +45,21 @@ Use the following steps to create a custom formula:
 
 1. Now, the custom formula for migrating `rabbitmq` is generated and shows in the Formulas section of the **App Modernization for Java** pane.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/custom-formula-rabbitmq.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/custom-formula-rabbitmq.png" alt-text="Screenshot of the Formulas section with the rabbitmq formula showing.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" alt-text="Screenshot of the Formulas section with the rabbitmq formula showing.":::
 
 ## Apply the custom formula
 
-1. Check out the project to the `main` branch. Find the custom formula just created in the Formulas section of **App Modernization for Java** pane. Run this formula by selecting **Run Formula**.
+Use the following steps to apply the custom formula:
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-java-on-azure/run-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-java-on-azure/run-formula.png" alt-text="Screenshot of the Formulas section with the Run formula button shown.":::
+1. Check out the project to the **main** branch. Find the custom formula just created in the Formulas section of **App Modernization for Java** pane. Run this formula by selecting **Run Formula**.
 
-1. After triggering to run the formula, Copilot chat window will be opened with Agent Mode automatically.
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-formula.png" alt-text="Screenshot of the Formulas section with the Run formula button shown.":::
+
+1. After triggering to run the formula, the Copilot chat window with Agent Mode opens automatically.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by selecting **Continue**.
 
-1. After each step, please manually input **continue** to confirm and proceed.
+1. After each step, manually input **continue** to confirm and proceed.
 
 1. Wait the changed codes to be generated.
 

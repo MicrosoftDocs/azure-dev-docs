@@ -59,7 +59,7 @@ In scenarios where code changes are required, app modernization for Java (previe
 - Switching from password-based authentication to managed identities.
 - Moving from AWS S3 to Azure Blob Storage.
 
-To learn more about predefined formulas available in the app modernization for Java (preview) today, see [Predefined formulas](migrate-github-copilot-app-modernization-java-on-azure-predefined-formula.md).
+To learn more about predefined formulas available in the app modernization for Java (preview) today, see [Predefined formulas](migrate-github-copilot-app-modernization-for-java-predefined-formula.md).
 
 When it comes to development, enterprises often have strict processes and controls. This is where *customer-defined formulas* come in.
 
@@ -69,4 +69,4 @@ Finally, app modernization for Java (preview) includes a Build Fix Agent designe
 
 ## Next step
 
-[Predefined formulas](migrate-github-copilot-app-modernization-java-on-azure-predefined-formula.md)
+[Predefined formulas](migrate-github-copilot-app-modernization-for-java-predefined-formula.md)
