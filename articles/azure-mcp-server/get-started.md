@@ -17,9 +17,29 @@ The Model Context Protocol (MCP) is an open protocol designed to standardize int
 
 In this article, you learn how to complete the following tasks:
 
+::: zone pivot="mcp-github-copilot"
+
 - Install and authenticate to the Azure MCP Server
 - Connect to Azure MCP Server using popular tools and frameworks
 - Run prompts to test Azure MCP Server operations and manage Azure resources
+
+::: zone-end
+
+::: zone pivot="mcp-csharp"
+
+- Install and authenticate to the Azure MCP Server
+- Connect to Azure MCP Server using a custom .NET client
+- Run prompts to test Azure MCP Server operations and manage Azure resources
+
+::: zone-end
+
+::: zone pivot="mcp-python"
+
+- Install and authenticate to the Azure MCP Server
+- Connect to Azure MCP Server using a custom Python client
+- Run prompts to test Azure MCP Server operations and manage Azure resources
+
+::: zone-end
 
 ## Prerequisites
 
