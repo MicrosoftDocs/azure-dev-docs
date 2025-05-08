@@ -32,83 +32,126 @@ landingContent:
             url: websphere-family.md
           - text: JBoss EAP on Azure
             url: jboss-on-azure.md
-  - title: Deployment
+  - title: Migrate Quarkus to Azure
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy a Java application with Quarkus on an Azure Kubernetes Service (AKS) cluster
+            url: /azure/aks/howto-deploy-java-quarkus-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Deploy serverless Java apps with Quarkus on Azure Functions
+            url: /azure/azure-functions/functions-create-first-quarkus?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Deploy a Java application with Quarkus on Azure Container Apps
+            url: deploy-java-quarkus-app.md
+          - text: Secure Quarkus applications with Microsoft Entra ID using OpenID Connect
+            url: quarkus-with-microsoft-entra-id.md
+  - title: Migrate WebLogic Server to Azure
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: WebLogic Server on Azure VMs
+          url: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+        - text: WebLogic Server on Azure Kubernetes Service
+          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
-          - text: Java app with WebSphere Liberty/Open Liberty to Azure Red Hat OpenShift
-            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-          - text: Java app with WebSphere Liberty/Open Liberty to AKS
+          - text: Step-by-step guide to installing WebLogic Server on Azure VMs 
+            url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: Step-by-step guide to installing WebLogic Server on AKS
+            url: https://aka.ms/wls-aks-guidance
+      - linkListType: tutorial
+        links:
+          - text: Migrating WebLogic Server to AKS
+            url: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: Migrating WebLogic Server to Azure VMs
+            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
+            url: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic Server on AKS with a custom virtual network
+            url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebLogic with App Gateway
+            url: ../migration/migrate-weblogic-with-app-gateway.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebLogic to Azure VMs with Elastic
+            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to Azure VMs with Entra ID
+            url: ../migration/migrate-weblogic-with-entra-id-via-ldap.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: Passwordless database connections for WebLogic Server
+            url: how-to-configure-passwordless-datasource.md
+  - title: Migrate JBoss EAP to Azure
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Red Hat JBoss EAP cluster on Azure VMs
+            url: /azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: JBoss EAP to Azure Red Hat OpenShift
+            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Step-by-step guide to installing Red Hat JBoss EAP on Azure Red Hat OpenShift
+            url: jboss-eap-on-aro.md
+          - text: Step-by-step guide to installing JBoss EAP on Azure VMs
+            url: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - linkListType: tutorial
+        links:
+          - text: JBoss EAP to Azure App Service
+            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Migrate JBoss EAP applications to Azure Red Hat OpenShift
+            url: ../migration/migrate-jboss-eap-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Migrate JBoss EAP applications to JBoss EAP on Azure VMs
+            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+  - title: Migrate WebSphere to Azure
+    linkLists:
+      - linkListType: quickstart
+        links:
+        - text: IBM WebSphere Liberty and Open Liberty on AKS
+          url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+        - text: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
+          url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+        - text: IBM WebSphere Liberty and Open Liberty on Azure Container Apps
+          url: deploy-java-liberty-app-aca.md
+        - text: IBM WebSphere Application Server on Azure VMs
+          url: traditional-websphere-application-server-virtual-machines.md
+      - linkListType: how-to-guide
+        links:
+          - text: Step-by-step guide to installing WebSphere Application Server Network Deployment (traditional) on Azure VMs
+            url: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Step-by-step guide to installing WebSphere Liberty/Open Liberty on AKS
             url: howto-deploy-java-liberty-app-manual.md
+          - text: Step-by-step guide to installing WebSphere Liberty/Open Liberty on Azure Red Hat OpenShift
+            url: liberty-on-aro.md
+      - linkListType: tutorial
+        links:
+          - text: Migrate WebSphere applications to AKS
+            url: ../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Migrate WebSphere applications to Azure Red Hat OpenShift
+            url: ../migration/migrate-websphere-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Migrate WebSphere applications to Azure VMs
+            url: ../migration/migrate-websphere-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty using Microsoft Entra ID
             url: liberty-with-microsoft-entra-id.md
-          - text: Java app with JBoss EAP to Azure Red Hat OpenShift
-            url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Azure Redis as WebSphere Liberty/Open Liberty session cache
             url: how-to-deploy-java-liberty-jcache.md
-          - text: Traditional WebSphere on Azure VMs
-            url: traditional-websphere-application-server-virtual-machines.md
-          - text: Passwordless database connections
-            url: how-to-configure-passwordless-datasource.md
+  - title: High Availability/Disaster Recovery (HA/DR)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: WebSphere Liberty/Open Liberty on AKS
+            url: ../migration/migrate-liberty-to-aks-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebSphere Application Server on Azure VMs
+            url: ../migration/migrate-websphere-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebLogic Server on AKS
+            url: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebLogic Server on Azure VMs
+            url: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: JBoss EAP on Azure VMs
+            url: ../migration/migrate-jboss-eap-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+
   - title: Code samples
     linkLists:
       - linkListType: sample
         links:
           - text: PiggyMetrics on MicroProfile
             url: https://aka.ms/microprofile-piggymetrics
-          - text: Deploying a Java app with Payara on an AKS cluster
-            url: https://github.com/Azure-Samples/payara-on-aks
           - text: Open/WebSphere Liberty on Azure Red Hat OpenShift samples
             url: https://github.com/Azure-Samples/open-liberty-on-aro
           - text: Open Liberty/WebSphere Liberty on AKS samples
             url: https://github.com/Azure-Samples/open-liberty-on-aks
-  - title: Migrate WebLogic to Azure
-    linkLists:
-      - linkListType: quickstart
-        links:
-        - text: WebLogic Server on Azure Virtual Machine
-          url: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-        - text: WebLogic Server on Azure Kubernetes Service
-          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - linkListType: how-to-guide
-        links:
-          - text: WebLogic to AKS
-            url: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to Azure Virtual Machines
-            url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic with App Gateway
-            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to Azure VMs step-by-step guidance
-            url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to Azure VMs with high availability and disaster recovery
-            url: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to AKS with geo-redundancy
-            url: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-          - text: WebLogic to AKS within custom VNET
-            url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
-            url: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to Azure VMs with Elastic
-            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic to Azure VMs with Entra ID
-            url: ../migration/migrate-weblogic-with-entra-id-via-ldap.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-  - title: Migrate JBoss EAP to Azure
-    linkLists:
-      - linkListType: quickstart
-        links:
-        - text: Red Hat JBoss EAP cluster on Azure VMs
-          url: /azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-        - text: Red Hat JBoss EAP on Azure Red Hat OpenShift
-          url: jboss-eap-on-aro.md
-      - linkListType: how-to-guide
-        links:
-          - text: JBoss EAP to Azure App Service
-            url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-          - text: JBoss EAP to Azure VMs step-by-step guidance
-            url: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-  - title: Migrate WebSphere to Azure
-    linkLists:
-      - linkListType: quickstart
-        links:
-        - text: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
-          url: liberty-on-aro.md
