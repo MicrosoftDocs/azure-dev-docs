@@ -11,7 +11,7 @@ metadata:
   author: KarlErickson
   ms.author: karler
   ms.reviewer: edburns
-  ms.date: 06/27/2022
+  ms.date: 05/07/2025
   ms.custom: devx-track-java, devx-track-extended-java
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -112,19 +112,3 @@ landingContent:
         links:
         - text: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
           url: liberty-on-aro.md
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Java EE 8 Javadocs
-            url: https://javaee.github.io/javaee-spec/javadocs/
-          - text: Java EE 8 Specifications
-            url: https://javaee.github.io/javaee-spec/Specifications
-          - text: Jakarta EE 9 Javadocs
-            url: https://jakarta.ee/specifications/platform/9/apidocs/
-          - text: Jakarta EE 9 Specifications
-            url: https://jakarta.ee/specifications/platform/9/jakarta-platform-spec-9.html
-          - text: MicroProfile 4 Javadocs
-            url: https://javadoc.io/doc/org.eclipse.microprofile/microprofile/latest/index.html
-          - text: MicroProfile 4 Specifications
-            url: https://download.eclipse.org/microprofile/microprofile-4.0/microprofile-spec-4.0.html
