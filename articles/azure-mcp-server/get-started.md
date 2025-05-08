@@ -45,6 +45,7 @@ In this article, you learn how to complete the following tasks:
 
 ::: zone pivot="mcp-github-copilot"
 
+- An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 
@@ -52,6 +53,7 @@ In this article, you learn how to complete the following tasks:
 
 ::: zone pivot="mcp-csharp"
 
+- An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
@@ -88,6 +90,16 @@ Once you have signed-in successfully to one of the preceding tools, Azure MCP Se
 > [!NOTE]
 > You can also sign-in to Azure through Visual Studio.
 > Azure MCP Server is only able to run operations that the signed-in user has permissions to perform.
+
+::: zone-end
+
+::: zone pivot="mcp-csharp"
+
+- An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
+- [Python 3.9 or higher](https://www.python.org/downloads/) installed locally
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed locally
 
 ::: zone-end
 
@@ -401,12 +413,10 @@ load_dotenv()
 # Azure OpenAI configuration
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 AZURE_OPENAI_MODEL = os.getenv("AZURE_OPENAI_MODEL", "gpt-4o")
-AZURE_TENANT_ID = os.getenv("AZURE_TENANT_ID")
 
 # Initialize Azure credentials
-credential = DefaultAzureCredential(options={"tenant_id": AZURE_TENANT_ID})
 token_provider = get_bearer_token_provider(
-    credential, "https://cognitiveservices.azure.com/.default"
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
 )
 
 async def run():
@@ -430,8 +440,17 @@ async def run():
 
             # List available tools
             tools = await session.list_tools()
-            for tool in tools.tools:
-                print(tool.name)
+            for tool in tools.tools: print(tool.name)
+
+            # Format tools for Azure OpenAI
+            available_tools = [{
+                "type": "function",
+                "function": {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "parameters": tool.inputSchema
+                }
+            } for tool in tools.tools]
 
             # Start conversational loop
             messages = []
@@ -439,22 +458,12 @@ async def run():
                 try:
                     user_input = input("\nPrompt: ")
                     messages.append({"role": "user", "content": user_input})
-                    
-                    # Format tools for Azure OpenAI
-                    available_tools = [{
-                        "type": "function",
-                        "function": {
-                            "name": tool.name,
-                            "description": tool.description,
-                            "parameters": tool.inputSchema
-                        }
-                    } for tool in tools.tools]
 
                     # First API call with tool configuration
                     response = client.chat.completions.create(
-                        model=AZURE_OPENAI_MODEL,
-                        messages=messages,
-                        tools=available_tools)
+                        model = AZURE_OPENAI_MODEL,
+                        messages = messages,
+                        tools = available_tools)
 
                     # Process the model's response
                     response_message = response.choices[0].message
@@ -463,8 +472,6 @@ async def run():
                     # Handle function calls
                     if response_message.tool_calls:
                         for tool_call in response_message.tool_calls:
-                            try:
-                                logger.info(f"Executing requested tool: {tool_call.function.name}")
                                 function_args = json.loads(tool_call.function.arguments)
                                 result = await session.call_tool(tool_call.function.name, function_args)
 
@@ -475,18 +482,14 @@ async def run():
                                     "name": tool_call.function.name,
                                     "content": result.content,
                                 })
-                            except json.JSONDecodeError:
-                                logger.error(f"Invalid JSON arguments: {tool_call.function.arguments}")
-                            except Exception as e:
-                                logger.error(f"Error handling tool call: {e}")
                     else:
                         logger.info("No tool calls were made by the model")
 
                     # Get the final response from the model
                     final_response = client.chat.completions.create(
-                        model=AZURE_OPENAI_MODEL,
-                        messages=messages,
-                        tools=available_tools)
+                        model = AZURE_OPENAI_MODEL,
+                        messages = messages,
+                        tools = available_tools)
 
                     for item in final_response.choices:
                         print(item.message.content)
@@ -501,10 +504,11 @@ if __name__ == "__main__":
 
 The preceding code accomplishes the following tasks:
 
-- Initializes an `IChatClient` abstraction using the [`Microsoft.Extensions.AI`](/dotnet/ai/microsoft-extensions-ai) libraries.
-- Creates an MCP client to interact with the Azure MCP Server using a standard I/O transport. The provided `npx` command and corresponding arguments download and start the Azure MCP Server.
-- Retrieves and displays a list of available tools from the MCP server, which is a standard MCP function.
-- Implements a conversational loop that processes user prompts and utilizes the tools for responses.
+- Sets up logging and loads environment variables from a `.env` file.
+- Configures Azure OpenAI client using `azure-identity` and `openai` libraries.
+- Initializes an MCP client to interact with the Azure MCP Server using a standard I/O transport.
+- Retrieves and displays a list of available tools from the MCP server.
+- Implements a conversational loop to process user prompts, utilize tools, and handle tool calls.
 
 ## Run and test the app
 
