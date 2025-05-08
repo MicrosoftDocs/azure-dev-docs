@@ -59,6 +59,20 @@ In this article, you learn how to complete the following tasks:
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
+::: zone-end
+
+::: zone pivot="mcp-python"
+
+- An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
+- [Python 3.9 or higher](https://www.python.org/downloads/) installed locally
+- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed locally
+
+::: zone-end
+
+::: zone pivot="mcp-csharp, mcp-python"
+
 ## Sign-in for local development
 
 The Azure MCP Server provides a seamless authentication experience using token-based authentication via Microsoft Entra ID. Internally, Azure MCP Server uses [`DefaultAzureCredential`](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac) from the [Azure Identity library](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet&preserve-view=true) to authenticate users.
@@ -90,16 +104,6 @@ Once you have signed-in successfully to one of the preceding tools, Azure MCP Se
 > [!NOTE]
 > You can also sign-in to Azure through Visual Studio.
 > Azure MCP Server is only able to run operations that the signed-in user has permissions to perform.
-
-::: zone-end
-
-::: zone pivot="mcp-csharp"
-
-- An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
-- [Visual Studio Code](https://code.visualstudio.com/download)
-- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
-- [Python 3.9 or higher](https://www.python.org/downloads/) installed locally
-- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed locally
 
 ::: zone-end
 
