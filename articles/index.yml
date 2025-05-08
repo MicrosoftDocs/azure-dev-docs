@@ -165,6 +165,8 @@ productDirectory:
           text: Common types in the Azure SDK for C++
         - url: ./cpp/sdk/fundamentals/errors.md
           text: Understand errors in the Azure SDK for C++
+        - url: ./cpp/index.yml
+          text: See more in the C++ developer center
     - title: Azure PowerShell
       imageSrc: /powershell/media/index/ps_black_128.svg
       links:
