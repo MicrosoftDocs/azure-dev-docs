@@ -268,9 +268,6 @@ tools:
     - title: Azure Toolkit for Eclipse
       imageSrc: /media/logos/logo_eclipse.svg
       url: toolkit-for-eclipse/index.yml
-    - title: Eclipse Microprofile
-      imageSrc: /media/logos/logo_eclipse.svg
-      url: eclipse-microprofile/index.yml
     - title: Maven
       imageSrc: /media/logos/logo_maven.svg
       url: https://github.com/Microsoft/azure-maven-plugins#readme

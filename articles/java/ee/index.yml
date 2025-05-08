@@ -32,8 +32,6 @@ landingContent:
             url: websphere-family.md
           - text: JBoss EAP on Azure
             url: jboss-on-azure.md
-          - text: Eclipse Microprofile on Azure
-            url: ../eclipse-microprofile/index.yml
   - title: Deployment
     linkLists:
       - linkListType: how-to-guide
