@@ -366,6 +366,7 @@ Complete the following steps to create a Python app. The app connects to an AI m
     mcp
     azure-identity
     openai
+    logging
     ```
 
 1. In the same folder, create a new file named `.env` and add the following environment variables:
@@ -373,7 +374,6 @@ Complete the following steps to create a Python app. The app connects to an AI m
     ```output
     AZURE_OPENAI_ENDPOINT=<your-azure-openai-endpoint>
     AZURE_OPENAI_MODEL=<your-model-deployment-name>
-    AZURE_TENANT_ID=<your-tenant-id>
     ```
 
 1. Create an empty file named `main.py` that will later hold the code for your app.
