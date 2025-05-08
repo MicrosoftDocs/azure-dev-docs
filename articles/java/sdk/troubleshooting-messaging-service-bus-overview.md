@@ -115,6 +115,7 @@ The following lists describes some of the usage patterns or host environments th
 
   * The application is running too many receiver clients sharing the same connection. For more information, see the [Connection sharing bottleneck](#connection-sharing-bottleneck) section.
   * The application has configured `ServiceBusReceiverClient.receiveMessages` or `ServiceBusProcessorClient` to have a large `maxMessages` or `maxConcurrentCalls` values. For more information, see the [Concurrency in ServiceBusProcessorClient](#concurrency-in-servicebusprocessorclient) section.
+* A common application pattern that increases the likelihood of a lock-lost error involves scheduling long-running lock renew tasks (e.g., with durations spanning several hours). As mentioned above, various factors outside the control of Service Bus client can interfere with successful lock renewal, hence application designs should avoid assuming guaranteed renewal over extended periods. To avoid reprocessing of long-running operations, consider breaking the work into smaller chunks or implementing idempotent checkpointing logic.
 
 The number of lock renew tasks in the client is equal to the `maxMessages` or `maxConcurrentCalls` parameter values set for `ServiceBusProcessorClient` or `ServiceBusReceiverClient.receiveMessages`. A high number of lock renew tasks making multiple network calls can also have an adverse effect in Service Bus namespace throttling.
 
