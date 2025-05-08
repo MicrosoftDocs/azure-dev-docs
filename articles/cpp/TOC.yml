@@ -15,8 +15,16 @@ items:
             href: sdk/fundamentals/overview.md
           - name: Errors
             href: sdk/fundamentals/errors.md
+          - name: HTTP pipelines & retries
+            href: sdk/fundamentals/http-pipelines-and-retries.md
+          - name: Common types
+            href: sdk/fundamentals/common-types.md
+          - name: Language design guidelines
+            href: https://azure.github.io/azure-sdk/cpp_introduction.html
       - name: Authentication
         items: 
+          - name: Overview
+            href: sdk/authentication/overview.md
           - name: Credential chains
             href: sdk/authentication/credential-chains.md
   - name: API reference
