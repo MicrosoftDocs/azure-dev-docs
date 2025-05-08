@@ -159,10 +159,12 @@ productDirectory:
           text: Install the Azure SDK for C++
         - url: ./cpp/sdk/authentication/overview.md
           text: Authentication in the Azure SDK for C++
-        - url: ./cpp/sdk/authentication/credential-chains.md
-          text: Credential chains for C++ applications
         - url: ./cpp/sdk/fundamentals/overview.md
           text: SDK fundamentals
+        - url: ./cpp/sdk/fundamentals/common-types.md
+          text: Common types in the Azure SDK for C++
+        - url: ./cpp/sdk/fundamentals/errors.md
+          text: Understand errors in the Azure SDK for C++
     - title: Azure PowerShell
       imageSrc: /powershell/media/index/ps_black_128.svg
       links:
