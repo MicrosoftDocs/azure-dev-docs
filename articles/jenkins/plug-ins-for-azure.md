@@ -13,7 +13,7 @@ The following table shows the current status for all Jenkins plug-ins. Click a J
 
 In cases where the plugin has been retired, Azure CLI is the recommended way to integrate Jenkins with the Azure service.
 
-| Jenkins plug-in <img width=500/>| Description | Current status <img width=500/> | Community Supported |
+| Jenkins plug-in <img width=500/>| Description | Microsoft support status <img width=500/> | Community Supported |
 |----------------|----------------|----------------|
 | [Azure Service Fabric](https://plugins.jenkins.io/service-fabric)           | Jenkins plug-in for Linux Azure Service Fabric projects. | | |
 | [Microsoft Entra ID](https://plugins.jenkins.io/azure-ad)                             | Jenkins plug-in that supports authentication & authorization via Microsoft Entra ID. | Retired February 29, 2024 | Yes |
