@@ -41,19 +41,19 @@ Complete the following steps to create a Python app. The app connects to an AI m
 
 1. Open a terminal in your new folder and create a Python virtual environment for the app:
 
-    ```bash
+    ```console
     python -m venv venv
     ```
 
 1. Activate the virtual environment:
 
-    ```bash
+    ```console
     venv\Scripts\activate
     ```
 
 1. Install the dependencies from `requirements.txt`:
 
-   ```bash
+   ```console
    pip install -r requirements.txt
    ```
 
@@ -179,7 +179,7 @@ Complete the following steps to test your .NET host app:
 
 1. In a terminal window open to the root of your project, run the following command to start the app:
 
-   ```bash
+   ```console
    python main.py
    ```
 

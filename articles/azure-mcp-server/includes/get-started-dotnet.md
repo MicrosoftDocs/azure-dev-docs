@@ -21,19 +21,19 @@ Complete the following steps to create a .NET console app. The app connects to a
 1. Open a terminal to an empty folder where you want to create the project.
 1. Run the following command to create a new .NET console application:
 
-   ```bash
+   ```console
    dotnet new console -n MCPHostApp
    ```
 
 1. Navigate into the newly created project folder:
 
-   ```bash
+   ```console
    cd MCPHostApp
    ```
 
 1. Open the project folder in your editor of choice, such as Visual Studio Code:
 
-    ```bash
+    ```console
     code .
     ```
 
@@ -41,7 +41,7 @@ Complete the following steps to create a .NET console app. The app connects to a
 
 1. In the terminal, run the following commands to add the necessary NuGet packages:
 
-   ```bash
+   ```console
    dotnet add package Azure.AI.OpenAI --prerelease
    dotnet add package Azure.Identity
    dotnet add package Microsoft.Extensions.AI --prerelease
@@ -53,7 +53,7 @@ Complete the following steps to create a .NET console app. The app connects to a
 
 1. Run the following command to build the project and ensure everything is set up correctly:
 
-   ```bash
+   ```console
    dotnet build
    ```
 
@@ -128,7 +128,7 @@ Complete the following steps to test your .NET host app:
 
 1. In a terminal window open to the root of your project, run the following command to start the app:
 
-   ```bash
+   ```console
    dotnet run
    ```
 
