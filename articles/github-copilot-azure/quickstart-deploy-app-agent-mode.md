@@ -45,7 +45,7 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
    Copilot agent mode provides a list of steps we need to follow to deploy the app and starts executing these steps. It first analyzes the project, recommends Azure services, and generates Bicep files. You might see a response like the following example.
 
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/recommend-services.png" alt-text="Screenshot that shows the GitHub Copilot chat pane with detected services, recommended resources, bindings, and environment variables.":::
+   :::image type="content" source="media/quickstart-deploy-app-agent-mode/recommend-resources.png" alt-text="Screenshot that shows the GitHub Copilot chat pane with detected services, recommended resources, bindings, and environment variables.":::
 
 1. Click **Continue**. Copilot agent mode recommends suitable Azure resources for the application. You might see a response like the following example.
 
@@ -85,13 +85,13 @@ You can now deploy the application using the Bicep deployment files generated in
 
 - We recommend using Claude 3.5 Sonnet or Claude 3.7 Sonnet for better results.
 
-- Make sure you have the following tools selected:
+- Make sure the following GitHub Copilot for Azure tools are selected in the GitHub Copilot tools list:
   - **@azure recommend service config**
   - **@azure check pre-deploy**
   - **@azure AZD Up (Deploy)**
   - **@azure check app status for azd deployment**
 
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/azure-tools.png" alt-text="Screenshot of the installed GitHub Copilot for Azure tools.":::
+   :::image type="content" source="media/quickstart-deploy-app-agent-mode/azure-tools.png" alt-text="Screenshot of the selected GitHub Copilot for Azure tools.":::
 
 ## Related content
 
