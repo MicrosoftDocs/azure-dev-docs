@@ -67,10 +67,10 @@ You can also manually install Azure MCP Server for a specific directory:
 
 1. Open GitHub Copilot and select Agent Mode.
 1. Enter a prompt that causes the agent to use Azure MCP Server tools, such as *List my Azure resource groups*.
-1. In order to authenticate Azure MCP Server, Copilot will prompt you to sign-in to Azure using the browser.
+1. In order to authenticate Azure MCP Server, Copilot prompts you to sign-in to Azure using the browser.
 
     > [!NOTE]
-    > Copilot will not prompt you to sign-in to Azure if you are already authenticated via other local tooling such as the Azure CLI.
+    > Copilot won't prompt you to sign-in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
 
 1. Copilot requests permission to run the necessary Azure MCP Server operation for your prompt. Select **Continue** or use the arrow to select a more specific behavior:
     - **Current session** always runs the operation in the current GitHub Copilot Agent Mode session.

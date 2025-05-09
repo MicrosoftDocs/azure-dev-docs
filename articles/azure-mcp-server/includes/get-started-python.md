@@ -37,7 +37,7 @@ Complete the following steps to create a Python app. The app connects to an AI m
     AZURE_OPENAI_MODEL=<your-model-deployment-name>
     ```
 
-1. Create an empty file named `main.py` that will later hold the code for your app.
+1. Create an empty file named `main.py` to hold the code for your app.
 
 ### Create the environment and install dependencies
 
@@ -61,7 +61,7 @@ Complete the following steps to create a Python app. The app connects to an AI m
 
 ### Add the app code
 
-Replace the contents of `Program.cs` with the following code:
+Update the contents of `Main.py` with the following code:
 
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
