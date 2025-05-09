@@ -6,12 +6,14 @@ items:
       href: introduction.md
     - name: Get started
       href: get-started.md
-    - name: QuickStart - Build new apps
-      href: quickstart-build-deploy-applications.md
-    - name: QuickStart - Deploy existing apps
-      href: quickstart-deploy-existing-app.md
-    - name: QuickStart - Deploy existing apps with agent mode
-      href: quickstart-deploy-app-agent-mode.md
+    - name: Quickstarts
+      items:
+        - name: Build and deploy an app with ask mode
+          href: quickstart-build-deploy-applications.md
+        - name: Deploy an existing app with ask mode
+          href: quickstart-deploy-existing-app.md
+        - name: Deploy an existing app with agent mode
+          href: quickstart-deploy-app-agent-mode.md
     - name: Learn about Azure and your app
       href: learn-examples.md
     - name: Design and develop your app
