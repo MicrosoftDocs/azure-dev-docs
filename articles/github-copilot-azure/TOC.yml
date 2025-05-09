@@ -10,6 +10,8 @@ items:
       href: quickstart-build-deploy-applications.md
     - name: QuickStart - Deploy existing apps
       href: quickstart-deploy-existing-app.md
+    - name: QuickStart - Deploy existing apps with agent mode
+      href: quickstart-deploy-app-agent-mode.md
     - name: Learn about Azure and your app
       href: learn-examples.md
     - name: Design and develop your app
