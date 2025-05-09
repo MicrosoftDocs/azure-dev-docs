@@ -7,8 +7,6 @@ In this article, you learn how to complete the following tasks:
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
-- [Visual Studio Code](https://code.visualstudio.com/download)
-- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 - [Python 3.9 or higher](https://www.python.org/downloads/) installed locally
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed locally
 
@@ -20,7 +18,7 @@ Complete the following steps to create a Python app. The app connects to an AI m
 
 ### Create the project
 
-1. Open an empty folder inside VS Code or your editor of choice.
+1. Open an empty folder inside your editor of choice.
 1. Create a new file named `requirements.txt` and add the following library dependencies:
 
     ```output

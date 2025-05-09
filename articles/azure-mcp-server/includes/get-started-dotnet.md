@@ -7,8 +7,6 @@ In this article, you learn how to complete the following tasks:
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
-- [Visual Studio Code](https://code.visualstudio.com/download)
-- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
@@ -33,13 +31,13 @@ Complete the following steps to create a .NET console app. The app connects to a
    cd MCPHostApp
    ```
 
-1. Open the project folder in Visual Studio Code by running:
+1. Open the project folder in your editor of choice, such as Visual Studio Code:
 
-   ```bash
-   code .
-   ```
+    ```bash
+    code .
+    ```
 
-### Add the NuGet Packages
+## Add the dependencies
 
 1. In the terminal, run the following commands to add the necessary NuGet packages:
 
