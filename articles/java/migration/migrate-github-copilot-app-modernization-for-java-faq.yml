@@ -19,34 +19,34 @@ sections:
   - name: FAQ
     questions:
       - question: What's the product scope of the GitHub Copilot app modernization for Java (preview)?
-        answer: We recognize the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we are limiting the migration scope to Java backend apps.
+        answer: We recognize the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps.
 
       - question: Can I use app modernization for Java to upgrade my Java version?
-        answer: There is a separate [GitHub Copilot assistant for Java upgrade](https://devblogs.microsoft.com/java/technical-preview-github-copilot-upgrade-assistant-for-java), and you can use it together with the Java Migration Copilot.
+        answer: There's a separate [GitHub Copilot assistant for Java upgrade](https://devblogs.microsoft.com/java/technical-preview-github-copilot-upgrade-assistant-for-java), and you can use it together with the Java Migration Copilot.
 
       - question: Will app modernization for Java be open sourced in the future?
         answer: We currently have no plans to open source the Java Migration Copilot.
 
       - question: What GitHub Copilot license plan do I need to use App Modernization for Java?
-        answer: Any plan will work, including the free plan.
+        answer: Every plan works, including the free plan.
 
       - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for the migration copilot to go beyond Java or consolidate with the .NET experience?
-        answer: Currently, the App Modernization for Java is focused on assisting with Java applications. However, we are actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
+        answer: Currently, the App Modernization for Java is focused on assisting with Java applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
 
       - question: What are the token size limits of the top models?
         answer: For detailed model specifications, see the [GitHub Copilot official documentation](https://docs.github.com/copilot).
 
       - question: Why does App Modernization for Java stop after listing a plan without making any code changes?
-        answer: Sometimes, App Modernization for Java requires explicit confirmation before proceeding. You can simply type `yes` or `continue` in the chat to allow the agent to move forward with the code modifications.
+        answer: Sometimes, App Modernization for Java requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
 
       - question: Why does App Modernization for Java frequently prompt me to select **Continue**?
         answer: To ensure safer operations, the GitHub Copilot Agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always allow**, or update your VS Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools.
 
       - question: How can I view more details about the code changes made by the agent?
-        answer: The agent always includes explanations for its code changes in the chat window. However, these details may be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
+        answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
 
       - question: Why is the code regeneration process unstable?
-        answer: Java Migration Copilot is powered by AI, so occasional errors may occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
+        answer: Java Migration Copilot is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
       - question: Where are formulas stored on the local machine and how can they be shared?
         answer: |
@@ -54,9 +54,9 @@ sections:
 
          Custom formulas are in the following location:  **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
 
-      - question: How do I switch LLM models?
+      - question: How do I switch large language models (LLMs)?
         answer: |
-         Java Migration Copilot currently supports three models:
+         Java Migration Copilot currently supports the following three models:
 
          - `gpt-4o`
          - `claude-3.5-sonnet`
@@ -71,7 +71,7 @@ sections:
 
       - question: Does the tool store my source code?
         answer: |
-         No. The tool uses GitHub Copilot in the same way you use it to modify code, which does not retain code snippets beyond the immediate session. We do not collect, transmit, or store your custom formulas either.
+         No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom formulas either.
 
          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 

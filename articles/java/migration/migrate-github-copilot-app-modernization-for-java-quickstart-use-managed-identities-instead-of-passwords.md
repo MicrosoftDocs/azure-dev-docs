@@ -82,7 +82,7 @@ The migration Copilot provides predefined formulas for common migration scenario
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by selecting **Continue**.
 
-1. After each step, manually input *continue* to confirm and proceed.
+1. After each step, manually input **continue** to confirm and proceed.
 
 1. Wait the changed codes to be generated.
 
@@ -98,4 +98,4 @@ Use the following steps to apply the Build-Fix tool:
 
 ## Next step
 
-[Create and apply your own migration formula](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)
+[Quickstart: create and apply your own formulas](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)

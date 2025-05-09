@@ -30,18 +30,12 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java.md
           - text: FAQ
             url: migrate-github-copilot-app-modernization-for-java-faq.yml
-          - text: Predefined formulas
-            url: migrate-github-copilot-app-modernization-for-java-predefined-formula.md
       - linkListType: quickstart
         links:
           - text: Use managed identities
             url: migrate-github-copilot-app-modernization-for-java-quickstart-use-managed-identities-instead-of-passwords.md
           - text: Create and apply your own formula
             url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md
-      - linkListType: download
-        links:
-          - text: Asset Manager sample
-            url: migrate-github-copilot-app-modernization-for-java-sample.md
   - title: Migrate Spring to Azure
     linkLists:
       - linkListType: how-to-guide
