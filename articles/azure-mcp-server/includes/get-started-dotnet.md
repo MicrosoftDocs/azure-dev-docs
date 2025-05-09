@@ -74,8 +74,7 @@ using ModelContextProtocol.Protocol.Transport;
 IChatClient client =
     new ChatClientBuilder(
         new AzureOpenAIClient(new Uri("<your-Azure-OpenAI-endpoint>"), 
-        new DefaultAzureCredential(
-            new DefaultAzureCredentialOptions()))
+        new DefaultAzureCredential())
         .GetChatClient("gpt-4o").AsIChatClient())
     .UseFunctionInvocation()
     .Build();
