@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy your application to Azure with agent mode in GitHub Copilot for Azure Preview
+title: Quickstart - Deploy Your Application to Azure with Agent Mode in GitHub Copilot for Azure Preview
 description: This article demonstrates how to use agent mode in GitHub Copilot for the Azure Preview to deploy an application to Azure.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure Preview
 
-This quickstart shows you how to use agent mode in GitHub Copilot for Azure Preview to bring your existing application to Azure. It demonstrates how agent mode helps you create Azure infrastructure with Bicep, deploy your application to Azure, and create a CI/CD pipeline.
+In this quickstart, you learn how to use agent mode in GitHub Copilot for Azure Preview to bring your existing application to Azure. It demonstrates how agent mode helps you define Azure infrastructure, deploy your application to Azure, and create a CI/CD pipeline.
 
 ## Prerequisites
 
@@ -21,7 +21,9 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 - The GitHub Copilot for Azure Preview extension for Visual Studio Code.
 - An Azure subscription. If you don't have one, GitHub Copilot for Azure can help.
 
-## Create Bicep for your application
+## Define Azure infrastructure for your application
+
+In this section, use GitHub Copilot agent mode to create [Bicep deployment files](/azure/azure-resource-manager/bicep/overview) and an [AZD template](../azure-developer-cli/overview.md) for the application.
 
 1. Open your existing application in Visual Studio Code.
 
@@ -47,31 +49,31 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/recommend-resources.png" alt-text="Screenshot that shows the GitHub Copilot chat pane with detected services, recommended resources, bindings, and environment variables.":::
 
-1. Click **Continue**. Copilot agent mode recommends suitable Azure resources for the application. You might see a response like the following example.
+1. Select **Continue**. Copilot agent mode recommends suitable Azure resources for the application. You might see a response like the following example.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/deployment-plan.png" alt-text="Screenshot of the GitHub Copilot chat pane with a recommended deployment plan.":::
  
-1. Type **Yes** in the chat text box. Copilot agent mode will generate the necessary files for deployment. You might see a few files generated in the project and a response asking to proceed with the pre-deployment check similar to the following example.
+1. Type **Yes** in the chat text box. Copilot agent mode generates the necessary files for deployment. You might see a few files generated in the project and a response asking to proceed with the predeployment check similar to the following example.
 
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/generate-bicep.png" alt-text="Screenshot of the GitHub Copilot chat pane with a callout highlighting the new infra folder and files and the new azure.yaml file.":::
+   :::image type="content" source="media/quickstart-deploy-app-agent-mode/generate-bicep.png" alt-text="Screenshot of the GitHub Copilot chat pane with a callout highlighting the new **infra** folder and files and the new azure.yaml file.":::
 
 ## Deploy the application
 
-You can now deploy the application using the Bicep deployment files generated in the previous section.
+You can now deploy the application using the Bicep deployment files and the AZD template generated in the previous section.
 
-1. At the end of the previous section, Copilot agent mode asked you whether you wanted to run a pre-deployment check. Enter **Yes**. You might see a response like the following example.
+1. At the end of the previous section, Copilot agent mode asked you whether you wanted to run a predeployment check. Enter **Yes**. You might see a response like the following example.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/check-azd.png" alt-text="Screenshot of the GitHub Copilot chat pane asking to check if the application is ready to deploy with Azure Developer CLI (AZD).":::
 
-1. Click **Continue**. Copilot agent mode checks if the application is ready to deploy with Azure Developer CLI (AZD). If there's a problem, Copilot agent mode will fix it and check again. In this case, you might see a response similar to the following example.
+1. Select **Continue**. Copilot agent mode checks if the application is ready to deploy with AZD. If there's a problem, Copilot agent mode fixes it and checks again. In this case, you might see a response similar to the following example.
 
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/pre-deployment-validation.png" alt-text="Screenshot of the GitHub Copilot chat pane showing the results of a pre-deployment validation.":::
+   :::image type="content" source="media/quickstart-deploy-app-agent-mode/pre-deployment-validation.png" alt-text="Screenshot of the GitHub Copilot chat pane showing the results of a predeployment validation.":::
 
-1. After the pre-deployment validation successfully completes, Copilot agent mode continues with the deployment process and validates whether dependencies are installed and configured. You might see a response like the following example.
+1. After the predeployment validation successfully completes, Copilot agent mode continues with the deployment process and validates whether dependencies are installed and configured. You might see a response like the following example.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/dependency-check.png" alt-text="Screenshot of the GitHub Copilot chat pane getting ready to validate dependencies.":::
 
-1. Click **Continue** for each dependency check. Copilot agent mode asks if you want to proceed with deployment. You might see a response like the following example.
+1. Select **Continue** for each dependency check. Copilot agent mode asks if you want to proceed with deployment. You might see a response like the following example.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/ready-deployment.png" alt-text="Screenshot of the GitHub Copilot chat pane indicating that deployment is ready.":::
 
@@ -83,8 +85,7 @@ You can now deploy the application using the Bicep deployment files generated in
 
 ## Tips
 
-- We recommend using Claude 3.5 Sonnet or Claude 3.7 Sonnet for better results.
-
+- Use Claude 3.5 Sonnet or Claude 3.7 Sonnet for better results.
 - Make sure the following GitHub Copilot for Azure tools are selected in the GitHub Copilot tools list:
   - **@azure recommend service config**
   - **@azure check pre-deploy**
@@ -95,5 +96,5 @@ You can now deploy the application using the Bicep deployment files generated in
 
 ## Related content
 
-- [What is GitHub Copilot for Azure Preview?](introduction.md).
+- [What is GitHub Copilot for Azure Preview?](introduction.md)
 - [Get started with GitHub Copilot for Azure Preview](get-started.md)
