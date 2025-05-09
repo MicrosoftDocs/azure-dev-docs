@@ -416,7 +416,7 @@
 | App Configuration Provider | npm [2.0.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.0.2) |  |  |
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| Spec Gen SDK | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.6.0) |  |  |
+| Spec Gen SDK | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.6.1) |  |  |
 | tmlanguage-generator | npm [0.6.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.1) |  |  |
 | TypeSpec Asset Emitter | npm [0.70.0](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.70.0) |  |  |
 | TypeSpec Emitter Framework | npm [0.7.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.7.0) |  |  |
@@ -513,7 +513,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250506.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250506.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250508.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250508.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
