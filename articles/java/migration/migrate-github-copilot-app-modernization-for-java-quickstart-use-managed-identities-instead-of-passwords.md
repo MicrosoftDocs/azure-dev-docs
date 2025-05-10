@@ -72,7 +72,7 @@ Use the following steps to start your migration process with solution assessment
 
 The modernization assessor now opens **assessment.md**. This file is the configuration for running AppCAT, which performs the app assessment. AppCAT asks for your confirmation to continue. You can examine its content and make changes there, if necessary.
 
-The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, then you need to install them first. For more information, see [Azure Migrate application and code assessment for Java version 7 (Preview)](https://learn.microsoft.com/en-us/azure/migrate/appcat/java-preview). After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
+The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, then you need to install them first. For more information, see [Azure Migrate application and code assessment for Java version 7 (Preview)](/azure/migrate/appcat/java-preview). After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
 
 Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
 
