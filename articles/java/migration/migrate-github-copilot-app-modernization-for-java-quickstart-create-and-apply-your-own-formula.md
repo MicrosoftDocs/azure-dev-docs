@@ -20,7 +20,7 @@ In code development, enterprises often have different processes and controls to 
 ## Prerequisites
 
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
-- [A GitHub account with GitHub Copilot enabled](https://github.com/features/copilot). All plans are supported, including the Free plan.
+- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
 - [GitHub Copilot app modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java-quickstart-use-managed-identities-instead-of-passwords.md#install). Install this tool and add the required configuration.
@@ -29,41 +29,43 @@ In code development, enterprises often have different processes and controls to 
 
 Use the following steps to create a custom formula:
 
-1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and open the **rabbitmq-sender** project folder. Then, check out the project to the **expected** branch.
+1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository.
+
+1. In Visual Studio Code, open the **rabbitmq-sender** project folder in the samples repository. Then, check out the project to the **expected** branch.
 
 1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane and then, in the **Formulas** section, select **Create formula from source control**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" alt-text="Screenshot of the button for Create formula from source control.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" alt-text="Screenshot of Visual Studio Code that shows the button for Create formula from source control.":::
 
-1. Type **update expected changes for rabbitmq** to search for the commit that migrates RabbitMQ. Then select the corresponding commit and select **OK**.
+1. Type **update expected changes for rabbitmq** to search for the commit that migrates RabbitMQ. Select the corresponding commit and then select **OK**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" alt-text="Screenshot of the dialog box for Select commits you want to save.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select commits you want to save.":::
 
 1. Select **Create New** to create a new custom formula.
 
-1. Default formula name will be generated. Give it a new name: **custom formula migrate rabbitmq**. Press <kbd>Enter</kbd> to confirm. Then, formula description, and search patterns will be generated in order. Press <kbd>Enter</kbd> repeatedly to confirm.
+1. A default formula name is generated. Name it **custom formula migrate rabbitmq**, then press <kbd>Enter</kbd> to confirm. A formula description and search patterns are generated in order. Press <kbd>Enter</kbd> repeatedly to confirm.
 
-1. Now, the custom formula for migrating `rabbitmq` is generated and shows in the Formulas section of the **App Modernization for Java** pane.
+1. Now, the custom formula for migrating `rabbitmq` is generated and shows in the **Formulas** section of the **App Modernization for Java** pane.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" alt-text="Screenshot of the Formulas section with the rabbitmq formula showing.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" alt-text="Screenshot of Visual Studio Code that shows the Formulas section with the rabbitmq formula showing.":::
 
 ## Apply the custom formula
 
 Use the following steps to apply the custom formula:
 
-1. Check out the project to the **main** branch. Find the custom formula just created in the Formulas section of **App Modernization for Java** pane. Run this formula by selecting **Run Formula**.
+1. Check out the project to the **main** branch. Find the custom formula in the **Formulas** section of **App Modernization for Java** pane. Run this formula by selecting **Run Formula**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-formula.png" alt-text="Screenshot of the Formulas section with the Run formula button shown.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-formula.png" alt-text="Screenshot of Visual Studio Code that shows the Formulas section with the Run formula button indicated by a tooltip.":::
 
-1. After triggering to run the formula, the Copilot chat window with Agent Mode opens automatically.
+   After you select the formula, the Copilot chat window with Agent Mode opens automatically.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate application modernization. Each tool's usage requires confirmation by selecting **Continue**.
 
 1. After each step, manually input **continue** to confirm and proceed.
 
-1. Wait the changed codes to be generated.
+1. Wait for the code changes to be generated.
 
-1. When you're prompted to run the **Java Application Build-Fix** tool, select **Continue** to build the project and fix errors. This tool will attempt to resolve any build errors, in up to 10 iterations.
+1. When you're prompted to run the **Java Application Build-Fix** tool, select **Continue** to build the project and fix errors. This tool attempts to resolve any build errors in up to 10 iterations.
 
 1. After the Build-Fix tool begins, select **Continue** to proceed and show progress.
 
