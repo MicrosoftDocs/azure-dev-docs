@@ -64,17 +64,31 @@ Visit the [Build a minimal template using the compose feature](compose-quickstar
 
 The `azd compose` feature supports adding resources for the following Azure services:
 
-- Azure AI Services models and Azure AI Foundry
-- Azure Container Apps
-- Azure Cosmos DB
-- Azure Cosmos DB for MongoDB
-- Azure Cosmos DB for PostgreSQL
-- Azure Cache for Redis
-- Azure Database for MySQL
-- Azure Key Vault
-- Azure OpenAI with Microsoft Entra ID authentication
-- Azure Service Bus and Azure Event Hubs
-- Azure Blob Storage
+- AI
+  - Azure AI Services models and Azure AI Foundry
+  - Azure OpenAI with Microsoft Entra ID authentication
+- Database
+  - Azure Cosmos DB
+  - Azure Cosmos DB for MongoDB
+  - Azure Cosmos DB for PostgreSQL
+  - Azure Cache for Redis
+  - Azure Database for MySQL
+- Host Service
+  - Azure Container Apps
+  - Azure App Service
+- Key Vault
+  - Azure Key Vault
+- Messaging
+  - Azure Service Bus
+  - Azure Event Hubs
+- Storage Account
+  - Azure Blob Storage
+
+ ## Language Support
+ - App Service:
+   - Python
+   - TypeScript
+   - JavaScript
 
 ## Next steps
 
