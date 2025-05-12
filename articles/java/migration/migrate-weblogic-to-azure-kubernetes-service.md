@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 05/12/2025
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 #Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service (AKS)
 ---
