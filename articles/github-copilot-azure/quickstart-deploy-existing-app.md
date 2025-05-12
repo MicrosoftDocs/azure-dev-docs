@@ -15,7 +15,7 @@ This quickstart guides you in using GitHub Copilot for Azure Preview to bring yo
  
 ## Prerequisites 
 
-For complete setup instructions, see the Get started article. Make sure that you have the following items: 
+For complete setup instructions, see the [Get started](get-started.md) article. Make sure that you have the following items: 
 
 - A GitHub Copilot account. 
 - The GitHub Copilot Chat extension for Visual Studio Code. 
