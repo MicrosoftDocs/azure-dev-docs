@@ -1,0 +1,243 @@
+# Azure MCP Server Tool Documentation Schema
+schema:
+  type: object
+  description: "Schema for Azure MCP Server tool documentation. Operations must follow verb-noun naming convention (e.g., 'List resources', 'Create account') and must be listed in alphabetical order."
+  required:
+    - metadata
+    - title
+    - introduction
+    - existing_server_usage
+    - new_server_development
+  properties:
+    metadata:
+      type: object
+      description: "YAML front matter with document metadata"
+      required:
+        - title
+        - description
+        - keywords
+        - author
+        - ms.author
+        - ms.date
+        - ms.topic
+        - ms.custom
+      properties:
+        title:
+          type: string
+          description: "Title of the document"
+        description:
+          type: string
+          description: "Brief description of the tool's purpose"
+        keywords:
+          type: string
+          description: "Comma-separated keywords for search"
+        author:
+          type: string
+          description: "Document author"
+        ms.author:
+          type: string
+          description: "Microsoft alias of the author"
+        ms.date:
+          type: string
+          format: date
+          description: "Publication/update date in M/D/YYYY format"
+        ms.topic:
+          type: string
+          enum: ["reference"]
+          description: "Document type (should be 'reference' for tools)"
+        ms.custom:
+          type: string
+          description: "Custom metadata field"
+
+    title:
+      type: string
+      description: "H1 heading for the document"
+      pattern: "^[A-Za-z0-9 ]+ tools for the Azure MCP Server$"
+    
+    introduction:
+      type: object
+      description: "Introductory paragraph explaining the tool"
+      required:
+        - overview
+        - service_description
+        - parameter_note
+      properties:
+        overview:
+          type: string
+          description: "Brief overview of what the tool does"
+        service_description:
+          type: string
+          description: "Description of the Azure service with link to official documentation"
+        parameter_note:
+          type: string
+          description: "Include reference to parameter considerations"
+          pattern: "^\\[!INCLUDE \\[tip-about-params\\]\\(../includes/tools/parameter-consideration.md\\)\\]$"
+
+    existing_server_usage:
+      type: object
+      description: "Section describing how to use an existing MCP server with the tool"
+      pattern: "^### ([A-Z][a-z]+ [a-z][a-z0-9 -]*)$"
+      examples: ["### List keys", "### Create account", "### Delete resource"]
+      required:
+        - title
+        - tools
+      properties:
+        title:
+          type: string
+          description: "Section title"
+          pattern: "^## Use existing MCP server for [A-Za-z0-9 ]+$"
+        tools:
+          type: array
+          description: "List of tools that can be performed"
+          minItems: 1
+          orderBy: 
+            property: "name"
+            direction: "ascending"
+          items:
+            type: object
+            required:
+              - name
+              - description
+              - example_prompts
+            properties:
+              name:
+                type: string
+                description: "Name of the tool"
+                pattern: "^### [A-Za-z0-9 ]+$"
+              description:
+                type: string
+                description: "Description of what the tool does"
+              example_prompts:
+                type: object
+                description: "Example prompts section with a list of examples"
+                required:
+                  - title
+                  - examples
+                properties:
+                  title:
+                    type: string
+                    enum: ["**Example prompts** include:"]
+                  examples:
+                    type: array
+                    minItems: 3
+                    maxItems: 5
+                    items:
+                      type: object
+                      required:
+                        - prompt_type
+                        - prompt_text
+                      properties:
+                        prompt_type:
+                          type: string
+                          description: "Bold text describing the prompt type"
+                        prompt_text:
+                          type: string
+                          description: "The example prompt text in quotes"
+                        prompt_style:
+                          type: string
+                          enum: ["question", "statement", "incomplete_phrase"]
+                          description: "The grammatical style of the prompt"
+
+    new_server_development:
+      type: object
+      description: "Section describing how to develop a new MCP server with the tool"
+      pattern: "^### ([A-Z][a-z]+ [a-z][a-z0-9 -]*)$"
+      examples: ["### List keys", "### Create account", "### Delete resource"]
+      required:
+        - title
+        - tools
+      properties:
+        title:
+          type: string
+          description: "Section title"
+          pattern: "^## Develop new MCP server for [A-Za-z0-9 ]+$"
+        tools:
+          type: array
+          description: "List of tools that can be developed"
+          minItems: 1
+          orderBy: 
+            property: "name"
+            direction: "ascending"
+          items:
+            type: object
+            required:
+              - name
+              - description
+              - reference
+              - required_parameters
+              - optional_parameters
+              - examples
+            properties:
+              name:
+                type: string
+                description: "Name of the tool"
+                pattern: "^### [A-Za-z0-9 ]+$"
+              description:
+                type: string
+                description: "Description of what the tool does"
+              reference:
+                type: object
+                description: "Reference table containing command details"
+                required:
+                  - table
+                  - command_syntax
+                properties:
+                  table:
+                    type: object
+                    description: "Table showing command name and description"
+                  command_syntax:
+                    type: string
+                    description: "Command syntax with ALL_CAPS parameter placeholders"
+              required_parameters:
+                type: object
+                description: "Section listing required parameters"
+                properties:
+                  parameters:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - name
+                        - description
+                      properties:
+                        name:
+                          type: string
+                          pattern: "^`--[a-z-]+`$"
+                        description:
+                          type: string
+              optional_parameters:
+                type: object
+                description: "Section listing optional parameters"
+                properties:
+                  parameters:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - name
+                        - description
+                      properties:
+                        name:
+                          type: string
+                          pattern: "^`--[a-z-]+`$"
+                        description:
+                          type: string
+                  common_parameters_reference:
+                    type: string
+                    description: "Link to common optional parameters"
+              examples:
+                type: array
+                description: "Examples of using the command"
+                minItems: 1
+                items:
+                  type: object
+                  required:
+                    - description
+                    - command
+                  properties:
+                    description:
+                      type: string
+                      description: "Description of what the example does"
+                    command:
+                      type: string
+                      description: "Example command with real values instead of parameters"

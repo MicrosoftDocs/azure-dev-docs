@@ -16,7 +16,7 @@ The Azure MCP Server allows you to manage Azure Storage resources, including sto
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for Storage
 
 ### List accounts
 
@@ -78,7 +78,7 @@ The Azure MCP Server can list all tables in a storage account. This helps you ma
 - **Query tables**: "Show available tables in my storage account"
 - **Check tables**: "Get all storage tables in my 'analyticsdata' account"
 
-## Develop new server
+## Develop new MCP server for Storage
 
 ### List accounts
 
@@ -95,17 +95,15 @@ azmcp storage account list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription to list storage accounts from.
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -132,6 +130,8 @@ azmcp storage blob container list \
     --account-name <STORAGE_ACCOUNT_NAME>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the storage account.<br>
@@ -139,11 +139,7 @@ azmcp storage blob container list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -172,6 +168,8 @@ azmcp storage blob container details \
     --container-name <CONTAINER_NAME>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the storage account.<br>
@@ -180,11 +178,7 @@ azmcp storage blob container details \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -214,6 +208,8 @@ azmcp storage blob list \
     --container-name <CONTAINER_NAME>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the storage account.<br>
@@ -222,11 +218,7 @@ azmcp storage blob list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -255,6 +247,8 @@ azmcp storage table list \
     --account-name <STORAGE_ACCOUNT_NAME>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the storage account.<br>
@@ -262,11 +256,7 @@ azmcp storage table list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 

@@ -16,7 +16,7 @@ The Azure MCP Server allows you to manage Azure resource groups, providing found
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for Resource Groups
 
 ### List resource groups
 
@@ -30,31 +30,8 @@ The Azure MCP Server can list all resource groups in a subscription. This helps 
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
 
-### Create resource group
 
-The Azure MCP Server can create a new resource group in your subscription. This helps you establish organization for new projects or workloads.
-
-**Example prompts** include:
-
-- **Create group**: "Create a new resource group called 'app-dev-resources' in the East US region."
-- **Make group**: "Set up a new resource group named 'project-alpha-rg' in West Europe"
-- **Add group**: "I need a new resource group called 'data-analytics' in Central US"
-- **New group**: "Create a resource group for my test environment in South Central US"
-- **Establish group**: "Create 'frontend-resources-rg' in East US 2 for my web apps"
-
-### Delete resource group
-
-The Azure MCP Server can delete a resource group from your subscription. This operation deletes all resources within the group, so use it carefully.
-
-**Example prompts** include:
-
-- **Delete group**: "Delete the resource group named 'old-project-resources' from my subscription."
-- **Remove group**: "Get rid of the 'test-environment' resource group"
-- **Purge group**: "Permanently delete the 'temporary-resources' group"
-- **Eliminate group**: "Delete the unused development resource group"
-- **Clean up group**: "Remove the deprecated 'poc-resources' group from my subscription"
-
-## Develop new server
+## Develop new MCP server for Resource Groups
 
 ### List resource groups
 
@@ -71,17 +48,15 @@ azmcp group list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription to list resource groups from.
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -90,98 +65,4 @@ List all resource groups in the specified subscription.
 ```console
 azmcp group list \
     --subscription "my-subscription-id"
-```
-
-### Create resource group
-
-The Azure MCP Server can create a new resource group in your subscription.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp group create | Create a new resource group.|
-
-```console
-azmcp group create \
-    --subscription <SUBSCRIPTION_ID> \
-    --name <RESOURCE_GROUP_NAME> \
-    --location <LOCATION> \
-    [--tags <TAGS>]
-```
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription where the resource group will be created.<br>
-`--name`: The name of the resource group to create.<br>
-`--location`: The Azure region where the resource group will be created.
-
-##### Optional parameters
-
-`--tags`: Space-separated tags in 'key=value' format.
-
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
-
-#### Examples
-
-Create a new resource group without tags.
-
-```console
-azmcp group create \
-    --subscription "my-subscription-id" \
-    --name "app-dev-resources" \
-    --location "eastus"
-```
-
-Create a new resource group with tags.
-
-```console
-azmcp group create \
-    --subscription "my-subscription-id" \
-    --name "project-alpha-rg" \
-    --location "westeurope" \
-    --tags "Environment=Production" "Project=Alpha" "Department=Engineering"
-```
-
-### Delete resource group
-
-The Azure MCP Server can delete a resource group from your subscription. This operation deletes all resources within the group.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp group delete | Delete a resource group.|
-
-```console
-azmcp group delete \
-    --subscription <SUBSCRIPTION_ID> \
-    --name <RESOURCE_GROUP_NAME>
-```
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the resource group.<br>
-`--name`: The name of the resource group to delete.
-
-##### Optional parameters
-
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
-
-#### Examples
-
-Delete a resource group from the subscription.
-
-```console
-azmcp group delete \
-    --subscription "my-subscription-id" \
-    --name "old-project-resources"
 ```

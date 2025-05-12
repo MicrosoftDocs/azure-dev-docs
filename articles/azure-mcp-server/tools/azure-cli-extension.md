@@ -18,7 +18,7 @@ Find Azure CLI commands in the [reference documentation](/cli/azure/reference-in
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for Azure CLI
 
 ### Execute Azure CLI command
 
@@ -37,7 +37,7 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 - **Export data**: "Export the list of all my AKS clusters to a table"
 - **Clean up resources**: "Delete the resource group 'temp-project' without prompting for confirmation"
 
-## Develop new server
+## Develop new MCP server for Azure CLI
 
 ### Execute Azure CLI command
 
@@ -50,8 +50,11 @@ The Azure MCP Server can execute Azure CLI commands.
 | azmcp extension az | Execute Azure CLI command. |
 
 ```console
-azmcp extension az --command "<COMMAND>"
+azmcp extension az \
+    --command "<COMMAND_PHRASE>"
 ```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -59,40 +62,41 @@ azmcp extension az --command "<COMMAND>"
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
 List resource groups with [group list](/cli/azure/group#az-group-list).
 
 ```console
-azmcp extension az --command "group list"
+azmcp extension az \
+    --command "group list"
 ```
 
 Get storage account details with [storage account show](/cli/azure/storage/account#az-storage-account-show).
 
 ```console
-azmcp extension az --command "storage account show --name <ACCOUNT-NAME> --resource-group <RESOURCE-GROUP>"
+azmcp extension az \
+    --command "storage account show --name <ACCOUNT-NAME> --resource-group <RESOURCE-GROUP>"
 ```
 
 List virtual machines with [vm list](/cli/azure/vm#az-vm-list).
 
 ```console
-azmcp extension az --command "vm list --resource-group <RESOURCE-GROUP>"
+azmcp extension az \
+    --command "vm list --resource-group <RESOURCE-GROUP>"
 ```
 
 Create a new resource group with [group create](/cli/azure/group#az-group-create).
 
 ```console
-azmcp extension az --command "group create --name <RESOURCE-GROUP> --location <LOCATION>"
+azmcp extension az \
+    --command "group create --name <RESOURCE-GROUP> --location <LOCATION>"
 ```
 
 Stop a virtual machine with [vm stop](/cli/azure/vm#az-vm-stop).
 
 ```console
-azmcp extension az --command "vm stop --name <VM-NAME> --resource-group <RESOURCE-GROUP>"
+azmcp extension az \
+    --command "vm stop --name <VM-NAME> --resource-group <RESOURCE-GROUP>"
 ```

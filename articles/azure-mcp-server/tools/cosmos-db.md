@@ -78,10 +78,13 @@ The Azure MCP Server can list all Cosmos DB accounts in a subscription. This pro
 |-----------------|--------------------------|
 | azmcp cosmos account list | List Cosmos DB accounts in a subscription.|
 
+
 ```console
 azmcp cosmos account list \
     --subscription <SUBSCRIPTION_ID>
 ```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -89,11 +92,7 @@ azmcp cosmos account list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -120,6 +119,8 @@ azmcp cosmos database list \
     --account-name <ACCOUNT_NAME>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
@@ -127,11 +128,7 @@ azmcp cosmos database list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -142,6 +139,8 @@ azmcp cosmos database list \
     --subscription "my-subscription-id" \
     --account-name "mycosmosaccount"
 ```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
 
 ### List containers
 
@@ -160,6 +159,8 @@ azmcp cosmos database container list \
     --database-name <DATABASE_NAME>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
@@ -168,11 +169,7 @@ azmcp cosmos database container list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -185,6 +182,8 @@ azmcp cosmos database container list \
     --database-name "products"
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ### Query items
 
 The Azure MCP Server can execute SQL queries against items in a Cosmos DB container.
@@ -195,6 +194,7 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 |-----------------|--------------------------|
 | azmcp cosmos database container item query | Query items in a Cosmos DB container.|
 
+
 ```console
 azmcp cosmos database container item query \
     --subscription <SUBSCRIPTION_ID> \
@@ -203,6 +203,8 @@ azmcp cosmos database container item query \
     --container-name <CONTAINER_NAME> \
     --query <QUERY>
 ```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -215,11 +217,7 @@ azmcp cosmos database container item query \
 
 `--query`: The SQL query to execute against the container.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 

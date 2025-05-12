@@ -16,7 +16,7 @@ The Azure MCP Server allows you to manage Azure Service Bus resources, including
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for Service Bus
 
 ### List namespaces
 
@@ -42,6 +42,18 @@ The Azure MCP Server can list all queues in a Service Bus namespace. This helps 
 - **Query queues**: "Show available queues in my Service Bus"
 - **Check queues**: "Get all message queues in my 'core-messaging' namespace"
 
+### List topics
+
+The Azure MCP Server can list all topics in a Service Bus namespace. This helps you manage your publish-subscribe messaging infrastructure.
+
+**Example prompts** include:
+
+- **List topics**: "Show me all topics in my 'app-messaging' Service Bus namespace."
+- **View topics**: "What topics do I have in Service Bus namespace 'event-bus'?"
+- **Find topics**: "List all topics in my namespace 'broadcast-messaging'"
+- **Query topics**: "Show available topics in my Service Bus"
+- **Check topics**: "Get all messaging topics in my 'pub-sub' namespace"
+
 ### Send message to queue
 
 The Azure MCP Server can send a message to a Service Bus queue. This allows you to publish messages programmatically.
@@ -54,17 +66,6 @@ The Azure MCP Server can send a message to a Service Bus queue. This allows you 
 - **Add message**: "Submit a message to my order processing queue"
 - **Push message**: "Send a test message to the integration queue in my service bus"
 
-### List topics
-
-The Azure MCP Server can list all topics in a Service Bus namespace. This helps you manage your publish-subscribe messaging infrastructure.
-
-**Example prompts** include:
-
-- **List topics**: "Show me all topics in my 'app-messaging' Service Bus namespace."
-- **View topics**: "What topics do I have in Service Bus namespace 'event-bus'?"
-- **Find topics**: "List all topics in my namespace 'broadcast-messaging'"
-- **Query topics**: "Show available topics in my Service Bus"
-- **Check topics**: "Get all messaging topics in my 'pub-sub' namespace"
 
 ### Send message to topic
 
@@ -78,7 +79,7 @@ The Azure MCP Server can send a message to a Service Bus topic. This allows you 
 - **Publish event**: "Send an event message to my customer notifications topic"
 - **Add topic message**: "Broadcast a test message to the events topic in my service bus"
 
-## Develop new server
+## Develop new MCP server for Service Bus
 
 ### List namespaces
 
@@ -95,17 +96,15 @@ azmcp servicebus namespace list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription to list Service Bus namespaces from.
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -133,6 +132,8 @@ azmcp servicebus queue list \
     --resource-group <RESOURCE_GROUP>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
@@ -141,11 +142,7 @@ azmcp servicebus queue list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -153,6 +150,47 @@ List all queues in the specified Service Bus namespace.
 
 ```console
 azmcp servicebus queue list \
+    --subscription "my-subscription-id" \
+    --namespace-name "app-messaging" \
+    --resource-group "messaging-rg"
+```
+
+
+### List topics
+
+The Azure MCP Server can list all topics in a Service Bus namespace.
+
+#### Reference
+
+| Name            | Description               |
+|-----------------|--------------------------|
+| azmcp servicebus topic list | List topics in a Service Bus namespace.|
+
+```console
+azmcp servicebus topic list \
+    --subscription <SUBSCRIPTION_ID> \
+    --namespace-name <NAMESPACE_NAME> \
+    --resource-group <RESOURCE_GROUP>
+```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
+##### Required parameters
+
+`--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
+`--namespace-name`: The name of the Service Bus namespace.<br>
+`--resource-group`: The name of the resource group containing the namespace.
+
+##### Optional parameters
+
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+
+#### Examples
+
+List all topics in the specified Service Bus namespace.
+
+```console
+azmcp servicebus topic list \
     --subscription "my-subscription-id" \
     --namespace-name "app-messaging" \
     --resource-group "messaging-rg"
@@ -178,6 +216,8 @@ azmcp servicebus queue message send \
     [--properties <MESSAGE_PROPERTIES>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
@@ -190,11 +230,7 @@ azmcp servicebus queue message send \
 
 `--properties`: Additional properties for the message in JSON format.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -221,47 +257,6 @@ azmcp servicebus queue message send \
     --properties '{"Priority":"High", "MaintenanceType":"Scheduled", "ScheduledTime":"2025-06-01T02:00:00Z"}'
 ```
 
-### List topics
-
-The Azure MCP Server can list all topics in a Service Bus namespace.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus topic list | List topics in a Service Bus namespace.|
-
-```console
-azmcp servicebus topic list \
-    --subscription <SUBSCRIPTION_ID> \
-    --namespace-name <NAMESPACE_NAME> \
-    --resource-group <RESOURCE_GROUP>
-```
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
-`--namespace-name`: The name of the Service Bus namespace.<br>
-`--resource-group`: The name of the resource group containing the namespace.
-
-##### Optional parameters
-
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
-
-#### Examples
-
-List all topics in the specified Service Bus namespace.
-
-```console
-azmcp servicebus topic list \
-    --subscription "my-subscription-id" \
-    --namespace-name "app-messaging" \
-    --resource-group "messaging-rg"
-```
 
 ### Send message to topic
 
@@ -283,6 +278,8 @@ azmcp servicebus topic message send \
     [--properties <MESSAGE_PROPERTIES>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
@@ -295,11 +292,7 @@ azmcp servicebus topic message send \
 
 `--properties`: Additional properties for the message in JSON format.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 

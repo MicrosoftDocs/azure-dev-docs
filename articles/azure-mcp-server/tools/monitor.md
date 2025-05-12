@@ -16,7 +16,7 @@ The Azure MCP Server allows you to manage Azure Monitor resources, including que
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for Azure Monitor
 
 ### List workspaces
 
@@ -54,7 +54,7 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 - **Join query**: "Query errors and correlate them with performance metrics"
 - **Aggregation query**: "Count errors by application in my monitoring workspace"
 
-## Develop new server
+## Develop new MCP server for Azure Monitor
 
 ### List workspaces
 
@@ -71,17 +71,15 @@ azmcp monitor workspace list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription to list Log Analytics workspaces from.
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -110,6 +108,8 @@ azmcp monitor table list \
     --table-type <TABLE_TYPE>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
@@ -119,11 +119,7 @@ azmcp monitor table list \
 
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -158,6 +154,8 @@ azmcp monitor log query \
     [--limit <LIMIT>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
@@ -171,11 +169,7 @@ azmcp monitor log query \
 `--hours`: The number of hours of data to query. Default is 24.<br>
 `--limit`: The maximum number of results to return. Default is 20.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 

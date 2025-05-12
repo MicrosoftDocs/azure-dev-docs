@@ -1,6 +1,6 @@
 ---
 title: Azure App Configuration Tools 
-description: Learn how to use the Azure MCP Server with App Configuration.
+description: Learn how to use the Azure MCP Server with Azure App Configuration.
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
