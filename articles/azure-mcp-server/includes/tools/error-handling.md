@@ -6,8 +6,6 @@
  ms.date: 05/01/2025
 ---
 
-## Error Handling
-
 The Azure MCP tool returns structured JSON responses for errors, including:
 
 - Missing required args
