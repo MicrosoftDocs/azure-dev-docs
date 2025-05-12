@@ -94,7 +94,7 @@ The prebuilt Azure Marketplace offer automatically creates a domain resource. If
 
 [!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
-The prebuilt Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. Cookie based affinity is enabled by default. You can select **Disable cookie based affinity** to disable it. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
+The prebuilt Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. Cookie based affinity is enabled by default. You can select **Disable cookie based affinity** to disable it. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#application-gateway-ingress-controller).
 
 [!INCLUDE [document-datasources](includes/document-datasources.md)]
 
@@ -217,11 +217,11 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 ### Account for KeyStores
 
-You must account for the migration of any SSL KeyStores used by your application. For more information, see [Configuring Keystores](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/secmg/identity_trust.html#GUID-7F03EB9C-9755-430B-8B86-17199E0C01DC).
+You must account for the migration of any SSL KeyStores used by your application. For more information, see [Configuring Keystores](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/14.1.2/secmg/identity_trust.html).
 
 ### Connect the JMS sources
 
-After you've connected the databases, you can configure JMS by following the instructions at [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
+After you've connected the databases, you can configure JMS by following the instructions at [Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/14.1.2/jmsad/index.html) in the WebLogic documentation.
 
 ### Account for logging
 
@@ -240,6 +240,8 @@ Any in-container tests against applications must be configured to access the new
 After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. For guidance on some potential post-migration enhancements, see the following recommendations:
 
 - Scaling. Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. Combine the knowledge in [Tutorial: Scale applications in Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-scale) with the operator documentation section [Scaling](https://aka.ms/wlsoperator-scaling) to achieve a WLS-native Kubernetes optimized scaling solution. It's perfectly possible to use popular off-the shelf solutions such as Prometheus and Grafana for scaling with WLS on AKS. For more information, see [Using Prometheus and Grafana to Monitor WebLogic Server on Kubernetes](https://blogs.oracle.com/weblogicserver/post/using-prometheus-and-grafana-to-monitor-weblogic-server-on-kubernetes). Azure has a managed Grafana service. For details, see [What is Azure Managed Grafana?](/azure/managed-grafana/overview).
+
+- If you captured load testing results prior to migration, re-run the test suite against the migrated server to see if the performance targets are met.
 
 - If you deployed WebLogic Server with Azure Application Gateway by following the steps in the offer, you may want to do more configuration on the Application Gateway. For more information, see [Application Gateway configuration overview](/azure/application-gateway/configuration-overview).
 
