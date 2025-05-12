@@ -1,9 +1,9 @@
 ---
-title: Configure a pipeline and push updates using GitHub Actions or Azure DevOps
-description: Learn how to push updates using GitHub Actions or Azure DevOps.
+title: Configure a pipeline using Azure DevOps
+description: Learn how to create a pipeline and push updates using Azure DevOps and the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/13/2024
+ms.date: 05/12/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023

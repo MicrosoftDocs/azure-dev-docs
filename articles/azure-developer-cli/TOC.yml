@@ -60,7 +60,7 @@
           - name: Configure a GitHub Actions pipeline
             href: pipeline-github-actions.md
           - name: Configure an Azure DevOps pipeline
-            href: configure-azure-pipelines.md
+            href: pipeline-azure-pipelines.md
           - name: Create a custom pipeline definition file
             href: pipeline-create-definition.md
           - name: Advanced pipeline features
