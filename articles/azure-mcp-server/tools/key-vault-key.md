@@ -179,4 +179,4 @@ azmcp keyvault key create \
     --vault "contoso-vault" \
     --key "signing-key" \
     --key-type "EC"
-
+```

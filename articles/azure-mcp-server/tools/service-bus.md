@@ -13,13 +13,13 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to manage Azure resources, including Azure Service Bus queues, topics, and subscriptions.
 
-[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker with message queues and publish-subscribe topics. It's used for decoupling applications and services, load balancing across multiple services, and providing reliable message delivery between components of distributed systems.
+[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker with [message queues and publish-subscribe topics](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions). It's used for decoupling applications and services, load balancing across multiple services, and providing reliable message delivery between components of distributed systems.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Get queue details
 
-The Azure MCP Server can retrieve detailed information about a Service Bus queue, including its configuration and runtime metrics. This functionality is useful for monitoring queue health and performance.
+The Azure MCP Server can retrieve detailed information about a [Service Bus queue](/azure/service-bus-messaging/service-bus-messaging-overview), including its configuration and runtime metrics. This functionality is useful for monitoring queue health and performance.
 
 ### Example prompts
 
@@ -69,7 +69,7 @@ azmcp servicebus queue details \
 
 ## Get topic details
 
-The Azure MCP Server can retrieve detailed information about a Service Bus topic, including its configuration and runtime metrics. This is useful for monitoring topic health and performance.
+The Azure MCP Server can retrieve detailed information about a [Service Bus topic](/azure/service-bus-messaging/service-bus-messaging-overview), including its configuration and runtime metrics. This is useful for monitoring topic health and performance.
 
 ### Example prompts
 
@@ -120,7 +120,7 @@ azmcp servicebus topic details \
 
 ## Get topic subscription details
 
-The Azure MCP Server can retrieve detailed information about a Service Bus topic subscription, including its configuration and runtime metrics. This functionality is useful for monitoring subscription health and performance.
+The Azure MCP Server can retrieve detailed information about a [Service Bus topic subscription](/azure/service-bus-messaging/service-bus-messaging-overview), including its configuration and runtime metrics. This functionality is useful for monitoring subscription health and performance.
 
 ### Example prompts
 
@@ -173,7 +173,7 @@ azmcp servicebus topic subscription details \
 
 ## Peek at queue messages
 
-The Azure MCP Server can peek at messages in an Azure Service Bus queue without removing them. This functionality is useful for monitoring and debugging your message-based applications.
+The Azure MCP Server can peek at messages in an [Azure Service Bus queue](/azure/service-bus-messaging/service-bus-messaging-overview) without removing them. This functionality is useful for monitoring and debugging your message-based applications.
 
 ### Example prompts
 
@@ -241,7 +241,7 @@ azmcp servicebus queue peek \
 
 ## Peek at topic subscription messages
 
-The Azure MCP Server can peek at messages in an Azure Service Bus topic subscription without removing them. This functionality is useful for monitoring and debugging publish-subscribe scenarios.
+The Azure MCP Server can peek at messages in an Azure [Service Bus topic subscription](/azure/service-bus-messaging/service-bus-messaging-overview) without removing them. This functionality is useful for monitoring and debugging publish-subscribe scenarios.
 
 ### Example prompts
 

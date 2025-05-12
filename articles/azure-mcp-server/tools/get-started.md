@@ -5,7 +5,7 @@ keywords:  azure mcp server, azmcp
 author: diberry
 ms.author: diberry
 ms.date: 04/22/2025
-ms.topic: getting-started
+ms.topic: get-started
 ms.custom: build-2025
 ---
 # Getting started with Azure MCP Server tools

@@ -9,7 +9,7 @@ items:
     - name: Tools
       items:
         - name: Getting started
-          href: tools/getting-started.md
+          href: tools/get-started.md
         - name: App Configuration
           href: tools/app-configuration.md
         - name: Azure CLI Extension
@@ -17,7 +17,7 @@ items:
         - name: Cosmos DB
           href: tools/cosmos-db.md
         - name: Key Vault
-          href: tools/key-vault.md
+          href: tools/key-vault-key.md
         - name: Azure Monitor
           href: tools/monitor.md
         - name: Resource Group
