@@ -1,13 +1,13 @@
 ---
 title: Azure CLI Extension Tools
 description: Learn how to use the Azure MCP Server with the Azure CLI Extension.
-keywords:  azure mcp server, azmcp, azure cli extension
+keywords: azure mcp server, azmcp, azure cli extension
 author: diberry
 ms.author: diberry
-ms.date: 5/05/2025
+ms.date: 5/12/2025
 ms.topic: reference
 ms.custom: build-2025
----
+--- 
 # Azure CLI extension tools for the Azure MCP Server
 
 The Azure MCP Server allows you to execute any Azure CLI command.
@@ -18,13 +18,13 @@ Find Azure CLI commands in the [reference documentation](/cli/azure/reference-in
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Execute Azure CLI command
+## Use existing server
 
-The Azure MCP Server can execute Azure CLI commands. 
+### Execute Azure CLI command
 
-### Example prompts
+The Azure MCP Server can execute Azure CLI commands. This provides complete access to Azure resource management through familiar command-line syntax.
 
-Example prompts for using the Azure MCP Server with Azure CLI extensions.
+**Example prompts** include:
 
 - **List my Azure resources**: "Show me all my resource groups"
 - **Query specific details**: "Get details for storage account mystorageacct01 in the dev-rg resource group"
@@ -37,9 +37,13 @@ Example prompts for using the Azure MCP Server with Azure CLI extensions.
 - **Export data**: "Export the list of all my AKS clusters to a table"
 - **Clean up resources**: "Delete the resource group 'temp-project' without prompting for confirmation"
 
-### Reference
+## Develop new server
 
-The Azure MCP Server has tools to execute Azure CLI commands.  
+### Execute Azure CLI command
+
+The Azure MCP Server can execute Azure CLI commands.
+
+#### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -49,15 +53,15 @@ The Azure MCP Server has tools to execute Azure CLI commands.
 azmcp extension az --command "<COMMAND>"
 ```
 
-#### Required parameters
+##### Required parameters
 
 `--command`: The command text.
 
-#### Optional parameters
+##### Optional parameters
 
 [!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
-#### JSON response
+##### JSON response
 
 [!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
@@ -79,4 +83,16 @@ List virtual machines with [vm list](/cli/azure/vm#az-vm-list).
 
 ```console
 azmcp extension az --command "vm list --resource-group <RESOURCE-GROUP>"
+```
+
+Create a new resource group with [group create](/cli/azure/group#az-group-create).
+
+```console
+azmcp extension az --command "group create --name <RESOURCE-GROUP> --location <LOCATION>"
+```
+
+Stop a virtual machine with [vm stop](/cli/azure/vm#az-vm-stop).
+
+```console
+azmcp extension az --command "vm stop --name <VM-NAME> --resource-group <RESOURCE-GROUP>"
 ```

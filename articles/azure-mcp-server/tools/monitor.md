@@ -1,41 +1,66 @@
 ---
-title: Azure Monitor Tools
+title: Azure Monitor Tools 
 description: Learn how to use the Azure MCP Server with Azure Monitor.
-keywords:  azure mcp server, azmcp, monitor
+keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 5/05/2025
+ms.date: 5/12/2025
 ms.topic: reference
 ms.custom: build-2025
----
+--- 
 # Azure Monitor tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Azure Monitor logs and metrics.
+The Azure MCP Server allows you to manage Azure Monitor resources, including querying Log Analytics workspaces for operational insights.
 
-[Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
+[Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## List Log Analytics workspaces
+## Use existing server
 
-The Azure MCP Server can list Log Analytics [workspaces](/azure/azure-monitor/metrics/azure-monitor-workspace-overview) in a subscription. This functionality is useful for quickly checking your monitoring resources.
+### List workspaces
 
+The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
-### Example prompts
+**Example prompts** include:
 
-Example prompts for using the Azure MCP Server with Azure Monitor.
+- **List workspaces**: "Show me all Log Analytics workspaces in my subscription."
+- **View workspaces**: "What Log Analytics workspaces do I have?"
+- **Find workspaces**: "List my monitoring workspaces"
+- **Query workspaces**: "Show all Log Analytics workspaces"
+- **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
 
-<!-- create several examples for the reader that capture the intent -->
-- **List workspaces**: "List all Log Analytics workspaces in my subscription."
-- **Show workspaces**: "What Log Analytics workspaces do I have?"
-- **Find workspaces**: "I need to see my Log Analytics resources"
-- **Query workspaces**: "Can you show me all my monitoring workspaces?"
-- **Check workspaces**: "Log Analytics workspaces in subscription abc123"
+### List tables
 
+The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
-### Reference
+**Example prompts** include:
 
-The Azure MCP Server has tools to list Azure Monitor resources. Advanced users and automation tools use these tools.
+- **List tables**: "Show me all tables in my 'centralmonitoring' Log Analytics workspace."
+- **View tables**: "What tables do I have in Log Analytics workspace 'app-monitoring'?"
+- **Find tables**: "List all tables in my workspace 'security-logs'"
+- **Query tables**: "Show available tables in my Log Analytics workspace"
+- **Check tables**: "Get all log tables in my 'operations' workspace"
+
+### Query logs
+
+The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
+
+**Example prompts** include:
+
+- **Simple query**: "Query all error events from the last hour in my 'centralmonitoring' workspace"
+- **Filter query**: "Find all failed login attempts in the SecurityEvent table"
+- **Complex query**: "Show me the CPU usage trend for my web servers over the last 24 hours"
+- **Join query**: "Query errors and correlate them with performance metrics"
+- **Aggregation query**: "Count errors by application in my monitoring workspace"
+
+## Develop new server
+
+### List workspaces
+
+The Azure MCP Server can list all Log Analytics workspaces in a subscription.
+
+#### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -44,18 +69,17 @@ The Azure MCP Server has tools to list Azure Monitor resources. Advanced users a
 ```console
 azmcp monitor workspace list \
     --subscription <SUBSCRIPTION_ID>
-
 ```
 
-#### Required parameters
+##### Required parameters
 
-`--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.
- 
-#### Optional parameters
+`--subscription`: The ID of the subscription to list Log Analytics workspaces from.
+
+##### Optional parameters
 
 [!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
-#### JSON response
+##### JSON response
 
 [!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
@@ -68,21 +92,11 @@ azmcp monitor workspace list \
     --subscription "my-subscription-id"
 ```
 
-## List Log Analytics workspaces tables
+### List tables
 
-List tables in a Log Analytics [workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-overview).
+The Azure MCP Server can list all tables in a Log Analytics workspace.
 
-### Example prompts
-
-- **List tables**: "Show me all tables in my analytics workspace"
-- **View tables**: "What tables are available in my Log Analytics workspace?"
-- **Get table names**: "List tables in my monitoring workspace in the production resource group"
-- **Check tables**: "Show me the tables in my security-logs workspace"
-- **Find tables**: "What data tables does my application-insights workspace contain?"
-
-### Reference
-
-The Azure MCP Server has tools to list Azure Monitor tables. 
+#### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -91,93 +105,102 @@ The Azure MCP Server has tools to list Azure Monitor tables.
 ```console
 azmcp monitor table list \
     --subscription <SUBSCRIPTION_ID> \
-    --workspace <WORKSPACE> \
-    --resource-group <RESOURCE_GROUP>
+    --workspace <WORKSPACE_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --table-type <TABLE_TYPE>
 ```
 
-### Required parameters
-
-`--subscription`: The ID of the subscription to list Log Analytics workspaces from. This parameter is required.<br>
-`--workspace`: The ID of the workspace.<br>
-`--resource-group`: The name of the resource group.
-
-#### Optional parameters
-
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-#### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
-
-## Query log with Kusto Query Language (KQL)
-
-The Azure MCP Server can run analytics queries with [Kusto](/kusto/query) on logs in a Log Analytics workspace. This functionality allows you to analyze your application's telemetry data.
-
-### Example prompts
-
-- **Run query**: "Run this Kusto query 'Heartbeat | where TimeGenerated > ago(1h)' in my 'myworkspace' Log Analytics workspace."
-- **Execute query**: "Execute 'AppRequests | where TimeGenerated > ago(1d) | where Success == false' in my workspace"
-- **Get error logs**: "Find all errors in the 'AppEvents' table over the last 24 hours"
-- **Query app logs**: "Query the 'AppTraces' table for traces with severity level 'Error' in the last hour"
-- **Analyze logs**: "Analyze 'SigninLogs | where TimeGenerated > ago(7d) | where ResultType != 0' in contoso-workspace"
-
-### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp monitor logs query | Run a Kusto query on logs in a Log Analytics workspace.|
-
-```console
-azmcp monitor logs query \
-    --subscription <SUBSCRIPTION_ID> \
-    --workspace-name <WORKSPACE_NAME> \
-    --table-name <TABLE_NAME> \
-    --query <KQL_QUERY_STRING> \
-    [--hours <HOURS>] \
-    [--limit <LIMIT>]
-```
-
-#### Required parameters
+##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
-`--workspace-name`: The name of the Log Analytics workspace.<br>
-`--table-name`: The Kusto table name.<br>
-`--query`: The Kusto query to run.
+`--workspace`: The name of the Log Analytics workspace.<br>
+`--resource-group`: The name of the resource group containing the workspace.<br>
+`--table-type`: The type of tables to list (e.g., 'CustomLog', 'AzureMetrics').
 
-#### Optional parameters
-
-`--hours`: The hours for which to query data.<br>
-`--limit`: The maximum limit of records to return.
+##### Optional parameters
 
 [!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
-#### JSON response
+##### JSON response
 
 [!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
-Run a query to check for heartbeats in the last hour.
+List all custom log tables in the specified Log Analytics workspace.
 
 ```console
-azmcp monitor logs query \
+azmcp monitor table list \
     --subscription "my-subscription-id" \
-    --workspace-name "myworkspace" \
-    --table "Heartbeat" \
-    --query "| order by TimeGenerated desc" \
-    --hours "1
+    --workspace "centralmonitoring" \
+    --resource-group "monitoring-rg" \
+    --table-type "CustomLog"
 ```
 
-Run a query to find failed requests in the last day.
+### Query logs
+
+The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace.
+
+#### Reference
+
+| Name            | Description               |
+|-----------------|--------------------------|
+| azmcp monitor log query | Query a Log Analytics workspace.|
 
 ```console
-azmcp monitor logs query \
+azmcp monitor log query \
+    --subscription <SUBSCRIPTION_ID> \
+    --workspace <WORKSPACE_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --table-name <TABLE_NAME> \
+    --query <QUERY> \
+    [--hours <HOURS>] \
+    [--limit <LIMIT>]
+```
+
+##### Required parameters
+
+`--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
+`--workspace`: The name of the Log Analytics workspace.<br>
+`--resource-group`: The name of the resource group containing the workspace.<br>
+`--table-name`: The name of the table to query.<br>
+`--query`: The KQL query to execute.
+
+##### Optional parameters
+
+`--hours`: The number of hours of data to query. Default is 24.<br>
+`--limit`: The maximum number of results to return. Default is 20.
+
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+##### JSON response
+
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+
+#### Examples
+
+Execute a simple query to retrieve recent logs.
+
+```console
+azmcp monitor log query \
     --subscription "my-subscription-id" \
-    --workspace-name "myworkspace" \
-    --table "AppRequests" \
-    --query "| order by TimeGenerated desc" \
-    --hours "1"
-    --limit "5"
+    --workspace "centralmonitoring" \
+    --resource-group "monitoring-rg" \
+    --table-name "AppEvents" \
+    --query "recent"
+```
+
+Execute a custom query to find errors in the last hour.
+
+```console
+azmcp monitor log query \
+    --subscription "my-subscription-id" \
+    --workspace "centralmonitoring" \
+    --resource-group "monitoring-rg" \
+    --table-name "AppEvents" \
+    --query "where TimeGenerated > ago(1h) and Level == 'Error'" \
+    --hours 1 \
+    --limit 100
 ```
 
 
