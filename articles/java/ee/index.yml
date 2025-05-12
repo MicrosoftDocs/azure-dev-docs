@@ -48,10 +48,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-        - text: WebLogic Server on Azure VMs
-          url: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-        - text: WebLogic Server on Azure Kubernetes Service
-          url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebLogic Server on Azure VMs
+            url: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: WebLogic Server on Azure Kubernetes Service
+            url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: Step-by-step guide to installing WebLogic Server on Azure VMs 
@@ -102,14 +102,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-        - text: IBM WebSphere Liberty and Open Liberty on AKS
-          url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-        - text: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
-          url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-        - text: IBM WebSphere Liberty and Open Liberty on Azure Container Apps
-          url: deploy-java-liberty-app-aca.md
-        - text: IBM WebSphere Application Server on Azure VMs
-          url: traditional-websphere-application-server-virtual-machines.md
+          - text: IBM WebSphere Liberty and Open Liberty on AKS
+            url: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
+            url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: IBM WebSphere Liberty and Open Liberty on Azure Container Apps
+            url: deploy-java-liberty-app-aca.md
+          - text: IBM WebSphere Application Server on Azure VMs
+            url: traditional-websphere-application-server-virtual-machines.md
       - linkListType: how-to-guide
         links:
           - text: Step-by-step guide to installing WebSphere Application Server Network Deployment (traditional) on Azure VMs
@@ -150,7 +150,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: PiggyMetrics on MicroProfile
-            url: https://aka.ms/microprofile-piggymetrics
+            url: https://github.com/Azure-Samples/piggymetrics/tree/openliberty
           - text: Open/WebSphere Liberty on Azure Red Hat OpenShift samples
             url: https://github.com/Azure-Samples/open-liberty-on-aro
           - text: Open Liberty/WebSphere Liberty on AKS samples
