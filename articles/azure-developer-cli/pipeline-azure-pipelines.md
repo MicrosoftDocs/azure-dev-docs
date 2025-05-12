@@ -1,6 +1,6 @@
 ---
-title: Configure a pipeline using Azure DevOps
-description: Learn how to create a pipeline and push updates using Azure DevOps and the Azure Developer CLI
+title: Configure a pipeline using Azure Pipelines
+description: Learn how to create a pipeline and push updates using Azure Pipelines and the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/12/2025
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Create and work with a GitHub Actions pipeline
+# Create an Azure Pipeline for CI/CD using the Azure Developer CLI
 
 In this article, you learn how to use the Azure Developer CLI (`azd`) to create a GitHub Actions CI/CD pipeline for an `azd` template. The pipeline allows you to push template updates to a code repository and see your changes provisioned and deployed automatically to your Azure environment.
 
@@ -36,63 +36,63 @@ azd init -t hello-azd
 ### Create and configure the pipeline
 
 > [!NOTE]
-> If you're using Azure DevOps for a Java template on Windows, see [the corresponding section in the troubleshooting guide](./troubleshoot.md#azd-pipeline-config-using-azdo-for-java-templates-on-windows). 
+> If you're using Azure Pipelines for a Java template on Windows, see [the corresponding section in the troubleshooting guide](./troubleshoot.md#azd-pipeline-config-using-azdo-for-java-templates-on-windows). 
 
-### Create or use an existing Azure DevOps Organization
+### Create or use an existing Azure Pipelines Organization
 
-To run a pipeline in Azure DevOps, you'll need an Azure DevOps organization. You can create one using the Azure DevOps portal: https://dev.azure.com.
+To run a pipeline in Azure Pipelines, you need an Azure Pipelines organization. You can create one using the Azure Pipelines portal: https://dev.azure.com.
 
 ### Create a Personal Access Token
 
-The Azure Developer CLI relies on an Azure DevOps Personal Access Token (PAT) to configure an Azure DevOps project. [Create a new Azure DevOps PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
+The Azure Developer CLI relies on an Azure Pipelines Personal Access Token (PAT) to configure an Azure Pipelines project. [Create a new Azure Pipelines PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
 
 When creating your PAT, set the following scopes:
 
 - Agent Pools (read, manage)
 - Build (read and execute)
 - Code (full)
-- Project and team (read, write and manage)
-- Release (read, write, execute and manage)
-- Service Connections (read, query and manage)
+- Project and team (read, write, and manage)
+- Release (read, write, execute, and manage)
+- Service Connections (read, query, and manage)
 
 ### Invoke the Pipeline configure command
 
-1. Run the following command to configure an Azure DevOps Project and Repository with a deployment Pipeline.
+1. Run the following command to configure an Azure Pipelines Project and Repository with a deployment Pipeline.
 
    ``` azdeveloper
    azd pipeline config --provider azdo
    ````
 
 > [!NOTE]
-> By default, `azd pipeline config` in Azure DevOps uses `client-credentials`. `azd` does not currently support OIDC/federated credentials for Azure DevOps.
+> By default, `azd pipeline config` in Azure Pipelines uses `client-credentials`. `azd` doesn't currently support OpenID Connect (OIDC)/federated credentials for Azure Pipelines.
 > [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
 
 1. Provide your answers to the following prompts:
 
    - **Personal Access Token (PAT)**
       - Copy/paste your PAT.
-      - Export your PAT as a system environment by running the following command. Otherwise, you will be prompted every time you set up an Azure Pipeline:
+      - Export your PAT as a system environment by running the following command. Otherwise, you're prompted every time you set up an Azure Pipeline:
 
          ```azdeveloper
          export AZURE_DEVOPS_EXT_PAT=<PAT>
          ```
 
-   - **Please enter an Azure DevOps Organization Name:**  
-      -Type [your AzDo organization](#create-or-use-an-existing-azure-devops-organization). Once you hit enter, `AZURE_DEVOPS_ORG_NAME="<your Azure DevOps Org Name>"` is automatically added to the .env file for the current environment.
+   - **Please enter an Azure Pipelines Organization Name:**  
+      -Type [your AzDo organization](#create-or-use-an-existing-azure-devops-organization). Once you hit enter, `AZURE_DEVOPS_ORG_NAME="<your Azure Pipelines Org Name>"` is automatically added to the .env file for the current environment.
 
    - **A remote named "origin" was not found. Would you like to configure one?**
       - Yes
 
    - **How would you like to configure your project?**
-      - Create a new Azure DevOps Project
+      - Create a new Azure Pipelines Project
 
-   - **Enter the name for your new Azure DevOps Project OR Hit enter to use this name: ( {default name} )**
+   - **Enter the name for your new Azure Pipelines Project OR Hit enter to use this name: ( {default name} )**
       - Select **Enter**, or create a unique project name.
 
    - **Would you  like to commit and push your local changes to start the configured CI pipeline?**
       - Yes
 
-1. Navigate to your Azure DevOps portal (https://dev.azure.com) to find your project and verify the build.
+1. To find your project and verify the build, navigate to your Azure Pipelines portal (https://dev.azure.com).
 
 ### Make and push a code change
 
@@ -104,7 +104,7 @@ When creating your PAT, set the following scopes:
 
 1. Save the file.
 
-1. Create a branch and commit your change. The `main` branch in Azure DevOps is protected from directly pushing. You need to push the changes from a new branch and create a `Pull Request` in Azure DevOps. The pull request will automatically start the pipeline and prevent from merging if the pipeline fails.
+1. Create a branch and commit your change. The `main` branch in Azure Pipelines is protected from directly pushing. You need to push the changes from a new branch and create a `Pull Request` in Azure Pipelines. The pull request automatically starts the pipeline and prevents merging if the pipeline fails.
 
 1. Approve and merge your pull request to start the pipeline again.
 
@@ -116,11 +116,11 @@ When creating your PAT, set the following scopes:
 
    :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
-1. Visit the web frontend URL to inspect the update.
+1. To inspect the update, visit the web frontend URL.
 
-### `azd` as an Azure DevOps task
+### `azd` as an Azure Pipelines task
 
-Add [`azd` as an Azure DevOps task](https://aka.ms/azd-azdo-task). This task will install `azd`. To use it, you can add the following to `.azdo\pipelines\azure-dev.yml`:
+Add [`azd` as an Azure Pipelines task](https://aka.ms/azd-azdo-task). This task installs `azd`. To use it, you can add the following to `.azdo\pipelines\azure-dev.yml`:
 
 ```YAML
 trigger:

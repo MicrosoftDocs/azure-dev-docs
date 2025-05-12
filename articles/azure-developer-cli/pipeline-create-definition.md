@@ -1,9 +1,9 @@
 ---
-title: Configure a pipeline and push updates using GitHub Actions or Azure DevOps
-description: Learn how to push updates using GitHub Actions or Azure DevOps.
+title: Create a custom pipeline definition file for GitHub Actions or Azure Pipelines
+description: Learn how to create a pipeline definition file for GitHub Actions or Azure Pipelines.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/13/2024
+ms.date: 05/12/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
@@ -13,13 +13,13 @@ ms.custom: devx-track-azdevcli, build-2023
 
 If your `azd` template doesn't include a CI/CD pipeline definition file, you can create one to automate your application's build and deployment. A well-structured pipeline definition typically includes the following four main sections:
 
-- **Trigger**: Specifies when the pipeline should run. This can include events such as code pushes to specific branches, pull requests, or manual triggers. Defining triggers ensures your pipeline runs automatically in response to development activities, enabling continuous integration and deployment.
+- **Trigger**: Specifies events when the pipeline should run, such as code pushes to specific branches, pull requests, or manual triggers. Defining triggers ensures your pipeline runs automatically in response to development activities, enabling continuous integration and deployment.
 
-- **Permissions**: Sets the required permissions for the pipeline to access resources securely. For example, you may need to grant permissions for the pipeline to read repository contents or request identity tokens. Properly configuring permissions is essential for secure and successful deployments.
+- **Permissions**: Sets the required permissions for the pipeline to access resources securely. For example, you can grant permissions for the pipeline to read repository contents or request identity tokens. Properly configuring permissions is essential for secure and successful deployments.
 
-- **Operating System or Pool**: Defines the environment in which the pipeline jobs will execute. This could be a specific virtual machine image (like `ubuntu-latest`) or a pool of agents. Selecting the right environment ensures compatibility with your application's build and deployment requirements.
+- **Operating System or Pool**: Defines the environment in which the pipeline jobs execute. This environment could be a specific virtual machine image (like `ubuntu-latest`) or a pool of agents. Selecting the right environment ensures compatibility with your application's build and deployment requirements.
 
-- **Steps to be Run**: Lists the sequence of tasks the pipeline will perform, such as checking out code, installing dependencies, building the application, provisioning infrastructure, and deploying to Azure. Each step should be clearly defined to automate the end-to-end deployment process.
+- **Steps to be Run**: Lists the sequence of tasks the pipeline performs, such as checking out code, installing dependencies, building the application, provisioning infrastructure, and deploying to Azure. Each step should be clearly defined to automate the end-to-end deployment process.
 
 The following examples demonstrate how to create a pipeline definition file and related configurations for GitHub Actions and Azure Pipelines.
 
@@ -28,7 +28,7 @@ The following examples demonstrate how to create a pipeline definition file and 
 Running `azd` in GitHub Actions requires the following configurations:
 
 - Grant `id-token: write` and `contents: read` access scopes.
-- [Install the azd action](https://aka.ms/azd-gha), unless you are using a docker image where `azd` is already installed.
+- [Install the azd action](https://aka.ms/azd-gha), unless you're using a docker image where `azd` is already installed.
 
 Use the following template as a starting point for your own pipeline definition:
 
@@ -120,7 +120,7 @@ jobs:
 
 ```
 
-## [Azure DevOps](#tab/azdo)
+## [Azure Pipelines](#tab/azdo)
 
 You can use the following template as a starting point for your own pipeline definition:
 

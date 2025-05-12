@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Create and work with a GitHub Actions pipeline
+# Create GitHub Actions CI/CD pipeline using the Azure Developer CLI
 
 In this article, you learn how to use the Azure Developer CLI (`azd`) to create a GitHub Actions CI/CD pipeline for an `azd` template. The pipeline allows you to push template updates to a code repository and see your changes provisioned and deployed automatically to your Azure environment.
 
@@ -47,7 +47,7 @@ Complete the following steps to create and configure a pipeline:
 
 1. When prompted about committing and pushing your local changes to start a new GitHub Actions run, specify `y`.
 
-1. In the terminal window, view the results of the `azd pipeline config` command. The `azd pipeline config` command will output the GitHub repository name for your project.
+1. In the terminal window, view the results of the `azd pipeline config` command. The `azd pipeline config` command outputs the GitHub repository name for your project.
 
    > [!NOTE]
    > By default, `azd pipeline config` configures [OpenID Connect (OIDC)](../github/connect-from-azure-openid-connect.md), called **federated** credentials. If you'd rather not use OIDC, run `azd pipeline config --auth-type client-credentials`.
@@ -86,11 +86,11 @@ Complete the following steps to create and configure a pipeline:
 
    :::image type="content" source="media/configure-devops-pipeline/github-workflow-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
-1. Visit the web frontend URL to inspect the update.
+1. To inspect the update, visit the web frontend URL.
 
 ### `azd` as a GitHub action
 
-Add [`azd` as a GitHub action](https://aka.ms/azd-gha). This action will install `azd`. To use it, you can add the following to `.github\workflows\azure-dev.yml`:
+Install [`azd` as a GitHub action](https://aka.ms/azd-gha). To use it, you can add the following to `.github\workflows\azure-dev.yml`:
 
    ```yml
    on: [push]
