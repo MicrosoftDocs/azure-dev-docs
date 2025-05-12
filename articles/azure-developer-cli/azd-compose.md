@@ -67,6 +67,7 @@ The `azd compose` feature supports adding resources for the following Azure serv
 - AI
   - Azure AI Services models and Azure AI Foundry
   - Azure OpenAI with Microsoft Entra ID authentication
+  - Azure AI Search
 - Database
   - Azure Cosmos DB
   - Azure Cosmos DB for MongoDB
