@@ -30,7 +30,7 @@ Once you've decided that AKS is the appropriate deployment target, you must acce
   - Wrap it in a container using the WebLogic Image Tool (WIT). For more information, see [WebLogic Image Tool](https://aka.ms/wls-wit) in the Oracle documentation.
   - Install and configure the WebLogic Kubernetes Operator on AKS.
   - Use the operator to run the whole thing. The operator invokes WebLogic Deploy Tooling (WDT) to stand up WebLogic environments and perform domain lifecycle operations in a repeatable fashion based on a metadata model. For more information, see [WebLogic Deploy Tooling](https://aka.ms/wls-wdt) in the Oracle documentation.
-- Though the prebuilt offer does provide numerous Azure service integrations, such as App Gateway, Elastic logging, Database integration, and more, it does make many simplifying assumptions. These assumptions make the offer not as flexible as mastering and using the operator yourself.
+- Though the prebuilt offer does provide numerous Azure service integrations, such as App Gateway, Database integration, and more, it does make many simplifying assumptions. These assumptions make the offer not as flexible as mastering and using the operator yourself.
 
 If you don't use the prebuilt Azure Marketplace offer, you must learn how to use the operator directly. Mastering the operator is beyond the scope of this article. The complete documentation for the WLS Kubernetes Operator is available at [Oracle](https://aka.ms/wlsoperator).
 
