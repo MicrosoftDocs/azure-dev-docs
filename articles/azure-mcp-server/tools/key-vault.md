@@ -15,7 +15,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Key V
 
 [Azure Key Vault](/azure/key-vault/keys/) provides two types of resources to store and manage cryptographic [keys](/azure/key-vault/keys/about-keys-details). Vaults support software-protected and HSM-protected (Hardware Security Module) keys. Managed HSMs only support HSM-protected keys.
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List keys in a vault
 
@@ -56,7 +56,7 @@ azmcp keyvault key list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -105,7 +105,7 @@ azmcp keyvault key get \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -157,7 +157,7 @@ azmcp keyvault key create \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 

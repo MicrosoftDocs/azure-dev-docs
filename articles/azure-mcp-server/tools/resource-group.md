@@ -14,7 +14,7 @@ The Azure MCP Server allows you to manage Azure resources, including Resource Gr
 
 [Azure Resource Groups](/azure/azure-resource-manager/management/overview) are logical containers that you use to group related resources in an Azure subscription. Resource groups include those resources that you want to manage as a group. The resources in a resource group typically share the same lifecycle, permissions, and policies. Resource groups help organize Azure resources for consistent management, deployment, and billing.
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List resource groups
 
@@ -53,7 +53,7 @@ azmcp group list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 

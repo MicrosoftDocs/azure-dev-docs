@@ -16,7 +16,7 @@ The Azure MCP Server allows you to execute any Azure CLI command.
 
 Find Azure CLI commands in the [reference documentation](/cli/azure/reference-index).
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Execute Azure CLI command
 
@@ -59,7 +59,7 @@ azmcp extension az --command "<COMMAND>"
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 

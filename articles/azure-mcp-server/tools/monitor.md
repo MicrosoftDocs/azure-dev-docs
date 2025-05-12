@@ -14,7 +14,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Monit
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List Log Analytics workspaces
 
@@ -57,7 +57,7 @@ azmcp monitor workspace list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -107,7 +107,7 @@ azmcp monitor table list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 ## Query log with Kusto Query Language (KQL)
 
@@ -153,7 +153,7 @@ azmcp monitor logs query \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 

@@ -15,7 +15,7 @@ The Azure MCP Server allows you to manage Azure resources, including App Configu
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List stores 
 
@@ -55,7 +55,7 @@ azmcp appconfig account list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -107,7 +107,7 @@ azmcp appconfig kv list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -176,7 +176,7 @@ azmcp appconfig kv show \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -241,7 +241,7 @@ azmcp appconfig kv set \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -307,7 +307,7 @@ azmcp appconfig kv lock \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -362,7 +362,7 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -425,7 +425,7 @@ azmcp appconfig kv delete \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 

@@ -15,7 +15,7 @@ The Azure MCP Server allows you to manage Azure resources, including Cosmos DB d
 
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. It provides multiple data models including document, key-value, graph, and column-family for flexibility in application design.
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 
 ## List Cosmos DB accounts
@@ -55,7 +55,7 @@ azmcp cosmos account list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -101,7 +101,7 @@ azmcp cosmos database list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -150,7 +150,7 @@ azmcp cosmos database container list \
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -212,7 +212,7 @@ An example query is `"SELECT * FROM c"`.
 
 #### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 

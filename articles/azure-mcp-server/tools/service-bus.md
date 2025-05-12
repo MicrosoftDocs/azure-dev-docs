@@ -15,7 +15,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Servi
 
 [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker with message queues and publish-subscribe topics. It's used for decoupling applications and services, load balancing across multiple services, and providing reliable message delivery between components of distributed systems.
 
-[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Get queue details
 
@@ -54,7 +54,7 @@ azmcp servicebus queue details \
 
 ### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -104,7 +104,7 @@ azmcp servicebus topic details \
 
 ### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -157,7 +157,7 @@ azmcp servicebus topic subscription details \
 
 ### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -215,7 +215,7 @@ azmcp servicebus queue peek \
 
 ### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -281,7 +281,7 @@ azmcp servicebus topic subscription peek \
 
 ### JSON response
 
-[!INCLUDE [JSON response](../includes/response-format.md)]
+[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
