@@ -1,5 +1,5 @@
 ---
-title: App Configuration Operations 
+title: Azure App Configuration Tools 
 description: Learn how to use the Azure MCP Server with App Configuration.
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
@@ -8,14 +8,14 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# App Configuration operations for the Azure MCP Server
+# App Configuration tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including App Configuration stores.
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
 
-[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
 
 ## List stores 
 
@@ -32,9 +32,9 @@ Example prompts for using the Azure MCP Server with App Configuration.
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-### Command reference
+### Reference
 
-The Azure MCP Server has commands to manage App Configuration resources. Advanced users and automation tools use these commands.
+The Azure MCP Server has tools to manage App Configuration resources. Advanced users and automation tools use these tools.
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -51,7 +51,11 @@ azmcp appconfig account list \
  
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -74,7 +78,7 @@ The Azure MCP Server can list all [key-value settings](/azure/azure-app-configur
 - **View configuration**: "List all configuration entries from contoso-appconfig"
 - **Find settings with label**: "Show me settings with label 'dev'"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -99,8 +103,11 @@ azmcp appconfig kv list \
 `--key`: Filter results to only show settings with keys matching the specified pattern.<br>
 `--label`: Filter results to only show settings with the specified label.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -141,7 +148,7 @@ The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-ap
 - **Find single key**: "What's the current value for AppSettings:LogLevel?"
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -165,8 +172,11 @@ azmcp appconfig kv show \
 
 `--label`: The label of the setting to retrieve.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -201,7 +211,7 @@ The Azure MCP Server can create or update a [key-value setting](/azure/azure-app
 - **Add new config**: "Add a new setting called 'ApiEndpoint' with URL value 'https://api.contoso.com' to my 'eastus-config'"
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -227,8 +237,11 @@ azmcp appconfig kv set \
 
 `--label`: The label to apply to the setting.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -266,7 +279,7 @@ The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configurati
 - **Secure setting**: "Make ApiSecrets read-only"
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -290,8 +303,11 @@ azmcp appconfig kv lock \
 
 `--label`: The label of the setting to lock.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -326,7 +342,7 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 - **Enable changes**: "Unlock the config values for TestEndpoint"
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -342,8 +358,11 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 
 `--label`: The label of the setting to unlock.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -378,7 +397,7 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -402,8 +421,11 @@ azmcp appconfig kv delete \
 
 `--label`: The label of the setting to delete.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 

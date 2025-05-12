@@ -1,5 +1,5 @@
 ---
-title: Cosmos DB Operations
+title: Azure Cosmos DB Tools
 description: Learn how to use the Azure MCP Server with Cosmos DB.
 keywords: azure mcp server, azmcp, cosmos db
 author: diberry
@@ -8,39 +8,33 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-<!-- This is the proposed command article template for the Azure MCP Server documentation -->
-<!-- H1 will be <SERVICE-NAME> operations -->
-# Cosmos DB operations for the Azure MCP Server
+
+# Cosmos DB tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Cosmos DB databases and containers.
 
-<!-- Brief description of the service with link to the official documentation. -->
-
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. It provides multiple data models including document, key-value, graph, and column-family for flexibility in application design.
 
-[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
 
-<!-- Each command is organized by intent - as an H2 that we can use for navigation -->
+
 ## List Cosmos DB accounts
 
 The Azure MCP Server can list Cosmos DB accounts in a subscription. This is useful for quickly checking the status of your Cosmos DB resources.
 
-<!-- the next subsection is for example prompts that would give the LLM a hint fort  -->
 ### Example prompts
 
 Example prompts for using the Azure MCP Server with Cosmos DB.
 
-<!-- create several examples for the reader that capture the intent -->
 - **List accounts**: "List all Cosmos DB accounts in my subscription."
 - **Show accounts**: "What Cosmos DB accounts do I have?"
 - **Find accounts**: "I need to see my Cosmos DB resources"
 - **Query accounts**: "Can you show me all my Cosmos DB instances?"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-<!-- The command reference is for the tool command that will run by the MCP Server -->
-### Command reference
+### Reference
 
-The Azure MCP Server has commands to manage Cosmos DB resources. Advanced users and automation tools use these commands.
+The Azure MCP Server has tools to manage Cosmos DB resources. Advanced users and automation tools use these tools.
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -57,7 +51,11 @@ azmcp cosmos account list \
  
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -80,7 +78,7 @@ The Azure MCP Server can list all [databases](/azure/cosmos-db/resource-model) i
 - **View databases**: "List all databases from contoso-cosmosdb"
 - **Check databases**: "Show me what databases are in my Cosmos account"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -99,8 +97,11 @@ azmcp cosmos database list \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -124,7 +125,7 @@ The Azure MCP Server can list all [containers](/azure/cosmos-db/resource-model) 
 - **View containers**: "List all containers from the inventory database in contoso-cosmosdb"
 - **Check containers**: "Show me what containers are in my analytics database"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -145,8 +146,11 @@ azmcp cosmos database container list \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -176,7 +180,7 @@ azmcp cosmos database container list \
 - **Join containers**: "Find orders and their matching customers from my store database"
 - **Advanced filtering**: "Query my analytics container for events between January 1 and March 31 where the user was from Europe"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -204,8 +208,11 @@ An example query is `"SELECT * FROM c"`.
 
 `--query`: The full text of the [query](/azure/cosmos-db/nosql/query/). If the query isn't provided, the default query is used: `"SELECT * FROM c"`.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
 
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 

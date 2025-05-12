@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Extension Operations
+title: Azure CLI Extension Tools
 description: Learn how to use the Azure MCP Server with the Azure CLI Extension.
 keywords:  azure mcp server, azmcp, azure cli extension
 author: diberry
@@ -8,17 +8,17 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-# Azure CLI extension operations for the Azure MCP Server
+# Azure CLI extension tools for the Azure MCP Server
 
 The Azure MCP Server allows you to execute any Azure CLI command.
 
 [Azure Command-Line Interface (CLI)](/cli/azure) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. It allows the execution of commands through a terminal using interactive command-line prompts or a script.
 
-Find commands in the [reference documentation](/cli/azure/reference-index).
+Find Azure CLI commands in the [reference documentation](/cli/azure/reference-index).
 
-[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
 
-## Execute CLI command
+## Execute Azure CLI command
 
 The Azure MCP Server can execute Azure CLI commands. 
 
@@ -37,9 +37,9 @@ Example prompts for using the Azure MCP Server with Azure CLI extensions.
 - **Export data**: "Export the list of all my AKS clusters to a table"
 - **Clean up resources**: "Delete the resource group 'temp-project' without prompting for confirmation"
 
-### Command reference
+### Reference
 
-The Azure MCP Server has commands to execute Azure CLI commands.  
+The Azure MCP Server has tools to execute Azure CLI commands.  
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -55,7 +55,11 @@ azmcp extension az --command "<COMMAND>"
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 

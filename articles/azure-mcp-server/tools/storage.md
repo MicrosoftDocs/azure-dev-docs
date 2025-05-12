@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Operations
+title: Azure Storage Tools
 description: Learn how to use the Azure MCP Server with Azure Storage.
 keywords:  azure mcp server, azmcp, storage
 author: diberry
@@ -8,9 +8,8 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-<!-- This is the proposed command article template for the Azure MCP Server documentation -->
-<!-- H1 will be <SERVICE-NAME> operations -->
-# Azure Storage operations for the Azure MCP Server
+
+# Azure Storage tools for the Azure MCP Server
 
 The Azure MCP Server allows you to list Azure storage resource information such as [Blob](/azure/storage/blobs) storage and [Table](/azure/storage/tables/) storage.
 
@@ -18,7 +17,7 @@ The Azure MCP Server allows you to list Azure storage resource information such 
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud, including blobs, files, queues, and tables. Azure Storage is designed for applications requiring scalability, data accessibility, and durability.
 
-[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
 
 ## List storage accounts
 
@@ -36,10 +35,9 @@ Example prompts for using the Azure MCP Server with Azure Storage.
 - **Query accounts**: "Can you show me all my storage accounts?"
 - **Check accounts**: "Storage accounts in subscription abc123"
 
-<!-- The command reference is for the tool command that will run by the MCP Server -->
-### Command reference
+### Reference
 
-The Azure MCP Server has commands to manage Azure Storage resources. Advanced users and automation tools use these commands.
+The Azure MCP Server has tools to manage Azure Storage resources. Advanced users and automation tools use these tools.
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -56,7 +54,11 @@ azmcp storage account list \
  
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -66,7 +68,9 @@ List all storage accounts in the specified subscription.
 azmcp storage account list \
     --subscription "my-subscription-id"
 ```
+#### JSON response
 
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 ## List storage containers
 
@@ -80,7 +84,7 @@ The Azure MCP Server can list all [blobs](/azure/storage/blobs) containers in a 
 - **View containers**: "List all blob containers from contosostorage"
 - **Check containers**: "Show me what containers are in my storage account"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -99,7 +103,11 @@ azmcp storage blob container list \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -123,7 +131,7 @@ The Azure MCP Server can list [blobs](/azure/storage/blobs) within a container i
 - **View blobs**: "List all blobs from the 'uploads' container in contosostorage"
 - **Check blobs**: "Show me what files are in my 'logs' container"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -144,7 +152,11 @@ azmcp storage blob list \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -178,7 +190,7 @@ Get detailed properties of a storage container.
 - **View container metadata**: "Get the details of the 'media' container"
 - **Container information**: "What's the access level of my 'public' container?"
 
-### Command reference
+### Reference
 
 
 | Name            | Description               |
@@ -200,7 +212,11 @@ azmcp storage blob container details \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -226,7 +242,7 @@ List [tables](/azure/storage/tables/) in a Storage account.
 - **View tables**: "List all tables from contosostorage"
 - **Check tables**: "Show me what tables are in my storage account"
 
-### Command reference
+### Reference
 
 
 | Name            | Description               |
@@ -247,7 +263,11 @@ azmcp storage table list \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 

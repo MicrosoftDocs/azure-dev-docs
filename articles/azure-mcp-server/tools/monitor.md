@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Operations
+title: Azure Monitor Tools
 description: Learn how to use the Azure MCP Server with Azure Monitor.
 keywords:  azure mcp server, azmcp, monitor
 author: diberry
@@ -8,13 +8,13 @@ ms.date: 5/05/2025
 ms.topic: reference
 ms.custom: build-2025
 ---
-# Azure Monitor operations for the Azure MCP Server
+# Azure Monitor tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Azure Monitor logs and metrics.
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-[!INCLUDE [tip-about-params](../includes/commands/parameter-consideration.md)]
+[!INCLUDE [tip-about-params](../includes/toolsparameter-consideration.md)]
 
 ## List Log Analytics workspaces
 
@@ -32,10 +32,10 @@ Example prompts for using the Azure MCP Server with Azure Monitor.
 - **Query workspaces**: "Can you show me all my monitoring workspaces?"
 - **Check workspaces**: "Log Analytics workspaces in subscription abc123"
 
-<!-- The command reference is for the tool command that will run by the MCP Server -->
-### Command reference
 
-The Azure MCP Server has commands to list Azure Monitor resources. Advanced users and automation tools use these commands.
+### Reference
+
+The Azure MCP Server has tools to list Azure Monitor resources. Advanced users and automation tools use these tools.
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -53,7 +53,11 @@ azmcp monitor workspace list \
  
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 
@@ -76,9 +80,9 @@ List tables in a Log Analytics [workspace](/azure/azure-monitor/metrics/azure-mo
 - **Check tables**: "Show me the tables in my security-logs workspace"
 - **Find tables**: "What data tables does my application-insights workspace contain?"
 
-### Command reference
+### Reference
 
-The Azure MCP Server has commands to list Azure Monitor tables. 
+The Azure MCP Server has tools to list Azure Monitor tables. 
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -99,7 +103,11 @@ azmcp monitor table list \
 
 #### Optional parameters
 
-View [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 ## Query log with Kusto Query Language (KQL)
 
@@ -113,7 +121,7 @@ The Azure MCP Server can run analytics queries with [Kusto](/kusto/query) on log
 - **Query app logs**: "Query the 'AppTraces' table for traces with severity level 'Error' in the last hour"
 - **Analyze logs**: "Analyze 'SigninLogs | where TimeGenerated > ago(7d) | where ResultType != 0' in contoso-workspace"
 
-### Command reference
+### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -141,7 +149,11 @@ azmcp monitor logs query \
 `--hours`: The hours for which to query data.<br>
 `--limit`: The maximum limit of records to return.
 
-View additional [common parameters](./azure-mccp-server-operations.md#common-parameters-across-services) for all commands.
+[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+
+#### JSON response
+
+[!INCLUDE [JSON response](../includes/response-format.md)]
 
 #### Examples
 

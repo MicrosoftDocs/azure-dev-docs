@@ -1,9 +1,9 @@
 ---
- author: tomarchermsft
- ms.service: ansible
+ author: diberry
+ ms.author: diberry
+ ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 04/22/2019
- ms.author: tarcher
+ ms.date: 05/01/2025
 ---
 
 
