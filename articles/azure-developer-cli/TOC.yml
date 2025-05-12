@@ -55,8 +55,16 @@
     items:
       - name: CI/CD
         items:
-          - name: Configure deployment pipeline
+          - name: Pipeline support overview
             href: configure-devops-pipeline.md
+          - name: Configure a GitHub Actions pipeline
+            href: pipeline-github-actions.md
+          - name: Configure an Azure DevOps pipeline
+            href: configure-azure-pipelines.md
+          - name: Create a custom pipeline definition file
+            href: pipeline-create-definition.md
+          - name: Advanced pipeline features
+            href: pipeline-advanced-features.md
       - name: Monitoring and logging
         items:
         - name: Monitor your project
