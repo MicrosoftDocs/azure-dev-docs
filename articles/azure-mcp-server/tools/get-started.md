@@ -1,36 +1,48 @@
 ---
 title: Azure MCP Server tools
-description: Learn how to use the Azure MCP Server tools.
-keywords:  azure mcp server, azmcp
+description: Learn how to use the Azure MCP Server tools for consuming and developing servers.
+keywords: azure mcp server, azmcp
 author: diberry
 ms.author: diberry
-ms.date: 04/22/2025
+ms.date: 05/12/2025
 ms.topic: get-started
 ms.custom: build-2025
 ---
 # Getting started with Azure MCP Server tools
 
-The Azure Model Context Protocol (MCP) Server enables interaction with Azure services through natural language tools. This article provides an overview of tools supported by the Azure MCP Server and links to detailed documentation for each service.
+The Azure Model Context Protocol (MCP) Server enables interaction with Azure services through natural language tools. This article provides an overview of tools supported by the Azure MCP Server and explains how to use them in two key development scenarios: consuming existing servers and developing new servers.
 
-## How Azure MCP Server tools work
+## Key development scenarios
 
-Azure MCP Server tools follow a consistent pattern across all supported Azure services:
+Azure MCP Server supports two primary development scenarios:
 
-1. **Natural language prompts**: You can use conversational language to perform operations on Azure resources.
-2. **Direct tools**: For automation and scripting, you can use the command-line interface with specific parameters.
-3. **Authentication and authorization**: Azure MCP Server uses your Azure credentials to authenticate and authorize operations based on your permissions.
+### Consuming servers
 
-[!INCLUDE [tip-about-parameters](../includes/tools/parameter-consideration.md)]
+As a developer, you can use existing server to integrate autonomous callable systems with memory into your applications. This approach focuses on leveraging pre-built servers to perform specific tasks within your broader system.
+
+**When to use this scenario:**
+- You need to integrate ready-to-use server capabilities
+- You want to quickly add AI functionality without building servers from scratch
+- Your application needs to perform specific Azure service operations through natural language
+
+### Developing servers
+
+As a developer, you can create new servers as part of your workflow. This includes building modular servers that perform specific functions and integrating them into larger systems. This approach involves using frameworks, SDKs, tools, and services to define detailed server behaviors and interactions.
+
+**Available tools for server development:**
+- Azure OpenAI Assistants API
+- Azure AI Agents Service SDK
+- Azure OpenAI Service SDKs
+- Semantic Kernel
+- LangChain
+- LlamaIndex
+
 
 ## Supported services
 
 [!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
 
-## Example usage patterns
-
-Azure MCP Server tools can be accessed in two primary ways: through natural language prompts in conversational interfaces, or through structured command-line parameters for automation and scripting. Both approaches provide access to the same Azure services and operations, letting you choose the interaction method that best fits your workflow or development scenario.
-
-### Natural language tool examples
+## Use existing servers with natural language prompts
 
 The Azure MCP Server accepts natural language prompts, allowing you to interact with Azure resources conversationally:
 
@@ -40,13 +52,18 @@ The Azure MCP Server accepts natural language prompts, allowing you to interact 
 - "Query my log analytics workspace for errors in the last hour"
 - "Show me all my Cosmos DB databases"
 
-### Tools 
+## Developing new servers
 
+When developing your own server with Azure MCP Server, you'll need to:
 
+1. **Choose your development framework** - Select from Azure OpenAI Assistants API, Azure AI Agents Service SDK, or other supported frameworks
+2. **Define server behaviors** - Create the server's functionality including what Azure services it can access
+3. **Integrate with Azure services** - Connect your server to the appropriate Azure resources using MCP tools
+4. **Test and deploy** - Validate your server works correctly and deploy it for consumption
 
-#### Tool usage examples
+This approach gives you greater flexibility in creating specialized servers that can perform complex tasks across multiple Azure services.
 
-For scripting and automation, you can use the command-line syntax:
+Use the structured command-line syntax when integrating your new server with existing Azure MCP servers. Examples of this syntax include:
 
 ```console
 # List resource groups
@@ -59,19 +76,20 @@ azmcp monitor log-query --subscription "my-subscription-id" --workspace "my-work
 azmcp extension az --command "group list"
 ```
 
-#### Tool JSON response
+[!INCLUDE [tip-about-parameters](../includes/tools/parameter-consideration.md)]
+
+### Tool JSON response
 
 [!INCLUDE [json-response-from-tool](../includes/tools/response-format.md)]
 
-#### Tool error handling
+### Tool error handling
 
 [!INCLUDE [response-error-handling](../includes/tools/error-handling.md)]
-
 
 ## Next steps
 
 - Learn about [Azure MCP Server](../get-started.md)
-- Explore supported [App Configuration tools](app-configuration.md)
-- Discover how to [Query Azure Monitor logs](monitor.md)
+- Explore [Consuming agents with App Configuration tools](app-configuration.md)
+- Discover [Developing agents with Azure Monitor logs](monitor.md)
 - Read about [MCP tools for Azure Storage resources](storage.md)
 
