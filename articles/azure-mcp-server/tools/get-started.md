@@ -54,16 +54,9 @@ The Azure MCP Server accepts natural language prompts, allowing you to interact 
 
 ## Developing new servers
 
-When developing your own server with Azure MCP Server, you'll need to:
-
-1. **Choose your development framework** - Select from Azure OpenAI Assistants API, Azure AI Agents Service SDK, or other supported frameworks
-2. **Define server behaviors** - Create the server's functionality including what Azure services it can access
-3. **Integrate with Azure services** - Connect your server to the appropriate Azure resources using MCP tools
-4. **Test and deploy** - Validate your server works correctly and deploy it for consumption
-
 This approach gives you greater flexibility in creating specialized servers that can perform complex tasks across multiple Azure services.
 
-Use the structured command-line syntax when integrating your new server with existing Azure MCP servers. Examples of this syntax include:
+Use the structured syntax when integrating your new server with existing Azure MCP servers. Examples of this syntax include:
 
 ```console
 # List resource groups
@@ -78,7 +71,11 @@ azmcp extension az --command "group list"
 
 [!INCLUDE [tip-about-parameters](../includes/tools/parameter-consideration.md)]
 
-### Tool JSON response
+### Optional parameters common to all tools
+
+[!INCLUDE [common-parameters](../includes//tools/common-parameters.md)]
+
+### Response format common to all tools
 
 [!INCLUDE [json-response-from-tool](../includes/tools/response-format.md)]
 

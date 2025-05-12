@@ -17,7 +17,7 @@ The Azure MCP Server allows you to manage Azure resources, including App Configu
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for App Configuration
 
 
 ### Delete key-value setting
@@ -110,9 +110,7 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 - **Enable changes**: "Unlock the config values for TestEndpoint"
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
 
-
-
-## Develop new server
+## Develop new MCP server for App Configuration
 
 
 ### Delete key-value setting
@@ -133,6 +131,8 @@ azmcp appconfig kv delete \
     [--label <LABEL>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the App Configuration store.<br>
@@ -143,11 +143,7 @@ azmcp appconfig kv delete \
 
 `--label`: The label of the setting to delete.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-###### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -188,6 +184,7 @@ azmcp appconfig kv list \
     [--label <LABEL>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -199,11 +196,7 @@ azmcp appconfig kv list \
 `--key`: Filter results to only show settings with keys matching the specified pattern.<br>
 `--label`: Filter results to only show settings with the specified label.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -236,10 +229,7 @@ azmcp appconfig kv list \
 
 The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
 
-
 #### Reference
-
-The Azure MCP Server has tools to manage App Configuration resources. Advanced users and automation tools use these tools.
 
 | Name            | Description               |
 |-----------------|--------------------------|
@@ -250,17 +240,15 @@ azmcp appconfig account list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription to list App Configuration stores from. This parameter is required.
  
 ##### Optional parameters
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
-
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -290,6 +278,8 @@ azmcp appconfig kv lock \
     [--label <LABEL>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the App Configuration store.<br>
@@ -300,11 +290,8 @@ azmcp appconfig kv lock \
 
 `--label`: The label of the setting to lock.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -347,6 +334,8 @@ azmcp appconfig kv set \
     [--label <LABEL>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the App Configuration store.<br>
@@ -358,11 +347,8 @@ azmcp appconfig kv set \
 
 `--label`: The label to apply to the setting.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -406,6 +392,8 @@ azmcp appconfig kv show \
     [--label <LABEL>]
 ```
 
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the App Configuration store.<br>
@@ -416,11 +404,8 @@ azmcp appconfig kv show \
 
 `--label`: The label of the setting to retrieve.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
@@ -453,6 +438,16 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 |-----------------|--------------------------|
 | azmcp appconfig kv unlock | Unlock a key-value setting in an App Configuration store.|
 
+```console
+azmcp appconfig kv unlock \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --key <KEY> \
+    [--label <LABEL>]
+```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the App Configuration store.<br>
@@ -463,11 +458,8 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 
 `--label`: The label of the setting to unlock.
 
-[!INCLUDE [common-parameters](../includes/tools/common-parameters.md)]
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
-##### JSON response
-
-[!INCLUDE [JSON response](../includes/tools/response-format.md)]
 
 #### Examples
 
