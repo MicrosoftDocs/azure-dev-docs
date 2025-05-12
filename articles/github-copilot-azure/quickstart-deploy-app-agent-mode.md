@@ -4,7 +4,7 @@ description: This article demonstrates how to use agent mode in GitHub Copilot f
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 05/09/2025
+ms.date: 05/12/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
