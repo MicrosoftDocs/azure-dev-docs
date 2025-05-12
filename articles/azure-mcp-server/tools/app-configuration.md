@@ -19,6 +19,7 @@ The Azure MCP Server allows you to manage Azure resources, including App Configu
 
 ## Use existing MCP server for App Configuration
 
+Use natural language prompts to interact with Azure App Configuration services through the Azure MCP Server. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
 
 ### Delete key-value setting
 
@@ -112,6 +113,7 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 
 ## Develop new MCP server for App Configuration
 
+This section provides guidance for extending an MCP server with Azure App Configuration capabilities. The APIs below can be implemented to allow clients to perform operations on App Configuration resources using structured commands.
 
 ### Delete key-value setting
 

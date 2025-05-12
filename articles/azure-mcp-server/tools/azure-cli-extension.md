@@ -20,6 +20,8 @@ Find Azure CLI commands in the [reference documentation](/cli/azure/reference-in
 
 ## Use existing MCP server for Azure CLI
 
+This section explains how to leverage the Azure MCP Server to execute Azure CLI commands using natural language prompts. You can perform virtually any Azure resource management operation without needing to remember specific command syntax, parameters, or formatting.
+
 ### Execute Azure CLI command
 
 The Azure MCP Server can execute Azure CLI commands. This provides complete access to Azure resource management through familiar command-line syntax.
@@ -38,6 +40,8 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 - **Clean up resources**: "Delete the resource group 'temp-project' without prompting for confirmation"
 
 ## Develop new MCP server for Azure CLI
+
+This section provides implementation details for adding Azure CLI capabilities to your MCP server. The API described below enables programmatic execution of any Azure CLI command through a structured interface, giving you complete access to Azure resource management functionality.
 
 ### Execute Azure CLI command
 
@@ -58,7 +62,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Required parameters
 
-`--command`: The command text.
+`--command`: The command phrase. 
 
 ##### Optional parameters
 

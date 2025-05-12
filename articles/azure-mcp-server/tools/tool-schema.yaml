@@ -53,6 +53,7 @@ schema:
       type: string
       description: "H1 heading for the document"
       pattern: "^[A-Za-z0-9 ]+ tools for the Azure MCP Server$"
+      minLength: 10
     
     introduction:
       type: object
@@ -65,10 +66,12 @@ schema:
         overview:
           type: string
           description: "Brief overview of what the tool does"
+          minLength: 20
         service_description:
           type: string
           description: "Description of the Azure service with link to official documentation"
           pattern: "^\\[Azure [A-Za-z0-9 ]+\\]\\(/azure/[a-z\\-]+/[a-z\\-]+\\) (is|provides) a .+\\.$"
+          minLength: 30
         parameter_note:
           type: string
           description: "Include reference to parameter considerations"
@@ -82,11 +85,17 @@ schema:
       required:
         - title
         - tools
+        - section_content
       properties:
         title:
           type: string
           description: "Section title"
           pattern: "^## Use existing MCP server for [A-Za-z0-9 ]+$"
+          minLength: 10
+        section_content:
+          type: string
+          description: "Required introductory text for the section, must not be empty"
+          minLength: 20
         tools:
           type: array
           description: "List of tools that can be performed"
@@ -105,9 +114,11 @@ schema:
                 type: string
                 description: "Name of the tool"
                 pattern: "^### [A-Za-z0-9 ]+$"
+                minLength: 5
               description:
                 type: string
                 description: "Description of what the tool does"
+                minLength: 20
               example_prompts:
                 type: object
                 description: "Example prompts section with a list of examples"
@@ -118,8 +129,10 @@ schema:
                   title:
                     type: string
                     enum: ["**Example prompts** include:"]
+                    description: "Standardized title for the example prompts section"
                   examples:
                     type: array
+                    description: "Collection of example prompts demonstrating how users can interact with the tool"
                     minItems: 3
                     maxItems: 5
                     items:
@@ -130,14 +143,28 @@ schema:
                       properties:
                         prompt_type:
                           type: string
-                          description: "Bold text describing the prompt type"
+                          description: "Bold text describing the prompt type (e.g., '**List resources**', '**Query data**')"
+                          pattern: "^\\*\\*[A-Za-z0-9 -]+\\*\\*$"
                         prompt_text:
                           type: string
-                          description: "The example prompt text in quotes"
+                          description: "The example prompt text in quotes showing how a user might phrase their request"
+                          pattern: "^\".+\"$"
                         prompt_style:
                           type: string
                           enum: ["question", "statement", "incomplete_phrase"]
                           description: "The grammatical style of the prompt"
+                  presentation:
+                    type: object
+                    description: "Guidance on how example prompts should be presented"
+                    properties:
+                      format:
+                        type: string
+                        enum: ["bullet-list"]
+                        description: "Format for presenting example prompts (should be a bullet list)"
+                      style:
+                        type: string
+                        description: "Style guidance for prompts"
+                        enum: ["Each prompt should be on a new line prefixed with '- ', with the prompt type in bold and the example text in quotes"]
 
     new_server_development:
       type: object
@@ -147,11 +174,17 @@ schema:
       required:
         - title
         - tools
+        - section_content
       properties:
         title:
           type: string
           description: "Section title"
           pattern: "^## Develop new MCP server for [A-Za-z0-9 ]+$"
+          minLength: 10
+        section_content:
+          type: string
+          description: "Required introductory text for the section, must not be empty"
+          minLength: 20
         tools:
           type: array
           description: "List of tools that can be developed"
@@ -173,9 +206,11 @@ schema:
                 type: string
                 description: "Name of the tool"
                 pattern: "^### [A-Za-z0-9 ]+$"
+                minLength: 5
               description:
                 type: string
                 description: "Description of what the tool does"
+                minLength: 20
               reference:
                 type: object
                 description: "Reference table containing command details"
@@ -208,6 +243,7 @@ schema:
                     type: string
                     description: "Command syntax with ALL_CAPS parameter placeholders"
                     pattern: "^```console\nazmcp [a-z\\- ]+"
+                    minLength: 20
                   json_output_reference:
                     type: string
                     description: "Reference to structured JSON output format"
@@ -235,6 +271,7 @@ schema:
                         description:
                           type: string
                           pattern: "^: [A-Za-z0-9 \\.,\\-]+(\\.<br>)?$"
+                          minLength: 5
               optional_parameters:
                 type: object
                 description: "Section listing optional parameters"
@@ -257,6 +294,7 @@ schema:
                         description:
                           type: string
                           pattern: "^: [A-Za-z0-9 \\.,\\-]+(\\.<br>)?$"
+                          minLength: 5
                   common_parameters_reference:
                     type: string
                     description: "Link to common optional parameters"
@@ -279,10 +317,12 @@ schema:
                     description:
                       type: string
                       description: "Description of what the example does"
+                      minLength: 10
                     command:
                       type: string
                       description: "Example command with real values instead of parameters"
                       pattern: "^```console\nazmcp [a-z\\- ]+"
+                      minLength: 20
                     command_formatting:
                       type: object
                       description: "Formatting standards for multi-line commands"

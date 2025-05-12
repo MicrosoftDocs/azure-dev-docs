@@ -18,6 +18,8 @@ The Azure MCP Server allows you to manage Azure Monitor resources, including que
 
 ## Use existing MCP server for Azure Monitor
 
+This section explains how to interact with Azure Monitor services using natural language prompts with the Azure MCP Server. You can query Log Analytics workspaces, analyze operational data, and gain insights into your Azure resources without needing to know complex KQL syntax.
+
 ### List workspaces
 
 The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
@@ -55,6 +57,8 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 - **Aggregation query**: "Count errors by application in my monitoring workspace"
 
 ## Develop new MCP server for Azure Monitor
+
+This section provides implementation details for adding Azure Monitor capabilities to your MCP server. The APIs below enable programmatic access to monitoring data, Log Analytics workspaces, and KQL query execution through structured commands.
 
 ### List workspaces
 

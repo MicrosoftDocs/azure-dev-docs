@@ -18,6 +18,8 @@ The Azure MCP Server allows you to manage Azure Service Bus resources, including
 
 ## Use existing MCP server for Service Bus
 
+This section explains how to interact with Azure Service Bus using natural language prompts with the Azure MCP Server. You can manage messaging components like queues, topics, and subscriptions to facilitate reliable communication between distributed applications without specialized knowledge of messaging protocols.
+
 ### Details queue
 
 The Azure MCP Server can retrieve details about a Service Bus queue, including its message count and status.
@@ -79,6 +81,8 @@ The Azure MCP Server can peek at messages in a subscription within a Service Bus
 - **Read subscription**: "Look at messages in my analytics subscription"
 
 ## Develop new MCP server for Service Bus
+
+This section provides implementation details for adding Azure Service Bus capabilities to your MCP server. The APIs below enable programmatic management of enterprise messaging infrastructure through structured commands for reliable message exchange between applications.
 
 ### Details queue
 

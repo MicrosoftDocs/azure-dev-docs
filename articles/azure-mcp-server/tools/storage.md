@@ -18,6 +18,8 @@ The Azure MCP Server allows you to manage Azure Storage resources, including sto
 
 ## Use existing MCP server for Storage
 
+This section explains how to interact with Azure Storage services using natural language prompts with the Azure MCP Server. You can manage storage accounts, containers, blobs, and tables without having to remember specific command syntax.
+
 ### List accounts
 
 The Azure MCP Server can list all storage accounts in a subscription. This provides an overview of your storage infrastructure.
@@ -79,6 +81,8 @@ The Azure MCP Server can list all tables in a storage account. This helps you ma
 - **Check tables**: "Get all storage tables in my 'analyticsdata' account"
 
 ## Develop new MCP server for Storage
+
+This section provides detailed information on implementing Azure Storage capabilities in your MCP server. The structured APIs below support operations for managing storage resources through programmatic interfaces.
 
 ### List accounts
 

@@ -18,6 +18,8 @@ The Azure MCP Server allows you to manage Azure resource groups, providing found
 
 ## Use existing MCP server for Resource Groups
 
+This section explains how to interact with Azure Resource Groups using natural language prompts with the Azure MCP Server. You can manage your resource organization structure without needing to remember specific command syntax.
+
 ### List resource groups
 
 The Azure MCP Server can list all resource groups in a subscription. This helps you see your organizational structure at a glance.
@@ -32,6 +34,8 @@ The Azure MCP Server can list all resource groups in a subscription. This helps 
 
 
 ## Develop new MCP server for Resource Groups
+
+This section provides implementation details for adding Azure Resource Group management capabilities to your MCP server. The APIs below enable programmatic organization and administration of Azure resources through structured commands.
 
 ### List resource groups
 

@@ -16,7 +16,9 @@ The Azure MCP Server allows you to manage Azure resources, including Cosmos DB a
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing server
+## Use existing MCP server for Cosmos DB
+
+This section describes how to use natural language prompts with the Azure MCP Server to interact with Azure Cosmos DB services. You can query and manage your NoSQL databases using simple conversational commands.
 
 ### List accounts
 
@@ -66,7 +68,9 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 - **Join query**: "Show me orders with their related customer information"
 - **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
 
-## Develop new server
+## Develop new MCP server for Cosmos DB
+
+This section outlines the implementation details for adding Azure Cosmos DB capabilities to your MCP server. The APIs below enable programmatic management of Cosmos DB resources through structured commands.
 
 ### List accounts
 
