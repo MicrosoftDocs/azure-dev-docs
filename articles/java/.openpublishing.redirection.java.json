@@ -7,31 +7,43 @@
         },
         {
             "source_path": "eclipse-microprofile/cicd-microprofile-vsts.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-to-container-instances.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-to-web-app-for-containers.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-kumuluzee-java-app-with-maven-plugin.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-open-liberty-java-app-with-maven-plugin.md",
-            "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+            "redirect_url": "/azure/developer/java/ee/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/cicd-microprofile.md",
+            "redirect_url": "/azure/developer/java/ee/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/configure-microprofile-with-keyvault.md",
+            "redirect_url": "/azure/developer/java/ee/index"
+        },
+        {
+            "source_path": "eclipse-microprofile/index.yml",
+            "redirect_url": "/azure/developer/java/ee/index"
         },
         {
             "source_path": "ee/jboss-eap-single-server-azure-vm.md",
