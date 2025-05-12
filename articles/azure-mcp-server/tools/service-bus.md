@@ -18,118 +18,83 @@ The Azure MCP Server allows you to manage Azure Service Bus resources, including
 
 ## Use existing MCP server for Service Bus
 
-### List namespaces
+### Details queue
 
-The Azure MCP Server can list all Service Bus namespaces in a subscription. This provides an overview of your messaging infrastructure.
-
-**Example prompts** include:
-
-- **List namespaces**: "Show me all Service Bus namespaces in my subscription."
-- **View namespaces**: "What Service Bus namespaces do I have?"
-- **Find namespaces**: "List my messaging namespaces"
-- **Query namespaces**: "Show all Service Bus resources"
-- **Check namespaces**: "Get all message brokers in subscription abc123"
-
-### List queues
-
-The Azure MCP Server can list all queues in a Service Bus namespace. This helps you manage your message queuing infrastructure.
+The Azure MCP Server can retrieve details about a Service Bus queue, including its message count and status.
 
 **Example prompts** include:
 
-- **List queues**: "Show me all queues in my 'app-messaging' Service Bus namespace."
-- **View queues**: "What queues do I have in Service Bus namespace 'order-processing'?"
-- **Find queues**: "List all queues in my namespace 'notification-bus'"
-- **Query queues**: "Show available queues in my Service Bus"
-- **Check queues**: "Get all message queues in my 'core-messaging' namespace"
+- **Details queue**: "Show me details about the 'orders' queue in my 'app-messaging' namespace."
+- **Queue info**: "What's the status of queue 'notifications' in namespace 'messaging-hub'?"
+- **Check queue**: "Get details for my 'user-events' queue"
+- **Queue status**: "Show me message count for the orders queue"
+- **View queue**: "Tell me about the processing-queue in my service bus"
 
-### List topics
+### Details topic
 
-The Azure MCP Server can list all topics in a Service Bus namespace. This helps you manage your publish-subscribe messaging infrastructure.
-
-**Example prompts** include:
-
-- **List topics**: "Show me all topics in my 'app-messaging' Service Bus namespace."
-- **View topics**: "What topics do I have in Service Bus namespace 'event-bus'?"
-- **Find topics**: "List all topics in my namespace 'broadcast-messaging'"
-- **Query topics**: "Show available topics in my Service Bus"
-- **Check topics**: "Get all messaging topics in my 'pub-sub' namespace"
-
-### Send message to queue
-
-The Azure MCP Server can send a message to a Service Bus queue. This allows you to publish messages programmatically.
+The Azure MCP Server can retrieve details about a Service Bus topic, including its subscription count and status.
 
 **Example prompts** include:
 
-- **Send message**: "Send a message with content 'New order created' to the 'orders' queue in my 'app-messaging' namespace."
-- **Publish message**: "Add a message to queue 'notifications' with content 'System maintenance scheduled'"
-- **Queue message**: "Send 'User profile updated' to the 'profile-events' queue"
-- **Add message**: "Submit a message to my order processing queue"
-- **Push message**: "Send a test message to the integration queue in my service bus"
+- **Details topic**: "Show me details about the 'product-events' topic in my 'retail-messaging' namespace."
+- **Topic info**: "What's the status of topic 'system-updates' in namespace 'app-messaging'?"
+- **Check topic**: "Get details for my 'notifications' topic"
+- **Topic status**: "Show me subscription count for the events topic"
+- **View topic**: "Tell me about the broadcast-topic in my service bus"
 
+### Details topic subscription
 
-### Send message to topic
-
-The Azure MCP Server can send a message to a Service Bus topic. This allows you to publish messages to multiple subscribers.
+The Azure MCP Server can retrieve details about a subscription within a Service Bus topic, including message counts.
 
 **Example prompts** include:
 
-- **Send topic message**: "Publish a message with content 'Price update' to the 'product-events' topic in my 'retail-messaging' namespace."
-- **Broadcast message**: "Send a message to topic 'system-updates' with content 'New version deployed'"
-- **Topic message**: "Send 'Weather alert' to the 'notifications' topic"
-- **Publish event**: "Send an event message to my customer notifications topic"
-- **Add topic message**: "Broadcast a test message to the events topic in my service bus"
+- **Details subscription**: "Show me details about the 'mobile-app' subscription in topic 'notifications'."
+- **Subscription info**: "What's the status of subscription 'admin' in topic 'system-updates'?"
+- **Check subscription**: "Get message count for my 'premium-users' subscription in the 'offers' topic"
+- **Subscription status**: "Show me details for the email-service subscription"
+- **View subscription**: "Tell me about the analytics subscription in my events topic"
+
+### Peek queue
+
+The Azure MCP Server can peek at messages in a Service Bus queue without removing them.
+
+**Example prompts** include:
+
+- **Peek queue**: "Show me messages in the 'orders' queue in my 'app-messaging' namespace."
+- **View messages**: "What messages are in queue 'notifications' right now?"
+- **Check messages**: "Let me see the first 5 messages in my 'user-events' queue"
+- **Preview queue**: "Show me what's in the processing queue without removing messages"
+- **Read queue**: "Look at messages in my orders queue"
+
+### Peek topic subscription
+
+The Azure MCP Server can peek at messages in a subscription within a Service Bus topic without removing them.
+
+**Example prompts** include:
+
+- **Peek subscription**: "Show me messages in the 'mobile-app' subscription of topic 'notifications'."
+- **View subscription messages**: "What messages are in subscription 'admin' of topic 'system-updates'?"
+- **Check subscription messages**: "Let me see the messages in my 'premium-users' subscription"
+- **Preview subscription**: "Show me what's in the email-service subscription without removing messages"
+- **Read subscription**: "Look at messages in my analytics subscription"
 
 ## Develop new MCP server for Service Bus
 
-### List namespaces
+### Details queue
 
-The Azure MCP Server can list all Service Bus namespaces in a subscription.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus namespace list | List Service Bus namespaces in a subscription.|
-
-```console
-azmcp servicebus namespace list \
-    --subscription <SUBSCRIPTION_ID>
-```
-
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription to list Service Bus namespaces from.
-
-##### Optional parameters
-
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-List all Service Bus namespaces in the specified subscription.
-
-```console
-azmcp servicebus namespace list \
-    --subscription "my-subscription-id"
-```
-
-### List queues
-
-The Azure MCP Server can list all queues in a Service Bus namespace.
+The Azure MCP Server can retrieve details about a Service Bus queue.
 
 #### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
-| azmcp servicebus queue list | List queues in a Service Bus namespace.|
+| azmcp servicebus queue details | Get details about a Service Bus queue.|
 
 ```console
-azmcp servicebus queue list \
+azmcp servicebus queue details \
     --subscription <SUBSCRIPTION_ID> \
     --namespace-name <NAMESPACE_NAME> \
-    --resource-group <RESOURCE_GROUP>
+    --queue-name <QUEUE_NAME>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -138,7 +103,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
 `--namespace-name`: The name of the Service Bus namespace.<br>
-`--resource-group`: The name of the resource group containing the namespace.
+`--queue-name`: The name of the queue to get details for.
 
 ##### Optional parameters
 
@@ -146,31 +111,30 @@ View the [optional parameters](get-started.md#optional-parameters-common-to-all-
 
 #### Examples
 
-List all queues in the specified Service Bus namespace.
+Get details about a specific queue in a Service Bus namespace.
 
 ```console
-azmcp servicebus queue list \
+azmcp servicebus queue details \
     --subscription "my-subscription-id" \
     --namespace-name "app-messaging" \
-    --resource-group "messaging-rg"
+    --queue-name "orders"
 ```
 
+### Details topic
 
-### List topics
-
-The Azure MCP Server can list all topics in a Service Bus namespace.
+The Azure MCP Server can retrieve details about a Service Bus topic.
 
 #### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
-| azmcp servicebus topic list | List topics in a Service Bus namespace.|
+| azmcp servicebus topic details | Get details about a Service Bus topic.|
 
 ```console
-azmcp servicebus topic list \
+azmcp servicebus topic details \
     --subscription <SUBSCRIPTION_ID> \
     --namespace-name <NAMESPACE_NAME> \
-    --resource-group <RESOURCE_GROUP>
+    --topic-name <TOPIC_NAME>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -179,7 +143,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
 `--namespace-name`: The name of the Service Bus namespace.<br>
-`--resource-group`: The name of the resource group containing the namespace.
+`--topic-name`: The name of the topic to get details for.
 
 ##### Optional parameters
 
@@ -187,95 +151,31 @@ View the [optional parameters](get-started.md#optional-parameters-common-to-all-
 
 #### Examples
 
-List all topics in the specified Service Bus namespace.
+Get details about a specific topic in a Service Bus namespace.
 
 ```console
-azmcp servicebus topic list \
+azmcp servicebus topic details \
     --subscription "my-subscription-id" \
     --namespace-name "app-messaging" \
-    --resource-group "messaging-rg"
+    --topic-name "system-updates"
 ```
 
-### Send message to queue
+### Details topic subscription
 
-The Azure MCP Server can send a message to a Service Bus queue.
+The Azure MCP Server can retrieve details about a subscription within a Service Bus topic.
 
 #### Reference
 
 | Name            | Description               |
 |-----------------|--------------------------|
-| azmcp servicebus queue message send | Send a message to a Service Bus queue.|
+| azmcp servicebus topic subscription details | Get details about a subscription in a Service Bus topic.|
 
 ```console
-azmcp servicebus queue message send \
+azmcp servicebus topic subscription details \
     --subscription <SUBSCRIPTION_ID> \
     --namespace-name <NAMESPACE_NAME> \
-    --resource-group <RESOURCE_GROUP> \
-    --queue-name <QUEUE_NAME> \
-    --content <MESSAGE_CONTENT> \
-    [--properties <MESSAGE_PROPERTIES>]
-```
-
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
-`--namespace-name`: The name of the Service Bus namespace.<br>
-`--resource-group`: The name of the resource group containing the namespace.<br>
-`--queue-name`: The name of the queue to send the message to.<br>
-`--content`: The content of the message to send.
-
-##### Optional parameters
-
-`--properties`: Additional properties for the message in JSON format.
-
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-Send a simple message to a Service Bus queue.
-
-```console
-azmcp servicebus queue message send \
-    --subscription "my-subscription-id" \
-    --namespace-name "app-messaging" \
-    --resource-group "messaging-rg" \
-    --queue-name "orders" \
-    --content "New order created: ORDER-12345"
-```
-
-Send a message with additional properties to a Service Bus queue.
-
-```console
-azmcp servicebus queue message send \
-    --subscription "my-subscription-id" \
-    --namespace-name "app-messaging" \
-    --resource-group "messaging-rg" \
-    --queue-name "notifications" \
-    --content "System maintenance scheduled" \
-    --properties '{"Priority":"High", "MaintenanceType":"Scheduled", "ScheduledTime":"2025-06-01T02:00:00Z"}'
-```
-
-
-### Send message to topic
-
-The Azure MCP Server can send a message to a Service Bus topic.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus topic message send | Send a message to a Service Bus topic.|
-
-```console
-azmcp servicebus topic message send \
-    --subscription <SUBSCRIPTION_ID> \
-    --namespace-name <NAMESPACE_NAME> \
-    --resource-group <RESOURCE_GROUP> \
     --topic-name <TOPIC_NAME> \
-    --content <MESSAGE_CONTENT> \
-    [--properties <MESSAGE_PROPERTIES>]
+    --subscription-name <SUBSCRIPTION_NAME>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -284,37 +184,131 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
 `--namespace-name`: The name of the Service Bus namespace.<br>
-`--resource-group`: The name of the resource group containing the namespace.<br>
-`--topic-name`: The name of the topic to send the message to.<br>
-`--content`: The content of the message to send.
+`--topic-name`: The name of the topic.<br>
+`--subscription-name`: The name of the subscription to get details for.
 
 ##### Optional parameters
-
-`--properties`: Additional properties for the message in JSON format.
 
 View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
-Send a simple message to a Service Bus topic.
+Get details about a specific subscription in a Service Bus topic.
 
 ```console
-azmcp servicebus topic message send \
-    --subscription "my-subscription-id" \
-    --namespace-name "retail-messaging" \
-    --resource-group "messaging-rg" \
-    --topic-name "product-events" \
-    --content "Price update: Product SKU-78901 now $49.99"
-```
-
-Send a message with additional properties to a Service Bus topic.
-
-```console
-azmcp servicebus topic message send \
+azmcp servicebus topic subscription details \
     --subscription "my-subscription-id" \
     --namespace-name "app-messaging" \
-    --resource-group "messaging-rg" \
     --topic-name "system-updates" \
-    --content "New version deployed: v2.3.0" \
-    --properties '{"Importance":"High", "Component":"API", "AffectedServices":["UserService","PaymentService"]}'
+    --subscription-name "admin-alerts"
+```
+
+### Peek queue
+
+The Azure MCP Server can peek at messages in a Service Bus queue without removing them.
+
+#### Reference
+
+| Name            | Description               |
+|-----------------|--------------------------|
+| azmcp servicebus queue peek | Peek at messages in a Service Bus queue.|
+
+```console
+azmcp servicebus queue peek \
+    --subscription <SUBSCRIPTION_ID> \
+    --namespace-name <NAMESPACE_NAME> \
+    --queue-name <QUEUE_NAME> \
+    [--max-messages <MAX_MESSAGES>]
+```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
+##### Required parameters
+
+`--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
+`--namespace-name`: The name of the Service Bus namespace.<br>
+`--queue-name`: The name of the queue to peek messages from.
+
+##### Optional parameters
+
+`--max-messages`: The maximum number of messages to peek. Default is 1.
+
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+
+#### Examples
+
+Peek at a message in a Service Bus queue.
+
+```console
+azmcp servicebus queue peek \
+    --subscription "my-subscription-id" \
+    --namespace-name "app-messaging" \
+    --queue-name "orders"
+```
+
+Peek at multiple messages in a Service Bus queue.
+
+```console
+azmcp servicebus queue peek \
+    --subscription "my-subscription-id" \
+    --namespace-name "app-messaging" \
+    --queue-name "notifications" \
+    --max-messages 5
+```
+
+### Peek topic subscription
+
+The Azure MCP Server can peek at messages in a subscription within a Service Bus topic without removing them.
+
+#### Reference
+
+| Name            | Description               |
+|-----------------|--------------------------|
+| azmcp servicebus topic subscription peek | Peek at messages in a Service Bus topic subscription.|
+
+```console
+azmcp servicebus topic subscription peek \
+    --subscription <SUBSCRIPTION_ID> \
+    --namespace-name <NAMESPACE_NAME> \
+    --topic-name <TOPIC_NAME> \
+    --subscription-name <SUBSCRIPTION_NAME> \
+    [--max-messages <MAX_MESSAGES>]
+```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
+##### Required parameters
+
+`--subscription`: The ID of the subscription containing the Service Bus namespace.<br>
+`--namespace-name`: The name of the Service Bus namespace.<br>
+`--topic-name`: The name of the topic.<br>
+`--subscription-name`: The name of the subscription to peek messages from.
+
+##### Optional parameters
+
+`--max-messages`: The maximum number of messages to peek. Default is 1.
+
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+
+#### Examples
+
+Peek at a message in a Service Bus topic subscription.
+
+```console
+azmcp servicebus topic subscription peek \
+    --subscription "my-subscription-id" \
+    --namespace-name "app-messaging" \
+    --topic-name "system-updates" \
+    --subscription-name "admin-alerts"
+```
+
+Peek at multiple messages in a Service Bus topic subscription.
+
+```console
+azmcp servicebus topic subscription peek \
+    --subscription "my-subscription-id" \
+    --namespace-name "app-messaging" \
+    --topic-name "product-events" \
+    --subscription-name "inventory-service" \
+    --max-messages 10
 ```
