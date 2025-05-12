@@ -191,7 +191,7 @@ After the patch is applied, see [Enabling unknown host access](https://aka.ms/wl
 
 ## Migration
 
-The steps in this section assume that your analysis has lead you to decide to use the prebuilt Azure Marketplace offer.
+The steps in this section assume that your analysis has led you to decide to use the prebuilt Azure Marketplace offer.
 
 ### Provision the offer
 
@@ -243,7 +243,7 @@ After you've reached the migration goals you defined in the [pre-migration](#pre
 
 - If you captured load testing results prior to migration, re-run the test suite against the migrated server to see if the performance targets are met.
 
-- If you deployed WebLogic Server with Azure Application Gateway by following the steps in the offer, you may want to do more configuration on the Application Gateway. For more information, see [Application Gateway configuration overview](/azure/application-gateway/configuration-overview).
+- If you deployed WebLogic Server with Azure Application Gateway by following the steps in the offer, you may want to do more configurations on the Application Gateway. For more information, see [Application Gateway configuration overview](/azure/application-gateway/configuration-overview).
 
 - Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 
