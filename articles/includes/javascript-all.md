@@ -92,7 +92,7 @@
 | Microsoft Playwright Testing | npm [1.0.0-beta.7](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.7) | [docs](/javascript/api/overview/azure/microsoft-playwright-testing-readme) | GitHub [1.0.0-beta.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/microsoft-playwright-testing_1.0.0-beta.7/sdk/playwrighttesting/microsoft-playwright-testing/) |
 | Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
 | Monitor Ingestion | npm [1.1.0](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.1.0) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.1.0/sdk/monitor/monitor-ingestion/) |
-| Monitor Query | npm [1.3.1](https://www.npmjs.com/package/@azure/monitor-query/v/1.3.1) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.1/sdk/monitor/monitor-query/) |
+| Monitor Query | npm [1.3.2](https://www.npmjs.com/package/@azure/monitor-query/v/1.3.2) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.2/sdk/monitor/monitor-query/) |
 | Notification Hubs | npm [2.0.0](https://www.npmjs.com/package/@azure/notification-hubs/v/2.0.0) | [docs](/javascript/api/overview/azure/notification-hubs-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.0/sdk/notificationhubs/notification-hubs/) |
 | OpenAI | npm [2.0.0](https://www.npmjs.com/package/@azure/openai/v/2.0.0)<br>npm [2.1.0-beta.1](https://www.npmjs.com/package/@azure/openai/v/2.1.0-beta.1) | [docs](/javascript/api/overview/azure/openai-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0/sdk/openai/openai/)<br>GitHub [2.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.1.0-beta.1/sdk/openai/openai/) |
 | OpenAI Assistants | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.6) | [docs](/javascript/api/overview/azure/openai-assistants-readme) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai-assistants_1.0.0-beta.6/sdk/openai/openai-assistants/) |
@@ -416,9 +416,9 @@
 | App Configuration Provider | npm [2.0.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.0.2) |  |  |
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| Spec Gen SDK | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.6.0) |  |  |
+| Spec Gen SDK | npm [0.6.2](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.6.2) |  |  |
 | tmlanguage-generator | npm [0.6.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.1) |  |  |
-| TypeSpec Asset Emitter | npm [0.70.0](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.70.0) |  |  |
+| TypeSpec Asset Emitter | npm [0.70.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.70.1) |  |  |
 | TypeSpec Emitter Framework | npm [0.7.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.7.0) |  |  |
 | TypeSpec Events | npm [0.70.0](https://www.npmjs.com/package/@typespec/events/v/0.70.0) |  |  |
 | TypeSpec HTTP Client | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client/v/0.6.0) |  |  |
@@ -429,13 +429,13 @@
 | TypeSpec Rust | npm [0.14.1](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.14.1) |  |  |
 | TypeSpec SSE | npm [0.70.0](https://www.npmjs.com/package/@typespec/sse/v/0.70.0) |  |  |
 | TypeSpec Streams | npm [0.70.0](https://www.npmjs.com/package/@typespec/streams/v/0.70.0) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp/v/0.0.14) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.0.14) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.0.14) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.0.14) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.0.14) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.0.14) |  |  |
-| Unknown Display Name | npm [0.0.14](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.0.14) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp/v/0.0.15) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.0.15) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.0.15) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.0.15) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.0.15) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.0.15) |  |  |
+| Unknown Display Name | npm [0.0.15](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.0.15) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -513,7 +513,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250506.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250506.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250509.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250509.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
