@@ -7,7 +7,7 @@ summary: |
 metadata:
   title: Develop AI apps using Azure AI services
   description: Get started developing generative AI capabilities into your applications.
-  ms.date: 11/19/2024
+  ms.date: 05/02/2025
   ms.topic: landing-page
   ms.collection: collection
 
@@ -48,8 +48,6 @@ landingContent:
         links:
           - text: Security planning for LLM-based applications
             url: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json     
-          - text: Security guidance for Large Language Models
-            url: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-recommend?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: Use Azure OpenAI without keys

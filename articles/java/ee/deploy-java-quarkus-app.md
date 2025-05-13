@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
-ms.date: 12/16/2024
+ms.date: 05/08/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -35,7 +35,7 @@ Use the following commands to clone the sample Java project for this article. Th
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
 cd quarkus-azure
-git checkout 2024-10-14
+git checkout 2025-05-08
 cd aca-quarkus
 ```
 
@@ -118,7 +118,7 @@ The output should look like the following example:
     "title": "Quarkus on Azure App Service",
     "completed": false,
     "order": 1,
-    "url": "https://learn.microsoft.com/en-us/azure/developer/java/eclipse-microprofile/deploy-microprofile-quarkus-java-app-with-maven-plugin"
+    "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-java"
   },
   {
     "id": 3,
