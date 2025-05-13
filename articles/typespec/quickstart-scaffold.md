@@ -27,7 +27,7 @@ In this quickstart, you:
 [!INCLUDE [dotnet-prereq](includes/quickstart/prereqs-csharp.md)]
 
 
-## Application structure with TypeSpec
+## Developing with TypeSpec
 
 TypeSpec defines your API in a language-agnostic way and generates the API server and client library for multiple platforms. This functionality allows you to:
 
@@ -47,16 +47,14 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 * Hosting server for your API (locally or in Azure)
 * Deployment scripts for repeatable provisioning and deployment
 
-## Create a new application
+## Create a new TypeSpec application
 
-Create a new folder to hold the API server and TypeSpec files. 
+1. Create a new folder to hold the API server and TypeSpec files. 
 
-```console
-mkdir my_typespec_quickstart
-cd my_typespec_quickstart
-```
-
-## Install TypeSpec
+    ```console
+    mkdir my_typespec_quickstart
+    cd my_typespec_quickstart
+    ```
 
 1. Install the [TypeSpec compiler](https://www.npmjs.com/package/@typespec/compiler) globally:
 
@@ -84,7 +82,9 @@ cd my_typespec_quickstart
     * What emitters do you want to use? 
         * OpenAPI 3.1 document
         * C# server stubs
-    
+
+    TypeSpec **emitters** are libraries that utilize various TypeSpec compiler APIs to reflect on the TypeSpec compilation process and generate artifacts.
+
 1. Wait for the initialization to complete before continuing.
 
     ```console
@@ -123,7 +123,7 @@ cd my_typespec_quickstart
     * `./generated/controllers/WidgetsController.cs` implements the integration to the Widgets methods.
     * `./generated/models` defines the models for the Widget API. 
 
-## Configure TypeSpec compilation
+## Configure TypeSpec emitters
 
 Use the TypeSpec files to configure the API server generation.
 
@@ -184,7 +184,7 @@ Use the TypeSpec files to configure the API server generation.
     
 1. The default TypeSpec API and server both work.
 
-## Application file structure
+## Understand application file structure
 
 [!INCLUDE [cs-file-structure](includes/quickstart/file-structure-csharp.md)]
 
@@ -1046,6 +1046,7 @@ Now that you have the entire end to end process working, continue to build your 
 * Learn more about the [TypeSpec language](https://typespec.io/docs/language-basics/overview/) to add more APIs and API layer features in the `./main.tsp`.
 * Add additional [emitters](https://typespec.io/docs/extending-typespec/emitters-basics/) and configure their parameters in the `./tspconfig.yaml`.
 * As you add more features in your TypeSpec files, support those changes with source code in the server project. 
+* Continue to use [passwordless authentication](/dotnet/azure/sdk/authentication/) with Azure Identity.
 
 ## Clean up resources
 
