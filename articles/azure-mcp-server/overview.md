@@ -74,7 +74,7 @@ Most developers consume existing MCP clients in an MCP Host and AI agents instea
 
 For example:
 
-    After you install the Azure MCP Server in VS Code, you can use GitHub Copilot Agent Mode to work with Azure resources.
+   After you install the Azure MCP Server in VS Code, you can use GitHub Copilot Agent Mode to work with Azure resources.
     
     - You ask the agent to list all the storage accounts in your Azure subscription.
     - The agent handles your request and figures out what it needs to do.
@@ -84,7 +84,7 @@ For example:
     - The results go back through the client.
     - The agent gets the results and shows them to you in VS Code.
     
-    You can also update a command-line app so a user can chat with an agent that uses the MCP client to run a KQL query on an Azure database, instead of writing the KQL query themselves.
+   You can also update a command-line app so a user can chat with an agent that uses the MCP client to run a KQL query on an Azure database, instead of writing the KQL query themselves.
     
     - The user asks the command-line app for data in a certain format.
     - The agent handles the request and figures out what it needs to do.
