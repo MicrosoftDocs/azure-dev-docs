@@ -288,8 +288,16 @@ schema:
                           pattern: "^`--[a-z-]+`$"
                         description:
                           type: string
-                          pattern: "^: [A-Za-z0-9 \\.,\\-]+(\\.<br>)?$"
+                          pattern: "^- [A-Za-z0-9 \\.,\\-]+(<br>)?$"
                           minLength: 5
+                    additionalProperties:
+                      format_rule:
+                        type: object
+                        description: "Rule for formatting the <br> tags"
+                        properties:
+                          rule_description:
+                            type: string
+                            enum: ["All items except the last one must end with <br>"]
               optional_parameters:
                 type: object
                 description: "Section listing optional parameters"
@@ -311,8 +319,16 @@ schema:
                           pattern: "^`--[a-z-]+`$"
                         description:
                           type: string
-                          pattern: "^: [A-Za-z0-9 \\.,\\-]+(\\.<br>)?$"
+                          pattern: "^- [A-Za-z0-9 \\.,\\-]+(<br>)?$"
                           minLength: 5
+                    additionalProperties:
+                      format_rule:
+                        type: object
+                        description: "Rule for formatting the <br> tags"
+                        properties:
+                          rule_description:
+                            type: string
+                            enum: ["All items except the last one must end with <br>"]
                   common_parameters_reference:
                     type: string
                     description: "Link to common optional parameters"
