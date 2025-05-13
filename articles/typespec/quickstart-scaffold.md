@@ -756,7 +756,7 @@ Now that the basic Widget API server is working, update the server to work with 
 
 ## Create deployment infrastructure
 
-Create the files needed to have a repeatable deployment with [Azure Developer CLI](azure/developer/azure-developer-cli/) and Bicep templates. 
+Create the files needed to have a repeatable deployment with [Azure Developer CLI](/azure/developer/azure-developer-cli/) and Bicep templates. 
 
 1. At the root of the TypeSpec project, create an `azure.yaml` deployment definition file and paste in the following source:
 
