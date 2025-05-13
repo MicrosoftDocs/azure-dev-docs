@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a TypeSpec API project
+title: Quickstart: Quickstart: Create a new API project with TypeSpec
 description: Learn how to generate and set up a new RESTful API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
 ms.date: 04/30/2025
@@ -60,13 +60,13 @@ cd my_typespec_quickstart
 
 1. Install the [TypeSpec compiler](https://www.npmjs.com/package/@typespec/compiler) globally:
 
-    ```bash
+    ```console
     npm install -g @typespec/compiler
     ```
 
 1. Check TypeSpec installed correctly:
 
-    ```bash
+    ```console
     tsp --version
     ```
 
@@ -87,7 +87,7 @@ cd my_typespec_quickstart
     
 1. Wait for the initialization to complete before continuing.
 
-    ```bash
+    ```console
     Run tsp compile . to build the project.
     
     Please review the following messages from emitters:
@@ -105,7 +105,7 @@ cd my_typespec_quickstart
     
 1. Compile the project:
 
-    ```bash
+    ```console
     tsp compile .
     ```
     
@@ -116,9 +116,7 @@ cd my_typespec_quickstart
 
 1. Open the `./tsp-output/schema/openapi.yaml` file. Notice that the few lines in `./main.tsp` generated over 200 lines of OpenApi specification for you. 
 
-1. Open the `./tsp-output/server/aspnet` folder. Notice there are standard .NET files generated for you. This generation allows you to use the generated middleware in an existing API Server. 
-
-1. Open the `./tsp-output/server/aspnet` folder to see the generated files:
+1. Open the `./tsp-output/server/aspnet` folder. Notice there are standard .NET files generated for you. This quick scaffolding allows you to use the generated middleware in an existing API Server.
 
     * `./generated/operations/IWidgets.cs` defines the interface for the Widgets methods.
     * `./generated/controllers/WidgetsController.cs` implements the integration to the Widgets methods.
@@ -155,25 +153,25 @@ Use the TypeSpec files to configure the API server generation.
 
 1. Recompile the project:
 
-    ```bash
+    ```console
     tsp compile .
     ```
 
 1. Change into the new `/server` directory:
 
-    ```bash
+    ```console
     cd server
     ```
 
 1. Create a default developer certificate if you don't already have one:
 
-    ```bash
+    ```console
     dotnet dev-certs https
     ```
 
 1. Run the project:
 
-    ```bash
+    ```console
     dotnet run
     ```
 
@@ -195,13 +193,13 @@ Now that the basic Widget API server is working, update the server to work with 
 
 1. In the `./server` directory, add [Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) to the project:
 
-    ```bash
+    ```console
     dotnet add package Microsoft.Azure.Cosmos
     ```
 
 1. Add the [Azure Identity library](https://www.nuget.org/packages/Azure.Identity) to [authenticate to Azure](/dotnet/azure/sdk/authentication/):
 
-    ```bash
+    ```console
     dotnet add package Azure.Identity
     ```
 
@@ -749,7 +747,7 @@ Now that the basic Widget API server is working, update the server to work with 
 
 1. Build the project:
 
-    ```bash
+    ```console
     dotnet build
     ```
 
@@ -1022,14 +1020,14 @@ You can deploy this application to Azure using Azure Container Apps:
 
 1. Authenticate to the Azure Developer CLI:
 
-    ```bash
+    ```console
     azd auth login
     ```
     
 
 1. Deploy to Azure Container Apps using the Azure Developer CLI:
 
-  ```bash
+  ```console
   azd up
   ```
 
@@ -1044,13 +1042,13 @@ Once deployed, you can:
 
 When you're done with this tutorial, you can remove the Azure resources:
 
-```bash
+```console
 azd down
 ```
 
 Or delete the resource group directly from the Azure portal.
 
-## Related articles
+## Next steps
 
 - [TypeSpec documentation](https://microsoft.github.io/typespec/)
 - [Azure Cosmos DB documentation](/azure/cosmos-db/)
