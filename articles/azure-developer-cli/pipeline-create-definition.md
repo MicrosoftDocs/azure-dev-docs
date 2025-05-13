@@ -36,8 +36,8 @@ Use this template as a starting point for your pipeline definition:
 on:
   workflow_dispatch:
   push:
-    # Runs when commits are pushed to the mainline branch (main or master)
-    # Update this to match your mainline branch
+    # Run when commits are pushed to mainline branch (main or master)
+    # Set this to the mainline branch you are using
     branches:
       - main
       - master
@@ -64,9 +64,7 @@ jobs:
       # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}      
     steps:
       - name: Checkout
-        uses: actions/checkou# using the install-azd action
-t@v4# using the install-azd action
-
+        uses: actions/checkout@v4
 
       # using the install-azd action
       - name: Install azd
@@ -74,23 +72,18 @@ t@v4# using the install-azd action
 
       # # If you want to use azd-daily build, or install it from a PR, you can remove previous step and
       # # use the next one:
-      # - name: Instdail#  # Update this scrip based on the OS - pool of your pipeline. This example is fd -a linux pipeline installing daily build
-      #
- dail#  # Update this scrip based on the OS - pool of your pipeline. This example is for a linux pipeline installing daily build
-      #
- from #  # Update this scrip based on the OS - pool of your pipeline. This example is for a linux pipeline installing daily build
-      #
+      # - name: Install azd - daily or from PR
       #  # Update this scrip based on the OS - pool of your pipeline. This example is for a linux pipeline installing daily build
-      #  run: curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --ersion dail
+      #  run: curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --version daily
       #  shell: pwsh
 
       # azd set up Federated Credential by default. You can remove this step if you are using Client Credentials
       - name: Log in with Azure (Federated Credentials)
         if: ${{ env.AZURE_CLIENT_ID != '' }}
-    `          run: |
-   `      azd a`th login `
-            --client`id "`Env:AZURE_C`IENT_ID" `
-            --federated-cr`dent`al-provider`"github" `
+        run: |
+          azd auth login `
+            --client-id "$Env:AZURE_CLIENT_ID" `
+            --federated-credential-provider "github" `
             --tenant-id "$Env:AZURE_TENANT_ID"
         shell: pwsh
 
@@ -99,12 +92,11 @@ t@v4# using the install-azd action
       #   if: ${{ env.AZURE_CREDENTIALS != '' }}
       #   run: |
       #     $info = $Env:AZURE_CREDENTIALS | ConvertFrom-Json -AsHashtable;
-      #     Write-Host "::add-mask::$($info.clie
-ntSecret)"
+      #     Write-Host "::add-mask::$($info.clientSecret)"
 
-      #     azd`auth login `
-      #       --client-id "$($info`clientId)" `
-      #       --client-secret "$($info.cli`ntSecret)" `
+      #     azd auth login `
+      #       --client-id "$($info.clientId)" `
+      #       --client-secret "$($info.clientSecret)" `
       #       --tenant-id "$($info.tenantId)"
       #   shell: pwsh
       #   env:
@@ -125,7 +117,6 @@ ntSecret)"
          ## Define the additional variables or secrets that are required only for deploy
          #  ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
          #  ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}
-
 ```
 
 ## [Azure Pipelines](#tab/azdo)
@@ -158,19 +149,17 @@ steps:
   # azd delegate auth to az to use service connection with AzureCLI@2
   - pwsh: |
       azd config set auth.useAzCliAuth "true"
-    displayName: Configure AZD to Use AZ CLI Authenticat.ion.
+    displayName: Configure AZD to Use AZ CLI Authentication.
 
    - task: AzureCLI@2
       displayName: Provision Infrastructure
-      i# azconnection is created by azd pipeline config
-nputs:
+      inputs:
          # azconnection is created by azd pipeline config
          azureSubscription: azconnection
          scriptType: bash
          scriptLocation: inlineScript
          inlineScript: |
-         azd pro# azd build-in variables.
-vision --no-prompt
+         azd provision --no-prompt
       env:
          # azd build-in variables.
          AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
@@ -187,21 +176,17 @@ vision --no-prompt
       inputs:
          azureSubscription: azconnection
          scriptType: bash
-         scriptLocation: inline# azd build-in variables.
-Script
+         scriptLocation: inlineScript
          inlineScript: |
          azd deploy --no-prompt
       env:
          # azd build-in variables.
-         AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)# Define the       AZURE_ENV_NAME: $(AZURE_E that are required onlyNV_NAME)
-  
-         # ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
-         # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}
-URE_LOCATION: $(AZURE_LOCATION)
+         AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+         AZURE_ENV_NAME: $(AZURE_ENV_NAME)
+         AZURE_LOCATION: $(AZURE_LOCATION)
          # # Define the additional variables or secrets that are required only for deploy 
          # ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
          # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}
-
 ```
 
 [!INCLUDE [request-help](includes/request-help.md)]
