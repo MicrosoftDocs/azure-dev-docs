@@ -7,5 +7,6 @@ ms.date: 04/23/2025
 * [Node.js LTS](https://nodejs.org/) installed on your system.
 * [TypeScript](https://www.typescriptlang.org/) for writing and compiling TypeScript code.
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)
+* Optional: Deployment with [Azure Developer CLI](azure/developer/azure-developer-cli/)

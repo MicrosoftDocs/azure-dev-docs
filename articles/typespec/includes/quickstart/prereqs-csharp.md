@@ -8,3 +8,4 @@ ms.date: 04/23/2025
 * [Node.js LTS](https://nodejs.org/) installed on your system.
 * [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
 * [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)
+* Optional: Deployment with [Azure Developer CLI](azure/developer/azure-developer-cli/)
