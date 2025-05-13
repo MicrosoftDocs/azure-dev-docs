@@ -1,5 +1,5 @@
 ---
-title: What is the Azure MCP Server?
+title: What is the Azure MCP Server (Preview)?
 description: Overview of the features and capabilities of the Azure MCP Server that helps developers be more productive when building and deploying apps to Azure.
 author: ms-johnalex
 ms.author: johalexander

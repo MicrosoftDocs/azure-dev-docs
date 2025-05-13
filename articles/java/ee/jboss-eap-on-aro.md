@@ -375,6 +375,7 @@ If you want to delete all of the resources created by the preceding steps, delet
 You can learn more from references used in this guide:
 
 * [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/en/technologies/jboss-middleware/application-platform)
+* [Using JBoss EAP on OpenShift Container Platform](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html/using_jboss_eap_on_openshift_container_platform/index)
 * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
 * [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts/)
 * [JBoss EAP Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_jboss_eap_xp_3.0.0/index#the-bootable-jar_default)

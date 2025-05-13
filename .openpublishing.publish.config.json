@@ -59,6 +59,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-typescript-langchainjs",
+      "url": "https://github.com/Azure-Samples/azure-typescript-langchainjs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "node-essentials",
       "url": "https://github.com/MicrosoftDocs/node-essentials",
       "branch": "main",
