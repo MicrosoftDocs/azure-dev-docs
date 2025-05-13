@@ -55,7 +55,7 @@
     items:
       - name: CI/CD
         items:
-          - name: Pipeline support overview
+          - name: Overview
             href: configure-devops-pipeline.md
           - name: Configure a GitHub Actions pipeline
             href: pipeline-github-actions.md

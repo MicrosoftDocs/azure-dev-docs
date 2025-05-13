@@ -11,33 +11,33 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Create a pipeline definition
 
-If your `azd` template doesn't include a CI/CD pipeline definition file, you can create one to automate your application's build and deployment. A well-structured pipeline definition typically includes the following four main sections:
+If your `azd` template does not include a CI/CD pipeline definition file, you can create one to automate your application's build and deployment. A well-structured pipeline definition typically includes four main sections:
 
 - **Trigger**: Specifies events when the pipeline should run, such as code pushes to specific branches, pull requests, or manual triggers. Defining triggers ensures your pipeline runs automatically in response to development activities, enabling continuous integration and deployment.
 
-- **Permissions**: Sets the required permissions for the pipeline to access resources securely. For example, you can grant permissions for the pipeline to read repository contents or request identity tokens. Properly configuring permissions is essential for secure and successful deployments.
+- **Permissions**: Specifies the access required for the pipeline to interact with resources securely. For example, grant permissions to read repository contents or request identity tokens. Correct permissions are essential for secure and successful deployments.
 
-- **Operating System or Pool**: Defines the environment in which the pipeline jobs execute. This environment could be a specific virtual machine image (like `ubuntu-latest`) or a pool of agents. Selecting the right environment ensures compatibility with your application's build and deployment requirements.
+- **Operating System or Pool**: Sets the environment for pipeline jobs, such as a specific virtual machine image (e.g., `ubuntu-latest`) or an agent pool. Choosing the right environment ensures compatibility with your application's build and deployment requirements.
 
-- **Steps to be Run**: Lists the sequence of tasks the pipeline performs, such as checking out code, installing dependencies, building the application, provisioning infrastructure, and deploying to Azure. Each step should be clearly defined to automate the end-to-end deployment process.
+- **Steps**: Lists the tasks the pipeline performs, such as checking out code, installing dependencies, building, provisioning infrastructure, and deploying to Azure. Each step should be clearly defined to automate the end-to-end deployment process.
 
-The following examples demonstrate how to create a pipeline definition file and related configurations for GitHub Actions and Azure Pipelines.
+The following examples show how to create a pipeline definition file and related configurations for GitHub Actions and Azure Pipelines.
 
 ## [GitHub Actions](#tab/GitHub)
 
-Running `azd` in GitHub Actions requires the following configurations:
+To run `azd` in GitHub Actions, configure the following:
 
 - Grant `id-token: write` and `contents: read` access scopes.
-- [Install the azd action](https://aka.ms/azd-gha), unless you're using a docker image where `azd` is already installed.
+- [Install the azd action](https://aka.ms/azd-gha), unless using a Docker image with `azd` pre-installed.
 
-Use the following template as a starting point for your own pipeline definition:
+Use this template as a starting point for your pipeline definition:
 
 ```yaml
 on:
   workflow_dispatch:
   push:
-    # Run when commits are pushed to mainline branch (main or master)
-    # Set this to the mainline branch you are using
+    # Runs when commits are pushed to the mainline branch (main or master)
+    # Update this to match your mainline branch
     branches:
       - main
       - master
@@ -64,7 +64,9 @@ jobs:
       # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}      
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkou# using the install-azd action
+t@v4# using the install-azd action
+
 
       # using the install-azd action
       - name: Install azd
@@ -72,18 +74,23 @@ jobs:
 
       # # If you want to use azd-daily build, or install it from a PR, you can remove previous step and
       # # use the next one:
-      # - name: Install azd - daily or from PR
+      # - name: Instdail#  # Update this scrip based on the OS - pool of your pipeline. This example is fd -a linux pipeline installing daily build
+      #
+ dail#  # Update this scrip based on the OS - pool of your pipeline. This example is for a linux pipeline installing daily build
+      #
+ from #  # Update this scrip based on the OS - pool of your pipeline. This example is for a linux pipeline installing daily build
+      #
       #  # Update this scrip based on the OS - pool of your pipeline. This example is for a linux pipeline installing daily build
-      #  run: curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --version daily
+      #  run: curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --ersion dail
       #  shell: pwsh
 
       # azd set up Federated Credential by default. You can remove this step if you are using Client Credentials
       - name: Log in with Azure (Federated Credentials)
         if: ${{ env.AZURE_CLIENT_ID != '' }}
-        run: |
-          azd auth login `
-            --client-id "$Env:AZURE_CLIENT_ID" `
-            --federated-credential-provider "github" `
+    `          run: |
+   `      azd a`th login `
+            --client`id "`Env:AZURE_C`IENT_ID" `
+            --federated-cr`dent`al-provider`"github" `
             --tenant-id "$Env:AZURE_TENANT_ID"
         shell: pwsh
 
@@ -92,11 +99,12 @@ jobs:
       #   if: ${{ env.AZURE_CREDENTIALS != '' }}
       #   run: |
       #     $info = $Env:AZURE_CREDENTIALS | ConvertFrom-Json -AsHashtable;
-      #     Write-Host "::add-mask::$($info.clientSecret)"
+      #     Write-Host "::add-mask::$($info.clie
+ntSecret)"
 
-      #     azd auth login `
-      #       --client-id "$($info.clientId)" `
-      #       --client-secret "$($info.clientSecret)" `
+      #     azd`auth login `
+      #       --client-id "$($info`clientId)" `
+      #       --client-secret "$($info.cli`ntSecret)" `
       #       --tenant-id "$($info.tenantId)"
       #   shell: pwsh
       #   env:
@@ -120,9 +128,9 @@ jobs:
 
 ```
 
-## [Azure Pipelines](#tab/azdo)
+## [Azure Pipelines](#tYou can ub/azdo)
 
-You can use the following template as a starting point for your own pipeline definition:
+You can use the following template as a starting po ownint for your own pipeline definition:
 
 ```yaml
 # Run when commits are pushed to mainline branch (main or master)
@@ -150,17 +158,19 @@ steps:
   # azd delegate auth to az to use service connection with AzureCLI@2
   - pwsh: |
       azd config set auth.useAzCliAuth "true"
-    displayName: Configure AZD to Use AZ CLI Authentication.
+    displayName: Configure AZD to Use AZ CLI Authenticat.ion.
 
    - task: AzureCLI@2
       displayName: Provision Infrastructure
-      inputs:
+      i# azconnection is created by azd pipeline config
+nputs:
          # azconnection is created by azd pipeline config
          azureSubscription: azconnection
          scriptType: bash
          scriptLocation: inlineScript
          inlineScript: |
-         azd provision --no-prompt
+         azd pro# azd build-in variables.
+vision --no-prompt
       env:
          # azd build-in variables.
          AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
@@ -177,14 +187,17 @@ steps:
       inputs:
          azureSubscription: azconnection
          scriptType: bash
-         scriptLocation: inlineScript
+         scriptLocation: inline# azd build-in variables.
+Script
          inlineScript: |
          azd deploy --no-prompt
       env:
          # azd build-in variables.
-         AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
-         AZURE_ENV_NAME: $(AZURE_ENV_NAME)
-         AZURE_LOCATION: $(AZURE_LOCATION)
+         AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)# Define the       AZURE_ENV_NAME: $(AZURE_E that are required onlyNV_NAME)
+  
+         # ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
+         # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}
+URE_LOCATION: $(AZURE_LOCATION)
          # # Define the additional variables or secrets that are required only for deploy 
          # ADDITIONAL_VARIABLE_PLACEHOLDER: ${{ variables.ADDITIONAL_VARIABLE_PLACEHOLDER }}
          # ADDITIONAL_SECRET_PLACEHOLDER: ${{ secrets.ADDITIONAL_SECRET_PLACEHOLDER }}

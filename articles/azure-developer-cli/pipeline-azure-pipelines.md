@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Create an Azure Pipeline for CI/CD using the Azure Developer CLI
+# Configure CI/CD with Azure Pipelines using the Azure Developer CLI
 
-In this article, you learn how to use the Azure Developer CLI (`azd`) to create a GitHub Actions CI/CD pipeline for an `azd` template. The pipeline allows you to push template updates to a code repository and see your changes provisioned and deployed automatically to your Azure environment.
+This article shows how to use the Azure Developer CLI (`azd`) to create a CI/CD pipeline with Azure Pipelines for an `azd` template. The pipeline enables you to push updates to a code repository and have your changes automatically provisioned and deployed to your Azure environment.
 
 > [!NOTE]
-> The `azd pipeline config` command is still in beta. Read more about alpha and beta feature support on the [feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) page.
+> The `azd pipeline config` command is in beta. For details, see the [feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning).
 
 ## Prerequisites
 
@@ -23,30 +23,28 @@ In this article, you learn how to use the Azure Developer CLI (`azd`) to create 
 
 ## Initialize the template
 
-This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) template, but you can apply the same steps you learn in this article to any template that includes a pipeline definition file. Pipeline definition files are located in the `.github` or `.azdo` folders of the template.
+This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) template, but you can follow these steps for any template that includes a pipeline definition file (found in the `.github` or `.azdo` folders).
 
 1. In an empty directory, initialize the `hello-azd` template:
 
-```azdeveloper
-azd init -t hello-azd
-```
+   ```azdeveloper
+   azd init -t hello-azd
+   ```
 
-1. When prompted, enter a name for the environment, such as *helloazd*.
+1. When prompted, enter a name for the environment (for example, *helloazd*).
 
-### Create and configure the pipeline
+## Set up Azure Pipelines
 
 > [!NOTE]
-> If you're using Azure Pipelines for a Java template on Windows, see [the corresponding section in the troubleshooting guide](./troubleshoot.md#azd-pipeline-config-using-azdo-for-java-templates-on-windows). 
+> If you're using Azure Pipelines for a Java template on Windows, see [the troubleshooting guide](./troubleshoot.md#azd-pipeline-config-using-azdo-for-java-templates-on-windows).
 
-### Create or use an existing Azure Pipelines Organization
+### Create or use an Azure Pipelines organization
 
-To run a pipeline in Azure Pipelines, you need an Azure Pipelines organization. You can create one using the Azure Pipelines portal: https://dev.azure.com.
+To use Azure Pipelines, you need an organization. Create one at https://dev.azure.com if you don't already have one.
 
-### Create a Personal Access Token
+### Create a Personal Access Token (PAT)
 
-The Azure Developer CLI relies on an Azure Pipelines Personal Access Token (PAT) to configure an Azure Pipelines project. [Create a new Azure Pipelines PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
-
-When creating your PAT, set the following scopes:
+The Azure Developer CLI requires a Personal Access Token (PAT) to configure Azure Pipelines. [Create a new PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) with the following scopes:
 
 - Agent Pools (read, manage)
 - Build (read and execute)
@@ -55,36 +53,36 @@ When creating your PAT, set the following scopes:
 - Release (read, write, execute, and manage)
 - Service Connections (read, query, and manage)
 
-### Invoke the Pipeline configure command
+### Configure the pipeline
 
-1. Run the following command to configure an Azure Pipelines Project and Repository with a deployment Pipeline.
+1. Run the following command to configure an Azure Pipelines project and repository with a deployment pipeline:
 
-   ``` azdeveloper
+   ```azdeveloper
    azd pipeline config --provider azdo
-   ````
+   ```
 
-> [!NOTE]
-> By default, `azd pipeline config` in Azure Pipelines uses `client-credentials`. `azd` doesn't currently support OpenID Connect (OIDC)/federated credentials for Azure Pipelines.
-> [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
+   > [!NOTE]
+   > By default, `azd pipeline config` for Azure Pipelines uses client credentials. OIDC/federated credentials are not currently supported.
+   > [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported)
 
-1. Provide your answers to the following prompts:
+1. Respond to the prompts:
 
-   - **Personal Access Token (PAT)**
-      - Copy/paste your PAT.
-      - Export your PAT as a system environment by running the following command. Otherwise, you're prompted every time you set up an Azure Pipeline:
+   - **Personal Access Token (PAT):**
+     - Paste your PAT.
+     - Optionally, export your PAT as a system environment variable to avoid repeated prompts:
 
-         ```azdeveloper
-         export AZURE_DEVOPS_EXT_PAT=<PAT>
-         ```
+       ```azdeveloper
+       export AZURE_DEVOPS_EXT_PAT=<PAT>
+       ```
 
-   - **Please enter an Azure Pipelines Organization Name:**  
-      -Type [your AzDo organization](#create-or-use-an-existing-azure-devops-organization). Once you hit enter, `AZURE_DEVOPS_ORG_NAME="<your Azure Pipelines Org Name>"` is automatically added to the .env file for the current environment.
+   - **Azure Pipelines Organization Name:**
+     - Enter your organization name. This value is saved in the `.env` file for the current environment.
 
    - **A remote named "origin" was not found. Would you like to configure one?**
-      - Yes
+     - Yes
 
    - **How would you like to configure your project?**
-      - Create a new Azure Pipelines Project
+     - Create a new Azure Pipelines Project
 
    - **Enter the name for your new Azure Pipelines Project OR Hit enter to use this name: ( {default name} )**
       - Select **Enter**, or create a unique project name.
@@ -92,57 +90,48 @@ When creating your PAT, set the following scopes:
    - **Would you  like to commit and push your local changes to start the configured CI pipeline?**
       - Yes
 
-1. To find your project and verify the build, navigate to your Azure Pipelines portal (https://dev.azure.com).
+1. To verify the build, go to your project in the Azure Pipelines portal (https://dev.azure.com).
 
-### Make and push a code change
+## Make and push a code change
 
-1. In the project's `/src/components/pages` directory, open `Home.razor`.
-
-1. Locate the `Hello AZD!` header text towards the top of the file.
-
-1. Change the text to `Hello, pipeline!`.
-
-1. Save the file.
-
-1. Create a branch and commit your change. The `main` branch in Azure Pipelines is protected from directly pushing. You need to push the changes from a new branch and create a `Pull Request` in Azure Pipelines. The pull request automatically starts the pipeline and prevents merging if the pipeline fails.
-
-1. Approve and merge your pull request to start the pipeline again.
+1. In the `/src/components/pages` directory, open `Home.razor`.
+2. Change the `Hello AZD!` header text to `Hello, pipeline!` and save the file.
+3. Create a branch and commit your change. The `main` branch is protected, so push your changes from a new branch and create a Pull Request in Azure Pipelines. The pull request triggers the pipeline and blocks merging if the pipeline fails.
+4. Approve and merge your pull request to start the pipeline again.
 
    :::image type="content" source="media/configure-devops-pipeline/commit-changes-to-github.png" alt-text="Screenshot of steps required to make and commit change to test file.":::
 
-1. Using your browser, open your project's repository to see both:
-   - Your commit
-   - Azure Pipeline
+5. In your browser, open your project's repository to see your commit and the Azure Pipeline run.
 
    :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
-1. To inspect the update, visit the web frontend URL.
+6. Visit the web frontend URL to inspect the update.
 
-### `azd` as an Azure Pipelines task
+## Use `azd` as an Azure Pipelines task
 
-Add [`azd` as an Azure Pipelines task](https://aka.ms/azd-azdo-task). This task installs `azd`. To use it, you can add the following to `.azdo\pipelines\azure-dev.yml`:
+Add [`azd` as an Azure Pipelines task](https://aka.ms/azd-azdo-task) to install `azd` in your pipeline. Add the following to `.azdo/pipelines/azure-dev.yml`:
 
-```YAML
+```yaml
 trigger:
-   - main
-   - branch
+  - main
+  - branch
 
 pool:
-   vmImage: ubuntu-latest
-   # vmImage: windows-latest
+  vmImage: ubuntu-latest
+  # vmImage: windows-latest
 
 steps:
-   - task: setup-azd@0
-   displayName: Install azd
+  - task: setup-azd@0
+    displayName: Install azd
 ```
 
 ---
 
 ## Clean up resources
 
-When you no longer need the Azure resources created in this article, run the following command:
+When you no longer need the Azure resources created in this article, run:
 
-``` azdeveloper
+```azdeveloper
 azd down
 ```
 
