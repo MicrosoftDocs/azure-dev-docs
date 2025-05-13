@@ -29,7 +29,7 @@ The Azure MCP Server helps developers work faster when building and deploying ap
 
 The Model Context Protocol (MCP) is a standard way for AI apps to safely use tools, data, and features from other sources. You can think of MCP like a "USB-C for AI apps"—it gives AI models one way to connect to different tools and data.
 
-### Key Components
+### Key components
 
 The MCP has three main parts:
 
@@ -37,7 +37,7 @@ The MCP has three main parts:
 2. **Clients**: Parts of host apps that manage connections to servers
 3. **Servers**: Services that provide special context and features 
 
-### Core Features
+### Core features
 
 MCP servers offer three types of features:
 
@@ -93,7 +93,7 @@ For example:
     - The results go back through the client.
     - The agent gets the results and shows them to the user in the command-line app.
 
-### Developing your own MCP server
+### Develop your own MCP server
 
 Most developers use existing MCP servers, but some build their own MCP servers. Building your own MCP server is more advanced and needs a deeper understanding of the MCP protocol and your app's needs.
 
