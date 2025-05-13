@@ -1028,9 +1028,9 @@ You can deploy this application to Azure using Azure Container Apps:
 
 1. Deploy to Azure Container Apps using the Azure Developer CLI:
 
-  ```console
-  azd up
-  ```
+    ```console
+    azd up
+    ```
 
 ## Use application in browser
 
@@ -1038,6 +1038,14 @@ Once deployed, you can:
 
 1. Access the Swagger UI to test your API at `/swagger`.
 2. Use the **Try it now** feature on each API to create, read, update, and delete widgets through the API. 
+
+## Grow your application
+
+Now that you have the entire end to end process working, continue to build your API: 
+
+* Learn more about the [TypeSpec language](https://typespec.io/docs/language-basics/overview/) to add more APIs and API layer features in the `./main.tsp`.
+* Add additional [emitters](https://typespec.io/docs/extending-typespec/emitters-basics/) and configure their parameters in the `./tspconfig.yaml`.
+* As you add more features in your TypeSpec files, support those changes with source code in the server project. 
 
 ## Clean up resources
 
