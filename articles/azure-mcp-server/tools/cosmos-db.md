@@ -190,7 +190,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ### Query items
 
-The Azure MCP Server can execute SQL queries against items in a Cosmos DB container.
+The Azure MCP Server can execute [queries](/azure/cosmos-db/nosql/query/) against items in a Cosmos DB container.
 
 #### Reference
 
@@ -205,7 +205,7 @@ azmcp cosmos database container item query \
     --account-name <ACCOUNT_NAME> \
     --database-name <DATABASE_NAME> \
     --container-name <CONTAINER_NAME> \
-    --query <QUERY>
+    --query <COSMO_DB_QUERY>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -219,7 +219,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-`--query`: The SQL query to execute against the container.
+`--query`: The Cosmos DB query to execute against the container.
 
 View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
 

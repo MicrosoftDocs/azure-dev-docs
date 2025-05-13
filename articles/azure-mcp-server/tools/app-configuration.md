@@ -58,8 +58,6 @@ The Azure MCP Server can list App Configuration stores in a subscription. This i
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-
-
 ### Lock key-value setting
 
 The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.

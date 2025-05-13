@@ -211,6 +211,24 @@ schema:
                 type: string
                 description: "Description of what the tool does"
                 minLength: 20
+              commandBase:
+                type: string
+                description: "Base command for the tool - must be identical across table entry, command syntax, and examples"
+                pattern: "^azmcp [a-z\\- ]+$"
+                minLength: 10
+              command_consistency:
+                type: object
+                description: "Validation to ensure command consistency across all sections"
+                required:
+                  - validation_rule 
+                properties:
+                  validation_rule:
+                    type: string
+                    description: "Rule enforcing command consistency"
+                    enum: ["The same base command must be used in the table entry, command syntax example with placeholders, and all examples with real values"]
+                  error_message:
+                    type: string
+                    enum: ["Command inconsistency detected. The base command in the table, command syntax, and examples must be identical."]
               reference:
                 type: object
                 description: "Reference table containing command details"
@@ -321,8 +339,10 @@ schema:
                     command:
                       type: string
                       description: "Example command with real values instead of parameters"
-                      pattern: "^```console\nazmcp [a-z\\- ]+"
+                      pattern: "^```console\nazmcp [a-z\\- ]+(?!.*\\[.*\\]).*$"
                       minLength: 20
+                      not:
+                        pattern: "\\[.*\\]"
                     command_formatting:
                       type: object
                       description: "Formatting standards for multi-line commands"

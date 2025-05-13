@@ -20,6 +20,18 @@ The Azure MCP Server allows you to manage Azure Storage resources, including sto
 
 This section explains how to interact with Azure Storage services using natural language prompts with the Azure MCP Server. You can manage storage accounts, containers, blobs, and tables without having to remember specific command syntax.
 
+### Get container details
+
+The Azure MCP Server can show detailed information about a specific container in a storage account. This includes metadata, access policies, and other properties.
+
+**Example prompts** include:
+
+- **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
+- **Container info**: "Get properties of container 'images' in storage account 'mediafiles'"
+- **Container properties**: "What are the settings for my 'backups' container?"
+- **Container status**: "Check access policy for 'userdata' container"
+- **Container metadata**: "Show me the metadata for the 'logs' container in my storage account"
+
 ### List accounts
 
 The Azure MCP Server can list all storage accounts in a subscription. This provides an overview of your storage infrastructure.
@@ -44,19 +56,7 @@ The Azure MCP Server can list all blob containers in a storage account. This hel
 - **Query containers**: "Show available containers in my storage account"
 - **Check containers**: "Get all blob containers in my 'mediafiles' storage"
 
-### Container details
-
-The Azure MCP Server can show detailed information about a specific container in a storage account. This includes metadata, access policies, and other properties.
-
-**Example prompts** include:
-
-- **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
-- **Container info**: "Get properties of container 'images' in storage account 'mediafiles'"
-- **Container properties**: "What are the settings for my 'backups' container?"
-- **Container status**: "Check access policy for 'userdata' container"
-- **Container metadata**: "Show me the metadata for the 'logs' container in my storage account"
-
-### List blobs
+### List container blobs
 
 The Azure MCP Server can list all blobs in a container. This helps you manage the files stored in your blob storage.
 
@@ -83,6 +83,48 @@ The Azure MCP Server can list all tables in a storage account. This helps you ma
 ## Develop new MCP server for Storage
 
 This section provides detailed information on implementing Azure Storage capabilities in your MCP server. The structured APIs below support operations for managing storage resources through programmatic interfaces.
+
+
+### Get container details
+
+The Azure MCP Server can show detailed information about a specific container in a storage account.
+
+#### Reference
+
+| Name            | Description               |
+|-----------------|--------------------------|
+| azmcp storage blob container details | Get details of a blob container.|
+
+```console
+azmcp storage blob container details \
+    --subscription <SUBSCRIPTION_ID> \
+    --account-name <ACCOUNT_NAME> \
+    --container-name <CONTAINER_NAME>
+```
+
+View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+
+##### Required parameters
+
+`--subscription`: The ID of the subscription containing the storage account.<br>
+`--account-name`: The name of the storage account.<br>
+`--container-name`: The name of the container to get details for.
+
+##### Optional parameters
+
+View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+
+#### Examples
+
+Get details of a specific container in the storage account.
+
+```console
+azmcp storage blob container details \
+    --subscription "my-subscription-id" \
+    --account-name "mystorageaccount" \
+    --container-name "documents"
+```
+
 
 ### List accounts
 
@@ -131,7 +173,7 @@ The Azure MCP Server can list all blob containers in a storage account.
 ```console
 azmcp storage blob container list \
     --subscription <SUBSCRIPTION_ID> \
-    --account-name <STORAGE_ACCOUNT_NAME>
+    --account-name <ACCOUNT_NAME>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -155,47 +197,7 @@ azmcp storage blob container list \
     --account-name "mystorageaccount"
 ```
 
-### Container details
-
-The Azure MCP Server can show detailed information about a specific container in a storage account.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp storage blob container details | Get details of a blob container.|
-
-```console
-azmcp storage blob container details \
-    --subscription <SUBSCRIPTION_ID> \
-    --account-name <STORAGE_ACCOUNT_NAME> \
-    --container-name <CONTAINER_NAME>
-```
-
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the storage account.<br>
-`--account-name`: The name of the storage account.<br>
-`--container-name`: The name of the container to get details for.
-
-##### Optional parameters
-
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-Get details of a specific container in the storage account.
-
-```console
-azmcp storage blob container details \
-    --subscription "my-subscription-id" \
-    --account-name "mystorageaccount" \
-    --container-name "documents"
-```
-
-### List blobs
+### List container blobs
 
 The Azure MCP Server can list all blobs in a container.
 
@@ -208,7 +210,7 @@ The Azure MCP Server can list all blobs in a container.
 ```console
 azmcp storage blob list \
     --subscription <SUBSCRIPTION_ID> \
-    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-name <ACCOUNT_NAME> \
     --container-name <CONTAINER_NAME>
 ```
 
@@ -248,7 +250,7 @@ The Azure MCP Server can list all tables in a storage account.
 ```console
 azmcp storage table list \
     --subscription <SUBSCRIPTION_ID> \
-    --account-name <STORAGE_ACCOUNT_NAME>
+    --account-name <ACCOUNT_NAME>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.

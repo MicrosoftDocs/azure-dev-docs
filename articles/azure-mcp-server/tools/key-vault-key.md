@@ -77,10 +77,8 @@ The Azure MCP Server can create a new key in an Azure Key Vault.
 azmcp keyvault key create \
     --subscription <SUBSCRIPTION_ID> \
     --vault-name <VAULT_NAME> \
-    --name <KEY_NAME> \
-    --kty <KEY_TYPE> \
-    [--size <KEY_SIZE>] \
-    [--curve-name <CURVE_NAME>]
+    --key <KEY_NAME> \
+    --key-type <KEY_TYPE>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -89,13 +87,10 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--subscription`: The ID of the subscription containing the Key Vault.<br>
 `--vault-name`: The name of the Key Vault.<br>
-`--name`: The name of the key to create.<br>
-`--kty`: The type of key to create. Valid values are RSA, RSA-HSM, EC, EC-HSM.
+`--key`: The name of the key to create.<br>
+`--key-type`: The type of key to create. Valid values are RSA, RSA-HSM, EC, EC-HSM.
 
 ##### Optional parameters
-
-`--size`: The key size in bits. For RSA keys, the supported values are 2048, 3072, and 4096.<br>
-`--curve-name`: The curve name for EC keys. Valid values are P-256, P-384, P-521, and P-256K.
 
 View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
 
@@ -107,8 +102,8 @@ Create an RSA key with default 2048-bit size.
 azmcp keyvault key create \
     --subscription "my-subscription-id" \
     --vault-name "mykeyvault" \
-    --name "app-encryption-key" \
-    --kty "RSA"
+    --key "app-encryption-key" \
+    --key-type "RSA"
 ```
 
 Create an EC key with P-256 curve.
@@ -117,9 +112,8 @@ Create an EC key with P-256 curve.
 azmcp keyvault key create \
     --subscription "my-subscription-id" \
     --vault-name "mykeyvault" \
-    --name "signing-key" \
-    --kty "EC" \
-    --curve-name "P-256"
+    --key "signing-key" \
+    --key-type "EC"
 ```
 
 ### Get key
@@ -145,7 +139,9 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Required parameters
 
---subscription: The ID of the subscription containing the Key Vault.<br> --vault-name: The name of the Key Vault.<br> --name: The name of the key to retrieve.
+--subscription: The ID of the subscription containing the Key Vault.<br> 
+--vault: The name of the Key Vault.<br> 
+--key: The name of the key to retrieve.
 
 ##### Optional parameters
 
@@ -158,8 +154,8 @@ Get the latest version of a key from the specified Key Vault.
 ```console
 azmcp keyvault key get \
     --subscription "my-subscription-id" \
-    --vault-name "mykeyvault" \
-    --name "app-encryption-key"
+    --vault "mykeyvault" \
+    --key "app-encryption-key"
 ```
 
 Get a specific version of a key.
@@ -167,9 +163,8 @@ Get a specific version of a key.
 ```console
 azmcp keyvault key get \
     --subscription "my-subscription-id" \
-    --vault-name "mykeyvault" \
-    --name "app-encryption-key" \
-    --version "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+    --vault "mykeyvault" \
+    --key "app-encryption-key"
 ```
 
 ### List keys

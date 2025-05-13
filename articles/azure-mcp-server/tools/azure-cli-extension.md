@@ -81,26 +81,26 @@ Get storage account details with [storage account show](/cli/azure/storage/accou
 
 ```console
 azmcp extension az \
-    --command "storage account show --name <ACCOUNT-NAME> --resource-group <RESOURCE-GROUP>"
+    --command "storage account show --name my-dev-account --resource-group my-resource group"
 ```
 
 List virtual machines with [vm list](/cli/azure/vm#az-vm-list).
 
 ```console
 azmcp extension az \
-    --command "vm list --resource-group <RESOURCE-GROUP>"
+    --command "vm list --resource-group my-resource group"
 ```
 
 Create a new resource group with [group create](/cli/azure/group#az-group-create).
 
 ```console
 azmcp extension az \
-    --command "group create --name <RESOURCE-GROUP> --location <LOCATION>"
+    --command "group create --name my-resource group --location eastus"
 ```
 
 Stop a virtual machine with [vm stop](/cli/azure/vm#az-vm-stop).
 
 ```console
 azmcp extension az \
-    --command "vm stop --name <VM-NAME> --resource-group <RESOURCE-GROUP>"
+    --command "vm stop --name my-vm --resource-group my-resource group"
 ```

@@ -108,8 +108,7 @@ The Azure MCP Server can list all tables in a Log Analytics workspace.
 azmcp monitor table list \
     --subscription <SUBSCRIPTION_ID> \
     --workspace <WORKSPACE_NAME> \
-    --resource-group <RESOURCE_GROUP> \
-    --table-type <TABLE_TYPE>
+    --resource-group <RESOURCE_GROUP>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -119,7 +118,6 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 `--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
 `--workspace`: The name of the Log Analytics workspace.<br>
 `--resource-group`: The name of the resource group containing the workspace.<br>
-`--table-type`: The type of tables to list (e.g., 'CustomLog', 'AzureMetrics').
 
 ##### Optional parameters
 
@@ -133,8 +131,7 @@ List all custom log tables in the specified Log Analytics workspace.
 azmcp monitor table list \
     --subscription "my-subscription-id" \
     --workspace "centralmonitoring" \
-    --resource-group "monitoring-rg" \
-    --table-type "CustomLog"
+    --resource-group "monitoring-rg"
 ```
 
 ### Query logs
@@ -151,9 +148,8 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 azmcp monitor log query \
     --subscription <SUBSCRIPTION_ID> \
     --workspace <WORKSPACE_NAME> \
-    --resource-group <RESOURCE_GROUP> \
     --table-name <TABLE_NAME> \
-    --query <QUERY> \
+    --query <KQL_QUERY> \
     [--hours <HOURS>] \
     [--limit <LIMIT>]
 ```
@@ -164,7 +160,6 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--subscription`: The ID of the subscription containing the Log Analytics workspace.<br>
 `--workspace`: The name of the Log Analytics workspace.<br>
-`--resource-group`: The name of the resource group containing the workspace.<br>
 `--table-name`: The name of the table to query.<br>
 `--query`: The KQL query to execute.
 
@@ -183,7 +178,6 @@ Execute a simple query to retrieve recent logs.
 azmcp monitor log query \
     --subscription "my-subscription-id" \
     --workspace "centralmonitoring" \
-    --resource-group "monitoring-rg" \
     --table-name "AppEvents" \
     --query "recent"
 ```
@@ -194,7 +188,6 @@ Execute a custom query to find errors in the last hour.
 azmcp monitor log query \
     --subscription "my-subscription-id" \
     --workspace "centralmonitoring" \
-    --resource-group "monitoring-rg" \
     --table-name "AppEvents" \
     --query "where TimeGenerated > ago(1h) and Level == 'Error'" \
     --hours 1 \
