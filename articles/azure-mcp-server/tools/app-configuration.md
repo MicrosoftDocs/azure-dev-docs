@@ -117,12 +117,6 @@ This section provides guidance for extending an MCP server with Azure App Config
 
 The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig kv delete | Delete a key-value setting from an App Configuration store.|
-
 ```console
 azmcp appconfig kv delete \
     --subscription <SUBSCRIPTION_ID> \
@@ -169,12 +163,6 @@ azmcp appconfig kv delete \
 ### List key-value settings
 
 The Azure MCP Server can list all [key-value settings](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. This allows you to view your application settings and their values in one place.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig kv list | List key-value settings in an App Configuration store.|
 
 ```console
 azmcp appconfig kv list \
@@ -229,12 +217,6 @@ azmcp appconfig kv list \
 
 The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig account list | List App Configuration stores in a subscription.|
-
 ```console
 azmcp appconfig account list \
     --subscription <SUBSCRIPTION_ID>
@@ -263,12 +245,6 @@ azmcp appconfig account list \
 ### Lock key-value setting
 
 The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig kv lock | Lock a key-value setting in an App Configuration store.|
 
 ```console
 azmcp appconfig kv lock \
@@ -317,13 +293,6 @@ azmcp appconfig kv lock \
 ### Set key-value setting
 
 The Azure MCP Server can create or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store.
-
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig kv set | Create or update a key-value setting in an App Configuration store.|
 
 ```console
 azmcp appconfig kv set \
@@ -378,12 +347,6 @@ azmcp appconfig kv set \
 
 The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. This is useful for checking the current value of a particular setting.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig kv show | Show a specific key-value setting in an App Configuration store.|
-
 ```console
 azmcp appconfig kv show \
     --subscription <SUBSCRIPTION_ID> \
@@ -431,12 +394,6 @@ azmcp appconfig kv show \
 ### Unlock key-value setting
 
 The Azure MCP Server can unlock a previously locked [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it editable again.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp appconfig kv unlock | Unlock a key-value setting in an App Configuration store.|
 
 ```console
 azmcp appconfig kv unlock \

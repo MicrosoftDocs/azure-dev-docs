@@ -89,12 +89,6 @@ This section provides detailed information on implementing Azure Storage capabil
 
 The Azure MCP Server can show detailed information about a specific container in a storage account.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp storage blob container details | Get details of a blob container.|
-
 ```console
 azmcp storage blob container details \
     --subscription <SUBSCRIPTION_ID> \
@@ -130,12 +124,6 @@ azmcp storage blob container details \
 
 The Azure MCP Server can list all storage accounts in a subscription.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp storage account list | List storage accounts in a subscription.|
-
 ```console
 azmcp storage account list \
     --subscription <SUBSCRIPTION_ID>
@@ -163,12 +151,6 @@ azmcp storage account list \
 ### List containers
 
 The Azure MCP Server can list all blob containers in a storage account.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp storage blob container list | List blob containers in a storage account.|
 
 ```console
 azmcp storage blob container list \
@@ -200,12 +182,6 @@ azmcp storage blob container list \
 ### List container blobs
 
 The Azure MCP Server can list all blobs in a container.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp storage blob list | List blobs in a container.|
 
 ```console
 azmcp storage blob list \
@@ -240,12 +216,6 @@ azmcp storage blob list \
 ### List tables
 
 The Azure MCP Server can list all tables in a storage account.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp storage table list | List tables in a storage account.|
 
 ```console
 azmcp storage table list \

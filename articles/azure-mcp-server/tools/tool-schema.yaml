@@ -197,7 +197,7 @@ schema:
             required:
               - name
               - description
-              - reference
+              - command_syntax
               - required_parameters
               - optional_parameters
               - examples
@@ -213,7 +213,7 @@ schema:
                 minLength: 20
               commandBase:
                 type: string
-                description: "Base command for the tool - must be identical across table entry, command syntax, and examples"
+                description: "Base command for the tool - must be identical across command syntax and examples"
                 pattern: "^azmcp [a-z\\- ]+$"
                 minLength: 10
               command_consistency:
@@ -225,47 +225,19 @@ schema:
                   validation_rule:
                     type: string
                     description: "Rule enforcing command consistency"
-                    enum: ["The same base command must be used in the table entry, command syntax example with placeholders, and all examples with real values"]
+                    enum: ["The same base command must be used in the command syntax example with placeholders, and all examples with real values"]
                   error_message:
                     type: string
-                    enum: ["Command inconsistency detected. The base command in the table, command syntax, and examples must be identical."]
-              reference:
-                type: object
-                description: "Reference table containing command details"
-                required:
-                  - table
-                  - command_syntax
-                  - json_output_reference
-                properties:
-                  table:
-                    type: object
-                    description: "Table showing command name and description"
-                    properties:
-                      headers:
-                        type: array
-                        items:
-                          type: string
-                        enum: [["Name", "Description"]]
-                      rows:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            name:
-                              type: string
-                              pattern: "^azmcp [a-z\\- ]+"
-                            description:
-                              type: string
-                              maxLength: 100
-                  command_syntax:
-                    type: string
-                    description: "Command syntax with ALL_CAPS parameter placeholders"
-                    pattern: "^```console\nazmcp [a-z\\- ]+"
-                    minLength: 20
-                  json_output_reference:
-                    type: string
-                    description: "Reference to structured JSON output format"
-                    enum: ["View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools."]
+                    enum: ["Command inconsistency detected. The base command in the command syntax and examples must be identical."]
+              command_syntax:
+                type: string
+                description: "Command syntax with ALL_CAPS parameter placeholders"
+                pattern: "^```console\nazmcp [a-z\\- ]+"
+                minLength: 20
+              json_output_reference:
+                type: string
+                description: "Reference to structured JSON output format"
+                enum: ["View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools."]
               required_parameters:
                 type: object
                 description: "Section listing required parameters"

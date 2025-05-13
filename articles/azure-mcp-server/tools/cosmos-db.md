@@ -76,13 +76,6 @@ This section outlines the implementation details for adding Azure Cosmos DB capa
 
 The Azure MCP Server can list all Cosmos DB accounts in a subscription. This provides a quick overview of your Cosmos DB resources.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp cosmos account list | List Cosmos DB accounts in a subscription.|
-
-
 ```console
 azmcp cosmos account list \
     --subscription <SUBSCRIPTION_ID>
@@ -110,12 +103,6 @@ azmcp cosmos account list \
 ### List databases
 
 The Azure MCP Server can list all databases in a Cosmos DB account.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp cosmos database list | List databases in a Cosmos DB account.|
 
 ```console
 azmcp cosmos database list \
@@ -149,12 +136,6 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 ### List containers
 
 The Azure MCP Server can list all containers in a Cosmos DB database.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp cosmos database container list | List containers in a Cosmos DB database.|
 
 ```console
 azmcp cosmos database container list \
@@ -191,13 +172,6 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 ### Query items
 
 The Azure MCP Server can execute [queries](/azure/cosmos-db/nosql/query/) against items in a Cosmos DB container.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp cosmos database container item query | Query items in a Cosmos DB container.|
-
 
 ```console
 azmcp cosmos database container item query \

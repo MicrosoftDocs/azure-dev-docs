@@ -88,12 +88,6 @@ This section provides implementation details for adding Azure Service Bus capabi
 
 The Azure MCP Server can retrieve runtime and details about a Service Bus queue.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus queue details | Get details about a Service Bus queue.|
-
 ```console
 azmcp servicebus queue details \
     --subscription <SUBSCRIPTION_ID> \
@@ -128,12 +122,6 @@ azmcp servicebus queue details \
 
 The Azure MCP Server can retrieve details about a Service Bus topic.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus topic details | Get details about a Service Bus topic.|
-
 ```console
 azmcp servicebus topic details \
     --subscription <SUBSCRIPTION_ID> \
@@ -167,12 +155,6 @@ azmcp servicebus topic details \
 ### Get topic subscription runtime details
 
 The Azure MCP Server can retrieve details about a subscription within a Service Bus topic.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus topic subscription details | Get details about a subscription in a Service Bus topic.|
 
 ```console
 azmcp servicebus topic subscription details \
@@ -210,12 +192,6 @@ azmcp servicebus topic subscription details \
 ### Peek at queue messages
 
 The Azure MCP Server can peek at messages in a Service Bus queue without removing them.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus queue peek | Peek at messages in a Service Bus queue.|
 
 ```console
 azmcp servicebus queue peek \
@@ -263,12 +239,6 @@ azmcp servicebus queue peek \
 ### Peek at topic subscription messages
 
 The Azure MCP Server can peek at messages in a subscription within a Service Bus topic without removing them.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp servicebus topic subscription peek | Peek at messages in a Service Bus topic subscription.|
 
 ```console
 azmcp servicebus topic subscription peek \

@@ -41,12 +41,6 @@ This section provides implementation details for adding Azure Resource Group man
 
 The Azure MCP Server can list all resource groups in a subscription.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp group list | List resource groups in a subscription.|
-
 ```console
 azmcp group list \
     --subscription <SUBSCRIPTION_ID>

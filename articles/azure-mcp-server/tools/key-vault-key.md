@@ -67,12 +67,6 @@ This section provides guidance for implementing Azure Key Vault capabilities in 
 
 The Azure MCP Server can create a new key in an Azure Key Vault.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp keyvault key create | Create a key in a Key Vault.|
-
 ```console
 azmcp keyvault key create \
     --subscription <SUBSCRIPTION_ID> \
@@ -120,14 +114,6 @@ azmcp keyvault key create \
 
 The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
 
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp keyvault key get | Get details of a key from a Key Vault.|
-
-
 ```console
 azmcp keyvault key get \
     --subscription <SUBSCRIPTION_ID> \
@@ -170,12 +156,6 @@ azmcp keyvault key get \
 ### List keys
 
 The Azure MCP Server can list all keys in an Azure Key Vault.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp keyvault key list | List keys in a Key Vault.|
 
 ```console
 azmcp keyvault key list \

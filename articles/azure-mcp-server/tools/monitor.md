@@ -64,12 +64,6 @@ This section provides implementation details for adding Azure Monitor capabiliti
 
 The Azure MCP Server can list all Log Analytics workspaces in a subscription.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp monitor workspace list | List Log Analytics workspaces in a subscription.|
-
 ```console
 azmcp monitor workspace list \
     --subscription <SUBSCRIPTION_ID>
@@ -97,12 +91,6 @@ azmcp monitor workspace list \
 ### List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp monitor table list | List tables in a Log Analytics workspace.|
 
 ```console
 azmcp monitor table list \
@@ -137,12 +125,6 @@ azmcp monitor table list \
 ### Query logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace.
-
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp monitor log query | Query a Log Analytics workspace.|
 
 ```console
 azmcp monitor log query \

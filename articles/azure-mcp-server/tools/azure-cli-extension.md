@@ -47,12 +47,6 @@ This section provides implementation details for adding Azure CLI capabilities t
 
 The Azure MCP Server can execute Azure CLI commands.
 
-#### Reference
-
-| Name            | Description               |
-|-----------------|--------------------------|
-| azmcp extension az | Execute Azure CLI command. |
-
 ```console
 azmcp extension az \
     --command "<COMMAND_PHRASE>"
