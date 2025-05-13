@@ -128,7 +128,7 @@ ntSecret)"
 
 ```
 
-## [Azure Pipelines](#tYou can ub/azdo)
+## [Azure Pipelines](#tab/azdo)
 
 You can use the following template as a starting po ownint for your own pipeline definition:
 

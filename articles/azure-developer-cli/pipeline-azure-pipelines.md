@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Configure CI/CD with Azure Pipelines using the Azure Developer CLI
+# Create an Azure DevOps CI/CD pipeline using the Azure Developer CLI
 
-This article shows how to use the Azure Developer CLI (`azd`) to create a CI/CD pipeline with Azure Pipelines for an `azd` template. The pipeline enables you to push updates to a code repository and have your changes automatically provisioned and deployed to your Azure environment.
+This article shows how to use the Azure Developer CLI (`azd`) to create a CI/CD pipeline with Azure DevOps Pipelines (Azure Pipelines) for an `azd` template. The pipeline enables you to push updates to a code repository and have your changes automatically provisioned and deployed to your Azure environment.
 
 > [!NOTE]
 > The `azd pipeline config` command is in beta. For details, see the [feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning).

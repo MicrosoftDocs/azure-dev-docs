@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Create GitHub Actions CI/CD pipeline using the Azure Developer CLI
+# Create a GitHub Actions CI/CD pipeline using the Azure Developer CLI
 
 In this article, you'll learn how to use the Azure Developer CLI (`azd`) to create a GitHub Actions CI/CD pipeline for an `azd` template. This pipeline enables you to push template updates to a code repository and have your changes automatically provisioned and deployed to your Azure environment.
 
