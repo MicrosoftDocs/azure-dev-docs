@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Quickstart: Create a new API project with TypeSpec
+title: "Quickstart: Create a new API project with TypeSpec"
 description: Learn how to generate and set up a new RESTful API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
 ms.date: 04/30/2025
