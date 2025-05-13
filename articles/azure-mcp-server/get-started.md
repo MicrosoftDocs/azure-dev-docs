@@ -36,5 +36,4 @@ The Model Context Protocol (MCP) is an open protocol designed to standardize int
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure MCP Server overview](overview.md)
-> [Azure MCP Server tools](commands/use-tools.md)
+> [Learn more about Azure MCP Server tools](tools/get-started.md)
