@@ -109,14 +109,15 @@ cd my_typespec_quickstart
     tsp compile .
     ```
     
-1. The default project is generated at `./tsp-output` into two separate folders:
+1. TypeSpec generates the default project in `./tsp-output`, creating two separate folders:
 
     * schema
     * server
 
 1. Open the `./tsp-output/schema/openapi.yaml` file. Notice that the few lines in `./main.tsp` generated over 200 lines of OpenApi specification for you. 
 
-1. Open the `./tsp-output/server/aspnet` folder. Notice there are standard .NET files generated for you. This quick scaffolding allows you to use the generated middleware in an existing API Server.
+1. Open the `./tsp-output/server/aspnet` folder. Notice that the scaffolded .NET files include:
+1. This quick scaffolding generates middleware that you can integrate into an existing API server.
 
     * `./generated/operations/IWidgets.cs` defines the interface for the Widgets methods.
     * `./generated/controllers/WidgetsController.cs` implements the integration to the Widgets methods.
@@ -181,7 +182,7 @@ Use the TypeSpec files to configure the API server generation.
     
     :::image type="content" source="./media/quickstart-scaffold/default-widget-swagger-ui.png" alt-text="A screenshot showing the Swagger UI with the Widgets API." lightbox="./media/quickstart-scaffold/default-widget-swagger-ui.png":::
     
-1. The default TypeSpec API and server are both working.
+1. The default TypeSpec API and server both work.
 
 ## Application file structure
 
@@ -774,7 +775,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
       provider: github
     ```
 
-    Notice that the location of the generated project, `./server`, is referenced here. The location in the `./tspconfig.yaml` must match the location in the `./azure.yaml`.
+    Notice that this configuration references the generated project location (`./server`). Ensure that `./tspconfig.yaml` matches the location specified in `./azure.yaml`.
 
 1. At the root of the TypeSpec project, create an `./infra` directory.
 1. Create a `./infra/main.bicepparam` file and copy in the following to define the parameters we need for deployment:
@@ -787,7 +788,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     param deploymentUserPrincipalId = readEnvironmentVariable('AZURE_PRINCIPAL_ID', '')
     ```
 
-    This param list is the minimum needed for this deployment.
+    This param list provides the minimum parameters needed for this deployment.
 
 1. Create a `./infra/main.bicep` file and copy in the following to define the Azure resources for provisioning and deployment:
 
@@ -997,7 +998,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     output AZURE_CONTAINER_REGISTRY_USERNAME string = containerRegistry.outputs.location
     ```
 
-1. Notice that the serviceName variable set to `api` at the top of the file is used in the containerAppsApp tag and the  `api` in the `./azure.yaml`. This connection is how Azure Developer CLI knows where to deploy the .NET project with the Azure Container apps hosting resource. 
+1. The containerAppsApp tag uses the serviceName variable (set to `api` at the top of the file) and the `api` specified in `./azure.yaml`. This connection tells the Azure Developer CLI where to deploy the .NET project to the Azure Container Apps hosting resource.
 
     ```bicep
     ...bicep...
