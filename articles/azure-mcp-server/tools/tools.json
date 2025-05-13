@@ -1,0 +1,71 @@
+{
+    "azure-app-configuration": {
+        "root": "azmcp appconfig", 
+        "tools": [
+            "account list",
+            "kv list",
+            "kv show",
+            "kv set",
+            "kv lock",
+            "kv unlock",
+            "kv delete"
+        ]
+    },
+    "azure-cli-extension": {
+        "root": "azmcp extension",
+        "tools": [
+            "az"
+        ]
+    },
+    "azure-cosmos-db": {
+        "root": "azmcp cosmos",
+        "tools": [
+            "account list",
+            "database list",
+            "database container list",
+            "database container item query"
+        ]
+    },
+    "azure-key-vault": {
+        "root": "azmcp keyvault",
+        "tools": [
+            "key list",
+            "key get",
+            "key create"
+        ]
+    },
+    "azure-monitor": {
+        "root": "azmcp monitor",
+        "tools": [
+            "workspace list",
+            "table list",
+            "log query"
+        ]
+    },
+    "azure-resource-group": {
+        "root": "azmcp group",
+        "tools": [
+            "list"
+        ]
+    },
+    "azure-service-bus": {
+        "root": "azmcp servicebus",
+        "tools": [
+            "queue peek",
+            "queue details",
+            "topic details",
+            "topic subscription peek",
+            "topic subscription details"
+        ]
+    },
+    "azure-storage": {
+        "root": "azmcp storage",
+        "tools": [
+            "account list",
+            "table list",
+            "blob list",
+            "blob container list",
+            "blob container details"
+        ]
+    }
+}

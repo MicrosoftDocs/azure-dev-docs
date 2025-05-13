@@ -1,0 +1,346 @@
+# Azure MCP Server Tool Documentation Schema
+schema:
+  type: object
+  description: "Schema for Azure MCP Server tool documentation. Operations must follow verb-noun naming convention (e.g., 'List resources', 'Create account') and must be listed in alphabetical order."
+  required:
+    - metadata
+    - title
+    - introduction
+    - existing_server_usage
+    - new_server_development
+  properties:
+    metadata:
+      type: object
+      description: "YAML front matter with document metadata"
+      required:
+        - title
+        - description
+        - keywords
+        - author
+        - ms.author
+        - ms.date
+        - ms.topic
+        - ms.custom
+      properties:
+        title:
+          type: string
+          description: "Title of the document"
+        description:
+          type: string
+          description: "Brief description of the tool's purpose"
+        keywords:
+          type: string
+          description: "Comma-separated keywords for search"
+        author:
+          type: string
+          description: "Document author"
+        ms.author:
+          type: string
+          description: "Microsoft alias of the author"
+        ms.date:
+          type: string
+          format: date
+          description: "Publication/update date in M/D/YYYY format"
+        ms.topic:
+          type: string
+          enum: ["reference"]
+          description: "Document type (should be 'reference' for tools)"
+        ms.custom:
+          type: string
+          description: "Custom metadata field"
+
+    title:
+      type: string
+      description: "H1 heading for the document"
+      pattern: "^[A-Za-z0-9 ]+ tools for the Azure MCP Server$"
+      minLength: 10
+    
+    introduction:
+      type: object
+      description: "Introductory paragraph explaining the tool"
+      required:
+        - overview
+        - service_description
+        - parameter_note
+      properties:
+        overview:
+          type: string
+          description: "Brief overview of what the tool does"
+          minLength: 20
+        service_description:
+          type: string
+          description: "Description of the Azure service with link to official documentation"
+          pattern: "^\\[Azure [A-Za-z0-9 ]+\\]\\(/azure/[a-z\\-]+/[a-z\\-]+\\) (is|provides) a .+\\.$"
+          minLength: 30
+        parameter_note:
+          type: string
+          description: "Include reference to parameter considerations"
+          pattern: "^\\[!INCLUDE \\[tip-about-params\\]\\(../includes/tools/parameter-consideration.md\\)\\]$"
+
+    existing_server_usage:
+      type: object
+      description: "Section describing how to use an existing MCP server with the tool"
+      pattern: "^### ([A-Z][a-z]+ [a-z][a-z0-9 -]*)$"
+      examples: ["### List keys", "### Create account", "### Delete resource"]
+      required:
+        - title
+        - tools
+        - section_content
+      properties:
+        title:
+          type: string
+          description: "Section title"
+          pattern: "^## Use existing MCP server for [A-Za-z0-9 ]+$"
+          minLength: 10
+        section_content:
+          type: string
+          description: "Required introductory text for the section, must not be empty"
+          minLength: 20
+        tools:
+          type: array
+          description: "List of tools that can be performed"
+          minItems: 1
+          orderBy: 
+            property: "name"
+            direction: "ascending"
+          items:
+            type: object
+            required:
+              - name
+              - description
+              - example_prompts
+            properties:
+              name:
+                type: string
+                description: "Name of the tool"
+                pattern: "^### [A-Za-z0-9 ]+$"
+                minLength: 5
+              description:
+                type: string
+                description: "Description of what the tool does"
+                minLength: 20
+              example_prompts:
+                type: object
+                description: "Example prompts section with a list of examples"
+                required:
+                  - title
+                  - examples
+                properties:
+                  title:
+                    type: string
+                    enum: ["**Example prompts** include:"]
+                    description: "Standardized title for the example prompts section"
+                  examples:
+                    type: array
+                    description: "Collection of example prompts demonstrating how users can interact with the tool"
+                    minItems: 3
+                    maxItems: 5
+                    items:
+                      type: object
+                      required:
+                        - prompt_type
+                        - prompt_text
+                      properties:
+                        prompt_type:
+                          type: string
+                          description: "Bold text describing the prompt type (e.g., '**List resources**', '**Query data**')"
+                          pattern: "^\\*\\*[A-Za-z0-9 -]+\\*\\*$"
+                        prompt_text:
+                          type: string
+                          description: "The example prompt text in quotes showing how a user might phrase their request"
+                          pattern: "^\".+\"$"
+                        prompt_style:
+                          type: string
+                          enum: ["question", "statement", "incomplete_phrase"]
+                          description: "The grammatical style of the prompt"
+                  presentation:
+                    type: object
+                    description: "Guidance on how example prompts should be presented"
+                    properties:
+                      format:
+                        type: string
+                        enum: ["bullet-list"]
+                        description: "Format for presenting example prompts (should be a bullet list)"
+                      style:
+                        type: string
+                        description: "Style guidance for prompts"
+                        enum: ["Each prompt should be on a new line prefixed with '- ', with the prompt type in bold and the example text in quotes"]
+
+    new_server_development:
+      type: object
+      description: "Section describing how to develop a new MCP server with the tool"
+      pattern: "^### ([A-Z][a-z]+ [a-z][a-z0-9 -]*)$"
+      examples: ["### List keys", "### Create account", "### Delete resource"]
+      required:
+        - title
+        - tools
+        - section_content
+      properties:
+        title:
+          type: string
+          description: "Section title"
+          pattern: "^## Develop new MCP server for [A-Za-z0-9 ]+$"
+          minLength: 10
+        section_content:
+          type: string
+          description: "Required introductory text for the section, must not be empty"
+          minLength: 20
+        tools:
+          type: array
+          description: "List of tools that can be developed"
+          minItems: 1
+          orderBy: 
+            property: "name"
+            direction: "ascending"
+          items:
+            type: object
+            required:
+              - name
+              - description
+              - command_syntax
+              - required_parameters
+              - optional_parameters
+              - examples
+            properties:
+              name:
+                type: string
+                description: "Name of the tool"
+                pattern: "^### [A-Za-z0-9 ]+$"
+                minLength: 5
+              description:
+                type: string
+                description: "Description of what the tool does"
+                minLength: 20
+              commandBase:
+                type: string
+                description: "Base command for the tool - must be identical across command syntax and examples"
+                pattern: "^azmcp [a-z\\- ]+$"
+                minLength: 10
+              command_consistency:
+                type: object
+                description: "Validation to ensure command consistency across all sections"
+                required:
+                  - validation_rule 
+                properties:
+                  validation_rule:
+                    type: string
+                    description: "Rule enforcing command consistency"
+                    enum: ["The same base command must be used in the command syntax example with placeholders, and all examples with real values"]
+                  error_message:
+                    type: string
+                    enum: ["Command inconsistency detected. The base command in the command syntax and examples must be identical."]
+              command_syntax:
+                type: string
+                description: "Command syntax with ALL_CAPS parameter placeholders"
+                pattern: "^```console\nazmcp [a-z\\- ]+"
+                minLength: 20
+              json_output_reference:
+                type: string
+                description: "Reference to structured JSON output format"
+                enum: ["View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools."]
+              required_parameters:
+                type: object
+                description: "Section listing required parameters"
+                properties:
+                  title:
+                    type: string
+                    description: "Required parameters section title"
+                    enum: ["##### Required parameters"]
+                  parameters:
+                    type: array
+                    minItems: 1
+                    items:
+                      type: object
+                      required:
+                        - name
+                        - description
+                      properties:
+                        name:
+                          type: string
+                          pattern: "^`--[a-z-]+`$"
+                        description:
+                          type: string
+                          pattern: "^- [A-Za-z0-9 \\.,\\-]+(<br>)?$"
+                          minLength: 5
+                    additionalProperties:
+                      format_rule:
+                        type: object
+                        description: "Rule for formatting the <br> tags"
+                        properties:
+                          rule_description:
+                            type: string
+                            enum: ["All items except the last one must end with <br>"]
+              optional_parameters:
+                type: object
+                description: "Section listing optional parameters"
+                properties:
+                  title:
+                    type: string
+                    description: "Optional parameters section title"
+                    enum: ["##### Optional parameters"]
+                  parameters:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - name
+                        - description
+                      properties:
+                        name:
+                          type: string
+                          pattern: "^`--[a-z-]+`$"
+                        description:
+                          type: string
+                          pattern: "^- [A-Za-z0-9 \\.,\\-]+(<br>)?$"
+                          minLength: 5
+                    additionalProperties:
+                      format_rule:
+                        type: object
+                        description: "Rule for formatting the <br> tags"
+                        properties:
+                          rule_description:
+                            type: string
+                            enum: ["All items except the last one must end with <br>"]
+                  common_parameters_reference:
+                    type: string
+                    description: "Link to common optional parameters"
+                    enum: ["View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools."]
+              examples:
+                type: array
+                description: "Examples of using the command"
+                minItems: 1
+                properties:
+                  title:
+                    type: string
+                    description: "Examples section title"
+                    enum: ["#### Examples"]
+                items:
+                  type: object
+                  required:
+                    - description
+                    - command
+                  properties:
+                    description:
+                      type: string
+                      description: "Description of what the example does"
+                      minLength: 10
+                    command:
+                      type: string
+                      description: "Example command with real values instead of parameters"
+                      pattern: "^```console\nazmcp [a-z\\- ]+(?!.*\\[.*\\]).*$"
+                      minLength: 20
+                      not:
+                        pattern: "\\[.*\\]"
+                    command_formatting:
+                      type: object
+                      description: "Formatting standards for multi-line commands"
+                      properties:
+                        line_continuation:
+                          type: string
+                          enum: [" \\"]
+                        parameter_indentation:
+                          type: integer
+                          enum: [4]
+                        parameter_placement:
+                          type: string
+                          enum: ["one-per-line"]
