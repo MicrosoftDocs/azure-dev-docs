@@ -120,7 +120,9 @@
         "javascript/ai/**/*.md": "ms-johnalex",
         "javascript/ai/**/*.yml": "ms-johnalex",
         "python/ai/**/*.md": "ms-johnalex",
-        "python/ai/**/*.yml": "ms-johnalex"
+        "python/ai/**/*.yml": "ms-johnalex",
+        "azure-mcp-server/**/*.md": "ms-johnalex",
+        "azure-mcp-server/**/*.yml": "ms-johnalex"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -160,7 +162,9 @@
         "javascript/ai/**/*.md": "johalexander",
         "javascript/ai/**/*.yml": "johalexander",
         "python/ai/**/*.md": "johalexander",
-        "python/ai/**/*.yml": "johalexander"
+        "python/ai/**/*.yml": "johalexander",
+        "azure-mcp-server/**/*.md": "johalexander",
+        "azure-mcp-server/**/*.yml": "johalexander"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -211,11 +215,19 @@
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
         "javascript/**/*.md": "JavaScript on Azure",
+        "javascript/**/*.yml": "JavaScript on Azure",
         "python/**/*.md": "Python on Azure",
+        "python/**/*.yml": "Python on Azure",
         "java/**/*.md": "Java on Azure",
+        "java/**/*.yml": "Java on Azure",
         "go/**/*.md": "Go on Azure",
+        "go/**/*.yml": "Go on Azure",
         "github-copilot-azure/**/*.md": "GitHub Copilot for Azure",
-        "typespec/**/*.md": "TypeSpec"
+        "github-copilot-azure/**/*.yml": "GitHub Copilot for Azure",
+        "typespec/**/*.md": "TypeSpec",
+        "typespec/**/*.yml": "TypeSpec",
+        "azure-mcp-server/**/*.md": "Azure MCP Server",
+        "azure-mcp-server/**/*.yml": "Azure MCP Server"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
@@ -228,18 +240,15 @@
       "ms.topic": {
         "**/includes/**/*.md": "include"
       },
-      "ms.custom": {
-        "**/ai/**/*.md": "build-2024-intelligent-apps",
-        "**/ai/**/*.yml": "build-2024-intelligent-apps"
-
-      },
       "ms.collection": {
         "**/ai/**/*.md": "ce-skilling-ai-copilot",
         "**/ai/**/*.yml": "ce-skilling-ai-copilot",
         "**/azure-mcp-server/**/*.md": "ce-skilling-ai-copilot",
         "**/azure-mcp-server/**/*.yml": "ce-skilling-ai-copilot",
         "**java/ai/**/*.md": "ce-skilling-ai-copilot",
-        "**java/ai/**/*.yml": "ce-skilling-ai-copilot"
+        "**java/ai/**/*.yml": "ce-skilling-ai-copilot",
+        "**javascript/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**javascript/ai/**/*.yml": "ce-skilling-ai-copilot"
       },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"
