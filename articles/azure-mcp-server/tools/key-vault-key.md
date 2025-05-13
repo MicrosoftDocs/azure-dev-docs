@@ -76,7 +76,7 @@ The Azure MCP Server can create a new key in an Azure Key Vault.
 ```console
 azmcp keyvault key create \
     --subscription <SUBSCRIPTION_ID> \
-    --vault-name <VAULT_NAME> \
+    --vault <VAULT_NAME> \
     --key <KEY_NAME> \
     --key-type <KEY_TYPE>
 ```
@@ -86,7 +86,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Key Vault.<br>
-`--vault-name`: The name of the Key Vault.<br>
+`--vault`: The name of the Key Vault.<br>
 `--key`: The name of the key to create.<br>
 `--key-type`: The type of key to create. Valid values are RSA, RSA-HSM, EC, EC-HSM.
 
@@ -101,7 +101,7 @@ Create an RSA key with default 2048-bit size.
 ```console
 azmcp keyvault key create \
     --subscription "my-subscription-id" \
-    --vault-name "mykeyvault" \
+    --vault "mykeyvault" \
     --key "app-encryption-key" \
     --key-type "RSA"
 ```
@@ -111,7 +111,7 @@ Create an EC key with P-256 curve.
 ```console
 azmcp keyvault key create \
     --subscription "my-subscription-id" \
-    --vault-name "mykeyvault" \
+    --vault "mykeyvault" \
     --key "signing-key" \
     --key-type "EC"
 ```
@@ -180,7 +180,7 @@ The Azure MCP Server can list all keys in an Azure Key Vault.
 ```console
 azmcp keyvault key list \
     --subscription <SUBSCRIPTION_ID> \
-    --vault-name <VAULT_NAME>
+    --vault <VAULT_NAME>
 ```
 
 View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
@@ -188,7 +188,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 ##### Required parameters
 
 `--subscription`: The ID of the subscription containing the Key Vault.<br>
-`--vault-name`: The name of the Key Vault.
+`--vault`: The name of the Key Vault.
 
 ##### Optional parameters
 
@@ -201,5 +201,5 @@ List all keys in the specified Key Vault.
 ```console
 azmcp keyvault key list \
     --subscription "my-subscription-id" \
-    --vault-name "mykeyvault"
+    --vault "mykeyvault"
 ```
