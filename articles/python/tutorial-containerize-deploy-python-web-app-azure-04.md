@@ -11,7 +11,7 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 In this part of the tutorial series, you learn how to deploy a containerized Python web application to Azure App Service using the [App Service Web App for Containers](/azure/app-service/containers/). This service lets you focus on building and managing your containers without the complexity of maintaining a container orchestrator. With App Service, you can run containerized web apps and streamline deployment using continuous integration/continuous deployment (CI/CD) with Docker Hub, Azure Container Registry, and Visual Studio Team Services. This article is part 4 of a 5-part tutorial series.
 
-By the end of this article, you'll have a fully deployed App Service website running on a Docker container image. App Service uses managed identity to authenticate with Azure Container Registry and retrieve the initial image.
+By the end of this article, you'll have a fully deployed App Service web site running on a Docker container image. App Service uses managed identity to authenticate with Azure Container Registry and retrieve the initial image. App Service uses managed identity to retrieve connection string information for CosmosDB for MongdoDB and the secret key for the Django web app from Azure Key Vault.
 
 This service diagram highlights the components covered in this article.
 
@@ -19,7 +19,7 @@ This service diagram highlights the components covered in this article.
 
 ### [Azure CLI](#tab/azure-cli)
 
-## Create the web app
+## Create the app service plan and web app
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
@@ -32,46 +32,13 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 > * There's no need to worry about Docker Desktop or local networking issues
 > * Cloud Shell has direct connectivity to Azure services, which can help avoid firewall or network configuration problems
 
-1. Get the resource ID of the group containing Azure Container Registry with the [az group show](/cli/azure/group#az-group-show) command.
-
-    RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in parts 2 and 3 of this tutorial series. Build container in Azure of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
-
-    ### [Bash](#tab/bash)
-
-    ```azurecli-interactive
-    #!/bin/bash
-    # Use the same resource group name as in part 2 of this tutorial series.
-    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-    
-    RESOURCE_ID=$(az group show \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --query id \
-      --output tsv)
-    echo $RESOURCE_ID
-    ```
-
-    ### [PowerShell](#tab/powershell)
-
-    ```powershell-interactive
-    # PowerShell syntax
-    # Use the same resource group name as in part 2 of this tutorial series.
-    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
-
-    $RESOURCE_ID=$(az group show `
-      --resource-group $RESOURCE_GROUP_NAME `
-      --query id `
-      --output tsv)
-    echo $RESOURCE_ID
-    ```
-
-    ---
-
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
     ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
+    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
     
     az appservice plan create \
@@ -85,6 +52,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ```powershell-interactive
     # PowerShell syntax
+    $RESOURCE_GROUP_NAME='msdocs-web-app-rg'
     $APP_SERVICE_PLAN_NAME='msdocs-web-app-plan'
     
     az appservice plan create `
@@ -100,9 +68,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     * APP_SERVICE_NAME must be globally unique as it becomes the website name in the URL `https://<website-name>.azurewebsites.net`.
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
-    * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If necessary, uncomment the line where it's set in the code snippet and set it to the name you used.
+    * REGISTRY_NAME is the registry name you used in part **3. Build container in Azure** of this tutorial.
 
-    This command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles?tabs=azure-cli) on the specified resource--in this case, the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
+    This command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles?tabs=azure-cli) on the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
 
     ### [Bash](#tab/bash)
 
@@ -118,8 +86,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --plan $APP_SERVICE_PLAN_NAME \
       --name $APP_SERVICE_NAME \
       --assign-identity '[system]' \
-      --scope $RESOURCE_ID \
-      --role acrpull \
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
@@ -137,8 +103,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
       --plan $APP_SERVICE_PLAN_NAME `
       --name $APP_SERVICE_NAME `
       --assign-identity '[system]' `
-      --scope $RESOURCE_ID `
-      --role acrpull `
       --deployment-container-image-name $CONTAINER_NAME 
     ```
 
@@ -149,14 +113,16 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     >
     >    ```output
     >    No credential was provided to access Azure Container Registry. Trying to look up...
-    >    Retrieving credentials failed with an exception:'No resource or more than one were found with name ...'
+    >    Retrieving credentials failed with an exception:'Failed to retrieve container registry credentials. Please either provide the credentials or run 'az acr update -n msdocscontainerregistryname --admin-enabled true' to enable admin first.'
     >    ```
     >
     > This error arises from the web app's default attempt to use Azure Container Registry admin credentials, which are disabled. It's safe to disregard this error, as the subsequent command configures the web app to use system-assigned managed identity for authentication.
 
-## Configure managed identity and webhook
+## Enable managed identity ACR access and configure webhook
 
-1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
+In this step, you configure the web app to use managed identity to pull images from Azure Container Registry. You also create a webhook that allows the web app to pull new images from the registry when they are pushed.
+
+1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command. Enables the web app to authenticate to ACR using its system-assigned managed identity instead of username/password credentials. This command activates the system-assigned managed identity for ACR access, aligning with Azure’s best practices for secure, credential-less authentication.
 
     ### [Bash](#tab/bash)
 
@@ -179,112 +145,335 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     ---
 
-1. Get the application scope credential with the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command.
+1. Get the unique identifier (principal ID) of the web app’s system-assigned managed identity with the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. The principal ID is needed to assign permissions to access ACR.
 
     ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
-    CREDENTIAL=$(az webapp deployment list-publishing-credentials \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --query publishingPassword \
-      --output tsv)
-    echo $CREDENTIAL 
+    PRINCIPAL_ID=$(az webapp identity show \
+      --name "$APP_SERVICE_NAME" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --query principalId \
+      -o tsv)
     ```
 
     ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
-    $CREDENTIAL=$(az webapp deployment list-publishing-credentials `
-      --resource-group $RESOURCE_GROUP_NAME `
-      --name $APP_SERVICE_NAME `
-      --query publishingPassword `
-      --output tsv)
-    echo $CREDENTIAL 
+    $PRINCIPAL_ID=$(az webapp identity show `
+      --name "$APP_SERVICE_NAME" `
+      --resource-group "$RESOURCE_GROUP_NAME" `
+      --query principalId `
+      -o tsv)
     ```
 
     ---
 
-1. Use the application scope credential to create a webhook with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
+1. Grant the managed identity permission to pull images from ACR with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This command completes the managed identity setup by granting the necessary permissions. The AcrPull role ensures the web app can access the container image.
 
     ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
-    SERVICE_URI='https://$'$APP_SERVICE_NAME':'$CREDENTIAL'@'$APP_SERVICE_NAME'.scm.azurewebsites.net/api/registry/webhook'
-
-    az acr webhook create \
-      --name webhookforwebapp \
-      --registry $REGISTRY_NAME \
-      --scope msdocspythoncontainerwebapp:* \
-      --uri $SERVICE_URI \
-      --actions push 
+    az role assignment create \
+      --role "AcrPull" \
+      --assignee "$PRINCIPAL_ID" \
+      --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ContainerRegistry/registries/$REGISTRY_NAME"
     ```
 
     ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
-    $SERVICE_URI = "https://${APP_SERVICE_NAME}:${CREDENTIAL}@${APP_SERVICE_NAME}.scm.azurewebsites.net/api/registry/webhook"
+    az role assignment create `
+      --role "AcrPull" `
+      --assignee "$PRINCIPAL_ID" `
+      --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ContainerRegistry/registries/$REGISTRY_NAME"
+    ```
+
+    ---
+
+1. Retrieve continuous deployment continuous deployment (CD) URL for the web app’s SCM (Source Control Management) endpoint (used for webhook notifications) with the [az webapp deployment container show-cd-url](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-show-cd-url) command. This URL is needed to configure the ACR webhook, telling ACR where to send notifications when a new image is pushed.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    CD_URL=$(az webapp deployment container show-cd-url \
+      --name "$APP_SERVICE_NAME" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --query CI_CD_URL \
+      --output tsv)
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    $CD_URL=$(az webapp deployment container show-cd-url `
+      --name "$APP_SERVICE_NAME" `
+      --resource-group "$RESOURCE_GROUP_NAME" `
+      --query CI_CD_URL `
+      --output tsv)        
+    ```
+
+    ---
+
+1. Construct webhook endpoint URL by appending the webhook path to the CD URL. The webhook endpoint is where ACR will send HTTP POST requests to notify the web app of new images. This path is standard for container-based web apps in Azure App Service.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    SERVICE_URI="$CD_URL/api/registry/webhook"
+
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    $SERVICE_URI="$CD_URL/api/registry/webhook"
+    ```
+
+    ---
+
+1. Create the ACR webhook. The webhook is a notification mechanism that triggers the web app to pull the latest image from ACR when a new image is pushed. The webhook uses the web app’s SCM endpoint as the target URL. The webhook is created with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command. This webhook links ACR to the web app, enabling continuous deployment. When a new image is pushed to msdocspythoncontainerwebapp, ACR sends a POST request to SERVICE_URI, and the web app pulls and deploys the new image.
+
+    > [!NOTE]
+    > The webhook URI must end with `/api/registry/webhook` to work correctly with App Service. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`.
+    > If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. The webhook URI must be in the format `https://<app-name>.scm.azurewebsites.net/api/registry/webhook`.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    az acr webhook create \
+      --name webhookforwebapp \
+      --registry "$REGISTRY_NAME" \
+      --scope "msdocspythoncontainerwebapp:*" \
+      --uri "$SERVICE_URI" \
+      --actions push
+      ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
     az acr webhook create `
       --name webhookforwebapp `
-      --registry $REGISTRY_NAME `
-      --scope msdocspythoncontainerwebapp:* `
-      --uri $SERVICE_URI `
+      --registry "$REGISTRY_NAME" `
+      --scope "msdocspythoncontainerwebapp:*" `
+      --uri "$SERVICE_URI" `
       --actions push
     ```
 
     ---
 
-    By default, this command creates the webhook in the same resource group and location as the specified Azure Container registry. If desired, you can use the `--resource-group` and `--location` parameters to override this behavior.
+## Enable Continuous Deployment from ACR
 
-## Configure connection to MongoDB
-
-In this step, you specify environment variables needed to connect to MongoDB.
-
-To set environment variables in App Service, you create *app settings* with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
-
-* CONNECTION_STRING: A connection string that starts with "mongodb://".
-* DB_NAME: Use "restaurants_reviews".
-* COLLECTION_NAME: Use "restaurants_reviews".
+In this step, you enable continuous deployment from ACR to the web app. This allows the web app to automatically pull new images from ACR when they are pushed.
+The webhook you created in the previous step is used to trigger this process. Enabling continuous deployment activates the web app’s ability to listen for webhook requests at the SCM endpoint. The web app is now part of a push-based continuous deployment pipeline.
 
     ### [Bash](#tab/bash)
 
     ```azurecli-interactive
     #!/bin/bash
-    MONGO_CONNECTION_STRING='your Mongo DB connection string in single quotes'
-    MONGO_DB_NAME=restaurants_reviews
-    MONGO_COLLECTION_NAME=restaurants_reviews
-    
-    az webapp config appsettings set \
-       --resource-group $RESOURCE_GROUP_NAME \
-       --name $APP_SERVICE_NAME \
-       --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING \
-            DB_NAME=$MONGO_DB_NAME  \
-            COLLECTION_NAME=$MONGO_COLLECTION_NAME \
-            SECRET_KEY="supersecretkeythatispassedtopythonapp"
+    az webapp deployment container config \
+      --name "$APP_SERVICE_NAME" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --enable-cd true
     ```
 
     ### [PowerShell](#tab/powershell)
 
     ```powershell-interactive
     # PowerShell syntax
-    $MONGO_CONNECTION_STRING="your Mongo DB connection string in double quotes"
-    $MONGO_DB_NAME="restaurants_reviews"
-    $MONGO_COLLECTION_NAME="restaurants_reviews"
-
-    az webapp config appsettings set `
-       --resource-group $RESOURCE_GROUP_NAME `
-       --name $APP_SERVICE_NAME `
-       --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING `
-            DB_NAME=$MONGO_DB_NAME  `
-            COLLECTION_NAME=$MONGO_COLLECTION_NAME `
-            SECRET_KEY="supersecretkeythatispassedtopythonapp"        
+    az webapp deployment container config `
+      --name "$APP_SERVICE_NAME" `
+      --resource-group "$RESOURCE_GROUP_NAME" `
+      --enable-cd true
     ```
 
     ---
+
+## Create Key Vault with RBAC Authorization
+
+In this step, you create an Azure Key Vault configured with Role-Based Access Control (RBAC) authorization using the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command. The Key Vault stores the connection string for MongoDB and the secret key for the Django web app. RBAC enables fine-grained access control for users and services. The web app uses managed identity to access the Key Vault.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    az keyvault create \
+      --name "$KEYVAULT_NAME" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --location "$LOCATION" \
+      --enable-rbac-authorization true
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    az keyvault create `
+      --name "$KEYVAULT_NAME" `
+      --resource-group "$RESOURCE_GROUP_NAME" `
+      --location "$LOCATION" `
+      --enable-rbac-authorization true
+    ```
+
+    ---
+
+## Grant Secrets Officer Role to Logged-In User
+
+In this step, you grant the logged-in user the **Key Vault Secrets Officer** role on the Key Vault using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This role allows the user to create and manage secrets in the Key Vault. This step ensures the script has the necessary access without requiring hard-coded credentials, relying on RBAC and identity-based access, which is more secure and auditable. This command is the first of two role assignments (the next step assigns a role to the web app), ensuring both the user and the web app can interact with the Key Vault appropriately.
+
+  ### [Bash](#tab/bash)
+
+  ```azurecli-interactive
+  #!/bin/bash
+  CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
+
+  az role assignment create \
+    --role "Key Vault Secrets Officer" \
+    --assignee "$CALLER_ID" \
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+
+  ```
+
+  ### [PowerShell](#tab/powershell)
+
+  ```powershell-interactive
+  # PowerShell syntax
+  $CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
+  az role assignment create `
+    --role "Key Vault Secrets Officer" `
+    --assignee "$CALLER_ID" `
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+  ```
+
+  ---
+
+## Grant Key Vault Access to Web App
+
+In this step, you grant the web app access to the Key Vault using the **KEY VAULT SECRETS USER** role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This role allows the web app to retrieve secrets from the Key Vault using its managed identity.
+
+  ### [Bash](#tab/bash)
+
+  ```azurecli-interactive
+  #!/bin/bash
+  az role assignment create \
+    --role "Key Vault Secrets User" \
+    --assignee "$PRINCIPAL_ID" \
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+  ```
+
+  ### [PowerShell](#tab/powershell)
+
+  ```powershell-interactive
+  # PowerShell syntax
+  az role assignment create `
+    --role "Key Vault Secrets User" `
+    --assignee "$PRINCIPAL_ID" `  
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+  ```
+
+  ---
+
+## Store Secrets in Key Vault
+
+In this step, you store the connection string for MongoDB and the secret key for the Django web app in the Key Vault using the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command. The web app uses managed identity to access these secrets.
+
+  ### [Bash](#tab/bash)
+
+  ```azurecli-interactive
+  #!/bin/bash
+  MONGO_CONNECTION_STRING=$(az cosmosdb keys list \
+    --name "$ACCOUNT_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --type connection-strings \
+    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
+
+  SECRET_KEY=$(openssl rand -base64 32 | tr -dc 'a-zA-Z0-9')
+
+  az keyvault secret set \
+    --vault-name "$KEYVAULT_NAME" \
+    --name "MONGO_CONNECTION_STRING" \
+    --value "$MONGO_CONNECTION_STRING"
+
+  az keyvault secret set \
+    --vault-name "$KEYVAULT_NAME" \
+    --name "SECRET_KEY" \
+    --value "supersecretkeythatispassedtopythonapp"
+  ```
+
+  ### [PowerShell](#tab/powershell)
+
+  ```powershell-interactive
+  # PowerShell syntax
+
+  MONGO_CONNECTION_STRING=$(az cosmosdb keys list `
+    --name "$ACCOUNT_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --type connection-strings `
+    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
+
+    $SECRET_KEY = [System.Convert]::ToBase64String((New-Object byte[] 32 | ForEach-Object { Get-Random -Maximum 256 }))
+
+  az keyvault secret set `
+    --vault-name "$KEYVAULT_NAME" `
+    --name "MONGO_CONNECTION_STRING" `
+    --value "$MONGO_CONNECTION_STRING"
+
+  az keyvault secret set `
+    --vault-name "$KEYVAULT_NAME" `
+    --name "SECRET_KEY" `
+    --value "supersecretkeythatispassedtopythonapp"
+  ```
+
+  ---
+
+## Configure connection to MongoDB
+
+In this step, you configure the Azure App Service web app to reference the secrets stored in the Azure Key Vault using Key Vault references with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Specifically, it sets the **MongoConnectionString** and **MongoSecretKey** application settings to point to the Cosmos DB connection string and secret key stored in the Key Vault. This enables the web app to securely access these secrets during runtime without hardcoding sensitive data.
+
+  ### [Bash](#tab/bash)
+
+  ```azurecli-interactive
+  #!/bin/bash
+  MONGODB_NAME='restaurants_reviews'
+  MONGODB_COLLECTION_NAME='restaurants_reviews'
+  
+  az webapp config appsettings set \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $APP_SERVICE_NAME \
+      --settings \
+        CONNECTION_STRING=$MONGO_CONNECTION_STRING \
+        DB_NAME=$MONGODB_NAME  \
+        COLLECTION_NAME=$MONGODB_COLLECTION_NAME \
+        SECRET_KEY=$SECRET_KEY
+  ```
+
+  ### [PowerShell](#tab/powershell)
+
+  ```powershell-interactive
+  # PowerShell syntax
+  $MONGO_DB_NAME="restaurants_reviews"
+  $MONGO_COLLECTION_NAME="restaurants_reviews"
+
+  az webapp config appsettings set `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --name $APP_SERVICE_NAME `
+      --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING `
+          DB_NAME=$MONGODB_NAME  `
+          COLLECTION_NAME=$MONGODB_COLLECTION_NAME `
+          SECRET_KEY=$SECRET_KEY        
+  ```
+
+  ---
 
 ## Browse the site
 
