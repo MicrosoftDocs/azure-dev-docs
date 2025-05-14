@@ -277,55 +277,55 @@ In this step, you configure the web app to use managed identity to pull images f
 In this step, you enable continuous deployment from ACR to the web app. This allows the web app to automatically pull new images from ACR when they are pushed.
 The webhook you created in the previous step is used to trigger this process. Enabling continuous deployment activates the web app’s ability to listen for webhook requests at the SCM endpoint. The web app is now part of a push-based continuous deployment pipeline.
 
-    ### [Bash](#tab/bash)
+  ### [Bash](#tab/bash)
 
-    ```azurecli-interactive
-    #!/bin/bash
-    az webapp deployment container config \
-      --name "$APP_SERVICE_NAME" \
-      --resource-group "$RESOURCE_GROUP_NAME" \
-      --enable-cd true
-    ```
+  ```azurecli-interactive
+  #!/bin/bash
+  az webapp deployment container config \
+    --name "$APP_SERVICE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --enable-cd true
+  ```
 
-    ### [PowerShell](#tab/powershell)
+  ### [PowerShell](#tab/powershell)
 
-    ```powershell-interactive
-    # PowerShell syntax
-    az webapp deployment container config `
-      --name "$APP_SERVICE_NAME" `
-      --resource-group "$RESOURCE_GROUP_NAME" `
-      --enable-cd true
-    ```
+  ```powershell-interactive
+  # PowerShell syntax
+  az webapp deployment container config `
+    --name "$APP_SERVICE_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --enable-cd true
+  ```
 
-    ---
+  ---
 
 ## Create Key Vault with RBAC Authorization
 
 In this step, you create an Azure Key Vault configured with Role-Based Access Control (RBAC) authorization using the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command. The Key Vault stores the connection string for MongoDB and the secret key for the Django web app. RBAC enables fine-grained access control for users and services. The web app uses managed identity to access the Key Vault.
 
-    ### [Bash](#tab/bash)
+  ### [Bash](#tab/bash)
 
-    ```azurecli-interactive
-    #!/bin/bash
-    az keyvault create \
-      --name "$KEYVAULT_NAME" \
-      --resource-group "$RESOURCE_GROUP_NAME" \
-      --location "$LOCATION" \
-      --enable-rbac-authorization true
-    ```
+  ```azurecli-interactive
+  #!/bin/bash
+  az keyvault create \
+    --name "$KEYVAULT_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --location "$LOCATION" \
+    --enable-rbac-authorization true
+  ```
 
-    ### [PowerShell](#tab/powershell)
+  ### [PowerShell](#tab/powershell)
 
-    ```powershell-interactive
-    # PowerShell syntax
-    az keyvault create `
-      --name "$KEYVAULT_NAME" `
-      --resource-group "$RESOURCE_GROUP_NAME" `
-      --location "$LOCATION" `
-      --enable-rbac-authorization true
-    ```
+  ```powershell-interactive
+  # PowerShell syntax
+  az keyvault create `
+    --name "$KEYVAULT_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --location "$LOCATION" `
+    --enable-rbac-authorization true
+  ```
 
-    ---
+  ---
 
 ## Grant Secrets Officer Role to Logged-In User
 
@@ -415,15 +415,15 @@ In this step, you store the connection string for MongoDB and the secret key for
   ```powershell-interactive
   # PowerShell syntax
 
-  MONGO_CONNECTION_STRING=$(az cosmosdb keys list `
-    --name "$ACCOUNT_NAME" `
-    --resource-group "$RESOURCE_GROUP_NAME" `
-    --type connection-strings `
-    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
+  MONGO_CONNECTION_STRING=$()
 
     $SECRET_KEY = [System.Convert]::ToBase64String((New-Object byte[] 32 | ForEach-Object { Get-Random -Maximum 256 }))
 
-  az keyvault secret set `
+  az keyvault secret set `az cosmosdb keys list `
+    --name "$ACCOUNT_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --type connection-strings `
+    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv
     --vault-name "$KEYVAULT_NAME" `
     --name "MONGO_CONNECTION_STRING" `
     --value "$MONGO_CONNECTION_STRING"
