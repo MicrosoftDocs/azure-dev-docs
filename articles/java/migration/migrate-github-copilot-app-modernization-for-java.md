@@ -42,7 +42,7 @@ App modernization for Java (preview) enables the following use cases:
 - Remediate code and configurations before migrating to Azure.
 - Automatically fix code to resolve compile-time errors.
 
-Upgrading Java runtimes, frameworks, and dependencies is a common task that requires substantial time and resources. GitHub Copilot app modernization – upgrade for Java (preview) is an AI-based solution designed to assist with updating your Java apps. For more information, see [GitHub Copilot app modernization - upgrade for Java (preview)](/java/upgrade/overview).
+Upgrading Java runtimes, frameworks, and dependencies is a common task that requires substantial time and resources. GitHub Copilot app modernization - upgrade for Java (preview) is an AI-based solution designed to assist with updating your Java apps. For more information, see [GitHub Copilot app modernization - upgrade for Java (preview)](/java/upgrade/overview).
 
 ## Concepts
 
