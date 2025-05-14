@@ -100,7 +100,7 @@ items:
               href: ../python/azure-ai-for-python-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Get started generating text using Azure OpenAI Service
               href: /azure/ai-services/openai/quickstart?pivots=programming-language-python&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json          
-            - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
+            - name: Get started using chat completions with Azure OpenAI Service
               href: /azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-python&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Chat with Azure OpenAI models using your own data
               href: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-python&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
@@ -114,7 +114,7 @@ items:
           items:
             - name: JavaScript resources
               href: ../javascript/ai/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
+            - name: Get started using chat completions with Azure OpenAI Service
               href: /azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Chat with Azure OpenAI models using your own data
               href: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-javascript&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
@@ -130,7 +130,7 @@ items:
           items:
             - name: Java resources
               href: ../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
+            - name: Get started using chat completions with Azure OpenAI Service
               href: /azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ
               href: ../java/toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json

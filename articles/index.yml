@@ -150,6 +150,21 @@ productDirectory:
           text: Azure SDK for Go code samples
         - url: ./go/index.yml
           text: See more in the Go developer center
+    - title: C++
+      imageSrc: /media/logos/logo_Cplusplus.svg
+      links:
+        - url: ./cpp/sdk/overview.md
+          text: What is the Azure SDK for C++?
+        - url: ./cpp/sdk/install-and-integrate-the-sdk.md
+          text: Install the Azure SDK for C++
+        - url: ./cpp/sdk/authentication/overview.md
+          text: Authentication in the Azure SDK for C++
+        - url: ./cpp/sdk/fundamentals/overview.md
+          text: SDK fundamentals
+        - url: ./cpp/sdk/fundamentals/common-types.md
+          text: Common types in the Azure SDK for C++
+        - url: ./cpp/index.yml
+          text: See more in the C++ developer center
     - title: Azure PowerShell
       imageSrc: /powershell/media/index/ps_black_128.svg
       links:

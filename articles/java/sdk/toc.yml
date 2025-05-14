@@ -64,8 +64,6 @@ items:
       href: ../toolkit-for-eclipse/index.yml
     - name: Spring
       href: ../spring-framework/spring-cloud-azure-overview.md
-    - name: MicroProfile
-      href: ../eclipse-microprofile/index.yml
     expanded: false
   - name: Troubleshooting
     items:

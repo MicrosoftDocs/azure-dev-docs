@@ -16,6 +16,9 @@ items:
     - name: Chef
       tocHref: /azure/developer/chef
       topicHref: /azure/developer/chef/index
+    - name: C++
+      tocHref: /azure/developer/cpp
+      topicHref: /azure/developer/cpp/index
     - name: GitHub
       tocHref: /azure/developer/github
       topicHref: /azure/developer/github/index
