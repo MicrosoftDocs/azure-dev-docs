@@ -17,10 +17,7 @@ This quickstart guides you in using GitHub Copilot for Azure Preview to bring yo
 
 For complete setup instructions, see the [Get started](get-started.md) article. Make sure that you have the following items: 
 
-- A GitHub Copilot account. 
-- The GitHub Copilot Chat extension for Visual Studio Code. 
-- The GitHub Copilot for Azure Preview extension for Visual Studio Code. 
-- An Azure subscription. If you don't have one, GitHub Copilot for Azure can help. 
+[!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)] 
 
 
 ## Create Bicep for your existing application and deploy it to Azure by using GitHub Copilot for Azure Preview 
