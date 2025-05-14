@@ -14,17 +14,14 @@ In this quickstart, you learn how to use agent mode in GitHub Copilot for Azure 
 
 GitHub Copilot for Azure supports two modes:
 
-- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn.
+- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn. It may provide instructions or even source code, but you'll take action or edit files yourself.
 - **Agent mode** allows you to command GitHub Copilot to take action in your project, including creating and editing files, executing commands in the terminal window, and so on.
 
 ## Prerequisites
 
 For complete setup instructions, see the [Get started](get-started.md) article. Make sure that you have the following items:
 
-- A GitHub Copilot account.
-- The GitHub Copilot extension and the GitHub Copilot Chat extension for Visual Studio Code.
-- The GitHub Copilot for Azure Preview extension for Visual Studio Code.
-- An Azure subscription. If you don't have one, GitHub Copilot for Azure can help.
+[!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
 
 ## Define Azure infrastructure for your application
 
