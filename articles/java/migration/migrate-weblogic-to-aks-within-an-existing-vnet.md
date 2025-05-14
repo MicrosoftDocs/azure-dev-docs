@@ -99,9 +99,7 @@ export AKS_SUBNET_ID=$(az network vnet subnet show \
 Use the following command to create an AKS cluster in your virtual network and subnet by using the [az aks create](/cli/azure/aks#az-aks-create) command.
 
 > [!NOTE]
-> This example creates an AKS cluster using kubenet and a system-assigned identity. Azure CLI will grant [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role to the system-assigned identity after the cluster is created.
->
-> If you want to use Azure CNI, see [Configure Azure CNI networking in AKS](/azure/aks/configure-azure-cni) to create an Azure CNI enabled AKS cluster.
+> This example creates an AKS cluster using azure network plugin and a system-assigned identity. Azure CLI will grant [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role to the system-assigned identity after the cluster is created.
 >
 > If you want to use a user-assigned managed identity, see [Create an AKS cluster with system-assigned managed identities](/azure/aks/configure-kubenet#create-an-aks-cluster-with-user-assigned-managed-identities).
 
@@ -195,7 +193,7 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
 
 You've now finished configuring the AKS cluster, WebLogic base image, and Jakarta EE application.
 
-Next, you'll configure end-to-end TLS/SSL to WebLogic Server Administration Console and cluster on HTTPS (Secure) port, with your own certificate in **TLS/SSL Configuration** pane. For this task, follow the steps in the [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach **Networking**, as shown in the following screenshot. You'll use the next section to configure the networking, then return to the WLS on AKS user guide to complete the deployment.
+Next, you'll configure end-to-end TLS/SSL to WebLogic Server Administration Console and cluster on HTTPS (Secure) port, with your own certificate in **TLS/SSL Configuration** pane. For this task, follow the steps in the [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach **Load balancing**, as shown in the following screenshot. You'll use the next section to configure the networking, then return to the WLS on AKS user guide to complete the deployment.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png" alt-text="Screenshot of Azure portal showing the Networking pane of the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png":::
 
