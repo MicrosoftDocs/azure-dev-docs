@@ -1,10 +1,10 @@
 ---
-title: Azure MCP Server (Preview)?
+title: What is the Azure MCP Server (Preview)?
 description: Overview of the features and capabilities of the Azure MCP Server that helps developers be more productive when building and deploying apps to Azure.
 author: ms-johnalex
 ms.author: johalexander
 ms.service: azure
-ms.date: 05/13/2025
+ms.date: 05/14/2025
 ms.topic: overview 
 content_well_notification: 
   - AI-contribution
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 ms.custom: build-2025
 ---
 
-# Azure MCP Server (Preview)
+# What is the Azure MCP Server (Preview)?
 
 The Azure MCP Server enables AI agents to interact with Azure resources through natural language commands. It provides a standardized way for developers to build intelligent applications that can use the power of AI while maintaining a consistent and secure way to access Azure resources.
 
@@ -35,30 +35,43 @@ The MCP has three main components:
 
 An MCP server can provide features like data resources, tools for performing actions, and prompts to guide interactions with language models. Most developers use existing MCP servers, like the Azure MCP Server, to build apps, while some create custom MCP servers for specific needs.
 
-The Azure MCP Server is a specific implementation of the MCP standard that focuses on several Azure services. It provides a set of tools and resources that developers can use to build intelligent applications that interact with Azure resources.
+The Azure MCP Server is a specific implementation of the MCP standard that focuses on several Azure services. It provides a set of [tools](./tools/get-started.md) that developers can use to build intelligent applications that interact with Azure resources.
 
 ## Developer scenarios
 
 Developers can use the Azure MCP Server in two main ways:
 
-1. **Consume existing MCP servers**: Most developers use existing MCP servers, like the Azure MCP Server, to build intelligent apps.
+### Consume existing MCP servers
 
-   - **When to use this scenario**:
-     - You need to integrate ready-to-use server capabilities.
-     - Your application needs to perform specific Azure service operations through natural language.
-     - You want to quickly add AI functionality without building servers from scratch.
+Most developers use existing MCP servers, like the Azure MCP Server, to build intelligent apps.
 
-2. **Develop your own MCP server**: Some developers create their own MCP servers to offer custom tools, resources, and prompts for specific needs. This scenario is more advanced and needs a deeper understanding of the MCP protocol.
+- **When to use this scenario**:
+  - You need to integrate ready-to-use server capabilities.
+  - Your application needs to perform specific Azure service operations through natural language.
+  - You want to quickly add AI functionality without building servers from scratch.
 
-    - **When to use this scenario**:
-      - You need custom server functionality not available in existing solutions.
-      - Your application requires deep integration with multiple Azure services.
-      - You want to create specialized capabilities tailored to your domain expertise.
-      - You need fine-grained control over how AI interacts with your data and services.
-      - You're building advanced solutions that require custom reasoning or domain-specific knowledge.
+### Develop your own MCP server
 
-Developers can integrate the Azure MCP Server into their apps to simplify workflows. For example, in VS Code, GitHub Copilot Agent Mode can use the MCP client to list Azure storage accounts or run KQL queries on Azure databases. Whether consuming or developing MCP servers, the Azure MCP Server helps developers work faster and more efficiently when building AI-powered applications.
+Some developers create their own MCP servers to offer custom tools, resources, and prompts for specific needs. This scenario is more advanced and needs a deeper understanding of the MCP protocol.
+
+- **When to use this scenario**:
+  - You need custom server functionality not available in existing solutions.
+  - Your application requires deep integration with multiple Azure services.
+  - You want to create specialized capabilities tailored to your domain expertise.
+  - You need fine-grained control over how AI interacts with your data and services.
+  - You're building advanced solutions that require custom reasoning or domain-specific knowledge.
+
+Developers can integrate the Azure MCP Server into their apps to simplify workflows. For example, in VS Code, GitHub Copilot Agent Mode can use the [Azure MCP Server tools](./tools/get-started.md) to list Azure storage accounts or run KQL queries on Azure databases. Whether consuming or developing MCP servers, the Azure MCP Server helps developers work faster and more efficiently when building AI-powered applications.
+
+## Related content
+- [Model Context Protocol user guide](https://modelcontextprotocol.io/introduction)
+- [Model Context Protocol specification](https://github.com/modelcontextprotocol/modelcontextprotocol)
+- [Model Context Protocol Python SDK](https://github.com/modelcontextprotocol/python-sdk)
+- [Model Context Protocol C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
+- [Model Context Protocol Java SDK](https://github.com/modelcontextprotocol/java-sdk)
+- [Model Context Protocol Typescript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 
 ## Next step
 
 [Get started using the Azure MCP Server](./get-started.md)
+

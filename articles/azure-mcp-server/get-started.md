@@ -4,7 +4,7 @@ description: Learn how to connect to and consume Azure MCP Server operations
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/13/2025
+ms.date: 05/14/2025
 ms.topic: get-started
 ms.custom: build-2025
 zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-groups.json
@@ -32,6 +32,14 @@ The Model Context Protocol (MCP) is an open protocol designed to standardize int
 [!INCLUDE [get-started-python](includes/get-started-python.md)]
 
 ::: zone-end
+
+## Related content
+- [Model Context Protocol user guide](https://modelcontextprotocol.io/introduction)
+- [Model Context Protocol specification](https://github.com/modelcontextprotocol/modelcontextprotocol)
+- [Model Context Protocol Python SDK](https://github.com/modelcontextprotocol/python-sdk)
+- [Model Context Protocol C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
+- [Model Context Protocol Java SDK](https://github.com/modelcontextprotocol/java-sdk)
+- [Model Context Protocol Typescript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 
 ## Next steps
 
