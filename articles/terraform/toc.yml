@@ -58,7 +58,6 @@
           items:
             - name: Azure Export for Terraform concepts
               href: ./azure-export-for-terraform/export-terraform-concepts.md
-                   
 - name: Quickstarts
   expanded: true
   items:
