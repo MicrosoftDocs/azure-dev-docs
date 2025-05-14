@@ -99,15 +99,15 @@ conceptualContent:
 
     - title: Migrate to Azure
       links:
+        - text: GitHub Copilot app modernization for Java
+          itemType: overview
+          url: migration/migrate-github-copilot-app-modernization-for-java.md
         - text: Spring to Azure Container Apps
           itemType: how-to-guide
           url: migration/migrate-spring-boot-to-azure-container-apps.md
         - text: Tomcat to Azure App Service
           itemType: how-to-guide
           url: migration/migrate-tomcat-to-tomcat-app-service.md
-        - text: WebLogic to Azure Virtual Machines
-          itemType: how-to-guide
-          url: migration/migrate-weblogic-to-virtual-machines.md
       footerLink:
         text: See more
         url: migration/index.yml
