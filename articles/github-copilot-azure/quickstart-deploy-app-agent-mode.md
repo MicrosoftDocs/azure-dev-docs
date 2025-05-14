@@ -51,6 +51,9 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/recommend-resources.png" alt-text="Screenshot that shows the GitHub Copilot chat pane with detected services, recommended resources, bindings, and environment variables.":::
 
+   > [!IMPORTANT]
+   > The exact wording of the response is different each time GitHub Copilot for Azure answers, due to how large language models generate responses.
+
 1. Select **Continue**. Copilot agent mode recommends suitable Azure resources for the application. You might see a response like the following example.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/deployment-plan.png" alt-text="Screenshot of the GitHub Copilot chat pane with a recommended deployment plan.":::
