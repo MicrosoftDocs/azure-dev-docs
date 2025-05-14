@@ -97,9 +97,9 @@ You can now deploy the application using the Bicep deployment files and the AZD 
   - **@azure AZD Up (Deploy)**
   - **@azure check app status for azd deployment**
 
-   To view a list of tools that are available to your prompts, select the **Select tools...** button in the chat text box.
-
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/azure-tools.png" alt-text="Screenshot of the selected GitHub Copilot for Azure tools.":::
+
+   To view a list of tools that are available to your prompts, select the **Select tools...** button in the chat text box.
 
 ## Related content
 
