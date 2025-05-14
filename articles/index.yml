@@ -61,14 +61,14 @@ productDirectory:
         - url: ./github-copilot-azure/troubleshoot-examples.md
           text: Troubleshoot your apps
     - title: Azure MCP Server
-      imageSrc: /media/logos/logo_sdk.svg
+      imageSrc: ./azure/developer/azure-mcp-server/media/logo/azure.svg
       links:
-        - url: /azure/developer/azure-mcp-server/overview.md
-          text: What is Azure MCP Server?
-        - url: /azure/developer/azure-mcp-server/get-started.md
+        - url: ./azure/developer/azure-mcp-server/index.md
+          text: Azure MCP Server
+        - url: ./azure/developer/azure-mcp-server/get-started.md
           text: Get started with the Azure MCP Server
-        - url: /azure/developer/azure-mcp-server/commands/use-tools.md
-          text: Using tools and commands with the Azure MCP Server
+        - url: ./azure/developer/azure-mcp-server/tools/get-started.md
+          text: Get started with Azure MCP Server tools
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:
