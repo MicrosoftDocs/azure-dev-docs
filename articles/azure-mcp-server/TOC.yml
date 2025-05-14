@@ -1,9 +1,7 @@
 items:
 - name: Azure MCP Server
-  href: overview.md
+  href: index.md
   items:
-    - name: Overview
-      href: overview.md
     - name: Get started with Azure MCP Server
       href: get-started.md
     - name: Tools
