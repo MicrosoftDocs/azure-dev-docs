@@ -110,7 +110,7 @@ az aks create \
     --generate-ssh-keys \
     --enable-managed-identity \
     --node-count 3 \
-    --network-plugin kubenet \
+    --network-plugin azure \
     --vnet-subnet-id $AKS_SUBNET_ID \
     --yes
 ```
