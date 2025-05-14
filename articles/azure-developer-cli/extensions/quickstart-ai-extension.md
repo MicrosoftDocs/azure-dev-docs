@@ -46,13 +46,13 @@ Once installed, the AI extension adds new commands to `azd` you can use to build
 
 1. To begin the AI extension workflows, use the `azd ai start` command:
 
-```azdeveloper
-azd ai start
-```
+    ```azdeveloper
+    azd ai start
+    ```
 
 1. When prompted, select the Azure subscription and resource group you want to provision resources to.
 
-1. The AI extension workflow prompts you with various questions organized by task to identify the required infrastructure for your desired scenario.
+1. The AI extension workflow prompts you with questions organized by task to identify the required infrastructure for your desired scenario. Select the following options when prompted to follow along with this sample scenario:
 
     - Identify AI Scenario:
 
@@ -76,8 +76,8 @@ azd ai start
 
     After you answer the workflow questions, the extensions prints your choices and stages the changes for provisioning and deployment. 
 
-1. Select whether you want to provision the project resources.
-1. Open the `azure.yaml` file at the root of your template to see the changes that were applied by the AI extension. The **resources** node contains new configurations `azd` uses to provision the AI infrastructure.
+1. Select whether you want to provision the project resources. If you select **Yes**, `azd` begins provisioning resources to Azure based on your choices.
+1. To see the changes that were applied by the AI extension, open the `azure.yaml` file at the root of your template. The **resources** node contains new configurations `azd` uses to provision the AI infrastructure.
 
     ```yaml
     resources:
@@ -97,3 +97,8 @@ azd ai start
             - ai-project
         port: 8080
     ```
+
+## Related content
+
+- [Extensions overview](overview.md)
+- [Extension framework readme](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/extension-framework.md)
