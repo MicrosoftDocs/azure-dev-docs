@@ -4,13 +4,18 @@ description: This article demonstrates how to use agent mode in GitHub Copilot f
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 05/12/2025
+ms.date: 05/14/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure Preview
 
 In this quickstart, you learn how to use agent mode in GitHub Copilot for Azure Preview to bring your existing application to Azure. It demonstrates how agent mode helps you define Azure infrastructure, deploy your application to Azure, and create a CI/CD pipeline.
+
+GitHub Copilot for Azure supports two modes:
+
+- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn.
+- **Agent mode** allows you to command GitHub Copilot to take action in your project, including creating and editing files, executing commands in the terminal window, and so on.
 
 ## Prerequisites
 
