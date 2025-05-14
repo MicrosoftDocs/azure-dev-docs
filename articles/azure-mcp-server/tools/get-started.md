@@ -11,7 +11,7 @@ content_well_notification:
 ai-usage: ai-assisted
 ms.custom: build-2025
 ---
-# Getting started with Azure MCP Server tools
+# Get started with Azure MCP Server tools
 
 The Azure Model Context Protocol (MCP) Server enables interaction with Azure services through natural language tools. This article provides an overview of tools supported by the Azure MCP Server and explains how to use them in two key development scenarios: [consuming existing servers](#consume-existing-mcp-servers) and [developing new servers](#develop-your-own-mcp-server).
 

@@ -6,7 +6,7 @@ items:
       href: get-started.md
     - name: Tools
       items:
-        - name: Getting started
+        - name: Get started with Azure MCP Server tools
           href: tools/get-started.md
         - name: App Configuration
           href: tools/app-configuration.md
