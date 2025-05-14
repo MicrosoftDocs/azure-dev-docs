@@ -118,127 +118,156 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     >
     > This error arises from the web app's default attempt to use Azure Container Registry admin credentials, which are disabled. It's safe to disregard this error, as the subsequent command configures the web app to use system-assigned managed identity for authentication.
 
-## Enable managed identity ACR access and configure webhook
+## Enable managed identity ACR access
 
-In this step, you configure the web app to use managed identity to pull images from Azure Container Registry. You also create a webhook that allows the web app to pull new images from the registry when they are pushed.
+In this step, you configure the web app to use managed identity to pull images from Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command. This enables the web app to authenticate to ACR using its system-assigned managed identity instead of username/password credentials. This command activates the system-assigned managed identity for ACR access, aligning with Azure’s best practices for secure, credential-less authentication.
 
-1. Configure the web app to use managed identities to pull from the Azure Container Registry with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command. Enables the web app to authenticate to ACR using its system-assigned managed identity instead of username/password credentials. This command activates the system-assigned managed identity for ACR access, aligning with Azure’s best practices for secure, credential-less authentication.
+  ### [Bash](#tab/bash)
 
-    ### [Bash](#tab/bash)
+  ```azurecli-interactive
+  #!/bin/bash
+  az webapp config set \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $APP_SERVICE_NAME \
+    --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+  ```
 
-    ```azurecli-interactive
-    #!/bin/bash
-    az webapp config set \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --generic-configurations '{"acrUseManagedIdentityCreds": true}'
-    ```
+  ### [PowerShell](#tab/powershell)
 
-    ### [PowerShell](#tab/powershell)
+  ```powershell-interactive
+  # PowerShell syntax
+  az webapp config set `
+    --resource-group $RESOURCE_GROUP_NAME `
+    --name $APP_SERVICE_NAME `
+    --generic-configurations '{ "acrUseManagedIdentityCreds": true }'
+  ```
 
-    ```powershell-interactive
-    # PowerShell syntax
-    az webapp config set `
-      --resource-group $RESOURCE_GROUP_NAME `
-      --name $APP_SERVICE_NAME `
-      --generic-configurations '{ "acrUseManagedIdentityCreds": true }'
+  ---
 
-    ---
+## Get the unique identifier for the web app’s system-assigned managed identity
 
-1. Get the unique identifier (principal ID) of the web app’s system-assigned managed identity with the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. The principal ID is needed to assign permissions to access ACR.
+In this step, you retrieve the unique identifier (principal ID) of the web app’s system-assigned managed identity with the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. The principal ID is needed to assign permissions to access ACR.
 
-    ### [Bash](#tab/bash)
+  ### [Bash](#tab/bash)
 
-    ```azurecli-interactive
-    #!/bin/bash
-    PRINCIPAL_ID=$(az webapp identity show \
-      --name "$APP_SERVICE_NAME" \
-      --resource-group "$RESOURCE_GROUP_NAME" \
-      --query principalId \
-      -o tsv)
-    ```
+  ```azurecli-interactive
+  #!/bin/bash
+  PRINCIPAL_ID=$(az webapp identity show \
+    --name "$APP_SERVICE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --query principalId \
+    -o tsv)
+  ```
 
-    ### [PowerShell](#tab/powershell)
+  ### [PowerShell](#tab/powershell)
 
-    ```powershell-interactive
-    # PowerShell syntax
-    $PRINCIPAL_ID=$(az webapp identity show `
-      --name "$APP_SERVICE_NAME" `
-      --resource-group "$RESOURCE_GROUP_NAME" `
-      --query principalId `
-      -o tsv)
-    ```
+  ```powershell-interactive
+  # PowerShell syntax
+  $PRINCIPAL_ID=$(az webapp identity show `
+    --name "$APP_SERVICE_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --query principalId `
+    -o tsv)
+  ```
 
-    ---
+  ---
 
-1. Grant the managed identity permission to pull images from ACR with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This command completes the managed identity setup by granting the necessary permissions. The AcrPull role ensures the web app can access the container image.
+## Grant ACR Pull Role to Managed Identity
 
-    ### [Bash](#tab/bash)
+In this step, you grant the managed identity permission to pull images from ACR with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This command completes the managed identity setup by granting the necessary permissions. The AcrPull role ensures the web app can access the container image.
 
-    ```azurecli-interactive
-    #!/bin/bash
-    az role assignment create \
-      --role "AcrPull" \
-      --assignee "$PRINCIPAL_ID" \
-      --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ContainerRegistry/registries/$REGISTRY_NAME"
-    ```
+  ### [Bash](#tab/bash)
 
-    ### [PowerShell](#tab/powershell)
+  ```azurecli-interactive
+  #!/bin/bash
+  az role assignment create \
+    --role "AcrPull" \
+    --assignee "$PRINCIPAL_ID" \
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ContainerRegistry/registries/$REGISTRY_NAME"
+  ```
 
-    ```powershell-interactive
-    # PowerShell syntax
-    az role assignment create `
-      --role "AcrPull" `
-      --assignee "$PRINCIPAL_ID" `
-      --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ContainerRegistry/registries/$REGISTRY_NAME"
-    ```
+  ### [PowerShell](#tab/powershell)
 
-    ---
+  ```powershell-interactive
+  # PowerShell syntax
+  az role assignment create `
+    --role "AcrPull" `
+    --assignee "$PRINCIPAL_ID" `
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ContainerRegistry/registries/$REGISTRY_NAME"
+  ```
 
-1. Retrieve continuous deployment continuous deployment (CD) URL for the web app’s SCM (Source Control Management) endpoint (used for webhook notifications) with the [az webapp deployment container show-cd-url](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-show-cd-url) command. This URL is needed to configure the ACR webhook, telling ACR where to send notifications when a new image is pushed.
+  ---
 
-    ### [Bash](#tab/bash)
+## Create ACR webhook URL
 
-    ```azurecli-interactive
-    #!/bin/bash
-    CD_URL=$(az webapp deployment container show-cd-url \
-      --name "$APP_SERVICE_NAME" \
-      --resource-group "$RESOURCE_GROUP_NAME" \
-      --query CI_CD_URL \
-      --output tsv)
-    ```
+In this step, you construct the continuous deployment continuous deployment (CD) URL for the web app’s SCM (Source Control Management) endpoint (used for webhook notifications). This URL is needed to configure the ACR webhook, telling ACR where to send notifications when a new image is pushed.
 
-    ### [PowerShell](#tab/powershell)
+  ### [Bash](#tab/bash)
 
-    ```powershell-interactive
-    # PowerShell syntax
-    $CD_URL=$(az webapp deployment container show-cd-url `
-      --name "$APP_SERVICE_NAME" `
-      --resource-group "$RESOURCE_GROUP_NAME" `
-      --query CI_CD_URL `
-      --output tsv)        
-    ```
+  ```azurecli-interactive
+  #!/bin/bash
+  WEBAPP_URL="https://$APP_SERVICE_NAME.azurewebsites.net"
+  ```
 
-    ---
+  ### [PowerShell](#tab/powershell)
 
-1. Construct webhook endpoint URL by appending the webhook path to the CD URL. The webhook endpoint is where ACR will send HTTP POST requests to notify the web app of new images. This path is standard for container-based web apps in Azure App Service.
+  ```powershell-interactive
+  # PowerShell syntax
+  $WEBAPP_URL="https://$APP_SERVICE_NAME.azurewebsites.net"
+      
+  ```
 
-    ### [Bash](#tab/bash)
+  ---
 
-    ```azurecli-interactive
-    #!/bin/bash
-    SERVICE_URI="$CD_URL/api/registry/webhook"
+## Construct the webhook endpoint URL
 
-    ```
+In this step, you construct the webhook endpoint URL by appending the webhook path to the CD URL. The webhook endpoint is where ACR will send HTTP POST requests to notify the web app of new images. This path is standard for container-based web apps in Azure App Service.
 
-    ### [PowerShell](#tab/powershell)
+  ### [Bash](#tab/bash)
 
-    ```powershell-interactive
-    # PowerShell syntax
-    $SERVICE_URI="$CD_URL/api/registry/webhook"
-    ```
+  ```azurecli-interactive
+  #!/bin/bash
+  SERVICE_URI="$CD_URL/api/registry/webhook"
 
-    ---
+  ```
+
+  ### [PowerShell](#tab/powershell)
+
+  ```powershell-interactive
+  # PowerShell syntax
+  $SERVICE_URI="$CD_URL/api/registry/webhook"
+  ```
+
+  ---
+
+## Enable Continuous Deployment from ACR
+
+In this step, you enable continuous deployment from ACR to the web app. This allows the web app to automatically pull new images from ACR when they are pushed.
+The webhook you created in the previous step is used to trigger this process. Enabling continuous deployment activates the web app’s ability to listen for webhook requests at the SCM endpoint. The web app is now part of a push-based continuous deployment pipeline.
+
+  ### [Bash](#tab/bash)
+
+  ```azurecli-interactive
+  #!/bin/bash
+  az webapp deployment container config \
+    --name "$APP_SERVICE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --enable-cd true
+  ```
+
+  ### [PowerShell](#tab/powershell)
+
+  ```powershell-interactive
+  # PowerShell syntax
+  az webapp deployment container config `
+    --name "$APP_SERVICE_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --enable-cd true
+  ```
+
+  ---
+
+## Create ACR Webhook
 
 1. Create the ACR webhook. The webhook is a notification mechanism that triggers the web app to pull the latest image from ACR when a new image is pushed. The webhook uses the web app’s SCM endpoint as the target URL. The webhook is created with the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command. This webhook links ACR to the web app, enabling continuous deployment. When a new image is pushed to msdocspythoncontainerwebapp, ACR sends a POST request to SERVICE_URI, and the web app pulls and deploys the new image.
 
@@ -271,33 +300,6 @@ In this step, you configure the web app to use managed identity to pull images f
     ```
 
     ---
-
-## Enable Continuous Deployment from ACR
-
-In this step, you enable continuous deployment from ACR to the web app. This allows the web app to automatically pull new images from ACR when they are pushed.
-The webhook you created in the previous step is used to trigger this process. Enabling continuous deployment activates the web app’s ability to listen for webhook requests at the SCM endpoint. The web app is now part of a push-based continuous deployment pipeline.
-
-  ### [Bash](#tab/bash)
-
-  ```azurecli-interactive
-  #!/bin/bash
-  az webapp deployment container config \
-    --name "$APP_SERVICE_NAME" \
-    --resource-group "$RESOURCE_GROUP_NAME" \
-    --enable-cd true
-  ```
-
-  ### [PowerShell](#tab/powershell)
-
-  ```powershell-interactive
-  # PowerShell syntax
-  az webapp deployment container config `
-    --name "$APP_SERVICE_NAME" `
-    --resource-group "$RESOURCE_GROUP_NAME" `
-    --enable-cd true
-  ```
-
-  ---
 
 ## Create Key Vault with RBAC Authorization
 
@@ -401,13 +403,13 @@ In this step, you store the connection string for MongoDB and the secret key for
 
   az keyvault secret set \
     --vault-name "$KEYVAULT_NAME" \
-    --name "MONGO_CONNECTION_STRING" \
+    --name "MONGO-CONNECTION-STRING" \
     --value "$MONGO_CONNECTION_STRING"
 
   az keyvault secret set \
     --vault-name "$KEYVAULT_NAME" \
-    --name "SECRET_KEY" \
-    --value "supersecretkeythatispassedtopythonapp"
+    --name "SECRET-KEY" \
+    --value "SECRET_KEY"
   ```
 
   ### [PowerShell](#tab/powershell)
@@ -415,23 +417,23 @@ In this step, you store the connection string for MongoDB and the secret key for
   ```powershell-interactive
   # PowerShell syntax
 
-  MONGO_CONNECTION_STRING=$()
-
-    $SECRET_KEY = [System.Convert]::ToBase64String((New-Object byte[] 32 | ForEach-Object { Get-Random -Maximum 256 }))
-
-  az keyvault secret set `az cosmosdb keys list `
+  MONGO_CONNECTION_STRING=$(az cosmosdb keys list `
     --name "$ACCOUNT_NAME" `
     --resource-group "$RESOURCE_GROUP_NAME" `
     --type connection-strings `
-    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv
+    --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
+
+    $SECRET_KEY = [System.Convert]::ToBase64String((New-Object byte[] 32 | ForEach-Object { Get-Random -Maximum 256 }))
+
+  az keyvault secret set `
     --vault-name "$KEYVAULT_NAME" `
-    --name "MONGO_CONNECTION_STRING" `
+    --name "MONGO-CONNECTION-STRING" `
     --value "$MONGO_CONNECTION_STRING"
 
   az keyvault secret set `
     --vault-name "$KEYVAULT_NAME" `
-    --name "SECRET_KEY" `
-    --value "supersecretkeythatispassedtopythonapp"
+    --name "SECRET-KEY" `
+    --value "$SECRET_KEY"
   ```
 
   ---
@@ -451,10 +453,10 @@ In this step, you configure the Azure App Service web app to reference the secre
       --resource-group $RESOURCE_GROUP_NAME \
       --name $APP_SERVICE_NAME \
       --settings \
-        CONNECTION_STRING=$MONGO_CONNECTION_STRING \
-        DB_NAME=$MONGODB_NAME  \
-        COLLECTION_NAME=$MONGODB_COLLECTION_NAME \
-        SECRET_KEY=$SECRET_KEY
+          MONGO_CONNECTION_STRING="@Microsoft.KeyVault(SecretUri=https://$KEYVAULT_NAME.vault.azure.net/secrets/MONGO_CONNECTION_STRING)" \
+          DB_NAME=$MONGODB_NAME  \
+          COLLECTION_NAME=$MONGODB_COLLECTION_NAME \
+          SECRET_KEY="@Microsoft.KeyVault(SecretUri=https://$KEYVAULT_NAME.vault.azure.net/secrets/SECRET_KEY)"
   ```
 
   ### [PowerShell](#tab/powershell)
@@ -467,10 +469,11 @@ In this step, you configure the Azure App Service web app to reference the secre
   az webapp config appsettings set `
       --resource-group $RESOURCE_GROUP_NAME `
       --name $APP_SERVICE_NAME `
-      --settings CONNECTION_STRING=$MONGO_CONNECTION_STRING `
+      --settings `
+          MONGO_CONNECTION_STRING="@Microsoft.KeyVault(SecretUri=https://$KEYVAULT_NAME.vault.azure.net/secrets/MONGO_CONNECTION_STRING)" `
           DB_NAME=$MONGODB_NAME  `
           COLLECTION_NAME=$MONGODB_COLLECTION_NAME `
-          SECRET_KEY=$SECRET_KEY        
+          SECRET_KEY="@Microsoft.KeyVault(SecretUri=https://$KEYVAULT_NAME.vault.azure.net/secrets/SECRET_KEY)"     
   ```
 
   ---
