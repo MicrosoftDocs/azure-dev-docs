@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform,devx-track-export-terraform
 
 # Overview of Azure Export for Terraform
 
-Azure Export for Terraform is a tool designed to help reduce friction in translation between Azure and Terraform concepts.
+Azure Export for Terraform is a tool designed to help reduce friction in translation between Azure and Terraform concepts. For the `API`, refer to the [Azure Terrafom resource provider overview](/azure/developer/terraform/azure-export-for-terraform/resource-provider-overview.md). To see the `API` in the Azure Portal, check out the [quickstart within the Portal](/azure/developer/terraform/azure-export-for-terraform/get-started-export-resources-portal.md).
 
 ## Benefits
 

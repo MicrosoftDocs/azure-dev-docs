@@ -34,6 +34,7 @@
     - name: Azure Export for Terraform
       items:
         - name: Overview
+          expanded: true
           items:
             - name: Azure Export for Terraform
               href: ./azure-export-for-terraform/export-terraform-overview.md
@@ -47,7 +48,7 @@
             - name: Export resources to HCL code
               href: ./azure-export-for-terraform/export-resources-hcl.md
             - name: Export Terraform resources in the Azure portal
-            href: ./azure-export-for-terraform/get-started-export-resources-portal.md   
+              href: ./azure-export-for-terraform/get-started-export-resources-portal.md   
         - name: How-to guides
           items:
             - name: Select custom resources
