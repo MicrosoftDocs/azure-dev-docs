@@ -98,7 +98,7 @@ azmcp servicebus queue details \
     --queue-name <QUEUE_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -108,7 +108,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -132,7 +132,7 @@ azmcp servicebus topic details \
     --topic-name <TOPIC_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -142,7 +142,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -167,7 +167,7 @@ azmcp servicebus topic subscription details \
     --subscription-name <SUBSCRIPTION_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -178,7 +178,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -204,7 +204,7 @@ azmcp servicebus queue peek \
     [--max-messages <MAX_MESSAGES>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -216,7 +216,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--max-messages`: The maximum number of messages to peek. Default is 1.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -252,7 +252,7 @@ azmcp servicebus topic subscription peek \
     [--max-messages <MAX_MESSAGES>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -265,7 +265,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--max-messages`: The maximum number of messages to peek. Default is 1.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 

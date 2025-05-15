@@ -84,7 +84,7 @@ azmcp cosmos account list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -92,7 +92,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
+View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -113,7 +113,7 @@ azmcp cosmos database list \
     --account-name <ACCOUNT_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -122,7 +122,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
+View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -134,7 +134,7 @@ azmcp cosmos database list \
     --account-name "mycosmosaccount"
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ### List containers
 
@@ -147,7 +147,7 @@ azmcp cosmos database container list \
     --database-name <DATABASE_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -157,7 +157,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
+View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -170,7 +170,7 @@ azmcp cosmos database container list \
     --database-name "products"
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ### Query items
 
@@ -185,7 +185,7 @@ azmcp cosmos database container item query \
     --query <COSMO_DB_QUERY>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -198,7 +198,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--query`: The Cosmos DB query to execute against the container.
 
-View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
+View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 

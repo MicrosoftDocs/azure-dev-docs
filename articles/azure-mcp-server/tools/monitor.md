@@ -72,7 +72,7 @@ azmcp monitor workspace list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -80,7 +80,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -102,7 +102,7 @@ azmcp monitor table list \
     --resource-group <RESOURCE_GROUP>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -112,7 +112,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -139,7 +139,7 @@ azmcp monitor log query \
     [--limit <LIMIT>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -153,7 +153,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 `--hours`: The number of hours of data to query. Default is 24.<br>
 `--limit`: The maximum number of results to return. Default is 20.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
