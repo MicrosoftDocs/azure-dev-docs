@@ -14,10 +14,10 @@ ms.custom: build-2025
 
 # What is the Azure MCP Server (Preview)?
 
-The Azure MCP Server provides a consistent and secure way for AI agents and other types of clients to access Azure resources and interact with them using natural language commands. With the Azure MCP Server, you can:
+The Azure MCP Server enables AI agents and other types of clients to interact with Azure resources through natural language commands. With the Azure MCP Server, you can:
 
-- Interact with Azure resources through AI agents such as GitHub Copilot agent mode in Visual Studio Code and other clients such as custom intelligent applications.
-- Use natural language to interact with Azure resources without learning complex APIs or SDKs.
+- Interact with Azure resources through AI agents such as GitHub Copilot agent mode in Visual Studio Code, and other types of clients such as custom intelligent applications.
+- Use natural language to access and interact with Azure resources without learning complex APIs or SDKs.
 - Access Azure resources in secure ways so that sensitive data stays protected while still enabling AI-powered workflows.
 
 ## What is the Model Context Protocol (MCP)?
@@ -30,7 +30,7 @@ MCP defines a client-server architecture with three main components:
 - **Clients**: Parts of hosts that manage connections to servers (for example, GitHub Copilot in VS Code).
 - **Servers**: Services that provide features like data resources, tools for performing actions, and prompts to guide interactions.
 
-The Azure MCP Server offers a large set of [tools](./tools/index.md) that AI agents use to interact with Azure.
+The Azure MCP Server offers a large set of [tools](./tools/index.md) that AI agents and other types of clients use to interact with Azure resources.
 
 ## Scenarios for using the Azure MCP Server
 
