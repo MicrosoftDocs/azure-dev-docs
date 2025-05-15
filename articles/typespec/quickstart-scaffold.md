@@ -117,10 +117,9 @@ TypeSpec defines your API in a language-agnostic way and generates the API serve
 1. Open the `./tsp-output/schema/openapi.yaml` file. Notice that the few lines in `./main.tsp` generated over 200 lines of OpenApi specification for you. 
 
 1. Open the `./tsp-output/server/aspnet` folder. Notice that the scaffolded .NET files include:
-1. This quick scaffolding generates middleware that you can integrate into an existing API server.
 
     * `./generated/operations/IWidgets.cs` defines the interface for the Widgets methods.
-    * `./generated/controllers/WidgetsController.cs` implements the integration to the Widgets methods.
+    * `./generated/controllers/WidgetsController.cs` implements the integration to the Widgets methods. This is where you put your business logic.
     * `./generated/models` defines the models for the Widget API. 
 
 ## Configure TypeSpec emitters
@@ -298,7 +297,7 @@ Now that the basic Widget API server is working, update the server to work with 
     var cosmosEndpoint = builder.Configuration["Configuration:AzureCosmosDb:Endpoint"];
     ```
 
-1. Create a new Widget class, `./azure/WidgetsCosmos.cs` to integrate with Azure Cosmos DB. 
+1. Create a new Widget class, `./azure/WidgetsCosmos.cs` to provide business logic to integrate with Azure Cosmos DB for your persistent store. 
 
     ```csharp
     using System;
