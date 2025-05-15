@@ -5,13 +5,13 @@ keywords: azure mcp server, azmcp
 author: diberry
 ms.author: diberry
 ms.date: 05/14/2025
-ms.topic: get-started
+ms.topic: overview
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.custom: build-2025
 ---
-# Get started with Azure MCP Server tools
+# What are the Azure MCP Server tools?
 
 The Azure Model Context Protocol (MCP) Server enables interaction with Azure services through natural language tools. This article provides an overview of tools supported by the Azure MCP Server and explains how to use them in two key development scenarios: [consuming existing servers](#consume-existing-mcp-servers) and [developing new servers](#develop-your-own-mcp-server).
 
@@ -21,15 +21,15 @@ The Azure Model Context Protocol (MCP) Server enables interaction with Azure ser
 
 ## Developer scenarios
 
-Developers can use the Azure MCP Server in two main ways:
+Developers can use the Azure MCP Server in two main ways.
 
 ### Consume existing MCP servers
 
-Most developers use existing MCP servers, like the Azure MCP Server, to build intelligent apps.
+Most developers consume the Azure MCP Server from an existing AI agent or client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app.
 
 This approach focuses on using prebuilt servers to perform specific tasks within your broader system. For example, you can use the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. This scenario is ideal for developers who want to quickly add AI functionality without building servers from scratch.
 
-**When to use this scenario:**
+Use this scenario when:
 
 - You need to integrate ready-to-use server capabilities
 - You want to quickly add AI functionality without building servers from scratch
@@ -49,7 +49,7 @@ Some developers create their own MCP servers to offer custom tools, resources, a
 
 This approach involves using frameworks, client libraries, tools, and services to define detailed server behaviors and interactions. This scenario works best for developers who need custom server features not available in existing solutions.
 
-**When to use this scenario:**
+Use this scenario when:
 
 - You need custom server functionality not available in existing solutions
 - Your application requires deep integration with multiple Azure services
@@ -59,8 +59,9 @@ This approach involves using frameworks, client libraries, tools, and services t
 
 Developing an MCP server gives you greater flexibility in creating specialized servers that can perform complex tasks across multiple Azure services.
 
-**Integration syntax**
-When developing your own servers, use the structured command syntax to integrate with existing Azure MCP servers:
+#### Integration syntax
+
+When developing your own servers, use the structured command syntax to integrate with tools exposed by the Azure MCP server.
 
 ```console
 # List resource groups

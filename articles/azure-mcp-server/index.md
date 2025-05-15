@@ -14,64 +14,32 @@ ms.custom: build-2025
 
 # What is the Azure MCP Server (Preview)?
 
-The Azure MCP Server enables AI agents to interact with Azure resources through natural language commands. It provides a standardized way for developers to build intelligent applications that can use the power of AI while maintaining a consistent and secure way to access Azure resources.
+The Azure MCP Server provides a consistent and secure way for AI agents and other types of clients to access Azure resources and interact with them using natural language commands. With the Azure MCP Server, you can:
 
-The Azure MCP Server helps developers work faster when building and deploying apps to Azure. With the Azure MCP Server, developers can:
+- Interact with Azure resources through AI agents such as GitHub Copilot agent mode in Visual Studio Code and other clients such as custom intelligent applications.
+- Use natural language to interact with Azure resources without learning complex APIs or SDKs.
+- Access Azure resources in secure ways so that sensitive data stays protected while still enabling AI-powered workflows.
 
-- **Make development easier**: The Azure MCP Server gives a consistent way to access Azure resources, so it's easier to build apps that use AI.
-- **Work faster**: Developers can use natural language commands to interact with Azure resources, so they don't need to learn complex APIs or SDKs.
-- **Keep data safe**: The Azure MCP Server gives a secure way to access Azure resources, so sensitive data stays protected while still letting developers use AI.
-- **Use existing tools**: The Azure MCP Server uses the Model Context Protocol (MCP), a standard for how AI models work with outside systems. Developers use existing tools and resources to build intelligent apps without starting from scratch.
+## What is the Model Context Protocol (MCP)?
 
-## Introduction to the Model Context Protocol (MCP)
+The Azure MCP Server is a server implementation of the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) for interacting with Azure services. MCP is a standard for connecting AI models to external systems like databases and APIs.
 
-The Model Context Protocol (MCP) is a standard that helps AI models work with outside systems, like databases, APIs, and other services. It lets developers build apps that use AI in a consistent way, no matter what tools or data they need.
+MCP defines a client-server architecture with three main components:
 
-The MCP has three main components:
+- **Hosts**: Apps that start client connections (for example, VS Code).
+- **Clients**: Parts of hosts that manage connections to servers (for example, GitHub Copilot in VS Code).
+- **Servers**: Services that provide features like data resources, tools for performing actions, and prompts to guide interactions.
 
- - Hosts (apps like VS Code that start client connections), 
- - Clients (parts of host apps that manage connections to servers)
- - Servers (services that provide tools, resources, and prompts). 
+The Azure MCP Server offers a large set of [tools](./tools/index.md) that AI agents use to interact with Azure.
 
-An MCP server can provide features like data resources, tools for performing actions, and prompts to guide interactions with language models. Most developers use existing MCP servers, like the Azure MCP Server, to build apps, while some create custom MCP servers for specific needs.
+## Scenarios for using the Azure MCP Server
 
-The Azure MCP Server is a specific implementation of the MCP standard that focuses on several Azure services. It provides a set of [tools](./tools/get-started.md) that developers can use to build intelligent applications that interact with Azure resources.
+The most common scenario for using the Azure MCP Server is to connect to it from an existing AI agent or client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app. In this scenario, the [Azure MCP Server tools](./tools/index.md) for Azure service operations are available to the AI agent or client via natural language. For example, in VS Code, GitHub Copilot agent mode can use the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. For more information about consuming the Azure MCP Server from an existing AI agent or client, see [Get started using the Azure MCP Server](./get-started.md).
 
-## Developer scenarios
-
-Developers can use the Azure MCP Server in two main ways:
-
-### Consume existing MCP servers
-
-Most developers use existing MCP servers, like the Azure MCP Server, to build intelligent apps.
-
-- **When to use this scenario**:
-  - You need to integrate ready-to-use server capabilities.
-  - Your application needs to perform specific Azure service operations through natural language.
-  - You want to quickly add AI functionality without building servers from scratch.
-
-### Develop your own MCP server
-
-Some developers create their own MCP servers to offer custom tools, resources, and prompts for specific needs. This scenario is more advanced and needs a deeper understanding of the MCP protocol.
-
-- **When to use this scenario**:
-  - You need custom server functionality not available in existing solutions.
-  - Your application requires deep integration with multiple Azure services.
-  - You want to create specialized capabilities tailored to your domain expertise.
-  - You need fine-grained control over how AI interacts with your data and services.
-  - You're building advanced solutions that require custom reasoning or domain-specific knowledge.
-
-Developers can integrate the Azure MCP Server into their apps to simplify workflows. For example, in VS Code, GitHub Copilot Agent Mode can use the [Azure MCP Server tools](./tools/get-started.md) to list Azure storage accounts or run KQL queries on Azure databases. Whether consuming or developing MCP servers, the Azure MCP Server helps developers work faster and more efficiently when building AI-powered applications.
+Some developers also create their own MCP servers to offer custom tools, resources, and prompts for specific tasks that involve Azure resources. If you're building an MCP server that needs to connect with Azure, you can use the Azure MCP Server tools from your MCP server. For more information, see [Develop your own MCP server](./tools/index.md#develop-your-own-mcp-server).
 
 ## Related content
-- [Model Context Protocol user guide](https://modelcontextprotocol.io/introduction)
-- [Model Context Protocol specification](https://github.com/modelcontextprotocol/modelcontextprotocol)
-- [Model Context Protocol Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-- [Model Context Protocol C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
-- [Model Context Protocol Java SDK](https://github.com/modelcontextprotocol/java-sdk)
-- [Model Context Protocol Typescript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 
-## Next step
-
-[Get started using the Azure MCP Server](./get-started.md)
-
+- [Get started using the Azure MCP Server](./get-started.md)
+- [Azure MCP Server tools](./tools/index.md#develop-your-own-mcp-server)
+- [Model Context Protocol documentation](https://modelcontextprotocol.io/introduction)

@@ -6,8 +6,8 @@ items:
       href: get-started.md
     - name: Tools
       items:
-        - name: Get started with Azure MCP Server tools
-          href: tools/get-started.md
+        - name: Overview
+          href: tools/index.md
         - name: App Configuration
           href: tools/app-configuration.md
         - name: Azure CLI Extension
