@@ -31,13 +31,10 @@ Extensions are distributed and managed through extension sources, making it easy
 - Users can add custom extension sources that connect to private, local, or public registries.
 - Extension sources are an equivalent concept to NuGet or Node Package Manager (NPM) feeds and must adhere to the [official extension registry schema](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/registry.schema.json).
 
-### Official extension registry
+`azd` provides two extension source registries to help you get started with extensions:
 
-The official extension source registry is preconfigured in `azd` and is hosted at [https://aka.ms/azd/extensions/registry](https://aka.ms/azd/extensions/registry).
-
-### Development extension registry
-
-A shared development registry can be added to your `azd` configuration. This registry contains extensions that are experiments and also used for internal testing before shipping official extensions.
+- The **official extension source registry** is preconfigured in `azd` and is hosted at [https://aka.ms/azd/extensions/registry](https://aka.ms/azd/extensions/registry).
+- The **development extension registry** can also be added to your `azd` configuration. This opt-in registry contains experimental extensions for internal testing that may or may not become official extensions.
 
 To opt-in for the development registry run the following command:
 
