@@ -45,6 +45,10 @@ The Azure Key Vault is a cloud service that provides a secure store for secrets,
 
     ```azurecli-interactive
     #!/bin/bash
+    RESOURCE_GROUP_NAME="msdocs-web-app-rg"
+    LOCATION="westus"
+    KEYVAULT_NAME="${RESOURCE_GROUP_NAME}-kv"
+
     az keyvault create \
       --name "$KEYVAULT_NAME" \
       --resource-group "$RESOURCE_GROUP_NAME" \
@@ -56,6 +60,10 @@ The Azure Key Vault is a cloud service that provides a secure store for secrets,
 
     ```powershell-interactive
     # PowerShell syntax
+    $RESOURCE_GROUP_NAME="msdocs-web-app-rg"
+    $LOCATION="westus"
+    $KEYVAULT_NAME="${RESOURCE_GROUP_NAME}-kv"
+
     az keyvault create `
       --name "$KEYVAULT_NAME" `
       --resource-group "$RESOURCE_GROUP_NAME" `
@@ -115,7 +123,6 @@ It’s also important to assign the container image here so the app is bootstrap
   
     ```azurecli-interactive
     #!/bin/bash
-    RESOURCE_GROUP_NAME="msdocs-web-app-rg"
     APP_SERVICE_PLAN_NAME="msdocs-web-app-plan"
     
     az appservice plan create \
@@ -129,7 +136,6 @@ It’s also important to assign the container image here so the app is bootstrap
   
     ```powershell-interactive
     # PowerShell syntax
-    $RESOURCE_GROUP_NAME="msdocs-web-app-rg"
     $APP_SERVICE_PLAN_NAME="msdocs-web-app-plan"
     
     az appservice plan create `
@@ -179,15 +185,15 @@ It’s also important to assign the container image here so the app is bootstrap
   
     ---
 
-  > [!NOTE]
-  > You may see an error similar to the following output when running the previous command:
-  >
-  >    ```output
-  >    No credential was provided to access Azure Container Registry. Trying to look up...
-  >    Retrieving credentials failed with an exception:'Failed to retrieve container registry credentials. Please either provide the credentials or run 'az acr update -n msdocscontainerregistryname --admin-enabled true' to enable admin first.'
-  >    ```
-  >
-  > This error arises from the web app's default attempt to use Azure Container Registry admin credentials, which are disabled. It's safe to disregard this error, as the subsequent command configures the web app to use system-assigned managed identity for authentication.
+      > [!NOTE]
+      > You may see an error similar to the following output when running the previous command:
+      >
+      >    ```output
+      >    No credential was provided to access Azure Container Registry. Trying to look up...
+      >    Retrieving credentials failed with an exception:'Failed to retrieve container registry credentials. Please either provide the credentials or run 'az acr update -n msdocscontainerregistryname --admin-enabled true' to enable admin first.'
+      >    ```
+      >
+      > This error arises from the web app's default attempt to use Azure Container Registry admin credentials, which are disabled. It's safe to disregard this error, as the subsequent command configures the web app to use system-assigned managed identity for authentication.
 
 ## Grant web app access to the key vault
 
@@ -279,6 +285,8 @@ For this tutorial, you store the MongoDB connection string and the web app secre
 
     ```azurecli-interactive
     #!/bin/bash
+    ACCOUNT_NAME="msdocs-cosmos-db-account-name"
+
     MONGO_CONNECTION_STRING=$(az cosmosdb keys list \
       --name "$ACCOUNT_NAME" \
       --resource-group "$RESOURCE_GROUP_NAME" \
@@ -302,7 +310,8 @@ For this tutorial, you store the MongoDB connection string and the web app secre
 
     ```powershell-interactive
     # PowerShell syntax
-    
+    $ACCOUNT_NAME="msdocs-cosmos-db-account-name"
+
     MONGO_CONNECTION_STRING=$(az cosmosdb keys list `
       --name "$ACCOUNT_NAME" `
       --resource-group "$RESOURCE_GROUP_NAME" `
