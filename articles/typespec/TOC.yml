@@ -6,8 +6,8 @@
       href: overview.md
 - name: Quickstart
   items:
-    - name: Scaffold a new project
-      href: quickstart-scaffold.md
+    - name: .NET
+      href: quickstart-scaffold-dotnet.md
 - name: Resources
   items:
     - name: Getting started
