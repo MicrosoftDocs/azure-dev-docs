@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Quickstart: Create AI infrastructure using extensions
 
-In this Quickstart, you install the Azure Developer CLI (`azd`) AI extension and use it to create AI infrastructure in your Azure environment. [Extensions](overview.md) provide a way to add new capabilities, automate workflows, and integrate with other services with `azd`.
+In this Quickstart, you install the Azure Developer CLI (`azd`) AI extension and use it to create AI infrastructure in your Azure environment. [Extensions](overview.md) provide a way to add new capabilities, automate workflows, and integrate other services with `azd`.
 
 ## Initialize the project
 
@@ -25,7 +25,7 @@ azd init -t hello-azd
 
 Complete the following steps to install the AI extension:
 
-1. Ensure that extensions are enabled in your azd configuration:
+1. Ensure that extensions are enabled in your `azd` configuration:
 
     ```azdeveloper
     azd config set alpha.extensions on
@@ -47,7 +47,7 @@ Complete the following steps to install the AI extension:
 
 Once installed, the AI extension adds new commands to `azd` you can use to build out various AI workflows. The steps ahead create the required backend Azure AI resources for a Retrieval-Augmented Generation (RAG) app.
 
-1. To begin the AI extension workflows, use the `azd ai start` command:
+1. To begin the AI extension workflow, use the `azd ai start` command:
 
     ```azdeveloper
     azd ai start
@@ -55,9 +55,19 @@ Once installed, the AI extension adds new commands to `azd` you can use to build
 
 1. When prompted, select the Azure subscription and resource group you want to provision resources to.
 
-1. The AI extension workflow prompts you with questions organized by task to identify the required infrastructure for your desired scenario. Select the following options when prompted to follow along with this sample scenario:
+1. The AI extension workflow prompts you with questions organized by task to identify the required infrastructure for your desired scenario.
 
-    - Identify AI Scenario:
+    ```output
+    Welcome to the AI Builder!
+    This tool will help you build an AI scenario using Azure services.
+    
+    Identify AI Scenario
+    Let's start drilling into your AI scenario to identify all the required infrastructure we will need.
+    ```
+
+    Select the following options when prompted to follow along with this sample scenario:
+
+    - Identify AI scenario:
 
         - **What type of AI scenario are you building?**: Rag Application (Retrieval-Augmented Generation)
         - **Does your application require custom data?**: No
@@ -66,15 +76,15 @@ Once installed, the AI extension adds new commands to `azd` you can use to build
 
         - **How do you want users to interact with the data?**: API Backend application
 
-    - Configure 'rag-api' Application:
+    - Configure 'rag-api' application:
 
         - **Which application host do you want to use?** : Container App
         - **Select an existing application or create a new one**: Create new Container App
         - **Which programming language do you want to use?**: C#
 
-    - AI Model Selection:
+    - AI model selection:
 
-        - **Lets choose a chat completion model**: I'll choose model
+        - **Lets choose a chat completion model**: I will choose model
         - **Which model do you want to use?**: gpt-4o-mini (OpenAI)
 
     After you answer the workflow questions, the extensions prints your choices and stages the changes for provisioning and deployment. 

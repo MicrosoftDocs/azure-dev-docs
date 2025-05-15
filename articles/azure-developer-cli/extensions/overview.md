@@ -35,12 +35,7 @@ Extensions are distributed and managed through extension sources, making it easy
 
 The official extension source registry is preconfigured in `azd` and is hosted at [https://aka.ms/azd/extensions/registry](https://aka.ms/azd/extensions/registry).
 
-The registry is hosted in the [`azd` GitHub repo](https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/registry.json).
-
 ### Development extension registry
-
-> [!CAUTION]
-> Extensions hosted in the dev registry DO NOT contain signed binaries at the moment.
 
 A shared development registry can be added to your `azd` configuration. This registry contains extensions that are experiments and also used for internal testing before shipping official extensions.
 
@@ -51,21 +46,20 @@ To opt-in for the development registry run the following command:
 azd extension source add -n dev -t url -l "https://aka.ms/azd/extensions/registry/dev"
 ```
 
+> [!CAUTION]
+> Extensions hosted in the dev registry DO NOT contain signed binaries at the moment.
+
 ### Extension source commands
 
 Use the following commands to manage extension sources for your `azd` installation.
 
 **List installed extension sources**
 
-Displays a list of installed extension sources.
-
 ```azdeveloper
 azd extension source list
 ```
 
 **Add a new extension source**
-
-Adds a new named extension source to the global `azd` configuration.
 
 ```azdeveloper
 azd extension source add -n <name> -t url -l <registry-url>
@@ -77,19 +71,15 @@ azd extension source add -n <name> -t url -l <registry-url>
 
 **Remove an extension source**
 
-Removes an extension source with the specified named argument
-
 ```azdeveloper
 azd extension source remove <name>
 ```
 
 ## Manage extensions
 
-Once extensions are enabled and your extension sources are configured, you can install extensions to add new capabilities to `azd`.
+Once extensions are enabled and your extension sources are configured, you can install extensions to add new capabilities to `azd`. Visit the [Quickstart - use the AI extension](quickstart-ai-extension.md) article for an example of working with extensions.
 
 **List extensions**
-
-Lists matching extensions from one or more extension sources:
 
 ```azdeveloper
 `azd extension list [flags]
@@ -100,8 +90,6 @@ Lists matching extensions from one or more extension sources:
 - `--tags` Allows filtering extensions by tags (AI, test)
 
 **Install an extension**
-
-Installs one or more extensions from any configured extension source.
 
 ```azdeveloper
 azd extension install <extension-names> [flags]
@@ -114,8 +102,6 @@ Replace `<extension-name>` with the name of the extension you want to install.
 
 **Upgrade an extension**
 
-Upgrades one or more extensions to the latest versions.
-
 ```azdeveloper
 azd extension upgrade <extension-name>
 ```
@@ -125,8 +111,6 @@ azd extension upgrade <extension-name>
 - `-s, --source` Specifies the extension source used for installations.
 
 **Uninstall an extension**
-
-Uninstalls one or more previously installed extensions.
 
 ```azdeveloper
 azd extension uninstall <extension-name>
