@@ -6,7 +6,6 @@ ms.topic: conceptual
 author: KarlErickson
 ms.author: karler
 ms.reviewer: karler
-ms.topic: landing-page
 ms.service: azure
 ms.custom: devx-track-java
 ---
