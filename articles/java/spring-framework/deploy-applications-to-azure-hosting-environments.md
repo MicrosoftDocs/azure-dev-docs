@@ -6,7 +6,6 @@ ms.author: karler
 ms.reviewer: seal
 ms.date: 05/15/2025 
 ms.topic: article
-ms.service: azure
 ms.custom: devx-track-java, spring-cloud-azure
 appliesto:
 - ✅ Version 4.20.0
