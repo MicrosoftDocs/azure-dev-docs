@@ -27,9 +27,9 @@ In this tutorial, all the Azure resources were created in the same resource grou
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
+1. Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
-    #### [Bash](#tab/bash)
+    ### [Bash](#tab/bash)
     
     ```azurecli-interactive
     #!/bin/bash
@@ -37,7 +37,7 @@ Delete the resource group by using the [az group delete](/cli/azure/group#az-gro
     az group delete --name $RESOURCE_GROUP_NAME 
     ```
     
-    #### [PowerShell](#tab/powershell)
+    ### [PowerShell](#tab/powershell)
     
     ```powershell-interactive
     # PowerShell syntax
