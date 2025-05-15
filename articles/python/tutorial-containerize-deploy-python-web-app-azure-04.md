@@ -11,7 +11,7 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 In this part of the tutorial series, you learn how to deploy a containerized Python web application to Azure App Service using the [App Service Web App for Containers](/azure/app-service/containers/). This service lets you focus on building and managing your containers without the complexity of maintaining a container orchestrator. With App Service, you can run containerized web apps and streamline deployment using continuous integration/continuous deployment (CI/CD) with Docker Hub, Azure Container Registry, Azure Key Vault, and Visual Studio Team Services. This article is part 4 of a 5-part tutorial series.
 
-By the end of this article, you'll have a fully deployed and secure App Service web site running on a Docker container image. App Service uses managed identity to authenticate with Azure Container Registry and retrieve the initial image. The CosmosDB for MongdoDB connection string and the web app secret key are securely stored in Azure Key Vault. App Service uses managed identity to retrieve this connection string and secret key for the web app from Azure Key Vault.
+By the end of this article, you have a fully deployed and secure App Service web site running on a Docker container image. App Service uses managed identity to authenticate with Azure Container Registry and retrieve the initial image. The Cosmos DB for MongdoDB connection string and the web app secret key are securely stored in Azure Key Vault. App Service uses managed identity to retrieve this connection string and secret key for the web app from Azure Key Vault.
 
 This service diagram highlights the components covered in this article.
 
@@ -68,7 +68,7 @@ az keyvault create `
 In this step, you grant the logged-in user the **Key Vault Secrets Officer** role on the Key Vault using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This role allows the user to create and manage secrets in the Key Vault. This step ensures the script has the necessary access without requiring hard-coded credentials, relying on RBAC and identity-based access, which is more secure and auditable. This step is the first of two role assignments (a later step assigns a role to the web app), ensuring both the user and the web app can interact with the Key Vault appropriately.
 
 > [!NOTE]
-> The user running this script needs the **Key Vault Secrets Officer** role to create and manage secrets in the vault. This needs to happen before any `az keyvault secret set` commands are run.
+> The user running this script needs the **Key Vault Secrets Officer** role to create and manage secrets in the vault. Granting this permission needs to happen before any `az keyvault secret set` commands are run.
 
 ### [Bash](#tab/bash)
 
@@ -99,7 +99,7 @@ az role assignment create `
 
 ## Create the app service plan and web app
 
-In this step, you create an App Service plan and a web app. The App Service plan defines the region and pricing tier for the web app. The web app is where your containerized application will run.
+In this step, you create an App Service plan and a web app. The App Service plan defines the region and pricing tier for the web app. The web app is where your containerized application runs.
 
 The web app is created with a system-assigned managed identity, which is used to authenticate to Azure Container Registry and Azure Key Vault. The web app is also configured to use continuous deployment from Azure Container Registry.
 
@@ -197,7 +197,7 @@ It’s also important to assign the container image here so the app is bootstrap
 
 In this step, you retrieve the unique identifier (principal ID) of the web app’s system-assigned managed identity with the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. The principal ID is used to grant permissions to access the Key Vault (and later in this script, to the Azure Container Registry (ACR)). You use this identifier to grant the web app access to the Key Vault with the **Key Vault Secrets User** role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
-Adding the managed identity to this role allows the web app to retrieve secrets from the Key Vault using its managed identity. This is important for securely accessing sensitive information, such as the MongoDB connection string and the Django web app secret key.
+Adding the managed identity to this role allows the web app to retrieve secrets from the Key Vault using its managed identity. This step is important for securely accessing sensitive information, such as the MongoDB connection string and the Django web app secret key.
 
 ### [Bash](#tab/bash)
 
@@ -326,7 +326,7 @@ az keyvault secret set `
 
 ## Configure web app to use Kay Vault secrets
 
-In this step, you configure the Azure App Service web app to reference the secrets stored in the Azure Key Vault using Key Vault references with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Specifically, it sets the **MongoConnectionString** and **MongoSecretKey** application settings to point to the Mongo DB connection string and web app secret key stored in the Key Vault. This enables the web app to securely access these secrets during runtime without hardcoding sensitive data.
+In this step, you configure the Azure App Service web app to reference the secrets stored in the Azure Key Vault using Key Vault references with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Specifically, it sets the **MongoConnectionString** and **MongoSecretKey** application settings to point to the MongoDB connection string and web app secret key stored in the Key Vault. This step enables the web app to securely access these secrets during runtime without hardcoding sensitive data.
 
 ### [Bash](#tab/bash)
 
@@ -364,8 +364,8 @@ az webapp config appsettings set `
 
 ## Enable continuous deployment from ACR
 
-In this step, you enable continuous deployment from ACR to the web app. This allows the web app to automatically pull new images from ACR when they are pushed.
-In thie next step, you create a webhook to trigger this process. Enabling continuous deployment activates the web app’s ability to listen for webhook requests at the SCM endpoint.
+In this step, you enable continuous deployment from ACR to the web app. This step allows the web app to automatically pull new images from ACR when they're pushed.
+In this next step, you create a webhook to trigger this process. Enabling continuous deployment activates the web app’s ability to listen for webhook requests at the SCM endpoint.
 
 ### [Bash](#tab/bash)
 
@@ -422,12 +422,12 @@ In this step, you register a webhook on Azure Container Registry (ACR). The webh
 
 * --uri $SERVICE_URI: The special SCM endpoint of your web app, used for triggering deployments. The webhook URI must end with `/api/registry/webhook` to work correctly with App Service. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. The webhook URI must be in the format `https://\<app-name\>.scm.azurewebsites.net/api/registry/webhook`.
 
-  * This is constructed like:
+  * The endpoint is constructed like:
 https://\<app-name\>:\<password\>@<app-name>.scm.azurewebsites.net/api/registry/webhook
 
   * This uses App Service’s publishing credentials to authenticate the push trigger.
 
-* --actions push: The webhook will fire only on image push events to the registry (i.e., a new or updated tag).
+* --actions push: The webhook fires only on image push events to the registry (i.e., a new or updated tag).
 
 ### [Bash](#tab/bash)
 
