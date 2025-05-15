@@ -690,8 +690,7 @@ Now that the basic Widget API server is working, update the server to work with 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
-    // Replacee original registration with the Cosmos DB one
-    //MockRegistration.Register(builder);
+    // Replace original registration with the Cosmos DB one
     CosmosDbRegistration.RegisterCosmosServices(builder);
 
     var app = builder.Build();
@@ -703,6 +702,8 @@ Now that the basic Widget API server is working, update the server to work with 
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
     }
+
+    // Swagger UI is always available
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
@@ -710,8 +711,6 @@ Now that the basic Widget API server is working, update the server to work with 
         c.SwaggerEndpoint("/openapi.yaml", "TypeSpec Generated OpenAPI Docs");
         c.RoutePrefix = "swagger";
     });
-
-
 
     app.UseHttpsRedirection();
     app.UseStaticFiles();
@@ -723,7 +722,7 @@ Now that the basic Widget API server is working, update the server to work with 
 
     app.MapGet("/openapi.yaml", async (HttpContext context) =>
     {
-        var externalFilePath = "wwwroot/openapi.yaml"; // Full path to the file outside the project
+        var externalFilePath = "wwwroot/openapi.yaml"; 
         if (!File.Exists(externalFilePath))
         {
             context.Response.StatusCode = StatusCodes.Status404NotFound;
@@ -734,16 +733,12 @@ Now that the basic Widget API server is working, update the server to work with 
         await context.Response.SendFileAsync(externalFilePath);
     });
 
-
     app.UseRouting();
-
     app.UseAuthorization();
-
 
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
-
 
     app.Run();
     ```
