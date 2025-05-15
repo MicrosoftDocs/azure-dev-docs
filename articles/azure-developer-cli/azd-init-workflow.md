@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli
 
 # Explore the Azure Developer CLI initialization workflows
 
-The Azure Developer CLI (`azd`) provides a set of commands to streamline developing, provisioning, and deploying applications to Azure. The `azd init` command is the first step, helping you initialize your project for use with the Azure Developer CLI. It sets up configuration files and infrastructure templates that define how `azd` provisions and deploys your app resources. The command also offers multiple initialization workflows for different scenarios.
+The Azure Developer CLI (`azd`) provides a set of commands to streamline developing, provisioning, and deploying applications on Azure. The `azd init` command is the starting point for any new or existing project, helping you generate the files and configurations needed to provision and deploy your app. This article explains the different initialization workflows available and how to select the best one for your scenario.
 
-## Initialization workflow options
+## Initialization workflows
 
-The `azd init` command supports several workflows to accommodate different development scenarios:
+THe `azd init` command supports several workflows to prepare your app to work with `azd`:
 
 - **Use code in the current directory**: Analyzes an existing app codebase to generate appropriate `azd` configuration files and resources.
 - **Select a template**: Clones and initializes a template from an `azd` [template gallery](azd-template-galleries.md).
@@ -23,9 +23,9 @@ The `azd init` command supports several workflows to accommodate different devel
 
 Choose the approach that best fits your project. All of these flows are outlined in more detail in the [Create templates overview](make-azd-compatible.md) and related articles. The following sections provide a conceptual overview of each flow.
 
-### Option 1 - Use code in the current directory
+### Use code in the current directory
 
-Use this option when you have an existing app codebase and want to prepare it for deployment to Azure using `azd`.
+Use this workflow when you have an existing app codebase and want to prepare it for deployment to Azure using `azd`.
 
 1. Navigate to your project's root directory.
 2. Run the `azd init` command:
@@ -62,11 +62,13 @@ Use this option when you have an existing app codebase and want to prepare it fo
     - A `.azure` folder to hold configuration settings such as your environment name.
     - A `.gitignore` file configured for your app language and hosting platform.
 
-5. Optionally, run `azd up` to create the Azure Container Apps resources and deploy your app. Your app is now structured as an `azd` template you can continue to develop and expand with more Azure resources and services.
+5. Optionally, run `azd up` to create the Azure Container Apps resources and deploy your app.
 
-### Option 2 - Select a template
+Your app is now structured as an `azd` template you can continue to develop and expand with more Azure resources and services.
 
-This option lets you start with a prebuilt application template that usually includes both application code and the necessary Azure infrastructure definitions.
+### Select a template
+
+This workflow lets you start with a prebuilt `azd` template that usually includes both application code and the necessary Azure infrastructure definitions.
 
 1. Run the `azd init` command:
 
@@ -97,9 +99,11 @@ This option lets you start with a prebuilt application template that usually inc
 
 3. Type to filter the results and search for the `Hello AZD` template. Press Enter to clone and initialize the template.
 
-4. Optionally, run `azd up` to provision and deploy the template resources to Azure. You can also use the initialized template as a starting point for further development.
+4. Optionally, run `azd up` to provision and deploy the template resources to Azure.
 
-### Option 3 - Create a minimal project
+You can also use the initialized template as a starting point for further development.
+
+### Create a minimal project
 
 For advanced users who want to start with a minimal setup and customize everything manually, this option provides just the essential configuration.
 

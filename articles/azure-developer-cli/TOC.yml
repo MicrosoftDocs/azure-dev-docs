@@ -25,6 +25,8 @@
       href: azure-developer-cli-vs-azure-cli.md
     - name: Explore the azd up workflow
       href: azd-up-workflow.md
+    - name: Explore the azd init workflow
+      href: azd-init-workflow.md
     - name: Commands overview
       href: azd-commands.md
     - name: Templates overview
