@@ -26,15 +26,17 @@ The Azure MCP Server is a server implementation of the [Model Context Protocol (
 
 MCP defines a client-server architecture with three main components:
 
-- **Hosts**: Apps that start client connections (for example, VS Code).
-- **Clients**: Parts of hosts that manage connections to servers (for example, GitHub Copilot in VS Code).
+- **Hosts**: Apps that start MCP client connections (for example, VS Code).
+- **Clients**: Parts of MCP hosts that manage connections to MCP servers (for example, GitHub Copilot agent mode in VS Code).
 - **Servers**: Services that provide features like data resources, tools for performing actions, and prompts to guide interactions.
 
 The Azure MCP Server offers a large set of [tools](./tools/index.md) that AI agents and other types of clients use to interact with Azure resources.
 
 ## Scenarios for using the Azure MCP Server
 
-The most common scenario for using the Azure MCP Server is to connect to it from an existing AI agent or client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app. In this scenario, the [Azure MCP Server tools](./tools/index.md) for Azure service operations are available to the AI agent or client via natural language. For example, in VS Code, GitHub Copilot agent mode can use the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. For more information about consuming the Azure MCP Server from an existing AI agent or client, see [Get started using the Azure MCP Server](./get-started.md).
+The most common scenario for using the Azure MCP Server is to connect to it from an existing AI agent or client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app. In this scenario, the [Azure MCP Server tools](./tools/index.md) for Azure service operations are available to the AI agent or client using natural language.
+
+For example, in VS Code, GitHub Copilot agent mode can use the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. For more information about consuming the Azure MCP Server from an existing AI agent or client, see [Get started using the Azure MCP Server](./get-started.md).
 
 Some developers also create their own MCP servers to offer custom tools, resources, and prompts for specific tasks that involve Azure resources. If you're building an MCP server that needs to connect with Azure, you can use the Azure MCP Server tools from your MCP server. For more information, see [Develop your own MCP server](./tools/index.md#develop-your-own-mcp-server).
 
