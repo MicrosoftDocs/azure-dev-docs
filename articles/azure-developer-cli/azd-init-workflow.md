@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli
 
 # Explore the Azure Developer CLI initialization workflows
 
-The Azure Developer CLI (`azd`) provides a set of commands to streamline developing, provisioning, and deploying applications on Azure. The `azd init` command is the starting point for any new or existing project, helping you generate the files and configurations needed to provision and deploy your app. This article explains the different initialization workflows available and how to select the best one for your scenario.
+The Azure Developer CLI (`azd`) provides a set of commands to streamline developing, provisioning, and deploying app on Azure. The `azd init` command helps you set up new or existing projects by generating the files and configurations needed to work with `azd`. This article explains the different initialization workflows available and how to select the best option for your development scenario.
 
 ## Initialization workflows
 
-THe `azd init` command supports several workflows to prepare your app to work with `azd`:
+The `azd init` command supports several workflows to prepare your app to work with `azd`:
 
 - **Use code in the current directory**: Analyzes an existing app codebase to generate appropriate `azd` configuration files and resources.
 - **Select a template**: Clones and initializes a template from an `azd` [template gallery](azd-template-galleries.md).
