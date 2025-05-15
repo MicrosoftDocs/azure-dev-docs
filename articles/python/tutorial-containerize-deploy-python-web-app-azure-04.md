@@ -151,42 +151,42 @@ It’s also important to assign the container image here so the app is bootstrap
 
   This command also enables the [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) for the web app and assigns it the [`AcrPull` role](/azure/container-registry/container-registry-roles) on the resource group that contains the Azure Container Registry. This grants the system-assigned managed identity pull privileges on any Azure Container Registry in the resource group.
 
-    ### [Bash](#tab/bash)
-  
-    ```azurecli-interactive
-    #!/bin/bash
-    APP_SERVICE_NAME="msdocs-website-name"
-    # Use the same rregistry name as in part 2 of this tutorial series.
-    REGISTRY_NAME="msdocscontainerregistryname"
-    CONTAINER_NAME="$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
-    
-    az webapp create \
-      --resource-group "$RESOURCE_GROUP_NAME" \
-      --plan "$APP_SERVICE_PLAN_NAME" \
-      --name "$APP_SERVICE_NAME" \
-      --assign-identity '[system]' \
-      --deployment-container-image-name "$CONTAINER_NAME" 
-    ```
-  
-    ### [PowerShell](#tab/powershell)
-  
-    ```powershell-interactive
-    # Powershell syntax
-    $APP_SERVICE_NAME="msdocs-website-name"
-    # Use the same rregistry name as in part 2 of this tutorial series.
-    $REGISTRY_NAME="msdocscontainerregistryname"
-    $CONTAINER_NAME = "$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
-    
-    az webapp create `
-      --resource-group "$RESOURCE_GROUP_NAME" `
-      --plan "$APP_SERVICE_PLAN_NAME" `
-      --name "$APP_SERVICE_NAME" `
-      --assign-identity '[system]' `
-      --deployment-container-image-name "$CONTAINER_NAME" 
-    ```
-  
-    ---
-    
+        ### [Bash](#tab/bash)
+      
+        ```azurecli-interactive
+        #!/bin/bash
+        APP_SERVICE_NAME="msdocs-website-name"
+        # Use the same rregistry name as in part 2 of this tutorial series.
+        REGISTRY_NAME="msdocscontainerregistryname"
+        CONTAINER_NAME="$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
+        
+        az webapp create \
+          --resource-group "$RESOURCE_GROUP_NAME" \
+          --plan "$APP_SERVICE_PLAN_NAME" \
+          --name "$APP_SERVICE_NAME" \
+          --assign-identity '[system]' \
+          --deployment-container-image-name "$CONTAINER_NAME" 
+        ```
+      
+        ### [PowerShell](#tab/powershell)
+      
+        ```powershell-interactive
+        # Powershell syntax
+        $APP_SERVICE_NAME="msdocs-website-name"
+        # Use the same rregistry name as in part 2 of this tutorial series.
+        $REGISTRY_NAME="msdocscontainerregistryname"
+        $CONTAINER_NAME = "$REGISTRY_NAME.azurecr.io/msdocspythoncontainerwebapp:latest"
+        
+        az webapp create `
+          --resource-group "$RESOURCE_GROUP_NAME" `
+          --plan "$APP_SERVICE_PLAN_NAME" `
+          --name "$APP_SERVICE_NAME" `
+          --assign-identity '[system]' `
+          --deployment-container-image-name "$CONTAINER_NAME" 
+        ```
+      
+        ---
+        
   > [!NOTE]
   > You may see an error similar to the following output when running the previous command:
   >
@@ -425,10 +425,10 @@ It’s also important to assign the container image here so the app is bootstrap
 
 * --scope msdocspythoncontainerwebapp:*: Triggers on any tag of the specified image (* wildcard).
 
-* --uri $SERVICE_URI: The special SCM endpoint of your web app, used for triggering deployments. The webhook URI must end with `/api/registry/webhook` to work correctly with App Service. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. The webhook URI must be in the format `https://\<app-name\>.scm.azurewebsites.net/api/registry/webhook`.
+* --uri $SERVICE_URI: The special SCM endpoint of your web app, used for triggering deployments. The webhook URI must end with `/api/registry/webhook` to work correctly with App Service. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. If you see an error about the URI not being valid, check that it ends with `/api/registry/webhook`. The webhook URI must be in the format `https://<app-name>.scm.azurewebsites.net/api/registry/webhook`.
 
   * The endpoint is constructed like:
-https://\<app-name\>:\<password\>@<app-name>.scm.azurewebsites.net/api/registry/webhook
+`https://<app-name>:<password>@<app-name>.scm.azurewebsites.net/api/registry/webhook`
 
   * This uses App Service’s publishing credentials to authenticate the push trigger.
 
