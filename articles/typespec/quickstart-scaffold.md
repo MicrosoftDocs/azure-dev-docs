@@ -218,6 +218,9 @@ Now that the basic Widget API server is working, update the server to work with 
     </Project>
     ```
 
+    * EnableSdkContainerSupport  lets you use the .NET SDK’s built-in container build support (dotnet publish ––container) without writing a Dockerfile.
+    * Newtonsoft.Json adds the Json .NET serializer that the Cosmos DB SDK uses to convert your .NET objects to and from JSON.
+
 1. Create a new registration file, `./azure/CosmosDbRegistration` to manage the Cosmos DB registration:
 
     ```csharp
