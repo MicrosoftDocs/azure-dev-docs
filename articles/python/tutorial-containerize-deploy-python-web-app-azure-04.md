@@ -39,30 +39,30 @@ In this step, you create an Azure Key Vault configured with Role-Based Access Co
 >[!NOTE]
 > Creating the Key Vault early ensures it’s available for secrets storage before any secrets are generated or used (like Cosmos DB credentials or app secrets). You also want to assign access before the Web App or users need to pull from it.
 
-### [Bash](#tab/bash)
-
-```azurecli-interactive
-#!/bin/bash
-az keyvault create \
-  --name "$KEYVAULT_NAME" \
-  --resource-group "$RESOURCE_GROUP_NAME" \
-  --location "$LOCATION" \
-  --enable-rbac-authorization true
-```
-
-### [PowerShell](#tab/powershell)
-
-```powershell-interactive
-# PowerShell syntax
-az keyvault create `
-  --name "$KEYVAULT_NAME" `
-  --resource-group "$RESOURCE_GROUP_NAME" `
-  --location "$LOCATION" `
-  --enable-rbac-authorization true
-```
-
----
-
+  ### [Bash](#tab/bash)
+  
+  ```azurecli-interactive
+  #!/bin/bash
+  az keyvault create \
+    --name "$KEYVAULT_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --location "$LOCATION" \
+    --enable-rbac-authorization true
+  ```
+  
+  ### [PowerShell](#tab/powershell)
+  
+  ```powershell-interactive
+  # PowerShell syntax
+  az keyvault create `
+    --name "$KEYVAULT_NAME" `
+    --resource-group "$RESOURCE_GROUP_NAME" `
+    --location "$LOCATION" `
+    --enable-rbac-authorization true
+  ```
+  
+  ---
+    
 ## Grant Secrets Officer Role to logged-In user
 
 In this step, you grant the logged-in user the **Key Vault Secrets Officer** role on the Key Vault using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This role allows the user to create and manage secrets in the Key Vault. This step ensures the script has the necessary access without requiring hard-coded credentials, relying on RBAC and identity-based access, which is more secure and auditable. This step is the first of two role assignments (a later step assigns a role to the web app), ensuring both the user and the web app can interact with the Key Vault appropriately.
