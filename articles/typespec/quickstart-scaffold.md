@@ -992,8 +992,9 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     output CONFIGURATION__AZURECOSMOSDB__CONTAINERNAME string = containerName
     
     output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerRegistry.outputs.loginServer
-    output AZURE_CONTAINER_REGISTRY_USERNAME string = containerRegistry.outputs.location
     ```
+
+    The output variables allow you to use the provisioned cloud resources with your local development.
 
 1. The containerAppsApp tag uses the serviceName variable (set to `api` at the top of the file) and the `api` specified in `./azure.yaml`. This connection tells the Azure Developer CLI where to deploy the .NET project to the Azure Container Apps hosting resource.
 
