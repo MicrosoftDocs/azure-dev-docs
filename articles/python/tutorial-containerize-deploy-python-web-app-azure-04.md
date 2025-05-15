@@ -38,7 +38,7 @@ The Azure Key Vault is a cloud service that provides a secure store for secrets,
 
 1. In this step, you create an Azure Key Vault configured with Role-Based Access Control (RBAC) authorization using the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command. The Key Vault stores the connection string for MongoDB and the secret key for the web app. RBAC enables fine-grained access control for users and services. The web app uses managed identity to access the Key Vault.
 
->[!NOTE]
+> [!NOTE]
 > Creating the Key Vault early ensures it’s available for secrets storage before any secrets are generated or used (like Cosmos DB credentials or app secrets). You also want to assign access before the Web App or users need to pull from it.
 
   ### [Bash](#tab/bash)
@@ -71,36 +71,36 @@ The Secrets Officer role is a built-in role in Azure Key Vault that allows users
 
 1. In this step, you grant the logged-in user the **Key Vault Secrets Officer** role on the Key Vault using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This role allows the user to create and manage secrets in the Key Vault. This step ensures the script has the necessary access without requiring hard-coded credentials, relying on RBAC and identity-based access, which is more secure and auditable. This step is the first of two role assignments (a later step assigns a role to the web app), ensuring both the user and the web app can interact with the Key Vault appropriately.
 
-> [!NOTE]
-> The user running this script needs the **Key Vault Secrets Officer** role to create and manage secrets in the vault. Granting this permission needs to happen before any `az keyvault secret set` commands are run.
-
-  ### [Bash](#tab/bash)
-  
-  ```azurecli-interactive
-  #!/bin/bash
-  CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
-  
-  az role assignment create \
-    --role "Key Vault Secrets Officer" \
-    --assignee "$CALLER_ID" \
-    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
-  
-  ```
-  
-  ### [PowerShell](#tab/powershell)
-  
-  ```powershell-interactive
-  # PowerShell syntax
-  $CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
-  
-  az role assignment create `
-    --role "Key Vault Secrets Officer" `
-    --assignee "$CALLER_ID" `
-    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
-  ```
-  
-  ---
-  
+    > [!NOTE]
+    > The user running this script needs the **Key Vault Secrets Officer** role to create and manage secrets in the vault. Granting this permission needs to happen before any `az keyvault secret set` commands are run.
+    
+      ### [Bash](#tab/bash)
+      
+      ```azurecli-interactive
+      #!/bin/bash
+      CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
+      
+      az role assignment create \
+        --role "Key Vault Secrets Officer" \
+        --assignee "$CALLER_ID" \
+        --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+      
+      ```
+      
+      ### [PowerShell](#tab/powershell)
+      
+      ```powershell-interactive
+      # PowerShell syntax
+      $CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
+      
+      az role assignment create `
+        --role "Key Vault Secrets Officer" `
+        --assignee "$CALLER_ID" `
+        --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+      ```
+      
+      ---
+      
 ## Create the app service plan and web app
 
 In this step, you create an App Service plan and a web app. The App Service plan defines the region and pricing tier for the web app. The web app is where your containerized application runs.
