@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Build and deploy your application with GitHub Copilot for Azure Preview
-description: This article walks through a scenario that shows how to integrate the GitHub Copilot for the Azure Preview Visual Studio Code extension into a developer's workflow.
+title: Quickstart - Build and deploy your application with GitHub Copilot for Azure
+description: This article walks through a scenario that shows how to integrate the GitHub Copilot for the Azure Visual Studio Code extension into a developer's workflow.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
@@ -8,9 +8,9 @@ ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Quickstart: Build and deploy your application with GitHub Copilot for Azure Preview
+# Quickstart: Build and deploy your application with GitHub Copilot for Azure
 
-This quickstart guides you in using GitHub Copilot for Azure Preview to create and deploy a new website in Azure. It demonstrates one way to integrate GitHub Copilot for Azure into your development and deployment workflow.
+This quickstart guides you in using GitHub Copilot for Azure to create and deploy a new website in Azure. It demonstrates one way to integrate GitHub Copilot for Azure into your development and deployment workflow.
 
 ## Prerequisites
 
@@ -18,10 +18,10 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
 - A GitHub Copilot account.
 - The GitHub Copilot Chat extension for Visual Studio Code.
-- The GitHub Copilot for Azure Preview extension for Visual Studio Code.
+- The GitHub Copilot for Azure extension for Visual Studio Code.
 - An Azure subscription. If you don't have one, GitHub Copilot for Azure can help.
 
-## Create and deploy a website by using GitHub Copilot for Azure Preview
+## Create and deploy a website by using GitHub Copilot for Azure
 
 1. Create a new folder on your local computer where you can create a local clone of a GitHub repository.
 
@@ -141,7 +141,7 @@ Use `azd down` to remove the website and all resources that you deployed to your
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
+- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).

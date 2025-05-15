@@ -146,5 +146,5 @@ While following these instructions, if you get stuck or encounter a problem, con
 ## Related content
 
 - [Bicep overview](/azure/azure-resource-manager/bicep/overview)
-- [What is GitHub Copilot for Azure Preview?](introduction.md)
-- [Get started with GitHub Copilot for Azure Preview](get-started.md)
+- [What is GitHub Copilot for Azure?](introduction.md)
+- [Get started with GitHub Copilot for Azure](get-started.md)

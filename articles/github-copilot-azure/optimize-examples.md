@@ -1,5 +1,5 @@
 ---
-title: GitHub Copilot for Azure Preview prompt engineering examples for optimizing your application
+title: GitHub Copilot for Azure prompt engineering examples for optimizing your application
 description: This article provides example prompts that can help you optimize your application in the cloud.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
@@ -8,13 +8,13 @@ ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Example prompts for optimizing your application with GitHub Copilot for Azure Preview
+# Example prompts for optimizing your application with GitHub Copilot for Azure
 
-If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure Preview to help you optimize the performance of your Azure resources. Use [best practices](introduction.md#best-practices) to achieve the best results.
+If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure to help you optimize the performance of your Azure resources. Use [best practices](introduction.md#best-practices) to achieve the best results.
 
 ## Example prompts to optimize your app
 
-If you want to use GitHub Copilot for Azure Preview for help with optimizing your application, you can start with an open-ended question or request. Then, add details like specific services and technologies for better results. Try the following example prompts.
+If you want to use GitHub Copilot for Azure for help with optimizing your application, you can start with an open-ended question or request. Then, add details like specific services and technologies for better results. Try the following example prompts.
 
 |Service|Optimize prompt examples|
 |---|---|
@@ -32,7 +32,7 @@ This includes two components:
 
 The goal of this project is to provide a seamless and efficient way for developers to conduct experiments and analyze results without leaving their development environment. It supports the creation and management of experiments and metrics, leveraging Azure services such as Azure App Config for configuration delivery and Azure AI for model monitoring metrics. 
 
-The preview of this plugin includes a code-first user experience in partnership with Azure App Config, enabling streamlined evaluation and experimentation in GitHub. This includes out-of-the-box model monitoring metrics and custom metrics. The public preview will evolve this into a full streamline integration and easy-to-use user experience in both App Config and AI Studio. 
+The extension includes a code-first user experience in partnership with Azure App Config, enabling streamlined evaluation and experimentation in GitHub. This includes out-of-the-box model monitoring metrics and custom metrics. The extension will evolve this into a full streamline integration and easy-to-use user experience in both App Config and AI Studio. 
 
 Azure AI evaluation is already publicly available, but if you are interested in trying out our online experimentation feature please [sign up for our preview](https://aka.ms/genAI-CI-CD-private-preview) to learn more. 
 
@@ -42,9 +42,9 @@ If you use Applications Insights Profiler for .NET, you can perform code-level p
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
+- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
+- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
