@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create AI infrastructure using extensions
+title: Create AI infrastructure using extensions
 description: Learn how to install and use the Azure Developer CLI AI extension to quickly create AI infrastructure.
 author: alexwolfmsft
 ms.author: alexwolf
@@ -8,9 +8,10 @@ ms.service: azure-dev-cli
 ms.topic: quickstart
 ms.custom: devx-track-azdevcli, devx-track-bicep
 ---
+
 # Quickstart: Create AI infrastructure using extensions
 
-The Azure Developer CLI (azd) supports extensions that add new capabilities to your development workflow. The AI extension for `azd` helps you select and provision and the required Azure AI resources for your app scenario directly from the CLI. This quickstart shows you how to install the AI extension and use it to create AI infrastructure in your Azure environment.
+In this Quickstart, you install the Azure Developer CLI (`azd`) AI extension and use it to create AI infrastructure in your Azure environment. [Extensions](overview.md) provide a way to add new capabilities, automate workflows, and integrate with other services with `azd`.
 
 ## Initialize the project
 
@@ -22,6 +23,8 @@ azd init -t hello-azd
 
 ## Install the extension
 
+Complete the following steps to install the AI extension:
+
 1. Ensure that extensions are enabled in your azd configuration:
 
     ```azdeveloper
@@ -30,7 +33,7 @@ azd init -t hello-azd
 
 1. Install the AI extension from the official registry:
 
-    ```azdevelopermd
+    ```azdeveloper
     azd extension install microsoft.azd.ai.builder
     ```
 
@@ -71,13 +74,13 @@ Once installed, the AI extension adds new commands to `azd` you can use to build
 
     - AI Model Selection:
 
-        - **Lets choose a chat completion model**: I will choose model
+        - **Lets choose a chat completion model**: I'll choose model
         - **Which model do you want to use?**: gpt-4o-mini (OpenAI)
 
     After you answer the workflow questions, the extensions prints your choices and stages the changes for provisioning and deployment. 
 
 1. Select whether you want to provision the project resources. If you select **Yes**, `azd` begins provisioning resources to Azure based on your choices.
-1. To see the changes that were applied by the AI extension, open the `azure.yaml` file at the root of your template. The **resources** node contains new configurations `azd` uses to provision the AI infrastructure.
+1. To see the applied changes, open the `azure.yaml` file at the root of your template. The **resources** node contains new configurations `azd` uses to provision the AI infrastructure.
 
     ```yaml
     resources:
