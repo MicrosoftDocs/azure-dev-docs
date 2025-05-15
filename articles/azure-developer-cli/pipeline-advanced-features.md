@@ -1,6 +1,6 @@
 ---
-title: Configure advanced pipeline features
-description: Learn how to configure advanced features for pipelines created using the Azure Developer CLI
+title: Configure advanced features for Azure Pipelines with the Azure Developer CLI
+description: Learn how to configure advanced Azure Pipelines features using the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/12/2025

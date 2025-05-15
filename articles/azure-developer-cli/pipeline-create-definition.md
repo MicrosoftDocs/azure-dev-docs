@@ -11,13 +11,13 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Create a pipeline definition
 
-If your `azd` template does not include a CI/CD pipeline definition file, you can create one to automate your application's build and deployment. A well-structured pipeline definition typically includes four main sections:
+If your `azd` template doesn't include a CI/CD pipeline definition file, you can create one to automate your application's build and deployment. A well-structured pipeline definition typically includes four main sections:
 
 - **Trigger**: Specifies events when the pipeline should run, such as code pushes to specific branches, pull requests, or manual triggers. Defining triggers ensures your pipeline runs automatically in response to development activities, enabling continuous integration and deployment.
 
 - **Permissions**: Specifies the access required for the pipeline to interact with resources securely. For example, grant permissions to read repository contents or request identity tokens. Correct permissions are essential for secure and successful deployments.
 
-- **Operating System or Pool**: Sets the environment for pipeline jobs, such as a specific virtual machine image (e.g., `ubuntu-latest`) or an agent pool. Choosing the right environment ensures compatibility with your application's build and deployment requirements.
+- **Operating System or Pool**: Sets the environment for pipeline jobs, such as a specific virtual machine image (for example, `ubuntu-latest`) or an agent pool. Choosing the right environment ensures compatibility with your application's build and deployment requirements.
 
 - **Steps**: Lists the tasks the pipeline performs, such as checking out code, installing dependencies, building, provisioning infrastructure, and deploying to Azure. Each step should be clearly defined to automate the end-to-end deployment process.
 
@@ -25,10 +25,10 @@ The following examples show how to create a pipeline definition file and related
 
 ## [GitHub Actions](#tab/GitHub)
 
-To run `azd` in GitHub Actions, configure the following:
+To run `azd` in GitHub Actions, configure the following settings:
 
 - Grant `id-token: write` and `contents: read` access scopes.
-- [Install the azd action](https://aka.ms/azd-gha), unless using a Docker image with `azd` pre-installed.
+- [Install the azd action](https://aka.ms/azd-gha), unless using a Docker image with `azd` preinstalled.
 
 Use this template as a starting point for your pipeline definition:
 
@@ -121,7 +121,7 @@ jobs:
 
 ## [Azure Pipelines](#tab/azdo)
 
-You can use the following template as a starting po ownint for your own pipeline definition:
+You can use the following template as a starting point for your own pipeline definition:
 
 ```yaml
 # Run when commits are pushed to mainline branch (main or master)
