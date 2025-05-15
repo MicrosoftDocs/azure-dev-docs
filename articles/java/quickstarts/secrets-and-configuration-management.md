@@ -1,7 +1,7 @@
 ---
 title: Quickstarts for secrets and configuration management for Java apps on Azure
 description: List of getting started material in the Azure documentation for secrets and configuration management for Java apps.
-ms.date: 04/09/2020
+ms.date: 05/13/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 ---
