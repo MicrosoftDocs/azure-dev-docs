@@ -31,7 +31,7 @@ This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) te
    azd init -t hello-azd
    ```
 
-1. When prompted, enter a name for the environment (for example, *helloazd*).
+1. When prompted, enter a name for the environment (for example, *hello-azd*).
 
 ## Set up Azure Pipelines
 
