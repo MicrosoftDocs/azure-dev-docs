@@ -297,7 +297,7 @@ The web app needs permission to access secrets like the MongoDB connection strin
     
       az role assignment create `
       --role "Key Vault Secrets User" `
-      --assignee "$APP_SERVICE_NAME" `
+      --assignee "$PRINCIPAL_ID"`
       --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
     
     ```
@@ -345,12 +345,13 @@ To avoid hardcoding secrets in your application, this step stores the **MongoDB 
     # PowerShell syntax
     $ACCOUNT_NAME="msdocs-cosmos-db-account-name"
 
-    MONGO_CONNECTION_STRING=$(az cosmosdb keys list `
-      --name "$ACCOUNT_NAME" `
-      --resource-group "$RESOURCE_GROUP_NAME" `
+    $MONGO_CONNECTION_STRING = az cosmosdb keys list `
+      --name $ACCOUNT_NAME `
+      --resource-group $RESOURCE_GROUP_NAME `
       --type connection-strings `
-      --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
-    
+      --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" `
+      -o tsv
+     
     # Generate a 32-byte cryptographically secure random value
     $bytes = New-Object 'Byte[]' 32
     [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($bytes)
@@ -495,9 +496,9 @@ The webhook sends a POST request to the web app’s SCM endpoint (`SERVICE_URI`)
       --query publishingPassword --output tsv)
     
     # Web app publishing credentials may not be available immediately. In production, poll until non-empty.   
-        
-    $SERVICE_URI="https://$APP_SERVICE_NAME:$CREDENTIAL@$APP_SERVICE_NAME.scm.azurewebsites.net/api/registry/webhook"
     
+    $SERVICE_URI = "https://$APP_SERVICE_NAME`:$CREDENTIAL@$APP_SERVICE_NAME.scm.azurewebsites.net/api/registry/webhook"
+
     az acr webhook create `
       --name webhookforwebapp `
       --registry "$REGISTRY_NAME" `
@@ -507,8 +508,6 @@ The webhook sends a POST request to the web app’s SCM endpoint (`SERVICE_URI`)
     ```
 
     ---
-
-## Browse the site
 
 ## Browse the Site
 
