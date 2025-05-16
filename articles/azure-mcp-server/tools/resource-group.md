@@ -49,7 +49,7 @@ azmcp group list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -57,7 +57,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 

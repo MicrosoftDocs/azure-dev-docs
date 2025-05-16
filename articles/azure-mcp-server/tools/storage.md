@@ -99,7 +99,7 @@ azmcp storage blob container details \
     --container-name <CONTAINER_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -109,7 +109,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -132,7 +132,7 @@ azmcp storage account list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -140,7 +140,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -161,7 +161,7 @@ azmcp storage blob container list \
     --account-name <ACCOUNT_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -170,7 +170,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -193,7 +193,7 @@ azmcp storage blob list \
     --container-name <CONTAINER_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -203,7 +203,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -226,7 +226,7 @@ azmcp storage table list \
     --account-name <ACCOUNT_NAME>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -235,7 +235,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 

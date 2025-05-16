@@ -128,7 +128,7 @@ azmcp appconfig kv delete \
     [--label <LABEL>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -140,7 +140,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--label`: The label of the setting to delete.
 
-View [optional parameters common to all tools](get-started.md#optional-parameters-common-to-all-tools). 
+View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
 
 #### Examples
 
@@ -175,7 +175,7 @@ azmcp appconfig kv list \
     [--label <LABEL>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -187,7 +187,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 `--key`: Filter results to only show settings with keys matching the specified pattern.<br>
 `--label`: Filter results to only show settings with the specified label.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -225,7 +225,7 @@ azmcp appconfig account list \
     --subscription <SUBSCRIPTION_ID>
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -233,7 +233,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
  
 ##### Optional parameters
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 #### Examples
 
@@ -257,7 +257,7 @@ azmcp appconfig kv lock \
     [--label <LABEL>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -269,7 +269,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--label`: The label of the setting to lock.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 
 #### Examples
@@ -306,7 +306,7 @@ azmcp appconfig kv set \
     [--label <LABEL>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -319,7 +319,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--label`: The label to apply to the setting.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 
 #### Examples
@@ -358,7 +358,7 @@ azmcp appconfig kv show \
     [--label <LABEL>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -370,7 +370,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--label`: The label of the setting to retrieve.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 
 #### Examples
@@ -406,7 +406,7 @@ azmcp appconfig kv unlock \
     [--label <LABEL>]
 ```
 
-View the [structured JSON output](get-started.md#response-format-common-to-all-tools) common to all tools.
+View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
 
 ##### Required parameters
 
@@ -418,7 +418,7 @@ View the [structured JSON output](get-started.md#response-format-common-to-all-t
 
 `--label`: The label of the setting to unlock.
 
-View the [optional parameters](get-started.md#optional-parameters-common-to-all-tools) common to all tools.
+View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
 
 
 #### Examples
