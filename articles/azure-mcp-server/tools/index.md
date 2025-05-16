@@ -76,18 +76,7 @@ azmcp extension az --command "group list"
 
 [!INCLUDE [tip-about-parameters](../includes/tools/parameter-consideration.md)]
 
-#### Available services and frameworks for MCP server development
-
-The following services and frameworks enable you to build custom MCP servers that can integrate with Azure resources:
-
-- [Azure OpenAI Assistants](/azure/ai-services/openai/concepts/assistants)
-- [Azure AI Agents Service](/azure/ai-services/agents/overview)
-- [Azure OpenAI Service](/azure/ai-services/openai/)
-- [Semantic Kernel](/semantic-kernel/overview/)
-- [LangChain](https://www.langchain.com/)
-- [LlamaIndex](https://docs.llamaindex.ai/)
-
-#### Common technical details
+### Common technical details
 
 The following sections describe technical aspects that apply to all Azure MCP Server tools.
 
