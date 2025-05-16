@@ -383,8 +383,8 @@
 | Content Safety Extension Embedded Text | NuGet [1.0.0](https://www.nuget.org/packages/Azure.AI.ContentSafety.Extension.Embedded.Text/1.0.0)<br>NuGet [1.0.1-beta.4](https://www.nuget.org/packages/Azure.AI.ContentSafety.Extension.Embedded.Text/1.0.1-beta.4) |  |  |
 | Cosmos DB Fault Injection | NuGet [1.0.0-beta.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.FaultInjection/1.0.0-beta.0) |  |  |
 | DotNetty | NuGet [0.7.6](https://www.nuget.org/packages/DotNetty.Common/0.7.6) |  |  |
-| Functions Extension MCP | NuGet [1.0.0-preview.5](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions.Mcp/1.0.0-preview.5) |  |  |
-| Functions Worker Extension MCP | NuGet [1.0.0-preview.5](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Mcp/1.0.0-preview.5) |  |  |
+| Functions Extension MCP | NuGet [1.0.0-preview.6](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions.Mcp/1.0.0-preview.6) |  |  |
+| Functions Worker Extension MCP | NuGet [1.0.0-preview.6](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Mcp/1.0.0-preview.6) |  |  |
 | Functions Worker Extension MySQL | NuGet [1.0.129](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.MySql/1.0.129) |  |  |
 | HTTP ASPNETCore Analyzers | NuGet [1.0.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers/1.0.3) |  |  |
 | IoT Operations MQTT | NuGet [0.10.1](https://www.nuget.org/packages/Azure.Iot.Operations.Mqtt/0.10.1) |  |  |
@@ -425,7 +425,7 @@
 | Common | NuGet [2.2.1](https://www.nuget.org/packages/Microsoft.Azure.Common/2.2.1) |  |  |
 | Common - Dependencies | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Common.Dependencies/1.0.0) |  |  |
 | Computer Vision | NuGet [7.0.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/7.0.1) |  | GitHub [7.0.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.ComputerVision_6.0.0-preview.1/sdk/cognitiveservices/Vision.ComputerVision) |
-| Cosmos DB | NuGet [3.47.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.47.0)<br>NuGet [3.51.0-preview.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.51.0-preview.0) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.47.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
+| Cosmos DB | NuGet [3.47.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.47.0)<br>NuGet [3.52.0-preview.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.52.0-preview.0) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.47.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
 | Custom Image Search | NuGet [2.1.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.BingCustomImageSearch/2.1.0-preview.1) |  | GitHub [2.1.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingCustomImageSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingCustomImageSearch) |
 | Custom Image Search | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomImageSearch/2.0.0) |  |  |
 | Custom Search | NuGet [2.1.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.BingCustomSearch/2.1.0-preview.1) |  | GitHub [2.1.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Search.BingCustomSearch_2.1.0-preview.1/sdk/cognitiveservices/Search.BingCustomSearch) |
