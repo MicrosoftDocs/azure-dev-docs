@@ -16,7 +16,7 @@ items:
         - name: Predefined formulas
           href: migrate-github-copilot-app-modernization-for-java-predefined-formula.md
         - name: "Quickstart: Use managed identities"
-          href: migrate-github-copilot-app-modernization-for-java-quickstart-use-managed-identities-instead-of-passwords.md
+          href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
         - name: "Quickstart: Create and apply your own formula"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md
         - name: "Sample: Asset Manager"

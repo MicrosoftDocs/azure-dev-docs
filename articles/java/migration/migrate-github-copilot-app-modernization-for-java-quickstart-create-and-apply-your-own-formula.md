@@ -23,7 +23,7 @@ In code development, enterprises often have different processes and controls to 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
-- [GitHub Copilot app modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java-quickstart-use-managed-identities-instead-of-passwords.md#install). Install this tool and add the required configuration.
+- [GitHub Copilot app modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md#install). Install this tool and add the required configuration.
 
 ## Create a custom formula
 
