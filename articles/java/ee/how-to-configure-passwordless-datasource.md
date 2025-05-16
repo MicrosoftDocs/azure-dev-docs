@@ -447,7 +447,7 @@ After the firewall rule is created, you can access the Azure SQL server from the
 1. After signing in, in the **Query 1** editor, use the following commands to create a database user for managed identity `myManagedIdentity`:
 
     ```sql
-    CREATE USER "myManagedIdentity" FROM EXTERNAL PROVIDER
+    CREATE USER "myManagedIdentity" FROM EXTERNAL PROVIDER;
     ALTER ROLE db_datareader ADD MEMBER "myManagedIdentity";
     ALTER ROLE db_datawriter ADD MEMBER "myManagedIdentity";
     ALTER ROLE db_ddladmin ADD MEMBER "myManagedIdentity";
