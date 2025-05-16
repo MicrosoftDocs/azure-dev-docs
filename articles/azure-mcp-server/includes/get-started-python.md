@@ -10,6 +10,8 @@ In this article, you learn how to complete the following tasks:
 - [Python 3.9 or higher](https://www.python.org/downloads/) installed locally
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed locally
 
+[!INCLUDE [permissions-note](permissions-note.md)]
+
 [!INCLUDE [sign-in-local-development](sign-in-local-development.md)]
 
 ## Create the Python app

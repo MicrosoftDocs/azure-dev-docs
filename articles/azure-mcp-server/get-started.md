@@ -13,7 +13,7 @@ zone_pivot_groups: azure-mcp-server-tools-frameworks
 
 # Get started with Azure MCP Server
 
-The Model Context Protocol (MCP) is an open protocol designed to standardize integrations between AI apps and external tools and data sources. Developers can create MCP clients and servers that enhance the capabilities of AI models for more accurate, relevant, and context-aware responses. [Azure MCP Server](https://github.com/Azure/azure-mcp) exposes prebuilt operations to interact with Azure services for agentic usage, allowing for AI systems to perform operations that are context-aware of your Azure resources.
+The Azure MCP Server uses the Model Context Protocol (MCP) to standardize integrations between AI apps and external tools and data sources, allowing for AI systems to perform operations that are context-aware of your Azure resources.
 
 ::: zone pivot="mcp-github-copilot"
 
@@ -32,15 +32,6 @@ The Model Context Protocol (MCP) is an open protocol designed to standardize int
 [!INCLUDE [get-started-python](includes/get-started-python.md)]
 
 ::: zone-end
-
-## Related content
-
-- [Model Context Protocol documentation](https://modelcontextprotocol.io/introduction)
-- [Model Context Protocol specification](https://github.com/modelcontextprotocol/modelcontextprotocol)
-- [Model Context Protocol Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-- [Model Context Protocol C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
-- [Model Context Protocol Java SDK](https://github.com/modelcontextprotocol/java-sdk)
-- [Model Context Protocol Typescript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 
 ## Next steps
 
