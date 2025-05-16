@@ -20,20 +20,24 @@ This quickstart shows you how to use GitHub Copilot app modernization for Java (
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot app modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=). See the next section for install instructions.
+- [GitHub Copilot app modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). See the next section for install instructions.
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
 
-## Sign in to use Copilot and install app modernization
+## Sign in to use Copilot and then install app modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
 Then, use the following steps to install GitHub Copilot app modernization for Java (preview):
 
 1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
-1. Search for the GitHub Copilot app modernization for Java (preview) extension in the marketplace.
-1. On the extension page, select **Install**. For more information about installing a Visual Studio Code extension, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
+1. Search for **GitHub Copilot app modernization** in the marketplace.
+1. Select the **GitHub Copilot app modernization for Java (preview)** extension.
+1. On the extension page, select **Install**.
+1. Restart Visual Studio Code.
 
-After installation completes, you should see a notification in the bottom-right corner of Visual Studio Code confirming success.
+After installation completes, you should see a notification in the corner of Visual Studio Code confirming success.
+
+For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
 
 ## Configure
 
