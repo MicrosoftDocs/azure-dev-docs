@@ -103,7 +103,7 @@ The following sections describe technical aspects that apply to all Azure MCP Se
 
 [!INCLUDE [response-error-handling](../includes/tools/error-handling.md)]
 
-## Next steps
+## Related content
 
 - Learn about [Azure MCP Server](../get-started.md)
 - Explore [Consuming agents with App Configuration tools](app-configuration.md)
