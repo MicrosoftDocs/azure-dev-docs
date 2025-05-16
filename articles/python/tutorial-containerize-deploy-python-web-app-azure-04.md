@@ -355,8 +355,12 @@ To avoid hardcoding secrets in your application, this step stores the **MongoDB 
     $bytes = New-Object 'Byte[]' 32
     [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($bytes)
     
-    # Encode as base64 and strip non-alphanumeric characters
-    $SECRET_KEY = ([Convert]::ToBase64String($bytes) -replace '[^a-zA-Z0-9]', '')    # This is cryptographically secure, PowerShell’s cryptographically secure random generator
+    # Convert to base64 and filter to alphanumeric characters only
+    $base64 = [Convert]::ToBase64String($bytes)
+    $alphanumeric = $base64 -replace '[^a-zA-Z0-9]', ''
+    
+    # Truncate to 50 characters
+    $SECRET_KEY = $alphanumeric.Substring(0, [Math]::Min(50, $alphanumeric.Length))
      
     az keyvault secret set `
       --vault-name "$KEYVAULT_NAME" `
