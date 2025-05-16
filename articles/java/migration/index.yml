@@ -32,8 +32,8 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-faq.yml
       - linkListType: quickstart
         links:
-          - text: Use managed identities
-            url: migrate-github-copilot-app-modernization-for-java-quickstart-use-managed-identities-instead-of-passwords.md
+          - text: Assess and migrate a Java project
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
           - text: Create and apply your own formula
             url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md
   - title: Migrate Spring to Azure

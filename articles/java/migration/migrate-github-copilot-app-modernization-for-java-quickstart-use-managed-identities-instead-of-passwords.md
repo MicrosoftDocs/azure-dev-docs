@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Use GitHub Copilot App Modernization for Java (Preview) with Managed Identities Instead of Passwords"
+title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot App Modernization for Java (Preview)"
 titleSuffix: Azure
-description: Shows you how to use GitHub Copilot app modernization for Java (preview) with managed identities instead of passwords.
+description: Shows you how to use GitHub Copilot app modernization for Java (preview) to assess and migrate a Java project.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
@@ -11,24 +11,23 @@ ms.custom: devx-track-java
 ms.service: azure-java
 ---
 
-# Quickstart: use GitHub Copilot app modernization for Java (preview) with managed identities instead of passwords
+# Quickstart: assess and migrate a Java project using GitHub Copilot app modernization for Java (preview)
 
-This quickstart shows you how to use GitHub Copilot app modernization for Java (preview) with managed identities instead of passwords.
+This quickstart shows you how to use GitHub Copilot app modernization for Java (preview) to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
 ## Prerequisites
 
-- The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
+- [GitHub Copilot app modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=). See the next section for install instructions.
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
 
-## Sign in to use Copilot
+## Sign in to use Copilot and install app modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
-## Install
-
-Use the following steps to install GitHub Copilot app modernization for Java (preview):
+Then, use the following steps to install GitHub Copilot app modernization for Java (preview):
 
 1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
 1. Search for the GitHub Copilot app modernization for Java (preview) extension in the marketplace.
@@ -86,7 +85,7 @@ Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Clou
 
 ## Apply a predefined formula
 
-The migration Copilot provides predefined formulas for common migration scenarios that you might face when migrating to Azure. In this example, you use the Managed Identity formulas to change your Azure SQL database connection from username and password to Azure Managed Identity.
+The migration Copilot provides predefined formulas for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Managed Identity formulas change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
 1. In the **Solution Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
 
