@@ -12,9 +12,6 @@ In this article, you learn how to complete the following tasks:
 
 [!INCLUDE [permissions-note](permissions-note.md)]
 
-> [!NOTE]
-> The Azure resources you intend to access with Azure MCP Server must already exist within your Azure subscription. Additionally, your user account must have the necessary [RBAC roles and permissions](/azure/role-based-access-control/overview) assigned for those resources.
-
 ## Install the Azure MCP Server
 
 Select one of the following options to install the Azure MCP Server in Visual Studio Code:
