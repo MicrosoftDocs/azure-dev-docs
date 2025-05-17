@@ -5,9 +5,9 @@ summary: |
   Build applications with generative AI capabilities on Azure.
 
 metadata:
-  title: Develop AI apps using Azure AI services
+  title: Develop AI apps using Azure services
   description: Get started developing generative AI capabilities into your applications.
-  ms.date: 05/02/2025
+  ms.date: 05/16/2025
   ms.topic: landing-page
   ms.collection: collection
 
@@ -42,6 +42,21 @@ landingContent:
           - text: Chat with your data using .NET
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
   
+  - title: Agents and Model Context Protocol (MCP)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Build AI Agents with MCP Tool Use with AI Toolkit for VSCode
+            url: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/build-ai-agents-with-mcp-tool-use-in-minutes-with-ai-toolkit-for-vscode/4407959     
+          - text: Build AI agent tools using remote MCP with Azure Functions
+            url: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059     
+          - text: Enhance AI Integrations with MCP and Azure API Management
+            url: https://techcommunity.microsoft.com/blog/integrationsonazureblog/enhancing-ai-integrations-with-mcp-and-azure-api-management/4406699     
+          - text: Host Remote MCP Servers in Azure App Service
+            url: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
+          - text: Host Remote MCP Servers in Azure Container Apps
+            url: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-container-apps/4403550     
+
   - title: AI app security
     linkLists:
       - linkListType: overview
@@ -58,7 +73,7 @@ landingContent:
         links:
           - text: Secure your AI App with keyless authentication
             url: get-started-securing-your-ai-app.md
-            
+
   - title: Resources by programming language
     linkLists:
       - linkListType: overview
