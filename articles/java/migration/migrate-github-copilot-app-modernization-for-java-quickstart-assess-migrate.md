@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot App Modernization for Java (Preview)"
 titleSuffix: Azure
-description: Shows you how to use GitHub Copilot app modernization for Java (preview) to assess and migrate a Java project.
+description: Shows you how to use GitHub Copilot App Modernization for Java (preview) to assess and migrate a Java project.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
@@ -11,30 +11,30 @@ ms.custom: devx-track-java
 ms.service: azure-java
 ---
 
-# Quickstart: assess and migrate a Java project using GitHub Copilot app modernization for Java (preview)
+# Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java (preview)
 
-This quickstart shows you how to use GitHub Copilot app modernization for Java (preview) to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+This quickstart shows you how to use GitHub Copilot App Modernization for Java (preview) to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot app modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). See the next section for install instructions.
+- [GitHub Copilot App Modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). See the next section for install instructions.
 
   > [!NOTE]
-  > You can optionally install the [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions:
+  > You can optionally install the [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions:
   >
-  > - GitHub Copilot app modernization for Java (preview)
-  > - [GitHub Copilot app modernization - upgrade for Java (preview)](/java/upgrade/overview)
+  > - GitHub Copilot App Modernization for Java (preview)
+  > - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
 
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
 
-## Sign in to use Copilot and then install app modernization
+## Sign in to use Copilot and then install App Modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
-Then, use the following steps to install GitHub Copilot app modernization for Java (preview):
+Then, use the following steps to install GitHub Copilot App Modernization for Java (preview):
 
 1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
 1. Search for **GitHub Copilot App Modernization** in the marketplace.
@@ -76,7 +76,7 @@ Use the following steps to start your migration process with solution assessment
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" alt-text="Screenshot of Visual Studio Code that shows the Assessment section with the Assess button highlighted.":::
 
-   The GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the app modernization assessment.
+   The GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the App Modernization assessment.
 
 1. Select **Continue** to confirm.
 
@@ -100,7 +100,7 @@ The migration Copilot provides predefined formulas for common migration scenario
 
 1. In the **Solution Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
 
-1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot agent uses various tools for app modernization and each tool requires confirmation to proceed.
+1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot agent uses various tools for App Modernization and each tool requires confirmation to proceed.
 
 1. After each step, manually input **continue** to confirm and proceed.
 

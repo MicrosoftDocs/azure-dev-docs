@@ -11,11 +11,11 @@ ms.custom: devx-track-java
 ms.service: azure-java
 ---
 
-# Predefined formulas for GitHub Copilot app modernization for Java (preview)
+# Predefined formulas for GitHub Copilot App Modernization for Java (preview)
 
-This article describes the predefined formulas available for GitHub Copilot app modernization for Java (preview).
+This article describes the predefined formulas available for GitHub Copilot App Modernization for Java (preview).
 
-Predefined formulas capture industry best practices for using Azure services. Currently, app modernization for Java (preview) offers predefined formulas that cover common migration scenarios. These formulas address the following subjects, and more:
+Predefined formulas capture industry best practices for using Azure services. Currently, App Modernization for Java (preview) offers predefined formulas that cover common migration scenarios. These formulas address the following subjects, and more:
 
 - Secret management
 - Message queue integration
@@ -27,7 +27,7 @@ Predefined formulas capture industry best practices for using Azure services. Cu
 
 ## Formula list
 
-App modernization for Java (preview) currently supports the following predefined formulas:
+App Modernization for Java (preview) currently supports the following predefined formulas:
 
 - Spring Advanced Message Queuing Protocol (AMQP) for RabbitMQ to Azure Service Bus
 

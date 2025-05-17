@@ -22,7 +22,7 @@ landingContent:
             url: migration-overview.md
           - text: Azure Migrate application and code assessment
             url: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-  - title: GitHub Copilot app modernization for Java
+  - title: GitHub Copilot App Modernization for Java
     linkLists:
       - linkListType: overview
         links:
