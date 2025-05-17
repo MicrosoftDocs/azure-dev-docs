@@ -23,6 +23,8 @@ landingContent:
             url: overview.md
           - text: Installation
             url: https://typespec.io/docs/
+          - text: .NET Quickstart
+            url: quickstart-scaffold-dotnet.md
   
   - title: API language
     linkLists:
