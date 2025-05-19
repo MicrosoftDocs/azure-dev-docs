@@ -34,16 +34,14 @@ items:
               href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Agents and Model Context Protocol (MCP)
       items:
+        - name: Azure Container Apps building block for MCP servers
+          href: https://aka.ms/mcp/aca
+        - name: Create OpenAI-powered agents using MCP
+          href: https://aka.ms/mcp/openai
         - name: Build AI agent tools using remote MCP with Azure Functions
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
         - name: Host Remote MCP Servers in Azure App Service
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
-        - name: Host Remote MCP Servers in Azure Container Apps
-          href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-container-apps/4403550
-        - name: Enhance AI Integrations with MCP and Azure API Management
-          href: https://techcommunity.microsoft.com/blog/integrationsonazureblog/enhancing-ai-integrations-with-mcp-and-azure-api-management/4406699
-        - name: Build AI Agents with MCP Tool Use with AI Toolkit for VSCode
-          href: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/build-ai-agents-with-mcp-tool-use-in-minutes-with-ai-toolkit-for-vscode/4407959
     - name: AI app templates
       items:
         - name: Overview

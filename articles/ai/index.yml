@@ -46,17 +46,14 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Build AI Agents with MCP Tool Use with AI Toolkit for VSCode
-            url: https://techcommunity.microsoft.com/blog/azuredevcommunityblog/build-ai-agents-with-mcp-tool-use-in-minutes-with-ai-toolkit-for-vscode/4407959     
+          - text: Azure Container Apps building block for MCP servers
+            url:  https://aka.ms/mcp/aca    
+          - text: Create OpenAI-powered agents using MCP
+            url: https://aka.ms/mcp/openai
           - text: Build AI agent tools using remote MCP with Azure Functions
             url: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059     
-          - text: Enhance AI Integrations with MCP and Azure API Management
-            url: https://techcommunity.microsoft.com/blog/integrationsonazureblog/enhancing-ai-integrations-with-mcp-and-azure-api-management/4406699     
           - text: Host Remote MCP Servers in Azure App Service
-            url: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
-          - text: Host Remote MCP Servers in Azure Container Apps
-            url: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-container-apps/4403550     
-
+            url: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082     
   - title: AI app security
     linkLists:
       - linkListType: overview
