@@ -807,8 +807,7 @@ The web app needs permission to access secrets like the MongoDB connection strin
     --role "Key Vault Secrets User" `
     --assignee "$PRINCIPAL_ID"`
     --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
-    
-    ```
+        ```
 
     ---
 
