@@ -528,11 +528,11 @@ az webapp browse --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME
 
 ### [VS Code](#tab/vscode-aztools)
 
-You can use the Docker extension in Visual Studio Code to create and deploy the web app. This extension simplifies the process of deploying containerized applications to Azure App Service. You then use the Azure Tools extension to configure the web app to use connect to MongoDB and provide a secret key to the web app using application settings.
+You can use the Docker extension in Visual Studio Code to build and deploy your containerized web application to Azure App Service. This extension streamlines the process of packaging your app and pushing it to the cloud. Once deployed, use the Azure Tools extension to configure the web app's settings, including the MongoDB connection string and a secret key for the application.
 
-After verifying your web application starts successfully and connects to the MongoDB database using hard-caoded values for secret information, you use the Azure CLI (either locally or in Cloud Shell) to create an Azure Key Vault and store the following secret information in the key vault: MongoDB connection string and web app secret key.
+Initially, configure and test the app using hardcoded values to ensure it starts successfully connects to the MongoDB database. After verifying that the app works, use the Azure CLI (either locally or in the Cloud Shell) to create an Azure Key Vault. Next, grant the user creating the app in VS Code permission to store sensitive information and then store the MongoDB connection string and the app's secret key as Key Vault secrets.
 
-Finally, in VS Code, you configure the web app to access and use the Key Vault secrets to connect to the MongoDB database and start the web application.
+Finally, in Visual Studio Code, update the web app's application settings to reference the secrets stored in Key Vault. The app can now securely access configuration values without embedding them directly in code.
 
 ## Create the web app
 
@@ -611,14 +611,12 @@ In the Azure view in VS Code (from the Azure Tools extension):
 
 ## Create Key Vault with RBAC Authorization
 
-Azure Key Vault is a secure service for storing secrets, API keys, connection strings, and certificates. In this script, it stores the **MongoDB connection string** and the web app’s **`SECRET_KEY`**.
-
-The Key Vault is configured to use **role-based access control (RBAC)** to manages access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
+In this step, you create an Azure Key Vault to store the **MongoDB connection string** and the web app’s **`SECRET_KEY`**. Azure Key Vault is a secure service for storing secrets, API keys, connection strings, and certificates. The Key Vault is configured to use **role-based access control (RBAC)** to manages access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
 
 > [!NOTE]
 > You can configure VS Code to use the Azure CLI or PowerShell. To select your default shell in VS Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type **Terminal: Select Default Profile**. In the command palette, type and select: **Terminal: Select Default Profile** and then select your desired default shell.
 
-1. In VS Code, open a new terminal windows and run the following command to create a new Key Vault. This command uses either the Azure CLI or PowerShell to create a Key Vault with RBAC authorization enabled.
+1. Run the following Azure CLI command to create a new Key Vault. This command uses either the bash or PowerShell to create a Key Vault with RBAC authorization enabled.
 
     ### [Bash](#tab/bash)
 
@@ -654,11 +652,11 @@ The Key Vault is configured to use **role-based access control (RBAC)** to manag
 
 ## Grant Secrets Officer role to logged-in user
 
-To store secrets in Azure Key Vault, the user running the script must have the **Key Vault Secrets Officer** role. This role allows creating and managing secrets within the vault.
+To store secrets in Azure Key Vault, the user executing the script must be granted the **Key Vault Secrets Officer** role. This role allows the user to create and manage secrets within the vault.
 
-In this step, the script assigns that role to the currently logged-in user. This user can then securely store application secrets, such as the MongoDB connection string and the app’s `SECRET_KEY`.
+In this step, the script assigns that role to the currently logged-in user, enabling them to securely store sensitive application data such as the MongoDB connection string and the app’s **SECRET_KEY**.
 
-Using **Azure RBAC** ensures secure, auditable access based on identity, eliminating the need for hard-coded credentials.
+By using Azure Role-Based Access Control (RBAC), this approach ensures secure, auditable access to the Key Vault based on identity — avoiding the need to embed credentials directly in code or configuration files.
 
 > [!NOTE]
 > The user must be assigned the **Key Vault Secrets Officer** role **before** attempting to store any secrets in the key vault.
@@ -769,7 +767,7 @@ To avoid hardcoding secrets in your application, in this step you store the **Mo
 
 ## Grant key vault access to the web app's managed identity
 
-The web app needs permission to access secrets like the MongoDB connection string and the `SECRET_KEY`. To enable this, you must assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
+The web app needs permission to access the MongoDB connection string and the `SECRET_KEY` that you stored in the key vault. To enable this, you assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
 
 1. In this step, you use the unique identifier (principal ID) of the web app’s system-assigned managed identity to grant the web app access to the Key Vault with the **Key Vault Secrets User** role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
