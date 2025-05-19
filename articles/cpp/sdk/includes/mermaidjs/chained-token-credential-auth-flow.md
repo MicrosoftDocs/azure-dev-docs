@@ -22,7 +22,7 @@ ms.date: 04/03/2025
 
 flowchart LR;
     direction LR;
-    A(Azure CLI):::developer ==> B(Managed Identity):::deployed;
+    A(Managed Identity):::deployed ==> B(Azure CLI):::developer;
 
     %% Define styles for credential type boxes
     classDef deployed fill:#95C37E, stroke:#71AD4C;
