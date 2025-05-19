@@ -574,7 +574,7 @@ During the deploy with VS Code, a webhook is created that enables the web app to
 
 2. Confirm that the **Service URI** ends with "/api/registry/webhook". If it doesn't, add it to the end of the string and click **Save**
 
-## Configure connection to MongoDB
+## Configure connection to MongoDB using hard-coded values
 
 In this step, you specify the environment variables needed for the web application to connect to MongoDB.
 
@@ -595,7 +595,7 @@ In this step, you specify the environment variables needed for the web applicati
 
 1. Each time you add a new setting, a dialog box appears at the top of the VS Code window where you can add the setting name followed by its value. Add the following settings:
 
-    * CONNECTION_STRING: /<the MongoDB connection string/>. Later in this tutorial, you will set this value to the connection string that you store in Azure Key Vault.
+    * CONNECTION_STRING: **the MongoDB connection string**. Later in this tutorial, you will set this value to the connection string that you store in Azure Key Vault.
     * DB_NAME: **restaurants_reviews**
     * COLLECTION_NAME: **restaurants_reviews**
     * WEBSITES_PORT: **8000** for Django and **5000** for Flask. This environment variable specifies the port on which the container is listening.
@@ -811,7 +811,7 @@ The web app needs permission to access secrets like the MongoDB connection strin
 
     ---
 
-## Configure connection to MongoDB
+## Configure connection to MongoDB using Key Vault secrets
 
 In this step, you update the environment variables needed to connect to MongoDB to use the values stored in the key vault.
 
