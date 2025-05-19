@@ -31,14 +31,13 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
-The following **required parameters** must be found in the conversation context: 
 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
-- **Account name**: The name of the App Configuration store.
-- **Key**: The key name of the setting to delete.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-- **Label**: The label of the setting to delete.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The ID of the subscription containing the App Configuration store. |
+| Required | **Account name** | The name of the App Configuration store. |
+| Required | **Key** | The key name of the setting to delete. |
+| Optional | **Label** | The label of the setting to delete. |
 
 ## List key-value settings
 
