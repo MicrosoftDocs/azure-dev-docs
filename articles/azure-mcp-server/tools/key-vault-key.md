@@ -32,12 +32,12 @@ The Azure MCP Server can create a new key in an Azure Key Vault. This allows you
 - **Set up key**: "Create an encryption key for my application in Key Vault"
 - **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Vault**: The name of the Key Vault.
-- **Key**: The name of the key to create.
-- **Key type**: The type of key to create (RSA, EC).
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Vault** | The name of the Key Vault. |
+| Required | **Key** | The name of the key to create. |
+| Required | **Key type** | The type of key to create (RSA, EC). |
 
 ## Get key
 
@@ -51,11 +51,11 @@ The Azure MCP Server can retrieve details of a specific key from an Azure Key Va
 - **Check key**: "Show me the details of the encryption key in my vault"
 - **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Vault**: The name of the Key Vault.
-- **Key**: The name of the key to retrieve.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Vault** | The name of the Key Vault. |
+| Required | **Key** | The name of the key to retrieve. |
 
 ## List keys
 
@@ -69,14 +69,11 @@ The Azure MCP Server can list all keys in an Azure Key Vault. This helps you man
 - **Query keys**: "Show all keys in my Key Vault"
 - **Check keys**: "What keys are available in my 'encryption-vault'?"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Vault**: The name of the Key Vault.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-
-- **Include managed**: Whether or not to include managed keys in results.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Vault** | The name of the Key Vault. |
+| Optional | **Include managed** | Whether or not to include managed keys in results. |
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
 

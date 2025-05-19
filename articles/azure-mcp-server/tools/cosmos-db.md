@@ -31,9 +31,9 @@ The Azure MCP Server can list all Cosmos DB accounts in a subscription. This pro
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
 
 ## List databases
 
@@ -47,10 +47,10 @@ The Azure MCP Server can list all databases in a Cosmos DB account. This helps y
 - **Query databases**: "Show all databases in my Cosmos DB account"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Account name**: The name of the Cosmos DB account.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Account name** | The name of the Cosmos DB account. |
 
 ## List containers
 
@@ -64,11 +64,11 @@ The Azure MCP Server can list all containers in a Cosmos DB database. This helps
 - **Query containers**: "Show containers in database 'inventory'"
 - **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Account name**: The name of the Cosmos DB account.
-- **Database name**: The name of the database.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Account name** | The name of the Cosmos DB account. |
+| Required | **Database name** | The name of the database. |
 
 ## Query items
 
@@ -82,15 +82,12 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 - **Join query**: "Show me orders with their related customer information"
 - **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Account name**: The name of the Cosmos DB account.
-- **Database name**: The name of the database.
-- **Container name**: The name of the container.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-
-- **Query**: SQL query to execute against the container.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Account name** | The name of the Cosmos DB account. |
+| Required | **Database name** | The name of the database. |
+| Required | **Container name** | The name of the container. |
+| Optional | **Query** | SQL query to execute against the container. |
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]

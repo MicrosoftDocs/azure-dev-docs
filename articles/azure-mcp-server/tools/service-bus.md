@@ -30,11 +30,11 @@ The Azure MCP Server can retrieve runtime details about a Service Bus queue, inc
 - **Check queue**: "Get details for my 'user-events' queue"
 - **Queue status**: "Show me message count for the orders queue"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Namespace**: The fully qualified Service Bus namespace host name.
-- **Queue name**: The queue name to get details for.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Namespace** | The fully qualified Service Bus namespace host name. |
+| Required | **Queue name** | The queue name to get details for. |
 
 
 ## Get topic runtime details
@@ -49,11 +49,11 @@ The Azure MCP Server can retrieve runtime details about a Service Bus topic, inc
 - **Topic status**: "Show me subscription count for the events topic"
 - **View topic**: "Tell me about the broadcast-topic runtime in my service bus"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Namespace**: The fully qualified Service Bus namespace host name.
-- **Topic name**: The name of the topic to get information about.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Namespace** | The fully qualified Service Bus namespace host name. |
+| Required | **Topic name** | The name of the topic to get information about. |
 
 ## Get topic subscription runtime details
 
@@ -65,14 +65,14 @@ The Azure MCP Server can retrieve runtime details about a subscription within a 
 - **Subscription info**: "What's the status of subscription 'admin' in topic 'system-updates'?"
 - **Check subscription**: "Get message count for my 'premium-users' subscription in the 'offers' topic"
 - **Subscription status**: "Show me details for the email-service subscription"
-
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Namespace**: The fully qualified Service Bus namespace host name.
-- **Topic name**: The name of the topic containing the subscription.
-- **Subscription name**: The name of the subscription to get details for.
 - **View subscription**: "Tell me about the analytics subscription in my events topic"
+
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Namespace** | The fully qualified Service Bus namespace host name. |
+| Required | **Topic name** | The name of the topic containing the subscription. |
+| Required | **Subscription name** | The name of the subscription to get details for. |
 
 ## Peek at queue messages
 
@@ -86,15 +86,12 @@ The Azure MCP Server can peek at messages in a Service Bus queue without removin
 - **Preview queue**: "Show me what's in the processing queue without removing messages"
 - **Read queue**: "Look at messages in my orders queue"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Namespace**: The fully qualified Service Bus namespace host name.
-- **Queue name**: The queue name to peek messages from.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-
-- **Max messages**: The maximum number of messages to retrieve.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Namespace** | The fully qualified Service Bus namespace host name. |
+| Required | **Queue name** | The queue name to peek messages from. |
+| Optional | **Max messages** | The maximum number of messages to retrieve. |
 
 ## Peek at topic subscription messages
 
@@ -108,15 +105,12 @@ The Azure MCP Server can peek at messages in a subscription within a Service Bus
 - **Preview subscription**: "Show me what's in the email-service subscription without removing messages"
 - **Read subscription**: "Look at messages in my analytics subscription"
 
-The following **required parameters** must be found in the conversation context: 
-
-- **Subscription**: The Azure subscription ID or name.
-- **Namespace**: The fully qualified Service Bus namespace host name.
-- **Topic name**: The name of the topic containing the subscription.
-- **Subscription name**: The name of subscription to peek messages from.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-
-- **Max messages**: The maximum number of messages to retrieve.
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Namespace** | The fully qualified Service Bus namespace host name. |
+| Required | **Topic name** | The name of the topic containing the subscription. |
+| Required | **Subscription name** | The name of subscription to peek messages from. |
+| Optional | **Max messages** | The maximum number of messages to retrieve. |
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
