@@ -9,4 +9,4 @@ ms.date: 04/23/2025
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [TypeSpec extension](https://marketplace.visualstudio.com/items?itemName=typespec.typespec-vscode)
-* Optional: Deployment with [Azure Developer CLI](azure/developer/azure-developer-cli/)
+* Optional: Deployment with [Azure Developer CLI](/azure/developer/azure-developer-cli/)
