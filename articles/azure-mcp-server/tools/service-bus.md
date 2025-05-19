@@ -113,4 +113,4 @@ The Azure MCP Server can peek at messages in a subscription within a Service Bus
 | Required | **Topic subscription name** | The name of topic subscription to peek messages from. |
 | Optional | **Max messages** | The maximum number of messages to retrieve. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]

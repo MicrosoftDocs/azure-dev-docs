@@ -156,4 +156,4 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 | **Key**          | Required          | The key name of the setting to set.                                         |
 | **Label**        | Optional          | The label of the setting to set.                                            |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]

@@ -90,4 +90,4 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 | Required | **Container name** | The name of the container. |
 | Optional | **Query** | SQL query to execute against the container. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]

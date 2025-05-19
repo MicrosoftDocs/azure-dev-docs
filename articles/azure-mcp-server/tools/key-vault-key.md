@@ -75,5 +75,6 @@ The Azure MCP Server can list all keys in an Azure Key Vault. This helps you man
 | Required | **Vault** | The name of the Key Vault. |
 | Optional | **Include managed** | Whether or not to include managed keys in results. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+
 

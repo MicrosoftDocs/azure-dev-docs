@@ -74,4 +74,4 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 | Optional | **Hours** | The number of hours to query back from now. |
 | Optional | **Limit** | The maximum number of results to return. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]

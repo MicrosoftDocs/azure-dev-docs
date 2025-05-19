@@ -34,4 +34,4 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 |-------------------|-----------|-------------|
 | Required | **Command** | The Azure CLI command to execute (without the 'az' prefix). |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]

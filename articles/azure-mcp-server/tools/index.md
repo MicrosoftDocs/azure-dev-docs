@@ -23,6 +23,8 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 
 [!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
 
+[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+
 ## Related content
 
 - [Get started using Azure MCP Server](../get-started.md)

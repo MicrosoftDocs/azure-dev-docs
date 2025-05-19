@@ -103,4 +103,4 @@ The Azure MCP Server can list all tables in a storage account. This functionalit
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Azure Storage account. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
