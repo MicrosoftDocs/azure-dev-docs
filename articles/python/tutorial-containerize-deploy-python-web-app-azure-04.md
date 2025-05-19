@@ -11,7 +11,7 @@ ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 
 In this part of the tutorial series, you learn how to deploy a containerized Python web application to [Azure App Service Web App for Containers](/azure/app-service/containers/). This fully managed service lets you run containerized apps without having to maintain your own container orchestrator.
 
-App Service simplifies deployment through continuous integration/continuous deployment (CI/CD) pipelines that work with Docker Hub, Azure Container Registry, Azure Key Vault, and other DevOps tools. This is part 4 of a 5-part tutorial series.
+App Service simplifies deployment through continuous integration/continuous deployment (CI/CD) pipelines that work with Docker Hub, Azure Container Registry, Azure Key Vault, and other DevOps tools. This tutorial is part 4 of a 5-part tutorial series.
 
 At the end of this article, you have a secure, production-ready App Service web app running from a Docker container image. The app uses a **system-assigned managed identity** to pull the image from Azure Container Registry and retrieve secrets from Azure Key Vault.
 
@@ -37,7 +37,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 Azure Key Vault is a secure service for storing secrets, API keys, connection strings, and certificates. In this script, it stores the **MongoDB connection string** and the web app’s **`SECRET_KEY`**.
 
-The Key Vault is configured to use **role-based access control (RBAC)** to manages access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
+The Key Vault is configured to use **role-based access control (RBAC)** to manage access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
 
 > [!NOTE]
 > Creating the Key Vault early ensures that roles can be assigned before any attempt to access secrets. It also helps avoid propagation delays in role assignments. Since Key Vault doesn’t depend on the App Service, provisioning it early improves reliability and sequencing.
@@ -121,7 +121,7 @@ In this step, you perform the following tasks:
   
     ---
 
-1. In this step, you use the [az webapp create](/cli/azure/webapp#az-webapp-create) command to create the web app. This command also enables a [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and sets the container image that the app will run.
+1. In this step, you use the [az webapp create](/cli/azure/webapp#az-webapp-create) command to create the web app. This command also enables a [system-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) and sets the container image that the app runs.
 
     ### [Bash](#tab/bash)
   
@@ -167,7 +167,7 @@ In this step, you perform the following tasks:
       >    Retrieving credentials failed with an exception:'Failed to retrieve container registry credentials. Please either provide the credentials or run 'az acr update -n msdocscontainerregistryname --admin-enabled true' to enable admin first.'
       >    ```
       >
-      > This error occurs because the web app tries to use admin credentials to access ACR, which are disabled by default. It's safe to ignore this message: the next step configures the web app to use its managed identity to authenticate with ACR.
+      > This error occurs because the web app tries to use admin credentials to access ACR, which credentials are disabled by default. It's safe to ignore this message: the next step configures the web app to use its managed identity to authenticate with ACR.
 
 ## Grant Secrets Officer Role to logged-in user
 
@@ -175,7 +175,7 @@ To store secrets in Azure Key Vault, the user running the script must have the *
 
 In this step, the script assigns that role to the currently logged-in user. This user can then securely store application secrets, such as the MongoDB connection string and the app’s `SECRET_KEY`.
 
-This is the first of two Key Vault–related role assignments. Later, the web app’s system-assigned managed identity is granted access to retrieve secrets from the vault.
+This role assignment is the first of two Key Vault–related role assignments. Later, the web app’s system-assigned managed identity is granted access to retrieve secrets from the vault.
 
 Using **Azure RBAC** ensures secure, auditable access based on identity, eliminating the need for hard-coded credentials.
 
@@ -216,14 +216,14 @@ Using **Azure RBAC** ensures secure, auditable access based on identity, elimina
 
 ## Grant web access to ACR using managed identity
 
-To pull images from Azure Container Registry (ACR) securely, the web app must be configured to use its **system-assigned managed identity**. This avoids the need for admin credentials and supports secure, credential-free deployment.
+To pull images from Azure Container Registry (ACR) securely, the web app must be configured to use its **system-assigned managed identity**. Using managed identity avoids the need for admin credentials and supports secure, credential-free deployment.
 
 This process involves two key actions:
 
 * Enabling the web app to use its managed identity when accessing ACR
 * Assigning the **AcrPull** role to that identity on the target ACR
 
-1. In this step, you retrieve the **principal ID** (unique object ID) of the web app’s managed identity using the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. Next, you enable the use of the managed identity for ACR authentication by setting the `acrUseManagedIdentityCreds` property to `true` using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set). You then assign the **AcrPull** role to the web app’s managed identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This grants the web app permission to pull images from the registry.
+1. In this step, you retrieve the **principal ID** (unique object ID) of the web app’s managed identity using the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. Next, you enable the use of the managed identity for ACR authentication by setting the `acrUseManagedIdentityCreds` property to `true` using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set). You then assign the **AcrPull** role to the web app’s managed identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This role grants the web app permission to pull images from the registry.
 
     ### [Bash](#tab/bash)
 
@@ -274,7 +274,7 @@ This process involves two key actions:
 
 ## Grant key vault access to the web app's managed identity
 
-The web app needs permission to access secrets like the MongoDB connection string and the `SECRET_KEY`. To enable this, you must assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
+The web app needs permission to access secrets like the MongoDB connection string and the `SECRET_KEY`. To grant these permissions, you must assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
 
 1. In this step, you use the unique identifier (principal ID) of the web app’s system-assigned managed identity to grant the web app access to the Key Vault with the **Key Vault Secrets User** role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
@@ -305,7 +305,7 @@ The web app needs permission to access secrets like the MongoDB connection strin
 
 ## Store Secrets in Key Vault
 
-To avoid hardcoding secrets in your application, this step stores the **MongoDB connection string** and the web app’s **secret key** in Azure Key Vault. These values can then be securely accessed by the web app at runtime using its managed identity.
+To avoid hardcoding secrets in your application, this step stores the **MongoDB connection string** and the web app’s **secret key** in Azure Key Vault. These secrets can then be securely accessed by the web app at runtime through its managed identity, without the need to store credentials in code or configuration.
 
 > [!NOTE]
 > While this tutorial stores only the connection string and secret key in the key vault, you can optionally store other application settings such as the MongoDB database name or collection name in Key Vault as well.
@@ -325,7 +325,7 @@ To avoid hardcoding secrets in your application, this step stores the **MongoDB 
       --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
     
     SECRET_KEY=$(openssl rand -base64 32 | tr -dc 'a-zA-Z0-9')
-    # This is cryptographically secure, using OpenSSL’s strong random number generator.
+    # This key is cryptographically secure, using OpenSSL’s strong random number generator.
     
     az keyvault secret set \
       --vault-name "$KEYVAULT_NAME" \
@@ -377,7 +377,7 @@ To avoid hardcoding secrets in your application, this step stores the **MongoDB 
 
 ## Configure web app to use Kay Vault secrets
 
-To access secrets securely at runtime, the web app must be configured to reference the secrets stored in Azure Key Vault. This is done using **Key Vault references**, which inject the secret values into the app’s environment through its **system-assigned managed identity**.
+To access secrets securely at runtime, the web app must be configured to reference the secrets stored in Azure Key Vault. This step is done using **Key Vault references**, which inject the secret values into the app’s environment through its **system-assigned managed identity**.
 
 This approach avoids hardcoding secrets and allows the app to securely retrieve sensitive values like the MongoDB connection string and secret key during execution.
 
@@ -452,9 +452,9 @@ Enabling continuous deployment allows the web app to automatically pull and run 
 
 ## Register an ACR Webhook for continuous deployment
 
-To automate deployments, register a webhook in Azure Container Registry (ACR) that notifies the web app whenever a new container image is pushed. This allows the app to automatically pull and run the latest version.
+To automate deployments, register a webhook in Azure Container Registry (ACR) that notifies the web app whenever a new container image is pushed. The webhook allows the app to automatically pull and run the latest version.
 
-The webhook sends a POST request to the web app’s SCM endpoint (`SERVICE_URI`) every time an updated image is pushed to `msdocspythoncontainerwebapp`. This completes the continuous deployment pipeline between ACR and App Service.
+The webhook configured in Azure Container Registry (ACR) sends a POST request to the web app’s SCM endpoint (SERVICE_URI) whenever a new image is pushed to the msdocspythoncontainerwebapp repository. This action triggers the web app to pull and deploy the updated image, completing the continuous deployment pipeline between ACR and Azure App Service.
 
 > [!NOTE]
 > The webhook URI must follow this format:  
@@ -595,11 +595,11 @@ In this step, you specify the environment variables needed for the web applicati
 
 1. Each time you add a new setting, a dialog box appears at the top of the VS Code window where you can add the setting name followed by its value. Add the following settings:
 
-    * CONNECTION_STRING: **the MongoDB connection string**. Later in this tutorial, you will set this value to the connection string that you store in Azure Key Vault.
+    * CONNECTION_STRING: **the MongoDB connection string**. Later in this tutorial, you set this value to the connection string that you store in Azure Key Vault.
     * DB_NAME: **restaurants_reviews**
     * COLLECTION_NAME: **restaurants_reviews**
     * WEBSITES_PORT: **8000** for Django and **5000** for Flask. This environment variable specifies the port on which the container is listening.
-    * SECRET_KEY: **supersecretkeythatispassedtopythonapp**. This is a random string used by Django and Flask to encrypt session data. Later in this tutorial, you will set this value to the random string that you store in Azure Key Vault.
+    * SECRET_KEY: **supersecretkeythatispassedtopythonapp**. This secret key is a random string used by Django and Flask to encrypt session data. Later in this tutorial, you set this value to the random string that you store in Azure Key Vault.
 
 ## Browse the site using hard-coded values
 
@@ -607,7 +607,7 @@ In the Azure view in VS Code (from the Azure Tools extension):
 
 1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
-1. Right-click your web app and select **Browse Website**. If your web site shows an eror, wait a few minutes and try again. It may take a few minutes for the web app to start up. See also [Troubleshooting App Service](#troubleshoot-deployment).
+1. Right-click your web app and select **Browse Website**. If your web site shows an error, wait a few minutes and try again. It may take a few minutes for the web app to start up. See also [Troubleshooting App Service](#troubleshoot-deployment).
 
 ## Create Key Vault with RBAC Authorization
 
@@ -695,7 +695,7 @@ By using Azure Role-Based Access Control (RBAC), this approach ensures secure, a
 
 ## Store Secrets in Key Vault
 
-To avoid hardcoding secrets in your application, in this step you store the **MongoDB connection string** to the MongoDB instance and the web app’s **secret key** in Azure Key Vault. These values can then be securely accessed by the web app at runtime using its managed identity.
+To avoid hardcoding secrets in your application, in this step you store the **MongoDB connection string** to the MongoDB instance and the web app’s **secret key** in Azure Key Vault. These secrets can then be securely accessed by the web app at runtime through its managed identity, without the need to store credentials in code or configuration.
 
 > [!NOTE]
 > While this tutorial stores only the connection string and secret key in the key vault, you can optionally store other application settings such as the MongoDB database name or collection name in Key Vault as well.
@@ -715,7 +715,7 @@ To avoid hardcoding secrets in your application, in this step you store the **Mo
       --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
     
     SECRET_KEY=$(openssl rand -base64 32 | tr -dc 'a-zA-Z0-9')
-    # This is cryptographically secure, using OpenSSL’s strong random number generator.
+    # This key is cryptographically secure, using OpenSSL’s strong random number generator.
     
     az keyvault secret set \
       --vault-name "$KEYVAULT_NAME" \
@@ -767,7 +767,7 @@ To avoid hardcoding secrets in your application, in this step you store the **Mo
 
 ## Grant key vault access to the web app's managed identity
 
-The web app needs permission to access the MongoDB connection string and the `SECRET_KEY` that you stored in the key vault. To enable this, you assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
+The web app needs permission to access the MongoDB connection string and the `SECRET_KEY` that you stored in the key vault. To grant these permissions, you assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
 
 1. In this step, you use the unique identifier (principal ID) of the web app’s system-assigned managed identity to grant the web app access to the Key Vault with the **Key Vault Secrets User** role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
@@ -825,7 +825,7 @@ In this step, you update the environment variables needed to connect to MongoDB 
       * SECRET_KEY: @Microsoft.KeyVault(SecretUri=https://$KEYVAULT_NAME.vault.azure.net/secrets/MongoSecretKey)
 
     > [!NOTE]
-    > To verify that the application settings were set correctly, you can use the [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list) command to list the application settings for the web app. The form of the command is: `az webapp config appsettings list --/<resource-group msdocs-web-app-rg/> --name /<website-name/>`. This command lists all the application settings for the web app, including the ones you just set.
+    > To verify that the application settings are set correctly, you can use the [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list) command to list the application settings for the web app. The form of the command is: `az webapp config appsettings list --/<resource-group msdocs-web-app-rg/> --name /<website-name/>`. This command lists all the application settings for the web app, including the ones you just set.
 
 ## Browse the site using Key Vault secrets
 
