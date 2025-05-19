@@ -13,17 +13,14 @@ ms.custom: build-2025
 --- 
 # Key Vault tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates.
+The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You can manage keys without remembering specialized command syntax.
+
 
 [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for Key Vault
-
-This section describes how to interact with Azure Key Vault services using natural language prompts with the Azure MCP Server. You can manage cryptographic keys, secrets, and certificates securely without remembering specialized command syntax.
-
-### Create key
+## Create key
 
 The Azure MCP Server can create a new key in an Azure Key Vault. This allows you to add cryptographic keys for your applications.
 
@@ -35,7 +32,7 @@ The Azure MCP Server can create a new key in an Azure Key Vault. This allows you
 - **Set up key**: "Create an encryption key for my application in Key Vault"
 - **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
 
-### Get key
+## Get key
 
 The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
 
@@ -47,7 +44,7 @@ The Azure MCP Server can retrieve details of a specific key from an Azure Key Va
 - **Check key**: "Show me the details of the encryption key in my vault"
 - **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
 
-### List keys
+## List keys
 
 The Azure MCP Server can list all keys in an Azure Key Vault. This helps you manage your cryptographic keys.
 

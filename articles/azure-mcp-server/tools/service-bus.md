@@ -13,17 +13,13 @@ ms.custom: build-2025
 --- 
 # Service Bus tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Service Bus resources, including queues and topics.
+The Azure MCP Server allows you to manage Azure Service Bus resources, including queues and topics with natural language prompts. You can peek at messages and view message details without specialized knowledge of messaging protocols.
 
 [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for Service Bus
-
-This section explains how to interact with Azure Service Bus using natural language prompts with the Azure MCP Server. You can manage messaging components like queues, topics, and subscriptions to facilitate reliable communication between distributed applications without specialized knowledge of messaging protocols.
-
-### Get queue runtime details
+## Get queue runtime details
 
 The Azure MCP Server can retrieve runtime details about a Service Bus queue, including its message count and status.
 
@@ -35,7 +31,7 @@ The Azure MCP Server can retrieve runtime details about a Service Bus queue, inc
 - **Queue status**: "Show me message count for the orders queue"
 - **View queue**: "Tell me about the processing-queue in my service bus"
 
-### Get topic runtime details
+## Get topic runtime details
 
 The Azure MCP Server can retrieve runtime details about a Service Bus topic, including its subscription count and status.
 
@@ -47,7 +43,7 @@ The Azure MCP Server can retrieve runtime details about a Service Bus topic, inc
 - **Topic status**: "Show me subscription count for the events topic"
 - **View topic**: "Tell me about the broadcast-topic runtime in my service bus"
 
-### Get topic subscription runtime details
+## Get topic subscription runtime details
 
 The Azure MCP Server can retrieve runtime details about a subscription within a Service Bus topic, including message counts.
 
@@ -59,7 +55,7 @@ The Azure MCP Server can retrieve runtime details about a subscription within a 
 - **Subscription status**: "Show me details for the email-service subscription"
 - **View subscription**: "Tell me about the analytics subscription in my events topic"
 
-### Peek at queue messages
+## Peek at queue messages
 
 The Azure MCP Server can peek at messages in a Service Bus queue without removing them.
 
@@ -71,7 +67,7 @@ The Azure MCP Server can peek at messages in a Service Bus queue without removin
 - **Preview queue**: "Show me what's in the processing queue without removing messages"
 - **Read queue**: "Look at messages in my orders queue"
 
-### Peek at topic subscription messages
+## Peek at topic subscription messages
 
 The Azure MCP Server can peek at messages in a subscription within a Service Bus topic without removing them.
 

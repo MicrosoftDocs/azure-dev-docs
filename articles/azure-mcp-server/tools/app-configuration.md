@@ -13,18 +13,13 @@ ms.custom: build-2025
 --- 
 # App Configuration tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including App Configuration stores.
+The Azure MCP Server allows you to manage Azure resources, including App Configuration stores using natural language prompts. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
-
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for App Configuration
-
-Use natural language prompts to interact with Azure App Configuration services through the Azure MCP Server. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
-
-### Delete key-value setting
+## Delete key-value setting
 
 The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
 
@@ -36,7 +31,7 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
-### List key-value settings
+## List key-value settings
 
 The Azure MCP Server can list all [key-value settings](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. This allows you to view your application settings and their values in one place.
 
@@ -49,7 +44,7 @@ The Azure MCP Server can list all [key-value settings](/azure/azure-app-configur
 - **Find settings with label**: "Show me settings with label 'dev'"
 
 
-### List stores 
+## List stores 
 
 The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
 
@@ -61,7 +56,7 @@ The Azure MCP Server can list App Configuration stores in a subscription. This i
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-### Lock key-value setting
+## Lock key-value setting
 
 The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.
 
@@ -74,7 +69,7 @@ The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configurati
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
 
 
-### Set key-value setting
+## Set key-value setting
 
 The Azure MCP Server can create or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store.
 
@@ -87,7 +82,7 @@ The Azure MCP Server can create or update a [key-value setting](/azure/azure-app
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
 
 
-### Show key-value setting
+## Show key-value setting
 
 The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. This is useful for checking the current value of a particular setting.
 
@@ -100,7 +95,7 @@ The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-ap
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
 
 
-### Unlock key-value setting
+## Unlock key-value setting
 
 The Azure MCP Server can unlock a previously locked [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it editable again.
 

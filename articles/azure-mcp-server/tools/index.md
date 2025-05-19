@@ -13,9 +13,15 @@ ms.custom: build-2025
 ---
 # What are the Azure MCP Server tools?
 
-The Azure Model Context Protocol (MCP) Server enables interaction with Azure services through natural language tools. This article provides an overview of tools supported by the Azure MCP Server and explains how to use them.
+The Azure Model Context Protocol (MCP) Server exposes many tools you can use from an existing client to interact with Azure services through natural language prompts. For example, you can use the Azure MCP Server to interact with Azure resources conversationally from GitHub Copilot agent mode in Visual Studio Code or other AI agents with commands like these:
 
-## Supported services
+- "Show me all my resource groups"
+- "List blobs in my storage container named 'documents'"
+- "What's the value of the 'ConnectionString' key in my app configuration?"
+- "Query my log analytics workspace for errors in the last hour"
+- "Show me all my Cosmos DB databases"
+
+The Azure MCP Server currently provides tools for interacting with the following Azure services:
 
 [!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
 
@@ -35,5 +41,5 @@ The Azure MCP Server accepts natural language prompts, allowing you to interact 
 
 ## Related content
 
-- Learn about [Azure MCP Server](../get-started.md)
-- Explore [Using MCP Server tools with App Configuration tools](app-configuration.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Use MCP Server tools with App Configuration tools](app-configuration.md)

@@ -13,17 +13,13 @@ ms.custom: build-2025
 --- 
 # Cosmos DB tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers.
+The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers with natural language prompts. You can query and manage your NoSQL databases using simple conversational commands.
 
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for Cosmos DB
-
-This section describes how to use natural language prompts with the Azure MCP Server to interact with Azure Cosmos DB services. You can query and manage your NoSQL databases using simple conversational commands.
-
-### List accounts
+## List accounts
 
 The Azure MCP Server can list all Cosmos DB accounts in a subscription. This provides a quick overview of your Cosmos DB resources.
 
@@ -35,7 +31,7 @@ The Azure MCP Server can list all Cosmos DB accounts in a subscription. This pro
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-### List databases
+## List databases
 
 The Azure MCP Server can list all databases in a Cosmos DB account. This helps you view your database resources in a specific account.
 
@@ -47,7 +43,7 @@ The Azure MCP Server can list all databases in a Cosmos DB account. This helps y
 - **Query databases**: "Show all databases in my Cosmos DB account"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
 
-### List containers
+## List containers
 
 The Azure MCP Server can list all containers in a Cosmos DB database. This helps you manage your data organization within a database.
 
@@ -59,7 +55,7 @@ The Azure MCP Server can list all containers in a Cosmos DB database. This helps
 - **Query containers**: "Show containers in database 'inventory'"
 - **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
 
-### Query items
+## Query items
 
 The Azure MCP Server can execute SQL queries against items in a Cosmos DB container. This powerful feature allows you to retrieve specific data based on query conditions.
 

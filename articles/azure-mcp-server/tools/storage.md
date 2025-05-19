@@ -13,17 +13,13 @@ ms.custom: build-2025
 --- 
 # Storage tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Storage resources, including storage accounts, containers, and blobs.
+The Azure MCP Server allows you to manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts without having to remember specific command syntax.
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for various data objects in the cloud.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for Storage
-
-This section explains how to interact with Azure Storage services using natural language prompts with the Azure MCP Server. You can manage storage accounts, containers, blobs, and tables without having to remember specific command syntax.
-
-### Get container details
+## Get container details
 
 The Azure MCP Server can show detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
 
@@ -35,7 +31,7 @@ The Azure MCP Server can show detailed information about a specific container in
 - **Container status**: "Check access policy for 'user_data' container"
 - **Container metadata**: "Show me the metadata for the 'logs' container in my storage account"
 
-### List accounts
+## List accounts
 
 The Azure MCP Server can list all storage accounts in a subscription. This functionality provides an overview of your storage infrastructure.
 
@@ -47,7 +43,7 @@ The Azure MCP Server can list all storage accounts in a subscription. This funct
 - **Query accounts**: "Show all my storage resources"
 - **Check accounts**: "Storage accounts in subscription abc123"
 
-### List containers
+## List containers
 
 The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
 
@@ -59,7 +55,7 @@ The Azure MCP Server can list all blob containers in a storage account. This fun
 - **Query containers**: "Show available containers in my storage account"
 - **Check containers**: "Get all blob containers in my 'media_files' storage"
 
-### List container blobs
+## List container blobs
 
 The Azure MCP Server can list all blobs in a container. This helps you manage the files stored in your blob storage.
 
@@ -71,7 +67,7 @@ The Azure MCP Server can list all blobs in a container. This helps you manage th
 - **Query blobs**: "Show available files in container 'logs'"
 - **Check blobs**: "Get all blobs in my 'user_data' container"
 
-### List tables
+## List tables
 
 The Azure MCP Server can list all tables in a storage account. This functionality helps you manage your structured NoSQL data.
 

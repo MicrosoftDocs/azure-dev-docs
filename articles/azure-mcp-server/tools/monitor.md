@@ -13,17 +13,13 @@ ms.custom: build-2025
 --- 
 # Azure Monitor tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Monitor resources, including querying Log Analytics workspaces for operational insights.
+The Azure MCP Server allows you to manage Azure Monitor resources, including querying Log Analytics workspaces for operational insights natural language prompts. You can query Log Analytics workspaces, analyze operational data, and gain insights into your Azure resources without needing to know complex KQL syntax.
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for Azure Monitor
-
-This section explains how to interact with Azure Monitor services using natural language prompts with the Azure MCP Server. You can query Log Analytics workspaces, analyze operational data, and gain insights into your Azure resources without needing to know complex KQL syntax.
-
-### List workspaces
+## List workspaces
 
 The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
@@ -35,7 +31,7 @@ The Azure MCP Server can list all Log Analytics workspaces in a subscription. Th
 - **Query workspaces**: "Show all Log Analytics workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
 
-### List tables
+## List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
@@ -47,7 +43,7 @@ The Azure MCP Server can list all tables in a Log Analytics workspace. This help
 - **Query tables**: "Show available tables in my Log Analytics workspace"
 - **Check tables**: "Get all log tables in my 'operations' workspace"
 
-### Query logs
+## Query logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 

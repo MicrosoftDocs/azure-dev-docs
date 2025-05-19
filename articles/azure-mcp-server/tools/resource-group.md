@@ -13,17 +13,13 @@ ms.custom: build-2025
 --- 
 # Resource Group tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resource groups, providing foundational resource organization capabilities.
+The Azure MCP Server allows you to manage Azure resource groups, providing foundational resource organization capabilities with natural language prompts. You can view your resource groups without needing to remember specific command syntax.
 
 [Azure Resource Groups](/azure/azure-resource-manager/management/overview) are logical containers that help you organize and manage your Azure resources. Resource groups make it easier to administer your resources by deployment, billing, or natural affinity.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use MCP server for Resource Groups
-
-This section explains how to interact with Azure Resource Groups using natural language prompts with the Azure MCP Server. You can manage your resource organization structure without needing to remember specific command syntax.
-
-### List resource groups
+## List resource groups
 
 The Azure MCP Server can list all resource groups in a subscription. This helps you see your organizational structure at a glance.
 
