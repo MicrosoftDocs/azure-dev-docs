@@ -21,8 +21,6 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 - "Query my log analytics workspace for errors in the last hour"
 - "Show me all my Cosmos DB databases"
 
-The Azure MCP Server currently provides tools for interacting with the following Azure services:
-
 [!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
 
 ### Use MCP servers
