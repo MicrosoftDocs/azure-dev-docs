@@ -9,7 +9,7 @@ ms.custom: devx-track-typespec, devx-track-js, devx-track-ts
 #customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
 ---
 
-# Quickstart: Create a new TypeSpec API project with TypeSpec
+# Quickstart: Create a new TypeSpec API project with TypeScript
 
 In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
@@ -19,8 +19,8 @@ In this quickstart, you:
 > * Define your API using TypeSpec
 > * Create an API server application
 > * Integrate Azure Cosmos DB for persistent storage
-> * Run and test your API locally
 > * Deploy to Azure
+> * Run and test your API
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ Use the TypeSpec files to configure the API server generation to scaffold the en
 
 1. Open the browser and go to `http://localhost:3000/.api-docs`. 
     
-    :::image type="content" source="media/quickstart-scaffold/js-default-widget-swagger-ui.png" alt-text="Screenshot of browser displaying Swagger UI for Widgets API.":::
+    :::image type="content" source="media/quickstart-scaffold/default-widget-swagger-ui.png" alt-text="Screenshot of browser displaying Swagger UI for Widgets API.":::
 
 1. The default TypeSpec API and server both work. If you want to finish off this API server, add your business logic to support the Widgets APIs in `./tsp-output/server/src/controllers/widgets.ts`. The UI is connected to the API which returns hardcoded fake data. 
 
