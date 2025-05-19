@@ -223,7 +223,6 @@ This process involves two key actions:
 * Enabling the web app to use its managed identity when accessing ACR
 * Assigning the **AcrPull** role to that identity on the target ACR
 
-
 1. In this step, you retrieve the **principal ID** (unique object ID) of the web app’s managed identity using the [az webapp identity show](/cli/azure/webapp/identity#az-webapp-identity-show) command. Next, you enable the use of the managed identity for ACR authentication by setting the `acrUseManagedIdentityCreds` property to `true` using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set). You then assign the **AcrPull** role to the web app’s managed identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. This grants the web app permission to pull images from the registry.
 
     ### [Bash](#tab/bash)
@@ -531,11 +530,9 @@ az webapp browse --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME
 
 ## Create the web app
 
-These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
+These steps require the installation of the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
-1. Refresh the Azure Container Registry in the Docker extension.
-
-    Confirm that the container you built appears under the **REGISTRIES** section of the Docker extension. If it doesn't, right-click the registry name and select **Refresh**.
+1. Refresh the Azure Container Registry in the Docker extension to confirm that the container you built appears under the **REGISTRIES** section of the Docker extension. If it doesn't, right-click the registry name and select **Refresh**.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" alt-text="A screenshot showing how to fresh registries in the Docker extension for Visual Studio Code." :::
 
@@ -558,16 +555,18 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     The final site `https://<app-name>.azurewebsites.net` isn't ready yet because you need to specify MongoDB info.
 
-    When you deploy with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by viewing logs in the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
+    >[!NOTE]
+    > When you deploy with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by viewing logs in the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
 
 ## Configure managed identity and webhook
 
 During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
 
-> [!IMPORTANT]
-> Review the webhooks configuration in the Azure portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The container registry opens in the Azure portal. Click **Services** and then click **Webhooks**. Open the context menu and click **Configure**.
+1. Review the webhooks configuration in the Azure portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The container registry opens in the Azure portal. Click **Services** and then click **Webhooks**. Open the context menu and click **Configure**. 
 
-:::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
+
+2. Confirm that the **Service URI** ends with "/api/registry/webhook". If it doesn't, add it and click **Save**
 
 ## Configure connection to MongoDB
 
@@ -591,11 +590,260 @@ To configure environment variables for the web app from VS Code, you must have t
 
 1. Each time you add a new setting, a dialog box appears at the top of the VS Code window where you can add the setting name followed by its value. Add the following settings:
 
-    * CONNECTION_STRING: A connection string that starts with "mongodb://".
+    * CONNECTION_STRING: /<the MongoDB connection string/>
+    * DB_NAME: **restaurants_reviews**
+    * COLLECTION_NAME: **restaurants_reviews**
+    * WEBSITES_PORT: **8000** for Django and **5000** for Flask. This environment variable specifies the port on which the container is listening.
+    * SECRET_KEY: **supersecretkeythatispassedtopythonapp**. This is a random string used by Django and Flask to encrypt session data. In a later step in this tutorial, you will set this value to a random string stored in Azure Key Vault.
+
+## Browse the site
+
+In the Azure view in VS Code (from the Azure Tools extension):
+
+1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
+
+1. Right-click your web app and select **Browse Website**. If your web site shows an eror, wait a few minutes and try again. It may take a few minutes for the web app to start up. See also [Troubleshooting App Service](#troubleshoot-deployment).
+
+
+
+# switch to the Azure CLI
+
+
+
+## Create Key Vault with RBAC Authorization
+
+Azure Key Vault is a secure service for storing secrets, API keys, connection strings, and certificates. In this script, it stores the **MongoDB connection string** and the web app’s **`SECRET_KEY`**.
+
+The Key Vault is configured to use **role-based access control (RBAC)** to manages access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
+
+> [!NOTE]
+> You can configure VS Code to use the Azure CLI or PowerShell. To select your default shell in VS Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type **Terminal: Select Default Profile**. In the command palette, type and select: **Terminal: Select Default Profile** and then select your desired default shell.
+
+1. In VS Code, open a new terminal windows and run the following command to create a new Key Vault. This command uses either the Azure CLI or PowerShell to create a Key Vault with RBAC authorization enabled.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    RESOURCE_GROUP_NAME="msdocs-web-app-rg"
+    LOCATION="westus"
+    KEYVAULT_NAME="${RESOURCE_GROUP_NAME}-kv"
+
+    az keyvault create \
+      --name "$KEYVAULT_NAME" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --location "$LOCATION" \
+      --enable-rbac-authorization true
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME="msdocs-web-app-rg"
+    $LOCATION="westus"
+    $KEYVAULT_NAME="${RESOURCE_GROUP_NAME}-kv"
+
+    az keyvault create `
+      --name "$KEYVAULT_NAME" `
+      --resource-group "$RESOURCE_GROUP_NAME" `
+      --location "$LOCATION" `
+      --enable-rbac-authorization true
+    ```
+
+    ---
+
+## Grant Secrets Officer Role to logged-In user
+
+To store secrets in Azure Key Vault, the user running the script must have the **Key Vault Secrets Officer** role. This role allows creating and managing secrets within the vault.
+
+In this step, the script assigns that role to the currently logged-in user. This enables them to securely store application secrets, such as the MongoDB connection string and the app’s `SECRET_KEY`.
+
+This is the first of two Key Vault–related role assignments. Later, the web app’s system-assigned managed identity is granted access to retrieve secrets from the vault. 
+
+Using **Azure RBAC** ensures secure, auditable access based on identity, eliminating the need for hard-coded credentials.
+
+> [!NOTE]
+> The user must be assigned the **Key Vault Secrets Officer** role **before** running any `az keyvault secret set` commands.
+> This assignment is done using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command scoped to the Key Vault.
+
+1. In this step, you use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the role at the Key Vault scope.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
+    echo $CALLER_ID # Verify this value retrieved successfully. In production, poll to verify this value is retrieved successfully.
+    
+    az role assignment create \
+      --role "Key Vault Secrets Officer" \
+      --assignee "$CALLER_ID" \
+      --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+    
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    $CALLER_ID=$(az ad signed-in-user show --query id -o tsv)
+    echo $CALLER_ID # Verify this value retrieved successfully. In production, poll to verify this value is retrieved successfully.
+
+    az role assignment create `
+      --role "Key Vault Secrets Officer" `
+      --assignee "$CALLER_ID" `
+      --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+    ```
+
+    ---
+
+## Grant key vault access to the web app's managed identity
+
+The web app needs permission to access secrets like the MongoDB connection string and the `SECRET_KEY`. To enable this, you must assign the **Key Vault Secrets User** role to the web app’s **system-assigned managed identity**.
+
+1. In this step, you use the unique identifier (principal ID) of the web app’s system-assigned managed identity to grant the web app access to the Key Vault with the **Key Vault Secrets User** role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+      APP_SERVICE_NAME="msdocs-python-container-web-app"
+      PRINCIPAL_ID=$(az webapp identity show \
+        --name "$APP_SERVICE_NAME" \
+        --resource-group "$RESOURCE_GROUP_NAME" \
+        --query principalId \
+        -o tsv)
+    echo $PRINCIPAL_ID # Verify this value retrieved successfully. In production, poll for successful 'AcrPull' role assignment using `az role assignment list`.    
+
+    az role assignment create \
+    --role "Key Vault Secrets User" \
+    --assignee "$PRINCIPAL_ID" \
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+        $PRINCIPAL_ID=$(az webapp identity show `
+      --name "$APP_SERVICE_NAME" `
+      --resource-group "$RESOURCE_GROUP_NAME" `
+      --query principalId `
+      -o tsv)
+    echo $PRINCIPAL_ID # Verify this value retrieved successfully. In production, poll for successful AcrPull role assignment using `az role assignment list`.    
+
+
+    az role assignment create `
+    --role "Key Vault Secrets User" `
+    --assignee "$PRINCIPAL_ID"`
+    --scope "/subscriptions/$(az account show --query id -o tsv)/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME"
+    
+    ```
+
+    ---
+
+## Store Secrets in Key Vault
+
+To avoid hardcoding secrets in your application, this step stores the **MongoDB connection string** and the web app’s **secret key** in Azure Key Vault. These values can then be securely accessed by the web app at runtime using its managed identity.
+
+> [!NOTE]
+> While this tutorial stores only the connection string and secret key, you can optionally store other application settings such as the MongoDB database name or collection name in Key Vault as well.
+
+1. In this step, you use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command to retrieve the MongoDB connection string. You then use the [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to store both the connection string and a randomly generated secret key in Key Vault.
+
+    ### [Bash](#tab/bash)
+
+    ```azurecli-interactive
+    #!/bin/bash
+    ACCOUNT_NAME="msdocs-cosmos-db-account-name"
+
+    MONGO_CONNECTION_STRING=$(az cosmosdb keys list \
+      --name "$ACCOUNT_NAME" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --type connection-strings \
+      --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" -o tsv)
+    
+    SECRET_KEY=$(openssl rand -base64 32 | tr -dc 'a-zA-Z0-9')
+    # This is cryptographically secure, using OpenSSL’s strong random number generator.
+    
+    az keyvault secret set \
+      --vault-name "$KEYVAULT_NAME" \
+      --name "MongoConnectionString" \
+      --value "$MONGO_CONNECTION_STRING"
+    
+    az keyvault secret set \
+      --vault-name "$KEYVAULT_NAME" \
+      --name "MongoSecretKey" \
+      --value "$SECRET_KEY"
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```powershell-interactive
+    # PowerShell syntax
+    $ACCOUNT_NAME="msdocs-cosmos-db-account-name"
+
+    $MONGO_CONNECTION_STRING = az cosmosdb keys list `
+      --name $ACCOUNT_NAME `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --type connection-strings `
+      --query "connectionStrings[?description=='Primary MongoDB Connection String'].connectionString" `
+      -o tsv
+     
+    # Generate a 32-byte cryptographically secure random value
+    $bytes = New-Object 'Byte[]' 32
+    [System.Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($bytes)
+    
+    # Convert to base64 and filter to alphanumeric characters only
+    $base64 = [Convert]::ToBase64String($bytes)
+    $alphanumeric = $base64 -replace '[^a-zA-Z0-9]', ''
+    
+    # Truncate to 50 characters
+    $SECRET_KEY = $alphanumeric.Substring(0, [Math]::Min(50, $alphanumeric.Length))
+     
+    az keyvault secret set `
+      --vault-name "$KEYVAULT_NAME" `
+      --name "MongoConnectionString" `
+      --value "$MONGO_CONNECTION_STRING"
+    
+    az keyvault secret set `
+      --vault-name "$KEYVAULT_NAME" `
+      --name "MongoSecretKey" `
+      --value "$SECRET_KEY"
+    ```
+
+    ---
+
+## Configure connection to MongoDB
+
+In this step, you specify environment variables needed to connect to MongoDB.
+
+You need the MongoDB connection string for the next steps.
+
+To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
+
+1. In the Azure view in VS Code (from the Azure Tools extension):
+
+    1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
+
+    1. Expand **App Services** and find the web app you created.
+
+    1. Expand your web app and right-click on **Application Settings**.
+
+    1. Select **Add new setting...**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." :::
+
+1. Each time you add a new setting, a dialog box appears at the top of the VS Code window where you can add the setting name followed by its value. Add the following settings:
+1. 
+1. keyvault = msdocs-web-app-rg-kv
+
+    * CONNECTION_STRING: Use "@Microsoft.KeyVault(SecretUri=https://msdocs-web-app-rg-kv.vault.azure.net/secrets/MongoConnectionString)".
     * DB_NAME: Use "restaurants_reviews".
     * COLLECTION_NAME: Use "restaurants_reviews".
     * WEBSITES_PORT: Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.
-    * SECRET_KEY: Use "supersecretkeythatispassedtopythonapp".
+    * SECRET_KEY: Use "@Microsoft.KeyVault(SecretUri=https://msdocs-web-app-rg-kv.vault.azure.net/secrets/MongoSecretKey)"
 
 ## Browse the site
 
