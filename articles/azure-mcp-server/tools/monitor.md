@@ -31,6 +31,10 @@ The Azure MCP Server can list all Log Analytics workspaces in a subscription. Th
 - **Query workspaces**: "Show all Log Analytics workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
 
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+
 ## List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
@@ -43,6 +47,12 @@ The Azure MCP Server can list all tables in a Log Analytics workspace. This help
 - **Query tables**: "Show available tables in my Log Analytics workspace"
 - **Check tables**: "Get all log tables in my 'operations' workspace"
 
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+- **Workspace**: The Log Analytics workspace ID or name.
+- **Resource group**: The name of the Azure resource group.
+
 ## Query logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
@@ -54,3 +64,17 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 - **Complex query**: "Show me the CPU usage trend for my web servers over the last 24 hours"
 - **Join query**: "Query errors and correlate them with performance metrics"
 - **Aggregation query**: "Count errors by application in my monitoring workspace"
+
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+- **Workspace**: The Log Analytics workspace ID or name.
+- **Table name**: The name of the table to query.
+- **Query**: The KQL query to execute against the Log Analytics workspace.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+
+- **Hours**: The number of hours to query back from now.
+- **Limit**: The maximum number of results to return.
+
+[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]

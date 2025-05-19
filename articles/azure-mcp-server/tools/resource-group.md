@@ -30,3 +30,9 @@ The Azure MCP Server can list all resource groups in a subscription. This helps 
 - **Find groups**: "List all my resource groups"
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
+
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+
+[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]

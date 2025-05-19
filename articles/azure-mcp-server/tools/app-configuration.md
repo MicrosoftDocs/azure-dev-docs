@@ -31,6 +31,15 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The ID of the subscription containing the App Configuration store.
+- **Account name**: The name of the App Configuration store.
+- **Key**: The key name of the setting to delete.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+- **Label**: The label of the setting to delete.
+
 ## List key-value settings
 
 The Azure MCP Server can list all [key-value settings](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. This allows you to view your application settings and their values in one place.
@@ -43,6 +52,14 @@ The Azure MCP Server can list all [key-value settings](/azure/azure-app-configur
 - **View configuration**: "List all configuration entries from contoso-appconfig"
 - **Find settings with label**: "Show me settings with label 'dev'"
 
+The following **required parameters** must be found in the conversation context: 
+- **Subscription**: The ID of the subscription containing the App Configuration store.
+- **Account name**: The name of the App Configuration store.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+
+- **Key**: The key filter to list settings (supports wildcards).
+- **Label**: The label filter to list settings (supports wildcards).
 
 ## List stores 
 
@@ -55,6 +72,9 @@ The Azure MCP Server can list App Configuration stores in a subscription. This i
 - **Find stores**: "I need to see my App Configuration resources"
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
+
+The following **required parameters** must be found in the conversation context: 
+- **Subscription**: The ID of the subscription containing the App Configuration store.
 
 ## Lock key-value setting
 
@@ -69,6 +89,15 @@ The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configurati
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
 
 
+The following **required parameters** must be found in the conversation context: 
+- **Subscription**: The ID of the subscription containing the App Configuration store.
+- **Account name**: The name of the App Configuration store.
+- **Key**: The key name of the setting to lock.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+
+- **Label**: The label of the setting to lock.
+
 ## Set key-value setting
 
 The Azure MCP Server can create or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store.
@@ -82,6 +111,15 @@ The Azure MCP Server can create or update a [key-value setting](/azure/azure-app
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
 
 
+The following **required parameters** must be found in the conversation context: 
+- **Subscription**: The ID of the subscription containing the App Configuration store.
+- **Account name**: The name of the App Configuration store.
+- **Key**: The key name of the setting to set.
+- **Value**: The value to set for the key.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+- **Label**: The label of the setting to set.
+
 ## Show key-value setting
 
 The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. This is useful for checking the current value of a particular setting.
@@ -93,6 +131,16 @@ The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-ap
 - **Query specific setting**: "I need to check the value of 'ServiceTimeout' in my 'contoso-appconfig' configuration"
 - **Find single key**: "What's the current value for AppSettings:LogLevel?"
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
+
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The ID of the subscription containing the App Configuration store.
+- **Account name**: The name of the App Configuration store.
+- **Key**: The key name of the setting to set.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+- **Label**: The label of the setting to set.
+
 
 
 ## Unlock key-value setting
@@ -106,3 +154,14 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 - **Allow edits**: "Remove the read-only lock from 'DatabaseSettings' in contoso-appconfig"
 - **Enable changes**: "Unlock the config values for TestEndpoint"
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
+
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The ID of the subscription containing the App Configuration store.
+- **Account name**: The name of the App Configuration store.
+- **Key**: The key name of the setting to set.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+- **Label**: The label of the setting to set.
+
+[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]

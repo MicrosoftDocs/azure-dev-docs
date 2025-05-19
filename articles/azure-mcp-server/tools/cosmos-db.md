@@ -31,6 +31,10 @@ The Azure MCP Server can list all Cosmos DB accounts in a subscription. This pro
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+
 ## List databases
 
 The Azure MCP Server can list all databases in a Cosmos DB account. This helps you view your database resources in a specific account.
@@ -42,6 +46,11 @@ The Azure MCP Server can list all databases in a Cosmos DB account. This helps y
 - **Find databases**: "List databases in my Cosmos account 'data-store-cosmos'"
 - **Query databases**: "Show all databases in my Cosmos DB account"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
+
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+- **Account name**: The name of the Cosmos DB account.
 
 ## List containers
 
@@ -55,6 +64,12 @@ The Azure MCP Server can list all containers in a Cosmos DB database. This helps
 - **Query containers**: "Show containers in database 'inventory'"
 - **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
 
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+- **Account name**: The name of the Cosmos DB account.
+- **Database name**: The name of the database.
+
 ## Query items
 
 The Azure MCP Server can execute SQL queries against items in a Cosmos DB container. This powerful feature allows you to retrieve specific data based on query conditions.
@@ -66,3 +81,16 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 - **Complex query**: "Query items where category is 'electronics' and stock is greater than 10"
 - **Join query**: "Show me orders with their related customer information"
 - **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
+
+The following **required parameters** must be found in the conversation context: 
+
+- **Subscription**: The Azure subscription ID or name.
+- **Account name**: The name of the Cosmos DB account.
+- **Database name**: The name of the database.
+- **Container name**: The name of the container.
+
+The following **optional parameters** _may_ be found in the conversation context: 
+
+- **Query**: SQL query to execute against the container.
+
+[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]

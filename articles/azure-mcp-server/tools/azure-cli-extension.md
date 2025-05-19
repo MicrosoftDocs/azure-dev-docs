@@ -29,11 +29,9 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 
 - **List my Azure resources**: "Show me all my resource groups"
 - **Query specific details**: "Get details for storage account mystorageacct01 in the dev-rg resource group"
-- **Check virtual machine status**: "Are any of my VMs in eastus running right now?"
-- **Manage security settings**: "I need to see all network security groups in my subscription"
-- **Create a new resource**: "Create a new resource group called 'project-alpha' in westus2"
-- **Perform maintenance**: "Please stop the VM named 'webserver01'"
-- **Configure service settings**: "Update my App Service plan to P2v2 tier"
-- **Check compliance**: "Show me which of my storage accounts don't have secure transfer enabled"
-- **Export data**: "Export the list of all my AKS clusters to a table"
-- **Clean up resources**: "Delete the resource group 'temp-project' without prompting for confirmation"
+
+The following **parameters** must be found in the conversation context: 
+
+- **Command**: The Azure CLI command to execute (without the 'az' prefix).
+
+[!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
