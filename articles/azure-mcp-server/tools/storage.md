@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to manage Azure Storage resources, including storage accounts, containers, and blobs.
 
-[Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud.
+[Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for various data objects in the cloud.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -25,19 +25,19 @@ This section explains how to interact with Azure Storage services using natural 
 
 ### Get container details
 
-The Azure MCP Server can show detailed information about a specific container in a storage account. This includes metadata, access policies, and other properties.
+The Azure MCP Server can show detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
 
 **Example prompts** include:
 
 - **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
-- **Container info**: "Get properties of container 'images' in storage account 'mediafiles'"
+- **Container info**: "Get properties of container 'images' in storage account 'media_files'"
 - **Container properties**: "What are the settings for my 'backups' container?"
-- **Container status**: "Check access policy for 'userdata' container"
+- **Container status**: "Check access policy for 'user_data' container"
 - **Container metadata**: "Show me the metadata for the 'logs' container in my storage account"
 
 ### List accounts
 
-The Azure MCP Server can list all storage accounts in a subscription. This provides an overview of your storage infrastructure.
+The Azure MCP Server can list all storage accounts in a subscription. This functionality provides an overview of your storage infrastructure.
 
 **Example prompts** include:
 
@@ -49,15 +49,15 @@ The Azure MCP Server can list all storage accounts in a subscription. This provi
 
 ### List containers
 
-The Azure MCP Server can list all blob containers in a storage account. This helps you organize and manage your blob data.
+The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
 
 **Example prompts** include:
 
 - **List containers**: "Show me all containers in my 'mystorageaccount' storage account."
-- **View containers**: "What containers do I have in storage account 'appdata'?"
-- **Find containers**: "List all containers in my storage 'userfiles'"
+- **View containers**: "What containers do I have in storage account 'app_data'?"
+- **Find containers**: "List all containers in my storage 'user_files'"
 - **Query containers**: "Show available containers in my storage account"
-- **Check containers**: "Get all blob containers in my 'mediafiles' storage"
+- **Check containers**: "Get all blob containers in my 'media_files' storage"
 
 ### List container blobs
 
@@ -69,16 +69,16 @@ The Azure MCP Server can list all blobs in a container. This helps you manage th
 - **View blobs**: "What files do I have in container 'images'?"
 - **Find blobs**: "List all files in my 'backups' container"
 - **Query blobs**: "Show available files in container 'logs'"
-- **Check blobs**: "Get all blobs in my 'userdata' container"
+- **Check blobs**: "Get all blobs in my 'user_data' container"
 
 ### List tables
 
-The Azure MCP Server can list all tables in a storage account. This helps you manage your structured NoSQL data.
+The Azure MCP Server can list all tables in a storage account. This functionality helps you manage your structured NoSQL data.
 
 **Example prompts** include:
 
 - **List tables**: "Show me all tables in my 'mystorageaccount' storage account."
-- **View tables**: "What tables do I have in storage account 'appdata'?"
-- **Find tables**: "List all tables in my storage 'userdata'"
+- **View tables**: "What tables do I have in storage account 'app_data'?"
+- **Find tables**: "List all tables in my storage 'user_data'"
 - **Query tables**: "Show available tables in my storage account"
-- **Check tables**: "Get all storage tables in my 'analyticsdata' account"
+- **Check tables**: "Get all storage tables in my 'analytics_data' account"
