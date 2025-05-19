@@ -32,12 +32,12 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
 
-| Required/Optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The ID of the subscription containing the App Configuration store. |
-| Required | **Account name** | The name of the App Configuration store. |
-| Required | **Key** | The key name of the setting to delete. |
-| Optional | **Label** | The label of the setting to delete. |
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required          | The name of the App Configuration store.                                    |
+| **Key**          | Required          | The key name of the setting to delete.                                      |
+| **Label**        | Optional          | The label of the setting to delete.                                         |
 
 ## List key-value settings
 
@@ -51,14 +51,12 @@ The Azure MCP Server can list all [key-value settings](/azure/azure-app-configur
 - **View configuration**: "List all configuration entries from contoso-appconfig"
 - **Find settings with label**: "Show me settings with label 'dev'"
 
-The following **required parameters** must be found in the conversation context: 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
-- **Account name**: The name of the App Configuration store.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-
-- **Key**: The key filter to list settings (supports wildcards).
-- **Label**: The label filter to list settings (supports wildcards).
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required          | The name of the App Configuration store.                                    |
+| **Key**          | Optional          | The key filter to list settings (supports wildcards).                       |
+| **Label**        | Optional          | The label filter to list settings (supports wildcards).                     |
 
 ## List stores 
 
@@ -72,8 +70,9 @@ The Azure MCP Server can list App Configuration stores in a subscription. This i
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-The following **required parameters** must be found in the conversation context: 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 
 ## Lock key-value setting
 
@@ -88,14 +87,12 @@ The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configurati
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
 
 
-The following **required parameters** must be found in the conversation context: 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
-- **Account name**: The name of the App Configuration store.
-- **Key**: The key name of the setting to lock.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-
-- **Label**: The label of the setting to lock.
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required          | The name of the App Configuration store.                                    |
+| **Key**          | Required          | The key name of the setting to lock.                                        |
+| **Label**        | Optional          | The label of the setting to lock.                                           |
 
 ## Set key-value setting
 
@@ -110,14 +107,13 @@ The Azure MCP Server can create or update a [key-value setting](/azure/azure-app
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
 
 
-The following **required parameters** must be found in the conversation context: 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
-- **Account name**: The name of the App Configuration store.
-- **Key**: The key name of the setting to set.
-- **Value**: The value to set for the key.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-- **Label**: The label of the setting to set.
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required          | The name of the App Configuration store.                                    |
+| **Key**          | Required          | The key name of the setting to set.                                         |
+| **Value**        | Required          | The value to set for the key.                                               |
+| **Label**        | Optional          | The label of the setting to set.                                            |
 
 ## Show key-value setting
 
@@ -131,15 +127,13 @@ The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-ap
 - **Find single key**: "What's the current value for AppSettings:LogLevel?"
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
 
-The following **required parameters** must be found in the conversation context: 
 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
-- **Account name**: The name of the App Configuration store.
-- **Key**: The key name of the setting to set.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-- **Label**: The label of the setting to set.
-
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required          | The name of the App Configuration store.                                    |
+| **Key**          | Required          | The key name of the setting to set.                                         |
+| **Label**        | Optional          | The label of the setting to set.                                            |
 
 
 ## Unlock key-value setting
@@ -154,13 +148,12 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 - **Enable changes**: "Unlock the config values for TestEndpoint"
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
 
-The following **required parameters** must be found in the conversation context: 
 
-- **Subscription**: The ID of the subscription containing the App Configuration store.
-- **Account name**: The name of the App Configuration store.
-- **Key**: The key name of the setting to set.
-
-The following **optional parameters** _may_ be found in the conversation context: 
-- **Label**: The label of the setting to set.
+| Parameter       | Required/Optional | Description                                                                 |
+|-----------------|-------------------|-----------------------------------------------------------------------------|
+| **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required          | The name of the App Configuration store.                                    |
+| **Key**          | Required          | The key name of the setting to set.                                         |
+| **Label**        | Optional          | The label of the setting to set.                                            |
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]

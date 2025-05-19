@@ -72,7 +72,7 @@ The Azure MCP Server can retrieve runtime details about a subscription within a 
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |
 | Required | **Topic name** | The name of the topic containing the subscription. |
-| Required | **Subscription name** | The name of the subscription to get details for. |
+| Required | **Topic subscription name** | The name of the opic subscription to get details for. |
 
 ## Peek at queue messages
 
@@ -110,7 +110,7 @@ The Azure MCP Server can peek at messages in a subscription within a Service Bus
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |
 | Required | **Topic name** | The name of the topic containing the subscription. |
-| Required | **Subscription name** | The name of subscription to peek messages from. |
+| Required | **Topic subscription name** | The name of topic subscription to peek messages from. |
 | Optional | **Max messages** | The maximum number of messages to retrieve. |
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
