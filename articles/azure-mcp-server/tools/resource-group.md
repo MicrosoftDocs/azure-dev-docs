@@ -19,7 +19,7 @@ The Azure MCP Server allows you to manage Azure resource groups, providing found
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing MCP server for Resource Groups
+## Use MCP server for Resource Groups
 
 This section explains how to interact with Azure Resource Groups using natural language prompts with the Azure MCP Server. You can manage your resource organization structure without needing to remember specific command syntax.
 
@@ -34,36 +34,3 @@ The Azure MCP Server can list all resource groups in a subscription. This helps 
 - **Find groups**: "List all my resource groups"
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
-
-
-## Develop new MCP server for Resource Groups
-
-This section provides implementation details for adding Azure Resource Group management capabilities to your MCP server. The APIs below enable programmatic organization and administration of Azure resources through structured commands.
-
-### List resource groups
-
-The Azure MCP Server can list all resource groups in a subscription.
-
-```console
-azmcp group list \
-    --subscription <SUBSCRIPTION_ID>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription to list resource groups from.
-
-##### Optional parameters
-
-View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-List all resource groups in the specified subscription.
-
-```console
-azmcp group list \
-    --subscription "my-subscription-id"
-```

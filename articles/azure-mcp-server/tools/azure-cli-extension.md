@@ -21,7 +21,7 @@ Find Azure CLI commands in the [reference documentation](/cli/azure/reference-in
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing MCP server for Azure CLI
+## Use MCP server for Azure CLI
 
 This section explains how to leverage the Azure MCP Server to execute Azure CLI commands using natural language prompts. You can perform virtually any Azure resource management operation without needing to remember specific command syntax, parameters, or formatting.
 
@@ -41,63 +41,3 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 - **Check compliance**: "Show me which of my storage accounts don't have secure transfer enabled"
 - **Export data**: "Export the list of all my AKS clusters to a table"
 - **Clean up resources**: "Delete the resource group 'temp-project' without prompting for confirmation"
-
-## Develop new MCP server for Azure CLI
-
-This section provides implementation details for adding Azure CLI capabilities to your MCP server. The API described below enables programmatic execution of any Azure CLI command through a structured interface, giving you complete access to Azure resource management functionality.
-
-### Execute Azure CLI command
-
-The Azure MCP Server can execute Azure CLI commands.
-
-```console
-azmcp extension az \
-    --command "<COMMAND_PHRASE>"
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--command`: The command phrase. 
-
-##### Optional parameters
-
-View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-List resource groups with [group list](/cli/azure/group#az-group-list).
-
-```console
-azmcp extension az \
-    --command "group list"
-```
-
-Get storage account details with [storage account show](/cli/azure/storage/account#az-storage-account-show).
-
-```console
-azmcp extension az \
-    --command "storage account show --name my-dev-account --resource-group my-resource group"
-```
-
-List virtual machines with [vm list](/cli/azure/vm#az-vm-list).
-
-```console
-azmcp extension az \
-    --command "vm list --resource-group my-resource group"
-```
-
-Create a new resource group with [group create](/cli/azure/group#az-group-create).
-
-```console
-azmcp extension az \
-    --command "group create --name my-resource group --location eastus"
-```
-
-Stop a virtual machine with [vm stop](/cli/azure/vm#az-vm-stop).
-
-```console
-azmcp extension az \
-    --command "vm stop --name my-vm --resource-group my-resource group"
-```
