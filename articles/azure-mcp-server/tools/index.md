@@ -23,20 +23,6 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 
 [!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
 
-### Use MCP servers
-
-Use the Azure MCP Server from an existing client, such as GitHub Copilot agent mode in Visual Studio Code.
-
-This approach uses prebuilt servers to perform specific tasks. For example, you can use the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. This scenario is ideal for developers who want to quickly use AI functionality without building servers from scratch.
-
-The Azure MCP Server accepts natural language prompts, allowing you to interact with Azure resources conversationally:
-
-- "Show me all my resource groups"
-- "List blobs in my storage container named 'documents'"
-- "What's the value of the 'ConnectionString' key in my app configuration?"
-- "Query my log analytics workspace for errors in the last hour"
-- "Show me all my Cosmos DB databases"
-
 ## Related content
 
 - [Get started using Azure MCP Server](../get-started.md)
