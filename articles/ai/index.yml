@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Develop AI apps using Azure AI services
+title: Develop AI apps using Azure services
 summary: |
   Build applications with generative AI capabilities on Azure.
 
 metadata:
-  title: Develop AI apps using Azure AI services
+  title: Develop AI apps using Azure services
   description: Get started developing generative AI capabilities into your applications.
-  ms.date: 05/02/2025
+  ms.date: 05/16/2025
   ms.topic: landing-page
   ms.collection: collection
 
@@ -42,6 +42,18 @@ landingContent:
           - text: Chat with your data using .NET
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
   
+  - title: Agents and Model Context Protocol (MCP)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Container Apps building block for MCP servers
+            url:  https://aka.ms/mcp/aca    
+          - text: Create OpenAI-powered agents using MCP
+            url: https://aka.ms/mcp/openai
+          - text: Build AI agent tools using remote MCP with Azure Functions
+            url: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059     
+          - text: Host Remote MCP Servers in Azure App Service
+            url: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082     
   - title: AI app security
     linkLists:
       - linkListType: overview
@@ -58,7 +70,7 @@ landingContent:
         links:
           - text: Secure your AI App with keyless authentication
             url: get-started-securing-your-ai-app.md
-            
+
   - title: Resources by programming language
     linkLists:
       - linkListType: overview

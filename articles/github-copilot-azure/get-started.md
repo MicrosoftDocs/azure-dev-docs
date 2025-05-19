@@ -1,6 +1,6 @@
 ---
-title: Get started with GitHub Copilot for Azure Preview
-description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Preview Visual Studio Code extension.
+title: Get started with GitHub Copilot for Azure
+description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Visual Studio Code extension.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
@@ -8,9 +8,9 @@ ms.date: 4/17/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Get started with GitHub Copilot for Azure Preview
+# Get started with GitHub Copilot for Azure
 
-Get started with GitHub Copilot for Azure Preview to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure extension in Visual Studio Code, so you can write your first prompt.
+Get started with GitHub Copilot for Azure to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure extension in Visual Studio Code, so you can write your first prompt.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To complete the steps in this article, make sure that you have:
 >[!IMPORTANT]
 >GitHub Copilot isn't included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
 
-## Install GitHub Copilot for Azure Preview
+## Install GitHub Copilot for Azure
 
 1. In Visual Studio Code, select the **Extensions** icon.
 1. In the Extensions Marketplace, search for **GitHub Copilot for Azure**. When the GitHub Copilot for Azure extension appears, select **Install**.
@@ -236,7 +236,7 @@ You can also set the default tenant in the extension settings:
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
+- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).

@@ -4,6 +4,10 @@
   items:
     - name: About TypeSpec
       href: overview.md
+- name: Quickstart
+  items:
+    - name: .NET
+      href: quickstart-scaffold-dotnet.md
 - name: Resources
   items:
     - name: Getting started

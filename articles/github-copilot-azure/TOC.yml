@@ -1,5 +1,5 @@
 items:
-- name: GitHub Copilot for Azure Preview
+- name: GitHub Copilot for Azure
   href: index.yml
   items:
     - name: Overview
