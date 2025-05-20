@@ -471,7 +471,7 @@ The following test file shows how to test the **insertDocument** function.
 
 ## Troubleshooting
 
-Most of the code in this article comes from the [MicrosoftDocs/node-essentials](https://github.com/MicrosoftDocs/node-essentials/) GitHub repository. If you want to insert into a Cosmos DB Cloud resource, [create the resource with this script](https://github.com/azure-samples/azure-cli-samples/blob/master/cosmosdb/sql/create.sh).
+Most of the code in this article comes from the [MicrosoftDocs/node-essentials](https://github.com/MicrosoftDocs/node-essentials/) GitHub repository. If you want to insert into a Cosmos DB Cloud resource, [create the resource with this script](https://github.com/MicrosoftDocs/node-essentials/blob/main/scripts/create-cosmos-db-resources.sh).
 
 ### [Node.js test runner](#tab/test-with-node-testrunner)
 
