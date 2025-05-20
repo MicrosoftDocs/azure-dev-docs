@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure offers several options for hosting your application, each suited to different levels of control and responsibility. For an overview of these options, see [Hosting applications on Azure](../intro/hosting-apps-on-azure.md)e.
 
-In general, selecting a hosting option involves balancing control with management responsibility. The more control you require over the infrastructure, the more responsibility you take on for management of the resource(s).
+In general, selecting a hosting option involves balancing control with management responsibility. The more control you require over the infrastructure, the more responsibility you take on for management of one or more resources.
 
 We recommend starting with Azure App Service, which provides a highly managed environment with minimal administrative overhead. As your needs evolve, you can explore other options that offer increased flexibility and control, such as Azure Container Apps, Azure Kubernetes Service (AKS), or ultimately Azure Virtual Machines, which provide the greatest control but also require the most maintenance.
 
