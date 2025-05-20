@@ -34,7 +34,7 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 ## 3: Write code to create storage resources
 
-Create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python. The resource group name, location, storage account name, and container name are all defined as constants in the code. It reads the subscription ID from the environment variable `AZURE_SUBSCRIPTION_ID` that you set this variable in a later step.
+Create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python. The resource group name, location, storage account name, and container name are all defined as constants in the code. It reads the subscription ID from the environment variable `AZURE_SUBSCRIPTION_ID` that you set in a later step.
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
