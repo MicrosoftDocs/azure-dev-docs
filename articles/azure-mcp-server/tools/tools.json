@@ -813,6 +813,42 @@
                         "required": true
                     }
                 ]
+            },
+            {
+                "name": "sample",
+                "description": "Retrieves a sample of data from a specified Kusto table.",
+                "params": [
+                    {
+                        "name": "cluster-uri",
+                        "description": "The URI of the Kusto cluster",
+                        "required-group": "group1"
+                    },
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required-group": "group2"
+                    },
+                    {
+                        "name": "cluster-name",
+                        "description": "The name of the Kusto cluster",
+                        "required-group": "group2"
+                    },
+                    {
+                        "name": "database-name",
+                        "description": "The name of the Kusto database",
+                        "required": true
+                    },
+                    {
+                        "name": "table-name",
+                        "description": "The name of the table to sample data from",
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "description": "The maximum number of rows to return in the sample",
+                        "required": false
+                    }
+                ]
             }
         ]
     },

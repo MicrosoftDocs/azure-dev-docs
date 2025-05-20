@@ -17,11 +17,17 @@ items:
           href: tools/cosmos-db.md
         - name: Key Vault
           href: tools/key-vault-key.md
+        - name: Kusto
+          href: tools/kusto.md
         - name: Azure Monitor
           href: tools/monitor.md
+        - name: PostgreSQL
+          href: tools/postgresql.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Service Bus
           href: tools/service-bus.md
         - name: Storage
           href: tools/storage.md
+        - name: Subscription
+          href: tools/subscription.md
