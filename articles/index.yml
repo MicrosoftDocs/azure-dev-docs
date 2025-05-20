@@ -61,7 +61,7 @@ productDirectory:
         - url: ./github-copilot-azure/troubleshoot-examples.md
           text: Troubleshoot your apps
     - title: Azure MCP Server Preview
-      imageSrc: ./azure-mcp-server/media/logo/azure.svg
+      imageSrc: /media/logos/logo_azure.svg
       links:
         - url: ./azure-mcp-server/index.md
           text: What is the Azure MCP Server?
