@@ -568,7 +568,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     ```yml
     # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
     
-    name: azure-typespec-scaffold-dotnet
+    name: azure-typespec-scaffold-js
     metadata:
         template: azd-init@1.14.0
     services:
