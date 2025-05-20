@@ -112,7 +112,7 @@ The following Azure CLI commands complete the same creation steps as the Python 
 
 ### [PowerShell](#tab/powershell)
 
-```powershell-interactive
+```powershell
 
 # Provision the resource group
 az group create -n "PythonAzureExample-Storage-rg" -l "centralus"
