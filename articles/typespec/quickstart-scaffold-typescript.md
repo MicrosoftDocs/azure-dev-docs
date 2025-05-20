@@ -298,12 +298,9 @@ Now that the basic Express.js API server is working, update the Express.js serve
     import { HttpContext } from "../generated/helpers/router.js";
     import { Container } from "@azure/cosmos";
 
-    export interface WidgetDocument {
-      id: string;
-      weight: number;
-      color: "red" | "blue";
-      _ts?: number; // Cosmos DB timestamp
-      _etag?: string; // Cosmos DB etag for optimistic concurrency
+    export interface WidgetDocument extends Widget {
+      _ts?: number;
+      _etag?: string;
     }
 
     /**
@@ -568,7 +565,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     ```yml
     # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
     
-    name: azure-typespec-scaffold-javascript
+    name: azure-typespec-scaffold-js
     metadata:
         template: azd-init@1.14.0
     services:
