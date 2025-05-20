@@ -110,11 +110,11 @@
 | Schema Registry - JSON | npm [1.0.0](https://www.npmjs.com/package/@azure/schema-registry-json/v/1.0.0) | [docs](/javascript/api/overview/azure/schema-registry-json-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-json_1.0.0/sdk/schemaregistry/schema-registry-json/) |
 | Service Bus | npm [7.9.5](https://www.npmjs.com/package/@azure/service-bus/v/7.9.5)<br>npm [7.10.0-beta.1](https://www.npmjs.com/package/@azure/service-bus/v/7.10.0-beta.1) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.9.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.5/sdk/servicebus/service-bus/)<br>GitHub [7.10.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.10.0-beta.1/sdk/servicebus/service-bus/) |
 | Spark | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-spark-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-spark_1.0.0-beta.4/sdk/synapse/synapse-spark/) |
-| Storage - Blobs | npm [12.27.0](https://www.npmjs.com/package/@azure/storage-blob/v/12.27.0) | [docs](/javascript/api/overview/azure/storage-blob-readme) | GitHub [12.27.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.27.0/sdk/storage/storage-blob/) |
+| Storage - Blobs | npm [12.27.0](https://www.npmjs.com/package/@azure/storage-blob/v/12.27.0)<br>npm [12.28.0-beta.2](https://www.npmjs.com/package/@azure/storage-blob/v/12.28.0-beta.2) | [docs](/javascript/api/overview/azure/storage-blob-readme) | GitHub [12.27.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.27.0/sdk/storage/storage-blob/)<br>GitHub [12.28.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.28.0-beta.2/sdk/storage/storage-blob/) |
 | Storage - Blobs Changefeed | npm [12.0.0-preview.4](https://www.npmjs.com/package/@azure/storage-blob-changefeed/v/12.0.0-preview.4) | [docs](/javascript/api/overview/azure/storage-blob-changefeed-readme) | GitHub [12.0.0-preview.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob-changefeed_12.0.0-preview.4/sdk/storage/storage-blob-changefeed/) |
-| Storage - Files Data Lake | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.26.0) | [docs](/javascript/api/overview/azure/storage-file-datalake-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.26.0/sdk/storage/storage-file-datalake/) |
-| Storage - Files Share | npm [12.27.0](https://www.npmjs.com/package/@azure/storage-file-share/v/12.27.0) | [docs](/javascript/api/overview/azure/storage-file-share-readme) | GitHub [12.27.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.27.0/sdk/storage/storage-file-share/) |
-| Storage - Queues | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-queue/v/12.26.0) | [docs](/javascript/api/overview/azure/storage-queue-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.26.0/sdk/storage/storage-queue/) |
+| Storage - Files Data Lake | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.26.0)<br>npm [12.27.0-beta.1](https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.27.0-beta.1) | [docs](/javascript/api/overview/azure/storage-file-datalake-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.26.0/sdk/storage/storage-file-datalake/)<br>GitHub [12.27.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.27.0-beta.1/sdk/storage/storage-file-datalake/) |
+| Storage - Files Share | npm [12.27.0](https://www.npmjs.com/package/@azure/storage-file-share/v/12.27.0)<br>npm [12.28.0-beta.1](https://www.npmjs.com/package/@azure/storage-file-share/v/12.28.0-beta.1) | [docs](/javascript/api/overview/azure/storage-file-share-readme) | GitHub [12.27.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.27.0/sdk/storage/storage-file-share/)<br>GitHub [12.28.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.28.0-beta.1/sdk/storage/storage-file-share/) |
+| Storage - Queues | npm [12.26.0](https://www.npmjs.com/package/@azure/storage-queue/v/12.26.0)<br>npm [12.27.0-beta.1](https://www.npmjs.com/package/@azure/storage-queue/v/12.27.0-beta.1) | [docs](/javascript/api/overview/azure/storage-queue-readme) | GitHub [12.26.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.26.0/sdk/storage/storage-queue/)<br>GitHub [12.27.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.27.0-beta.1/sdk/storage/storage-queue/) |
 | Synapse - Monitoring | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/synapse-monitoring-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-monitoring_1.0.0-beta.2/sdk/synapse/synapse-monitoring/) |
 | System Events | npm [1.0.0-beta.7](https://www.npmjs.com/package/@azure/eventgrid-systemevents/v/1.0.0-beta.7) | [docs](/javascript/api/overview/azure/eventgrid-systemevents-readme) | GitHub [1.0.0-beta.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-systemevents_1.0.0-beta.7/sdk/eventgrid/eventgrid-systemevents/) |
 | Tables | npm [13.3.0](https://www.npmjs.com/package/@azure/data-tables/v/13.3.0) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.3.0/sdk/tables/data-tables/) |
@@ -123,6 +123,7 @@
 | TimeZones | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-timezone_1.0.0-beta.1/sdk/maps/maps-timezone-rest/) |
 | Token Cache Persistence Plugin | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/) |
 | TypeSpec HTTP Runtime | npm [0.2.2](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.2.2) |  | GitHub [0.2.2](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.2.2/sdk/core/ts-http-runtime) |
+| unknown | npm [12.0.0-beta.2](https://www.npmjs.com/package/@azure/storage-common/v/12.0.0-beta.2) |  | GitHub [12.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.0.0-beta.2/sdk/storage/storage-common/) |
 | VS Code Authentication Plugin | npm [1.0.1](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.1) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.1/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.2.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.2.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.2.0/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub Client | npm [1.0.2](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.2) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.2/sdk/web-pubsub/web-pubsub-client/) |
@@ -395,7 +396,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.56.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.56.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.56.1](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.56.1) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.21.0) |  |  |
-| @azure-tools/typespec-go | npm [0.4.7](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.7) |  |  |
+| @azure-tools/typespec-go | npm [0.4.8](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.8) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -418,7 +419,7 @@
 | App Configuration Provider | npm [2.0.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.0.2) |  |  |
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| Spec Gen SDK | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.7.0) |  |  |
+| Spec Gen SDK | npm [0.7.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.7.1) |  |  |
 | tmlanguage-generator | npm [0.6.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.1) |  |  |
 | TypeSpec Asset Emitter | npm [0.70.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.70.1) |  |  |
 | TypeSpec Emitter Framework | npm [0.7.1](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.7.1) |  |  |
@@ -426,7 +427,7 @@
 | TypeSpec HTTP Client | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client/v/0.6.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.2](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.2) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.5.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.5.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.12.0-dev.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.0-dev.4) |  |  |
+| TypeSpec HTTP Client Python | npm [0.12.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.22](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.22) |  |  |
 | TypeSpec Rust | npm [0.14.1](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.14.1) |  |  |
 | TypeSpec SSE | npm [0.70.0](https://www.npmjs.com/package/@typespec/sse/v/0.70.0) |  |  |
@@ -439,7 +440,9 @@
 | Unknown Display Name | npm [0.0.20](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.0.20) |  |  |
 | Unknown Display Name | npm [0.0.20](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.0.20) |  |  |
 | Unknown Display Name | npm [0.0.20](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.0.20) |  |  |
-| Unknown Display Name | npm [0.0.0-57](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-57) |  |  |
+| Unknown Display Name | npm [0.0.0-62](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-62) |  |  |
+| Unknown Display Name | npm [0.0.0-62](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-62) |  |  |
+| Unknown Display Name | npm [0.0.0-62](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-62) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -517,7 +520,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250515.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250515.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250519.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250519.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -598,7 +601,7 @@
 | AutoRest - Go | npm [4.0.0-preview.72](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.72) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.34.2](https://www.npmjs.com/package/@autorest/python/v/6.34.2) |  | GitHub [6.34.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.35.0](https://www.npmjs.com/package/@autorest/python/v/6.35.0) |  | GitHub [6.35.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
