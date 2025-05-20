@@ -5,6 +5,7 @@ items:
     - name: Get started
       href: get-started.md
     - name: Tools
+      expanded: true
       items:
         - name: Overview
           href: tools/index.md
