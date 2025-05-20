@@ -2,70 +2,268 @@
     "azure-app-configuration": {
         "root": "azmcp appconfig", 
         "tools": [
-            "account list",
-            "kv list",
-            "kv show",
-            "kv set",
-            "kv lock",
-            "kv unlock",
-            "kv delete"
+            {
+                "name": "account list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true}
+                ]
+            },
+            {
+                "name": "kv list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the App Configuration store", "required": true},
+                    {"name": "key", "description": "The key filter to list settings (supports wildcards)", "required": false},
+                    {"name": "label", "description": "The label filter to list settings (supports wildcards)", "required": false}
+                ]
+            },
+            {
+                "name": "kv show",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the App Configuration store", "required": true},
+                    {"name": "key", "description": "The name of the key to access", "required": true},
+                    {"name": "label", "description": "The label to apply to the configuration key", "required": false}
+                ]
+            },
+            {
+                "name": "kv set",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the App Configuration store", "required": true},
+                    {"name": "key", "description": "The name of the key to access", "required": true},
+                    {"name": "value", "description": "The value to set for the configuration key", "required": true},
+                    {"name": "label", "description": "The label to apply to the configuration key", "required": false}
+                ]
+            },
+            {
+                "name": "kv lock",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the App Configuration store", "required": true},
+                    {"name": "key", "description": "The name of the key to access", "required": true},
+                    {"name": "label", "description": "The label to apply to the configuration key", "required": false}
+                ]
+            },
+            {
+                "name": "kv unlock",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the App Configuration store", "required": true},
+                    {"name": "key", "description": "The name of the key to access", "required": true},
+                    {"name": "label", "description": "The label to apply to the configuration key", "required": false}
+                ]
+            },
+            {
+                "name": "kv delete",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the App Configuration store", "required": true},
+                    {"name": "key", "description": "The name of the key to access", "required": true},
+                    {"name": "label", "description": "The label to apply to the configuration key", "required": false}
+                ]
+            }
         ]
-    },
-    "azure-cli-extension": {
+    },    "azure-cli-extension": {
         "root": "azmcp extension",
         "tools": [
-            "az"
+            {
+                "name": "az",
+                "params": [
+                    {"name": "command", "description": "The Azure CLI command to execute (without the 'az' prefix)", "required": true}
+                ]
+            }
         ]
-    },
-    "azure-cosmos-db": {
+    },    "azure-cosmos-db": {
         "root": "azmcp cosmos",
         "tools": [
-            "account list",
-            "database list",
-            "database container list",
-            "database container item query"
+            {
+                "name": "account list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true}
+                ]
+            },
+            {
+                "name": "database list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Cosmos DB account", "required": true}
+                ]
+            },
+            {
+                "name": "database container list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Cosmos DB account", "required": true},
+                    {"name": "database-name", "description": "The name of the database", "required": true}
+                ]
+            },
+            {
+                "name": "database container item query",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Cosmos DB account", "required": true},
+                    {"name": "database-name", "description": "The name of the database", "required": true},
+                    {"name": "container-name", "description": "The name of the container", "required": true},
+                    {"name": "query", "description": "SQL query to execute against the container", "required": false}
+                ]
+            }
         ]
-    },
-    "azure-key-vault": {
+    },    "azure-key-vault": {
         "root": "azmcp keyvault",
         "tools": [
-            "key list",
-            "key get",
-            "key create"
+            {
+                "name": "key list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "vault", "description": "The name of the Key Vault", "required": true},
+                    {"name": "include-managed", "description": "Whether or not to include managed keys in results", "required": false}
+                ]
+            },
+            {
+                "name": "key get",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "vault", "description": "The name of the Key Vault", "required": true},
+                    {"name": "key", "description": "The name of the key to retrieve", "required": true}
+                ]
+            },
+            {
+                "name": "key create",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "vault", "description": "The name of the Key Vault", "required": true},
+                    {"name": "key", "description": "The name of the key to create", "required": true},
+                    {"name": "key-type", "description": "The type of key to create (RSA, EC)", "required": true}
+                ]
+            }
         ]
-    },
-    "azure-monitor": {
+    },    "azure-monitor": {
         "root": "azmcp monitor",
         "tools": [
-            "workspace list",
-            "table list",
-            "log query"
+            {
+                "name": "workspace list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true}
+                ]
+            },
+            {
+                "name": "table list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "workspace", "description": "The Log Analytics workspace ID or name", "required": true},
+                    {"name": "resource-group", "description": "The name of the Azure resource group", "required": true}
+                ]
+            },
+            {
+                "name": "log query",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "workspace", "description": "The Log Analytics workspace ID or name", "required": true},
+                    {"name": "table-name", "description": "The name of the table to query", "required": true},
+                    {"name": "query", "description": "The KQL query to execute against the Log Analytics workspace", "required": true},
+                    {"name": "hours", "description": "The number of hours to query back from now", "required": false},
+                    {"name": "limit", "description": "The maximum number of results to return", "required": false}
+                ]
+            }
         ]
-    },
-    "azure-resource-group": {
+    },    "azure-resource-group": {
         "root": "azmcp group",
         "tools": [
-            "list"
+            {
+                "name": "list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true}
+                ]
+            }
         ]
-    },
-    "azure-service-bus": {
+    },    "azure-service-bus": {
         "root": "azmcp servicebus",
         "tools": [
-            "queue peek",
-            "queue details",
-            "topic details",
-            "topic subscription peek",
-            "topic subscription details"
+            {
+                "name": "queue peek",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "namespace", "description": "The fully qualified Service Bus namespace host name", "required": true},
+                    {"name": "queue-name", "description": "The queue name to peek messages from", "required": true},
+                    {"name": "max-messages", "description": "The maximum number of messages to retrieve", "required": false}
+                ]
+            },
+            {
+                "name": "queue details",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "namespace", "description": "The fully qualified Service Bus namespace host name", "required": true},
+                    {"name": "queue-name", "description": "The queue name to get details for", "required": true}
+                ]
+            },
+            {
+                "name": "topic details",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "namespace", "description": "The fully qualified Service Bus namespace host name", "required": true},
+                    {"name": "topic-name", "description": "The name of the topic to get information about", "required": true}
+                ]
+            },
+            {
+                "name": "topic subscription peek",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "namespace", "description": "The fully qualified Service Bus namespace host name", "required": true},
+                    {"name": "topic-name", "description": "The name of the topic containing the subscription", "required": true},
+                    {"name": "subscription-name", "description": "The name of subscription to peek messages from", "required": true},
+                    {"name": "max-messages", "description": "The maximum number of messages to retrieve", "required": false}
+                ]
+            },
+            {
+                "name": "topic subscription details",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "namespace", "description": "The fully qualified Service Bus namespace host name", "required": true},
+                    {"name": "topic-name", "description": "The name of the topic containing the subscription", "required": true},
+                    {"name": "subscription-name", "description": "The name of the subscription to get details for", "required": true}
+                ]
+            }
         ]
-    },
-    "azure-storage": {
+    },    "azure-storage": {
         "root": "azmcp storage",
         "tools": [
-            "account list",
-            "table list",
-            "blob list",
-            "blob container list",
-            "blob container details"
+            {
+                "name": "account list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true}
+                ]
+            },
+            {
+                "name": "table list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Azure Storage account", "required": true}
+                ]
+            },
+            {
+                "name": "blob list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Azure Storage account", "required": true},
+                    {"name": "container-name", "description": "The name of the container to access", "required": true}
+                ]
+            },
+            {
+                "name": "blob container list",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Azure Storage account", "required": true}
+                ]
+            },
+            {
+                "name": "blob container details",
+                "params": [
+                    {"name": "subscription", "description": "The Azure subscription ID or name", "required": true},
+                    {"name": "account-name", "description": "The name of the Azure Storage account", "required": true},
+                    {"name": "container-name", "description": "The name of the container to access", "required": true}
+                ]
+            }
         ]
     }
 }

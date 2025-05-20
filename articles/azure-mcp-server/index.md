@@ -36,10 +36,10 @@ The Azure MCP Server implements a set of [tools](./tools/index.md) per the Model
 
 The most common scenario for using the Azure MCP Server is to connect to it from an existing client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app. The client can then use all the available [tools](./tools/index.md) to access and interact with Azure resources using natural language. For example, you could use GitHub Copilot agent mode with the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. To learn how to connect to Azure MCP server from an existing client, see [Get started using the Azure MCP Server](./get-started.md).
 
-In more advanced scenarios, some developers may create their own MCP servers to offer custom tools, resources, and prompts for specific tasks that involve Azure resources. If you're building an MCP server that needs to connect with Azure, you can use the Azure MCP Server tools from your MCP server. For more information, see [Develop your own MCP server](./tools/index.md#develop-your-own-mcp-server).
+In more advanced scenarios, some developers may create their own MCP servers to offer custom tools, resources, and prompts for specific tasks that involve Azure resources. If you're building an MCP server that needs to connect with Azure, you can use the Azure MCP Server tools from your MCP server.
 
 ## Related content
 
 - [Get started using the Azure MCP Server](./get-started.md)
-- [Azure MCP Server tools](./tools/index.md#develop-your-own-mcp-server)
+- [Azure MCP Server tools](./tools/index.md)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/introduction)

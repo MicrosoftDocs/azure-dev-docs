@@ -13,17 +13,14 @@ ms.custom: build-2025
 --- 
 # Key Vault tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates.
+The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You can manage keys without remembering specialized command syntax.
+
 
 [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing MCP server for Key Vault
-
-This section describes how to interact with Azure Key Vault services using natural language prompts with the Azure MCP Server. You can manage cryptographic keys, secrets, and certificates securely without remembering specialized command syntax.
-
-### Create key
+## Create key
 
 The Azure MCP Server can create a new key in an Azure Key Vault. This allows you to add cryptographic keys for your applications.
 
@@ -35,7 +32,14 @@ The Azure MCP Server can create a new key in an Azure Key Vault. This allows you
 - **Set up key**: "Create an encryption key for my application in Key Vault"
 - **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
 
-### Get key
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Vault** | The name of the Key Vault. |
+| Required | **Key** | The name of the key to create. |
+| Required | **Key type** | The type of key to create (RSA, EC). |
+
+## Get key
 
 The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
 
@@ -47,7 +51,13 @@ The Azure MCP Server can retrieve details of a specific key from an Azure Key Va
 - **Check key**: "Show me the details of the encryption key in my vault"
 - **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
 
-### List keys
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Vault** | The name of the Key Vault. |
+| Required | **Key** | The name of the key to retrieve. |
+
+## List keys
 
 The Azure MCP Server can list all keys in an Azure Key Vault. This helps you manage your cryptographic keys.
 
@@ -59,130 +69,12 @@ The Azure MCP Server can list all keys in an Azure Key Vault. This helps you man
 - **Query keys**: "Show all keys in my Key Vault"
 - **Check keys**: "What keys are available in my 'encryption-vault'?"
 
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Vault** | The name of the Key Vault. |
+| Optional | **Include managed** | Whether or not to include managed keys in results. |
+
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
 
 
-
-## Develop new MCP server for Key Vault
-
-This section provides guidance for implementing Azure Key Vault capabilities in your MCP server. The APIs described below enable secure management of cryptographic keys and other Key Vault resources through structured commands.
-
-### Create key
-
-The Azure MCP Server can create a new key in an Azure Key Vault.
-
-```console
-azmcp keyvault key create \
-    --subscription <SUBSCRIPTION_ID> \
-    --vault <VAULT_NAME> \
-    --key <KEY_NAME> \
-    --key-type <KEY_TYPE>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Key Vault.<br>
-`--vault`: The name of the Key Vault.<br>
-`--key`: The name of the key to create.<br>
-`--key-type`: The type of key to create. Valid values are RSA, RSA-HSM, EC, EC-HSM.
-
-##### Optional parameters
-
-View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-Create an RSA key with default 2048-bit size.
-
-```console
-azmcp keyvault key create \
-    --subscription "my-subscription-id" \
-    --vault "mykeyvault" \
-    --key "app-encryption-key" \
-    --key-type "RSA"
-```
-
-Create an EC key with P-256 curve.
-
-```console
-azmcp keyvault key create \
-    --subscription "my-subscription-id" \
-    --vault "mykeyvault" \
-    --key "signing-key" \
-    --key-type "EC"
-```
-
-### Get key
-
-The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
-
-```console
-azmcp keyvault key get \
-    --subscription <SUBSCRIPTION_ID> \
-    --vault <VAULT_NAME> \
-    --key <KEY_NAME>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
---subscription: The ID of the subscription containing the Key Vault.<br> 
---vault: The name of the Key Vault.<br> 
---key: The name of the key to retrieve.
-
-##### Optional parameters
-
-View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-Get the latest version of a key from the specified Key Vault.
-
-```console
-azmcp keyvault key get \
-    --subscription "my-subscription-id" \
-    --vault "mykeyvault" \
-    --key "app-encryption-key"
-```
-
-Get a specific version of a key.
-
-```console
-azmcp keyvault key get \
-    --subscription "my-subscription-id" \
-    --vault "mykeyvault" \
-    --key "app-encryption-key"
-```
-
-### List keys
-
-The Azure MCP Server can list all keys in an Azure Key Vault.
-
-```console
-azmcp keyvault key list \
-    --subscription <SUBSCRIPTION_ID> \
-    --vault <VAULT_NAME>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Key Vault.<br>
-`--vault`: The name of the Key Vault.
-
-##### Optional parameters
-
-View the [optional parameters](index.md#optional-parameters-common-to-all-tools) common to all tools.
-
-#### Examples
-
-List all keys in the specified Key Vault.
-
-```console
-azmcp keyvault key list \
-    --subscription "my-subscription-id" \
-    --vault "mykeyvault"
-```

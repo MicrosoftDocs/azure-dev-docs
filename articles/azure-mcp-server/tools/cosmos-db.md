@@ -13,17 +13,13 @@ ms.custom: build-2025
 --- 
 # Cosmos DB tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers.
+The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers with natural language prompts. You can query and manage your NoSQL databases using simple conversational commands.
 
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Use existing MCP server for Cosmos DB
-
-This section describes how to use natural language prompts with the Azure MCP Server to interact with Azure Cosmos DB services. You can query and manage your NoSQL databases using simple conversational commands.
-
-### List accounts
+## List accounts
 
 The Azure MCP Server can list all Cosmos DB accounts in a subscription. This provides a quick overview of your Cosmos DB resources.
 
@@ -35,7 +31,11 @@ The Azure MCP Server can list all Cosmos DB accounts in a subscription. This pro
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-### List databases
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+
+## List databases
 
 The Azure MCP Server can list all databases in a Cosmos DB account. This helps you view your database resources in a specific account.
 
@@ -47,7 +47,12 @@ The Azure MCP Server can list all databases in a Cosmos DB account. This helps y
 - **Query databases**: "Show all databases in my Cosmos DB account"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
 
-### List containers
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Account name** | The name of the Cosmos DB account. |
+
+## List containers
 
 The Azure MCP Server can list all containers in a Cosmos DB database. This helps you manage your data organization within a database.
 
@@ -59,7 +64,13 @@ The Azure MCP Server can list all containers in a Cosmos DB database. This helps
 - **Query containers**: "Show containers in database 'inventory'"
 - **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
 
-### Query items
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Account name** | The name of the Cosmos DB account. |
+| Required | **Database name** | The name of the database. |
+
+## Query items
 
 The Azure MCP Server can execute SQL queries against items in a Cosmos DB container. This powerful feature allows you to retrieve specific data based on query conditions.
 
@@ -71,155 +82,12 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 - **Join query**: "Show me orders with their related customer information"
 - **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
 
-## Develop new MCP server for Cosmos DB
+| Required/Optional | Parameter | Description |
+|-------------------|-----------|-------------|
+| Required | **Subscription** | The Azure subscription ID or name. |
+| Required | **Account name** | The name of the Cosmos DB account. |
+| Required | **Database name** | The name of the database. |
+| Required | **Container name** | The name of the container. |
+| Optional | **Query** | SQL query to execute against the container. |
 
-This section outlines the implementation details for adding Azure Cosmos DB capabilities to your MCP server. The APIs below enable programmatic management of Cosmos DB resources through structured commands.
-
-### List accounts
-
-The Azure MCP Server can list all Cosmos DB accounts in a subscription. This provides a quick overview of your Cosmos DB resources.
-
-```console
-azmcp cosmos account list \
-    --subscription <SUBSCRIPTION_ID>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription to list Cosmos DB accounts from.
-
-##### Optional parameters
-
-View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
-
-#### Examples
-
-List all Cosmos DB accounts in the specified subscription.
-
-```console
-azmcp cosmos account list \
-    --subscription "my-subscription-id"
-```
-
-### List databases
-
-The Azure MCP Server can list all databases in a Cosmos DB account.
-
-```console
-azmcp cosmos database list \
-    --subscription <SUBSCRIPTION_ID> \
-    --account-name <ACCOUNT_NAME>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
-`--account-name`: The name of the Cosmos DB account.
-
-##### Optional parameters
-
-View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
-
-#### Examples
-
-List all databases in the specified Cosmos DB account.
-
-```console
-azmcp cosmos database list \
-    --subscription "my-subscription-id" \
-    --account-name "mycosmosaccount"
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-### List containers
-
-The Azure MCP Server can list all containers in a Cosmos DB database.
-
-```console
-azmcp cosmos database container list \
-    --subscription <SUBSCRIPTION_ID> \
-    --account-name <ACCOUNT_NAME> \
-    --database-name <DATABASE_NAME>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
-`--account-name`: The name of the Cosmos DB account.<br>
-`--database-name`: The name of the database to list containers from.
-
-##### Optional parameters
-
-View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
-
-#### Examples
-
-List all containers in the specified database and Cosmos DB account.
-
-```console
-azmcp cosmos database container list \
-    --subscription "my-subscription-id" \
-    --account-name "mycosmosaccount" \
-    --database-name "products"
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-### Query items
-
-The Azure MCP Server can execute [queries](/azure/cosmos-db/nosql/query/) against items in a Cosmos DB container.
-
-```console
-azmcp cosmos database container item query \
-    --subscription <SUBSCRIPTION_ID> \
-    --account-name <ACCOUNT_NAME> \
-    --database-name <DATABASE_NAME> \
-    --container-name <CONTAINER_NAME> \
-    --query <COSMO_DB_QUERY>
-```
-
-View the [structured JSON output](index.md#response-format-common-to-all-tools) common to all tools.
-
-##### Required parameters
-
-`--subscription`: The ID of the subscription containing the Cosmos DB account.<br>
-`--account-name`: The name of the Cosmos DB account.<br>
-`--database-name`: The name of the database containing the container.<br>
-`--container-name`: The name of the container to query items from.
-
-##### Optional parameters
-
-`--query`: The Cosmos DB query to execute against the container.
-
-View [optional parameters common to all tools](index.md#optional-parameters-common-to-all-tools). 
-
-#### Examples
-
-Execute a simple query to retrieve all items from a container.
-
-```console
-azmcp cosmos database container item query \
-    --subscription "my-subscription-id" \
-    --account-name "mycosmosaccount" \
-    --database-name "products" \
-    --container-name "electronics" \
-    --query "SELECT * FROM c"
-```
-
-Execute a filtered query to find specific items that match certain criteria.
-
-```console
-azmcp cosmos database container item query \
-    --subscription "my-subscription-id" \
-    --account-name "mycosmosaccount" \
-    --database-name "orders" \
-    --container-name "recent" \
-    --query "SELECT * FROM c WHERE c.orderDate > '2025-01-01T00:00:00Z' AND c.status = 'pending'"
-```
+[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
