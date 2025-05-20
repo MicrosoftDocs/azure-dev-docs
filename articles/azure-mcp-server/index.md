@@ -16,9 +16,9 @@ ms.custom: build-2025
 
 The Azure MCP Server enables AI agents and other types of clients to interact with Azure resources through natural language commands. It implements the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) to provide these key features:
 
-- **MCP support** Because the Azure MCP Server implements the Model Context Protocol, it works with MCP clients such as GitHub Copilot agent mode, the OpenAI Agents SDK, and Semantic Kernel.
-- **Entra ID support** The Azure MCP Server uses Entra ID through the Azure Identity library to follow Azure authentication best practices.
-- **Service and tool support** The Azure MCP Server supports Azure services and tools such as the Azure CLI and Azure Developer CLI (azd).
+- **MCP support**: Because the Azure MCP Server implements the Model Context Protocol, it works with MCP clients such as GitHub Copilot agent mode, the OpenAI Agents SDK, and Semantic Kernel.
+- **Entra ID support**: The Azure MCP Server uses Entra ID through the Azure Identity library to follow Azure authentication best practices.
+- **Service and tool support**: The Azure MCP Server supports Azure services and tools such as the Azure CLI and Azure Developer CLI (azd).
 
 ## Introduction to the Model Context Protocol (MCP)
 
