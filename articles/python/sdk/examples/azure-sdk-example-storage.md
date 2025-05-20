@@ -42,7 +42,7 @@ Create a Python file named *provision_blob.py* with the following code. The comm
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create resource groups and storage resources in your Azure subscription, the code will run successfully.
+Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create resource groups and storage resources in your Azure subscription, the code runs successfully.
 
 To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create resource groups and storage resources in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
 
@@ -86,7 +86,7 @@ To use such code in a production script, you can set environment variables to us
     python provision_blob.py
     ```
 
-The script will take a minute or two to complete.
+The script takes a minute or two to complete.
 
 ## 5: Verify the resources
 
@@ -100,22 +100,52 @@ The script will take a minute or two to complete.
 
 1. If you want to try using these resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
 
-For an additional example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/azure-samples-python-management/storage/).
+For another example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/azure-samples-python-management/storage/).
 
 ### For reference: equivalent Azure CLI commands
 
 The following Azure CLI commands complete the same creation steps as the Python script:
 
-# [cmd](#tab/cmd)
-
-:::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.cmd":::
-
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.sh":::
 
-# [PowerShell](#tab/powershell)
-:::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.ps1":::
+### [PowerShell](#tab/powershell)
+
+```powershell-interactive
+
+# Provision the resource group
+az group create -n "PythonAzureExample-Storage-rg" -l "centralus"
+
+# Generate a unique storage account name
+$randomSuffix = (Get-Random -Maximum 999999).ToString("X6").ToLower()
+$ACCOUNT_NAME = "pythonazurestorage$randomSuffix"
+
+# Provision the storage account
+az storage account create `
+  -g "PythonAzureExample-Storage-rg" `
+  -l "centralus" `
+  -n $ACCOUNT_NAME `
+  --kind StorageV2 `
+  --sku Standard_LRS
+
+# Retrieve the connection string
+Write-Output "Storage account name is $ACCOUNT_NAME"
+
+$CONNECTION_STRING = az storage account show-connection-string `
+  -g "PythonAzureExample-Storage-rg" `
+  -n $ACCOUNT_NAME `
+  --query connectionString `
+  -o tsv
+
+# Provision the blob container
+az storage container create `
+  --name "blob-container-01" `
+  --account-name $ACCOUNT_NAME `
+  --connection-string $CONNECTION_STRING
+
+```
+
 ---
 
 ## 6: Clean up resources
