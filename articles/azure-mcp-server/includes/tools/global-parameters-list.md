@@ -22,4 +22,4 @@ All tools share the following global parameters:
 * **Retry delay**: Delay between retry attempts (seconds). Default is 2.
 * **Retry delay maximum**: Maximum delay between retries (seconds). Default is 10.
 * **Retry mode**: Retry strategy ('fixed' or 'exponential'). Default is exponential.
-* **Retry network timeout**:Network operation timeout (seconds). Default is 100.
+* **Retry network timeout**: Network operation timeout (seconds). Default is 100.
