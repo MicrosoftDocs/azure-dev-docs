@@ -1,15 +1,30 @@
 ---
 ms.topic: include
-ms.date: 12/14/2022
+ms.date: 05/20/2025
 ---
 
-* Configure a Python virtual environment using `venv` or your tool of choice. You can create the virtual environment locally or in [Azure Cloud Shell](https://shell.azure.com/) and run the code there. Be sure to activate the virtual environment to start using it. To install python, see [Install Python](https://www.python.org/downloads/).
+* Configure a Python virtual environment using `venv` or your tool of choice. To start using the virtual environment, be sure to activate it. To install python, see [Install Python](https://www.python.org/downloads/).
 
-  ```bash
-  python -m venv .venv
-  source .venv/bin/activate # Linux or macOS
-  .venv\Scripts\activate # Windows
-  ```
+### [Bash](#tab/bash)
+
+```azurecli-interactive
+#!/bin/bash
+# Create a virtual environment
+python -m venv .venv
+# Activate the virtual environment
+source .venv/Scripts/activate # only required for Windows (Git Bash)
+```
+
+### [PowerShell](#tab/powershell)
+
+```powershell-interactive
+# Create a virtual environment
+python -m venv venv
+# Activate the virtual environment
+. .\venv\Scripts\Activate.ps1
+```
+
+---
 
 * Use a [conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html). To install Conda, see [Install Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 

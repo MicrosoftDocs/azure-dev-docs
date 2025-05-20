@@ -62,16 +62,20 @@ To use such code in a production script, you can set environment variables to us
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-    # [cmd](#tab/cmd)
+    # [Bash](#tab/bash)
 
-    ```cmd
-    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```console
+    #!/bin/bash
+    AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    export AZURE_SUBSCRIPTION_ID
     ```
 
-    # [bash](#tab/bash)
+    # [PowerShell](#tab/powershell)
 
-    ```bash
-    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```console
+    # PowerShell syntax
+    $AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    $env:AZURE_SUBSCRIPTION_ID = $AZURE_SUBSCRIPTION_ID
     ```
 
     ---
@@ -110,6 +114,8 @@ The following Azure CLI commands complete the same creation steps as the Python 
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.sh":::
 
+# [PowerShell](#tab/powershell)
+:::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.ps1":::
 ---
 
 ## 6: Clean up resources
