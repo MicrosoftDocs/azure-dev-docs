@@ -10,6 +10,8 @@ In this article, you learn how to complete the following tasks:
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
+[!INCLUDE [permissions-note](permissions-note.md)]
+
 [!INCLUDE [sign-in-local-development](sign-in-local-development.md)]
 
 ## Create the .NET host app
