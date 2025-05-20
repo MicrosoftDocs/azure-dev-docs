@@ -814,5 +814,210 @@
                 ]
             }
         ]
+    },
+    "azure-postgres": {
+        "root": "azmcp postgres",
+        "tools": [
+            {
+                "name": "database list",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "database query",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "database",
+                        "description": "The PostgreSQL database to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "query",
+                        "description": "Query to be executed against a PostgreSQL database",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "table list",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "database",
+                        "description": "The PostgreSQL database to be accessed",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "table schema",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "database",
+                        "description": "The PostgreSQL database to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "description": "The PostgreSQL table to be accessed",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "server list",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "server config",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "server param",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "param",
+                        "description": "The PostgreSQL parameter to be accessed",
+                        "required": true
+                    }
+                ]
+            }
+        ]
     }
 }
