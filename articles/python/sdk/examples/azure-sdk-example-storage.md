@@ -42,7 +42,7 @@ Create a Python file named *provision_blob.py* with the following code. This Pyt
 
 Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has the necessary permissions to create resource groups and storage resources within your Azure subscription, the script will execute successfully without requiring any additional configuration.
 
-To use this code in a production environment, it’s recommended to authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
 Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
