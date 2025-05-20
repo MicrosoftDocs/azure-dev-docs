@@ -2,7 +2,7 @@
 
 title: Azure for Python Developers
 summary: |
-  You can deploy your Python code to Azure across a variety of environments—including web apps, serverless functions, containers, and machine learning models. Azure provides flexible hosting options to match your application's architecture and scale. To interact with Azure services programmatically, use the Azure SDK for Python, which offers libraries for working with resources such as storage, databases, AI services, and more. These libraries simplify authentication, resource management, and service integration, helping you build scalable and secure cloud applications with Python.
+  You can deploy your Python code to Azure across variousgit  environments—including web apps, serverless functions, containers, and machine learning models. Azure provides flexible hosting options to match your application's architecture and scale. To interact with Azure services programmatically, use the Azure SDK for Python, which offers libraries for working with resources such as storage, databases, AI services, and more. These libraries simplify authentication, resource management, and service integration, helping you build scalable and secure cloud applications with Python.
 
 metadata:
   title: Azure for Python developers
