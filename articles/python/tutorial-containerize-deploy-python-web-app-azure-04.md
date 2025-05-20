@@ -611,7 +611,7 @@ In the Azure view in VS Code (from the Azure Tools extension):
 
 ## Create Key Vault with RBAC Authorization
 
-In this step, you create an Azure Key Vault to store the **MongoDB connection string** and the web app’s **`SECRET_KEY`**. Azure Key Vault is a secure service for storing secrets, API keys, connection strings, and certificates. The Key Vault is configured to use **role-based access control (RBAC)** to manages access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
+In this step, you create an Azure Key Vault to store the **MongoDB connection string** and the web app’s **`SECRET_KEY`**. Azure Key Vault is a secure service for storing secrets, API keys, connection strings, and certificates. The Key Vault is configured to use **role-based access control (RBAC)** to manage access through Azure roles instead of traditional access policies. The web app uses its **system-assigned managed identity** to retrieve secrets securely at runtime.
 
 > [!NOTE]
 > You can configure VS Code to use the Azure CLI or PowerShell. To select your default shell in VS Code, select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type **Terminal: Select Default Profile**. In the command palette, type and select: **Terminal: Select Default Profile** and then select your desired default shell.
@@ -833,7 +833,7 @@ In the Azure view in VS Code (from the Azure Tools extension):
 
 1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
 
-1. Right-click your web app and select **Browse Website**. If your web site shows an eror, wait a few minutes and try again. It may take a few minutes for the web app to start up. See also [Troubleshooting App Service](#troubleshoot-deployment).
+1. Right-click your web app and select **Browse Website**. If your web site shows an error, wait a few minutes and try again. It may take a few minutes for the web app to start up. See also [Troubleshooting App Service](#troubleshoot-deployment).
 
 ---
 
