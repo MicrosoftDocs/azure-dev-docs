@@ -1,0 +1,12 @@
+# YamlMime:ZonePivotGroups
+groups:
+- id: azure-mcp-server-tools-frameworks
+  title: Tool or framework
+  prompt: Choose a tool or framework
+  pivots:
+  - id: mcp-github-copilot
+    title: GitHub Copilot in Visual Studio Code
+  - id: mcp-csharp
+    title: .NET
+  - id: mcp-python
+    title: Python

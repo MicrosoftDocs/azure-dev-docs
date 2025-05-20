@@ -1,0 +1,27 @@
+items:
+- name: Azure MCP Server (Preview)
+  href: index.md
+  items:
+    - name: Get started
+      href: get-started.md
+    - name: Tools
+      expanded: true
+      items:
+        - name: Overview
+          href: tools/index.md
+        - name: App Configuration
+          href: tools/app-configuration.md
+        - name: Azure CLI Extension
+          href: tools/azure-cli-extension.md
+        - name: Cosmos DB
+          href: tools/cosmos-db.md
+        - name: Key Vault
+          href: tools/key-vault-key.md
+        - name: Azure Monitor
+          href: tools/monitor.md
+        - name: Resource Group
+          href: tools/resource-group.md
+        - name: Service Bus
+          href: tools/service-bus.md
+        - name: Storage
+          href: tools/storage.md
