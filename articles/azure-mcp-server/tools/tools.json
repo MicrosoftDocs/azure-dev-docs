@@ -4,6 +4,7 @@
         "tools": [
             {
                 "name": "account list",
+                "description": "List App Configuration stores in a subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -14,6 +15,7 @@
             },
             {
                 "name": "kv list",
+                "description": "List all key-value settings in an App Configuration store.",
                 "params": [
                     {
                         "name": "subscription",
@@ -39,6 +41,7 @@
             },
             {
                 "name": "kv show",
+                "description": "Show a specific key-value setting in an App Configuration store.",
                 "params": [
                     {
                         "name": "subscription",
@@ -64,6 +67,7 @@
             },
             {
                 "name": "kv set",
+                "description": "Set a key-value setting in an App Configuration store.",
                 "params": [
                     {
                         "name": "subscription",
@@ -94,6 +98,7 @@
             },
             {
                 "name": "kv lock",
+                "description": "Lock a key-value setting (make it read-only) in an App Configuration store.",
                 "params": [
                     {
                         "name": "subscription",
@@ -119,6 +124,7 @@
             },
             {
                 "name": "kv unlock",
+                "description": "Unlock a key-value setting (make it editable) in an App Configuration store.",
                 "params": [
                     {
                         "name": "subscription",
@@ -144,6 +150,7 @@
             },
             {
                 "name": "kv delete",
+                "description": "Delete a key-value setting in an App Configuration store.",
                 "params": [
                     {
                         "name": "subscription",
@@ -174,6 +181,7 @@
         "tools": [
             {
                 "name": "az",
+                "description": "Execute an Azure CLI command.",
                 "params": [
                     {
                         "name": "command",
@@ -189,6 +197,7 @@
         "tools": [
             {
                 "name": "account list",
+                "description": "List Cosmos DB accounts in a subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -199,6 +208,7 @@
             },
             {
                 "name": "database list",
+                "description": "List databases in a Cosmos DB account.",
                 "params": [
                     {
                         "name": "subscription",
@@ -214,6 +224,7 @@
             },
             {
                 "name": "database container list",
+                "description": "List containers in a Cosmos DB database.",
                 "params": [
                     {
                         "name": "subscription",
@@ -227,13 +238,14 @@
                     },
                     {
                         "name": "database-name",
-                        "description": "The name of the database",
+                        "description": "The name of the Cosmos DB database",
                         "required": true
                     }
                 ]
             },
             {
                 "name": "database container item query",
+                "description": "Query items in a Cosmos DB container.",
                 "params": [
                     {
                         "name": "subscription",
@@ -247,17 +259,17 @@
                     },
                     {
                         "name": "database-name",
-                        "description": "The name of the database",
+                        "description": "The name of the Cosmos DB database",
                         "required": true
                     },
                     {
                         "name": "container-name",
-                        "description": "The name of the container",
+                        "description": "The name of the Cosmos DB container",
                         "required": true
                     },
                     {
                         "name": "query",
-                        "description": "SQL query to execute against the container",
+                        "description": "The SQL query to execute against the container",
                         "required": false
                     }
                 ]
@@ -269,6 +281,7 @@
         "tools": [
             {
                 "name": "key list",
+                "description": "List keys in a Key Vault.",
                 "params": [
                     {
                         "name": "subscription",
@@ -289,6 +302,7 @@
             },
             {
                 "name": "key get",
+                "description": "Retrieve a specific key from a Key Vault.",
                 "params": [
                     {
                         "name": "subscription",
@@ -309,6 +323,7 @@
             },
             {
                 "name": "key create",
+                "description": "Create a new key in a Key Vault.",
                 "params": [
                     {
                         "name": "subscription",
@@ -327,7 +342,7 @@
                     },
                     {
                         "name": "key-type",
-                        "description": "The type of key to create (RSA, EC)",
+                        "description": "The type of key to create (e.g., RSA, EC)",
                         "required": true
                     }
                 ]
@@ -339,6 +354,7 @@
         "tools": [
             {
                 "name": "workspace list",
+                "description": "List Log Analytics workspaces in a subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -349,6 +365,7 @@
             },
             {
                 "name": "table list",
+                "description": "List tables in a Log Analytics workspace.",
                 "params": [
                     {
                         "name": "subscription",
@@ -369,6 +386,7 @@
             },
             {
                 "name": "log query",
+                "description": "Query logs from Azure Monitor using KQL.",
                 "params": [
                     {
                         "name": "subscription",
@@ -409,6 +427,7 @@
         "tools": [
             {
                 "name": "list",
+                "description": "List all resource groups in a subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -424,6 +443,7 @@
         "tools": [
             {
                 "name": "queue peek",
+                "description": "Peek at messages in a Service Bus queue.",
                 "params": [
                     {
                         "name": "subscription",
@@ -449,6 +469,7 @@
             },
             {
                 "name": "queue details",
+                "description": "Get runtime details about a Service Bus queue.",
                 "params": [
                     {
                         "name": "subscription",
@@ -469,6 +490,7 @@
             },
             {
                 "name": "topic details",
+                "description": "Get runtime details about a Service Bus topic.",
                 "params": [
                     {
                         "name": "subscription",
@@ -482,13 +504,14 @@
                     },
                     {
                         "name": "topic-name",
-                        "description": "The name of the topic to get information about",
+                        "description": "The topic name to get details for",
                         "required": true
                     }
                 ]
             },
             {
                 "name": "topic subscription peek",
+                "description": "Peek at messages in a Service Bus subscription within a topic.",
                 "params": [
                     {
                         "name": "subscription",
@@ -502,12 +525,12 @@
                     },
                     {
                         "name": "topic-name",
-                        "description": "The name of the topic containing the subscription",
+                        "description": "The topic name containing the subscription",
                         "required": true
                     },
                     {
                         "name": "subscription-name",
-                        "description": "The name of subscription to peek messages from",
+                        "description": "The subscription name to peek messages from",
                         "required": true
                     },
                     {
@@ -519,6 +542,7 @@
             },
             {
                 "name": "topic subscription details",
+                "description": "Get runtime details and message counts for a Service Bus subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -532,12 +556,12 @@
                     },
                     {
                         "name": "topic-name",
-                        "description": "The name of the topic containing the subscription",
+                        "description": "The topic name containing the subscription",
                         "required": true
                     },
                     {
                         "name": "subscription-name",
-                        "description": "The name of the subscription to get details for",
+                        "description": "The subscription name to get details for",
                         "required": true
                     }
                 ]
@@ -549,6 +573,7 @@
         "tools": [
             {
                 "name": "account list",
+                "description": "List all Storage accounts in a subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -559,6 +584,7 @@
             },
             {
                 "name": "table list",
+                "description": "List all tables in a Storage account.",
                 "params": [
                     {
                         "name": "subscription",
@@ -574,6 +600,7 @@
             },
             {
                 "name": "blob list",
+                "description": "List all blobs in a Storage container.",
                 "params": [
                     {
                         "name": "subscription",
@@ -594,6 +621,7 @@
             },
             {
                 "name": "blob container list",
+                "description": "List all containers in a Storage account.",
                 "params": [
                     {
                         "name": "subscription",
@@ -609,6 +637,7 @@
             },
             {
                 "name": "blob container details",
+                "description": "Get detailed properties of a Storage container.",
                 "params": [
                     {
                         "name": "subscription",
@@ -631,6 +660,7 @@
     },
     "azure-subscription-management": {
         "root": "azmcp subscription",
+        "description": "List available Azure subscriptions.",
         "tools": [
             {
                 "name": "list",
@@ -650,6 +680,7 @@
         "tools": [
             {
                 "name": "cluster list",
+                "description": "List all Kusto clusters in a subscription.",
                 "params": [
                     {
                         "name": "subscription",
@@ -660,6 +691,7 @@
             },
             {
                 "name": "cluster get",
+                "description": "Get details for a specific Kusto cluster.",
                 "params": [
                     {
                         "name": "subscription",
@@ -675,6 +707,7 @@
             },
             {
                 "name": "database list",
+                "description": "List all databases in a Kusto cluster.",
                 "params": [
                     {
                         "name": "cluster-uri",
@@ -695,6 +728,7 @@
             },
             {
                 "name": "table list",
+                "description": "List all tables in a specific Kusto database.",
                 "params": [
                     {
                         "name": "cluster-uri",
@@ -720,6 +754,7 @@
             },
             {
                 "name": "table schema",
+                "description": "Get the schema of a specific table in a Kusto database.",
                 "params": [
                     {
                         "name": "cluster-uri",
@@ -742,14 +777,15 @@
                         "required": true
                     },
                     {
-                        "name": "table",
-                        "description": "The name of the Kusto table",
+                        "name": "table-name",
+                        "description": "The name of the table",
                         "required": true
                     }
                 ]
             },
             {
                 "name": "query",
+                "description": "Execute a KQL query against a Kusto database.",
                 "params": [
                     {
                         "name": "cluster-uri",
@@ -777,41 +813,6 @@
                         "required": true
                     }
                 ]
-            },
-            {
-                "name": "sample",
-                "params": [
-                    {
-                        "name": "cluster-uri",
-                        "description": "The URI of the Kusto cluster",
-                        "required-group": "group1"
-                    },
-                    {
-                        "name": "subscription",
-                        "description": "The Azure subscription ID or name",
-                        "required-group": "group2"
-                    },
-                    {
-                        "name": "cluster-name",
-                        "description": "The name of the Kusto cluster",
-                        "required-group": "group2"
-                    },
-                    {
-                        "name": "database-name",
-                        "description": "The name of the Kusto database",
-                        "required": true
-                    },
-                    {
-                        "name": "table",
-                        "description": "The name of the Kusto table",
-                        "required": true
-                    },
-                    {
-                        "name": "limit",
-                        "description": "The maximum number of rows to retrieve",
-                        "required": false
-                    }
-                ]
             }
         ]
     },
@@ -820,6 +821,7 @@
         "tools": [
             {
                 "name": "database list",
+                "description": "List all databases in a PostgreSQL server.",
                 "params": [
                     {
                         "name": "subscription",
@@ -845,6 +847,7 @@
             },
             {
                 "name": "database query",
+                "description": "Execute a query on a PostgreSQL database.",
                 "params": [
                     {
                         "name": "subscription",
@@ -880,6 +883,7 @@
             },
             {
                 "name": "table list",
+                "description": "List all tables in a PostgreSQL database.",
                 "params": [
                     {
                         "name": "subscription",
@@ -910,6 +914,7 @@
             },
             {
                 "name": "table schema",
+                "description": "Get the schema of a specific table in a PostgreSQL database.",
                 "params": [
                     {
                         "name": "subscription",
@@ -945,6 +950,7 @@
             },
             {
                 "name": "server list",
+                "description": "List all PostgreSQL servers in a subscription and resource group.",
                 "params": [
                     {
                         "name": "subscription",
@@ -965,6 +971,7 @@
             },
             {
                 "name": "server config",
+                "description": "Retrieve the configuration of a PostgreSQL server.",
                 "params": [
                     {
                         "name": "subscription",
@@ -990,6 +997,7 @@
             },
             {
                 "name": "server param",
+                "description": "Retrieve a specific parameter of a PostgreSQL server.",
                 "params": [
                     {
                         "name": "subscription",
