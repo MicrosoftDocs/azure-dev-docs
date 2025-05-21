@@ -80,7 +80,7 @@ Fork and clone the sample code to your developer environment:
 
     Follow the steps to fork the repo to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account. But if you use the download method, you won't be able to set up continuous integration and continuous delivery (CI/CD) in the next tutorial in this series.
 
-1. Use the [git clone][21] command to clone the forked repo into the *python-container* folder:
+1. At the command prompt in your console, use the [git clone][21] command to clone the forked repo into the *python-container* folder:
 
     ```console
     # Django
@@ -104,31 +104,77 @@ After you follow these steps, you'll have an Azure Container Registry instance t
 
 1. Create a resource group by using the [az group create][17] command:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    RESOURCE_GROUP_NAME=pythoncontainer-rg
+    LOCATION=westus  
     az group create \
-        --name pythoncontainer-rg \
-        --location <location>
+        --name $RESOURCE_GROUP_NAME \
+        --location $LOCATION
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    $RESOURCE_GROUP_NAME=pythoncontainer-rg
+    $LOCATION=westus
+    az group create `
+        --name $RESOURCE_GROUP_NAME `
+        --location $LOCATION
+    ```
+
+    ---
 
     Replace *\<location>* with one of the Azure location `Name` values from the output of the command `az account list-locations -o table`.
 
 1. Create a container registry by using the [az acr create][18] command:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    REGISTRY_NAME=msdocscontainerregistry #The name that you use for *\<registry-name>* must be unique within Azure, and it must contain 5 to 50 alphanumeric characters.
     az acr create \
-        --resource-group pythoncontainer-rg \
-        --name <registry-name> \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $REGISTRY_NAME \
         --sku Basic \
         --admin-enabled
     ```
 
-    The name that you use for *\<registry-name>* must be unique within Azure, and it must contain 5 to 50 alphanumeric characters.
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    $REGISTRY_NAME=msdocscontainerregistry
+    az acr create `
+        --resource-group $RESOURCE_GROUP_NAME `
+        --name $REGISTRY_NAME `
+        --sku Basic `
+        --admin-enabled
+    ```
+
+    ---
 
 1. Sign in to the registry by using the [az acr login][19] command:
 
-    ```azurecli
-    az acr login --name <registry-name>
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    az acr login --name $REGISTRY_NAME
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    az acr login --name $REGISTRY_NAME
+    ```
+
+    ---
 
     The command adds "azurecr.io" to the name to create the fully qualified registry name. If the sign-in is successful, the message "Login Succeeded" appears. If you're accessing the registry from a subscription that's different from the one in which you created the registry, use the `--suffix` switch.
 
@@ -136,12 +182,27 @@ After you follow these steps, you'll have an Azure Container Registry instance t
 
 1. Build the image by using the [az acr build][5] command:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
     az acr build \
-        --registry <registry-name> \
-        --resource-group pythoncontainer-rg \
+        --registry $REGISTRY_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
         --image pythoncontainer:latest .
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    az acr build `
+        --registry $REGISTRY_NAME `
+        --resource-group $RESOURCE_GROUP_NAME `
+        --image pythoncontainer:latest .
+    ```
+
+    ---
 
     These considerations apply:
 
@@ -153,8 +214,8 @@ After you follow these steps, you'll have an Azure Container Registry instance t
 
 1. Confirm that the container image was created by using the [az acr repository list][20] command:
 
-    ```azurecli
-    az acr repository list --name <registry-name>
+    ```azurecli$
+    az acr repository list --name $REGISTRY_NAME
     ```
 
 ### [VS Code](#tab/vscode-aztools)
@@ -280,18 +341,39 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
 
 1. Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes before it finishes.
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    POSTGRES_SERVER_NAME=msdocspostgresservername
     az postgres flexible-server create \
-       --resource-group pythoncontainer-rg \
-       --name <postgres-server-name>  \
-       --location <location> \
-       --admin-user demoadmin \
-       --admin-password <admin-password> \
-       --active-directory-auth Enabled \
-       --tier burstable \
-       --sku-name standard_b1ms \
-       --public-access 0.0.0.0 
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $POSTGRES_SERVER_NAME \
+      --location $LOCATION \
+      --admin-user demoadmin \
+      --admin-password <admin-password> \
+      --tier Burstable \
+      --sku-name Standard_B1ms \
+      --public-access 0.0.0.0
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    $POSTGRES_SERVER_NAME=msdocspostgresservername
+    az postgres flexible-server create \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $POSTGRES_SERVER_NAME \
+      --location $LOCATION \
+      --admin-user demoadmin \
+      --admin-password <admin-password> \
+      --tier Burstable \
+      --sku-name Standard_B1ms \
+      --public-access 0.0.0.0
+    ```
+
+    ---
 
     Use these values:
 
@@ -308,8 +390,6 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
         > [!IMPORTANT]
         > When you're creating usernames or passwords, *do not* use the dollar sign ($) character. Later, when you create environment variables with these values, that character has a special meaning within the Linux container that you use to run Python apps.
 
-    * `--active-directory-auth`: This value specifies whether Microsoft Entra authentication is enabled on the PostgreSQL server. Set it to `Enabled`.
-
     * `--sku-name`: The name of the pricing tier and compute configuration; for example, `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing][24]. To list available tiers, use `az postgres flexible-server list-skus --location <location>`.
 
     * `--public-access`: Use `0.0.0.0`. It allows public access to the server from any Azure service, such as Container Apps.
@@ -319,21 +399,47 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
 
 1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account. You use this ID in the next command.
 
-    ```azurecli
-    az ad signed-in-user show --query id --output tsv
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    CALLER_ID=$(az ad signed-in-user show --query id --output tsv)
+    echo $CALLER_ID
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    $CALLER_ID=az ad signed-in-user show --query id --output tsv
+    echo $CALLER_ID
     ```
 
 1. Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
     az postgres flexible-server ad-admin create \
-       --resource-group pythoncontainer-rg \
-       --server-name <postgres-server-name>  \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --server-name $POSTGRES_SERVER_NAME  \
        --display-name <your-email-address> \
-       --object-id <your-account-object-id>
+       --object-id $CALLER_ID
     ```
 
-    For your account object ID, use the value that you got in the previous step.
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    az postgres flexible-server ad-admin create `
+      --resource-group $RESOURCE_GROUP_NAME `
+      --server-name $POSTGRES_SERVER_NAME `
+      --display-name <your-email-address> `
+      --object-id $CALLER_ID
+    ```
+
+    ---
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -473,13 +579,30 @@ At this point, you have a PostgreSQL server. In this section, you create a datab
 
 Use the [az postgres flexible-server db create][27] command to create a database named *restaurants_reviews*:
 
-```azurecli
-az postgres flexible-server db create \
-   --resource-group pythoncontainer-rg \
-   --server-name <postgres-server-name> \
-   --database-name restaurants_reviews
-```
-
+    ### [Bash](#tab/bash)
+    
+    ```console
+    #!/bin/bash
+    DATABASE_NAME=restaurants_reviews
+    az postgres flexible-server db create \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --server-name $POSTGRES_SERVER_NAME \
+        --database-name $DATABASE_NAME
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    ```console
+    # PowerShell syntax
+    $DATABASE_NAME=restaurants_reviews
+    az postgres flexible-server db create `
+        --resource-group $RESOURCE_GROUP_NAME `
+        --server-name $POSTGRES_SERVER_NAME `
+        --database-name $DATABASE_NAME    
+    ```
+    
+    ---
+    
 Use these values:
 
 * `pythoncontainer-rg`: The resource group name that this tutorial uses. If you used a different name, change this value.
@@ -525,7 +648,7 @@ Create a user-assigned managed identity to use as the identity for the container
 Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity:
 
 ```azurecli
-az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
+az identity create --name my-ua-managed-id --resource-group $RESOURCE_GROUP_NAME
 ```
 
 ### [VS Code](#tab/vscode-aztools)
@@ -557,26 +680,51 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
 
 1. Get an access token for your Azure account by using the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the next steps.
 
-    ```azurecli
-    az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    MY_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+    echo $MY_ACCESS_TOKEN
     ```
 
-    The returned token is long. Set its value in an environment variable to use in the commands in the next step:
+    ### [PowerShell](#tab/powershell)
 
-    ```bash
-    MY_ACCESS_TOKEN=<your-access-token>
+    ```console
+    # PowerShell syntax
+    $MY_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+    echo $MY_ACCESS_TOKEN
     ```
+
+    ---
 
 1. Add the user-assigned managed identity as database role on your PostgreSQL server by using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
     az postgres flexible-server execute \
-        --name <postgres-server-name> \
-        --database-name postgres \
+        --name $POSTGRES_SERVER_NAME \
+        --database-name $DATABASE_NAME \
         --querytext "select * from pgaadauth_create_principal('"my-ua-managed-id"', false, false);select * from pgaadauth_list_principals(false);" \
         --admin-user <your-Azure-account-email> \
         --admin-password $MY_ACCESS_TOKEN
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    az postgres flexible-server execute `
+        --name $POSTGRES_SERVER_NAME `
+        --database-name $DATABASE_NAME `
+        --querytext "select * from pgaadauth_create_principal('"my-ua-managed-id"', false, false);select * from pgaadauth_list_principals(false);" `
+        --admin-user <your-Azure-account-email> `
+        --admin-password $MY_ACCESS_TOKEN
+    ```
+
+    ---
 
     Use these values:
 
@@ -593,14 +741,32 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
 
 1. Grant the user-assigned managed identity the necessary permissions on the *restaurants_reviews* database by using the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
     az postgres flexible-server execute \
-        --name <postgres-server-name> \
-        --database-name restaurants_reviews \
+        --name $POSTGRES_SERVER_NAME \
+        --database-name $DATABASE_NAME \
         --querytext "GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";" \
         --admin-user <your-Azure-account-email> \
         --admin-password $MY_ACCESS_TOKEN
+
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    az postgres flexible-server execute `
+        --name $POSTGRES_SERVER_NAME `
+        --database-name $DATABASE_NAME `
+        --querytext "GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";" `
+        --admin-user <your-Azure-account-email> `
+        --admin-password $MY_ACCESS_TOKEN
+    ```
+
+    ---
 
     Use these values:
 
@@ -709,20 +875,45 @@ These steps require the Azure Container Apps extension, *containerapp*.
 
 1. Create a Container Apps environment by using the [az containerapp env create][13] command:
 
-    ```azurecli
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
     az containerapp env create \
     --name python-container-env \
-    --resource-group pythoncontainer-rg \
-    --location <location>
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location $LOCATION
     ```
 
-    *\<location>* is one of the Azure location `Name` values from the output of the command `az account list-locations -o table`.
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    az containerapp env create `
+    --name python-container-env `
+    --resource-group $REOURCE_GROUP_NAME `
+    --location $LOCATION
+    ```
+
+    ---
 
 1. Get the sign-in credentials for the Azure Container Registry instance by using the [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show) command:
 
-    ```azurecli
-    az acr credential show -n <registry-name>
+    ### [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    MY_ACR_CREDENTIAL=az acr credential show -n $REGISTRY_NAME    
     ```
+
+    ### [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    $MY_ACR_CREDENTIAL=az acr credential show -n $REGISTRY_NAME
+    ```
+
+    ---
 
     You use the username and one of the passwords returned from the command's output when you create the container app in step 5.
 
