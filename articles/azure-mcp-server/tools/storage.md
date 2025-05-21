@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Storage tools for the Azure MCP Server
+# Azure Storage tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts without having to remember specific command syntax.
 

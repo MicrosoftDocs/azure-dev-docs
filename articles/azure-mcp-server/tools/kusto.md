@@ -1,5 +1,5 @@
 ---
-title: Azure Kusto Tools 
+title: Azure Data Explorer with Kusto Tools 
 description: Learn how to use the Azure MCP Server with Azure Data Explorer (Kusto).
 keywords: azure mcp server, azmcp, kusto, azure data explorer, adx
 author: diberry
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Kusto tools for the Azure MCP Server
+# zure Data Explorer with Kusto tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure Data Explorer resources using natural language prompts. You can list clusters, view databases, query data, and more without remembering complex Kusto Query Language (KQL) syntax.
 

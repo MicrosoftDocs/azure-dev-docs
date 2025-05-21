@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Cosmos DB tools for the Azure MCP Server
+# Azure Cosmos DB tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers with natural language prompts. You can query and manage your NoSQL databases using simple conversational commands.
 
