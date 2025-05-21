@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Azyre Key Vault tools for the Azure MCP Server
+# Azure Key Vault tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You can manage keys without remembering specialized command syntax.
 
