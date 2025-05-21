@@ -9,6 +9,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 # How to configure proxies for the Azure SDK for Python
 
 A proxy is often needed if:
+
 - You're behind a corporate firewall
 - Your network traffic needs to go through a security appliance
 - You want to use a custom proxy for debugging or routing
