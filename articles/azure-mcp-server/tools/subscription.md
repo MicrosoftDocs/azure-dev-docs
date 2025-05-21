@@ -28,6 +28,6 @@ The Azure MCP Server can list all subscriptions.
 - **List subscriptions**: "Show me all of my subscriptions."
 - **Find subscriptions**: "List all subscriptions starting with `northeast`."
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The name or ID of the user subscription.            |

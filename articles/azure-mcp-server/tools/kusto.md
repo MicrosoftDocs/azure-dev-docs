@@ -40,7 +40,7 @@ The Azure MCP Server can list all Kusto clusters in a subscription.
 - **Query clusters**: "Show my Kusto cluster organization."
 - **Find clusters**: "Get all ADX clusters in my Azure subscription."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 
@@ -56,7 +56,7 @@ The Azure MCP Server can get details for a specific Kusto cluster.
 - **Check configuration**: "Get configuration details of my ADX cluster 'telemetry-cluster'."
 - **Cluster properties**: "Show properties of my Kusto cluster in subscription 'my-sub'."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Cluster name** | Required | The name of the Kusto cluster. |

@@ -32,7 +32,7 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required          | The name of the App Configuration store.                                    |
@@ -51,7 +51,7 @@ The Azure MCP Server can list all [key-value settings](/azure/azure-app-configur
 - **View configuration**: "List all configuration entries from contoso-appconfig"
 - **Find settings with label**: "Show me settings with label 'dev'"
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required          | The name of the App Configuration store.                                    |
@@ -70,7 +70,7 @@ The Azure MCP Server can list App Configuration stores in a subscription. This i
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 
@@ -87,7 +87,7 @@ The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configurati
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
 
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required          | The name of the App Configuration store.                                    |
@@ -107,7 +107,7 @@ The Azure MCP Server can create or update a [key-value setting](/azure/azure-app
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
 
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required          | The name of the App Configuration store.                                    |
@@ -128,7 +128,7 @@ The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-ap
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
 
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required          | The name of the App Configuration store.                                    |
@@ -149,7 +149,7 @@ The Azure MCP Server can unlock a previously locked [key-value setting](/azure/a
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
 
 
-| Parameter       | Required/Optional | Description                                                                 |
+| Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required          | The name of the App Configuration store.                                    |

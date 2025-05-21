@@ -31,7 +31,7 @@ The Azure MCP Server can list all databases in a PostgreSQL server.
 - **Query databases**: "Show databases in PostgreSQL server in resource group 'my-rg'."
 - **Find databases**: "Get all databases from my PostgreSQL instance."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
@@ -50,7 +50,7 @@ The Azure MCP Server can execute a query on a PostgreSQL database.
 - **Extract data**: "Query customer data from my PostgreSQL server."
 - **Retrieve records**: "Select top sales records from PostgreSQL database."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
@@ -71,7 +71,7 @@ The Azure MCP Server can list all tables in a PostgreSQL database.
 - **Query tables**: "Show tables in PostgreSQL database in server 'my-pg-server'."
 - **Find tables**: "Get all tables from my PostgreSQL database."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
@@ -91,7 +91,7 @@ The Azure MCP Server can get the schema of a specific table in a PostgreSQL data
 - **View columns**: "Show columns and types for 'customers' table in PostgreSQL."
 - **Examine table**: "Get the structure of 'transactions' table in my PostgreSQL database."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
@@ -112,7 +112,7 @@ The Azure MCP Server can list all PostgreSQL servers in a subscription and resou
 - **Query servers**: "Show PostgreSQL servers in resource group 'dev-resources'."
 - **Find servers**: "Get all PostgreSQL instances in my environment."
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
@@ -130,7 +130,7 @@ The Azure MCP Server can retrieve the configuration of a PostgreSQL server.
 - **View server params**: "Show me all configuration parameters of my PostgreSQL server."
 - **Get server setup**: "What is the configuration of my PostgreSQL instance?"
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
@@ -149,7 +149,7 @@ The Azure MCP Server can retrieve a specific parameter of a PostgreSQL server.
 - **View server param**: "Show me the 'work_mem' parameter value in my PostgreSQL server."
 - **Get configuration value**: "What is the 'maintenance_work_mem' set to in my PostgreSQL instance?"
 
-| Parameter | Required/Optional | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |

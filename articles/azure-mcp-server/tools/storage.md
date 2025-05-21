@@ -30,7 +30,7 @@ The Azure MCP Server can show detailed information about a specific container in
 - **Container properties**: "What are the settings for my 'backups' container?"
 - **Container status**: "Check access policy for 'user_data' container"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Azure Storage account. |
@@ -48,7 +48,7 @@ The Azure MCP Server can list all storage accounts in a subscription. This funct
 - **Query accounts**: "Show all my storage resources"
 - **Check accounts**: "Storage accounts in subscription abc123"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 
@@ -63,7 +63,7 @@ The Azure MCP Server can list all blob containers in a storage account. This fun
 - **Find containers**: "List all containers in my storage 'user_files'"
 - **Query containers**: "Show available containers in my storage account"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Azure Storage account. |
@@ -80,7 +80,7 @@ The Azure MCP Server can list all blobs in a container. This helps you manage th
 - **Query blobs**: "Show available files in container 'logs'"
 - **Check blobs**: "Get all blobs in my 'user_data' container"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Azure Storage account. |
@@ -98,7 +98,7 @@ The Azure MCP Server can list all tables in a storage account. This functionalit
 - **Query tables**: "Show available tables in my storage account"
 - **Check tables**: "Get all storage tables in my 'analytics_data' account"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Azure Storage account. |
