@@ -54,7 +54,7 @@ The Azure MCP Server can list all indexes in an AI Search service. This helps yo
 
 ## Get index details
 
-The Azure MCP Server can retrieve detailed information about a specific index in an AI Search service. This includes the index schema, fields, analyzers, scorers, and other index properties.
+The Azure MCP Server can retrieve detailed information about a specific [index](/azure/search/search-what-is-an-index) in an AI Search service. This includes the index schema, fields, analyzers, scorers, and other index properties.
 
 **Example prompts** include:
 

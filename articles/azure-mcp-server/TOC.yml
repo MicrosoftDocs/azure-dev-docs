@@ -9,6 +9,8 @@ items:
       items:
         - name: Overview
           href: tools/index.md
+        - name: Azure AI Search
+          href: tools/azure-ai-search.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
         - name: Azure CLI Extension

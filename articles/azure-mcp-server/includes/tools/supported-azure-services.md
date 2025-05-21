@@ -3,11 +3,12 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 05/01/2025
+ ms.date: 05/21/2025
 ---
 
 Azure MCP Server supports operations on the following Azure services:
 
+- [Azure AI Search](../../tools/ai-search.md)
 - [Azure App Configuration](../../tools/app-configuration.md): Manage centralized application settings and feature flags
 - [Azure CLI Extensions](../../tools/azure-cli-extension.md): Execute Azure CLI commands within the MCP server
 - [Azure Data Explorer](../../tools/kusto.md): Work with Azure Data Explorer (Kusto) clusters, databases, tables, and queries
