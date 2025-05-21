@@ -14,7 +14,7 @@ A proxy is often needed if:
 - Your network traffic needs to go through a security appliance
 - You want to use a custom proxy for debugging or routing
 
-If your organization requires the use of a proxy server to access internet resources, you'll need to set an environment variable with the proxy server information to use the Azure SDK for Python. Setting the environment variables (HTTP_PROXY and HTTPS_PROXY) causes the Azure SDK for Python to use the proxy server at run time.
+If your organization requires the use of a proxy server to access internet resources, you need to set an environment variable with the proxy server information to use the Azure SDK for Python. Setting the environment variables (HTTP_PROXY and HTTPS_PROXY) causes the Azure SDK for Python to use the proxy server at run time.
 
 A proxy server URL has of the form `http[s]://[username:password@]<ip_address_or_domain>:<port>/` where the username and password combination is optional.
 
