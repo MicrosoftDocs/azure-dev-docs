@@ -19,6 +19,15 @@ The Azure MCP Server allows you to manage Azure Data Explorer resources using na
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+## Conditional parameters
+
+Some of the tools require **one** of the following parameter sets within the conversation context:
+
+* **Option 1**: Cluster URI
+* **Option 2**: Both cluster name AND subscription
+
+Don't provide all three parameters (Cluster URI, cluster name, and subscription) together, as this creates conflicting inputs.
+
 ## List clusters
 
 The Azure MCP Server can list all Kusto clusters in a subscription.
@@ -64,13 +73,12 @@ The Azure MCP Server can list all databases in a Kusto cluster.
 - **Query databases**: "Show databases in Kusto cluster URI 'https://mycluster.westus.kusto.windows.net'."
 - **Find databases**: "Get all databases from my ADX instance."
 
-| Parameter | Required/Optional (Group) | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
-| **Cluster URI** | Required (Group 1) | The URI of the Kusto cluster. |
-| **Subscription** | Required (Group 2) | The Azure subscription ID or name. |
-| **Cluster name** | Required (Group 2) | The name of the Kusto cluster. |
+| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
 
-Note: Either Group 1 OR Group 2 parameters must be provided.
 
 ## List tables
 
@@ -84,14 +92,12 @@ The Azure MCP Server can list all tables in a specific Kusto database.
 - **Query tables**: "Show tables in the 'metrics' database of my Data Explorer cluster."
 - **Find tables**: "Get all tables from 'events' database in my Kusto instance."
 
-| Parameter | Required/Optional (Group) | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
-| **Cluster URI** | Required (Group 1) | The URI of the Kusto cluster. |
-| **Subscription** | Required (Group 2) | The Azure subscription ID or name. |
-| **Cluster name** | Required (Group 2) | The name of the Kusto cluster. |
+| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
 | **Database name** | Required | The name of the Kusto database. |
-
-Note: Either Group 1 OR Group 2 parameters must be provided.
 
 ## Get table schema
 
@@ -105,15 +111,13 @@ The Azure MCP Server can get the schema of a specific table in a Kusto database.
 - **View columns**: "Show columns and types for 'Telemetry' table in Kusto."
 - **Examine table**: "Get the structure of 'Traces' table in my ADX database."
 
-| Parameter | Required/Optional (Group) | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
-| **Cluster URI** | Required (Group 1) | The URI of the Kusto cluster. |
-| **Subscription** | Required (Group 2) | The Azure subscription ID or name. |
-| **Cluster name** | Required (Group 2) | The name of the Kusto cluster. |
+| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
 | **Database name** | Required | The name of the Kusto database. |
 | **Table name** | Required | The name of the table. |
-
-Note: Either Group 1 OR Group 2 parameters must be provided.
 
 ## Execute query
 
@@ -127,15 +131,13 @@ The Azure MCP Server can execute a KQL query against a Kusto database.
 - **Extract insights**: "Query user activity patterns from my Kusto database."
 - **Analyze logs**: "Execute KQL to summarize performance metrics by service in my ADX database."
 
-| Parameter | Required/Optional (Group) | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
-| **Cluster URI** | Required (Group 1) | The URI of the Kusto cluster. |
-| **Subscription** | Required (Group 2) | The Azure subscription ID or name. |
-| **Cluster name** | Required (Group 2) | The name of the Kusto cluster. |
+| **Cluster URI** | [Conditionally](#conditional-parameters) Required  | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
 | **Database name** | Required | The name of the Kusto database. |
 | **Query** | Required | The KQL query to execute. |
-
-Note: Either Group 1 OR Group 2 parameters must be provided.
 
 ## Sample table data
 
@@ -149,15 +151,13 @@ The Azure MCP Server can retrieve a sample of data from a specified Kusto table.
 - **Check data format**: "Get a few sample records from the 'Telemetry' table in Kusto to see the data structure."
 - **Data exploration**: "Return 10 sample rows from 'UserActivity' table in my ADX cluster."
 
-| Parameter | Required/Optional (Group) | Description |
+| Parameter | Required or optional | Description |
 |-----------|-------------------|-------------|
-| **Cluster URI** | Required (Group 1) | The URI of the Kusto cluster. |
-| **Subscription** | Required (Group 2) | The Azure subscription ID or name. |
-| **Cluster name** | Required (Group 2) | The name of the Kusto cluster. |
+| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
 | **Database name** | Required | The name of the Kusto database. |
 | **Table name** | Required | The name of the table to sample data from. |
 | **Limit** | Optional | The maximum number of rows to return in the sample. |
-
-Note: Either Group 1 OR Group 2 parameters must be provided.
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
