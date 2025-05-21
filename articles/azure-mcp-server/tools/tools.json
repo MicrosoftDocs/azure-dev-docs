@@ -1063,5 +1063,84 @@
                 ]
             }
         ]
+    },
+    "azure-ai-search": {
+        "root": "azmcp search",
+        "tools": [
+            {
+                "name": "list",
+                "description": "List AI Search accounts in a subscription.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "index list",
+                "description": "List AI Search indexes in account.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "service-name",
+                        "description": "The name of the AI Search service",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "index describe",
+                "description": "Get AI Search index details.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "service-name",
+                        "description": "The name of the AI Search service",
+                        "required": true
+                    },
+                    {
+                        "name": "index-name",
+                        "description": "The name of the AI Search index",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "index query",
+                "description": "Query AI Search index.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "service-name",
+                        "description": "The name of the AI Search service",
+                        "required": true
+                    },
+                    {
+                        "name": "index-name",
+                        "description": "The name of the AI Search index",
+                        "required": true
+                    },
+                    {
+                        "name": "query",
+                        "description": "The search query to execute against the index",
+                        "required": true
+                    }
+                ]
+            }
+        ]
     }
 }
