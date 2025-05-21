@@ -578,30 +578,30 @@ At this point, you have a PostgreSQL server. In this section, you create a datab
 
 Use the [az postgres flexible-server db create][27] command to create a database named *restaurants_reviews*:
 
-### [Bash](#tab/bash)
-
-```console
-#!/bin/bash
-DATABASE_NAME=restaurants_reviews
-az postgres flexible-server db create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --server-name $POSTGRES_SERVER_NAME \
-    --database-name $DATABASE_NAME
-```
-
-### [PowerShell](#tab/powershell)
-
-```console
-# PowerShell syntax
-$DATABASE_NAME=restaurants_reviews
-az postgres flexible-server db create `
-    --resource-group $RESOURCE_GROUP_NAME `
-    --server-name $POSTGRES_SERVER_NAME `
-    --database-name $DATABASE_NAME    
-```
-
----
-
+    ### [Bash](#tab/bash)
+    
+    ```console
+    #!/bin/bash
+    DATABASE_NAME=restaurants_reviews
+    az postgres flexible-server db create \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --server-name $POSTGRES_SERVER_NAME \
+        --database-name $DATABASE_NAME
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    ```console
+    # PowerShell syntax
+    $DATABASE_NAME=restaurants_reviews
+    az postgres flexible-server db create `
+        --resource-group $RESOURCE_GROUP_NAME `
+        --server-name $POSTGRES_SERVER_NAME `
+        --database-name $DATABASE_NAME    
+    ```
+    
+    ---
+    
 Use these values:
 
 * `pythoncontainer-rg`: The resource group name that this tutorial uses. If you used a different name, change this value.
