@@ -623,7 +623,7 @@
 | Elastic Database Tools | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/azure-elasticdb-tools/1.0.0/jar/) |  |  |
 | Event Hubs Library | Maven [0.53.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-eventhubs-lib/0.53.0/jar/) |  |  |
 | kusto-log4j-appender | Maven [2.0.3](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-log4j-appender/2.0.3/jar/) |  |  |
-| Schema Registry - Kafka Avro | Maven [1.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.1.1/jar/) |  |  |
+| Schema Registry - Kafka Avro | Maven [1.1.2](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.1.2/jar/) |  |  |
 | Service Bus - JMS | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.2/jar/) |  |  |
 | Service Bus - JMS Connection Factory | Maven [0.0.1](https://search.maven.org/artifact/com.microsoft.azure/service-bus-jms-connection-factory/0.0.1/jar/) |  |  |
 | Service Fabric | Maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-sfmesh-maven-plugin/0.1.0/jar/) |  |  |
