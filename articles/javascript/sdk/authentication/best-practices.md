@@ -11,7 +11,7 @@ This article offers guidelines to help you maximize the performance and reliabil
 
 ## Use deterministic credentials in production environments
 
-[`DefaultAzureCredential`](/javascript/api/%40azure/identity/defaultazurecredential) is the most approachable way to get started with the Azure Identity library, but that convenience also introduces certain tradeoffs. Most notably, the specific credential in the chain that will succeed and be used for request authentication can't be guaranteed ahead of time. In a production environment, this unpredictability can introduce significant and sometimes subtle problems.
+[`DefaultAzureCredential`](/azure/developer/javascript/sdk/authentication/credential-chains#use-defaultazurecredential-for-flexibility) is the most approachable way to get started with the Azure Identity library, but that convenience also introduces certain tradeoffs. Most notably, the specific credential in the chain that will succeed and be used for request authentication can't be guaranteed ahead of time. In a production environment, this unpredictability can introduce significant and sometimes subtle problems.
 
 For example, consider the following hypothetical sequence of events:
 
@@ -22,7 +22,7 @@ For example, consider the following hypothetical sequence of events:
 1. `DefaultAzureCredential` skips the failed `ManagedIdentityCredential` and searches for the next available credential, which is `AzureCliCredential`.
 1. The application starts utilizing the Azure CLI credentials rather than the managed identity, which may fail or result in unexpected elevation or reduction of privileges.
 
-To prevent these types of subtle issues or silent failures in production apps, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`. See the [Identity client library documentation](/javascript/api/%40azure/identity/defaultazurecredential) for available options.
+To prevent these types of subtle issues or silent failures in production apps, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`. See the [Azure Identity client library documentation](/javascript/api/%40azure/identity/defaultazurecredential) for available options.
 
 For example, consider the following `DefaultAzureCredential` configuration in an Express.js project:
 
@@ -320,7 +320,7 @@ To only call `TokenCredential.getToken()` when necessary, observe the `refreshAf
 The Azure Identity library for JavaScript allows you to authenticate via managed identity with `ManagedIdentityCredential`. The way in which you use `ManagedIdentityCredential` impacts the applied retry strategy:
 
 - When used via `DefaultAzureCredential`, no retries are attempted when the initial token acquisition attempt fails or times out after a short duration. This is the least resilient option because it's optimized to "fail fast" for an efficient development inner loop.
-- Any other approach, such as ChainedTokenCredential or ManagedIdentityCredential directly:
+- Any other approach, such as `ChainedTokenCredential` or `ManagedIdentityCredential` directly:
   - The time interval between retries starts at 0.8 seconds, and a maximum of five retries are attempted, by default. This option is optimized for resilience but introduces potentially unwanted delays in the development inner loop.
   - To change any of the default retry settings, use the [retryOptions](/javascript/api/%40azure/core-rest-pipeline/pipelineretryoptions) property on options parameter. For example, retry a maximum of three times, with a starting interval of 0.5 seconds:
 
@@ -360,7 +360,8 @@ const credential = new ManagedIdentityCredential(
 
 ---
 
-For more information on customizing retry policies in Azure SDK for JavaScript, see one of the following options objects:
+For more information on customizing retry policies, see one of the following options objects:
+
 * [ManagedIdentityCredentialClientIdOptions](/javascript/api/%40azure/identity/managedidentitycredentialclientidoptions)
 * [ManagedIdentityCredentialObjectIdOptions](/javascript/api/@azure/identity/managedidentitycredentialobjectidoptions)
 * [ManagedIdentityCredentialResourceIdOptions](/javascript/api/@azure/identity/managedidentitycredentialresourceidoptions)
