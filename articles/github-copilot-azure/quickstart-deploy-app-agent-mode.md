@@ -47,14 +47,14 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    Help me deploy my project to Azure
    ```
 
-   Copilot Agent analyzes our project, recommend Azure services, and generate Bicep files. You might see a response like the following example. 
+   Copilot Agent analyzes the project, recommend Azure services, and generate Bicep files. You might see a response like the following example. 
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/recommend-resources.png" alt-text="Screenshot of the GitHub Copilot chat pane evaluating your project to recommend resources.":::
 
    > [!IMPORTANT]
-   > The exact wording of the response is different each time GitHub Copilot for Azure answers, due to how large language models generate responses.
+   > Each time GitHub Copilot for Azure answers the prompt the response's wording will be different due to how large language models (LLMs) generate responses. It is possible your experience may vary from this article. Take the time to read GitHub Copilot's responses and choose the correct course of action. If you're unsure how to proceed, ask GitHub Copilot what it intends to do and why.
 
-   Select **Continue** and Copilot Agent finishes analyzing our project and starts to generate the necessary files. You might see a response like the following example. 
+   Select **Continue** and Copilot Agent finishes analyzing the project and starts to generate the necessary files. You might see a response like the following example. 
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/generate-bicep-directory.png" alt-text="Screenshot of the GitHub Copilot chat pane creating a directory for the bicep files.":::
 
@@ -65,12 +65,12 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
 ### Deploy your application
 
-1. With the Bicep deployment files generated, now we can deploy our application. Continuing with the flow above, Copilot agent wants to run a pre-deployment check. 
+1. Next, Copilot agent wants to run a pre-deployment check.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/pre-deployment-check.png" alt-text="Screenshot of the GitHub Copilot chat pane checking files and local environment to ensure they're ready for azd up.":::
 
 
-1. Select **Continue** and Copilot agent checks if our app is ready to deploy with AZD. If there’s an issue, Copilot agent will fix it and check again, like in the following example. 
+1. Select **Continue** and Copilot agent checks if the app is ready to deploy with `azd`. If there’s an issue, Copilot agent will fix it and check again, like in the following example. 
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/pre-deployment-issues.png" alt-text="Screenshot of the GitHub Copilot chat pane checking files fixing issues before running azd up.":::
 
@@ -91,7 +91,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/upgrade-dotnet.png" alt-text="Screenshot of the GitHub Copilot chat pane informing about the need to upgrade to .NET 8.":::
    
 
-1. Select **Continue**. Copilot agent deploys our app successfully. You might see a response like the following example. 
+1. Select **Continue**. Copilot agent deploys the app successfully. You might see a response like the following example. 
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/upgrade-dotnet.png" alt-text="Screenshot of the GitHub Copilot chat pane informing about deployment success and next steps.":::
 
