@@ -261,7 +261,7 @@ Next, download the certificate needed to communicate over TSL/SSL with your Azur
 
 Finally, run the code:
 
-```cmd
+```console
 python use_db.py
 ```
 
