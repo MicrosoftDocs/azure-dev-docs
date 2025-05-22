@@ -99,15 +99,15 @@ conceptualContent:
 
     - title: Migrate to Azure
       links:
+        - text: GitHub Copilot App Modernization for Java
+          itemType: overview
+          url: migration/migrate-github-copilot-app-modernization-for-java.md
         - text: Spring to Azure Container Apps
           itemType: how-to-guide
           url: migration/migrate-spring-boot-to-azure-container-apps.md
         - text: Tomcat to Azure App Service
           itemType: how-to-guide
           url: migration/migrate-tomcat-to-tomcat-app-service.md
-        - text: WebLogic to Azure Virtual Machines
-          itemType: how-to-guide
-          url: migration/migrate-weblogic-to-virtual-machines.md
       footerLink:
         text: See more
         url: migration/index.yml
@@ -268,9 +268,6 @@ tools:
     - title: Azure Toolkit for Eclipse
       imageSrc: /media/logos/logo_eclipse.svg
       url: toolkit-for-eclipse/index.yml
-    - title: Eclipse Microprofile
-      imageSrc: /media/logos/logo_eclipse.svg
-      url: eclipse-microprofile/index.yml
     - title: Maven
       imageSrc: /media/logos/logo_maven.svg
       url: https://github.com/Microsoft/azure-maven-plugins#readme

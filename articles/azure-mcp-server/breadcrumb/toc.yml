@@ -1,0 +1,12 @@
+items:
+- name: Azure
+  tocHref: /azure/index
+  topicHref: /azure/index
+  items:
+  - name: Developer
+    tocHref: /azure/developer
+    topicHref: /azure/developer/index
+    items:
+    - name: Azure MCP Server
+      tocHref: /azure
+      topicHref: /azure/developer/azure-mcp-server/TOC

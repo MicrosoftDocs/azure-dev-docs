@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 04/28/2025
+ms.date: 05/16/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -10,13 +10,21 @@ ms.service: azure
 
 Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
-### Libraries and samples
+### Libraries
 
 |Link|Description|
 |---|---|
 |[Azure OpenAI SDK for .NET](https://aka.ms/oai/net/sdk)|The GitHub source version of the Azure OpenAI client library for .NET is an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem. It can connect to Azure OpenAI resources or to the non-Azure OpenAI inference endpoint, making it a great choice for even non-Azure OpenAI development.|
 |[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all Azure OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
 |[Azure.AI.OpenAI NuGet package](https://aka.ms/oai/net/nuget)|The NuGet version of the Azure OpenAI client library for .NET.|
+
+### Samples
+
+|Link|Description|
+|---|---|
+|[.NET OpenAI MCP Agent](https://github.com/Azure-Samples/openai-mcp-agent-dotnet)|This sample is an MCP agent app written in .NET, using Azure OpenAI, with a remote MCP server written in TypeScript.|
+|[AI Travel Agents](https://github.com/Azure-Samples/azure-ai-travel-agents)|The **AI Travel Agents** is a robust enterprise application that leverages multiple AI agents to enhance travel agency operations. The application demonstrates how six AI agents collaborate to assist employees in handling customer queries, providing destination recommendations, and planning itineraries.|
+|[deepseek-dotnet](https://github.com/Azure-Samples/deepseek-dotnet)|This is a sample chat demo that showcases the capabilities of DeepSeek-R1.|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)|A collection of 10 samples that demonstrate how to use the Azure OpenAI client library for .NET to chat, stream replies, use your own data, transcribe/translate audio, generate images, etc.|
 |Streaming Chat Completions|A deep link to the samples demonstrating streaming completions.|

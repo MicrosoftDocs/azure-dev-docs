@@ -7,6 +7,7 @@ ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 01/26/2024
+ms.subservice: intelligent-apps
 ms.collection: ce-skilling-ai-copilot
 ---
 

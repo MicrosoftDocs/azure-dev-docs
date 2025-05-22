@@ -1,20 +1,18 @@
 ---
 title: Create Azure Storage with the Azure libraries for Python
 description: Use the Azure SDK for Python libraries to create a blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 01/16/2024
+ms.date: 05/20/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Create Azure Storage using the Azure libraries for Python
 
-In this article, you learn how to use the Azure management libraries in a Python script to create a resource group that contains an Azure Storage account and a Blob storage container.
+In this article, you’ll learn how to use the Azure management libraries for Python to create a resource group, along with an Azure Storage account and a Blob storage container.
 
-After creating the resources, see [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use the Azure client libraries in Python application code to upload a file to the Blob storage container.
+After provisioning these resources, refer to the section [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to see how to use the Azure client libraries in Python to upload a file to the Blob container.
 
-All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
-
-The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are listed later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).
+The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) for bash and PowerShell are listed later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 ## 1: Set up your local development environment
 
@@ -24,11 +22,11 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 ## 2: Install the needed Azure library packages
 
-1. Create a *requirements.txt* file that lists the management libraries used in this example:
+1. In your console, create a *requirements.txt* file that lists the management libraries used in this example:
 
     :::code language="txt" source="~/../python-sdk-docs-examples/storage/requirements_provision.txt":::
 
-1. In your terminal with the virtual environment activated, install the requirements:
+1. In your console with the virtual environment activated, install the requirements:
 
     ```console
     pip install -r requirements.txt
@@ -36,15 +34,17 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 ## 3: Write code to create storage resources
 
-Create a Python file named *provision_blob.py* with the following code. The comments explain the details. The script reads your subscription ID from an environment variable, `AZURE_SUBSCRIPTION_ID`. You set this variable in a later step. The resource group name, location, storage account name, and container name are all defined as constants in the code.
+Create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python. The resource group name, location, storage account name, and container name are all defined as constants in the code. It reads the subscription ID from the environment variable `AZURE_SUBSCRIPTION_ID` that you set in a later step.
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create resource groups and storage resources in your Azure subscription, the code will run successfully.
+Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has the necessary permissions to create resource groups and storage resources within your Azure subscription, the script will execute successfully without requiring any additional configuration.
 
-To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create resource groups and storage resources in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
+To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+
+Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
 ### Reference links for classes used in the code
 
@@ -62,16 +62,20 @@ To use such code in a production script, you can set environment variables to us
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-    # [cmd](#tab/cmd)
+    # [Bash](#tab/bash)
 
-    ```cmd
-    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```console
+    #!/bin/bash
+    AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    export AZURE_SUBSCRIPTION_ID
     ```
 
-    # [bash](#tab/bash)
+    # [PowerShell](#tab/powershell)
 
-    ```bash
-    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```console
+    # PowerShell syntax
+    $AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    $env:AZURE_SUBSCRIPTION_ID = $AZURE_SUBSCRIPTION_ID
     ```
 
     ---
@@ -82,7 +86,7 @@ To use such code in a production script, you can set environment variables to us
     python provision_blob.py
     ```
 
-The script will take a minute or two to complete.
+The script takes a minute or two to complete.
 
 ## 5: Verify the resources
 
@@ -96,19 +100,51 @@ The script will take a minute or two to complete.
 
 1. If you want to try using these resources from application code, continue with [Example: Use Azure Storage](azure-sdk-example-storage-use.md).
 
-For an additional example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/azure-samples-python-management/storage/).
+For another example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/azure-samples-python-management/storage/).
 
 ### For reference: equivalent Azure CLI commands
 
 The following Azure CLI commands complete the same creation steps as the Python script:
 
-# [cmd](#tab/cmd)
-
-:::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.cmd":::
-
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/storage/provision.sh":::
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+
+# Provision the resource group
+az group create -n "PythonAzureExample-Storage-rg" -l "centralus"
+
+# Generate a unique storage account name
+$randomSuffix = (Get-Random -Maximum 999999).ToString("X6").ToLower()
+$ACCOUNT_NAME = "pythonazurestorage$randomSuffix"
+
+# Provision the storage account
+az storage account create `
+  -g "PythonAzureExample-Storage-rg" `
+  -l "centralus" `
+  -n $ACCOUNT_NAME `
+  --kind StorageV2 `
+  --sku Standard_LRS
+
+# Retrieve the connection string
+Write-Output "Storage account name is $ACCOUNT_NAME"
+
+$CONNECTION_STRING = az storage account show-connection-string `
+  -g "PythonAzureExample-Storage-rg" `
+  -n $ACCOUNT_NAME `
+  --query connectionString `
+  -o tsv
+
+# Provision the blob container
+az storage container create `
+  --name "blob-container-01" `
+  --account-name $ACCOUNT_NAME `
+  --connection-string $CONNECTION_STRING
+
+```
 
 ---
 

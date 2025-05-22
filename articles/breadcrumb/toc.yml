@@ -16,6 +16,9 @@ items:
     - name: Chef
       tocHref: /azure/developer/chef
       topicHref: /azure/developer/chef/index
+    - name: C++
+      tocHref: /azure/developer/cpp
+      topicHref: /azure/developer/cpp/index
     - name: GitHub
       tocHref: /azure/developer/github
       topicHref: /azure/developer/github/index
@@ -43,3 +46,12 @@ items:
     - name: Dev Tunnels CLI
       tocHref: /azure/developer/dev-tunnels
       topicHref: /azure/developer/dev-tunnels/index
+    - name: GitHub Copilot for Azure
+      tocHref: /azure/developer/github-copilot-azure
+      topicHref: /azure/developer/github-copilot-azure/index
+    - name: TypeSpec
+      tocHref: /azure/developer/typespec
+      topicHref: /azure/developer/typespec/index
+    - name: Azure MCP Server
+      tocHref: /azure/developer/azure-mcp-server
+      topicHref: /azure/developer/azure-mcp-server/index
