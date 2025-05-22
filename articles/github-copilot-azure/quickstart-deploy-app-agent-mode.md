@@ -56,7 +56,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
    Select **Continue** and Copilot Agent finishes analyzing our project and starts to generate the necessary files. You might see a response like the following example. 
 
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/generate-bicep.png" alt-text="Screenshot of the GitHub Copilot chat pane creating a directory for the bicep files.":::
+   :::image type="content" source="media/quickstart-deploy-app-agent-mode/generate-bicep-directory.png" alt-text="Screenshot of the GitHub Copilot chat pane creating a directory for the bicep files.":::
 
 
    Select **Continue** and Copilot will generate the necessary files for deployment. You might see a few files generated in the project and a response like the following example. 
