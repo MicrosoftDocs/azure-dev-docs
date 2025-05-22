@@ -19,11 +19,14 @@ In code development, enterprises often have different processes and controls to 
 
 ## Prerequisites
 
-- The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
+- [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions
+  > - GitHub Copilot App Modernization for Java (preview)
+  > - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
-- GitHub Copilot App Modernization for Java (preview). For install instructions, see [Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md). Install this tool and add the required configuration.
+- Appropriate version of Java and Maven to build your Java project.
 
 ## Create a custom formula
 
