@@ -9,19 +9,27 @@ items:
       items:
         - name: Overview
           href: tools/index.md
-        - name: App Configuration
+        - name: Azure AI Search
+          href: tools/ai-search.md
+        - name: Azure App Configuration
           href: tools/app-configuration.md
         - name: Azure CLI Extension
           href: tools/azure-cli-extension.md
-        - name: Cosmos DB
+        - name: Azure Data Explorer with Kusto
+          href: tools/kusto.md
+        - name: Azure DB for PostgreSQL
+          href: tools/postgresql.md
+        - name: Azure Cosmos DB
           href: tools/cosmos-db.md
-        - name: Key Vault
+        - name: Azure Key Vault 
           href: tools/key-vault-key.md
         - name: Azure Monitor
           href: tools/monitor.md
+        - name: Azure Service Bus
+          href: tools/service-bus.md
+        - name: Azure Storage
+          href: tools/storage.md
         - name: Resource Group
           href: tools/resource-group.md
-        - name: Service Bus
-          href: tools/service-bus.md
-        - name: Storage
-          href: tools/storage.md
+        - name: Subscription
+          href: tools/subscription.md
