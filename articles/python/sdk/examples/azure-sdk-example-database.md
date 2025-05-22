@@ -47,7 +47,7 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
 
-# [Bash](#tab/bash)
+   # [Bash](#tab/bash)
 
     ```console
     #!/bin/bash
@@ -63,8 +63,8 @@ In this step, you set environment variables for use in the code in this article.
     export version=ServerVersion.EIGHT0_21
 
     ```
-
-# [PowerShell](#tab/powershell)
+    
+  # [PowerShell](#tab/powershell)
 
     ```console
     # PowerShell syntax
@@ -81,7 +81,7 @@ In this step, you set environment variables for use in the code in this article.
     ```
 
     ---
-
+    
 ## 4: Write code to create the database
 
 Create a Python file named *provision_db.py* with the following code. The comments explain the details.
