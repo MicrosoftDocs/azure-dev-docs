@@ -1,4 +1,6 @@
 ---
+author: rotabor
+ms.service: github-copilot-for-azure
 ms.topic: include
 ms.date: 05/14/2025
 ---

@@ -93,7 +93,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
 1. Select **Continue**. Copilot agent deploys the app successfully. You might see a response like the following example. 
 
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/upgrade-dotnet.png" alt-text="Screenshot of the GitHub Copilot chat pane informing about deployment success and next steps.":::
+   :::image type="content" source="media/quickstart-deploy-app-agent-mode/deployment-success.png" alt-text="Screenshot of the GitHub Copilot chat pane informing about deployment success and next steps.":::
 
 
 1. If any errors were encountered during the deployment process, Copilot agent mode can also fix the errors and redeploy the application.
