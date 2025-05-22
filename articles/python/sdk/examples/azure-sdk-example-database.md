@@ -64,14 +64,14 @@ In this step, you set environment variables for use in the code in this article.
 
     ```
 
-    # [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell)
 
     ```console
     # PowerShell syntax
     $env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$(Get-Random -Maximum 10000)"
     $env:LOCATION = "southcentralus" # Change to your preferred region
     $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
-    $env:PUBLIC_IP_ADDRESS = 1921.168.0.1 # Replace with your public IP address. For this sample, use your workstation's IP address. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP public address.
+    $env:PUBLIC_IP_ADDRESS = $(curl -s https://api.ipify.org)
     $env:DB_SERVER_NAME = "python-azure-example-mysql-$(Get-Random -Maximum 100000)"
     $env:DB_ADMIN_NAME = "azureuser"
     $env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
