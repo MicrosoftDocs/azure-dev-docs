@@ -43,9 +43,26 @@ If you haven't already, set up an environment where you can run the code. Here a
 > [!NOTE]
 > On Windows, attempting to install the mysql library into a 32-bit Python library produces an error about the *mysql.h* file. In this case, install a 64-bit version of Python and try again.
 
-## 3: Write code to create the database
+## 3. Set environment variables
 
-Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`. The latter variable is your workstation's IP address for this sample to run. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP address.
+In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
+
+```bash
+#!/bin/bash
+export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
+export LOCATION="southcentralus" # Change to your preferred region
+export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+export PUBLIC_IP_ADDRESS=192.168.0.1 # Replace with your public IP address. For this sample, use your workstation's IP address. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP public address.
+export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
+export DB_ADMIN_NAME=azureuser
+export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
+export DB_NAME=example-db1
+export DB_PORT=3306
+```
+
+## 4: Write code to create the database
+
+Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`. The latter 
 
 ```Python
 import random, os
@@ -60,10 +77,9 @@ credential = DefaultAzureCredential()
 # Retrieve subscription ID from environment variable
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
-# Constants we need in multiple places: the resource group name and the region
-# in which we provision resources. You can change these values however you want.
-RESOURCE_GROUP_NAME = 'PythonAzureExample-DB-rg'
-LOCATION = "southcentralus"
+# Retrieve resource group name and location from environment variables
+RESOURCE_GROUP_NAME = os.environ["RESOURCE_GROUP_NAME"]
+LOCATION = os.environ["LOCATION"]
 
 # Step 1: Provision the resource group.
 resource_client = ResourceManagementClient(credential, subscription_id)
@@ -79,15 +95,11 @@ print(f"Provisioned resource group {rg_result.name}")
 
 # Step 2: Provision the database server
 
-# We use a random number to create a reasonably unique database server name.
-# If you've already provisioned a database and need to re-run the script, set
-# the DB_SERVER_NAME environment variable to that name instead.
-#
-# Also set DB_USER_NAME and DB_USER_PASSWORD variables to avoid using the defaults.
+# Retrieve server name, admin name, and admin password from environment variables
 
-db_server_name = os.environ.get("DB_SERVER_NAME", f"python-azure-example-mysql-{random.randint(1,100000):05}")
-db_admin_name = os.environ.get("DB_ADMIN_NAME", "azureuser")
-db_admin_password = os.environ.get("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
+db_server_name = os.environ.get("DB_SERVER_NAME")
+db_admin_name = os.environ.get("DB_ADMIN_NAME")
+db_admin_password = os.environ.get("DB_ADMIN_PASSWORD")
 
 # Obtain the management client object
 mysql_client = MySQLManagementClient(credential, subscription_id)
@@ -99,7 +111,7 @@ poller = mysql_client.servers.begin_create(RESOURCE_GROUP_NAME,
         location=LOCATION,
         administrator_login=db_admin_name,
         administrator_login_password=db_admin_password,
-        version=ServerVersion.FIVE7
+        version=ServerVersion.EIGHT0
     )
 )
 
@@ -156,7 +168,7 @@ For PostreSQL database server, see:
 
 - [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient)
 
-## 4: Run the script
+## 5: Run the script
 
 1. If you haven't already, sign in to Azure using the Azure CLI:
 
@@ -195,7 +207,7 @@ For PostreSQL database server, see:
     python provision_db.py
     ```
 
-## 5: Insert a record and query the database
+## 6: Insert a record and query the database
 
 Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables. You get these values from the output of running the previous code *provision_db.py* or in the code itself.
 
@@ -206,11 +218,11 @@ import os
 import mysql.connector
 
 db_server_name = os.environ["DB_SERVER_NAME"]
-db_admin_name = os.getenv("DB_ADMIN_NAME", "azureuser")
-db_admin_password = os.getenv("DB_ADMIN_PASSWORD", "ChangePa$$w0rd24")
+db_admin_name = os.getenv("DB_ADMIN_NAME")
+db_admin_password = os.getenv("DB_ADMIN_PASSWORD")
 
-db_name = os.getenv("DB_NAME", "example-db1")
-db_port = os.getenv("DB_PORT", 3306)
+db_name = os.getenv("DB_NAME")
+db_port = os.getenv("DB_PORT")
 
 connection = mysql.connector.connect(user=db_admin_name,
     password=db_admin_password, host=f"{db_server_name}.mysql.database.azure.com",
