@@ -12,12 +12,14 @@ metadata:
 
 landingContent:
   # Card
-  - title: Get started with Azure MCP Server
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
           - text: What is the Azure MCP Server (Preview)?
             url: overview.md
+      - linkListType: get-started
+        links:
           - text: Get started with GitHub Copilot with Visual Studio Code
             url: get-started.md?pivots=mcp-github-copilot
           - text: Get started with .NET
@@ -27,10 +29,12 @@ landingContent:
   
   - title: Azure MCP Server tools
     linkLists:
-      - linkListType: reference
+      - linkListType: overview
         links:
           - text: Overview
             url: tools/index.md
+      - linkListType: reference
+        links:
           - text: Azure AI Search
             url: tools/ai-search.md
           - text: Azure App Configuration
