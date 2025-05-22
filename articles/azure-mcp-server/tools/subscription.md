@@ -31,3 +31,7 @@ The Azure MCP Server can list all subscriptions.
 | Parameter       | Required or optional | Description                                                                 |
 |-----------------|-------------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required          | The name or ID of the user subscription.            |
+
+## Related servers
+
+* [Resource group](resource-group.md)
