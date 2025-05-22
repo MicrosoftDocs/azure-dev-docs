@@ -1,5 +1,5 @@
 ---
-title: Authentication Best Practices With The Azure Identity Library For JavaScript
+title: Authentication best practices with the Azure Identity library for JavaScript
 description: This article describes authentication best practices to follow when using the Azure Identity library for JavaScript.
 ms.topic: concept-article
 ms.date: 05/01/2025
