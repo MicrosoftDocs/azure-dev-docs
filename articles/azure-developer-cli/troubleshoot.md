@@ -5,7 +5,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 9/14/2024
+ms.date: 05/22/2025
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023, devx-track-extended-java, devx-track-python
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
@@ -258,6 +258,25 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 3. After logging in, rerun `azd pipeline config`.
 
 ---
+
+## Cached Dockerfile used instead of current Dockerfile
+
+When using `azd` in your local development environment with Docker, Docker may use the cached version of your Dockerfile instead of the current version. This results in the deployment using a container with incorrect information. 
+
+### Solution
+
+To configure your local Docker installation, which is used by Azure Developer CLI to build the container, you need to configure Docker with the following environment variables:
+
+```console
+DOCKER_BUILDKIT=1
+DOCKER_BUILD_ARGS="--no-cache"
+```
+
+You can change your `azd up` to include these settings: 
+
+```console
+DOCKER_BUILDKIT=1 DOCKER_BUILD_ARGS="--no-cache" azd up
+```
 
 ## `azd pipeline config` support
 
