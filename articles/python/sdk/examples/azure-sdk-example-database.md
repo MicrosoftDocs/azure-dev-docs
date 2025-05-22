@@ -54,7 +54,7 @@ In this step, you set environment variables for use in the code in this article.
     export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
     export LOCATION="southcentralus" # Change to your preferred region
     export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    export PUBLIC_IP=$(curl -s https://api.ipify.org)
+    export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
     export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
     export DB_ADMIN_NAME=azureuser
     export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
@@ -84,7 +84,7 @@ In this step, you set environment variables for use in the code in this article.
 
 ## 4: Write code to create the database
 
-Create a Python file named *provision_db.py* with the following code. The comments explain the details. In particular, specify environment variables for `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS`. The latter 
+Create a Python file named *provision_db.py* with the following code. The comments explain the details.
 
 ```Python
 import random, os
@@ -207,77 +207,104 @@ For PostreSQL database server, see:
 
 ## 6: Insert a record and query the database
 
-Create a file named *use_db.py* with the following code.
+In this step, you create a table in the database and insert a record. You can use the mysql-connector library to connect to the database and run SQL commands.
 
-This code works only for MySQL; you use different libraries for PostgreSQL.
+1. Create a file named *use_db.py* with the following code.
 
-```Python
-import os
-import mysql.connector
-
-db_server_name = os.environ["DB_SERVER_NAME"]
-db_admin_name = os.getenv("DB_ADMIN_NAME")
-db_admin_password = os.getenv("DB_ADMIN_PASSWORD")
-
-db_name = os.getenv("DB_NAME")
-db_port = os.getenv("DB_PORT")
-
-connection = mysql.connector.connect(user=db_admin_name,
-    password=db_admin_password, host=f"{db_server_name}.mysql.database.azure.com",
-    port=db_port, database=db_name, ssl_ca='./BaltimoreCyberTrustRoot.crt.pem')
-
-cursor = connection.cursor()
-
-"""
-# Alternate pyodbc connection; include pyodbc in requirements.txt
-import pyodbc
-
-driver = "{MySQL ODBC 5.3 UNICODE Driver}"
-
-connect_string = f"DRIVER={driver};PORT=3306;SERVER={db_server_name}.mysql.database.azure.com;" \
-                 f"DATABASE={DB_NAME};UID={db_admin_name};PWD={db_admin_password}"
-
-connection = pyodbc.connect(connect_string)
-"""
-
-table_name = "ExampleTable1"
-
-sql_create = f"CREATE TABLE {table_name} (name varchar(255), code int)"
-
-cursor.execute(sql_create)
-print(f"Successfully created table {table_name}")
-
-sql_insert = f"INSERT INTO {table_name} (name, code) VALUES ('Azure', 1)"
-insert_data = "('Azure', 1)"
-
-cursor.execute(sql_insert)
-print("Successfully inserted data into table")
-
-sql_select_values= f"SELECT * FROM {table_name}"
-
-cursor.execute(sql_select_values)
-row = cursor.fetchone()
-
-while row:
-    print(str(row[0]) + " " + str(row[1]))
+    This code works only for MySQL; you use different libraries for PostgreSQL.
+    
+    ```Python
+    import os
+    import mysql.connector
+    
+    db_server_name = os.environ["DB_SERVER_NAME"]
+    db_admin_name = os.getenv("DB_ADMIN_NAME")
+    db_admin_password = os.getenv("DB_ADMIN_PASSWORD")
+    
+    db_name = os.getenv("DB_NAME")
+    db_port = os.getenv("DB_PORT")
+    
+    connection = mysql.connector.connect(user=db_admin_name,
+        password=db_admin_password, host=f"{db_server_name}.mysql.database.azure.com",
+        port=db_port, database=db_name, ssl_ca='./BaltimoreCyberTrustRoot.crt.pem')
+    
+    cursor = connection.cursor()
+    
+    """
+    # Alternate pyodbc connection; include pyodbc in requirements.txt
+    import pyodbc
+    
+    driver = "{MySQL ODBC 5.3 UNICODE Driver}"
+    
+    connect_string = f"DRIVER={driver};PORT=3306;SERVER={db_server_name}.mysql.database.azure.com;" \
+                     f"DATABASE={DB_NAME};UID={db_admin_name};PWD={db_admin_password}"
+    
+    connection = pyodbc.connect(connect_string)
+    """
+    
+    table_name = "ExampleTable1"
+    
+    sql_create = f"CREATE TABLE {table_name} (name varchar(255), code int)"
+    
+    cursor.execute(sql_create)
+    print(f"Successfully created table {table_name}")
+    
+    sql_insert = f"INSERT INTO {table_name} (name, code) VALUES ('Azure', 1)"
+    insert_data = "('Azure', 1)"
+    
+    cursor.execute(sql_insert)
+    print("Successfully inserted data into table")
+    
+    sql_select_values= f"SELECT * FROM {table_name}"
+    
+    cursor.execute(sql_select_values)
     row = cursor.fetchone()
+    
+    while row:
+        print(str(row[0]) + " " + str(row[1]))
+        row = cursor.fetchone()
+    
+    connection.commit()
+    ```
 
-connection.commit()
-```
+    All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
+2. Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
 
-Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
+    # [Bash](#tab/bash)
+    
+    ```console
+    # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
+    CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
+    CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
+    echo "Downloading SSL certificate..."
+    curl -o "$CERT_FILE" "$CERT_URL"
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```console
+    # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
+    CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
+    CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
+    echo "Downloading SSL certificate..."
+    Invoke-WebRequest -Uri $CERT_URL -OutFile $CERT_FILE
+    ```
+    
+    ---
+    
 
-Finally, run the code:
+    from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
+    
+1. Finally, run the code:
 
-```console
-python use_db.py
-```
-
+    ```console
+    python use_db.py
+    ```
+    
 If you see an error that your client IP address isn't allowed, check that you defined the environment variable `PUBLIC_IP_ADDRESS` correctly. If you already created the MySQL server with the wrong IP address, you can add another in the [Azure portal](https://portal.azure.com/). In the portal, select the MySQL server, and then select **Connection security**. Add the IP address of your workstation to the list of allowed IP addresses.
 
-## 6: Clean up resources
+## 7: Clean up resources
 
  Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
 
