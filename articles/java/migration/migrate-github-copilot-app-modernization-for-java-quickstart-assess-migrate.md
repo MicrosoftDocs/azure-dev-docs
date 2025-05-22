@@ -20,16 +20,12 @@ This quickstart shows you how to use GitHub Copilot App Modernization for Java (
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot App Modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). See the next section for install instructions.
-
-  > [!NOTE]
-  > You can optionally install the [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions:
-  >
+- [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions
   > - GitHub Copilot App Modernization for Java (preview)
   > - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
-
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
-
+- Appropriate version of Java and Maven to build your Java project.
+  
 ## Sign in to use Copilot and then install App Modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
