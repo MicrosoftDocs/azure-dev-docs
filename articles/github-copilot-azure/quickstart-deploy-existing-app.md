@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Deploy your existing project to Azure with GitHub Copilot for Azure
-description: This article walks through a scenario that shows how to use GitHub Copilot for Azure to ask for recommended services and generate the necessary Bicep files to deploy the existing application to Azure using those recommendations.
+description: This article walks through a scenario that shows how to use GitHub Copilot for Azure to deploy an existing website. You ask Copilot to recommended Azure services and generate the necessary Bicep files to deploy the existing application to Azure using those recommendations.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
@@ -14,7 +14,7 @@ This quickstart guides you in using GitHub Copilot for Azure to bring your exist
 
 GitHub Copilot for Azure supports two modes:
 
-- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn. It may provide instructions or even source code, but you'll take action or edit files yourself.
+- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn. It might provide instructions or even source code, but you take action or edit files yourself.
 - **Agent mode** allows you to command GitHub Copilot to take action in your project, including creating and editing files, executing commands in the terminal window, and so on.
  
 ## Prerequisites 
