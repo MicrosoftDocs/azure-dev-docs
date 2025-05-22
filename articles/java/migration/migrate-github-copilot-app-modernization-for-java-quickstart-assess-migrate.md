@@ -46,24 +46,6 @@ After installation completes, you should see a notification in the corner of Vis
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
 
-## Configure
-
-Use the following steps to configure Visual Studio Code:
-
-1. In Visual Studio Code, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and then select **Preferences: Configure Runtime Arguments**.
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/configure-runtime-arguments.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/configure-runtime-arguments.png" alt-text="Screenshot of the Visual Studio Code dialog box that shows Preferences: Configure Runtime Arguments.":::
-
-1. Add the following JSON snippet into the editor and then save:
-
-   ```json
-   "enable-proposed-api": ["Microsoft.migrate-java-to-azure"],
-   ```
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/config-api-for-extension.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/config-api-for-extension.png" alt-text="Screenshot of the Visual Studio Code editor that shows the JSON configuration file with the enable-proposed-api line highlighted.":::
-
-1. Restart Visual Studio Code.
-
 ## Assess cloud readiness
 
 Use the following steps to start your migration process with solution assessment. This assessment helps you understand what your cloud readiness challenges are and how impactful they are, provides recommended solutions. A solution recommendation includes references to set up Azure resources, add configurations, and make code changes.
