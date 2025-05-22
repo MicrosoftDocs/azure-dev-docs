@@ -23,7 +23,7 @@ This quickstart shows you how to use GitHub Copilot App Modernization for Java (
 - [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions
   - GitHub Copilot App Modernization for Java (preview)
   - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
-  App Modernization for Java doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](https://learn.microsoft.com/en-us/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
+  App Modernization for Java doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 - [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
