@@ -27,7 +27,7 @@ The Azure MCP Server can list all databases in a PostgreSQL server.
 
 - **List databases**: "Show me all databases in my PostgreSQL server."
 - **View databases**: "What databases do I have in my PostgreSQL server?"
-- **Check databases**: "List all PostgreSQL databases in server 'my-pg-server'."
+- **Check databases**: "Check that I have a database named 'xyz' in server 'my-pg-server'."
 - **Query databases**: "Show databases in PostgreSQL server in resource group 'my-rg'."
 - **Find databases**: "Get all databases from my PostgreSQL instance."
 
@@ -67,7 +67,7 @@ The Azure MCP Server can list all tables in a PostgreSQL database.
 
 - **List tables**: "Show me all tables in my PostgreSQL database."
 - **View tables**: "What tables do I have in my PostgreSQL database?"
-- **Check tables**: "List all tables in PostgreSQL database 'my-db'."
+- **Check tables**: "Check that I have a table named 'xyz' in PostgreSQL database 'my-db'."
 - **Query tables**: "Show tables in PostgreSQL database in server 'my-pg-server'."
 - **Find tables**: "Get all tables from my PostgreSQL database."
 
@@ -87,7 +87,7 @@ The Azure MCP Server can get the schema of a specific table in a PostgreSQL data
 
 - **View schema**: "Show me the schema of the 'users' table in my PostgreSQL database."
 - **Get structure**: "What columns does the 'products' table have in my PostgreSQL database?"
-- **Check schema**: "Describe the 'orders' table in my PostgreSQL database."
+- **Check schema**: "Check if my schema has a not null constraint on the id column."
 - **View columns**: "Show columns and types for 'customers' table in PostgreSQL."
 - **Examine table**: "Get the structure of 'transactions' table in my PostgreSQL database."
 
@@ -108,7 +108,7 @@ The Azure MCP Server can list all PostgreSQL servers in a subscription and resou
 
 - **List servers**: "Show me all PostgreSQL servers in my resource group."
 - **View servers**: "What PostgreSQL servers do I have in resource group 'my-rg'?"
-- **Check servers**: "List all PostgreSQL servers in my subscription."
+- **Check servers**: "Check if my subscription has a server named 'xyz'"
 - **Query servers**: "Show PostgreSQL servers in resource group 'dev-resources'."
 - **Find servers**: "Get all PostgreSQL instances in my environment."
 
@@ -126,7 +126,7 @@ The Azure MCP Server can retrieve the configuration of a PostgreSQL server.
 
 - **View configuration**: "Show me the configuration of my PostgreSQL server."
 - **Get settings**: "What are the settings of my PostgreSQL server 'pg-prod'?"
-- **Check config**: "Retrieve the configuration of PostgreSQL server in resource group 'my-rg'."
+- **Check config**: "Check if my server configuration 'x' is set to 'y'"
 - **View server params**: "Show me all configuration parameters of my PostgreSQL server."
 - **Get server setup**: "What is the configuration of my PostgreSQL instance?"
 
@@ -145,7 +145,7 @@ The Azure MCP Server can retrieve a specific parameter of a PostgreSQL server.
 
 - **View parameter**: "Show me the 'max_connections' parameter of my PostgreSQL server."
 - **Get setting**: "What is the value of 'shared_buffers' in my PostgreSQL server?"
-- **Check parameter**: "Retrieve the 'wal_level' setting of PostgreSQL server 'pg-prod'."
+- **Check parameter**: "Check if my server parameter 'x' is set to 'y'"
 - **View server param**: "Show me the 'work_mem' parameter value in my PostgreSQL server."
 - **Get configuration value**: "What is the 'maintenance_work_mem' set to in my PostgreSQL instance?"
 
