@@ -12,6 +12,10 @@ ms.collection: ce-skilling-ai-copilot
 
 This quickstart guides you in using GitHub Copilot for Azure to bring your existing application to Azure. It demonstrates how GitHub Copilot for Azure helps you create Azure infrastructure with Bicep and deploy your application to Azure. 
 
+GitHub Copilot for Azure supports two modes:
+
+- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn. It may provide instructions or even source code, but you'll take action or edit files yourself.
+- **Agent mode** allows you to command GitHub Copilot to take action in your project, including creating and editing files, executing commands in the terminal window, and so on.
  
 ## Prerequisites 
 
