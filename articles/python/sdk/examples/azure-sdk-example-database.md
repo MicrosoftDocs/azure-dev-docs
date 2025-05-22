@@ -47,18 +47,40 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
 
-```bash
-#!/bin/bash
-export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
-export LOCATION="southcentralus" # Change to your preferred region
-export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-export PUBLIC_IP_ADDRESS=192.168.0.1 # Replace with your public IP address. For this sample, use your workstation's IP address. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP public address.
-export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
-export DB_ADMIN_NAME=azureuser
-export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
-export DB_NAME=example-db1
-export DB_PORT=3306
-```
+# [Bash](#tab/bash)
+
+    ```console
+    #!/bin/bash
+    export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
+    export LOCATION="southcentralus" # Change to your preferred region
+    export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    export PUBLIC_IP=$(curl -s https://api.ipify.org)
+    export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
+    export DB_ADMIN_NAME=azureuser
+    export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
+    export DB_NAME=example-db1
+    export DB_PORT=3306
+    export version=ServerVersion.EIGHT0_21
+
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```console
+    # PowerShell syntax
+    $env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$(Get-Random -Maximum 10000)"
+    $env:LOCATION = "southcentralus" # Change to your preferred region
+    $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
+    $env:PUBLIC_IP_ADDRESS = 1921.168.0.1 # Replace with your public IP address. For this sample, use your workstation's IP address. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP public address.
+    $env:DB_SERVER_NAME = "python-azure-example-mysql-$(Get-Random -Maximum 100000)"
+    $env:DB_ADMIN_NAME = "azureuser"
+    $env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
+    $env:DB_NAME = "example-db1"
+    $env:DB_PORT = 3306
+    $env:version = "ServerVersion.EIGHT0_21"
+    ```
+
+    ---
 
 ## 4: Write code to create the database
 
@@ -111,7 +133,8 @@ poller = mysql_client.servers.begin_create(RESOURCE_GROUP_NAME,
         location=LOCATION,
         administrator_login=db_admin_name,
         administrator_login_password=db_admin_password,
-        version=ServerVersion.EIGHT0
+        version=ServerVersion[server_version]  # Note: dictionary-style enum access
+
     )
 )
 
@@ -176,31 +199,6 @@ For PostreSQL database server, see:
     az login
     ```
 
-1. Set the `AZURE_SUBSCRIPTION_ID` and `PUBLIC_IP_ADDRESS` environment variables. You can run the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID from the `id` property in the output. You can use [WhatsIsMyIP](https://www.whatsmyip.org/) to find your IP address.
-
-    # [Bash](#tab/bash)
-
-    ```console
-    #!/bin/bash
-    AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    export AZURE_SUBSCRIPTION_ID
-    # Get your public IP address from https://www.whatsmyip.org/
-    export PUBLIC_IP_ADDRESS=<Your public IP address>
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```console
-    # PowerShell syntax
-    $AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    $env:AZURE_SUBSCRIPTION_ID = $AZURE_SUBSCRIPTION_ID
-    $env:PUBLIC_IP_ADDRESS=<Your public IP address>
-    ```
-
-    ---
-
-1. Optionally, set the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD`  environment variables; otherwise, code defaults are used.
-
 1. Run the script:
 
     ```console
@@ -209,7 +207,7 @@ For PostreSQL database server, see:
 
 ## 6: Insert a record and query the database
 
-Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables. You get these values from the output of running the previous code *provision_db.py* or in the code itself.
+Create a file named *use_db.py* with the following code.
 
 This code works only for MySQL; you use different libraries for PostgreSQL.
 
