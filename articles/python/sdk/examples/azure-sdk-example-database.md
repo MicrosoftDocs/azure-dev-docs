@@ -52,7 +52,7 @@ In this step, you install the Azure SDK libraries needed to create the database.
 
 ## 3. Set environment variables
 
-In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
+In this step, you set environment variables for use in the code in this article. The code uses the `os.environ` method to retrieve the values.
 
 # [Bash](#tab/bash)
 
@@ -188,7 +188,7 @@ Later in this article, you'll sign in to Azure using the Azure CLI to execute th
 
 For use in production environments, it's recommended to authenticate with a service principal by setting the appropriate environment variables. This enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
-Ensure the service principal is assigned a role with adequate permissions—such as the Contributor role at the subscription or resource group level. For details on assigning roles, refer to Role-based access control (RBAC) in Azure.[Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
+Ensure the service principal is assigned a role with adequate permissions—such as the Contributor role at the subscription or resource group level. For details on assigning roles, refer to [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
 ### Reference links for classes used in the code
 
