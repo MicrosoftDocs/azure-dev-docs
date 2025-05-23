@@ -27,5 +27,5 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 
 ## Related content
 
+- [What is the Azure MCP Server?](../overview.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Use MCP Server tools with App Configuration tools](app-configuration.md)
