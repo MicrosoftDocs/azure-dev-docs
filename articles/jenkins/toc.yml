@@ -50,7 +50,7 @@
   - name: Jenkins plug-in for Azure
     href: plug-ins-for-azure.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates
   - name: Jenkins home
     href: https://jenkins.io/
   - name: Jenkins X Home
