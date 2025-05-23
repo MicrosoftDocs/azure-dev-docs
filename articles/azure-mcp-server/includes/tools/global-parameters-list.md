@@ -13,9 +13,9 @@ ms.custom: build-2025
 --- 
 ## Parameters for Azure MCP Server tools
 
-The Azure MCP Server tools define parameters for information they need to successfully complete tasks. For example, these parameters may include the subscription ID or an account name.
+The Azure MCP Server tools define parameters for data they need to successfully complete tasks. For example, these parameters may include the subscription ID, an account name, or a resource group.
 
-This information may be included in the prompt you use to call a tool, or it may be established in the previous conversation context. If the information is available from the conversation context, the Azure MCP Server can use that information without requiring you to repeat it in every prompt. This context creates a more natural conversational experience while still ensuring all necessary information is available for the tools.
+The data used for these parameters may be included in the prompt you use to call a tool, or it may be established in the previous conversation context. If the data is available from the conversation context, the Azure MCP Server can use that information without requiring you to repeat it in every prompt. This context creates a more natural conversational experience while still ensuring all necessary data is available for the tools.
 
 Each of the tools reference articles in this section documents the parameters specific to each tool. All of the tools also share the following additional global parameters:
 

@@ -31,8 +31,6 @@ Example prompts include:
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
-The following parameters are used by this tool.
-
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
@@ -51,8 +49,6 @@ Example prompts include:
 - **Get multiple settings**: "What keys and values do I have in my 'app-config-dev' store?"
 - **View configuration**: "List all configuration entries from contoso-appconfig"
 - **Find settings with label**: "Show me settings with label 'dev'"
-
-The following parameters are used by this tool.
 
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
@@ -73,8 +69,6 @@ Example prompts include:
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-The following parameters are used by this tool.
-
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
@@ -90,8 +84,6 @@ Example prompts include:
 - **Protect configuration**: "Lock my database connection string in 'contoso-appconfig' so it can't be changed"
 - **Secure setting**: "Make ApiSecrets read-only"
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
-
-The following parameters are used by this tool.
 
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
@@ -111,8 +103,6 @@ Example prompts include:
 - **Create a labeled setting**: "Set 'AppName:LogLevel' with value 'Debug' and label 'dev' in my 'contoso-appconfig' App Configuration store."
 - **Add new config**: "Add a new setting called 'ApiEndpoint' with URL value 'https://api.contoso.com' to my 'eastus-config'"
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
-
-The following parameters are used by this tool.
 
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
@@ -134,8 +124,6 @@ Example prompts include:
 - **Find single key**: "What's the current value for AppSettings:LogLevel?"
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
 
-The following parameters are used by this tool.
-
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
@@ -154,8 +142,6 @@ Example prompts include:
 - **Allow edits**: "Remove the read-only lock from 'DatabaseSettings' in contoso-appconfig"
 - **Enable changes**: "Unlock the config values for TestEndpoint"
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
-
-The following parameters are used by this tool.
 
 | Parameter       | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|

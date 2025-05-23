@@ -31,11 +31,9 @@ Example prompts include:
 - **Query accounts**: "Show me all my search services"
 - **Check accounts**: "AI Search services in subscription abc123"
 
-The following parameters are required for this tool.
-
 | Parameter | Description |
 |-----------|-------------|
-| **Subscription** | The Azure subscription ID or name.  |
+| **Subscription** | Required. The Azure subscription ID or name.  |
 
 ## List indexes
 
@@ -49,12 +47,10 @@ Example prompts include:
 - **Query indexes**: "Show all indexes in my AI Search account"
 - **Check indexes**: "What indexes are available in my 'analytics-search' service?"
 
-The following parameters are required for this tool.
-
 | Parameter | Description |
 |-----------|-------------|
-| **Subscription** | The Azure subscription ID or name. |
-| **Service name** | The name of the AI Search service. |
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Service name** | Required. The name of the AI Search service. |
 
 ## Get index details
 
@@ -68,13 +64,11 @@ Example prompts include:
 - **Check index configuration**: "Show me the configuration of my 'content' index"
 - **Index definition**: "What's the definition of my 'catalog' search index?"
 
-The following parameters are required for this tool.
-
 | Parameter | Description |
 |-----------|-------------|
-| **Subscription** | The Azure subscription ID or name. |
-| **Service name** | The name of the AI Search service. |
-| **Index name** | The name of the index to describe. |
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Service name** | Required. The name of the AI Search service. |
+| **Index name** | Required. The name of the index to describe. |
 
 ## Query index
 
@@ -88,14 +82,12 @@ Example prompts include:
 - **Query search**: "Look up 'azure functions' in my documentation index"
 - **Search request**: "Search for 'security best practices' in my knowledge base index"
 
-The following parameters are required for this tool.
-
 | Parameter | Description |
 |-----------|-------------|
-| **Subscription** | The Azure subscription ID or name. |
-| **Service name** | The name of the AI Search service. |
-| **Index name** | The name of the index to query. |
-| **Query** | The search query to execute against the index. |
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Service name** | Required. The name of the AI Search service. |
+| **Index name** | Required. The name of the index to query. |
+| **Query** | Required. The search query to execute against the index. |
 
 ## Related content
 
