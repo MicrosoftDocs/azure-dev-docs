@@ -24,7 +24,7 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 1. In your console, create a *requirements.txt* file that lists the management libraries used in this example:
 
-    ```console
+    ```azurecli
     azure-mgmt-resource
     azure-mgmt-rdbms
     azure-identity
@@ -32,7 +32,7 @@ If you haven't already, set up an environment where you can run the code. Here a
     ```
 
     > [!NOTE]
-    > The `mysql-connector-python` library is not part of the Azure SDK. It is a third-party library that you can use to connect to MySQL databases. You can also use other libraries, such as `PyMySQL` or `SQLAlchemy`, to connect to MySQL databases.
+    > The `mysql-connector-python` library isn't part of the Azure SDK. It's a third-party library that you can use to connect to MySQL databases. You can also use other libraries, such as `PyMySQL` or `SQLAlchemy`, to connect to MySQL databases.
 
 1. In your console with the virtual environment activated, install the requirements:
 
@@ -49,7 +49,7 @@ If you haven't already, set up an environment where you can run the code. Here a
 
     # [Bash](#tab/bash)
     
-    ```console
+    ```azurecli
     #!/bin/bash
     export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
     export LOCATION="southcentralus" # Change to your preferred region
@@ -66,7 +66,7 @@ If you haven't already, set up an environment where you can run the code. Here a
 
     # [PowerShell](#tab/powershell)
 
-    ```console
+    ```azurecli
     # PowerShell syntax
     $random = Get-Random -Maximum 10000
     $env:RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$random"
@@ -177,9 +177,11 @@ print(f"Provisioned MySQL database {db_result.name} with ID {db_result.id}")
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create resource groups and storage resources in your Azure subscription, the code will run successfully.
+Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has the necessary permissions to create resource groups and storage resources within your Azure subscription, the script will execute successfully without requiring any additional configuration.
 
-To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create resource groups and storage resources in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
+To use this code in a production script, authenticate using a service principal by setting environment variables. To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+
+Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
 ### Reference links for classes used in the code
 
@@ -274,7 +276,7 @@ In this step, you create a table in the database and insert a record. You can us
 
     # [Bash](#tab/bash)
 
-    ```console
+    ```azurecli
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
     CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
     CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
@@ -284,7 +286,7 @@ In this step, you create a table in the database and insert a record. You can us
 
     # [PowerShell](#tab/powershell)
 
-    ```console
+    ```azurecli
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
     CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
     CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
@@ -323,7 +325,7 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
 
     # [Bash](#tab/bash)
     
-    ```console
+    ```azurecli
     #!/bin/bash
     #!/bin/bash
     
@@ -375,7 +377,7 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
     
     # [PowerShell](#tab/powershell)
     
-    ```console
+    ```azurecli
     # PowerShell syntax
     # Define variables
     $env:LOCATION = "southcentralus"
