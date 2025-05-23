@@ -288,8 +288,8 @@ In this step, you create a table in the database and insert a record. You can us
 
     ```azurecli
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
-    CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
-    CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
+    $CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
+    $CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
     echo "Downloading SSL certificate..."
     Invoke-WebRequest -Uri $CERT_URL -OutFile $CERT_FILE
     ```
