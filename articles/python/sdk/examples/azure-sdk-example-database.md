@@ -184,9 +184,9 @@ print(f"Provisioned MySQL database {db_result.name} with ID {db_result.id}")
 
 ### Authentication in the code
 
-Later in this article, you'll sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
+Later in this article, you sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
 
-For use in production environments, it's recommended to authenticate with a service principal by setting the appropriate environment variables. This enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+For use in production environments, we recommend that you authenticate with a service principal by setting the appropriate environment variables. This approach enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
 Ensure the service principal is assigned a role with adequate permissions—such as the Contributor role at the subscription or resource group level. For details on assigning roles, refer to [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
