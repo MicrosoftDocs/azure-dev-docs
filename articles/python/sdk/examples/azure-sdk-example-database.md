@@ -27,6 +27,8 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 ## 2: Install the needed Azure library packages
 
+In this step, you install the Azure SDK libraries needed to create the database.
+
 1. In your console, create a *requirements.txt* file that lists the management libraries used in this example:
 
     ```azurecli
@@ -87,10 +89,10 @@ $env:version = "ServerVersion.EIGHT0_21"
 ```
 
 ---
-        
+
 ## 4: Write code to create the database
 
-Create a Python file named *provision_db.py* with the following code. The comments explain the details.
+In this step, you create a Python file named *provision_db.py* to create the database using the following code. The code uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
 
 ```Python
 import random, os
@@ -182,22 +184,22 @@ print(f"Provisioned MySQL database {db_result.name} with ID {db_result.id}")
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has the necessary permissions to create resource groups and storage resources within your Azure subscription, the script will execute successfully without requiring any additional configuration.
+Later in this article, you'll sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
 
-To use this code in a production script, authenticate using a service principal by setting environment variables. To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+For use in production environments, it's recommended to authenticate with a service principal by setting the appropriate environment variables. This enables secure, non-interactive access suitable for automation. For setup instructions, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
-Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
+Ensure the service principal is assigned a role with adequate permissions—such as the Contributor role at the subscription or resource group level. For details on assigning roles, refer to Role-based access control (RBAC) in Azure.[Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
 ### Reference links for classes used in the code
 
-- [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
-- [MySQLManagementClient (azure.mgmt.rdbms.mysql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.mysqlmanagementclient)
-- [Server (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.server)
-- [ServerVersion (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.serverversion)
+* [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
+* [MySQLManagementClient (azure.mgmt.rdbms.mysql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.mysqlmanagementclient)
+* [Server (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.server)
+* [ServerVersion (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.serverversion)
 
 For PostreSQL database server, see:
 
-- [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient)
+* [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient)
 
 ## 5: Run the script
 
@@ -220,7 +222,7 @@ In this step, you create a table in the database and insert a record. You can us
 1. Create a file named *use_db.py* with the following code.
 
     This code works only for MySQL; you use different libraries for PostgreSQL.
-    
+
     ```Python
     import os
     import mysql.connector
@@ -277,11 +279,12 @@ In this step, you create a table in the database and insert a record. You can us
 
     All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-2. Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
+1. Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
 
     # [Bash](#tab/bash)
 
     ```azurecli
+    #!/bin/bash
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
     CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
     CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
@@ -292,24 +295,22 @@ In this step, you create a table in the database and insert a record. You can us
     # [PowerShell](#tab/powershell)
 
     ```azurecli
+    # PowerShell syntax
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
     $CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
     $CERT_FILE="BaltimoreCyberTrustRoot.crt.pem"
     echo "Downloading SSL certificate..."
     Invoke-WebRequest -Uri $CERT_URL -OutFile $CERT_FILE
     ```
-    
-    ---
-        
 
-    from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
-    
+    ---
+
 1. Finally, run the code:
 
     ```console
     python use_db.py
     ```
-    
+
 If you see an error that your client IP address isn't allowed, check that you defined the environment variable `PUBLIC_IP_ADDRESS` correctly. If you already created the MySQL server with the wrong IP address, you can add another in the [Azure portal](https://portal.azure.com/). In the portal, select the MySQL server, and then select **Connection security**. Add the IP address of your workstation to the list of allowed IP addresses.
 
 ## 7: Clean up resources
@@ -319,7 +320,7 @@ If you see an error that your client IP address isn't allowed, check that you de
 Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 ```azurecli
-az group delete -n PythonAzureExample-DB-rg  --no-wait
+az group delete -n $AZURE_RESOURCE_GROUP_NAME  --no-wait
 ```
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
@@ -329,7 +330,7 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
 1. The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres flexible-server`](/cli/azure/postgres/flexible-server) commands.
 
     # [Bash](#tab/bash)
-    
+
     ```azurecli
     #!/bin/bash
     #!/bin/bash
@@ -379,9 +380,9 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
     echo "MySQL Flexible Server and database created successfully."
     
     ```
-    
+
     # [PowerShell](#tab/powershell)
-    
+
     ```azurecli
     # PowerShell syntax
     # Define variables
@@ -427,16 +428,16 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
         --database-name $env:DB_NAME
     
     ```
-    
+
     ---
-    
+
 ## See also
 
-- [Example: Create a resource group](azure-sdk-example-resource-group.md)
-- [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
-- [Example: Create Azure Storage](azure-sdk-example-storage.md)
-- [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
-- [Example: Create and deploy a web app](azure-sdk-example-web-app.md)
-- [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
-- [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
-- [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
+* [Example: Create a resource group](azure-sdk-example-resource-group.md)
+* [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
+* [Example: Create Azure Storage](azure-sdk-example-storage.md)
+* [Example: Use Azure Storage](azure-sdk-example-storage-use.md)
+* [Example: Create and deploy a web app](azure-sdk-example-web-app.md)
+* [Example: Create a virtual machine](azure-sdk-example-virtual-machines.md)
+* [Use Azure Managed Disks with virtual machines](azure-sdk-samples-managed-disks.md)
+* [Complete a short survey about the Azure SDK for Python](https://microsoft.qualtrics.com/jfe/form/SV_bNFX0HECjzPWMiG?Q_CHL=docs)
