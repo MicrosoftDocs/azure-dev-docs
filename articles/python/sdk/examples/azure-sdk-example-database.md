@@ -45,10 +45,10 @@ If you haven't already, set up an environment where you can run the code. Here a
 
 ## 3. Set environment variables
 
-In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
+1. In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
 
-   # [Bash](#tab/bash)
-
+    # [Bash](#tab/bash)
+    
     ```console
     #!/bin/bash
     export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
@@ -61,10 +61,10 @@ In this step, you set environment variables for use in the code in this article.
     export DB_NAME=example-db1
     export DB_PORT=3306
     export version=ServerVersion.EIGHT0_21
-
-    ```
     
-  # [PowerShell](#tab/powershell)
+    ```
+
+    # [PowerShell](#tab/powershell)
 
     ```console
     # PowerShell syntax
@@ -80,9 +80,9 @@ In this step, you set environment variables for use in the code in this article.
     $env:DB_PORT = 3306
     $env:version = "ServerVersion.EIGHT0_21"
     ```
-
-    ---
     
+    ---
+        
 ## 4: Write code to create the database
 
 Create a Python file named *provision_db.py* with the following code. The comments explain the details.
@@ -273,7 +273,7 @@ In this step, you create a table in the database and insert a record. You can us
 2. Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
 
     # [Bash](#tab/bash)
-    
+
     ```console
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
     CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
@@ -281,9 +281,9 @@ In this step, you create a table in the database and insert a record. You can us
     echo "Downloading SSL certificate..."
     curl -o "$CERT_FILE" "$CERT_URL"
     ```
-    
+
     # [PowerShell](#tab/powershell)
-    
+
     ```console
     # Download Baltimore CyberTrust Root certificate required for Azure MySQL SSL connections
     CERT_URL="https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem"
@@ -293,7 +293,7 @@ In this step, you create a table in the database and insert a record. You can us
     ```
     
     ---
-    
+        
 
     from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
     
@@ -319,14 +319,14 @@ az group delete -n PythonAzureExample-DB-rg  --no-wait
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres flexible-server`](/cli/azure/postgres/flexible-server) commands.
+1. The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres flexible-server`](/cli/azure/postgres/flexible-server) commands.
 
-   # [Bash](#tab/bash)
-
-    ```console    
+    # [Bash](#tab/bash)
+    
+    ```console
     #!/bin/bash
     #!/bin/bash
-
+    
     # Set variables
     export LOCATION="southcentralus"
     export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
@@ -341,39 +341,40 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
     
     echo "Creating resource group: $AZURE_RESOURCE_GROUP_NAME"
     az group create \
-      --location "$LOCATION" \
-      --name "$AZURE_RESOURCE_GROUP_NAME"
+        --location "$LOCATION" \
+        --name "$AZURE_RESOURCE_GROUP_NAME"
     
     echo "Creating MySQL Flexible Server: $DB_SERVER_NAME"
     az mysql flexible-server create \
-      --location "$LOCATION" \
-      --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
-      --name "$DB_SERVER_NAME" \
-      --admin-user "$DB_ADMIN_NAME" \
-      --admin-password "$DB_ADMIN_PASSWORD" \
-      --sku-name Standard_B1ms \
-      --version "$DB_SERVER_VERSION" \
-      --yes
+        --location "$LOCATION" \
+        --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+        --name "$DB_SERVER_NAME" \
+        --admin-user "$DB_ADMIN_NAME" \
+        --admin-password "$DB_ADMIN_PASSWORD" \
+        --sku-name Standard_B1ms \
+        --version "$DB_SERVER_VERSION" \
+        --yes
     
     echo "Creating firewall rule for public IP: $PUBLIC_IP_ADDRESS"
     az mysql flexible-server firewall-rule create \
-      --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
-      --name "$DB_SERVER_NAME" \
-      --rule-name allow_ip \
-      --start-ip-address "$PUBLIC_IP_ADDRESS" \
-      --end-ip-address "$PUBLIC_IP_ADDRESS"
+        --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+        --name "$DB_SERVER_NAME" \
+        --rule-name allow_ip \
+        --start-ip-address "$PUBLIC_IP_ADDRESS" \
+        --end-ip-address "$PUBLIC_IP_ADDRESS"
     
     echo "Creating database: $DB_NAME"
     az mysql flexible-server db create \
-      --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
-      --server-name "$DB_SERVER_NAME" \
-      --database-name "$DB_NAME"
+        --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+        --server-name "$DB_SERVER_NAME" \
+        --database-name "$DB_NAME"
     
     echo "MySQL Flexible Server and database created successfully."
+    
     ```
-
-   # [PowerShell](#tab/powershell)
-
+    
+    # [PowerShell](#tab/powershell)
+    
     ```console
     # PowerShell syntax
     # Define variables
@@ -419,9 +420,9 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
         --database-name $env:DB_NAME
     
     ```
-
+    
     ---
-
+    
 ## See also
 
 - [Example: Create a resource group](azure-sdk-example-resource-group.md)
