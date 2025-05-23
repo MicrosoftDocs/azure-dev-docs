@@ -327,109 +327,109 @@ az group delete -n $AZURE_RESOURCE_GROUP_NAME  --no-wait
 
 ### For reference: equivalent Azure CLI commands
 
-1. The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres flexible-server`](/cli/azure/postgres/flexible-server) commands.
+The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres flexible-server`](/cli/azure/postgres/flexible-server) commands.
 
-    # [Bash](#tab/bash)
+# [Bash](#tab/bash)
 
-    ```azurecli
-    #!/bin/bash
-    #!/bin/bash
-    
-    # Set variables
-    export LOCATION="southcentralus"
-    export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
-    export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
-    export DB_ADMIN_NAME="azureuser"
-    export DB_ADMIN_PASSWORD="ChangePa$$w0rd24"
-    export DB_NAME="example-db1"
-    export DB_SERVER_VERSION="5.7"
-    
-    # Get public IP address
-    export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
-    
-    echo "Creating resource group: $AZURE_RESOURCE_GROUP_NAME"
-    az group create \
-        --location "$LOCATION" \
-        --name "$AZURE_RESOURCE_GROUP_NAME"
-    
-    echo "Creating MySQL Flexible Server: $DB_SERVER_NAME"
-    az mysql flexible-server create \
-        --location "$LOCATION" \
-        --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
-        --name "$DB_SERVER_NAME" \
-        --admin-user "$DB_ADMIN_NAME" \
-        --admin-password "$DB_ADMIN_PASSWORD" \
-        --sku-name Standard_B1ms \
-        --version "$DB_SERVER_VERSION" \
-        --yes
-    
-    echo "Creating firewall rule for public IP: $PUBLIC_IP_ADDRESS"
-    az mysql flexible-server firewall-rule create \
-        --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
-        --name "$DB_SERVER_NAME" \
-        --rule-name allow_ip \
-        --start-ip-address "$PUBLIC_IP_ADDRESS" \
-        --end-ip-address "$PUBLIC_IP_ADDRESS"
-    
-    echo "Creating database: $DB_NAME"
-    az mysql flexible-server db create \
-        --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
-        --server-name "$DB_SERVER_NAME" \
-        --database-name "$DB_NAME"
-    
-    echo "MySQL Flexible Server and database created successfully."
-    
-    ```
+```azurecli
+#!/bin/bash
+#!/bin/bash
 
-    # [PowerShell](#tab/powershell)
+# Set variables
+export LOCATION="southcentralus"
+export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
+export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
+export DB_ADMIN_NAME="azureuser"
+export DB_ADMIN_PASSWORD="ChangePa$$w0rd24"
+export DB_NAME="example-db1"
+export DB_SERVER_VERSION="5.7"
 
-    ```azurecli
-    # PowerShell syntax
-    # Define variables
-    $env:LOCATION = "southcentralus"
-    $env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$([System.Random]::new().Next(0,10000))"
-    $env:DB_SERVER_NAME = "python-azure-example-mysql-$([System.Random]::new().Next(10000,99999))"
-    $env:DB_ADMIN_NAME = "azureuser"
-    $env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
-    $env:DB_NAME = "example-db1"
-    $env:DB_SERVER_VERSION = "5.7"
-    
-    # Get your public IP
-    $env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
-    
-    # Create resource group
-    az group create `
-        --location $env:LOCATION `
-        --name $env:AZURE_RESOURCE_GROUP_NAME
-    
-    # Create MySQL Flexible Server
-    az mysql flexible-server create `
-        --location $env:LOCATION `
-        --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
-        --name $env:DB_SERVER_NAME `
-        --admin-user $env:DB_ADMIN_NAME `
-        --admin-password $env:DB_ADMIN_PASSWORD `
-        --sku-name Standard_B1ms `
-        --version $env:DB_SERVER_VERSION `
-        --yes
-    
-    # Create firewall rule to allow your current IP
-    az mysql flexible-server firewall-rule create `
-        --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
-        --name $env:DB_SERVER_NAME `
-        --rule-name allow_ip `
-        --start-ip-address $env:PUBLIC_IP_ADDRESS `
-        --end-ip-address $env:PUBLIC_IP_ADDRESS
-    
-    # Create database
-    az mysql flexible-server db create `
-        --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
-        --server-name $env:DB_SERVER_NAME `
-        --database-name $env:DB_NAME
-    
-    ```
+# Get public IP address
+export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
 
-    ---
+echo "Creating resource group: $AZURE_RESOURCE_GROUP_NAME"
+az group create \
+    --location "$LOCATION" \
+    --name "$AZURE_RESOURCE_GROUP_NAME"
+
+echo "Creating MySQL Flexible Server: $DB_SERVER_NAME"
+az mysql flexible-server create \
+    --location "$LOCATION" \
+    --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+    --name "$DB_SERVER_NAME" \
+    --admin-user "$DB_ADMIN_NAME" \
+    --admin-password "$DB_ADMIN_PASSWORD" \
+    --sku-name Standard_B1ms \
+    --version "$DB_SERVER_VERSION" \
+    --yes
+
+echo "Creating firewall rule for public IP: $PUBLIC_IP_ADDRESS"
+az mysql flexible-server firewall-rule create \
+    --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+    --name "$DB_SERVER_NAME" \
+    --rule-name allow_ip \
+    --start-ip-address "$PUBLIC_IP_ADDRESS" \
+    --end-ip-address "$PUBLIC_IP_ADDRESS"
+
+echo "Creating database: $DB_NAME"
+az mysql flexible-server db create \
+    --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
+    --server-name "$DB_SERVER_NAME" \
+    --database-name "$DB_NAME"
+
+echo "MySQL Flexible Server and database created successfully."
+
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+# Define variables
+$env:LOCATION = "southcentralus"
+$env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$([System.Random]::new().Next(0,10000))"
+$env:DB_SERVER_NAME = "python-azure-example-mysql-$([System.Random]::new().Next(10000,99999))"
+$env:DB_ADMIN_NAME = "azureuser"
+$env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
+$env:DB_NAME = "example-db1"
+$env:DB_SERVER_VERSION = "5.7"
+
+# Get your public IP
+$env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
+
+# Create resource group
+az group create `
+    --location $env:LOCATION `
+    --name $env:AZURE_RESOURCE_GROUP_NAME
+
+# Create MySQL Flexible Server
+az mysql flexible-server create `
+    --location $env:LOCATION `
+    --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
+    --name $env:DB_SERVER_NAME `
+    --admin-user $env:DB_ADMIN_NAME `
+    --admin-password $env:DB_ADMIN_PASSWORD `
+    --sku-name Standard_B1ms `
+    --version $env:DB_SERVER_VERSION `
+    --yes
+
+# Create firewall rule to allow your current IP
+az mysql flexible-server firewall-rule create `
+    --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
+    --name $env:DB_SERVER_NAME `
+    --rule-name allow_ip `
+    --start-ip-address $env:PUBLIC_IP_ADDRESS `
+    --end-ip-address $env:PUBLIC_IP_ADDRESS
+
+# Create database
+az mysql flexible-server db create `
+    --resource-group $env:AZURE_RESOURCE_GROUP_NAME `
+    --server-name $env:DB_SERVER_NAME `
+    --database-name $env:DB_NAME
+
+```
+
+---
 
 ## See also
 
