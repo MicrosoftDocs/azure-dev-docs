@@ -69,7 +69,7 @@ If you haven't already, set up an environment where you can run the code. Here a
     ```azurecli
     # PowerShell syntax
     $random = Get-Random -Maximum 10000
-    $env:RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$random"
+    $env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$random"
     $env:LOCATION = "southcentralus" # Change to your preferred region
     $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
     $env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
@@ -101,7 +101,7 @@ credential = DefaultAzureCredential()
 subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 
 # Retrieve resource group name and location from environment variables
-RESOURCE_GROUP_NAME = os.environ["RESOURCE_GROUP_NAME"]
+RESOURCE_GROUP_NAME = os.environ["AZURE_RESOURCE_GROUP_NAME"]
 LOCATION = os.environ["LOCATION"]
 
 # Step 1: Provision the resource group.
