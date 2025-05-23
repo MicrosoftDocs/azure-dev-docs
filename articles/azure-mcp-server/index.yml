@@ -20,7 +20,7 @@ landingContent:
             url: overview.md
       - linkListType: get-started
         links:
-          - text: GitHub Copilot with Visual Studio Code
+          - text: GitHub Copilot in Visual Studio Code
             url: get-started.md?pivots=mcp-github-copilot
           - text: .NET
             url: get-started.md?pivots=mcp-csharp
