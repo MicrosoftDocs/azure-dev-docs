@@ -23,7 +23,7 @@ The Azure MCP Server allows you to manage Azure AI Search resources, including s
 
 The Azure MCP Server can list all AI Search accounts in a subscription. This provides a quick overview of your search services.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List accounts**: "List all my AI Search services in my subscription."
 - **Show accounts**: "What AI Search accounts do I have?"
@@ -31,15 +31,17 @@ The Azure MCP Server can list all AI Search accounts in a subscription. This pro
 - **Query accounts**: "Show me all my search services"
 - **Check accounts**: "AI Search services in subscription abc123"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
+The following parameters are required for this tool.
+
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | The Azure subscription ID or name.  |
 
 ## List indexes
 
 The Azure MCP Server can list all indexes in an AI Search service. This helps you view the search indexes available in a specific service.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List indexes**: "Show me all indexes in my 'mysearchservice' AI Search account."
 - **View indexes**: "What indexes do I have in search service 'cognitive-search-prod'?"
@@ -47,16 +49,18 @@ The Azure MCP Server can list all indexes in an AI Search service. This helps yo
 - **Query indexes**: "Show all indexes in my AI Search account"
 - **Check indexes**: "What indexes are available in my 'analytics-search' service?"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Service name** | The name of the AI Search service. |
+The following parameters are required for this tool.
+
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | The Azure subscription ID or name. |
+| **Service name** | The name of the AI Search service. |
 
 ## Get index details
 
 The Azure MCP Server can retrieve detailed information about a specific [index](/azure/search/search-what-is-an-index) in an AI Search service. This includes the index schema, fields, analyzers, scorers, and other index properties.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Get index details**: "Show me details of the 'products' index in my 'mysearchservice' service."
 - **View index schema**: "What fields are in the 'users' index?"
@@ -64,29 +68,36 @@ The Azure MCP Server can retrieve detailed information about a specific [index](
 - **Check index configuration**: "Show me the configuration of my 'content' index"
 - **Index definition**: "What's the definition of my 'catalog' search index?"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Service name** | The name of the AI Search service. |
-| Required | **Index name** | The name of the index to describe. |
+The following parameters are required for this tool.
+
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | The Azure subscription ID or name. |
+| **Service name** | The name of the AI Search service. |
+| **Index name** | The name of the index to describe. |
 
 ## Query index
 
 The Azure MCP Server can execute [search queries](/azure/search/query-simple-syntax) against an AI Search index. This powerful feature allows you to find specific content using search terms.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Simple query**: "Search for 'machine learning' in the 'documents' index"
-- **Filter query**: "Find all products with category 'electronics' in my product index" 
+- **Filter query**: "Find all products with category 'electronics' in my product index"
 - **Text search**: "Search my 'content' index for anything mentioning 'climate change'"
 - **Query search**: "Look up 'azure functions' in my documentation index"
 - **Search request**: "Search for 'security best practices' in my knowledge base index"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Service name** | The name of the AI Search service. |
-| Required | **Index name** | The name of the index to query. |
-| Required | **Query** | The search query to execute against the index. |
+The following parameters are required for this tool.
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | The Azure subscription ID or name. |
+| **Service name** | The name of the AI Search service. |
+| **Index name** | The name of the index to query. |
+| **Query** | The search query to execute against the index. |
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)

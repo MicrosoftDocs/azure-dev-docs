@@ -7,6 +7,7 @@
 ---
 
 
-> [!TIP]
-> When using the Azure MCP Server, information needs to be in the conversation context, but they don't always need to be in the exact prompt you use to call a tool. If the information, like a subscription ID, is already established in the conversation context, the MCP Server can use that information without requiring you to repeat it in every prompt. This context creates a more natural conversational experience while still ensuring all necessary information is available.
-
+> [!NOTE]
+> The Azure MCP Server tools define parameters for information they need to successfully complete tasks. For example, these parameters may include the subscription ID or an account name. This information may be included in the prompt you use to call a tool, or it may be established in the previous conversation context. If the information is available from the conversation context, the Azure MCP Server can use that information without requiring you to repeat it in every prompt. This context creates a more natural conversational experience while still ensuring all necessary information is available for the tools.
+>
+> This article documents the parameters used for each tool. There are also a set of additional global parameters common to all tools. For more information, see [Global parameters](../../tools/index.md#global-parameters)
