@@ -8,11 +8,16 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Example: Use the Azure libraries to create a database
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure Database for MySQL flexible server instance and database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). You can use similar code to create an Azure Database for PostgreSQL flexible server instance and database.
+This example demonstrates how to use the Azure SDK for Python management libraries to programmatically create an Azure Database for MySQL flexible server and a corresponding database. It also includes a basic script that uses the mysql-connector-python library (not part of the Azure SDK) to connect to and query the database.
 
-[Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a MySQL server](/azure/mysql/flexible-server/quickstart-create-server-portal) or [Create a PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal).
+You can adapt this example to create an Azure Database for PostgreSQL flexible server by modifying the relevant SDK imports and API calls.
 
-All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
+If you prefer to use the Azure CLI, [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are provided later in this article. For a graphical experience, refer to the Azure portal documentation:
+
+* [Create a MySQL server](/azure/mysql/flexible-server/quickstart-create-server-portal)
+* [Create a PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal)
+
+Unless otherwise specified, all examples and commands work consistently across Linux/macOS bash and Windows command shells.
 
 ## 1: Set up your local development environment
 
@@ -40,48 +45,48 @@ If you haven't already, set up an environment where you can run the code. Here a
     pip install -r requirements.txt
     ```
 
-> [!NOTE]
-> On Windows, attempting to install the mysql library into a 32-bit Python library produces an error about the *mysql.h* file. In this case, install a 64-bit version of Python and try again.
+    > [!NOTE]
+    > On Windows, attempting to install the mysql library into a 32-bit Python library produces an error about the *mysql.h* file. In this case, install a 64-bit version of Python and try again.
 
 ## 3. Set environment variables
 
-1. In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
+In this step, you set environment variables for use in the code in this article. You can set them in your console or in the code itself. The code uses the `os.environ` method to retrieve the values.
 
-    # [Bash](#tab/bash)
-    
-    ```azurecli
-    #!/bin/bash
-    export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
-    export LOCATION="southcentralus" # Change to your preferred region
-    export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
-    export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
-    export DB_ADMIN_NAME=azureuser
-    export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
-    export DB_NAME=example-db1
-    export DB_PORT=3306
-    export version=ServerVersion.EIGHT0_21
-    
-    ```
+# [Bash](#tab/bash)
 
-    # [PowerShell](#tab/powershell)
+```azurecli
+#!/bin/bash
+export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
+export LOCATION="southcentralus" # Change to your preferred region
+export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
+export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
+export DB_ADMIN_NAME=azureuser
+export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
+export DB_NAME=example-db1
+export DB_PORT=3306
+export version=ServerVersion.EIGHT0_21
 
-    ```azurecli
-    # PowerShell syntax
-    $random = Get-Random -Maximum 10000
-    $env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$random"
-    $env:LOCATION = "southcentralus" # Change to your preferred region
-    $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
-    $env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
-    $env:DB_SERVER_NAME = "python-azure-example-mysql-$(Get-Random -Maximum 100000)"
-    $env:DB_ADMIN_NAME = "azureuser"
-    $env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
-    $env:DB_NAME = "example-db1"
-    $env:DB_PORT = 3306
-    $env:version = "ServerVersion.EIGHT0_21"
-    ```
-    
-    ---
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+$random = Get-Random -Maximum 10000
+$env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$random"
+$env:LOCATION = "southcentralus" # Change to your preferred region
+$env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
+$env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
+$env:DB_SERVER_NAME = "python-azure-example-mysql-$(Get-Random -Maximum 100000)"
+$env:DB_ADMIN_NAME = "azureuser"
+$env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
+$env:DB_NAME = "example-db1"
+$env:DB_PORT = 3306
+$env:version = "ServerVersion.EIGHT0_21"
+```
+
+---
         
 ## 4: Write code to create the database
 
