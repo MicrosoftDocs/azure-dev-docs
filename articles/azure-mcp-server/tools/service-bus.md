@@ -36,7 +36,6 @@ Example prompts include:
 | **Namespace** | Required. The fully qualified Service Bus namespace host name. |
 | **Queue name** | Required. The queue name to get details for. |
 
-
 ## Get topic runtime details
 
 The Azure MCP Server can retrieve runtime details about a Service Bus topic, including its subscription count and status.
@@ -117,4 +116,3 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure CLI reference documentation](/cli/azure/reference-index)

@@ -23,11 +23,10 @@ The Azure MCP Server allows you to manage Azure Data Explorer resources using na
 
 Some of the Azure Data Explorer with Kusto tools require **one** of the following parameter sets within the conversation context:
 
-- Cluster URI
-  or
-- Both cluster name and subscription
+- **Option 1**: Cluster URI
+- **Option 2**: Both cluster name **and** subscription
 
-Don't provide all three parameters (Cluster URI, cluster name, and subscription) together, because this can create conflicting inputs.
+Don't provide all three parameters (cluster URI, cluster name, and subscription) together, because this can create conflicting inputs.
 
 ## List clusters
 
@@ -165,4 +164,3 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure CLI reference documentation](/cli/azure/reference-index)
