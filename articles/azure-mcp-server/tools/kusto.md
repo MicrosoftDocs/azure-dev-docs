@@ -21,18 +21,19 @@ The Azure MCP Server allows you to manage Azure Data Explorer resources using na
 
 ## Conditional parameters
 
-Some of the tools require **one** of the following parameter sets within the conversation context:
+Some of the Azure Data Explorer with Kusto tools require **one** of the following parameter sets within the conversation context:
 
-* **Option 1**: Cluster URI
-* **Option 2**: Both cluster name AND subscription
+- Cluster URI
+  or
+- Both cluster name and subscription
 
-Don't provide all three parameters (Cluster URI, cluster name, and subscription) together, as this creates conflicting inputs.
+Don't provide all three parameters (Cluster URI, cluster name, and subscription) together, because this can create conflicting inputs.
 
 ## List clusters
 
 The Azure MCP Server can list all Kusto clusters in a subscription.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List clusters**: "Show me all Kusto clusters in my subscription."
 - **View clusters**: "What Azure Data Explorer clusters do I have available?"
@@ -40,15 +41,15 @@ The Azure MCP Server can list all Kusto clusters in a subscription.
 - **Query clusters**: "Show my Kusto cluster organization."
 - **Find clusters**: "Get all ADX clusters in my Azure subscription."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
 
 ## Get cluster details
 
 The Azure MCP Server can get details for a specific Kusto cluster.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Get details**: "Show me details of my Kusto cluster 'analytics-cluster'."
 - **View cluster**: "Give me information about my ADX cluster 'logs-prod'."
@@ -56,16 +57,16 @@ The Azure MCP Server can get details for a specific Kusto cluster.
 - **Check configuration**: "Get configuration details of my ADX cluster 'telemetry-cluster'."
 - **Cluster properties**: "Show properties of my Kusto cluster in subscription 'my-sub'."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Cluster name** | Required | The name of the Kusto cluster. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Cluster name** | Required. The name of the Kusto cluster. |
 
 ## List databases
 
 The Azure MCP Server can list all databases in a Kusto cluster.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List databases**: "Show me all databases in my Kusto cluster."
 - **View databases**: "What databases do I have in my ADX cluster 'analytics-cluster'?"
@@ -73,18 +74,18 @@ The Azure MCP Server can list all databases in a Kusto cluster.
 - **Query databases**: "Show databases in Kusto cluster URI 'https://mycluster.westus.kusto.windows.net'."
 - **Find databases**: "Get all databases from my ADX instance."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
+| Parameter | Description |
+|-----------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
 
 
 ## List tables
 
 The Azure MCP Server can list all tables in a specific Kusto database.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List tables**: "Show me all tables in the 'logs' database of my Kusto cluster."
 - **View tables**: "What tables do I have in database 'telemetry' in my ADX cluster?"
@@ -92,18 +93,18 @@ The Azure MCP Server can list all tables in a specific Kusto database.
 - **Query tables**: "Show tables in the 'metrics' database of my Data Explorer cluster."
 - **Find tables**: "Get all tables from 'events' database in my Kusto instance."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
-| **Database name** | Required | The name of the Kusto database. |
+| Parameter | Description |
+|-----------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
+| **Database name** | Required. The name of the Kusto database. |
 
 ## Get table schema
 
 The Azure MCP Server can get the schema of a specific table in a Kusto database.
 
-**Example prompts** include:
+Example prompts include:
 
 - **View schema**: "Show me the schema of the 'Events' table in my Kusto database."
 - **Get structure**: "What columns does the 'Metrics' table have in my ADX database?"
@@ -111,19 +112,19 @@ The Azure MCP Server can get the schema of a specific table in a Kusto database.
 - **View columns**: "Show columns and types for 'Telemetry' table in Kusto."
 - **Examine table**: "Get the structure of 'Traces' table in my ADX database."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
-| **Database name** | Required | The name of the Kusto database. |
-| **Table name** | Required | The name of the table. |
+| Parameter | Description |
+|-----------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
+| **Database name** | Required. The name of the Kusto database. |
+| **Table name** | Required. The name of the table. |
 
 ## Execute query
 
 The Azure MCP Server can execute a KQL query against a Kusto database.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Run query**: "Execute 'Logs | where Timestamp > ago(1h) | count' in my Kusto database."
 - **Query data**: "Run KQL query to find all errors in the last 24 hours in my ADX database."
@@ -131,19 +132,19 @@ The Azure MCP Server can execute a KQL query against a Kusto database.
 - **Extract insights**: "Query user activity patterns from my Kusto database."
 - **Analyze logs**: "Execute KQL to summarize performance metrics by service in my ADX database."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) Required  | The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
-| **Database name** | Required | The name of the Kusto database. |
-| **Query** | Required | The KQL query to execute. |
+| Parameter | Description |
+|-----------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
+| **Database name** | Required. The name of the Kusto database. |
+| **Query** | Required. The KQL query to execute. |
 
 ## Sample table data
 
 The Azure MCP Server can retrieve a sample of data from a specified Kusto table.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Get sample data**: "Show me a sample of data from the 'Events' table in my Kusto database."
 - **Preview table**: "Give me a preview of records from the 'Logs' table in my ADX database."
@@ -151,13 +152,17 @@ The Azure MCP Server can retrieve a sample of data from a specified Kusto table.
 - **Check data format**: "Get a few sample records from the 'Telemetry' table in Kusto to see the data structure."
 - **Data exploration**: "Return 10 sample rows from 'UserActivity' table in my ADX cluster."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) Required | The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) Required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) Required | The name of the Kusto cluster. |
-| **Database name** | Required | The name of the Kusto database. |
-| **Table name** | Required | The name of the table to sample data from. |
-| **Limit** | Optional | The maximum number of rows to return in the sample. |
+| Parameter | Description |
+|-----------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
+| **Database name** | Required. The name of the Kusto database. |
+| **Table name** | Required. The name of the table to sample data from. |
+| **Limit** | Optional. The maximum number of rows to return in the sample. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure CLI reference documentation](/cli/azure/reference-index)

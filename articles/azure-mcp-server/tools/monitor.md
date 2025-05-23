@@ -23,7 +23,7 @@ The Azure MCP Server allows you to manage Azure Monitor resources, including que
 
 The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List workspaces**: "Show me all Log Analytics workspaces in my subscription."
 - **View workspaces**: "What Log Analytics workspaces do I have?"
@@ -31,15 +31,15 @@ The Azure MCP Server can list all Log Analytics workspaces in a subscription. Th
 - **Query workspaces**: "Show all Log Analytics workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
 
 ## List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List tables**: "Show me all tables in my 'centralmonitoring' Log Analytics workspace."
 - **View tables**: "What tables do I have in Log Analytics workspace 'app-monitoring'?"
@@ -47,17 +47,17 @@ The Azure MCP Server can list all tables in a Log Analytics workspace. This help
 - **Query tables**: "Show available tables in my Log Analytics workspace"
 - **Check tables**: "Get all log tables in my 'operations' workspace"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Workspace** | The Log Analytics workspace ID or name. |
-| Required | **Resource group** | The name of the Azure resource group. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Workspace** | Required. The Log Analytics workspace ID or name. |
+| **Resource group** | Required. The name of the Azure resource group. |
 
 ## Query logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Simple query**: "Query all error events from the last hour in my 'centralmonitoring' workspace"
 - **Filter query**: "Find all failed login attempts in the SecurityEvent table"
@@ -65,13 +65,17 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 - **Join query**: "Query errors and correlate them with performance metrics"
 - **Aggregation query**: "Count errors by application in my monitoring workspace"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Workspace** | The Log Analytics workspace ID or name. |
-| Required | **Table name** | The name of the table to query. |
-| Required | **Query** | The KQL query to execute against the Log Analytics workspace. |
-| Optional | **Hours** | The number of hours to query back from now. |
-| Optional | **Limit** | The maximum number of results to return. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Workspace** | Required. The Log Analytics workspace ID or name. |
+| **Table name** | Required. The name of the table to query. |
+| **Query** | Required. The KQL query to execute against the Log Analytics workspace. |
+| **Hours** | Optional. The number of hours to query back from now. |
+| **Limit** | Optional. The maximum number of results to return. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure CLI reference documentation](/cli/azure/reference-index)

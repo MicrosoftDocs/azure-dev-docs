@@ -23,24 +23,24 @@ The Azure MCP Server allows you to manage Azure Storage resources, including sto
 
 The Azure MCP Server can show detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
 - **Container info**: "Get properties of container 'images' in storage account 'media_files'"
 - **Container properties**: "What are the settings for my 'backups' container?"
 - **Container status**: "Check access policy for 'user_data' container"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Account name** | The name of the Azure Storage account. |
-| Required | **Container name** | The name of the container to access. |
+| Parameter | Description |
+|-----------|-------------|
+**Subscription** | Required. The Azure subscription ID or name. |
+**Account name** | Required. The name of the Azure Storage account. |
+**Container name** | Required. The name of the container to access. |
 
 ## List accounts
 
 The Azure MCP Server can list all storage accounts in a subscription. This functionality provides an overview of your storage infrastructure.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List accounts**: "Show me all storage accounts in my subscription."
 - **View accounts**: "What storage accounts do I have available?"
@@ -48,31 +48,31 @@ The Azure MCP Server can list all storage accounts in a subscription. This funct
 - **Query accounts**: "Show all my storage resources"
 - **Check accounts**: "Storage accounts in subscription abc123"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
+| Parameter | Description |
+|-----------|-------------|
+**Subscription** | Required. The Azure subscription ID or name. |
 
 ## List containers
 
 The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List containers**: "Show me all containers in my 'mystorageaccount' storage account."
 - **View containers**: "What containers do I have in storage account 'app_data'?"
 - **Find containers**: "List all containers in my storage 'user_files'"
 - **Query containers**: "Show available containers in my storage account"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Account name** | The name of the Azure Storage account. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Account name** | Required. The name of the Azure Storage account. |
 
 ## List container blobs
 
 The Azure MCP Server can list all blobs in a container. This helps you manage the files stored in your blob storage.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List blobs**: "Show me all files in the 'documents' container in my 'mystorageaccount' storage account."
 - **View blobs**: "What files do I have in container 'images'?"
@@ -80,17 +80,17 @@ The Azure MCP Server can list all blobs in a container. This helps you manage th
 - **Query blobs**: "Show available files in container 'logs'"
 - **Check blobs**: "Get all blobs in my 'user_data' container"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Account name** | The name of the Azure Storage account. |
-| Required | **Container name** | The name of the container to access. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Account name** | Required. The name of the Azure Storage account. |
+| **Container name** | Required. The name of the container to access. |
 
 ## List tables
 
 The Azure MCP Server can list all tables in a storage account. This functionality helps you manage your structured NoSQL data.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List tables**: "Show me all tables in my 'mystorageaccount' storage account."
 - **View tables**: "What tables do I have in storage account 'app_data'?"
@@ -98,9 +98,13 @@ The Azure MCP Server can list all tables in a storage account. This functionalit
 - **Query tables**: "Show available tables in my storage account"
 - **Check tables**: "Get all storage tables in my 'analytics_data' account"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
-| Required | **Account name** | The name of the Azure Storage account. |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The Azure subscription ID or name. |
+| **Account name** | Required. The name of the Azure Storage account. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure CLI reference documentation](/cli/azure/reference-index)

@@ -23,15 +23,18 @@ The Azure MCP Server allows you to manage Azure resources, including subscriptio
 
 The Azure MCP Server can list all subscriptions.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List subscriptions**: "Show me all of my subscriptions."
 - **Find subscriptions**: "List all subscriptions starting with `northeast`."
 
-| Parameter       | Required or optional | Description                                                                 |
-|-----------------|-------------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required          | The name or ID of the user subscription.            |
+| Parameter | Description |
+|-----------|-------------|
+| **Subscription** | Required. The name or ID of the user subscription. |
 
-## Related servers
+## Related content
 
-* [Resource group](resource-group.md)
+- [Resource group tools](resource-group.md)
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure CLI reference documentation](/cli/azure/reference-index)
