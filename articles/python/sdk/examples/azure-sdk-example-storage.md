@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Example: Create Azure Storage using the Azure libraries for Python
 
-In this article, you’ll learn how to use the Azure management libraries for Python to create a resource group, along with an Azure Storage account and a Blob storage container.
+In this article, you learn how to use the Azure management libraries for Python to create a resource group, along with an Azure Storage account and a Blob storage container.
 
 After provisioning these resources, refer to the section [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to see how to use the Azure client libraries in Python to upload a file to the Blob container.
 
@@ -40,7 +40,7 @@ Create a Python file named *provision_blob.py* with the following code. This Pyt
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure using the Azure CLI to run the sample code. If your account has the necessary permissions to create resource groups and storage resources within your Azure subscription, the script will execute successfully without requiring any additional configuration.
+Later in this article, you sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
 
 To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
 
