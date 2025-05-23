@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to execute any Azure CLI command using natural language prompts. You can perform virtually any Azure resource management operation without needing to remember specific command syntax, parameters, or formatting.
 
-[Azure Command-Line Interface (CLI)](/cli/azure) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. It allows the execution of commands through a terminal using interactive command-line prompts or a script.
+[Azure Command-Line Interface (CLI)](/cli/azure) is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. It allows the execution of commands through a terminal using interactive command-line prompts or a script. For a complete list of Azure CLI commands this tool can execute, see the [Azure CLI reference documentation](/cli/azure/reference-index).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -32,9 +32,10 @@ The following parameters are required for this tool.
 
 | Parameter | Description |
 |-------------------|-----------|-------------|
-| **Command** | The Azure CLI command to execute (without the 'az' prefix). For a list of available Azure CLI commands, see the [Azure CLI reference documentation](/cli/azure/reference-index). |
+| **Command** | The Azure CLI command to execute (without the 'az' prefix). For a complete list of Azure CLI commands, see the [Azure CLI reference documentation](/cli/azure/reference-index). |
 
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure CLI reference documentation](/cli/azure/reference-index)
