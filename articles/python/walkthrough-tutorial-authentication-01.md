@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Walkthrough: Integrated authentication for Python apps with Azure services
 
-Microsoft Entra ID, when used in conjunction with Azure Key Vault, provides a robust and secure approach for authenticating applications to both Azure services and third-party platforms that require access keys or credentials. This combination eliminates the need to hardcode secrets in application code, instead relying on managed identities, role-based access control (RBAC), and centralized secret management via Key Vault. This approach streamlines identity management and enhances security posture in cloud environments.
+Microsoft Entra ID, when used with Azure Key Vault, provides a robust and secure approach for authenticating applications to both Azure services and third-party platforms that require access keys or credentials. This combination eliminates the need to hardcode secrets in application code, instead relying on managed identities, role-based access control (RBAC), and centralized secret management via Key Vault. This approach streamlines identity management and enhances security posture in cloud environments.
 
 This walkthrough explores these authentication mechanisms through a practical example provided in the GitHub repository: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication).
 
@@ -49,7 +49,7 @@ This approach provides:
 This walkthrough shows how to use Microsoft Entra managed identity and Key Vault together in the same app. By using Microsoft Entra ID and Key Vault together, your app never needs to authenticate itself with individual Azure services, and can easily and securely access any keys necessary for third-party services.
 
 > [!IMPORTANT]
-> This article uses the common, generic term "key" to refer to what are stored as "secrets" in Azure Key Vault, such as an access key for a REST API. This usage should not be confused with Key Vault's management of *cryptographic* keys, which is a separate feature from Key Vault's *secrets*.
+> This article uses the common, generic term "key" to refer to what are stored as "secrets" in Azure Key Vault, such as an access key for a REST API. This usage shouldn't be confused with Key Vault's management of *cryptographic* keys, which is a separate feature from Key Vault's *secrets*.
 
 ## Example cloud app scenario
 
@@ -57,7 +57,7 @@ To understand Azure's authentication process more deeply, consider the following
 
 * To generate its response, the API invokes a third-party API that requires an access key. Instead of storing this key in code or configuration files, the app retrieves it securely at runtime from Azure Key Vault using Microsoft Entra managed identity.
 
-* Before returning its response to the client, the app writes a message to an Azure Storage Queue for asynchronous processing. The message could represent a task, log, or signal, though the downstream processing is not the focus of this scenario.
+* Before returning its response to the client, the app writes a message to an Azure Storage Queue for asynchronous processing. The message could represent a task, log, or signal, though the downstream processing isn't the focus of this scenario.
 
 ![Diagram of the application scenario](media/walkthrough-tutorial-authentication/scenario-diagram.png)
 
@@ -66,7 +66,7 @@ To understand Azure's authentication process more deeply, consider the following
 >
 > This simplification helps isolate the app’s internal authentication requirements—such as accessing Azure Key Vault and Azure Storage—from any authentication concerns related to external clients.
 >
-> The scenario focuses solely on the app's behavior and does not demonstrate or involve an external caller authenticating with the endpoint.
+> The scenario focuses solely on the app's behavior and doesn't demonstrate or involve an external caller authenticating with the endpoint.
 
 > [!div class="nextstepaction"]
 > [Part 2 - Authentication requirements >>>](walkthrough-tutorial-authentication-02.md)
