@@ -1,30 +1,50 @@
 ---
 title: "Walkthrough: Authenticate Python apps with Azure services"
 description: A detailed walkthrough of how to authenticate a Python app with Microsoft Entra ID, Azure Key Vault, and Azure Queue Storage by using the Azure Python SDK azure-identity library.
-ms.date: 02/20/2024
+ms.date: 05/27/2025
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
 # Walkthrough: Integrated authentication for Python apps with Azure services
 
-Microsoft Entra ID along with Azure Key Vault provide a comprehensive and convenient means for applications to authenticate with Azure services and third-party services where access keys are involved.
+Microsoft Entra ID, when used in conjunction with Azure Key Vault, provides a robust and secure approach for authenticating applications to both Azure services and third-party platforms that require access keys or credentials. This combination eliminates the need to hardcode secrets in application code, instead relying on managed identities, role-based access control (RBAC), and centralized secret management via Key Vault. This approach streamlines identity management and enhances security posture in cloud environments.
 
-After providing some background, this walkthrough explains these authentication features in the context of the sample, [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication).
+This walkthrough explores these authentication mechanisms through a practical example provided in the GitHub repository: [github.com/Azure-Samples/python-integrated-authentication](https://github.com/Azure-Samples/python-integrated-authentication).
+
+The sample demonstrates how a Python application can:
+
+* Authenticate with Azure using DefaultAzureCredential
+
+* Access Azure Key Vault secrets without storing credentials
+
+* Communicate securely with other Azure services like Azure Storage, Cosmos DB, and more
+
+This article is part of a series that provides a detailed walkthrough of how to authenticate a Python app with Microsoft Entra ID, Azure Key Vault, and Azure Queue Storage by using the Azure Python SDK `azure-identity` library.
 
 ## Part 1: Background
 
-Although many Azure services rely solely on role-based access control for authorization, certain services control access to their respective resources by using secrets or keys. Such services include Azure Storage, databases, Azure AI services, Key Vault, and Event Hubs.
+While many Azure services rely exclusively on role-based access control (RBAC), while others require access via secrets or keys. Such services include Azure Storage, databases, Azure AI services, Key Vault, and Event Hubs
 
-When creating a cloud app that accesses these services, you can use the Azure portal, the Azure CLI, or Azure PowerShell to create and configure keys for your app. The keys you create are tied to specific access policies and prevent access to those app-specific resources by any other unauthorized code.
+When building cloud applications that interact with these services, developers can use the Azure portal, CLI, or PowerShell to generate and configure service-specific access keys. These keys are tied to particular access policies to prevent unauthorized access. However, this model requires your application to manage keys explicitly and authenticate separately with each service, a process that's both tedious and error-prone.
 
-Within this general design, cloud apps must typically manage those keys and authenticate with each service individually, a process that can be both tedious and error-prone. Managing keys directly in app code also risks exposing those keys in source control and keys might be stored on unsecured developer workstations.
+Embedding secrets directly in code or storing them on developer machines risks exposing them in:
 
-Fortunately, Azure provides two specific services to simplify the process and provide greater security:
+* Source control
+* Insecure local environments
+* Accidental logs or configuration exports
 
-- Azure Key Vault provides secure cloud-based storage for access keys (along with cryptographic keys and certificates, which aren't covered in this article). By using Key Vault, the app accesses such keys only at run time so that they never appear directly in source code.
+Azure Offers Two Key Services to Improve Security and Simplify Authentication:
 
-- With [Microsoft Entra managed identities](/entra/identity/managed-identities-azure-resources/overview), an app needs to authenticate only once with Microsoft Entra ID. The app is then automatically authenticated with other Azure services, including Key Vault. As a result, your code never needs to concern itself with keys or other credentials for those Azure services. Better still, you can run the same code both locally and in the cloud with minimal configuration requirements.
+* **Azure Key Vault** Azure Key Vault provides a secure, cloud-based store for secrets, including access keys, connection strings, and certificates. By retrieving secrets from Key Vault only at runtime, applications avoid exposing sensitive data in source code or configuration files.
+
+- With [Microsoft Entra managed identities](/entra/identity/managed-identities-azure-resources/overview), your application can authenticate once with Microsoft Entra ID. From there, it can access other Azure services—including Key Vault—without managing credentials directly.
+
+This approach provides:
+
+* Credential-free code (no secrets in source control)
+* Seamless integration with Azure services
+* Environment consistency: the same code runs locally and in the cloud with minimal configuration
 
 This walkthrough shows how to use Microsoft Entra managed identity and Key Vault together in the same app. By using Microsoft Entra ID and Key Vault together, your app never needs to authenticate itself with individual Azure services, and can easily and securely access any keys necessary for third-party services.
 
@@ -33,18 +53,20 @@ This walkthrough shows how to use Microsoft Entra managed identity and Key Vault
 
 ## Example cloud app scenario
 
-To understand Azure's authentication process more deeply, consider the following scenario:
+To understand Azure's authentication process more deeply, consider the following scenario: A Flask web application is deployed to Azure App Service. It exposes a public, unauthenticated API endpoint that returns JSON data in response to HTTP requests.
 
-- A main app exposes a public (non-authenticated) API endpoint that responds to HTTP requests with JSON data. The example endpoint as shown in this article is implemented as a simple Flask app deployed to Azure App Service.
+* To generate its response, the API invokes a third-party API that requires an access key. Instead of storing this key in code or configuration files, the app retrieves it securely at runtime from Azure Key Vault using Microsoft Entra managed identity.
 
-- To generate its response, the API invokes a third-party API that requires an access key. The app retrieves that access key from Azure Key Vault at run time.
-
-- Before the API returns a response, it writes a message to an Azure Storage Queue for later processing. (The specific processing of these messages isn't relevant to the main scenario.)
+* Before returning its response to the client, the app writes a message to an Azure Storage Queue for asynchronous processing. The message could represent a task, log, or signal, though the downstream processing is not the focus of this scenario.
 
 ![Diagram of the application scenario](media/walkthrough-tutorial-authentication/scenario-diagram.png)
 
 > [!NOTE]
-> Although a public API endpoint is usually protected by its own access key, for the purposes of this article we assume the endpoint is open and unauthenticated. This assumption avoids any confusion between the app's authentication needs with those of an *external* caller of this endpoint. This scenario doesn't demonstrate such an external caller.
+> Although public API endpoints are typically protected by their own access keys or authentication mechanisms, this walkthrough assumes the endpoint is open and unauthenticated.
+>
+> This simplification helps isolate the app’s internal authentication requirements—such as accessing Azure Key Vault and Azure Storage—from any authentication concerns related to external clients.
+>
+> The scenario focuses solely on the app's behavior and does not demonstrate or involve an external caller authenticating with the endpoint.
 
 > [!div class="nextstepaction"]
 > [Part 2 - Authentication requirements >>>](walkthrough-tutorial-authentication-02.md)
