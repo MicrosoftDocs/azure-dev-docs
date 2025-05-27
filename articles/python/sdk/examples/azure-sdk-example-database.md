@@ -62,10 +62,10 @@ export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred 
 export LOCATION=<Location> # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
-export DB_SERVER_NAME=<DB_SERVER_NAME> # Change to your preferred DB server name
-export DB_ADMIN_NAME=<DB_ADMIN_NAME> # Change to your preferred admin name
-export DB_ADMIN_PASSWORD=<DB_ADMIN_PASSWORD> # Change to your preferred admin password
-export DB_NAME=<DB_NAME> # Change to your preferred database name
+export DB_SERVER_NAME=<DB_Server_Name> # Change to your preferred DB server name
+export DB_ADMIN_NAME=<DB_Admin_Name> # Change to your preferred admin name
+export DB_ADMIN_PASSWORD=<DB_Admin_Passwrod> # Change to your preferred admin password
+export DB_NAME=<DB_Name> # Change to your preferred database name
 export DB_PORT=3306
 export version=ServerVersion.EIGHT0_21
 
@@ -77,13 +77,13 @@ export version=ServerVersion.EIGHT0_21
 # PowerShell syntax
 $random = Get-Random -Maximum 10000
 $env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
-$env:LOCATION = <Location>" # Change to your preferred region
+$env:LOCATION = <Location> # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
 $env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
-$env:DB_SERVER_NAME = <DB_SERVER_NAME> # Change to your preferred DB server name
-$env:DB_ADMIN_NAME = <DB_ADMIN_NAME> # Change to your preferred admin name
-$env:DB_ADMIN_PASSWORD = <DB_ADMIN_PASSWORD> # Change to your preferred admin password
-$env:DB_NAME = <DB_NAME> # Change to your preferred database name
+$env:DB_SERVER_NAME = <DB_Server_Name> # Change to your preferred DB server name
+$env:DB_ADMIN_NAME = <DB_Admin_Name> # Change to your preferred admin name
+$env:DB_ADMIN_PASSWORD = <DB_Admin_Password> # Change to your preferred admin password
+$env:DB_NAME = <DB_Name> # Change to your preferred database name
 $env:DB_PORT = 3306
 $env:version = "ServerVersion.EIGHT0_21"
 ```
@@ -337,12 +337,12 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 #!/bin/bash
 
 # Set variables
-export LOCATION=<LOCATION>
-export AZURE_RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME> # Change to your preferred resource group name
-export DB_SERVER_NAME=<DB_SERVER_NAME> # Change to your preferred DB server name
-export DB_ADMIN_NAME=<DB_ADMIN_NAME> # Change to your preferred admin name
-export DB_ADMIN_PASSWORD=<DB_ADMIN_PASSWORD> # Change to your preferred admin password
-export DB_NAME=<DB_NAME> # Change to your preferred database name
+export LOCATION=<Location>
+export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
+export DB_SERVER_NAME=<DB_Server_Name> # Change to your preferred DB server name
+export DB_ADMIN_NAME=<DB_Admin_Name> # Change to your preferred admin name
+export DB_ADMIN_PASSWORD=<DB_Admin_Password> # Change to your preferred admin password
+export DB_NAME=<DB_Name> # Change to your preferred database name
 export DB_SERVER_VERSION="5.7"
 
 # Get public IP address
@@ -391,12 +391,12 @@ echo "MySQL Flexible Server and database created successfully."
 ```azurecli
 # PowerShell syntax
 # Define variables
-$env:LOCATION = <LOCATION> # Change to your preferred region
-$env:AZURE_RESOURCE_GROUP_NAME = <RESOURCE_GROUP_NAME> # Change to your preferred resource group name
-$env:DB_SERVER_NAME = <DB_SERVER_NAME> # Change to your preferred DB server name
-$env:DB_ADMIN_NAME = <DB_ADMIN_NAME> # Change to your preferred admin name
-$env:DB_ADMIN_PASSWORD = <DB_ADMIN_PASSWORD> # Change to your preferred admin password
-$env:DB_NAME = <DB_NAME> # Change to your preferred database name
+$env:LOCATION = <Location> # Change to your preferred region
+$env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
+$env:DB_SERVER_NAME = <DB_Server_Name> # Change to your preferred DB server name
+$env:DB_ADMIN_NAME = <DB_Admin_Name> # Change to your preferred admin name
+$env:DB_ADMIN_PASSWORD = <DB_Admin_Password> # Change to your preferred admin password
+$env:DB_NAME = <DB_Name> # Change to your preferred database name
 $env:DB_SERVER_VERSION = "5.7"
 
 # Get your public IP

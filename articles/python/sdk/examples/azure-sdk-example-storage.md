@@ -47,8 +47,8 @@ In this step, you set environment variables for use in the code in this article.
 export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
 export LOCATION=<Location> # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-export STORTAGE_ACCOUNT_NAME=<STORAGE_ACCOUNT_NAME> # Change to your preferred storage account name
-export CONTAINER_NAME=<CONTAINER_NAME> # Change to your preferred container name
+export STORTAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
+export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
 
 ```
 
@@ -57,10 +57,10 @@ export CONTAINER_NAME=<CONTAINER_NAME> # Change to your preferred container name
 ```azurecli
 # PowerShell syntax
 $env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
-$env:LOCATION = <Location>" # Change to your preferred region
+$env:LOCATION = <Location> # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
-$env:STORAGE_ACCOUNT_NAME = <STORAGE_ACCOUNT_NAME> # Change to your preferred storage account name
-$env:CONTAINER_NAME = <CONTAINER_NAME> # Change to your preferred container name
+$env:STORAGE_ACCOUNT_NAME = <StorageAccountName> # Change to your preferred storage account name
+$env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
 ```
 
 ---
@@ -235,10 +235,10 @@ The following Azure CLI commands complete the same creation steps as the Python 
 #!/bin/bash
 
 # Set variables
-export LOCATION=<LOCATION>
-export AZURE_RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME> # Change to your preferred resource group name
-export STORAGE_ACCOUNT_NAME=<STORAGE_ACCOUNT_NAME> # Change to your preferred storage account name
-export CONTAINER_NAME=<CONTAINER_NAME> # Change to your preferred container name
+export LOCATION=<Location>
+export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
+export STORAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
+export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
 
 # Provision the resource group
 echo "Creating resource group: $AZURE_RESOURCE_GROUP_NAME"
@@ -263,18 +263,18 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 ```azurecli
 # PowerShell syntax
 # Define variables
-$env:LOCATION = <LOCATION> # Change to your preferred region
-$env:AZURE_RESOURCE_GROUP_NAME = <RESOURCE_GROUP_NAME> # Change to your preferred resource group name
-$env:STORAGE_ACCOUNT_NAME = <STORAGE_ACCOUNT_NAME> # Change to your preferred storage account name
-$env:CONTAINER_NAME = <CONTAINER_NAME> # Change to your preferred container name
+$env:LOCATION = <Location> # Change to your preferred region
+$env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
+$env:STORAGE_ACCOUNT_NAME = <StorageAccountName> # Change to your preferred storage account name
+$env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
 
 # Provision the resource group
-az group create -n $AZURE_RESOURCE_GROUP_NAME -l "centralus"
+az group create -n $AZURE_RESOURCE_GROUP_NAME -l $LOCATION
 
 # Provision the storage account
 az storage account create `
   -g $AZURE_RESOURCE_GROUP_NAME `
-  -l $LOCATION$ `
+  -l $LOCATION `
   -n $STORAGE_ACCOUNT_NAME `
   --kind StorageV2 `
   --sku Standard_LRS
