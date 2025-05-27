@@ -84,7 +84,7 @@ Once installed, the demo extension adds new commands to `azd` you can use to exp
     The output formatting should resemble the following:
 
     ```output
-        Version: 0.2.0
+    Version: 0.2.0
     Commit: 611d05a6f7190f3bda379e92b4ece6470584c6f0
     Build Date: 2025-04-23T17:21:58Z
     ```
@@ -117,7 +117,7 @@ Once installed, the demo extension adds new commands to `azd` you can use to exp
         ...
     ````
 
-    Select Container Apps and press Enter. Continue through the remaining prompts to see examples of other prompt options, such as boolean **Yes/No** or list selections.
+    Select **Container Apps** and press Enter. Continue through the remaining prompts to see examples of other prompt options, such as boolean **Yes/No** or list selections.
 
 ## Related content
 
