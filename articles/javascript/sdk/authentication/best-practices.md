@@ -22,7 +22,7 @@ For example, consider the following hypothetical sequence of events:
 1. `DefaultAzureCredential` skips the failed `ManagedIdentityCredential` and searches for the next available credential, which is `AzureCliCredential`.
 1. The application starts utilizing the Azure CLI credentials rather than the managed identity, which may fail or result in unexpected elevation or reduction of privileges.
 
-To prevent these types of subtle issues or silent failures in production apps, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`. See the [Azure Identity client library documentation](/javascript/api/%40azure/identity/defaultazurecredential) for available options.
+To prevent these types of subtle issues or silent failures in production apps, replace `DefaultAzureCredential` with a specific `TokenCredential` implementation, such as `ManagedIdentityCredential`. See the [Azure Identity client library documentation](/javascript/api/overview/azure/identity-readme#credential-classes) for available credentials.
 
 For example, consider the following `DefaultAzureCredential` configuration in an Express.js project:
 
@@ -49,6 +49,9 @@ import { AzureDeveloperCliCredential, ManagedIdentityCredential, ChainedTokenCre
          AzureCliCredential } from "@azure/identity";
 import { SecretClient } from "@azure/keyvault-secrets";
 import { BlobServiceClient } from "@azure/storage-blob";
+
+// Load the .env file if it exists
+import "dotenv/config";
 
 let credential;
 
