@@ -120,6 +120,8 @@
         href: sdk/authentication/on-premises-apps.md
       - name: Credential chains
         href: sdk/authentication/credential-chains.md
+      - name: Best practices
+        href: sdk/authentication/best-practices.md
     - name: Looping over data
       href: sdk/loop-over-data.md
     - name: Debugging 
