@@ -217,7 +217,7 @@ The following Azure CLI commands complete the same creation steps as the Python 
 #!/bin/bash
 
 # Set variables
-export LOCATION=<Location>
+export LOCATION=<Location> # Change to your preferred region
 export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
 export STORAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
 export CONTAINER_NAME=<ContainerName> # Change to your preferred container name

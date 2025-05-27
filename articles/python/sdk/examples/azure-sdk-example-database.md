@@ -335,7 +335,7 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 #!/bin/bash
 
 # Set variables
-export LOCATION=<Location>
+export LOCATION=<Location> # Change to your preferred region
 export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
 export DB_SERVER_NAME=<DB_Server_Name> # Change to your preferred DB server name
 export DB_ADMIN_NAME=<DB_Admin_Name> # Change to your preferred admin name
