@@ -363,7 +363,7 @@ const credential = new ManagedIdentityCredential(
 
 ---
 
-For more information on customizing retry policies, see one of the following options objects:
+For more information on customizing retry policies for managed identity, see one of the following options that extend from [TokenCredentialOptions](/javascript/api/%40azure/identity/tokencredentialoptions):
 
 * [ManagedIdentityCredentialClientIdOptions](/javascript/api/%40azure/identity/managedidentitycredentialclientidoptions)
 * [ManagedIdentityCredentialObjectIdOptions](/javascript/api/@azure/identity/managedidentitycredentialobjectidoptions)
