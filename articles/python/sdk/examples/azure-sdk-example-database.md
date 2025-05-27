@@ -58,14 +58,14 @@ In this step, you set environment variables for use in the code in this article.
 
 ```azurecli
 #!/bin/bash
-export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
-export LOCATION="southcentralus" # Change to your preferred region
+export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
+export LOCATION=<Location> # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
-export DB_SERVER_NAME=export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
-export DB_ADMIN_NAME=azureuser
-export DB_ADMIN_PASSWORD=ChangePa$$w0rd24
-export DB_NAME=example-db1
+export DB_SERVER_NAME=<DB_SERVER_NAME> # Change to your preferred DB server name
+export DB_ADMIN_NAME=<DB_ADMIN_NAME> # Change to your preferred admin name
+export DB_ADMIN_PASSWORD=<DB_ADMIN_PASSWORD> # Change to your preferred admin password
+export DB_NAME=<DB_NAME> # Change to your preferred database name
 export DB_PORT=3306
 export version=ServerVersion.EIGHT0_21
 
@@ -76,14 +76,14 @@ export version=ServerVersion.EIGHT0_21
 ```azurecli
 # PowerShell syntax
 $random = Get-Random -Maximum 10000
-$env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$random"
-$env:LOCATION = "southcentralus" # Change to your preferred region
+$env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
+$env:LOCATION = <Location>" # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
 $env:PUBLIC_IP_ADDRESS = (Invoke-RestMethod -Uri "https://api.ipify.org")
-$env:DB_SERVER_NAME = "python-azure-example-mysql-$(Get-Random -Maximum 100000)"
-$env:DB_ADMIN_NAME = "azureuser"
-$env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
-$env:DB_NAME = "example-db1"
+$env:DB_SERVER_NAME = <DB_SERVER_NAME> # Change to your preferred DB server name
+$env:DB_ADMIN_NAME = <DB_ADMIN_NAME> # Change to your preferred admin name
+$env:DB_ADMIN_PASSWORD = <DB_ADMIN_PASSWORD> # Change to your preferred admin password
+$env:DB_NAME = <DB_NAME> # Change to your preferred database name
 $env:DB_PORT = 3306
 $env:version = "ServerVersion.EIGHT0_21"
 ```
