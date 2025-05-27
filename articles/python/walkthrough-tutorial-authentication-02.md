@@ -68,13 +68,15 @@ Building secure cloud applications requires careful handling of credentials—es
 
 ## Azure-First authentication with Microsoft Entra ID
 
-Hardcoding secrets or placing them in config files is a common but risky practice. To address this security issue, Azure provides Microsoft Entra ID as a secure identity platform that integrates natively with services like Key Vault and Storage.
+As cloud applications scale in complexity and integrate with more services, secure and streamlined authentication becomes essential. Azure promotes an "Azure-first" identity model through Microsoft Entra ID (formerly Azure Active Directory), which provides unified identity management and seamless integration with Azure services.
 
-With Microsoft Entra managed identities, you can:
+Rather than manually managing secrets or embedding credentials in application code—a practice prone to security risks—Microsoft Entra ID enables apps to authenticate securely using managed identities, a built-in feature of the Azure platform.
 
-* Eliminate credential handling in code
-* Authenticate securely with Azure services
-* Use the same identity model across environments
+The key benefits of Microsoft Entra managed identities are:
+
+* No secrets in code: Applications no longer require hardcoded connection strings, client secrets, or keys.
+* Built-in identity for apps: Azure can automatically assign a managed identity to your app, allowing secure access to services like Key Vault, Storage, and SQL without additional credentials.
+* Environment consistency: The same code and identity model work both in local development and Azure-hosted environments using the Azure SDK’s DefaultAzureCredential.
 
 ## Environment-specific identity flow
 
