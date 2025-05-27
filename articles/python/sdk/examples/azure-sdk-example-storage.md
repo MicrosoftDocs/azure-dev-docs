@@ -178,7 +178,7 @@ Ensure that the service principal is assigned a role with sufficient permissions
     python provision_blob.py
     ```
 
-The script takes a minute or two to complete.
+    The script takes a minute or two to complete.
 
 ## 6: Verify the resources
 

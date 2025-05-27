@@ -212,6 +212,8 @@ For PostreSQL database server, see:
     python provision_db.py
     ```
 
+    The script takes a minute or two to complete.
+
 ## 6: Insert a record and query the database
 
 In this step, you create a table in the database and insert a record. You can use the mysql-connector library to connect to the database and run SQL commands.
