@@ -156,10 +156,6 @@ print(f"Provisioned MySQL server {server.name}")
 RULE_NAME = "allow_ip"
 ip_address = os.environ["PUBLIC_IP_ADDRESS"]
 
-# For the above code, create an environment variable named PUBLIC_IP_ADDRESS that
-# contains your workstation's public IP address as reported by a site like
-# https://whatismyipaddress.com/.
-
 # Provision the rule and wait for completion
 poller = mysql_client.firewall_rules.begin_create_or_update(RESOURCE_GROUP_NAME,
     db_server_name, RULE_NAME, 
