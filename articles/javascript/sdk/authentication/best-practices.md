@@ -50,9 +50,6 @@ import { AzureDeveloperCliCredential, ManagedIdentityCredential, ChainedTokenCre
 import { SecretClient } from "@azure/keyvault-secrets";
 import { BlobServiceClient } from "@azure/storage-blob";
 
-// Load the .env file if it exists
-import "dotenv/config";
-
 let credential;
 
 // In production, use only ManagedIdentityCredential
