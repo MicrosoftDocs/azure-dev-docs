@@ -135,6 +135,8 @@ db_admin_password = os.environ.get("DB_ADMIN_PASSWORD")
 mysql_client = MySQLManagementClient(credential, subscription_id)
 
 # Provision the server and wait for the result
+server_version = os.environ.get("DB_SERVER_VERSION") 
+
 poller = mysql_client.servers.begin_create(RESOURCE_GROUP_NAME,
     db_server_name, 
     Server(
@@ -142,7 +144,6 @@ poller = mysql_client.servers.begin_create(RESOURCE_GROUP_NAME,
         administrator_login=db_admin_name,
         administrator_login_password=db_admin_password,
         version=ServerVersion[server_version]  # Note: dictionary-style enum access
-
     )
 )
 
@@ -336,22 +337,24 @@ The following Azure CLI commands complete the same provisioning steps as the Pyt
 #!/bin/bash
 
 # Set variables
-export LOCATION="southcentralus"
-export AZURE_RESOURCE_GROUP_NAME="PythonAzureExample-DB-rg-$(printf '%04d' $((RANDOM % 10000)))"
-export DB_SERVER_NAME="python-azure-example-mysql-$(printf '%05d' $((RANDOM % 100000)))"
-export DB_ADMIN_NAME="azureuser"
-export DB_ADMIN_PASSWORD="ChangePa$$w0rd24"
-export DB_NAME="example-db1"
+export LOCATION=<LOCATION>
+export AZURE_RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME> # Change to your preferred resource group name
+export DB_SERVER_NAME=<DB_SERVER_NAME> # Change to your preferred DB server name
+export DB_ADMIN_NAME=<DB_ADMIN_NAME> # Change to your preferred admin name
+export DB_ADMIN_PASSWORD=<DB_ADMIN_PASSWORD> # Change to your preferred admin password
+export DB_NAME=<DB_NAME> # Change to your preferred database name
 export DB_SERVER_VERSION="5.7"
 
 # Get public IP address
 export PUBLIC_IP_ADDRESS=$(curl -s https://api.ipify.org)
 
+# Provision the resource group
 echo "Creating resource group: $AZURE_RESOURCE_GROUP_NAME"
 az group create \
     --location "$LOCATION" \
     --name "$AZURE_RESOURCE_GROUP_NAME"
 
+# Provision the MySQL Flexible Server
 echo "Creating MySQL Flexible Server: $DB_SERVER_NAME"
 az mysql flexible-server create \
     --location "$LOCATION" \
@@ -363,6 +366,7 @@ az mysql flexible-server create \
     --version "$DB_SERVER_VERSION" \
     --yes
 
+# Provision a firewall rule to allow access from the public IP address
 echo "Creating firewall rule for public IP: $PUBLIC_IP_ADDRESS"
 az mysql flexible-server firewall-rule create \
     --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
@@ -371,6 +375,7 @@ az mysql flexible-server firewall-rule create \
     --start-ip-address "$PUBLIC_IP_ADDRESS" \
     --end-ip-address "$PUBLIC_IP_ADDRESS"
 
+# Provision the database
 echo "Creating database: $DB_NAME"
 az mysql flexible-server db create \
     --resource-group "$AZURE_RESOURCE_GROUP_NAME" \
@@ -386,12 +391,12 @@ echo "MySQL Flexible Server and database created successfully."
 ```azurecli
 # PowerShell syntax
 # Define variables
-$env:LOCATION = "southcentralus"
-$env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-DB-rg-$([System.Random]::new().Next(0,10000))"
-$env:DB_SERVER_NAME = "python-azure-example-mysql-$([System.Random]::new().Next(10000,99999))"
-$env:DB_ADMIN_NAME = "azureuser"
-$env:DB_ADMIN_PASSWORD = "ChangePa$$w0rd24"
-$env:DB_NAME = "example-db1"
+$env:LOCATION = <LOCATION> # Change to your preferred region
+$env:AZURE_RESOURCE_GROUP_NAME = <RESOURCE_GROUP_NAME> # Change to your preferred resource group name
+$env:DB_SERVER_NAME = <DB_SERVER_NAME> # Change to your preferred DB server name
+$env:DB_ADMIN_NAME = <DB_ADMIN_NAME> # Change to your preferred admin name
+$env:DB_ADMIN_PASSWORD = <DB_ADMIN_PASSWORD> # Change to your preferred admin password
+$env:DB_NAME = <DB_NAME> # Change to your preferred database name
 $env:DB_SERVER_VERSION = "5.7"
 
 # Get your public IP
