@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 2: Authenticate Python apps with Azure services"
 description: A discussion of the different authentication needs and challenges in the example scenario, and how those challenges are met with Azure integrated authentication.
-ms.date: 02/20/2024
+ms.date: 05/27/2025
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -10,39 +10,102 @@ ms.custom: devx-track-python
 
 [Previous part: Introduction and background](walkthrough-tutorial-authentication-01.md)
 
-Within this example scenario, the main app has the following authentication requirements:
+In this example scenario, the main application has three distinct authentication requirements:
 
-- Authenticate with Azure Key Vault to access the stored third-party API key.
-- Authenticate with the third-party API using the API key.
-- Authenticate with Azure Queue Storage using the necessary credentials for the storage account.
+* Azure Key Vault
 
-With these three distinct requirements, the application has to manage three sets of credentials: two for Azure resources (Key Vault and Queue Storage) and one for an external resource (the third-party API).
+  Authenticate to retrieve a securely stored third-party API key.
 
-As noted earlier, you can securely manage all the credentials in Key Vault except for those credentials needed for Key Vault itself. Once the application is authenticated with Key Vault, it can then retrieve any other keys at run time to authenticate with services like Queue Storage.
+* Third-Party API
 
-This approach, however, still requires the app to separately manage credentials for Key Vault. How then can you manage that credential securely and have it work both for local development and in your production deployment in the cloud?
+  Authenticate using the API key obtained from Key Vault.
 
-A partial solution is to store the key in a server-side environment variable, which at least keeps the key out of source control. For example, you can set an environment variable through an application setting with Azure App Service and Azure Functions. The downside of this approach is that code on a developer workstation you must replicate that environment variable locally, which risks exposure of the credentials and/or accidental inclusion in source control. You could work around the problem to some extent by implementing special procedures in the development version of your code, but doing so adds complexity to your development process.
+* Azure Queue Storage
 
-Fortunately, integrated authentication with Microsoft Entra ID allows an app to avoid handling any Azure credentials at all.
+  Authenticate to enqueue a message using credentials for the associated storage account.
 
-## Integrated authentication with managed identity
+These tasks require the app to manage three sets of credentials:
 
-Many Azure services, like Storage and Key Vault, are integrated with Microsoft Entra such that when an application authenticates with Microsoft Entra ID using a [managed identity](/entra/identity/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
+* Two for Azure resources (Key Vault and Storage)
 
-This integration means that you never need to handle any Azure-related credentials in your app code and those credentials never appear on developer workstations or in source control. Furthermore, any handling of keys for third-party APIs and services is done entirely at run time, thus keeping those keys secure.
+* One for an external service (third-party API)
 
-Managed identity only works with apps that are deployed to Azure. For local development, you create a separate service principal to serve as the app identity when running locally. You make this service principal available to the Azure libraries using environment variables as described in [Authenticate Python apps to Azure services during local development using service principals](./sdk/authentication-local-development-service-principal.md). You also assign role permissions to this service principal alongside the managed identity used in the cloud.
+## Credential management challenges
 
-Once you configure and assign roles for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](./sdk/authentication-overview.md), but the short version is as follows:
+* Circular dependency on Key Vault
 
-1. In your code, create a `DefaultAzureCredential` object that automatically uses your managed identity when running on Azure and your separate service principal when running locally.
+  To securely store and retrieve secrets, the app relies on Azure Key Vault. But accessing Key Vault itself requires initial credentials—creating a circular dependency: The app needs credentials to access Key Vault, but those credentials must also be stored securely.
 
-1. Use this credential when you create the appropriate client object for whatever resource you want to access (Key Vault, Queue Storage, etc.).
+* Secure Handling of Third-Party API Keys
 
-1. Authentication then takes place when you call an operation method through the client object, which generates a REST API call to the resource.
+  The API key retrieved from Key Vault must:
 
-1. If the app identity is valid, then Azure also checks whether that identity is authorized for the specific operation.
+  * Not be hardcoded or logged
+  * Be held only in memory temporarily
+  * Be accessed only at runtime, when required
+
+* Securing Azure Queue Storage Credentials
+
+  * To interact with Azure Queue Storage, the app requires a connection string or token. These credentials must:
+  * Be stored securely (not in code)
+  * Avoid exposure through logs or dev tools
+
+* Environment Flexibility
+
+  The authentication mechanism must support both local development and cloud deployment—without duplicating logic or introducing fragile environment-specific configurations.
+
+## Azure-First Authentication with Microsoft Entra ID
+
+Hardcoding secrets or placing them in config files is a common but risky practice. To address this, Azure provides Microsoft Entra ID as a secure identity platform that integrates natively with services like Key Vault and Storage.
+
+With Microsoft Entra managed identities, you can:
+
+* Eliminate credential handling in code
+* Authenticate securely with Azure services
+* Use the same identity model across environments
+
+## Environment-Specific Identity Flow
+
+In Azure:
+
+* A managed identity is assigned to your app (App Service, Function, etc.).
+* Azure handles all token generation and lifecycle management.
+* Your app accesses Azure services (Key Vault, Storage, etc.) using RBAC or access policies.
+
+In local development environment:
+
+* A service principal acts as the app’s identity during development.
+* You authenticate the CLI (e.g., via az login) or provide environment variables.
+* The same code still works—only the identity source changes.
+
+In both environments, Azure SDKs use the `DefaultAzureCredential`, which abstracts away the identity source and selects the right method automatically.
+
+## Best Practices for Secure Development
+
+While it's possible to set secrets as environment variables (e.g., via Azure App Settings), this approach has downsides:
+
+* You must manually replicate secrets in local environments.
+* There’s a risk of secrets leaking into source control.
+* Additional logic may be required to differentiate between environments.
+
+Instead, the recommended approach is:
+
+* Use Key Vault to store third-party API keys and other secrets.
+* Assign managed identity to your deployed app.
+* Use a service principal for local development and assign it the same access rights.
+* Use DefaultAzureCredential in your code to abstract authentication logic.
+* Avoid storing or logging any credentials.
+
+Authentication Flow in Practice
+
+Here’s how authentication works at runtime:
+
+* Your code creates a DefaultAzureCredential instance.
+* You use this credential to instantiate a client (e.g., SecretClient, QueueServiceClient).
+* When the app invokes a method (e.g., get_secret()), the client uses the credential to authenticate the request.
+* Azure verifies the identity and checks whether it has the correct role or policy to perform the operation.
+
+This flow ensures that your app can securely access Azure services without embedding secrets in code or configuration files. It also allows you to seamlessly switch between local development and cloud deployment without changing your authentication logic.
 
 The remainder of this tutorial demonstrates all the details of the process in the context of the example scenario and the accompanying sample code.
 
