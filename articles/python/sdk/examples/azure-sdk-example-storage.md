@@ -170,14 +170,6 @@ Ensure that the service principal is assigned a role with sufficient permissions
     az login
     ```
 
-    # [PowerShell](#tab/powershell)
-
-    ```azurecli
-    # PowerShell syntax
-    $AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    $env:AZURE_SUBSCRIPTION_ID = $AZURE_SUBSCRIPTION_ID
-    ```
-
     ---
 
 1. Run the script:
