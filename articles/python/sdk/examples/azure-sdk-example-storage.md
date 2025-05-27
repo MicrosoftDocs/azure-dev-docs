@@ -67,7 +67,7 @@ $env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
 
 ## 4: Write code to create the database
 
-Create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python. The resource group name, location, storage account name, and container name are all defined as constants in the code. It reads the subscription ID from the environment variable `AZURE_SUBSCRIPTION_ID` that you set in a later step.
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python.
 
 ```Python
 import os, random
@@ -162,22 +162,12 @@ Ensure that the service principal is assigned a role with sufficient permissions
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 - [StorageManagementClient (azure.mgmt.storage)](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient)
 
-## 4. Run the script
+## 5. Run the script
 
 1. If you haven't already, sign in to Azure using the Azure CLI:
 
     ```azurecli
     az login
-    ```
-
-1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
-
-    # [Bash](#tab/bash)
-
-    ```azurecli
-    #!/bin/bash
-    AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    export AZURE_SUBSCRIPTION_ID
     ```
 
     # [PowerShell](#tab/powershell)
@@ -198,7 +188,7 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 The script takes a minute or two to complete.
 
-## 5: Verify the resources
+## 6: Verify the resources
 
 1. Open the [Azure portal](https://portal.azure.com) to verify that the resource group and storage account were created as expected. You may need to wait a minute and also select **Show hidden types** in the resource group.
 
@@ -212,7 +202,7 @@ The script takes a minute or two to complete.
 
 For another example of using the Azure Storage management library, see the [Manage Python Storage sample](/samples/azure-samples/azure-samples-python-management/storage/).
 
-## 6: Clean up resources
+## 7: Clean up resources
 
 Leave the resources in place if you want to follow the article [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use these resources in app code. Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
 
