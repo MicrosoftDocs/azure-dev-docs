@@ -1,17 +1,17 @@
 ---
-title: Create AI infrastructure using extensions
-description: Learn how to install and use the Azure Developer CLI AI extension to quickly create AI infrastructure.
+title: Explore the demo extension
+description: Use the demo extension to explore Azure Developer CLI extension capabilities.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/14/2025
+ms.date: 05/27/2025
 ms.service: azure-dev-cli
 ms.topic: quickstart
 ms.custom: devx-track-azdevcli, devx-track-bicep
 ---
 
-# Quickstart: Create AI infrastructure using extensions
+# Quickstart: Explore the demo extension
 
-In this Quickstart, you install the Azure Developer CLI (`azd`) AI extension and use it to create AI infrastructure in your Azure environment. [Extensions](overview.md) provide a way to add new capabilities, automate workflows, and integrate other services with `azd`.
+In this Quickstart, you install the Azure Developer CLI (`azd`) demo extension and use it to explore `azd` extension framework capabilities. [Extensions](overview.md) provide a way to add new capabilities, automate workflows, and integrate other services with `azd`. The demo extension provides examples of how to implement various features in an extension, such as how to prompt the user for input or display information about the project.
 
 ## Initialize the project
 
@@ -23,7 +23,7 @@ azd init -t hello-azd
 
 ## Install the extension
 
-Complete the following steps to install the AI extension:
+Complete the following steps to install the demo extension:
 
 1. Ensure that extensions are enabled in your `azd` configuration:
 
@@ -31,10 +31,10 @@ Complete the following steps to install the AI extension:
     azd config set alpha.extensions on
     ```
 
-1. Install the AI extension from the official registry:
+1. Install the demo extension from the official registry:
 
     ```azdeveloper
-    azd extension install microsoft.azd.ai.builder
+    azd extension install microsoft.azd.demo
     ```
 
 1. Verify the extension is installed by listing your installed extensions:
@@ -43,73 +43,81 @@ Complete the following steps to install the AI extension:
     azd extension list --installed
     ```
 
-## Use the AI extension workflow to provision resources
+## Use the demo extension workflow
 
-Once installed, the AI extension adds new commands to `azd` you can use to build out various AI workflows. The steps ahead create the required backend Azure AI resources for a Retrieval-Augmented Generation (RAG) app.
+Once installed, the demo extension adds new commands to `azd` you can use to explore examples of extension framework capabilities.
 
-1. To begin the AI extension workflow, use the `azd ai start` command:
+1. Run the `azd demo` command to see a list of the available demo commands:
 
     ```azdeveloper
-    azd ai start
+    azd demo
     ```
 
-1. When prompted, select the Azure subscription and resource group you want to provision resources to.
-
-1. The AI extension workflow prompts you with questions organized by task to identify the required infrastructure for your desired scenario.
+    The output should resemble the following:
 
     ```output
-    Welcome to the AI Builder!
-    This tool will help you build an AI scenario using Azure services.
+    Demonstrates AZD extension framework capabilities.
     
-    Identify AI Scenario
-    Let's start drilling into your AI scenario to identify all the required infrastructure we will need.
+    Usage:
+      azd [command]
+    
+    Available Commands:
+      colors      Displays all ASCII colors with their standard and high-intensity variants.        
+      context     Get the context of the AZD project & environment.
+      listen      Starts the extension and listens for events.
+      prompt      Examples of prompting the user for input.
+      version     Prints the version of the application
+    
+    Flags:
+          --debug   Enable debug mode
+      -h, --help    help for azd
+    
+    Use "azd [command] --help" for more information about a command.
     ```
 
-    Select the following options when prompted to follow along with this sample scenario:
+1. Run the `azd demo version` command to display the version of the app:
 
-    - Identify AI scenario:
-
-        - **What type of AI scenario are you building?**: Rag Application (Retrieval-Augmented Generation)
-        - **Does your application require custom data?**: No
-
-    - User interaction:
-
-        - **How do you want users to interact with the data?**: API Backend application
-
-    - Configure 'rag-api' application:
-
-        - **Which application host do you want to use?** : Container App
-        - **Select an existing application or create a new one**: Create new Container App
-        - **Which programming language do you want to use?**: C#
-
-    - AI model selection:
-
-        - **Lets choose a chat completion model**: I will choose model
-        - **Which model do you want to use?**: gpt-4o-mini (OpenAI)
-
-    After you answer the workflow questions, the extensions prints your choices and stages the changes for provisioning and deployment. 
-
-1. Select whether you want to provision the project resources. If you select **Yes**, `azd` begins provisioning resources to Azure based on your choices.
-1. To see the applied changes, open the `azure.yaml` file at the root of your template. The **resources** node contains new configurations `azd` uses to provision the AI infrastructure.
-
-    ```yaml
-    resources:
-    ai-project:
-        type: ai.project
-        models:
-            - name: gpt-4o-mini
-              version: "2024-07-18"
-              format: OpenAI
-              sku:
-                name: GlobalStandard
-                usageName: OpenAI.GlobalStandard.gpt-4o-mini
-                capacity: 10
-    rag-api:
-        type: host.containerapp
-        uses:
-            - ai-project
-        port: 8080
+    ```azdeveloper
+    azd demo version
     ```
+
+    The output formatting should resemble the following:
+
+    ```output
+        Version: 0.2.0
+    Commit: 611d05a6f7190f3bda379e92b4ece6470584c6f0
+    Build Date: 2025-04-23T17:21:58Z
+    ```
+
+1. Run the `azd demo context` command to display the context of the `azd` project and environment:
+
+    ```azdeveloper
+    azd demo context
+    ```
+
+1. Run the `azd demo prompt` command to explore examples of how to prompt the user for input using an extension:
+
+    ```azdeveloper
+    azd demo prompt
+    ```
+
+    The first step of the workflow demonstrates how to filter a list:
+
+    ```output
+    ? Which Azure services do you use most with AZD?: Container Apps
+
+      Filter: Type to filter list
+    
+      > [✔] Container Apps
+        [ ] Functions
+        [ ] Static Web Apps
+        [ ] App Service
+        [ ] Cosmos DB
+        [ ] SQL Database
+        ...
+    ````
+
+    Select Container Apps and press Enter. Continue through the remaining prompts to see examples of other prompt options, such as boolean **Yes/No** or list selections.
 
 ## Related content
 
