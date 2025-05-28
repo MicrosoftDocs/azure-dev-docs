@@ -53,7 +53,7 @@ The provisioning scripts create these settings using the Azure CLI command, [`az
 
 To create settings through the Azure portal, see [Configure an App Service app in the Azure portal](/azure/app-service/configure-common).
 
-When running the code locally, you also need to specify environment variables that contain information about your local service principal. `DefaultAzureCredential` looks for these values. When deployed to App Service, you do not need to set these values as the app's system-assigned managed identity is used instead to authenticate.
+When running the code locally, you also need to specify environment variables that contain information about your local service principal. `DefaultAzureCredential` looks for these values. When deployed to App Service, you don't need to set these values as the app's system-assigned managed identity is used instead to authenticate.
 
 | Variable | Value |
 | --- | --- |
