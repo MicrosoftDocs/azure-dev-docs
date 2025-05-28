@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Getting support for GitHub Copilot for Azure
 
-If you experience issues when using GitHub Copilot for Azure, you can get support from the product team.  However, _where_ you find support you need depends on the type of issue you're experiencing. Since GitHub Copilot for Azure is one of many an extensions to GitHub Copilot, this document provides some guidance on where to look for support for your issue.
+If you experience issues when using GitHub Copilot for Azure, you can get support from the product team. However, _where_ you find support you need depends on the type of issue you're experiencing. Since GitHub Copilot for Azure is one of many extensions to GitHub Copilot, this document provides some guidance on where to look for support for your issue.
 
 ## GitHub Copilot support
 
