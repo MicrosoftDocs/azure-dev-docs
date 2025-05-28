@@ -15,34 +15,71 @@ This article shows you to how to configure your application to use the developer
 ## Overview of local development authentication using developer accounts
 
 When developing an application that uses the Azure SDK for Python, you can authenticate to Azure services during local development using the developer's Azure account. This approach is often the simplest way to authenticate to Azure services during local development since it doesn't require creating and managing service principals or secrets.
+
 :::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developers credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI, Azure PowerShell, or Azure Developer CLI. The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
+To enable an application to authenticate to Azure during local development using the developer’s own Azure credentials, the developer must first sign in using one of the supported command-line tools:
 
-This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can [create application service principals to use during local development](./local-development-service-principal.md), which can be scoped to have only the access needed by the app.
+* Azure CLI (az login)
+* Azure PowerShell
+* Azure Developer CLI (azd login)
+
+Once signed in, the Azure SDK for Python can automatically detect the active session and retrieve the necessary tokens from the credentials cache. This capability allows the app to authenticate to Azure services as the signed-in user, without requiring any additional configuration or hardcoded secrets.
+
+> [!NOTE]
+This behavior is enabled when using `DefaultAzureCredential`, which transparently falls back to CLI-based credentials in local environments.
+
+Using a developer’s signed-in Azure credentials is the easiest setup for local development. It leverages each team member’s existing Azure account, enabling seamless access to Azure services without requiring additional configuration. However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app would not be authorized to perform in a production environment.
+
+To closely mirror production permissions and improve security posture, you can instead create application-specific service principals for local development. These identities:
+
+* Can be assigned only the roles and permissions the application needs
+* Support principle of least privilege
+* Offer consistent testing of access-related behavior across environments
+
+Developers can configure the local environment to use the service principal via environment variables, and `DefaultAzureCredential` picks it up automatically. For more information, see the article [Authenticate Python apps to Azure services during local development using service principals](./local-development-service-principal.md).
 
 <a name='1---create-azure-ad-group-for-local-development'></a>
 
 ## 1 - Create Microsoft Entra security group for local development
 
-Since there are almost always multiple developers who work on an application, it's recommended to first create a Microsoft Entra security group to encapsulate the roles (permissions) the app needs in local development. This approach offers the following advantages.
+In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, it's recommended to first create a Microsoft Entra security group specifically for the application’s local development needs.
 
-- Every developer is assured to have the same roles assigned since roles are assigned at the group level.
-- If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
-- If a new developer joins the team, they simply must be added to the correct Microsoft Entra group to get the correct permissions to work on the app.
+Assigning Azure roles at the group level—rather than to individual users—offers several key benefits:
 
-If you have an existing Microsoft Entra security group for your development team, you can use that group. Otherwise, complete the following steps to create a Microsoft Entra security group.
+* Consistent Role Assignments
+
+  All developers in the group automatically inherit the same roles and permissions, ensuring a uniform development environment.
+
+* Simplified Role Management
+
+  When the application requires a new role, you only need to add it once to the group. You don't need to update individual user permissions.
+
+* Easy Onboarding
+
+  New developers can be granted the necessary permissions simply by adding them to the group. No manual role assignments are required.
+
+If your organization already has a suitable Microsoft Entra security group for the development team, you can reuse it. Otherwise, you can create a new group specifically for the app.
 
 ### [Azure CLI](#tab/azure-cli)
 
 The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create groups in Microsoft Entra ID. The `--display-name` and `--main-nickname` parameters are required. The name given to the group should be based on the name of the application. It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
 
-```azurecli
+```bash
 az ad group create \
     --display-name MyDisplay \
     --mail-nickname MyDisplay  \
     --description "<group-description>"
 ```
+
+```[PowerShell]
+az ad group create `
+    --display-name MyDisplay `
+    --mail-nickname MyDisplay `
+    --description "<group-description>"
+```
+
+---
 
 Copy the value of the `id` property in the output of the command. This is the object ID for the group. You need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
 
