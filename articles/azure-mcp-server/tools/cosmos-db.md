@@ -31,9 +31,9 @@ Example prompts include:
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
 
 ## List databases
 
@@ -47,10 +47,10 @@ Example prompts include:
 - **Query databases**: "Show all databases in my Cosmos DB account"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Account name** | Required. The name of the Cosmos DB account. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Cosmos DB account. |
 
 ## List containers
 
@@ -64,11 +64,11 @@ Example prompts include:
 - **Query containers**: "Show containers in database 'inventory'"
 - **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Account name** | Required. The name of the Cosmos DB account. |
-| **Database name** | Required. The name of the database. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Cosmos DB account. |
+| **Database name** | Required | The name of the database. |
 
 ## Query items
 
@@ -82,13 +82,13 @@ Example prompts include:
 - **Join query**: "Show me orders with their related customer information"
 - **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Account name** | Required. The name of the Cosmos DB account. |
-| **Database name** | Required. The name of the database. |
-| **Container name** | Required. The name of the container. |
-| **Query** | Optional. SQL query to execute against the container. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Cosmos DB account. |
+| **Database name** | Required | The name of the database. |
+| **Container name** | Required | The name of the container. |
+| **Query** | Optional | SQL query to execute against the container. |
 
 ## Related content
 

@@ -31,12 +31,12 @@ Example prompts include:
 - **Query databases**: "Show databases in PostgreSQL server in resource group 'my-rg'."
 - **Find databases**: "Get all databases from my PostgreSQL instance."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
-| **Server** | Required. The PostgreSQL server to be accessed. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server to be accessed. |
 
 ## Execute database query
 
@@ -50,14 +50,14 @@ Example prompts include:
 - **Extract data**: "Query customer data from my PostgreSQL server."
 - **Retrieve records**: "Select top sales records from PostgreSQL database."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
-| **Server** | Required. The PostgreSQL server to be accessed. |
-| **Database** | Required. The PostgreSQL database to be accessed. |
-| **Query** | Required. Query to be executed against a PostgreSQL database. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server to be accessed. |
+| **Database** | Required | The PostgreSQL database to be accessed. |
+| **Query** | Required | Query to be executed against a PostgreSQL database. |
 
 ## List tables
 
@@ -71,13 +71,13 @@ Example prompts include:
 - **Query tables**: "Show tables in PostgreSQL database in server 'my-pg-server'."
 - **Find tables**: "Get all tables from my PostgreSQL database."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
-| **Server** | Required. The PostgreSQL server to be accessed. |
-| **Database** | Required. The PostgreSQL database to be accessed. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server to be accessed. |
+| **Database** | Required | The PostgreSQL database to be accessed. |
 
 ## Get table schema
 
@@ -91,14 +91,14 @@ Example prompts include:
 - **View columns**: "Show columns and types for 'customers' table in PostgreSQL."
 - **Examine table**: "Get the structure of 'transactions' table in my PostgreSQL database."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
-| **Server** | Required. The PostgreSQL server to be accessed. |
-| **Database** | Required. The PostgreSQL database to be accessed. |
-| **Table** | Required. The PostgreSQL table to be accessed. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server to be accessed. |
+| **Database** | Required | The PostgreSQL database to be accessed. |
+| **Table** | Required | The PostgreSQL table to be accessed. |
 
 ## List servers
 
@@ -112,11 +112,11 @@ Example prompts include:
 - **Query servers**: "Show PostgreSQL servers in resource group 'dev-resources'."
 - **Find servers**: "Get all PostgreSQL instances in my environment."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
 
 ## Get server configuration
 
@@ -130,12 +130,12 @@ Example prompts include:
 - **View server params**: "Show me all configuration parameters of my PostgreSQL server."
 - **Get server setup**: "What is the configuration of my PostgreSQL instance?"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
-| **Server** | Required. The PostgreSQL server to be accessed. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server to be accessed. |
 
 ## Get server parameter
 
@@ -149,13 +149,13 @@ Example prompts include:
 - **View server param**: "Show me the 'work_mem' parameter value in my PostgreSQL server."
 - **Get configuration value**: "What is the 'maintenance_work_mem' set to in my PostgreSQL instance?"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
-| **User name** | Required. The user name to access PostgreSQL server. |
-| **Server** | Required. The PostgreSQL server to be accessed. |
-| **Param** | Required. The PostgreSQL parameter to be accessed. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **User name** | Required | The user name to access PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server to be accessed. |
+| **Param** | Required | The PostgreSQL parameter to be accessed. |
 
 ## Related content
 

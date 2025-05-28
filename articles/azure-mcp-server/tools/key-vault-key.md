@@ -31,12 +31,12 @@ Example prompts include:
 - **Set up key**: "Create an encryption key for my application in Key Vault"
 - **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Vault** | Required. The name of the Key Vault. |
-| **Key** | Required. The name of the key to create. |
-| **Key type** | Required. The type of key to create (RSA, EC). |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Vault** | Required | The name of the Key Vault. |
+| **Key** | Required | The name of the key to create. |
+| **Key type** | Required | The type of key to create (RSA, EC). |
 
 ## Get key
 
@@ -50,11 +50,11 @@ Example prompts include:
 - **Check key**: "Show me the details of the encryption key in my vault"
 - **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Vault** | Required. The name of the Key Vault. |
-| **Key** | Required. The name of the key to retrieve. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Vault** | Required | The name of the Key Vault. |
+| **Key** | Required | The name of the key to retrieve. |
 
 ## List keys
 
@@ -68,11 +68,11 @@ Example prompts include:
 - **Query keys**: "Show all keys in my Key Vault"
 - **Check keys**: "What keys are available in my 'encryption-vault'?"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Vault** | Required. The name of the Key Vault. |
-| **Include managed** | Optional. Whether or not to include managed keys in results. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Vault** | Required | The name of the Key Vault. |
+| **Include managed** | Optional | Whether or not to include managed keys in results. |
 
 ## Related content
 

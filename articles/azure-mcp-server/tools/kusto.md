@@ -40,9 +40,9 @@ Example prompts include:
 - **Query clusters**: "Show my Kusto cluster organization."
 - **Find clusters**: "Get all ADX clusters in my Azure subscription."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
 
 ## Get cluster details
 
@@ -56,10 +56,10 @@ Example prompts include:
 - **Check configuration**: "Get configuration details of my ADX cluster 'telemetry-cluster'."
 - **Cluster properties**: "Show properties of my Kusto cluster in subscription 'my-sub'."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Cluster name** | Required. The name of the Kusto cluster. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Cluster name** | Required | The name of the Kusto cluster. |
 
 ## List databases
 
@@ -73,11 +73,11 @@ Example prompts include:
 - **Query databases**: "Show databases in Kusto cluster URI 'https://mycluster.westus.kusto.windows.net'."
 - **Find databases**: "Get all databases from my ADX instance."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Kusto cluster. |
 
 
 ## List tables
@@ -92,12 +92,12 @@ Example prompts include:
 - **Query tables**: "Show tables in the 'metrics' database of my Data Explorer cluster."
 - **Find tables**: "Get all tables from 'events' database in my Kusto instance."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
-| **Database name** | Required. The name of the Kusto database. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Kusto cluster. |
+| **Database name** | Required | The name of the Kusto database. |
 
 ## Get table schema
 
@@ -111,13 +111,13 @@ Example prompts include:
 - **View columns**: "Show columns and types for 'Telemetry' table in Kusto."
 - **Examine table**: "Get the structure of 'Traces' table in my ADX database."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
-| **Database name** | Required. The name of the Kusto database. |
-| **Table name** | Required. The name of the table. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Kusto cluster. |
+| **Database name** | Required | The name of the Kusto database. |
+| **Table name** | Required | The name of the table. |
 
 ## Execute query
 
@@ -131,13 +131,13 @@ Example prompts include:
 - **Extract insights**: "Query user activity patterns from my Kusto database."
 - **Analyze logs**: "Execute KQL to summarize performance metrics by service in my ADX database."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
-| **Database name** | Required. The name of the Kusto database. |
-| **Query** | Required. The KQL query to execute. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Kusto cluster. |
+| **Database name** | Required | The name of the Kusto database. |
+| **Query** | Required | The KQL query to execute. |
 
 ## Sample table data
 
@@ -151,14 +151,14 @@ Example prompts include:
 - **Check data format**: "Get a few sample records from the 'Telemetry' table in Kusto to see the data structure."
 - **Data exploration**: "Return 10 sample rows from 'UserActivity' table in my ADX cluster."
 
-| Parameter | Description |
-|-----------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) required. The URI of the Kusto cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required. The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required. The name of the Kusto cluster. |
-| **Database name** | Required. The name of the Kusto database. |
-| **Table name** | Required. The name of the table to sample data from. |
-| **Limit** | Optional. The maximum number of rows to return in the sample. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Kusto cluster. |
+| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
+| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Kusto cluster. |
+| **Database name** | Required | The name of the Kusto database. |
+| **Table name** | Required | The name of the table to sample data from. |
+| **Limit** | Optional | The maximum number of rows to return in the sample. |
 
 ## Related content
 

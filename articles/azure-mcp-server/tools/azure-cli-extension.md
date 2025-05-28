@@ -28,9 +28,9 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 - **List my Azure resources**: "Show me all my resource groups"
 - **Query specific details**: "Get details for storage account mystorageacct01 in the dev-rg resource group"
 
-| Parameter | Description |
-|-------------------|-----------|-------------|
-| **Command** | Required. The Azure CLI command to execute (without the 'az' prefix). For a complete list of Azure CLI commands, see the [Azure CLI reference documentation](/cli/azure/reference-index). |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Command** | Required | The Azure CLI command to execute (without the 'az' prefix). For a complete list of Azure CLI commands, see the [Azure CLI reference documentation](/cli/azure/reference-index). |
 
 ## Related content
 

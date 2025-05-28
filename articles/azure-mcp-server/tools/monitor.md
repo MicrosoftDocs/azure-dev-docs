@@ -31,9 +31,9 @@ Example prompts include:
 - **Query workspaces**: "Show all Log Analytics workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
 
 ## List tables
 
@@ -47,11 +47,11 @@ Example prompts include:
 - **Query tables**: "Show available tables in my Log Analytics workspace"
 - **Check tables**: "Get all log tables in my 'operations' workspace"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Workspace** | Required. The Log Analytics workspace ID or name. |
-| **Resource group** | Required. The name of the Azure resource group. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Workspace** | Required | The Log Analytics workspace ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
 
 ## Query logs
 
@@ -65,14 +65,14 @@ Example prompts include:
 - **Join query**: "Query errors and correlate them with performance metrics"
 - **Aggregation query**: "Count errors by application in my monitoring workspace"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Workspace** | Required. The Log Analytics workspace ID or name. |
-| **Table name** | Required. The name of the table to query. |
-| **Query** | Required. The KQL query to execute against the Log Analytics workspace. |
-| **Hours** | Optional. The number of hours to query back from now. |
-| **Limit** | Optional. The maximum number of results to return. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Workspace** | Required | The Log Analytics workspace ID or name. |
+| **Table name** | Required | The name of the table to query. |
+| **Query** | Required | The KQL query to execute against the Log Analytics workspace. |
+| **Hours** | Optional | The number of hours to query back from now. |
+| **Limit** | Optional | The maximum number of results to return. |
 
 ## Related content
 

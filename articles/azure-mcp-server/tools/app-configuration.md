@@ -31,12 +31,12 @@ Example prompts include:
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
-| **Account name** | Required. The name of the App Configuration store.                                    |
-| **Key**          | Required. The key name of the setting to delete.                                      |
-| **Label**        | Optional. The label of the setting to delete.                                         |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required | The name of the App Configuration store.                                    |
+| **Key**          | Required | The key name of the setting to delete.                                      |
+| **Label**        | Optional | The label of the setting to delete.                                         |
 
 ## List key-value settings
 
@@ -50,12 +50,12 @@ Example prompts include:
 - **View configuration**: "List all configuration entries from contoso-appconfig"
 - **Find settings with label**: "Show me settings with label 'dev'"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
-| **Account name** | Required. The name of the App Configuration store.                                    |
-| **Key**          | Optional. The key filter to list settings (supports wildcards).                       |
-| **Label**        | Optional. The label filter to list settings (supports wildcards).                     |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required | The name of the App Configuration store.                                    |
+| **Key**          | Optional | The key filter to list settings (supports wildcards).                       |
+| **Label**        | Optional | The label filter to list settings (supports wildcards).                     |
 
 ## List stores
 
@@ -69,9 +69,9 @@ Example prompts include:
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 
 ## Lock key-value setting
 
@@ -85,12 +85,12 @@ Example prompts include:
 - **Secure setting**: "Make ApiSecrets read-only"
 - **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
-| **Account name** | Required. The name of the App Configuration store.                                    |
-| **Key**          | Required. The key name of the setting to lock.                                        |
-| **Label**        | Optional. The label of the setting to lock.                                           |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required | The name of the App Configuration store.                                    |
+| **Key**          | Required | The key name of the setting to lock.                                        |
+| **Label**        | Optional | The label of the setting to lock.                                           |
 
 ## Set key-value setting
 
@@ -104,13 +104,13 @@ Example prompts include:
 - **Add new config**: "Add a new setting called 'ApiEndpoint' with URL value 'https://api.contoso.com' to my 'eastus-config'"
 - **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
-| **Account name** | Required. The name of the App Configuration store.                                    |
-| **Key**          | Required. The key name of the setting to set.                                         |
-| **Value**        | Required. The value to set for the key.                                               |
-| **Label**        | Optional. The label of the setting to set.                                            |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required | The name of the App Configuration store.                                    |
+| **Key**          | Required | The key name of the setting to set.                                         |
+| **Value**        | Required | The value to set for the key.                                               |
+| **Label**        | Optional | The label of the setting to set.                                            |
 
 ## Show key-value setting
 
@@ -124,12 +124,12 @@ Example prompts include:
 - **Find single key**: "What's the current value for AppSettings:LogLevel?"
 - **Retrieve specific config**: "Get the database connection string from eastus-config"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
-| **Account name** | Required. The name of the App Configuration store.                                    |
-| **Key**          | Required. The key name of the setting to set.                                         |
-| **Label**        | Optional. The label of the setting to set.                                            |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required | The name of the App Configuration store.                                    |
+| **Key**          | Required | The key name of the setting to set.                                         |
+| **Label**        | Optional | The label of the setting to set.                                            |
 
 ## Unlock key-value setting
 
@@ -143,12 +143,12 @@ Example prompts include:
 - **Enable changes**: "Unlock the config values for TestEndpoint"
 - **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
 
-| Parameter       | Description                                                                 |
-|-----------------|-----------------------------------------------------------------------------|
-| **Subscription** | Required. The ID of the subscription containing the App Configuration store.          |
-| **Account name** | Required. The name of the App Configuration store.                                    |
-| **Key**          | Required. The key name of the setting to set.                                         |
-| **Label**        | Optional. The label of the setting to set.                                            |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
+| **Account name** | Required | The name of the App Configuration store.                                    |
+| **Key**          | Required | The key name of the setting to set.                                         |
+| **Label**        | Optional | The label of the setting to set.                                            |
 
 ## Related content
 

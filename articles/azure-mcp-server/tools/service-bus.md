@@ -30,11 +30,11 @@ Example prompts include:
 - **Check queue**: "Get details for my 'user-events' queue"
 - **Queue status**: "Show me message count for the orders queue"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Namespace** | Required. The fully qualified Service Bus namespace host name. |
-| **Queue name** | Required. The queue name to get details for. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Namespace** | Required | The fully qualified Service Bus namespace host name. |
+| **Queue name** | Required | The queue name to get details for. |
 
 ## Get topic runtime details
 
@@ -48,11 +48,11 @@ Example prompts include:
 - **Topic status**: "Show me subscription count for the events topic"
 - **View topic**: "Tell me about the broadcast-topic runtime in my service bus"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Namespace** | Required. The fully qualified Service Bus namespace host name. |
-| **Topic name** | Required. The name of the topic to get information about. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Namespace** | Required | The fully qualified Service Bus namespace host name. |
+| **Topic name** | Required | The name of the topic to get information about. |
 
 ## Get topic subscription runtime details
 
@@ -66,12 +66,12 @@ Example prompts include:
 - **Subscription status**: "Show me details for the email-service subscription"
 - **View subscription**: "Tell me about the analytics subscription in my events topic"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Namespace** | Required. The fully qualified Service Bus namespace host name. |
-| **Topic name** | Required. The name of the topic containing the subscription. |
-| **Topic subscription name** | Required. The name of the opic subscription to get details for. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Namespace** | Required | The fully qualified Service Bus namespace host name. |
+| **Topic name** | Required | The name of the topic containing the subscription. |
+| **Topic subscription name** | Required | The name of the opic subscription to get details for. |
 
 ## Peek at queue messages
 
@@ -85,12 +85,12 @@ Example prompts include:
 - **Preview queue**: "Show me what's in the processing queue without removing messages"
 - **Read queue**: "Look at messages in my orders queue"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Namespace** | Required. The fully qualified Service Bus namespace host name. |
-| **Queue name** | Required. The queue name to peek messages from. |
-| **Max messages** | Optional. The maximum number of messages to retrieve. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Namespace** | Required | The fully qualified Service Bus namespace host name. |
+| **Queue name** | Required | The queue name to peek messages from. |
+| **Max messages** | Optional | The maximum number of messages to retrieve. |
 
 ## Peek at topic subscription messages
 
@@ -104,13 +104,13 @@ Example prompts include:
 - **Preview subscription**: "Show me what's in the email-service subscription without removing messages"
 - **Read subscription**: "Look at messages in my analytics subscription"
 
-| Parameter | Description |
-|-----------|-------------|
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
 | **Subscription** | Required.The Azure subscription ID or name. |
 | **Namespace** | Required.The fully qualified Service Bus namespace host name. |
 | **Topic name** | Required.The name of the topic containing the subscription. |
 | **Topic subscription name** | Required.The name of topic subscription to peek messages from. |
-| **Max messages** | Optional. The maximum number of messages to retrieve. |
+| **Max messages** | Optional | The maximum number of messages to retrieve. |
 
 ## Related content
 

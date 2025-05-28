@@ -21,7 +21,7 @@ The parameters specific to each tool are documented in the tools reference artic
 
 | Parameter       | Description       |
 |-----------------|-------------------|
-| **Subscription** | Required. Azure subscription ID for target resources. |
+| **Subscription** | Required | Azure subscription ID for target resources. |
 | **Tenant Id** | Azure tenant ID for authentication.  |
 | **Authentication method** | Authentication method ('credential', 'key', 'connectionString'). Default is 'credential'. |
 | **Maximum retries** | Maximum retry attempts for failed operations. Default is 3. |

@@ -30,11 +30,11 @@ Example prompts include:
 - **Container properties**: "What are the settings for my 'backups' container?"
 - **Container status**: "Check access policy for 'user_data' container"
 
-| Parameter | Description |
-|-----------|-------------|
-**Subscription** | Required. The Azure subscription ID or name. |
-**Account name** | Required. The name of the Azure Storage account. |
-**Container name** | Required. The name of the container to access. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Azure Storage account. |
+| **Container name** | Required | The name of the container to access. |
 
 ## List accounts
 
@@ -48,9 +48,9 @@ Example prompts include:
 - **Query accounts**: "Show all my storage resources"
 - **Check accounts**: "Storage accounts in subscription abc123"
 
-| Parameter | Description |
-|-----------|-------------|
-**Subscription** | Required. The Azure subscription ID or name. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
 
 ## List containers
 
@@ -63,10 +63,10 @@ Example prompts include:
 - **Find containers**: "List all containers in my storage 'user_files'"
 - **Query containers**: "Show available containers in my storage account"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Account name** | Required. The name of the Azure Storage account. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Azure Storage account. |
 
 ## List container blobs
 
@@ -80,11 +80,11 @@ Example prompts include:
 - **Query blobs**: "Show available files in container 'logs'"
 - **Check blobs**: "Get all blobs in my 'user_data' container"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Account name** | Required. The name of the Azure Storage account. |
-| **Container name** | Required. The name of the container to access. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Azure Storage account. |
+| **Container name** | Required | The name of the container to access. |
 
 ## List tables
 
@@ -98,10 +98,10 @@ Example prompts include:
 - **Query tables**: "Show available tables in my storage account"
 - **Check tables**: "Get all storage tables in my 'analytics_data' account"
 
-| Parameter | Description |
-|-----------|-------------|
-| **Subscription** | Required. The Azure subscription ID or name. |
-| **Account name** | Required. The name of the Azure Storage account. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Account name** | Required | The name of the Azure Storage account. |
 
 ## Related content
 
