@@ -89,8 +89,6 @@ az ad group create `
     --description "<group-description>"
 ```
 
----
-
 After running the `az ad group create` command, copy the value of the `id` property from the command output. This is the `Object ID` of the Microsoft Entra security group. You need it for assigning roles in later steps in this article. If you didn't save the ID initially or need to retrieve it again later, use the following [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this value: `az ad group show --group "my-app-local-dev" --query id --output tsv`.
 
 To add a user to the group, you first need to obtain the `Object ID` of the Azure user account you want to add. Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) command with the `--filter` parameter to search for a specific user by display name. The `--query` parameter helps limit the output to relevant fields:
@@ -111,8 +109,6 @@ az ad user list `
     --output table
 ```
 
----
-
 Once you have the `Object ID` of the user, you can add them to the group using the [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command. 
 
 ```Bash
@@ -128,8 +124,6 @@ az ad group member add `
     --group <group-name> `
     --member-id <object-id>
 ```
-
----
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -172,8 +166,6 @@ az role assignment create `
     --role "<roleName>"
 ```
 
----
-
 To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
 
 ```Bash
@@ -185,8 +177,6 @@ az role definition list --query "sort_by([].{roleName:roleName, description:desc
 # PowerShell syntax
 az role definition list --query "sort_by([].{roleName:roleName, description:description}, &roleName)" --output table
 ```
-
----
 
 For example, to allow the members of a group with an object ID of `bbbbbbbb-1111-2222-3333-cccccccccccc` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the *Storage Blob Data Contributor* role to the group using the following command.
 
@@ -203,8 +193,6 @@ az role assignment create --assignee bbbbbbbb-1111-2222-3333-cccccccccccc `
     --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example `
     --role "Storage Blob Data Contributor"
 ```
-
----
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
