@@ -1,7 +1,7 @@
 ---
 title: "Get started with the Azure OpenAI security building blocks"
 description: "Learn how to effectively use keyless connections for authentication and authorization to Azure OpenAI with the Azure OpenAI security building blocks. Get started using a simple chat app sample implemented using Azure OpenAI Service using keyless authentication with Microsoft Entra ID. Easily deploy with Azure Developer CLI. This article uses the Azure AI Template chat quickstart sample."
-ms.date: 11/12/2024
+ms.date: 05/28/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, keyless-python, devx-track-js, devx-track-dotnet
@@ -52,7 +52,7 @@ The application architecture relies on the following services and components:
 :::zone-end
 
 :::zone pivot="typescript"
-- A TypeScript web app that uses the [openai](https://www.npmjs.com/package/openai) npm package to generate responses to user messages. 
+- A TypeScript web app that uses the [OpenAI](https://www.npmjs.com/package/openai) npm package to generate responses to user messages. 
 :::zone-end
 
 ## Cost
@@ -270,7 +270,7 @@ The sample repository contains all the code and configuration files for chat app
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs. These resources may accrue costs even if you interrupt the command before it is fully executed.
+> Azure resources created in this section incur immediate costs. These resources might accrue costs even if you interrupt the command before it's fully executed.
 
 1. Run the following Azure Developer CLI command for Azure resource provisioning and source code deployment:
 
@@ -556,7 +556,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 :::image type="content" source="./media/get-started-securing-your-ai-app/reopen-local-command-palette.png" lightbox="./media/get-started-securing-your-ai-app/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
