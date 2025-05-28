@@ -1,15 +1,20 @@
 ---
 title: Authenticate Python apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using developer accounts.
-ms.date: 10/17/2024
+ms.date: 05/29/2025
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Authenticate Python apps to Azure services during local development using developer accounts
 
-When developers create cloud applications, they typically debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
+When developing cloud applications, developers typically build, test, and debug their code locally before deploying it to Azure. However, even during local development, the application still needs to authenticate with any Azure services it interacts with, such as Key Vault, Storage, or databases.
 
+This article shows you to how to configure your application to use the developer’s Azure credentials for authentication during local development. This approach enables a seamless and secure development experience without embedding secrets or writing environment-specific logic.
+
+## Overview of local development authentication using developer accounts
+
+When developing an application that uses the Azure SDK for Python, you can authenticate to Azure services during local development using the developer's Azure account. This approach is often the simplest way to authenticate to Azure services during local development since it doesn't require creating and managing service principals or secrets.
 :::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developers credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
 For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI, Azure PowerShell, or Azure Developer CLI. The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
