@@ -16,7 +16,7 @@ This article shows you to how to configure your application to use the developer
 
 When developing an application that uses the Azure SDK for Python, you can authenticate to Azure services during local development using the developer's Azure account. This approach is often the simplest way to authenticate to Azure services during local development since it doesn't require creating and managing service principals or secrets.
 
-:::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developers credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
+:::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developer's credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
 To enable an application to authenticate to Azure during local development using the developer’s own Azure credentials, the developer must first sign in using one of the supported command-line tools:
 
@@ -29,7 +29,9 @@ Once signed in, the Azure SDK for Python can automatically detect the active ses
 > [!NOTE]
 This behavior is enabled when using `DefaultAzureCredential`, which transparently falls back to CLI-based credentials in local environments.
 
-Using a developer’s signed-in Azure credentials is the easiest setup for local development. It leverages each team member’s existing Azure account, enabling seamless access to Azure services without requiring additional configuration. However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app would not be authorized to perform in a production environment.
+Using a developer’s signed-in Azure credentials is the easiest setup for local development. It leverages each team member’s existing Azure account, enabling seamless access to Azure services without requiring additional configuration.
+
+However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app wouldn't be authorized to perform in a production environment.
 
 To closely mirror production permissions and improve security posture, you can instead create application-specific service principals for local development. These identities:
 
@@ -43,7 +45,7 @@ Developers can configure the local environment to use the service principal via 
 
 ## 1 - Create Microsoft Entra security group for local development
 
-In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, it's recommended to first create a Microsoft Entra security group specifically for the application’s local development needs.
+In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, we recommend that you first create a Microsoft Entra security group specifically for the application’s local development needs.
 
 Assigning Azure roles at the group level—rather than to individual users—offers several key benefits:
 
@@ -69,7 +71,7 @@ This command requires the following parameters:
 
 `--display-name`: A user-friendly name for the group
 
-`--mail-nickname``: A unique identifier used for email and internal reference
+`--mail-nickname`: A unique identifier used for email and internal reference
 
 We recommend that you base the group name on the application name and include a suffix like `-local-dev` to clearly indicate its purpose.
 
@@ -89,7 +91,7 @@ az ad group create `
     --description "<group-description>"
 ```
 
-After running the `az ad group create` command, copy the value of the `id` property from the command output. This is the `Object ID` of the Microsoft Entra security group. You need it for assigning roles in later steps in this article. If you didn't save the ID initially or need to retrieve it again later, use the following [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this value: `az ad group show --group "my-app-local-dev" --query id --output tsv`.
+After running the `az ad group create` command, copy the value of the `id` property from the command output. You need the `Object ID` of the Microsoft Entra security group for assigning roles in later steps in this article. To retrieve the `Object ID` again later, use the following [az ad group show](/cli/azure/ad/group#az-ad-group-show) command: `az ad group show --group "my-app-local-dev" --query id --output tsv`.
 
 To add a user to the group, you first need to obtain the `Object ID` of the Azure user account you want to add. Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) command with the `--filter` parameter to search for a specific user by display name. The `--query` parameter helps limit the output to relevant fields:
 
@@ -109,7 +111,7 @@ az ad user list `
     --output table
 ```
 
-Once you have the `Object ID` of the user, you can add them to the group using the [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command. 
+Once you have the `Object ID` of the user, you can add them to the group using the [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command.
 
 ```Bash
 #!/bin/bash
@@ -145,11 +147,30 @@ az ad group member add `
 
 ## 2 - Assign roles to the Microsoft Entra group
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. In this example, the roles will be assigned to the Microsoft Entra group created in step 1. Roles can be assigned at a resource, resource group, or subscription scope. This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+After creating your Microsoft Entra security group and adding members, the next step is to determine what roles (permissions) your application requires, and assign those roles to the group at the appropriate scope.
+
+* Determine Required Roles
+
+  Identify the roles your app needs to function. Common examples include:
+
+  * Key Vault Secrets User – to read secrets from Azure Key Vault
+  * Storage Queue Data Contributor – to send messages to Azure Queue Storage
+
+  Refer to the built-in role definitions for more options.
+
+* Choose a Scope for the Role Assignment
+
+  Roles can be assigned at different scopes:
+
+  * Resource-level (e.g., a single Key Vault or Storage account)
+  * Resource group-level (recommended for most apps)
+  * Subscription-level (use with caution—broadest access)
+
+In this example, we assign roles at the resource group scope, which is typical when all application resources are grouped under one resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
-A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. You can specify a group with its object ID.
+A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. You can specify a group with its `Object ID`.
 
 ```Bash
 #!/bin/bash
@@ -178,7 +199,7 @@ az role definition list --query "sort_by([].{roleName:roleName, description:desc
 az role definition list --query "sort_by([].{roleName:roleName, description:description}, &roleName)" --output table
 ```
 
-For example, to allow the members of a group with an object ID of `bbbbbbbb-1111-2222-3333-cccccccccccc` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the *Storage Blob Data Contributor* role to the group using the following command.
+To grant read, write, and delete access to Azure Storage blob containers and data for all storage accounts in a specific resource group, assign the Storage Blob Data Contributor role to your Microsoft Entra security group.
 
 ```Bash
 #!/bin/bash
@@ -211,6 +232,8 @@ For information on assigning permissions at the resource or subscription level u
 ---
 
 ## 3 - Sign-in to Azure using the Azure CLI, Azure PowerShell, Azure Developer CLI, or in a browser
+
+To authenticate with your Azure account, choose one of the following methods:
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
@@ -248,15 +271,23 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell, or Azure developer CLI. If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+To authenticate Azure SDK client objects with Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. This is the recommended authentication method for both local development and production deployments.
+
+In a local development scenario, `DefaultAzureCredential` works by sequentially checking for available authentication sources. Specifically, it looks for active sessions in the following tools:
+
+* Azure CLI (az login)
+* Azure PowerShell (Connect-AzAccount)
+* Azure Developer CLI (azd auth login)
+
+If the developer is signed in to Azure using any of these tools, `DefaultAzureCredential` automatically detects the session and uses those credentials to authenticate the application with Azure services. This allows developers to securely authenticate without storing secrets or modifying code for different environments.
 
 Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 
-```terminal
+```console
 pip install azure-identity
 ```
 
-Next, for any Python code that creates an Azure SDK client object in your app, you'll want to:
+Next, for any Python code that creates an Azure SDK client object in your app, you want to:
 
 1. Import the `DefaultAzureCredential` class from the `azure.identity` module.
 1. Create a `DefaultAzureCredential` object.
