@@ -1,6 +1,6 @@
 ---
 title: Getting support for GitHub Copilot for Azure
-description: This article helps you decide who to contact for support given your issue.
+description: This article helps you decide where to find support for your issue.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
@@ -10,24 +10,27 @@ ms.collection: ce-skilling-ai-copilot
 
 # Getting support for GitHub Copilot for Azure
 
-If you experience issues when using GitHub Copilot for Azure, you can get support. Where you find the right support depends on the issue. GitHub Copilot for Azure is an extension created and supported by Microsoft. It is an extension to GitHub Copilot, a tool created and supported by GitHub. This document provides some guidance on where to look for support.
+If you experience issues when using GitHub Copilot for Azure, you can get support from the product team.  However, _where_ you find support you need depends on the type of issue you're experiencing. Since GitHub Copilot for Azure is one of many an extensions to GitHub Copilot, this document provides some guidance on where to look for support for your issue.
 
-## When to contact GitHub for support
+## GitHub Copilot support
 
-Seek out support from GitHub for the following issues:
+Seek out support for GitHub Copilot when experiencing the following issues:
 
-- Copilot or GitHub authentication
+- Copilot or GitHub authentication issues
 - Issues with the large language model (LLM)
 
+To get support, create a [new issue on the GitHub Copilot repo](https://github.com/microsoft/vscode-copilot-release/issues).
 
-## When to contact Microsoft for support
+## GitHub Copilot for Azure support
 
-See out support from Microsoft for the following issues:
+Seek out support for GitHub Copilot for Azure when experiencing the following issues:
 
-- Azure authentication
+- Azure authentication issues
 - Tool performance (calls to the tools are taking too long, or returning unusable results)
 - Incorrect tool calling (the wrong tools are being called by the LLM)
 - Installation issues
+
+To get support, create a [new issue on the GitHub Copilot for Azure repo](https://github.com/microsoft/GitHub-Copilot-for-Azure/issues).
 
 ## Related content
 
