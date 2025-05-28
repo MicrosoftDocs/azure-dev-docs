@@ -17,7 +17,7 @@ If you experience issues when using GitHub Copilot for Azure, you can get suppor
 Seek out support for GitHub Copilot when experiencing the following issues:
 
 - Copilot or GitHub authentication issues
-- Issues with the large language model (LLM)
+- Issues with a large language model (LLM)
 
 To get support, create a [new issue on the GitHub Copilot repo](https://github.com/microsoft/vscode-copilot-release/issues).
 
