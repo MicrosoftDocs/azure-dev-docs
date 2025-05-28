@@ -6,6 +6,8 @@ items:
       href: introduction.md
     - name: Get started
       href: get-started.md
+    - name: Get support
+      href: support.md
     - name: Quickstarts
       items:
         - name: Build and deploy an app with ask mode
