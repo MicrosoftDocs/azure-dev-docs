@@ -48,7 +48,7 @@ else:
     call queue_client.send_message(code, visibility_timeout=600)
 ```
 
-This pseudo-code employs the [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method's optional `visibility_timeout` parameter, which specifies the number of seconds before the message becomes visible in the queue. Because the default timeout is zero, messages initially written by the API endpoint become immediately visible to the queue-watching process. As a result, that process stores them in the valid code table right away. The process queues the same message again with the timeout, so that it will receive the code again 10 minutes later, at which point it removes it from the table.
+This pseudo-code employs the [`send_message`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) method's optional `visibility_timeout` parameter, which specifies the number of seconds before the message becomes visible in the queue. Because the default timeout is zero, messages initially written by the API endpoint become immediately visible to the queue-watching process. As a result, that process stores them in the valid code table right away. The process queues the same message again with the timeout, so that it receives the code again 10 minutes later, at which point it removes it from the table.
 
 ## Implementing the main app API endpoint in Azure Functions
 
@@ -60,7 +60,7 @@ One piece of the implementation that becomes easier is authenticating with Queue
 
 ## Next steps
 
-Through this tutorial, you've learned how apps authenticate with other Azure services using managed identity, and how apps can use Azure Key Vault to store any other necessary secrets for third-party APIs.
+Through this tutorial, you learned how apps authenticate with other Azure services using managed identity, and how apps can use Azure Key Vault to store any other necessary secrets for third-party APIs.
 
 The same pattern demonstrated here with Azure Key Vault and Azure Storage applies with all other Azure services. The crucial step is that you assign the correct role for the app within that service's page on the Azure portal, or through the Azure CLI. (See [How to assign Azure roles](/azure/role-based-access-control/role-assignments-steps)). Be sure to check the service documentation to see whether you need to configure any other access policies.
 
