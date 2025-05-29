@@ -47,7 +47,7 @@ In this step, you set environment variables for use in the code in this article.
 export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
 export LOCATION=<Location> # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-export STORTAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
+export STORAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
 export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
 
 ```
