@@ -1,7 +1,7 @@
 ---
 title: Create a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 03/04/2024
+ms.date: 05/29/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
