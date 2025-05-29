@@ -18,7 +18,7 @@ To complete the steps in this article, make sure that you have:
 
 [!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
 
-By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. See https://learn.microsoft.com/en-us/azure/copilot/manage-access for more information
+By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
 ## Install GitHub Copilot for Azure
 
