@@ -44,11 +44,6 @@ In this step, you set environment variables for use in the code in this article.
 export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
 export LOCATION=<Location> # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-
-export AZURE_RESOURCE_GROUP_NAME=PythonAzureExample-rg
-export LOCATION=centralus
-
-
 ```
 
 # [PowerShell](#tab/powershell)
@@ -58,9 +53,6 @@ export LOCATION=centralus
 $env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
 $env:LOCATION = <Location> # Change to your preferred region
 $env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
-
-$env:AZURE_RESOURCE_GROUP_NAME = "PythonAzureExample-rg"
-$env:LOCATION = "centralus"
 ```
 
 ---
@@ -172,9 +164,21 @@ You can verify that the group exists through the Azure portal or the Azure CLI.
 
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but resources in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
+# [Bash](#tab/bash)
+
 ```azurecli
+#!/bin/bash
 az group delete -n $AZURE_RESOURCE_GROUP_NAME --no-wait
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
+```
+
+---
 
 You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code. The commented code at the bottom of the script in this article demonstrates the usage.
 
