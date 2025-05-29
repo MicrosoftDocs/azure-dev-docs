@@ -40,9 +40,10 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ```azurecli
 export RESOURCE_GROUP_NAME="myResourceGroup"
+export LOCATION=eastus
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
-    --location eastus
+    --location ${LOCATION}
 ```
 
 ## Create a custom virtual network
@@ -60,7 +61,8 @@ First, create a virtual network by using [az network vnet create](/cli/azure/net
 az network vnet create \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name myVNet \
-    --address-prefixes 192.168.0.0/16
+    --address-prefixes 192.168.0.0/16 \
+    --location ${LOCATION}
 ```
 
 Next, create a subnet by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) for the AKS cluster. The following example creates a subnet named `myAKSSubnet`:
@@ -98,11 +100,6 @@ export AKS_SUBNET_ID=$(az network vnet subnet show \
 
 Use the following command to create an AKS cluster in your virtual network and subnet by using the [az aks create](/cli/azure/aks#az-aks-create) command.
 
-> [!NOTE]
-> This example creates an AKS cluster using azure network plugin and a system-assigned identity. Azure CLI will grant [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role to the system-assigned identity after the cluster is created.
->
-> If you want to use a user-assigned managed identity, see [Create an AKS cluster with system-assigned managed identities](/azure/aks/configure-kubenet#create-an-aks-cluster-with-user-assigned-managed-identities).
-
 ```azurecli
 az aks create \
     --resource-group ${RESOURCE_GROUP_NAME} \
@@ -110,6 +107,7 @@ az aks create \
     --generate-ssh-keys \
     --enable-managed-identity \
     --node-count 3 \
+    --node-vm-size Standard_DS2_v3 \
     --network-plugin azure \
     --vnet-subnet-id $AKS_SUBNET_ID \
     --yes
@@ -126,7 +124,7 @@ export STORAGE_ACCOUNT_NAME="stgwlsaks$(date +%s)"
 az storage account create \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${STORAGE_ACCOUNT_NAME} \
-    --location eastus \
+    --location ${LOCATION} \
     --sku Standard_RAGRS \
     --kind StorageV2
 ```
