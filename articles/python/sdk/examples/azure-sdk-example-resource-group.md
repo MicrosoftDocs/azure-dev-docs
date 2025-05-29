@@ -154,15 +154,27 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 ## 6: Verify the resource group
 
-You can verify that the group exists through the Azure portal or the Azure CLI.
+You can verify that the resource group exists through the Azure portal or the Azure CLI.
 
-- Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If you've already had the portal open, use the **Refresh** command to update the list.
+- Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If necessary, use the **Refresh** command to update the list.
 
 - Azure CLI: use the [az group show](/cli/azure/group#az-group-show) command:
 
+    # [Bash](#tab/bash)
+
     ```azurecli
+    #!/bin/bash
     az group show -n $AZURE_RESOURCE_GROUP_NAME
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```azurecli
+    # PowerShell syntax
+    az group show -n $env:AZURE_RESOURCE_GROUP_NAME
+    ```
+
+    ---
 
 ## 7: Clean up resources
 
