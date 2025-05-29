@@ -318,9 +318,21 @@ If you see an error that your client IP address isn't allowed, check that you de
 
 Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
+# [Bash](#tab/bash)
+
 ```azurecli
-az group delete -n $AZURE_RESOURCE_GROUP_NAME  --no-wait
+#!/bin/bash
+az group delete -n $AZURE_RESOURCE_GROUP_NAME --no-wait
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
+```
+
+---
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
