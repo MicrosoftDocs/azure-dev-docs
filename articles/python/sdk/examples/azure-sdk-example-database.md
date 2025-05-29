@@ -90,9 +90,9 @@ $env:version = "ServerVersion.EIGHT0_21"
 
 ---
 
-## 4: Write code to create the database
+## 4: Write code to create and configure a MySQL Flexible Server with a database
 
-In this step, you create a Python file named *provision_db.py* to create the database using the following code. The code uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
 
 ```Python
 import random, os

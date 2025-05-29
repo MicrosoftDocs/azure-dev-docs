@@ -65,9 +65,9 @@ $env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
 
 ---
 
-## 4: Write code to create the database
+## 4: Write code to create a storage account and blob container
 
-In this step, you create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python.
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, Azure Storage account, and Blob container using the Azure SDK for Python.
 
 ```Python
 import os, random
