@@ -47,7 +47,7 @@ In this step, you set environment variables for use in the code in this article.
 export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
 export LOCATION=<Location> # Change to your preferred region
 export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-export STORTAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
+export STORAGE_ACCOUNT_NAME=<StorageAccountName> # Change to your preferred storage account name
 export CONTAINER_NAME=<ContainerName> # Change to your preferred container name
 
 ```
@@ -65,9 +65,9 @@ $env:CONTAINER_NAME = <ContainerName> # Change to your preferred container name
 
 ---
 
-## 4: Write code to create the database
+## 4: Write code to create a storage account and blob container
 
-In this step, you create a Python file named *provision_blob.py* with the following code. This Python script provisions a resource group, Azure Storage account, and Blob container using the Azure SDK for Python.
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, Azure Storage account, and Blob container using the Azure SDK for Python.
 
 ```Python
 import os, random
@@ -200,11 +200,21 @@ Leave the resources in place if you want to follow the article [Example: Use Azu
 
 Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
+# [Bash](#tab/bash)
+
 ```azurecli
-az group delete -n $AZURE_RESOURCE_GROUP_NAME  --no-wait
+#!/bin/bash
+az group delete -n $AZURE_RESOURCE_GROUP_NAME --no-wait
 ```
 
-[!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
+```
+
+---
 
 ### For reference: equivalent Azure CLI commands
 
