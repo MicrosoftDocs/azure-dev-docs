@@ -26,8 +26,7 @@ To enable an application to authenticate to Azure during local development using
 
 Once signed in, the Azure Identity library for Python can automatically detect the active session and retrieve the necessary tokens from the credentials cache. This capability allows the app to authenticate to Azure services as the signed-in user, without requiring any additional configuration or hardcoded secrets.
 
-> [!NOTE]
-This behavior is enabled when using `DefaultAzureCredential`, which transparently falls back to CLI-based credentials in local environments.
+This behavior is enabled when using [`DefaultAzureCredential`](https://learn.microsoft.com/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview), which transparently falls back to CLI-based credentials in local environments.
 
 Using a developer's signed-in Azure credentials is the easiest setup for local development. It leverages each team member's existing Azure account, enabling seamless access to Azure services without requiring additional configuration.
 
