@@ -141,13 +141,15 @@ A user, group, or application service principal is assigned a role in Azure usin
 
 ```azurecli
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-SCOPE="./subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
 ROLE_NAME=<role-name>
 az role assignment create \
-  --assignee $APP_ID \
-  --scope "$SCOPE" \
-  --role $ROLE_NAME
+  --assignee "$APP_ID" \
+  --scope "./subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME" \
+  --role "$ROLE_NAME"
 ```
+
+>![!NOTE]
+> To prevent Git Bash from treating /subscriptions/... as a file path, prepend ./ to the string for the `scope` parameter.
 
 To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
 
