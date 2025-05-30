@@ -1,0 +1,2 @@
+> [!NOTE]
+> The Azure resources you intend to access with Azure MCP Server must already exist within your Azure subscription. Additionally, your user account must have the necessary [RBAC roles and permissions](/azure/role-based-access-control/overview) assigned for those resources.

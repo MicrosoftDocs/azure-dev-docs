@@ -1,6 +1,6 @@
 ---
-title: Get started with GitHub Copilot for Azure Preview
-description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Preview Visual Studio Code extension.
+title: Get started with GitHub Copilot for Azure
+description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Visual Studio Code extension.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
@@ -8,27 +8,19 @@ ms.date: 4/17/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Get started with GitHub Copilot for Azure Preview
+# Get started with GitHub Copilot for Azure
 
-Get started with GitHub Copilot for Azure Preview to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure extension in Visual Studio Code, so you can write your first prompt.
+Get started with GitHub Copilot for Azure to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure extension in Visual Studio Code, so you can write your first prompt.
 
 ## Prerequisites
 
 To complete the steps in this article, make sure that you have:
 
-- An Azure account and access to an Azure subscription. For details on how to set them up, see the [pricing page for Azure accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account).
+[!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
 
-- A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
+By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
-- Visual Studio Code. For details on how to download and install it, see [Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview).
-
-- The GitHub Copilot extension and the GitHub Copilot Chat extension. For instructions on how to install these extensions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat), respectively.
-
-
->[!IMPORTANT]
->GitHub Copilot isn't included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
-
-## Install GitHub Copilot for Azure Preview
+## Install GitHub Copilot for Azure
 
 1. In Visual Studio Code, select the **Extensions** icon.
 1. In the Extensions Marketplace, search for **GitHub Copilot for Azure**. When the GitHub Copilot for Azure extension appears, select **Install**.
@@ -236,7 +228,7 @@ You can also set the default tenant in the extension settings:
 
 ## Related content
 
-- [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
+- [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).

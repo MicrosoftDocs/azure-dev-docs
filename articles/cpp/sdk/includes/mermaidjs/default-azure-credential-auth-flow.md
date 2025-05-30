@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/03/2025
+ms.date: 05/29/2025
 ---
 
 ```mermaid
@@ -23,7 +23,7 @@ ms.date: 04/03/2025
 flowchart LR;
     subgraph CREDENTIAL TYPES;
         direction LR;
-        Deployed(Deployed service):::deployed ~~~ Developer(Developer):::developer;
+        Deployed(Deployed service):::deployed ~~~ Developer(Developer tool):::developer;
     end;
 
     subgraph CREDENTIALS;

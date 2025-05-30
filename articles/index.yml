@@ -60,6 +60,15 @@ productDirectory:
           text: Deploy your apps
         - url: ./github-copilot-azure/troubleshoot-examples.md
           text: Troubleshoot your apps
+    - title: Azure MCP Server Preview
+      imageSrc: /media/logos/logo_azure.svg
+      links:
+        - url: ./azure-mcp-server/index.md
+          text: What is the Azure MCP Server?
+        - url: ./azure-mcp-server/get-started.md
+          text: Get started
+        - url: ./azure-mcp-server/tools/index.md
+          text: Azure MCP Server tools
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:

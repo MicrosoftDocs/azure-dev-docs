@@ -11,9 +11,9 @@
       href: install-azd.md
     - name: Quickstarts
       items: 
-      - name: Quickstart - Deploy an azd template
+      - name: Deploy an azd template
         href: get-started.md
-      - name: Quickstart - Explore and customize a template
+      - name: Explore and customize a template
         href: quickstart-explore-templates.md
     - name: Explore the template galleries
       href: azd-template-galleries.md
@@ -23,6 +23,8 @@
     items:
     - name: Azure Developer CLI vs Azure CLI
       href: azure-developer-cli-vs-azure-cli.md
+    - name: Explore the azd init workflow
+      href: azd-init-workflow.md
     - name: Explore the azd up workflow
       href: azd-up-workflow.md
     - name: Commands overview
@@ -51,6 +53,12 @@
         href: start-with-app-code.md
       - name: Training - build and deploy azd templates
         href: /training/paths/azure-developer-cli
+    - name: Work with extensions
+      items:
+      - name: Overview
+        href: extensions/overview.md
+      - name: Quickstart - Use the AI extension
+        href: extensions/quickstart-ai-extension.md
   - name: Deployment and operations
     items:
       - name: CI/CD
