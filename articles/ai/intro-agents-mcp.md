@@ -76,3 +76,4 @@ There are two main scenarios for building your own MCP server:
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [Azure MCP Server overview](..\azure-mcp-server\index.md)
 - [Use MCP servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
+- [Use MCP servers in Visual Studio (Preview)](/visualstudio/ide/mcp-servers)
