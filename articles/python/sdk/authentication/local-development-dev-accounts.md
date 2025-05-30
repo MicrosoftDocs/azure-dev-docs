@@ -271,7 +271,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects with Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. This is the recommended authentication method for both local development and production deployments.
+To authenticate Azure SDK client objects with Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure-identity` package. This is the recommended authentication method for both local development and production deployments.
 
 In a local development scenario, `DefaultAzureCredential` works by sequentially checking for available authentication sources. Specifically, it looks for active sessions in the following tools:
 
