@@ -29,7 +29,7 @@ Once signed in, the Azure Identity library for Python can automatically detect t
 > [!NOTE]
 This behavior is enabled when using `DefaultAzureCredential`, which transparently falls back to CLI-based credentials in local environments.
 
-Using a developer’s signed-in Azure credentials is the easiest setup for local development. It leverages each team member’s existing Azure account, enabling seamless access to Azure services without requiring additional configuration.
+Using a developer's signed-in Azure credentials is the easiest setup for local development. It leverages each team member's existing Azure account, enabling seamless access to Azure services without requiring additional configuration.
 
 However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app wouldn't be authorized to perform in a production environment.
 
