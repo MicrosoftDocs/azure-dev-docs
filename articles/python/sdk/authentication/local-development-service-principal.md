@@ -32,7 +32,8 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 First, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. The command also creates the app registration for the app at the same time.
 
 ```azurecli
-az ad sp create-for-rbac --name <service-principal-name>
+SERVICE_PRINCIPAL_NAME=<service-principal-name>
+az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME
 ```
 
 The output of this command will look like the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
@@ -44,6 +45,15 @@ The output of this command will look like the following. Make note of these valu
   "password": "Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6",
   "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 }
+```
+
+Next, you need to get the appID value and store it into a variable. This value is used to set environment variables in your local development environment so that the Azure SDK for Python can authenticate to Azure using the service principal.
+
+```azurecli
+APP_ID=$(az ad sp list \
+  --all \
+  --query "[?displayName=='$SERVICE_PRINCIPAL_NAME'].appId | [0]" \
+  --output tsv)
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -77,10 +87,13 @@ Since there are typically multiple developers who work on an application, it's r
 The [az ad group create](/cli/azure/ad/group#az-ad-group-create) command is used to create security groups in Microsoft Entra ID. The `--display-name` and `--main-nickname` parameters are required. The name given to the group should be based on the name of the application. It's also useful to include a phrase like 'local-dev' in the name of the group to indicate the purpose of the group.
 
 ```azurecli
+GROUP_DISPLAY_NAME="<group-name>"
+GROUP_MAIL_NICKNAME="<group-mail-nickname>"
+GROUP_DESCRIPTION="<group-description>"
 az ad group create \
-    --display-name MyDisplay \
-    --mail-nickname MyDisplay  \
-    --description "<group-description>"
+  --display-name $GROUP_DISPLAY_NAME \
+  --mail-nickname $GROUP_MAIL_NICKNAME \
+  --description $GROUP_DESCRIPTION
 ```
 
 Copy the value of the `id` property in the output of the command. This is the object ID for the group. You need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
@@ -88,18 +101,18 @@ Copy the value of the `id` property in the output of the command. This is the ob
 To add members to the group, you need the object ID of the application service principal, which is different than the application ID. Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals. The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown. The `--query` parameter limits to columns to only those of interest.
 
 ```azurecli
-az ad sp list \
-    --filter "startswith(displayName, 'msdocs')" \
-    --query "[].{objectId:id, displayName:displayName}" \
-    --output table
+SP_OBJECT_ID=$(az ad sp list \
+  --filter "startswith(displayName,'$GROUP_DISPLAY_NAME')" \
+  --query "[0].id" \
+  --output tsv)
 ```
 
 The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.
 
 ```azurecli
 az ad group member add \
-    --group <group-name> \
-    --member-id <object-id>
+    --group $GROUP_DISPLAY_NAME \
+    --member-id $SP_OBJECT_ID
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -127,9 +140,13 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. You can specify a group with its object ID. You can specify an application service principal with its appId.
 
 ```azurecli
-az role assignment create --assignee <appId or objectId> \
-    --scope /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName> \
-    --role "<roleName>" 
+SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+SCOPE="./subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+ROLE_NAME=<role-name>
+az role assignment create \
+  --assignee $APP_ID \
+  --scope "$SCOPE" \
+  --role $ROLE_NAME
 ```
 
 To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
