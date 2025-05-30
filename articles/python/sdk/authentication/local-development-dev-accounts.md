@@ -31,9 +31,7 @@ This behavior is enabled when using `DefaultAzureCredential`, which transparentl
 
 Using a developer's signed-in Azure credentials is the easiest setup for local development. It leverages each team member's existing Azure account, enabling seamless access to Azure services without requiring additional configuration.
 
-However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app wouldn't be authorized to perform in a production environment.
-
-To closely mirror production permissions and improve security posture, you can instead create application-specific service principals for local development. These identities:
+However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app wouldn't be authorized to perform in a production environment. To closely mirror production permissions and improve security posture, you can instead create application-specific service principals for local development. These identities:
 
 * Can be assigned only the roles and permissions the application needs
 * Support principle of least privilege
