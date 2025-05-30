@@ -16,7 +16,7 @@ The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) lets apps p
 
 Developers can use the MCP in two main ways:
 
--	**Consume existing MCP servers**: Most developers use existing MCP servers, like the Azure MCP Server, to build agentic functionality into intelligent apps.
+-	**Consume existing MCP servers**: Most developers use existing MCP servers, like the [Azure MCP Server](/azure/developer/azure-mcp-server/), to build agentic functionality into intelligent apps.
 
       Explore the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai), an example of consuming an existing MCP server. This template creates an MCP agent app in .NET that uses Azure OpenAI and connects to a remote MCP server written in TypeScript.
 
@@ -65,7 +65,7 @@ There are two main scenarios for building your own MCP server:
 
   -	You build MCP servers that use features from existing MCP servers. In this case, your server calls existing MCP Server tool commands directly.
   
-    For example, you can build a custom Cosmos DB MCP server that uses tools from the [Azure MCP Server](/azure/developer/azure-mcp-server/). This scenario lets you create a new server that uses existing features and adds your own custom features.
+    For example, you can build a custom Cosmos DB MCP server that uses tools from the Azure MCP Server. This scenario lets you create a new server that uses existing features and adds your own custom features.
   
   - You build a custom MCP server that offers its own tools, resources, and prompts for your specific needs. This scenario lets you create a custom experience for your users while still using AI.
   
