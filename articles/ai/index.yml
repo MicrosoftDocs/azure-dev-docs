@@ -46,8 +46,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Build Agents using Model Context Protocol on Azure
+            url: intro-agents-mcp.md  
           - text: Azure Container Apps building block for MCP servers
-            url:  https://aka.ms/mcp/aca    
+            url: https://aka.ms/mcp/aca    
           - text: Create OpenAI-powered agents using MCP
             url: https://aka.ms/mcp/openai
           - text: Build AI agent tools using remote MCP with Azure Functions
