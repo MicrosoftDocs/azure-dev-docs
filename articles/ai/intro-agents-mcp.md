@@ -18,21 +18,17 @@ Developers can use the MCP in two main ways:
 
 -	**Consume existing MCP servers**: Most developers use existing MCP servers, like the Azure MCP Server, to build agentic functionality into intelligent apps.
 
-  - **OpenAI MCP Agent Building Block**
-  
-    Explore the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai), an example of consuming an existing MCP server. This template creates an MCP agent app in .NET that uses Azure OpenAI and connects to a remote MCP server written in TypeScript.
+  Explore the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai), an example of consuming an existing MCP server. This template creates an MCP agent app in .NET that uses Azure OpenAI and connects to a remote MCP server written in TypeScript.
 
-    The following diagram shows a simple architecture of the OpenAI MCP Agent Building Block:
-    :::image type="content" source="./media/intro-agents-mcp/openai-mcp-agent-building-block-diagram.png" alt-text="Diagram showing architecture from MCP client to MCP server.":::
+  The following diagram shows a simple architecture of the OpenAI MCP Agent Building Block:
+  :::image type="content" source="./media/intro-agents-mcp/openai-mcp-agent-building-block-diagram.png" alt-text="Diagram showing architecture from MCP client to MCP server.":::
 
 -	**Develop your own MCP server**: Some developers create their own MCP servers to offer custom tools, resources, and prompts for specific needs.
 
-  - **MCP Container App Building Block**
+  Explore the [MCP Container App Building Block AI template](https://aka.ms/mcp/aca), an example of developing your own MCP server. This template sets up a remote Model Context Protocol (MCP) server using Azure Container Apps.
 
-    Explore the [MCP Container App Building Block AI template](https://aka.ms/mcp/aca), an example of developing your own MCP server. This template sets up a remote Model Context Protocol (MCP) server using Azure Container Apps.
-
-    The following diagram shows a simple architecture of the MCP Container App Building Block:
-    :::image type="content" source="./media/intro-agents-mcp/mcp-container-app-building-block-diagram.png" alt-text="Diagram showing architecture of MCP server.":::
+  The following diagram shows a simple architecture of the MCP Container App Building Block:
+  :::image type="content" source="./media/intro-agents-mcp/mcp-container-app-building-block-diagram.png" alt-text="Diagram showing architecture of MCP server.":::
 
 ## Consume existing MCP servers
 
@@ -42,16 +38,19 @@ Most developers consume existing MCP clients in an MCP Host and AI agents instea
 
 - **Host Application**: The overall application (like VS Code, a web app, etc.)
   - The host application is the environment where the MCP client and agent components run.
+
     - Within the host, two key components interact:
-      - **Agent Component**: The part that contains the AI intelligence (like GitHub Copilot Agent Mode or a custom agent built with Azure AI Agent Service or another framework)
-      - This component is responsible for processing user requests and determining what external capabilities it needs.
-      - It can be a separate module or integrated into the host application.
-      - It might use AI models to interpret user input and generate responses.
-      - The agent component is responsible for managing the flow of information between the user and the MCP client component.
-    - **MCP Client Component**: The part that implements the MCP protocol
-      - This component is responsible for managing the connection to the MCP server and handling the communication between the agent component and the server.
-      - The client can be a separate module or integrated into the host application.
-      - The client component is responsible for sending requests to the MCP server and receiving responses.
+
+      - **Agent Component**: The part that contains the AI intelligence (like GitHub Copilot Agent Mode or a custom agent built with Azure AI Agent Service or another framework).
+        - This component is responsible for processing user requests and determining what external capabilities it needs.
+        - It can be a separate module or integrated into the host application.
+        - It might use AI models to interpret user input and generate responses.
+        - The agent component is responsible for managing the flow of information between the user and the MCP client component.
+
+      - **MCP Client Component**: The part that implements the MCP protocol.
+        - This component is responsible for managing the connection to the MCP server and handling the communication between the agent component and the server.
+        - The client can be a separate module or integrated into the host application.
+        - The client component is responsible for sending requests to the MCP server and receiving responses.
 
 ## Develop your own MCP server
 
