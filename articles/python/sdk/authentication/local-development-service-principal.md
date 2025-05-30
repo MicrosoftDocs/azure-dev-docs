@@ -8,22 +8,24 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Authenticate Python apps to Azure services during local development using service principals
 
-When creating cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to set up dedicated application service principal objects to be used during local development.
+When building cloud applications, developers often need to run and test their apps locally. Even during local development, the application must authenticate to any Azure services it interacts with. This article explains how to configure dedicated service principal identities specifically for use during local development.
 
 :::image type="content" source="../media/local-dev-service-principal-overview.png" alt-text="A diagram showing how an app running in local developer obtains the application service principal from an .env file and then uses that identity to connect to Azure resources.":::
 
-Dedicated application service principals for local development allow you to follow the principle of least privilege during app development. Since permissions are scoped to exactly what is needed for the app during development, app code is prevented from accidentally accessing an Azure resource intended for use by a different app. This also prevents bugs from occurring when the app is moved to production because the app was overprivileged in the dev environment.
+Dedicated application service principals for local development support the principle of least privilege by limiting access to only the Azure resources required by the app during development. Using a dedicated application service principal reduces the risk of unintended access to other resources and helps prevent permission-related bugs when transitioning to production, where broader permissions could lead to issues.
 
-An application service principal is set up for the app when the app is registered in Azure. When registering apps for local development, it's recommended to:
+When registering applications for local development in Azure, it’s recommended to:
 
-- Create separate app registrations for each developer working on the app. This will create separate application service principals for each developer to use during local development and avoid the need for developers to share credentials for a single application service principal.
-- Create separate app registrations per app. This scopes the app's permissions to only what is needed by the app.
+* Create separate app registrations for each developer: This provides each developer with their own service principal, avoiding the need to share credentials and enabling more granular access control.
+* Create separate app registrations for each application: This ensures each app only has the permissions it needs, reducing the potential attack surface.
 
-During local development, environment variables are set with the application service principal's identity. The Azure SDK for Python reads these environment variables and uses this information to authenticate the app to the Azure resources it needs.
+To enable authentication during local development, set environment variables with the application service principal’s credentials. The Azure SDK for Python detects these variables and uses them to authenticate requests to Azure services.
 
 ## 1 - Register the application in Azure
 
-Application service principal objects are created with an app registration in Azure. This can be done using either the Azure portal or Azure CLI.
+Application service principal objects are created when you register an app in Azure. This registration can be performed using either the Azure portal or the Azure CLI. The registration process creates an app registration in Microsoft Entra ID (formerly Azure Active Directory) and generates a service principal object for the app. The service principal object is used to authenticate the app to Azure services.
+The app registration process also generates a client secret (password) for the app. This secret is used to authenticate the app to Azure services. The client secret is never stored in source control, but rather in a `.env` file in the application directory. The `.env` file is read by the application at runtime to set environment variables that the Azure SDK for Python uses to authenticate the app.
+The following steps show how to register an app in Azure and create a service principal for the app. The steps are shown for both the Azure CLI and the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -47,7 +49,7 @@ The output of this command will look like the following. Make note of these valu
 }
 ```
 
-Next, you need to get the appID value and store it into a variable. This value is used to set environment variables in your local development environment so that the Azure SDK for Python can authenticate to Azure using the service principal.
+Next, you need to get the `appID` value and store it into a variable. This value is used to set environment variables in your local development environment so that the Azure SDK for Python can authenticate to Azure using the service principal.
 
 ```azurecli
 APP_ID=$(az ad sp list \
@@ -78,9 +80,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 
 Since there are typically multiple developers who work on an application, it's recommended to create a Microsoft Entra security group to encapsulate the roles (permissions) the app needs in local development, rather than assigning the roles to individual service principal objects. This offers the following advantages:
 
-- Every developer is assured to have the same roles assigned since roles are assigned at the group level.
-- If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
-- If a new developer joins the team, a new application service principal is created for the developer and added to the group, assuring the developer has the right permissions to work on the app.
+* Every developer is assured to have the same roles assigned since roles are assigned at the group level.
+* If a new role is needed for the app, it only needs to be added to the Microsoft Entra group for the app.
+* If a new developer joins the team, a new application service principal is created for the developer and added to the group, assuring the developer has the right permissions to work on the app.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -95,8 +97,6 @@ az ad group create \
   --mail-nickname $GROUP_MAIL_NICKNAME \
   --description $GROUP_DESCRIPTION
 ```
-
-Copy the value of the `id` property in the output of the command. This is the object ID for the group. You need it in later steps. You can also use the [az ad group show](/cli/azure/ad/group#az-ad-group-show) command to retrieve this property.
 
 To add members to the group, you need the object ID of the application service principal, which is different than the application ID. Use the [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to list the available service principals. The `--filter` parameter command accepts OData style filters and can be used to filter the list as shown. The `--query` parameter limits to columns to only those of interest.
 
