@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 
 When developing cloud applications, developers typically build, test, and debug their code locally before deploying it to Azure. However, even during local development, the application needs to authenticate with any Azure services it interacts with, such as Key Vault, Storage, or databases.
 
-This article shows you to how to configure your application to use the developer’s Azure credentials for authentication during local development. This approach enables a seamless and secure development experience without embedding secrets or writing environment-specific logic.
+This article shows how to configure your application to use the developer's Azure credentials for authentication during local development. This approach enables a seamless and secure development experience without embedding secrets or writing environment-specific logic.
 
 ## Overview of local development authentication using developer accounts
 
