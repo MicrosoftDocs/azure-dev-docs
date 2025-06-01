@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-- [Install the Azure CLI](/cli/azure/install-azure-cli) 2.37.0 or above to run Azure CLI commands.
+- [Install the Azure CLI](/cli/azure/install-azure-cli) 2.73.0 or above to run Azure CLI commands.
   - Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
   - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
@@ -107,7 +107,7 @@ az aks create \
     --generate-ssh-keys \
     --enable-managed-identity \
     --node-count 3 \
-    --node-vm-size Standard_DS2_v3 \
+    --node-vm-size Standard_DS3_v2 \
     --network-plugin azure \
     --vnet-subnet-id $AKS_SUBNET_ID \
     --yes
@@ -163,7 +163,7 @@ To upload multiple files at the same time, see [Create, download, and list blobs
 
 ## Deploy WLS on the AKS offer
 
-This section shows you how to provision a WLS cluster with the AKS instance you created previously. You'll provision the cluster within the custom virtual network and export cluster nodes using Azure Application Gateway as the load balancer. The offer will automatically generate a self-signed certificate for Application Gateway TLS/SSL termination. For advanced usage of TLS/SSL termination with Application Gateway, see [Application Gateway Ingress Controller](https://aka.ms/wls-aks-app-gateway-ic).
+This section shows you how to provision a WLS cluster with the AKS instance you created previously. The offer will use the existing cluster within the custom virtual network and export cluster nodes using Azure Application Gateway as the load balancer. The offer will automatically generate a self-signed certificate for Application Gateway TLS/SSL termination. For advanced usage of TLS/SSL termination with Application Gateway, see [Application Gateway Ingress Controller](https://aka.ms/wls-aks-app-gateway-ic).
 
 First, begin the process of deploying a WebLogic Server as described in [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach the **AKS** blade, as shown in the following screenshot.
 
@@ -191,7 +191,7 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
 
 You've now finished configuring the AKS cluster, WebLogic base image, and Jakarta EE application.
 
-Next, you'll configure end-to-end TLS/SSL to WebLogic Server Administration Console and cluster on HTTPS (Secure) port, with your own certificate in **TLS/SSL Configuration** pane. For this task, follow the steps in the [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach **Load balancing**, as shown in the following screenshot. You'll use the next section to configure the networking, then return to the WLS on AKS user guide to complete the deployment.
+Next, you'll configure load balancing. For this task, continue to follow the steps in the [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach **Load balancing**, as shown in the following screenshot. You'll use the next section to configure the load balancing, then return to the WLS on AKS user guide to complete the deployment.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png" alt-text="Screenshot of Azure portal showing the Networking pane of the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png":::
 
