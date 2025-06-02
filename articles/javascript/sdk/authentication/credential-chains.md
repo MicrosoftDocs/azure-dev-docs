@@ -1,7 +1,7 @@
 ---
 title: "Credential chains in the Azure library for JavaScript"
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
-ms.date: 01/10/2025
+ms.date: 06/02/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 #customer intent: As a JavaScript developer new to Azure, I want understand credential chains so that select the appropriate chain and understand how to configure and debug it.
@@ -83,6 +83,19 @@ const blobServiceClient = new BlobServiceClient(
 ### Credentials are global to the environment
 
 `DefaultAzureCredential` checks for the presence of certain [environment variables][env-vars]. It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
+
+### How to customize DefaultAzureCredential
+
+To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-prod.svg" alt-text="DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'":::
+
+When a value of `dev` is used, the chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-dev.svg" alt-text="DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'":::
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `@azure/identity` package versions 4.10.0 and later.
 
 ## Use ChainedTokenCredential for granularity
 
