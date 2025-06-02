@@ -19,10 +19,11 @@ An app can be registered with Azure using either the Azure portal or the Azure C
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az ad sp create-for-rbac --name <app-name>
+APP_NAME=<app-name>
+az ad sp create-for-rbac --name $APP_NAME
 ```
 
-The output of the command will be similar to the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again.
+The output of the command is similar to the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again.
 
 ```json
 {
@@ -31,6 +32,13 @@ The output of the command will be similar to the following. Make note of these v
   "password": "Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6",
   "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 }
+```
+
+Next, you need to get the `appID` value and store it into a variable. This value is used to set environment variables in your local development environment so that the Azure SDK for Python can authenticate to Azure using the service principal.
+
+```azurecli
+APP_ID=$(az ad sp create-for-rbac \
+  --name $APP_NAME --query appId --output tsv)
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -58,10 +66,18 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
 ```azurecli
-az role assignment create --assignee {appId} \
-    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
-    --role "{roleName}" 
+RESOURCE_GROUP_NAME=<resource-group-name>
+SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+ROLE_NAME=<role-name>
+
+az role assignment create \
+  --assignee "$APP_ID" \
+  --scope "./subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME" \
+  --role "$ROLE_NAME"
 ```
+
+>![!NOTE]
+> To prevent Git Bash from treating /subscriptions/... as a file path, prepend ./ to the string for the `scope` parameter and use double quotes around the entire string.
 
 To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
 
@@ -75,7 +91,7 @@ For example, to allow the service principal with the appId of `00001111-aaaa-222
 
 ```azurecli
 az role assignment create --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
-    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example \
+    --scope "./subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-"example" \
     --role "Storage Blob Data Contributor"
 ```
 
