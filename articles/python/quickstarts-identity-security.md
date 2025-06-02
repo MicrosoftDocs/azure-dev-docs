@@ -40,7 +40,7 @@ The following resources demonstrate how to use the Azure SDK for Python with pas
 
 ## Service Connector
 
-Many Azure resources commonly used in Python applications support the [Service Connector](/azure/service-connector/overview). Service Connector simplifies the configuration of network settings and connection information between Azure services, such as App Service or Container Apps, and dependent services like storage accounts or databases.
+Many Azure resources commonly used in Python applications support the [Service Connector](/azure/service-connector/overview). The Service Connector streamlines the process of configuring secure connections between Azure services. It automates the setup of authentication, network access, and connection strings between compute services (like App Service or Container Apps) and dependent services (such as Azure Storage, Azure SQL, or Cosmos DB). This reduces manual steps, helps enforce best practices (like using managed identities and private endpoints), and improves deployment consistency and security.
 
 * [Quickstart: Create a service connection in App Service from the Azure portal](/azure/service-connector/quickstart-portal-app-service-connection)
 
