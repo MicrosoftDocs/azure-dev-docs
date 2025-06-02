@@ -9,9 +9,9 @@ ms.custom: devx-track-typespec, devx-track-dotnet
 #customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
 ---
 
-# Quickstart: Create a new API project with TypeSpec & .NET
+# Quickstart: Create a new API project with TypeSpec and .NET
 
-In this Quickstart: you learn how to use TypeSpec to design, generate, and implement a RESTful API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
+In this quickstart, you learn how to use TypeSpec to design, generate, and implement a RESTful API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
 In this quickstart, you:
 
