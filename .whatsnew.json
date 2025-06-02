@@ -30,8 +30,16 @@
             "heading": "Azure Developer CLI"
         },
         {
+            "names": ["azure-mcp-server"],
+            "heading": "Azure MCP Server"
+        },
+        {
             "names": ["chef"],
             "heading": "Chef Software on Azure"
+        },
+        {
+            "names": ["cpp"],
+            "heading": "Azure for C++"
         },
         {
             "names": ["dev-tunnels"],
@@ -48,6 +56,10 @@
         {
             "names": ["go"],
             "heading": "Azure for Go"
+        },
+        {
+            "names": ["iac"],
+            "heading": "Infrastructure as Code"
         },
         {
             "names": ["intro"],
@@ -68,6 +80,10 @@
         {
             "names": ["python"],
             "heading": "Azure for Python"
+        },
+        {
+            "names": ["terraform"],
+            "heading": "Terraform on Azure"
         },
         {
             "names": ["typespec"],
