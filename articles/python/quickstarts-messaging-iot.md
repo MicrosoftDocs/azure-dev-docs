@@ -12,7 +12,7 @@ The following articles help you get started with messaging, event ingestion and 
 
 ## Messaging
 
-Azure messaging services enable seamless communication between components and applications, regardless of the language they’re written in or whether they’re hosted in the same cloud, across multiple clouds, or on-premises.
+Azure messaging services let different components and apps communicate easily, no matter what language they use or where they're hosted—whether in the same cloud, across multiple clouds, or on-premises.
 
 - **Notifications**
   - [How to use Notification Hubs from Python](/azure/notification-hubs/notification-hubs-python-push-notification-tutorial)
@@ -30,7 +30,7 @@ Azure messaging services enable seamless communication between components and ap
 
 ## Events
 
-Azure Event Hubs is a big data streaming platform and event ingestion service, while Azure Event Grid is a scalable, serverless event broker that enables event-driven integration between applications.
+Azure Event Hubs and Azure Event Grid are two key services for handling events in Azure. They provide capabilities for ingesting, processing, and routing events across various applications and services.
 
 These services allow you to build event-driven architectures and process events in real time.
 
