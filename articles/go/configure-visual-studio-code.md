@@ -1,7 +1,7 @@
 ---
 title: Install and configure Visual Studio Code for Go development
 description: This article helps you install and configure Visual Studio Code for Go development.
-ms.date: 6/11/2024
+ms.date: 6/2/2025
 ms.topic: quickstart
 ms.custom: devx-track-go
 ---
