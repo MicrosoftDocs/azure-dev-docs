@@ -4,7 +4,7 @@ description: Get sample code for creating and updating Azure virtual machines us
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jogiles
-ms.date: 05/30/2025
+ms.date: 06/02/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---

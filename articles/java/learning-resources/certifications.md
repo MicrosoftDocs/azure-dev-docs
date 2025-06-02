@@ -4,7 +4,7 @@ description: Java - Certifications
 author: KarlErickson
 ms.author: karler
 ms.topic: article
-ms.date: 05/30/2025
+ms.date: 06/02/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
