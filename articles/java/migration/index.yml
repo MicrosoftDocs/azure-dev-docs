@@ -1,4 +1,4 @@
-### YamlMime:Landing
+Java to Azure migration strategy documentation### YamlMime:Landing
 
 title: Java to Azure migration strategy documentation
 summary: Recommended strategies for migrating Java applications to Azure.
@@ -9,7 +9,7 @@ metadata:
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
-  ms.date: 04/03/2020
+  ms.date: 06/02/2025
   ms.topic: landing-page
   ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java
 

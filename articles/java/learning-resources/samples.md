@@ -4,7 +4,7 @@ description: Java readiness - Azure samples for Java developers.
 author: KarlErickson
 ms.author: karler
 ms.topic: article
-ms.date: 01/05/2023
+ms.date: 05/30/2025
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro
 ---
 

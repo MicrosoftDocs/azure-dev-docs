@@ -1,7 +1,7 @@
 ---
 title: Quickstarts for DevOps for Java apps on Azure
 description: List of getting started material in the Azure documentation for DevOps for Java apps.
-ms.date: 04/09/2020
+ms.date: 06/02/2025
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 ---

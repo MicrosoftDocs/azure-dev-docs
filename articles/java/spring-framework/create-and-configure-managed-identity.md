@@ -4,7 +4,7 @@ description: Shows you how to create and configure a managed identity on Azure h
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 04/06/2023
+ms.date: 05/30/2025
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 appliesto:
