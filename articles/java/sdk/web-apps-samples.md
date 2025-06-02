@@ -4,7 +4,7 @@ description: Get sample code for creating and updating Azure web apps hosted in 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jogiles
-ms.date: 04/16/2017
+ms.date: 06/02/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---

@@ -4,7 +4,7 @@ description: Java - learning paths for Java developers.
 author: KarlErickson
 ms.author: karler
 ms.topic: article
-ms.date: 03/19/2021
+ms.date: 06/02/2025 
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
