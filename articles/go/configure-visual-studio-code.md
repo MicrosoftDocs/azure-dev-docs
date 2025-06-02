@@ -1,14 +1,14 @@
 ---
 title: Install and configure Visual Studio Code for Go development
 description: This article helps you install and configure Visual Studio Code for Go development.
-ms.date: 6/11/2024
+ms.date: 6/2/2025
 ms.topic: quickstart
 ms.custom: devx-track-go
 ---
 
 # Install and configure Visual Studio Code for Go development
 
-In this quickstart, you will install the Go compiler and tools, install Visual Studio Code to write Go code, and install the Go for Visual Studio Code extension which provides support while writing Go. Once configured, you'll create an application, run it, and use the debugging tool to pause execution and observe the value of variables.
+In this quickstart, you install the Go compiler and tools, install Visual Studio Code to write Go code, and install the Go for Visual Studio Code extension which provides support while writing Go. Once configured, you create an application, run it, and use the debugging tool to pause execution and observe the value of variables.
 
 ## 1. Install Go
 
@@ -72,13 +72,19 @@ func main() {
 
 ## 6. Run the debugger
 
-Finally, create a break point and use the debugger tool to step through code line by line and view the values stored in variables while the application is paused.
+Finally, create a break point and use the debugger tool. Break points allow you to step through code line by line and view the values stored in variables while the application is paused.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | Create a break point on line 7 by clicking to the left of the numbered line. Optionally, place your cursor on line 7 and hit F9. | :::image type="content" source="./media/configure-visual-studio-code/create-breakpoint-240px.png" alt-text="A screenshot showing how to set a breakpoint." lightbox="./media/configure-visual-studio-code/create-breakpoint.png"::: |
 | Open the Debug view by selecting the debug icon in the Activity Bar on the left side of Visual Studio Code. Optionally, use the keyboard shortcut (Ctrl+Shift+D). | :::image type="content" source="./media/configure-visual-studio-code/run-debugger-240px.png" alt-text="A screenshot showing how to navigate to the debug panel." lightbox="./media/configure-visual-studio-code/run-debugger.png"::: |
 | Select *Run and Debug*, or select F5 to run the debugger. Then Hover over the variable `name` on line 7 to see its value. Exit the debugger by clicking **Continue** on the debugger bar or hit F5. | :::image type="content" source="./media/configure-visual-studio-code/debug-variable-240px.png" alt-text="A screenshot showing running the debugger in VS Code." lightbox="./media/configure-visual-studio-code/debug-variable.png"::: |
+
+When the application completes, you should see the output of the `fmt.Println()` statement in the Debug Console.
+
+:::image type="content" source="./media/configure-visual-studio-code/debug-console.png" alt-text="A screenshot showing the result of the sample Go program printed to the debug console.":::
+
+Visual Studio Code for Go development environment is successfully set up.
 
 ## Next steps
 

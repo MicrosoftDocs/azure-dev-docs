@@ -437,13 +437,13 @@
 | TypeSpec SSE | npm [0.70.0](https://www.npmjs.com/package/@typespec/sse/v/0.70.0) |  |  |
 | TypeSpec Streams | npm [0.70.0](https://www.npmjs.com/package/@typespec/streams/v/0.70.0) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.1.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.1.0) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.1.1) |  |  |
 | Unknown Display Name | npm [0.0.0-66](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-66) |  |  |
 | Unknown Display Name | npm [0.0.0-66](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-66) |  |  |
 | Unknown Display Name | npm [0.0.0-66](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-66) |  |  |
