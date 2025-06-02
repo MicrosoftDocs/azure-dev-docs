@@ -80,6 +80,12 @@ Finally, create a break point and use the debugger tool to step through code lin
 | Open the Debug view by selecting the debug icon in the Activity Bar on the left side of Visual Studio Code. Optionally, use the keyboard shortcut (Ctrl+Shift+D). | :::image type="content" source="./media/configure-visual-studio-code/run-debugger-240px.png" alt-text="A screenshot showing how to navigate to the debug panel." lightbox="./media/configure-visual-studio-code/run-debugger.png"::: |
 | Select *Run and Debug*, or select F5 to run the debugger. Then Hover over the variable `name` on line 7 to see its value. Exit the debugger by clicking **Continue** on the debugger bar or hit F5. | :::image type="content" source="./media/configure-visual-studio-code/debug-variable-240px.png" alt-text="A screenshot showing running the debugger in VS Code." lightbox="./media/configure-visual-studio-code/debug-variable.png"::: |
 
+When the application completes, you will be able to see the output of the `fmt.Println()` statement in the Debug Console.
+
+:::image type="content" source="./media/configure-visual-studio-code/debug-console.png" alt-text="A screenshot showing the result of the sample Go program printed to the debug consule.":::
+
+You have successfully set up you Visual Studio Code for Go development environment.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
