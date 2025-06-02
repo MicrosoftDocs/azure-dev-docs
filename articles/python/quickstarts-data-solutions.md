@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Data solutions for Python apps on Azure
 
-Azure provides a variety of fully managed databases and storage options, including relational, NoSQL, and in-memory databases—both proprietary and open source. You can also choose from object, block, and file storage services. The following articles help you get started using these solutions with Python on Azure.
+Azure offers a wide range of fully managed database and storage solutions, including relational, NoSQL, and in-memory databases, with support for both proprietary and open-source technologies. You can also choose from object, block, and file storage services. The following articles can help you get started using these options with Python on Azure.
 
 ## Databases
 
