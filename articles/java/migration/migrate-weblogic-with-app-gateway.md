@@ -58,7 +58,7 @@ First, begin the process of deploying a WebLogic Server configured or dynamic cl
 
 You have several options to provide the TLS/SSL certificate to the application gateway, but can only choose one. This section explains each option so you can choose the best one for your deployment.
 
-### Option one: Upload an TLS/SSL certificate
+### Option one: Upload a TLS/SSL certificate
 
 This option is suitable for production workloads where the App Gateway faces the public Internet, or for intranet workloads that require TLS/SSL. By choosing this option, an Azure Key Vault is automatically provisioned to contain the TLS/SSL certificate used by the App Gateway.
 
@@ -75,7 +75,9 @@ To upload an existing, signed, TLS/SSL certificate, use the following steps:
 
 ### Select DNS Configuration
 
-TLS/SSL certificates are associated with a DNS domain name at the time they're issued by the certificate issuer. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You can use a DNS Zone you already have created or allow the deployment to create one for you. Select the **DNS Configuration** section to continue.
+TLS/SSL certificates are associated with a DNS domain name at the time they're issued by the certificate issuer. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You must be far enough along in the deployment UI so that you have selected a resource group and vnet for the deployment.
+
+You can use a DNS Zone you already have created or allow the deployment to create one for you. If deploying WLS on AKS, select the **DNS** blade. If deploying WLS on VMs for the offers that support Application Gateway, 
 
 #### Use an existing Azure DNS Zone
 
