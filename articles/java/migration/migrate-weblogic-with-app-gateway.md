@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
    While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+* The ability to deploy the **WebLogic Server configured cluster on Azure VMs** offer listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other offers do not support automatic integration of Azure Application Gateway.
 
 ## Migration context
 
@@ -66,11 +66,13 @@ To upload an existing, signed, TLS/SSL certificate, use the following steps:
 
 1. Follow the steps from your certificate issuer to create a password-protected TLS/SSL certificate and specify the DNS name for the certificate. How to choose wildcard vs. single-name certificate is beyond the scope of this document. Either one will work here.
 1. Export the certificate from your issuer using the PFX file format and download it to your local machine. If your issuer doesn't support exporting as PFX, tools exist to convert many certificate formats to PFX format.
+1. Completely fill out the **Basics** pane. 
 1. Select the **Azure Application Gateway** section.
 1. Next to **Connect to Azure Application Gateway**, select **Yes**.
-1. Select **Upload an SSL certificate**.
+1. Select **Upload a TLS/SSL certificate**.
 1. Select the file browser icon for the field **SSL certificate**.  Navigate to the downloaded PFX format certificate and select **Open**.
 1. Enter the password for the certificate in the **Password** and **Confirm password** boxes.
+1. Select **Next**.
 1. Choose whether or not to deny public traffic directly to the nodes of the managed servers. Selecting **Yes** will make it so the managed servers are only accessible through the App Gateway.
 
 ### Select DNS Configuration
@@ -102,120 +104,7 @@ Finally, specify the names for the child DNS zones. The deployment will create t
 
 The other options for providing an TLS/SSL certificate to the App Gateway are detailed in the following sections. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
 
-### Option two: Identify an Azure Key Vault
-
-This option is suitable for production or non-production workloads, depending on the TLS/SSL certificate provided.  If you don't want the deployment to create an Azure Key Vault, you can identify an existing one or create one yourself. This option requires you to store the certificate and its password in the Azure Key Vault before continuing. If you have an existing Key Vault you want to use, skip to the section [Create a TLS/SSL certificate](#create-a-tlsssl-certificate).  Otherwise, continue to the next section.
-
-#### Create an Azure Key Vault
-
-This section shows how to use the Azure portal to create an Azure Key Vault.
-
-1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
-1. In the Search box, enter **Key Vault**.
-1. From the results list, choose **Key Vault**.
-1. On the Key Vault section, choose **Create**.
-1. On the **Create key vault** section provide the following information:
-    * **Subscription**: Choose a subscription.
-    * Under **Resource group**, choose **Create new** and enter a resource group name.  Take note of the key vault name. You'll need it later when deploying WLS.
-    * **Key Vault Name**: A unique name is required.  Take note of the key vault name.  You'll need it later when deploying WLS.
-    > [!NOTE]
-    > You may use the same name for both **Resource group** and **Key vault name**.
-    * In the **Location** pull-down menu, choose a location.
-    * Leave the other options to their defaults.
-1. Select **Next: Access Policy**.
-1. Under **Enable Access to**, select **Azure Resource Manager for template deployment**.
-1. Select **Review + Create**.
-1. Select **Create**.
-
-Key vault creation is fairly lightweight, typically completing in less than two minutes.  When deployment completes, select **Go to resource** and continue to the next section.
-
-#### Create a TLS/SSL certificate
-
-This section shows how to create a self-signed TLS/SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic Server on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password TLS/SSL certificate in **.pfx** format, you can skip this section and move on to the next.  If your existing, valid, non-empty password TLS/SSL certificate is not in the **.pfx** format, first convert it to a **.pfx** file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
-
-> [!NOTE]
-> This section shows how to base 64 encode the certificate before storing it as a secret in the Key Vault.  This is required by the underlying Azure deployment that creates the WebLogic Server and Application Gateway.
-
-Follow these steps to create and base 64 encode the certificate:
-
-1. Create an `RSA PRIVATE KEY`
-
-   ```bash
-   openssl genrsa 2048 > private.pem
-   ```
-
-1. Create a corresponding public key.
-
-   ```bash
-   openssl req -x509 -new -key private.pem -out public.pem
-   ```
-
-   You'll have to answer several questions when prompted by the OpenSSL tool.  These values will be included in the certificate.  This tutorial uses a self-signed certificate, therefore the values are irrelevant.  The following literal values are fine.
-     1. For **Country Name**, enter a two letter code.
-     1. For **State or Province Name**, enter WA.
-     1. For **Organization Name**, enter Contoso.  For Organizational Unit Name enter billing.
-     1. For **Common Name**, enter Contoso.
-     1. For **Email Address**, enter billing@contoso.com.
-
-1. Export the certificate as a **.pfx** file
-
-   ```bash
-   openssl pkcs12 -export -in public.pem -inkey private.pem -out mycert.pfx
-   ```
-
-   Enter the password twice.  Take note of the password. You'll need it later when deploying WLS.
-
-1. Base 64 encode the **mycert.pfx** file
-
-   ```bash
-   base64 mycert.pfx > mycert.txt
-   ```
-
-Now that you have a Key Vault and a valid TLS/SSL certificate with a non-empty password, you can store the certificate in the Key Vault.
-
-#### Store the TLS/SSL certificate in the Key Vault
-
-This section shows how to store the certificate and its password in the Key Vault created in the preceding sections.
-
-To store the certificate, follow these steps:
-
-1. From the Azure portal, put the cursor in the search bar at the top of the page and type the name of the Key Vault you created earlier in the tutorial.
-1. Your Key Vault should appear under the **Resources** heading.  Select it.
-1. In the **Settings** section, select **Secrets**.
-1. Select **Generate/Import**.
-1. Under **Upload options**, leave the default value.
-1. Under **Name**, enter `myCertSecretData`, or whatever name you like.
-1. Under **Value**, enter the content of the **mycert.txt** file.  The length of the value, and the presence of newlines, aren't a problem for the text field.
-1. Leave the remaining values at their defaults and select **Create**.
-
-To store the password for the certificate, follow these steps:
-
-1. You'll be returned to the **Secrets** page.  Select **Generate/Import**.
-1. Under **Upload options**, leave the default value.
-1. Under **Name**, enter `myCertSecretPassword`, or whatever name you like.
-1. Under **Value**, enter the password for the certificate.
-1. Leave the remaining values at their defaults and select **Create**.
-1. You'll be returned to the **Secrets** page.
-
-#### Identify the Key Vault
-
-Now that you have a Key Vault with a signed TLS/SSL certificate and its password stored as secrets, return to the **Azure Application Gateway** section to identify the Key Vault for the deployment.
-
-:::image type="content" source="media/migrate-weblogic-with-app-gateway/identify-key-vault.png" alt-text="Azure portal screenshot showing Azure Key Vault fields.":::
-
-1. Under **Resource group name in current subscription containing the KeyVault**, enter the name of the resource group containing the Key Vault you created earlier.
-1. Under **Name of the Azure KeyVault containing secrets for the Certificate for SSL Termination**, enter the name of the Key Vault.
-1. Under **The name of the secret in the specified KeyVault whose value is the SSL Certificate Data**, enter `myCertSecretData`,  or whatever name you entered previously.
-1. Under **The name of the secret in the specified KeyVault whose value is the password for the SSL Certificate**, enter `myCertSecretData`,  or whatever name you entered previously.
-1. Select **Review + Create**.
-1. Select **Create**.  This will do a validation the certificate can be obtained from the Key Vault, and that its password matches the value you stored in for the password in the Key Vault.  If this validation step fails, review the properties of the Key Vault, ensure the certificate was entered correctly, and ensure the password was entered correctly.
-1. Once you see **Validation passed**, select **Create**.
-
-This will start the process of creating the WLS cluster and its front-end Application Gateway, which may take about 15 minutes.  When the deployment completes, select **Go to resource group**. From the list of resources in the resource group, select **myAppGateway**.
-
-The final option for providing a TLS/SSL certificate to the App Gateway is detailed in the next section. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
-
-### Option three: Generate a self-signed certificate
+### Option two: Generate a self-signed certificate
 
 This option is suitable for test and development deployments only. With this option, both an Azure Key Vault and a self-signed certificate are automatically created, and the certificate is provided to App Gateway.
 
@@ -230,7 +119,9 @@ To request the deployment to perform these actions, use the following steps:
 
 ## Continue with deployment
 
-You can now continue with the other aspects of the WLS deployment as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534).
+You can now continue with the other aspects of the WLS deployment as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534). If you are satisfied with your configuration, select **Review + create** then **Create**.
+
+The deployment can take up to fifteen minutes, depending on network conditions and other factors.
 
 ## Validate successful deployment of WLS and App Gateway
 
