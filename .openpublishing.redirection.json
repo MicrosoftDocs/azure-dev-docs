@@ -1053,6 +1053,10 @@
       "redirect_url": "/azure/developer/javascript/logging"
     },
     {
+      "source_path": "articles/javascript/how-to/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/logging"
+    },
+    {
       "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
       "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
     },
