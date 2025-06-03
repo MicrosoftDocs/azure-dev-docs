@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation docs: What's new"
 description: "What's new in the Azure developer documentation docs."
-ms.date: 04/28/2025
+ms.date: 06/03/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
@@ -9,116 +9,188 @@ ms.topic: article
 
 # Azure developer documentation docs: What's new
 
-Welcome to what's new in the Azure developer documentation docs for 01/01/2025 - 02/01/2025. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Azure developer documentation docs for the last three months. This article lists some of the major changes to docs during this period.
 
-## What's new for 01/01/2025 - 02/01/2025
-
-### Azure Developer CLI
-
-#### New articles
-
-- [Azure Developer CLI commands overview](./azure-developer-cli/azd-commands.md)
-- [CDN changes for the Azure Developer CLI installation endpoints](./azure-developer-cli/content-delivery-network-changes.md)
-
-### Azure and GitHub integration
-
-#### New articles
-
-- [Quickstart: Deploy your existing project to Azure with GitHub Copilot for Azure Preview](./github-copilot-azure/quickstart-deploy-existing-app.md)
-
-### Azure for JavaScript
-
-#### New articles
-
-- [Choose the right Node.js Version for Azure](./javascript/choose-nodejs-version.md)
-
-### Azure Spring Apps
-
-#### New articles
-
-- [Migrate off Azure Spring Apps](/azure/spring-apps/migration/index)
-- [Deprecation of Tanzu components](/azure/spring-apps/migration/migrate-off-deprecated-tanzu-components)
-- [Migrate Application Configuration Service to managed Spring Cloud Config Server](/azure/spring-apps/migration/migrate-enterprise-application-configuration-service)
-- [Migrate Application Live View to Spring Boot Admin](/azure/spring-apps/migration/migrate-application-live-view)
-- [Migrate to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)
-- [Provision Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-provision)
-- [Overview of application migration](/azure/spring-apps/migration/migrate-to-azure-container-apps-application-overview)
-- [Custom domain with TLS/SSL in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-custom-domain)
-- [Blue-green deployment to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-blue-green)
-- [Migrate Application Configuration Service to Config Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-application-configuration-service)
-- [Migrate Eureka Server or Tanzu Service Registry to managed Eureka Server for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-eureka)
-- [Migrate Spring Cloud Gateway for VMWare Tanzu to a self-hosted gateway application in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-gateway)
-- [Migrate API Portal with Azure Spring Apps Enterprise plan to Azure API Management](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-api-portal)
-- [Migrate Application Live View to Managed Admin for Spring in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-live-view)
-- [Migrate Spring Cloud Config Server from Azure Spring Apps to Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-components-config-server)
-- [Migrating a custom virtual network](/azure/spring-apps/migration/migrate-to-azure-container-apps-network)
-- [Log and Metrics in Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-monitoring)
-- [Clients or automation tools for Azure Container Apps](/azure/spring-apps/migration/migrate-to-azure-container-apps-automation)
-- [Migrate Azure Spring Apps to Azure Kubernetes Service](/azure/spring-apps/migration/migrate-to-aks-overview)
-- [Overview of containerization](/azure/spring-apps/migration/containerization-overview)
-- [Build a container image from a JAR or WAR](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-artifacts)
-- [Containerize an application by using Paketo Buildpacks](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-buildpacks)
-- [Integrate application performance monitoring into container images](/azure/spring-apps/migration/migrate-to-azure-container-apps-build-application-performance-monitoring)
-
-## What's new for 02/01/2025 - 03/01/2025
+## What's new for May 2025
 
 ### Azure AI
 
-#### Updated articles
+New articles:
 
-- [Use Azure OpenAI without keys](./ai/keyless-connections.md) - Update "Use Azure OpenAI without keys" for more granular control
+- [Build Agents using Model Context Protocol on Azure](./ai/intro-agents-mcp.md)
 
 ### Azure Developer CLI
 
-#### New articles
+New articles:
 
-- [Troubleshoot PowerShell issues with Azure Developer CLI templates](./azure-developer-cli/powershell-guidance.md)
+- [Advanced pipeline features and configurations](./azure-developer-cli/pipeline-advanced-features.md)
+- [Azure Developer CLI extensions overview](./azure-developer-cli/extensions/overview.md)
+- [Create a GitHub Actions CI/CD pipeline using the Azure Developer CLI](./azure-developer-cli/pipeline-github-actions.md)
+- [Create a pipeline definition](./azure-developer-cli/pipeline-create-definition.md)
+- [Create an Azure DevOps CI/CD pipeline using the Azure Developer CLI](./azure-developer-cli/pipeline-azure-pipelines.md)
+- [Explore the Azure Developer CLI initialization workflows](./azure-developer-cli/azd-init-workflow.md)
+- [Quickstart: Explore the demo extension](./azure-developer-cli/extensions/quickstart-ai-extension.md)
+
+Updated articles:
+
+- [Explore Azure Developer CLI support for CI/CD pipelines](./azure-developer-cli/configure-devops-pipeline.md) - Split out large CI/CD pipeline article into smaller, more relevant docs.
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure AI Search tools for the Azure MCP Server](./azure-mcp-server/tools/ai-search.md)
+- [Azure App Configuration tools for the Azure MCP Server](./azure-mcp-server/tools/app-configuration.md)
+- [Azure CLI extension tools for the Azure MCP Server](./azure-mcp-server/tools/azure-cli-extension.md)
+- [Azure Cosmos DB tools for the Azure MCP Server](./azure-mcp-server/tools/cosmos-db.md)
+- [Azure Data Explorer with Kusto tools for the Azure MCP Server](./azure-mcp-server/tools/kusto.md)
+- [Azure Database for PostgreSQL tools for the Azure MCP Server](./azure-mcp-server/tools/postgresql.md)
+- [Azure Key Vault tools for the Azure MCP Server](./azure-mcp-server/tools/key-vault-key.md)
+- [Azure Monitor tools for the Azure MCP Server](./azure-mcp-server/tools/monitor.md)
+- [Azure Service Bus tools for the Azure MCP Server](./azure-mcp-server/tools/service-bus.md)
+- [Azure Storage tools for the Azure MCP Server](./azure-mcp-server/tools/storage.md)
+- [Get started with Azure MCP Server](./azure-mcp-server/get-started.md)
+- [GitHub Copilot in Visual Studio Code](./azure-mcp-server/azure-mcp-zone-pivot-groups.yml)
+- [Resource Group tools for the Azure MCP Server](./azure-mcp-server/tools/resource-group.md)
+- [Subscription tools for the Azure MCP Server](./azure-mcp-server/tools/subscription.md)
+- [What are the Azure MCP Server tools?](./azure-mcp-server/tools/index.md)
+- [What is the Azure MCP Server (Preview)?](./azure-mcp-server/index.md)
+
+### Azure for C++
+
+New articles:
+
+- [Authenticate C++ apps to Azure services by using the Azure SDK for C++](./cpp/sdk/authentication/overview.md)
+- [Azure for C++ developers](./cpp/index.yml)
+- [Common Types in the Azure SDK for C++](./cpp/sdk/fundamentals/common-types.md)
+- [Core Concepts of the Azure SDK for C++](./cpp/sdk/fundamentals/overview.md)
+- [Credential chains in the Azure Identity client library for C++](./cpp/sdk/authentication/credential-chains.md)
+- [Error handling in the Azure SDK for C++](./cpp/sdk/fundamentals/errors.md)
+- [HTTP Pipelines and Retries in the Azure SDK for C++](./cpp/sdk/fundamentals/http-pipelines-and-retries.md)
+- [Install & Integrate libraries from the Azure SDK for C++](./cpp/sdk/install-and-integrate-the-sdk.md)
+- [What is the Azure SDK for C++?](./cpp/sdk/overview.md)
+
+### Azure and GitHub integration
+
+New articles:
+
+- [Getting support for GitHub Copilot for Azure](./github-copilot-azure/support.md)
+- [Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure](./github-copilot-azure/quickstart-deploy-app-agent-mode.md)
 
 ### Azure for Java
 
-#### New articles
+New articles:
 
-- [Get started with the Java Diagnostic Agent](./java/fundamentals/java-diagnostic-tools-java-diagnostic-agent-quickstart.md)
-- [Get started with the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service](./java/fundamentals/java-diagnostic-tools-spring-boot-admin-quickstart.md)
-- [The Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)](./java/fundamentals/java-diagnostic-tools-on-aks-overview.md)
+- [GitHub Copilot App Modernization for Java (preview)](./java/migration/migrate-github-copilot-app-modernization-for-java.md)
+- [GitHub Copilot App Modernization for Java (preview) FAQ](./java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml)
+- [Predefined formulas for GitHub Copilot App Modernization for Java (preview)](./java/migration/migrate-github-copilot-app-modernization-for-java-predefined-formula.md)
+- [Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java (preview)](./java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
+- [Quickstart: create and apply your own formulas for GitHub Copilot App Modernization for Java (preview)](./java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)
+- [Asset Manager migration sample for GitHub Copilot App Modernization for Java (preview)](./java/migration/migrate-github-copilot-app-modernization-for-java-sample.md)
 
-#### Updated articles
+### Azure for JavaScript
 
-- [Spring Cloud Azure authentication](./java/spring-framework/authentication.md) - Add for token credential bean name
+New articles:
+
+- [Authentication best practices with the Azure Identity library for JavaScript](./javascript/sdk/authentication/best-practices.md)
+
+### Azure for Python
+
+Updated articles:
+
+- [Authenticate Python apps to Azure services during local development using developer accounts](./python/sdk/authentication/local-development-dev-accounts.md) - 410992
+- [Authenticate Python apps to Azure services during local development using service principals](./python/sdk/authentication/local-development-service-principal.md) - 410971
+- [Deploy a containerized Python app to App Service](./python/tutorial-containerize-deploy-python-web-app-azure-04.md) - Use KeyVault to store secrets
+- [Example: Create Azure Storage using the Azure libraries for Python](./python/sdk/examples/azure-sdk-example-storage.md)
+  - 410982
+  - 410978
+- [Example: Use the Azure libraries to create a database](./python/sdk/examples/azure-sdk-example-database.md) - 410982
+- [Example: Use the Azure libraries to create a resource group](./python/sdk/examples/azure-sdk-example-resource-group.md) - 410994
+- [Part 2: Authentication needs in this example scenario](./python/walkthrough-tutorial-authentication-02.md) - 410985
+
+### TypeSpec
+
+New articles:
+
+- [Quickstart: Create a new API project with TypeSpec](./typespec/quickstart-scaffold-dotnet.md)
+
+## What's new for 04/01/2025 - 05/01/2025
+
+### Azure Developer CLI
+
+New articles:
+
+- [Generate Bicep using the compose feature](./azure-developer-cli/compose-generate.md)
+- [Build a minimal template using the Azure Developer CLI compose feature](./azure-developer-cli/compose-quickstart.md)
+- [Explore and customize an Azure Developer CLI template](./azure-developer-cli/quickstart-explore-templates.md)
+- [Explore the Azure Developer CLI template galleries](./azure-developer-cli/azd-template-galleries.md)
+- [Azure Developer CLI vs Azure CLI overview](./azure-developer-cli/azure-developer-cli-vs-azure-cli.md)
+
+Updated articles:
+
+- [Azure Developer CLI reference](./azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.14.0
+- [Get started with the Azure Developer CLI compose feature](./azure-developer-cli/azd-compose.md) - Expand azd compose
+
+### Azure and GitHub integration
+
+Updated articles:
+
+- [Get started with GitHub Copilot for Azure Preview](./github-copilot-azure/get-started.md) - GHCPA Agent Mode Enabled
+
+### Azure for Java
+
+New articles:
+
+- [Migrate Spring Boot applications to Azure App Service](./java/migration/migrate-spring-boot-to-app-service.md)
+- [Quickstart: Create a Java Quarkus app with Azure App Configuration](./java/ee/quarkus-with-app-configuration.md)
+
+### Azure for JavaScript
+
+New articles:
+
+- [Tutorial: Build a LangChain.js agent with Azure AI Search](./javascript/ai/langchain-agent-on-azure.md)
+
+Updated articles:
+
+- [How to Test Azure SDK Integration in JavaScript Applications Using Jest](./javascript/sdk/test-sdk-integration.md) - JS - SDK testing with 3 test frameworks
+
+### Azure for Python
+
+Updated articles:
+
+- [Build a containerized Python web app in the cloud](./python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
+- [Build and run a containerized Python web app locally with MongoDB](./python/tutorial-containerize-deploy-python-web-app-azure-02.md) - 259616
+- [Deploy a containerized Python app to App Service](./python/tutorial-containerize-deploy-python-web-app-azure-04.md) - 259616
 
 ## What's new for 03/01/2025 - 04/01/2025
 
 ### Azure AI
 
-#### New articles
+New articles:
 
 - [Extract entities using Azure OpenAI structured outputs mode](./ai/how-to/extract-entities-using-structured-outputs.md)
 
 ### Azure and GitHub integration
 
-#### New articles
+New articles:
 
 - [Generate Bicep files using GitHub Copilot for Azure](./github-copilot-azure/bicep-generate-edit.md)
 
 ### Azure for Java
 
-#### New articles
+New articles:
 
 - [Spring Boot native image applications](./java/spring-framework/native-applications.md)
 
-#### Updated articles
-
-- [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](./java/ee/how-to-deploy-java-liberty-jcache.md) - Refactoring: Using Azure Redis as session Cache for Liberty app
-
 ### Azure for JavaScript
 
-#### New articles
+New articles:
 
 - [Generative AI for JavaScript overview](./javascript/ai/generative-ai-for-javascript-developers.md)
 
 ### Azure for Python
 
-#### Updated articles
+Updated articles:
 
 - [Build a containerized Python web app in the cloud](./python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
 - [Build and run a containerized Python web app locally with MongoDB](./python/tutorial-containerize-deploy-python-web-app-azure-02.md)
@@ -127,57 +199,8 @@ Welcome to what's new in the Azure developer documentation docs for 01/01/2025 -
 
 ### TypeSpec
 
-#### New articles
+New articles:
 
 - [Resources for developing TypeSpec apps](./typespec/resources.md)
 - [TypeSpec documentation - Articles, samples, references, and resources](./typespec/index.yml)
 - [What is TypeSpec?](./typespec/overview.md)
-
-## What's new for 04/01/2025 - 05/01/2025
-
-### Azure Developer CLI
-
-#### New articles
-
-- [Generate Bicep using the compose feature](./azure-developer-cli/compose-generate.md)
-- [Build a minimal template using the Azure Developer CLI compose feature](./azure-developer-cli/compose-quickstart.md)
-- [Explore and customize an Azure Developer CLI template](./azure-developer-cli/quickstart-explore-templates.md)
-- [Explore the Azure Developer CLI template galleries](./azure-developer-cli/azd-template-galleries.md)
-- [Azure Developer CLI vs Azure CLI overview](./azure-developer-cli/azure-developer-cli-vs-azure-cli.md)
-
-#### Updated articles
-
-- [Azure Developer CLI reference](./azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.14.0
-- [Get started with the Azure Developer CLI compose feature](./azure-developer-cli/azd-compose.md) - Expand azd compose
-
-### Azure and GitHub integration
-
-#### Updated articles
-
-- [Get started with GitHub Copilot for Azure Preview](./github-copilot-azure/get-started.md) - GHCPA Agent Mode Enabled
-
-### Azure for Java
-
-#### New articles
-
-- [Migrate Spring Boot applications to Azure App Service](./java/migration/migrate-spring-boot-to-app-service.md)
-- [Quickstart: Create a Java Quarkus app with Azure App Configuration](./java/ee/quarkus-with-app-configuration.md)
-
-### Azure for JavaScript
-
-#### New articles
-
-- [Tutorial: Build a LangChain.js agent with Azure AI Search](./javascript/ai/langchain-agent-on-azure.md)
-
-#### Updated articles
-
-- [How to Test Azure SDK Integration in JavaScript Applications Using Jest](./javascript/sdk/test-sdk-integration.md) - JS - SDK testing with 3 test frameworks
-- [What is GraphQL for Azure?](./javascript/graphql-developer-guide.md) - JS - Freshness - GraphQL
-
-### Azure for Python
-
-#### Updated articles
-
-- [Build a containerized Python web app in the cloud](./python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
-- [Build and run a containerized Python web app locally with MongoDB](./python/tutorial-containerize-deploy-python-web-app-azure-02.md) - 259616
-- [Deploy a containerized Python app to App Service](./python/tutorial-containerize-deploy-python-web-app-azure-04.md) - 259616
