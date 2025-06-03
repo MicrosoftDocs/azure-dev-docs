@@ -2,7 +2,7 @@
   href: index.yml
   items:
   - name: Get started
-    href: core/what-is-azure-for-javascript-development.md
+    href: what-is-azure-for-javascript-development.md
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
