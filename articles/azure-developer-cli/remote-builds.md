@@ -62,4 +62,8 @@ After the `azd up` workflow completes, verify the remote build run in the Azure 
 
     Browse the logs to view key build steps, such as the retrieval of Docker base images or source code compilation.
 
-By following these steps, you can leverage remote builds in your Azure Developer CLI workflows, improving build reliability and efficiency while taking full advantage of Azure’s managed services.
+## Next steps
+
+- [Use third-party container registries](/azure/developer/azure-developer-cli/use-external-registry)
+- [Remote environment suppport](/azure/developer/azure-developer-cli/remote-environments-support)
+- [Azure deployment stacks integration](/azure/developer/azure-developer-cli/azure-deployment-stacks-integration)
