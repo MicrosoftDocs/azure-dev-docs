@@ -38,7 +38,7 @@ SERVICE_PRINCIPAL_NAME=<service-principal-name>
 az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME
 ```
 
-The output of this command will look like the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
+The output of this command is similar to the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
 
 ```json
 {
@@ -140,6 +140,7 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. You can specify a group with its object ID. You can specify an application service principal with its appId.
 
 ```azurecli
+RESOURCE_GROUP_NAME=<resource-group-name>
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ROLE_NAME=<role-name>
 az role assignment create \
@@ -149,7 +150,7 @@ az role assignment create \
 ```
 
 >![!NOTE]
-> To prevent Git Bash from treating /subscriptions/... as a file path, prepend ./ to the string for the `scope` parameter.
+> To prevent Git Bash from treating /subscriptions/... as a file path, prepend ./ to the string for the `scope` parameter and use double quotes around the entire string.
 
 To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
 
@@ -163,7 +164,7 @@ For example, to allow the application service principal with the appId of `00001
 
 ```azurecli
 az role assignment create --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
-    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example \
+    --scope "./subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example" \
     --role "Storage Blob Data Contributor"
 ```
 
