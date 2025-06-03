@@ -129,7 +129,7 @@
     - name: Testing
       href: sdk/test-sdk-integration.md
     - name: Observability
-      href: how-to/node-sdk-logging.md
+      href: logging.md
   - name: Testing
     href: core/test-azure-sdk-integrated-code.md
   - name: Training and certification

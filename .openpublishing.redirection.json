@@ -340,6 +340,11 @@
       "redirect_document_id": false
   },
   {
+    "source_path": "articles/javascript/how-to/node-sdk-logging.md",
+    "redirect_url": "/azure/developer/javascript/logging",
+    "redirect_document_id": false
+  },
+  {
     "source_path": "articles/javascript/tutorial/run-nodejs-virtual-machine.md",
     "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
     "redirect_document_id": false
@@ -1047,10 +1052,6 @@
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
-    },
-    {
-      "source_path": "articles/javascript/node-sdk-logging.md",
-      "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging"
     },
     {
       "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
