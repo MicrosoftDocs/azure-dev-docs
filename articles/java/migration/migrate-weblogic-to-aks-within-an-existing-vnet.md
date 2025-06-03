@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) within a custom virtual network
 
-This tutorial shows you how to deploy the Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS) offer that integrates with a pre-existing virtual network in your subscription.
+This tutorial shows you how to deploy the Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS) offer that integrates with a preexisting virtual network in your subscription.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
   - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - The WLS on AKS marketplace offer requires permission to create user-assign managed identity and assign Azure roles. To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-- An Oracle account. The steps in [Oracle Container Registry](https://aka.ms/wls-aks-ocr) will direct you to accept the license agreement for WebLogic Server images. Make note of your Oracle Account password and email.
+- An Oracle account. The steps in [Oracle Container Registry](https://aka.ms/wls-aks-ocr) direct you to accept the license agreement for WebLogic Server images. Make note of your Oracle Account password and email.
 
 ## Create a resource group
 
@@ -75,7 +75,7 @@ az network vnet subnet create \
     --address-prefixes 192.168.1.0/24
 ```
 
-Next, create an additional subnet for the Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `myAppGatewaySubnet`:
+Next, create another subnet for the Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `myAppGatewaySubnet`:
 
 ```azurecli
 az network vnet subnet create \
@@ -115,7 +115,7 @@ az aks create \
 
 ## Store Jakarta EE applications in a Storage account
 
-You can deploy a Jakarta EE Application along with the WLS on AKS offer deployment. You have to upload the application file (**.war**, **.ear**, or **.jar**) to a pre-existing Azure Storage Account and Storage Container within that account.
+You can deploy a Jakarta EE Application along with the WLS on AKS offer deployment. You have to upload the application file (**.war**, **.ear**, or **.jar**) to a preexisting Azure Storage Account and Storage Container within that account.
 
 Create an Azure Storage Account using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command, as shown in the following example:
 
@@ -163,9 +163,9 @@ To upload multiple files at the same time, see [Create, download, and list blobs
 
 ## Deploy WLS on the AKS offer
 
-This section shows you how to provision a WLS cluster with the AKS instance you created previously. The offer will use the existing cluster within the custom virtual network and export cluster nodes using Azure Application Gateway as the load balancer. The offer will automatically generate a self-signed certificate for Application Gateway TLS/SSL termination. For advanced usage of TLS/SSL termination with Application Gateway, see [Application Gateway Ingress Controller](https://aka.ms/wls-aks-app-gateway-ic).
+This section shows you how to provision a WLS cluster with the AKS instance you created previously. The offer uses the existing cluster within the custom virtual network and export cluster nodes using Azure Application Gateway as the load balancer. The offer automatically generates a self-signed certificate for Application Gateway TLS/SSL termination. For advanced usage of TLS/SSL termination with Application Gateway, see [Application Gateway Ingress Controller](https://aka.ms/wls-aks-app-gateway-ic).
 
-First, begin the process of deploying a WebLogic Server as described in [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach the **AKS** blade, as shown in the following screenshot.
+First, begin the process of deploying a WebLogic Server as described in [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach the **AKS** pane, as shown in the following screenshot.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-within-existing-vnet/configure-aks-cluster.png" alt-text="Screenshot of Azure portal showing the Configure AKS cluster pane of the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/migrate-weblogic-to-aks-within-existing-vnet/configure-aks-cluster.png":::
 
@@ -189,9 +189,9 @@ Now that you have an AKS cluster within the virtual network, select the AKS clus
    - Select **Select**.
 1. For other fields, keep the default values.
 
-You've now finished configuring the AKS cluster, WebLogic base image, and Jakarta EE application.
+The AKS cluster, WebLogic base image, and Jakarta EE application are now configured.
 
-Next, you'll configure load balancing. For this task, continue to follow the steps in the [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach **Load balancing**, as shown in the following screenshot. You'll use the next section to configure the load balancing, then return to the WLS on AKS user guide to complete the deployment.
+Next, you configure load balancing. For this task, continue to follow the steps in the [Oracle WebLogic Server on AKS user guide](https://aka.ms/wls-aks-docs), but come back to this page when you reach **Load balancing**, as shown in the following screenshot. You use the next section to configure the load balancing, then return to the WLS on AKS user guide to complete the deployment.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png" alt-text="Screenshot of Azure portal showing the Networking pane of the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/migrate-weblogic-to-aks-within-existing-vnet/networking-agic-custom-vnet.png":::
 
@@ -211,10 +211,10 @@ You can now continue with the other aspects of the WLS deployment as described i
 
 This section shows you how to quickly validate the successful deployment of the WLS cluster and Application Gateway Ingress Controller.
 
-After the deployment completes, select **Outputs**. You'll find the external URL of the WebLogic Administration Console and the cluster. Use the following instructions to access these resources:
+After the deployment completes, select **Outputs**, then find the external URL of the WebLogic Administration Console and the cluster. Use the following instructions to access these resources:
 
 - To view the WebLogic Administration Console, first copy the value of the output variable `adminConsoleExternalUrl`. Next, paste the value into your browser address bar and press **Enter** to open the sign-in page of the WebLogic Administration Console.
-- To view the WebLogic cluster, first copy the value of the output variable `clusterExternalUrl`. Next, use this value to construct the sample application URL by applying it to the following template: `${clusterExternalUrl}testwebapp/`. Now paste the application URL into your browser address bar and press **Enter**. You'll find that the sample application shows the private address and hostname of the pod that the Application Gateway Ingress Controller is routing to.
+- To view the WebLogic cluster, first copy the value of the output variable `clusterExternalUrl`. Next, use this value to construct the sample application URL by applying it to the following template: `${clusterExternalUrl}testwebapp/`. Now paste the application URL into your browser address bar and press **Enter**. The sample application shows the private address and hostname of the pod that the Application Gateway Ingress Controller is routing to.
 
 ## Clean up resources
 
