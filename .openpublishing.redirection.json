@@ -1049,6 +1049,10 @@
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
+        {
+      "source_path": "articles/javascript/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/logging"
+    },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
