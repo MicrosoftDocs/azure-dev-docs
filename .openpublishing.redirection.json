@@ -311,11 +311,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/javascript/core/what-is-azure-for-javascript-development.md",
-      "redirect_url": "/azure/developer/javascript/what-is-azure-for-javascript-development",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/javascript/core/use-azure-sdk.md",
       "redirect_url": "/azure/developer/javascript/sdk/use-azure-sdk",
       "redirect_document_id": false
@@ -1839,3 +1834,4 @@
       "redirect_url": "/azure/developer/terraform/azure-export-for-terraform/get-started-export-resources-portal"
     }
   ]
+}
