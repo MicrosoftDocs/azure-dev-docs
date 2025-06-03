@@ -393,7 +393,7 @@
 | Functions Worker Extension MCP | NuGet [1.0.0-preview.6](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Mcp/1.0.0-preview.6) |  |  |
 | Functions Worker Extension MySQL | NuGet [1.0.129](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.MySql/1.0.129) |  |  |
 | HTTP ASPNETCore Analyzers | NuGet [1.0.4](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers/1.0.4) |  |  |
-| IoT Operations MQTT | NuGet [0.10.1](https://www.nuget.org/packages/Azure.Iot.Operations.Mqtt/0.10.1) |  |  |
+| IoT Operations MQTT | NuGet [0.10.3-akri](https://www.nuget.org/packages/Azure.Iot.Operations.Mqtt/0.10.3-akri) |  |  |
 | IoT Operations Protocol | NuGet [0.11.0](https://www.nuget.org/packages/Azure.Iot.Operations.Protocol/0.11.0) |  |  |
 | IoT Operations Services | NuGet [0.11.0](https://www.nuget.org/packages/Azure.Iot.Operations.Services/0.11.0) |  |  |
 | Item Templates NetCore | NuGet [4.0.5086](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ItemTemplates.NetCore/4.0.5086) |  |  |
@@ -407,6 +407,7 @@
 | Speech Extension ONNX Runtime | NuGet [1.44.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime/1.44.0) |  |  |
 | Speech Extension Telemetry | NuGet [1.44.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Telemetry/1.44.0) |  |  |
 | System Net Client Model | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/System.Net.ClientModel/1.0.0-beta.1) |  |  |
+| Unknown Display Name | NuGet [0.10.5-akri](https://www.nuget.org/packages/Azure.Iot.Operations.Connector/0.10.5-akri) |  |  |
 | Unknown Display Name | NuGet [1.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview) |  |  |
 | Unknown Display Name | NuGet [1.44.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.MAS/1.44.0) |  |  |
 | WebJobs Extension MySQL | NuGet [1.0.129](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MySql/1.0.129) |  |  |
