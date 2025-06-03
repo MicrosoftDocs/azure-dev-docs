@@ -19,7 +19,7 @@
     "areas": [
         {
             "names": ["ai"],
-            "heading": "Azure AI"
+            "heading": "AI apps using Azure services"
         },
         {
             "names": ["ansible"],
@@ -27,7 +27,7 @@
         },
         {
             "names": ["azure-developer-cli"],
-            "heading": "Azure Developer CLI"
+            "heading": "Azure Developer CLI (azd)"
         },
         {
             "names": ["azure-mcp-server"],
@@ -46,12 +46,12 @@
             "heading": "Dev tunnels"
         },
         {
-            "names": ["github"],
-            "heading": "Azure and GitHub integration"
-        },
-        {
             "names": ["github-copilot-azure"],
             "heading": "GitHub Copilot for Azure"
+        },
+        {
+            "names": ["github"],
+            "heading": "Azure and GitHub integration"
         },
         {
             "names": ["go"],

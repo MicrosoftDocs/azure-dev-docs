@@ -13,13 +13,13 @@ Welcome to what's new in the Azure developer documentation docs for the last thr
 
 ## What's new for May 2025
 
-### Azure AI
+### AI apps using Azure services
 
 New articles:
 
 - [Build Agents using Model Context Protocol on Azure](./ai/intro-agents-mcp.md)
 
-### Azure Developer CLI
+### Azure Developer CLI (azd)
 
 New articles:
 
@@ -70,7 +70,7 @@ New articles:
 - [Install & Integrate libraries from the Azure SDK for C++](./cpp/sdk/install-and-integrate-the-sdk.md)
 - [What is the Azure SDK for C++?](./cpp/sdk/overview.md)
 
-### Azure and GitHub integration
+### GitHub Copilot for Azure
 
 New articles:
 
@@ -114,9 +114,9 @@ New articles:
 
 - [Quickstart: Create a new API project with TypeSpec](./typespec/quickstart-scaffold-dotnet.md)
 
-## What's new for 04/01/2025 - 05/01/2025
+## What's new for April 2025
 
-### Azure Developer CLI
+### Azure Developer CLI (azd)
 
 New articles:
 
@@ -131,7 +131,7 @@ Updated articles:
 - [Azure Developer CLI reference](./azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.14.0
 - [Get started with the Azure Developer CLI compose feature](./azure-developer-cli/azd-compose.md) - Expand azd compose
 
-### Azure and GitHub integration
+### GitHub Copilot for Azure
 
 Updated articles:
 
@@ -162,15 +162,15 @@ Updated articles:
 - [Build and run a containerized Python web app locally with MongoDB](./python/tutorial-containerize-deploy-python-web-app-azure-02.md) - 259616
 - [Deploy a containerized Python app to App Service](./python/tutorial-containerize-deploy-python-web-app-azure-04.md) - 259616
 
-## What's new for 03/01/2025 - 04/01/2025
+## What's new for March 2025
 
-### Azure AI
+### AI apps using Azure services
 
 New articles:
 
 - [Extract entities using Azure OpenAI structured outputs mode](./ai/how-to/extract-entities-using-structured-outputs.md)
 
-### Azure and GitHub integration
+### GitHub Copilot for Azure
 
 New articles:
 
