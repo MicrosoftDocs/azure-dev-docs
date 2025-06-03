@@ -311,6 +311,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/core/what-is-azure-for-javascript-development.md",
+      "redirect_url": "/azure/developer/javascript/what-is-azure-for-javascript-development",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/javascript/core/use-azure-sdk.md",
       "redirect_url": "/azure/developer/javascript/sdk/use-azure-sdk",
       "redirect_document_id": false
@@ -338,11 +343,6 @@
       "source_path": "articles/javascript/how-to/with-authentication/getting-started.md",
       "redirect_url": "/azure/developer/javascript",
       "redirect_document_id": false
-  },
-  {
-    "source_path": "articles/javascript/how-to/node-sdk-logging.md",
-    "redirect_url": "/azure/developer/javascript/logging",
-    "redirect_document_id": false
   },
   {
     "source_path": "articles/javascript/tutorial/run-nodejs-virtual-machine.md",
@@ -1049,13 +1049,13 @@
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
     },
-        {
-      "source_path": "articles/javascript/node-sdk-logging.md",
-      "redirect_url": "/azure/developer/javascript/logging"
-    },
     {
       "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
       "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/logging"
     },
     {
       "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
@@ -1839,4 +1839,3 @@
       "redirect_url": "/azure/developer/terraform/azure-export-for-terraform/get-started-export-resources-portal"
     }
   ]
-}

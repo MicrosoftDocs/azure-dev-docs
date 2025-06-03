@@ -15,7 +15,7 @@ Use Azure Monitor to collect logs, metrics, and alerts across your JavaScript ap
 
 Telemetry is the data collected from your applications and services to monitor their health, performance, and usage. In Azure, telemetry is categorized into logs, metrics, and alerts. 
 
-Azure offers four kinds of telemetry to help you answer different questions:
+Azure offers four kinds of telemetry:
 
 | Telemetry type  | What it gives you                               | Where to find it for each service                 |
 | --------------- | ----------------------------------------------- | ------------------------------------------------- |
