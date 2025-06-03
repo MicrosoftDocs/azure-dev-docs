@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
    While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy the **WebLogic Server configured cluster on Azure VMs** offer listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other offers do not support automatic integration of Azure Application Gateway.
+* The ability to deploy the **WebLogic Server configured cluster on Azure VMs** offer listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other offers do not support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
 
 ## Migration context
 
@@ -79,7 +79,7 @@ To upload an existing, signed, TLS/SSL certificate, use the following steps:
 
 TLS/SSL certificates are associated with a DNS domain name at the time they're issued by the certificate issuer. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You must be far enough along in the deployment UI so that you have selected a resource group and vnet for the deployment.
 
-You can use a DNS Zone you already have created or allow the deployment to create one for you. If deploying WLS on AKS, select the **DNS** blade. If deploying WLS on VMs for the offers that support Application Gateway, 
+You can use a DNS Zone you already have created or allow the deployment to create one for you. To learn how to create a DNS zone, see [Quickstart: Create an Azure DNS zone and record using the Azure portal](/azure/dns/dns-getstarted-portal).
 
 #### Use an existing Azure DNS Zone
 
