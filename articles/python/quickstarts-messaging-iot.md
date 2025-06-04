@@ -1,7 +1,7 @@
 ---
 title: Getting starting with messaging, events, and IoT for Python apps on Azure
 description: Index of Python-specific articles in Azure documentation for learning more about messaging, events, and IoT.
-ms.date: 03/08/2024
+ms.date: 06/02/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -12,7 +12,7 @@ The following articles help you get started with messaging, event ingestion and 
 
 ## Messaging
 
-Messaging services on Azure provide the interconnectivity between components and applications that are written in different languages and hosted in the same cloud, multiple clouds, or on-premises.
+Azure messaging services let different components and apps communicate easily, no matter what language they use or where they're hosted—whether in the same cloud, across multiple clouds, or on-premises.
 
 - **Notifications**
   - [How to use Notification Hubs from Python](/azure/notification-hubs/notification-hubs-python-push-notification-tutorial)
@@ -30,7 +30,9 @@ Messaging services on Azure provide the interconnectivity between components and
 
 ## Events
 
-Event Hubs is a big data streaming platform and event ingestion service. Event Grid is a scalable, serverless event broker that you can use to integrate applications using events.
+Azure Event Hubs and Azure Event Grid are two key services for handling events in Azure. They provide capabilities for ingesting, processing, and routing events across various applications and services.
+
+These services allow you to build event-driven architectures and process events in real time.
 
 - **Event Hubs**
   - [Quickstart: Send events to or receive events from event hubs by using Python](/azure/event-hubs/event-hubs-python-get-started-send)
@@ -42,7 +44,7 @@ Event Hubs is a big data streaming platform and event ingestion service. Event G
 
 ## Internet of Things (IoT)
 
-Internet of Things or IoT refers to a collection of managed and platform services across edge and cloud that connect, monitor, and control IoT assets. IoT also includes security and operating systems for devices and data and analytics that help you build, deploy, and manage IoT applications.
+Internet of Things (IoT) refers to a set of managed and platform services across edge and cloud that connect, monitor, and control IoT assets. IoT also encompasses device security, operating systems, and data analytics tools to help you build, deploy, and manage IoT applications effectively.
 
 - **IoT Hub**
   - [Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-python)
