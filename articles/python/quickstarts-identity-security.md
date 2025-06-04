@@ -1,20 +1,28 @@
 ---
 title: Overview and resources for Azure identity and access management features for Python apps
 description: Overview and links to resources about authentication, identity, and access management for Python apps on Azure.
-ms.date: 03/08/2024
+ms.date: 06/02/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Identity and access management for Python apps on Azure
 
-Identity and access management for Python apps on Azure are fundamentally about the *authentication* of the identity of a user, group, application, or service and *authorization* of that identity to perform requested actions on Azure resources. There are different identity and access management options you can choose from depending on your application and security needs. This article provides links to resources to help you get started.
+In Azure, identity and access management (IAM) for Python applications involves two key concepts:
 
-For an overview of authentication and authorization in Azure, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
+* **Authentication**: Verifying the identity of a user, group, service, or application
+* **Authorization**: Determining what actions that identity is allowed to perform on Azure resources
+
+Azure provides multiple IAM options to fit your application's security requirements. This article includes links to essential resources to help you get started.
+
+To learn more, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 ## Passwordless connections
 
-Whenever possible, we recommend you use managed identities to simplify overall management and improve security. Specifically, use *passwordless connections* to avoid using embedding sensitive data such as passwords in code or environment variables.
+Whenever possible, we recommend using managed identities to simplify identity management and enhance security. Managed identities support passwordless authentication, eliminating the need to embed sensitive credentials—such as passwords or client secrets—in code or environment variables.
+Managed identities are available for Azure services like App Service, Azure Functions, and Azure Container Apps. They allow your applications to authenticate to Azure services without needing to manage credentials.
+
+The following resources demonstrate how to use the Azure SDK for Python with passwordless authentication via [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). `DefaultAzureCredential` is ideal for most applications running in Azure, as it seamlessly supports both local development and production environments by chaining multiple credential types in a secure and intelligent order.
 
 * [Overview: Passwordless connection for Azure services](../intro/passwordless-overview.md)
 
@@ -30,11 +38,9 @@ Whenever possible, we recommend you use managed identities to simplify overall m
 
 * [Create and deploy a Django web app to Azure with a user-assigned managed identity](./tutorial-python-managed-identity-user-assigned-cli.md)
 
-The resources listed show how to use Azure Python SDK and passwordless connections with the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential). The `DefaultAzureCredential` is appropriate for most applications that will run in Azure because it combines common production credentials with development credentials.
-
 ## Service Connector
 
-Many Azure resources you're likely to use with to your Python apps enable the [Service Connector](/azure/service-connector/overview) service. Service Connector helps you configure network settings and connection information between Azure services such as App Service and Container Apps and other services such as storage or databases.
+Many Azure resources commonly used in Python applications support the [Service Connector](/azure/service-connector/overview). The Service Connector streamlines the process of configuring secure connections between Azure services. It automates the setup of authentication, network access, and connection strings between compute services (like App Service or Container Apps) and dependent services (such as Azure Storage, Azure SQL, or Cosmos DB). This reduces manual steps, helps enforce best practices (like using managed identities and private endpoints), and improves deployment consistency and security.
 
 * [Quickstart: Create a service connection in App Service from the Azure portal](/azure/service-connector/quickstart-portal-app-service-connection)
 
@@ -42,7 +48,7 @@ Many Azure resources you're likely to use with to your Python apps enable the [S
 
 ## Key Vault
 
-Using a key management solution like [Azure Key Vault](/azure/key-vault/general/overview) gives you more control but with an increase in management complexity.
+Using a key management solution such as [Azure Key Vault](/azure/key-vault/general/overview) offers greater control over your secrets and credentials, though it comes with added management complexity.
 
 * [Quickstart: Azure Key Vault certificate client library for Python](/azure/key-vault/certificates/quick-create-python)
 
@@ -52,7 +58,7 @@ Using a key management solution like [Azure Key Vault](/azure/key-vault/general/
 
 ## Authentication and identity for signing in users in apps
 
-You can build Python applications that enable your users and customers to sign in using their Microsoft identities or social accounts. Your app authorizes access to your own APIs or Microsoft APIs like Microsoft Graph.
+You can develop Python applications that allow users to sign in with Microsoft identities (like Azure AD accounts) or external social accounts (such as Google or Facebook). Once authenticated, your app can authorize users to access its own APIs or Microsoft APIs, such as Microsoft Graph, to interact with resources like user profiles, calendars, and emails.
 
 * [Quickstart: Sign in users and call the Microsoft Graph API from a Python web app](/entra/identity-platform/quickstart-web-app-python-sign-in)
 
