@@ -17,7 +17,7 @@ highlightedContent:
   items:
     - title: What's new in Azure developer documentation
       itemType: concept
-      url: ./intro/what's new.md
+      url: ./intro/whats-new.md
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
