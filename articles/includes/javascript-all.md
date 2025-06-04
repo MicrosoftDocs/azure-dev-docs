@@ -155,7 +155,7 @@
 | Resource Management - API Management | npm [10.0.0](https://www.npmjs.com/package/@azure/arm-apimanagement/v/10.0.0) | [docs](/javascript/api/overview/azure/arm-apimanagement-readme) | GitHub [10.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/arm-apimanagement) |
 | Resource Management - App Compliance Automation | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-appcomplianceautomation/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-appcomplianceautomation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcomplianceautomation_1.0.0/sdk/appcomplianceautomation/arm-appcomplianceautomation/) |
 | Resource Management - App Configuration | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-appconfiguration/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-appconfiguration-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration) |
-| Resource Management - App Platform | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-appplatform/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-appplatform-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform) |
+| Resource Management - App Platform | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-appplatform/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-appplatform-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appplatform_3.0.0/sdk/appplatform/arm-appplatform) |
 | Resource Management - App Service | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-appservice/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice-rest) |
 | Resource Management - App Service | npm [16.0.0](https://www.npmjs.com/package/@azure/arm-appservice/v/16.0.0) | [docs](/javascript/api/overview/azure/arm-appservice-readme) | GitHub [16.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice) |
 | Resource Management - App Service | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-appservice-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appservice-profile-2020-09-01-hybrid_2.1.0/sdk/appservice/arm-appservice-profile-2020-09-01-hybrid/) |
@@ -293,7 +293,7 @@
 | Resource Management - Maps | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-maps/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-maps-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/arm-maps) |
 | Resource Management - MariaDB | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-mariadb/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-mariadb-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mariadb/arm-mariadb) |
 | Resource Management - Marketplace Ordering | npm [3.1.1](https://www.npmjs.com/package/@azure/arm-marketplaceordering/v/3.1.1) | [docs](/javascript/api/overview/azure/arm-marketplaceordering-readme) | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/marketplaceordering/arm-marketplaceordering) |
-| Resource Management - Media Services | npm [13.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices/v/13.1.0) | [docs](/javascript/api/overview/azure/arm-mediaservices-readme) | GitHub [13.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mediaservices/arm-mediaservices) |
+| Resource Management - Media Services | npm [13.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices/v/13.1.0) | [docs](/javascript/api/overview/azure/arm-mediaservices-readme) | GitHub [13.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mediaservices_13.1.0/sdk/mediaservices/arm-mediaservices) |
 | Resource Management - Migrate | npm [2.0.3](https://www.npmjs.com/package/@azure/arm-migrate/v/2.0.3) | [docs](/javascript/api/overview/azure/arm-migrate-readme) | GitHub [2.0.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/migrate/arm-migrate) |
 | Resource Management - Migration Assessment | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-migrationassessment/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-migrationassessment-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-migrationassessment_1.0.0-beta.1/sdk/migrate/arm-migrationassessment/) |
 | Resource Management - Migration Discovery SAP | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-migrationdiscoverysap/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-migrationdiscoverysap-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-migrationdiscoverysap_1.0.0-beta.1/sdk/migrationdiscovery/arm-migrationdiscoverysap/) |
@@ -424,13 +424,13 @@
 | App Configuration Provider | npm [2.1.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.1.0) |  |  |
 | App Configuration Provider File Source | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| Spec Gen SDK | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.8.0) |  |  |
+| Spec Gen SDK | npm [0.8.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.8.1) |  |  |
 | tmlanguage-generator | npm [0.6.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.1) |  |  |
 | TypeSpec Asset Emitter | npm [0.70.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.70.1) |  |  |
 | TypeSpec Emitter Framework | npm [0.7.1](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.7.1) |  |  |
 | TypeSpec Events | npm [0.70.0](https://www.npmjs.com/package/@typespec/events/v/0.70.0) |  |  |
 | TypeSpec HTTP Client | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client/v/0.6.0) |  |  |
-| TypeSpec HTTP Client Java | npm [0.4.2](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.2) |  |  |
+| TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.5.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.5.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.12.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.22](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.22) |  |  |
@@ -525,7 +525,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250530.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250530.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250603.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250603.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -564,7 +564,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.9.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.9.1) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.10.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.10.0) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
