@@ -94,20 +94,6 @@ New articles:
 
 - [Authentication best practices with the Azure Identity library for JavaScript](../javascript/sdk/authentication/best-practices.md)
 
-### Azure for Python
-
-Updated articles:
-
-- [Authenticate Python apps to Azure services during local development using developer accounts](../python/sdk/authentication/local-development-dev-accounts.md) - 410992
-- [Authenticate Python apps to Azure services during local development using service principals](../python/sdk/authentication/local-development-service-principal.md) - 410971
-- [Deploy a containerized Python app to App Service](../python/tutorial-containerize-deploy-python-web-app-azure-04.md) - Use KeyVault to store secrets
-- [Example: Create Azure Storage using the Azure libraries for Python](../python/sdk/examples/azure-sdk-example-storage.md)
-  - 410982
-  - 410978
-- [Example: Use the Azure libraries to create a database](../python/sdk/examples/azure-sdk-example-database.md) - 410982
-- [Example: Use the Azure libraries to create a resource group](../python/sdk/examples/azure-sdk-example-resource-group.md) - 410994
-- [Part 2: Authentication needs in this example scenario](../python/walkthrough-tutorial-authentication-02.md) - 410985
-
 ### TypeSpec
 
 New articles:
@@ -154,14 +140,6 @@ Updated articles:
 
 - [How to Test Azure SDK Integration in JavaScript Applications Using Jest](../javascript/sdk/test-sdk-integration.md) - JS - SDK testing with 3 test frameworks
 
-### Azure for Python
-
-Updated articles:
-
-- [Build a containerized Python web app in the cloud](../python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
-- [Build and run a containerized Python web app locally with MongoDB](../python/tutorial-containerize-deploy-python-web-app-azure-02.md) - 259616
-- [Deploy a containerized Python app to App Service](../python/tutorial-containerize-deploy-python-web-app-azure-04.md) - 259616
-
 ## What's new for March 2025
 
 ### AI apps using Azure services
@@ -187,15 +165,6 @@ New articles:
 New articles:
 
 - [Generative AI for JavaScript overview](../javascript/ai/generative-ai-for-javascript-developers.md)
-
-### Azure for Python
-
-Updated articles:
-
-- [Build a containerized Python web app in the cloud](../python/tutorial-containerize-deploy-python-web-app-azure-03.md) - 259606
-- [Build and run a containerized Python web app locally with MongoDB](../python/tutorial-containerize-deploy-python-web-app-azure-02.md)
-  - 259609.2
-  - 259609
 
 ### TypeSpec
 
