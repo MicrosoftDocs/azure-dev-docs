@@ -201,6 +201,7 @@ Updated articles:
 
 New articles:
 
-- [Resources for developing TypeSpec apps](./typespec/resources.md)
-- [TypeSpec documentation - Articles, samples, references, and resources](./typespec/index.yml)
 - [What is TypeSpec?](./typespec/overview.md)
+- [Resources for developing TypeSpec apps](./typespec/resources.md)
+
+
