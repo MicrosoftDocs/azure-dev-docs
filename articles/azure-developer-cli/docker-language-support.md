@@ -11,15 +11,15 @@ ms.service: azure-dev-cli
 
 # Docker support as a language
 
-The Azure Developer CLI (azd) supports Docker as a language, allowing you to define services that are built and deployed using a Dockerfile. This feature is useful when your application requires a custom build process, uses multiple languages, or needs specific dependencies that are not covered by standard language runtimes.
+The Azure Developer CLI (azd) supports Docker as a language, allowing you to define services that are built and deployed using a Dockerfile. By specifying Docker as the language, you gain full control over the containerization process, making it ideal for:
 
-By specifying Docker as the language, you gain full control over the containerization process, making it ideal for:
-- Apps built with languages that are not directly supported by Azure Developer CLI, such as Go
+- Apps built with languages that aren't directly supported by Azure Developer CLI
 - Polyglot applications (apps using more than one programming language)
+- Scenarios where you want to reduce local dependencies to run the template
 - Workloads with custom OS or runtime requirements
 - Migrating existing Docker-based projects to Azure
 
-For example, if you have a service that uses both Python and Node.js, or requires a specific system library, you can use a custom Dockerfile to define the build and runtime environment.
+For example, if you have an app written in Go, or a service that uses both Python and Node.js, you can use a custom Dockerfile to define the build and runtime environment.
 
 ## Configure Docker as a language
 
@@ -34,7 +34,29 @@ services:
       path: ./Dockerfile
 ```
 
-With this configuration, azd will use the specified Dockerfile to build and deploy your service, giving you maximum flexibility over the build process.
+With this configuration, `azd` uses the specified Dockerfile to build and deploy your service, giving you maximum flexibility over the build process.
+
+## Example scenario
+
+The [`hello-azd`](https://github.com/Azure-Samples/hello-azd) starter template demonstrates how to use Docker as a language in combination with remote builds. In the `azure.yaml` file, the template sets `language: docker` and specifies `remoteBuild: true`:
+
+```yml
+metadata:
+  template: hello-azd-dotnet
+name: azd-starter
+services:
+  web:
+    project: ./src
+    language: docker
+    host: containerapp
+    docker:
+      path: ./Dockerfile
+      remoteBuild: true
+```
+
+This configuration allows users to run the template and build the container image in Azure Container Registry (ACR), even if they do not have .NET or Docker installed locally. The build process is handled entirely in the cloud, making it easy for developers to get started without setting up local dependencies or build tools.
+
+By leveraging remote builds, the `hello-azd` template ensures a consistent and streamlined experience for all users, regardless of their local environment.
 
 ## Next steps
 
