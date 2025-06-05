@@ -43,6 +43,14 @@ New articles:
 - [Create and connect to a minimal MCP server using .NET](/dotnet/ai/quickstarts/build-mcp-server)
 - [Create a minimal MCP client using .NET](/dotnet/ai/quickstarts/build-mcp-client)
 
+Updated articles:
+
+- [Authenticate .NET apps to Azure services during local development using developer accounts](/dotnet/azure/sdk/authentication/local-development-dev-accounts)
+- [Authenticate .NET apps to Azure services during local development using service principals](/dotnet/azure/sdk/authentication/local-development-service-principal)
+- [Authenticate to Azure resources from .NET apps hosted on-premises](/dotnet/azure/sdk/authentication/on-premises-apps)
+
+Updated articles:
+
 ### Azure MCP Server
 
 New articles:
