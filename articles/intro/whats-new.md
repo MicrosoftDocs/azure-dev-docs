@@ -35,7 +35,7 @@ Updated articles:
 
 - [Explore Azure Developer CLI support for CI/CD pipelines](../azure-developer-cli/configure-devops-pipeline.md) - Split out large CI/CD pipeline article into smaller, more relevant docs.
 
-## Azure for .NET
+### Azure for .NET
 
 New articles:
 
