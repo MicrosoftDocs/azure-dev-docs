@@ -29,9 +29,11 @@ App Modernization for Java (preview) is an all-in-one migration assistant that h
 
 This process improves developer velocity, quality, and confidence.
 
-<!--
-embed intro video. https://aka.ms/AM4Jov
--->
+The following video demonstrates using GitHub Copilot App Modernization for Java (preview) to assess a Java project and migrate it to Azure:
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/469QHVDJiIk]
 
 ## Common use cases of GitHub Copilot App Modernization for Java (preview)
 
