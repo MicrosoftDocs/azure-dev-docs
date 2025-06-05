@@ -13,15 +13,19 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Use reasoning model inferencing with the OpenAI SDK for Python
 
-This article shows you how to use Azure OpenAI model inferencing to generate responses in a streaming chat app. The sample chat app includes all the setup needed to create Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
+This article shows you how to use inferencing with reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python. The article provides a simple chat app that uses the DeepSeek-R1 reasoning model to generate responses to user messages.
 
-This article demonstrates several best practices for integrating DeepSeek-R1 models:
+This article demonstrates several best practices for integrating reasoning models:
 
 - **Keyless authentication**: Using managed identities or developer credentials instead of API keys
 - **Asynchronous operations**: Using async capabilities for better performance
 - **Streaming responses**: Providing immediate feedback to users
 - **Reasoning separation**: Distinguishing between reasoning steps and final output
 - **Proper resource management**: Cleaning up resources after use
+
+## The Reasoning Model Inferencing Building Block
+
+Explore the [Reasoning Model Inference Building Block](https://aka.ms/mcp/aca), an example of using the OpenAI client library to call the DeepSeek-R1 model to generate responses to user messages.
 
 ## Architectural overview
 
@@ -336,7 +340,7 @@ The `chat_handler()` function manages user interactions with the `DeepSeek-R1` m
     return Response(response_stream())
     ```
 
-### Reasoning content handling in DeepSeek-R1 integration
+### Reasoning content handling
 
 The backend script in `chat.py` separates reasoning content from response content, while the `submit` event handler in `index.html` processes the streaming response on the frontend. This approach allows developers to access and display the model's reasoning steps alongside the final output.
 
