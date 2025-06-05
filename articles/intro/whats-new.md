@@ -35,6 +35,14 @@ Updated articles:
 
 - [Explore Azure Developer CLI support for CI/CD pipelines](../azure-developer-cli/configure-devops-pipeline.md) - Split out large CI/CD pipeline article into smaller, more relevant docs.
 
+## Azure for .NET
+
+New articles:
+
+- [C# SDK for MCP overview](/dotnet/ai/get-started-mcp)
+- [Create and connect to a minimal MCP server using .NET](/dotnet/ai/quickstarts/build-mcp-server)
+- [Create a minimal MCP client using .NET](/dotnet/ai/quickstarts/build-mcp-client)
+
 ### Azure MCP Server
 
 New articles:
