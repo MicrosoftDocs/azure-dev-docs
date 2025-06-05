@@ -303,7 +303,7 @@ The `chat_handler()` function manages user interactions with the `DeepSeek-R1` m
       request_messages = (await request.get_json())["messages"]
    ```
 
-1. Next, the function streams responses from the OpenAI API. It combines system messages like "You are a helpful assistant" with user-provided messages.
+1. Next, the function streams responses from the OpenAI API. It combines system messages like "You're a helpful assistant" with user-provided messages.
 
       ```python
       @stream_with_context
