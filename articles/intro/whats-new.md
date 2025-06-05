@@ -9,7 +9,7 @@ ms.topic: article
 
 # Azure developer documentation: What's new
 
-Welcome to what's new in the Azure developer documentation for the last three months. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
 
 ## What's new for May 2025
 
