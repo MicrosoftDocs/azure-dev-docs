@@ -43,12 +43,6 @@ New articles:
 - [Create and connect to a minimal MCP server using .NET](/dotnet/ai/quickstarts/build-mcp-server)
 - [Create a minimal MCP client using .NET](/dotnet/ai/quickstarts/build-mcp-client)
 
-Updated articles:
-
-- [Authenticate .NET apps to Azure services during local development using developer accounts](/dotnet/azure/sdk/authentication/local-development-dev-accounts)
-- [Authenticate .NET apps to Azure services during local development using service principals](/dotnet/azure/sdk/authentication/local-development-service-principal)
-- [Authenticate to Azure resources from .NET apps hosted on-premises](/dotnet/azure/sdk/authentication/on-premises-apps)
-
 ### Azure MCP Server
 
 New articles:
@@ -167,6 +161,14 @@ New articles:
 New articles:
 
 - [Generate Bicep files using GitHub Copilot for Azure](../github-copilot-azure/bicep-generate-edit.md)
+
+### Azure for .NET
+
+Updated articles:
+
+- [Authenticate .NET apps to Azure services during local development using developer accounts](/dotnet/azure/sdk/authentication/local-development-dev-accounts) - Simplified developer workflow and best practices guidance for credential types
+- [Authenticate .NET apps to Azure services during local development using service principals](/dotnet/azure/sdk/authentication/local-development-service-principal) - Simplified developer workflow and best practices guidance for credential types
+- [Authenticate to Azure resources from .NET apps hosted on-premises](/dotnet/azure/sdk/authentication/on-premises-apps) - Simplified developer workflow and best practices guidance for credential types
 
 ### Azure for Java
 
