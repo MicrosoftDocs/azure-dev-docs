@@ -12,9 +12,9 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer
 
-This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.  It covers the specific steps for creating a Key Vault, storing a TLS/SSL certificate in the Key Vault, and using that certificate for TLS/SSL termination.  While all of these elements are well documented in their own right, this tutorial shows the specific way all of these elements come together to create a simple, yet powerful load-balancing solution for WLS on Azure.
+This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.
 
-:::image type="content" border="false" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-key-vault.svg" alt-text="Diagram showing the relationship between WLS, App Gateway, and Key Vault.":::
+:::image type="content" border="false" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway.svg" alt-text="Diagram showing the relationship between WLS, App Gateway and SSL.":::
 
 Load balancing is an essential part of migrating your Oracle WebLogic Server cluster to Azure.  The easiest solution is to use the built-in support for [Azure Application Gateway](/azure/application-gateway/overview).  App Gateway is included as part of the WebLogic Cluster support on Azure.  For an overview of WebLogic Cluster support on Azure, see [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
@@ -141,10 +141,7 @@ If you're not going to continue to use the WLS cluster, delete the Key Vault and
 1. At the top of the page, under the text **Resource group**, select the resource group.
 1. Select **Delete resource group**.
 1. The input focus will be set to the field labeled **TYPE THE RESOURCE GROUP NAME**.  Type the resource group name as requested.
-1. This will cause the **Delete** button to become enabled.  Select the **Delete** button.  This operation will take some time, but you can continue to the next step while the deletion is processing.
-1. Locate the Key Vault by following the first step of the section [Store the TLS/SSL certificate in the Key Vault](#store-the-tlsssl-certificate-in-the-key-vault).
-1. Select **Delete**.
-1. Select **Delete** in the pane that appears.
+1. This will cause the **Delete** button to become enabled.  Select the **Delete** button.
 
 ## Next steps
 
