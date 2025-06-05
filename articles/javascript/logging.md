@@ -49,7 +49,7 @@ You can create an Azure Monitor resource to collect logs and metrics from your A
 You can create this resource in several ways:
 - **Azure portal**: Use the [Azure portal](https://portal.azure.com) to create a Log Analytics workspace and configure diagnostic settings for your resources.
 - **Azure CLI**: Use the [Azure CLI](/cli/azure/) to create a Log Analytics workspace and configure diagnostic settings for your resources.
-- **PowerShell**: Use [PowerShell]() to create a Log Analytics workspace and configure diagnostic settings for your resources.
+- **PowerShell**: Use [PowerShell](/powershell/scripting/overview) to create a Log Analytics workspace and configure diagnostic settings for your resources.
 - **Bicep**: Use Bicep templates to define and deploy your Azure Monitor resources declaratively.
 
 ### Create a Log Analytics workspace using the Azure CLI
