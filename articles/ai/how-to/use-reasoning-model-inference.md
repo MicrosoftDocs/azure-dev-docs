@@ -26,7 +26,7 @@ This article demonstrates several best practices for integrating DeepSeek-R1 mod
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
-:::image type="content" source="./media/get-started-with-model-inference/simple-architecture-diagram.png" lightbox="./media/get-started-with-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="./media/use-reasoning-model-inference/simple-architecture-diagram.png" lightbox="./media/use-reasoning-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
 
@@ -178,7 +178,7 @@ The sample repository has all the code and configuration files needed to deploy 
 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-with-model-inference/screenshot-chat-image.png" lightbox="./media/get-started-with-model-inference/screenshot-chat-image.png" alt-text="Screenshot of chat app in browser with a question in the chat text box along with the response.":::
+    :::image type="content" source="./media/use-reasoning-model-inference/screenshot-chat-image.png" lightbox="./media/use-reasoning-model-inference/screenshot-chat-image.png" alt-text="Screenshot of chat app in browser with a question in the chat text box along with the response.":::
 
 1. In the browser, ask a question about the uploaded image such as "Who painted the Mona Lisa?".
 
