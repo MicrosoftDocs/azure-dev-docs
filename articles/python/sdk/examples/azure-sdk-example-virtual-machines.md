@@ -2,7 +2,7 @@
 title: Create a virtual machine using the Azure SDK libraries for Python
 description: How to create an Azure virtual machine using Python and the Azure SDK management libraries.
 ms.date: 03/14/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

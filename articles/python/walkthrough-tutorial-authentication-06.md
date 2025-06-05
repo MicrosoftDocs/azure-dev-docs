@@ -2,7 +2,7 @@
 title: "Walkthrough, Part 6: Authenticate Python apps with Azure services"
 description: An examination of the main app's startup code, which sets up the DefaultAzureCredential object and client objects needed by the API endpoint.
 ms.date: 05/28/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-python
 ---
 

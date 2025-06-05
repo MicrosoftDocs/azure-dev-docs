@@ -1,7 +1,7 @@
 ---
 title: Use Azure Managed Disks through the Azure SDK for Python
 description: Use the Azure Python SDK to create, resize, and update managed disks standalone, in a virtual machine, or in a Virtual Machine Scale Set.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/10/2024
 ms.custom: devx-track-python, py-fresh-zinc
 ---
