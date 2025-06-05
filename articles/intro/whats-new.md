@@ -49,8 +49,6 @@ Updated articles:
 - [Authenticate .NET apps to Azure services during local development using service principals](/dotnet/azure/sdk/authentication/local-development-service-principal)
 - [Authenticate to Azure resources from .NET apps hosted on-premises](/dotnet/azure/sdk/authentication/on-premises-apps)
 
-Updated articles:
-
 ### Azure MCP Server
 
 New articles:
