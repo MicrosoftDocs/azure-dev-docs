@@ -1,5 +1,5 @@
 ---
-title: "Use reasoning model inferencing with the OpenAI SDK for Python"
+title: "Develop reasoning apps using DeepSeek models on Azure AI Foundry with OpenAI SDK"
 description: "Learn how to use inferencing with models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python."
 ms.date: 06/05/2025
 ms.topic: how-to 
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer, I want to learn how to use inferencing with models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
 ---
-# Use reasoning model inferencing with the OpenAI SDK for Python
+# Develop reasoning apps using DeepSeek models on Azure AI Foundry with OpenAI SDK
 
 This article shows you how to use inferencing with reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
 
@@ -23,9 +23,9 @@ This article demonstrates several best practices for integrating reasoning model
 - **Reasoning separation**: Distinguishing between reasoning steps and final output
 - **Proper resource management**: Cleaning up resources after use
 
-## The Reasoning Model Inferencing Building Block
+## The DeepSeek Building Block
 
-Explore the [Reasoning Model Inference Building Block](https://aka.ms/mcp/aca) sample, an example of using the OpenAI client library to call the DeepSeek-R1 model to generate responses to user messages.
+Explore the [DeepSeek Building Block](https://github.com/Azure-Samples/deepseek-python) sample, an example of using the OpenAI client library to call the DeepSeek-R1 model to generate responses to user messages.
 
 ## Architectural overview
 
