@@ -26,7 +26,7 @@ This article demonstrates several best practices for integrating DeepSeek-R1 mod
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
-:::image type="content" source="../media/use-reasoning-model-inference/simple-architecture-diagram.png" lightbox=",./media/use-reasoning-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/use-reasoning-model-inference/simple-architecture-diagram.png" lightbox="../media/use-reasoning-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
 
