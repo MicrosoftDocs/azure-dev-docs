@@ -24,6 +24,8 @@ items:
       items:
         - name: Extract entities using Azure OpenAI Structured Outputs Mode
           href: how-to/extract-entities-using-structured-outputs.md
+        - name: Use reasoning model inferencing with the OpenAI SDK for Python
+          href: how-to/use-reasoning-model-inference.md
         - name: Switch between OpenAI and Azure OpenAI endpoints with Python
           href: /azure/ai-services/openai/how-to/switching-endpoints?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json    
         - name: Security

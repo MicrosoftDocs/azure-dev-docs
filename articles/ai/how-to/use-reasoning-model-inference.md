@@ -1,8 +1,8 @@
 ---
-title: "Get started with model inferencing using the OpenAI SDK for Python"
+title: "Use reasoning model inferencing with the OpenAI SDK for Python"
 description: "Learn how to use inferencing with models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python."
-ms.date: 06/03/2025
-ms.topic: quickstart 
+ms.date: 06/05/2025
+ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 content_well_notification: 
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer, I want to learn how to use inferencing with models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
 ---
-# Get started with model inferencing using the OpenAI SDK for Python
+# Use reasoning model inferencing with the OpenAI SDK for Python
 
 This article shows you how to use Azure OpenAI model inferencing to generate responses in a streaming chat app. The sample chat app includes all the setup needed to create Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
 
