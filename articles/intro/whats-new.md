@@ -1,7 +1,7 @@
 ---
-title: "Azure developer documentation docs: What's new"
-description: "What's new in the Azure developer documentation docs."
-ms.date: 06/03/2025
+title: "Azure developer documentation: What's new"
+description: "What's new in the Azure developer documentation."
+ms.date: 06/05/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
@@ -9,7 +9,7 @@ ms.topic: article
 
 # Azure developer documentation: What's new
 
-Welcome to what's new in the Azure developer documentation docs for the last three months. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Azure developer documentation for the last three months. This article lists some of the major changes to docs during this period.
 
 ## What's new for May 2025
 
@@ -58,7 +58,6 @@ New articles:
 - [Azure Service Bus tools for the Azure MCP Server](../azure-mcp-server/tools/service-bus.md)
 - [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
 - [Get started with Azure MCP Server](../azure-mcp-server/get-started.md)
-- [GitHub Copilot in Visual Studio Code](../azure-mcp-server/azure-mcp-zone-pivot-groups.yml)
 - [Resource Group tools for the Azure MCP Server](../azure-mcp-server/tools/resource-group.md)
 - [Subscription tools for the Azure MCP Server](../azure-mcp-server/tools/subscription.md)
 - [What are the Azure MCP Server tools?](../azure-mcp-server/tools/index.md)
@@ -68,15 +67,15 @@ New articles:
 
 New articles:
 
-- [Authenticate C++ apps to Azure services by using the Azure SDK for C++](../cpp/sdk/authentication/overview.md)
 - [Azure for C++ developers](../cpp/index.yml)
-- [Common Types in the Azure SDK for C++](../cpp/sdk/fundamentals/common-types.md)
-- [Core Concepts of the Azure SDK for C++](../cpp/sdk/fundamentals/overview.md)
-- [Credential chains in the Azure Identity client library for C++](../cpp/sdk/authentication/credential-chains.md)
-- [Error handling in the Azure SDK for C++](../cpp/sdk/fundamentals/errors.md)
-- [HTTP Pipelines and Retries in the Azure SDK for C++](../cpp/sdk/fundamentals/http-pipelines-and-retries.md)
 - [Install & Integrate libraries from the Azure SDK for C++](../cpp/sdk/install-and-integrate-the-sdk.md)
 - [What is the Azure SDK for C++?](../cpp/sdk/overview.md)
+- [Core Concepts of the Azure SDK for C++](../cpp/sdk/fundamentals/overview.md)
+- [Error handling in the Azure SDK for C++](../cpp/sdk/fundamentals/errors.md)
+- [HTTP Pipelines and Retries in the Azure SDK for C++](../cpp/sdk/fundamentals/http-pipelines-and-retries.md)
+- [Common Types in the Azure SDK for C++](../cpp/sdk/fundamentals/common-types.md)
+- [Authenticate C++ apps to Azure services by using the Azure SDK for C++](../cpp/sdk/authentication/overview.md)
+- [Credential chains in the Azure Identity client library for C++](../cpp/sdk/authentication/credential-chains.md)
 
 ### GitHub Copilot for Azure
 
