@@ -4,7 +4,7 @@ description: Shows you how to manually deploy a Java application with Open Liber
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.topic: conceptual
+ms.topic: install-set-up-deploy
 ms.date: 05/05/2025
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli

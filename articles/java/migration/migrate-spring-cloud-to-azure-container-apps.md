@@ -3,7 +3,7 @@ title: Migrate Spring Cloud applications to Azure Container Apps
 description: This guide describes what you should be aware of when you want to migrate an existing Spring Cloud application to run on Azure Container Apps.
 author: KarlErickson
 ms.author: karler
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 09/30/2024
 ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false

@@ -5,7 +5,7 @@ author: gkulin
 ms.author: gracekulin
 ms.date: 09/12/2024
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-azdevcli
 ---
 

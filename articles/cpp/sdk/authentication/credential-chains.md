@@ -4,7 +4,7 @@ description: This article describes the DefaultAzureCredential and ChainedTokenC
 author: ronniegeraghty
 ms.author: rgeraghty
 ms.date: 04/07/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want to use credential chains in my C++ application that uses Azure SDK, to combine differnt authentication methods, so that my app can authenticate in different environments, specifically in development environment and when deployed into production environment, i.e. into the Azure cloud.

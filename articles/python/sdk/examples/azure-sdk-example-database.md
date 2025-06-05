@@ -2,7 +2,7 @@
 title: Create an Azure Database for MySQL - Flexible Server instance and database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to create an Azure Database for MySQL or Azure Database for PostgreSQL database.
 ms.date: 05/21/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

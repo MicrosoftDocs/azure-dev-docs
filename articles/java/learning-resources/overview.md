@@ -3,7 +3,7 @@ title: Learning resources for Java
 description: Java - Curated list of resources for Java developers.
 author: KarlErickson
 ms.author: karler
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/02/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---

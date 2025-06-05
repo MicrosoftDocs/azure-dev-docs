@@ -4,7 +4,7 @@ description: Learn how to consistently deploy your application to Azure virtual 
 keywords: azure, chef, devops, virtual machines, overview, automate, habitat
 recommendations: false
 ms.date: 06/03/2021
-ms.topic: article
+ms.topic: install-set-up-deploy
 ms.custom: devx-track-chef
 ---
 

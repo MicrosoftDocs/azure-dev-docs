@@ -1,7 +1,7 @@
 ---
 title: "Configure a custom startup file for Python apps on Azure App Service on Linux"
 description: Discusses how to start a Python web app running on App Service, including specific instructions for Django, Flask, and other frameworks.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 ms.custom: devx-track-python, linux-related-content
 ---

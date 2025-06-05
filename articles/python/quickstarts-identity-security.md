@@ -2,7 +2,7 @@
 title: Overview and resources for Azure identity and access management features for Python apps
 description: Overview and links to resources about authentication, identity, and access management for Python apps on Azure.
 ms.date: 06/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
