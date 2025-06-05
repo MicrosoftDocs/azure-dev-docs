@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Use reasoning model inferencing with the OpenAI SDK for Python
 
-This article shows you how to use inferencing with reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python. The article provides a simple chat app that uses the DeepSeek-R1 reasoning model to generate responses to user messages.
+This article shows you how to use inferencing with reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
 
 This article demonstrates several best practices for integrating reasoning models:
 
@@ -25,11 +25,11 @@ This article demonstrates several best practices for integrating reasoning model
 
 ## The Reasoning Model Inferencing Building Block
 
-Explore the [Reasoning Model Inference Building Block](https://aka.ms/mcp/aca), an example of using the OpenAI client library to call the DeepSeek-R1 model to generate responses to user messages.
+Explore the [Reasoning Model Inference Building Block](https://aka.ms/mcp/aca) sample, an example of using the OpenAI client library to call the DeepSeek-R1 model to generate responses to user messages.
 
 ## Architectural overview
 
-A simple architecture of the chat app is shown in the following diagram:
+A simple architecture of the sample app is shown in the following diagram:
 :::image type="content" source="../media/use-reasoning-model-inference/simple-architecture-diagram.png" lightbox="../media/use-reasoning-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
