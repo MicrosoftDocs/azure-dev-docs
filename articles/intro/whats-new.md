@@ -47,21 +47,21 @@ New articles:
 
 New articles:
 
+- [What is the Azure MCP Server (Preview)?](../azure-mcp-server/index.md)
+- [Get started with Azure MCP Server](../azure-mcp-server/get-started.md)
+- [What are the Azure MCP Server tools?](../azure-mcp-server/tools/index.md)
 - [Azure AI Search tools for the Azure MCP Server](../azure-mcp-server/tools/ai-search.md)
 - [Azure App Configuration tools for the Azure MCP Server](../azure-mcp-server/tools/app-configuration.md)
 - [Azure CLI extension tools for the Azure MCP Server](../azure-mcp-server/tools/azure-cli-extension.md)
-- [Azure Cosmos DB tools for the Azure MCP Server](../azure-mcp-server/tools/cosmos-db.md)
 - [Azure Data Explorer with Kusto tools for the Azure MCP Server](../azure-mcp-server/tools/kusto.md)
 - [Azure Database for PostgreSQL tools for the Azure MCP Server](../azure-mcp-server/tools/postgresql.md)
+- [Azure Cosmos DB tools for the Azure MCP Server](../azure-mcp-server/tools/cosmos-db.md)
 - [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/key-vault-key.md)
 - [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/monitor.md)
 - [Azure Service Bus tools for the Azure MCP Server](../azure-mcp-server/tools/service-bus.md)
 - [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
-- [Get started with Azure MCP Server](../azure-mcp-server/get-started.md)
 - [Resource Group tools for the Azure MCP Server](../azure-mcp-server/tools/resource-group.md)
 - [Subscription tools for the Azure MCP Server](../azure-mcp-server/tools/subscription.md)
-- [What are the Azure MCP Server tools?](../azure-mcp-server/tools/index.md)
-- [What is the Azure MCP Server (Preview)?](../azure-mcp-server/index.md)
 
 ### Azure for C++
 
