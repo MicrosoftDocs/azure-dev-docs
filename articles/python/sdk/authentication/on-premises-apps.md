@@ -91,7 +91,7 @@ For example, to allow the service principal with the appId of `00001111-aaaa-222
 
 ```azurecli
 az role assignment create --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
-    --scope "./subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-"example" \
+    --scope "./subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example" \
     --role "Storage Blob Data Contributor"
 ```
 
