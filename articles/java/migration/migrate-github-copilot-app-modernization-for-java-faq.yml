@@ -28,7 +28,7 @@ sections:
         answer: We currently have no plans to open source App Modernization for Java.
 
       - question: What GitHub Copilot license plan do I need to use App Modernization for Java?
-        answer: Every plan works, including the free plan.
+        answer: App Modernization for Java is available to all GitHub Copilot paid plans.
 
       - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for App Modernization to go beyond Java or consolidate with the .NET experience?
         answer: Currently, App Modernization for Java is focused on assisting with Java applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
