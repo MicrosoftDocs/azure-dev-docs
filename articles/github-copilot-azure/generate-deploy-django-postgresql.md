@@ -182,7 +182,7 @@ Use prompts that describe the issue with as much detail as possible. For example
 
 ### Interrupting the flow
 
-Occasionally, you might notice that GitHub Copilot is either stuck in a loop attempting to perform the same tasks repeatedly. Or occasionally, you might notice that GitHub Copilot is stuck in a process that never returns. For example, when diagnosing problems with the website, GitHub Copilot might want to run a command like:
+Occasionally, you might notice that GitHub Copilot is either stuck in a loop attempting to perform the same tasks repeatedly or it's stuck in a process that never returns. For example, when diagnosing problems with the website, GitHub Copilot might want to run a command like:
 
 ```bash
 az webapp log tail
