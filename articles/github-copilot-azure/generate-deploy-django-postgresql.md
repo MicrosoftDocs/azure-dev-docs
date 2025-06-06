@@ -8,7 +8,7 @@ ms.date: 06/6/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Generate a Django and PostgreSQL and deploy to Azure
+# Generate a Django and PostgreSQL app and deploy to Azure
 
 This article guides you in how to interact with GitHub Copilot to generate a local Django web app that performs CRUD operations on a PostgreSQL database. Next, it guides you in how to interact with GitHub Copilot for Azure to deploy the web app and database to Azure App Service and Azure PostgreSQL Flexible Server (along with several supporting Azure services).
 
@@ -37,9 +37,34 @@ The specific application you create is a trivial contact management application 
 
 While GitHub Copilot is capable of performing virtually any application development task that developers typically perform, you will get the best results if you plan ahead and do some prep work. To improve results, create the database and set up authentication and authorization before working with GitHub Copilot.
 
-1. Use pgAdmin to create a new database named `contacts`.
+1. Use pgAdmin or `psql` to create a new database named `contacts`, create (or select) a database user and give that user the proper permissions to create tables and operate on data. Here's a sample SQL script that could do this, or you can use pgAdmin's visual tools.
 
-1. Use pgAdmin to create or select a database user and give that user the proper permissions to create tables and operate on data.
+   ```sql
+   -- Step 1: Create the database
+   CREATE DATABASE contacts;
+   
+   -- Step 2: Create the user with password
+   CREATE USER <database-user> WITH PASSWORD '<password>';
+   
+   -- Step 3: Grant privileges on the database
+   GRANT ALL PRIVILEGES ON DATABASE contacts TO <database-user>;
+   ```
+
+   Be sure to replace `<database-user>` and `<password>` with your desired values.
+
+   If you're trying to limit the user's privileges, you could avoid `ALL PRIVILEGES` and instead use this line:
+
+   ```sql
+   GRANT CONNECT ON DATABASE contacts TO <database-user>;
+   ```
+
+   If you save the script as `init_contacts.sql`, you can run it from the command line using `psql`:
+
+   ```bash
+   psql -U <admin-user> -f init_contacts.sql
+   ```
+   
+   The command assumes you can log in using account with PostgreSQL superuser or a role with sufficient privileges (commonly `postgres`). You will be prompted for the password if authentication is required.
 
 1. On Windows machines, the recommended security best practice is to store the database username and password in a local file:
 
@@ -74,7 +99,7 @@ While GitHub Copilot is capable of performing virtually any application developm
 
    If the `pgpass.conf` is not set up correctly, you'll see a prompt for you to type in your password.
 
-## Perform a preflight check
+## Validate your configuration
 
 Make sure your CLI tools and Visual Studio Code are updated, properly configured and operating correctly to improve your results.
 
