@@ -179,17 +179,13 @@ When GitHub Copilot is stuck, you can interrupt GitHub Copilot in one of several
 > [!Important] 
 > Ending the chat session destroys all the context built up during the session, which might or might not be desirable.
 
-To provide it context to what just happened, you could add a prompt immediately afterwards such as:
+To provide it context to what just happened, and nudge it towards a possible solution, you could add a prompt immediately after interrupting the GitHub Copilot such as:
 
 ```
-You were just getting the logs from Azure App Service. Did that give you the information you needed to continue?
+You were just getting the logs from Azure App Service but it did not return so you got stuck. Try to interrupt after a minute once you get what you need from the logs.
 ```
-
-
-
-
 
 ## Next steps
 
-- [What is the Azure Developer CLI?](/developer/azure-developer-cli/overview?tabs=windows)
-- [What is Bicep?](/azure-resource-manager/bicep/overview?tabs=bicep)
+- [What is the Azure Developer CLI?](/azure/developer/azure-developer-cli/overview?tabs=windows)
+- [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
