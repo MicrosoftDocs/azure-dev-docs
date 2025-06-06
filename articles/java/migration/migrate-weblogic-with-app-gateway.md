@@ -32,7 +32,11 @@ In this tutorial, you learn how to:
    While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy the **WebLogic Server configured cluster on Azure VMs** offer listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other offers do not support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
+* The ability to deploy the **WebLogic Server configured cluster on Azure VMs** offer listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other VM offers do not support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
+
+> [!NOTE]
+> The WLS on AKS offer has full support for Azure Application Gateway. See [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app).
+
 
 ## Migration context
 
@@ -50,7 +54,7 @@ This section will show you how to provision a WLS cluster with Azure Application
 
 To create the WLS cluster and Application Gateway, use the following steps.
 
-First, begin the process of deploying a WebLogic Server configured or dynamic cluster as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534), but come back to this page when you reach **Azure Application Gateway**, as shown here.
+First, begin the process of deploying a WebLogic Server configured cluster as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534), but come back to this page when you reach **Azure Application Gateway**, as shown here.
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="Azure portal screenshot showing the Azure Application Gateway.":::
 
@@ -89,6 +93,9 @@ To use an existing Azure DNS Zone with the App Gateway, use the following steps:
 1. Next to **Use an existing Azure DNS Zone** select **Yes**.
 1. Enter the name of the Azure DNS Zone next to **DNS Zone Name**.
 1. Enter the resource group that contains the Azure DNS Zone from the preceding step.
+
+> [!NOTE]
+> The hostnames you define within the DNS Zone must be publicly resolvable before deploying the offer.
 
 #### Allow the deployment to create a new Azure DNS Zone
 
