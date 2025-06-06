@@ -29,7 +29,7 @@ The specific application you create is a trivial contact management application 
 
 - [PostgreSQL for Visual Studio Code (Preview) extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql). For instructions on installing and using the extension see [Quickstart: Connect and query a database with the PostgreSQL extension for Visual Studio Code preview](/azure/postgresql/extensions/vs-code-extension/quickstart-connect).
 
-- Azure CLI. For instructions on how to install the Azure CLI, see [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Azure CLI. For instructions on how to install the Azure CLI, see [How to install the Azure CLI](/azure/install-azure-cli?view=azure-cli-latest).
 
 - Azure Developer CLI (`azd`). For instructions on how to install `azd`, see [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows).
 
