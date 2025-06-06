@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 This tutorial walks you through the process of deploying WebLogic Server (WLS) with Azure Application Gateway.
 
-:::image type="content" border="false" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway.svg" alt-text="Diagram showing the relationship between WLS, App Gateway and SSL.":::
+:::image type="content" border="false" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway.svg" alt-text="Diagram of the relationship between WLS, App Gateway and SSL.":::
 
 Load balancing is an essential part of migrating your Oracle WebLogic Server cluster to Azure.  The easiest solution is to use the built-in support for [Azure Application Gateway](/azure/application-gateway/overview).  App Gateway is included as part of the WebLogic Cluster support on Azure.  For an overview of WebLogic Cluster support on Azure, see [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 
@@ -32,11 +32,10 @@ In this tutorial, you learn how to:
    While there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy the **WebLogic Server configured cluster on Azure VMs** offer listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other VM offers do not support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
+* The ability to deploy the solution template [WebLogic Server configured cluster on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic#weblogic-server-configured-cluster-on-azure-vms) provided at [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other VM solutions do not support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
 
 > [!NOTE]
-> The WLS on AKS offer has full support for Azure Application Gateway. See [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app).
-
+> The WLS on Azure Kubernetes Service (AKS) offer has full support for Azure Application Gateway. For more information, see [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app).
 
 ## Migration context
 
@@ -54,7 +53,7 @@ This section will show you how to provision a WLS cluster with Azure Application
 
 To create the WLS cluster and Application Gateway, use the following steps.
 
-First, begin the process of deploying a WebLogic Server configured cluster as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534), but come back to this page when you reach **Azure Application Gateway**, as shown here.
+Begin the process of deploying a WLS configured cluster as described in the [Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534), but come back to this page when you reach **Azure Application Gateway**, as shown here.
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/weblogic-app-gateway-blade.png" alt-text="Azure portal screenshot showing the Azure Application Gateway.":::
 
@@ -83,7 +82,7 @@ To upload an existing, signed, TLS/SSL certificate, use the following steps:
 
 TLS/SSL certificates are associated with a DNS domain name at the time they're issued by the certificate issuer. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You must be far enough along in the deployment UI so that you have selected a resource group and vnet for the deployment.
 
-You can use a DNS Zone you already have created or allow the deployment to create one for you. To learn how to create a DNS zone, see [Quickstart: Create an Azure DNS zone and record using the Azure portal](/azure/dns/dns-getstarted-portal).
+You can use a DNS Zone you already created or allow the deployment to create one for you. To learn how to create a DNS zone, see [Quickstart: Create an Azure DNS zone and record using the Azure portal](/azure/dns/dns-getstarted-portal).
 
 #### Use an existing Azure DNS Zone
 
@@ -109,7 +108,7 @@ Finally, specify the names for the child DNS zones. The deployment will create t
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Azure portal screenshot showing fields for child DNS zones.":::
 
-The other options for providing an TLS/SSL certificate to the App Gateway are detailed in the following sections. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-deployment).
+The other options for providing an TLS/SSL certificate to the App Gateway are detailed in the following sections. If you're satisfied with your chosen option, you can skip to the section [Continue with deployment](#continue-with-the-deployment).
 
 ### Option two: Generate a self-signed certificate
 
@@ -124,9 +123,9 @@ To request the deployment to perform these actions, use the following steps:
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/generate-self-signed-certificate.png" alt-text="Azure portal screenshot showing fields for generating a self-signed certificate.":::
 
-## Continue with deployment
+## Continue with the deployment
 
-You can now continue with the other aspects of the WLS deployment as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534). If you are satisfied with your configuration, select **Review + create** then **Create**.
+You can now continue with the other aspects of the WLS deployment as described [in the Oracle documentation](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/deploy-oracle-weblogic-server-cluster-microsoft-azure-iaas.html#GUID-69FE91BD-32E2-4F58-9765-008988385534). If you are satisfied with your configuration, select **Review + create**, and then **Create**.
 
 The deployment can take up to fifteen minutes, depending on network conditions and other factors.
 
@@ -148,7 +147,7 @@ If you're not going to continue to use the WLS cluster, delete the Key Vault and
 1. At the top of the page, under the text **Resource group**, select the resource group.
 1. Select **Delete resource group**.
 1. The input focus will be set to the field labeled **TYPE THE RESOURCE GROUP NAME**.  Type the resource group name as requested.
-1. This will cause the **Delete** button to become enabled.  Select the **Delete** button.
+1. Select **Delete**.
 
 ## Next steps
 
