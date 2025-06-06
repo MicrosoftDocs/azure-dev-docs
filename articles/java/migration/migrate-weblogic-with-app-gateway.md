@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
    Even though there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy the solution template [WebLogic Server configured cluster on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic#weblogic-server-configured-cluster-on-azure-vms) provided at [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic). The other virtual machine (VM) solutions don't support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
+* The ability to deploy the [WebLogic Server configured cluster on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic#weblogic-server-configured-cluster-on-azure-vms) offer described in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic) The other virtual machine (VM) offers don't support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
 
 > [!NOTE]
 > The WLS on Azure Kubernetes Service (AKS) offer has full support for Azure Application Gateway. For more information, see [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app).
@@ -80,7 +80,7 @@ To upload an existing, signed, TLS/SSL certificate, use the following steps:
 
 ### Select DNS Configuration
 
-TLS/SSL certificates are associated with a DNS domain name at the time the certificate issuer issues them. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You must be far enough along in the deployment UI so that you already selected a resource group and vnet for the deployment.
+TLS/SSL certificates are associated with a DNS domain name at the time the certificate issuer issues them. Follow the steps in this section to configure the deployment with the DNS name for the certificate. You must be far enough along in the deployment UI so that you already selected a resource group and virtual network for the deployment.
 
 You can use a DNS Zone you already created, or enable the deployment to create one for you. To learn how to create a DNS zone, see [Quickstart: Create an Azure DNS zone and record using the Azure portal](/azure/dns/dns-getstarted-portal).
 
@@ -104,7 +104,7 @@ To create an Azure DNS Zone to use with the App Gateway, use the following steps
 1. Next to **Use an existing Azure DNS Zone** select **No**.
 1. Enter the name of the Azure DNS Zone next to **DNS Zone Name**. A new DNS Zone is created in the same resource group as WLS.
 
-Finally, specify the names for the child DNS zones. The deployment creates two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if the **DNS Zone Name** field was **contoso.net**, you could enter **admin** and **app** as the values. The admin console would be available at `admin.contoso.net` and the app gateway would be available at `app.contoso.net`. Don't forget to set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
+Finally, specify the names for the child DNS zones. The deployment creates two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if the **DNS Zone Name** value is **contoso.net**, you could enter **admin** and **app** as the names. The admin console would be available at `admin.contoso.net` and the app gateway would be available at `app.contoso.net`. Don't forget to set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Azure portal screenshot showing fields for child DNS zones.":::
 
