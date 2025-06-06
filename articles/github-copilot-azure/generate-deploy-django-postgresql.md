@@ -80,8 +80,17 @@ First you provide instructions and guidance on building and testing the applicat
 
 1. Use the following prompt to begin application generation:
 
-   ```
-   I want you to create a simple Contact Manager application using Django and PostgreSQL. This should be a CRUD application, so create web pages that display a list of contacts, view details, add a new contact, edit or delete a contact. Each Contact is comprised of a contact's Name, Address, and Phone number. Since this is a Python / Django project please make sure to work inside of a virtual environment (venv). I've already created a PostgreSQL database at `localhost` named `contacts`. There are no tables yet. For local development in PostgreSQL, I'm using a `pgpass.conf` file and I have tested it works. Prefer Git Bash in the terminal. Beyond that, if there's anything I need to do, please include instructions. But I want you to do as much as you can on your own.
+   ```copilot-prompt
+   I want you to create a simple Contact Manager application using Django and PostgreSQL. 
+   This should be a CRUD application, so create web pages that display a list of 
+   contacts, view details, add a new contact, edit or delete a contact. Each Contact 
+   is comprised of a contact's Name, Address, and Phone number. Since this is a 
+   Python / Django project please make sure to work inside of a virtual environment (venv). 
+   I've already created a PostgreSQL database at `localhost` named `contacts`. There are 
+   no tables yet. For local development in PostgreSQL, I'm using a `pgpass.conf` file 
+   and I have tested it works. Prefer Git Bash in the terminal. Beyond that, if there's 
+   anything I need to do, please include instructions. But I want you to do as much as 
+   you can on your own.
    ```
 
    The prompt has the following features:
@@ -117,8 +126,17 @@ After GitHub Copilot generates the site locally, you'll author a prompt asking G
 
 Use the following prompt:
 
-```
-Please help me deploy this Django app to Azure. Use Azure App Service for the Django app, and Azure PostgreSQL Flexible Server using Service Connector (and any other services you need to make this configuration work successfully). You may need to modify the application code to accommodate Service Connector. Please choose the least expensive options. Also, please ensure a secure connection between the Azure App Service web site and the Azure PostgreSQL Flexible Server. When prompted, use an environment named `contacts-env`. Create and use a Resource Group named `contacts-rg`. Use the `West US` location. Configure my firewall to allow my IP address. Beyond that, if there's anything I need to do, please include instructions. But I want you to do as much as you can on your own.
+```copilot-prompt
+Please help me deploy this Django app to Azure. Use Azure App Service for the Django app, 
+and Azure PostgreSQL Flexible Server using Service Connector (and any other services you 
+need to make this configuration work successfully). You may need to modify the 
+application code to accommodate Service Connector. Please choose the least expensive 
+options. Also, please ensure a secure connection between the Azure App Service web site 
+and the Azure PostgreSQL Flexible Server. When prompted, use an environment named 
+`contacts-env`. Create and use a Resource Group named `contacts-rg`. Use the `West US` 
+location. Configure my firewall to allow my IP address. Beyond that, if there's anything 
+I need to do, please include instructions. But I want you to do as much as you can on 
+your own.
 ```
 
 The prompt has the following features:
@@ -181,8 +199,10 @@ When GitHub Copilot is stuck, you can interrupt GitHub Copilot in one of several
 
 To provide it context to what just happened, and nudge it towards a possible solution, you could add a prompt immediately after interrupting the GitHub Copilot such as:
 
-```
-You were just getting the logs from Azure App Service but it did not return so you got stuck. Try to interrupt after a minute once you get what you need from the logs.
+```copilot-prompt
+You were just getting the logs from Azure App Service but it did not return 
+so you got stuck. Try to interrupt after a minute once you get what you need 
+from the logs.
 ```
 
 ## Next steps
