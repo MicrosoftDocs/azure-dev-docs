@@ -39,7 +39,7 @@ While GitHub Copilot is capable of performing virtually any application developm
 
 1. Use pgAdmin to create a new database named `contacts`.
 
-1. Use pgAdmin to give the user the proper permissions to create tables and operate on data.
+1. Use pgAdmin to create or select a database user and give that user the proper permissions to create tables and operate on data.
 
 1. On Windows machines, the recommended security best practice is to store the database username and password in a local file:
 
