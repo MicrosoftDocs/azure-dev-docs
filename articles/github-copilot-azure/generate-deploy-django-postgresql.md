@@ -23,7 +23,7 @@ The specific application you create is a trivial contact management application 
 
 - [Python extension to Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For instructions on how to install the extension, see [Install Python and the Python extension](https://code.visualstudio.com/docs/languages/python#_install-python-and-the-python-extension).
 
-- PostgreSQL,including pgAdmin (available from the [PostgreSQL Windows installer](https://www.postgresql.org/download/windows/))
+- PostgreSQL, including pgAdmin (available from the [PostgreSQL Windows installer](https://www.postgresql.org/download/windows/))
 
 - Git Bash (available from the [Git installer for Windows](https://git-scm.com/downloads))
 
@@ -43,17 +43,36 @@ While GitHub Copilot is capable of performing virtually any application developm
 
 1. On Windows machines, the recommended security best practice is to store the database username and password in a local file:
 
-   `c:\Users\<your-user-id>\AppSettings\Roaming\postgresql\pgpass.conf`
+   `%APPDATA%\postgresql\pgpass.conf`
+
+   This will typically resolve the following location on your hard drive:
+
+   `c:\Users\<username>\AppSettings\Roaming\postgresql\pgpass.conf`
    
+   Replace `<username>` with your Windows username.
+
    The file should use the following format:
 
    ```
    localhost:5432:<database-name>:<database-user>:<password>
    ```
+
+   This assumes your working with an instance of PostgreSQL on your local computer, and that it's hosted at the default port (5432).
    
    Replace `<database-name>` with `contacts` and replace `<database-user>` and `<password>` with the credentials you used in the previous step.
 
-1. Test the connection to ensure that it works.
+   For more information about the `pgpass.conf` file see [PostgreSQL's documentation](https://www.postgresql.org/docs/current/libpq-pgpass.html).
+
+1. Add the path to the `pgpass.conf` file into your PATH environment variable.
+
+1. Test the connection to ensure that it works. Use the psql CLI to test it with the following command:
+
+   ```bash
+   psql -h localhost -U <database-user> -d contacts
+   ```
+   Replace `<database-user>` with the database-user segment in the `pgpass.conf` file.
+
+   If the `pgpass.conf` is not set up correctly, you'll see a prompt for you to type in your password.
 
 ## Perform a preflight check
 
