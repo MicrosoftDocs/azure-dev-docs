@@ -453,6 +453,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You can delete the container instance, image, and volumes from Docker to free up space on your local machine.
 ---
 
+
 ## Get help
 
 Log your issue to the repository's [Issues](https://github.com/Azure-Samples/deepseek-python/issues).
