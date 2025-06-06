@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 This article guides you in how to interact with GitHub Copilot to generate a local Django web app that performs CRUD operations on a PostgreSQL database. Next, it guides you in how to interact with GitHub Copilot for Azure to deploy the web app and database to Azure App Service and Azure PostgreSQL Flexible Server (along with several supporting Azure services).
 
-The specific application you create is a trivial contact management application that features CRUD operations with a List/Detail style architecture.
+The specific application you create is a trivial contact management application that features CRUD operations with a list-detail style architecture.
 
 >[!NOTE]
 > Using a Large Language Model (LLM) to generate an application yields inconsistent results. Your results depend on the LLM model, your instructions, and more. The focus of this guide is to help you understand how to get better results. However each time you go through this example, you get (potentially) dramatically different results.
@@ -211,5 +211,5 @@ from the logs.
 
 ## Next steps
 
-- [What is the Azure Developer CLI?](/azure/developer/azure-developer-cli/overview?tabs=windows)
+- [What is GitHub Copilot?](https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot)
 - [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
