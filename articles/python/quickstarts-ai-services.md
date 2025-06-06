@@ -1,7 +1,7 @@
 ---
-title: Getting starting with Azuze AI services for Python apps on Azure
+title: Getting starting with Azure AI services for Python apps on Azure
 description: Index of getting started material in the Azure documentation for Azure AI services for Python apps.
-ms.date: 03/08/2024
+ms.date: 06/02/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -14,7 +14,7 @@ Because of the dynamic nature of Azure AI services, the best way to find getting
 
 1. On the hub page, select a service to go its documentation landing page. For example, for [Azure AI Vision](/azure/ai-services/computer-vision/).
 
-1. On the landing page, select a category of the service. For example, in Computer Vision, select [Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis).
+1. On the service's landing page, select a category of the service. For example, in Computer Vision, select [Image Analysis](/azure/ai-services/computer-vision/overview-image-analysis).
 
 1. In the documentation, look for **Quickstarts** in the table of contents. For example, in the Image Analysis documentation, under Quickstarts, there's a [Version 4.0 quickstart (preview)](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-python).
 
