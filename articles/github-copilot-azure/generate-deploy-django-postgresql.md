@@ -19,19 +19,23 @@ The specific application you create is a trivial contact management application 
 
 ## Prerequisites
 
-- Visual Studio Code
-- PostgreSQL, including pgAdmin
-- Git Bash (available from the Git installer)
-- A GitHub Copilot license
-- GitHub Copilot for Azure extension to Visual Studio Code
-- Python Extension to Visual Studio Code
-- PostgreSQL Extension to Visual Studio Code
-- Azure CLI
-- Azure Developer CLI
+[!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
+
+- [Python extension to Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For instructions on how to install the extension, see [Install Python and the Python extension](https://code.visualstudio.com/docs/languages/python#_install-python-and-the-python-extension).
+
+- PostgreSQL,including pgAdmin (available from the [PostgreSQL Windows installer](https://www.postgresql.org/download/windows/))
+
+- Git Bash (available from the [Git installer for Windows](https://git-scm.com/downloads))
+
+- [PostgreSQL for Visual Studio Code (Preview) extension](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql). For instructions on installing and using the extension see [Quickstart: Connect and query a database with the PostgreSQL extension for Visual Studio Code preview](/azure/postgresql/extensions/vs-code-extension/quickstart-connect).
+
+- Azure CLI. For instructions on how to install the Azure CLI, see [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+- Azure Developer CLI (`azd`). For instructions on how to install `azd`, see [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows).
 
 ## Set up the local database
 
-While GitHub Copilot is capable of performing virtually any application development task that developers typically perform, some tasks might require forethought. To improve results, create the database and set up authentication and authorization before working with GitHub Copilot.
+While GitHub Copilot is capable of performing virtually any application development task that developers typically perform, you will get the best results if you plan ahead and do some prep work. To improve results, create the database and set up authentication and authorization before working with GitHub Copilot.
 
 1. Use pgAdmin to create a new database named `contacts`.
 
