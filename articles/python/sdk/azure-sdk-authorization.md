@@ -93,6 +93,8 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   az role assignment list --assignee <principal-id> --scope <scope>
   ```
 
+  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity.
+
 ## Managing Access
 
 Manage access through role assignments using:
@@ -102,6 +104,8 @@ Manage access through role assignments using:
   ```bash
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
   ```
+  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity.
+
 - **ARM Templates**: For declarative management.
 
 For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure portal’s "Check access" feature or CLI to verify effective permissions.
