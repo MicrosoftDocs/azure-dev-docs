@@ -21,6 +21,8 @@ The specific application you create is a trivial contact management application 
 
 [!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
 
+- [GitHub Copilot for Azure](./get-started)
+
 - [Python extension to Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For instructions on how to install the extension, see [Install Python and the Python extension](https://code.visualstudio.com/docs/languages/python#_install-python-and-the-python-extension).
 
 - PostgreSQL, including pgAdmin (available from the [PostgreSQL Windows installer](https://www.postgresql.org/download/windows/))
