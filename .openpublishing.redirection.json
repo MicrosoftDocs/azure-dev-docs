@@ -1841,6 +1841,10 @@
     {
       "source_path": "articles/terraform/azure-terraform-resource-provider/get-started-export-resources-portal.md",
       "redirect_url": "/azure/developer/terraform/azure-export-for-terraform/get-started-export-resources-portal"
+    },
+    {
+      "source_path": "articles/java/ee/how-to-configure-passwordless-datasource.md",
+      "redirect_url": "/azure/developer/java/ee/how-to-configure-passwordless-datasource-wls"
     }
   ]
 }
