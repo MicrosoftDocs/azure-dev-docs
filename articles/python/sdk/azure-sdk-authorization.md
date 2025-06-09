@@ -12,14 +12,14 @@ Authorization in Azure determines what actions authenticated users or services c
 
 ## Introduction
 
-**Authentication (AuthN)** verifies the identity of a user or service, while **authorization (AuthZ)** defines what they can do. In Azure, authorization ensures secure access to resources, critical for protecting applications and data. Using the Azure SDK for Python, developers can implement robust authorization to control access in various workflows, from managing resources to accessing service-specific data.
+**Authentication (AuthN)** verifies the identity of a user or service, while **authorization (AuthZ)** defines what they can do. In Azure, authorization ensures secure access to resources, critical for protecting applications and data. Developers can implement robust authorization the Azure SDK for Python in order to control access in various workflows, from managing resources to accessing service-specific data.
 
 ## Azure Authorization Models
 
 Azure provides multiple authorization mechanisms to manage access. Understanding these models is essential for effective access control.
 
-### Azure Role-Based Access Control (RBAC)
-[Azure RBAC](/azure/role-based-access-control/) assigns roles to identities at scopes like subscriptions or resource groups. Built-in roles include Owner, Contributor, and Reader, while custom roles allow tailored permissions. When you assign a role at a specific scope, the identity (like a user or service) gets permissions for all resources within that scope and its child scopes. For example, assigning the Contributor role at the subscription level allows management of all resources in that subscription. See [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
+### Azure Role-Based Access Control 
+[Azure Role-Based Access Control](/azure/role-based-access-control/) (RBAC) assigns roles to identities at scopes like subscriptions or resource groups. Built-in roles include Owner, Contributor, and Reader, while custom roles allow tailored permissions. When you assign a role at a specific scope, the identity (like a user or service) gets permissions for all resources within that scope and its child scopes. For example, assigning the Contributor role at the subscription level allows management of all resources in that subscription. See [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 ### Service-Specific Mechanisms
 
@@ -36,7 +36,7 @@ The Azure SDK for Python uses the `TokenCredential` class from the `azure.identi
 
 ### Example: Listing Resource Groups
 
-This example shows how the Azure SDK for Python uses a credential (via DefaultAzureCredential) to authenticate, and how authorization determines whether the identity can successfully list resource groups. If the identity lacks the Reader or higher role on the subscription or resource group scope, this call will return a 403 Forbidden error.
+This example shows how the Azure SDK for Python uses a credential (via DefaultAzureCredential) to authenticate, and how authorization determines whether the identity can successfully list resource groups. If the identity lacks the Reader or higher role on the subscription or resource group scope, this call returns a 403 Forbidden error.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -49,13 +49,13 @@ for rg in resource_groups:
     print(rg.name)
 ```
 
-In the code above, please replace `<subscription-id>` with your Azure Subscription ID, which is usually in the form of `00000000-0000-0000-0000-000000000000`.
+Replace `<subscription-id>` with your Azure Subscription ID, which is usually in the form of `00000000-0000-0000-0000-000000000000`.
 
 ### Microsoft Graph with Scopes
 
 To access Microsoft Graph, use the official [Microsoft Graph SDK for Python](https://github.com/microsoftgraph/msgraph-sdk-python), which supports both delegated and application permissions.
 
-This example demonstrates how the SDK uses a credential to request an access token with the required authorization scope `https://graph.microsoft.com/.default` and access Microsoft Graph resources. The identity must be authorized in Microsoft Entra ID with appropriate application permissions (such as User.Read.All) to retrieve user data; otherwise, the request will fail with a 403 Forbidden.
+This example demonstrates how the SDK uses a credential to request an access token with the required authorization scope `https://graph.microsoft.com/.default` and access Microsoft Graph resources. The identity must be authorized in Microsoft Entra ID with appropriate application permissions (such as User.Read.All) to retrieve user data; otherwise, the request fails with a 403 Forbidden.
 
 > [!Important]
 > Ensure your app or identity has the `User.Read.All` or other required permissions granted in Microsoft Entra ID.
@@ -87,7 +87,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   import logging
   logging.basicConfig(level=logging.DEBUG)
   ```
-- **Verify Access**: Use [Azure CLI](/cli/azure/) or the Azure Portal to check role assignments:
+- **Verify Access**: Use [Azure CLI](/cli/azure/) or the Azure portal to check role assignments:
 
   ```bash
   az role assignment list --assignee <principal-id> --scope <scope>
@@ -97,14 +97,14 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
 Manage access through role assignments using:
 
-- **Azure Portal**: Navigate to "Access control (IAM)" to add roles.
+- **Azure Portal**: Add roles via "Access control (IAM)"
 - **Azure CLI**:
   ```bash
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
   ```
 - **ARM Templates**: For declarative management.
 
-For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure Portal’s "Check access" feature or CLI to verify effective permissions.
+For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure portal’s "Check access" feature or CLI to verify effective permissions.
 
 ## Service-Specific Authorization Notes
 
@@ -112,9 +112,9 @@ In the section [Service specific mechanisms](#service-specific-mechanisms), it w
 
 ### Azure Storage
 - **RBAC**: Manages control plane operations.
-- **SAS and ACLs**: Control data plane access, with Azure Entra authentication also supported.
+- **SAS and ACLs**: Control data plane access, with Microsoft Entra authentication also supported.
 
-Example: Accessing blobs with Azure Entra:
+Example: Accessing blobs with Microsoft Entra:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -127,7 +127,7 @@ for container in containers:
     print(container.name)
 ```
 
-In the code above, please replace `<account-name>` with your Azure Storage account name.
+Replace `<account-name>` with your Azure Storage account name.
 
 
 ### Azure Key Vault
@@ -144,13 +144,16 @@ secret = client.get_secret("my-secret")
 print(secret.value)
 ```
 
+Replace `<vault-name>` with your vault name.
+
+
 ### Microsoft Graph
 
 Uses OAuth2 scopes for delegated permissions and application permissions for daemon apps. Specify scopes as shown in the earlier example.
 
 ## Best Practices
 
-- **Least Privilege**: Assign only necessary permissions (e.g., Reader instead of Contributor).
+- **Least Privilege**: Assign only necessary permissions (for example, Reader instead of Contributor).
 - **Prefer RBAC**: Especially for Key Vault, for unified access control.
 - **Use Managed Identities**: Avoid managing credentials in code.
 - **Limit Graph Permissions**: Request specific scopes to minimize risks.
