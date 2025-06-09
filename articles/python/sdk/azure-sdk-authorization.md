@@ -116,7 +116,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   ```bash
   az role assignment list \
     --assignee 12345678-90ab-cdef-1234-567890abcdef \
-    --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group
+    --scope /subscriptions/<subscription-id>/resourceGroups/my-resource-group
   ```
   
   Or at the subscription level:
@@ -124,7 +124,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   ```bash
   az role assignment list \
     --assignee 12345678-90ab-cdef-1234-567890abcdef \
-    --scope /subscriptions/00000000-0000-0000-0000-000000000000
+    --scope /subscriptions/<subscription-id>
   ```
 
   You can retrieve the object ID (`<principle-id>`) of a user or managed identity using:
