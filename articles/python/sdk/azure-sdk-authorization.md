@@ -93,7 +93,47 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   az role assignment list --assignee <principal-id> --scope <scope>
   ```
 
-  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity.
+  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity. Replace `<scope>` with an Azure resource scope, such as a subscription id, a resource group name, or a resource. See [Working with scopes](#working-with-scopes).
+
+## Working with scopes
+
+  Often you'll need to provide a scope, like in the example:
+
+  ```bash
+  az role assignment list --assignee <principal-id> --scope <scope>
+  ```  
+
+  Here are some common scope formats:
+
+  | Scope Level        | Example Value                                                                                                                          |
+  | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Subscription**   | `/subscriptions/<subscription-id>`                                                                                                     |
+  | **Resource Group** | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>`                                                                |
+  | **Resource**       | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<provider-namespace>/<resource-type>/<resource-name>` |
+
+  For example, to list all role assignments for a managed identity at the resource group level:
+
+  ```bash
+  az role assignment list \
+    --assignee 12345678-90ab-cdef-1234-567890abcdef \
+    --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group
+  ```
+  
+  Or at the subscription level:
+
+  ```bash
+  az role assignment list \
+    --assignee 12345678-90ab-cdef-1234-567890abcdef \
+    --scope /subscriptions/00000000-0000-0000-0000-000000000000
+  ```
+
+  You can retrieve the object ID (`<principle-id>`) of a user or managed identity using:
+
+  ```bash
+  az ad user show --id <user-email> --query objectId
+  az identity show --name <identity-name> --resource-group <rg-name> --query principalId
+  ```
+
 
 ## Managing Access
 
@@ -104,7 +144,7 @@ Manage access through role assignments using:
   ```bash
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
   ```
-  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity.
+  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity. Replace `<scope>` with an Azure resource scope, such as a subscription id, a resource group name, or a resource.  See [Working with scopes](#working-with-scopes).
 
 - **ARM Templates**: For declarative management.
 
