@@ -1,6 +1,6 @@
 ---
 title: Authorization in the Azure libraries for Python
-description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
+description: Learn how to implement and troubleshoot authorization when using the Azure SDK for Python.
 ms.date: 6/09/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
@@ -55,7 +55,7 @@ In the code above, please replace `<subscription-id>` with your Azure Subscripti
 
 To access Microsoft Graph, use the official [Microsoft Graph SDK for Python](https://github.com/microsoftgraph/msgraph-sdk-python), which supports both delegated and application permissions.
 
-This example demonstrates how the SDK uses a credential to request an access token with the required authorization scope (https://graph.microsoft.com/.default) and access Microsoft Graph resources. The identity must be authorized in Microsoft Entra ID with appropriate application permissions (such as User.Read.All) to retrieve user data; otherwise, the request will fail with a 403 Forbidden.
+This example demonstrates how the SDK uses a credential to request an access token with the required authorization scope `https://graph.microsoft.com/.default` and access Microsoft Graph resources. The identity must be authorized in Microsoft Entra ID with appropriate application permissions (such as User.Read.All) to retrieve user data; otherwise, the request will fail with a 403 Forbidden.
 
 > [!Important]
 > Ensure your app or identity has the `User.Read.All` or other required permissions granted in Microsoft Entra ID.
