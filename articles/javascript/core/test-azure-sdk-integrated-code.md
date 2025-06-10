@@ -1,16 +1,17 @@
 ---
-title: JavaScript test strategies with Azure SDK
-description: When you're developing applications integrated with Azure SDKs, consider the following strategies for ensuring the quality of your code. 
-ms.topic: overview
-ms.date: 06/17/2024
+title: Azure Test Guide for JavaScript Applications
+description: "Learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs for JavaScript applications to ensure code quality and performance. Start testing today!"
+ms.topic: article
+ms.date: 06/09/2025
 ms.custom: devx-track-js
+intent: As a JavaScript developer, new to Azure, you want to learn about test Azure cloud applications.
 ---
 
-# Testing for JavaScript applications on Azure
+# Azure test guide for JavaScript applications
 
-This article outlines testing strategies for JavaScript applications deployed on Azure. Each section provides insights into tools and practices for helping to ensure application quality and performance in Azure environments.
+As a JavaScript developer new to Azure, use this Azure test guide to learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs and ensure your application’s quality, performance, and reliability.
 
-## Inner and outer test loops
+## Inner and outer test loops for Azure SDKs in JavaScript
 
 Inner and outer test loops are foundational concepts in software testing, especially for applications deployed on cloud platforms like Azure:
 
@@ -27,9 +28,9 @@ Learn more:
 * [GitHub Actions starter workflows](https://github.com/actions/starter-workflows)
 * [Use cloud-hosted browsers for locally deployed apps](/azure/playwright-testing/how-to-test-local-applications)
 
-## Testing with and without Azure cloud services
+## Local and cloud-based testing with Azure SDK
 
-*Local testing without Azure* involves simulating Azure services. You can use this approach to test changes quickly without incurring the costs or network latency associated with real Azure services.
+*Local testing without Azure* involves simulating Azure services. Use this approach to test changes quickly without incurring the costs or network latency associated with real Azure services.
 
 On the other hand, *cloud-based testing with Azure* takes advantage of actual Azure resources to validate the application's integration, security, and performance in a cloud environment. This method is crucial for final validation in a production-like setting. It helps ensure that the application behaves as expected with live Azure services.
 
@@ -37,24 +38,24 @@ Emulators and development containers enhance local development with Azure servic
 
 ### Emulators
 
-Emulators help you streamline development and testing workflows when you're integrating apps with Azure services. These lightweight, local versions of Azure services allow for rapid prototyping and testing without the need for an active internet connection or incurring costs associated with real Azure resources.
-
-Emulators provide a high-fidelity simulation of Azure services. You can use them to catch and resolve issues early in the development cycle. This approach reduces the complexity and time required to test Azure-integrated applications in development.
-
 Emulators include:
 
-* [Azure Storage](https://www.npmjs.com/package/azurite)
-* [Azure Cosmos DB](/azure/cosmos-db/how-to-develop-emulator)
-* [Azure SignalR](/azure/azure-signalr/signalr-howto-emulator)
-* [Azure Event Hubs](/azure/event-hubs/overview-emulator)
+* [Azurite (Azure Storage Emulator)](https://www.npmjs.com/package/azurite)
+* [Azure Cosmos DB Emulator](/azure/cosmos-db/how-to-develop-emulator)
+* [Azure SignalR Emulator](/azure/azure-signalr/signalr-howto-emulator)
+* [Azure Event Hubs Emulator](/azure/event-hubs/overview-emulator)
+* [Azure Functions Core Tools (Local Azure Functions Runtime)](/azure/azure-functions/functions-run-local)
+* [Azure Logic Apps Standard (Local Development)](/azure/logic-apps/create-standard-workflows-visual-studio-code)
+* [Azure API Management Self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview)
+* [Azure IoT Edge Runtime](/azure/iot-edge/about-iot-edge)
 
 ### Development containers
 
 Development containers offer a powerful alternative to using emulators for local development, especially in working with Azure services.
 
-By running services in containers, you can create a local environment that closely mirrors the production environment to provide consistency across development, testing, and deployment stages. This approach facilitates smoother integration with Azure SDKs. It also enhances the reliability of testing by simulating real-world conditions more accurately.
+By running services in containers, create a local environment that closely mirrors the production environment to provide consistency across development, testing, and deployment stages. It also enhances the reliability of testing by simulating real-world conditions more accurately.
 
-You can configure containers to replicate the settings and data of Azure services. In this way, containers provide a robust platform for developing and testing applications without the overhead of connecting to live Azure services. This method is beneficial for complex applications that require multiple services, because it allows for easy orchestration, cleanup, and management of dependencies.
+Configure containers to replicate the settings and data of Azure services. In this way, containers provide a robust platform for developing and testing applications without the overhead of connecting to live Azure services.
 
 Development containers include [Azure SQL Database](https://github.com/microsoft/azuresql-devcontainers).
 
@@ -63,21 +64,27 @@ Learn more:
 * [Development Container Specification](https://containers.dev/)
 * [Open Container Initiative](https://opencontainers.org/about/overview/)
 
-## Unit testing
+## Unit tests in JavaScript
 
-Unit testing in JavaScript applications that are integrated with Azure SDKs often requires selecting appropriate frameworks like [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/). These frameworks facilitate the testing of individual components or functions in isolation.
+Unit testing with Azure SDKs in JavaScript often uses frameworks like [Jest](https://jestjs.io/) or [Vitest](https://vitest.dev/) to isolate and test individual components or functions.
 
-Tools such as [Sinon.JS](https://sinonjs.org/) or [jest-mock](https://www.npmjs.com/package/jest-mock) can simulate Azure SDK responses, so you can test the logic of your applications without actual calls to Azure services. This method is useful for testing error handling, edge cases, or specific data conditions.
+For native Node.js tests, stub Azure SDK calls manually without additional libraries by overriding methods on the SDK client prototypes or using simple mock functions.
 
 For more information, see the [Azure SDK tests](#azure-sdk-tests) section later in this article.
 
-## Integration testing
+## Integration tests in JavaScript
 
 Integration testing assesses the interaction between your application and Azure services, to help ensure that components work together as expected.
 
-You can set up [automated integration tests](/entra/identity-platform/test-automate-integration-testing) by using Azure Pipelines in Azure DevOps or workflows in GitHub Actions. This approach automates the deployment and testing of components in a cloud environment. It helps identify problems that might not be apparent during unit testing, such as network latency or service configuration errors.
+Set up [automated integration tests](/entra/identity-platform/test-automate-integration-testing) by using Azure Pipelines in Azure DevOps or workflows in GitHub Actions. This approach automates the deployment and testing of components in a cloud environment. It helps identify problems that might not be apparent during unit testing, such as network latency or service configuration errors.
 
-## Continuous integration testing
+## Mock Azure services
+
+Mocking Azure services is a common practice in testing JavaScript applications that integrate with Azure SDKs. By simulating Azure service responses, isolate your application logic from external dependencies, which helps ensure that tests run quickly and reliably.
+
+Learn more about [how to test Azure SDK integrations](../sdk/test-sdk-integration.md).
+
+## Continuous integration tests
 
 CI testing involves automatically running tests every time a change is made to the codebase. CI tools like Azure DevOps provide integrated environments for automating builds, tests, and deployments. Configuring pipelines to include automated tests helps ensure that every change is verified, which reduces the likelihood of bugs and regressions.
 
@@ -89,28 +96,34 @@ Learn more:
 * [GitHub action starter workflows](https://github.com/actions/starter-workflows)
 * [Example Node.js workflows](https://docs.github.com/actions/guides/building-and-testing-nodejs)
 
-### Azure Test Plans
+## Azure Test Plans
 
 [Azure Test Plans](https://azure.microsoft.com/products/devops/test-plans) offers a comprehensive suite for manual and exploratory testing within Azure DevOps.
 
 This service can help in scenarios that require human judgment or are difficult to automate, by providing a structured approach to manual testing. Teams can use it to plan, execute, and track test activities, including capturing rich data like screenshots and videos to aid in bug reporting. Integrating Azure Test Plans into your CI/CD process provides a holistic testing strategy that covers both automated and manual test cases.
 
-## End-to-end testing
+## End-to-end tests
 
 End-to-end testing validates the complete operation of an application in an environment that simulates real user scenarios. By using frameworks like [Playwright](https://playwright.dev/), you can automate browser-based tests to interact with your applications as users would.
 
-*Scenario-based testing* involves creating test cases for complete user flows, such as signing up, performing a task, and signing out. You can use this testing to verify the application's functionality and user experience on Azure, which helps ensure that all components work together seamlessly from end to end.
+*Scenario-based testing* involves creating test cases for complete user flows, such as signing up, performing a task, and signing out. Use this testing to verify the application's functionality and user experience on Azure.
 
 Learn more:
 
 * [Get started with Playwright](https://playwright.dev/docs/intro)
 * [Run end-to-end tests at scale](/azure/playwright-testing/quickstart-run-end-to-end-tests)
 
-## Performance testing
+## Performance tests
 
 Performance testing is essential for applications deployed on Azure to help ensure that they can handle expected loads and perform well under stress.
 
-*Benchmarking* involves measuring the performance of your application against defined metrics or standards. You can use the Azure Load Testing service to simulate high traffic and analyze an application's scalability and resilience. This testing helps identify bottlenecks and areas for optimization, so that the application can meet user demands.
+*Benchmarking* involves measuring the performance of your application against defined metrics or standards. Use the Azure Load Testing service to simulate high traffic and analyze an application's scalability and resilience.
+
+CLI example:
+
+```bash
+az load test create --resource-group MyResourceGroup --name MyLoadTest --file loadTestConfig.json
+```
 
 Learn more:
 
@@ -119,7 +132,7 @@ Learn more:
 * [Tutorial on identifying performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
 * [GitHub: Azure Load Testing](https://github.com/microsoft/azure-load-testing)
 
-## Security testing
+## Security tests
 
 Security testing on Azure involves identifying potential vulnerabilities in your application to prevent unauthorized access or data breaches.
 
@@ -133,12 +146,16 @@ These integrated security measures can help you identify vulnerabilities early, 
 
 *Penetration testing* simulates cyberattacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, to help ensure that applications deployed on the platform are secure against threats.
 
+[Azure SDK Security Checklist](https://github.com/Azure/azure-sdk-for-js/blob/main/docs/security-best-practices.md)
+
+Recommend integrating CodeQL into your CI pipeline to catch vulnerabilities early.
+
 Learn more:
 
 * [Recommendations for security testing](/azure/well-architected/security/test)
 * [Penetration testing](/azure/security/fundamentals/pen-testing)
 
-## Compliance and governance testing
+## Compliance and governance tests
 
 Ensuring that applications comply with legal, regulatory, and policy requirements is crucial, especially in cloud environments. *Regulatory compliance* testing verifies that your application meets standards such as GDPR, HIPAA, or SOC 2.
 
@@ -149,11 +166,11 @@ Learn more:
 * [Governance, security, and compliance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance?tabs=AzurePolicy)
 * [Implement compliance testing with Terraform and Azure](/azure/developer/terraform/best-practices-compliance-testing)
 
-## Accessibility testing
+## Accessibility tests
 
 Accessibility testing is essential for making software inclusive and compliant with legal standards. Tools like [Accessibility Insights](https://accessibilityinsights.io/) help identify and fix accessibility issues in web and mobile apps. Integrating Accessibility Insights into development workflows facilitates automated and manual checks by offering guidance and reports based on Web Content Accessibility Guidelines (WCAG) standards.
 
-## A/B testing
+## A/B tests
 
 A/B testing, or split testing, is a method of comparing two versions of a webpage or app against each other to determine which one performs better. Azure provides the following services that support A/B testing:
 
@@ -161,7 +178,7 @@ A/B testing, or split testing, is a method of comparing two versions of a webpag
   
 * [Azure Container Apps](/azure/container-apps/): Offers a flexible environment for running microservices-based applications. You can implement A/B testing in this environment to test app versions.
 
-You can use these services to deploy variations of your applications and then gauge user response and effectiveness.
+Use these services to deploy variations of your applications and then gauge user response and effectiveness.
 
 ## Azure SDK tests
 
