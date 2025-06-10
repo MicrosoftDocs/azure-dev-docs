@@ -26,7 +26,7 @@ Some of the Azure Data Explorer with Kusto tools require **one** of the followin
 - **Option 1**: Cluster URI
 - **Option 2**: Both cluster name **and** subscription
 
-Don't provide all three parameters (cluster URI, cluster name, and subscription) together, because this can create conflicting inputs.
+Don't provide all three parameters (cluster URI, cluster name, and subscription) together, because this creates conflicting inputs.
 
 ## List clusters
 
