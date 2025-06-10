@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for C++ - Errors
+title: Error Handling in the Azure SDK for C++
 description: Understand how to handle errors effectively when using the Azure SDK for C++. 
 ms.topic: overview
 ms.date: 5/08/2025

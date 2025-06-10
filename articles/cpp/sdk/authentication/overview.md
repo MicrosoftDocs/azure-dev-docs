@@ -1,5 +1,5 @@
 ---
-title: 'Overview: Authenticate C++ apps to Azure using the Azure SDK'
+title: Authenticate C++ Apps to Azure Using the Azure SDK
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for C++ in both server environments and in local development.
 ms.topic: overview
 ms.date: 5/08/2025

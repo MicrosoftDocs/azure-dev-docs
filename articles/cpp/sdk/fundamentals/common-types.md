@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for C++ - Common Types
+title: Common Types in the Azure SDK for C++
 description: Understand how to effectively use the common types provided by the Azure Core library when developing applications with the Azure SDK for C++.
 ms.topic: overview
 ms.date: 5/08/2025
@@ -13,7 +13,7 @@ ms.custom: devx-track-cpp
 
 The Azure SDK for C++ relies on several common types from the Azure Core library to provide consistent functionality across its service libraries. Understanding these types help you use Azure services more effectively.
 
-## Core Types
+## Core types
 
 ### Response\<T>
 
@@ -358,7 +358,7 @@ auto contentType = rawResponse.GetHeaders().at("content-type");
 const auto& bodyBytes = rawResponse.GetBody();
 ```
 
-## Error Handling
+## Error handling
 
 ### RequestFailedException
 
