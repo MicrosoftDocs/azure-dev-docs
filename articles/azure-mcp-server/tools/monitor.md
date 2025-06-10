@@ -31,7 +31,7 @@ The Azure MCP Server can list all Log Analytics workspaces in a subscription. Th
 - **Query workspaces**: "Show all Log Analytics workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 
@@ -47,7 +47,7 @@ The Azure MCP Server can list all tables in a Log Analytics workspace. This help
 - **Query tables**: "Show available tables in my Log Analytics workspace"
 - **Check tables**: "Get all log tables in my 'operations' workspace"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Workspace** | The Log Analytics workspace ID or name. |
@@ -65,7 +65,7 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 - **Join query**: "Query errors and correlate them with performance metrics"
 - **Aggregation query**: "Count errors by application in my monitoring workspace"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Workspace** | The Log Analytics workspace ID or name. |

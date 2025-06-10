@@ -15,20 +15,26 @@ ms.service: azure-java
 
 This quickstart shows you how to use GitHub Copilot App Modernization for Java (preview) to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
+The following video demonstrates how GitHub Copilot App Modernization for Java (preview) uses [AppCAT](/azure/migrate/appcat/java-preview) to help assess a Java project for migration to Azure:
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/eX8rSMd4Dls]
+
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot App Modernization for Java (preview)](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). See the next section for install instructions.
+- [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see the next section.
 
-  > [!NOTE]
-  > You can optionally install the [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack, which bundles the following two extensions:
-  >
-  > - GitHub Copilot App Modernization for Java (preview)
-  > - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
+  This extension pack bundles the following two extensions:
+  - [GitHub Copilot App Modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java.md)
+  - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
 
-- [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
+  App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
+
+- [AppCAT](/azure/migrate/appcat/java-preview#download-and-install). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
 
@@ -45,24 +51,6 @@ Then, use the following steps to install GitHub Copilot App Modernization for Ja
 After installation completes, you should see a notification in the corner of Visual Studio Code confirming success.
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
-
-## Configure
-
-Use the following steps to configure Visual Studio Code:
-
-1. In Visual Studio Code, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> and then select **Preferences: Configure Runtime Arguments**.
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/configure-runtime-arguments.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/configure-runtime-arguments.png" alt-text="Screenshot of the Visual Studio Code dialog box that shows Preferences: Configure Runtime Arguments.":::
-
-1. Add the following JSON snippet into the editor and then save:
-
-   ```json
-   "enable-proposed-api": ["Microsoft.migrate-java-to-azure"],
-   ```
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/config-api-for-extension.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/config-api-for-extension.png" alt-text="Screenshot of the Visual Studio Code editor that shows the JSON configuration file with the enable-proposed-api line highlighted.":::
-
-1. Restart Visual Studio Code.
 
 ## Assess cloud readiness
 

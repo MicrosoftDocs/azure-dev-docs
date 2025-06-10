@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Service Bus tools for the Azure MCP Server
+# Azure Service Bus tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure Service Bus resources, including queues and topics with natural language prompts. You can peek at messages and view message details without specialized knowledge of messaging protocols.
 
@@ -30,7 +30,7 @@ The Azure MCP Server can retrieve runtime details about a Service Bus queue, inc
 - **Check queue**: "Get details for my 'user-events' queue"
 - **Queue status**: "Show me message count for the orders queue"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |
@@ -49,7 +49,7 @@ The Azure MCP Server can retrieve runtime details about a Service Bus topic, inc
 - **Topic status**: "Show me subscription count for the events topic"
 - **View topic**: "Tell me about the broadcast-topic runtime in my service bus"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |
@@ -67,7 +67,7 @@ The Azure MCP Server can retrieve runtime details about a subscription within a 
 - **Subscription status**: "Show me details for the email-service subscription"
 - **View subscription**: "Tell me about the analytics subscription in my events topic"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |
@@ -86,7 +86,7 @@ The Azure MCP Server can peek at messages in a Service Bus queue without removin
 - **Preview queue**: "Show me what's in the processing queue without removing messages"
 - **Read queue**: "Look at messages in my orders queue"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |
@@ -105,7 +105,7 @@ The Azure MCP Server can peek at messages in a subscription within a Service Bus
 - **Preview subscription**: "Show me what's in the email-service subscription without removing messages"
 - **Read subscription**: "Look at messages in my analytics subscription"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Namespace** | The fully qualified Service Bus namespace host name. |

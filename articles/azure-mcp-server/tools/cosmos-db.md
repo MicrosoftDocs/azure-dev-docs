@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Cosmos DB tools for the Azure MCP Server
+# Azure Cosmos DB tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers with natural language prompts. You can query and manage your NoSQL databases using simple conversational commands.
 
@@ -31,7 +31,7 @@ The Azure MCP Server can list all Cosmos DB accounts in a subscription. This pro
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 
@@ -47,7 +47,7 @@ The Azure MCP Server can list all databases in a Cosmos DB account. This helps y
 - **Query databases**: "Show all databases in my Cosmos DB account"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Cosmos DB account. |
@@ -64,7 +64,7 @@ The Azure MCP Server can list all containers in a Cosmos DB database. This helps
 - **Query containers**: "Show containers in database 'inventory'"
 - **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Cosmos DB account. |
@@ -82,7 +82,7 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 - **Join query**: "Show me orders with their related customer information"
 - **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Account name** | The name of the Cosmos DB account. |

@@ -17,7 +17,8 @@ ms.date: 05/20/2025
 
     ### [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurecli
+    # PowerShell syntax
     # Create a virtual environment
     python -m venv venv
     # Activate the virtual environment

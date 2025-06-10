@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Key Vault tools for the Azure MCP Server
+# Azure Key Vault tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You can manage keys without remembering specialized command syntax.
 
@@ -32,7 +32,7 @@ The Azure MCP Server can create a new key in an Azure Key Vault. This allows you
 - **Set up key**: "Create an encryption key for my application in Key Vault"
 - **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Vault** | The name of the Key Vault. |
@@ -51,7 +51,7 @@ The Azure MCP Server can retrieve details of a specific key from an Azure Key Va
 - **Check key**: "Show me the details of the encryption key in my vault"
 - **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Vault** | The name of the Key Vault. |
@@ -69,7 +69,7 @@ The Azure MCP Server can list all keys in an Azure Key Vault. This helps you man
 - **Query keys**: "Show all keys in my Key Vault"
 - **Check keys**: "What keys are available in my 'encryption-vault'?"
 
-| Required/Optional | Parameter | Description |
+| Required or optional | Parameter | Description |
 |-------------------|-----------|-------------|
 | Required | **Subscription** | The Azure subscription ID or name. |
 | Required | **Vault** | The name of the Key Vault. |

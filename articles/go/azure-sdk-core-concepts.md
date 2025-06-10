@@ -1,7 +1,7 @@
 ---
 title: Common usage patterns in Azure SDK for Go
 description: This article provides an overview of the common usage patterns in Azure SDK for Go.
-ms.date: 06/12/2024
+ms.date: 06/2/2025
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -193,7 +193,7 @@ To create a custom HTTP policy, define your own structure with a `Do` method tha
 1. Your policy must return a response and error back to the previous policy in the pipeline.
 
 > [!NOTE]
-> Policies must be goroutine-safe. Goroutine safety allows multiple goroutines to access a single client object concurrently. It's common for a policy to be immutable after it's created. This immutability ensures the goroutine is safe.
+> Policies must be goroutine-safe. Goroutine safety allows multiple goroutines to access a single client object concurrently. It's common for a policy to be immutable after creation. This immutability ensures the goroutine is safe.
 
 
 #### Custom policy template

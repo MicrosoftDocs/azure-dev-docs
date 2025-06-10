@@ -4,7 +4,7 @@ description: This article describes the requirements and installation procedure 
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 4/17/2025
+ms.date: 5/30/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -16,17 +16,9 @@ Get started with GitHub Copilot for Azure to streamline your development workflo
 
 To complete the steps in this article, make sure that you have:
 
-- An Azure account and access to an Azure subscription. For details on how to set them up, see the [pricing page for Azure accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account).
+[!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
 
-- A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
-
-- Visual Studio Code. For details on how to download and install it, see [Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview).
-
-- The GitHub Copilot extension and the GitHub Copilot Chat extension. For instructions on how to install these extensions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat), respectively.
-
-
->[!IMPORTANT]
->GitHub Copilot isn't included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
+By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
 ## Install GitHub Copilot for Azure
 
