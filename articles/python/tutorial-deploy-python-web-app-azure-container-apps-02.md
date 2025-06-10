@@ -1202,7 +1202,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 1. Add the user-assigned managed identity to the container app:
 
-    1. On the service menu, under **Settings**, select **Identity**.
+    1. On the service menu, under **Security**, select **Identity**.
     1. On the **User assigned** tab, select **Add**.
     1. On the **Add user assigned managed identity** pane, select **my-ua-managed-identity**, and then select **Add**.
     1. When the operation finishes, you return to the **User assigned** tab. Verify that **my-ua-managed-id** appears in the list of identities.
