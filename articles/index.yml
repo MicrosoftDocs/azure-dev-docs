@@ -63,10 +63,14 @@ productDirectory:
     - title: Azure MCP Server Preview
       imageSrc: /media/logos/logo_azure.svg
       links:
-        - url: ./azure-mcp-server/index.md
+        - url: ./azure-mcp-server/overview.md
           text: What is the Azure MCP Server?
-        - url: ./azure-mcp-server/get-started.md
-          text: Get started
+        - url: ./azure-mcp-server/get-started.md?pivots=mcp-github-copilot
+          text: Get started with GitHub Copilot with Visual Studio Code
+        - url: ./azure-mcp-server/get-started.md?pivots=mcp-csharp
+          text: Get started with .NET
+        - url: ./azure-mcp-server/get-started.md?pivots=mcp-python
+          text: Get started with Python
         - url: ./azure-mcp-server/tools/index.md
           text: Azure MCP Server tools
     - title: Python

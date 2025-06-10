@@ -47,7 +47,7 @@ New articles:
 
 New articles:
 
-- [What is the Azure MCP Server (Preview)?](../azure-mcp-server/index.md)
+- [What is the Azure MCP Server (Preview)?](../azure-mcp-server/index.yml)
 - [Get started with Azure MCP Server](../azure-mcp-server/get-started.md)
 - [What are the Azure MCP Server tools?](../azure-mcp-server/tools/index.md)
 - [Azure AI Search tools for the Azure MCP Server](../azure-mcp-server/tools/ai-search.md)
