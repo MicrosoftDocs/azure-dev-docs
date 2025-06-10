@@ -21,7 +21,13 @@ The [Equivalent Azure CLI commands](#equivalent-azure-cli-commands) are listed l
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
+```AzureCLI
+#!/bin/bash
+# Create a virtual environment
+python -m venv .venv
+# Activate the virtual environment
+source .venv/Scripts/activate # only required for Windows (Git Bash)
+```
 
 ## 2: Install the needed Azure library packages
 
