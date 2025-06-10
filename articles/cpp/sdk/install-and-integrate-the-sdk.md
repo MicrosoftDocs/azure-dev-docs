@@ -1,10 +1,8 @@
 ---
 title: Install and Integrate the Azure SDK for C++
 description: "Learn how to install packages from the Azure SDK for C++ with vcpkg and integrate them into your project with CMake."
-author: ronniegeraghty
-ms.author: rgeraghty
 ms.topic: install-set-up-deploy #Don't change
-ms.date: 11/14/2024
+ms.date: 5/08/2025
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want to seamlessly integrate Azure SDK for C++ libraries into my projects so that I can leverage Azure services efficiently and effectively.
@@ -12,7 +10,7 @@ ms.custom: devx-track-cpp
 ---
 <!-- markdownlint-disable MD051 MD024 -->
 
-# Install & Integrate libraries from the Azure SDK for C++
+# Install and integrate libraries from the Azure SDK for C++
 
 This guide provides developers with the necessary steps to install libraries from the Azure SDK for C++ using vcpkg and integrate them into their projects with CMake. By following the instructions, you can set up your development environment and begin using Azure services in your C++ applications. Whether you're new to Azure or looking to streamline your integration process, this documentation helps you get started quickly and efficiently.
 

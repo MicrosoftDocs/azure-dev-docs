@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 12/13/2023
+ms.date: 05/08/2025
 ---
 In this method, a developer must be signed in to Azure from the Azure CLI, Azure PowerShell, or Azure Developer CLI on their local workstation. The application then can access the developer's credentials from the credential store and use those credentials to access Azure resources from the app.<br>
 <br>
