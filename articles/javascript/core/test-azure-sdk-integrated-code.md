@@ -190,3 +190,7 @@ For developers who work with Azure services, gaining proficiency with the Azure 
 * [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/test)
 
 Exploring these tests offers insights into seamless Azure service integration, showcases best practices for Azure resource interaction, and aids in ensuring efficient and secure implementations. Explore a broader range of SDK examples for a comprehensive understanding.
+
+## Additional resources
+
+- [Unit testing Azure SDKs with Jest or Vitest](../sdk/test-sdk-integration.md)  
