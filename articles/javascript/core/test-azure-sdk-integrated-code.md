@@ -9,7 +9,19 @@ intent: As a JavaScript developer, new to Azure, you want to learn about test Az
 
 # Azure test guide for JavaScript applications
 
-As a JavaScript developer new to Azure, use this Azure test guide to learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs and ensure your application’s quality, performance, and reliability.
+As a JavaScript developer new to Azure, use this Azure test guide to learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs and other resources to ensure your application’s quality, performance, and reliability.
+
+## Azure Well-Architected Framework
+
+The [Azure Well-Architected Framework](/azure/well-architected) provides a design framework for cloud applications across five pillars:
+
+* **Reliability** – Ensuring your application is resilient to failures and recovers quickly.
+* **Security** – Protecting your applications and data from threats.
+* **Performance Efficiency** – Optimizing how your system uses resources to meet requirements.
+* **Cost Optimization** – Managing costs while delivering value.
+* **Operational Excellence** – Improving processes and monitoring to deliver applications effectively.
+
+Testing strategies in this article align primarily with the [**Operational Excellence** pillar](/azure/well-architected/operational-excellence), which emphasizes automation, validation, and continuous improvement of operational processes.
 
 ## Inner and outer test loops for Azure SDKs in JavaScript
 
@@ -193,4 +205,4 @@ Exploring these tests offers insights into seamless Azure service integration, s
 
 ## Additional resources
 
-- [Unit testing Azure SDKs with Jest or Vitest](../sdk/test-sdk-integration.md)  
+- [Unit testing Azure SDKs with Jest or Vitest](../sdk/test-sdk-integration.md)
