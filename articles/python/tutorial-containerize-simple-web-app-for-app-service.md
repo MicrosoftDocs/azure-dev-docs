@@ -2,20 +2,20 @@
 title: Deploy a Flask or FastAPI web app as a container in Azure App Service
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure App Service.
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 06/10/2026
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Deploy a containerized Flask or FastAPI web app on Azure App Service
 
-This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. Web App for Containers provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. For more information about using containers in Azure, see [Comparing Azure container options][3].
+This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. This approach provides a streamlined path for developers who want the benefits of a fully managed platform while deploying their app as a single containerized artifact with all dependencies included. For more information about using containers in Azure, see [Comparing Azure container options][3].
 
-In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. You use the [Azure CLI][8] to create a Docker image in an [Azure Container Registry][11] and deploy it to Azure App Service. The web app is configured with its system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) and Azure role-based access to pull the Docker image from the Azure Container Registry during deployment. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed.
+In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally build and test a Docker image locally. You then use the [Azure CLI][8] to push the Docker image to [Azure Container Registry][11] (ACR) and deploy it to Azure App Service. The web app is configured with its system-assigned [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for secure, passwordless access to pull the image from ACR using Azure role-based access control (RBAC). You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed.
 
 For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
 
 > [!NOTE]
-> This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json).
+> This tutorial demonstrates how to create a Docker image that can be deployed to Azure App Service. However, using a Docker image is not required to deploy to App Service. You can also deploy your application code directly from your local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json).
 
 ## Prerequisites
 
@@ -221,7 +221,9 @@ The `--detach` option runs the container in the background. The `--publish` opti
 1. Create a group with the [az group create][18] command.
 
     ```azurecli
-    az group create --name web-app-simple-rg --location <location>
+    RESOURCE_GROUP_NAME=<resource-group-name>
+    LOCATION=<location>
+    az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
     ```
 
     An Azure resource group is a logical container into which Azure resources are deployed and managed. When creating a resource group, you specify a location such as *eastus*. Replace `<location>` with the location you choose. Certain SKUs are unavailable in certain locations, so you might get an error indicating this. Use a different location and try again.
@@ -229,8 +231,9 @@ The `--detach` option runs the container in the background. The `--publish` opti
 1. Create an Azure Container Registry with the [az acr create][19] command. Replace `<container-registry-name>` with a unique name for your instance.
 
     ```azurecli
-    az acr create --resource-group web-app-simple-rg \
-    --name <container-registry-name> --sku Basic
+    CONTAINER_REGISTRY_NAME=<container-registry-name>
+    az acr create --resource-group $RESOURCE_GROOUP_NAME \
+    --name $CONTAINER_REGISTRY_NAME --sku Basic
     ```
 
     > [!NOTE]
@@ -244,8 +247,8 @@ Build the Docker image in Azure with the [az acr build][21] command. The command
 
 ```azurecli
 az acr build \
-  --resource-group web-app-simple-rg \
-  --registry <container-registry-name> \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --registry $CONTAINER_REGISTRY_NAME \
   --image webappsimple:latest .
 ```
 
@@ -258,7 +261,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
     ```azurecli
     az appservice plan create \
     --name webplan \
-    --resource-group web-app-simple-rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --sku B1 \
     --is-linux
     ```
@@ -274,14 +277,15 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 1. Create the web app with the [az webapp create][23] command.
 
     ```azurecli
+    export MSYS_NO_PATHCONV=1 # This line is for Windows users to prevent path conversion issues in Git Bash.
     az webapp create \
-    --resource-group web-app-simple-rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --plan webplan --name <container-registry-name> \
     --assign-identity [system] \
     --role AcrPull \
-    --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/web-app-simple-rg \
+    --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME \
     --acr-use-identity --acr-identity [system] \
-    --container-image-name <container-registry-name>.azurecr.io/webappsimple:latest 
+    --container-image-name $CONTAINER_REGISTRY_NAME.azurecr.io/webappsimple:latest 
     ```
 
     Notes:
@@ -309,7 +313,7 @@ All the Azure resources created in this tutorial are in the same resource group.
 To remove resources, use the [az group delete][24] command.
 
 ```azurecli
-az group delete --name web-app-simple-rg
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 You can also remove the group in the [Azure portal][25] or in [Visual Studio Code][9] and the [Azure Tools Extension][10].
