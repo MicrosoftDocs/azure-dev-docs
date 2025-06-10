@@ -90,8 +90,6 @@ az vm list --resource-group PythonAzureExample-VM-rg
 
 ### Equivalent Azure CLI commands
 
-[bash](#tab/bash)
-
 :::code language="azurecli" source="~/../python-sdk-docs-examples/vm/provision.sh":::
 
 If you get an error about capacity restrictions, you can try a different size or region. For more information, see [Resolve errors for SKU not available](/azure/azure-resource-manager/troubleshooting/error-sku-not-available).
