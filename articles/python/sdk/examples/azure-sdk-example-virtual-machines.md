@@ -1,7 +1,7 @@
 ---
 title: Create a virtual machine using the Azure SDK libraries for Python
 description: How to create an Azure virtual machine using Python and the Azure SDK management libraries.
-ms.date: 03/14/2024
+ms.date: 06/10/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -64,19 +64,9 @@ To use such code in a production script, you can set environment variables to us
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-    # [cmd](#tab/cmd)
-
-    ```cmd
-    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```azurecli
+    export AZURE_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
     ```
-
-    # [bash](#tab/bash)
-
-    ```bash
-    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-    ```
-
-    ---
 
 1. Run the script:
 
@@ -100,15 +90,9 @@ az vm list --resource-group PythonAzureExample-VM-rg
 
 ### Equivalent Azure CLI commands
 
-# [cmd](#tab/cmd)
-
-:::code language="azurecli" source="~/../python-sdk-docs-examples/vm/provision.cmd":::
-
-# [bash](#tab/bash)
+[bash](#tab/bash)
 
 :::code language="azurecli" source="~/../python-sdk-docs-examples/vm/provision.sh":::
-
----
 
 If you get an error about capacity restrictions, you can try a different size or region. For more information, see [Resolve errors for SKU not available](/azure/azure-resource-manager/troubleshooting/error-sku-not-available).
 
