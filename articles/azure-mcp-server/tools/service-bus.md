@@ -71,7 +71,7 @@ Example prompts include:
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Topic name** | Required | The name of the topic containing the subscription. |
-| **Topic subscription name** | Required | The name of the opic subscription to get details for. |
+| **Topic subscription name** | Required | The name of the topic subscription to get details for. |
 
 ## Peek at queue messages
 
