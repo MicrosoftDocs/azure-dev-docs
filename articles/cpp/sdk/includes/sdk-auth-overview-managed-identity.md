@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/31/2022
+ms.date: 05/08/2025
 ---
 Apps hosted in Azure should use a *managed identity service principal*. Managed identities are designed to represent the identity of an app hosted in Azure and can only be used with Azure-hosted apps.<br>
 <br>

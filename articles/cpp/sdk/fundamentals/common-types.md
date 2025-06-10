@@ -1,10 +1,8 @@
 ---
 title: Azure SDK for C++ - Common Types
 description: Understand how to effectively use the common types provided by the Azure Core library when developing applications with the Azure SDK for C++.
-author: ronniegeraghty
-ms.author: rgeraghty
 ms.topic: overview
-ms.date: 4/11/2025
+ms.date: 5/08/2025
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.

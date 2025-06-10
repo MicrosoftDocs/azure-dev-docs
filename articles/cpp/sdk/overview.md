@@ -1,10 +1,8 @@
 ---
 title: Overview of the Azure SDK for C++
 description: Learn how the Azure SDK for C++ can help you create and manage applications that run on Azure.
-author: ronniegeraghty
-ms.author: rgeraghty
 ms.topic: overview
-ms.date: 11/14/2024
+ms.date: 5/08/2025
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.

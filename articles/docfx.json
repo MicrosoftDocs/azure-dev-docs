@@ -95,6 +95,8 @@
         "azure-developer-cli/**/*.yml": "alexwolfmsft",
         "chef/**/*.md": "TomArcherMsft",
         "chef/**/*.yml": "TomArcherMsft",
+        "cpp/**/*.md": "ronniegeraghty",
+        "cpp/**/*.yml": "ronniegeraghty",
         "github/**/*.md": "N-Usha",
         "github/**/*.yml": "N-Usha",
         "go/**/*.md": "bobtabor-msft",
@@ -137,6 +139,8 @@
         "azure-developer-cli/**/*.yml": "alexwolf",
         "chef/**/*.md": "tarcher",
         "chef/**/*.yml": "tarcher",
+        "cpp/**/*.md": "rgeraghty",
+        "cpp/**/*.yml": "rgeraghty",
         "github/**/*.md": "ushan",
         "github/**/*.yml": "ushan",
         "go/**/*.md": "rotabor",
@@ -167,10 +171,16 @@
         "azure-mcp-server/**/*.yml": "johalexander"
       },
       "ms.devlang": {
+        "cpp/**/*.md": "cpp",
+        "cpp/**/*.yml": "cpp",
         "java/**/*.md": "java",
+        "java/**/*.yml": "java",
         "python/**/*.md": "python",
+        "python/**/*.yml": "python",
         "go/**/*.md": "golang",
-        "javascript/**/*.md": "nodejs"
+        "go/**/*.yml": "golang",
+        "javascript/**/*.md": "nodejs",
+        "javascript/**/*.yml": "nodejs"
       },
       "ms.service": {
         "ai/**/*.md": "azure",
@@ -213,6 +223,8 @@
       "titleSuffix": {
         "ansible/**/*.yml" : "Ansible",
         "chef/**/*.yml" : "Chef",
+        "cpp/**/*.md": "C++ on Azure",
+        "cpp/**/*.yml": "C++ on Azure",
         "jenkins/**/*.yml" : "Jenkins",
         "terraform/**/*.yml" : "Terraform",
         "javascript/**/*.md": "JavaScript on Azure",
