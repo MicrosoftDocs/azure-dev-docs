@@ -10,8 +10,6 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 In this article, you learn how to use the Azure SDK management libraries in a Python script to create a resource group that contains a Linux virtual machine.
 
-All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
-
 The [Equivalent Azure CLI commands](#equivalent-azure-cli-commands) are listed later in this article. If you prefer to use the Azure portal, see [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal) and [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal).
 
 > [!NOTE]
