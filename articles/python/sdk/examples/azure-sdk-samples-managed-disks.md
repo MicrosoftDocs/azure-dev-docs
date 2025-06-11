@@ -22,7 +22,7 @@ The following examples show different ways to provision standalone Managed Disks
 
 ### Create an empty Managed Disk
 
-The following example demonstrates how to create a new empty managed disk. This is useful when you need a blank disk to attach to a virtual machine or to use as a base for creating snapshots or images.
+The following example demonstrates how to create a new empty managed disk. This approach is useful when you need a blank disk to attach to a virtual machine or to use as a base for creating snapshots or images.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/empty_disk.py":::
 
@@ -34,13 +34,13 @@ The following example demonstrates how to create a Managed Disk from a virtual h
 
 ### Create a Managed Disk image from blob storage
 
-The following example demonstrates how to create a managed disk image using a VHD stored as a blob. This is useful when you want to create a reusable image from an existing VHD file.
+The following example demonstrates how to create a managed disk image using a VHD stored as a blob. This approach is useful when you want to create a reusable image from an existing VHD file.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_image_from_blob.py":::
 
 ### Create a Managed Disk from your own image
 
-The following example demonstrates how to create a new managed disk by copying an existing managed disk. This is useful when you want to create a new disk based on an existing one, such as for scaling out or creating backups.
+The following example demonstrates how to create a new managed disk by copying an existing managed disk. This approach is useful when you want to create a new disk based on an existing one, such as for scaling out or creating backups.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_from_image.py":::
 
