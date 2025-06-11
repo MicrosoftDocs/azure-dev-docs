@@ -396,9 +396,9 @@
 | @azure-tools/rest-api-diff | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.2) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
-| @azure-tools/typespec-autorest-canonical | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.17.0) |  |  |
-| @azure-tools/typespec-azure-portal-core | npm [0.56.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.56.0) |  |  |
-| @azure-tools/typespec-azure-rulesets | npm [0.56.1](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.56.1) |  |  |
+| @azure-tools/typespec-autorest-canonical | npm [0.18.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.18.0) |  |  |
+| @azure-tools/typespec-azure-portal-core | npm [0.57.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.57.0) |  |  |
+| @azure-tools/typespec-azure-rulesets | npm [0.57.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.57.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.21.0) |  |  |
 | @azure-tools/typespec-go | npm [0.4.11](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.4.11) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
@@ -415,9 +415,9 @@
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.4.1](https://www.npmjs.com/package/@typespec/bundler/v/0.4.1) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.9](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.9) |  |  |
-| @typespec/playground | npm [0.8.1](https://www.npmjs.com/package/@typespec/playground/v/0.8.1) |  |  |
-| @typespec/tspd | npm [0.70.0](https://www.npmjs.com/package/@typespec/tspd/v/0.70.0) |  |  |
-| @typespec/xml | npm [0.70.0](https://www.npmjs.com/package/@typespec/xml/v/0.70.0) |  |  |
+| @typespec/playground | npm [0.8.2](https://www.npmjs.com/package/@typespec/playground/v/0.8.2) |  |  |
+| @typespec/tspd | npm [0.71.0](https://www.npmjs.com/package/@typespec/tspd/v/0.71.0) |  |  |
+| @typespec/xml | npm [0.71.0](https://www.npmjs.com/package/@typespec/xml/v/0.71.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [1.1.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/1.1.1-preview) |  |  |
 | App Configuration Provider | npm [2.1.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.1.0) |  |  |
@@ -425,17 +425,17 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Spec Gen SDK | npm [0.8.1](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.8.1) |  |  |
 | tmlanguage-generator | npm [0.6.1](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.1) |  |  |
-| TypeSpec Asset Emitter | npm [0.70.1](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.70.1) |  |  |
-| TypeSpec Emitter Framework | npm [0.7.1](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.7.1) |  |  |
-| TypeSpec Events | npm [0.70.0](https://www.npmjs.com/package/@typespec/events/v/0.70.0) |  |  |
-| TypeSpec HTTP Client | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client/v/0.6.0) |  |  |
+| TypeSpec Asset Emitter | npm [0.71.0](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.71.0) |  |  |
+| TypeSpec Emitter Framework | npm [0.8.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.8.0) |  |  |
+| TypeSpec Events | npm [0.71.0](https://www.npmjs.com/package/@typespec/events/v/0.71.0) |  |  |
+| TypeSpec HTTP Client | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client/v/0.7.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
-| TypeSpec HTTP Client JavaScript | npm [0.5.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.5.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.12.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.0) |  |  |
-| TypeSpec HTTP Specs | npm [0.1.0-alpha.22](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.22) |  |  |
+| TypeSpec HTTP Client JavaScript | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.6.0) |  |  |
+| TypeSpec HTTP Client Python | npm [0.12.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.1) |  |  |
+| TypeSpec HTTP Specs | npm [0.1.0-alpha.23](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.23) |  |  |
 | TypeSpec Rust | npm [0.15.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.15.0) |  |  |
-| TypeSpec SSE | npm [0.70.0](https://www.npmjs.com/package/@typespec/sse/v/0.70.0) |  |  |
-| TypeSpec Streams | npm [0.70.0](https://www.npmjs.com/package/@typespec/streams/v/0.70.0) |  |  |
+| TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
+| TypeSpec Streams | npm [0.71.0](https://www.npmjs.com/package/@typespec/streams/v/0.71.0) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.0) |  |  |
@@ -563,7 +563,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.10.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.10.1) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.11.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.11.0) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
