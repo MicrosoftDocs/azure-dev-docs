@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Other services for Python apps on Azure
 
-The services referenced in this article for Python are specialized, each designed to address a specific set of problems. *Other services* refers to those beyond the core categories of compute, networking, storage, and databases. This article highlights services related to management and governance, media, genomics, and the Internet of Things (IoT). For a full list of available services [Azure products](https://azure.microsoft.com/products/).
+The services referenced in this article for Python are specialized, each designed to address a specific set of problems. The term *other services* includes Azure offerings beyond the foundational categories of compute, networking, storage, and databases. This article features examples from areas like management and governance, media, genomics, and the Internet of Things (IoT). For a full list of available services [Azure products](https://azure.microsoft.com/products/).
 
 - **Media streaming**:
   - [Connect to Azure Media Services v3 API](/azure/media-services/latest/configure-connect-python-howto)
