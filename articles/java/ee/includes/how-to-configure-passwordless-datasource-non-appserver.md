@@ -20,13 +20,17 @@ ms.date: 05/29/2025
 
 ## Create a resource group
 
-Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location:
+Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location. 
+
+> [!NOTE]
+> If you see the message `No available SKUs in this location` when executing the steps in this article, select a different region.
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME="abc1228rg"
+export REGION=eastus
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
-    --location eastus
+    --location ${REGION}
 ```
 
 ## Create a database server and a database
@@ -43,7 +47,7 @@ export MYSQL_ADMIN_PASSWORD="Secret123456"
 az mysql flexible-server create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $MYSQL_NAME \
-    --location eastus \
+    --location ${REGION} \
     --admin-user $MYSQL_ADMIN_USER \
     --admin-password $MYSQL_ADMIN_PASSWORD \
     --public-access 0.0.0.0 \
@@ -90,7 +94,7 @@ export POSTGRESQL_ADMIN_PASSWORD="Secret123456"
 az postgres flexible-server create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $POSTGRESQL_NAME \
-    --location eastus \
+    --location ${REGION} \
     --admin-user $POSTGRESQL_ADMIN_USER \
     --admin-password $POSTGRESQL_ADMIN_PASSWORD \
     --public-access 0.0.0.0 \
@@ -136,7 +140,7 @@ export AZURESQL_ADMIN_PASSWORD="Secret123456"
 az sql server create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $AZURESQL_SERVER_NAME \
-    --location eastus \
+    --location ${REGION} \
     --admin-user $AZURESQL_ADMIN_USER \
     --admin-password $AZURESQL_ADMIN_PASSWORD
 ```
