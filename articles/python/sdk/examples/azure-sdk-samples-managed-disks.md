@@ -1,6 +1,6 @@
 ---
 title: Use Azure Managed Disks through the Azure SDK for Python
-description: Use the Azure Python SDK to create, resize, and update managed disks standalone, in a virtual machine, or in a Virtual Machine Scale Set.
+description: Use the Azure Python SDK to create, resize, and update Managed Disks standalone, in a virtual machine, or in a Virtual Machine Scale Set.
 ms.topic: conceptual
 ms.date: 06/11/2025
 ms.custom: devx-track-python, py-fresh-zinc
@@ -8,9 +8,9 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Use Azure Managed Disks with the Azure libraries (SDK) for Python
 
-Azure Managed Disks are high-performance, durable block storage designed for use with Azure Virtual Machines and Azure VMware Solution. They simplify disk management, offer greater scalability, enhance security, and eliminate the need to manage storage accounts directly. For additional details, see [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
+Azure Managed Disks are high-performance, durable block storage designed for use with Azure Virtual Machines and Azure VMware Solution. They simplify disk management, offer greater scalability, enhance security, and eliminate the need to manage storage accounts directly. For more information, see [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
-For operations on managed disks associated with an existing VM, use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library.
+For operations on Managed Disks associated with an existing VM, use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library.
 
 The code examples in this article demonstrate common operations with Managed Disks using the `azure-mgmt-compute` library. These examples are not meant to be run as standalone scripts, but rather to be integrated into your own code. To learn how to create a `ComputeManagementClient` instance from `azure.mgmt.compute` in your script, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).
 
@@ -22,31 +22,31 @@ The following examples show different ways to provision standalone Managed Disks
 
 ### Create an empty Managed Disk
 
-The following example shows how to create a new empty managed disk, which is useful when you need a blank disk to attach to a virtual machine or use as a foundation for snapshots or images.
+This example shows how to create a new empty Managed Disk. You can use it as a blank disk to attach to a virtual machine or as a starting point for creating snapshots or images.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/empty_disk.py":::
 
 ### Create a Managed Disk from blob storage
 
-The following examples shows how to create a Managed Disk from a VHD located in Azure Blob Storage, a common step when migrating or reusing existing virtual hard disks.
+This example shows how to create a Managed Disk from a VHD file stored in Azure Blob Storage. This is helpful when you want to reuse or move an existing virtual hard disk into Azure.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_from_blob.py":::
 
 ### Create a Managed Disk image from blob storage
 
-The following example shows how to create a managed disk image from a VHD stored in Azure Blob Storage, which is useful when you need a reusable image based on an existing VHD file.
+This example shows how to create a Managed Disk image from a VHD file stored in Azure Blob Storage. This is useful when you want to make a reusable image that can be used to create new virtual machines.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_image_from_blob.py":::
 
 ### Create a Managed Disk from your own image
 
-The following example demonstrates how to create a new managed disk by copying an existing managed disk, which is useful when you want to create a new disk based on an existing one, such as for scaling out or creating backups.
+This example shows how to create a new Managed Disk by copying an existing one. This is helpful when you want to make a backup or use the same disk setup on another virtual machine.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_from_image.py":::
 
 ## Virtual machine with Managed Disks
 
-You can create a virtual machine with an implicitly created managed disk based on a specific disk image, eliminating the need to manually define all disk details.
+You can create a virtual machine with an implicitly created Managed Disk based on a specific disk image, eliminating the need to manually define all disk details.
 
 A Managed Disk is created implicitly when creating a VM from an OS image in Azure. Azure automatically handles the storage account, so you don't need to specify `storage_profile.os_disk` or create a storage account manually.
 
@@ -78,25 +78,25 @@ The full sample is as follows:
 
 ### Resizing a Managed Disk
 
-The following example demonstrates how to resize an existing Managed Disk, which is useful when you need to increase the size of a disk to accommodate more data or applications.
+This example shows how to make an existing Managed Disk larger. This is useful when you need more space for your data or applications.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/resize_disk.py":::
 
 ### Update the storage account type of the Managed Disks
 
-The following example demonstrates how to update the storage account type of an existing managed disk. It also shows how to expand the disk size, which is a common task when scaling to accommodate additional data or workloads.
+This example shows how to change the storage type of a Managed Disk and make it larger. This is helpful when you need more space or better performance for your data or applications.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/update_storage_type.py":::
 
 ### Create an image from blob storage
 
-This example shows how to create a managed disk image from a VHD stored in Azure Blob Storage, whcih is useful for generating a reusable image that can be used to deploy new virtual machines.
+This example shows how to create a Managed Disk image from a VHD file stored in Azure Blob Storage. This is useful when you want to make a reusable image that you can use to create new virtual machines.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/create_image_from_blob.py":::
 
 ### Create a snapshot of a Managed Disk that is currently attached to a virtual machine
 
-The following example demonstrates how to create a snapshot of a Managed Disk that is currently attached to a virtual machine, which is useful for creating backups or restoring points of the disk's state.
+This example shows how to take a snapshot of a Managed Disk that's attached to a virtual machine. You can use the snapshot to back up the disk or restore it later if needed.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/create_snapshot.py":::
 
