@@ -48,7 +48,7 @@ The following example demonstrates how to create a new managed disk by copying a
 
 You can create a virtual machine with an implicitly created managed disk based on a specific disk image, eliminating the need to manually define all disk details.
 
-A Managed Disk is created implicitly when creating a VM from an OS image in Azure. The `storage_profile.os_disk` parameter can be omitted, and there's no need to pre-create a storage account—Azure handles these details for you
+A Managed Disk is created implicitly when creating a VM from an OS image in Azure. Azure automatically handles the storage account, so you don't need to specify `storage_profile.os_disk` or create a storage account manually.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/vm_with_managed_disks.py":::
 
