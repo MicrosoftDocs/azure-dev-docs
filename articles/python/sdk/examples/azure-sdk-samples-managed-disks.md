@@ -22,25 +22,25 @@ The following examples show different ways to provision standalone Managed Disks
 
 ### Create an empty Managed Disk
 
-The following example demonstrates how to create a new empty managed disk. This approach is useful when you need a blank disk to attach to a virtual machine or to use as a base for creating snapshots or images.
+The following example shows how to create a new empty managed disk, which is useful when you need a blank disk to attach to a virtual machine or use as a foundation for snapshots or images.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/empty_disk.py":::
 
 ### Create a Managed Disk from blob storage
 
-The following example demonstrates how to create a Managed Disk from a virtual hard disk (VHD) stored as a blob in Azure Blob Storage. This approach is useful when you have a VHD file that you want to convert into a Managed Disk.
+The following examples shows how to create a Managed Disk from a VHD located in Azure Blob Storage, a common step when migrating or reusing existing virtual hard disks.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_from_blob.py":::
 
 ### Create a Managed Disk image from blob storage
 
-The following example demonstrates how to create a managed disk image using a VHD stored as a blob. This approach is useful when you want to create a reusable image from an existing VHD file.
+The following example shows how to create a managed disk image from a VHD stored in Azure Blob Storage, which is useful when you need a reusable image based on an existing VHD file.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_image_from_blob.py":::
 
 ### Create a Managed Disk from your own image
 
-The following example demonstrates how to create a new managed disk by copying an existing managed disk. This approach is useful when you want to create a new disk based on an existing one, such as for scaling out or creating backups.
+The following example demonstrates how to create a new managed disk by copying an existing managed disk, which is useful when you want to create a new disk based on an existing one, such as for scaling out or creating backups.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/disk_from_image.py":::
 
@@ -78,25 +78,25 @@ The full sample is as follows:
 
 ### Resizing a Managed Disk
 
-The following example demonstrates how to resize an existing Managed Disk. This is useful when you need to increase the size of a disk to accommodate more data or applications.
+The following example demonstrates how to resize an existing Managed Disk, which is useful when you need to increase the size of a disk to accommodate more data or applications.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/resize_disk.py":::
 
 ### Update the storage account type of the Managed Disks
 
-The following example demonstrates how to update the storage account type of an existing Managed Disk. This is useful when you want to change the performance characteristics of the disk, such as switching from Standard to Premium storage.
+The following example demonstrates how to update the storage account type of an existing managed disk. It also shows how to expand the disk size, which is a common task when scaling to accommodate additional data or workloads.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/update_storage_type.py":::
 
 ### Create an image from blob storage
 
-The following example demonstrates how to create a Managed Disk image from a VHD stored in Azure Blob Storage. This is useful when you want to create a reusable image from an existing VHD file, which can then be used to create new virtual machines.
+This example shows how to create a managed disk image from a VHD stored in Azure Blob Storage, whcih is useful for generating a reusable image that can be used to deploy new virtual machines.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/create_image_from_blob.py":::
 
 ### Create a snapshot of a Managed Disk that is currently attached to a virtual machine
 
-The following example demonstrates how to create a snapshot of a Managed Disk that is currently attached to a virtual machine. This is useful for creating backups or restoring points of the disk's state.
+The following example demonstrates how to create a snapshot of a Managed Disk that is currently attached to a virtual machine, which is useful for creating backups or restoring points of the disk's state.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/create_snapshot.py":::
 
