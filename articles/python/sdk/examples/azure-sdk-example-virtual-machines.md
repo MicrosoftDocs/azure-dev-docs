@@ -19,7 +19,7 @@ The [Equivalent Azure CLI commands](#equivalent-azure-cli-commands) are listed l
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
-```AzureCLI
+```azurecli
 #!/bin/bash
 # Create a virtual environment
 python -m venv .venv
@@ -59,7 +59,7 @@ Ensure that the service principal is assigned a role with sufficient permissions
 
 ### Reference links for classes used in the code
 
-* [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
+* [Defaultredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
 * [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 * [NetworkManagementClient (azure.mgmt.network)](/python/api/azure-mgmt-network/azure.mgmt.network.networkmanagementclient)
 * [ComputeManagementClient (azure.mgmt.compute)](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)
