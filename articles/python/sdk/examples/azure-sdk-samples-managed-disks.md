@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure Managed Disks are high-performance, durable block storage designed for use with Azure Virtual Machines and Azure VMware Solution. They simplify disk management, offer greater scalability, enhance security, and eliminate the need to manage storage accounts directly. For additional details, see [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
-To manage Managed Disks for an existing virtual machine, use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library.
+For operations on managed disks associated with an existing VM, use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library.
 
 The code examples in this article demonstrate common operations with Managed Disks using the `azure-mgmt-compute` library.  These examples are not meant to be run as standalone scripts, but rather to be integrated into your own code. To learn how to create a `azure.mgmt.compute ComputeManagementClient` instance in your script, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).
 
