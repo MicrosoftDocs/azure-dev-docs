@@ -23,7 +23,7 @@ ms.date: 05/29/2025
 Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location. 
 
 > [!NOTE]
-> If you see the message `No available SKUs in this location` when executing the steps in this article, select a different region.
+> If you see a message similar to `No available SKUs in this location` or `Location is not accepting creation of new Windows Azure SQL Database servers at this time.` when executing the steps in this article, select a different region.
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME="abc1228rg"
