@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 12/13/2023
+ms.date: 05/08/2025
 ---
 In this method, dedicated *application service principal* objects are set up by using the app registration process for use during local development. The identity of the service principal is then stored as environment variables to be accessed by the app when it's run in local development.<br>
 <br>

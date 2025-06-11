@@ -1,10 +1,8 @@
 ---
-title: 'Overview: Authenticate C++ apps to Azure using the Azure SDK'
+title: Authenticate C++ Apps to Azure Using the Azure SDK
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for C++ in both server environments and in local development.
-author: ronniegeraghty
-ms.author: rgeraghty
 ms.topic: overview
-ms.date: 3/11/2025
+ms.date: 5/08/2025
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.

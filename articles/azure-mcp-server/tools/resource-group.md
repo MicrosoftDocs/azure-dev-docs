@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
-# Resource Group tools for the Azure MCP Server
+# Resource group tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resource groups, providing foundational resource organization capabilities with natural language prompts. You can view your resource groups without needing to remember specific command syntax.
 
@@ -23,7 +23,7 @@ The Azure MCP Server allows you to manage Azure resource groups, providing found
 
 The Azure MCP Server can list all resource groups in a subscription. This helps you see your organizational structure at a glance.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List groups**: "Show me all resource groups in my subscription."
 - **View groups**: "What resource groups do I have available?"
@@ -31,12 +31,12 @@ The Azure MCP Server can list all resource groups in a subscription. This helps 
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
 
-| Required or optional | Parameter | Description |
-|-------------------|-----------|-------------|
-| Required | **Subscription** | The Azure subscription ID or name. |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+## Related content
 
-## Related servers
-
-* [Subscription](subscription.md)
+- [Subscription tools](subscription.md)
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
