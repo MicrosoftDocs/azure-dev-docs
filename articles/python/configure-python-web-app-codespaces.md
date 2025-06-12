@@ -12,7 +12,7 @@ This article shows you how to run FastAPI and Postgres together in a [GitHub Cod
 
 You can open the sample repo in a [browser][4] or in an integrated development environment (IDE) like [Visual Studio Code][6] with the [GitHub Codespaces extension][5].
 
-Alternatively, you can clone the sample repository locally. When you open the project in Visual Studio Code, you can use Dev Containers to run it using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] to be installed locally.  If Docker isn’t installed, you can run the project using GitHub Codespaces as the development environment.
+Alternatively, you can clone the sample repository locally. When you open the project in Visual Studio Code, you can use Dev Containers to run it using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] to be installed locally. If Docker isn’t installed, you can run the project using GitHub Codespaces as the development environment.
 
 When using GitHub Codespaces, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
@@ -30,7 +30,7 @@ This tutorial introduces one of many possible ways to create and work with GitHu
 
     :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Screenshot showing how to create a codespace from the GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
 
-1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser, and that sample repo has loaded.
+1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser, and see the sample repo.
 
     The codespace key configuration files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GitHub Codespaces overview][1].
 
@@ -61,7 +61,6 @@ This tutorial introduces one of many possible ways to create and work with GitHu
 
     :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="Screenshot showing the FastAPI Swagger UI." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
 
-
 1. On the Swagger page, run the POST method to add a restaurant.
 
     1. Expand the **POST** method.
@@ -83,7 +82,7 @@ This tutorial introduces one of many possible ways to create and work with GitHu
 
 1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
-    The SQLTools extension should be installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen. 
+    The SQLTools extension should be installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen.
 
 1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
 
@@ -95,10 +94,9 @@ This tutorial introduces one of many possible ways to create and work with GitHu
 
 To stop using the codespace, close the browser. (Or, close VS Code if you opened it that way.)
 
-If you plan on using the codespace again, you can keep it. Only running codespaces incur CPU charges. A stopped codespace incurs only storage costs. 
+If you plan on using the codespace again, you can keep it. Only running codespaces incur CPU charges. A stopped codespace incurs only storage costs.
 
 If you want to remove the codespace, go to https://github.com/codespaces to manage your codespaces.
-
 
 ## Next steps
 
