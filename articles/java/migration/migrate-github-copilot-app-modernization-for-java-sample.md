@@ -30,4 +30,4 @@ You can use App Modernization for Java (preview) to migrate the app estate to Az
 
 ## See also
 
-[Asset Manager sample](https://github.com/Azure-Samples/java-migration-copilot-samples/blob/workshop/asset-manager/README.md)
+[Asset Manager sample](https://github.com/Azure-Samples/java-migration-copilot-samples/tree/main/asset-manager)
