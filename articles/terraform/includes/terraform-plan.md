@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform
 Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
 
 ```console
-terraform plan -out main.tf plan
+terraform plan -out main.tfplan
 ```
 
 [!INCLUDE [terraform-plan-notes.md](terraform-plan-notes.md)]
