@@ -4,7 +4,7 @@
 | @azure/api-management-custom-widgets-tools | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/api-management-custom-widgets-tools-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/api-management-custom-widgets-tools) |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/communication-administration-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | @azure/communication-calling-effects | npm [1.1.4](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.4) |  | GitHub [1.1.4](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
-| @azure/communication-react | npm [1.27.1](https://www.npmjs.com/package/@azure/communication-react/v/1.27.1) |  | GitHub [1.27.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| @azure/communication-react | npm [1.28.0](https://www.npmjs.com/package/@azure/communication-react/v/1.28.0) |  | GitHub [1.28.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | @azure/core-sse | npm [2.2.0](https://www.npmjs.com/package/@azure/core-sse/v/2.2.0) | [docs](/javascript/api/overview/azure/core-sse-readme) | GitHub [2.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-sse_2.2.0/sdk/core/core-sse/) |
 | @azure/functions-authentication-events | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/functions-authentication-events/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/functions-authentication-events-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/functions-authentication-events_1.0.0-beta.2/sdk/entra/functions-authentication-events/) |
 | @azure/template-dpg | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/template-dpg/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/template-dpg-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/template-dpg_1.0.0-beta.1/sdk/template/template-dpg/) |
@@ -72,7 +72,7 @@
 | Health Insights Cancer Profiling | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-cancerprofiling/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/health-insights-cancerprofiling-rest/) |
 | Health Insights Clinical Matching | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-clinicalmatching/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/health-insights-clinicalmatching-rest/) |
 | Health Insights Radiology Insights | npm [2.0.0](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_2.0.0/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
-| Identity | npm [4.10.0](https://www.npmjs.com/package/@azure/identity/v/4.10.0) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.0/sdk/identity/identity/) |
+| Identity | npm [4.10.1](https://www.npmjs.com/package/@azure/identity/v/4.10.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.10.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.1/sdk/identity/identity/) |
 | Identity Broker | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.2.0/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.3/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -434,20 +434,20 @@
 | TypeSpec HTTP Client JavaScript | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.6.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.12.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.23](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.23) |  |  |
-| TypeSpec Rust | npm [0.15.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.15.0) |  |  |
+| TypeSpec Rust | npm [0.16.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.16.0) |  |  |
 | TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
 | TypeSpec Streams | npm [0.71.0](https://www.npmjs.com/package/@typespec/streams/v/0.71.0) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.0) |  |  |
-| Unknown Display Name | npm [0.0.0-75](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-75) |  |  |
-| Unknown Display Name | npm [0.0.0-75](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-75) |  |  |
-| Unknown Display Name | npm [0.0.0-75](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-75) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.0.0-76](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-76) |  |  |
+| Unknown Display Name | npm [0.0.0-76](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-76) |  |  |
+| Unknown Display Name | npm [0.0.0-76](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-76) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
