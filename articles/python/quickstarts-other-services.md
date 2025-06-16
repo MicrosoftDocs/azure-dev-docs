@@ -1,14 +1,14 @@
 ---
 title: Getting started materials for miscellaneous Azure services for Python apps
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
-ms.date: 03/09/2024
-ms.topic: get-started
+ms.date: 06/11/2025
+ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Other services for Python apps on Azure
 
-The services referenced in this article for Python are specialized or focused on solving a targeted problem. By other services we mean services other than the core services compute, networking, storage, and database. The references in this article include management and governance, media, genomics, and Internet of Things services. For a complete list of services, see [Azure products](https://azure.microsoft.com/products/).
+The services referenced in this article for Python are specialized, each designed to address a specific set of problems. The term *other services* includes Azure offerings beyond the foundational categories of compute, networking, storage, and databases. This article features examples from areas like management and governance, media, genomics, and the Internet of Things (IoT). For a full list of available services [Azure products](https://azure.microsoft.com/products/).
 
 - **Media streaming**:
   - [Connect to Azure Media Services v3 API](/azure/media-services/latest/configure-connect-python-howto)

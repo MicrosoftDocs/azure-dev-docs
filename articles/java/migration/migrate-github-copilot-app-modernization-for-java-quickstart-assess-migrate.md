@@ -15,6 +15,12 @@ ms.service: azure-java
 
 This quickstart shows you how to use GitHub Copilot App Modernization for Java (preview) to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
+The following video demonstrates how GitHub Copilot App Modernization for Java (preview) uses [AppCAT](/azure/migrate/appcat/java-preview) to help assess a Java project for migration to Azure:
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/eX8rSMd4Dls]
+
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
@@ -28,7 +34,7 @@ This quickstart shows you how to use GitHub Copilot App Modernization for Java (
 
   App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 
-- [AppCAT](https://aka.ms/appcat-install). This tool is required for the app assessment feature.
+- [AppCAT](/azure/migrate/appcat/java-preview#download-and-install). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
 
