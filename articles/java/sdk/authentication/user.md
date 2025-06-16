@@ -3,7 +3,7 @@ title: Azure authentication with user credentials
 titleSuffix: Azure SDK for Java
 description: Provides an overview of the Azure SDK for Java concepts related to authenticating applications with user credentials.
 ms.date: 03/25/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: karler

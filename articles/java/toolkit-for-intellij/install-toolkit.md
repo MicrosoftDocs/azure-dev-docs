@@ -5,7 +5,7 @@ ms.date: 07/01/2022
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.topic: article
+ms.topic: install-set-up-deploy
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

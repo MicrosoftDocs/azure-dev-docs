@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 05/15/2025 
-ms.topic: article
+ms.topic: install-set-up-deploy
 ms.custom: devx-track-java, spring-cloud-azure
 appliesto:
 - ✅ Version 4.20.0

@@ -3,7 +3,7 @@ title: Migrate JBoss EAP applications to Azure Red Hat OpenShift
 description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on Azure Red Hat OpenShift.
 author: KarlErickson
 ms.author: karler
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 09/20/2024
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, migration-java, devx-track-extended-java, linux-related-content
 ---
