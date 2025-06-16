@@ -26,7 +26,7 @@ Select one of the following options to install the Azure MCP Server in Visual St
 
     :::image type="content" source="../media/install-mcp-server.png" alt-text="A screenshot showing Azure MCP Server installation options.":::
 
-1. Open GitHub Pilot and select Agent Mode. To learn more about Agent Mode, visit the [Visual Studio Code Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).
+1. Open GitHub Copilot and select Agent Mode. To learn more about Agent Mode, visit the [Visual Studio Code Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).
 1. Refresh the tools list to see Azure MCP Server as an available option:
 
     :::image type="content" source="../media/github-copilot-integration.png" alt-text="A screenshot showing Azure MCP Server as GitHub Copilot tool.":::

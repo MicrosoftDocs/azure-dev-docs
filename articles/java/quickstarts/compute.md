@@ -2,7 +2,7 @@
 title: Quickstarts for compute services for Java apps on Azure
 description: List of getting started material in the Azure documentation for compute services for Java apps.
 ms.date: 06/02/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-liberty, devx-track-javaee-was, devx-track-javaee-websphere, devx-track-javaee-wls
 ---
 

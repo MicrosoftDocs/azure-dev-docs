@@ -25,6 +25,12 @@ Predefined formulas capture industry best practices for using Azure services. Cu
 > [!NOTE]
 > This list will grow based on customer feedback and evolving cloud needs.
 
+The following video demonstrates using GitHub Copilot App Modernization for Java (preview) to apply a predefined formula to migrate a Java project to Azure:
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/6dgqToLNa58]
+
 ## Formula list
 
 App Modernization for Java (preview) currently supports the following predefined formulas:

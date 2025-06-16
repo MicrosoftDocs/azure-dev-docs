@@ -15,7 +15,7 @@ items:
             href: sdk/fundamentals/overview.md
           - name: Errors
             href: sdk/fundamentals/errors.md
-          - name: HTTP pipelines & retries
+          - name: HTTP pipelines and retries
             href: sdk/fundamentals/http-pipelines-and-retries.md
           - name: Common types
             href: sdk/fundamentals/common-types.md

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.date: 02/14/2025
-ms.topic: conceptual
+ms.topic: install-set-up-deploy
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---
 

@@ -2,7 +2,7 @@
 title: Build Advanced Retrieval-Augmented Generation Systems
 description: As a developer, learn about real-world considerations and patterns for retrieval-augmented generation (RAG)-based chat systems.
 ms.date: 01/15/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: build-2024-intelligent-apps
 ---
 

@@ -4,7 +4,7 @@ description: Learn about what Azure Developer CLI templates are, how to work wit
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 09/13/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ms.service: azure-dev-cli
 ---
