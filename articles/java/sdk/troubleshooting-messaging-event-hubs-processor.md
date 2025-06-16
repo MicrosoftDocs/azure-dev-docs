@@ -3,7 +3,7 @@ title: Troubleshoot Azure Event Hubs event processor
 titleSuffix: Azure SDK for Java
 description: Helps you troubleshoot Event Hubs EventProcessor issues when you use the Azure SDK for Java.
 ms.date: 04/02/2025 
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: karler

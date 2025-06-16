@@ -4,7 +4,7 @@ description: Shows how to deploy WebLogic Server to Azure Kubernetes Service (AK
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/13/2025
 recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java

@@ -5,7 +5,7 @@ ms.date: 08/28/2024
 ms.author: karler
 ms.reviewer: seal
 author: KarlErickson
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java
 zone_pivot_group_filename: java/java-zone-pivot-groups.json
 zone_pivot_groups: passwordless-postgresql

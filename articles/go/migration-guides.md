@@ -2,7 +2,7 @@
 title: Migration guides for the Azure SDK for Go
 description: List of migration guides between different versions of the Azure SDK for Go
 ms.date: 6/2/2025
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.custom: devx-track-go
 ---
 

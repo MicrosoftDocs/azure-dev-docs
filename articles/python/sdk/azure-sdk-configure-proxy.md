@@ -2,7 +2,7 @@
 title: Configuring proxies when using Azure libraries
 description: Use HTTP[S]_PROXY environment variables to define a proxy for an entire script or app, or use optional named arguments for client constructors or operation methods in the Azure SDK.
 ms.date: 05/21/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
