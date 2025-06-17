@@ -4,7 +4,7 @@ description: This tutorial shows you how to use the Azure Toolkit for IntelliJ t
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.date: 09/09/2020
+ms.date: 06/15/2025
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -77,7 +77,7 @@ The following steps walk you through the Azure sign-in process in your IntelliJ 
    b. In the pop-up **Create WebApp** dialog box, specify the following information and click **OK**:
 
       * **Name**: The WebApp's domain name. This value should be unique across Azure.
-      * **Platform**: Select **Linux-Java 8-TOMCAT 9.0** or as appropriate.
+      * **Platform**: Select **Linux-Java 21-TOMCAT 11.0** or as appropriate.
 
    c. To deploy to an existing webapp, choose the web app from WebApp drop down, and then click **Run**.
 
