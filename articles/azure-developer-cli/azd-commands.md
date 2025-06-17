@@ -1,7 +1,7 @@
 ---
 title: Azure Developer CLI commands overview
 description: This article provides a conceptual overview of key concepts for Azure Developer CLI commands
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/15/2025
 ---
 

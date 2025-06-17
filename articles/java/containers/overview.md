@@ -4,7 +4,7 @@ description: This article provides an overview of recommended strategies for con
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/13/2022
 ms.custom: devx-track-java, devx-track-extended-java
 recommendations: false

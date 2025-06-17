@@ -2,7 +2,7 @@
 title: Credential chains in the Azure Identity library for Go
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for Go.
 ms.date: 06/03/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-go
 ---
 

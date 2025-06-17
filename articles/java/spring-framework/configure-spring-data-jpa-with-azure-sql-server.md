@@ -5,7 +5,7 @@ ms.date: 08/28/2024
 ms.author: karler
 ms.reviewer: seal
 author: KarlErickson
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, passwordless-java, devx-track-extended-java
 ---
 

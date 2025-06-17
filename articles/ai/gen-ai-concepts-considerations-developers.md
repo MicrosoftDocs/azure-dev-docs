@@ -2,7 +2,7 @@
 title: Key Concepts and Considerations in Generative AI
 description: As a developer, learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, implementing an inference pipeline, and modifying optional API call parameters.
 ms.date: 01/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: build-2024-intelligent-apps
 ---
 

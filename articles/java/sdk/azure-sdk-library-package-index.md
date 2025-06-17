@@ -2,7 +2,7 @@
 title: Package index for Azure SDK libraries for Java
 description: Listing of the package names, Maven Central links, docs links, and source code links for all libraries in the Azure SDK for Java.
 ms.date: 05/21/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: karler
