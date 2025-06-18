@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: quickstart
-ms.date: 01/09/2025
+ms.date: 06/17/2025
 ms.custom: devx-track-java
 ---
 

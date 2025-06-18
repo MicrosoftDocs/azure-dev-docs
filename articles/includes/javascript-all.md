@@ -197,7 +197,7 @@
 | Resource Management - Container Orchestrator Runtime | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerorchestratorruntime/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerorchestratorruntime-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerorchestratorruntime_1.0.0-beta.1/sdk/kubernetesruntime/arm-containerorchestratorruntime/) |
 | Resource Management - Container Registry | npm [10.1.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.1.0)<br>npm [11.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-containerregistry/v/11.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [10.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice-rest) |
-| Resource Management - Container Service | npm [21.6.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/21.6.0)<br>npm [22.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-containerservice/v/22.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [21.6.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service | npm [22.0.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/22.0.0) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [22.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Container Service Fleet | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-containerservicefleet-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.0.0/sdk/containerservice/arm-containerservicefleet/) |
 | Resource Management - Content Delivery Network | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-cdn/v/9.1.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [16.3.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.3.0)<br>npm [17.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/17.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [16.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
@@ -439,17 +439,17 @@
 | TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
 | TypeSpec Streams | npm [0.71.0](https://www.npmjs.com/package/@typespec/streams/v/0.71.0) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.0.0-80](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-80) |  |  |
-| Unknown Display Name | npm [0.0.0-80](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-80) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.2) |  |  |
+| Unknown Display Name | npm [0.0.0-82](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-82) |  |  |
+| Unknown Display Name | npm [0.0.0-82](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-82) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-server-csharp/v/0.0.0-0) |  |  |
-| Unknown Display Name | npm [0.0.0-80](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-80) |  |  |
+| Unknown Display Name | npm [0.0.0-82](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-82) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -566,7 +566,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.11.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.11.1) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.12.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.12.0) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
