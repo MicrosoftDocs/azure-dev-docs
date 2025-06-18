@@ -1,26 +1,26 @@
 ---
 title: Create a dev environment in GitHub Codespaces with FastAPI and Postgres.
 description: How to set up a Python development environment in GitHub Codespaces with FastAPI and Postgres.
-ms.date: 06/24/2024
+ms.date: 06/18/2025
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
 # Create a GitHub Codespaces dev environment with FastAPI and Postgres
 
-This article shows you how to run FastAPI and Postgres together in a [GitHub Codespaces][1] environment. Codespaces is a development environment hosted in the cloud. Codespaces enables you to create configurable and repeatable development environments.
+This article shows you how to run FastAPI and Postgres together in a [GitHub Codespaces][1] environment. Codespaces is a cloud-hosted development environment that allows you to create configurable and repeatable development environments.
 
 You can open the sample repo in a [browser][4] or in an integrated development environment (IDE) like [Visual Studio Code][6] with the [GitHub Codespaces extension][5].
 
-You can also clone the sample repo locally and when you open the project in Visual Studio Code, you can run using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] installed locally. If you don't have Docker installed, you can still use VS Code to run the project, but you're using GitHub Codespaces as the environment.
+Alternatively, you can clone the sample repository locally. When you open the project in Visual Studio Code, you can use Dev Containers to run it using [Dev Containers][2]. Dev Containers requires that [Docker Desktop][3] to be installed locally. If Docker isn’t installed, you can run the project using GitHub Codespaces as the development environment.
 
 When using GitHub Codespaces, keep in mind that you have a fixed number of core hours free per month. This tutorial requires less than one core hour to complete. For more information, see [About billing for GitHub Codespaces][7].
 
-With the approach shown in this tutorial, you can start with the sample code and modify it to run other Python frameworks like Django or Flask. 
+You can also use this setup as a starting point and modify the sample to run other Python web frameworks such as Django or Flask.
 
 ## Start the dev environment in Codespaces
 
-There are many possible paths to create and use GitHub Codespaces. This tutorial shows one path you can start with.
+This tutorial introduces one of many possible ways to create and work with GitHub Codespaces.
 
 1. Go to sample app repo [https://github.com/Azure-Samples/msdocs-fastapi-postgres-codespace][0].
 
@@ -29,8 +29,8 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 1. Select **Code**, **Codespaces** tab, and **+** to create a new codespace.
 
     :::image type="content" source="./media/codespaces-tutorial/create-codespaces-small.png" alt-text="Screenshot showing how to create a codespace from the GitHub repo." lightbox="./media/codespaces-tutorial/create-codespaces.png":::
-    
-1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser, and that sample repo has loaded.
+
+1. When the container finishes building, confirm that you see **Codespaces** in the lower left corner of the browser, and see the sample repo.
 
     The codespace key configuration files are *devcontainer.json*, *Dockerfile*, and *docker-compose.yml*. For more information, see [GitHub Codespaces overview][1].
 
@@ -61,7 +61,6 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
     :::image type="content" source="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface-small.png" alt-text="Screenshot showing the FastAPI Swagger UI." lightbox="./media/codespaces-tutorial/codespaces-fastapi-openapi-interface.png":::
 
-
 1. On the Swagger page, run the POST method to add a restaurant.
 
     1. Expand the **POST** method.
@@ -83,7 +82,7 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 1. Go back to the GitHub Codespace for the project, select the SQLTools extension, and then select **Local database** to connect.
 
-    The SQLTools extension should be installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen. 
+    The SQLTools extension should be installed when the container is created. If the SQLTools extension doesn't appear in the Activity Bar, close the codespace and reopen.
 
 1. Expand the **Local database** node until you find the *restaurants* table, right select **Show Table Records**.
 
@@ -95,10 +94,9 @@ There are many possible paths to create and use GitHub Codespaces. This tutorial
 
 To stop using the codespace, close the browser. (Or, close VS Code if you opened it that way.)
 
-If you plan on using the codespace again, you can keep it. Only running codespaces incur CPU charges. A stopped codespace incurs only storage costs. 
+If you plan on using the codespace again, you can keep it. Only running codespaces incur CPU charges. A stopped codespace incurs only storage costs.
 
 If you want to remove the codespace, go to https://github.com/codespaces to manage your codespaces.
-
 
 ## Next steps
 
