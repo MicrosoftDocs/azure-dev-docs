@@ -8,7 +8,7 @@ ms.custom: build-2024-intelligent-apps, ai-learning-hub
 
 # Generative AI solutions for developers
 
-Generative AI, enabled by large language models (LLMs), opens exciting new possibilities for software developers and organizations. Services like Azure OpenAI Service make AI development accessible with easy-to-use APIs. Developers at all skill levels can integrate advanced AI functionality into their applications without specialized knowledge or hardware investment.
+Generative AI, enabled by large language models (LLMs), opens exciting new possibilities for software developers and organizations. Services like Azure OpenAI in Foundry Models make AI development accessible with easy-to-use APIs. Developers at all skill levels can integrate advanced AI functionality into their applications without specialized knowledge or hardware investment.
 
 As an application developer, you might want to understand what role you can play and where you fit in. For example, perhaps you wonder on what level in the "AI stack" to focus your learning. Or you might wonder what you are capable of building given existing technologies.
 
@@ -161,7 +161,7 @@ Here's the list of Azure OpenAI REST API wrappers:
 
 If a language or platform SDK is unavailable, the worst-case scenario is that you must make REST calls directly to the web APIs:
 
-- [Azure OpenAI Service REST API](/azure/ai-services/openai/reference)
+- [Azure OpenAI in Foundry Models REST API](/azure/ai-services/openai/reference)
 
 Most developers are familiar with how to call web APIs.
 
