@@ -1,16 +1,18 @@
 ---
 title: Overview of the Python web azd templates
-description: Explore the Python web templates for the Azure Developer CLI (azd).
-ms.date: 12/2/2024
+description: Explore the Python web templates for the Azure Developer CLI (azd), including tasks completed by the templates, 
+ms.date: 10/16/2024
 ms.topic: concept-article
 ms.custom: devx-track-python, devx-track-extended-azdevcli
+
+#Customer intent: As a Python web developer, I want to explore how Python web azd templates can me help quickly build and deploy Python web applications to Azure.
 ---
 
 # Overview of the Python web azd templates
 
-The Python web Azure Developer CLI (`azd`) templates are the fastest and easiest way to build and deploy Python web applications to Azure. This article provides contextual background information as you begin to work with the templates.
+Python web Azure Developer CLI (`azd`) templates are the fastest and easiest way to build and deploy Python web applications to Azure. This article provides contextual background information as you begin to work with the templates.
 
-The best approach to get started is to [follow the quickstart](./quickstart-python-web-azd-templates.md) to create your first Python web app and deploy it to Azure in minutes with `azd` templates. If you prefer not to set up a local development environment, you can still follow the [quickstart by using GitHub Codespaces](./quickstart-python-web-azd-codespaces.md) instead.
+The best approach to get started is to [follow the quickstart](quickstart-python-web-azd-templates.md) to create your first Python web app and deploy it to Azure in minutes with `azd` templates. If you prefer not to set up a local development environment, you can follow the [quickstart by using GitHub Codespaces](quickstart-python-web-azd-codespaces.md) instead.
 
 ## What are the Python web azd templates?
 
@@ -31,16 +33,11 @@ When you run a Python web `azd` template, you quickly complete several tasks:
 - **Deploy starter app to provisioned Azure resources**. You automatically deploy your starter application. This approach lets you quickly review the running program and decide what you want to modify.
 - **(Optional) Set up GitHub repository and CI/CD pipeline**. As an option, you can set up a GitHub repository, including a GitHub Actions [continuous integration/continuous delivery (CI/CD) pipeline](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview). This approach lets you quickly make changes to the web project code. When you merge those changes to the *main* branch of your GitHub repo, the CI/CD pipeline publishes them to your new Azure hosting environment.
 
-##  Where can I access the templates?
+## Where can I access the templates?
 
 Many `azd` templates are available on the [Awesome Azure Developer CLI Templates gallery](https://azure.github.io/awesome-azd/). This collection offers unique Python web `azd` templates that provide a sample web app with feature parity across many different popular combinations of Azure resources and Python web frameworks.
 
 The following tables list the Python web `azd` template monikers that are available for use with the `azd init` command. The tables identify the technologies implemented in each template and provide a link to the corresponding GitHub repository, where you can contribute changes.
-
-
-### Index of templates
-
-The following table lists the available Python web `azd` template monikers to use with the `azd init` command, the technologies implemented in each template, and a link to the GitHub repository if you want to contribute changes.
 
    # [Django](#tab/django)
 
@@ -100,7 +97,6 @@ The following table summarizes the five essential commands:
 | `azd deploy`     | Deploy changes to the application source code to resources already provisioned by the `azd up` command. |
 | `azd down`       | Delete the Azure resources and the CI/CD pipeline, if it was used. |
 
-
 > [!TIP]
 > When you work with the `azd` commands, watch for prompts to enter more information. After you execute the `azd up` command, you might be prompted to select a subscription, if you have more than one. You might also be prompted to specify your region. You can change the answers to prompts by editing the environment variables stored in the */.azure/* folder of the template.
 
@@ -124,6 +120,8 @@ The Azure Developer CLI (`azd`) provides an easy way to set up a CI/CD pipeline 
 - To set up the CI/CD pipeline, you designate the GitHub repository and desired settings to enable the pipeline.
 - To create the pipeline, use the `azd pipeline config` command. 
 
+After you configure the pipeline, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
+
 ## Alternatives to the templates
 
 <a name="what-are-my-other-options"></a>
@@ -132,7 +130,9 @@ If you prefer to not use the Python web `azd` templates, there are alternate met
 
 You can create many resources and complete the deployment steps by using several tools:
 
+- [Azure portal](https://portal.azure.com)
 - The [Azure CLI](/cli/azure/get-started-with-azure-cli)
+- Visual Studio Code with the [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 You can also follow an end-to-end tutorial that features Python web development frameworks:
 
@@ -148,8 +148,6 @@ The following sections summarize answers to frequently asked questions about wor
 No. The Python web `azd` templates use [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) by default. Dev Containers provide many benefits, but they require some prerequisite knowledge and software. If you prefer to not use Dev Containers, and instead use your local development environment, see the *README.md* file in the root directory of the sample app for environment setup instructions.
 
 ### What can I edit or delete?
-
-The contents of each `azd` template can vary depending on the type of project and the underlying technology stack employed. The templates listed in this article follow a common convention:
 
 The contents of each Python web `azd` template can vary depending on the type of project and the underlying technology stack employed. The templates identified in this article follow a common folder and file convention, as described in the following table.
 
