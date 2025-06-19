@@ -200,7 +200,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
 The OpenAI model and the settings that are used to interact with the model determine the intelligence of the chat app.
 
-:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat.png" alt-text="Screenshot of chat developer settings.":::
+:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
 
 | Setting                                                   | Description                                                                                                                                                                                                                                                                                         |
 |-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
