@@ -184,7 +184,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
 1. From the answer, select one of the citations.
 
-   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
+   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
@@ -200,7 +200,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
 The OpenAI model and the settings that are used to interact with the model determine the intelligence of the chat app.
 
-:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings.png" alt-text="Screenshot of chat developer settings.":::
+:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat.png" alt-text="Screenshot of chat developer settings.":::
 
 | Setting                                                   | Description                                                                                                                                                                                                                                                                                         |
 |-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
