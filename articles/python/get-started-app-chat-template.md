@@ -173,7 +173,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
    Visual Studio Code opens the contents of the _my-intelligent-app_ project directory in the file **Explorer** view:
 
-   :::image type="content" source="media/get-started-app-chat-template/azd-initial-application.png" alt-text="Screenshot of the  my-intelligent-app project directory open in the Explorer view in Visual Studio Code.":::
+   :::image type="content" source="media/get-started-app-chat-template/initial-application.png" alt-text="Screenshot of the  my-intelligent-app project directory open in the Explorer view in Visual Studio Code.":::
 
 1. On the **Activity Bar**, select **Remote Explorer** for Dev Containers, and then select the **reopen the current folder in a container** link: 
 
