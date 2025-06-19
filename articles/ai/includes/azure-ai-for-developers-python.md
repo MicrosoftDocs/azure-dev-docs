@@ -15,11 +15,11 @@ Azure OpenAI Service provides REST API access to the powerful language models av
 |Link|Description|
 |---|---|
 |[OpenAI SDK for Python](https://github.com/openai/openai-python/blob/main/README.md)|The GitHub source code version of the OpenAI Python library, which provides convenient access to the OpenAI API from applications written in the Python language.|
-|[openai Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
+|[OpenAI Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
 |[Switch from OpenAI to Azure OpenAI](/azure/ai-services/openai/how-to/switching-endpoints)|A guidance article on the small changes you need to make to your code, so you can swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Streaming chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|A notebook example that demonstrates how to get chat completions to work by using the Azure endpoints. The example focuses on chat completions, but also introduces other operations available with the API.|
 |[Azure embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|A notebook example that demonstrates how to use embeddings with Azure endpoints. The example focuses on embeddings, but also introduces other operations available with the API.|
-|[Deploy model and generate text](/azure/ai-services/openai/quickstart?pivots=programming-language-python)|An article with minimal, straightforward detailed steps to deploy a model that can programmatically chat.| 
+|[Deploy model and generate text](/azure/ai-services/openai/quickstart?pivots=programming-language-python)|An article with minimal, straightforward detailed steps to deploy a model that can programmatically chat.|
 |[OpenAI with Microsoft Entra ID role-based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication by using Microsoft Entra ID and [Azure role-based access control](/azure/role-based-access-control/overview).|
 |[OpenAI with Azure AD-managed identities for Azure resources](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control. Explore how to authenticate to your OpenAI resource with Microsoft Entra ID.|
 |[Azure OpenAI Service samples](https://github.com/Azure-Samples/openai/blob/main/README.md)|A compilation of useful Azure OpenAI Service resources and code samples to help you get started and accelerate your technology adoption journey.|

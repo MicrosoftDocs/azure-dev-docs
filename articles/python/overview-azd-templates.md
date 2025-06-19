@@ -52,12 +52,12 @@ When you run a Python web `azd` template, you quickly complete several tasks:
 
 * **Provision Azure resources**. Using [Bicep](/azure/azure-resource-manager/bicep/overview), a modern infrastructure-as-code (IaC) language, the template provisions all necessary Azure resources for:
 
-  * Hosting your web app (e.g., App Service, Container Apps)
-  * Connecting to databases (e.g., PostgreSQL, Cosmos DB)
+  * Hosting your web app (such as App Service, Container Apps)
+  * Connecting to databases (such as PostgreSQL, Cosmos DB)
 
-  The Bicep files are fully editable—you can add or customize Azure services as your app evolves.Similar to the previous task, you can [modify the Bicep templates](quickstart-python-scale-bicep.md) to add more Azure services, as needed.
+  The Bicep files are fully editable—you can add or customize Azure services as your app evolves. Similar to the previous task, you can [modify the Bicep templates](quickstart-python-scale-bicep.md) to add more Azure services, as needed.
 
-* **Deploy starter app to provisioned Azure resources**. Once resources are provisioned, your application is automatically deployed to the Azure environment. This lets you:
+* **Deploy starter app to provisioned Azure resources**. Once resources are provisioned, your application is automatically deployed to the Azure environment. You can now:
 
   * See your app running in the cloud within minutes.
   * Test its behavior.
@@ -67,7 +67,7 @@ When you run a Python web `azd` template, you quickly complete several tasks:
 
   * Automate deployments on code changes.
   * Collaborate with team members.
-  * Push updates to Azure by simply merging into the main branch.
+  * Push updates to Azure by merging into the main branch.
 
   This integration helps you adopt DevOps best practices from the start.
 
@@ -132,13 +132,13 @@ Each `azd` template comprises a GitHub repository that contains the application 
 
 Key components of each template include:
 
-* **Application Code**: Written in Python and built using a popular web framework (e.g., Flask, Django, FastAPI).
+* **Application Code**: Written in Python and built using a popular web framework (such as Flask, Django, FastAPI).
 The sample app demonstrates best practices in routing, data access, and configuration.
 
 * **Infrastructure-as-Code (IaC)**: Provided via Bicep files to define and provision the required Azure resources, such as:
 
   * App Service or Container Apps
-  * Azure Databases (e.g., PostgreSQL, Cosmos DB)
+  * Azure Databases (such as PostgreSQL, Cosmos DB)
   * Azure AI services, Storage, and more
 
 * **CI/CD Configuration (Optional)**: Includes files to set up a GitHub repository with a GitHub Actions CI/CD pipeline, enabling:
@@ -181,7 +181,7 @@ In addition to the five essential commands, there are optional tasks you can com
 After you provision Azure resources with an `azd` template, you can modify and reprovision a resource.
 
 * To modify a provisioned resource, you [edit the appropriate Bicep files](quickstart-python-scale-bicep.md) in the template.
-* To initiate the reprovision task, use the `azd provision` command.
+* To initiate the reprovisioning task, use the `azd provision` command.
 
 #### Set up CI/CD pipeline
 

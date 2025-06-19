@@ -20,7 +20,7 @@ To complete the procedures in this article, you need a Python web app committed 
 - **New app**: If you need a new Python web app, you can fork and clone the https://github.com/Microsoft/python-sample-vscode-flask-tutorial GitHub repository. The sample code supports the [Flask in Visual Studio Code][1] tutorial, and provides a functioning Python application.
 
 > [!NOTE]
-> If your app uses [Django][20] and a [SQLite][21] database, it won't work for these procedures. If your Django app uses a separate database like PostgreSQL, you can use it. For more information, see [Review Django considerations](#review-django-considerations) later in this article.
+> If your app uses [Django][20] and a [SQLite][21] database, it won't work for these procedures. SQLite is not supported in most cloud-hosted environments due to its local file-based storage limitations. Consider switching to a cloud-compatible database such as PostgreSQL or Azure Cosmos DB. For more information, see [Review Django considerations](#review-django-considerations) later in this article.
 
 ## Create target App Service instance
 
@@ -71,9 +71,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
    - For the `<app-service-name>` placeholder, specify an App Service name that's unique in Azure. The name must be 3-60 characters long and can contain only letters, numbers, and hyphens. The name must start with a letter and end with a letter or number.
 
    - For a list of available runtimes on your system, use the `az webapp list-runtimes` command.
-   
    - When you enter the runtime value in the command, use the `PYTHON:X.Y` format, where `X.Y` is the Python major and minor version.
-
    - You can also specify the region location of the App Service instance by using the `--location` parameter. For a list of available locations, use the `az account list-locations --output table` command.
 
 1. If your app has a custom startup script, use the [az webapp config][3] command to initiate the script.
@@ -98,16 +96,15 @@ The quickest way to create an App Service instance is to use the [Azure command-
    ```
 
    If you see a generic page, wait a few seconds for the App Service instance to start, and refresh the page.
-   
+
    - If you continue to see a generic page, confirm you deployed from the correct folder.
-   
    - For the Flask sample app, confirm you deployed from the *python-sample-vscode-flask-tutorial* folder. Also check that you set the startup command correctly.
 
 ## Set up continuous deployment in App Service
 
 In the next procedure, you set up continuous delivery (CD), which means a new code deployment occurs whenever a workflow triggers. The trigger in the article example is any change to the _main_ branch of your repository, such as with a pull request (PR).
 
-1. In Cloud Shell, confirm you're in the root directory for your system (`~`) and not in an app subfolder, such as *python-sample-vscode-flask-tutorial*. 
+1. In Cloud Shell, confirm you're in the root directory for your system (`~`) and not in an app subfolder, such as *python-sample-vscode-flask-tutorial*.
 
 1. Add GitHub Actions with the [az webapp deployment github-actions add][4] command. Replace any placeholders with your specific values:
 
@@ -126,8 +123,8 @@ In the next procedure, you set up continuous delivery (CD), which means a new co
 
    The `add` command completes the following tasks:
 
-   * Creates a new workflow file at the *.github/workflows/\<workflow-name>.yml* path in your repo. The file name contains the name of your App Service instance.
-   * Fetches a publish profile with secrets for your App Service instance and adds it as a GitHub action secret. The name of the secret begins with *AZUREAPPSERVICE\_PUBLISHPROFILE\_*. This secret is referenced in the workflow file.
+   - Creates a new workflow file at the *.github/workflows/\<workflow-name>.yml* path in your repo. The file name contains the name of your App Service instance.
+   - Fetches a publish profile with secrets for your App Service instance and adds it as a GitHub action secret. The name of the secret begins with *AZUREAPPSERVICE\_PUBLISHPROFILE\_*. This secret is referenced in the workflow file.
 
 1. Get the details of a source control deployment configuration with the [az webapp deployment source show][5] command. Replace the placeholder parameters with your specific values:
 
@@ -141,7 +138,7 @@ In the next procedure, you set up continuous delivery (CD), which means a new co
 
 ## Examine GitHub workflow and actions
 
-A workflow definition is specified in a YAML (*.yml*) file in the */.github/workflows/* path in your repository. This YAML file contains the various steps and parameters that make up the workflow, an automated process associated with a GitHub repository. You can build, test, package, release, and deploy any project on GitHub with a workflow. 
+A workflow definition is specified in a YAML (*.yml*) file in the */.github/workflows/* path in your repository. This YAML file contains the various steps and parameters that make up the workflow, an automated process associated with a GitHub repository. You can build, test, package, release, and deploy any project on GitHub with a workflow.
 
 Each workflow is made up of one or more jobs, and each job is a set of steps. Each step is a shell script or an action. Each job has an **Action** section in the workflow file.
 
@@ -196,15 +193,12 @@ The last step is to test the workflow by making a change to the repo.
    For the Flask tutorial, here's a simple change:
 
    1. Go to the */hello-app/templates/home.html* file of the trigger branch.
-   
    1. Select **Edit** (pencil).
-   
    1. In the Editor, locate the print `<p>` statement, and add the text "Redeployed!"
 
 1. Commit the change directly to the branch you're working in.
 
    1. In the Editor, select **Commit changes** at the top right. The **Commit changes** window opens.
-      
    1. In the **Commit changes** window, modify the commit message as desired, and select **Commit changes**.
 
    The commit process triggers the GitHub Actions workflow.
@@ -223,13 +217,13 @@ For a failed job, look at the output of job tasks for an indication of the failu
 
 Here are some common issues to investigate:
 
-* If the app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than by using the `az webapp up` command as shown in this article.
+- If the app fails because of a missing dependency, then your *requirements.txt* file wasn't processed during deployment. This behavior happens if you created the web app directly on the portal rather than by using the `az webapp up` command as shown in this article.
 
-* If you provisioned the app service through the portal, the build action `SCM_DO_BUILD_DURING_DEPLOYMENT` setting might not be set. This setting must be set to `true`. The `az webapp up` command sets the build action automatically.
+- If you provisioned the app service through the portal, the build action `SCM_DO_BUILD_DURING_DEPLOYMENT` setting might not be set. This setting must be set to `true`. The `az webapp up` command sets the build action automatically.
 
-* If you see an error message regarding "TLS handshake timeout," run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the app repo. You can determine if the timeout is a temporary issue.
+- If you see an error message regarding "TLS handshake timeout," run the workflow manually by selecting **Trigger auto deployment** under the **Actions** tab of the app repo. You can determine if the timeout is a temporary issue.
 
-* If you set up continuous deployment for the container app as shown in this article, the initial workflow file *.github/workflows/\<workflow-name>.yml* is created automatically for you. If you modified the file, remove the modifications to see if they're causing the failure.
+- If you set up continuous deployment for the container app as shown in this article, the initial workflow file *.github/workflows/\<workflow-name>.yml* is created automatically for you. If you modified the file, remove the modifications to see if they're causing the failure.
 
 ## Run post-deployment script
 
@@ -302,9 +296,9 @@ To delete the storage account that maintains the file system for Cloud Shell, wh
 
 If you delete the Azure resource group, consider making the following modifications to the GitHub account and repo that was connected for continuous deployment:
 
-* In the app repository, remove the *.github/workflows/\<workflow-name>.yml* file.
-* In the app repository settings, remove the *AZUREAPPSERVICE\_PUBLISHPROFILE\_* secret key created for the workflow.
-* In the GitHub account settings, remove Azure App Service as an authorized Oauth App for your GitHub account.
+- In the app repository, remove the *.github/workflows/\<workflow-name>.yml* file.
+- In the app repository settings, remove the *AZUREAPPSERVICE\_PUBLISHPROFILE\_* secret key created for the workflow.
+- In the GitHub account settings, remove Azure App Service as an authorized Oauth App for your GitHub account.
 
 ## Related content
 
