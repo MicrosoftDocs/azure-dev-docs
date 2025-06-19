@@ -1,7 +1,7 @@
 ---
 title: "Get started sample: Chat using your data in Python"
 description: Search your own data with a chat app sample in Python, and get started with Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search.
-ms.date: 10/28/2024
+ms.date: 06/19/2025
 ms.topic: how-to
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -362,7 +362,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-- Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**:
+* Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**:
 
    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment in Visual Studio Code.":::
 
