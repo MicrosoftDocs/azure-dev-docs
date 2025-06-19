@@ -13,7 +13,15 @@ ms.collection: ce-skilling-ai-copilot
 
 This article shows how to deploy and run the **Chat with your own data sample** [by using example code for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample chat application is built with Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) through Azure AI Search.
 
-The app answers questions about employee benefits at a fictional company by referencing supplied PDF files, such as an employee handbook, a benefits overview, and a list of company roles and expectations. You’ll also learn how to configure the app’s settings to modify its response behavior.
+The app provides answers to user questions about employee benefits at a fictional company. It uses Retrieval-Augmented Generation (RAG) to reference content from supplied PDF files, which may include:
+
+* An employee handbook
+* A benefits overview document
+* A list of company roles and expectations
+
+By analyzing these documents, the app can respond to natural language queries with accurate, contextually relevant answers. This approach demonstrates how you can use your own data to power intelligent, domain-specific chat experiences with Azure OpenAI and Azure AI Search.
+
+You also learn how to configure the app’s settings to modify its response behavior.
 
 After completing the steps in this article, you can begin customizing the project with your own code. This article is part of a series that guides you through building a chat app with Azure OpenAI Service and Azure AI Search. Other articles in the series include:
 
@@ -42,13 +50,14 @@ Key components of the architecture include:
 
 The typical flow of the chat app is as follows:
 
-* User submits a question via the web app.
-* Backend uses Azure OpenAI to:
-  * Generate an embedding of the question.
-  * Optionally extract keywords.
-* The embedding or keywords are used to query Azure AI Search, retrieving the most relevant documents.
-* Retrieved documents + user question are sent to the OpenAI model, which generates a contextual answer.
-* The answer is returned to the user in the web app.
+* **User submits a question**: A user enters a natural language question through the web app interface.
+* **Azure OpenAI processes the question**: The backend uses Azure OpenAI to:
+  * Generate an embedding of the question using the text-embedding-ada-002 model.
+  * Optionally extract keywords to refine search relevance
+* **Azure AI Search retrieves relevant data**: The embedding or keywords are used to to perform a semantic search over indexed content (such as, PDFs) in Azure AI Search.
+* **Combine results with the question**: The most relevant document excerpts (chunks) are combined with the user’s original question.
+* **Azure OpenAI generates a response**: The combined input is passed to a GPT model (such as, gpt-35-turbo or gpt-4), which generates a context-aware answer.
+* **The response is returned to the user**: The generated answer is displayed in the chat interface.
 
 ## Prerequisites
 
@@ -217,7 +226,13 @@ You complete the remaining exercises in this project in the context of this deve
 
 ## Deploy chat app to Azure
 
-he sample repository contains all the code and configuration files required to deploy a Chat with your own data application to Azure. Follow the steps below to deploy the app using the Azure Developer CLI (azd).
+The sample repository includes everything you need to deploy a Chat with your own data application to Azure, including:
+
+* Application source code (Python)
+* Infrastructure-as-code files (Bicep)
+* Configuration for GitHub integration and CI/CD (optional)
+
+Use the folloowing steps to deploy the app with the Azure Developer CLI (azd).
 
 > [!IMPORTANT]
 > Azure resources created in this section—especially Azure AI Search—can begin accruing charges immediately upon provisioning, even if the deployment is interrupted before completion. To avoid unexpected charges, monitor your Azure usage and delete unused resources promptly after testing.
@@ -339,7 +354,7 @@ The command switches include:
 * `purge`: Deleted resources are immediately purged. This option allows you to reuse the Azure OpenAI tokens per minute (TPM) metric.
 * `force`: The deletion happens silently, without requiring user consent.
 
-### Clean up codespaces
+### Clean up GitHub Codespaces
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
@@ -352,7 +367,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. On the dashboard, locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository:
 
-   :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" lightbox="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running GitHub codespaces, including their status and templates.":::
+   :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" lightbox="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running GitHub Codespaces, including their status and templates.":::
 
 1. Open the context menu for the codespace and select **Delete**:
 
