@@ -179,7 +179,7 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 1. From the answer, select **Show thought process**.
 
-    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="../media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer-citation.png" lightbox="../media/get-started-app-chat-template/browser-chat-initial-answer-citation.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
@@ -195,7 +195,7 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
 
-:::image type="content" source="../media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
+:::image type="content" source="../media/get-started-app-chat-template/browser-chat-developer-settings.png" alt-text="Screenshot of chat developer settings.":::
 
 |Setting|Description|
 |---|---|
