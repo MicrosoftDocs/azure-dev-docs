@@ -61,5 +61,5 @@ By leveraging remote builds, the `hello-azd` template ensures a consistent and s
 ## Next steps
 
 - [Use third-party container registries](/azure/developer/azure-developer-cli/use-external-registry)
-- [Remote environment suppport](/azure/developer/azure-developer-cli/remote-environments-support)
+- [Remote environment support](/azure/developer/azure-developer-cli/remote-environments-support)
 - [Azure deployment stacks integration](/azure/developer/azure-developer-cli/azure-deployment-stacks-integration)
