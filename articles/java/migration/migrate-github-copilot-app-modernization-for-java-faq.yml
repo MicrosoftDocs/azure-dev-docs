@@ -82,3 +82,7 @@ sections:
          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
          For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com).
+         
+      - question: How do I configure GitHub Copilot to avoid code generation being blocked due to matches with public code?
+        answer: |
+          To avoid GitHub Copilot blocking certain code generations, especially for files that commonly resemble public code, like pom.xml, please follow the steps in this documentation to **allow** suggestions matching public code: [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code)。
