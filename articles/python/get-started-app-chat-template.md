@@ -11,9 +11,11 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started: Chat using your own data (Python sample)
 
-This article shows how to deploy and run the **Chat with your own data sample** [by using example code for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app that runs on Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search. The app gets answers about employee benefits at a fictitious company by using supplied with PDF files, including the employee handbook, a benefits document, and a list of company roles and expectations. The article describes how to change the app settings to modify the app response behavior.
+This article shows how to deploy and run the **Chat with your own data sample** [by using example code for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample chat application is built with Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) through Azure AI Search.
 
-After you complete the procedures in this article, you can start modifying the new project with your custom code. This article is part of a collection of articles that show you how to build a chat app by using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
+The app answers questions about employee benefits at a fictional company by referencing supplied PDF files, such as an employee handbook, a benefits overview, and a list of company roles and expectations. You’ll also learn how to configure the app’s settings to modify its response behavior.
+
+After completing the steps in this article, you can begin customizing the project with your own code. This article is part of a series that guides you through building a chat app with Azure OpenAI Service and Azure AI Search. Other articles in the series include:
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/ai/get-started-app-chat-template.md)
@@ -21,7 +23,7 @@ After you complete the procedures in this article, you can start modifying the n
 * [JavaScript frontend with Python backend](../javascript/ai/chat-app-with-separate-front-back-end.md)
 
 > [!NOTE]
-> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and development guidance. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+> This article is based on one or more [AI app templates](../ai/intelligent-app-templates.md), which serve as well-maintained reference implementations. These templates are designed to be easy to deploy and provide a reliable, high-quality starting point for building your own AI applications.
 
 ## Sample app architecture
 
@@ -31,12 +33,22 @@ The following diagram shows a simple architecture of the chat app.
 
 Key components of the architecture include:
 
-* A web application to host the interactive chat experience.
-* An Azure AI Search resource to get answers from your own data.
-* An Azure OpenAI Service instance to provide: 
-   * Keywords to enhance the search over your own data.
-   * Answers from the OpenAI model.
-   * Embeddings from the ada (adaptive) model.
+* A web application that hosts the interactive chat interface (usually built with Python Flask or JavaScript/React) and sends user questions to the backend for processing.
+* An Azure AI Search resource that performs intelligent search over indexed documents (PDFs, Word files, etc.) and returns relevant document excerpts (chunks) for use in responses.
+* An Azure OpenAI Service instance that:
+  * Converts documents and user questions into vector representations for semantic similarity search.
+  * Extracts important keywords to refine Azure AI Search queries.
+  * Synthesizes final responses using the retrieved data and user query.
+
+The typical flow of the chat app is as follows:
+
+* User submits a question via the web app.
+* Backend uses Azure OpenAI to:
+  * Generate an embedding of the question.
+  * Optionally extract keywords.
+* The embedding or keywords are used to query Azure AI Search, retrieving the most relevant documents.
+* Retrieved documents + user question are sent to the OpenAI model, which generates a contextual answer.
+* The answer is returned to the user in the web app.
 
 ## Prerequisites
 
@@ -48,41 +60,41 @@ To use this article, you need the following prerequisites:
 
 * An Azure subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=ai-services&azure-portal=true) before you begin.
 
-* Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 
-* Access granted to Azure OpenAI in the desired Azure subscription.
+* Access granted to Azure OpenAI in your Azure subscription. In most cases, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required for general access. For more information, see [Limited Access features for Azure AI services](/azure/ai-services/cognitive-services-limited-access).
 
-   * In most scenarios, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required. For more information, see [Limited Access features for Azure AI services](/azure/ai-services/cognitive-services-limited-access).
-   
-   * To modify content filters or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
+* Content filter or abuse modifications (optional). To create custom content filters, change severity levels, or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
 
-   * For access to troubleshooting, open a support issue on this repo.
+* Support and troubleshooting access. For access to troubleshooting, open a support issue on the GitHub repository.
 
-* A GitHub account.
+* A GitHub account. Required to fork the repository and use GitHub Codespaces or clone it locally.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 * An Azure subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=ai-services&azure-portal=true) before you begin.
 
-* Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 
-* Access granted to Azure OpenAI in the desired Azure subscription.
+* Access granted to Azure OpenAI in your Azure subscription. In most cases, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required for general access. For more information, see [Limited Access features for Azure AI services](/azure/ai-services/cognitive-services-limited-access).
 
-   * In most scenarios, you can create custom content filters and manage severity levels with general access to Azure OpenAI models. Registration for approval-based access isn't required. For more information, see [Limited Access features for Azure AI services](/azure/ai-services/cognitive-services-limited-access).
-   
-   * To modify content filters or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
+* Content filter or abuse modifications (optional). To create custom content filters, change severity levels, or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
 
 * The [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli). For installation instructions, see [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/). Before you begin, be sure to start Docker Desktop.
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker Desktop is installed and running before beginning.
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+* [Visual Studio Code](https://code.visualstudio.com/). Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) to enable containerized development.
 
 ---
 
 ### Usage cost for sample resources
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you pay only for what you use. To complete this article, there's a slight charge for resource usage. After you complete the sample, you can delete the resources to prevent further charges. For more information about, see [Cost estimation](https://github.com/Azure-Samples/azure-search-openai-demo#cost-estimation) in the GitHub repository for the sample.
+Most resources used in this architecture fall under basic or consumption-based pricing tiers. This means you only pay for what you use, and charges are typically minimal during development or testing.
+
+To complete this sample, there may be a small cost incurred from using services like Azure OpenAI, AI Search, and storage. Once you're done evaluating or deploying the app, you can delete all provisioned resources to avoid ongoing charges.
+
+For a detailed breakdown of expected costs, see the [Cost estimation](https://github.com/Azure-Samples/azure-search-openai-demo#cost-estimation) in the GitHub repository for the sample.
 
 ## Open development environment
 
@@ -91,15 +103,15 @@ Begin by setting up a development environment that has all the dependencies inst
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
-* Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* A GitHub account.
+* Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
+* A GitHub account. Required to fork the repository and use GitHub Codespaces or clone it locally.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
-* Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 * [Azure Developer CLI](/azure/developer/azure-developer-cli).
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/). Start Docker Desktop if it's not already running.
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/). * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker Desktop is installed and running before beginning.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
@@ -111,14 +123,20 @@ Use the following instructions to deploy a preconfigured development environment
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface (UI). For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
+For the simplest and most streamlined setup, use [GitHub Codespaces](https://docs.github.com/codespaces). GitHub Codespaces runs a development container managed by GitHub and provides [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface (UI). This environment includes all required tools, SDKs, extensions, and dependencies preinstalled—so you can start developing immediately without manual configuration.
+
+Using Codespaces ensures:
+
+* Correct developer tools and versions are already installed.
+* No need to install Docker, VS Code, or extensions locally.
+* Fast onboarding and reproducible environment setup.
 
 > [!IMPORTANT]
-> All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces - Monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with 2 core instances. If you exceed the free quota or use larger compute options, standard GitHub Codespaces billing rates apply. For more information, see [GitHub Codespaces - Monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. To start the process, you create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. To begin working with the sample project, create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-   Right-click the following **GitHub Codespaces - Open** option and select **Open link in new window**. This option lets you create a development environment for the sample that includes the associated documentation. 
+   Right-click the **GitHub Codespaces - Open** option at the top of the repository page and select **Open link in new window**. This ensures that the development container is launched in a full-screen, dedicated browser tab, giving you access to both the source code and the built-in documentation.
 
    [![Image of the 'Open in GitHub Codespaces' option.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
@@ -137,9 +155,9 @@ Use the following instructions to deploy a preconfigured development environment
    GitHub displays a security code in the Terminal pane.
 
    1. Copy the security code in the Terminal pane and select **Enter**. A browser window opens.
-   
+
    1. At the prompt, paste the security code into the browser field.
-   
+
    1. Follow the instructions to authenticate with your Azure account.
 
 You complete the remaining GitHub Codespaces tasks in this article in the context of this development container.
@@ -169,13 +187,13 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
    azd init -t azure-search-openai-demo
    ```
 
-1. At the prompt, enter an environment name. The name is added as a suffix to the directory name **my-intelligent-app**. Use a short name with all lowercase letters and dashes (`-`), such as **myenv**. Don't use uppercase letters, numbers, or special characters. The environment name is used as part of the resource group name. 
+1. At the prompt, enter an environment name. The name is added as a suffix to the directory name **my-intelligent-app**. Use a short name with all lowercase letters and dashes (`-`), such as **myenv**. Don't use uppercase letters, numbers, or special characters. The environment name is used as part of the resource group name.
 
    Visual Studio Code opens the contents of the _my-intelligent-app_ project directory in the file **Explorer** view:
 
    :::image type="content" source="media/get-started-app-chat-template/initial-application.png" alt-text="Screenshot of the  my-intelligent-app project directory open in the Explorer view in Visual Studio Code.":::
 
-1. On the **Activity Bar**, select **Remote Explorer** for Dev Containers, and then select the **reopen the current folder in a container** link: 
+1. On the **Activity Bar**, select **Remote Explorer** for Dev Containers, and then select the **reopen the current folder in a container** link:
 
    :::image type="content" source="media/get-started-app-chat-template/reopen-container-link.png" alt-text="Screenshot that shows how to select the 'reopen the current folder in a container' link in the Dev Containers Remote Explorer view.":::
 
@@ -199,10 +217,10 @@ You complete the remaining exercises in this project in the context of this deve
 
 ## Deploy chat app to Azure
 
-The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+he sample repository contains all the code and configuration files required to deploy a Chat with your own data application to Azure. Follow the steps below to deploy the app using the Azure Developer CLI (azd).
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
+> Azure resources created in this section—especially Azure AI Search—can begin accruing charges immediately upon provisioning, even if the deployment is interrupted before completion. To avoid unexpected charges, monitor your Azure usage and delete unused resources promptly after testing.
 
 1. In the Visual Studio Code Terminal pane, create the Azure resources and deploy the source code by running the following `azd` command:
 
@@ -212,15 +230,15 @@ The sample repository contains all the code and configuration files you need to 
 
 1. The process prompts you for one or more of the following settings based on your configuration:
 
-   - **Environment name**: This value is used as part of the resource group name. Enter a short name with lowercase letters and dashes (`-`), such as **myenv**. Uppercase letters, numbers, and special characters aren't supported.
+   * **Environment name**: This value is used as part of the resource group name. Enter a short name with lowercase letters and dashes (`-`), such as **myenv**. Uppercase letters, numbers, and special characters aren't supported.
 
-   - **Subscription**: Select a subscription to create the resources. If you don't see your desired subscription, use the arrow keys to scroll the full list of available subscriptions.
+   * **Subscription**: Select a subscription to create the resources. If you don't see your desired subscription, use the arrow keys to scroll the full list of available subscriptions.
 
-   - **Location**: This region location is used for most resources, including hosting. Select a region location near you geographically. 
+   * **Location**: This region location is used for most resources, including hosting. Select a region location near you geographically.
 
-   - **Location for OpenAI model or Document Intelligence resource**: Select the location nearest you geographically. If the region you selected for your **Location** is available for this setting, select the same region.
+   * **Location for OpenAI model or Document Intelligence resource**: Select the location nearest you geographically. If the region you selected for your **Location** is available for this setting, select the same region.
 
-   It take can take some time for the app to deploy. Wait for the deployment to complete before continuing. 
+   It take can take some time for the app to deploy. Wait for the deployment to complete before continuing.
 
 1. After the app successfully deploys, the Terminal pane displays an endpoint URL:
 
@@ -232,7 +250,7 @@ The sample repository contains all the code and configuration files you need to 
 
 ## Use chat app to get answers from PDF files
 
-The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app. Your answers might vary as the underlying models are updated. 
+The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app. Your answers might vary as the underlying models are updated.
 
 1. In the chat app, select the **What happens in a performance review?** option, or enter the same text in the chat text box. The app returns the initial response:
 
@@ -316,10 +334,10 @@ Delete the Azure resources and remove the source code by running the following `
 azd down --purge --force
 ```
 
-The command switches include: 
+The command switches include:
 
 * `purge`: Deleted resources are immediately purged. This option allows you to reuse the Azure OpenAI tokens per minute (TPM) metric.
-* `force`: The deletion happens silently, without requiring user consent. 
+* `force`: The deletion happens silently, without requiring user consent.
 
 ### Clean up codespaces
 

@@ -4,7 +4,7 @@ description: Review an organized list of resources about Azure AI services scena
 keywords: ai, azure openai service
 ms.subservice: intelligent-apps
 ms.topic: overview
-ms.date: 06/20/2025
+ms.date: 06/19/2025
 ms.custom: overview, devx-track-python, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
 
@@ -13,6 +13,6 @@ ms.collection: ce-skilling-ai-copilot
 
 # Develop AI apps with Python
 
-This article provides an organized list of the best learning resources for Python developers who are getting started building AI apps. You can find links to popular quickstart articles, reference samples, documentation, training courses, and more.
+This article offers a curated list of top learning resources for Python developers who are new to building AI applications. It includes links to quickstart guides, sample projects, official documentation, training courses, and other helpful materials.
 
 [!INCLUDE [azure-ai-for-developers-python](../ai/includes/azure-ai-for-developers-python.md)]
