@@ -46,19 +46,28 @@ Use the following steps to create a custom formula:
 
 1. In Visual Studio Code, open the **rabbitmq-sender** project folder in the samples repository. Then, check out the project to the **expected** branch.
 
-1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane and then, in the **Formulas** section, select **Create formula from source control**.
+1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane and then, in the **Formulas - Custom** section, click **Create Custom Formula**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" alt-text="Screenshot of Visual Studio Code that shows the button for Create formula from source control.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-formula-from-source-control.png" alt-text="Screenshot of Visual Studio Code that shows the button for Create Custom Formula.":::
 
-1. Type **update expected changes for rabbitmq** to search for the commit that migrates RabbitMQ. Select the corresponding commit and then select **OK**.
+1. Select **Create new formula** from the pop-up dialog box.
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/select-create-custom-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/select-create-custom-formula.png" alt-text="Screenshot of Visual Studio Code that shows the Create new formula option.":::
+
+1. Type **migrate rabbitmq to expected** to search for the commit that migrates RabbitMQ. Select the corresponding commit and then select **OK**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-formula.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select commits you want to save.":::
 
-1. Select **Create New** to create a new custom formula.
+1. Select any uncommitted changes from **Working tree** if exists, select **OK**.
 
-1. A default formula name is generated. Name it **custom formula migrate rabbitmq**, then press <kbd>Enter</kbd> to confirm. A formula description and search patterns are generated in order. Press <kbd>Enter</kbd> repeatedly to confirm.
+1. If you want to import the commits from file, choose **Select Files** in the next pop-up dialog box. This option allows you to select files that contain the commit history you want to use for the custom formula. Then select **OK** on the right corner of the dialog box.
+   > The file you selected will be processed locally.
 
-1. Now, the custom formula for migrating `rabbitmq` is generated and shows in the **Formulas** section of the **App Modernization for Java** pane.
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/import-diff-from-file.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/import-diff-from-file.png" alt-text="Screenshot of Visual Studio Code that shows the Import commits from file dialog box.":::
+
+1. A default formula name is generated. Name it **custom formula migrate rabbitmq**, then press <kbd>Enter</kbd> to confirm. A formula description is generated. Press <kbd>Enter</kbd> to confirm.
+
+1. Now, the custom formula for migrating `rabbitmq` is generated and shows in the **Formulas - Custom** section of the **App Modernization for Java** pane.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-formula-rabbitmq.png" alt-text="Screenshot of Visual Studio Code that shows the Formulas section with the rabbitmq formula showing.":::
 
