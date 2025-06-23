@@ -1,7 +1,7 @@
 ---
 title: "Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK"
 description: "Learn how to use reasoning models like DeepSeek in Azure OpenAI with the OpenAI SDK for Python."
-ms.date: 06/05/2025
+ms.date: 06/23/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -36,7 +36,7 @@ The chat app runs as an Azure Container App. The app uses managed identity with 
 
 The app relies on these services and components:
 
-- A Python [Quart](https://quart.palletsprojects.com/en/latest/) app that uses the [openai client library](https://pypi.org/project/openai/) package to generate responses to user messages
+- A Python [Quart](https://quart.palletsprojects.com/en/latest/) app that uses the [OpenAI client library](https://pypi.org/project/openai/) package to generate responses to user messages
 - A basic HTML/JS frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream)
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure AI Services, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 
@@ -239,15 +239,14 @@ In the following code snippet, the token provider creates a bearer token to auth
 
 #### Azure OpenAI client configuration
 
-The following code snippet uses the `AsyncAzureOpenAI` client for better performance:
+There are two possible clients, `AzureOpenAI` and `AsyncAzureOpenAI`. The following code snippet uses `AsyncAzureOpenAI` along with the asynchronous `Quart` framework for better performance with concurrent users:
 
 ```python
-    bp.openai_client = AsyncAzureOpenAI(
-        azure_endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
-        azure_ad_token_provider=openai_token_provider,
-        api_version="2025-04-01-preview",  # temporary
-    )
-
+bp.openai_client = AsyncAzureOpenAI(
+    azure_endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
+    azure_ad_token_provider=openai_token_provider,
+    api_version="2025-04-01-preview",  # temporary
+)
 ```
 
 - **base_url**: Points to the Azure-hosted DeepSeek inference endpoint
@@ -333,7 +332,14 @@ The `chat_handler()` function manages user interactions with the `DeepSeek-R1` m
 
 ### Reasoning content handling
 
-The backend script in `chat.py` separates reasoning content from response content, while the `submit` event handler in `index.html` processes the streaming response on the frontend. This approach lets you access and display the model's reasoning steps alongside the final output.
+While traditional language models only provide final outputs, reasoning models like `DeepSeek-R1` show their intermediate reasoning steps. These steps make them useful for:
+
+- Solving complex problems
+- Performing mathematical calculations
+- Handling multi-step logical reasoning
+- Making transparent decisions
+
+The `submit` event handler in `index.html` processes the streaming response on the frontend. This approach lets you access and display the model's reasoning steps alongside the final output.
 
 The frontend uses a `ReadableStream` to process streaming responses from the backend. It separates reasoning content from regular content, showing reasoning in an expandable section, and the final answer in the main chat area.
 
@@ -361,6 +367,7 @@ The frontend uses a `ReadableStream` to process streaming responses from the bac
    ```
 
 1. Process each update
+
    The following code snippet asynchronously iterates through chunks of the model's response.
 
    ```javascript
@@ -393,15 +400,9 @@ The frontend uses a `ReadableStream` to process streaming responses from the bac
    - If the content type is `reasoning_content`, the content is added to `thoughts` and displayed in the `.thoughts-content` section.
    - If the content type is `content`, the content is added to `answer` and displayed in the `.answer-content` section.
    - The `.loading-bar` is hidden once content starts streaming, and the `.thoughts` section is displayed if there are any thoughts.
-
-    Unlike traditional language models that only provide final outputs, reasoning models like `DeepSeek-R1` show their intermediate reasoning steps. These steps make them useful for:
-
-    - Solving complex problems
-    - Performing mathematical calculations
-    - Handling multi-step logical reasoning
-    - Making transparent decisions
   
 1. Error handling:
+
    Errors are logged in the backend and returned to the client in JSON format.
 
     ```python
@@ -442,6 +443,7 @@ Open the **Command Palette**, search for **Dev Containers**, and select **Dev Co
 
 > [!TIP]
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. Free up space on your local machine by deleting the container instance, image, and volumes from Docker.
+
 ---
 
 ## Get help
