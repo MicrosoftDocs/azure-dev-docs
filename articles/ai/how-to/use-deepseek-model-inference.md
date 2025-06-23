@@ -1,6 +1,6 @@
 ---
-title: "Develop reasoning apps using DeepSeek models on Azure AI Foundry with OpenAI SDK"
-description: "Learn how to use inferencing with models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python."
+title: "Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK"
+description: "Learn how to use reasoning models like DeepSeek in Azure OpenAI with the OpenAI SDK for Python."
 ms.date: 06/05/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
@@ -9,78 +9,70 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As an AI app developer, I want to learn how to use inferencing with models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
+# CustomerIntent: As an AI app developer, I want to learn how to use reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
 ---
-# Develop reasoning apps using DeepSeek models on Azure AI Foundry with OpenAI SDK
+# Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK
 
-This article shows you how to use inferencing with reasoning models like DeepSeek in Azure OpenAI using the OpenAI SDK for Python.
+Learn how to use reasoning models like DeepSeek in Azure OpenAI with the OpenAI SDK for Python.
 
-This article demonstrates several best practices for integrating reasoning models:
+This article shows several best practices for integrating reasoning models:
 
-- **Keyless authentication**: Using managed identities or developer credentials instead of API keys
-- **Asynchronous operations**: Using async capabilities for better performance
-- **Streaming responses**: Providing immediate feedback to users
-- **Reasoning separation**: Distinguishing between reasoning steps and final output
-- **Proper resource management**: Cleaning up resources after use
+- **Keyless authentication**: Use managed identities or developer credentials instead of API keys.
+- **Asynchronous operations**: Use async features for better performance.
+- **Streaming responses**: Provide immediate feedback to users.
+- **Reasoning separation**: Separate reasoning steps from the final output.
+- **Resource management**: Clean up resources after use.
 
-## The DeepSeek Building Block
+## The DeepSeek building block
 
-Explore the [DeepSeek Building Block](https://github.com/Azure-Samples/deepseek-python) sample, an example of using the OpenAI client library to call the DeepSeek-R1 model to generate responses to user messages.
+Explore the [DeepSeek building block](https://github.com/Azure-Samples/deepseek-python) sample. It shows how to use the OpenAI client library to call the DeepSeek-R1 model and generate responses to user messages.
 
 ## Architectural overview
 
-A simple architecture of the sample app is shown in the following diagram:
+The following diagram shows the simple architecture of the sample app:
 :::image type="content" source="../media/use-deepseek-model-inference/simple-architecture-diagram.png" lightbox="../media/use-deepseek-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
+The chat app runs as an Azure Container App. The app uses managed identity with Microsoft Entra ID to authenticate with Azure OpenAI instead of an API key. The app uses Azure OpenAI to generate responses to user messages.
 
-The application architecture relies on the following services and components:
+The app relies on these services and components:
 
-- A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [openai client library](https://pypi.org/project/openai/) package to generate responses to user messages.
-- A basic HTML/JS frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
+- A Python [Quart](https://quart.palletsprojects.com/en/latest/) app that uses the [openai client library](https://pypi.org/project/openai/) package to generate responses to user messages
+- A basic HTML/JS frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream)
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure AI Services, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 
 ## Cost
 
-To keep costs low, this sample uses basic or consumption pricing tiers for most resources. Adjust the tier based on your needs. Delete the resources when you're done to avoid charges.
+To keep costs low, this sample uses basic or consumption pricing tiers for most resources. Adjust the tier as needed, and delete resources when you're done to avoid charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/deepseek-python#costs).
 
 ## Prerequisites
 
-A [development container](https://containers.dev/) includes all the dependencies needed for this article. You can run it in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+A [development container](https://containers.dev/) includes all the dependencies you need for this article. You can run it in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
-To follow this article, make sure you meet the prerequisites:
+To follow this article, make sure you meet these prerequisites:
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-
-- Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and deploy to that group.
-
-  - Your Azure account also needs `Microsoft.Resources/deployments/write` permissions on the subscription level.
-
+- An Azure subscription – [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+- Azure account permissions – Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and deploy to that group.
+  - Your Azure account also needs `Microsoft.Resources/deployments/write` permissions at the subscription level.
 - GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-
-- Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
+- An Azure subscription – [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+- Azure account permissions – Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
-
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) – make sure Docker Desktop is running
 - [Visual Studio Code](https://code.visualstudio.com/)
-
 - [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
 ## Open development environment
 
-Use these instructions to set up a preconfigured development environment with all the required dependencies for this article.
+Follow these steps to set up a preconfigured development environment with all the required dependencies.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -91,13 +83,13 @@ Use these instructions to set up a preconfigured development environment with al
 
 Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/deepseek-python`](https://github.com/Azure-Samples/deepseek-python) GitHub repository.
 
-1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
+1. Right-click the following button and select _Open link in new window_. This action lets you have the development environment and the documentation open side by side.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/deepseek-python)
 
 1. On the **Create codespace** page, review and then select **Create new codespace**
 
-1. Wait for the codespace to start. This startup process can take a few minutes.
+1. Wait for the codespace to start. It might take a few minutes.
 
 1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
@@ -107,7 +99,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
-The remaining tasks in this article take place in the context of this development container.
+You do the rest of the tasks in this development container.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -135,7 +127,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
     ```azdeveloper
-     azd init -t deepseek-python
+    azd init -t deepseek-python
     ```
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
@@ -146,13 +138,13 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd auth login
     ```
 
-1. The remaining exercises in this project take place in the context of this development container.
+1. You do the rest of the exercises in this development container.
 
 ---
 
 ## Deploy and run
 
-The sample repository has all the code and configuration files needed to deploy the chat app to Azure. Follow these steps to deploy the chat app to Azure.
+The sample repository has all the code and configuration files you need to deploy the chat app to Azure. Follow these steps to deploy the chat app to Azure.
 
 ### Deploy chat app to Azure
 
@@ -174,23 +166,23 @@ The sample repository has all the code and configuration files needed to deploy 
     |Location (for hosting)|Select a location near you from the list.|
     |Location for the DeepSeek model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
-1. Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
+1. Wait for the app to deploy. Deployment usually takes 5 to 10 minutes.
 
-### Use chat app to ask questions to the Large Language Model
+### Use chat app to ask questions to the large language model
 
-1. The terminal displays a URL after successful application deployment.
+1. After deployment, the terminal shows a URL.
 
-1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
+1. Select the URL labeled `Deploying service web` to open the chat app in your browser.
 
     :::image type="content" source="../media/use-deepseek-model-inference/screenshot-chat-image.png" lightbox="../media/use-deepseek-model-inference/screenshot-chat-image.png" alt-text="Screenshot of chat app in browser with a question in the chat text box along with the response.":::
 
-1. In the browser, ask a question about the uploaded image such as "Who painted the Mona Lisa?".
+1. In the browser, ask a question about the uploaded image such as "Who painted the Mona Lisa?"
 
-1. The answer comes from Azure OpenAI via model inference and the result is displayed.
+1. Azure OpenAI provides the answer through model inference, and the result appears in the app.
 
 ## Exploring the sample code
 
- While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. This sample uses a DeepSeek-R1 reasoning model to generate responses to user messages in a simple chat app.
+OpenAI and Azure OpenAI Service both use the [common Python client library](https://github.com/openai/openai-python), but you need to make a few small code changes for Azure OpenAI endpoints. This sample uses a DeepSeek-R1 reasoning model to generate responses in a simple chat app.
 
 ### Setup and authentication
 
@@ -198,13 +190,13 @@ The `src\quartapp\chat.py` file starts with setup and configuring keyless authen
 
 #### Infrastructure setup
 
-The script uses **Quart**, an asynchronous web framework, to create a `Blueprint` named `chat`. This `Blueprint` defines the app's routes and manages its lifecycle hooks.
+The script uses **Quart**, an async web framework, to create a `Blueprint` named `chat`. This `Blueprint` defines the app's routes and manages its lifecycle hooks.
 
 ```python
 bp = Blueprint("chat", __name__, template_folder="templates", static_folder="static")
 ```
 
-The `Blueprint` defines the routes (`/` and `/chat/stream`) and lifecycle hooks (`@bp.before_app_serving` and `@bp.after_app_serving`) for the app.
+The `Blueprint` defines the `/` and `/chat/stream` routes and the `@bp.before_app_serving` and `@bp.after_app_serving` lifecycle hooks.
 
 #### Initialization with keyless authentication
 
@@ -216,7 +208,7 @@ The following code snippet handles authentication.
 The authentication strategy adapts to the environment:
 
 - **In production**: Uses **Managed Identity Credential** with an Azure client ID to avoid storing sensitive keys. This method is secure and scalable for cloud-native apps.
-- **In development**: Uses **Azure Developer CLI Credential** with an Azure tenant ID to simplify local testing by using the developer's Azure CLI sign in session.
+- **In development**: Uses **Azure Developer CLI Credential** with an Azure tenant ID to simplify local testing by using the developer's Azure CLI sign-in session.
 
 ```python
 @bp.before_app_serving
@@ -289,7 +281,7 @@ async def shutdown_openai():
 
 ### Chat handler streaming function
 
-The `chat_handler()` function manages user interactions with the `DeepSeek-R1` model through the `chat/stream` route. It streams responses back to the client in real-time and processes them. The function extracts messages from the JSON payload.
+The `chat_handler()` function manages user interactions with the `DeepSeek-R1` model through the `chat/stream` route. It streams responses back to the client in real time and processes them. The function extracts messages from the JSON payload.
 
 #### Streaming implementation
 
@@ -312,7 +304,6 @@ The `chat_handler()` function manages user interactions with the `DeepSeek-R1` m
               {"role": "system", "content": "You are a helpful assistant."},
           ] + request_messages
       ```
-
 
 1. Next, the function creates a streaming chat completion request.
 
@@ -342,11 +333,11 @@ The `chat_handler()` function manages user interactions with the `DeepSeek-R1` m
 
 ### Reasoning content handling
 
-The backend script in `chat.py` separates reasoning content from response content, while the `submit` event handler in `index.html` processes the streaming response on the frontend. This approach allows developers to access and display the model's reasoning steps alongside the final output.
+The backend script in `chat.py` separates reasoning content from response content, while the `submit` event handler in `index.html` processes the streaming response on the frontend. This approach lets you access and display the model's reasoning steps alongside the final output.
 
-The frontend code uses a `ReadableStream` to process streaming responses from the backend. It separates reasoning content from regular content, displaying reasoning in an expandable section and the final answer in the main chat area.
+The frontend uses a `ReadableStream` to process streaming responses from the backend. It separates reasoning content from regular content, showing reasoning in an expandable section, and the final answer in the main chat area.
 
-#### Step-by-Step Breakdown
+#### Step-by-step breakdown
 
 1. Initiate streaming request
 
@@ -432,7 +423,7 @@ The frontend code uses a `ReadableStream` to process streaming responses from th
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
-Deleting the GitHub Codespaces environment helps you maximize the free per-core hours available for your account.
+Delete the GitHub Codespaces environment to maximize your free per-core hours.
 
 > [!IMPORTANT]
 > For more information about your GitHub account's free storage and core hours, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
@@ -445,14 +436,13 @@ Deleting the GitHub Codespaces environment helps you maximize the free per-core 
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-Stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+Stop the running development container and return to Visual Studio Code in your local workspace.
 
-Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+Open the **Command Palette**, search for **Dev Containers**, and select **Dev Containers: Reopen Folder Locally**.
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You can delete the container instance, image, and volumes from Docker to free up space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. Free up space on your local machine by deleting the container instance, image, and volumes from Docker.
 ---
-
 
 ## Get help
 
