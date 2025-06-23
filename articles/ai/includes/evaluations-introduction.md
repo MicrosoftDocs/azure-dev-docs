@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 07/23/2024
+ms.date: 06/23/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -26,7 +26,7 @@ Key components of the architecture include:
 - **Azure-hosted chat app**: The chat app runs in Azure App Service.
 - **Microsoft AI Chat Protocol**: The protocol provides standardized API contracts across AI solutions and languages. The chat app conforms to the [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/), which allows the evaluations app to run against any chat app that conforms to the protocol.
 - **Azure AI Search**: The chat app uses Azure AI Search to store the data from your own documents.
-- **Sample questions generator**: The tool can generate many questions for each document along with the ground truth answer. The more questions there are, the longer the evaluation.
+- **Sample questions generator**: The tool can generate many questions for each document along with the ground truth answer. The more questions there are, the longer the evaluations.
 - **Evaluator**: The tool runs sample questions and prompts against the chat app and returns the results.
 - **Review tool**: The tool reviews the results of the evaluations.
 - **Diff tool**: The tool compares the answers between evaluations.
