@@ -35,38 +35,66 @@ The specific application you create is a trivial contact management application 
 
 - Azure Developer CLI (`azd`). For instructions on how to install `azd`, see [Install or update the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows).
 
+
+## Prepare the chat session 
+
+1. In Visual Studio Code, use the Toggle Chat button in the title bar to open the Chat Window. Use the New Chat icon to create a new chat session.
+
+1. In the chat area, select `Agent` mode. At the time of this writing,  `Claude Sonnet 4` yields the best results. Use the best model available for code generation.
+
+
+## Validate your configuration
+
+Make sure your CLI tools and Visual Studio Code are updated, properly configured and operating correctly to improve your results.
+
+1. In a new chat, enter the following prompt:
+
+```
+
+I want to create a new Django website that stores data in PostgreSQL. Then, I'll want
+to deploy that new website to Azure. Do I have everything installed on my local 
+computer that you will need to perform these tasks?
+
+```
+
+GitHub Copilot will ask permission to run a series of command line checks to ensure you have the tools, as well as the most up to date versions of those tools, installed.
+
+
+1. In your terminal, update the Azure CLI with the command `az --upgrade`.
+
+1. In your terminal, install the service connector passwordless extension for Azure CLI with the command: `az extension add --name serviceconnector-passwordless --upgrade`
+
+1. In Visual Studio Code, set the default terminal to Git Bash. 
+
+> [!Note] 
+> Using Git Bash isn't strictly necessary, but at the time of this writing it yields the best results.
+
+1. In Visual Studio Code, use the PostgreSQL extension and navigate to the `contacts` database.
+
+1. In Visual Studio Code, use the Azure extension and ensure you're logged into your Azure account and subscription.
+
+1. Create a new folder for your new application files and open it in Visual Studio Code as your workspace.
+
+
 ## Set up the local database
 
-While GitHub Copilot is capable of performing virtually any application development task that developers typically perform, you will get the best results if you plan ahead and do some prep work. To improve results, create the database and set up authentication and authorization before working with GitHub Copilot.
+While GitHub Copilot is capable of performing virtually any application development task that developers typically perform, you will get the best results if you take some tasks in smaller steps. To improve results, create the database and set up authentication and authorization before working with GitHub Copilot.
 
-1. Use pgAdmin or `psql` to create a new database named `contacts`, create (or select) a database user and give that user the proper permissions to create tables and operate on data. Here's a sample SQL script that could do this, or you can use pgAdmin's visual tools.
+1. Create a new chat, and use the following prompt:
 
-   ```sql
-   -- Step 1: Create the database
-   CREATE DATABASE contacts;
-   
-   -- Step 2: Create the user with password
-   CREATE USER <database-user> WITH PASSWORD '<password>';
-   
-   -- Step 3: Grant privileges on the database
-   GRANT ALL PRIVILEGES ON DATABASE contacts TO <database-user>;
    ```
 
-   Be sure to replace `<database-user>` and `<password>` with your desired values.
+   On my PostgreSQL server localhost, please create a new database named market.
 
-   If you're trying to limit the user's privileges, you could avoid `ALL PRIVILEGES` and instead use this line:
+   Then create a new user <db-username> with password `<password>` and give that 
+   user full rights (create tables and other db objects, CRUD data) to the new 
+   market database.
 
-   ```sql
-   GRANT CONNECT ON DATABASE contacts TO <database-user>;
+   Please do the work, and only prompt me when you are unable to do it yourself.
+
    ```
 
-   If you save the script as `init_contacts.sql`, you can run it from the command line using `psql`:
-
-   ```bash
-   psql -U <admin-user> -f init_contacts.sql
-   ```
-   
-   The command assumes you can log in using account with PostgreSQL superuser or a role with sufficient privileges (commonly `postgres`). You will be prompted for the password if authentication is required.
+  Replace `<db-username>` and `<password>` with your desired database username and password, respectively.
 
 1. On Windows machines, the recommended security best practice is to store the database username and password in a local file:
 
@@ -86,7 +114,7 @@ While GitHub Copilot is capable of performing virtually any application developm
 
    This assumes your working with an instance of PostgreSQL on your local computer, and that it's hosted at the default port (5432).
    
-   Replace `<database-name>` with `contacts` and replace `<database-user>` and `<password>` with the credentials you used in the previous step.
+   Replace `<database-name>` with `contacts` and replace `<db-username>` and `<password>` with the credentials you used in the previous step.
 
    For more information about the `pgpass.conf` file see [PostgreSQL's documentation](https://www.postgresql.org/docs/current/libpq-pgpass.html).
 
@@ -95,30 +123,13 @@ While GitHub Copilot is capable of performing virtually any application developm
 1. Test the connection to ensure that it works. Use the psql CLI to test it with the following command:
 
    ```bash
-   psql -h localhost -U <database-user> -d contacts
+   psql -h localhost -U <db-username> -d contacts
    ```
-   Replace `<database-user>` with the database-user segment in the `pgpass.conf` file.
+   Replace `<db-username>` with the database username segment in the `pgpass.conf` file.
 
    If the `pgpass.conf` is not set up correctly, you'll see a prompt for you to type in your password.
 
-## Validate your configuration
 
-Make sure your CLI tools and Visual Studio Code are updated, properly configured and operating correctly to improve your results.
-
-1. In your terminal, update the Azure CLI with the command `az --upgrade`.
-
-1. In your terminal, install the service connector passwordless extension for Azure CLI with the command: `az extension add --name serviceconnector-passwordless --upgrade`
-
-1. In Visual Studio Code, set the default terminal to Git Bash. 
-
-> [!Note] 
-> Using Git Bash isn't strictly necessary, but at the time of this writing it yields the best results.
-
-1. In Visual Studio Code, use the PostgreSQL extension and navigate to the `contacts` database.
-
-1. In Visual Studio Code, use the Azure extension and ensure you're logged into your Azure account and subscription.
-
-1. Create a new folder for your new application files and open it in Visual Studio Code as your workspace.
 
 ## Generate an app using GitHub Copilot
 
@@ -132,6 +143,7 @@ First you provide instructions and guidance on building and testing the applicat
 
    ```copilot-prompt
    I want you to create a simple Contact Manager application using Django and PostgreSQL. 
+   
    This should be a CRUD application, so create web pages that display a list of 
    contacts, view details, add a new contact, edit or delete a contact. Each Contact 
    is comprised of a contact's Name, Address, and Phone number. Since this is a 
