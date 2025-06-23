@@ -100,7 +100,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
 ## Tips
 
-- Use Claude 3.5 Sonnet or Claude 3.7 Sonnet for better results.
+- Use Claude Sonnet 4  for better results.
 - Make sure the following GitHub Copilot for Azure tools are selected in the GitHub Copilot tools list:
   - **@azure recommend service config**
   - **@azure check pre-deploy**
