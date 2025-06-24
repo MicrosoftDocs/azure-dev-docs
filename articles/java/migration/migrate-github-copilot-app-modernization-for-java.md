@@ -37,7 +37,7 @@ App Modernization for Java (preview) enables the following use cases:
 - Propose solutions and recommend target Azure services.
 - Remediate code and configurations before migrating to Azure.
 - Automatically fix code to resolve compile-time errors.
-- Resolve unit test failures with the dedicated Unit Test agent.
+- Resolve unit test failures with a dedicated test fix tool.
 
 Upgrading Java runtimes, frameworks, and dependencies is a common task that requires substantial time and resources. GitHub Copilot App Modernization - upgrade for Java (preview) is an AI-based solution designed to assist with updating your Java apps. For more information, see [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview).
 
@@ -68,9 +68,9 @@ App Modernization for Java (preview) also includes specialized agents to ensure 
 
 - A **Build Fix agent** designed to help with build-related errors. Because AI-based suggestions can sometimes miss a parameter or change a method incorrectly, the Build Fix agent intervenes to provide support and correction.
 
-- A **Unit Test agent** dedicated to fixing unit test failures that may occur after migration. This agent analyzes test failures, identifies root causes, and systematically applies fixes to ensure your tests pass successfully in the new environment, maintaining the integrity of your application's functionality.
+- A **Test Fix tool** dedicated to fixing unit test failures that may occur after migration. This tool analyzes test failures, identifies root causes, and systematically applies fixes to ensure your tests pass successfully in the new environment, maintaining the integrity of your application's functionality.
 
-These agents work together to provide end-to-end support throughout your migration journey, from code remediation to successful build and test completion.
+This agent and tool work together to provide end-to-end support throughout your migration journey, from code remediation to successful build and test completion.
 
 ## See also
 
