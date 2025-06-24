@@ -30,7 +30,7 @@ Explore the [DeepSeek building block](https://github.com/Azure-Samples/deepseek-
 ## Architectural overview
 
 The following diagram shows the simple architecture of the sample app:
-:::image type="content" source="../media/use-deepseek-model-inference/simple-architecture-diagram.png" lightbox="../media/use-deepseek-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/use-reasoning-model-inference/simple-architecture-diagram.png" lightbox="../media/use-reasoning-model-inference/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 The chat app runs as an Azure Container App. The app uses managed identity with Microsoft Entra ID to authenticate with Azure OpenAI instead of an API key. The app uses Azure OpenAI to generate responses to user messages.
 
@@ -174,7 +174,7 @@ The sample repository has all the code and configuration files you need to deplo
 
 1. Select the URL labeled `Deploying service web` to open the chat app in your browser.
 
-    :::image type="content" source="../media/use-deepseek-model-inference/screenshot-chat-image.png" lightbox="../media/use-deepseek-model-inference/screenshot-chat-image.png" alt-text="Screenshot of chat app in browser with a question in the chat text box along with the response.":::
+    :::image type="content" source="../media/use-reasoning-model-inference/screenshot-chat-image.png" lightbox="../media/use-reasoning-model-inference/screenshot-chat-image.png" alt-text="Screenshot of chat app in browser with a question in the chat text box along with the response.":::
 
 1. In the browser, ask a question about the uploaded image such as "Who painted the Mona Lisa?"
 
@@ -245,8 +245,7 @@ There are two possible clients, `AzureOpenAI` and `AsyncAzureOpenAI`. The follow
 bp.openai_client = AsyncAzureOpenAI(
     azure_endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     azure_ad_token_provider=openai_token_provider,
-    api_version="2025-04-01-preview",  # temporary
-)
+    api_version="2024-10-21",
 ```
 
 - **base_url**: Points to the Azure-hosted DeepSeek inference endpoint
@@ -258,7 +257,7 @@ bp.openai_client = AsyncAzureOpenAI(
 The following code snippet sets the DeepSeek model version by getting the deployment name from your environment configuration. It assigns the name to the `bp.openai_model` variable, making it accessible throughout the app. This approach lets you change the model deployment without updating the code.
 
 ```python
-bp.openai_model = os.getenv("AZURE_DEEPSEEK_DEPLOYMENT")
+bp.model_deployment_name = os.getenv("AZURE_DEEPSEEK_DEPLOYMENT")
 ```
 
 > [!NOTE]
