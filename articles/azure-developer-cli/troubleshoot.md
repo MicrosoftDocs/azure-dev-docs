@@ -282,12 +282,39 @@ DOCKER_BUILDKIT=1 DOCKER_BUILD_ARGS="--no-cache" azd up
 
 `azd pipeline config` is currently not supported in [DevContainers/VS Code Remote Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 
-## Incompatible project errors
+## Compose feature errors
 
-If you receive an error when you run the `azd add` command, evaluate the type of project you're working with. `azd add` does not work with .NET Aspire projects, or `azd` templates that already define their own `infra` folder. If you try to use `azd add` with either of these project types you'll encounter the following errors:
+The `azd` compose feature is only available for specific project types. If you try to use compose commands like `azd add` or `azd infra gen` in an unsupported context, you may encounter the following errors.
 
-- ERROR: incompatible project: found Aspire app host
-- ERROR: incompatible project: found infra directory and azure.yaml without resources
+### Incompatible project
+
+If you see an `ERROR: incompatible project` message when running the `azd add` command, check the type of project you're working with. The `azd add` command is not supported for .NET Aspire projects or for `azd` templates that already have an `infra` folder defined. Attempting to use `azd add` with these project types will result in errors such as:
+
+* ERROR: incompatible project: found Aspire app host
+* ERROR: incompatible project: found infra directory and azure.yaml without resources
+
+:::image type="content" source="media/troubleshoot/incompatible-project-aspire.png" alt-text="A screenshot showing the incompatible .NET Aspire project error.":::
+
+:::image type="content" source="media/troubleshoot/incompatible-project-infra.png" alt-text="A screenshot showing the incompatible project infrastructure error.":::
+
+### Project does not contain infrastructure to generate
+
+The error `ERROR: this project does not contain any infrastructure to generate` occurs when you run `azd infra gen` without any compose resources defined in your project. To resolve this, use `azd add` to add new resources before running `azd infra gen`. In .NET Aspire projects, this error can also appear if `azd` cannot detect an Aspire App Host in the current directory.
+
+:::image type="content" source="media/troubleshoot/no-infrastructure-generate.png" alt-text="A screenshot showing the infrastructure error.":::
+
+## Error resolving Azure resource
+
+The command `azd show <name>` might fail with the error: `ERROR: resolving '<name>': AZURE_RESOURCE_<NAME>_ID is not set as an output variable`. This could happen for a number of reasons:
+
+* The resource `<name>` does not exist in `azure.yaml` under the resources: node.
+* The resource `<name>` has not been provisioned yet.
+
+:::image type="content" source="media/troubleshoot/error-resolving-azure-resource.png" alt-text="A screenshot showing the azure resource error.":::
+
+### Solution
+
+Run `azd up` to provision the resources. You may need to run `azd infra gen` first to generate the updated Bicep including the resource `<name>`, then run `azd up`.
 
 ## Live metrics support for Python
 
