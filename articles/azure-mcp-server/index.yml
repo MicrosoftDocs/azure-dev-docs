@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure MCP Server documentation
+summary: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from enables AI agents and other types of clients.
+
+metadata:
+  title: Azure MCP Server documentation
+  description: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from enables AI agents and other types of clients.
+  ms.service: azure
+  ms.topic: landing-page
+  ms.date: 05/22/2025
+
+landingContent:
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Azure MCP Server (Preview)?
+            url: overview.md
+      - linkListType: get-started
+        links:
+          - text: GitHub Copilot in Visual Studio Code
+            url: get-started.md?pivots=mcp-github-copilot
+          - text: .NET
+            url: get-started.md?pivots=mcp-csharp
+          - text: Python
+            url: get-started.md?pivots=mcp-python
+  
+  - title: Azure MCP Server tools
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are the Azure MCP Server tools?
+            url: tools/index.md
+      - linkListType: reference
+        links:
+          - text: Azure AI Search
+            url: tools/ai-search.md
+          - text: Azure App Configuration
+            url: tools/app-configuration.md
+          - text: Azure CLI Extension
+            url: tools/azure-cli-extension.md
+          - text: Azure Data Explorer with Kusto
+            url: tools/kusto.md
+          - text: Azure DB for PostgreSQL
+            url: tools/postgresql.md
+          - text: Complete list of tools
+            url: tools/index.md#available-tools
+

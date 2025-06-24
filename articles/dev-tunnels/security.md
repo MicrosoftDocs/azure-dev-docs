@@ -4,7 +4,7 @@ titleSuffix: Microsoft dev tunnels
 description: Learn about security when using dev tunnels
 author: derekbekoe
 ms.author: debekoe
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-dev-tunnels
 ms.date: 03/27/2025
 ---

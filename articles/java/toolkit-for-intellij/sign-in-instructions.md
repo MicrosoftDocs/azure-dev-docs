@@ -4,7 +4,7 @@ description: Learn how to sign in to Microsoft Azure by using the Azure Toolkit 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.date: 03/04/2022
+ms.date: 06/15/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
@@ -18,7 +18,7 @@ Once [installed](https://www.jetbrains.com/help/idea/managing-plugins.html), the
 - [Sign in to your Azure account with Device Login](#sign-in-to-your-azure-account-with-device-login)
 - [Sign in to your Azure account with Service Principal](#sign-in-to-your-azure-account-with-service-principal)
 
-[**Sign out**](#sign-out-of-your-azure-account) methods are also provided.
+Additionally, methods for [signing out](#sign-out-of-your-azure-account) are provided.
 
 [!INCLUDE [basic-prerequisites](includes/basic-prerequisites.md)]
 

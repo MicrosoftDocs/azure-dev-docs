@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 08/28/2024
-ms.topic: article
+ms.topic: install-set-up-deploy
 ms.custom: mvc, devx-track-java, spring-cloud-azure, devx-track-extended-java, linux-related-content
 ---
 

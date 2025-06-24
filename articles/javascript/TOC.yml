@@ -2,7 +2,7 @@
   href: index.yml
   items:
   - name: Get started
-    href: core/what-is-azure-for-javascript-development.md
+    href: what-is-azure-for-javascript-development.md
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
@@ -128,8 +128,8 @@
       href: sdk/debug-client-libraries.md
     - name: Testing
       href: sdk/test-sdk-integration.md
-    - name: Observability
-      href: how-to/node-sdk-logging.md
+  - name: Observability
+    href: logging.md
   - name: Testing
     href: core/test-azure-sdk-integrated-code.md
   - name: Training and certification

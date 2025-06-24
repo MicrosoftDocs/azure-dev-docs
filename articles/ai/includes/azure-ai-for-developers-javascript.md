@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 05/16/2025
+ms.date: 05/22/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -84,6 +84,8 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
 |[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
 |[Build AI apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
+|[Secure Azure OpenAI authentication and authorization](/training/modules/secure-azure-openai-authentication-authorization/)|Learn why you should use managed identity for Azure OpenAI authentication and how you can configure role based access controls to minimize necessary permissions.|
+|[Introduction to Azure OpenAI managed identity authentication with JavaScript](/training/modules/intro-azure-openai-managed-identity-auth-javascript/)|This module helps you understand how to use a managed identity in JavaScript apps that interact with Azure OpenAI Service.|
 
 ## AI app templates
 

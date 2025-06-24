@@ -4,7 +4,7 @@ description: This article walks through a scenario that shows how to use GitHub 
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 12/19/2024
+ms.date: 5/30/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

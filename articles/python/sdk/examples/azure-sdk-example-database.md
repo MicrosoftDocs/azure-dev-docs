@@ -2,7 +2,7 @@
 title: Create an Azure Database for MySQL - Flexible Server instance and database using the Azure SDK libraries
 description: Use the management libraries in the Azure SDK libraries for Python to create an Azure Database for MySQL or Azure Database for PostgreSQL database.
 ms.date: 05/21/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -90,9 +90,9 @@ $env:version = "ServerVersion.EIGHT0_21"
 
 ---
 
-## 4: Write code to create the database
+## 4: Write code to create and configure a MySQL Flexible Server with a database
 
-In this step, you create a Python file named *provision_db.py* to create the database using the following code. The code uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group, a MySQL flexible server, and a database on that server.
 
 ```Python
 import random, os
@@ -318,9 +318,21 @@ If you see an error that your client IP address isn't allowed, check that you de
 
 Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
+# [Bash](#tab/bash)
+
 ```azurecli
-az group delete -n $AZURE_RESOURCE_GROUP_NAME  --no-wait
+#!/bin/bash
+az group delete -n $AZURE_RESOURCE_GROUP_NAME --no-wait
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
+```
+
+---
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 

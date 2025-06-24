@@ -25,7 +25,7 @@ Azure cloud-based services provide a huge variety of features. These services ca
 
 Top service types for JavaScript developers include:
 
-* [Hosting](../../intro/hosting-apps-on-azure.md)
+* [Hosting](../intro/hosting-apps-on-azure.md)
 * [Authentication and authorization](/azure/?product=identity)
 * [Containers](/azure/?product=containers)
 * [Databases](/azure/?product=databases)
@@ -68,7 +68,7 @@ Your development environment needs a few tools to have the best development expe
 
 ## Use Azure client libraries with JavaScript
 
-To use Azure services programmatically with JavaScript, find the [npm package](../azure-sdk-library-package-index.md) specific to the service you'll use. Each npm package has service-specific connection information.
+To use Azure services programmatically with JavaScript, find the [npm package](azure-sdk-library-package-index.md) specific to the service you'll use. Each npm package has service-specific connection information.
 
 All Azure client libraries run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript isn't a requirement to use the Azure client libraries or the Azure cloud services. 
 
@@ -76,7 +76,7 @@ Your JavaScript code can use Azure services, regardless of where your code is ho
 
 ## Verify runtime for JavaScript apps hosted in Azure 
 
-[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
+[!INCLUDE [Azure services Node.js minimum version](includes/nodejs-runtime-for-azure-services.md)]
 
 ## Try a JavaScript quickstart for your hosting scenario
 
@@ -94,5 +94,5 @@ Hosting options allow you to quickly use Azure for your application. The followi
 
 ## Next steps
 
-* [Learn recommended tools for Azure JavaScript developers](../node-azure-tools.md)
-[!INCLUDE [javascript-new-releases](../includes/javascript-at-microsoft/bullet.md)]
+* [Learn recommended tools for Azure JavaScript developers](node-azure-tools.md)
+[!INCLUDE [javascript-new-releases](includes/javascript-at-microsoft/bullet.md)]

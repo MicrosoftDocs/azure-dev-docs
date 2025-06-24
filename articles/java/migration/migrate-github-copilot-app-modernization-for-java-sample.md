@@ -13,7 +13,7 @@ ms.service: azure-java
 
 # Asset Manager migration sample for GitHub Copilot App Modernization for Java (preview)
 
-To help you explore GitHub Copilot App Modernization for Java (preview), we prepared a migration code sample, [Asset Manager](https://github.com/Azure-Samples/java-migration-copilot-samples/blob/workshop/asset-manager/README.md). This sample stores user-uploaded images and metadata in the following locations:
+To help you explore GitHub Copilot App Modernization for Java (preview), we prepared a migration code sample, [Asset Manager](https://github.com/Azure-Samples/java-migration-copilot-samples/tree/main/asset-manager). This sample stores user-uploaded images and metadata in the following locations:
 
 - RabbitMQ
 - Local file system
@@ -30,4 +30,4 @@ You can use App Modernization for Java (preview) to migrate the app estate to Az
 
 ## See also
 
-[Asset Manager sample](https://github.com/Azure-Samples/java-migration-copilot-samples/blob/workshop/asset-manager/README.md)
+[Asset Manager sample](https://github.com/Azure-Samples/java-migration-copilot-samples/tree/main/asset-manager)

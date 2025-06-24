@@ -311,6 +311,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/core/what-is-azure-for-javascript-development.md",
+      "redirect_url": "/azure/developer/javascript/what-is-azure-for-javascript-development",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/javascript/core/use-azure-sdk.md",
       "redirect_url": "/azure/developer/javascript/sdk/use-azure-sdk",
       "redirect_document_id": false
@@ -1050,7 +1055,11 @@
     },
     {
       "source_path": "articles/javascript/node-sdk-logging.md",
-      "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging"
+      "redirect_url": "/azure/developer/javascript/logging"
+    },
+    {
+      "source_path": "articles/javascript/how-to/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/logging"
     },
     {
       "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
@@ -1832,6 +1841,10 @@
     {
       "source_path": "articles/terraform/azure-terraform-resource-provider/get-started-export-resources-portal.md",
       "redirect_url": "/azure/developer/terraform/azure-export-for-terraform/get-started-export-resources-portal"
+    },
+    {
+      "source_path": "articles/java/ee/how-to-configure-passwordless-datasource.md",
+      "redirect_url": "/azure/developer/java/ee/how-to-configure-passwordless-datasource-wls"
     }
   ]
 }

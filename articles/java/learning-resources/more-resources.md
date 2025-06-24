@@ -4,7 +4,7 @@ description: Learn about information and technologies useful for Java in Azure d
 author: KarlErickson
 ms.author: karler
 ms.topic: overview
-ms.date: 01/05/2023
+ms.date: 06/02/2025
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, kr2b-contr-experiment
 ---
 
