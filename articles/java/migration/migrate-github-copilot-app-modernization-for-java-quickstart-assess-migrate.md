@@ -60,7 +60,7 @@ Use the following steps to start your migration process with solution assessment
 
 1. In Visual Studio Code, open the **mi-sql-public-demo** project folder in the samples repository.
 
-1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, select **Assess**.
+1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, click **Run Assessment**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" alt-text="Screenshot of Visual Studio Code that shows the Assessment section with the Assess button highlighted.":::
 
@@ -76,9 +76,7 @@ Upon completion of the analysis, the modernization assessor produces a categoriz
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
 
-When reviewing the summary report, you can select **Propose Solution** and move to the next step, where you choose your desired solution per category/sub category.
-
-Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution by selecting **Confirm solution** to proceed to the migration step. Then, select **Migrate** for the **Migrate to Azure SQL Database (SDK on Public Cloud)** solution to move to the code remediation stage.
+When reviewing the summary report, you can select **Migrate to Azure SQL Database (SDK, Public Cloud)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, click **Migrate** button to move to the code remediation stage.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
@@ -86,7 +84,7 @@ Confirm the selection of the **Migrate to Azure SQL Database (SDK on Public Clou
 
 The migration Copilot provides predefined formulas for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Managed Identity formulas change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
-1. In the **Solution Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
+1. In the **Summary Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot agent uses various tools for App Modernization and each tool requires confirmation to proceed.
 
