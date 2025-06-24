@@ -104,6 +104,18 @@ Use the following steps to apply the Build-Fix tool:
 
 1. After the process finishes, review the code changes and confirm them by selecting **Keep**.
 
+## Apply the Test-Fix tool
+
+Use the following steps to apply the Test-Fix tool for fixing unit test failures:
+
+1. When the Java Application Test-Fix tool is suggested, select **Continue** to proceed. The tool will analyze the project for unit test failures and automatically generate a plan to fix them.
+
+1. Select **Continue** to approve the generated test-fixing plan.
+
+1. The Test-Fix tool will iteratively run unit tests and fix any failures in up to 10 iterations.
+
+1. After the process completes, review the code changes and and confirm them by selecting **Keep**.
+
 ## Next step
 
 [Quickstart: create and apply your own formulas](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)
