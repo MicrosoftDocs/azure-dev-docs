@@ -293,13 +293,18 @@ If you see an `ERROR: incompatible project` message when running the `azd add` c
 * ERROR: incompatible project: found Aspire app host
 * ERROR: incompatible project: found infra directory and azure.yaml without resources
 
-:::image type="content" source="media/troubleshoot/incompatible-project-aspire.png" alt-text="A screenshot showing the incompatible .NET Aspire project error.":::
+    :::image type="content" source="media/troubleshoot/incompatible-project-aspire.png" alt-text="A screenshot showing the incompatible .NET Aspire project error.":::
 
-:::image type="content" source="media/troubleshoot/incompatible-project-infra.png" alt-text="A screenshot showing the incompatible project infrastructure error.":::
+    :::image type="content" source="media/troubleshoot/incompatible-project-infra.png" alt-text="A screenshot showing the incompatible project infrastructure error.":::
 
 ### Project does not contain infrastructure to generate
 
-The error `ERROR: this project does not contain any infrastructure to generate` occurs when you run `azd infra gen` without any compose resources defined in your project. To resolve this, use `azd add` to add new resources before running `azd infra gen`. In .NET Aspire projects, this error can also appear if `azd` cannot detect an Aspire App Host in the current directory.
+The error `ERROR: this project does not contain any infrastructure to generate` occurs when:
+
+* You run `azd infra gen` without any compose resources defined in your project.
+* In .NET Aspire projects, this error can also appear if `azd` cannot detect an Aspire App Host in the current directory.
+
+To resolve this error, use `azd add` to add new resources before running `azd infra gen` or ensure your .NET Aspire project is structured correctly.
 
 :::image type="content" source="media/troubleshoot/no-infrastructure-generate.png" alt-text="A screenshot showing the infrastructure error.":::
 
