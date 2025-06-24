@@ -254,7 +254,7 @@ bp.openai_client = AsyncAzureOpenAI(
 
 #### Model deployment name configuration
 
-The following code snippet sets the DeepSeek model version by getting the deployment name from your environment configuration. It assigns the name to the `bp.openai_model` variable, making it accessible throughout the app. This approach lets you change the model deployment without updating the code.
+The following code snippet sets the DeepSeek model version by getting the deployment name from your environment configuration. It assigns the name to the `bp.model_deployment_name` variable, making it accessible throughout the app. This approach lets you change the model deployment without updating the code.
 
 ```python
 bp.model_deployment_name = os.getenv("AZURE_DEEPSEEK_DEPLOYMENT")
