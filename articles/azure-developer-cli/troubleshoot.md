@@ -282,6 +282,13 @@ DOCKER_BUILDKIT=1 DOCKER_BUILD_ARGS="--no-cache" azd up
 
 `azd pipeline config` is currently not supported in [DevContainers/VS Code Remote Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 
+## Incompatible project errors
+
+If you receive an error when you run the `azd add` command, evaluate the type of project you're working with. `azd add` does not work with .NET Aspire projects, or `azd` templates that already define their own `infra` folder. If you try to use `azd add` with either of these project types you'll encounter the following errors:
+
+- ERROR: incompatible project: found Aspire app host
+- ERROR: incompatible project: found infra directory and azure.yaml without resources
+
 ## Live metrics support for Python
 
 Live Metrics (`azd monitor --live`) is currently not supported for Python apps. For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream#get-started).
