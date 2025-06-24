@@ -36,6 +36,9 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 
 - [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
 
+>[!NOTE]
+>The Visual Studio Code version must be 1.101 or later.
+
 ## Sign in to use Copilot and then install App Modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).

@@ -38,6 +38,9 @@ The following video demonstrates using GitHub Copilot App Modernization for Java
 
 - [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
 
+>[!NOTE]
+>The Visual Studio Code version must be 1.101 or later.
+
 ## Create a custom formula
 
 Use the following steps to create a custom formula:
