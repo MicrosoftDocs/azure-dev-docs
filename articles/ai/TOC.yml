@@ -44,6 +44,13 @@ items:
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
         - name: Host Remote MCP Servers in Azure App Service
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
+    - name: Discover and try new models
+      items:
+        - name: Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK
+          href: how-to/use-reasoning-model-inference.md
+        - name: Get started with DeepSeek-R1 reasoning model
+          href: /azure/ai-foundry/model-inference/tutorials/get-started-deepseek-r1?tabs=python     
+
     - name: AI app templates
       items:
         - name: Overview
