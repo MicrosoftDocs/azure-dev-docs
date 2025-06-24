@@ -1,7 +1,7 @@
 ---
 title: Loop over data from the Azure SDK for JavaScript
 description: Loop over large sets of data using async iterators in the Azure SDK for JavaScript. This article explains async iterators, their benefits, and provides practical examples for handling paginated data from Azure services.
-ms.date: 08/21/2024
+ms.date: 06/18/2024
 ms.topic: concept-article
 ms.custom: devx-track-js 
 ai-usage: ai-assisted
@@ -41,7 +41,7 @@ If your data set is larger, you may want to return the data in pages, then itera
 
 :::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" range="22-32":::
 
-## Continue looping at a specific page
+## Continue looping 
 
 If you need to have more control over the loop, including resuming the loop, use a continuation token. The paged iterator also supports resuming from a continuation token. In the following example, we use the continuation token from the first iteration to resume iteration at the second page.
 
