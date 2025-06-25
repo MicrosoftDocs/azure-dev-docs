@@ -1,5 +1,5 @@
 ---
-title: Learn how to use the remote builds feature of the Azure Develper CLI.
+title: Learn how to use the remote builds feature of the Azure Developer CLI.
 description: Learn how to use remote builds with Azure Container Registries and the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
@@ -44,7 +44,7 @@ To configure the Azure Developer CLI to use remote builds with Azure Container R
            remoteBuild: true
      ```
 
-1. Run the `azd up` or `azd deploy` command. `azd` detects the remote build configuration and submits your build to the Azure Container Registry provisioned by the tempalte.
+1. Run the `azd up` or `azd deploy` command. `azd` detects the remote build configuration and submits your build to the Azure Container Registry provisioned by the template.
 
 ## Verify the remote build
 
@@ -65,5 +65,5 @@ After the `azd up` workflow completes, verify the remote build run in the Azure 
 ## Next steps
 
 - [Use third-party container registries](/azure/developer/azure-developer-cli/use-external-registry)
-- [Remote environment suppport](/azure/developer/azure-developer-cli/remote-environments-support)
+- [Remote environment support](/azure/developer/azure-developer-cli/remote-environments-support)
 - [Azure deployment stacks integration](/azure/developer/azure-developer-cli/azure-deployment-stacks-integration)
