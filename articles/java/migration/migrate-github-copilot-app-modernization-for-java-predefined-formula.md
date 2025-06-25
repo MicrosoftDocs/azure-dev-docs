@@ -37,15 +37,15 @@ App Modernization for Java currently supports the following predefined formulas:
 
 - Spring RabbitMQ to Azure Service Bus
 
-  This formula converts an application that uses Spring messaging frameworks (including Spring AMQP and Spring JMS) with RabbitMQ, changing it to use the managed service Azure Service Bus instead. The message queue interaction logic is adapted to the Azure Service Bus equivalent, preserving the messaging patterns and semantics while enabling secure authentication mechanisms by default.
+  This formula converts an application that uses Spring messaging frameworks - including Spring Advanced Message Queuing Protocol (AMQP) and Spring Java Message Service (JMS) - with RabbitMQ, changing it to use the managed service Azure Service Bus instead. The message queue interaction logic is adapted to the Azure Service Bus equivalent, preserving the messaging patterns and semantics while enabling secure authentication mechanisms by default.
 
 - Managed Identities for Database migration to Azure
 
-  The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure Managed Identity-based sign in. When you migrate an application from a local database to a managed Azure cloud database, this formula helps you prepare your codebase for Managed Identity authentication to the database.
+  The Azure database offerings - Azure SQL Server, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB for Cassandra API, and Azure Cosmos DB for MongoDB - support secure sign-in using Managed Identity. When you migrate an application from a local database to a managed Azure cloud database, this formula helps you prepare your codebase for Managed Identity authentication to the database.
 
 - Managed Identities for Credential Migration on Azure
 
-  Connection string-based authentication introduces security vulnerabilities and maintenance overhead. This formula transforms your Java applications to use Azure's Managed Identity authentication for messaging services like Azure Event Hubs and Azure Service Bus. By integrating with Microsoft Identity client libraries, your code no longer needs to store sensitive connection strings or shared access signatures in configuration files.
+  Authentication using connection strings introduces security vulnerabilities and maintenance overhead. This formula transforms your Java applications to use Azure's Managed Identity authentication for messaging services like Azure Event Hubs and Azure Service Bus. By integrating with Microsoft Identity client libraries, your code no longer needs to store sensitive connection strings or shared access signatures in configuration files.
 
 - Amazon Web Services (AWS) S3 to Azure Storage Blob
 
@@ -65,7 +65,7 @@ App Modernization for Java currently supports the following predefined formulas:
 
 - Secrets and Certificate Management to Azure Key Vault
 
-  This formula helps migrate sensitive security assets to Azure Key Vault. It supports both hardcoded secrets in your codebase and local TLS/MTLS certificates managed in Java KeyStores. For secrets, it identifies suspicious secret texts and converts them into logic that retrieves the data from Azure Key Vault. For certificates, it transitions your application from managing certificates locally to using Azure Key Vault's Java Cryptography Architecture (JCA) provider while maintaining the same functionality and security posture.
+  This formula helps migrate sensitive security assets to Azure Key Vault. It supports both hardcoded secrets in your codebase and local TLS/mTLS certificates managed in Java KeyStores. For secrets, it identifies suspicious secret texts and converts them into logic that retrieves the data from Azure Key Vault. For certificates, it transitions your application from managing certificates locally to using Azure Key Vault's Java Cryptography Architecture (JCA) provider while maintaining the same functionality and security posture.
 
 - User authentication to Microsoft Entra ID authentication
 
@@ -77,7 +77,7 @@ App Modernization for Java currently supports the following predefined formulas:
 
 - AWS Secret Manager to Azure Key Vault
 
-  Moving from AWS Secret Manager to Azure Key Vault requires reconfiguring how your application handles sensitive information. This formula transforms all aspects of secret management in your code—from creation and retrieval to updating and deletion—while leveraging Azure Key Vault's comprehensive security capabilities and authentication models.
+  Moving from AWS Secret Manager to Azure Key Vault requires reconfiguring how your application handles sensitive information. This formula transforms all aspects of secret management in your code - from creation and retrieval to updating and deletion - and leverages Azure Key Vault's comprehensive security capabilities and authentication models.
 
 - ActiveMQ to Azure Service Bus
 
