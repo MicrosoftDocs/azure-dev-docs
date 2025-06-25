@@ -63,7 +63,7 @@ Example prompts include:
 
 ## List databases
 
-The Azure MCP Server can list all databases in a Azure Data Explorer cluster.
+The Azure MCP Server can list all databases in an Azure Data Explorer cluster.
 
 Example prompts include:
 
@@ -101,7 +101,7 @@ Example prompts include:
 
 ## Get table schema
 
-The Azure MCP Server can get the schema of a specific table in a Azure Data Explorer database.
+The Azure MCP Server can get the schema of a specific table in an Azure Data Explorer database.
 
 Example prompts include:
 
@@ -121,7 +121,7 @@ Example prompts include:
 
 ## Execute query
 
-The Azure MCP Server can execute a KQL query against a Azure Data Explorer database.
+The Azure MCP Server can execute a KQL query against an Azure Data Explorer database.
 
 Example prompts include:
 
