@@ -22,7 +22,7 @@
 | Batch | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.2/sdk/batch/batch-rest/) |
 | Common | npm [2.0.0](https://www.npmjs.com/package/@azure/keyvault-common/v/2.0.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_2.0.0/sdk/keyvault/keyvault-common/) |
 | Communication Call Automation | npm [1.4.0](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.4.0)<br>npm [1.5.0-beta.2](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.5.0-beta.2) | [docs](/javascript/api/overview/azure/communication-call-automation-readme) | GitHub [1.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.4.0/sdk/communication/communication-call-automation/)<br>GitHub [1.5.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.5.0-beta.2/sdk/communication/communication-call-automation/) |
-| Communication Chat | npm [1.5.4](https://www.npmjs.com/package/@azure/communication-chat/v/1.5.4)<br>npm [1.6.0-beta.7](https://www.npmjs.com/package/@azure/communication-chat/v/1.6.0-beta.7) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.5.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.4/sdk/communication/communication-chat/)<br>GitHub [1.6.0-beta.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0-beta.7/sdk/communication/communication-chat/) |
+| Communication Chat | npm [1.6.0](https://www.npmjs.com/package/@azure/communication-chat/v/1.6.0) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.6.0/sdk/communication/communication-chat/) |
 | Communication Common | npm [2.4.0](https://www.npmjs.com/package/@azure/communication-common/v/2.4.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-common/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/communication-common-readme) | GitHub [2.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.4.0/sdk/communication/communication-common/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_3.0.0-beta.1/sdk/communication/communication-common/) |
 | Communication Email | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-email/v/1.0.0)<br>npm [1.0.1-beta.1](https://www.npmjs.com/package/@azure/communication-email/v/1.0.1-beta.1) | [docs](/javascript/api/overview/azure/communication-email-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.0/sdk/communication/communication-email/)<br>GitHub [1.0.1-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.1-beta.1/sdk/communication/communication-email/) |
 | Communication Identity | npm [1.3.1](https://www.npmjs.com/package/@azure/communication-identity/v/1.3.1)<br>npm [1.4.0-beta.1](https://www.npmjs.com/package/@azure/communication-identity/v/1.4.0-beta.1) | [docs](/javascript/api/overview/azure/communication-identity-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.3.1/sdk/communication/communication-identity/)<br>GitHub [1.4.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.4.0-beta.1/sdk/communication/communication-identity/) |
@@ -230,7 +230,7 @@
 | Resource Management - DevTest Labs | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-devtestlabs/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-devtestlabs-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/devtestlabs/arm-devtestlabs) |
 | Resource Management - Digital Twins | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-digitaltwins/v/3.3.0) | [docs](/javascript/api/overview/azure/arm-digitaltwins-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins) |
 | Resource Management - DNS | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-dns/v/5.1.0)<br>npm [5.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-dns/v/5.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-dns-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dns/arm-dns) |
-| Resource Management - DNS Resolver | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-dnsresolver/v/1.1.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-dnsresolver/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-dnsresolver-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_1.1.0/sdk/dnsresolver/arm-dnsresolver/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_1.2.0-beta.1/sdk/dnsresolver/arm-dnsresolver/) |
+| Resource Management - DNS Resolver | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-dnsresolver/v/1.2.0) | [docs](/javascript/api/overview/azure/arm-dnsresolver-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dnsresolver_1.2.0/sdk/dnsresolver/arm-dnsresolver/) |
 | Resource Management - Domain Services | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-domainservices/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-domainservices-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/domainservices/arm-domainservices) |
 | Resource Management - Durable Task | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-durabletask/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-durabletask-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0-beta.2/sdk/durabletask/arm-durabletask/) |
 | Resource Management - Dynatrace | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_2.0.0/sdk/dynatrace/arm-dynatrace/) |
@@ -435,25 +435,25 @@
 | TypeSpec HTTP Client | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client/v/0.7.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.6.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.12.3](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.3) |  |  |
+| TypeSpec HTTP Client Python | npm [0.13.0-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.13.0-dev.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.23](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.23) |  |  |
 | TypeSpec Rust | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.17.0) |  |  |
 | TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
 | TypeSpec Streams | npm [0.71.0](https://www.npmjs.com/package/@typespec/streams/v/0.71.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.2.3](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.3) |  |  |
-| Unknown Display Name | npm [0.0.0-87](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-87) |  |  |
-| Unknown Display Name | npm [0.0.0-87](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-87) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.4) |  |  |
+| Unknown Display Name | npm [0.0.0-90](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-90) |  |  |
+| Unknown Display Name | npm [0.0.0-90](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-90) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-server-csharp/v/0.0.0-0) |  |  |
-| Unknown Display Name | npm [0.0.0-87](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-87) |  |  |
+| Unknown Display Name | npm [0.0.0-90](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-90) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -531,7 +531,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250623.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250623.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250624.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250624.4) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
