@@ -45,7 +45,7 @@ App Modernization for Java currently supports the following predefined formulas:
 
 - Managed Identities for Credential Migration on Azure
 
-  This formula helps migrate Java applications from connection string-based authentication to secure Managed Identity authentication for Azure services including Azure Event Hubs and Azure Service Bus. It updates your code to use the Microsoft Identity client libraries, eliminating the need to store connection strings or shared access signatures in your application configuration.
+  Connection string-based authentication introduces security vulnerabilities and maintenance overhead. This formula transforms your Java applications to use Azure's Managed Identity authentication for messaging services like Azure Event Hubs and Azure Service Bus. By integrating with Microsoft Identity client libraries, your code no longer needs to store sensitive connection strings or shared access signatures in configuration files.
 
 - Amazon Web Services (AWS) S3 to Azure Storage Blob
 
@@ -73,19 +73,19 @@ App Modernization for Java currently supports the following predefined formulas:
 
 - SQL Dialect: Oracle to PostgreSQL
 
-  This formula helps migrate Java applications from Oracle database dependencies to PostgreSQL compatibility. It handles the conversion of SQL queries, data types, and database-specific functions to ensure your application works seamlessly with Azure Database for PostgreSQL.
+  When transitioning from Oracle to PostgreSQL, differences in SQL dialects can pose significant challenges. This formula converts Oracle-specific SQL queries, data types, and proprietary functions in your Java code to their PostgreSQL equivalents, ensuring a seamless integration with Azure Database for PostgreSQL.
 
 - AWS Secret Manager to Azure Key Vault
 
-  When migrating from AWS to Azure, this formula helps convert code that interacts with AWS Secret Manager to use Azure Key Vault instead. It transforms all secret management operations including creation, retrieval, updating, and deletion while adapting to Azure's comprehensive secret management capabilities.
+  Moving from AWS Secret Manager to Azure Key Vault requires reconfiguring how your application handles sensitive information. This formula transforms all aspects of secret management in your code—from creation and retrieval to updating and deletion—while leveraging Azure Key Vault's comprehensive security capabilities and authentication models.
 
 - ActiveMQ to Azure Service Bus
 
-  This formula assists in migrating Java applications from Apache ActiveMQ to Azure Service Bus. It converts message producer and consumer code, connection management, and queue/topic interactions to use the Azure Service Bus client libraries and authentication mechanisms.
+  Applications built on Apache ActiveMQ can be modernized to leverage Azure's managed messaging service. This formula converts your ActiveMQ message producers, consumers, connection factories, and queue/topic interactions to their Azure Service Bus equivalents, implementing best practices for reliability and authentication in cloud environments.
 
 - Amazon Web Services (AWS) Simple Queue Service (SQS) to Azure Service Bus
 
-  This formula facilitates the migration from AWS SQS to Azure Service Bus by converting queue operations, message handling, and authentication to use Azure Service Bus equivalents. The formula ensures that message processing semantics are preserved during the migration.
+  Transitioning from AWS SQS to Azure Service Bus involves reimplementing queue operations and message handling patterns. This formula translates SQS-specific code constructs to their Azure Service Bus counterparts, preserving critical messaging semantics like at-least-once delivery, message batching, and visibility timeout behaviors while introducing Azure's enhanced security features.
 
 ## See also
 
