@@ -22,9 +22,6 @@ ms.date: 05/29/2025
 
 Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location. 
 
-> [!NOTE]
-> If you see a message similar to `No available SKUs in this location` or `Location is not accepting creation of new Windows Azure SQL Database servers at this time.` when executing the steps in this article, select a different region.
-
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME="abc1228rg"
 export REGION=eastus
@@ -34,6 +31,30 @@ az group create \
 ```
 
 ## Create a database server and a database
+
+Select a region that has available SKUs for your desired database. The following Azure CLI command lists the available SKUs in a given region. Keep trying different regions until you find one that has some results.
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
+
+```azurecli-interactive
+az mysql flexible-server list-skus --location "$REGION" --output table
+```
+
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+```azurecli-interactive
+az postgres flexible-server list-skus --location "$REGION" --output table
+```
+
+### [Azure SQL Database](#tab/azure-sql-database)
+
+```azurecli-interactive
+az sql db list-editions --location "$REGION" --output table
+```
+
+---
+
+
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
