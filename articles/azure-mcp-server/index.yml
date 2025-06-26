@@ -41,8 +41,8 @@ landingContent:
             url: tools/app-configuration.md
           - text: Azure CLI Extension
             url: tools/azure-cli-extension.md
-          - text: Azure Data Explorer with Kusto
-            url: tools/kusto.md
+          - text: Azure Data Explorer
+            url: tools/azure-data-explorer.md
           - text: Azure DB for PostgreSQL
             url: tools/postgresql.md
           - text: Complete list of tools
