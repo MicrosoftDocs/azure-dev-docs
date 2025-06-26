@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 12/20/2024
+ms.date: 06/26/2025
 ms.service: azure
 ---
 
@@ -19,7 +19,7 @@ Return to the chat app article to clean up the resources:
 
 ### Clean upload balancer resources
 
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+Delete the Azure resources and remove the source code:
 
 ```bash
 azd down --purge --force
@@ -59,10 +59,10 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="../media/get-started-scaling-load-balancer-azure-container-apps/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. Free up space on your local machine by deleting the container instance, image, and volumes from Docker.
 
 ---
 
 ## Get help
 
-If you have trouble deploying the Azure API Management load balancer, add your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-aca-lb/issues) webpage.
+If you have trouble deploying the Azure Container Apps load balancer, add your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-aca-lb/issues) webpage.
