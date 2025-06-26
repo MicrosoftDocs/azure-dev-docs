@@ -1,12 +1,14 @@
 ---
 title: "Get started with chat document security filtering"
 description: "Secure your chat app documents with user authentication and document security filtering to ensure that users receive answers based on their permissions."
-ms.date: 12/19/2024
+ms.date: 06/26/2025
+ms.author: johalexander
+author: ms-johnalex
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps, devx-track-azurecli, devx-track-python
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: 
+# CustomerIntent: As a Python developer new to Azure OpenAI Service, I want to secure my chat app documents so users only see answers they’re allowed to access.
 ---
 
 # Get started with chat document security for Python
@@ -28,18 +30,18 @@ When you build a [chat application by using the Retrieval Augmented Generation (
 
 Without a document security feature, the enterprise chat app has a simple architecture by using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trim/simple-rag-chat-architecture.png" alt-text="Architectural diagram that shows an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/simple-rag-chat-architecture.png" alt-text="Architectural diagram that shows how Azure AI Search finds answers from stored documents and combines them with a response from Azure OpenAI.":::
 
 To add security for the documents, you need to update the enterprise chat app:
 
-* Add client authentication to the chat app with Microsoft Entra.
-* Add server-side logic to populate a search index with user and group access.
+- Add client authentication to the chat app with Microsoft Entra.
+- Add server-side logic to populate a search index with user and group access.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trim/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram that shows a use authenticating with Microsoft Entra ID, and then passing that authentication to Azure AI Search.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram that shows a user authenticating with Microsoft Entra ID, and then passing that authentication to Azure AI Search.":::
 
 Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Instead, your application can use search filters to ensure that a document is accessible to a specific user or by a specific group. Within your search index, each document should have a filterable field that stores user or group identity information.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trim/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram that shows that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that each document in Azure AI Search has user authentication, which appears in the search results.":::
 
 Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, and then [filter](/azure/search/search-security-trimming-for-azure-search) any documents that don't match. To implement this technique, you need to:
 
@@ -66,24 +68,24 @@ Use the following sections to understand the security profiles supported in this
 
 ### Enterprise: Required account + document filter
 
-Each user of the site *must* sign in. The site contains content that's public to all users. The document-level security filter is applied to all requests.
+Each user of the site _must_ sign in. The site contains content that's public to all users. The document-level security filter is applied to all requests.
 
 Environment variables:
 
-* `AZURE_USE_AUTHENTICATION=true`
-* `AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true`
-* `AZURE_ENFORCE_ACCESS_CONTROL=true`
+- `AZURE_USE_AUTHENTICATION=true`
+- `AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true`
+- `AZURE_ENFORCE_ACCESS_CONTROL=true`
 
 ### Mixed use: Optional account + document filter
 
-Each user of the site *may* sign in. The site contains content that's public to all users. The document-level security filter is applied to all requests.
+Each user of the site _might_ sign in. The site contains content that's public to all users. The document-level security filter is applied to all requests.
 
 Environment variables:
 
-* `AZURE_USE_AUTHENTICATION=true`
-* `AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true`
-* `AZURE_ENFORCE_ACCESS_CONTROL=true`
-* `AZURE_ENABLE_UNAUTHENTICATED_ACCESS=true`
+- `AZURE_USE_AUTHENTICATION=true`
+- `AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true`
+- `AZURE_ENFORCE_ACCESS_CONTROL=true`
+- `AZURE_ENABLE_UNAUTHENTICATED_ACCESS=true`
 
 ## Prerequisites
 
@@ -127,7 +129,7 @@ Use the following instructions to deploy a preconfigured development environment
 
     [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**.
+1. On the **Create codespace** page, review the codespace configuration settings, then select **Create new codespace**.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-create-codespace.png" alt-text="Screenshot that shows the confirmation screen before you create a new codespace.":::
 
@@ -218,7 +220,7 @@ Deployment consists of the following steps:
 - Create the Microsoft Entra identity apps (client and server).
 - Turn on identity for the hosting resource.
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code.
+1. Provision the Azure resources and deploy the source code.
 
     ```bash
     azd up
@@ -238,7 +240,7 @@ Deployment consists of the following steps:
 1. After the application successfully deploys, a URL appears in the terminal.
 1. Select the URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trim/azd-deployment-output.png" alt-text="Screenshot that shows a chat app in a browser with several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/azd-deployment-output.png" alt-text="Screenshot of the chat app in a browser with chat suggestions and the chat text box.":::
 
 1. Agree to the app authentication pop-up.
 1. When the chat app appears, notice in the upper-right corner that your user is signed in.
@@ -294,24 +296,19 @@ When this information is known, update the Azure AI Search index `oids` field fo
 
 1. Use the following script to change the `oids` field in Azure AI Search for `role_library.pdf` so that you have access to it.
 
-    ```bash
-    ./scripts/manageacl.sh \
-        -v \
-        --acl-type oids \
-        --acl-action add \
-        --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> \
-        --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
+    ```python
+    python ./scripts/manageacl.py --acl-type oids --acl-action add --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
     ```
     
     |Parameter|Purpose|
     |--|--|
     |-v|Verbose output.|
     |--acl-type|Group or user OIDs: `oids`.|
-    |--acl-action|**Add** to a Search index field. Other options include `remove`, `remove_all`, and `list`. |
+    |--acl-action|**Add** to a Search index field. Other options include `enable_acls`, `remove`, `remove_all`, and `view`. |
     |--acl|Group or user `USER_OBJECT_ID`.|
     |--url|The file's location in Azure Storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround the URL with quotation marks in the CLI command.|
 
-1. The console output for this command looks like: 
+1. The console output for this command looks like:
 
     ```console.
     Loading azd .env file from current environment...
@@ -324,21 +321,15 @@ When this information is known, update the Azure AI Search index `oids` field fo
 
 1. Optionally, use the following command to verify that your permission is listed for the file in Azure AI Search.
 
-    ```bash
-    ./scripts/manageacl.sh \
-        -v \
-        --acl-type oids \
-        --acl-action list \
-        --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> \
-        --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
+    ```python
+    python ./scripts/manageacl.py -v --acl-type groups --acl-action view --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
     ```
-    
+
     |Parameter|Purpose|
     |--|--|
-    |-v|Verbose output.
+    |-v|Verbose output.|
     |--acl-type|Group or user OIDs: `oids`.|
-    |--acl-action|List a Search index field `oids`. Other options include `remove`, `remove_all`, and `list`. |
-    |--acl|Group or user's `USER_OBJECT_ID` parameter.|
+    |--acl-action|View a Search index field `oids`. Other options include `enable_acls`, `remove`, `remove_all`, and `add`. |
     |--url|The file's location in that shows, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround the URL with quotation marks in the CLI command.|
 
 1. The console output for this command looks like:
@@ -430,17 +421,17 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
 ## Get help
 
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
+The sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
 
 ### Troubleshooting
 
-This section offers troubleshooting for issues specific to this article.
+This section helps you troubleshoot issues specific to this article.
 
 #### Provide authentication tenant
 
