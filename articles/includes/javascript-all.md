@@ -404,7 +404,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.57.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.57.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.57.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.57.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.22.0) |  |  |
-| @azure-tools/typespec-go | npm [0.5.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.5.0) |  |  |
+| @azure-tools/typespec-go | npm [0.5.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.5.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -435,7 +435,7 @@
 | TypeSpec HTTP Client | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client/v/0.7.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.6.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.13.0-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.13.0-dev.1) |  |  |
+| TypeSpec HTTP Client Python | npm [0.12.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.4) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.23](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.23) |  |  |
 | TypeSpec Rust | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.17.0) |  |  |
 | TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
@@ -449,11 +449,11 @@
 | Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.4) |  |  |
 | Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.4) |  |  |
 | Unknown Display Name | npm [0.2.4](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.4) |  |  |
-| Unknown Display Name | npm [0.0.0-90](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-90) |  |  |
-| Unknown Display Name | npm [0.0.0-90](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-90) |  |  |
+| Unknown Display Name | npm [0.0.0-91](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-91) |  |  |
+| Unknown Display Name | npm [0.0.0-91](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-91) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-server-csharp/v/0.0.0-0) |  |  |
-| Unknown Display Name | npm [0.0.0-90](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-90) |  |  |
+| Unknown Display Name | npm [0.0.0-91](https://www.npmjs.com/package/typespec-mcp-server-js/v/0.0.0-91) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -540,7 +540,7 @@
 | @autorest/schemas | npm [1.3.6](https://www.npmjs.com/package/@autorest/schemas/v/1.3.6) |  |  |
 | @autorest/system-requirements | npm [1.1.1](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.1) |  |  |
 | @autorest/test-utils | npm [0.6.1](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.1) |  |  |
-| @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.4-ci.e5cceacc3.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.4-ci.e5cceacc3.0) |  |  |
+| @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.4-ci.254802bfc.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.4-ci.254802bfc.0) |  |  |
 | @autorest/typescript | npm [6.0.43](https://www.npmjs.com/package/@autorest/typescript/v/6.0.43) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
@@ -570,7 +570,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.12.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.12.0) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.12.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.12.1) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -612,7 +612,7 @@
 | AutoRest - Go | npm [4.0.0-preview.72](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.72) |  |  |
 | AutoRest - Modeler Four | npm [4.27.1](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.1) |  | GitHub [4.27.1](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.35.3](https://www.npmjs.com/package/@autorest/python/v/6.35.3) |  | GitHub [6.35.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.35.4](https://www.npmjs.com/package/@autorest/python/v/6.35.4) |  | GitHub [6.35.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -622,7 +622,7 @@
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
 | Git Rest Api SDK | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  | GitHub [0.3.3](https://github.com/azure/git-rest-api) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
-| Oad | npm [0.10.13](https://www.npmjs.com/package/@azure/oad/v/0.10.13) |  | GitHub [0.10.13](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.10.14](https://www.npmjs.com/package/@azure/oad/v/0.10.14) |  | GitHub [0.10.14](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
