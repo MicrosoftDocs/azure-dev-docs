@@ -105,7 +105,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open a new terminal in the editor.
 
     > [!TIP]
-    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
+    > Use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
     > :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
@@ -152,7 +152,7 @@ The sample repository contains all the code and configuration files you need to 
 
 ### Use the assistant app
 
-You can use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app. The assistant can send you the answers in email. Since the email sending feature isn't configured, modify the prompt to not use that instruction.
+Use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app. The assistant can send you the answers in email. Since the email sending feature isn't configured, modify the prompt to not use that instruction.
 
 1. In the browser, copy and paste in the following prompt:
 
