@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Azure OpenAI Assistants and function calling"
 description: "This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling."
-ms.date: 12/11/2024
+ms.date: 06/26/2025
 ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
@@ -61,18 +61,18 @@ Use the following instructions to deploy a preconfigured development environment
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
 1. Right-click on the following button, and select _Open link in new windows_ to have both the development environment and the documentation available at the same time.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-openai-assistant-javascript)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+1. On the **Create codespace** page, review the codespace configuration settings, then select **Create new codespace**
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
     ```bash
     azd auth login
@@ -120,7 +120,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
     > [!TIP]
-    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
+    > Visual Studio Code might automatically prompt you to reopen the existing folder within a development container. This action is functionally equivalent to using the command palette to reopen the current workspace in a container.
 
 1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
@@ -134,7 +134,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy assistants app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it finishes.
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -202,7 +202,7 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
