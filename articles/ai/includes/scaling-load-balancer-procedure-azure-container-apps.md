@@ -1,9 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 05/13/2024
-ms.author: diberry
-author: diberry
+ms.date: 06/26/2025
 ms.service: azure
 ---
 
@@ -57,5 +55,5 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```bash
     azd env get-values
     ```
-    
+
 1. Copy the `CONTAINER_APP_URL` value. You use it in the next section.
