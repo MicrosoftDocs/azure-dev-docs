@@ -1,7 +1,9 @@
 ---
 title: Get started load testing Python enterprise chat sample using RAG
 description: Get started load testing your Python chat app. 
-ms.date: 12/20/2024
+ms.date: 06/26/2025
+ms.author: johalexander
+author: ms-johnalex
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
@@ -42,16 +44,16 @@ The load test is in the [Python chat app](get-started-app-chat-template.md) solu
 
 ## Run the test
 
-1. Install the dependencies for the load test:
+1. Install the locust package for the load test:
 
     ```bash
-    python3 -m pip install -r requirements-dev.txt
+    python -m pip install locust
     ```
 
-1. Start Locust, which uses the Locust test file [locustfile.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py). You can find it at the root of the repository.
+1. Start Locust, which uses the Locust test file [locustfile.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py). You can find it at the root of the repository. The sample has a `ChatUser` class that simulates a user asking questions and receiving answers from the chat app.
 
     ```bash
-    locust
+    locust ChatUser
     ```
 
 1. Open the running Locust website, such as `http://localhost:8089`.
