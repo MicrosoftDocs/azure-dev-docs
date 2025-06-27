@@ -51,7 +51,7 @@ Enter the required information in the **Basics** pane and other panes if you wan
 
 The **Connection settings** section should look like the following screenshot.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal showing the Configure Azure SQL database page." lightbox="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal showing the Choose database type page." lightbox="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png":::
 
 ## Verify the database connection
 
@@ -78,7 +78,7 @@ Use the following steps to verify the database connection:
 
 The following illustration highlights the relevant user interface elements.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png" alt-text="Screenshot of the Azure portal showing the Configure Azure SQL database page." lightbox="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png" alt-text="Screenshot of the Integrated solutions console showing the test database page." lightbox="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png":::
 
 ## Clean up resources
 
