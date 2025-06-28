@@ -34,7 +34,7 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 
   App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 
-- [AppCAT](/azure/migrate/appcat/java#download-and-install). This tool is required for the app assessment feature.
+- [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
 
