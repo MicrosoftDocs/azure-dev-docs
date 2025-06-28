@@ -1,17 +1,17 @@
 ---
-title: Loop over data from the Azure SDK for JavaScript
-description: Loop over large sets of data using async iterators in the Azure SDK for JavaScript. This article explains async iterators, their benefits, and provides practical examples for handling paginated data from Azure services.
-ms.date: 06/18/2024
+title: Loop over data using async iterators in the Azure SDK for JavaScript
+description: Learn how to loop over large data sets using async iterators in the Azure SDK for JavaScript. Discover benefits and practical examples for paginated data.
+ms.date: 06/28/2024
 ms.topic: concept-article
 ms.custom: devx-track-js 
 ai-usage: ai-assisted
 ---
 
-# Iterate over data returned from the Azure SDK for JavaScript
+# Loop and page over data returned from the Azure SDK for JavaScript
 
-When working with Azure services, you often need to process large sets of data. Azure client libraries provide async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
+When working with Azure services, you often need to process large sets of data. The Azure SDK for JavaScript provides async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
 
-## What are Async Iterators?
+## What are async Iterators?
 
 Async iterators are a feature in modern JavaScript that allow you to consume data asynchronously. They're useful for handling paginated data from APIs. Async iterators use the `for-await-of` loop to iterate over data, fetching it as needed.
 
@@ -39,13 +39,13 @@ If you result set is only a few items, you can loop through that small list. The
 
 If your data set is larger, you may want to return the data in pages, then iterate over items in each page. The following code loops through a data by page, then each item.
 
-:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" range="22-32":::
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" id="Loop_over_data_by_page":::
 
 ## Continue looping 
 
 If you need to have more control over the loop, including resuming the loop, use a continuation token. The paged iterator also supports resuming from a continuation token. In the following example, we use the continuation token from the first iteration to resume iteration at the second page.
 
-:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-specific-page.ts" range="43-69":::
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/continue-paging.ts" id="Continue_paging":::
 
 ## Additional resources
 
