@@ -1,21 +1,21 @@
 ---
-title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot App Modernization for Java (Preview)"
+title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot App Modernization for Java"
 titleSuffix: Azure
-description: Shows you how to use GitHub Copilot App Modernization for Java (preview) to assess and migrate a Java project.
+description: Shows you how to use GitHub Copilot App Modernization for Java to assess and migrate a Java project.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 05/19/2025
+ms.date: 06/30/2025
 ms.custom: devx-track-java
 ms.service: azure-java
 ---
 
-# Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java (preview)
+# Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java
 
-This quickstart shows you how to use GitHub Copilot App Modernization for Java (preview) to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+This quickstart shows you how to use GitHub Copilot App Modernization for Java to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
-The following video demonstrates how GitHub Copilot App Modernization for Java (preview) uses [AppCAT](/azure/migrate/appcat/java-preview) to help assess a Java project for migration to Azure:
+The following video demonstrates how GitHub Copilot App Modernization for Java uses [AppCAT](/azure/migrate/appcat/java) to help assess a Java project for migration to Azure:
 
 <br>
 
@@ -29,22 +29,22 @@ The following video demonstrates how GitHub Copilot App Modernization for Java (
 - [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see the next section.
 
   This extension pack bundles the following two extensions:
-  - [GitHub Copilot App Modernization for Java (preview)](migrate-github-copilot-app-modernization-for-java.md)
-  - [GitHub Copilot App Modernization - upgrade for Java (preview)](/java/upgrade/overview)
+  - [GitHub Copilot App Modernization for Java](migrate-github-copilot-app-modernization-for-java.md)
+  - [GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/overview)
 
   App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 
-- [AppCAT](/azure/migrate/appcat/java-preview#download-and-install). This tool is required for the app assessment feature.
+- [AppCAT](/azure/migrate/appcat/java#download-and-install). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
-Then, use the following steps to install GitHub Copilot App Modernization for Java (preview):
+Then, use the following steps to install GitHub Copilot App Modernization for Java:
 
 1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
 1. Search for **GitHub Copilot App Modernization** in the marketplace.
-1. Select the **GitHub Copilot App Modernization for Java (preview)** extension or the **GitHub Copilot App Modernization** extension pack.
+1. Select the **GitHub Copilot App Modernization for Java** extension or the **GitHub Copilot App Modernization** extension pack.
 1. On the extension page, select **Install**.
 1. Restart Visual Studio Code.
 
@@ -70,7 +70,7 @@ Use the following steps to start your migration process with solution assessment
 
 The modernization assessor now opens **assessment.md**. This file is the configuration for running AppCAT, which performs the app assessment. AppCAT asks for your confirmation to continue. You can examine its content and make changes there, if necessary.
 
-The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, then you need to install them first. For more information, see [Azure Migrate application and code assessment for Java version 7 (Preview)](/azure/migrate/appcat/java-preview). After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
+The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, then you need to install them first. For more information, see [Overview of Azure Migrate Application and Code Assessment for Java](/azure/migrate/appcat/java). After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
 
 Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
 
@@ -108,13 +108,13 @@ Use the following steps to apply the Build-Fix tool:
 
 Use the following steps to apply the Test-Fix tool for fixing unit test failures:
 
-1. When the Java Application Test-Fix tool is suggested, select **Continue** to proceed. The tool will analyze the project for unit test failures and automatically generate a plan to fix them.
+1. When the Java Application Test-Fix tool is suggested, select **Continue** to proceed. The tool analyzes the project for unit test failures and automatically generates a plan to fix them.
 
 1. Select **Continue** to approve the generated test-fixing plan.
 
-1. The Test-Fix tool will iteratively run unit tests and fix any failures in up to 10 iterations.
+1. The Test-Fix tool iteratively runs unit tests and fixes any failures in up to 10 iterations.
 
-1. After the process completes, review the code changes and and confirm them by selecting **Keep**.
+1. After the process completes, review the code changes and confirm them by selecting **Keep**.
 
 ## Next step
 
