@@ -11,6 +11,10 @@ ai-usage: ai-assisted
 
 When working with Azure services, you often need to process large sets of data. The Azure SDK for JavaScript provides async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
 
+## SDK guidelines for pagination
+
+The Azure SDK for JavaScript provides guidelines to ensure consistency and usability. These guidelines include using [async iterators for paginated data](https://azure.github.io/azure-sdk/typescript_design.html#ts-pagination).
+
 ## What are async Iterators?
 
 Async iterators are a feature in modern JavaScript that allow you to consume data asynchronously. They're useful for handling paginated data from APIs. Async iterators use the `for-await-of` loop to iterate over data, fetching it as needed.
