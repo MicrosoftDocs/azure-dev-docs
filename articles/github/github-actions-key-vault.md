@@ -21,7 +21,7 @@ This GitHub Actions sample workflow demonstrates how to securely retrieve secret
     - `AZURE_SUBSCRIPTION_ID`: Your Azure subscription ID.
     - `KEYVAULT_NAME`: Your Key Vault name.
 - Grant permissions: Make sure the service principal has appropriate access to the Key Vault (example, "Key Vault Secrets User" role).
-- Replace <SECRET_NAME> with your Key Vault secret name.
+- Replace `<SECRET_NAME>` with your Key Vault secret name.
 
 ## GitHub Actions workflow sample
 
