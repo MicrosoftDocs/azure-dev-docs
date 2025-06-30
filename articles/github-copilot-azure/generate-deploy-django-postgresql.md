@@ -38,7 +38,7 @@ The specific application you create is a trivial contact management application 
 
 ## Prepare the chat session 
 
-1. In Visual Studio Code, use the Toggle Chat button or select <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> in the title bar to open the Chat Window. Use the New Chat icon to create a new chat session.
+1. In Visual Studio Code, use the Toggle Chat button in the title bar or select <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> to open the Chat Window. Use the New Chat icon to create a new chat session.
 
 1. In the chat area, select `Agent` mode. At the time of this writing,  `Claude Sonnet 4` yields the best results. Use the best model available for code generation.
 
@@ -256,7 +256,7 @@ az webapp log tail
 
 When GitHub Copilot is stuck, you can interrupt GitHub Copilot in one of several ways:
 
-- `Ctrl` + `c`
+- <kbd>Ctrl</kbd>+<kbd>c</kbd>
 - Use the pause button in the chat
 - End the chat session and start a new chat
 
