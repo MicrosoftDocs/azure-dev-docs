@@ -11,15 +11,15 @@ ms.custom: devx-track-java
 ms.service: azure-java
 ---
 
-# Asset Manager migration sample for GitHub Copilot App Modernization for Java (preview)
+# Asset Manager migration sample for GitHub Copilot App Modernization for Java
 
-To help you explore GitHub Copilot App Modernization for Java (preview), we prepared a migration code sample, [Asset Manager](https://github.com/Azure-Samples/java-migration-copilot-samples/tree/main/asset-manager). This sample stores user-uploaded images and metadata in the following locations:
+To help you explore GitHub Copilot App Modernization for Java, we prepared a migration code sample, [Asset Manager](https://github.com/Azure-Samples/java-migration-copilot-samples/tree/main/asset-manager). This sample stores user-uploaded images and metadata in the following locations:
 
 - RabbitMQ
 - Local file system
 - Amazon Web Services (AWS) S3
 
-You can use App Modernization for Java (preview) to migrate the app estate to Azure by using the following features:
+You can use App Modernization for Java to migrate the app estate to Azure by using the following features:
 
 - AppCAT for solution assessment
 - Predefined and custom formulas to migrate code and configurations to the following locations:
