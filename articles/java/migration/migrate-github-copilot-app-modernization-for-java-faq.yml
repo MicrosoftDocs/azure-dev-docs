@@ -24,11 +24,11 @@ sections:
       - question: Can I use App Modernization for Java to upgrade my Java version?
         answer: There's a separate [GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/overview) tool, and you can use it together with App Modernization for Java.
 
-      - question: Are there any settings in GitHub Copilot that I should configure to make sure I get the full features?
+      - question: Are there any settings in GitHub Copilot that I should configure to make sure I get all the features?
         answer: |
-          To avoid GitHub Copilot blocking certain code generations, especially for files that commonly resemble public code, like pom.xml, please follow the steps in this documentation to **allow** suggestions matching public code: [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+          GitHub Copilot normally blocks certain code generations for files that commonly resemble public code, such as **pom.xml**. To prevent Copilot from blocking these changes, you must allow suggestions matching public code. For instructions, see [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
-          To manage the settings of Github Copilot in your organization, please follow this documentation: [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization)
+          To manage the settings of Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
       - question: Will App Modernization for Java be open sourced in the future?
         answer: We currently have no plans to open source App Modernization for Java.
@@ -88,4 +88,3 @@ sections:
          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
          For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com).
-        
