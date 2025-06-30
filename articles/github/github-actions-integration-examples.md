@@ -74,4 +74,4 @@ jobs:
 ## Additional resources
 
 - [Authenticate to Azure from GitHub Actions by OpenID Connect](connect-from-azure-openid-connect.md)
-- [About Azure Key Vault](azure/key-vault/general/overview)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
