@@ -26,7 +26,7 @@ The following video demonstrates using GitHub Copilot App Modernization for Java
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
-- The latest version of [Visual Studio Code](https://code.visualstudio.com/).
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see [Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md).
 
@@ -37,9 +37,6 @@ The following video demonstrates using GitHub Copilot App Modernization for Java
   App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 
 - [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
-
->[!NOTE]
->The Visual Studio Code version must be 1.101 or later.
 
 ## Create a custom formula
 

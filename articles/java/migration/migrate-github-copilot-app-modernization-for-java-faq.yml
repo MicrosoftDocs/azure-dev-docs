@@ -40,8 +40,8 @@ sections:
         answer: Currently, App Modernization for Java is focused on assisting with Java applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
 
       - question: What are the token size limits of the top models?
-        answer: For detailed model specifications, see the [GitHub Copilot documentation](https://docs.github.com/copilot).      
-      
+        answer: For detailed model specifications, see the [GitHub Copilot documentation](https://docs.github.com/copilot).
+
       - question: Why don't I see tools in App Modernization for Java that use the Model Context Protocol (MCP) server?
         answer: |
          App Modernization for Java uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:

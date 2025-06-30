@@ -24,7 +24,7 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
-- The latest version of [Visual Studio Code](https://code.visualstudio.com/).
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see the next section.
 
@@ -35,9 +35,6 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
   App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 
 - [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
-
->[!NOTE]
->The Visual Studio Code version must be 1.101 or later.
 
 ## Sign in to use Copilot and then install App Modernization
 
@@ -63,7 +60,7 @@ Use the following steps to start your migration process with solution assessment
 
 1. In Visual Studio Code, open the **mi-sql-public-demo** project folder in the samples repository.
 
-1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, click **Run Assessment**.
+1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, select **Run Assessment**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" alt-text="Screenshot of Visual Studio Code that shows the Assessment section with the Assess button highlighted.":::
 
@@ -79,7 +76,7 @@ Upon completion of the analysis, the modernization assessor produces a categoriz
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
 
-When reviewing the summary report, you can select **Migrate to Azure SQL Database (SDK, Public Cloud)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, click **Migrate** button to move to the code remediation stage.
+When reviewing the summary report, you can select **Migrate to Azure SQL Database (SDK, Public Cloud)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, select **Migrate** to move to the code remediation stage.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
