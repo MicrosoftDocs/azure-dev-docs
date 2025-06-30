@@ -73,6 +73,5 @@ jobs:
 
 ## Additional resources
 
-- [Federated Identity](~/_entra-docs/docs/external-id/what-is-b2b.md)
-- [Service Tags in Network Security Rules](~/_azure-docs/articles/virtual-network/service-tags-overview.md)
-- [Sign-in with OpenID Connect](connect-from-azure-openid-connect.md)
+- [Authenticate to Azure from GitHub Actions by OpenID Connect](connect-from-azure-openid-connect.md)
+- [About Azure Key Vault](azure/key-vault/general/overview)
