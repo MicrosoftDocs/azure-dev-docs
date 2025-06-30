@@ -21,7 +21,7 @@ The specific application you create is a trivial contact management application 
 
 [!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
 
-- [GitHub Copilot for Azure](./get-started)
+- [GitHub Copilot for Azure](./get-started.md)
 
 - [Python extension to Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). For instructions on how to install the extension, see [Install Python and the Python extension](https://code.visualstudio.com/docs/languages/python#_install-python-and-the-python-extension).
 
@@ -38,7 +38,7 @@ The specific application you create is a trivial contact management application 
 
 ## Prepare the chat session 
 
-1. In Visual Studio Code, use the Toggle Chat button in the title bar to open the Chat Window. Use the New Chat icon to create a new chat session.
+1. In Visual Studio Code, use the Toggle Chat button or select <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> in the title bar to open the Chat Window. Use the New Chat icon to create a new chat session.
 
 1. In the chat area, select `Agent` mode. At the time of this writing,  `Claude Sonnet 4` yields the best results. Use the best model available for code generation.
 
@@ -137,11 +137,12 @@ First you provide instructions and guidance on building and testing the applicat
 
 1. In Visual Studio Code, use the Toggle Chat button in the title bar to open the Chat Window. Use the New Chat icon to create a new chat session.
 
-1. In the chat area, select `Agent` mode. At the time of this writing,  `Claude Sonnette 4.0` yields the best results. Use the best model available for code generation.
+1. In the chat area, select `Agent` mode. At the time of this writing,  `Claude Sonnet 4` yields the best results. Use the best model available for code generation.
 
 1. Use the following prompt to begin application generation:
 
    ```copilot-prompt
+
    I want you to create a simple Contact Manager application using Django and PostgreSQL. 
    
    This should be a CRUD application, so create web pages that display a list of 
@@ -153,6 +154,7 @@ First you provide instructions and guidance on building and testing the applicat
    and I have tested it works. Prefer Git Bash in the terminal. Beyond that, if there's 
    anything I need to do, please include instructions. But I want you to do as much as 
    you can on your own.
+
    ```
 
    The prompt has the following features:
@@ -189,6 +191,7 @@ After GitHub Copilot generates the site locally, you'll author a prompt asking G
 Use the following prompt:
 
 ```copilot-prompt
+
 Please help me deploy this Django app to Azure. Use Azure App Service for the Django app, 
 and Azure PostgreSQL Flexible Server using Service Connector (and any other services you 
 need to make this configuration work successfully). You may need to modify the 
@@ -199,6 +202,7 @@ and the Azure PostgreSQL Flexible Server. When prompted, use an environment name
 location. Configure my firewall to allow my IP address. Beyond that, if there's anything 
 I need to do, please include instructions. But I want you to do as much as you can on 
 your own.
+
 ```
 
 The prompt has the following features:
