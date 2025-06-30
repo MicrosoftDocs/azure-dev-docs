@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 12/20/2024
+ms.date: 06/26/2025
 ms.service: azure
 ---
 
@@ -10,7 +10,7 @@ Learn how to add enterprise-grade load balancing to your application to extend t
 This article requires you to deploy two separate samples:
 
 * Chat app:
-  * If you haven't deployed the chat app yet, wait until after the load balancer sample is deployed.
+  * Wait to deploy the chat app until after the load balancer sample is deployed.
   * If you already deployed the chat app once, change the environment variable to support a custom endpoint for the load balancer and redeploy it again.
 * Load balancer with Azure API Management.
 

@@ -2,7 +2,7 @@
 title: "Walkthrough, Part 5: Authenticate Python apps with Azure services"
 description: A discussion of the main app's dependencies (mainly Azure SDK libraries), the necessary import statements, and the environment variables it uses.
 ms.date: 05/28/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-python
 ---
 
@@ -41,7 +41,7 @@ The app code depends on these four environment variables:
 | THIRD_PARTY_API_ENDPOINT | The URL of the third-party API, such as `https://msdocs-example-api.azurewebsites.net/api/RandomNumber` described in [Part 3](walkthrough-tutorial-authentication-03.md). |
 | KEY_VAULT_URL | The URL of the Azure Key Vault in which you stored the access key for the third-party API. |
 | THIRD_PARTY_API_SECRET_NAME | The name of the secret in Key Vault that contains the access key for the third-party API. |
-| STORAGE_QUEUE_URL | The URL of an Azure Storage Queue you configured in Azure, such as `https://msdocsexamplemainapp.queue.core.windows.net/code-requests` (see [Part 4](walkthrough-tutorial-authentication-04.md)). Because the queue name is included at the end of the URL, you don't see the name anywhere in the code. |
+| STORAGE_QUEUE_URL | The URL of an Azure Storage Queue that you configure in Azure, such as `https://msdocsexamplemainapp.queue.core.windows.net/code-requests` (see [Part 4](walkthrough-tutorial-authentication-04.md)). Because the queue name is included at the end of the URL, you don't see the name anywhere in the code. |
 
 How you set these variables depends on where the code is running:
 

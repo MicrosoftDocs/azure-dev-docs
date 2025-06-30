@@ -1,8 +1,8 @@
 ---
 title: 'Credential chains in the Azure Identity library for Java'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
-ms.date: 03/10/2025
-ms.topic: conceptual
+ms.date: 06/02/2025
+ms.topic: article
 author: KarlErickson
 ms.author: karler
 ms.reviewer: scaddie
@@ -96,6 +96,19 @@ import com.azure.identity.DefaultAzureCredentialBuilder;
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     .build();
 ```
+
+### How to customize DefaultAzureCredential
+
+To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-prod.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
+
+When a value of `dev` is used, the chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-dev.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.16.1 and later.
 
 ## ChainedTokenCredential overview
 

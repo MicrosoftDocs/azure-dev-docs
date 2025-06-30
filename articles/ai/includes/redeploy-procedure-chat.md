@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 12/20/2024
+ms.date: 06/26/2025
 ms.service: azure
 ---
 
@@ -83,4 +83,4 @@ These examples are completed on the chat app sample.
 
 ---
 
-You can now use the chat app with the confidence that it's built to scale across many users without running out of quota.
+Use the chat app with the confidence that it scales across many users without running out of quota.

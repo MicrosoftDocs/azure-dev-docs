@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LlamaIndex"
 description: "Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data."
 ms.topic: get-started 
-ms.date: 12/11/2024
+ms.date: 06/26/2025
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -46,7 +46,7 @@ To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, the
 | Process | Description | LlamaIndex |
 |--|--|--|
 | Data Ingestion | Import data from sources like PDFs, APIs, or databases. | SimpleDirectoryReader |
-| Chunk Documents | Break down large documents into smaller chunks. | SentenceSplitter |
+| Chunk Documents | Breakdown large documents into smaller chunks. | SentenceSplitter |
 | Vector index creation | Create a vector index for efficient similarity searches. | VectorStoreIndex |
 | Recursive Retrieval (Optional) from index | Manage complex datasets with hierarchical retrieval. | |
 | Convert to Query Engine | Convert the vector index into a query engine. | asQueryEngine |
@@ -87,7 +87,7 @@ Use the following instructions to deploy a preconfigured development environment
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Open in codespace.
 
@@ -95,7 +95,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
     ```bash
     azd auth login
@@ -103,7 +103,7 @@ Use the following instructions to deploy a preconfigured development environment
 
     Complete the authentication process.
 
-1. The remaining tasks in this article take place in the context of this development container.
+The remaining tasks in this article take place in the context of this development container.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -148,7 +148,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it finishes.
 
 1. To provision the Azure resources and deploy the source code, run the following Azure Developer CLI command:
 
@@ -226,7 +226,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 :::image type="content" source="../media/get-started-app-chat-template-llamaindex/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 

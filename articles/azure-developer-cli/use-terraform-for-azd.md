@@ -5,7 +5,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 9/13/2024
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-terraform, build-2023
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Evaluating JavaScript chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your JavaScript RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
-ms.date: 12/11/2024
+ms.date: 06/23/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
@@ -25,14 +25,14 @@ ms.collection: ce-skilling-ai-copilot
 
     You need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 
-    * Chat API URI: The service backend endpoint shown at the end of the `azd up` process. 
+    * Chat API URI: The service backend endpoint shown at the end of the `azd up` process.
     * Azure AI Search. The following values are required:
          * Resource name: The name of the Azure AI Search resource name, reported as `Search service` during the `azd up` process.
-        * Index name: The name of the Azure AI Search index where your documents are stored. This can be found in the Azure portal for the Search service.
+        * Index name: The name of the Azure AI Search index where your documents are stored. You can find the index name in the Azure portal for the Search service.
 
-    The Chat API URL allows the evaluations to make requests through your backend application. The Azure AI Search information allows the evaluation scripts to use the same deployment as your backend, loaded with the documents. 
+    The Chat API URL allows the evaluations to make requests through your backend application. The Azure AI Search information allows the evaluation scripts to use the same deployment as your backend, loaded with the documents.
 
-    Once you have this information collected, you shouldn't need to use the **chat app** development environment again. It's referred to later in this article several times to indicate how the **chat app** is used by the **Evaluations app**. Don't delete the **chat app** resources until you complete the entire procedure in this article.
+    After you collect this information, you don’t need to use the **chat app** development environment again. This article refers to the **chat app** several times to show how the **Evaluations app** uses it. Don’t delete the **chat app** resources until you finish all steps in this article.
 
 * A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 

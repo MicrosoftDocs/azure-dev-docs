@@ -1,11 +1,11 @@
 ---
 title: Manage virtual machines with Azure Explorer for IntelliJ
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for IntelliJ.
-ms.date: 03/14/2022
+ms.date: 06/17/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

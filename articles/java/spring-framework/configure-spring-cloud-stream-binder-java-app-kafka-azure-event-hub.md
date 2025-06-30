@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
 ms.date: 04/18/2025
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-extended-java
 ---
 

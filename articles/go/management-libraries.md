@@ -2,7 +2,7 @@
 title: Overview of the Azure SDK for Go management libraries 
 description: In this article, you learn the basic tasks of working with the Azure SDK for Go management libraries.
 ms.date: 06/17/2024
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-go
 ms.devlang: golang
 ---
