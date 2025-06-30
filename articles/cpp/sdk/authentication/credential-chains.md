@@ -3,7 +3,7 @@ title: Credential chains in the Azure Identity client library for C++
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for C++.
 author: ronniegeraghty
 ms.author: rgeraghty
-ms.date: 04/07/2025
+ms.date: 06/30/2025
 ms.topic: conceptual
 ms.custom: devx-track-cpp
 
@@ -51,18 +51,18 @@ With C++, there are two choices for credential chaining:
 
 ## DefaultAzureCredential overview
 
-[DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity#defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
+[DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity#defaultazurecredential) is an opinionated, preconfigured chain of credentials. Its design supports many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="./../media/mermaidjs/default-azure-credential-auth-flow.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow.":::
+:::image type="content" source="./../media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow.":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
-| Order | Credential                      | Description                                                                                                                                                                                                                                                                                                                                    |
-|-------|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | [Environment][env-cred]         | Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally. |
-| 2     | [Workload Identity][wi-cred]    | If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.                                                                                                                                                                                                                                             |
-| 3     | [Managed Identity][mi-cred]     | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                              |
-| 4     | [Azure CLI][az-cred]            | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                                           |
+| Order | Credential                   | Description                                                                                                                                                                                                                                                                                                                                    |
+|-------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | [Environment][env-cred]      | Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally. |
+| 2     | [Workload Identity][wi-cred] | If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.                                                                                                                                                                                                                                             |
+| 3     | [Managed Identity][mi-cred]  | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                              |
+| 4     | [Azure CLI][az-cred]         | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                                           |
 
 [env-cred]: https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity#environment-variables
 [wi-cred]: https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity#authenticate-azure-hosted-applications
@@ -85,6 +85,17 @@ int main()
     Azure::Storage::Blobs::BlobClient blobClient{blobUrl, credential};
 }
 ```
+
+### How to customize DefaultAzureCredential
+
+To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
+
+When a value of `dev` is used, the chain only includes `AzureCliCredential`.
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity-cpp` package versions 1.12.0 and later.
 
 ## ChainedTokenCredential overview
 
@@ -110,10 +121,9 @@ int main()
 }
 ```
 
-
 The preceding code sample creates a tailored credential chain comprised of two credentials. `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="./../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of managed identity credential and Azure CLI credential.":::
+:::image type="content" source="./../media/mermaidjs/chained-token-credential-authentication-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of ManagedIdentityCredential and AzureCliCredential.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
@@ -160,8 +170,8 @@ DEBUG : Identity: DefaultAzureCredential: Saved this credential at index 2 for s
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, and `WorkloadIdentityCredential` each failed to acquire a Microsoft Entra access token, in that order.
-- The `ManagedIdentityCredential` succeeds, as indicated by an entry that starts with "`Successfully got token from ManagedIdentityCredential`". Since `ManagedIdentityCredential` succeeded, no credentials beyond it were tried.
+- `EnvironmentCredential`, `WorkloadIdentityCredential`, and `ManagedIdentityCredential` each failed to acquire a Microsoft Entra access token, in that order.
+- `ManagedIdentityCredential` succeeds, as indicated by an entry that starts with "`Successfully got token from ManagedIdentityCredential`".
 
 
 <!-- LINKS -->
