@@ -15,6 +15,8 @@ items:
           href: tools/ai-search.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
+        - name: Azure Cache for Redis
+          href: tools/azure-cache-for-redis.md          
         - name: Azure CLI Extension
           href: tools/azure-cli-extension.md
         - name: Azure Data Explorer

@@ -8,7 +8,7 @@ metadata:
   description: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from enables AI agents and other types of clients.
   ms.service: azure
   ms.topic: landing-page
-  ms.date: 05/22/2025
+  ms.date: 07/01/2025
 
 landingContent:
   # Card
@@ -39,6 +39,8 @@ landingContent:
             url: tools/ai-search.md
           - text: Azure App Configuration
             url: tools/app-configuration.md
+          - text: Azure Cache for Redis
+            url: tools/azure-cache-for-redis.md
           - text: Azure CLI Extension
             url: tools/azure-cli-extension.md
           - text: Azure Data Explorer
