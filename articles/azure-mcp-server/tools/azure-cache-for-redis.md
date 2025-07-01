@@ -1,6 +1,6 @@
 ---
-title: Azure Cache for Redis tools for the Azure MCP Server
-description: Learn how to use the Azure MCP Server with Azure Cache for Redis.
+title: Azure Cache for Redis Tools for Azure MCP Server
+description: Learn how to manage Azure Cache for Redis instances using the Azure MCP Server with natural language prompts. Discover tools for Redis clusters, databases, caches, and access policies.
 keywords: azure mcp server, azmcp, cache for redis, redis cache, redis cluster, redis enterprise
 author: diberry
 ms.author: diberry
@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 ms.custom: build-2025
 ---
 
-# Azure Cache for Redis tools for the Azure MCP Server
+# Azure Cache for Redis tools for Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Azure Cache for Redis instances using natural language prompts. This allows you to quickly manage Redis caches and clusters without remembering complex syntax.
+The Azure MCP Server allows you to manage Azure Cache for Redis instances using natural language prompts. You can quickly manage Redis caches, clusters, databases, and access policies without remembering complex syntax or commands.
 
 [Azure Cache for Redis](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview) provides an in-memory data store based on the Redis software. Redis improves the performance and scalability of applications that use backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in server memory, which can be written to and read from quickly.
 
