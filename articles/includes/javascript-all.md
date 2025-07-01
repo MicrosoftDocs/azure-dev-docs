@@ -9,7 +9,7 @@
 | @azure/functions-authentication-events | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/functions-authentication-events/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/functions-authentication-events-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/functions-authentication-events_1.0.0-beta.2/sdk/entra/functions-authentication-events/) |
 | @azure/template-dpg | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/template-dpg/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/template-dpg-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/template-dpg_1.0.0-beta.1/sdk/template/template-dpg/) |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
-| AI Agents | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/ai-agents/v/1.0.0-beta.6) | [docs](/javascript/api/overview/azure/ai-agents-readme) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0-beta.6/sdk/ai/ai-agents/) |
+| AI Agents | npm [1.0.0](https://www.npmjs.com/package/@azure/ai-agents/v/1.0.0) | [docs](/javascript/api/overview/azure/ai-agents-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.0.0/sdk/ai/ai-agents/) |
 | AI Model Inference | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.6) |  | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/) |
 | AI Projects | npm [1.0.0-beta.9](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.9) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [1.0.0-beta.9](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.9/sdk/ai/ai-projects/) |
 | App Configuration | npm [1.9.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.9.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0/sdk/appconfiguration/app-configuration/) |
@@ -435,7 +435,7 @@
 | TypeSpec HTTP Client | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client/v/0.7.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.6.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.12.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.4) |  |  |
+| TypeSpec HTTP Client Python | npm [0.12.5](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.5) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.23](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.23) |  |  |
 | TypeSpec Rust | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.17.0) |  |  |
 | TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
@@ -531,11 +531,11 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250624.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250624.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250630.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250630.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
-| @autorest/gotest | npm [4.7.4](https://www.npmjs.com/package/@autorest/gotest/v/4.7.4) |  |  |
+| @autorest/gotest | npm [4.7.5](https://www.npmjs.com/package/@autorest/gotest/v/4.7.5) |  |  |
 | @autorest/openapi-to-cadl | npm [0.6.0](https://www.npmjs.com/package/@autorest/openapi-to-cadl/v/0.6.0) |  |  |
 | @autorest/schemas | npm [1.3.6](https://www.npmjs.com/package/@autorest/schemas/v/1.3.6) |  |  |
 | @autorest/system-requirements | npm [1.1.1](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.1) |  |  |
@@ -612,7 +612,7 @@
 | AutoRest - Go | npm [4.0.0-preview.72](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.72) |  |  |
 | AutoRest - Modeler Four | npm [4.27.1](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.1) |  | GitHub [4.27.1](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.35.4](https://www.npmjs.com/package/@autorest/python/v/6.35.4) |  | GitHub [6.35.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.35.5](https://www.npmjs.com/package/@autorest/python/v/6.35.5) |  | GitHub [6.35.5](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
