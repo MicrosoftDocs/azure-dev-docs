@@ -19,7 +19,7 @@ The Azure MCP Server allows you to manage Azure Monitor resources, including que
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Log analytics: List workspaces
+## Log analytics: list workspaces
 
 The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
@@ -35,7 +35,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 
-## Log analytics: List tables
+## Log analytics: list tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
@@ -53,7 +53,7 @@ Example prompts include:
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 
-## Log analytics: Query logs
+## Log analytics: query logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 
@@ -74,7 +74,7 @@ Example prompts include:
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
-## Health: Get entity health
+## Health: get entity health
 
 The Azure MCP Server can get the health status of an entity using Azure Monitor health models. This provides comprehensive health information and monitoring status for Azure resources and applications.
 
@@ -93,7 +93,7 @@ Example prompts include:
 | **Model name** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
 
-# Metrics: Query metrics
+## Metrics: query metrics
 
 The Azure MCP Server can query Azure Monitor metrics for resources. This allows you to retrieve performance metrics, usage statistics, and monitoring data for your Azure resources over specified time periods.
 
@@ -120,7 +120,7 @@ Example prompts include:
 | **Filter** | Optional | Filter for the metrics query. |
 | **Max buckets** | Optional | Maximum number of buckets. |
 
-## Metrics: List metric definitions
+## Metrics: list metric definitions
 
 The Azure MCP Server can list available metric definitions for a resource. This helps you discover what metrics are available for monitoring before querying specific metric data.
 
