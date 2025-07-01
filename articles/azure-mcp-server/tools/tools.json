@@ -1061,6 +1061,42 @@
                         "required": true
                     }
                 ]
+            },
+            {
+                "name": "server setparam",
+                "description": "Set a specific parameter of a PostgreSQL server to a specific value.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "param",
+                        "description": "The PostgreSQL parameter to be set",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "description": "The value to set for the parameter",
+                        "required": true
+                    }
+                ]
             }
         ]
     },
