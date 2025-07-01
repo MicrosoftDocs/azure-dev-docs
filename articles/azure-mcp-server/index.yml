@@ -45,6 +45,8 @@ landingContent:
             url: tools/azure-data-explorer.md
           - text: Azure DB for PostgreSQL
             url: tools/postgresql.md
+          - text: Azure RBAC
+            url: tools/azure-rbac.md
           - text: Complete list of tools
             url: tools/index.md#available-tools
 

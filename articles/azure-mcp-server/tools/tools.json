@@ -1142,5 +1142,27 @@
                 ]
             }
         ]
+    },
+    "azure-rbac": {
+        "root": "azmcp role",
+        "documentation": "",
+        "tools": [
+            {
+                "name": "assignment list",
+                "description": "List Azure RBAC role assignments.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "description": "The scope to list role assignments for",
+                        "required": true
+                    }
+                ]
+            }
+        ]
     }
 }
