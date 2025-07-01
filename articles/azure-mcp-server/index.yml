@@ -45,6 +45,8 @@ landingContent:
             url: tools/azure-data-explorer.md
           - text: Azure DB for PostgreSQL
             url: tools/postgresql.md
+          - text: Azure Native ISV
+            url: tools/azure-native-isv.md
           - text: Complete list of tools
             url: tools/index.md#available-tools
 
