@@ -6,8 +6,8 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
 ms.topic: how-to
-ms.date: 06/10/2025 
-ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, has-azure-ad-ps-ref, passwordless-java
+ms.date: 06/10/2025
+ms.custom: devx-track-azurecli, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, has-azure-ad-ps-ref, passwordless-java
 ---
 
 # Configure passwordless database connections for Java apps on IBM WebSphere Application Server
@@ -29,16 +29,15 @@ The offers support passwordless connections for PostgreSQL, MySQL, and Azure SQL
 
 ## Configure a passwordless database connection for IBM WebSphere Application Server on Azure VMs
 
-Before proceeding, Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+Before proceeding, ensure that the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 This section shows you how to configure the passwordless data source connection using the Azure Marketplace offers for IBM WebSphere Application Server.
 
 First, begin the process of deploying an offer. The following offers support passwordless database connections:
 
 - [WebSphere Traditional on VM](https://aka.ms/twas-single-portal)
-- [WebSphere Traditional cluster on VM](https://aka.ms/twas-cluster-portal)
-   - [Quickstart](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines)
-   
+- [WebSphere Traditional cluster on VM](https://aka.ms/twas-cluster-portal). For more information, see [Quickstart: Deploy WebSphere Application Server Network Deployment cluster on Azure Virtual Machines](traditional-websphere-application-server-virtual-machines.md).
+
 Enter the required information in the **Basics** pane and other panes if you want to enable the features. When you reach the **Database** pane, enter the passwordless configuration as shown in the following steps:
 
 1. For **Connect to database?**, select **Yes**.
@@ -49,9 +48,9 @@ Enter the required information in the **Basics** pane and other panes if you wan
 1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is **myManagedIdentity**.
 1. Select **Add**.
 
-The **Connection settings** section should look like the following screenshot.
+The **Connection settings** section should look like the following screenshot:
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal showing the Choose database type page." lightbox="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal that shows the Choose database type page." lightbox="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png":::
 
 ## Verify the database connection
 
@@ -70,15 +69,15 @@ After the deployment completes, follow these steps in the Azure portal to find t
 Use the following steps to verify the database connection:
 
 1. Sign in to the Integrated Solutions Console with the username and password you provided on the **Basics** pane.
-1. In the left navigation pane, expand **Resources**, then **JDBC**.
+1. In the navigation pane, expand **Resources** then **JDBC**.
 1. Select **Data sources**.
-1. Select the check box next to the row with **JNDI name** value matching the value you entered in the **Database** tab.
+1. Select the check box next to the row with the **JNDI name** value matching the value you entered in the **Database** tab.
 1. Select **Test connection**.
-1. You should see a message stating something similar to, "The test connection operation for data source dataSource-sqlserver on server server1 at node was0aef4a-vmNode01 was successful."
+1. You should see a message stating something similar to `The test connection operation for data source dataSource-sqlserver on server server1 at node was0aef4a-vmNode01 was successful.`
 
-The following illustration highlights the relevant user interface elements.
+The following screenshot highlights the relevant user interface elements:
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png" alt-text="Screenshot of the Integrated solutions console showing the test database page." lightbox="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png" alt-text="Screenshot of the Integrated solutions console that shows the test database page." lightbox="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png":::
 
 ## Clean up resources
 
@@ -91,16 +90,16 @@ az group delete --name <resource-group-name-that-deploys-the-offer>
 
 ## Next steps
 
-Learn more about running WebSphere Application Server on AKS, Azure RedHat OpenShift or virtual machines by following these links:
+Learn more about running WebSphere Application Server on AKS, Azure RedHat OpenShift, or virtual machines by following these links:
 
 > [!div class="nextstepaction"]
-> [Explore IBM WebSphere products on Azure](/azure/developer/java/ee/websphere-family)
+> [Explore IBM WebSphere products on Azure](websphere-family.md)
 
 > [!div class="nextstepaction"]
-> [Migrate WebSphere applications to AKS](/azure/developer/java/migration/migrate-websphere-to-azure-kubernetes-service?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [Migrate WebSphere applications to AKS](../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Migrate WebSphere applications to Azure Red Hat OpenShift](/azure/developer/java/migration/migrate-websphere-to-azure-redhat-openshift?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [Migrate WebSphere applications to Azure Red Hat OpenShift](../migration/migrate-websphere-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Migrate WebSphere applications to Azure Virtual Machines](/azure/developer/java/migration/migrate-websphere-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [Migrate WebSphere applications to Azure Virtual Machines](../migration/migrate-websphere-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
