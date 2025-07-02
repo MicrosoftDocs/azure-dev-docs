@@ -1,6 +1,6 @@
 ---
-title: "Get started with remote MCP servers using Azure Container Apps"
-description: "Learn how to set up a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps."
+title: "Build a TypeScript MCP server using Azure Container Apps"
+description: "Learn how to build a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps."
 ms.date: 07/02/2025
 ms.topic: get-started 
 ms.subservice: intelligent-apps
@@ -8,14 +8,14 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As an AI app developer, I want to learn how to set up a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps.
+# CustomerIntent: As an AI app developer, I want to learn how to build a TypeScript Model Context Protocol (MCP) server using Azure Container Apps.
 ---
 
-# Get started with remote MCP servers using Azure Container Apps
+# Build a TypeScript MCP server using Azure Container Apps
 
-This article provides the basic building blocks to set up a remote Model Context Protocol (MCP) server using Azure Container Apps. The MCP server is built using Node.js and TypeScript. It can run various tools and services in a serverless environment. Use this structure as a template for building your own MCP servers with custom functionality.
+This article explains how to build a Model Context Protocol (MCP) server using Node.js and TypeScript. The server runs tools and services in a serverless environment. Use this structure as a starting point to create custom MCP servers.
 
-## The TypeScript remote Model Context Protocol (MCP) server building block
+## Get to the code
 
 Explore the [TypeScript remote Model Context Protocol (MCP) server](https://github.com/Azure-Samples/mcp-container-ts) sample. It demonstrates how to use Node.js and TypeScript to build a remote MCP server and deploy it to Azure Container Apps.
 
@@ -133,9 +133,9 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy and run
 
-The sample repository contains all the code and configuration files for the chat app Azure deployment. The following steps walk you through the sample chat app Azure deployment process.
+The sample repository contains all the code and configuration files for the MCP server Azure deployment. The following steps walk you through the sample MCP server Azure deployment process.
 
-### Deploy chat app to Azure
+### Deploy to Azure
 
 > [!IMPORTANT]
 > Azure resources in this section start costing money immediately, even if you stop the command before it finishes.
@@ -156,6 +156,53 @@ The sample repository contains all the code and configuration files for the chat
     |Location for the Azure OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
 1. Wait until the app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
+
+1. Once the deployment is complete, you can access the MCP server using the URL provided in the output. The URL looks like this:
+
+```bash
+https://<env-name>.<container-id>.<region>.azurecontainerapps.io
+```
+
+1. Copy the URL to your clipboard. You'll need it in the next section.
+
+### Configure the MCP server in Visual Studio Code
+
+Configure the MCP server in your local VS Code environment by adding the URL to the `.vscode\mcp.json` file.
+
+1. Open the `.vscode\mcp.json` file in your project directory.
+
+1. Locate the `mcp-server-sse-remote` section in the file. It should look like this:
+
+    ```json
+        "mcp-server-sse-remote": {
+        "type": "sse",
+        "url": "https://<container-id>.<location>.azurecontainerapps.io/sse"
+    }
+    ```
+
+1. Replace the existing `url` value with the URL you copied in the previous step.
+
+1. Save the `.vscode\mcp.json` file.
+
+### Use TODO MCP server tools in agent mode
+
+After modifying the MCP server, you can use the tools, it provides in agent mode. To use MCP tools in agent mode:
+
+1. Open the Chat view (`Ctrl+Alt+I`), and select Agent mode from the dropdown.
+
+1. Select the **Tools** button to view the list of available tools.
+      Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
+
+1. Enter a prompt such as "I need to send an email to my manager on Wednesday" in the chat input box and notice how tools are automatically invoked as needed, as in the following screenshot:
+
+    :::image type="content" source="./media/build-mcp-server-ts/mcp-server-tools-invocation.png" lightbox="./media/build-mcp-server-ts/mcp-server-tools-invocation.png"alt-text="Screenshot showing the MCP server tools invocation.":::
+
+
+> [!NOTE]
+> By default, when a tool is invoked, you need to confirm the action before the tool runs. Otherwise, tools might run locally on your machine and might perform actions that modify files or data.
+
+Use the Continue button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
+
 
 ## Exploring the sample code
 
@@ -190,7 +237,7 @@ const server = new SSEPServer(
 );
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Composition pattern**: `SSEPServer` wraps the low-level `Server` class
 - **Capabilities declaration**: Server announces it supports tools (but not resources/prompts)
@@ -212,7 +259,7 @@ router.get('/sse', async (req: Request, res: Response) => {
 });
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Two-endpoint pattern**: GET for establishing SSE connection, POST for sending messages
 - **Delegation pattern**: Express routes immediately delegate to `SSEPServer`
@@ -229,7 +276,7 @@ process.on('SIGINT', async () => {
 });
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Graceful shutdown**: Proper cleanup on Ctrl+C
 - **Async cleanup**: Server close operation is asynchronous
@@ -256,7 +303,7 @@ export class SSEPServer {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **State management**: Tracks both current transport and all transports
 - **Session mapping**: `transports` object maps session IDs to transport instances
@@ -288,7 +335,7 @@ async handleGetRequest(req: Request, res: Response) {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Transport creation**: New `SSEServerTransport` for each GET request
 - **Session management**: Autogenerated session ID stored in cache
@@ -315,7 +362,7 @@ async handlePostRequest(req: Request, res: Response) {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Session lookup**: Uses `sessionId` query parameter to find transport
 - **Session validation**: Validates SSE connection first.
@@ -353,7 +400,7 @@ private setupServerRequestHandlers() {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Schema-Based Routing**: Uses Zod schemas for type-safe request handling
 - **Tool Discovery**: `ListToolsRequestSchema` returns static TodoTools array
@@ -377,6 +424,7 @@ This MCP Server defines four TODO management tools:
 - `complete_todo`: Marks a TODO item as completed
 - `delete_todo`: Deletes a TODO item
 - `list_todos`: Lists all TODO items
+- `update_todo_text`: Updates the text of an existing TODO item
 
 #### Tool Definition Pattern
 
@@ -411,7 +459,7 @@ Each tool definition has:
 
 These tool definitions are imported in `server.ts` and exposed through the `ListToolsRequestSchema` handler.
 
-**Learning points**:
+**Concepts**:
 - **Modular Tool Design**: Each tool is a self-contained object
 - **JSON Schema Validation**: `inputSchema` defines expected parameters
 - **Type Safety**: TypeScript types match schema definitions
@@ -433,7 +481,7 @@ export const TodoTools = [
 ];
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Static Registration**: Tools defined at module load time
 - **Array Structure**: Simple array makes tools easy to iterate
@@ -455,7 +503,7 @@ async execute({ id }: { id: number }) {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Database Response Checking**: Uses `info.changes` to detect failures
 - **Graceful Degradation**: Returns descriptive error messages vs throwing
@@ -489,7 +537,7 @@ try {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **In-Memory Database**: `:memory:` means data lost on restart (demo/testing only)
 - **WAL Mode**: Write-Ahead Logging for better performance
@@ -497,11 +545,11 @@ try {
 - **Error Handling**: Graceful handling of initialization failures
 - **Logging Integration**: Database operations are logged for debugging
 
-#### CRUD Operation Patterns
+#### CRUD operation patterns
 
 The `db.ts` file provides four main CRUD operations for managing TODO items:
 
-**Create Operation**:
+**Create operation**:
 
 ```typescript
 export async function addTodo(text: string) {
@@ -511,7 +559,7 @@ export async function addTodo(text: string) {
 }
 ```
 
-**Read Operation**:
+**Read operation**:
 
 ```typescript
 export async function listTodos() {
@@ -528,7 +576,7 @@ export async function listTodos() {
 }
 ```
 
-**Update Operation**:
+**Update operation**:
 
 ```typescript
 export async function completeTodo(id: number) {
@@ -538,7 +586,7 @@ export async function completeTodo(id: number) {
 }
 ```
 
-**Delete Operation**:
+**Delete operation**:
 
 ```typescript
 export async function deleteTodo(id: number) {
@@ -556,7 +604,7 @@ export async function deleteTodo(id: number) {
 }
 ```
 
-**Learning points**:
+**Concepts**:
 
 - **Prepared Statements**: Protection against SQL injection
 - **Type Casting**: Explicit TypeScript types for query results
@@ -681,6 +729,7 @@ Open the **Command Palette**, search for **Dev Containers**, and select **Dev Co
 
 Log your issue to the repository's [Issues](https://github.com/Azure-Samples/mcp-container-ts/issues).
 
-## Next steps
+## Related resources
 
-> [!div class="nextstepaction"]
+- [Introduction to Agents and the Model Context Protocol](intro-agents-mcp.md)
+- [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai)
