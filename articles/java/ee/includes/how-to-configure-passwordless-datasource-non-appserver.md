@@ -18,15 +18,40 @@ ms.date: 05/29/2025
   - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 - Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
+## Select a region for the deployment
+
+Select a region that has available SKUs for your desired database. The following Azure CLI command lists the available SKUs in a given region. Keep trying different regions until you find one that has some results.
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
+
+```azurecli-interactive
+az mysql flexible-server list-skus --location "$REGION" --output table
+```
+
+### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
+
+```azurecli-interactive
+az postgres flexible-server list-skus --location "$REGION" --output table
+```
+
+### [Azure SQL Database](#tab/azure-sql-database)
+
+```azurecli-interactive
+az sql db list-editions --location "$REGION" --output table
+```
+
+---
+
 ## Create a resource group
 
-Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location:
+Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location. 
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME="abc1228rg"
+export REGION=eastus
 az group create \
     --name ${RESOURCE_GROUP_NAME} \
-    --location eastus
+    --location ${REGION}
 ```
 
 ## Create a database server and a database
@@ -43,7 +68,7 @@ export MYSQL_ADMIN_PASSWORD="Secret123456"
 az mysql flexible-server create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $MYSQL_NAME \
-    --location eastus \
+    --location ${REGION} \
     --admin-user $MYSQL_ADMIN_USER \
     --admin-password $MYSQL_ADMIN_PASSWORD \
     --public-access 0.0.0.0 \
@@ -90,7 +115,7 @@ export POSTGRESQL_ADMIN_PASSWORD="Secret123456"
 az postgres flexible-server create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $POSTGRESQL_NAME \
-    --location eastus \
+    --location ${REGION} \
     --admin-user $POSTGRESQL_ADMIN_USER \
     --admin-password $POSTGRESQL_ADMIN_PASSWORD \
     --public-access 0.0.0.0 \
@@ -136,7 +161,7 @@ export AZURESQL_ADMIN_PASSWORD="Secret123456"
 az sql server create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $AZURESQL_SERVER_NAME \
-    --location eastus \
+    --location ${REGION} \
     --admin-user $AZURESQL_ADMIN_USER \
     --admin-password $AZURESQL_ADMIN_PASSWORD
 ```

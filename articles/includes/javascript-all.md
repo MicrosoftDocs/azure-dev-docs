@@ -442,13 +442,13 @@
 | TypeSpec Streams | npm [0.71.0](https://www.npmjs.com/package/@typespec/streams/v/0.71.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp/v/0.2.5) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.5) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.5) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.5) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.5) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.5) |  |  |
-| Unknown Display Name | npm [0.2.5](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.5) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp/v/0.2.6) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.2.6) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.2.6) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.2.6) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.2.6) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.2.6) |  |  |
+| Unknown Display Name | npm [0.2.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.2.6) |  |  |
 | Unknown Display Name | npm [0.0.0-93](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-93) |  |  |
 | Unknown Display Name | npm [0.0.0-93](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-93) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
