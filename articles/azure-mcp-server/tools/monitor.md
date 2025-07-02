@@ -99,11 +99,12 @@ The Azure MCP Server can query Azure Monitor metrics for resources. This allows 
 
 Example prompts include:
 
-- **Query CPU and memory metrics for a virtual machine**: "Get CPU percentage and available memory bytes for my VM 'prod-vm01' in resource group 'production-rg' using namespace 'microsoft.compute/virtualmachines' from January 1st 2024 to January 2nd 2024 with hourly intervals and average aggregation"
-- **Query storage account metrics**: "Query transaction metrics for storage account 'mystorageaccount' in resource group 'storage-rg' with namespace 'microsoft.storage/storageaccounts'"
-- **Query web app performance metrics**: "Get response time and request count metrics for my App Service 'mywebapp' with namespace 'microsoft.web/sites' over the last 24 hours"
-- **Query database performance**: "Get DTU consumption and database size metrics for my SQL database 'proddb' with specific time range and aggregation"
-- **Query with filters**: "Get CPU metrics for my virtual machine with a specific filter and maximum buckets limit"
+- **Query VM metrics with time range**: "Get CPU percentage and available memory for my VM 'prod-vm01' in the production resource group from January 1st 2024 to January 2nd 2024, aggregated hourly with average values"
+- **Query storage metrics with specific type**: "Show me transaction metrics for storage account 'mystorageaccount' in the storage resource group"
+- **Query app service metrics over time**: "Get response time and request count for my web app 'mywebapp' over the last 24 hours with hourly intervals"
+- **Query with filtering**: "Show me CPU metrics for virtual machine 'prod-vm' but only include high usage periods and limit to 1000 data points"
+- **Query multiple performance metrics**: "Get both CPU percentage and available memory for my server 'vm-prod-001' from yesterday with hourly breakdowns"
+
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -126,11 +127,11 @@ The Azure MCP Server can list available metric definitions for a resource. This 
 
 Example prompts include:
 
-- **List all metrics for a storage account**: "Show me all available metrics for my storage account 'mystorageaccount' of type 'Microsoft.Storage/storageAccounts'"
-- **Find transaction-related metrics**: "Find all metrics containing 'transaction' for my storage account 'storageacct'"
-- **List VM metrics with resource type**: "List available metrics for my virtual machine 'prod-vm' of type 'Microsoft.Compute/virtualMachines'"
-- **Search with specific terms**: "List metric definitions for my App Service 'mywebapp' with search string 'response'"
-- **List database metrics**: "Show all available metrics for my SQL database 'proddb' in resource group 'database-rg'"
+- **List all metrics for a storage account**: "Show me all available metrics for my storage account 'mystorageaccount'"
+- **Find transaction-related metrics**: "Find all metrics related to transactions for my storage account 'storageacct'"
+- **List VM metrics with filtering**: "List available metrics for my virtual machine 'prod-vm' in the production resource group"
+- **Search metrics by keyword**: "Show me metrics for my App Service 'mywebapp' that contain the word 'response', limited to 50 results"
+- **List database metrics with namespace**: "Show all available metrics for my SQL database 'proddb' in the database resource group"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
