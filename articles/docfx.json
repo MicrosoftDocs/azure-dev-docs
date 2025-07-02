@@ -9,6 +9,7 @@
         "exclude": [
           "**/obj/**",
           "**/includes/**",
+          "**/mermaidjs/**",
           "**/_themes/**",
           "**/docfx.json",
           "README.md",

@@ -410,7 +410,7 @@
 | Speech Extension ONNX Runtime | NuGet [1.44.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.ONNX.Runtime/1.44.0) |  |  |
 | Speech Extension Telemetry | NuGet [1.44.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Telemetry/1.44.0) |  |  |
 | System Net Client Model | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/System.Net.ClientModel/1.0.0-beta.1) |  |  |
-| Unknown Display Name | NuGet [0.10.7-akri](https://www.nuget.org/packages/Azure.Iot.Operations.Connector/0.10.7-akri) |  |  |
+| Unknown Display Name | NuGet [0.10.8-akri](https://www.nuget.org/packages/Azure.Iot.Operations.Connector/0.10.8-akri) |  |  |
 | Unknown Display Name | NuGet [1.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview) |  |  |
 | Unknown Display Name | NuGet [1.44.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.MAS/1.44.0) |  |  |
 | WebJobs Extension MySQL | NuGet [1.0.129](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MySql/1.0.129) |  |  |
@@ -494,7 +494,7 @@
 | App Service - API Apps Service | NuGet [0.9.64](https://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/0.9.64) |  |  |
 | Code Analyzers for Durable Functions | NuGet [0.5.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask.Analyzers/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/azure-functions-durable-extension/tree/Analyzer-v0.3.0/src/WebJobs.Extensions.DurableTask.Analyzers) |
 | Cosmos DB - BulkExecutor | NuGet [2.5.1-preview](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/2.5.1-preview) |  | GitHub [2.5.1-preview](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) |
-| Cosmos DB - Direct | NuGet [3.39.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.39.1) |  | GitHub [3.39.1](https://github.com/Azure/azure-cosmos-dotnet-v3) |
+| Cosmos DB - Direct | NuGet [3.40.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Direct/3.40.0) |  | GitHub [3.40.0](https://github.com/Azure/azure-cosmos-dotnet-v3) |
 | Cosmos DB - Encryption | NuGet [2.0.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption/2.0.3)<br>NuGet [2.1.0-preview4](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption/2.1.0-preview4) |  | GitHub [2.0.3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/releases/encryption/1.0.0-preview4/Microsoft.Azure.Cosmos.Encryption) |
 | Cosmos DB - Encryption | NuGet [1.0.0-preview07](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Encryption.Custom/1.0.0-preview07) |  |  |
 | Extensions - Caching Cosmos | NuGet [1.7.0](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos/1.7.0) |  | GitHub [1.7.0](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/tree/v1.0.0-preview4) |
