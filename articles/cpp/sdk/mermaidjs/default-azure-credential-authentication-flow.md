@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/29/2025
+ms.date: 6/30/2025
 ---
 
 ```mermaid
@@ -8,7 +8,7 @@ ms.date: 05/29/2025
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i default-azure-credential-auth-flow.md -o ../../media/mermaidjs/default-azure-credential-auth-flow.svg
+%% 2. Run command: mmdc -i default-azure-credential-authentication-flow.md -o ../media/mermaidjs/default-azure-credential-authentication-flow.svg
 
 %%{
   init: {
@@ -28,7 +28,7 @@ flowchart LR;
 
     subgraph CREDENTIALS;
         direction LR;
-        A(Environment):::deployed ==> B(Workload Identity):::deployed ==> C(Azure CLI):::developer ==> D(Managed Identity):::deployed;
+        A(Environment):::deployed ==> B(Workload Identity):::deployed ==> C(Managed Identity):::deployed ==> D(Azure CLI):::developer;
     end;
 
     %% Define styles for credential type boxes

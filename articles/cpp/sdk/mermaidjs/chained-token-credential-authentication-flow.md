@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/03/2025
+ms.date: 6/30/2025
 ---
 
 ```mermaid
@@ -8,7 +8,7 @@ ms.date: 04/03/2025
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i chained-token-credential-auth-flow.md -o ../../media/mermaidjs/chained-token-credential-auth-flow.svg
+%% 2. Run command: mmdc -i chained-token-credential-authentication-flow.md -o ../media/mermaidjs/chained-token-credential-authentication-flow.svg
 
 %%{
   init: {
@@ -22,7 +22,7 @@ ms.date: 04/03/2025
 
 flowchart LR;
     direction LR;
-    A(Azure CLI):::developer ==> B(Managed Identity):::deployed;
+    A(Managed Identity):::deployed ==> B(Azure CLI):::developer;
 
     %% Define styles for credential type boxes
     classDef deployed fill:#95C37E, stroke:#71AD4C;
