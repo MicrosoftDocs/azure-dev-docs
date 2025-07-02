@@ -22,11 +22,15 @@ The Azure MCP Server can list Azure RBAC [role assignments](/azure/role-based-ac
 
 Example prompts include:
 
-• List assignments: "Show me all role assignments in my subscription."
-• View scope assignments: "List role assignments for resource group 'myresourcegroup'"
-• Check access: "What role assignments exist at the subscription scope?"
-• Query assignments: "Show me all RBAC assignments for my Azure subscription"
-• Find assignments: "List all role assignments in scope '/subscriptions/12345678-1234-1234-1234-123456789012'"
+- **List assignments**: "Show me all role assignments in my subscription."
+- **View scope assignments**: "List role assignments for resource group 'myresourcegroup'"
+- **Check access**: "What role assignments exist at the subscription scope?"
+- **Query assignments**: "Show me all RBAC assignments for my Azure subscription"
+- **Find assignments**: "List all role assignments in scope '/subscriptions/12345678-1234-1234-1234-123456789012'"
+- **Resource group scope**: "Show role assignments for resource group 'production-rg' in my subscription"
+- **Specific resource scope**: "List role assignments for storage account 'mystorageaccount' in resource group 'storage-rg'"
+- **Virtual machine access**: "What role assignments exist for VM 'prod-vm01' in the production resource group?"
+- **Database permissions**: "Show me who has access to SQL database 'proddb' in resource group 'database-rg'"
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
