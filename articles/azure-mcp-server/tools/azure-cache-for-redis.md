@@ -27,11 +27,11 @@ The Azure MCP Server can list Redis clusters in Azure Cache for Redis Enterprise
 
 Example prompts include:
 
-- List clusters: "Show me all Redis clusters in my subscription."
-- Find clusters: "What Redis Enterprise clusters do I have?"
-- Query clusters: "List all my Redis clusters"
-- Check cluster status: "Show Redis clusters in subscription abc123"
-- View cluster inventory: "Get all Redis Enterprise clusters"
+- **List clusters:** "Show me all Redis clusters in my subscription."
+- **Find clusters:** "What Redis Enterprise clusters do I have?"
+- **Query clusters:** "List all my Redis clusters"
+- **Check cluster status:** "Show Redis clusters in subscription abc123"
+- **View cluster inventory:** "Get all Redis Enterprise clusters"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
@@ -43,11 +43,11 @@ The Azure MCP Server can list databases in an Azure Redis cluster. Redis Enterpr
 
 Example prompts include:
 
-- List databases: "Show me all databases in my 'redis-cluster-prod' cluster."
-- View cluster databases: "What databases are in the Redis cluster in resource group 'my-rg'?"
-- Check database inventory: "List databases for cluster 'enterprise-cache'"
-- Query databases: "Show databases in Redis cluster 'main-cluster'"
-- Database overview: "Get all databases from my Redis Enterprise cluster"
+- **List databases:** "Show me all databases in my 'redis-cluster-prod' cluster."
+- **View cluster databases:** "What databases are in the Redis cluster in resource group 'my-rg'?"
+- **Check database inventory:** "List databases for cluster 'enterprise-cache'"
+- **Query databases:** "Show databases in Redis cluster 'main-cluster'"
+- **Database overview:** "Get all databases from my Redis Enterprise cluster"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
@@ -61,11 +61,11 @@ The Azure MCP Server can list Redis caches in the Azure Cache for Redis service.
 
 Example prompts include:
 
-- List caches: "Show me all Redis caches in my subscription."
-- Find caches: "What Azure Cache for Redis instances do I have?"
-- View cache inventory: "List all my Redis caches"
-- Check cache status: "Show Redis caches in subscription abc123"
-- Query caches: "Get all my Azure Cache for Redis instances"
+- **List caches:** "Show me all Redis caches in my subscription."
+- **Find caches:** "What Azure Cache for Redis instances do I have?"
+- **View cache inventory:** "List all my Redis caches"
+- **Check cache status:** "Show Redis caches in subscription abc123"
+- **Query caches:** "Get all my Azure Cache for Redis instances"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
@@ -77,11 +77,11 @@ The Azure MCP Server can list access policy assignments in an Azure Redis cache.
 
 Example prompts include:
 
-- List access policies: "Show me access policies for my 'prod-cache' Redis cache."
-- View permissions: "What access policies are assigned to Redis cache 'main-cache'?"
-- Check RBAC: "List access policy assignments for cache in resource group 'production'"
-- Query policies: "Show access control policies for 'enterprise-redis'"
-- Permission audit: "Get all access policies for Redis cache 'secure-cache'"
+- **List access policies:** "Show me access policies for my 'prod-cache' Redis cache."
+- **View permissions:** "What access policies are assigned to Redis cache 'main-cache'?"
+- **Check RBAC:** "List access policy assignments for cache in resource group 'production'"
+- **Query policies:** "Show access control policies for 'enterprise-redis'"
+- **Permission audit:** "Get all access policies for Redis cache 'secure-cache'"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
