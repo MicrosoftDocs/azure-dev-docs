@@ -5,7 +5,7 @@ description: This article provides an overview of the Java deployment options av
 author: KarlErickson
 ms.author: karler
 ms.reviewer: asirveda
-ms.topic: conceptual
+ms.topic: install-set-up-deploy
 ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---

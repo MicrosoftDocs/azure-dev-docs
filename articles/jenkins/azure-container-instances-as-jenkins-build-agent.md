@@ -2,7 +2,7 @@
 title: Tutorial - Use Azure Container Instances as a Jenkins build agent
 description: Learn how to configure a Jenkins server to run build jobs in Azure Container Instances
 keywords: jenkins, azure, devops, container instances, build agent
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2021
 ms.custom: devx-track-jenkins,devx-track-azurecli
 ---

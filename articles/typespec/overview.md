@@ -2,18 +2,18 @@
 title: Overview of TypeSpec - What is TypeSpec?
 description: Discover how TypeSpec enhances API design with reusable elements, seamless toolchain integration, and a great developer experience.
 ms.topic: overview
-ms.date: 05/06/2025
+ms.date: 05/27/2025
 ms.custom: devx-track-typespec
 #customer intent: As a developer or API designer, I want to use TypeSpec to create consistent, high-quality APIs efficiently and integrate them seamlessly with existing toolchains.
 ---
 
 # What is TypeSpec?
 
-[TypeSpec](https://typespec.io/) is a powerful and flexible language by Microsoft for describing APIs. It allows developers to define APIs in an extensible and easy-to-understand way. With TypeSpec, you can generate API specifications, client code, and server-side code directly from your API definition using a robust system of emitters. TypeSpec is an [open source project](#open-source-support) developed by Microsoft and supported by the community.
+[TypeSpec](https://typespec.io/) is a powerful and flexible language for designing APIs. It allows developers to define APIs in an extensible and easy-to-understand language. That compilation uses emitters to generate API specifications, client code, and server-side API code. TypeSpec is an [open source project](#open-source-support) developed by Microsoft and supported by the community.
 
 :::image type="content" source="media/tool-chain.png" alt-text="Diagram showing TypeSpec and the generated specification happen before API generation.":::
 
-A key strength of TypeSpec is that it enables the creation of modular, reusable components. This makes TypeSpec code more concise and ensures compliance with API guidelines. The standard TypeSpec library includes an OpenAPI emitter, ensuring compatibility with existing tools and workflows.
+TypeSpec enables you to create modular, reusable components which are concise and compliant with API guidelines. The standard TypeSpec library includes an OpenAPI emitter, ensuring compatibility with existing tools and workflows.
 
 As an open source language, TypeSpec can describe any API, not just Azure APIs. This versatility makes it a valuable tool for API developers, architects, and managers who need to deliver high-quality APIs in a complex and evolving environment.
 
@@ -124,6 +124,10 @@ TypeSpec has been successfully used in various industries to streamline API desi
 - **E-commerce**: An online retail platform used TypeSpec to design and document their API, enabling seamless integration with third-party services and improving the overall developer experience.
 - **Finance**: A financial services company adopted TypeSpec to ensure consistency and compliance across their APIs, reducing the time and effort required for API governance.
 - **Healthcare**: A healthcare provider used TypeSpec to design APIs for patient data management, ensuring data consistency and security across their systems.
+
+## Get started
+
+- [Quickstart: Create a new API project with TypeSpec & .NET](quickstart-scaffold-dotnet.md)
 
 ## Open source support
 

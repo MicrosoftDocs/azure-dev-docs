@@ -4,13 +4,13 @@ description: Java - Curated list of books
 author: KarlErickson
 ms.author: karler
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 06/02/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Books for Java developers
 
-The following books can help you learn Java and related technologies.
+The following books can help you learn Java and related technologies:
 
 - [Java in a Nutshell](https://learning.oreilly.com/library/view/java-in-a/9781492037248/)
 - [Java A Beginner's Guide 8th Edition](https://learning.oreilly.com/library/view/java-a-beginners/9781260440225/)

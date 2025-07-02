@@ -2,7 +2,7 @@
 title: Package index for Azure SDK libraries for Go
 description: Listing of the package names, pkg.go.dev links, docs links, and source code links for all libraries in the Azure SDK for Go.
 ms.date: 07/29/2024
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-go
 ---
 

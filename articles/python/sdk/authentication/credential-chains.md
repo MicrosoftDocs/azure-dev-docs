@@ -1,8 +1,8 @@
 ---
 title: Credential chains in the Azure Identity library for Python
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
-ms.date: 03/10/2025
-ms.topic: conceptual
+ms.date: 06/02/2025
+ms.topic: article
 ms.custom: devx-track-python
 ---
 
@@ -85,7 +85,11 @@ blob_service_client = BlobServiceClient(
 
 ### How to customize DefaultAzureCredential
 
-To remove a credential from `DefaultAzureCredential`, use the corresponding `exclude`-prefixed [keyword parameter](/python/api/azure-identity/azure.identity.defaultazurecredential#keyword-only-parameters). For example:
+The following sections describe strategies for omitting credentials from the chain.
+
+#### Exclude an individual credential
+
+To exclude an individual credential from `DefaultAzureCredential`, use the corresponding `exclude`-prefixed [keyword parameter](/python/api/azure-identity/azure.identity.defaultazurecredential#keyword-only-parameters). For example:
 
 ```python
 credential = DefaultAzureCredential(
@@ -127,6 +131,19 @@ credential = ChainedTokenCredential(
 ```
 
 ---
+
+#### Exclude a credential type category
+
+To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-prod.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
+
+When a value of `dev` is used, the chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-dev.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.23.0 and later.
 
 ## ChainedTokenCredential overview
 

@@ -3,7 +3,7 @@ title: What is GitHub Actions for Azure?
 description: Create workflows within your repository to build, test, package, release, and deploy to Azure. 
 author: N-Usha 
 ms.author: ushan 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure
 ms.date: 03/19/2022
 ms.custom: github-actions-azure
