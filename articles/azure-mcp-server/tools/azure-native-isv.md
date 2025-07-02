@@ -31,11 +31,11 @@ Datadog's Azure Native Integration allows you to manage Datadog directly in the 
 
 Example prompts include:
 
-- List monitored resources: "Show me all resources being monitored by Datadog in my 'production-rg' resource group."
-- Check monitoring status: "What resources are being monitored by my 'main-datadog' Datadog instance?"
-- View monitoring coverage: "List all monitored resources for Datadog resource 'company-datadog' in resource group 'monitoring-rg'"
-- Audit monitoring: "Show me what's being monitored by Datadog in subscription 'abc123'"
-- Inventory check: "Get the list of resources monitored by our Datadog integration"
+- **List monitored resources:** "Show me all resources being monitored by Datadog in my 'production-rg' resource group."
+- **Check monitoring status:** "What resources are being monitored by my 'main-datadog' Datadog instance?"
+- **View monitoring coverage:** "List all monitored resources for Datadog resource 'company-datadog' in resource group 'monitoring-rg'"
+- **Audit monitoring:** "Show me what's being monitored by Datadog in subscription 'abc123'"
+- **Inventory check:** "Get the list of resources monitored by our Datadog integration"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
