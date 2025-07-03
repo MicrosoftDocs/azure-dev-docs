@@ -19,6 +19,9 @@ This article explains how to build a Model Context Protocol (MCP) server using N
 
 Explore the [TypeScript remote Model Context Protocol (MCP) server](https://github.com/Azure-Samples/mcp-container-ts) sample. It demonstrates how to use Node.js and TypeScript to build a remote MCP server and deploy it to Azure Container Apps.
 
+> [!IMPORTANT]
+> This sample only includes the SSE MCP server. It doesn't provide the MCP host or clients. SSE is no longer recommended for new projects.
+
 ## Architectural overview
 
 The following diagram shows the simple architecture of the sample app:
@@ -32,7 +35,7 @@ To keep costs low, this sample uses basic or consumption pricing tiers for most 
 
 ## Prerequisites
 
-1. [Visual Studio Code](https://code.visualstudio.com/)
+1. [Visual Studio Code](https://code.visualstudio.com/) - Latest version to support MCP Server development.
 1. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 1. [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) Visual Studio Code extension
 1. [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
@@ -167,9 +170,9 @@ https://<env-name>.<container-id>.<region>.azurecontainerapps.io
 
 ### Configure the MCP server in Visual Studio Code
 
-Configure the MCP server in your local VS Code environment by adding the URL to the `.vscode\mcp.json` file.
+Configure the MCP server in your local VS Code environment by adding the URL to the `mcp.json` file in the `.vscode` folder.
 
-1. Open the `.vscode\mcp.json` file in your project directory.
+1. Open the `mcp.json` file in the `.vscode` folder.
 
 1. Locate the `mcp-server-sse-remote` section in the file. It should look like this:
 
@@ -182,7 +185,7 @@ Configure the MCP server in your local VS Code environment by adding the URL to 
 
 1. Replace the existing `url` value with the URL you copied in the previous step.
 
-1. Save the `.vscode\mcp.json` file.
+1. Save the `mcp.json` file in the `.vscode` folder.
 
 ### Use TODO MCP server tools in agent mode
 
@@ -248,12 +251,10 @@ const server = new SSEPServer(
 The following code snippet sets up the Express.js server to handle incoming HTTP requests for SSE connections and message handling:
 
 ```typescript
-// Legacy message endpoint for older clients
 router.post('/messages', async (req: Request, res: Response) => {
   await server.handlePostRequest(req, res);
 });
 
-// Legacy SSE endpoint for older clients  
 router.get('/sse', async (req: Request, res: Response) => {
   await server.handleGetRequest(req, res);
 });
@@ -670,34 +671,7 @@ export const TransportsCache = new Map<string, SSEServerTransport>();
 
 The following diagram illustrates the complete request journey from the client to the MCP server and back, including tool execution and database operations:
 
-1. HTTP GET /sse
-   ↓
-1. `index.ts` routes to `server.handleGetRequest()`
-   ↓
-1. `server.ts` creates `SSEServerTransport`
-   ↓
-1. Transport stored in TransportsCache
-   ↓
-1. MCP Server.connect() establishes protocol
-   ↓
-1. Client sends `HTTP POST /messages?sessionId=xyz`
-   ↓
-1. `index.ts` routes to `server.handlePostRequest()`
-   ↓
-1. `server.ts` looks up transport by sessionId
-   ↓
-1. Transport processes MCP JSON-RPC message
-   ↓
-1. If tools/call: server finds tool in `TodoTools` array
-   ↓
-1. `Tool.execute()` calls appropriate db function
-   ↓
-1. Database operation performed
-    ↓
-1. Result flows backup the chain
-    ↓
-1. HTTP response sent to client
-
+:::image type="content" source="./media/build-mcp-server-ts/execution-flow-diagram.png" lightbox="./media/build-mcp-server-ts/execution-flow-diagram.png" alt-text="Diagram showing the complete request journey from the client to the MCP server and back.":::
 
 ### Clean up GitHub Codespaces
 
