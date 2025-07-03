@@ -19,9 +19,6 @@ This article explains how to build a Model Context Protocol (MCP) server using N
 
 Explore the [TypeScript remote Model Context Protocol (MCP) server](https://github.com/Azure-Samples/mcp-container-ts) sample. It demonstrates how to use Node.js and TypeScript to build a remote MCP server and deploy it to Azure Container Apps.
 
-> [!IMPORTANT]
-> This sample only includes the SSE MCP server. It doesn't provide the MCP host or clients. SSE is no longer recommended for new projects.
-
 ## Architectural overview
 
 The following diagram shows the simple architecture of the sample app:
