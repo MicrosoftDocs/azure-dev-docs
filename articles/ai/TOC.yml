@@ -36,8 +36,8 @@ items:
       items:
         - name: Build Agents using Model Context Protocol on Azure
           href: intro-agents-mcp.md
-        - name: Azure Container Apps building block for MCP servers
-          href: https://aka.ms/mcp/aca
+        - name: Build a TypeScript MCP server using Azure Container Apps servers
+          href: build-mcp-server-ts.md
         - name: Create OpenAI-powered agents using MCP
           href: https://aka.ms/mcp/openai
         - name: Build AI agent tools using remote MCP with Azure Functions
