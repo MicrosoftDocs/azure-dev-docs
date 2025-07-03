@@ -136,7 +136,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 > [!NOTE]
 > To run the MCP server locally:
->    1. Set up your environment as described in the [Local environment setup](#https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#local-environment) section in the sample repository.
+>    1. Set up your environment as described in the [Local environment setup](https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#local-environment) section in the sample repository.
 >    1. Configure your MCP Server to use the local environment by following the instructions in the [Configure the MCP server in Visual Studio Code](https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#test-your-mcp-server-with-desktop-mcp-clients) section in the sample repository.
 >    1. Skip to the [Use TODO MCP server tools in agent mode](#use-todo-mcp-server-tools-in-agent-mode) section to continue.
 
@@ -670,6 +670,9 @@ import type { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse";
 
 export const TransportsCache = new Map<string, SSEServerTransport>();
 ```
+
+> [!NOTE]
+> The `TransportsCache` is a simple in-memory cache. In production, consider using a more robust solution like Redis or a database for session management.
 
 ### Execution flow summary
 
