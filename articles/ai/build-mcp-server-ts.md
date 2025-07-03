@@ -134,6 +134,12 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
+> [!NOTE]
+> To run the MCP server locally:
+>    1. Set up your environment as described in the [Local environment setup](#https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#local-environment) section in the sample repository.
+>    1. Configure your MCP Server to use the local environment by following the instructions in the [Configure the MCP server in Visual Studio Code](https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#test-your-mcp-server-with-desktop-mcp-clients) section in the sample repository.
+>    1. Skip to the [Use TODO MCP server tools in agent mode](#use-todo-mcp-server-tools-in-agent-mode) section to continue.
+
 ## Deploy and run
 
 The sample repository contains all the code and configuration files for the MCP server Azure deployment. The following steps walk you through the sample MCP server Azure deployment process.
@@ -200,12 +206,10 @@ After modifying the MCP server, you can use the tools, it provides in agent mode
 
     :::image type="content" source="./media/build-mcp-server-ts/mcp-server-tools-invocation.png" lightbox="./media/build-mcp-server-ts/mcp-server-tools-invocation.png"alt-text="Screenshot showing the MCP server tools invocation.":::
 
-
 > [!NOTE]
 > By default, when a tool is invoked, you need to confirm the action before the tool runs. Otherwise, tools might run locally on your machine and might perform actions that modify files or data.
 
 Use the Continue button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
-
 
 ## Exploring the sample code
 
@@ -628,9 +632,9 @@ CREATE TABLE todos (
 
 ### Helper utilities: `helpers/` directory
 
-The `helpers/` directory provides utility functions and classes for the server. 
+The `helpers/` directory provides utility functions and classes for the server.
 
-#### Structured logging for debugging and monitoring: `helpers/logs.ts` 
+#### Structured logging for debugging and monitoring: `helpers/logs.ts`
 
 The `helpers/logs.ts` file provides a structured logging utility for the MCP server. It uses the `debug` library for logging and `chalk` for color-coded output in the console.
 
