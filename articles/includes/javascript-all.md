@@ -68,11 +68,11 @@
 | Face | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.3/sdk/face/ai-vision-face-rest/) |
 | farmbeats | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.3/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.1.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.1.0/sdk/formrecognizer/ai-form-recognizer/) |
-| Health Deidentification | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-deidentification/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0-beta.1/sdk/healthdataaiservices/azure-health-deidentification/) |
+| Health Deidentification | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/health-deidentification/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/) |
 | Health Insights Cancer Profiling | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-cancerprofiling/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/health-insights-cancerprofiling-rest/) |
 | Health Insights Clinical Matching | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-clinicalmatching/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/health-insights-clinicalmatching-rest/) |
 | Health Insights Radiology Insights | npm [2.0.0](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_2.0.0/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
-| Identity | npm [4.10.1](https://www.npmjs.com/package/@azure/identity/v/4.10.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.10.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.1/sdk/identity/identity/) |
+| Identity | npm [4.10.2](https://www.npmjs.com/package/@azure/identity/v/4.10.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.10.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.10.2/sdk/identity/identity/) |
 | Identity Broker | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.2.0/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.3/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -333,7 +333,7 @@
 | Resource Management - Power BI Dedicated | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-powerbidedicated/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-powerbidedicated-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated) |
 | Resource Management - Power BI Embedded | npm [2.0.2](https://www.npmjs.com/package/@azure/arm-powerbiembedded/v/2.0.2) | [docs](/javascript/api/overview/azure/arm-powerbiembedded-readme) | GitHub [2.0.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbiembedded/arm-powerbiembedded) |
 | Resource Management - Private DNS | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-privatedns/v/3.3.0) | [docs](/javascript/api/overview/azure/arm-privatedns-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns) |
-| Resource Management - Purestorageblock | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-purestorageblock/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purestorageblock_1.0.0-beta.1/sdk/purestorageblock/arm-purestorageblock/) |
+| Resource Management - Purestorageblock | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-purestorageblock/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-purestorageblock-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purestorageblock_1.0.0/sdk/purestorageblock/arm-purestorageblock/) |
 | Resource Management - Purview | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-purview/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-purview-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purview_1.1.0/sdk/purview/arm-purview/) |
 | Resource Management - Quantum | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-quantum/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-quantum-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-quantum_1.0.0-beta.2/sdk/quantum/arm-quantum/) |
 | Resource Management - Qumulo | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-qumulo/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-qumulo-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-qumulo_2.0.0/sdk/liftrqumulo/arm-qumulo/) |
@@ -403,7 +403,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.18.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.18.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.57.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.57.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.57.1](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.57.1) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.23.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.23.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.24.0) |  |  |
 | @azure-tools/typespec-go | npm [0.5.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.5.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -435,7 +435,7 @@
 | TypeSpec HTTP Client | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client/v/0.7.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.6.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.12.5](https://www.npmjs.com/package/@typespec/http-client-python/v/0.12.5) |  |  |
+| TypeSpec HTTP Client Python | npm [0.13.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.13.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.23](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.23) |  |  |
 | TypeSpec Rust | npm [0.17.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.17.0) |  |  |
 | TypeSpec SSE | npm [0.71.0](https://www.npmjs.com/package/@typespec/sse/v/0.71.0) |  |  |
@@ -531,7 +531,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250630.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250630.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250701.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250701.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -612,11 +612,11 @@
 | AutoRest - Go | npm [4.0.0-preview.72](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.72) |  |  |
 | AutoRest - Modeler Four | npm [4.27.1](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.1) |  | GitHub [4.27.1](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.35.5](https://www.npmjs.com/package/@autorest/python/v/6.35.5) |  | GitHub [6.35.5](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.36.0](https://www.npmjs.com/package/@autorest/python/v/6.36.0) |  | GitHub [6.36.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
-| Avocado | npm [0.9.1](https://www.npmjs.com/package/@azure/avocado/v/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/avocado) |
+| Avocado | npm [0.9.2](https://www.npmjs.com/package/@azure/avocado/v/0.9.2) |  | GitHub [0.9.2](https://github.com/Azure/avocado) |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
 | cadl-vs | npm [0.40.0](https://www.npmjs.com/package/cadl-vs/v/0.40.0) |  |  |
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
