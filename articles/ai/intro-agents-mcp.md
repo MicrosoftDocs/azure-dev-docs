@@ -73,6 +73,7 @@ There are two main scenarios for building your own MCP server:
 
 ## Related resources
 
+- [Build a TypeScript MCP server using Azure Container Apps](build-mcp-server-ts.md)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [Azure MCP Server](..\azure-mcp-server\index.yml)
 - [Use MCP servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
