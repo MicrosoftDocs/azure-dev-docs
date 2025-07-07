@@ -69,7 +69,7 @@
     - name: Terraform handler for Azure Copilot
       items:
         - name: Generate Terraform configurations
-          href: generate-terraform-configuration-using-copilot.md
+          href: ./terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md
     - name: AzAPI provider
       items:
         - name: Learn how to use the AzAPI resource
