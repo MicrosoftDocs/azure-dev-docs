@@ -15,10 +15,10 @@ Microsoft Copilot in Azure enables you to generate Terraform configurations to d
 
 In this article, You learn how to use Azure Copilot from the Azure portal and Visual Studio Code (VS Code). Additionally, we have included some sample Terraform prompts for you to use as-is or edit as necessary.
 
-> [TIP]
+> [!TIP]
 > For best results, keep your request to fewer than eight primary Terraform resource types. Copilot performs well with common configurations. Complex or large-scale architectures may produce incomplete or less accurate results.
 
-> [Note] 
+> [!NOTE] 
 > Terraform Copilot in Azure currently supports AzureRM provider resources extensively. Support for the AzAPI provider is evolving and may not be fully available yet. If the required resource type is not supported, Copilot will either fallback to a sample structure or explan the limitations.
 
 ## Use Azure Copilot in the Azure portal
