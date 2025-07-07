@@ -4,7 +4,9 @@ description: Learn how Azure empowers Rust developers to build, deploy, and mana
 ms.topic: overview
 ms.date: 07/07/2025
 ms.custom: devx-track-rust
+#customer intent: As a Rust developer, I want to understand how Azure supports Rust applications so that I can build and deploy high-performance cloud solutions. 
 ---
+
 # Azure for Rust developers: Build cloud applications
 
 Azure is a cloud platform that empowers Rust developers to build, deploy, and manage high-performance applications. Learn how Azure's hosting options and services can enhance your Rust development experience.
