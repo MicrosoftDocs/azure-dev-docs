@@ -84,4 +84,4 @@ This section contains several example prompts you can use to generate Terraform 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about [Terraform on Azure](/azure/developer/terraform/overview).
+> [Learn more about Terraform on Azure](/azure/developer/terraform/overview)
