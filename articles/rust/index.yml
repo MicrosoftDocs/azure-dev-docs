@@ -14,7 +14,39 @@ metadata:
 landingContent:
   - title: Azure for Rust developers
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure for Rust developers?
+            url: what-is-azure-for-rust-developers.md
+  - title: Azure libraries (SDK)
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Cosmos DB
+            url: https://crates.io/crates/azure_data_cosmos
+          - text: Azure Event Hubs
+            url: https://crates.io/crates/azure_messaging_eventhubs
+          - text: Azure Identity
+            url: https://crates.io/crates/azure_identity
+          - text: Azure Key Vault - Secrets
+            url: https://crates.io/crates/azure_security_keyvault_secrets
+          - text: Azure Key Vault - Certificates
+            url: https://crates.io/crates/azure_security_keyvault_certificates
+          - text: Azure Key Vault - Keys
+            url: https://crates.io/crates/azure_security_keyvault_keys
+          - text: Azure Storage - Blobs
+            url: https://crates.io/crates/azure_storage_blob
+  - title: Hosting
+    linkLists:
       - linkListType: get-started
         links:
-          - text: Get started
-            url: what-is-azure-for-rust-developers.md
+          - text: Hosting apps on Azure
+            url: /azure/developer/intro/hosting-apps-on-azure
+          - text: Azure Functions
+            url: /azure/azure-functions/create-first-function-vs-code-other?tabs=rust%2Cwindows
+          - text: Azure App Service
+            url: /azure/app-service
+          - text: Azure Container Apps
+            url: /azure/container-apps
+          - text: Azure Kubernetes Service (AKS)
+            url: /azure/aks

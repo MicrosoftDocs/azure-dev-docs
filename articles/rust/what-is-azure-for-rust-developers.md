@@ -1,13 +1,13 @@
 ---
-title: What is Azure for Rust developers
-description: 
+title: "Azure for Rust Developers: Build and Deploy Cloud Applications"
+description: Learn how Azure empowers Rust developers to build, deploy, and manage cloud applications with high performance and reliability.
 ms.topic: overview
 ms.date: 07/07/2025
 ms.custom: devx-track-rust
 ---
-# What is Azure for Rust developers?
+# Azure for Rust developers: Build cloud applications
 
-Azure is a cloud platform that offers a full range of hosting options and services to build, deploy, and manage your Rust applications. This article introduces Azure concepts specifically for Rust developers.
+Azure is a cloud platform that empowers Rust developers to build, deploy, and manage high-performance applications. Learn how Azure's hosting options and services can enhance your Rust development experience.
 
 If you're new to cloud development, explore these resources to get familiar with Azure:
 
@@ -16,7 +16,7 @@ If you're new to cloud development, explore these resources to get familiar with
 - [Ten design principles for Azure applications](/azure/architecture/guide/design-principles/)
 - [Cloud design patterns](/azure/architecture/patterns/)
 
-## Rust in the cloud ecosystem
+## Rust in the cloud ecosystem: Benefits and use cases
 
 Rust is gaining momentum for cloud applications thanks to its performance, reliability, and safety guarantees. While cloud platforms traditionally focused on JavaScript, Python, Java, and .NET, Rust offers compelling advantages:
 
@@ -30,7 +30,7 @@ Azure provides multiple integration points for Rust applications through both th
 > [!NOTE]
 > The Azure SDK for Rust requires Rust edition 2021 or later and supports Rust 1.67.0 or newer versions.
 
-## Rust and other languages
+## Rust and other languages: Unique advantages
 
 Azure supports many programming languages for cloud development. While Rust is still emerging in the Azure ecosystem, it brings unique advantages:
 
@@ -58,7 +58,7 @@ Key service categories for Rust developers include:
 - [Security](/azure/?product=security)
 - [DevOps](/azure/?product=devops)
 
-## Create Azure services in the Quickstart Center
+## Create Azure services: Quickstart Center guide
 
 Start your Azure journey by [creating a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then visit the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
