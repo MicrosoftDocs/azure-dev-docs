@@ -1,0 +1,21 @@
+- name: Azure for Rust developers
+  href: index.yml
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure for Rust developers?
+      href: what-is-azure-for-rust-developers.md
+  - name: Sample code
+    items:
+    - name: Azure SDK for Rust samples
+      href: https://github.com/Azure/azure-sdk-for-rust/tree/main/examples
+  - name: Resources
+    items:
+    - name: Azure SDK for Rust on GitHub
+      href: https://github.com/Azure/azure-sdk-for-rust
+    - name: Azure SDK Guidelines
+      href: https://azure.github.io/azure-sdk/rust_introduction.html
+  - name: Crates
+    items:
+    - name: Azure SDK for Rust crates
+      href: https://crates.io/search?q=azure-sdk

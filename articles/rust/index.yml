@@ -1,0 +1,20 @@
+### YamlMime:Landing
+
+title: Azure for Rust developers
+summary: You can deploy your Rust applications to Azure in various environments, including web apps, serverless functions, containers, and microservices. Azure offers flexible hosting options to suit different performance and reliability needs. To interact with Azure services programmatically, use the Azure SDK for Rust. This set of libraries provides type-safe APIs for authentication, resource management, and service integration—making it easier to build secure, high-performance cloud applications with Rust's memory safety guarantees and zero-cost abstractions.
+
+metadata:
+  title: Azure for Rust developers
+  description: Get started developing with Rust on Azure using services like Azure Functions, Key Vault, Messaging, Identity, Cosmos DB, Blob Storage, and the Azure SDK for Rust.
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.date: 07/07/2025
+  ms.custom: dexx-track-rust
+
+landingContent:
+  - title: Azure for Rust developers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started
+            url: sdk-overview.md
