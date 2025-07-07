@@ -17,4 +17,4 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Get started
-            url: sdk-overview.md
+            url: what-is-azure-for-rust-developers.md

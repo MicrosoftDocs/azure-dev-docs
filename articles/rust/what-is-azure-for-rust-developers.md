@@ -1,3 +1,10 @@
+---
+title: What is Azure for Rust developers
+description: 
+ms.topic: overview
+ms.date: 07/07/2025
+ms.custom: devx-track-rust
+---
 # What is Azure for Rust developers?
 
 Azure is a cloud platform that offers a full range of hosting options and services to build, deploy, and manage your Rust applications. This article introduces Azure concepts specifically for Rust developers.
@@ -108,25 +115,17 @@ Choose from these hosting options based on your application needs:
 
 | Service | Deployment approach | Best suited for |
 |---------|---------------------|----------------|
-| [Azure App Service](https://learn.microsoft.com/azure/app-service/) | Custom container | Web applications, APIs |
-| [Azure Functions](https://learn.microsoft.com/azure/azure-functions/) | [Custom handlers](https://learn.microsoft.com/azure/azure-functions/functions-custom-handlers) | Event-driven, serverless workloads |
-| [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/) | Container | Microservices, containerized applications |
-| [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/) | Container in Kubernetes | Complex applications, high-scale workloads |
-| [Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/) | Direct VM deployment | Applications with specific OS or hardware requirements |
-
-For practical examples of deploying Rust applications to Azure, see the [Quickstart: Deploy Rust applications to Azure](./quickstart-deploy-rust-apps.md).
+| [Azure App Service](/azure/app-service/) | Custom container | Web applications, APIs |
+| [Azure Functions](/azure/azure-functions/) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) | Event-driven, serverless workloads |
+| [Azure Container Apps](/azure/container-apps/) | Container | Microservices, containerized applications |
 
 ## Try a Rust quickstart
 
 Get started with Rust on Azure using these quickstarts and tutorials:
 
-- [Create a Rust function with Visual Studio Code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-other?tabs=rust)
-- [Deploy a containerized app to Azure Container Apps](https://learn.microsoft.com/azure/container-apps/quickstart-code-to-cloud?tabs=bash&pivots=with-dockerfile)
-- [Access Azure Storage with Rust](./quickstart-storage-sdk.md)
+- [Create a Rust function with Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-other?tabs=rust)
+- [Deploy a containerized app to Azure Container Apps](/azure/container-apps/quickstart-code-to-cloud?tabs=bash&pivots=with-dockerfile)
 
 ## Next steps
 
-- [Learn about the Azure SDK for Rust](sdk-overview.md)
-- [Install the Azure SDK for Rust](sdk-installation.md)
-- [Explore Rust crates for Azure](https://crates.io/search?q=azure_)
 - [Azure SDK for Rust GitHub repository](https://github.com/Azure/azure-sdk-for-rust)
