@@ -71,7 +71,7 @@ In this article, You learn how to use Azure Copilot from the Azure portal and Vi
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-terraform-commands.png" alt-text="Sceenshot of the Copilot option to run various Terraform commands.":::
 
-## Terraform sample prompts
+## Review and use sample Terraform prompts
 
 This section contains several example prompts you can use to generate Terraform configurations. Modify these prompts based on your scenarios, or try other prompts to create different kinds of queries.
 
