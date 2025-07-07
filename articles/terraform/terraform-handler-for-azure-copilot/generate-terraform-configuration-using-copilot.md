@@ -47,7 +47,7 @@ In this article, You learn how to use Azure Copilot from the Azure portal and Vi
 
 1. Open VS Code.
 
-1. From the Nav Bar, select **Extensions**.
+1. From the Nav Bar, select **Extensions**, and search for `copilot` extensions.
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-extensions.png" alt-text="Sceenshot of VS Code Extensions icon in the Nav Bar.":::
 
