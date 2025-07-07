@@ -19,7 +19,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 > For best results, keep your request to fewer than eight primary Terraform resource types. Copilot performs well with common configurations. Complex or large-scale architectures may produce incomplete or less accurate results.
 
 > [!NOTE] 
-> Terraform Copilot in Azure currently supports AzureRM provider resources extensively. Support for the AzAPI provider is evolving and may not be fully available yet. If the required resource type is not supported, Copilot will either fallback to a sample structure or explan the limitations.
+> Terraform Copilot in Azure currently supports AzureRM provider resources extensively. Support for the AzAPI provider is evolving and may not be fully available yet. If the required resource type is not supported, Copilot either falls back to a sample structure or explains the limitations.
 
 ## Use Azure Copilot in the Azure portal
 
