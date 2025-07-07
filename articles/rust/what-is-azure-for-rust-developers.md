@@ -11,10 +11,10 @@ Azure is a cloud platform that offers a full range of hosting options and servic
 
 If you're new to cloud development, explore these resources to get familiar with Azure:
 
-- [Azure Architecture Center](https://learn.microsoft.com/azure/architecture/)
-- [Azure terminology](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts)
-- [Ten design principles for Azure applications](https://learn.microsoft.com/azure/architecture/guide/design-principles/)
-- [Cloud design patterns](https://learn.microsoft.com/azure/architecture/patterns/)
+- [Azure Architecture Center](/azure/architecture/)
+- [Azure terminology](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts)
+- [Ten design principles for Azure applications](/azure/architecture/guide/design-principles/)
+- [Cloud design patterns](/azure/architecture/patterns/)
 
 ## Rust in the cloud ecosystem
 
@@ -48,15 +48,15 @@ Azure offers a vast range of cloud services that you can use independently or to
 
 Key service categories for Rust developers include:
 
-- [Hosting](https://learn.microsoft.com/azure/developer/intro/hosting-apps-on-azure)
-- [Authentication and authorization](https://learn.microsoft.com/azure/?product=identity)
-- [Containers](https://learn.microsoft.com/azure/?product=containers)
-- [Databases](https://learn.microsoft.com/azure/?product=databases)
-- [Storage](https://learn.microsoft.com/azure/?product=storage)
-- [Search](https://learn.microsoft.com/azure/search/)
-- [AI and Cognitive services](https://learn.microsoft.com/azure/?product=ai-machine-learning)
-- [Security](https://learn.microsoft.com/azure/?product=security)
-- [DevOps](https://learn.microsoft.com/azure/?product=devops)
+- [Hosting](/azure/developer/intro/hosting-apps-on-azure)
+- [Authentication and authorization](/azure/?product=identity)
+- [Containers](/azure/?product=containers)
+- [Databases](/azure/?product=databases)
+- [Storage](/azure/?product=storage)
+- [Search](/azure/search/)
+- [AI and Cognitive services](/azure/?product=ai-machine-learning)
+- [Security](/azure/?product=security)
+- [DevOps](/azure/?product=devops)
 
 ## Create Azure services in the Quickstart Center
 
@@ -84,7 +84,7 @@ Set up these tools for the best Rust on Azure development experience:
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
 - [Git](https://git-scm.com/)
 - [Rust toolchain](https://www.rust-lang.org/tools/install) - use the latest stable release
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) for Azure resource management
+- [Azure CLI](/cli/azure/install-azure-cli) for Azure resource management
 - Local development tools:
   - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) for local Functions development
   - [Docker](https://www.docker.com/) for container development and testing
