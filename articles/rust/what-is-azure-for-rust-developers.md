@@ -123,8 +123,7 @@ Choose from these hosting options based on your application needs:
 
 Get started with Rust on Azure using these quickstarts and tutorials:
 
-- [Create a Rust function with Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-other?tabs=rust)
-- [Deploy a containerized app to Azure Container Apps](/azure/container-apps/quickstart-code-to-cloud?tabs=bash&pivots=with-dockerfile)
+- [Create a serverless Azure Function app for Rust with Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-other?tabs=rust)
 
 ## Next steps
 
