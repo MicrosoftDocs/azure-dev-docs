@@ -66,6 +66,10 @@
       items:
         - name: Create an Azure resource group
           href: create-resource-group.md
+    - name: Terraform handler for Azure Copilot
+      items:
+        - name: Generate Terraform configurations
+          href: generate-terraform-configuration-using-copilot.md
     - name: AzAPI provider
       items:
         - name: Learn how to use the AzAPI resource
