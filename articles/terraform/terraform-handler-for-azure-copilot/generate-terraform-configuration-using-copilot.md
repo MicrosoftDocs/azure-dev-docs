@@ -59,7 +59,7 @@ Microsoft Copilot in Azure enables you to generate Terraform configurations to d
 
 1. Enter a request for a Terraform Configuration that begins with `@azure`, and press **&lt;Enter>. An example request might be: `@azure use terraform to create a Content Delivery Network (CDN) front door profile named "myCDN profile" with a custom domain association "example.com". Set up a CDN front door route to link to the default domain, and configure a CDN endpoint named "myEndpoint" with the associated custom domain. Ensure a security policy is applied for enhanced production and verify the routing contains the correct origin group.`
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-request.png" alt-text="Sceenshot of the Copilot Toggle Chat option in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-request.png" alt-text="Sceenshot of a Terraform configuration request using Copilot in VS Code.":::
 
 1. Copilot interactively guides you through the process where it creates the required files for your configuration.
 
