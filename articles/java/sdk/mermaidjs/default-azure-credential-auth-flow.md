@@ -1,9 +1,10 @@
----
-ms.topic: include
-ms.date: 09/27/2024
----
-
-```mermaid
+`%% STEPS TO GENERATE IMAGE
+%% =======================
+%% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
+%%    npm i -g @mermaid-js/mermaid-cli@10.9.1
+%% 2. Run commands:
+%%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-inline.svg
+%%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-expanded.png -w 1156id
 %% STEPS TO GENERATE IMAGE
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
