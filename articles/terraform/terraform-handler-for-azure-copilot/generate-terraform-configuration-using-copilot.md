@@ -29,9 +29,9 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-in-portal.png" alt-text="Sceenshot of the Azure Copilot icon in the Azure portal.":::
 
-1. Enter a Terraform-related request and press **&lt;Enter>. For example, `Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier`.
+1. Enter a Terraform-related request and press **&lt;Enter>**. For example, `Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier`.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-request.png" alt-text="Sceenshot of an example Azure Copilot request":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-request.png" alt-text="Sceenshot of an example Azure Copilot request.":::
 
 1. Once Copilot responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
 
