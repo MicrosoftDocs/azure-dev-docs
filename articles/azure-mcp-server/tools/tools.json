@@ -346,6 +346,27 @@
                         "required": true
                     }
                 ]
+            },
+            {
+                "name": "secret get",
+                "description": "Retrieve a specific secret from a Key Vault.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "description": "The name of the secret to retrieve",
+                        "required": true
+                    }
+                ]
             }
         ]
     },
