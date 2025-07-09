@@ -32,8 +32,8 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 1. Enter a Terraform-related prompt such as the following example. 
 
     ```copilot-prompt
-    Create a Terraform config for a Cognitive Services instance 
-    with name 'mycognitiveservice' and S0 pricing tier
+    Create a Terraform configuration for a Cognitive Services instance 
+    named "mycognitiveservice" and the S0 pricing tier
     ```
 
 1. Press **&lt;Enter>**.
@@ -69,12 +69,12 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) with various settings.
 
     ```copilot-prompt
-    @azure use terraform to create a CDN front door profile named "myCDN profile" 
-    with a custom domain association "example.com". 
-    Set up a CDN front door route to link to the default domain, 
-    and configure a CDN endpoint named "myEndpoint" with the associated custom domain. 
-    Ensure a security policy is applied for enhanced production and 
-    verify the routing contains the correct origin group
+    @azure Use Terraform to create an Azure CDN Front Door profile named "myCDN profile"
+    with a custom domain association for "example.com". Configure a CDN Front Door route 
+    that links to the default domain, and create a CDN endpoint named "myEndpoint" 
+    associated with the custom domain. Ensure that a security policy is applied for 
+    enhanced protection in production, and verify that the route is correctly configured
+    with the appropriate origin group.
     ```
 
 1. Press **&lt;Enter>**.
@@ -93,11 +93,31 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 This section contains several example prompts you can use to generate Terraform configurations. Modify these prompts based on your scenarios, or try other prompts to create different kinds of queries.
 
-- "Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier."
-- "Show me a Terraform configuration for a linux virtual machine with 8 GB ram and an image of 'Ubuntu 22.04 LTS'. The resource should be placed in the West US location and have a public IP address. Additionally, it should be part of a virtual network with a network security group."
-- "Create Terraform configuration for a container app resource with name 'myApp' with quick start image. Also, set the name of the container app environment to 'awesomeAzureEnv' and set the name of the container to 'myQuickStartContainer'."
-- "What is the Terraform code for a Databricks workspace in Azure with name 'myworkspace' and a premium SKU. The workspace should be created in the West US region."
-- "Create a Terraform template for an Azure OpenAI deployment using the 'gpt-4' model. Set the model version to '2024-05-01-preview' and name the deployment 'myOpenAIModel'."
+```copilot-prompt
+Create a Terraform configuration for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier.
+```
+
+```copilot-prompt
+Create a Terraform configuration that deploys a Linux virtual machine running Ubuntu 22.04 LTS, 
+with 8 GB of RAM. The virtual machine should be located in the West US region and assigned a 
+public IP address. It must be connected to a virtual network that includes a subnet and is 
+secured by a network security group.
+```
+
+```copilot-prompt
+Create a Terraform configuration for a Container App resource named "myApp" using the quick start image. 
+Set the container app environment name to "awesomeAzureEnv" and the container name to "myQuickStartContainer".
+```
+
+```copilot-prompt
+Create a Terraform configuration for an Azure Databricks workspace named "myworkspace" with the premium SKU. 
+The workspace should be deployed in the West US region.
+```
+
+```copilot-prompt
+Create a Terraform configuration for an Azure OpenAI deployment that uses the "gpt-4" model. 
+Specify the model version as "2024-05-01-preview" and set the deployment name to "myOpenAIModel".
+```
 
 ## Next steps
 
