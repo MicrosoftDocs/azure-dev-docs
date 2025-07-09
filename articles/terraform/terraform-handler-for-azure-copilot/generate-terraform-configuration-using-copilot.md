@@ -1,7 +1,7 @@
 ---
 title: Generate Terraform configurations using Azure Copilot
 description: Learn how to generate Terraform configurations using Azure Copilot
-ms.date: 07/07/2025
+ms.date: 07/08/2025
 ms.topic: quickstart
 ms.service: copilot-for-azure
 ms.author: jingweiwang
@@ -11,15 +11,15 @@ author: Jingwei-MS
 
 # Generate Terraform configurations using Azure Copilot
 
-Azure Copilot enables you to generate Terraform configurations that define your Azure infrastructure. Describe the infrastructure you want to deploy, and Copilot generates a Terraform configuration using the AzureRM provider. The configuration automatically includes both the main resources and any required dependencies to ensure the configuration is deployable. You can define the output by iteratively making subsequent requests.
+Azure Copilot enables you to generate Terraform configurations that define your Azure infrastructure. Describe the infrastructure you want to deploy, and Copilot generates a Terraform configuration using the AzureRM provider. The configuration automatically includes both the main resources and any required dependencies to ensure the configuration is deployable. You can define the output by iteratively making subsequent prompts.
 
-In this article, you learn how to use Azure Copilot from the Azure portal and from Visual Studio Code (VS Code). Additionally, we have included some sample Terraform prompts for you to use as-is or edit as necessary.
+In this article, you learn how to use Azure Copilot from the Azure portal and from Visual Studio Code (VS Code). Additionally, this article includes several sample Terraform prompts for you to use as-is or edit as necessary.
 
 > [!TIP]
-> For best results, keep your request to fewer than eight primary Terraform resource types. Copilot performs well with common configurations. Complex or large-scale architectures may produce incomplete or less accurate results.
+> For best results, keep your prompt to fewer than eight primary Terraform resource types. Copilot performs well with common configurations. Complex or large-scale architectures may produce incomplete or less accurate results.
 
 > [!NOTE] 
-> Terraform Copilot in Azure currently supports AzureRM provider resources extensively. Support for the AzAPI provider is evolving and may not be fully available yet. If the required resource type is not supported, Copilot either falls back to a sample structure or explains the limitations.
+> Terraform Copilot in Azure currently supports AzureRM provider resources extensively. Support for the AzAPI provider is evolving and may not be fully available yet. If the required resource type isn't supported, Copilot either falls back to a sample structure or explains the limitations.
 
 ## Use Azure Copilot in the Azure portal
 
@@ -27,19 +27,26 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Select the Copilot icon in the upper right corner.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-in-portal.png" alt-text="Screenshot of the Azure Copilot icon in the Azure portal.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-in-portal.png" border="true" alt-text="Screenshot of the Azure Copilot icon in the Azure portal.":::
 
-1. Enter a Terraform-related request and press **&lt;Enter>**. For example, `Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier`.
+1. Enter a Terraform-related prompt such as the following example. 
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-request.png" alt-text="Screenshot of an example Azure Copilot request.":::
+    ```copilot-prompt
+    Create a Terraform configuration for a Cognitive Services instance 
+    named "mycognitiveservice" and the S0 pricing tier
+    ```
+
+1. Press **&lt;Enter>**.
+
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-prompt.png" border="true" alt-text="Screenshot of an example Azure Copilot prompt.":::
 
 1. Once Copilot responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" border="true" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal.":::
 
 1. Select the Copy icon to copy the new configuration to the clipboard.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-copy.png" alt-text="Screenshot of the Azure Copilot copy icon.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-copy.png" border="true" alt-text="Screenshot of the Azure Copilot copy icon.":::
 
 1. Paste the code into your editor.
 
@@ -49,37 +56,73 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. From the Nav Bar, select **Extensions**, and search for `copilot` extensions.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-extensions.png" alt-text="Screenshot of VS Code Extensions icon in the Nav Bar.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-extensions.png" border="false" alt-text="Screenshot of VS Code Extensions icon in the Nav Bar.":::
 
-1. Ensure that the **GitHub Copilot** extension is installed. If it is not, install it.
+1. Ensure that the **GitHub Copilot** extension is installed. If it isn't, install it.
 
-1. Ensure that the **GitHub Copilot Chat** extension is installed. If it is not, install it.
+1. Ensure that the **GitHub Copilot Chat** extension is installed. If it isn't, install it.
 
 1. Select **Toggle Chat**.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-toggle-chat.png" alt-text="Screenshot of the Copilot Toggle Chat option in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-toggle-chat.png" border="false" alt-text="Screenshot of the Copilot Toggle Chat option in VS Code.":::
 
-1. Enter a request for a Terraform Configuration that begins with `@azure`, and press **&lt;Enter>**. An example request might be: `@azure use terraform to create a Content Delivery Network (CDN) front door profile named "myCDN profile" with a custom domain association "example.com". Set up a CDN front door route to link to the default domain, and configure a CDN endpoint named "myEndpoint" with the associated custom domain. Ensure a security policy is applied for enhanced production and verify the routing contains the correct origin group.`
+1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) resource with various settings.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-request.png" alt-text="Screenshot of a Terraform configuration request using Copilot in VS Code.":::
+    ```copilot-prompt
+    @azure Use Terraform to create an Azure CDN Front Door profile named "myCDN profile"
+    with a custom domain association for "example.com". Configure a CDN Front Door route 
+    that links to the default domain, and create a CDN endpoint named "myEndpoint" 
+    associated with the custom domain. Ensure that a security policy is applied for 
+    enhanced protection in production, and verify that the route is correctly configured
+    with the appropriate origin group.
+    ```
+
+1. Press **&lt;Enter>**.
+
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-prompt.png" border="false" alt-text="Screenshot of a Terraform configuration prompt using Copilot in VS Code.":::
 
 1. Copilot interactively guides you through the process where it creates the required files for your configuration.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-updated-files.png" alt-text="Screenshot of the Copilot generated files in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-updated-files.png" border="false" alt-text="Screenshot of the Copilot generated files in VS Code.":::
     
 1. Once the files are created or updated, Copilot offers to run the `terraform init` and `terraform validate` commands against the generated configuration.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-terraform-commands.png" alt-text="Screenshot of the Copilot option to run various Terraform commands.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-terraform-commands.png" border="false" alt-text="Screenshot of the Copilot option to run various Terraform commands.":::
 
 ## Review and use sample Terraform prompts
 
 This section contains several example prompts you can use to generate Terraform configurations. Modify these prompts based on your scenarios, or try other prompts to create different kinds of queries.
 
-- "Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier."
-- "Show me a Terraform configuration for a linux virtual machine with 8 GB ram and an image of 'Ubuntu 22.04 LTS'. The resource should be placed in the West US location and have a public IP address. Additionally, it should be part of a virtual network with a network security group."
-- "Create Terraform configuration for a container app resource with name 'myApp' with quick start image. Also, set the name of the container app environment to 'awesomeAzureEnv' and set the name of the container to 'myQuickStartContainer'."
-- "What is the Terraform code for a Databricks workspace in Azure with name 'myworkspace' and a premium SKU. The workspace should be created in the West US region."
-- "Create a Terraform template for an Azure OpenAI deployment using the 'gpt-4' model. Set the model version to '2024-05-01-preview' and name the deployment 'myOpenAIModel'."
+```copilot-prompt
+Create a Terraform configuration for a Cognitive Services instance with 
+name "mycognitiveservice" and S0 pricing tier.
+```
+
+```copilot-prompt
+Create a Terraform configuration that deploys a Linux virtual machine 
+running Ubuntu 22.04 LTS, with 8 GB of RAM. The virtual machine should 
+be located in the West US region and assigned a public IP address. 
+It must be connected to a virtual network that includes a subnet and is 
+secured by a network security group.
+```
+
+```copilot-prompt
+Create a Terraform configuration for a Container App resource named 
+"myApp" using the quick start image. Set the container app environment name 
+to "awesomeAzureEnv" and the container name to "myQuickStartContainer".
+```
+
+```copilot-prompt
+Create a Terraform configuration for an Azure Databricks workspace named 
+"myworkspace" with the premium SKU. The workspace should be deployed in 
+the West US region.
+```
+
+```copilot-prompt
+Create a Terraform configuration for an Azure OpenAI deployment that uses 
+the "gpt-4" model. Specify the model version as "2024-05-01-preview" and 
+set the deployment name to "myOpenAIModel".
+```
 
 ## Next steps
 
