@@ -27,7 +27,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Select the Copilot icon in the upper right corner.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-in-portal.png" alt-text="Screenshot of the Azure Copilot icon in the Azure portal.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-in-portal.png" border="true" alt-text="Screenshot of the Azure Copilot icon in the Azure portal.":::
 
 1. Enter a Terraform-related prompt such as the following example. 
 
@@ -42,11 +42,11 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Once Copilot responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" border="true" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal.":::
 
 1. Select the Copy icon to copy the new configuration to the clipboard.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-copy.png" alt-text="Screenshot of the Azure Copilot copy icon.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-copy.png" border="true" alt-text="Screenshot of the Azure Copilot copy icon.":::
 
 1. Paste the code into your editor.
 
@@ -56,7 +56,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. From the Nav Bar, select **Extensions**, and search for `copilot` extensions.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-extensions.png" alt-text="Screenshot of VS Code Extensions icon in the Nav Bar.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-extensions.png" border="false" alt-text="Screenshot of VS Code Extensions icon in the Nav Bar.":::
 
 1. Ensure that the **GitHub Copilot** extension is installed. If it isn't, install it.
 
@@ -64,7 +64,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Select **Toggle Chat**.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-toggle-chat.png" alt-text="Screenshot of the Copilot Toggle Chat option in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-toggle-chat.png" border="false" alt-text="Screenshot of the Copilot Toggle Chat option in VS Code.":::
 
 1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) with various settings.
 
@@ -79,15 +79,15 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Press **&lt;Enter>**.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-prompt.png" alt-text="Screenshot of a Terraform configuration prompt using Copilot in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-prompt.png" border="false" alt-text="Screenshot of a Terraform configuration prompt using Copilot in VS Code.":::
 
 1. Copilot interactively guides you through the process where it creates the required files for your configuration.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-updated-files.png" alt-text="Screenshot of the Copilot generated files in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-updated-files.png" border="false" alt-text="Screenshot of the Copilot generated files in VS Code.":::
     
 1. Once the files are created or updated, Copilot offers to run the `terraform init` and `terraform validate` commands against the generated configuration.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-terraform-commands.png" alt-text="Screenshot of the Copilot option to run various Terraform commands.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-terraform-commands.png" border="false" alt-text="Screenshot of the Copilot option to run various Terraform commands.":::
 
 ## Review and use sample Terraform prompts
 
