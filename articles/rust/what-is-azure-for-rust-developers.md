@@ -83,7 +83,9 @@ When using the free (F0) pricing tier, keep these limitations in mind:
 
 Set up these tools for the best Rust on Azure development experience:
 
-- [Visual Studio Code](https://code.visualstudio.com/) with the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
+- [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
+    - [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
+    - [rust-analyzer](hhttps://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) for Rust language support
 - [Git](https://git-scm.com/)
 - [Rust toolchain](https://www.rust-lang.org/tools/install) - use the latest stable release
 - [Azure CLI](/cli/azure/install-azure-cli) for Azure resource management
