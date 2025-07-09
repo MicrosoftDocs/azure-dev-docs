@@ -66,7 +66,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-toggle-chat.png" border="false" alt-text="Screenshot of the Copilot Toggle Chat option in VS Code.":::
 
-1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) with various settings.
+1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) resource with various settings.
 
     ```copilot-prompt
     @azure Use Terraform to create an Azure CDN Front Door profile named "myCDN profile"
