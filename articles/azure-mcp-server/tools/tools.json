@@ -1332,5 +1332,33 @@
                 ]
             }
         ]
+    },
+    "azure-native-isv": {
+        "root": "azmcp datadog",
+        "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/",
+        "tools": [
+            {
+                "name": "monitoredresources list",
+                "description": "List monitored resources in Datadog.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "datadog-resource",
+                        "description": "The name of the Datadog resource",
+                        "required": true
+                    }
+                ],
+                "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/manage"
+            }
+        ]
     }
 }
