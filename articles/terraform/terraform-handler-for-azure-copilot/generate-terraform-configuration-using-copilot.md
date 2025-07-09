@@ -29,7 +29,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-in-portal.png" alt-text="Screenshot of the Azure Copilot icon in the Azure portal.":::
 
-1. Enter a Terraform-related prompt such as the following example:and press **&lt;Enter>**. 
+1. Enter a Terraform-related prompt such as the following example. 
 
     ```copilot-prompt
     Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier
@@ -57,15 +57,15 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-extensions.png" alt-text="Screenshot of VS Code Extensions icon in the Nav Bar.":::
 
-1. Ensure that the **GitHub Copilot** extension is installed. If it is not, install it.
+1. Ensure that the **GitHub Copilot** extension is installed. If it isn't, install it.
 
-1. Ensure that the **GitHub Copilot Chat** extension is installed. If it is not, install it.
+1. Ensure that the **GitHub Copilot Chat** extension is installed. If it isn't, install it.
 
 1. Select **Toggle Chat**.
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-toggle-chat.png" alt-text="Screenshot of the Copilot Toggle Chat option in VS Code.":::
 
-1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creaters a Content Delivery Network (CDN) with various settings:
+1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) with various settings.
 
     ```copilot-prompt
     @azure use terraform to create a CDN front door profile named "myCDN profile" with a custom domain association "example.com". Set up a CDN front door route to link to the default domain, and configure a CDN endpoint named "myEndpoint" with the associated custom domain. Ensure a security policy is applied for enhanced production and verify the routing contains the correct origin group.`
@@ -73,7 +73,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Press **&lt;Enter>**.
 
-:::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-prompt.png" alt-text="Screenshot of a Terraform configuration prompt using Copilot in VS Code.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/vs-code-copilot-prompt.png" alt-text="Screenshot of a Terraform configuration prompt using Copilot in VS Code.":::
 
 1. Copilot interactively guides you through the process where it creates the required files for your configuration.
 
