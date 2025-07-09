@@ -1151,6 +1151,7 @@
                 "name": "cluster list",
                 "description": "List Redis Clusters in Azure Managed Redis or Azure Redis Enterprise services.",
                 "params": [
+                    
                     {
                         "name": "subscription",
                         "description": "The Azure subscription ID or name",
@@ -1216,5 +1217,5 @@
                 "documentation": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-configure-role-based-access-control"
             }
         ]
-    },
+    }
 }
