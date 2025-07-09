@@ -1,7 +1,7 @@
 ---
 title: Loop over data using async iterators in the Azure SDK for JavaScript
 description: Learn how to loop over large data sets using async iterators in the Azure SDK for JavaScript. Discover benefits and practical examples for paginated data.
-ms.date: 06/28/2024
+ms.date: 06/28/2025
 ms.topic: concept-article
 ms.custom: devx-track-js 
 ai-usage: ai-assisted

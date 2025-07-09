@@ -1,14 +1,9 @@
----
-ms.topic: include
-ms.date: 03/10/2025
----
-
 ```mermaid
 %% STEPS TO GENERATE IMAGE
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i chained-token-credential-auth-flow.md -o ../../media/mermaidjs/chained-token-credential-auth-flow.svg
+%% 2. Run command: mmdc -i chained-token-credential-auth-flow.md -o ../media/mermaidjs/chained-token-credential-auth-flow.svg
 
 %%{
   init: {

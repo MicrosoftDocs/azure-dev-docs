@@ -1,8 +1,3 @@
----
-ms.topic: include
-ms.date: 6/30/2025
----
-
 ```mermaid
 %% STEPS TO GENERATE IMAGE
 %% =======================
