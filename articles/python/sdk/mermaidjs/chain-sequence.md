@@ -1,8 +1,3 @@
----
-ms.topic: include
-ms.date: 09/26/2024
----
-
 ```mermaid
 %% STEPS TO GENERATE IMAGE
 %% =======================
@@ -13,17 +8,17 @@ ms.date: 09/26/2024
 sequenceDiagram
   autonumber;
 
-  participant A as Java app;
+  participant A as Python app;
   participant B as Credential chain;
   participant C as TokenCredential instance;
     
   A->>B: Authenticate to Microsoft Entra ID;
   activate B;
-  B->>B: getToken;
+  B->>B: get_token;
   loop Traverse TokenCredential collection until AccessToken received
     B->>C: Fetch token;
     activate C;
-    C->>C: getToken;
+    C->>C: get_token;
     break when Result is AccessToken
         C-->>B: Result;
     end;
