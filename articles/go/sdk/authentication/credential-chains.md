@@ -1,8 +1,8 @@
 ---
 title: Credential chains in the Azure Identity library for Go
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for Go.
-ms.date: 03/10/2025
-ms.topic: conceptual
+ms.date: 06/03/2025
+ms.topic: article
 ms.custom: devx-track-go
 ---
 
@@ -95,6 +95,19 @@ if err != nil {
     // TODO: handle error
 }
 ```
+
+### How to customize DefaultAzureCredential
+
+To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
+
+When a value of `dev` is used, the chain looks as follows:
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azidentity` module versions 1.10.0 and later.
 
 ## ChainedTokenCredential overview
 

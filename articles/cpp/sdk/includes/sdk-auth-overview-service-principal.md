@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/31/2022
+ms.date: 05/08/2025
 ---
 Apps hosted outside of Azure (for example, on-premises apps) that need to connect to Azure services should use an *application service principal*. An application service principal represents the identity of the app in Azure and is created through the application registration process.<br>
 <br>

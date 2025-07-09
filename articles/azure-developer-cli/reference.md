@@ -3,9 +3,9 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/03/2025
+ms.date: 06/05/2025
 ms.service: azure-dev-cli
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 
@@ -15,7 +15,7 @@ This article explains the syntax and parameters for the various Azure Developer 
 
 ## azd
 
-The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and manage your application on Azure
+The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and manage your project on Azure
 
 ### Options
 
@@ -29,28 +29,28 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 
 ### See also
 
-* [azd add](#azd-add): Add a component to your project. (Alpha)
+* [azd add](#azd-add): Add a component to your project.
 * [azd auth](#azd-auth): Authenticate with Azure.
 * [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
-* [azd deploy](#azd-deploy): Deploy the application's code to Azure.
-* [azd down](#azd-down): Delete Azure resources for an application.
-* [azd env](#azd-env): Manage environments.
-* [azd hooks](#azd-hooks): Develop, test and run hooks for an application. (Beta)
-* [azd infra](#azd-infra): Manage your Azure infrastructure.
+* [azd deploy](#azd-deploy): Deploy your project code to Azure.
+* [azd down](#azd-down): Delete your project's Azure resources.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
+* [azd hooks](#azd-hooks): Develop, test and run hooks for a project.
+* [azd infra](#azd-infra): Manage your Infrastructure as Code (IaC).
 * [azd init](#azd-init): Initialize a new application.
-* [azd monitor](#azd-monitor): Monitor a deployed application. (Beta)
-* [azd package](#azd-package): Packages the application's code to be deployed to Azure. (Beta)
-* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines. (Beta)
-* [azd provision](#azd-provision): Provision the Azure resources for an application.
-* [azd restore](#azd-restore): Restores the application's dependencies. (Beta)
-* [azd show](#azd-show): Display information about your app and its resources.
-* [azd template](#azd-template): Find and view template details. (Beta)
-* [azd up](#azd-up): Provision Azure resources, and deploy your project with a single command.
+* [azd monitor](#azd-monitor): Monitor a deployed project.
+* [azd package](#azd-package): Packages the project's code to be deployed to Azure.
+* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines.
+* [azd provision](#azd-provision): Provision Azure resources for your project.
+* [azd restore](#azd-restore): Restores the project's dependencies.
+* [azd show](#azd-show): Display information about your project and its resources.
+* [azd template](#azd-template): Find and view template details.
+* [azd up](#azd-up): Provision and deploy your project to Azure with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
 
 ## azd add
 
-Add a component to your project. (Alpha)
+Add a component to your project.
 
 ```azdeveloper
 azd add [flags]
@@ -462,7 +462,7 @@ azd config unset defaults.location
 
 ## azd deploy
 
-Deploy the application's code to Azure.
+Deploy your project code to Azure.
 
 ```azdeveloper
 azd deploy <service> [flags]
@@ -492,7 +492,7 @@ azd deploy <service> [flags]
 
 ## azd down
 
-Delete Azure resources for an application.
+Delete your project's Azure resources.
 
 ```azdeveloper
 azd down [flags]
@@ -522,7 +522,7 @@ azd down [flags]
 
 ## azd env
 
-Manage environments.
+Manage environments (ex: default environment, environment variables).
 
 ### Options
 
@@ -577,7 +577,7 @@ azd env get-value <keyName> [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env get-values
@@ -606,7 +606,7 @@ azd env get-values [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env list
@@ -634,7 +634,7 @@ azd env list [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env new
@@ -664,7 +664,7 @@ azd env new <environment> [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env refresh
@@ -694,7 +694,7 @@ azd env refresh <environment> [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env select
@@ -722,7 +722,7 @@ azd env select <environment> [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env set
@@ -751,7 +751,7 @@ azd env set <key> <value> [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd env set-secret
@@ -785,12 +785,12 @@ azd env set-secret <name> [flags]
 
 ### See also
 
-* [azd env](#azd-env): Manage environments.
+* [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
 ## azd hooks
 
-Develop, test and run hooks for an application. (Beta)
+Develop, test and run hooks for a project.
 
 ### Options
 
@@ -840,12 +840,12 @@ azd hooks run <name> [flags]
 
 ### See also
 
-* [azd hooks](#azd-hooks): Develop, test and run hooks for an application. (Beta)
+* [azd hooks](#azd-hooks): Develop, test and run hooks for a project.
 * [Back to top](#azd)
 
 ## azd infra
 
-Manage your Azure infrastructure.
+Manage your Infrastructure as Code (IaC).
 
 ### Options
 
@@ -864,24 +864,24 @@ Manage your Azure infrastructure.
 
 ### See also
 
-* [azd infra synth](#azd-infra-synth): Write IaC for your project to disk, allowing you to manage it by hand. (Alpha)
+* [azd infra generate](#azd-infra-generate): Write IaC for your project to disk, allowing you to manually manage it.
 * [Back to top](#azd)
 
-## azd infra synth
+## azd infra generate
 
-Write IaC for your project to disk, allowing you to manage it by hand. (Alpha)
+Write IaC for your project to disk, allowing you to manually manage it.
 
 ```azdeveloper
-azd infra synth [flags]
+azd infra generate [flags]
 ```
 
 ### Options
 
 ```azdeveloper
-      --docs                 Opens the documentation for azd infra synth in your web browser.
+      --docs                 Opens the documentation for azd infra generate in your web browser.
   -e, --environment string   The name of the environment to use.
       --force                Overwrite any existing files without prompting
-  -h, --help                 Gets help for synth.
+  -h, --help                 Gets help for generate.
 ```
 
 ### Options inherited from parent commands
@@ -894,7 +894,7 @@ azd infra synth [flags]
 
 ### See also
 
-* [azd infra](#azd-infra): Manage your Azure infrastructure.
+* [azd infra](#azd-infra): Manage your Infrastructure as Code (IaC).
 * [Back to top](#azd)
 
 ## azd init
@@ -934,7 +934,7 @@ azd init [flags]
 
 ## azd monitor
 
-Monitor a deployed application. (Beta)
+Monitor a deployed project.
 
 ```azdeveloper
 azd monitor [flags]
@@ -965,7 +965,7 @@ azd monitor [flags]
 
 ## azd package
 
-Packages the application's code to be deployed to Azure. (Beta)
+Packages the project's code to be deployed to Azure.
 
 ```azdeveloper
 azd package <service> [flags]
@@ -995,7 +995,7 @@ azd package <service> [flags]
 
 ## azd pipeline
 
-Manage and configure your deployment pipelines. (Beta)
+Manage and configure your deployment pipelines.
 
 ### Options
 
@@ -1050,12 +1050,12 @@ azd pipeline config [flags]
 
 ### See also
 
-* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines. (Beta)
+* [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines.
 * [Back to top](#azd)
 
 ## azd provision
 
-Provision the Azure resources for an application.
+Provision Azure resources for your project.
 
 ```azdeveloper
 azd provision [flags]
@@ -1085,7 +1085,7 @@ azd provision [flags]
 
 ## azd restore
 
-Restores the application's dependencies. (Beta)
+Restores the project's dependencies.
 
 ```azdeveloper
 azd restore <service> [flags]
@@ -1114,10 +1114,10 @@ azd restore <service> [flags]
 
 ## azd show
 
-Display information about your app and its resources.
+Display information about your project and its resources.
 
 ```azdeveloper
-azd show [flags]
+azd show [resource name or ID] [flags]
 ```
 
 ### Options
@@ -1143,7 +1143,7 @@ azd show [flags]
 
 ## azd template
 
-Find and view template details. (Beta)
+Find and view template details.
 
 ### Options
 
@@ -1194,7 +1194,7 @@ azd template list [flags]
 
 ### See also
 
-* [azd template](#azd-template): Find and view template details. (Beta)
+* [azd template](#azd-template): Find and view template details.
 * [Back to top](#azd)
 
 ## azd template show
@@ -1222,7 +1222,7 @@ azd template show <template> [flags]
 
 ### See also
 
-* [azd template](#azd-template): Find and view template details. (Beta)
+* [azd template](#azd-template): Find and view template details.
 * [Back to top](#azd)
 
 ## azd template source
@@ -1246,7 +1246,7 @@ View and manage template sources. (Beta)
 
 ### See also
 
-* [azd template](#azd-template): Find and view template details. (Beta)
+* [azd template](#azd-template): Find and view template details.
 * [azd template source add](#azd-template-source-add): Adds an azd template source with the specified key. (Beta)
 * [azd template source list](#azd-template-source-list): Lists the configured azd template sources. (Beta)
 * [azd template source remove](#azd-template-source-remove): Removes the specified azd template source (Beta)
@@ -1347,7 +1347,7 @@ azd template source remove <key> [flags]
 
 ## azd up
 
-Provision Azure resources, and deploy your project with a single command.
+Provision and deploy your project to Azure with a single command.
 
 ```azdeveloper
 azd up [flags]

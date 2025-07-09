@@ -2,7 +2,7 @@
 author: rotabor
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 05/14/2025
+ms.date: 05/30/2025
 ---
 
 - An Azure account and access to an Azure subscription. For details on how to set them up, see the [pricing page for Azure accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account).

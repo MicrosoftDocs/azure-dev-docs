@@ -1,8 +1,8 @@
 ---
 title: Create a resource group using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to create a resource group from Python code.
-ms.date: 03/04/2024
-ms.topic: conceptual
+ms.date: 05/29/2025
+ms.topic: how-to
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -20,34 +20,125 @@ If you haven't already, set up an environment where you can run this code. Here 
 
 ## 2: Install the Azure library packages
 
-Create a file named *requirements.txt* with the following contents:
+1. In your console, create a *requirements.txt* file that lists the management libraries used in this example:
 
-:::code language="txt" source="~/../python-sdk-docs-examples/resource_group/requirements.txt":::
+    ```azurecli
+    azure-mgmt-resource
+    azure-identity
+    ```
 
-In a terminal or command prompt with the virtual environment activated, install the requirements:
+1. In your console with the virtual environment activated, install the requirements:
 
-```cmd
-pip install -r requirements.txt
+    ```console
+    pip install -r requirements.txt
+    ```
+
+## 3. Set environment variables
+
+In this step, you set environment variables for use in the code in this article. The code uses the `os.environ` method to retrieve the values.
+
+# [Bash](#tab/bash)
+
+```azurecli
+#!/bin/bash
+export AZURE_RESOURCE_GROUP_NAME=<ResourceGroupName> # Change to your preferred resource group name
+export LOCATION=<Location> # Change to your preferred region
+export AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
-## 3: Write code to create a resource group
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+$env:AZURE_RESOURCE_GROUP_NAME = <ResourceGroupName> # Change to your preferred resource group name
+$env:LOCATION = <Location> # Change to your preferred region
+$env:AZURE_SUBSCRIPTION_ID = $(az account show --query id --output tsv)
+```
+
+---
+
+## 4: Write code to create a resource group
+
+In this step, you create a Python file named *provision_blob.py* with the following code. This Python script uses the Azure SDK for Python management libraries to create a resource group in your Azure subscription.
 
 Create a Python file named *provision_rg.py* with the following code. The comments explain the details:
 
-:::code language="python" source="~/../python-sdk-docs-examples/resource_group/provision_rg.py":::
+```Python
+# Import the needed credential and management objects from the libraries.
+import os
+
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.resource import ResourceManagementClient
+
+# Acquire a credential object using DevaultAzureCredential.
+credential = DefaultAzureCredential()
+
+# Retrieve subscription ID from environment variable.
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+# Retrieve resource group name and location from environment variables
+RESOURCE_GROUP_NAME = os.environ["AZURE_RESOURCE_GROUP_NAME"]
+LOCATION = os.environ["LOCATION"]
+
+# Obtain the management object for resources.
+resource_client = ResourceManagementClient(credential, subscription_id)
+
+# Provision the resource group.
+rg_result = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME,
+    { "location": LOCATION })
+
+print(f"Provisioned resource group {rg_result.name}")
+
+# Within the ResourceManagementClient is an object named resource_groups,
+# which is of class ResourceGroupsOperations, which contains methods like
+# create_or_update.
+#
+# The second parameter to create_or_update here is technically a ResourceGroup
+# object. You can create the object directly using ResourceGroup(location=
+# LOCATION) or you can express the object as inline JSON as shown here. For
+# details, see Inline JSON pattern for object arguments at
+# https://learn.microsoft.com/azure/developer/python/sdk
+# /azure-sdk-library-usage-patterns#inline-json-pattern-for-object-arguments
+
+print(
+    f"Provisioned resource group {rg_result.name} in the {rg_result.location} region"
+)
+
+# The return value is another ResourceGroup object with all the details of the
+# new group. In this case the call is synchronous: the resource group has been
+# provisioned by the time the call returns.
+
+# To update the resource group, repeat the call with different properties, such
+# as tags:
+rg_result = resource_client.resource_groups.create_or_update(
+    RESOURCE_GROUP_NAME,
+    {
+        "location": LOCATION,
+        "tags": {"environment": "test", "department": "tech"},
+    },
+)
+
+print(f"Updated resource group {rg_result.name} with tags")
+
+# Optional lines to delete the resource group. begin_delete is asynchronous.
+# poller = resource_client.resource_groups.begin_delete(rg_result.name)
+# result = poller.result()
+```
 
 ### Authentication in the code
 
-Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create and list resource groups in your Azure subscription, the code will run successfully.
+Later in this article, you sign in to Azure using the Azure CLI to execute the sample code. If your account has sufficient permissions to create resource groups and storage resources in your Azure subscription, the script should run successfully without additional configuration.
 
-To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create and list resource groups in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
+To use this code in a production environment, authenticate using a service principal by setting environment variables. This approach enables secure, automated access without relying on interactive login. For detailed guidance, see [How to authenticate Python apps with Azure services](../authentication-overview.md).
+
+Ensure that the service principal is assigned a role with sufficient permissions to create resource groups and storage accounts. For example, assigning the Contributor role at the subscription level provides the necessary access. To learn more about role assignments, see [Role-based access control (RBAC) in Azure](/azure/role-based-access-control/overview).
 
 ### Reference links for classes used in the code
 
 - [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 
-## 4: Run the script
+## 5: Run the script
 
 1. If you haven't already, sign in to Azure using the Azure CLI:
 
@@ -55,47 +146,55 @@ To use such code in a production script, you can set environment variables to us
     az login
     ```
 
-1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
-
-    # [cmd](#tab/cmd)
-
-    ```cmd
-    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-    ```
-
-    # [bash](#tab/bash)
-
-    ```bash
-    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-    ```
-
-    ---
-
 1. Run the script:
 
     ```cmd
     python provision_rg.py
     ```
 
-## 5: Verify the resource group
+## 6: Verify the resource group
 
-You can verify that the group exists through the Azure portal or the Azure CLI.
+You can verify that the resource group exists through the Azure portal or the Azure CLI.
 
-- Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If you've already had the portal open, use the **Refresh** command to update the list.
+- Azure portal: open the [Azure portal](https://portal.azure.com), select **Resource groups**, and check that the group is listed. If necessary, use the **Refresh** command to update the list.
 
 - Azure CLI: use the [az group show](/cli/azure/group#az-group-show) command:
 
+    # [Bash](#tab/bash)
+
     ```azurecli
-    az group show -n PythonAzureExample-rg
+    #!/bin/bash
+    az group show -n $AZURE_RESOURCE_GROUP_NAME
     ```
 
-## 6: Clean up resources
+    # [PowerShell](#tab/powershell)
+
+    ```azurecli
+    # PowerShell syntax
+    az group show -n $env:AZURE_RESOURCE_GROUP_NAME
+    ```
+
+    ---
+
+## 7: Clean up resources
 
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example. Resource groups don't incur any ongoing charges in your subscription, but resources in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
+# [Bash](#tab/bash)
+
 ```azurecli
-az group delete -n PythonAzureExample-rg  --no-wait
+#!/bin/bash
+az group delete -n $AZURE_RESOURCE_GROUP_NAME --no-wait
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+# PowerShell syntax
+az group delete -n $env:AZURE_RESOURCE_GROUP_NAME --no-wait
+```
+
+---
 
 You can also use the [`ResourceManagementClient.resource_groups.begin_delete`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-begin-delete) method to delete a resource group from code. The commented code at the bottom of the script in this article demonstrates the usage.
 

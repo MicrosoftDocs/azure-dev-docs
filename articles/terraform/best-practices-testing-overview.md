@@ -1,7 +1,7 @@
 ---
 title: Testing Terraform code
 description: Learn about the different testing options that you can implement to validate Terraform projects.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/07/2021
 ms.custom: devx-track-terraform
 adobe-target: true

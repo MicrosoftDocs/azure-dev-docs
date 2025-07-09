@@ -4,7 +4,7 @@ description: This article describes the requirements and installation procedure 
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 4/17/2025
+ms.date: 5/30/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -17,6 +17,8 @@ Get started with GitHub Copilot for Azure to streamline your development workflo
 To complete the steps in this article, make sure that you have:
 
 [!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)]
+
+By default, Copilot in Azure is available to all users in a tenant. However, Global Administrators can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups. For more information, see [Manage access to Microsoft Copilot in Azure](/azure/copilot/manage-access).
 
 ## Install GitHub Copilot for Azure
 
