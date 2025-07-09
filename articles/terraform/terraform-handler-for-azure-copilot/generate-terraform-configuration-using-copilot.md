@@ -32,7 +32,8 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 1. Enter a Terraform-related prompt such as the following example. 
 
     ```copilot-prompt
-    Create a Terraform config for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier
+    Create a Terraform config for a Cognitive Services instance 
+    with name 'mycognitiveservice' and S0 pricing tier
     ```
 
 1. Press **&lt;Enter>**.
@@ -68,7 +69,12 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 1. Enter a prompt for a Terraform Configuration that begins with `@azure`. For example, the following prompt creates a Content Delivery Network (CDN) with various settings.
 
     ```copilot-prompt
-    @azure use terraform to create a CDN front door profile named "myCDN profile" with a custom domain association "example.com". Set up a CDN front door route to link to the default domain, and configure a CDN endpoint named "myEndpoint" with the associated custom domain. Ensure a security policy is applied for enhanced production and verify the routing contains the correct origin group.`
+    @azure use terraform to create a CDN front door profile named "myCDN profile" 
+    with a custom domain association "example.com". 
+    Set up a CDN front door route to link to the default domain, 
+    and configure a CDN endpoint named "myEndpoint" with the associated custom domain. 
+    Ensure a security policy is applied for enhanced production and 
+    verify the routing contains the correct origin group
     ```
 
 1. Press **&lt;Enter>**.
