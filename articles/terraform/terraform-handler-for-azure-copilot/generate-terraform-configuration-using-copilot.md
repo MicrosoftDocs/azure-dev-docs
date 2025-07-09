@@ -38,7 +38,7 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 
 1. Press **&lt;Enter>**.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-prompt.png" alt-text="Screenshot of an example Azure Copilot prompt.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-prompt.png" border="true" alt-text="Screenshot of an example Azure Copilot prompt.":::
 
 1. Once Copilot responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
 
@@ -94,29 +94,34 @@ In this article, you learn how to use Azure Copilot from the Azure portal and fr
 This section contains several example prompts you can use to generate Terraform configurations. Modify these prompts based on your scenarios, or try other prompts to create different kinds of queries.
 
 ```copilot-prompt
-Create a Terraform configuration for a Cognitive Services instance with name 'mycognitiveservice' and S0 pricing tier.
+Create a Terraform configuration for a Cognitive Services instance with 
+name "mycognitiveservice" and S0 pricing tier.
 ```
 
 ```copilot-prompt
-Create a Terraform configuration that deploys a Linux virtual machine running Ubuntu 22.04 LTS, 
-with 8 GB of RAM. The virtual machine should be located in the West US region and assigned a 
-public IP address. It must be connected to a virtual network that includes a subnet and is 
+Create a Terraform configuration that deploys a Linux virtual machine 
+running Ubuntu 22.04 LTS, with 8 GB of RAM. The virtual machine should 
+be located in the West US region and assigned a public IP address. 
+It must be connected to a virtual network that includes a subnet and is 
 secured by a network security group.
 ```
 
 ```copilot-prompt
-Create a Terraform configuration for a Container App resource named "myApp" using the quick start image. 
-Set the container app environment name to "awesomeAzureEnv" and the container name to "myQuickStartContainer".
+Create a Terraform configuration for a Container App resource named 
+"myApp" using the quick start image. Set the container app environment name 
+to "awesomeAzureEnv" and the container name to "myQuickStartContainer".
 ```
 
 ```copilot-prompt
-Create a Terraform configuration for an Azure Databricks workspace named "myworkspace" with the premium SKU. 
-The workspace should be deployed in the West US region.
+Create a Terraform configuration for an Azure Databricks workspace named 
+"myworkspace" with the premium SKU. The workspace should be deployed in 
+the West US region.
 ```
 
 ```copilot-prompt
-Create a Terraform configuration for an Azure OpenAI deployment that uses the "gpt-4" model. 
-Specify the model version as "2024-05-01-preview" and set the deployment name to "myOpenAIModel".
+Create a Terraform configuration for an Azure OpenAI deployment that uses 
+the "gpt-4" model. Specify the model version as "2024-05-01-preview" and 
+set the deployment name to "myOpenAIModel".
 ```
 
 ## Next steps
