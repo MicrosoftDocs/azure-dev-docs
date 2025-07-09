@@ -13,7 +13,7 @@ author: Jingwei-MS
 
 Azure Copilot enables you to generate Terraform configurations that define your Azure infrastructure. Describe the infrastructure you want to deploy, and Copilot generates a Terraform configuration using the AzureRM provider. The configuration automatically includes both the main resources and any required dependencies to ensure the configuration is deployable. You can define the output by iteratively making subsequent prompts.
 
-In this article, you learn how to use Azure Copilot from the Azure portal and from Visual Studio Code (VS Code). Additionally, we have included some sample Terraform prompts for you to use as-is or edit as necessary.
+In this article, you learn how to use Azure Copilot from the Azure portal and from Visual Studio Code (VS Code). Additionally, this article includes several sample Terraform prompts for you to use as-is or edit as necessary.
 
 > [!TIP]
 > For best results, keep your prompt to fewer than eight primary Terraform resource types. Copilot performs well with common configurations. Complex or large-scale architectures may produce incomplete or less accurate results.
