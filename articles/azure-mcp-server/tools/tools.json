@@ -419,6 +419,139 @@
                         "required": false
                     }
                 ]
+            },
+            {
+                "name": "healthmodels entity gethealth",
+                "description": "Get the health of an entity.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "model-name",
+                        "description": "The name of the health model",
+                        "required": true
+                    },
+                    {
+                        "name": "entity",
+                        "description": "The entity ID to get health for",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "metrics query",
+                "description": "Query Azure Monitor metrics for a resource.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-name",
+                        "description": "The name of the resource to query metrics for",
+                        "required": true
+                    },
+                    {
+                        "name": "metric-namespace",
+                        "description": "The metric namespace",
+                        "required": true
+                    },
+                    {
+                        "name": "metric-names",
+                        "description": "The metric names to query",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": false
+                    },
+                    {
+                        "name": "resource-type",
+                        "description": "The type of the resource",
+                        "required": false
+                    },
+                    {
+                        "name": "start-time",
+                        "description": "The start time for the query",
+                        "required": false
+                    },
+                    {
+                        "name": "end-time",
+                        "description": "The end time for the query",
+                        "required": false
+                    },
+                    {
+                        "name": "interval",
+                        "description": "The interval for aggregation",
+                        "required": false
+                    },
+                    {
+                        "name": "aggregation",
+                        "description": "The aggregation method",
+                        "required": false
+                    },
+                    {
+                        "name": "filter",
+                        "description": "Filter for the metrics query",
+                        "required": false
+                    },
+                    {
+                        "name": "max-buckets",
+                        "description": "Maximum number of buckets",
+                        "required": false
+                    }
+                ]
+            },
+            {
+                "name": "metrics definitions",
+                "description": "List available metric definitions for a resource.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-name",
+                        "description": "The name of the resource",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": false
+                    },
+                    {
+                        "name": "resource-type",
+                        "description": "The type of the resource",
+                        "required": false
+                    },
+                    {
+                        "name": "metric-namespace",
+                        "description": "The metric namespace",
+                        "required": false
+                    },
+                    {
+                        "name": "search-string",
+                        "description": "Search string to filter metrics",
+                        "required": false
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of results to return",
+                        "required": false
+                    }
+                ]
             }
         ]
     },
