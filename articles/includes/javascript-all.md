@@ -442,13 +442,13 @@
 | TypeSpec Streams | npm [0.71.0](https://www.npmjs.com/package/@typespec/streams/v/0.71.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.3.0) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.3.1) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.3.1) |  |  |
 | Unknown Display Name | npm [0.0.0-95](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-95) |  |  |
 | Unknown Display Name | npm [0.0.0-95](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-95) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
@@ -464,7 +464,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.36.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.36.1) |  | GitHub [1.36.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.37.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.37.1) |  | GitHub [1.37.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.34](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.34) |  | GitHub [1.0.0-beta.34](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -570,7 +570,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.13.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.13.0) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.13.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.13.1) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
