@@ -49,7 +49,7 @@ for rg in resource_groups:
     print(rg.name)
 ```
 
-Replace `<subscription-id>` with your Azure Subscription ID, which is usually in the form of `00000000-0000-0000-0000-000000000000`.
+Replace `<subscription-id>` with your Azure subscription ID, which is usually in the form of `00000000-0000-0000-0000-000000000000`.
 
 ### Microsoft Graph with scopes
 
