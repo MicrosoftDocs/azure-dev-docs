@@ -27,7 +27,7 @@ Some Azure services offer unique authorization methods:
 
 - **Azure Storage**: Uses Shared Access Signatures (SAS) and Access Control Lists (ACLs) for data access. See **Service-Specific Authorization Notes** for [Azure Storage](#azure-storage).
 - **Azure Key Vault**: Recommends RBAC over legacy access policies. See **Service-Specific Authorization Notes** for [Azure Key Vault](#azure-key-vault).
-- **Microsoft Graph**: Employs OAuth2 scopes and application permissions. See **Service-Specific Authorization Notes** for [Microsoft Graft](#microsoft-graph).
+- **Microsoft Graph**: Employs OAuth2 scopes and application permissions. See **Service-Specific Authorization Notes** for [Microsoft Graph](#microsoft-graph).
 
 
 ## Using authorization in Azure SDK for Python
