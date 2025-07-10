@@ -152,7 +152,7 @@ For managed identities, assign roles to the identity associated with resources l
 
 ## Service-specific authorization notes
 
-In the section [Service specific mechanisms](#service-specific-mechanisms), it was noted that some Azure services offer unique authorization methods. This section provides more detail for each of the three Azure services mentioned.
+In the section [Service-specific mechanisms](#service-specific-mechanisms), it was noted that some Azure services offer unique authorization methods. This section provides more detail for each of the three Azure services mentioned.
 
 ### Azure Storage
 
