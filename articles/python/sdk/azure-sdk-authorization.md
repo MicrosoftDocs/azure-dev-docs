@@ -212,4 +212,4 @@ Uses OAuth 2.0 scopes for delegated permissions and application permissions for 
 - [Azure CLI Reference](/cli/azure/)
 - [Azure SDK for Python Overview](/azure/developer/python/sdk/azure-sdk-overview)
 - [Azure Key Vault RBAC Guide](/azure/key-vault/general/rbac-guide)
-- [Microsoft Graph Permissions Reference](/en-us/graph/permissions-reference)
+- [Microsoft Graph Permissions Reference](/graph/permissions-reference)
