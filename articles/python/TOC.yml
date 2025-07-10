@@ -175,9 +175,9 @@
           href: walkthrough-tutorial-authentication-06.md
         - name: 7. Main app endpoint
           href: walkthrough-tutorial-authentication-07.md
-  name: Authorization
+    - name: Authorization
       items:
-      - name: Overview
+      - name: "Overview"
         href: sdk/authorization/overview.md          
     - name: Install Azure packages
       href: sdk/azure-sdk-install.md
