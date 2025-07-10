@@ -148,7 +148,7 @@ Manage access through role assignments using:
 
 - **ARM Templates**: For declarative management.
 
-For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure portal’s "Check access" feature or CLI to verify effective permissions.
+For managed identities, assign roles to the identity associated with resources like virtual machines. Use the Azure portal's "Check access" feature or the Azure CLI to verify effective permissions.
 
 ## Service-specific authorization notes
 
