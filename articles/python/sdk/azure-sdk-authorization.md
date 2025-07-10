@@ -1,7 +1,7 @@
 ---
 title: Authorization in the Azure SDK libraries for Python
 description: Learn how to implement and troubleshoot authorization when using the Azure SDK for Python.
-ms.date: 6/09/2025
+ms.date: 7/10/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -12,7 +12,7 @@ Authorization in Azure determines what actions authenticated users or services c
 
 ## Introduction
 
-**Authentication (AuthN)** verifies the identity of a user or service, while **authorization (AuthZ)** defines what they can do. In Azure, authorization ensures secure access to resources, critical for protecting applications and data. Developers can implement robust authorization the Azure SDK for Python in order to control access in various workflows, from managing resources to accessing service-specific data.
+**Authentication (AuthN)** verifies the identity of a user or service, while **authorization (AuthZ)** defines what they can do. In Azure, authorization ensures secure access to resources, critical for protecting applications and data. Developers can implement robust authorization with the Azure SDK for Python in order to control access in various workflows, from managing resources to accessing service-specific data.
 
 ## Azure authorization models
 
@@ -138,7 +138,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
 Manage access through role assignments using:
 
-- **Azure Portal**: Add roles via "Access control (IAM)"
+- **Azure Portal**: Add roles via the "Access control (IAM)" service menu
 - **Azure CLI**:
   ```azurecli
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
@@ -159,7 +159,7 @@ In the section [Service-specific mechanisms](#service-specific-mechanisms), it w
 - **RBAC**: Manages control plane operations.
 - **SAS and ACLs**: Control data plane access, with Microsoft Entra authentication also supported.
 
-Example: accessing blobs with Microsoft Entra:
+### Example: Access blobs with Microsoft Entra ID
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -179,7 +179,7 @@ Replace `<account-name>` with your Azure Storage account name.
 
 RBAC is recommended over legacy access policies for consistency. Access policies are still supported but not preferred.
 
-Example: retrieving a secret:
+### Example: Retrieve a secret
 
 ```python
 from azure.identity import DefaultAzureCredential
