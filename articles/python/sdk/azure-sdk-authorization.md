@@ -134,8 +134,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   az identity show --name <identity-name> --resource-group <rg-name> --query principalId
   ```
 
-
-## Managing access
+## Manage access
 
 Manage access through role assignments using:
 
