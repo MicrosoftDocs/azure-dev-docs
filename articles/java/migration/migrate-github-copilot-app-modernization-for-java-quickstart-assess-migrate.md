@@ -23,7 +23,7 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 
 ## Prerequisites
 
-- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. All plans are supported, including the Free plan.
+- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. Pro, Pro+, Business or Enterprise plan is needed.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see the next section.
