@@ -1,5 +1,5 @@
 ---
-title: Authorization in the Azure libraries for Python
+title: Authorization in the Azure SDK libraries for Python
 description: Learn how to implement and troubleshoot authorization when using the Azure SDK for Python.
 ms.date: 6/09/2025
 ms.topic: conceptual
