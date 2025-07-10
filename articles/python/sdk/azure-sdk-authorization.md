@@ -196,7 +196,7 @@ Replace `<vault-name>` with your vault name.
 
 ### Microsoft Graph
 
-Uses OAuth2 scopes for delegated permissions and application permissions for daemon apps. Specify scopes as shown in the earlier example.
+Uses OAuth 2.0 scopes for delegated permissions and application permissions for daemon apps. Specify scopes as shown in the earlier example.
 
 ## Best Practices
 
