@@ -55,7 +55,7 @@ Replace `<subscription-id>` with your Azure subscription ID, which is usually in
 
 To access Microsoft Graph, use the official [Microsoft Graph SDK for Python](https://github.com/microsoftgraph/msgraph-sdk-python), which supports both delegated and application permissions.
 
-This example demonstrates how the SDK uses a credential to request an access token with the required authorization scope `https://graph.microsoft.com/.default` and access Microsoft Graph resources. The identity must be authorized in Microsoft Entra ID with appropriate application permissions (such as User.Read.All) to retrieve user data; otherwise, the request fails with a 403 Forbidden.
+This example demonstrates how the SDK uses a credential to request an access token with the required authorization scope `https://graph.microsoft.com/.default` and access Microsoft Graph resources. The identity must be authorized in Microsoft Entra ID with appropriate application permissions (such as `User.Read.All`) to retrieve user data; otherwise, the request fails with a 403 Forbidden.
 
 > [!Important]
 > Ensure your app or identity has the `User.Read.All` or other required permissions granted in Microsoft Entra ID.
