@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys.
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 05/14/2025
+ms.date: 07/01/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -55,6 +55,24 @@ Example prompts include:
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to retrieve. |
+
+## Get secret
+
+The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault.
+
+Example prompts include:
+
+- **Get a specific secret**: "Retrieve the 'database-connection-string' secret from my 'production-vault' Key Vault."
+- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
+- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my Key Vault?"
+- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
+- **Access credentials**: "Show me the 'service-principal-secret' from my production Key Vault"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Vault** | Required | The name of the Key Vault. |
+| **Name** | Required | The name of the secret to retrieve. |
 
 ## List keys
 

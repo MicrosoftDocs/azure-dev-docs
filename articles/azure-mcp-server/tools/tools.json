@@ -346,6 +346,27 @@
                         "required": true
                     }
                 ]
+            },
+            {
+                "name": "secret get",
+                "description": "Retrieve a specific secret from a Key Vault.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "description": "The name of the secret to retrieve",
+                        "required": true
+                    }
+                ]
             }
         ]
     },
@@ -416,6 +437,139 @@
                     {
                         "name": "limit",
                         "description": "The maximum number of results to return",
+                        "required": false
+                    }
+                ]
+            },
+            {
+                "name": "healthmodels entity gethealth",
+                "description": "Get the health of an entity.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "model-name",
+                        "description": "The name of the health model",
+                        "required": true
+                    },
+                    {
+                        "name": "entity",
+                        "description": "The entity ID to get health for",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "metrics query",
+                "description": "Query Azure Monitor metrics for a resource.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-name",
+                        "description": "The name of the resource to query metrics for",
+                        "required": true
+                    },
+                    {
+                        "name": "metric-namespace",
+                        "description": "The metric namespace",
+                        "required": true
+                    },
+                    {
+                        "name": "metric-names",
+                        "description": "The metric names to query",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": false
+                    },
+                    {
+                        "name": "resource-type",
+                        "description": "The type of the resource",
+                        "required": false
+                    },
+                    {
+                        "name": "start-time",
+                        "description": "The start time for the query",
+                        "required": false
+                    },
+                    {
+                        "name": "end-time",
+                        "description": "The end time for the query",
+                        "required": false
+                    },
+                    {
+                        "name": "interval",
+                        "description": "The interval for aggregation",
+                        "required": false
+                    },
+                    {
+                        "name": "aggregation",
+                        "description": "The aggregation method",
+                        "required": false
+                    },
+                    {
+                        "name": "filter",
+                        "description": "Filter for the metrics query",
+                        "required": false
+                    },
+                    {
+                        "name": "max-buckets",
+                        "description": "Maximum number of buckets",
+                        "required": false
+                    }
+                ]
+            },
+            {
+                "name": "metrics definitions",
+                "description": "List available metric definitions for a resource.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-name",
+                        "description": "The name of the resource",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": false
+                    },
+                    {
+                        "name": "resource-type",
+                        "description": "The type of the resource",
+                        "required": false
+                    },
+                    {
+                        "name": "metric-namespace",
+                        "description": "The metric namespace",
+                        "required": false
+                    },
+                    {
+                        "name": "search-string",
+                        "description": "Search string to filter metrics",
+                        "required": false
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Maximum number of results to return",
                         "required": false
                     }
                 ]
@@ -671,6 +825,80 @@
                         "required": false
                     }
                 ]
+            }
+        ]
+    },
+    "azure-redis": {
+        "root": "azmcp redis",
+        "documentation": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/",
+        "tools": [
+            {
+                "name": "cluster list",
+                "description": "List Redis Clusters in Azure Managed Redis or Azure Redis Enterprise services.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    }
+                ],
+                "documentation": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-redis-enterprise-overview"
+            },
+            {
+                "name": "cluster database list",
+                "description": "List Databases in an Azure Redis Cluster.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "cluster",
+                        "description": "The name of the Redis cluster",
+                        "required": true
+                    }
+                ],
+                "documentation": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-redis-enterprise-overview"
+            },
+            {
+                "name": "cache list",
+                "description": "List Redis Caches in the Azure Cache for Redis service.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    }
+                ],
+                "documentation": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview"
+            },
+            {
+                "name": "cache list accesspolicy",
+                "description": "List Access Policy Assignments in an Azure Redis Cache.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "cache",
+                        "description": "The name of the Redis cache",
+                        "required": true
+                    }
+                ],
+                "documentation": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-configure-role-based-access-control"
             }
         ]
     },
@@ -1061,6 +1289,42 @@
                         "required": true
                     }
                 ]
+            },
+            {
+                "name": "server setparam",
+                "description": "Set a specific parameter of a PostgreSQL server to a specific value.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "user-name",
+                        "description": "The user name to access PostgreSQL server",
+                        "required": true
+                    },
+                    {
+                        "name": "server",
+                        "description": "The PostgreSQL server to be accessed",
+                        "required": true
+                    },
+                    {
+                        "name": "param",
+                        "description": "The PostgreSQL parameter to be set",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "description": "The value to set for the parameter",
+                        "required": true
+                    }
+                ]
             }
         ]
     },
@@ -1140,6 +1404,34 @@
                         "required": true
                     }
                 ]
+            }
+        ]
+    },
+    "azure-native-isv": {
+        "root": "azmcp datadog",
+        "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/",
+        "tools": [
+            {
+                "name": "monitoredresources list",
+                "description": "List monitored resources in Datadog.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group",
+                        "required": true
+                    },
+                    {
+                        "name": "datadog-resource",
+                        "description": "The name of the Datadog resource",
+                        "required": true
+                    }
+                ],
+                "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/manage"
             }
         ]
     }
