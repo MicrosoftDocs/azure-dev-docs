@@ -199,7 +199,7 @@ Replace `<vault-name>` with your vault name.
 
 Uses OAuth 2.0 scopes for delegated permissions and application permissions for daemon apps. Specify scopes as shown in the earlier example.
 
-## Best Practices
+## Best practices
 
 - **Least privilege**: Assign only necessary permissions (for example, Reader instead of Contributor).
 - **Prefer RBAC**: Especially for Key Vault, for unified access control.
