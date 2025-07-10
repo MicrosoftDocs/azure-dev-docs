@@ -127,7 +127,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
     --scope /subscriptions/<subscription-id>
   ```
 
-  You can retrieve the object ID (`<principle-id>`) of a user or managed identity using:
+  You can retrieve the object ID (`<principal-id>`) of a user or managed identity using:
 
   ```azurecli
   az ad user show --id <user-email> --query objectId
