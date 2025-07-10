@@ -30,8 +30,7 @@ Some Azure services offer unique authorization methods:
 - **Azure Key Vault**: Recommends RBAC over legacy access policies. See **Service-Specific Authorization Notes** for [Azure Key Vault](#azure-key-vault).
 - **Microsoft Graph**: Employs OAuth2 scopes and application permissions. See **Service-Specific Authorization Notes** for [Microsoft Graph](#microsoft-graph).
 
-
-## Using authorization in Azure SDK for Python
+## Use authorization in Azure SDK for Python
 
 The Azure SDK for Python uses the `TokenCredential` class from the `azure-identity` package to handle authentication and authorization. The `DefaultAzureCredential` class supports various authentication mechanisms, such as managed identities and service principals, adapting to different environments.
 
