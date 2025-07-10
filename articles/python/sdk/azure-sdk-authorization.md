@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Authorization in Azure SDK for Python
+# Authorization in the Azure SDK libraries for Python
 
 Authorization in Azure determines what actions authenticated users or services can perform on resources. This article explores how to implement authorization using the [Azure SDK for Python](/azure/developer/python/sdk/azure-sdk-overview), covering models, implementation, troubleshooting, and best practices. For detailed authentication setup, refer to [Authenticate Python apps to Azure](/azure/developer/python/sdk/authentication/overview).
 
