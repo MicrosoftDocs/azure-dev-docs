@@ -113,7 +113,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
   For example, to list all role assignments for a managed identity at the resource group level:
 
-  ```bash
+  ```azurecli
   az role assignment list \
     --assignee 12345678-90ab-cdef-1234-567890abcdef \
     --scope /subscriptions/<subscription-id>/resourceGroups/my-resource-group
