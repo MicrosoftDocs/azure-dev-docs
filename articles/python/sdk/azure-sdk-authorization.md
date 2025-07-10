@@ -93,7 +93,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   az role assignment list --assignee <principal-id> --scope <scope>
   ```
 
-  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity. Replace `<scope>` with an Azure resource scope, such as a subscription id, a resource group name, or a resource. See [Working with scopes](#working-with-scopes).
+  Replace `<principal-id>` with the object ID of your user, service principal, or managed identity. Replace `<scope>` with an Azure resource scope, such as a subscription ID, a resource group name, or a resource. See [Working with scopes](#working-with-scopes).
 
 ## Working with scopes
 
