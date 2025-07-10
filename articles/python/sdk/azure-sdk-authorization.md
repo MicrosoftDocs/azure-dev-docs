@@ -191,7 +191,7 @@ secret = client.get_secret("my-secret")
 print(secret.value)
 ```
 
-Replace `<vault-name>` with your vault name.
+Replace `<vault-name>` with your Key Vault resource name.
 
 
 ### Microsoft Graph
