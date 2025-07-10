@@ -18,7 +18,8 @@ Authorization in Azure determines what actions authenticated users or services c
 
 Azure provides multiple authorization mechanisms to manage access. Understanding these models is essential for effective access control.
 
-### Azure Role-Based Access Control 
+### Azure Role-Based Access Control
+
 [Azure Role-Based Access Control](/azure/role-based-access-control/) (RBAC) assigns roles to identities at scopes like subscriptions or resource groups. Built-in roles include Owner, Contributor, and Reader, while custom roles allow tailored permissions. When you assign a role at a specific scope, the identity (like a user or service) gets permissions for all resources within that scope and its child scopes. For example, assigning the Contributor role at the subscription level allows management of all resources in that subscription. See [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 ### Service-specific mechanisms
