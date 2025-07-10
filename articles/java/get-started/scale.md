@@ -7,7 +7,10 @@ ms.author: karler
 ms.reviewer: asirveda
 ms.topic: article
 ms.date: 09/30/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Scale with end-to-end security, monitoring, and automation

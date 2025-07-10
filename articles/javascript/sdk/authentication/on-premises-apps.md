@@ -3,7 +3,9 @@ title: Authenticate on-premises JavaScript apps to Azure resources
 description: This article describes how to authenticate your on-premises JavaScript application to Azure services with the Azure SDK for JavaScript. 
 ms.date: 10/22/2024
 ms.topic: how-to
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 

@@ -6,7 +6,15 @@ ms.author: karler
 ms.reviewer: jiangma
 ms.topic: tutorial
 ms.date: 12/10/2024
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, migration-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-websphere
+  - devx-track-javaee-liberty
+  - devx-track-javaee-liberty-aks
+  - migration-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery

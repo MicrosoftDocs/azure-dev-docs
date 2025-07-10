@@ -7,7 +7,15 @@ ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 03/27/2025
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-liberty
+  - devx-track-javaee-liberty-aca
+  - devx-track-javaee-websphere
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Deploy a Java application with Open Liberty on Azure Container Apps

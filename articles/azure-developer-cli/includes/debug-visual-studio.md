@@ -4,6 +4,7 @@ ms.service: azure-dev-cli
 ms.topic: include
 ms.date: 08/10/2022
 ms.author: alexwolf
+ms.custom: sfi-image-nochange
 ---
 
 Run and debug apps built on your local machine using [Visual Studio](/visualstudio/azure) and Azure Developer CLI (`azd`). In this guide, you'll use the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template. You can apply the principles you learn in this article to any of the [Azure Developer CLI templates](../azd-templates.md).

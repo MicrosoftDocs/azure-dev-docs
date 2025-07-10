@@ -3,7 +3,9 @@ title: Authenticate to Azure resources from Go apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Go in on-premises hosted applications. 
 ms.date: 08/20/2024
 ms.topic: how-to
-ms.custom: devx-track-go
+ms.custom:
+  - devx-track-go
+  - sfi-image-nochange
 ---
 
 # Authenticate to Azure resources from Go apps hosted on-premises
