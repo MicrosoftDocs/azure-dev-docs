@@ -129,7 +129,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
   You can retrieve the object ID (`<principle-id>`) of a user or managed identity using:
 
-  ```bash
+  ```azurecli
   az ad user show --id <user-email> --query objectId
   az identity show --name <identity-name> --resource-group <rg-name> --query principalId
   ```
