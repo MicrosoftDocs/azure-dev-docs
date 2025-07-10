@@ -101,11 +101,11 @@ DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
 
 To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-prod.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
 
 When a value of `dev` is used, the chain looks as follows:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-dev.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.16.1 and later.
