@@ -89,7 +89,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   ```
 - **Verify Access**: Use [Azure CLI](/cli/azure/) or the Azure portal to check role assignments:
 
-  ```bash
+  ```azurecli
   az role assignment list --assignee <principal-id> --scope <scope>
   ```
 
