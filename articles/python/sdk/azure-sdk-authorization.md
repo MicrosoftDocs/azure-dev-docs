@@ -109,7 +109,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
   | **Subscription**   | `/subscriptions/<subscription-id>`                                                                                                     |
   | **Resource Group** | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>`                                                                |
-  | **Resource**       | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<provider-namespace>/<resource-type>/<resource-name>` |
+  | **Resource Name**       | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<provider-namespace>/<resource-type>/<resource-name>` |
 
   For example, to list all role assignments for a managed identity at the resource group level:
 
