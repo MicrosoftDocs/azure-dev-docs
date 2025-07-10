@@ -121,7 +121,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   
   Or at the subscription level:
 
-  ```bash
+  ```azurecli
   az role assignment list \
     --assignee 12345678-90ab-cdef-1234-567890abcdef \
     --scope /subscriptions/<subscription-id>
