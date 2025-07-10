@@ -32,7 +32,7 @@ Some Azure services offer unique authorization methods:
 
 ## Using authorization in Azure SDK for Python
 
-The Azure SDK for Python uses the `TokenCredential` class from the `azure.identity` package to handle authentication and authorization. The `DefaultAzureCredential` class supports multiple credential types, such as managed identities and service principals, adapting to different environments.
+The Azure SDK for Python uses the `TokenCredential` class from the `azure-identity` package to handle authentication and authorization. The `DefaultAzureCredential` class supports various authentication mechanisms, such as managed identities and service principals, adapting to different environments.
 
 ### Example: listing resource groups
 
