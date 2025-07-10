@@ -99,7 +99,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
   Often you'll need to provide a scope, like in the example:
 
-  ```bash
+  ```azurecli
   az role assignment list --assignee <principal-id> --scope <scope>
   ```  
 
