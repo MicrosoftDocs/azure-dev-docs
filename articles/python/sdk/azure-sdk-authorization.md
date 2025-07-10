@@ -76,7 +76,7 @@ for user in users:
 Learn more about this SDK in the official [Build Python apps with Microsoft Graph](/graph/tutorials/python) tutorial.
 
 
-## Diagnosing authorization errors
+## Diagnose authorization errors
 
 Authorization issues often result in HTTP 403 Forbidden errors, indicating insufficient permissions. To diagnose:
 
