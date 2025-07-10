@@ -141,7 +141,7 @@ Manage access through role assignments using:
 
 - **Azure Portal**: Add roles via "Access control (IAM)"
 - **Azure CLI**:
-  ```bash
+  ```azurecli
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
   ```
   Replace `<principal-id>` with the object ID of your user, service principal, or managed identity. Replace `<scope>` with an Azure resource scope, such as a subscription id, a resource group name, or a resource.  See [Working with scopes](#working-with-scopes).
