@@ -166,8 +166,8 @@ from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 
 credential = DefaultAzureCredential()
-blob_service_client = BlobServiceClient(account_url="https://<account-name>.blob.core.windows.net", credential=credential)
-containers = blob_service_client.list_containers()
+client = BlobServiceClient(account_url="https://<account-name>.blob.core.windows.net", credential=credential)
+containers = client.list_containers()
 for container in containers:
     print(container.name)
 ```
