@@ -36,7 +36,7 @@ The Azure SDK for Python uses the `TokenCredential` class from the `azure-identi
 
 ### Example: listing resource groups
 
-This example shows how the Azure SDK for Python uses a credential (via DefaultAzureCredential) to authenticate, and how authorization determines whether the identity can successfully list resource groups. If the identity lacks the Reader or higher role on the subscription or resource group scope, this call returns a 403 Forbidden error.
+This example shows how the Azure SDK for Python uses a credential (via `DefaultAzureCredential`) to authenticate, and how authorization determines whether the identity can successfully list resource groups. If the identity lacks the Reader or higher role on the subscription or resource group scope, this call returns a 403 Forbidden error.
 
 ```python
 from azure.identity import DefaultAzureCredential
