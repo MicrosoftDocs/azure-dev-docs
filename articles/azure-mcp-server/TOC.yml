@@ -29,6 +29,8 @@ items:
           href: tools/key-vault-key.md
         - name: Azure Monitor
           href: tools/monitor.md
+        - name: Azure RBAC
+          href: tools/azure-rbac.md
         - name: Azure Native ISV
           href: tools/azure-native-isv.md          
         - name: Azure Service Bus
