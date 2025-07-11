@@ -12,7 +12,7 @@ Authorization in Azure determines what actions authenticated users or services c
 
 ## Introduction
 
-**Authentication (AuthN)** verifies the identity of a user or service, while **authorization (AuthZ)** defines what they can do. In Azure, authorization ensures secure access to resources, critical for protecting applications and data. Developers can implement robust authorization with the Azure SDK for Python in order to control access in various workflows, from managing resources to accessing service-specific data.
+**Authentication (AuthN)** verifies the identity of a user or service, while **authorization (AuthZ)** defines what they can do. In Azure, authorization ensures secure access to resources, critical for protecting applications and data. Developers can implement robust authorization with the Azure SDK for Python to control access in various workflows, from managing resources to accessing service-specific data.
 
 ## Azure authorization models
 
@@ -28,11 +28,11 @@ Some Azure services offer unique authorization methods:
 
 - **Azure Storage**: Uses Shared Access Signatures (SAS) and Access Control Lists (ACLs) for data access. See **Service-Specific Authorization Notes** for [Azure Storage](#azure-storage).
 - **Azure Key Vault**: Recommends RBAC over legacy access policies. See **Service-Specific Authorization Notes** for [Azure Key Vault](#azure-key-vault).
-- **Microsoft Graph**: Employs OAuth2 scopes and application permissions. See **Service-Specific Authorization Notes** for [Microsoft Graph](#microsoft-graph).
+- **Microsoft Graph**: Employs OAuth 2.0 scopes and application permissions. See **Service-Specific Authorization Notes** for [Microsoft Graph](#microsoft-graph).
 
 ## Use authorization in Azure SDK for Python
 
-The Azure SDK for Python uses the `TokenCredential` class from the `azure-identity` package to handle authentication and authorization. The `DefaultAzureCredential` class supports various authentication mechanisms, such as managed identities and service principals, adapting to different environments.
+The Azure SDK for Python provides built-in support for handling authentication and authorization through the `azure-identity` package. The `DefaultAzureCredential` class supports various authentication mechanisms, such as managed identities and service principals, adapting to different environments.
 
 ### Example: List resource groups
 
@@ -100,7 +100,9 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
   Often you'll need to provide a scope, like in the example:
 
   ```azurecli
-  az role assignment list --assignee <principal-id> --scope <scope>
+  az role assignment list \
+      --assignee <principal-id> \
+      --scope <scope>
   ```  
 
   Here are some common scope formats:
@@ -138,7 +140,7 @@ Authorization issues often result in HTTP 403 Forbidden errors, indicating insuf
 
 Manage access through role assignments using:
 
-- **Azure Portal**: Add roles via the "Access control (IAM)" service menu
+- **Azure portal**: Add roles via the "Access control (IAM)" service menu
 - **Azure CLI**:
   ```azurecli
   az role assignment create --assignee <principal-id> --role <role-name> --scope <scope>
