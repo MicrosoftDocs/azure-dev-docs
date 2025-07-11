@@ -36,12 +36,12 @@ Top service categories for JavaScript developers include:
 * **Hosting and Compute**
   * [Azure Static Web Apps](../intro/hosting-apps-on-azure.md) - Ideal for modern web applications
   * [Azure Functions](/azure/azure-functions/functions-reference-node) - Serverless compute with native JavaScript support
-  * [Azure Container Apps](/azure/container-apps/quickstart-nodejs) - Kubernetes-based serverless container hosting
+  * [Azure Container Apps](/azure/container-apps) - Kubernetes-based serverless container hosting
   * [Azure App Service](/azure/app-service/quickstart-nodejs) - Managed hosting for web applications
 
 * **Data and Storage**
   * [Azure Cosmos DB](/azure/cosmos-db/nosql/quickstart-nodejs) - NoSQL database with native JavaScript APIs
-  * [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/quickstart-nodejs) - Managed PostgreSQL service
+  * [Azure Database for PostgreSQL](/azure/postgresql/) - Managed PostgreSQL service
   * [Azure Storage](/azure/storage/blobs/storage-quickstart-blobs-nodejs) - Scalable cloud storage
   * [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-nodejs-get-started) - In-memory data store
 
@@ -107,7 +107,7 @@ Key features include:
 Azure services regularly update their Node.js runtime support. Always use Long-Term Support (LTS) versions of Node.js for production applications. 
 
 For current Node.js version support across Azure services and best practices for Node.js deployment, see:
-* [Node.js versions in Azure App Service](/azure/app-service/reference-node-versions)
+* [Node.js versions in Azure App Service](/azure/app-service/configure-language-nodejs)
 * [Node.js in Azure Functions](/azure/azure-functions/functions-reference-node)
 * [Container-based deployments](../intro/hosting-apps-on-azure.md) for custom Node.js versions
 
