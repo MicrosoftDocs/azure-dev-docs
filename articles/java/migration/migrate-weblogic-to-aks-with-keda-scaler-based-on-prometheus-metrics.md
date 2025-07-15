@@ -6,7 +6,14 @@ ms.author: karler
 ms.reviewer: haiche
 ms.topic: tutorial
 ms.date: 12/23/2024
-ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-aks
+  - migration-java
+  - sfi-image-nochange
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) with KEDA scaler based on Prometheus Metrics

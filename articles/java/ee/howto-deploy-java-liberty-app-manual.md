@@ -7,7 +7,14 @@ ms.reviewer: edburns
 ms.topic: install-set-up-deploy
 ms.date: 05/05/2025
 ms.service: azure-kubernetes-service
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-liberty
+  - devx-track-javaee-liberty-aks
+  - devx-track-javaee-websphere
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster

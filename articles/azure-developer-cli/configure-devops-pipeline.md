@@ -6,7 +6,11 @@ ms.author: alexwolf
 ms.date: 05/12/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli, build-2023
+ms.custom:
+  - devx-track-azdevcli
+  - build-2023
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Explore Azure Developer CLI support for CI/CD pipelines

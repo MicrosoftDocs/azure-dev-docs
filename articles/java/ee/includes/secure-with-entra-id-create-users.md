@@ -3,6 +3,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
 ms.date: 10/07/2024
+ms.custom: sfi-image-nochange
 ---
 
 First, create two users in your Microsoft Entra tenant by following the steps in [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users). You just need the [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user) section. Use the following directions as you go through the article, then return to this article after you create users in your Microsoft Entra tenant.

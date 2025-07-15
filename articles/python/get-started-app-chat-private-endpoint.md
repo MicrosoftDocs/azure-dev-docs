@@ -4,8 +4,13 @@ description: "Secure the chat app with a virtual network."
 ms.date: 02/26/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - devx-track-python
+  - devx-track-python-ai
+  - devx-track-extended-azdevcli
+  - build-2024-intelligent-apps
+  - sfi-image-nochange
 # CustomerIntent: As a Python developer new to Azure, I want to deploy a chat app with private access so that I understand how to secure my chat app endpoint.
 ---
 

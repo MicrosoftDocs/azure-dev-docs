@@ -6,7 +6,10 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: overview
 ms.date: 08/28/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # What is Spring Cloud Azure?

@@ -6,7 +6,12 @@ ms.author: shiyingchen
 ms.topic: reference
 ms.service: azure 
 ms.date: 07/01/2024
-ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom:
+  - github-actions-azure
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Use GitHub Actions to connect to Azure
