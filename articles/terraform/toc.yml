@@ -78,6 +78,8 @@
           href: get-started-azapi-update-resource.md
         - name: Learn how to use the AzAPI resource action
           href: get-started-azapi-resource-action.md
+        - name: Learn how to use the preflight validation
+          href: get-started-azapi-preflight.md
     - name: Terraform Quickstarts for Azure services
       items:
         - name: AI + Machine Learning
