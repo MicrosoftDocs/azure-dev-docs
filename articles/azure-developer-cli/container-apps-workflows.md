@@ -1,21 +1,21 @@
 ---
-title: Explore Azure Developer CLI support for CI/CD pipelines
-description: Learn how to work with GitHub Actions or Azure Pipelines using the Azure Developer CLI.
+title: Azure Container Apps deployment strategies using the Azure Developer CLI
+description: Learn about Azure Container Apps deployment strategies using the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/12/2025
+ms.date: 07/15/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli, build-2023
+ms.custom: devx-track-`azd`evcli
 ---
 
-# Azure Container Apps provisioning and deployment strategies using the Azure Developer CLI
+# Azure Container Apps deployment strategies using the Azure Developer CLI
 
-The Azure Developer CLI (AZD) provides multiple strategies to provision and deploy applications to [Azure Container Apps](/azure/container-apps/overview). This document outlines these strategies, including when to use them and how they work.
+The Azure Developer CLI (`azd`) provides multiple strategies to provision and deploy applications to [Azure Container Apps](/azure/container-apps/overview). This document outlines these strategies, including when to use them and how they work.
 
-## Strategy 1: container-app-upsert
+## Container app upsert strategy
 
-The `container-app-upsert` strategy is a Bicep-based approach for creating or updating Azure Container Apps. It's a flexible approach that works well for many types of container applications.
+The `container-app-upsert` strategy is a Bicep-based approach for creating or updating Azure Container Apps. It's a flexible option that works well for many types of container applications.
 
 ### How it works
 
@@ -25,7 +25,7 @@ The `container-app-upsert` strategy:
 2. If the Container App exists, it updates the existing app while preserving its current container image if no new image is specified.
 3. If the Container App doesn't exist, it creates a new one with the specified parameters.
 
-This approach is commonly used in AZD templates, such as the Todo application templates (nodejs-mongo-aca, python-mongo-aca, etc.).
+This approach is commonly used in `azd` templates, such as the Todo application templates (nodejs-mongo-aca, python-mongo-aca, etc.).
 
 ### When to use it
 
@@ -41,7 +41,7 @@ Use the `container-app-upsert` strategy when:
 Here's how to use the `container-app-upsert` strategy in your Bicep files:
 
 ```bicep
-module api 'br/public:avm/ptn/azd/container-app-upsert:0.1.1' = {
+module api 'br/public:avm/ptn/`azd`/container-app-upsert:0.1.1' = {
   name: 'api'
   params: {
     name: 'my-api'
@@ -62,11 +62,12 @@ module api 'br/public:avm/ptn/azd/container-app-upsert:0.1.1' = {
 ```
 
 In this example:
+
 - The `exists` parameter determines whether to update an existing app or create a new one.
 - The `imageName` uses the `!empty()` function to conditionally specify a new image or keep the existing one.
 - Application settings are provided via the `env` parameter.
 
-## Strategy 2: delay-deployment (.NET Aspire)
+## Delay deployment strategy with .NET Aspire
 
 The `delay-deployment` strategy is specifically designed for .NET Aspire applications. It postpones full container app creation until deployment time, allowing for more flexibility with .NET Aspire's orchestration model.
 
@@ -81,7 +82,7 @@ The `delay-deployment` strategy:
    - YAML-based deployment (direct Container Apps YAML deployment).
 4. Handles special features like service binding and configuration sharing across Aspire components.
 
-When using .NET Aspire with AZD, the Aspire project generates a manifest that AZD uses during deployment. This approach allows for better integration with .NET Aspire's application model.
+When using .NET Aspire with `azd`, the Aspire project generates a manifest that `azd` uses during deployment. This approach allows for better integration with .NET Aspire's application model.
 
 ### When to use it
 
@@ -94,25 +95,26 @@ Use the `delay-deployment` strategy when:
 
 ### Example
 
-For .NET Aspire applications, AZD automatically uses the delay-deployment strategy when you specify `"containerapp-dotnet"` as the host type. Typically, this is handled automatically when importing a .NET Aspire project.
+For .NET Aspire applications, `azd` automatically uses the delay-deployment strategy when you specify `"containerapp-dotnet"` as the host type. Typically, this is handled automatically when importing a .NET Aspire project.
 
 When working with a .NET Aspire application:
 
-1. Initialize your AZD project with a .NET Aspire application:
+1. Initialize your `azd` project with a .NET Aspire application:
 
 ```bash
-# This is typically done automatically by azd init for .NET Aspire projects
+# This is typically done automatically by `azd` init for .NET Aspire projects
 azd init
 ```
 
-2. During provisioning, AZD will set up the necessary Azure resources but will delay full Container App configuration.
+1. During provisioning, `azd` sets up the necessary Azure resources but delays full Container App configuration.
 
-3. During deployment, AZD will:
-   - Build and publish the container images.
-   - Apply the .NET Aspire manifest with proper configuration.
-   - Configure service bindings between components.
+1. During deployment, `azd` will:
 
-The delay-deployment strategy is primarily managed internally by AZD based on the .NET Aspire application structure.
+    - Build and publish the container images.
+    - Apply the .NET Aspire manifest with proper configuration.
+    - Configure service bindings between components.
+
+The delay-deployment strategy is primarily managed internally by `azd` based on the .NET Aspire application structure.
 
 ## Choosing the Right Strategy
 
