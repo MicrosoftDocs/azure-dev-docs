@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-## Azure Container Apps provisioning and deployment strategies using the Azure Developer CLI
+# Azure Container Apps provisioning and deployment strategies using the Azure Developer CLI
 
-The Azure Developer CLI (AZD) provides multiple strategies to provision and deploy applications to [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview). This document outlines these strategies, including when to use them and how they work.
+The Azure Developer CLI (AZD) provides multiple strategies to provision and deploy applications to [Azure Container Apps](/azure/container-apps/overview). This document outlines these strategies, including when to use them and how they work.
 
 ## Strategy 1: container-app-upsert
 
@@ -126,7 +126,7 @@ The delay-deployment strategy is primarily managed internally by AZD based on th
 
 ## Additional Resources
 
-- [Azure Container Apps Overview](https://learn.microsoft.com/en-us/azure/container-apps/overview)
-- [Azure Container Apps Bicep Reference](https://learn.microsoft.com/en-us/azure/templates/microsoft.app/containerapps)
-- [.NET Aspire Overview](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview)
+- [Azure Container Apps Overview](/azure/container-apps/overview)
+- [Azure Container Apps Bicep Reference](/azure/templates/microsoft.app/containerapps)
+- [.NET Aspire Overview](/dotnet/aspire/get-started/aspire-overview)
 - [Todo Application Templates](https://github.com/Azure-Samples/todo-nodejs-mongo) (using container-app-upsert)
