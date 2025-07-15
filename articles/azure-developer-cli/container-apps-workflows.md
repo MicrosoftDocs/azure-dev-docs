@@ -9,9 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Explore Azure Developer CLI support for CI/CD pipelines
-
-## Azure Container Apps Strategies in AZD
+## Azure Container Apps provisioning and deployment strategies using the Azure Developer CLI
 
 The Azure Developer CLI (AZD) provides multiple strategies to provision and deploy applications to [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview). This document outlines these strategies, including when to use them and how they work.
 
