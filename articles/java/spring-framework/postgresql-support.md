@@ -7,12 +7,12 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
 appliesto:
+  - ✅ Version 4.20.0
+  - ✅ Version 5.22.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
   - sfi-image-nochange
-- ✅ Version 4.20.0
-- ✅ Version 5.22.0
 ---
 
 # Spring Cloud Azure PostgreSQL support
