@@ -259,6 +259,8 @@
         "**/ai/**/*.yml": "ce-skilling-ai-copilot",
         "**/azure-mcp-server/**/*.md": "ce-skilling-ai-copilot",
         "**/azure-mcp-server/**/*.yml": "ce-skilling-ai-copilot",
+        "**/github-copilot-azure/**/*.md": "ce-skilling-ai-copilot",
+        "**/github-copilot-azure/**/*.yml": "ce-skilling-ai-copilot",
         "**java/ai/**/*.md": "ce-skilling-ai-copilot",
         "**java/ai/**/*.yml": "ce-skilling-ai-copilot",
         "**javascript/ai/**/*.md": "ce-skilling-ai-copilot",
