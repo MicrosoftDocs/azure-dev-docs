@@ -113,9 +113,6 @@ For advanced users who want to start with a minimal setup and customize everythi
    azd init --minimal
    ```
 
-    > [!NOTE]
-    > You can also run `azd init` with the `--minimal` parameter to skip the workflow selection.
-
 2. When prompted, enter a name for your `azd` template and press Enter.
 
     ```output

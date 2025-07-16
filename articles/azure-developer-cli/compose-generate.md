@@ -37,7 +37,7 @@ This command generates the corresponding Bicep files in the `infra` folder of yo
 
 ## Managing updates with Bicep generation
 
-When you run the `azd infra gen` command, you exit the `azd compose` workflow and the simplified init process. From this point on, any changes you make to the generated Bicep files are no longer tracked by `azd compose`. If you modify the Bicep files and later run `azd infra synth` (or `azd infra gen`) again, your manual changes will be overwritten by the newly generated code.
+When you run the `azd infra gen` command, you exit the `azd compose` workflow and the simplified init process. From this point on, any changes you make to the generated Bicep files are no longer tracked by `azd compose`. If you modify the Bicep files and later run `azd infra gen` again, your manual changes will be overwritten by the newly generated code.
 
 Here's how a typical workflow might look:
 
