@@ -2,6 +2,7 @@
 title: Get started with the chat using your own data sample for JavaScript
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 03/17/2025
+ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps

@@ -2,6 +2,7 @@
 title: "Get started with chat private endpoints"
 description: "Secure the chat app with a virtual network."
 ms.date: 02/26/2025
+ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.collection: ce-skilling-ai-copilot

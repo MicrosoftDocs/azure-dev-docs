@@ -3,6 +3,7 @@ title: "Get started with Serverless AI Chat using LlamaIndex"
 description: "Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data."
 ms.topic: get-started 
 ms.date: 06/26/2025
+ms.update-cycle: 180-days
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot

@@ -2,6 +2,7 @@
 title: "Extract Entities Using Azure OpenAI Structured Outputs Mode"
 description: "Learn how to improve your Azure OpenAI model responses with structured outputs."
 ms.date: 03/06/2025
+ms.update-cycle: 180-days
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
