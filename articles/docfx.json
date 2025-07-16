@@ -75,7 +75,8 @@
         "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
         "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues",
         "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure/issues",
-        "typespec/**/*.md": "https://github.com/microsoft/typespec/"
+        "typespec/**/*.md": "https://github.com/microsoft/typespec/",
+        "rust/**/*.md": "https://github.com/Azure/azure-sdk-for-rust/issues"
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
@@ -114,6 +115,8 @@
         "terraform/**/*.yml": "TomArcherMsft",
         "typespec/**/*.md": "diberry",
         "typespec/**/*.yml": "diberry",
+        "rust/**/*.md": "diberry",
+        "rust/**/*.yml": "diberry",
         "intro/**/*.md": "bobtabor-msft",
         "intro/**/*.yml": "bobtabor-msft",
         "ai/**/*.md": "ms-johnalex",
@@ -158,6 +161,8 @@
         "terraform/**/*.yml": "tarcher",
         "typespec/**/*.md": "diberry",
         "typespec/**/*.yml": "diberry",
+        "rust/**/*.md": "diberry",
+        "rust/**/*.yml": "diberry",
         "intro/**/*.md": "rotabor",
         "intro/**/*.yml": "rotabor",
         "ai/**/*.md": "johalexander",
@@ -181,7 +186,9 @@
         "go/**/*.md": "golang",
         "go/**/*.yml": "golang",
         "javascript/**/*.md": "nodejs",
-        "javascript/**/*.yml": "nodejs"
+        "javascript/**/*.yml": "nodejs",
+        "rust/**/*.md": "rust",
+        "rust/**/*.yml": "rust"
       },
       "ms.service": {
         "ai/**/*.md": "azure",
@@ -207,6 +214,8 @@
         "java/**/*.yml": "azure-java",
         "javascript/**/*.md": "azure-javascript",
         "javascript/**/*.yml": "azure-javascript",
+        "rust/**/*.md": "azure",
+        "rust/**/*.yml": "azure",
         "jenkins/**/*.md": "jenkins",
         "jenkins/**/*.yml": "jenkins",
         "python/**/*.md": "azure-python",
@@ -230,6 +239,8 @@
         "terraform/**/*.yml" : "Terraform",
         "javascript/**/*.md": "JavaScript on Azure",
         "javascript/**/*.yml": "JavaScript on Azure",
+        "rust/**/*.md": "Rust on Azure",
+        "rust/**/*.yml": "Rust on Azure",
         "python/**/*.md": "Python on Azure",
         "python/**/*.yml": "Python on Azure",
         "java/**/*.md": "Java on Azure",
