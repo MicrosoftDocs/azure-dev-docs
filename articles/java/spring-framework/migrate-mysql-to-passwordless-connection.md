@@ -6,7 +6,16 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 01/18/2023
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
+  - passwordless-dotnet
+  - spring-cloud-azure
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-ga-nochange
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for MySQL

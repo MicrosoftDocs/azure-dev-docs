@@ -7,7 +7,13 @@ ms.reviewer: edburns
 ms.topic: tutorial
 ms.date: 10/21/2024
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-vm
+  - migration-java
+  - sfi-image-nochange
 ---
 
 # Enable end-user authorization and authentication when migrating Java apps on WebLogic Server to Azure

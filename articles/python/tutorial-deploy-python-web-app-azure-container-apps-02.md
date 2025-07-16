@@ -3,7 +3,10 @@ title: Build and Deploy a Python Web App with Azure Container Apps
 description: This tutorial describes how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: tutorial
 ms.date: 06/18/2025
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Tutorial: Build and deploy a Python web app with Azure Container Apps and PostgreSQL

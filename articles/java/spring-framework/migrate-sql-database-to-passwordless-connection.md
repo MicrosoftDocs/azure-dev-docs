@@ -6,7 +6,13 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 01/18/2023
-ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - passwordless-java
+  - spring-cloud-azure
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Migrate a Java application to use passwordless connections with Azure SQL Database

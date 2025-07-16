@@ -6,7 +6,10 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: how-to
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Manage virtual machines by using the Azure Explorer for IntelliJ

@@ -4,7 +4,11 @@ description: How to deploy a Python web app container (Django or Flask) to App S
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/10/2025
-ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - py-fresh-zinc
+  - sfi-image-nochange
 ---
 
 # Deploy a containerized Python app to App Service

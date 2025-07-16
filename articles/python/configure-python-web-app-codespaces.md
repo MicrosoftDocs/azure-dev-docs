@@ -3,7 +3,9 @@ title: Create a dev environment in GitHub Codespaces with FastAPI and Postgres.
 description: How to set up a Python development environment in GitHub Codespaces with FastAPI and Postgres.
 ms.date: 06/18/2025
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Create a GitHub Codespaces dev environment with FastAPI and Postgres

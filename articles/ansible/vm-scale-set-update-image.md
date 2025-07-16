@@ -4,7 +4,9 @@ description: Learn how to use Ansible to update virtual machine scale sets in Az
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 08/13/2024
-ms.custom: devx-track-ansible
+ms.custom:
+  - devx-track-ansible
+  - sfi-image-nochange
 ---
 
 # Tutorial: Update the custom image of Azure virtual machine scale sets using Ansible

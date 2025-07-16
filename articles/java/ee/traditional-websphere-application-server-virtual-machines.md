@@ -6,7 +6,14 @@ ms.author: karler
 ms.reviewer: jiangma
 ms.topic: quickstart
 ms.date: 10/29/2024
-ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-was-vm
+  - devx-track-javaee-was
+  - devx-track-javaee-websphere
+  - sfi-image-nochange
 #customer intent: As a developer, I want to deploy a WebSphere Application Server cluster on Azure VMs so that I can run my applications in a scalable and reliable environment.
 ---
 

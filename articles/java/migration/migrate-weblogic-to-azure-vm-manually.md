@@ -7,7 +7,15 @@ ms.reviewer: haiche
 ms.topic: how-to
 ms.date: 09/18/2024
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-vm
+  - migration-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)

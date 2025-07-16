@@ -1,8 +1,10 @@
 ---
-ms.custom: overview
 ms.topic: include
 ms.date: 06/26/2025
 ms.service: azure
+ms.custom:
+  - overview
+  - sfi-image-nochange
 ---
 
 

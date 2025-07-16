@@ -6,7 +6,13 @@ ms.reviewer: seal
 ms.date: 07/22/2022
 author: KarlErickson
 ms.topic: how-to
-ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - team=cloud_advocates
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Use Spring Data R2DBC with Azure Database for PostgreSQL

@@ -79,6 +79,8 @@
           href: monitor-your-app.md
       - name: Deployment configuration
         items:
+        - name: Remote build support
+          href: remote-builds.md
         - name: Docker support as a language
           href: docker-language-support.md
         - name: Resource Group Scoped Deployments

@@ -6,7 +6,11 @@ ms.author: karler
 ms.reviewer: seal
 ms.date: 08/28/2024
 ms.topic: how-to
-ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Add sign-in with Azure Active Directory B2C to a Spring web app

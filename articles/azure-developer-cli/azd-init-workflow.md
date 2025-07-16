@@ -17,13 +17,13 @@ The Azure Developer CLI (`azd`) provides a set of commands to streamline develop
 
 The `azd init` command supports several workflows to prepare your app to work with `azd`:
 
-- **Use code in the current directory**: Analyzes an existing app codebase to generate appropriate `azd` configuration files and resources.
+- **Scan current directory**: Analyzes an existing app codebase to generate appropriate `azd` configuration files and resources.
 - **Select a template**: Clones and initializes a template from an `azd` [template gallery](azd-template-galleries.md).
 - **Create a minimal project**: Initializes a basic `azure.yaml` file as a starting point for building your own `azd` template from scratch.
 
 Choose the approach that best fits your project. All of these flows are outlined in more detail in the [Create templates overview](make-azd-compatible.md) and related articles. The following sections provide a conceptual overview of each flow.
 
-### Use code in the current directory
+### Scan current directory
 
 Use this workflow when you have an existing app codebase and want to prepare it for deployment to Azure using `azd`.
 
@@ -34,13 +34,13 @@ Use this workflow when you have an existing app codebase and want to prepare it 
     azd init
     ```
 
-3. Select **Use code in the current directory**. `azd` will:
+3. Select **Scan current directory**. `azd` will:
     - Scan your directory to determine the language or framework your app uses.
     - Select an appropriate hosting platform, such as Azure Container Apps.
     - Prompt you to add or remove discovered services if needed.
 
     ```output
-    ? How do you want to initialize your app? Use code in the current directory
+    ? How do you want to initialize your app? Scan current directory
 
       (✓) Done: Scanning app code in current directory
     
@@ -110,11 +110,8 @@ For advanced users who want to start with a minimal setup and customize everythi
 1. Run the `azd init` command:
 
    ```bash
-   azd init
+   azd init --minimal
    ```
-
-    > [!NOTE]
-    > You can also run `azd init` with the `--minimal` parameter to skip the workflow selection.
 
 2. When prompted, enter a name for your `azd` template and press Enter.
 

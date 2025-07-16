@@ -3,7 +3,9 @@ title: Deploy JavaScript apps on Azure
 description: Deploying your JavaScript applications to Azure allows you to use the power of cloud computing, ensuring scalability, reliability, and global reach. This guide walks you through various methods to deploy your JavaScript apps to Azure, from manual deployments to automated CI/CD pipelines.
 ms.topic: concept-article
 ms.date: 01/06/2025
-ms.custom: vscode-azure-extension-update-completed
+ms.custom:
+  - vscode-azure-extension-update-completed
+  - sfi-image-nochange
 #customer intent: As a JavaScript developer new to Azure, I want know all the ways to deploy code to Azure so that I can choose the best process for my application and situation.
 ---
 
