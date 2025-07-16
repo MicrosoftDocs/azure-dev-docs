@@ -2,7 +2,6 @@
 title: "AI Chat: JavaScript frontend + Python backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
 ms.date: 03/17/2025
-ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps

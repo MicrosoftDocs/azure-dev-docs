@@ -2,7 +2,6 @@
 title: "Get started with the Azure OpenAI security building blocks"
 description: "Learn how to effectively use keyless connections for authentication and authorization to Azure OpenAI with the Azure OpenAI security building blocks. Get started using a simple chat app sample implemented using Azure OpenAI Service using keyless authentication with Microsoft Entra ID. Easily deploy with Azure Developer CLI. This article uses the Azure AI Template chat quickstart sample."
 ms.date: 05/28/2025
-ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, keyless-python, devx-track-js, devx-track-dotnet

@@ -5,7 +5,6 @@ keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
 ms.date: 5/30/2025
-ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: sfi-image-nochange
 ---

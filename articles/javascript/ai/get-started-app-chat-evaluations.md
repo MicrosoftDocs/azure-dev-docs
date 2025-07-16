@@ -2,7 +2,6 @@
 title: "Evaluating JavaScript chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your JavaScript RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 06/23/2025
-ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps

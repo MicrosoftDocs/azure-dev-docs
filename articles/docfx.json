@@ -269,6 +269,8 @@
         "**/ai/**/*.yml": "180-days",
         "**/azure-mcp-server/**/*.md": "180-days",
         "**/azure-mcp-server/**/*.yml": "180-days",
+        "**/github-copilot-azure/**/*.md": "180-days",
+        "**/github-copilot-azure/**/*.yml": "180-days",
         "**java/ai/**/*.md": "180-days",
         "**java/ai/**/*.yml": "180-days",
         "**javascript/ai/**/*.md": "180-days",

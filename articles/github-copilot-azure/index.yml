@@ -8,7 +8,6 @@ metadata:
   title: GitHub Copilot for Azure
   description: Use AI to add cloud features and deploy your app to Azure
   ms.date: 5/30/2025
-  ms.update-cycle: 180-days
   ms.topic: landing-page
   ms.collection: ce-skilling-ai-copilot
   ms.service: github-copilot-for-azure
