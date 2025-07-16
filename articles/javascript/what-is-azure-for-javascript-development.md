@@ -2,13 +2,13 @@
 title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
 ms.topic: overview
-ms.date: 07/11/2025
+ms.date: 07/16/2025
 ms.custom: devx-track-js, devx-track-ts
 ---
 
 # What is Azure for JavaScript developers
 
-Azure is a cloud platform providing a full range of hosting options and cloud-based services. If you're new to cloud development, learn more about Azure:
+Azure is a cloud platform that provides a full range of hosting options and cloud-based services. If you're new to cloud development, learn more about Azure:
 
 * [Azure Architecture Center](/azure/architecture/) 
 * [Azure terminology](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts)
@@ -29,7 +29,7 @@ Azure runtime support for JavaScript also supports TypeScript or any other langu
 
 ## Azure services for JavaScript developers
 
-Azure cloud-based services provide a huge variety of features that can be used independently or as a collection.
+Azure cloud-based services provide a wide variety of features that you can use independently or as a collection.
 
 Top service categories for JavaScript developers include:
 
@@ -55,24 +55,24 @@ Top service categories for JavaScript developers include:
 
 ## Create Azure services in the Quickstart Center
 
-When you begin learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then start in the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
+When you start learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then go to the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
-Each service's page on the Azure portal includes connection information you'll need to access your resource outside of the portal. 
+Each service's page on the Azure portal includes connection information you need to access your resource outside of the portal. 
 
 ### Pricing tiers
 
-Pricing tiers are how your resource is billed. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to understand billing for your resource. 
+Pricing tiers determine how you pay for your resource. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to understand billing for your resource. 
 
 ### Free tier resources
 
-When selecting the free (F0) pricing tier, it's important to understand limitations that come with that plan. When a free tier is offered:
+When you select the free (F0) pricing tier, understand the limitations that come with that plan. When a free tier is offered:
 
-* A subscription may be limited to one free resource of that service. If you can't create a free resource, this may indicate the free resource already exists in your subscription.
+* A subscription might be limited to one free resource of that service. If you can't create a free resource, the free resource might already exist in your subscription.
 * A pricing tier determines transactions per second (TPS), or transactions per month (TPM). When you exceed the pricing tier quota, your application receives an HTTP error with a message indicating you're out of quota. If you anticipate this issue for your application and Azure services, create several resources and host them behind a single endpoint. 
 
 ## Prepare your development environment
 
-Your development environment needs a few tools to have the best development experience:
+For the best development experience, set up your development environment with the following tools:
 
 * [Visual Studio Code](https://code.visualstudio.com/) and the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension
 * [Git](https://git-scm.com/)
@@ -86,7 +86,7 @@ Your development environment needs a few tools to have the best development expe
 
 ## Use Azure client libraries with JavaScript
 
-To use Azure services programmatically with JavaScript, find the [npm package](azure-sdk-library-package-index.md) specific to the service you'll use. Each npm package has service-specific connection information.
+To use Azure services programmatically with JavaScript, find the [npm package](azure-sdk-library-package-index.md) specific to the service you want to use. Each npm package has service-specific connection information.
 
 All Azure client libraries run with JavaScript without any other tooling. While most modern SDKs are written in TypeScript and provide the `*.d.ts` file for type checking, TypeScript isn't a requirement to use the Azure client libraries or the Azure cloud services. 
 
