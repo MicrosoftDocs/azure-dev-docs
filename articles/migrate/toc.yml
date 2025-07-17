@@ -8,14 +8,14 @@ items:
         expanded: true
         items:
           - name: Overview
-            href: ../java/migration/migrate--github-copilot-app-modernization-for-java.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
           - name: FAQ
-            href: ../java/migration/migrate--github-copilot-app-modernization-for-java-faq.yml?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
           - name: Predefined formulas
-            href: ../java/migration/migrate--github-copilot-app-modernization-for-java-predefined-formula.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-formula.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
           - name: "Quickstart: Assess and migrate a Java project"
-            href: ../java/migration/migrate--github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
           - name: "Quickstart: Create and apply your own formula"
-            href: ../java/migration/migrate--github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
           - name: "Sample: Asset Manager"
-            href: ../java/migration/migrate--github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json
