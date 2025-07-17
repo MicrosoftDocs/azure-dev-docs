@@ -75,7 +75,7 @@ Use the following steps to verify the database connection:
 1. Once signed in, select **Configuration** from the main menu.
 1. In the column browser, select **Subsystems**, **Datasources & Drivers**, **Datasources**, **dataSource-mssqlserver**.
 1. In the dropdown menu, select **Test connection**
-1. You should see a message stating something similar to `Successfully tested connection for data source **dataSource-mssqlserver**.`
+1. You should see a message stating something similar to `Successfully tested connection for data source dataSource-mssqlserver.`
 
 The following screenshot highlights the relevant user interface elements:
 
