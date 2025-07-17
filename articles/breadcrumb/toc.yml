@@ -34,6 +34,9 @@ items:
     - name: Jenkins
       tocHref: /azure/developer/jenkins
       topicHref: /azure/developer/jenkins/index
+    - name: Migrate
+      tocHref: /azure/developer/migrate
+      topicHref: /azure/developer/migrate/index
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
