@@ -4,9 +4,9 @@ titleSuffix: Azure
 description: Configure passwordless datasource connections for Java apps on Red Hat JBoss EAP.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: haiche
+ms.reviewer: edburns
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 07/17/2025
 ms.custom: devx-track-azurecli, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, has-azure-ad-ps-ref, passwordless-java
 ---
 
@@ -29,7 +29,7 @@ The offers support passwordless connections for Azure database for PostgreSQL an
 
 ## Configure a passwordless database connection for Red Hat JBoss EAP on Azure VMs
 
-Before proceeding, ensure that the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+Before proceeding, ensure that the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by the Red Hat JBoss EAP marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 This section shows you how to configure the passwordless data source connection using the Azure Marketplace offers for Red Hat JBoss EAP.
 
@@ -41,7 +41,7 @@ First, begin the process of deploying an offer. The following offers support pas
 Enter the required information in the **Basics** pane and other panes if you want to enable the features. When you reach the **Database** pane, enter the passwordless configuration as shown in the following steps:
 
 1. For **Connect to database?**, select **Yes**.
-1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure SQL (with support for passwordless connection)**.
+1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure SQL (supports passwordless connection)**.
 1. For **JNDI Name**, enter **testpasswordless** or your expected value.
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
 1. Select **Use passwordless datasource connection**.
@@ -50,7 +50,7 @@ Enter the required information in the **Basics** pane and other panes if you wan
 
 The **Connection settings** section should look like the following screenshot:
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal that shows the Choose database type page." lightbox="media/how-to-configure-passwordless-datasource-websphere/azure-portal-azure-sql-configuration.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource-eap/azure-portal-azure-sql-configuration.png" alt-text="Screenshot of the Azure portal that shows the Choose database type page." lightbox="media/how-to-configure-passwordless-datasource-eap/azure-portal-azure-sql-configuration.png":::
 
 ## Verify the database connection
 
@@ -58,26 +58,28 @@ The database connection is configured successfully if the offer deployment compl
 
 After the deployment completes, follow these steps in the Azure portal to find the Admin console URL.
 
-1. Find the resource group in which you deployed WebSphere.
+1. Find the resource group in which you deployed JBoss EAP.
 1. Under **Settings**, select **Deployments**.
 1. Select the deployment with the longest **Duration**. This deployment should be at the bottom of the list.
 1. Select **Outputs**.
-1. The URL of the Integrated Solutions Console is the value of the **adminSecuredConsole** output.
-1. Copy the value of the output variable **adminSecuredConsole**.
+1. The URL of the admin console is the value of the **adminConsole** output.
+1. Copy the value of the output variable **adminConsole**.
 1. Paste the value into your browser address bar and press <kbd>Enter</kbd> to open the sign-in page of the Integrated Solutions Console.
 
 Use the following steps to verify the database connection:
 
-1. Sign in to the Integrated Solutions Console with the username and password you provided on the **Basics** pane.
-1. In the navigation pane, expand **Resources** then **JDBC**.
-1. Select **Data sources**.
-1. Select the check box next to the row with the **JNDI name** value matching the value you entered in the **Database** tab.
-1. Select **Test connection**.
-1. You should see a message stating something similar to `The test connection operation for data source dataSource-sqlserver on server server1 at node was0aef4a-vmNode01 was successful.`
+1. Sign in to the admin console with the username and password you provided on the **Basics** pane.
+
+   :::image type="content" source="media/how-to-configure-passwordless-datasource-eap/admin-console-login.png" alt-text="Screenshot of admin console login screen." lightbox="media/how-to-configure-passwordless-datasource-eap/admin-console-login.png":::
+   
+1. Once signed in, select **Configuration** from the main menu.
+1. In the column browser, select **Subsystems**, **Datasources & Drivers**, **Datasources**, **dataSource-mssqlserver**.
+1. In the dropdown menu, select **Test connection**
+1. You should see a message stating something similar to `Successfully tested connection for data source **dataSource-mssqlserver**.`
 
 The following screenshot highlights the relevant user interface elements:
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png" alt-text="Screenshot of the Integrated solutions console that shows the test database page." lightbox="media/how-to-configure-passwordless-datasource-websphere/screenshot-twas-console-successful-database.png":::
+:::image type="content" source="media/how-to-configure-passwordless-datasource-eap/screenshot-eap-console-successful-database.png" alt-text="Screenshot of the admin console that shows the test database page." lightbox="media/how-to-configure-passwordless-datasource-eap/screenshot-eap-console-successful-database.png":::
 
 ## Clean up resources
 
@@ -90,16 +92,19 @@ az group delete --name <resource-group-name-that-deploys-the-offer>
 
 ## Next steps
 
-Learn more about running WebSphere Application Server on AKS, Azure RedHat OpenShift, or virtual machines by following these links:
+Learn more about running JBoss EAP on  Azure RedHat OpenShift and virtual machines by following these links:
 
 > [!div class="nextstepaction"]
-> [Explore IBM WebSphere products on Azure](websphere-family.md)
+> [Explore JBoss EAP products on Azure](/azure/developer/java/ee/jboss-on-azure)
 
 > [!div class="nextstepaction"]
-> [Migrate WebSphere applications to AKS](../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Migrate WebSphere applications to Azure Red Hat OpenShift](../migration/migrate-websphere-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Migrate WebSphere applications to Azure Virtual Machines](../migration/migrate-websphere-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+> [Migrate JBoss EAP applications to JBoss EAP on Azure VMs](/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Migrate JBoss EAP Application Server to Azure Virtual Machines with high availability and disaster recovery](/azure/developer/java/migration/migrate-jboss-eap-to-vms-with-ha-dr?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)

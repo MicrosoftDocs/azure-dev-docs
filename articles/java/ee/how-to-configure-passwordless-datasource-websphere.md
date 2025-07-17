@@ -42,7 +42,7 @@ Enter the required information in the **Basics** pane and other panes if you wan
 
 1. For **Connect to database?**, select **Yes**.
 1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure SQL (with support for passwordless connection)**.
-1. For **JNDI Name**, enter **testpasswordless** or your expected value.
+1. For **JNDI name**, enter **testpasswordless** or your expected value.
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
 1. Select **Use passwordless datasource connection**.
 1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is **myManagedIdentity**.
