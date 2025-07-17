@@ -98,11 +98,22 @@ The Azure client libraries need credentials to authenticate to the Azure platfor
 After you create a credential programmatically, pass the credential to your Azure client. The client might need extra information such as a subscription ID or service endpoint. You can find these values in the Azure portal for your resource.
 
 ```rust
-use azure_identity::DefaultAzureCredential;
-use azure_storage_blob::BlobServiceClient;
+use azure_storage_blob::{BlobClient, BlobClientOptions};
+use azure_identity::DefaultAzureCredential;    
+
+    let storage_account = std::env::var("AZURE_STORAGE_ACCOUNT").map_err(|_| "AZURE_STORAGE_ACCOUNT environment variable is required")?;
+    let container_name = std::env::var("AZURE_STORAGE_CONTAINER").map_err(|_| "AZURE_STORAGE_CONTAINER environment variable is required")?;
+    let blob_name = std::env::var("AZURE_STORAGE_BLOB").map_err(|_| "AZURE_STORAGE_BLOB environment variable is required")?;
 
 let credential = DefaultAzureCredential::default();
-let client = BlobServiceClient::new(credential);
+
+let blob_client = BlobClient::new(
+        &endpoint,                                               // endpoint
+        container_name.clone(),                                  // container name
+        blob_name,                                               // blob name
+        credential,                                              // credential
+        Some(BlobClientOptions::default()),                      // BlobClient options
+    )?;
 ```
 
 The `DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment.
@@ -117,40 +128,35 @@ TBD - image from Scott Addie
 Always handle errors appropriately using Rust's `Result` type:
 
 ```rust
-use azure_core::{Error, Result};
+use azure_core::{error::{ErrorKind}, http::{RequestContent, StatusCode}};
 
-async fn upload_blob(data: &[u8]) -> Result<()> {
-    match blob_client.put_block_blob(data).await {
-        Ok(_) => {
-            println!("Upload successful");
-            Ok(())
-        }
-        Err(Error::HttpResponse { status, .. }) if status == 404 => {
-            println!("Container not found");
-            Err(Error::message("Container does not exist"))
-        }
-        Err(e) => {
-            println!("Upload failed: {:?}", e);
-            Err(e)
-        }
+println!("🔄 Attempting to upload blob...");
+let data = b"hello world";
+
+match blob_client
+    .upload(
+        RequestContent::from(data.to_vec()), // data
+        true,                                // overwrite (changed to true)
+        u64::try_from(data.len())?,          // content length
+        None,                                // upload options
+    )
+    .await 
+{
+    Ok(_) => {
+        println!("✅ Blob uploaded successfully!");
     }
+    Err(e) => match e.kind() {
+        ErrorKind::HttpResponse { status, error_code, .. } if *status == StatusCode::NotFound => {
+            // handle not found error
+            if let Some(code) = error_code {
+                println!("ErrorCode: {}", code);
+            } else {
+                println!("Secret not found, but no error code provided.");
+            }
+        },
+        _ => println!("An error occurred: {e:?}"),
+    },
 }
-```
-
-### Retry policies
-
-Configure custom retry policies for resilient applications:
-
-```rust
-use azure_core::{RetryPolicy, ExponentialRetryOptions};
-
-let retry_options = ExponentialRetryOptions {
-    max_retries: 5,
-    delay: std::time::Duration::from_millis(500),
-    max_delay: std::time::Duration::from_secs(30),
-};
-
-let retry_policy = RetryPolicy::exponential(retry_options);
 ```
 
 ### Resource management
