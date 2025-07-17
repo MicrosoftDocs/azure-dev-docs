@@ -365,5 +365,5 @@ let client_options = ClientOptions::default()
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
 [Package (crates.io)]: https://crates.io/search?q=azure_
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
-[REST API documentation]: https://learn.microsoft.com/rest/api/
-[Product documentation]: https://learn.microsoft.com/azure/
+[REST API documentation]: /rest/api/
+[Product documentation]: /azure/
