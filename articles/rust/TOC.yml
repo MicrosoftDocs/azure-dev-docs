@@ -5,6 +5,10 @@
     items:
     - name: What is Azure for Rust developers?
       href: what-is-azure-for-rust-developers.md
+  - name: Azure SDK for Rust
+    items:
+    - name: Getting started  
+      href: sdk/overview.md   
   - name: Resources
     items:
     - name: Azure SDK for Rust on GitHub
