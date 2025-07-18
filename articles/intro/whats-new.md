@@ -52,6 +52,17 @@ New articles:
 
 - [Configure passwordless database connections for Java apps on IBM WebSphere Application Server](../java/ee/how-to-configure-passwordless-datasource-websphere.md)
 - [Configure passwordless database connections for Java apps on Oracle WebLogic Server](../java/ee/how-to-configure-passwordless-datasource-wls.md)
+- AppCAT 7:
+  - [CLI command guide](/azure/migrate/appcat/appcat-7-cli-guide)
+  - [Rules development guide](/azure/migrate/appcat/appcat-7-rule-guide)
+
+Updated articles:
+
+- AppCAT 7 - Split content into multiple articles focusing on AppCAT 7:
+  - [Overview](/azure/migrate/appcat/java)
+  - [Release notes](/azure/migrate/appcat/appcat-7-release-notes)
+  - [Quickstart: Assess a Java project](/azure/migrate/appcat/appcat-7-quickstart)
+  - [Interpret the report](/azure/migrate/appcat/appcat-7-interpret-report)
 
 ### Azure for JavaScript
 
