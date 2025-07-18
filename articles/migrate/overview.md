@@ -9,11 +9,11 @@ ms.date: 07/16/2025
 
 # Migrate applications to Azure by using GitHub Copilot App Modernization
 
-Modernizing applications and migrating to the cloud is typically a complex, labor-intensive, and fragmented process. GitHub Copilot App Modernization is designed to simplify and accelerate your journey to the cloud. App modernization and upgrade offers an intelligent, guided approach that automates repetitive tasks and improves consistency - saving time, reducing risks, and accelerating time-to-cloud.
+Modernizing applications and migrating to the cloud is typically a complex, labor-intensive, and fragmented process. GitHub Copilot App Modernization is designed to simplify and accelerate your journey to the cloud. It offers an intelligent, guided approach that automates repetitive tasks and improves consistency - saving time, reducing risks, and accelerating time-to-cloud.
 
 ## Six value pillars
 
-GitHub Copilot App Modernization provides six distinct value pillars, each specifically tailored to address particular challenges encountered during the application modernization process.
+GitHub Copilot App Modernization provides six distinct value pillars, each tailored to address particular challenges encountered during the application modernization process.
 
 :::image type="content" source="media/overview/value-pillars.png" alt-text="Diagram of the six value pillars with heading GitHub Copilot App Modernization, Smarter Upgrades, Rapid Migration to the cloud." lightbox="media/overview/value-pillars.png":::
 
@@ -21,9 +21,9 @@ GitHub Copilot App Modernization provides six distinct value pillars, each speci
 
 Modernization starts with insight. Whether you're upgrading a runtime or migrating to Azure, modernization starts with understanding your code.
 
-GitHub Copilot App Modernization analyzes your project's current state and generates a modernization plan, offering context-aware fixes and actionable recommendations from Azure Migrate Application Code Assessment Tool (AppCAT), so you spend less time diagnosing and more time modernizing.
+GitHub Copilot App Modernization analyzes your project's current state and generates a modernization plan. It offers context-aware fixes and actionable recommendations from Azure Migrate Application Code Assessment Tool (AppCAT), so you spend less time diagnosing and more time modernizing.
 
-AppCAT is also available as a stand-alone CLI tool that you can run independently from the App Modernization VS Code extension. For more information, see [Azure Migrate application and code assessment](/azure/migrate/appcat).
+AppCAT is also available as a stand-alone CLI tool that you can run independently from the App Modernization Visual Studio Code extension. For more information, see [Azure Migrate application and code assessment](/azure/migrate/appcat).
 
 ### 2. Expert-led code transformation
 
@@ -45,7 +45,7 @@ Modernization isn't complete until your application successfully builds. GitHub 
 
 ### 5. Automatic patching for CVEs
 
-GitHub Copilot App Modernization scans for Common Vulnerabilities and Exposures (CVEs) after the upgrade process is completed. When CVE issues are detected, the tool automatically fixes the issues within the Agent Mode, enabling you to review the fixes. This improves the application's security posture and ensures compliance with organizational guidelines.
+GitHub Copilot App Modernization scans for Common Vulnerabilities and Exposures (CVEs) after the upgrade process is completed. When CVE issues are detected, the tool automatically fixes the issues within the Agent Mode, enabling you to review the fixes. This process improves your application's security posture and ensures compliance with organizational guidelines.
 
 ### 6. Automated deployment to Azure
 
