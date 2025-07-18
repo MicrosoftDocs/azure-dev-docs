@@ -107,6 +107,7 @@ Key features include:
 Azure services regularly update their Node.js runtime support. Always use Long-Term Support (LTS) versions of Node.js for production applications. 
 
 For current Node.js version support across Azure services and best practices for Node.js deployment, see:
+* [Azure SDK client libraries support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy)
 * [Node.js versions in Azure App Service](/azure/app-service/configure-language-nodejs)
 * [Node.js in Azure Functions](/azure/azure-functions/functions-reference-node)
 * [Container-based deployments](../intro/hosting-apps-on-azure.md) for custom Node.js versions
