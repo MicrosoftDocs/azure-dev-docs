@@ -2,6 +2,7 @@
 title: "Get started with chat document security filtering"
 description: "Secure your chat app documents with user authentication and document security filtering to ensure that users receive answers based on their permissions."
 ms.date: 06/26/2025
+ms.update-cycle: 180-days
 ms.author: johalexander
 author: ms-johnalex
 ms.topic: get-started

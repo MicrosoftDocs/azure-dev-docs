@@ -2,6 +2,7 @@
 title: Scale Azure OpenAI for Python chat sample using RAG
 description: Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI Service token and model quota limits. 
 ms.date: 06/26/2025
+ms.update-cycle: 180-days
 ms.author: johalexander
 author: ms-johnalex
 ms.topic: get-started
