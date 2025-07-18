@@ -55,7 +55,7 @@ New articles:
 
 ### Azure for JavaScript
 
-New articles:
+Updated articles:
 
 - [Azure Test Guide for JavaScript Applications](../javascript/core/test-azure-sdk-integrated-code.md)
 - [Monitor JavaScript applications in Azure with logs, metrics, and alerts](../javascript/logging.md)
