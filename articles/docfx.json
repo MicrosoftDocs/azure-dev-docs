@@ -108,8 +108,8 @@
         "javascript/**/*.yml": "diberry",
         "jenkins/**/*.md": "TomArcherMsft",
         "jenkins/**/*.yml": "TomArcherMsft",
-        "migrate/**/*.md": "KarlErickson",
-        "migrate/**/*.yml": "KarlErickson",
+        "github-copilot-app-modernization/**/*.md": "KarlErickson",
+        "github-copilot-app-modernization/**/*.yml": "KarlErickson",
         "python/**/*.md": "bobtabor-msft",
         "python/**/*.yml": "bobtabor-msft",
         "terraform/**/*.md": "TomArcherMsft",
@@ -154,8 +154,8 @@
         "javascript/**/*.yml": "diberry",
         "jenkins/**/*.md": "tarcher",
         "jenkins/**/*.yml": "tarcher",
-        "migrate/**/*.md": "karler",
-        "migrate/**/*.yml": "karler",
+        "github-copilot-app-modernization/**/*.md": "karler",
+        "github-copilot-app-modernization/**/*.yml": "karler",
         "python/**/*.md": "rotabor",
         "python/**/*.yml": "rotabor",
         "terraform/**/*.md": "tarcher",
@@ -213,8 +213,8 @@
         "javascript/**/*.yml": "azure-javascript",
         "jenkins/**/*.md": "jenkins",
         "jenkins/**/*.yml": "jenkins",
-        "migrate/**/*.md": "azure",
-        "migrate/**/*.yml": "azure",
+        "github-copilot-app-modernization/**/*.md": "azure",
+        "github-copilot-app-modernization/**/*.yml": "azure",
         "python/**/*.md": "azure-python",
         "python/**/*.yml": "azure-python",
         "terraform/**/*.md": "terraform",
@@ -271,8 +271,8 @@
         "**/java/ai/**/*.yml": "ce-skilling-ai-copilot",
         "**/javascript/ai/**/*.md": "ce-skilling-ai-copilot",
         "**/javascript/ai/**/*.yml": "ce-skilling-ai-copilot",
-        "**/migrate/**/*.md": "ce-skilling-ai-copilot",
-        "**/migrate/**/*.yml": "ce-skilling-ai-copilot"
+        "**/github-copilot-app-modernization/**/*.md": "ce-skilling-ai-copilot",
+        "**/github-copilot-app-modernization/**/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.update-cycle": {
         "**/ai/**/*.md": "180-days",
@@ -285,8 +285,8 @@
         "**/java/ai/**/*.yml": "180-days",
         "**/javascript/ai/**/*.md": "180-days",
         "**/javascript/ai/**/*.yml": "180-days",
-        "**/migrate/**/*.md": "180-days",
-        "**/migrate/**/*.yml": "180-days"
+        "**/github-copilot-app-modernization/**/*.md": "180-days",
+        "**/github-copilot-app-modernization/**/*.yml": "180-days"
       },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"
