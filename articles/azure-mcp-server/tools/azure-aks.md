@@ -2,43 +2,35 @@
 title: Use Azure Kubernetes Service (AKS) with Azure MCP Server
 titleSuffix: Azure MCP Server
 description: Send natural language commands to Azure Kubernetes Service (AKS) to manage your Kubernetes clusters from Azure MCP Server.
-ms.service: azure-mcp
-ms.author: meburns
-author: maggiesMSFT
 ms.date: 07/17/2025
 ms.topic: how-to
 ---
 
 # Use Azure Kubernetes Service (AKS) with Azure MCP Server
 
-This article describes how to use [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) features from Azure MCP Server. Azure MCP Server supports managing your Kubernetes clusters through natural language prompts.
+The Azure MCP Server allows you to list the AKS Clusters in your Azure subscription using natural language commands. This feature simplifies managing your Kubernetes clusters by enabling you to interact with AKS through intuitive prompts.
 
-## Prerequisites
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service/) provides a managed Kubernetes container orchestration service.
 
-* An Azure account with an active subscription.
-* Azure MCP Server connected to your Azure subscriptions.
-* Existing AKS clusters in your Azure subscription or permissions to list AKS clusters.
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Commands
-
-### List AKS clusters
+## List AKS clusters
 
 <!-- azmcp aks cluster list --subscription <subscription> -->
 
 List all AKS clusters in a specified Azure subscription.
 
-**Parameters:**
-
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `subscription` | Yes | The Azure subscription ID or name |
-
-**Example prompts:**
+Example prompts:
 
 - **List all clusters**: "List all my AKS clusters in my subscription."
 - **Find Kubernetes environments**: "Show me the available Kubernetes clusters in my Azure account."
 - **View cluster inventory**: "Show me an inventory of all AKS clusters I have access to."
 - **Find clusters by subscription**: "List the AKS clusters in my 'development' subscription."
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `subscription` | Yes | The Azure subscription ID or name |
+
 
 ## Next steps
 

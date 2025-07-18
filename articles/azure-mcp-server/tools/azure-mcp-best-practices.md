@@ -2,11 +2,7 @@
 title: Azure MCP Best Practices
 description: This article provides best practices for using the Azure SDK with Azure MCP Server.
 ms.topic: conceptual
-ms.date: July 17, 2025
-author: mcp-author
-ms.author: mcp-author
-ms.reviewer: mcp-reviewer
-ms.service: azure-mcp-server
+ms.date: 07/17/2025
 ---
 
 # Azure MCP Best Practices

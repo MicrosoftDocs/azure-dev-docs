@@ -2,11 +2,8 @@
 title: Use Azure MCP with Bicep
 description: This article shows how to use Azure MCP to get Bicep schema information when creating Azure resources with Bicep.
 ms.topic: how-to
-ms.date: July 17, 2025
-author: mcp-author
-ms.author: mcp-author
+ms.date: 07/17/2025
 ms.reviewer: mcp-reviewer
-ms.service: azure-mcp-server
 ---
 
 # Use Azure MCP with Bicep

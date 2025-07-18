@@ -2,11 +2,8 @@
 title: Use Azure MCP with SQL Database
 description: This article shows how to use Azure MCP to interact with Azure SQL Database using natural language commands.
 ms.topic: how-to
-ms.date: July 17, 2025
-author: mcp-author
-ms.author: mcp-author
-ms.reviewer: mcp-reviewer
-ms.service: azure-mcp-server
+ms.date: 07/17/2025
+
 ---
 
 # Use Azure MCP with Azure SQL Database

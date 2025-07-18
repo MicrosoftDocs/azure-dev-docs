@@ -2,9 +2,6 @@
 title: Use Azure Terraform Best Practices with Azure MCP Server
 titleSuffix: Azure MCP Server
 description: Send natural language commands to retrieve secure, production-grade Azure Terraform best practices from Azure MCP Server.
-ms.service: azure-mcp
-ms.author: meburns
-author: maggiesMSFT
 ms.date: 07/17/2025
 ms.topic: how-to
 ---

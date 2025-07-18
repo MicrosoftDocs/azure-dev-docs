@@ -2,30 +2,16 @@
 title: Use Azure MCP with Azure Load Testing
 description: This article shows how to use Azure MCP to run load tests on your Azure resources.
 ms.topic: how-to
-ms.date: July 17, 2025
-author: mcp-author
-ms.author: mcp-author
-ms.reviewer: mcp-reviewer
-ms.service: azure-mcp-server
+ms.date: 07/17/2025
 ---
 
 # Use Azure MCP with Azure Load Testing
 
 This article describes how to use Azure MCP with Azure Load Testing to set up and run load tests for your applications.
 
-## Prerequisites
+[Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) is a fully managed load testing service that enables you to generate high-scale load and measure the performance of your applications under stress.
 
-- [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure MCP Server](../install-mcp-server.md)
-- [Azure Load Testing resource](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test#create-an-azure-load-testing-resource)
-
-## Overview
-
-Azure MCP provides integration with Azure Load Testing through the `azmcp-load-testing` command family. These commands allow you to:
-
-1. Create and configure load tests for your applications
-2. Execute load tests and monitor results
-3. Analyze test performance data to identify bottlenecks and issues
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Create and run load tests
 
