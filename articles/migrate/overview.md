@@ -1,5 +1,5 @@
 ---
-title: Migrate Applications to Azure by using GitHub Copilot App Modernization
+title: Analyze Applications and Migrate to Azure by using GitHub Copilot App Modernization
 description: Provides an overview of GitHub Copilot App Modernization.
 author: KarlErickson
 ms.author: karler
@@ -7,9 +7,9 @@ ms.topic: upgrade-and-migration-article
 ms.date: 07/16/2025
 ---
 
-# Migrate applications to Azure by using GitHub Copilot App Modernization
+# Analyze applications and migrate to Azure by using GitHub Copilot App Modernization
 
-GitHub Copilot App Modernization is a tool covering application migration to Azure end to end, from application assessment, planning, code remediation, build fix, and unit test fix. It aims to help you migrate to and run your applications on Azure with confidence and accelerate the whole cycle, powered by the artificial intelligence of GitHub Copilot.
+GitHub Copilot App Modernization is a tool covering application migration to Azure end to end, from application analysis, planning, code remediation, build fix, and unit test fix. It aims to help you migrate to and run your applications on Azure with confidence and accelerate the whole cycle, powered by the artificial intelligence of GitHub Copilot.
 
 ## Six value pillars
 
