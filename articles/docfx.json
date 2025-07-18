@@ -267,10 +267,12 @@
         "**/azure-mcp-server/**/*.yml": "ce-skilling-ai-copilot",
         "**/github-copilot-azure/**/*.md": "ce-skilling-ai-copilot",
         "**/github-copilot-azure/**/*.yml": "ce-skilling-ai-copilot",
-        "**java/ai/**/*.md": "ce-skilling-ai-copilot",
-        "**java/ai/**/*.yml": "ce-skilling-ai-copilot",
-        "**javascript/ai/**/*.md": "ce-skilling-ai-copilot",
-        "**javascript/ai/**/*.yml": "ce-skilling-ai-copilot"
+        "**/java/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**/java/ai/**/*.yml": "ce-skilling-ai-copilot",
+        "**/javascript/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**/javascript/ai/**/*.yml": "ce-skilling-ai-copilot",
+        "**/migrate/**/*.md": "ce-skilling-ai-copilot",
+        "**/migrate/**/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.update-cycle": {
         "**/ai/**/*.md": "180-days",
@@ -279,10 +281,12 @@
         "**/azure-mcp-server/**/*.yml": "180-days",
         "**/github-copilot-azure/**/*.md": "180-days",
         "**/github-copilot-azure/**/*.yml": "180-days",
-        "**java/ai/**/*.md": "180-days",
-        "**java/ai/**/*.yml": "180-days",
-        "**javascript/ai/**/*.md": "180-days",
-        "**javascript/ai/**/*.yml": "180-days"
+        "**/java/ai/**/*.md": "180-days",
+        "**/java/ai/**/*.yml": "180-days",
+        "**/javascript/ai/**/*.md": "180-days",
+        "**/javascript/ai/**/*.yml": "180-days",
+        "**/migrate/**/*.md": "180-days",
+        "**/migrate/**/*.yml": "180-days"
       },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"
