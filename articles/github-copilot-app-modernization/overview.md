@@ -55,5 +55,5 @@ When you're ready, GitHub Copilot for Azure helps facilitate automated deploymen
 
 Use the following links to get started with GitHub Copilot App Modernization using the language of your choice:
 
-- [GitHub Copilot App Modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json)
-- [GitHub Copilot App Modernization for .NET (preview)](/dotnet/azure/migration/appmod/overview?toc=/azure/developer/migrate/toc.json&bc=/azure/developer/migrate/breadcrumb/toc.json)
+- [GitHub Copilot App Modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
+- [GitHub Copilot App Modernization for .NET (preview)](/dotnet/azure/migration/appmod/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)

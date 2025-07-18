@@ -9,4 +9,4 @@ items:
     items:
     - name: Migrate
       tocHref: /azure
-      topicHref: /azure/developer/migrate/index
+      topicHref: /azure/developer/github-copilot-app-modernization/index
