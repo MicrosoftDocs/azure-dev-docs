@@ -34,7 +34,7 @@ items:
               href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: AI app design
       items:
-        - name: AI agent design patterns
+        - name: AI agent orchestration patterns
           href: /azure/architecture/ai-ml/guide/ai-agent-design-patterns?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Design your AI app to support foundation model life cycles
           href: /azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
