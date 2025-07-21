@@ -51,7 +51,7 @@ landingContent:
           - text: Design your AI app to support foundation model life cycles
             url: /azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
-  - title: Agents and Model Context Protocol (MCP)
+  - title: Agents with Model Context Protocol (MCP)
     linkLists:
       - linkListType: overview
         links:
