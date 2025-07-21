@@ -85,16 +85,16 @@ The following Azure services, prefixed with `azure_` (underscore), are currently
 | **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
 | **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
 
-Crates.io has other crates for Azure services, which were established prior to the official Azure SDKs listed above. These are not associated with Azure, and shouldn't be used for modern development. The official Azure SDKs are the recommended way to access Azure services from Rust applications.
+Crates.io has other crates for Azure services, which were established prior to the official Azure SDKs listed above. These crates aren't associated with Azure and shouldn't be used for modern development. We recommend using the official Azure SDKs to access Azure services from Rust applications.
 
 ## Client library Cargo.toml features
 
-Each client library has its features defined in its Cargo.toml file. An example of the Azure Identity client library features are found in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). You can use these features to include the Azure SDK for Rust client libraries in your project.
+Each client library defines its features in its Cargo.toml file. For example, see the features for the Azure Identity client library in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). Use these features to include the Azure SDK for Rust client libraries in your project.
 
-Use the following features in your `Cargo.toml` to include specific functionality:
+To include specific functionality, add the following features to your `Cargo.toml` file:
 
-* `debug`: enables extra information for developers including emitting all fields in std::fmt::Debug implementation.
-* `hmac_openssl`: configures HMAC using openssl.
+* `debug`: enables extra information for developers, including emitting all fields in std::fmt::Debug implementation.
+* `hmac_openssl`: configures HMAC using OpenSSL.
 * `hmac_rust`: configures HMAC using pure Rust.
 * `reqwest` (default): enables and sets reqwest as the default HttpClient. Enables reqwest's native-tls feature.
 * `reqwest_deflate` (default): enables deflate compression for reqwest.
@@ -103,7 +103,7 @@ Use the following features in your `Cargo.toml` to include specific functionalit
 * `tokio`: enables and sets tokio as the default async runtime.
 * `xml`: enables XML support.
 
-An example `Cargo.toml` configuration for the Azure SDK for Rust might look like this:
+An example `Cargo.toml` configuration for the Azure SDK for Rust might look like the following:
 
 ```toml
 [dependencies]
@@ -112,7 +112,7 @@ azure_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
 
 ## Provide authentication credentials
 
-The Azure client libraries need credentials to authenticate to the Azure platform. Services provides different authentication methods, such as Azure Active Directory (AAD) or Managed Identity. The recommended way to authenticate is to use the [azure_identity](https://crates.io/crates/azure_identity) crate, which provides a set of credential structures that can be used across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
+The Azure client libraries need credentials to authenticate to the Azure platform. Services provide different authentication methods, such as Azure Active Directory (AAD) or Managed Identity. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
@@ -171,7 +171,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 The `DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment. This approach provides flexibility when running your code in different environments.
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice of Azure Developer CLI.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice Azure Developer CLI.":::
 
 
 ### Connection pooling and reuse
@@ -190,7 +190,7 @@ For more details on performance optimization and connection handling, refer to t
 
 ## Error handling
 
-When a service call fails, the returned Result will contain an Error. The Error type provides a status property with an HTTP status code and an error_code property with a service-specific error code.
+When a service call fails, the returned result contains an error. The error type provides a `status` property with an HTTP status code and an `error_code` property with a service-specific error code.
 
 ```rust
 use azure_core::{error::{ErrorKind, HttpError}, http::{Response, StatusCode}};
@@ -228,7 +228,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Pagination: get all items across pages
 
-If a service call returns multiple values in pages, it should return `Result<Pager<T>>` as a result. You can iterate all items from all pages. This is useful for operations with small to medium result sets, such as listing secrets in a Key Vault or blobs in a Storage container.
+If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a result. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets, such as listing secrets in a Key Vault or blobs in a Storage container.
 
 ```rust
 use azure_identity::DefaultAzureCredential;
@@ -261,7 +261,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Pagination: process each page of items
 
-When you want to iterate through all items in a paginated response, you can use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, allowing you to process each page as it becomes available. This is useful for operations with large result sets.
+When you want to iterate through all items in a paginated response, use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, allowing you to process each page as it becomes available. This feature is useful for operations with large result sets.
 
 
 ```rust
@@ -299,12 +299,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Secure logging
 
-When working with sensitive information, it's crucial to implement secure logging practices to avoid exposing secrets in logs.
+When working with sensitive information, implement secure logging practices to avoid exposing secrets in logs.
 
 
 ### Rust feature for debug logging
 
-To help protected end users from accidental Personally-Identifiable Information (PII) from leaking into logs or traces, models' default implementation of core::fmt::Debug formats as non-exhaustive structure tuple. 
+To help protect end users from accidental Personally-Identifiable Information (PII) exposure in logs or traces, models' default implementation of `core::fmt::Debug` formats as a non-exhaustive structure tuple. 
 
 ```rust
 use azure_identity::DefaultAzureCredential;
@@ -332,13 +332,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-By default, this will print: 
+By default, this implementation prints: 
 
 ```console
 Secret { .. }
 ```
 
-Though not recommended for production, you can enable normal core::fmt::Debug formatting complete with field names and values by enabling the debug feature of azure_core.
+Though not recommended for production, you can enable normal `core::fmt::Debug` formatting, which includes field names and values, by enabling the debug feature of `azure_core`.
 
 ```console
 cargo add azure_core -F debug
@@ -348,7 +348,7 @@ cargo add azure_core -F debug
 
 To log tracing information to the terminal, add the `RUST_LOG` environment variable using the [same format supported by `env_logger`](https://docs.rs/env_logger/latest/env_logger/#enabling-logging).
 
-The targets are the crate names if you want to trace more or less for specific targets, such as this example `RUST_LOG=info,azure_core=trace`, to trace information messages by default but detailed traces for the `azure_core` crate.
+The targets are the crate names if you want to trace more or less for specific targets. For example, use `RUST_LOG=info,azure_core=trace` to trace information messages by default but detailed traces for the `azure_core` crate.
 
 
 ## Next steps
