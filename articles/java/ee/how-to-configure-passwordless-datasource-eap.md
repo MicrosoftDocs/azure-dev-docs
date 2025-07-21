@@ -71,8 +71,8 @@ Use the following steps to verify the database connection:
 1. Sign in to the admin console with the username and password you provided on the **Basics** pane.
 
    :::image type="content" source="media/how-to-configure-passwordless-datasource-eap/admin-console-login.png" alt-text="Screenshot of admin console login screen." lightbox="media/how-to-configure-passwordless-datasource-eap/admin-console-login.png":::
-   
-1. Once signed in, select **Configuration** from the main menu.
+
+1. After you sign in, select **Configuration** from the main menu.
 1. In the column browser, select **Subsystems**, **Datasources & Drivers**, **Datasources**, **dataSource-mssqlserver**.
 1. In the dropdown menu, select **Test connection**
 1. You should see a message stating something similar to `Successfully tested connection for data source dataSource-mssqlserver.`
