@@ -15,13 +15,19 @@ The Azure SDK for Rust provides a collection of client libraries that make it ea
 [Source code] | [Package (crates.io)] | [API reference documentation] | [REST API documentation] | [Product documentation]
 
 
-## Key features
+## SDK concepts
 
-- **Idiomatic Rust**: Built with Rust best practices and conventions
-- **Async/await support**: Fully async APIs using Tokio runtime
-- **Type safety**: Uses Rust's type system for compile-time safety
-- **Memory safety**: Zero-cost abstractions with no garbage collection overhead
-- **Modular design**: Use only the client libraries you need
+- **Idiomatic Rust**: Built with Rust best practices and conventions.
+- **Async/await support**: Fully async APIs using Tokio runtime.
+- **Type safety**: Uses Rust's type system for compile-time safety.
+- **Thread safety**: All client instance methods are thread-safe and independent of each other.
+- **Memory safety**: Zero-cost abstractions with no garbage collection overhead.
+- **Modular design**: Use only the client libraries you need.
+- **Unified configuration**: Configure service clients, logging, and retries with `ClientOptions`.
+- **Consistent error handling**: Handle errors consistently across services with `azure_core::Error`.
+- **Response handling**: Access detailed HTTP response data with `Response<T>`.
+- **Pagination support**: Work with paginated APIs using `Pager<T>` for async streams.
+- **Authentication abstractions**: Standardized credential management via `TokenCredentials`.
 
 ## Differences between client libraries and REST APIs
 
@@ -33,26 +39,11 @@ Use the following information to understand when to use each type of access.
   * Wanting to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.
 
 
-## Current status
+## Rust version
 
 The Azure SDK for Rust is currently in **beta**. While the APIs are stabilizing and the SDK is suitable for development and testing, some breaking changes might occur before the 1.0 release. The SDK supports the most commonly used Azure services with more being added regularly based on community feedback and demand.
 
-## Supported Azure services
-
-The following Azure services are currently supported:
-
-| Service | Package | Description |
-|---------|---------|-------------|
-| **Storage** | `azure_storage_blob` | Create and manage Azure Storage blobs and containers. |
-| **Key Vault** | `azure_key_vault_certificates`<br>`azure_key_vault_secrets`<br>`azure_key_vault_keys` | Manage secrets, keys, and certificates |
-| **Cosmos DB** | `azure_data_cosmos` | NoSQL database operations |
-| **Event Hubs** | `azure_messaging_eventhubs` | Big data streaming platform |
-| **Identity** | `azure_identity` | Authentication and credential management |
-| **Core** | `azure_core` | Shared functionality and HTTP pipeline |
-
-## Get started with Azure SDK for Rust
-
-### Prerequisites
+## Prerequisites to develop with client libraries
 
 - Rust 1.85 or later. The version is specified in the Azure SDK for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
 - An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
@@ -63,302 +54,302 @@ The following Azure services are currently supported:
 
 ### Install Azure client libraries
 
-Get Azure client libraries from [crates.io](https://crates.io). Install the individual SDKs you need.
+Get Azure client libraries from [crates.io](https://crates.io). Install the individual SDKs you need. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK packages.
 
-Add the required Azure SDK packages to your `Cargo.toml`. Start with the core packages you need:
+Add the required Azure SDK packages to your `Cargo.toml`:
 
 ```toml
 [dependencies]
 azure_identity = "0.20"
-tokio = { version = "1.0", features = ["full"] }
 ```
 
 For other services, add the corresponding packages:
 
 ```toml
 # Additional services
-azure_key_vault = "0.20"
-azure_storage_blobs = "0.20"
+azure_key_vault_secrets = "0.20"
 azure_service_bus = "0.20" 
 azure_cosmos = "0.20"
 ```
 
+## Supported Azure services
+
+The following Azure services, prefixed with `azure_` (underscore), are currently supported:
+
+| Service | Package | Description |
+|---------|---------|-------------|
+| **Core** | [azure_core](https://crates.io/crates/azure_core) | Shared functionality and HTTP pipeline |
+| **Cosmos DB** | [azure_data_cosmos](https://crates.io/crates/azure_data_cosmos) | NoSQL database operations |
+| **Event Hubs** | [azure_messaging_eventhubs](https://crates.io/crates/azure_messaging_eventhubs) | Big data streaming platform |
+| **Identity** | [azure_identity](https://crates.io/crates/azure_identity) | Authentication and credential management |
+| **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
+| **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
+
+Crates.io has other crates for Azure services, which were established prior to the official Azure SDKs listed above. These are not associated with Azure, and shouldn't be used for modern development. The official Azure SDKs are the recommended way to access Azure services from Rust applications.
+
+## Client library Cargo.toml features
+
+Each client library has its features defined in its Cargo.toml file. An example of the Azure Identity client library features are found in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). You can use these features to include the Azure SDK for Rust client libraries in your project.
+
+Use the following features in your `Cargo.toml` to include specific functionality:
+
+* `debug`: enables extra information for developers including emitting all fields in std::fmt::Debug implementation.
+* `hmac_openssl`: configures HMAC using openssl.
+* `hmac_rust`: configures HMAC using pure Rust.
+* `reqwest` (default): enables and sets reqwest as the default HttpClient. Enables reqwest's native-tls feature.
+* `reqwest_deflate` (default): enables deflate compression for reqwest.
+* `reqwest_gzip` (default): enables gzip compression for reqwest.
+* `reqwest_rustls`: enables reqwest's rustls-tls-native-roots-no-provider feature.
+* `tokio`: enables and sets tokio as the default async runtime.
+* `xml`: enables XML support.
+
+An example `Cargo.toml` configuration for the Azure SDK for Rust might look like this:
+
+```toml
+[dependencies]
+azure_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
+```
+
 ## Provide authentication credentials
 
-The Azure client libraries need credentials to authenticate to the Azure platform. [Credential structures](https://docs.rs/azure_identity/latest/azure_identity/#credential-structures) from [azure_identity](https://crates.io/crates/azure_identity) offer several benefits:
-
+The Azure client libraries need credentials to authenticate to the Azure platform. Services provides different authentication methods, such as Azure Active Directory (AAD) or Managed Identity. The recommended way to authenticate is to use the [azure_identity](https://crates.io/crates/azure_identity) crate, which provides a set of credential structures that can be used across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
 * Separation of the authentication mechanism from the code. This separation allows you to use the same code locally and on the Azure platform while the credentials are different.
 * Chained authentication so several mechanisms can be available.
 
-## Create an SDK client and call methods
 
-After you create a credential programmatically, pass the credential to your Azure client. The client might need extra information such as a subscription ID or service endpoint. You can find these values in the Azure portal for your resource.
+## Creating secure clients with proper authentication
+
+After creating a credential, pass it to your Azure client along with any necessary configuration. The client might need additional information such as a vault URL, service endpoint, or subscription ID, which you can find in the Azure portal for your resource.
+
+### Security best practices
+
+- **Never hardcode credentials** in your source code
+- Use **Managed Identity** when running in Azure
+- Store sensitive configuration in **Azure Key Vault**
+- Enable **logging** for security monitoring
+- Regularly **rotate credentials**
+
+### Client initialization example
 
 ```rust
-use azure_storage_blob::{BlobClient, BlobClientOptions};
-use azure_identity::DefaultAzureCredential;    
+use azure_core::http::ClientOptions;
+use azure_identity::DefaultAzureCredential;
+use azure_security_keyvault_secrets::{SecretClient, SecretClientOptions};
 
-    let storage_account = std::env::var("AZURE_STORAGE_ACCOUNT").map_err(|_| "AZURE_STORAGE_ACCOUNT environment variable is required")?;
-    let container_name = std::env::var("AZURE_STORAGE_CONTAINER").map_err(|_| "AZURE_STORAGE_CONTAINER environment variable is required")?;
-    let blob_name = std::env::var("AZURE_STORAGE_BLOB").map_err(|_| "AZURE_STORAGE_BLOB environment variable is required")?;
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // ✅ DO: Use DefaultAzureCredential for automatic authentication
+    let credential = DefaultAzureCredential::new()?;
 
-let credential = DefaultAzureCredential::default();
+    // Configure client options as needed
+    let options = SecretClientOptions {
+        api_version: "7.5".to_string(),
+        ..Default::default()
+    };
 
-let blob_client = BlobClient::new(
-        &endpoint,                                               // endpoint
-        container_name.clone(),                                  // container name
-        blob_name,                                               // blob name
-        credential,                                              // credential
-        Some(BlobClientOptions::default()),                      // BlobClient options
+    // Create the client with endpoint, credential, and options
+    let client = SecretClient::new(
+        "https://<your-key-vault-name>.vault.azure.net/",
+        credential.clone(),
+        Some(options),
     )?;
-```
 
-The `DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment.
+    // ❌ DON'T: Hardcode credentials like this:
+    // let bad_credential = ClientSecretCredential::new(
+    //     "hardcoded-tenant-id",
+    //     "hardcoded-client-id", 
+    //     "hardcoded-secret",
+    //     None,
+    // );
 
-TBD - image from Scott Addie
-
-
-## Best practices
-
-### Error handling
-
-Always handle errors appropriately using Rust's `Result` type:
-
-```rust
-use azure_core::{error::{ErrorKind}, http::{RequestContent, StatusCode}};
-
-println!("🔄 Attempting to upload blob...");
-let data = b"hello world";
-
-match blob_client
-    .upload(
-        RequestContent::from(data.to_vec()), // data
-        true,                                // overwrite (changed to true)
-        u64::try_from(data.len())?,          // content length
-        None,                                // upload options
-    )
-    .await 
-{
-    Ok(_) => {
-        println!("✅ Blob uploaded successfully!");
-    }
-    Err(e) => match e.kind() {
-        ErrorKind::HttpResponse { status, error_code, .. } if *status == StatusCode::NotFound => {
-            // handle not found error
-            if let Some(code) = error_code {
-                println!("ErrorCode: {}", code);
-            } else {
-                println!("Secret not found, but no error code provided.");
-            }
-        },
-        _ => println!("An error occurred: {e:?}"),
-    },
-}
-```
-
-### Resource management
-
-Use RAII (Resource Acquisition Is Initialization) patterns:
-
-```rust
-struct MyAzureService {
-    client: BlobServiceClient,
-}
-
-impl MyAzureService {
-    pub fn new() -> azure_core::Result<Self> {
-        let credential = DefaultAzureCredential::default();
-        let storage_credentials = StorageCredentials::token_credential(credential);
-        
-        let client = BlobServiceClient::new(
-            "https://mystorageaccount.blob.core.windows.net",
-            storage_credentials,
-        );
-        
-        Ok(Self { client })
-    }
-}
-```
-
-### Async considerations
-
-Use appropriate concurrency patterns:
-
-```rust
-use tokio::task::JoinSet;
-
-async fn upload_multiple_blobs(files: Vec<(&str, Vec<u8>)>) -> azure_core::Result<()> {
-    let mut join_set = JoinSet::new();
-    
-    for (name, data) in files {
-        let client = container_client.blob_client(name);
-        join_set.spawn(async move {
-            client.put_block_blob(data).await
-        });
-    }
-    
-    while let Some(result) = join_set.join_next().await {
-        result??; // Handle both join and Azure errors
-    }
-    
     Ok(())
 }
 ```
 
+The `DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment. This approach provides flexibility when running your code in different environments.
 
-### Security considerations
+:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice of Azure Developer CLI.":::
 
-- **Never hardcode credentials** in your source code.
-- Use **Managed Identity** when running in Azure.
-- Store sensitive configuration in **Azure Key Vault**.
-- Enable **logging** for security monitoring.
-- Regularly **rotate credentials**.
+
+### Connection pooling and reuse
+
+The Azure SDK automatically manages connection pooling for optimal performance. The default configuration:
+
+- Reuses connections when possible
+- Implements keep-alive for connection persistence
+- Pools connections to improve throughput for multiple requests to the same endpoint
+
+For high-volume workloads, you can adjust the connection timeout and pool size through client options.
+
+For more details on performance optimization and connection handling, refer to the [Azure SDK for Rust HTTP client documentation](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core/azure_core#http-clients).
+
+
+
+## Error handling
+
+When a service call fails, the returned Result will contain an Error. The Error type provides a status property with an HTTP status code and an error_code property with a service-specific error code.
 
 ```rust
-// ❌ DON'T: Hardcode credentials
-let bad_credential = ClientSecretCredential::new(
-    "hardcoded-tenant-id",
-    "hardcoded-client-id", 
-    "hardcoded-secret",
-    None,
-);
+use azure_core::{error::{ErrorKind, HttpError}, http::{Response, StatusCode}};
+use azure_identity::DefaultAzureCredential;
+use azure_security_keyvault_secrets::SecretClient;
 
-// ✅ DO: Use environment variables or Managed Identity
-let good_credential = DefaultAzureCredential::default();
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // create a client
+    let credential = DefaultAzureCredential::new()?;
+    let client = SecretClient::new(
+        "https://<your-key-vault-name>.vault.azure.net/",
+        credential.clone(),
+        None,
+    )?;
+
+    match client.get_secret("secret-name", "", None).await {
+        Ok(secret) => println!("Secret: {:?}", secret.into_body().await?.value),
+        Err(e) => match e.kind() {
+            ErrorKind::HttpResponse { status, error_code, .. } if *status == StatusCode::NotFound => {
+                // handle not found error
+                if let Some(code) = error_code {
+                    println!("ErrorCode: {}", code);
+                } else {
+                    println!("Secret not found, but no error code provided.");
+                }
+            },
+            _ => println!("An error occurred: {e:?}"),
+        },
+    }
+
+    Ok(())
+}
 ```
 
-## Enable logging
+## Pagination: get all items across pages
+
+If a service call returns multiple values in pages, it should return `Result<Pager<T>>` as a result. You can iterate all items from all pages. This is useful for operations with small to medium result sets, such as listing secrets in a Key Vault or blobs in a Storage container.
+
+```rust
+use azure_identity::DefaultAzureCredential;
+use azure_security_keyvault_secrets::{ResourceExt, SecretClient};
+use futures::TryStreamExt;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // create a client
+    let credential = DefaultAzureCredential::new()?;
+    let client = SecretClient::new(
+        "https://<your-key-vault-name>.vault.azure.net/",
+        credential.clone(),
+        None,
+    )?;
+
+    // get a stream of items
+    let mut pager = client.list_secret_properties(None)?;
+
+    // poll the pager until there are no more SecretListResults
+    while let Some(secret) = pager.try_next().await? {
+        // get the secret name from the ID
+        let name = secret.resource_id()?.name;
+        println!("Found secret with name: {}", name);
+    }
+
+    Ok(())
+}
+```
+
+## Pagination: process each page of items
+
+When you want to iterate through all items in a paginated response, you can use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, allowing you to process each page as it becomes available. This is useful for operations with large result sets.
+
+
+```rust
+use azure_identity::DefaultAzureCredential;
+use azure_security_keyvault_secrets::{ResourceExt, SecretClient};
+use futures::TryStreamExt;
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // create a client
+    let credential = DefaultAzureCredential::new()?;
+    let client = SecretClient::new(
+        "https://<your-key-vault-name>.vault.azure.net/",
+        credential.clone(),
+        None,
+    )?;
+
+    // get a stream of pages
+    let mut pager = client.list_secret_properties(None)?.into_pages();
+
+    // poll the pager until there are no more SecretListResults
+    while let Some(secrets) = pager.try_next().await? {
+        let secrets = secrets.into_body().await?.value;
+        // loop through secrets in SecretsListResults
+        for secret in secrets {
+            // get the secret name from the ID
+            let name = secret.resource_id()?.name;
+            println!("Found secret with name: {}", name);
+        }
+    }
+
+    Ok(())
+}
+```
+
+## Secure logging
+
+When working with sensitive information, it's crucial to implement secure logging practices to avoid exposing secrets in logs.
+
+
+### Rust feature for debug logging
+
+To help protected end users from accidental Personally-Identifiable Information (PII) from leaking into logs or traces, models' default implementation of core::fmt::Debug formats as non-exhaustive structure tuple. 
+
+```rust
+use azure_identity::DefaultAzureCredential;
+use azure_security_keyvault_secrets::{ResourceExt, SecretClient};
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // create a client
+    let credential = DefaultAzureCredential::new()?;
+    let client = SecretClient::new(
+        "https://<your-key-vault-name>.vault.azure.net/",
+        credential.clone(),
+        None,
+    )?;
+
+    // get a secret
+    let secret = client.get_secret("secret-name", "", None)
+        .await?
+        .into_body()
+        .await?;
+
+    println!("{secret:#?}");
+
+    Ok(())
+}
+```
+
+By default, this will print: 
+
+```console
+Secret { .. }
+```
+
+Though not recommended for production, you can enable normal core::fmt::Debug formatting complete with field names and values by enabling the debug feature of azure_core.
+
+```console
+cargo add azure_core -F debug
+```
+
+### Environment variable for debug logging
 
 To log tracing information to the terminal, add the `RUST_LOG` environment variable using the [same format supported by `env_logger`](https://docs.rs/env_logger/latest/env_logger/#enabling-logging).
 
 The targets are the crate names if you want to trace more or less for specific targets, such as this example `RUST_LOG=info,azure_core=trace`, to trace information messages by default but detailed traces for the `azure_core` crate.
 
-## Test Azure SDK applications
-
-The Azure SDK for Rust supports several testing approaches: integration testing with real Azure services, unit testing with dependency injection for testable code structure, and local development testing using emulator such as Azurite.
-
-### Integration testing with test containers
-
-For comprehensive testing, use real Azure services with test containers or emulators:
-
-```rust
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use azure_identity::DefaultAzureCredential;
-    use azure_storage_blob::BlobServiceClient;
-    
-    #[tokio::test]
-    #[ignore] // Run with --ignored for integration tests
-    async fn test_blob_operations() -> azure_core::Result<()> {
-        let credential = DefaultAzureCredential::default();
-        let client = BlobServiceClient::new(
-            "https://teststorageaccount.blob.core.windows.net",
-            credential,
-        );
-        
-        let container = client.container_client("test-container");
-        let blob = container.blob_client("test-blob.txt");
-        
-        // Upload test data
-        let data = "Hello, test!".as_bytes();
-        blob.put_block_blob(data).await?;
-        
-        // Verify upload
-        let downloaded = blob.get_content().await?;
-        assert_eq!(downloaded, data);
-        
-        // Cleanup
-        blob.delete().await?;
-        
-        Ok(())
-    }
-}
-```
-
-### Unit testing with dependency injection
-
-Structure your code to accept client dependencies for easier testing:
-
-```rust
-pub struct BlobService {
-    client: BlobServiceClient,
-}
-
-impl BlobService {
-    pub fn new(client: BlobServiceClient) -> Self {
-        Self { client }
-    }
-    
-    pub async fn upload_text(&self, container: &str, name: &str, content: &str) -> azure_core::Result<()> {
-        self.client
-            .container_client(container)
-            .blob_client(name)
-            .put_block_blob(content.as_bytes())
-            .await?;
-        Ok(())
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    
-    // Create test doubles or use test credentials
-    fn create_test_client() -> BlobServiceClient {
-        // Use test storage account or emulator
-        let credential = DefaultAzureCredential::default();
-        BlobServiceClient::new("https://127.0.0.1:10000/devstoreaccount1", credential)
-    }
-    
-    #[tokio::test]
-    async fn test_upload_text() {
-        let client = create_test_client();
-        let service = BlobService::new(client);
-        
-        // Test with actual Azure Storage Emulator (Azurite)
-        let result = service.upload_text("test", "file.txt", "content").await;
-        assert!(result.is_ok());
-    }
-}
-```
-
-### Testing with an emulator
-
-Add to your test dependencies in `Cargo.toml`:
-
-```toml
-[dev-dependencies]
-tokio-test = "0.4"
-azure_identity = "0.20"
-azure_storage_blob = "0.20"
-```
-
-Run the Azure Storage emulator, Azurite, for local testing:
-
-```bash
-# Install Azurite
-npm install -g azurite
-
-# Start Azurite
-azurite --silent --location ./azurite-data --debug ./azurite-debug.log
-```
-
-## Performance optimizations with connection pooling
-
-The Azure SDK for Rust automatically manages HTTP connections and connection pooling. You can configure the HTTP client for optimal performance:
-
-```rust
-use azure_core::ClientOptions;
-use std::time::Duration;
-
-let client_options = ClientOptions::default()
-    .timeout(Duration::from_secs(30))
-    .retry_policy(RetryPolicy::exponential(ExponentialRetryOptions::default()));
-```
 
 ## Next steps
 
