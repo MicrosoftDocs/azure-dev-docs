@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 06/05/2025
+ms.date: 07/08/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
@@ -10,6 +10,74 @@ ms.topic: article
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for June 2025
+
+### AI apps using Azure services
+
+New articles:
+
+- [Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK](../ai/how-to/use-reasoning-model-inference.md)
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Docker support as a language](../azure-developer-cli/docker-language-support.md)
+
+Updated articles:
+
+- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.17.0
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure MCP Server documentation](../azure-mcp-server/index.yml)
+
+Updated articles:
+
+- [Azure App Configuration tools for the Azure MCP Server](../azure-mcp-server/tools/app-configuration.md) - Azure MCP Server docs updates - landing page and more
+- [Azure Data Explorer tools for the Azure MCP Server](../azure-mcp-server/tools/azure-data-explorer.md) - Updated Azure Data Explorer tools article
+
+### Azure and GitHub integration
+
+New articles:
+
+- [Integrate Azure Key Vault into a GitHub Actions workflow](../github/github-actions-key-vault.md)
+
+### Azure for Java
+
+New articles:
+
+- [Configure passwordless database connections for Java apps on IBM WebSphere Application Server](../java/ee/how-to-configure-passwordless-datasource-websphere.md)
+- [Configure passwordless database connections for Java apps on Oracle WebLogic Server](../java/ee/how-to-configure-passwordless-datasource-wls.md)
+- AppCAT 7:
+  - [CLI command guide](/azure/migrate/appcat/appcat-7-cli-guide)
+  - [Rules development guide](/azure/migrate/appcat/appcat-7-rule-guide)
+
+Updated articles:
+
+- AppCAT 7 - Split content into multiple articles focusing on AppCAT 7:
+  - [Overview](/azure/migrate/appcat/java)
+  - [Release notes](/azure/migrate/appcat/appcat-7-release-notes)
+  - [Quickstart: Assess a Java project](/azure/migrate/appcat/appcat-7-quickstart)
+  - [Interpret the report](/azure/migrate/appcat/appcat-7-interpret-report)
+
+### Azure for JavaScript
+
+Updated articles:
+
+- [Azure Test Guide for JavaScript Applications](../javascript/core/test-azure-sdk-integrated-code.md)
+- [Monitor JavaScript applications in Azure with logs, metrics, and alerts](../javascript/logging.md)
+
+### Azure for Python
+
+Updated articles:
+
+- [Deploy Python web apps to App Service by using GitHub Actions (Linux)](../python/python-web-app-github-actions-app-service.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
+- [Get started: Chat using your own data (Python sample)](../python/get-started-app-chat-template.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
+- [Overview of the Python web azd templates](../python/overview-azd-templates.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 
 ## What's new for May 2025
 
@@ -146,44 +214,3 @@ New articles:
 Updated articles:
 
 - [How to Test Azure SDK Integration in JavaScript Applications Using Jest](../javascript/sdk/test-sdk-integration.md) - JS - SDK testing with 3 test frameworks
-
-## What's new for March 2025
-
-### AI apps using Azure services
-
-New articles:
-
-- [Extract entities using Azure OpenAI structured outputs mode](../ai/how-to/extract-entities-using-structured-outputs.md)
-
-### GitHub Copilot for Azure
-
-New articles:
-
-- [Generate Bicep files using GitHub Copilot for Azure](../github-copilot-azure/bicep-generate-edit.md)
-
-### Azure for .NET
-
-Updated articles:
-
-- [Authenticate .NET apps to Azure services during local development using developer accounts](/dotnet/azure/sdk/authentication/local-development-dev-accounts) - Simplified developer workflow and best practices guidance for credential types
-- [Authenticate .NET apps to Azure services during local development using service principals](/dotnet/azure/sdk/authentication/local-development-service-principal) - Simplified developer workflow and best practices guidance for credential types
-- [Authenticate to Azure resources from .NET apps hosted on-premises](/dotnet/azure/sdk/authentication/on-premises-apps) - Simplified developer workflow and best practices guidance for credential types
-
-### Azure for Java
-
-New articles:
-
-- [Spring Boot native image applications](../java/spring-framework/native-applications.md)
-
-### Azure for JavaScript
-
-New articles:
-
-- [Generative AI for JavaScript overview](../javascript/ai/generative-ai-for-javascript-developers.md)
-
-### TypeSpec
-
-New articles:
-
-- [What is TypeSpec?](../typespec/overview.md)
-- [Resources for developing TypeSpec apps](../typespec/resources.md)
