@@ -42,14 +42,14 @@ landingContent:
           - text: Chat with your data using .NET
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
-  - title: AI App design
+  - title: AI app design
     linkLists:
       - linkListType: overview
         links:
           - text: AI agent design patterns
             url: /azure/architecture/ai-ml/guide/ai-agent-design-patterns?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Design your AI app to support foundation model life cycles
-            url: /en-us/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            url: /azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
   - title: Agents and Model Context Protocol (MCP)
     linkLists:
