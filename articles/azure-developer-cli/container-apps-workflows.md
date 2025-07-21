@@ -1,6 +1,6 @@
 ---
-title: Azure Container Apps deployment strategies using the Azure Developer CLI
-description: Learn about Azure Container Apps deployment strategies using the Azure Developer CLI
+title: Azure Container Apps Deployment Strategies using the Azure Developer CLI
+description: Learn about Azure Container Apps deployment strategies using the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 07/15/2025
@@ -101,10 +101,10 @@ When working with a .NET Aspire application:
 
 1. Initialize your `azd` project with a .NET Aspire application:
 
-```bash
-# This is typically done automatically by `azd` init for .NET Aspire projects
-azd init
-```
+    ```bash
+    # This is typically done automatically by `azd` init for .NET Aspire projects
+    azd init
+    ```
 
 1. During provisioning, `azd` sets up the necessary Azure resources but delays full Container App configuration.
 
@@ -116,7 +116,7 @@ azd init
 
 The delay-deployment strategy is primarily managed internally by `azd` based on the .NET Aspire application structure.
 
-## Choosing the Right Strategy
+## Choosing the right strategy
 
 | Feature                | container-app-upsert         | delay-deployment (.NET Aspire) |
 |------------------------|------------------------------|-------------------------------|
@@ -126,7 +126,7 @@ The delay-deployment strategy is primarily managed internally by `azd` based on 
 | Service binding        | Manual configuration         | Integrated with Aspire binding model |
 | Best for               | General container applications | .NET microservices orchestrated with Aspire |
 
-## Additional Resources
+## Additional resources
 
 - [Azure Container Apps Overview](/azure/container-apps/overview)
 - [Azure Container Apps Bicep Reference](/azure/templates/microsoft.app/containerapps)
