@@ -53,27 +53,17 @@ The Azure SDK for Rust is currently in **beta**. While the APIs are stabilizing 
 
 ### Install Azure client libraries
 
-Get Azure client libraries from [crates.io](https://crates.io). Install the individual SDKs you need. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK packages.
+Get Azure client libraries from [crates.io](https://crates.io). Install the individual SDKs you need. 
 
-Add the required Azure SDK packages to your `Cargo.toml`:
-
-```toml
-[dependencies]
-azure_identity = "0.20"
+```console
+cargo add azure_identity azure_security_keyvault_secrets azure_storage_blob
 ```
 
-For other services, add the corresponding packages:
-
-```toml
-# Additional services
-azure_key_vault_secrets = "0.20"
-azure_service_bus = "0.20" 
-azure_cosmos = "0.20"
-```
+The client libraries depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK packages.
 
 ## Supported Azure services
 
-The following Azure services, prefixed with `azure_` (underscore), are currently supported:
+The following Azure services, prefixed with `azure_`, are currently supported:
 
 | Service | Package | Description |
 |---------|---------|-------------|
@@ -84,13 +74,11 @@ The following Azure services, prefixed with `azure_` (underscore), are currently
 | **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
 | **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
 
-Crates.io has other crates for Azure services, which were established prior to the official Azure SDKs listed above. These crates aren't associated with Azure and shouldn't be used for modern development. We recommend using the official Azure SDKs to access Azure services from Rust applications.
+Crates.io has other crates for Azure services, which were established prior to the official Azure SDKs listed above. These crates aren't associated with Azure and shouldn't be used for modern development. 
 
 ## Client library Cargo.toml features
 
-Each client library defines its features in its Cargo.toml file. For example, see the features for the Azure Identity client library in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). Use these features to include the Azure SDK for Rust client libraries in your project.
-
-To include specific functionality, add the following features to your `Cargo.toml` file:
+Each client library defines its features in its Cargo.toml file. For example, see the features for the Azure Identity client library in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). Use these features to depend on additional functionality.
 
 * `debug`: enables extra information for developers, including emitting all fields in std::fmt::Debug implementation.
 * `hmac_openssl`: configures HMAC using OpenSSL.
@@ -102,7 +90,7 @@ To include specific functionality, add the following features to your `Cargo.tom
 * `tokio`: enables and sets tokio as the default async runtime.
 * `xml`: enables XML support.
 
-An example `Cargo.toml` configuration for the Azure SDK for Rust might look like the following:
+An example `Cargo.toml` configuration for an Azure SDK for Rust feature might look like the following:
 
 ```toml
 [dependencies]
@@ -111,7 +99,7 @@ azure_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
 
 ## Provide authentication credentials
 
-The Azure client libraries need credentials to authenticate to the Azure platform. Services provide different authentication methods, such as Azure Active Directory (AAD) or Managed Identity. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
+The Azure client libraries need credentials to authenticate to the Azure platform. Services provide different authentication methods to connect to services. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
@@ -121,7 +109,7 @@ The Azure client libraries need credentials to authenticate to the Azure platfor
 
 ## Creating secure clients with proper authentication
 
-After creating a credential, pass it to your Azure client along with any necessary configuration. The client might need additional information such as a vault URL, service endpoint, or subscription ID, which you can find in the Azure portal for your resource.
+After creating a credential, pass it to your Azure client along with any necessary configuration. The client might need additional information such as a service endpoint, or container name, which you can find in the Azure portal for your resource.
 
 ### Security best practices
 
@@ -143,17 +131,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // ✅ DO: Use DefaultAzureCredential for automatic authentication
     let credential = DefaultAzureCredential::new()?;
 
-    // Configure client options as needed
-    let options = SecretClientOptions {
-        api_version: "7.5".to_string(),
-        ..Default::default()
-    };
-
     // Create the client with endpoint, credential, and options
     let client = SecretClient::new(
         "https://<your-key-vault-name>.vault.azure.net/",
         credential.clone(),
-        Some(options),
+        None,
     )?;
 
     // ❌ DON'T: Hardcode credentials like this:
@@ -225,9 +207,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Pagination: get all items across pages
+## Pagination: get all items
 
-If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a result. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets, such as listing secrets in a Key Vault or blobs in a Storage container.
+If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a result. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets.
 
 ```rust
 use azure_identity::DefaultAzureCredential;
@@ -298,7 +280,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Secure logging
 
-When working with sensitive information, implement secure logging practices to avoid exposing secrets in logs.
+When working with sensitive information, the client libraries implement secure logging practices, by default, to avoid exposing secrets in logs.
 
 
 ### Rust feature for debug logging
