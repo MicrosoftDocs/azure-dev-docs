@@ -4,7 +4,6 @@ description: Get started with Azure SDK for Rust client libraries. Learn authent
 ms.date: 07/17/2025
 ms.topic: concept-article
 ms.service: azure
-ms.subservice: developer-tools
 ms.custom: devx-track-rust
 ---
 
