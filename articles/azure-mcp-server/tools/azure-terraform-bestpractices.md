@@ -34,5 +34,3 @@ Example prompts include:
 
 - [Terraform on Azure documentation](/azure/developer/terraform/)
 - [Azure Architecture Center - Best practices in cloud applications](/azure/architecture/best-practices/)
-- [Azure MCP Server documentation](/azure/mcp-server/)
-- [Azure MCP Server tools reference](/azure/mcp-server/tools/)

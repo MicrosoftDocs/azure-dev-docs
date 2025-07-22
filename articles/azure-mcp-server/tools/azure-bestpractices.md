@@ -22,7 +22,7 @@ Azure best practices tools offer recommendations for Azure Functions development
 
 <!-- azmcp bestpractices azurefunctions get-code-generation -->
 
-Returns best practices for Azure Functions code generation. Use this tool to get guidance on writing efficient and maintainable Azure Functions code.
+Returns best practices for [Azure Functions](/azure/azure-functions/) code generation. Use this tool to get guidance on writing efficient and maintainable Azure Functions code.
 
 Example prompts include:
 
@@ -67,6 +67,3 @@ Example prompts include:
 ## Related resources
 
 - [Azure Functions documentation](/azure/azure-functions/)
-- [Azure SDK documentation](/azure/developer/sdk/)
-- [Azure MCP Server documentation](/azure/mcp-server/)
-- [Azure MCP Server tools reference](/azure/mcp-server/tools/)
