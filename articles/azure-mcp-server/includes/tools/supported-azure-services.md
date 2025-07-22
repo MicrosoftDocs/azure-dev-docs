@@ -13,12 +13,15 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Tool |  Description |
 |------|--------------|
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
 | [Azure Cache for Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Cache for Redis instances, Redis clusters, and access policies. |
 | [Azure CLI Extension](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
+| [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
 | [Azure DB for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
-| [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
+| [Azure Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
+| [Azure Grafana](../../tools/azure-grafana.md) | List Grafana workspaces.|
 | [Azure Key Vault keys](../../tools/key-vault-key.md) | Manage keys in Azure Key Vault. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |

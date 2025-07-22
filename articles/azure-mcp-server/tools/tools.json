@@ -1407,7 +1407,7 @@
             }
         ]
     },
-  "azure-rbac": {
+    "azure-rbac": {
         "root": "azmcp role",
         "documentation": "",
         "tools": [
@@ -1429,7 +1429,7 @@
             }
         ]
     },
-      "azure-native-isv": {
+    "azure-native-isv": {
         "root": "azmcp datadog",
         "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/",
         "tools": [
@@ -1456,6 +1456,75 @@
                 "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/manage"
             }
         ]
+    },
+
+
+
+
+
+    
+    "azure-bicepschema": {
+        "root": "azmcp bicepschema",
+        "tools": [
+            {
+                "name": "get --resource-type",
+                "description": "Execute the get --resource-type operation.",
+                "params": [
+                    {
+                        "name": "resource-type",
+                        "description": "The resource type",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-grafana": {
+        "root": "azmcp grafana",
+        "tools": [
+            {
+                "name": "list --subscription",
+                "description": "Execute the list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-foundry": {
+        "root": "azmcp foundry",
+        "tools": [
+            {
+                "name": "models list",
+                "description": "List models.",
+                "params": []
+            },
+            {
+                "name": "models deploy --subscription",
+                "description": "Execute the models deploy --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "models deployments list --endpoint",
+                "description": "Execute the models deployments list --endpoint operation.",
+                "params": [
+                    {
+                        "name": "endpoint",
+                        "description": "The endpoint",
+                        "required": true
+                    }
+                ]
+            }
+        ]
     }
-  
 }
