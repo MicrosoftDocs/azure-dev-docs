@@ -8,7 +8,7 @@ ms.topic: reference
 
 # Azure SQL tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Azure SQL databases and servers using natural language prompts. This enables you to quickly manage your database resources without remembering complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure SQL databases and servers, using natural language prompts. This lets you quickly manage your database resources without remembering complex syntax.
 
 [Azure SQL](/azure/azure-sql/) is a family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. Azure SQL includes Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs, providing flexible options for migrating, modernizing, and developing applications.
 
@@ -23,20 +23,20 @@ The Azure MCP Server allows you to manage Azure resources, including Azure SQL d
 azmcp sql server entra-admin list --subscription
 -->
 
-Lists Microsoft Entra ID (formerly Azure Active Directory) administrators configured for an Azure SQL server. This command helps you manage and audit identity-based access to your SQL servers.
+Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your SQL servers.
 
 Example prompts include:
 
 - **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
-- **Identity access**: "List the Microsoft Entra admins for SQL server 'finance-db' in resource group 'data'"
-- **Security check**: "Who has admin access to my SQL server through Microsoft Entra ID?"
-- **Administrator review**: "Show me the Microsoft Entra administrators for SQL server in 'prod-rg'"
-- **Access audit**: "List all Microsoft Entra ID admins on my 'eastus-sql' server"
+- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
+- **Security check**: "Who has admin access to my SQL servers?"
+- **Administrator review**: "Need to verify Entra ID admins... SQL server... urgent"
+- **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
 
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the SQL server. |
+| Subscription | Required | The ID or name of your Azure subscription containing the SQL server. |
 | Resource group | Required | The resource group containing the SQL server. |
 | Server name | Required | The name of the SQL server to list Microsoft Entra administrators for. |
 
@@ -48,20 +48,19 @@ Example prompts include:
 azmcp sql db show --subscription
 -->
 
-Retrieves detailed information about a specific Azure SQL database. This command allows you to examine the configuration, performance tier, size, and other characteristics of your database.
+Retrieves detailed information about a specific Azure SQL database. Use this command to examine the configuration, performance tier, size, and other characteristics of your database.
 
 Example prompts include:
 
 - **View database details**: "Show me details for the 'inventory' database on my 'eastus-sql' server"
-- **Check database configuration**: "What are the specs of my 'customer-db' database in resource group 'prod-dbs'?"
-- **Database information**: "Show me the details of the SQL database 'financial-data' in subscription 'dev'"
-- **Check performance tier**: "What service tier is my 'analytics' database using?"
-- **Database properties**: "Get details for SQL database 'orders' on server 'commerce-sql-01'"
-## List firewall rules
+- **Check database configuration**: "Can you tell me the specifications and current state of my customer-db database in the prod-dbs resource group and finance subscription?"
+- **Database information**: "Database details... financial-data... need info now"
+- **Check performance tier**: "What service tier is my analytics database using? And is it properly sized for our workload?"
+- **Database properties**: "I want to see all performance metrics, sizing options, and configuration settings for the orders database hosted on commerce-sql-01 in the west-europe region"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the SQL database. |
+| Subscription | Required | The ID or name of your Azure subscription containing the SQL database. |
 | Resource group | Required | The resource group containing the SQL server and database. |
 | Server name | Required | The name of the SQL server hosting the database. |
 | Database name | Required | The name of the database to retrieve details for. |
@@ -75,20 +74,19 @@ Example prompts include:
 azmcp sql firewall-rule list --subscription
 -->
 
-Lists all firewall rules for a specific Azure SQL server. This command helps you manage and review the network access settings for your SQL server.
+Lists all firewall rules for a specific Azure SQL server. Use this command to manage and review the network access settings for your SQL server.
 
 Example prompts include:
 
 - **View firewall settings**: "Show me all firewall rules for my 'prod-sql-server' in resource group 'data'"
-- **Check access controls**: "List the firewall rules for SQL server 'analytics-db' in my subscription"
-- **Review security**: "What IP addresses are allowed to connect to my SQL server 'eastus-sql-01'?"
-- **Network access**: "Show me who can access my SQL server in the production resource group"
-- **Security audit**: "List all IP ranges with access to SQL server 'finance-db'"
-## List elastic pools
+- **Check access controls**: "Are there any firewall rules for my analytics-db SQL server in the eastus region?"
+- **Review security**: "IP addresses... SQL server eastus-sql-01... security review"
+- **Network access**: "I need to immediately identify all network access points and IP address ranges that have been granted permissions to connect to our production SQL server environment for the compliance audit happening tomorrow"
+- **Security audit**: "List the firewall rules for our finance-db server in resource group accounting and subscription finance-prod"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the SQL server. |
+| Subscription | Required | The ID or name of your Azure subscription containing the SQL server. |
 | Resource group | Required | The resource group containing the SQL server. |
 | Server name | Required | The name of the SQL server to list firewall rules for. |
 
@@ -100,24 +98,21 @@ Example prompts include:
 azmcp sql elastic-pool list --subscription
 -->
 
-Lists all elastic pools for a specific Azure SQL server. Elastic pools are a resource allocation solution that helps you manage and scale multiple databases with varying resource demands.
+Lists all elastic pools for a specific Azure SQL server. Elastic pools are a resource allocation solution that let you manage and scale multiple databases with varying resource demands.
 
 Example prompts include:
 
 - **View resource pools**: "Show me all elastic pools on my 'main-sql' server"
-- **Check elasticity**: "List the elastic pools for SQL server 'customer-db' in resource group 'prod'"
-- **Resource management**: "What elastic pools do I have on my SQL server in the east US region?"
-- **Pool inventory**: "Show me all SQL elastic pools in subscription 'dev-subscription'"
-- **Database scaling**: "List elastic pools and their configurations on server 'analytics-sql'"
-## List Microsoft Entra administrators
+- **Check elasticity**: "Could you list any elastic pools we have running on our customer-db SQL server in the production environment?"
+- **Resource management**: "Elastic pools... SQL server... need status report"
+- **Pool inventory**: "I need a complete inventory of every single elastic pool deployed across all our SQL servers in the dev-subscription, including their DTU allocation, storage limits, and current database count"
+- **Database scaling**: "What's the current configuration and available capacity in the analytics elastic pool on our main SQL server in resource group data-services?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the SQL server. |
+| Subscription | Required | The ID or name of your Azure subscription containing the SQL server. |
 | Resource group | Required | The resource group containing the SQL server. |
 | Server name | Required | The name of the SQL server to list elastic pools for. |
-
-
 
 ## Related content
 

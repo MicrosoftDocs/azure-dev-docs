@@ -1407,7 +1407,7 @@
             }
         ]
     },
-  "azure-rbac": {
+    "azure-rbac": {
         "root": "azmcp role",
         "documentation": "",
         "tools": [
@@ -1429,7 +1429,7 @@
             }
         ]
     },
-      "azure-native-isv": {
+    "azure-native-isv": {
         "root": "azmcp datadog",
         "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/",
         "tools": [
@@ -1456,6 +1456,163 @@
                 "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/manage"
             }
         ]
+    },
+    "azure-aks": {
+        "root": "azmcp aks",
+        "tools": [
+            {
+                "name": "cluster list --subscription",
+                "description": "Execute the cluster list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-loadtesting": {
+        "root": "azmcp loadtesting",
+        "tools": [
+            {
+                "name": "test create --subscription",
+                "description": "Execute the test create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "test get --subscription",
+                "description": "Execute the test get --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testresource list --subscription",
+                "description": "Execute the testresource list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testresource create --subscription",
+                "description": "Execute the testresource create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun create --subscription",
+                "description": "Execute the testrun create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun get --subscription",
+                "description": "Execute the testrun get --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun list --subscription",
+                "description": "Execute the testrun list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun update --subscription",
+                "description": "Execute the testrun update --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-sql": {
+        "root": "azmcp sql",
+        "tools": [
+            {
+                "name": "db show --subscription",
+                "description": "Execute the db show --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "firewall-rule list --subscription",
+                "description": "Execute the firewall-rule list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "elastic-pool list --subscription",
+                "description": "Execute the elastic-pool list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "server entra-admin list --subscription",
+                "description": "Execute the server entra-admin list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
     }
-  
 }

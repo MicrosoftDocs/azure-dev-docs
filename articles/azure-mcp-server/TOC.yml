@@ -11,48 +11,38 @@ items:
       items:
         - name: Overview
           href: tools/index.md
-        - name: Azure AI Foundry
-          href: tools/azure-ai-foundry.md
         - name: Azure AI Search
           href: tools/ai-search.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
-        - name: Azure Bicep
-          href: tools/azure-bicep.md
         - name: Azure Cache for Redis
-          href: tools/azure-cache-for-redis.md
+          href: tools/azure-cache-for-redis.md          
         - name: Azure CLI Extension
           href: tools/azure-cli-extension.md
         - name: Azure Data Explorer
           href: tools/azure-data-explorer.md
         - name: Azure DB for PostgreSQL
           href: tools/postgresql.md
-        - name: Azure Developer CLI
-          href: tools/azure-developer-cli.md
         - name: Azure Cosmos DB
           href: tools/cosmos-db.md
         - name: Azure Key Vault 
           href: tools/key-vault-key.md
         - name: Azure Kubernetes Service
-          href: tools/azure-aks.md
-        - name: Azure Load Testing
+          href: tools/azure-kubernetes-service.md
+        - name: Azure Load testing
           href: tools/azure-load-testing.md
-        - name: Azure Managed Grafana
-          href: tools/azure-managed-grafana.md
         - name: Azure Monitor
           href: tools/monitor.md
-        - name: Azure MCP Best Practices
-          href: tools/azure-mcp-best-practices.md
         - name: Azure RBAC
           href: tools/azure-rbac.md
         - name: Azure Native ISV
-          href: tools/azure-native-isv.md
+          href: tools/azure-native-isv.md          
         - name: Azure Service Bus
           href: tools/service-bus.md
+        - name: Azure SQL
+          href: tools/azure-sql.md
         - name: Azure Storage
           href: tools/storage.md
-        - name: Azure Terraform Best Practices
-          href: tools/azure-terraform-best-practices.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription

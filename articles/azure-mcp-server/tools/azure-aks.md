@@ -8,7 +8,7 @@ ms.topic: reference
 
 # Azure Kubernetes Service tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Azure Kubernetes Service (AKS) clusters using natural language prompts. This enables you to quickly manage your container workloads without remembering complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure Kubernetes Service (AKS) clusters, using natural language prompts. This enables you to quickly manage your container workloads without remembering complex syntax.
 
 [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed container orchestration service that simplifies Kubernetes deployment and management. AKS offers serverless Kubernetes, integrated CI/CD, and enterprise-grade security and governance, allowing you to focus on application development rather than infrastructure management.
 
@@ -21,20 +21,21 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Kuber
 azmcp aks cluster list --subscription
 -->
 
-Lists all Azure Kubernetes Service (AKS) clusters in the specified subscription. This command helps you quickly inventory and monitor your AKS deployments across your Azure environment.
+Lists all Azure Kubernetes Service (AKS) clusters in the specified subscription. Use this command to quickly inventory and monitor your AKS deployments across your Azure environment.
 
 Example prompts include:
 
 - **List all clusters**: "Show me all my AKS clusters in my subscription"
-- **View cluster inventory**: "What Kubernetes clusters do I have in my dev subscription?"
-- **Check cluster status**: "List all AKS clusters in resource group 'container-rg'"
-- **Cluster overview**: "Show me all my Kubernetes deployments in subscription 'prod-sub'"
-- **Find clusters**: "Where are all my AKS clusters deployed?"
+- **View cluster inventory**: "Can you list the Kubernetes clusters in resource group 'container-rg' for subscription 'dev-123'?"
+- **Check cluster status**: "AKS clusters... dev environment... quick overview"
+- **Cluster overview**: "I need a complete inventory of all our Kubernetes deployments across our enterprise subscription with their node counts and versions"
+- **Find clusters**: "List clusters in the East US region only"
+- **Monitor deployments**: "What's the status of our production AKS clusters? Are they all running properly?"
 
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the AKS clusters. |
+| Subscription | Required | The ID or name of your Azure subscription containing the AKS clusters. |
 
 
 ## Related content
