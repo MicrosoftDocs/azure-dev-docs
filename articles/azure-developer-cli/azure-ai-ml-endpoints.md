@@ -3,7 +3,7 @@ title: Deploy to an Azure AI Foundry/ML studio online endpoint using the Azure D
 description: Learn how to deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/06/2024
+ms.date: 07/22/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
