@@ -45,11 +45,11 @@ Example prompts include:
 | Test resource name | Required | The name of the test resource to be used. |
 | Test ID | Required | A unique identifier for the test. |
 | Display name | Required | A user-friendly name for the new load test. |
-| Description | Optional | A description of the test and its purpose. |
+| Description | Required | A description of the test and its purpose. |
 | Endpoint | Required | The URL endpoint to be tested. |
 | Virtual users | Required | The number of concurrent virtual users for the load test. |
 | Duration | Required | The total duration of the test in seconds. |
-| Ramp-up time | Optional | The time period over which to gradually increase load to the specified number of virtual users. |
+| Ramp-up time | Required | The time period over which to gradually increase load to the specified number of virtual users. |
 
 
 
@@ -99,8 +99,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | Subscription | Required | The ID or name of the subscription containing the test resources. |
-| Resource group | Optional | The resource group containing the test resources. |
-| Test resource name | Optional | The name of a specific test resource to filter by. |
+| Resource group | Required | The resource group containing the test resources. |
+| Test resource name | Required | The name of a specific test resource to filter by. |
 
 ### Create test resource
 
@@ -146,10 +146,10 @@ Example prompts include:
 | Resource group | Required | The resource group containing the load test. |
 | Test resource name | Required | The name of the test resource to use. |
 | Test ID | Required | The ID of the test to run. |
-| Testrun ID | Optional | A custom ID to assign to this test run. |
-| Display name | Optional | A user-friendly name for the test run. |
-| Description | Optional | A description of the test run and its purpose. |
-| Old testrun ID | Optional | The ID of a previous test run to compare results with. |
+| Testrun ID | Required | A custom ID to assign to this test run. |
+| Display name | Required | A user-friendly name for the test run. |
+| Description | Required | A description of the test run and its purpose. |
+| Old testrun ID | Required | The ID of a previous test run to compare results with. |
 
 ### Get test run details
 
@@ -194,7 +194,7 @@ Example prompts include:
 | Subscription | Required | The ID or name of the subscription containing the test runs. |
 | Resource group | Required | The resource group containing the test runs. |
 | Test resource name | Required | The name of the test resource used for the test runs. |
-| Test ID | Optional | The ID of a specific test to filter test runs by. |
+| Test ID | Required | The ID of a specific test to filter test runs by. |
 
 ### Update test run
 
@@ -219,8 +219,8 @@ Example prompts include:
 | Test resource name | Required | The name of the test resource associated with the test run. |
 | Test ID | Required | The ID of the test associated with the test run. |
 | Testrun ID | Required | The ID of the test run to update. |
-| Display name | Optional | A new display name for the test run. |
-| Description | Optional | A new description for the test run. |
+| Display name | Required | A new display name for the test run. |
+| Description | Required | A new description for the test run. |
 
 ## Related content
 

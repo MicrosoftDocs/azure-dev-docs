@@ -29,7 +29,7 @@ items:
           href: tools/key-vault-key.md
         - name: Azure Kubernetes Service
           href: tools/azure-aks.md
-        - name: Azure Load testing
+        - name: Azure Load Testing
           href: tools/azure-load-testing.md
         - name: Azure Monitor
           href: tools/monitor.md
