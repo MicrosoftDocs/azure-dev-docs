@@ -158,8 +158,6 @@ These integrated security measures can help you identify vulnerabilities early, 
 
 *Penetration testing* simulates cyberattacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, to help ensure that applications deployed on the platform are secure against threats.
 
-[Azure SDK Security Checklist](https://github.com/Azure/azure-sdk-for-js/blob/main/docs/security-best-practices.md)
-
 Recommend integrating CodeQL into your CI pipeline to catch vulnerabilities early.
 
 Learn more:

@@ -32,7 +32,13 @@ items:
               href: keyless-connections.md
             - name: Use Azure AI Search without keys
               href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-    - name: Agents and Model Context Protocol (MCP)
+    - name: AI app design
+      items:
+        - name: AI agent orchestration patterns
+          href: /azure/architecture/ai-ml/guide/ai-agent-design-patterns?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Design your AI app to support foundation model life cycles
+          href: /azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+    - name: Agents with Model Context Protocol (MCP)
       items:
         - name: Build Agents using Model Context Protocol on Azure
           href: intro-agents-mcp.md
