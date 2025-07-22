@@ -1,4 +1,37 @@
 {
+    "azure-azureterraformbestpractices": {
+        "root": "azmcp azureterraformbestpractices",
+        "tools": [
+            {
+                "name": "get",
+                "description": "Execute the get operation.",
+                "params": []
+            }
+        ]
+    },
+    "azure-bestpractices": {
+        "root": "azmcp bestpractices",
+        "tools": [
+            {
+                "name": "azurefunctions get-code-generation",
+                "description": "Execute the azurefunctions get-code-generation operation.",
+                "params": [],
+                "status": "new"
+            },
+            {
+                "name": "azurefunctions get-deployment",
+                "description": "Execute the azurefunctions get-deployment operation.",
+                "params": [],
+                "status": "new"
+            },
+            {
+                "name": "general get",
+                "description": "Get general.",
+                "params": []
+            }
+        ]
+    },
+
     "azure-app-configuration": {
         "root": "azmcp appconfig",
         "tools": [
