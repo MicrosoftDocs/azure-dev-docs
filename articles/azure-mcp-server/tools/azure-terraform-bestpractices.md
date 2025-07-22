@@ -15,7 +15,7 @@ This article describes the Terraform best practices for Azure tool available in 
 
 Terraform best practices for Azure helps you implement secure, scalable, and maintainable infrastructure configurations by using recommended patterns and practices from Microsoft.
 
-## Get Terraform best practices for Azure
+## Get best practices
 
 <!-- azmcp azureterraformbestpractices get -->
 
