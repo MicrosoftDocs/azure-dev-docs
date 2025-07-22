@@ -14,9 +14,9 @@ ms.date: 7/22/2025
 
 # Azure SQL tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure SQL databases and servers, using natural language prompts. This lets you quickly manage your database resources without remembering complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure SQL databases and servers, using natural language prompts. This feature lets you quickly manage your database resources without remembering complex syntax.
 
-[Azure SQL](/azure/azure-sql/) is a family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. Azure SQL includes Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs, providing flexible options for migrating, modernizing, and developing applications.
+[Azure SQL](/azure/azure-sql/) is a family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. Azure SQL includes Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs. These products provide flexible options for migrating, modernizing, and developing applications.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -36,14 +36,14 @@ Example prompts include:
 - **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
 - **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
 - **Security check**: "Who has admin access to my SQL servers?"
-- **Administrator review**: "Need to verify Entra ID admins... SQL server... urgent"
+- **Administrator review**: "Need to verify Entra ID admins on SQL server now"
 - **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
 
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription containing the SQL server. |
-| Resource group | Required | The resource group containing the SQL server. |
+| Subscription | Required | The ID or name of your Azure subscription that contains the SQL server. |
+| Resource group | Required | The resource group that contains the SQL server. |
 | Server name | Required | The name of the SQL server to list Microsoft Entra administrators for. |
 
 ## Database 
@@ -54,7 +54,7 @@ Example prompts include:
 azmcp sql db show --subscription
 -->
 
-Retrieves detailed information about a specific Azure SQL database. Use this command to examine the configuration, performance tier, size, and other characteristics of your database.
+Retrieves detailed information about a specific Azure SQL database. Use this command to check the configuration, performance tier, size, and other characteristics of your database.
 
 Example prompts include:
 
@@ -66,10 +66,10 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription containing the SQL database. |
-| Resource group | Required | The resource group containing the SQL server and database. |
+| Subscription | Required | The ID or name of your Azure subscription that contains the SQL database. |
+| Resource group | Required | The resource group that contains the SQL server and database. |
 | Server name | Required | The name of the SQL server hosting the database. |
-| Database name | Required | The name of the database to retrieve details for. |
+| Database name | Required | The name of the database to get details for. |
 
 
 ## Firewall rules
@@ -92,8 +92,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription containing the SQL server. |
-| Resource group | Required | The resource group containing the SQL server. |
+| Subscription | Required | The ID or name of your Azure subscription that contains the SQL server. |
+| Resource group | Required | The resource group that contains the SQL server. |
 | Server name | Required | The name of the SQL server to list firewall rules for. |
 
 ## Elastic pools
@@ -104,7 +104,7 @@ Example prompts include:
 azmcp sql elastic-pool list --subscription
 -->
 
-Lists all elastic pools for a specific Azure SQL server. Elastic pools are a resource allocation solution that let you manage and scale multiple databases with varying resource demands.
+Lists all elastic pools for a specific Azure SQL server. Elastic pools are a resource allocation solution that lets you manage and scale multiple databases with varying resource demands.
 
 Example prompts include:
 
@@ -116,8 +116,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription containing the SQL server. |
-| Resource group | Required | The resource group containing the SQL server. |
+| Subscription | Required | The ID or name of your Azure subscription that contains the SQL server. |
+| Resource group | Required | The resource group that contains the SQL server. |
 | Server name | Required | The name of the SQL server to list elastic pools for. |
 
 ## Related content

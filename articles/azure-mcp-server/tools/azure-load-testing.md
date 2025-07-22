@@ -14,7 +14,7 @@ ms.date: 7/22/2025
 
 # Azure Load Testing tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure Load Testing services, using natural language prompts. This lets you quickly create and manage load tests without remembering complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure Load Testing services, using natural language prompts. This feature helps you quickly create and manage load tests without needing to remember complex syntax.
 
 [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing) is a fully managed load testing service that helps you generate high-scale load to identify application performance bottlenecks. With Azure Load Testing, you can stress test your applications and validate performance, scalability, and capacity.
 
@@ -40,13 +40,13 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription where the load test will be created. |
-| Resource group | Required | The resource group where the load test will be created. |
-| Test resource name | Required | The name of the test resource to be used. |
+| Subscription | Required | The ID or name of the subscription where you want to create the load test. |
+| Resource group | Required | The resource group where you want to create the load test. |
+| Test resource name | Required | The name of the test resource to use. |
 | Test ID | Required | A unique identifier for the test. |
 | Display name | Required | A user-friendly name for the new load test. |
 | Description | Required | A description of the test and its purpose. |
-| Endpoint | Required | The URL endpoint to be tested. |
+| Endpoint | Required | The URL endpoint to test. |
 | Virtual users | Required | The number of concurrent virtual users for the load test. |
 | Duration | Required | The total duration of the test in seconds. |
 | Ramp-up time | Required | The time period over which to gradually increase load to the specified number of virtual users. |
@@ -73,8 +73,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the load test. |
-| Resource group | Required | The resource group containing the load test. |
+| Subscription | Required | The ID or name of the subscription that contains the load test. |
+| Resource group | Required | The resource group that contains the load test. |
 | Test resource name | Required | The name of the test resource. |
 | Test ID | Required | The unique identifier of the test to retrieve. |
 
@@ -93,13 +93,13 @@ Example prompts include:
 - **List test resources**: "Show me all the load testing resources in my subscription"
 - **View available resources**: "What Azure Load Testing resources do I have in my dev subscription?"
 - **Resource inventory**: "List all test resources in resource group 'performance-testing'"
-- **Check environment**: "Show me the testing resources we've provisioned in our subscription"
+- **Check environment**: "Show me the testing resources we provisioned in our subscription"
 - **Find resources**: "Where are all my load testing resources deployed?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the test resources. |
-| Resource group | Required | The resource group containing the test resources. |
+| Subscription | Required | The ID or name of the subscription that contains the test resources. |
+| Resource group | Required | The resource group that contains the test resources. |
 | Test resource name | Required | The name of a specific test resource to filter by. |
 
 ### Create test resource
@@ -119,8 +119,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription where the test resource will be created. |
-| Resource group | Required | The resource group where the test resource will be created. |
+| Subscription | Required | The ID or name of the subscription where you want to create the test resource. |
+| Resource group | Required | The resource group where you want to create the test resource. |
 | Test resource name | Required | A name for the new test resource. |
 
 ## Test runs
@@ -142,8 +142,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the load test. |
-| Resource group | Required | The resource group containing the load test. |
+| Subscription | Required | The ID or name of the subscription that contains the load test. |
+| Resource group | Required | The resource group that contains the load test. |
 | Test resource name | Required | The name of the test resource to use. |
 | Test ID | Required | The ID of the test to run. |
 | Testrun ID | Required | A custom ID to assign to this test run. |
@@ -167,8 +167,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the test run. |
-| Resource group | Required | The resource group containing the test run. |
+| Subscription | Required | The ID or name of the subscription that contains the test run. |
+| Resource group | Required | The resource group that contains the test run. |
 | Test resource name | Required | The name of the test resource used for the test run. |
 | Testrun ID | Required | The ID of the test run to retrieve. |
 
@@ -191,8 +191,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the test runs. |
-| Resource group | Required | The resource group containing the test runs. |
+| Subscription | Required | The ID or name of the subscription that contains the test runs. |
+| Resource group | Required | The resource group that contains the test runs. |
 | Test resource name | Required | The name of the test resource used for the test runs. |
 | Test ID | Required | The ID of a specific test to filter test runs by. |
 
@@ -214,8 +214,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of the subscription containing the test run. |
-| Resource group | Required | The resource group containing the test run. |
+| Subscription | Required | The ID or name of the subscription that contains the test run. |
+| Resource group | Required | The resource group that contains the test run. |
 | Test resource name | Required | The name of the test resource associated with the test run. |
 | Test ID | Required | The ID of the test associated with the test run. |
 | Testrun ID | Required | The ID of the test run to update. |
