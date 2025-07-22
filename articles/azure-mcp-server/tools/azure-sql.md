@@ -1,120 +1,117 @@
 ---
-title: Use Azure MCP with SQL Database
-description: This article shows how to use Azure MCP to interact with Azure SQL Database using natural language commands.
-ms.topic: how-to
-ms.date: 07/17/2025
-
+title: Azure SQL Tools - Azure MCP Server
+description: Learn how to use the Azure MCP Server with Azure SQL to manage your databases, servers, and other SQL resources.
+keywords: azure mcp server, azmcp, azure sql, sql database, sql server
+ms.service: azure-mcp-server
+ms.topic: reference
+ms.date: 2025-07-21
 ---
 
-# Use Azure MCP with Azure SQL Database
+# Azure SQL tools for the Azure MCP Server
 
-This article describes how to use Azure MCP to work with Azure SQL Database using natural language commands.
+The Azure MCP Server allows you to manage Azure resources, including Azure SQL databases and servers using natural language prompts. This enables you to quickly manage your database resources without remembering complex syntax.
 
-## Prerequisites
+[Azure SQL](/azure/azure-sql/) is a family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. Azure SQL includes Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs, providing flexible options for migrating, modernizing, and developing applications.
 
-- [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure MCP Server](../install-mcp-server.md)
-- At least one Azure SQL Database or server
-- Appropriate permissions to query and manage SQL resources
+[!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Overview
+## Show database details
 
-Azure MCP provides several commands to interact with Azure SQL Database, allowing you to:
+<!-- 
+azmcp sql db show --subscription
+-->
 
-1. Get detailed information about your databases
-2. List Microsoft Entra ID administrators for your SQL servers
-3. Query your databases using SQL commands
+Retrieves detailed information about a specific Azure SQL database. This command allows you to examine the configuration, performance tier, size, and other characteristics of your database.
 
-## SQL Database commands
+Example prompts include:
 
-### Get database details
+- **View database details**: "Show me details for the 'inventory' database on my 'eastus-sql' server"
+- **Check database configuration**: "What are the specs of my 'customer-db' database in resource group 'prod-dbs'?"
+- **Database information**: "Show me the details of the SQL database 'financial-data' in subscription 'dev'"
+- **Check performance tier**: "What service tier is my 'analytics' database using?"
+- **Database properties**: "Get details for SQL database 'orders' on server 'commerce-sql-01'"
+## List firewall rules
 
-Use the `azmcp-sql-db-show` command to retrieve detailed information about a specific Azure SQL Database.
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **subscription** | Required | The ID or name of the subscription containing the SQL database. |
+| **resource-group** | Required | The resource group containing the SQL server and database. |
+| **server-name** | Required | The name of the SQL server hosting the database. |
+| **database-name** | Required | The name of the database to retrieve details for. |
 
-#### Command syntax
 
-```
-azmcp-sql-db-show --subscription <subscriptionId> --resource-group <resourceGroupName> --server <serverName> --database <databaseName>
-```
+## List firewall rules
 
-#### Parameters
+<!-- 
+azmcp sql firewall-rule list --subscription
+-->
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| subscription | string | Yes | The Azure subscription ID or name |
-| resource-group | string | Yes | The name of the resource group containing the SQL server |
-| server | string | Yes | The Azure SQL Server name |
-| database | string | Yes | The Azure SQL Database name |
+Lists all firewall rules for a specific Azure SQL server. This command helps you manage and review the network access settings for your SQL server.
 
-#### Response
+Example prompts include:
 
-The command returns detailed database information including:
+- **View firewall settings**: "Show me all firewall rules for my 'prod-sql-server' in resource group 'data'"
+- **Check access controls**: "List the firewall rules for SQL server 'analytics-db' in my subscription"
+- **Review security**: "What IP addresses are allowed to connect to my SQL server 'eastus-sql-01'?"
+- **Network access**: "Show me who can access my SQL server in the production resource group"
+- **Security audit**: "List all IP ranges with access to SQL server 'finance-db'"
+## List elastic pools
 
-- SKU name and tier
-- Status and state
-- Storage configuration
-- Collation settings
-- Creation date
-- Max size in bytes
-- Zone redundancy settings
-- Network access type
-- Backup storage redundancy
-- License type
-- Storage account type
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **subscription** | Required | The ID or name of the subscription containing the SQL server. |
+| **resource-group** | Required | The resource group containing the SQL server. |
+| **server-name** | Required | The name of the SQL server to list firewall rules for. |
 
-### List Microsoft Entra administrators
+## List elastic pools
 
-Use the `azmcp-sql-server-entraadmin-list` command to retrieve a list of all Microsoft Entra ID administrators configured for a specific SQL server.
+<!-- 
+azmcp sql elastic-pool list --subscription
+-->
 
-#### Command syntax
+Lists all elastic pools for a specific Azure SQL server. Elastic pools are a resource allocation solution that helps you manage and scale multiple databases with varying resource demands.
 
-```
-azmcp-sql-server-entraadmin-list --subscription <subscriptionId> --resource-group <resourceGroupName> --server <serverName>
-```
+Example prompts include:
 
-#### Parameters
+- **View resource pools**: "Show me all elastic pools on my 'main-sql' server"
+- **Check elasticity**: "List the elastic pools for SQL server 'customer-db' in resource group 'prod'"
+- **Resource management**: "What elastic pools do I have on my SQL server in the east US region?"
+- **Pool inventory**: "Show me all SQL elastic pools in subscription 'dev-subscription'"
+- **Database scaling**: "List elastic pools and their configurations on server 'analytics-sql'"
+## List Microsoft Entra administrators
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| subscription | string | Yes | The Azure subscription ID or name |
-| resource-group | string | Yes | The name of the resource group containing the SQL server |
-| server | string | Yes | The Azure SQL Server name |
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **subscription** | Required | The ID or name of the subscription containing the SQL server. |
+| **resource-group** | Required | The resource group containing the SQL server. |
+| **server-name** | Required | The name of the SQL server to list elastic pools for. |
 
-#### Response
+## List Microsoft Entra administrators
 
-The command returns an array of Microsoft Entra ID administrator objects with properties such as:
+<!-- 
+azmcp sql server entra-admin list --subscription
+-->
 
-- Administrator type
-- Administrator principal type
-- Login
-- SID
-- Tenant ID
-- Azure Active Directory only authentication setting
+Lists Microsoft Entra ID (formerly Azure Active Directory) administrators configured for an Azure SQL server. This command helps you manage and audit identity-based access to your SQL servers.
 
-## Example prompts
+Example prompts include:
 
-Here are some example natural language prompts you can use with Azure MCP to interact with SQL Database:
+- **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
+- **Identity access**: "List the Microsoft Entra admins for SQL server 'finance-db' in resource group 'data'"
+- **Security check**: "Who has admin access to my SQL server through Microsoft Entra ID?"
+- **Administrator review**: "Show me the Microsoft Entra administrators for SQL server in 'prod-rg'"
+- **Access audit**: "List all Microsoft Entra ID admins on my 'eastus-sql' server"
 
-- "Show me the details for my SQL database 'myDatabase' on server 'myServer'"
-- "List all Microsoft Entra administrators for my SQL server 'myServer'"
-- "Get information about my SQL database 'contosodb' in resource group 'rg-contoso'"
-- "Check if Azure Active Directory authentication is enabled on my SQL server 'sqlserver123'"
-- "Show me the storage capacity and tier for my SQL database 'salesdb'"
-- "What's the backup redundancy setting for my database 'financedb'?"
 
-## Best practices
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **subscription** | Required | The ID or name of the subscription containing the SQL server. |
+| **resource-group** | Required | The resource group containing the SQL server. |
+| **server-name** | Required | The name of the SQL server to list Microsoft Entra administrators for. |
 
-When working with SQL Database in Azure MCP:
 
-1. Always specify the full resource path (subscription, resource group, server, and database) for precise targeting
-2. Use Microsoft Entra ID authentication when possible for enhanced security
-3. Review database performance metrics periodically 
-4. Ensure proper backup and redundancy settings for critical databases
-5. Set up auditing on your SQL servers for security monitoring
+## Related content
 
-## Next steps
-
-- [Learn more about Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview)
-- [Secure your Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/security-overview)
-- [Monitor Azure SQL Database performance](https://learn.microsoft.com/en-us/azure/azure-sql/database/monitor-tune-overview)
-- [Query data in Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/connect-query-content-reference-guide)
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure SQL Database documentation](/azure/azure-sql/database/)
