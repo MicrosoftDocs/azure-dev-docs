@@ -66,21 +66,6 @@ sections:
 
          Custom tasks are in the following location: **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
 
-      - question: How do I switch large language models (LLMs)?
-        answer: |
-         App Modernization for Java currently supports the following three models:
-
-         - `gpt-4o`
-         - `claude-3.5-sonnet`
-         - `gemini-2.0-flash`
-
-         To switch models, use the following steps:
-
-         1. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-         1. Select **Preferences: Open Settings (UI)**.
-         1. Search for **migrate.java**.
-         1. Adjust the **Migrate Java: Model Family** setting.
-
       - question: Does the tool store my source code?
         answer: |
          No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either.
@@ -88,3 +73,11 @@ sections:
          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
          For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com).
+
+      - question: How does the app modernization for Java extension use MCP server, and how can I check for updates or troubleshoot issues?
+        answer: |
+          App Modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the VS Code extension, the MCP server will be registered and started automatically.
+
+          If you notice a special **refresh button** in the bottom-right corner of the GitHub Copilot Chat panel, it may indicate that tool updates are available. Click the button to automatically load the latest versions of the tools.
+
+          App Modernization for Java MCP server also maintains logs. For troubleshooting, please check the log files located at: **%USERPROFILE%/.ghcp-appmod-java/logs**
