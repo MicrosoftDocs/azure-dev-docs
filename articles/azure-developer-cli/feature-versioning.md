@@ -4,7 +4,7 @@ description: Learn about the versioning and feature release strategy of the Azur
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/25/2025
+ms.date: 07/22/2025
 ms.topic: how-to
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli

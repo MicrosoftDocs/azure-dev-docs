@@ -3,7 +3,7 @@ title: CDN changes impacting the Azure Developer CLI
 description: Information regarding critical Content Delivery Network (CDN) changes for azd due to the CDN provider changing from Edgio to Azure Front Door.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/25/2025
+ms.date: 07/22/2025
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
