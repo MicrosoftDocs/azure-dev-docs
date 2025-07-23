@@ -46,7 +46,8 @@ The Azure crates for Rust is currently in **beta**. While the APIs are stabilizi
 
 - Rust 1.85 or later. The version is specified in the Azure create for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
 - An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
-- [Azure CLI](/cli/azure) (for local development authentication)
+- [Azure CLI](/cli/azure)
+- [Azure Developer CLI](/azure/developer/azure-developer-cli)
 
 > [!TIP]
 > For the best development experience, ensure you have the latest stable version of Rust installed. 
