@@ -1407,7 +1407,7 @@
             }
         ]
     },
-  "azure-rbac": {
+    "azure-rbac": {
         "root": "azmcp role",
         "documentation": "",
         "tools": [
@@ -1429,7 +1429,7 @@
             }
         ]
     },
-      "azure-native-isv": {
+    "azure-native-isv": {
         "root": "azmcp datadog",
         "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/",
         "tools": [
@@ -1456,6 +1456,30 @@
                 "documentation": "https://learn.microsoft.com/en-us/azure/partner-solutions/datadog/manage"
             }
         ]
+    },
+
+
+
+    
+    "azure-quick-review": {
+        "root": "azmcp extension azqr",
+        "tools": [
+            {
+                "name": "generate report",
+                "description": "Generate compliance and security reports for Azure resources to identify non-compliant configurations.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name to scan for compliance issues",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group to scope the scan to a specific resource group",
+                        "required": false
+                    }
+                ]
+            }
+        ]
     }
-  
 }

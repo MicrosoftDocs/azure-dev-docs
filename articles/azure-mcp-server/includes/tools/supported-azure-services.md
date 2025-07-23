@@ -21,6 +21,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Key Vault keys](../../tools/key-vault-key.md) | Manage keys in Azure Key Vault. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
+| [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. 
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
