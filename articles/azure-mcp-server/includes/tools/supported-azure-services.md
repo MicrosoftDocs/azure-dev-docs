@@ -19,8 +19,10 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure CLI Extension](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
 | [Azure DB for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
+| [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
-| [Azure Key Vault keys](../../tools/key-vault-key.md) | Manage keys in Azure Key Vault. |
+| [Azure Key Vault](../../tools/key-vault-key.md) | Manage keys, secrets, and certificates in Azure Key Vault. |
+| [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |

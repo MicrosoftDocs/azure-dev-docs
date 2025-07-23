@@ -19,16 +19,20 @@ items:
           href: tools/azure-bestpractices.md
         - name: Azure Cache for Redis
           href: tools/azure-cache-for-redis.md          
-        - name: Azure CLI Extension
+        - name: Azure CLI
           href: tools/azure-cli-extension.md
         - name: Azure Data Explorer
           href: tools/azure-data-explorer.md
         - name: Azure DB for PostgreSQL
           href: tools/postgresql.md
+        - name: Azure Developer CLI
+          href: tools/azure-developer-cli.md
         - name: Azure Cosmos DB
           href: tools/cosmos-db.md
         - name: Azure Key Vault 
           href: tools/key-vault-key.md
+        - name: Azure MCP tool
+          href: tools/azure-mcp-tool.md
         - name: Azure Monitor
           href: tools/monitor.md
         - name: Azure RBAC
