@@ -122,9 +122,8 @@ After creating a credential, pass it to your Azure client along with any necessa
 ### Client initialization example
 
 ```rust
-use azure_core::http::ClientOptions;
 use azure_identity::DefaultAzureCredential;
-use azure_security_keyvault_secrets::{SecretClient, SecretClientOptions};
+use azure_security_keyvault_secrets::SecretClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
