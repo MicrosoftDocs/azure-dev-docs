@@ -23,11 +23,11 @@ Returns best practices for implementing Terraform with Azure. Use this tool to g
 
 Example prompts include:
 
-- "What are the best practices for using Terraform with Azure?"
-- "Show me guidance for implementing Azure resources with Terraform"
-- "How should I structure my Terraform modules for Azure?"
-- "What are the recommended patterns for managing state files in Azure Terraform projects?"
-- "I need help implementing secure Azure infrastructure using Terraform"
+- **General best practices**: "What are the best practices for using Terraform with Azure?"
+- **Implementation guidance**: "Show me guidance for implementing Azure resources with Terraform"
+- **Module structure**: "How should I structure my Terraform modules for Azure?"
+- **State management**: "What are the recommended patterns for managing state files in Azure Terraform projects?"
+- **Secure infrastructure**: "I need help implementing secure Azure infrastructure using Terraform"
 
 
 ## Related resources

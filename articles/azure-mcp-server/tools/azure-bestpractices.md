@@ -26,11 +26,11 @@ Returns best practices for [Azure Functions](/azure/azure-functions/) code gener
 
 Example prompts include:
 
-- "What are the best practices for Azure Functions code generation?"
-- "Show me code generation best practices for Azure Functions"
-- "I need guidance on writing Azure Functions code, what should I follow?"
-- "What are the recommended patterns for Azure Functions development?"
-- "Help me understand how to write efficient Azure Functions code"
+- **General best practices**: "What are the best practices for Azure Functions code generation?"
+- **Show recommendations**: "Show me code generation best practices for Azure Functions."
+- **Development guidance**: "I need guidance on writing Azure Functions code, what should I follow?"
+- **Recommended patterns**: "What are the recommended patterns for Azure Functions development?"
+- **Efficient coding**: "Help me understand how to write efficient Azure Functions code."
 
 ### Get deployment best practices
 
@@ -40,11 +40,11 @@ Returns best practices for Azure Functions deployment. Use this tool to get guid
 
 Example prompts include:
 
-- "What are the best practices for deploying Azure Functions?"
-- "How should I set up CI/CD for my Azure Functions app?"
-- "Show me deployment recommendations for Azure Functions"
-- "What's the best way to deploy Azure Functions to production?"
-- "I need guidance on setting up a secure deployment pipeline for Azure Functions"
+- **Deployment best practices**: "What are the best practices for deploying Azure Functions?"
+- **CI/CD setup**: "How should I set up CI/CD for my Azure Functions app?"
+- **Deployment recommendations**: "Show me deployment recommendations for Azure Functions."
+- **Production deployment**: "What's the best way to deploy Azure Functions to production?"
+- **Secure pipeline**: "I need guidance on setting up a secure deployment pipeline for Azure Functions."
 
 
 ## Azure SDK
@@ -57,11 +57,11 @@ Returns best practices for secure, production-grade Azure SDK usage. Use this to
 
 Example prompts include:
 
-- "What are the best practices for using Azure SDKs?"
-- "Show me guidance on implementing Azure services in my application"
-- "How should I handle authentication with Azure SDKs?"
-- "What's the recommended way to manage connections with Azure services?"
-- "I need help implementing Azure services securely in my application"
+- **General best practices**: "What are the best practices for using Azure SDKs?"
+- **Implementation guidance**: "Show me guidance on implementing Azure services in my application"
+- **Authentication handling**: "How should I handle authentication with Azure SDKs?"
+- **Connection management**: "What's the recommended way to manage connections with Azure services?"
+- **Secure implementation**: "I need help implementing Azure services securely in my application"
 
 
 ## Related resources
