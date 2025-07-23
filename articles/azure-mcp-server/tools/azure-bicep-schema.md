@@ -26,11 +26,11 @@ Gets the Bicep schema for the most recent apiVersion of an Azure resource. This 
 
 Example prompts include:
 
-- **Get storage account schema**: Get me the Bicep schema for Microsoft.Storage/storageAccounts
-- **Find service properties**: How can I use Bicep to create an Azure OpenAI service?
-- **Check API version**: What's the latest apiVersion for Microsoft.KeyVault/vaults?
-- **Need schema help**: I'm creating a Bicep template for Microsoft.Cognitive/accounts
-- **Request schema guidance**: Show me the properties for Microsoft.Web/sites
+- **Get storage account schema**: "Get me the Bicep schema for Microsoft.Storage/storageAccounts"
+- **Find service properties**: "How can I use Bicep to create an Azure OpenAI service?"
+- **Check API version**: "What's the latest apiVersion for Microsoft.KeyVault/vaults?"
+- **Need schema help**: "I'm creating a Bicep template for Microsoft.Cognitive/accounts"
+- **Request schema guidance**: "Show me the properties for Microsoft.Web/sites"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -42,4 +42,3 @@ Example prompts include:
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Bicep documentation](/azure/azure-resource-manager/bicep/)
 - [Azure Resource Manager template reference](/azure/templates/)
-- [Infrastructure as code in Azure](/azure/developer/terraform/infrastructure-as-code)

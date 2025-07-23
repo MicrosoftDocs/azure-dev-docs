@@ -26,11 +26,11 @@ Lists all Azure Managed Grafana workspaces in your subscription. This command he
 
 Example prompts include:
 
-- **Show all workspaces**: Show me all Grafana workspaces in my subscription
-- **List monitoring resources**: What Grafana workspaces do I have available?
-- **Find visualization dashboards**: List all my Azure Managed Grafana resources
-- **Check workspace status**: Are there any Grafana workspaces in my dev subscription?
-- **Dashboard inventory**: I need to see all Grafana workspace resources in my account
+- **Show all workspaces**: "Show me all Grafana workspaces in my subscription"
+- **List monitoring resources**: "What Grafana workspaces do I have available?"
+- **Find visualization dashboards**: "List all my Azure Managed Grafana resources"
+- **Check workspace status**: "Are there any Grafana workspaces in my dev subscription?"
+- **Dashboard inventory**: "I need to see all Grafana workspace resources in my account"
 
 ## Related content
 
