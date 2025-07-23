@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys.
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 05/14/2025
+ms.date: 07/23/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -21,9 +21,9 @@ The parameters specific to each tool are documented in the tools reference artic
 
 | Parameter       | Description       |
 |-----------------|-------------------|
-| **Subscription** | Azure subscription ID for target resources. Required. |
-| **Tenant Id** | Azure tenant ID for authentication.  |
-| **Authentication method** | Authentication method ('credential', 'key', 'connectionString'). Default is 'credential'. |
+| **Subscription** | [Azure subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions) ID for target resources. Required. |
+| **Tenant Id** | [Azure tenant](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-ad-define) ID for authentication.  |
+| **Authentication method** | [Authentication method](/entra/identity/authentication/concept-authentication-methods)     ('credential', 'key', 'connectionString'). Default is 'credential'. |
 | **Maximum retries** | Maximum retry attempts for failed operations. Default is 3. |
 | **Retry delay** | Delay between retry attempts (seconds). Default is 2. |
 | **Retry delay maximum** | Maximum delay between retries (seconds). Default is 10. |
