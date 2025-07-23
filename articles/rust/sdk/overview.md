@@ -1,65 +1,65 @@
 ---
-title: Use Azure SDK for Rust client libraries
-description: Get started with Azure SDK for Rust client libraries. Learn authentication, explore supported services like Storage and Key Vault, and follow best practices with code examples.
+title: Use Azure crates for Rust
+description: Get started with Azure crates for Rust. Learn authentication, explore supported services like Storage and Key Vault, and follow best practices with code examples.
 ms.date: 07/17/2025
 ms.topic: concept-article
 ms.service: azure
 ms.custom: devx-track-rust
 ---
 
-# Use Azure SDK for Rust client libraries
+# Use Azure crates for Rust 
 
-The Azure SDK for Rust provides a collection of client libraries that make it easy to interact with Azure services from Rust applications. This SDK follows Azure SDK design guidelines to provide a consistent, idiomatic experience that's natural for Rust developers.
+The Azure crates for Rust provides a collection of client libraries that make it easy to interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience that's natural for Rust developers.
 
-[Source code] | [Package (crates.io)] | [API reference documentation] | [REST API documentation] | [Product documentation]
+[Source code] | [Crates (crates.io)] | [API reference documentation] | [REST API documentation] | [Product documentation]
 
 
-## SDK concepts
+## Azure crate concepts
 
 - **Idiomatic Rust**: Built with Rust best practices and conventions.
 - **Async/await support**: Fully async APIs with pluggable runtime support (defaulting to tokio).
 - **Type safety**: Uses Rust's type system for compile-time safety.
 - **Thread safety**: All client instance methods are thread-safe and independent of each other.
 - **Memory safety**: Zero-cost abstractions with no garbage collection overhead.
-- **Modular design**: Use only the client libraries you need.
+- **Modular design**: Use only the crates you need.
 - **Unified configuration**: Configure service clients, logging, and retries with `ClientOptions`.
 - **Consistent error handling**: Handle errors consistently across services with `azure_core::Error`.
 - **Response handling**: Access detailed HTTP response data with `Response<T>`.
 - **Pagination support**: Work with paginated APIs using `Pager<T>` for async streams.
 - **Authentication abstractions**: Standardized credential management via `TokenCredential`.
 
-## Differences between client libraries and REST APIs
+## Differences between crates and REST APIs
 
 Use the following information to understand when to use each type of access.
 
-* The Azure client libraries are the preferred method of accessing your Azure service. These libraries abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
+* The Azure crates are the preferred method of accessing your Azure service. These crates abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * Azure REST APIs are the preferred method if you are:
-  * Working with preview services that don't have Azure client libraries available. Consider your code as preview, which should be updated when the service is generally available with client libraries.
-  * Wanting to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.
+  * Working with preview services that don't have Azure crates available. Consider your code as preview, which should be updated when the service is generally available with crates.
+  * Wanting to make REST calls directly because you don't want the entire crate to use a single REST API or you want deeper control over the HTTP requests.
 
 
 ## Rust version
 
-The Azure SDK for Rust is currently in **beta**. While the APIs are stabilizing and the SDK is suitable for development and testing, some breaking changes might occur before the 1.0 release. The SDK supports the most commonly used Azure services with more being added regularly based on community feedback and demand.
+The Azure crates for Rust is currently in **beta**. While the APIs are stabilizing and the crate is suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
 
-## Prerequisites to develop with client libraries
+## Prerequisites to develop with crates
 
-- Rust 1.85 or later. The version is specified in the Azure SDK for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
+- Rust 1.85 or later. The version is specified in the Azure create for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
 - An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
 - [Azure CLI](/cli/azure) (for local development authentication)
 
 > [!TIP]
 > For the best development experience, ensure you have the latest stable version of Rust installed. 
 
-### Install Azure client libraries
+### Install Azure crates
 
-Get Azure client libraries from [crates.io](https://crates.io). Install the individual SDKs you need. 
+Get Azure crates from [crates.io](https://crates.io). Install the individual crates you need. 
 
 ```console
 cargo add azure_identity azure_security_keyvault_secrets azure_storage_blob
 ```
 
-The client libraries depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK packages.
+The crates depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure crates.
 
 ## Supported Azure services
 
@@ -74,11 +74,11 @@ The following Azure services, prefixed with `azure_`, are currently supported:
 | **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
 | **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
 
-Crates.io has other crates for Azure services, which were established prior to the official Azure SDKs listed above. These crates aren't associated with Azure and shouldn't be used for modern development. 
+Crates.io has other crates for Azure services, which were established prior to the official Azure crates listed above. These crates aren't associated with Azure and shouldn't be used for modern development.
 
-## Client library Cargo.toml features
+## Crate Cargo.toml features
 
-Each client library defines its features in its Cargo.toml file. For example, see the features for the Azure Identity client library in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). Use these features to depend on additional functionality.
+Each crate defines its features in its Cargo.toml file. For example, see the features for the Azure Identity crate in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). Use these features to depend on additional functionality.
 
 * `debug`: enables extra information for developers, including emitting all fields in std::fmt::Debug implementation.
 * `hmac_openssl`: configures HMAC using OpenSSL.
@@ -99,7 +99,7 @@ azure_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
 
 ## Provide authentication credentials
 
-The Azure client libraries need credentials to authenticate to Microsoft Entra ID. Services provide different authentication methods to connect to services. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
+The Azure crates need credentials to authenticate to Microsoft Entra ID. Services provide different authentication methods to connect to services. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
@@ -164,7 +164,7 @@ The Azure SDK automatically manages connection pooling for optimal performance. 
 
 For high-volume workloads, you can adjust the connection timeout and pool size through client options.
 
-For more details on performance optimization and connection handling, refer to the [Azure SDK for Rust HTTP client documentation](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core/azure_core#http-clients).
+For more details on performance optimization and connection handling, refer to the [Azure crates for Rust HTTP client documentation](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core/azure_core#http-clients).
 
 
 
@@ -340,7 +340,7 @@ The targets are the crate names if you want to trace more or less for specific t
 
 [cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
-[Package (crates.io)]: https://crates.io/users/azure-sdk?sort=recent-downloads
+[Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
 [REST API documentation]: /rest/api/
 [Product documentation]: /azure/
