@@ -17,7 +17,7 @@ The Azure SDK for Rust provides a collection of client libraries that make it ea
 ## SDK concepts
 
 - **Idiomatic Rust**: Built with Rust best practices and conventions.
-- **Async/await support**: Fully async APIs using Tokio runtime.
+- **Async/await support**: Fully async APIs with pluggable runtime support (defaulting to tokio).
 - **Type safety**: Uses Rust's type system for compile-time safety.
 - **Thread safety**: All client instance methods are thread-safe and independent of each other.
 - **Memory safety**: Zero-cost abstractions with no garbage collection overhead.
@@ -26,7 +26,7 @@ The Azure SDK for Rust provides a collection of client libraries that make it ea
 - **Consistent error handling**: Handle errors consistently across services with `azure_core::Error`.
 - **Response handling**: Access detailed HTTP response data with `Response<T>`.
 - **Pagination support**: Work with paginated APIs using `Pager<T>` for async streams.
-- **Authentication abstractions**: Standardized credential management via `TokenCredentials`.
+- **Authentication abstractions**: Standardized credential management via `TokenCredential`.
 
 ## Differences between client libraries and REST APIs
 
@@ -46,7 +46,7 @@ The Azure SDK for Rust is currently in **beta**. While the APIs are stabilizing 
 
 - Rust 1.85 or later. The version is specified in the Azure SDK for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
 - An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
-- Azure CLI (for local development authentication)
+- [Azure CLI](/cli/azure) (for local development authentication)
 
 > [!TIP]
 > For the best development experience, ensure you have the latest stable version of Rust installed. 
@@ -99,7 +99,7 @@ azure_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
 
 ## Provide authentication credentials
 
-The Azure client libraries need credentials to authenticate to the Azure platform. Services provide different authentication methods to connect to services. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
+The Azure client libraries need credentials to authenticate to Microsoft Entra ID. Services provide different authentication methods to connect to services. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
@@ -150,7 +150,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-The `DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment. This approach provides flexibility when running your code in different environments.
+`DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment. This approach provides flexibility when running your code in different environments.
 
 :::image type="content" source="./media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice Azure Developer CLI.":::
 
@@ -341,7 +341,7 @@ The targets are the crate names if you want to trace more or less for specific t
 
 [cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
-[Package (crates.io)]: https://crates.io/search?q=azure_
+[Package (crates.io)]: https://crates.io/users/azure-sdk?sort=recent-downloads
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
 [REST API documentation]: /rest/api/
 [Product documentation]: /azure/
