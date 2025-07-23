@@ -65,7 +65,7 @@ The client libraries depend on `azure_core` for common functionality. You don't 
 
 The following Azure services, prefixed with `azure_`, are currently supported:
 
-| Service | Package | Description |
+| Service | Crate | Description |
 |---------|---------|-------------|
 | **Core** | [azure_core](https://crates.io/crates/azure_core) | Shared functionality and HTTP pipeline |
 | **Cosmos DB** | [azure_data_cosmos](https://crates.io/crates/azure_data_cosmos) | NoSQL database operations |
@@ -207,7 +207,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Pagination: get all items
+## Pagination: Get all items
 
 If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a result. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets.
 
@@ -240,7 +240,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Pagination: process each page of items
+## Pagination: Process each page of items
 
 When you want to iterate through all items in a paginated response, use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, allowing you to process each page as it becomes available. This feature is useful for operations with large result sets.
 
