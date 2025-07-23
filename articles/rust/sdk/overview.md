@@ -59,7 +59,7 @@ Get Azure client libraries from [crates.io](https://crates.io). Install the indi
 cargo add azure_identity azure_security_keyvault_secrets azure_storage_blob
 ```
 
-The client libraries depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK packages.
+The client libraries depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK crates.
 
 ## Supported Azure services
 
