@@ -19,7 +19,7 @@ highlightedContent:
   items:
     - itemType: overview
       title: Azure for JavaScript developers
-      url: ./core/what-is-azure-for-javascript-development.md
+      url: ./what-is-azure-for-javascript-development.md
     - itemType: how-to-guide
       title: Set up development environment
       url: ./core/configure-local-development-environment.md
@@ -40,7 +40,7 @@ conceptualContent:
         links: 
           - itemType: overview
             text: What is Azure for JavaScript developers
-            url: ./core/what-is-azure-for-javascript-development.md
+            url: ./what-is-azure-for-javascript-development.md
           - itemType: how-to-guide
             text: Configure your JavaScript develop environment for Azure
             url: ./core/configure-local-development-environment.md
@@ -158,6 +158,9 @@ conceptualContent:
           - itemType: concept
             text: Authenticate to Azure
             url: ./sdk/authentication/overview.md
+          - itemType: concept
+            text: Authentication best practices
+            url: ./sdk/authentication/best-practices.md
           - itemType: concept
             text: Test SDK integrations
             url: ./sdk/test-sdk-integration.md

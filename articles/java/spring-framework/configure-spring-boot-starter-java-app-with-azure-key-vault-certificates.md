@@ -3,10 +3,14 @@ title: "Enable HTTPS in Spring Boot with Azure Key Vault certificates"
 description: In this tutorial, you secure your Spring Boot (including Azure Spring Apps) apps with TLS/SSL certificates using Azure Key Vault and managed identities for Azure resources.
 ms.date: 07/22/2022
 ms.topic: tutorial
-ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
+ms.custom:
+  - devx-track-java
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Enable HTTPS in Spring Boot with Azure Key Vault certificates

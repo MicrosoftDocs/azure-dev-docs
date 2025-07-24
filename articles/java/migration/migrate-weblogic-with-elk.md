@@ -7,7 +7,13 @@ ms.reviewer: haiche
 ms.topic: tutorial
 ms.date: 12/09/2024
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-vm
+  - migration-java
+  - sfi-image-nochange
 ---
 
 # Tutorial: Migrate WebLogic Server to Azure with Elastic on Azure as the logging solution

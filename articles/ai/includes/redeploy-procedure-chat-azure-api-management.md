@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 12/20/2024
+ms.date: 06/26/2025
 ms.service: azure
 ---
 
@@ -39,7 +39,7 @@ These examples are completed on the chat app sample.
     azd env set OPENAI_HOST azure_custom
     ```
 
-1. Add the following environment variable, which tells the chat app's backend what the value is of the custom URL for the Azure OpenAI request:
+1. Add this environment variable to tell the chat app’s backend the custom URL for the Azure OpenAI request:
 
     ```bash
     azd env set AZURE_OPENAI_CUSTOM_URL <APIM_GATEWAY_URL>
@@ -67,7 +67,7 @@ These examples are completed on the chat app sample.
     azd env set OPENAI_HOST azure_custom
     ```
 
-1. Add the following environment variable, which tells the chat app's backend what the value is of the custom URL for the Azure OpenAI request:
+1. Add this environment variable to tell the chat app’s backend the custom URL for the Azure OpenAI request:
 
     ```bash
     azd env set set AZURE_OPENAI_CUSTOM_URL <APIM_GATEWAY_URL>
@@ -78,7 +78,7 @@ These examples are completed on the chat app sample.
     ```bash
     azd up
     ```
-    
+
     Wait until this process finishes before you continue.
 
 ---

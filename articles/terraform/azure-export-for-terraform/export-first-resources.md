@@ -5,7 +5,10 @@ author: stemamsft
 ms.topic: quickstart
 ms.date: 05/10/2023
 ms.author: stema
-ms.custom: devx-track-terraform,devx-track-export-terraform
+ms.custom:
+  - devx-track-terraform
+  - devx-track-export-terraform
+  - sfi-image-nochange
 ---
 
 # Quickstart: Export your first resources using Azure Export for Terraform

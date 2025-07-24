@@ -1,8 +1,8 @@
 ---
 title: "Walkthrough, Part 3: Authenticate Python apps with Azure services"
 description: An examination of the example third-party API implementation using Azure Functions and how the endpoint is secured with an access key.
-ms.date: 02/20/2024
-ms.topic: conceptual
+ms.date: 05/28/2025
+ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
@@ -10,9 +10,13 @@ ms.custom: devx-track-python
 
 [Previous part: Authentication requirements](walkthrough-tutorial-authentication-02.md)
 
-In our example scenario, the main app's public endpoint uses a third-party API that's secured by an access key. This section shows an implementation of the third-party API using Azure Functions, but the API could be implemented in other ways and deployed to a different cloud server or web host. The only important aspect is that client requests to the protected endpoint must include the access key. Any app that invokes this API must securely manage that key.
+In our example scenario, the main application consumes a third-party API that is secured with an access key. This section demonstrates the API using Azure Functions, but the same principles apply regardless of how or where the API is implemented—whether you host the application on another cloud provider or a traditional web server.
 
-For demonstration purposes, this API is deployed to the endpoint, `https://msdocs-example-api.azurewebsites.net/api/RandomNumber`. To call the API, however, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, after you've deployed the app and API, try this URL in  a browser or curl: `https://msdocs-example-api.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft`.
+The key aspect is that any client requests to the protected endpoint must include the access key, which the app must manage securely. This section provides an overview of how to implement such an API using Azure Functions, but you can adapt the principles to your specific needs.
+
+## Example third-party API implementation
+
+The example third-party API is a simple endpoint that returns a random number between 1 and 999. The API is secured with an access key, which must be provided in the request to access the endpoint. For demonstration purposes, this API is deployed to the endpoint, `https://msdocs-example-api.azurewebsites.net/api/RandomNumber`. To call the API, however, you must provide the access key `d0c5atM1cr0s0ft` either in a `?code=` URL parameter or in an `'x-functions-key'` property of the HTTP header. For example, after you deploy the app and API, try this URL in  a browser or curl: `https://msdocs-example-api.azurewebsites.net/api/RandomNumber?code=d0c5atM1cr0s0ft`.
 
 If the access key is valid, the endpoint returns a JSON response that contains a single property, "value", the value of which is a number between 1 and 999, such as `{"value": 959}`.
 
@@ -24,7 +28,7 @@ In the sample repository, this code is found under *third_party_api/RandomNumber
 
 To deploy the code, the sample's provisioning script performs the following steps:
 
-1. Create a backing storage account for Azure Functions with the Azure CLI command, [`az storage account create`](/cli/azure/storage/account#az-storage-account-create).
+1. Create a backing storage account for Azure Functions with the Azure CLI command, [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) for managing state and internal operations.
 
 1. Create an Azure Functions app with the Azure CLI command, [`az function app create`](/cli/azure/functionapp#az-functionapp-create).
 
@@ -36,7 +40,7 @@ To deploy the code, the sample's provisioning script performs the following step
 
     Comments are included to show how to do this step through a REST API call to the [Functions Key Management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) if desired. To call that REST API, another REST API call must be done first to retrieve the Function app's master key.
 
-    You can also assign access keys through the [Azure portal](https://portal.azure.com). On the page for the Functions app, select **Functions**, then select the specific function to secure (which is named `RandomNumber` in this example). On the function's page, select **Function Keys** to open the page where you can create and manage these keys.
+You can also assign access keys through the [Azure portal](https://portal.azure.com). On the page for the Functions app, select **Functions**, then select the specific function to secure (which is named `RandomNumber` in this example). On the function's page, select **Function Keys** to open the page where you can create and manage these keys.
 
 > [!div class="nextstepaction"]
 > [Part 4 - Main app implementation >>>](walkthrough-tutorial-authentication-04.md)

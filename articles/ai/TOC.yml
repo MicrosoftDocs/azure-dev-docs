@@ -32,16 +32,31 @@ items:
               href: keyless-connections.md
             - name: Use Azure AI Search without keys
               href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-    - name: Agents and Model Context Protocol (MCP)
+    - name: AI app design
       items:
-        - name: Azure Container Apps building block for MCP servers
-          href: https://aka.ms/mcp/aca
+        - name: AI agent orchestration patterns
+          href: /azure/architecture/ai-ml/guide/ai-agent-design-patterns?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Design your AI app to support foundation model life cycles
+          href: /azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+    - name: Agents with Model Context Protocol (MCP)
+      items:
+        - name: Build Agents using Model Context Protocol on Azure
+          href: intro-agents-mcp.md
+        - name: Build a TypeScript MCP server using Azure Container Apps servers
+          href: build-mcp-server-ts.md
         - name: Create OpenAI-powered agents using MCP
           href: https://aka.ms/mcp/openai
         - name: Build AI agent tools using remote MCP with Azure Functions
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
         - name: Host Remote MCP Servers in Azure App Service
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
+    - name: Discover and try new models
+      items:
+        - name: Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK
+          href: how-to/use-reasoning-model-inference.md
+        - name: Get started with DeepSeek-R1 reasoning model
+          href: /azure/ai-foundry/model-inference/tutorials/get-started-deepseek-r1?tabs=python     
+
     - name: AI app templates
       items:
         - name: Overview

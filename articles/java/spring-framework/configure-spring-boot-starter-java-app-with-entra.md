@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 01/17/2023
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 adobe-target: true
 ---

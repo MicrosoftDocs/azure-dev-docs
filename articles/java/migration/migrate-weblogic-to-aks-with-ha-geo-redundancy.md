@@ -7,7 +7,15 @@ ms.reviewer: haiche
 ms.topic: how-to
 ms.date: 12/23/2024
 recommendations: false
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java,, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-aks
+  - migration-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) with geo-redundancy

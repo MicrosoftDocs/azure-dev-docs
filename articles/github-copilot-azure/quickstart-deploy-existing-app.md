@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Deploy your existing project to Azure with GitHub Copilot for Azure
-description: This article walks through a scenario that shows how to use GitHub Copilot for Azure to ask for recommended services and generate the necessary Bicep files to deploy the existing application to Azure using those recommendations.
+description: This article walks through a scenario that shows how to use GitHub Copilot for Azure to deploy an existing website. You ask Copilot to recommended Azure services and generate the necessary Bicep files to deploy the existing application to Azure using those recommendations.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 12/19/2024
+ms.date: 5/30/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -12,15 +12,16 @@ ms.collection: ce-skilling-ai-copilot
 
 This quickstart guides you in using GitHub Copilot for Azure to bring your existing application to Azure. It demonstrates how GitHub Copilot for Azure helps you create Azure infrastructure with Bicep and deploy your application to Azure. 
 
+GitHub Copilot for Azure supports two modes:
+
+- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn. It might provide instructions or even source code, but you take action or edit files yourself.
+- **Agent mode** allows you to command GitHub Copilot to take action in your project, including creating and editing files, executing commands in the terminal window, and so on.
  
 ## Prerequisites 
 
-For complete setup instructions, see the Get started article. Make sure that you have the following items: 
+For complete setup instructions, see the [Get started](get-started.md) article. Make sure that you have the following items: 
 
-- A GitHub Copilot account. 
-- The GitHub Copilot Chat extension for Visual Studio Code. 
-- The GitHub Copilot for Azure extension for Visual Studio Code. 
-- An Azure subscription. If you don't have one, GitHub Copilot for Azure can help. 
+[!INCLUDE [ghcpa-prerequisites](includes/prerequisites.md)] 
 
 
 ## Create Bicep for your existing application and deploy it to Azure by using GitHub Copilot for Azure 

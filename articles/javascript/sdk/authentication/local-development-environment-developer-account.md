@@ -3,7 +3,12 @@ title: "Local dev: Auth JS apps to Azure services with dev accounts"
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript during local development using developer accounts.
 ms.date: 02/25/2025
 ms.topic: how-to
-ms.custom: dexx-track-js, devx-track-azurecli, devx-track-azurepowershell, devx-track-js
+ms.custom:
+  - dexx-track-js
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 # Authenticate JavaScript apps to Azure services during local development using developer accounts

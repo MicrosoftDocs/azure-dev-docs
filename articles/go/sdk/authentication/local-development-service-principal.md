@@ -3,7 +3,10 @@ title: Authenticate Go apps to Azure services during local development using ser
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Go during local development using dedicated application service principals.
 ms.date: 11/22/2024
 ms.topic: how-to
-ms.custom: devx-track-go, devx-track-azurecli
+ms.custom:
+  - devx-track-go
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Authenticate Go apps to Azure services during local development using service principals

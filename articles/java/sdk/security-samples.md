@@ -4,7 +4,7 @@ description: Learn how to get sample source code for working with Microsoft Entr
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jogiles
-ms.date: 07/31/2017
+ms.date: 06/02/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---

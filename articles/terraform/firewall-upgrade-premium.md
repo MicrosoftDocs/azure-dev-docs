@@ -6,9 +6,11 @@ ms.topic: how-to
 service: firewall
 ms.service: azure-firewall
 ms.date: 10/26/2023
-ms.custom: devx-track-terraform
 author: vhorne
 ms.author: victorh
+ms.custom:
+  - devx-track-terraform
+  - sfi-image-nochange
 ---
 
 # Migrate Azure Firewall Standard to Premium using Terraform

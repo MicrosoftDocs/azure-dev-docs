@@ -4,7 +4,13 @@ description: Learn how to install Jenkins on an Azure Linux virtual machine and 
 keywords: jenkins, azure, devops, portal, linux, virtual machine
 ms.topic: quickstart
 ms.date: 08/13/2024
-ms.custom: devx-track-jenkins, devx-track-azurecli, mode-portal, devx-track-extended-java, linux-related-content
+ms.custom:
+  - devx-track-jenkins
+  - devx-track-azurecli
+  - mode-portal
+  - devx-track-extended-java
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Get Started: Install Jenkins on an Azure Linux VM

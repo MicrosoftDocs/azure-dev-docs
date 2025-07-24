@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 09/09/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java

@@ -1,0 +1,43 @@
+items:
+- name: Azure MCP Server (Preview)
+  href: index.yml
+  items:
+    - name: Overview
+      href: overview.md
+    - name: Get started
+      href: get-started.md
+    - name: Tools
+      expanded: true
+      items:
+        - name: Overview
+          href: tools/index.md
+        - name: Azure AI Search
+          href: tools/ai-search.md
+        - name: Azure App Configuration
+          href: tools/app-configuration.md
+        - name: Azure Cache for Redis
+          href: tools/azure-cache-for-redis.md          
+        - name: Azure CLI Extension
+          href: tools/azure-cli-extension.md
+        - name: Azure Data Explorer
+          href: tools/azure-data-explorer.md
+        - name: Azure DB for PostgreSQL
+          href: tools/postgresql.md
+        - name: Azure Cosmos DB
+          href: tools/cosmos-db.md
+        - name: Azure Key Vault 
+          href: tools/key-vault-key.md
+        - name: Azure Monitor
+          href: tools/monitor.md
+        - name: Azure RBAC
+          href: tools/azure-rbac.md
+        - name: Azure Native ISV
+          href: tools/azure-native-isv.md          
+        - name: Azure Service Bus
+          href: tools/service-bus.md
+        - name: Azure Storage
+          href: tools/storage.md
+        - name: Resource Group
+          href: tools/resource-group.md
+        - name: Subscription
+          href: tools/subscription.md

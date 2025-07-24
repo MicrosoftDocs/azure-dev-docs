@@ -5,8 +5,11 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jogiles
 ms.date: 04/01/2025 
-ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.topic: get-started
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Get started with Azure extensions for IntelliJ and Eclipse
