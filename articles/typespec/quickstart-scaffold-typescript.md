@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a new TypeScript API project with TypeSpec"
+title: "Quickstart: Create a new API project with TypeSpec and TypeScript"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
 ms.date: 07/24/2025
@@ -9,7 +9,7 @@ ms.custom: devx-track-typespec, devx-track-js, devx-track-ts
 #customer intent: As a developer or API designer, I want to create an TypeSpec API and deploy it to Azure so that I can learn the entire end to end development and deployment cycle.
 ---
 
-# Quickstart: Create a new TypeSpec API project with TypeScript
+Quickstart: Create a new API project with TypeSpec and TypeScript
 
 In this quickstart: learn how to use TypeSpec to design, generate, and implement a RESTful TypeScript API application. TypeSpec is an open-source language for describing cloud service APIs and generates client and server code for multiple platforms. By following this quickstart, you learn how to define your API contract once and generate consistent implementations, helping you build more maintainable and well-documented API services.
 
