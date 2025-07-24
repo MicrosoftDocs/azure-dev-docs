@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 az ad sp create-for-rbac --name <app-name>
 ```
 
-The output of the command is similar to the following example.  Make note of these values or keep this window open because you need these values in the next step and can't view the password (client secret) value again.
+The output of the command is similar to the following example. Make note of these values or keep this window open because you need these values in the next step and can't view the password (client secret) value again.
 
 ```json
 {
