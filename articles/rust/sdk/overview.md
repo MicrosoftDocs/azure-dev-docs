@@ -1,5 +1,5 @@
 ---
-title: Use Azure crates for Rust
+title: Use Azure SDK crates for Rust
 description: Get started with Azure crates for Rust. Learn authentication, explore supported services like Storage and Key Vault, and follow best practices with code examples.
 ms.date: 07/17/2025
 ms.topic: concept-article
@@ -44,7 +44,7 @@ The Azure crates for Rust are currently in **beta**. While the APIs are stabiliz
 
 ## Prerequisites to develop with crates
 
-- Rust 1.85 or later. The version is specified in the Azure create for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
+- Rust 1.85 or later. The version is specified in the Azure crate for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
 - An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
 - [Azure CLI](/cli/azure)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
