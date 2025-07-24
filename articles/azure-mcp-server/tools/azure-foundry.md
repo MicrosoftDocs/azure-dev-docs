@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 07/22/2025
+ms.date: 07/24/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -35,7 +35,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Search for free playground | Optional | If set to true, returns model list limited to include only models available in GitHub model playground authenticated with GitHub token. |
+| Search for free playground | Optional | If set to true, returns a list of models from Azure AI Foundry that can also be used with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
 | Publisher name | Optional | A filter to specify the publisher of the models to retrieve. |
 | License name | Optional | A filter to specify the license type of the models to retrieve. |
 | Model name | Optional | The name of the model to search for. |
