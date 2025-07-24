@@ -2,7 +2,7 @@
 title: "Quickstart: Create a new TypeScript API project with TypeSpec"
 description: Learn how to generate and set up a new RESTful TypeScript API project using TypeSpec to scaffold consistent client and server code for cloud services.
 ms.topic: quickstart
-ms.date: 04/30/2025
+ms.date: 07/24/2025
 ms.custom: devx-track-typespec, devx-track-js, devx-track-ts
 #zone_pivot_groups: typespec-quickstart-on-azure-languages
 #zone_pivot_group_filename: developer/typespec/zone-pivot-groups.json
@@ -185,7 +185,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
     ```typescript
     import { CosmosClient, Database, Container } from "@azure/cosmos";
     import { DefaultAzureCredential } from "@azure/identity";
-
+    
     /**
      * Interface for CosmosDB configuration settings
      */
@@ -193,9 +193,9 @@ Now that the basic Express.js API server is working, update the Express.js serve
       endpoint: string;
       databaseId: string;
       containerId: string;
-      partionKey: string;
+      partitionKey: string;
     } 
-
+    
     /**
      * Singleton class for managing CosmosDB connections
      */
@@ -203,9 +203,9 @@ Now that the basic Express.js API server is working, update the Express.js serve
       private static instance: CosmosClientManager;
       private client: CosmosClient | null = null;
       private config: CosmosConfig | null = null;
-
+    
       private constructor() {}
-
+    
       /**
        * Get the singleton instance of CosmosClientManager
        */
@@ -215,7 +215,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
         }
         return CosmosClientManager.instance;
       }
-
+    
       /**
        * Initialize the CosmosDB client with configuration if not already initialized
        * @param config CosmosDB configuration
@@ -229,7 +229,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           });
         }
       }
-
+    
       /**
        * Get a database instance, creating it if it doesn't exist
        * @param config CosmosDB configuration
@@ -240,7 +240,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
         const { database } = await this.client!.databases.createIfNotExists({ id: config.databaseId });
         return database;
       }
-
+    
       /**
        * Get a container instance, creating it if it doesn't exist
        * @param config CosmosDB configuration
@@ -250,11 +250,11 @@ Now that the basic Express.js API server is working, update the Express.js serve
         const database = await this.getDatabase(config);
         const { container } = await database.containers.createIfNotExists({
           id: config.containerId,
-          partitionKey: { paths: [config.partionKey] }
+          partitionKey: { paths: [config.partitionKey] }
         });
         return container;
       }
-
+    
       /**
        * Clean up resources and close connections
        */
@@ -263,7 +263,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
         this.config = null;
       }
     }
-
+    
     export const buildError = (error: any, message: string) => {
       const statusCode = error?.statusCode || 500;
       return {
@@ -280,28 +280,23 @@ Now that the basic Express.js API server is working, update the Express.js serve
     ```typescript
     import { Widgets, Widget, WidgetList,   AnalyzeResult,Error } from "../generated/models/all/demo-service.js";
     import { WidgetMergePatchUpdate } from "../generated/models/all/typespec/http.js";
-    import { CosmosClientManager, buildError } from "../azure/cosmos-client.js";
+    import { CosmosClientManager, CosmosConfig, buildError } from "../azure/cosmosClient.js";
     import { HttpContext } from "../generated/helpers/router.js";
     import { Container } from "@azure/cosmos";
-
+    
     export interface WidgetDocument extends Widget {
       _ts?: number;
       _etag?: string;
     }
-
+    
     /**
      * Implementation of the Widgets API using Azure Cosmos DB for storage
      */
     export class WidgetsCosmosController implements Widgets<HttpContext>  {
-      private readonly cosmosConfig: {
-        endpoint: string;
-        databaseId: string;
-        containerId: string;
-        partionKey: string;
-      };
+      private readonly cosmosConfig: CosmosConfig;
       private readonly cosmosManager: CosmosClientManager;
       private container: Container | null = null;
-
+    
       /**
        * Creates a new instance of WidgetsCosmosController
        * @param azureCosmosEndpoint Cosmos DB endpoint URL
@@ -314,25 +309,26 @@ Now that the basic Express.js API server is working, update the Express.js serve
         if (!databaseId) throw new Error("databaseId is required");
         if (!containerId) throw new Error("containerId is required");
         if (!partitionKey) throw new Error("partitionKey is required");
-        
+    
         this.cosmosConfig = {
           endpoint: azureCosmosEndpoint,
           databaseId: databaseId,
           containerId: containerId,
-          partionKey: partitionKey
+          partitionKey: partitionKey
         };
-        
+    
         this.cosmosManager = CosmosClientManager.getInstance();
       }
-
+    
       /**
        * Get the container reference, with caching
        * @returns The Cosmos container instance
        */
-      private async getContainer(): Promise<Container> {
+      private async getContainer(): Promise<Container | null> {
         if (!this.container) {
           try {
             this.container = await this.cosmosManager.getContainer(this.cosmosConfig);
+            return this.container;
           } catch (error: any) {
             console.error("Container initialization error:", error);
             throw buildError(error, `Failed to access container ${this.cosmosConfig.containerId}`);
@@ -340,7 +336,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
         }
         return this.container;
       }
-
+    
       /**
        * Create a new widget
        * @param widget The widget to create
@@ -349,24 +345,28 @@ Now that the basic Express.js API server is working, update the Express.js serve
       async create(ctx: HttpContext,
         body: Widget
       ): Promise<Widget | Error> {
-
+    
         const id = body.id;
-
+    
         try {
           const container = await this.getContainer();
-
+    
+          if(!container) {
+            return buildError({statusCode:500}, "Container is not initialized");
+          }
+    
           if (!body.id) {
             return buildError({statusCode:400}, "Widget ID is required");
           }
-          
+    
           const response = await container.items.create<Widget>(body, { 
             disableAutomaticIdGeneration: true 
           });
-          
+    
           if (!response.resource) {
             return buildError({statusCode:500}, `Failed to create widget ${body.id}: No resource returned`);
           }
-          
+    
           return this.documentToWidget(response.resource);
         } catch (error: any) {
           if (error?.statusCode === 409) {
@@ -375,7 +375,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           return buildError(error, `Failed to create widget ${id}`);
         }
       }
-
+    
       /**
        * Delete a widget by ID
        * @param id The ID of the widget to delete
@@ -383,6 +383,11 @@ Now that the basic Express.js API server is working, update the Express.js serve
       async delete(ctx: HttpContext, id: string): Promise<void | Error> {
         try {
           const container = await this.getContainer();
+    
+          if(!container) {
+            return buildError({statusCode:500}, "Container is not initialized");
+          }
+    
           await container.item(id, id).delete();
         } catch (error: any) {
           if (error?.statusCode === 404) {
@@ -391,7 +396,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
           return buildError(error, `Failed to delete widget ${id}`);
         }
       }
-
+    
       /**
        * Get a widget by ID
        * @param id The ID of the widget to retrieve
@@ -400,18 +405,23 @@ Now that the basic Express.js API server is working, update the Express.js serve
       async read(ctx: HttpContext, id: string): Promise<Widget | Error> {
         try {
           const container = await this.getContainer();
+    
+          if(!container) {
+            return buildError({statusCode:500}, "Container is not initialized");
+          }
+    
           const { resource } = await container.item(id, id).read<WidgetDocument>();
-          
+    
           if (!resource) {
             return buildError({statusCode:404}, `Widget with id ${id} not found`);
           }
-          
+    
           return this.documentToWidget(resource);
         } catch (error: any) {
           return buildError(error, `Failed to read widget ${id}`);
         }
       }
-
+    
       /**
        * List all widgets with optional paging
        * @returns List of widgets
@@ -419,16 +429,21 @@ Now that the basic Express.js API server is working, update the Express.js serve
       async list(ctx: HttpContext): Promise<WidgetList | Error> {
         try {
           const container = await this.getContainer();
+    
+          if(!container) {
+            return buildError({statusCode:500}, "Container is not initialized");
+          }
+    
           const { resources } = await container.items
             .query({ query: "SELECT * FROM c" })
             .fetchAll();
-          
+    
           return { items: resources.map(this.documentToWidget) };
         } catch (error: any) {
           return buildError(error, "Failed to list widgets");
         }
       }
-
+    
       /**
        * Update an existing widget
        * @param id The ID of the widget to update
@@ -442,40 +457,44 @@ Now that the basic Express.js API server is working, update the Express.js serve
       ): Promise<Widget | Error> {
         try {
           const container = await this.getContainer();
-          
+    
+          if(!container) {
+            return buildError({statusCode:500}, "Container is not initialized");
+          }
+    
           // First check if the widget exists
           const { resource: item } = await container.item(id).read<WidgetDocument>();
           if (!item) {
             return buildError({statusCode:404}, `Widget with id ${id} not found`);
           }
-          
+    
           // Apply patch updates to the existing widget
           const updatedWidget: Widget = {
             ...item,
             ...body,
             id
           };
-          
+    
           // Replace the document in Cosmos DB
           const { resource } = await container.item(id).replace(updatedWidget);
-          
+    
           if (!resource) {
             return buildError({statusCode:500}, `Failed to update widget ${id}: No resource returned`);
           }
-          
+    
           return this.documentToWidget(resource);
         } catch (error: any) {
           return buildError(error, `Failed to update widget ${id}`);
         }
       }
-
+    
       async analyze(ctx: HttpContext, id: string): Promise<AnalyzeResult | Error> {
         return {
           id: "mock-string",
           analysis: "mock-string",
         };
       }
-
+    
       /**
        * Convert a Cosmos DB document to a Widget
        */
@@ -503,7 +522,7 @@ Now that the basic Express.js API server is working, update the Express.js serve
     import { addSwaggerUi } from "./swagger-ui.js";
     
     const azureCosmosEndpoint = process.env.AZURE_COSMOS_ENDPOINT!;
-    const azureCosmosDatabase = "WidgetsDb";
+    const azureCosmosDatabase = "WidgetDb";
     const azureCosmosContainer = "Widgets";
     const azureCosmosPartitionKey = "/Id";
     
@@ -659,32 +678,32 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
 
     ```bicep
     metadata description = 'Bicep template for deploying a GitHub App using Azure Container Apps and Azure Container Registry.'
-
+    
     targetScope = 'resourceGroup'
     param serviceName string = 'api'
     var databaseName = 'WidgetDb'
     var containerName = 'Widgets'
     var partitionKey = '/id'
-
+    
     @minLength(1)
     @maxLength(64)
     @description('Name of the environment that can be used as part of naming resource convention')
     param environmentName string
-
+    
     @minLength(1)
     @description('Primary location for all resources')
     param location string
-
+    
     @description('Id of the principal to assign database and application roles.')
     param deploymentUserPrincipalId string = ''
-
+    
     var resourceToken = toLower(uniqueString(resourceGroup().id, environmentName, location))
-
+    
     var tags = {
       'azd-env-name': environmentName
       repo: 'https://github.com/typespec'
     }
-
+    
     module managedIdentity 'br/public:avm/res/managed-identity/user-assigned-identity:0.4.1' = {
       name: 'user-assigned-identity'
       params: {
@@ -693,7 +712,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         tags: tags
       }
     }
-
+    
     module cosmosDb 'br/public:avm/res/document-db/database-account:0.8.1' = {
       name: 'cosmos-db-account'
       params: {
@@ -748,7 +767,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         ]
       }
     }
-
+    
     module containerRegistry 'br/public:avm/res/container-registry/registry:0.5.1' = {
       name: 'container-registry'
       params: {
@@ -761,12 +780,12 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         acrSku: 'Standard'
       }
     }
-
+    
     var containerRegistryRole = subscriptionResourceId(
       'Microsoft.Authorization/roleDefinitions',
       '8311e382-0749-4cb8-b61a-304f252e45ec'
     ) 
-
+    
     module registryUserAssignment 'br/public:avm/ptn/authorization/resource-role-assignment:0.1.1' = if (!empty(deploymentUserPrincipalId)) {
       name: 'container-registry-role-assignment-push-user'
       params: {
@@ -775,7 +794,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         roleDefinitionId: containerRegistryRole
       }
     }
-
+    
     module logAnalyticsWorkspace 'br/public:avm/res/operational-insights/workspace:0.7.0' = {
       name: 'log-analytics-workspace'
       params: {
@@ -784,7 +803,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         tags: tags
       }
     }
-
+    
     module containerAppsEnvironment 'br/public:avm/res/app/managed-environment:0.8.0' = {
       name: 'container-apps-env'
       params: {
@@ -795,7 +814,7 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         zoneRedundant: false
       }
     }
-
+    
     module containerAppsApp 'br/public:avm/res/app/container-app:0.9.0' = {
       name: 'container-apps-app'
       params: {
@@ -855,35 +874,19 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
         ]
       }
     }
-
+    
     output AZURE_COSMOS_ENDPOINT string = cosmosDb.outputs.endpoint
     output AZURE_COSMOS_DATABASE string = databaseName
     output AZURE_COSMOS_CONTAINER string = containerName
     output AZURE_COSMOS_PARTITION_KEY string = partitionKey
-
+    
     output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerRegistry.outputs.loginServer
-    output AZURE_CONTAINER_REGISTRY_USERNAME string = containerRegistry.outputs.location
-    output DEPLOYMENT_USER_PRINCIPAL_ID string = deploymentUserPrincipalId
+    output AZURE_CONTAINER_REGISTRY_NAME string = containerRegistry.outputs.name
     ```
 
     The **OUTPUT** variables allow you to use the provisioned cloud resources with your local development.
 
-1. The containerAppsApp tag uses the serviceName variable (set to `api` at the top of the file) and the `api` specified in `./azure.yaml`. This connection tells the Azure Developer CLI where to deploy the .NET project to the Azure Container Apps hosting resource.
-
-    ```bicep
-    ...bicep...
-
-    module containerAppsApp 'br/public:avm/res/app/container-app:0.9.0' = {
-      name: 'container-apps-app'
-      params: {
-        name: 'container-app-${resourceToken}'
-        environmentResourceId: containerAppsEnvironment.outputs.resourceId
-        location: location
-        tags: union(tags, { 'azd-service-name': serviceName })                    <--------- `API`
-
-    ...bicep..
-    ```
-
+1
 ## Deploy application to Azure
 
 You can deploy this application to Azure using Azure Container Apps:
@@ -925,8 +928,9 @@ You can deploy this application to Azure using Azure Container Apps:
 
 Once deployed, you can:
 
-1. Access the Swagger UI to test your API at `/.api-docs`.
-2. Use the **Try it now** feature on each API to create, read, update, and delete widgets through the API. 
+1. In the console, select the `Endpoint` url to open it in a browser. 
+1. Add the route, `/.api-docs`, to the endpoint to use the Swagger UI.
+1. Use the **Try it now** feature on each method to create, read, update, and delete widgets through the API. 
 
 ## Grow your application
 
