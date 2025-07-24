@@ -35,7 +35,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Search for free playground | Optional | If true, filters models to include only those that users can use for free for prototyping. |
+| Search for free playground | Optional | If set to true, returns model list limited to include only models available in GitHub model playground authenticated with GitHub token. |
 | Publisher name | Optional | A filter to specify the publisher of the models to retrieve. |
 | License name | Optional | A filter to specify the license type of the models to retrieve. |
 | Model name | Optional | The name of the model to search for. |
