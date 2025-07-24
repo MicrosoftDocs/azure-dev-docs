@@ -116,6 +116,8 @@ Fine-tuning also has some challenges:
 - **Maintenance and updating**: You need to update fine-tuned models as your domain changes.
 - **Model drift**: Fine-tuning for a specific task can make the model less effective at general language tasks.
 
+
+
 [Customize a model through fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio) explains how to fine-tune a model.
 
 ## Fine-tuning vs. RAG
