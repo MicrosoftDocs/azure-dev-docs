@@ -100,7 +100,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Configure environment variables for application
 
-Set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your JavaScript app. You need to make the application service principal credentials available to your app at runtime.  The `DefaultAzureCredential` object looks for the service principal information in these environment variables.
+Set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your JavaScript app. You need to make the application service principal credentials available to your app at runtime. The `DefaultAzureCredential` object looks for the service principal information in these environment variables.
 
 ```bash
 AZURE_CLIENT_ID=<value>
