@@ -25,7 +25,7 @@ The Azure crates for Rust provide a collection of client libraries that make it 
 - **Unified configuration**: Configure service clients, logging, and retries with `ClientOptions`.
 - **Consistent error handling**: Handle errors consistently across services with `azure_core::Error`.
 - **Response handling**: Access detailed HTTP response data with `Response<T>`.
-- **Pagination support**: Work with paginated APIs using `Pager<T>` for async streams.
+- **Pagination support**: Work with paginated APIs by using `Pager<T>` for async streams.
 - **Authentication abstractions**: Standardized credential management via `TokenCredential`.
 
 ## Differences between crates and REST APIs
@@ -34,18 +34,18 @@ Use the following information to understand when to use each type of access.
 
 * The Azure crates are the preferred method for accessing your Azure service. These crates abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * Azure REST APIs are the preferred method if you are:
-  * Working with preview services that don't have Azure crates available. Consider your code as preview, which should be updated when the service is generally available with crates.
-  * Wanting to make REST calls directly because you don't want the entire crate to use a single REST API or you want deeper control over the HTTP requests.
+  * Working with preview services that don't have Azure crates available yet. Consider your code as preview, which should be updated when the service is generally available with crates.
+  * Wanting to make REST calls directly because you don't want to use the entire crate to use a single REST API or you want deeper control over the HTTP requests.
 
 
 ## Rust version
 
-The Azure crates for Rust are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
+The Azure crates for Rust are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes may occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
 
 ## Prerequisites to develop with crates
 
 - Rust 1.85 or later. The version is specified in the Azure SDK crate for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
-- An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
+- An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/).
 - [Azure CLI](/cli/azure)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
 
@@ -54,13 +54,13 @@ The Azure crates for Rust are currently in **beta**. While the APIs are stabiliz
 
 ### Install Azure crates
 
-Get Azure crates from [crates.io](https://crates.io). Install the individual crates you need. 
+Get Azure crates from [crates.io](https://crates.io). Install the individual crates that you need. 
 
 ```console
 cargo add azure_identity azure_security_keyvault_secrets azure_storage_blob
 ```
 
-The crates depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure crates.
+These crates depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure crates.
 
 ## Supported Azure services
 
@@ -75,7 +75,7 @@ The following Azure services, prefixed with `azure_`, are currently supported:
 | **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
 | **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
 
-Crates.io has other crates for Azure services, which were established prior to the official Azure crates listed above. These crates aren't associated with Azure and shouldn't be used for modern development.
+Crates.io has other crates for Azure services that were established before the official Azure crates listed above. These crates aren't associated with Azure and shouldn't be used for modern development.
 
 ## Crate Cargo.toml features
 
@@ -100,7 +100,7 @@ azure_security_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
 
 ## Provide authentication credentials
 
-The Azure crates need credentials to authenticate to Microsoft Entra ID. Services provide different authentication methods to connect to services. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
+The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
