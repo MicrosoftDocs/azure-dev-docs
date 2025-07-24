@@ -280,12 +280,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Secure logging
 
-When working with sensitive information, the client libraries implement secure logging practices, by default, to avoid exposing secrets in logs.
+When you're working with sensitive information, the client libraries implement secure logging practices, by default, to avoid exposing secrets in logs.
 
 
 ### Rust feature for debug logging
 
-To help protect end users from accidental Personally-Identifiable Information (PII) exposure in logs or traces, models' default implementation of `core::fmt::Debug` formats as a non-exhaustive structure tuple. 
+To help protect end users from accidental exposure of personal data in logs or traces, models' default implementation of `core::fmt::Debug` formats as a non-exhaustive structure tuple.
 
 ```rust
 use azure_identity::DefaultAzureCredential;
