@@ -9,7 +9,7 @@ ms.custom: devx-track-rust
 
 # Use Azure crates for Rust 
 
-The Azure crates for Rust provides a collection of client libraries that make it easy to interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience that's natural for Rust developers.
+The Azure crates for Rust provide a collection of client libraries that make it easy to interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience that's natural for Rust developers.
 
 [Source code] | [Crates (crates.io)] | [API reference documentation] | [REST API documentation] | [Product documentation]
 
@@ -32,7 +32,7 @@ The Azure crates for Rust provides a collection of client libraries that make it
 
 Use the following information to understand when to use each type of access.
 
-* The Azure crates are the preferred method of accessing your Azure service. These crates abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
+* The Azure crates are the preferred method for accessing your Azure service. These crates abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * Azure REST APIs are the preferred method if you are:
   * Working with preview services that don't have Azure crates available. Consider your code as preview, which should be updated when the service is generally available with crates.
   * Wanting to make REST calls directly because you don't want the entire crate to use a single REST API or you want deeper control over the HTTP requests.
@@ -40,11 +40,11 @@ Use the following information to understand when to use each type of access.
 
 ## Rust version
 
-The Azure crates for Rust are currently in **beta**. While the APIs are stabilizing and the crate is suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
+The Azure crates for Rust are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
 
 ## Prerequisites to develop with crates
 
-- Rust 1.85 or later. The version is specified in the Azure crate for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
+- Rust 1.85 or later. The version is specified in the Azure SDK crate for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml)
 - An Azure subscription ([create one for free](https://azure.microsoft.com/free/))
 - [Azure CLI](/cli/azure)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
@@ -95,7 +95,7 @@ An example `Cargo.toml` configuration for an Azure SDK for Rust feature might lo
 
 ```toml
 [dependencies]
-azure_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
+azure_security_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
 ```
 
 ## Provide authentication credentials
