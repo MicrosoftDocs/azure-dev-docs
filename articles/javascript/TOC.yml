@@ -45,8 +45,6 @@
       href: how-to/with-visual-studio-code/clone-github-repository.md
   - name: Develop web apps
     items: 
-    - name: Create a static frontend
-      href: how-to/create-static-web-app.md
     - name: Upload image to Storage
       href: tutorial/browser-file-upload-azure-storage-blob.md
     - name: Express.js with MongoDB
