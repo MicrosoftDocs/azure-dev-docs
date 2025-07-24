@@ -40,7 +40,7 @@ Use the following information to understand when to use each type of access.
 
 ## Rust version
 
-The Azure crates for Rust is currently in **beta**. While the APIs are stabilizing and the crate is suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
+The Azure crates for Rust are currently in **beta**. While the APIs are stabilizing and the crate is suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
 
 ## Prerequisites to develop with crates
 
