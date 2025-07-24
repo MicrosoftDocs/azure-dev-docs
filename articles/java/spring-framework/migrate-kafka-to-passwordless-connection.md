@@ -6,7 +6,16 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
+  - passwordless-dotnet
+  - spring-cloud-azure
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs for Kafka

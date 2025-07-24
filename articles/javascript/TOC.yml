@@ -2,7 +2,7 @@
   href: index.yml
   items:
   - name: Get started
-    href: core/what-is-azure-for-javascript-development.md
+    href: what-is-azure-for-javascript-development.md
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
@@ -45,8 +45,6 @@
       href: how-to/with-visual-studio-code/clone-github-repository.md
   - name: Develop web apps
     items: 
-    - name: Create a static frontend
-      href: how-to/create-static-web-app.md
     - name: Upload image to Storage
       href: tutorial/browser-file-upload-azure-storage-blob.md
     - name: Express.js with MongoDB
@@ -120,14 +118,16 @@
         href: sdk/authentication/on-premises-apps.md
       - name: Credential chains
         href: sdk/authentication/credential-chains.md
+      - name: Best practices
+        href: sdk/authentication/best-practices.md
     - name: Looping over data
       href: sdk/loop-over-data.md
     - name: Debugging 
       href: sdk/debug-client-libraries.md
     - name: Testing
       href: sdk/test-sdk-integration.md
-    - name: Observability
-      href: how-to/node-sdk-logging.md
+  - name: Observability
+    href: logging.md
   - name: Testing
     href: core/test-azure-sdk-integrated-code.md
   - name: Training and certification

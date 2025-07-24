@@ -1,7 +1,7 @@
 ---
 title: Azure Export for Terraform concepts
 description: Learn how Azure Export for Terraform works, best practices, and limitations around the tool.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/10/2023
 ms.author: stema
 ms.custom: devx-track-terraform,devx-track-export-terraform

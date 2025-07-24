@@ -1,10 +1,8 @@
 ---
-title: 'Overview: Authenticate C++ apps to Azure using the Azure SDK'
+title: Authenticate C++ Apps to Azure Using the Azure SDK
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for C++ in both server environments and in local development.
-author: ronniegeraghty
-ms.author: rgeraghty
 ms.topic: overview
-ms.date: 3/11/2025
+ms.date: 5/08/2025
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.
@@ -67,7 +65,7 @@ When an app runs on a developer's workstation during local development, it still
 
 [DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the [TokenCredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_credentials_1_1_token_credential.html) protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
 
-To use `DefaultAzureCredential` in a C++ app, add the [azure-identity](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
+To use `DefaultAzureCredential` in a C++ app, add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
 ```bash
 vcpkg add port azure-identity-cpp

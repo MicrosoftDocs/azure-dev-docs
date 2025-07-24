@@ -46,6 +46,10 @@
             "redirect_url": "/azure/developer/java/ee/index"
         },
         {
+            "source_path": "eclipse-microprofile/deploy-microprofile-quarkus-java-app-with-maven-plugin.md",
+            "redirect_url": "/azure/app-service/quickstart-java?tabs=quarkus&pivots=java-javase"
+        },
+        {
             "source_path": "ee/jboss-eap-single-server-azure-vm.md",
             "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
@@ -60,6 +64,10 @@
         {
             "source_path": "ee/weblogic-server-azure-kubernetes-service.md",
             "redirect_url": "/azure/aks/howto-deploy-java-wls-app"
+        },
+        {
+            "source_path": "ee/how-to-configure-passwordless-datasource.md",
+            "redirect_url": "/azure/developer/java/ee/how-to-configure-passwordless-datasource-wls"
         },
         {
             "source_path": "fundamentals/java-jdk-docker-images.md",
@@ -361,6 +369,10 @@
         {
             "source_path": "spring-framework/spring-cloud-azure.md",
             "redirect_url": "/azure/developer/java/spring-framework/developer-guide-overview"
+        },
+        {
+            "source_path": "spring-framework/spring-messaging-support.md",
+            "redirect_url": "/azure/developer/java/spring-framework/spring-messaging-event-hubs-support"
         },
         {
             "source_path": "toolkit-for-eclipse/azure-toolkit-for-eclipse-azure-project-properties.md",

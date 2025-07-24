@@ -1,9 +1,11 @@
 ---
 title: Build and run a containerized Python web app locally with MongoDB
 description: Build and run a containerized Python web app (Django or Flask) locally with MongoDB or using Azure Cosmos DB for MongoDB. In later articles in this tutorial series, you learn to deploy a Python web app to Azure App Service.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2025
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Build and run a containerized Python web app locally
@@ -132,6 +134,8 @@ In this section, you build a Docker image for the Python web app using either Vi
 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/) to start the daemon before proceeding.
+
+1. Once Visual Studio Code and the Docker extension are installed, go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
 1. In VS Code, open the Docker extension and then select the **Docker** extension on the Activity Bar.
 

@@ -1,18 +1,20 @@
 ---
 title: Getting started with hosting Python apps on Azure
 description: Index of getting started material in the Azure documentation for hosting Python app code.
-ms.date: 1/23/2024
-ms.topic: conceptual
+ms.date: 05/20/2025
+ms.topic: get-started
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Hosting Python apps on Azure
 
-Azure provides various different ways to host your app depending on your needs. The article [Hosting applications on Azure](../intro/hosting-apps-on-azure.md) provides an overview of the different options.
+Azure offers several options for hosting your application, each suited to different levels of control and responsibility. For an overview of these options, see [Hosting applications on Azure](../intro/hosting-apps-on-azure.md)e.
 
-Generally speaking, choosing an Azure hosting option is a matter of choosing on the continuum of control versus responsibility. The more control you need, the more responsibility you take on for management of the resource(s). In this continuum, we recommend starting with Azure App Service, with the least administrative responsibility on your part. Then, consider other options in the continuum moving toward taking more administrative responsibility of your Azure resources. At the other end of the continuum from App Service is Azure Virtual Machines, where you have the most control and more administrative responsibility for maintaining your resources.
+In general, selecting a hosting option involves balancing control with management responsibility. The more control you require over the infrastructure, the more responsibility you take on for management of one or more resources.
 
-The sections in this article are arranged approximately from more managed options (less management overhead for you) to less managed options (more control for you).
+We recommend starting with Azure App Service, which provides a highly managed environment with minimal administrative overhead. As your needs evolve, you can explore other options that offer increased flexibility and control, such as Azure Container Apps, Azure Kubernetes Service (AKS), or ultimately Azure Virtual Machines, which provide the greatest control but also require the most maintenance.
+
+The hosting options in this article are presented in order from more managed (less responsibility on your part) to less managed (more control and responsibility).
 
 - **Web app hosting with Azure App Service**:
   - [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/breadcrumb/toc.json)

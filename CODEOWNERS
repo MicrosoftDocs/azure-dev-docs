@@ -27,7 +27,8 @@
 
 # Azure SDK authentication topics
 /articles/go/sdk/authentication/            @scottaddie @chlowell
-/articles/java/sdk/authentication/          @scottaddie @g2vinay @billwert
+/articles/java/sdk/authentication/          @scottaddie @g2vinay @anannya03
 /articles/javascript/sdk/authentication/    @scottaddie @KarishmaGhiya @minhanh-phan @maorleger
 /articles/python/sdk/authentication/        @scottaddie @pvaneck @xiangyan99
+/articles/python/sdk/authorization/         @scottaddie @pvaneck @xiangyan99
 /articles/cpp/sdk/authentication/           @scottaddie @antkmsft @ronniegeraghty

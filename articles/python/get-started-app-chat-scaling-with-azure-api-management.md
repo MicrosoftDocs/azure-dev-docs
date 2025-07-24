@@ -1,7 +1,10 @@
 ---
 title: Scale Azure OpenAI for Python with Azure API Management
 description: Learn how to add load balancing with Azure API Management to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 12/20/2024
+ms.date: 06/26/2025
+ms.update-cycle: 180-days
+ms.author: johalexander
+author: ms-johnalex
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
@@ -11,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Scale Azure OpenAI for Python with Azure API Management
 
-[!INCLUDE [aca-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-api-management.md)]
+[!INCLUDE [apim-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-api-management.md)]
 
 ## Prerequisites
 
@@ -30,7 +33,7 @@ ms.collection: ce-skilling-ai-copilot
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-api-management.md)]
+[!INCLUDE [scaling-load-balancer-apim-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-api-management.md)]
 
 [!INCLUDE [py-deployment-procedure](../ai/includes/redeploy-procedure-chat-azure-api-management.md)]
 

@@ -1,0 +1,93 @@
+{
+    "$schema": "https://github.com/dotnet/docs-tools/blob/main/WhatsNew.Infrastructure/Configuration/reposettings.schema.json",
+    "repositoryName": "azure-dev-docs-pr",
+    "repositoryOwner": "MicrosoftDocs",
+    "docSetProductName": "Azure developer documentation",
+    "rootDirectory": "articles/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "./"
+    },
+    "repositoryUrl": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
+    "branches": [
+        {
+            "name": "main",
+            "isDefault": true
+        }
+    ],
+    "inclusionCriteria": { "minAdditionsToFile": 40 },
+    "areas": [
+        {
+            "names": ["ai"],
+            "heading": "AI apps using Azure services"
+        },
+        {
+            "names": ["ansible"],
+            "heading": "Ansible on Azure"
+        },
+        {
+            "names": ["azure-developer-cli"],
+            "heading": "Azure Developer CLI (azd)"
+        },
+        {
+            "names": ["azure-mcp-server"],
+            "heading": "Azure MCP Server"
+        },
+        {
+            "names": ["chef"],
+            "heading": "Chef Software on Azure"
+        },
+        {
+            "names": ["cpp"],
+            "heading": "Azure for C++"
+        },
+        {
+            "names": ["dev-tunnels"],
+            "heading": "Dev tunnels"
+        },
+        {
+            "names": ["github-copilot-azure"],
+            "heading": "GitHub Copilot for Azure"
+        },
+        {
+            "names": ["github"],
+            "heading": "Azure and GitHub integration"
+        },
+        {
+            "names": ["go"],
+            "heading": "Azure for Go"
+        },
+        {
+            "names": ["iac"],
+            "heading": "Infrastructure as Code"
+        },
+        {
+            "names": ["intro"],
+            "heading": "Introduction to Azure for developers"
+        },
+        {
+            "names": ["java"],
+            "heading": "Azure for Java"
+        },
+        {
+            "names": ["javascript"],
+            "heading": "Azure for JavaScript"
+        },
+        {
+            "names": ["jenkins"],
+            "heading": "Jenkins on Azure"
+        },
+        {
+            "names": ["python"],
+            "heading": "Azure for Python"
+        },
+        {
+            "names": ["terraform"],
+            "heading": "Terraform on Azure"
+        },
+        {
+            "names": ["typespec"],
+            "heading": "TypeSpec"
+        }
+    ]
+}

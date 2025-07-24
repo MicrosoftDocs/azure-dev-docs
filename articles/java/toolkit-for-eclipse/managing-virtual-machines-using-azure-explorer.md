@@ -5,8 +5,11 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
 ms.date: 08/25/2020
-ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.topic: how-to
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Manage virtual machines by using the Azure Explorer for Eclipse

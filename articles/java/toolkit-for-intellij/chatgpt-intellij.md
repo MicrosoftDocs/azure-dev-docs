@@ -7,6 +7,7 @@ ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 01/26/2024
+ms.update-cycle: 180-days
 ms.subservice: intelligent-apps
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -96,7 +97,7 @@ You can select the **Configuration** tab to set the following parameters:
 
 | Name              | Description                                                                                                                                                                                                                                                                                                                   |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Max response      | Sets a limit on the number of tokens per model response. The API supports a maximum of 4096 tokens shared between the prompt (including system message, examples, message history, and user query) and the model's response. One token is roughly four characters for typical English text.                                   |
+| Max response      | Sets a limit on the number of tokens the model can generate.<br>The total tokens (prompt + response) you can send depends on the model you deploy:<br>• gpt-35-turbo-1106 / 0125 – up to 16 385 tokens<br>• gpt-35-turbo-16k-0613 – up to 16 385 tokens<br>• gpt-4-turbo-2024-04-09 – up to 128 000 tokens<br>• gpt-4o-2024-05-13 – up to 128 000 tokens<br>For the full, up-to-date list of limits, see [Model summary table and region availability](/azure/ai-foundry/openai/concepts/models#model-summary-table-and-region-availability). Always ensure the sum of your prompt and expected completion fits within the model's context window. |
 | Temperature       | Controls randomness. Lowering the temperature means that the model produces more repetitive and deterministic responses. Increasing the temperature results in more unexpected or creative responses. Try adjusting temperature or Top probabilities, but not both.                                                           |
 | Top probabilities | Similar to temperature, controls randomness but uses a different method. Lowering the Top probabilities value narrows the model's token selection to likelier tokens. Increasing the value lets the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top probabilities, but not both. |
 | Stop sequences    | Makes the model end its response at a desired point. The model response ends before the specified sequence, so it doesn't contain the stop sequence text. For GPT-35-Turbo, using `<|im_end|>` ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.       |

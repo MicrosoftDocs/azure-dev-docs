@@ -5,8 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 08/28/2024
-ms.topic: article
-ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
+ms.topic: install-set-up-deploy
+ms.custom:
+  - mvc
+  - devx-track-java
+  - devx-track-azurecli
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Deploy Spring Boot Application to Azure Kubernetes Service

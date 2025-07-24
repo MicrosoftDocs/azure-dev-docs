@@ -34,6 +34,9 @@ items:
     - name: Jenkins
       tocHref: /azure/developer/jenkins
       topicHref: /azure/developer/jenkins/index
+    - name: Migrate
+      tocHref: /azure/developer/migrate
+      topicHref: /azure/developer/migrate/index
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
@@ -46,3 +49,12 @@ items:
     - name: Dev Tunnels CLI
       tocHref: /azure/developer/dev-tunnels
       topicHref: /azure/developer/dev-tunnels/index
+    - name: GitHub Copilot for Azure
+      tocHref: /azure/developer/github-copilot-azure
+      topicHref: /azure/developer/github-copilot-azure/index
+    - name: TypeSpec
+      tocHref: /azure/developer/typespec
+      topicHref: /azure/developer/typespec/index
+    - name: Azure MCP Server
+      tocHref: /azure/developer/azure-mcp-server
+      topicHref: /azure/developer/azure-mcp-server/index

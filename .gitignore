@@ -12,4 +12,6 @@ _repo.*/
 *.DS_Store
 *.lnk
 .github/copilot-instructions.md
+.github/instructions/
+.github/logs/
 .github/prompts/

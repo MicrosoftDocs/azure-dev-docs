@@ -6,7 +6,9 @@ ms.author: alexwolf
 ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
-ms.custom: devx-track-azdevcli
+ms.custom:
+  - devx-track-azdevcli
+  - sfi-image-nochange
 ---
 
 # Helm and Kustomize support

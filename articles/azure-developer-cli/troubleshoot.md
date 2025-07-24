@@ -5,7 +5,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 keywords: azd, known issues, troubleshooting, azure developer cli
 ms.topic: troubleshooting
-ms.date: 9/14/2024
+ms.date: 05/22/2025
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023, devx-track-extended-java, devx-track-python
 # Customer intent: As a developer, I'm looking for solutions to common problems that occur when I'm using Azure Developer CLI.
@@ -259,9 +259,67 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
 
 ---
 
+## Cached Dockerfile used instead of current Dockerfile
+
+When using `azd` in your local development environment with Docker, Docker may use the cached version of your Dockerfile instead of the current version. This results in the deployment using a container with incorrect information. 
+
+### Solution
+
+To configure your local Docker installation, which is used by Azure Developer CLI to build the container, you need to configure Docker with the following environment variables:
+
+```console
+DOCKER_BUILDKIT=1
+DOCKER_BUILD_ARGS="--no-cache"
+```
+
+You can change your `azd up` to include these settings: 
+
+```console
+DOCKER_BUILDKIT=1 DOCKER_BUILD_ARGS="--no-cache" azd up
+```
+
 ## `azd pipeline config` support
 
 `azd pipeline config` is currently not supported in [DevContainers/VS Code Remote Containers](https://code.visualstudio.com/docs/devcontainers/containers).
+
+## Compose feature errors
+
+The `azd` compose feature is only available for specific project types. If you try to use compose commands like `azd add` or `azd infra gen` in an unsupported context, you may encounter the following errors.
+
+### Incompatible project
+
+If you see an `ERROR: incompatible project` message when running the `azd add` command, check the type of project you're working with. The `azd add` command is not supported for .NET Aspire projects or for `azd` templates that already have an `infra` folder defined. Attempting to use `azd add` with these project types will result in errors such as:
+
+* ERROR: incompatible project: found Aspire app host
+* ERROR: incompatible project: found infra directory and azure.yaml without resources
+
+    :::image type="content" source="media/troubleshoot/incompatible-project-aspire.png" alt-text="A screenshot showing the incompatible .NET Aspire project error.":::
+
+    :::image type="content" source="media/troubleshoot/incompatible-project-infra.png" alt-text="A screenshot showing the incompatible project infrastructure error.":::
+
+### Project does not contain infrastructure to generate
+
+The error `ERROR: this project does not contain any infrastructure to generate` occurs when:
+
+* You run `azd infra gen` without any compose resources defined in your project.
+* In .NET Aspire projects, this error can also appear if `azd` cannot detect an Aspire App Host in the current directory.
+
+To resolve this error, use `azd add` to add new resources before running `azd infra gen` or ensure your .NET Aspire project is structured correctly.
+
+:::image type="content" source="media/troubleshoot/no-infrastructure-generate.png" alt-text="A screenshot showing the infrastructure error.":::
+
+## Error resolving Azure resource
+
+The command `azd show <name>` might fail with the error: `ERROR: resolving '<name>': AZURE_RESOURCE_<NAME>_ID is not set as an output variable`. This could happen for a number of reasons:
+
+* The resource `<name>` does not exist in `azure.yaml` under the resources: node.
+* The resource `<name>` has not been provisioned yet.
+
+:::image type="content" source="media/troubleshoot/error-resolving-azure-resource.png" alt-text="A screenshot showing the azure resource error.":::
+
+### Solution
+
+Run `azd up` to provision the resources. You may need to run `azd infra gen` first to generate the updated Bicep including the resource `<name>`, then run `azd up`.
 
 ## Live metrics support for Python
 

@@ -17,6 +17,8 @@ items:
     href: azure-developer-key-concepts.md
   - name: Overview of Azure billing
     href: azure-developer-billing.md
+  - name: What's new in Azure developer documentation
+    href: whats-new.md
   - name: Azure developer centers
     expanded: true
     items:

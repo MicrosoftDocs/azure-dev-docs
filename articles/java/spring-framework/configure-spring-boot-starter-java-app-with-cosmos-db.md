@@ -5,8 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 01/18/2023
-ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
+ms.topic: how-to
+ms.custom:
+  - devx-track-java
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Access data with Azure Cosmos DB NoSQL API

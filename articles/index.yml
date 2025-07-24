@@ -12,9 +12,12 @@ metadata:
   author: mcleanbyron
   ms.author: mcleans
   manager: mcleans
-  ms.date: 04/25/2025
+  ms.date: 06/05/2025
 highlightedContent:
   items:
+    - title: What's new in Azure developer documentation
+      itemType: concept
+      url: ./intro/whats-new.md
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
@@ -36,9 +39,6 @@ highlightedContent:
     - title: Key concepts for building Azure apps
       itemType: architecture
       url: ./intro/azure-developer-key-concepts.md
-    - title: Versioning policy for Azure services, SDKs, and CLI tools
-      itemType: concept
-      url: ./intro/azure-service-sdk-tool-versioning.md
 
 productDirectory:
 #  title: Developer centers
@@ -60,6 +60,19 @@ productDirectory:
           text: Deploy your apps
         - url: ./github-copilot-azure/troubleshoot-examples.md
           text: Troubleshoot your apps
+    - title: Azure MCP Server Preview
+      imageSrc: /media/logos/logo_azure.svg
+      links:
+        - url: ./azure-mcp-server/overview.md
+          text: What is the Azure MCP Server?
+        - url: ./azure-mcp-server/get-started.md?pivots=mcp-github-copilot
+          text: Get started with GitHub Copilot with Visual Studio Code
+        - url: ./azure-mcp-server/get-started.md?pivots=mcp-csharp
+          text: Get started with .NET
+        - url: ./azure-mcp-server/get-started.md?pivots=mcp-python
+          text: Get started with Python
+        - url: ./azure-mcp-server/tools/index.md
+          text: Azure MCP Server tools
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:

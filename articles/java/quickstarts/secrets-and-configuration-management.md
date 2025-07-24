@@ -2,7 +2,7 @@
 title: Quickstarts for secrets and configuration management for Java apps on Azure
 description: Lists getting started material in the Azure documentation for secrets and configuration management for Java apps.
 ms.date: 05/15/2025
-ms.topic: conceptual
+ms.topic: article
 author: KarlErickson
 ms.author: karler
 ms.reviewer: karler

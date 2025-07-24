@@ -4,7 +4,7 @@ description: This article describes how to containerize your Java applications f
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/13/2022
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro, devx-track-javaee-wls, devx-track-javaee-wls-aks
 recommendations: false

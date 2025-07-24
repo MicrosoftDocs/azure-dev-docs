@@ -2,7 +2,7 @@
 title: TypeSpec Resources  
 description: Discover the best learning resources for TypeSpec, including official documentation, an interactive playground, language reference, community support, and instructional videos.   
 ms.date: 02/12/2025  
-ms.topic: conceptual  
+ms.topic: article
 ---
 
 # Resources for developing TypeSpec apps

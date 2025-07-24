@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date:  07/23/2024
+ms.date: 06/23/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -9,13 +9,13 @@ ms.service: azure
 
 ## Open a development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. Arrange your monitor workspace so that you can see this documentation and the development environment at the same time.
+Follow these instructions to set up a preconfigured development environment with all the required dependencies to complete this article. Arrange your monitor workspace so that you can see this documentation and the development environment at the same time.
 
 This article was tested with the `switzerlandnorth` region for the evaluation deployment.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
+[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. Use GitHub Codespaces for the easiest development environment. It comes with the right developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
 > All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
@@ -159,7 +159,7 @@ To evaluate new answers, they must be compared to a *ground truth* answer, which
 The question-and-answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator that's used in the next step. For a production evaluation, you would generate more question-and-answer pairs. More than 200 are generated for this dataset.
 
 > [!NOTE]
-> Ony a few questions and answers are generated per source so that you can quickly complete this procedure. It isn't meant to be a production evaluation, which should have more questions and answers per source.
+> Only a few questions and answers are generated per source so that you can quickly complete this procedure. It isn't meant to be a production evaluation, which should have more questions and answers per source.
 
 ## Run the first evaluation with a refined prompt
 
@@ -360,7 +360,7 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="../media/get-started-app-chat-evaluations/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You can delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
