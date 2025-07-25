@@ -59,7 +59,7 @@ Get Azure SDK crates from [crates.io](https://crates.io). Install the individual
 cargo add azure_identity azure_security_keyvault_secrets azure_storage_blob
 ```
 
-These crates depend on `azure_core` for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK crates.
+These crates depend on [azure_core](https://crates.io/crates/azure_core) for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK crates.
 
 ## Supported Azure services
 
@@ -67,10 +67,8 @@ The following Azure services, prefixed with `azure_`, are currently supported:
 
 | Service | Crate | Description |
 |---------|---------|-------------|
-| **Core** | [azure_core](https://crates.io/crates/azure_core) | Shared functionality and HTTP pipeline |
 | **Cosmos DB** | [azure_data_cosmos](https://crates.io/crates/azure_data_cosmos) | NoSQL database operations |
 | **Event Hubs** | [azure_messaging_eventhubs](https://crates.io/crates/azure_messaging_eventhubs) | Big data streaming platform |
-| **Identity** | [azure_identity](https://crates.io/crates/azure_identity) | Authentication and credential management |
 | **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
 | **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
 
@@ -151,7 +149,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 `DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment. This approach provides flexibility when running your code in different environments.
 
-:::image type="content" source="./media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice Azure Developer CLI.":::
+:::image type="content" source="./media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice of Azure Developer CLI.":::
 
 
 ### Connection pooling and reuse
