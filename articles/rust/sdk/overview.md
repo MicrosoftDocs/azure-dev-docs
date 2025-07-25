@@ -105,7 +105,7 @@ The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azu
 * Chained authentication so several mechanisms can be available.
 
 
-## Creating secure clients with proper authentication
+## Create secure clients with proper authentication
 
 After creating a credential, pass it to your Azure SDK client along with any necessary configuration. The client might need additional information such as a service endpoint, or container name, which you can find in the Azure portal for your resource.
 
