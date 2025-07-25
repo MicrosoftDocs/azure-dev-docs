@@ -331,15 +331,7 @@ The targets are the crate names if you want to trace more or less for specific t
 
 ## Next steps
 
-<<<<<<< HEAD
 [!INCLUDE [common resources](../includes/resources.md)]
-=======
-- [docs.rs][API reference documentation]
-- [Azure SDK design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) - Language-agnostic design principles and patterns
-- [Azure SDK for Rust design guidelines](https://azure.github.io/azure-sdk/rust_introduction.html) - Language-specific design principles and patterns
-- [Azure SDK for Rust GitHub repository](https://github.com/Azure/azure-sdk-for-rust) - Source code and latest updates
-
->>>>>>> 3b76dc890961dd1bb94770a15b44267b29c020e4
 
 [cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
