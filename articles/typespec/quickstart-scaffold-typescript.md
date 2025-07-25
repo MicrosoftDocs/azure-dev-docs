@@ -22,6 +22,10 @@ In this quickstart, you:
 > * Deploy to Azure
 > * Run and test your API
 
+> [!IMPORTANT]
+> `@typespec/http-server-js` emitter is currently in PREVIEW.
+> This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
+
 ## Prerequisites
 
 [!INCLUDE [ts-prereq](includes/quickstart/prereqs-typescript.md)]
