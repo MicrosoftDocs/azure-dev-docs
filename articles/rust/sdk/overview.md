@@ -11,7 +11,7 @@ ms.custom: devx-track-rust
 
 The Azure SDK crates for Rust provide a collection of client libraries that make it easy to interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience that's natural for Rust developers.
 
-[Source code] | [Crates (crates.io)](https://crates.io/users/azure-sdk?sort=recent-downloads) | [API reference documentation] | [REST API documentation] | [Product documentation]
+[Crates] | [API reference documentation] | [Source code] 
 
 ## Azure SDK crate concepts
 
