@@ -2,7 +2,7 @@
 title: "Azure for Rust Developers: Build and Deploy Cloud Applications"
 description: Learn how Azure empowers Rust developers to build, deploy, and manage cloud applications with high performance and reliability.
 ms.topic: overview
-ms.date: 07/07/2025
+ms.date: 07/23/2025
 ms.custom: devx-track-rust
 #customer intent: As a Rust developer, I want to understand how Azure supports Rust applications so that I can build and deploy high-performance cloud solutions. 
 ---
@@ -93,11 +93,11 @@ Set up these tools for the best Rust on Azure development experience:
   - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) for local Functions development
   - [Docker](https://www.docker.com/) for container development and testing
 
-## Use Azure client libraries with Rust
+## Use Azure SDK crates with Rust
 
-Access Azure services programmatically with the [Azure SDK for Rust](https://github.com/Azure/azure-sdk-for-rust), where each crate provides service-specific connection capabilities.
+Access Azure services programmatically with the [Azure SDK crates for Rust](https://crates.io/users/azure-sdk?sort=recent-downloads), where each crate provides service-specific connection capabilities.
 
-The SDK offers an idiomatic Rust API following the [Azure SDK Guidelines](https://azure.github.io/azure-sdk/rust_introduction.html) with features like:
+These crates offer an idiomatic Rust API following the [Azure SDK Guidelines](https://azure.github.io/azure-sdk/rust_introduction.html) with features like:
 
 - Authentication with Microsoft Entra ID (formerly Azure AD)
 - Automatic retries with exponential back-off
