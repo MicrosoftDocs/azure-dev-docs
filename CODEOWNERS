@@ -24,10 +24,10 @@
 /articles/javascript/ @diberry
 
 # Tools
-/articles/azure-developer-cli/ @alexwolfmsft
+/articles/azure-developer-cli/ @alexwolfmsft @kristenwomack
 /articles/typespec/ @diberry
-/articles/azure-mcp-server/ @ms-johnalex
-/articles/azure-mcp-server/tools @diberry
+/articles/azure-mcp-server/ @ms-johnalex @sandeep-sen
+/articles/azure-mcp-server/tools @diberry @sandeep-sen
 
 # Azure SDK authentication topics
 /articles/go/sdk/authentication/            @scottaddie @chlowell
