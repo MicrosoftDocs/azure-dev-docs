@@ -20,10 +20,13 @@
 /articles/python/ @bobtabor-msft
 /articles/go/ @bobtabor-msft
 /articles/cpp/ @ronniegeraghty @antkmsft
+/articles/rust/ @ronniegeraghty @heaths
+/articles/javascript/ @diberry
 
 # Tools
-/articles/azure-cli/ @alexwolfmsft
-/articles/typespect/ @diberry
+/articles/azure-developer-cli/ @alexwolfmsft
+/articles/typespec/ @diberry
+/articles/azure-mcp-server/ @ms-johnalex
 
 # Azure SDK authentication topics
 /articles/go/sdk/authentication/            @scottaddie @chlowell
@@ -32,3 +35,4 @@
 /articles/python/sdk/authentication/        @scottaddie @pvaneck @xiangyan99
 /articles/python/sdk/authorization/         @scottaddie @pvaneck @xiangyan99
 /articles/cpp/sdk/authentication/           @scottaddie @antkmsft @ronniegeraghty
+/articles/rust/sdk/authentication/          @scottaddie @ronniegeraghty @chlowell @heaths
