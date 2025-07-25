@@ -27,6 +27,7 @@
 /articles/azure-developer-cli/ @alexwolfmsft
 /articles/typespec/ @diberry
 /articles/azure-mcp-server/ @ms-johnalex
+/articles/azure-mcp-server/tools @diberry
 
 # Azure SDK authentication topics
 /articles/go/sdk/authentication/            @scottaddie @chlowell
