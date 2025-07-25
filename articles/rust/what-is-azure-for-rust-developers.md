@@ -93,9 +93,9 @@ Set up these tools for the best Rust on Azure development experience:
   - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) for local Functions development
   - [Docker](https://www.docker.com/) for container development and testing
 
-## Use Azure crates with Rust
+## Use Azure SDK crates with Rust
 
-Access Azure services programmatically with the [Azure crates for Rust](https://crates.io/users/azure-sdk?sort=recent-downloads), where each crate provides service-specific connection capabilities.
+Access Azure services programmatically with the [Azure SDK crates for Rust](https://crates.io/users/azure-sdk?sort=recent-downloads), where each crate provides service-specific connection capabilities.
 
 These crates offer an idiomatic Rust API following the [Azure SDK Guidelines](https://azure.github.io/azure-sdk/rust_introduction.html) with features like:
 
