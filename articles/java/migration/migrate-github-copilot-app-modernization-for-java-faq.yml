@@ -60,11 +60,11 @@ sections:
       - question: Why is the code regeneration process unstable?
         answer: App Modernization for Java is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
-      - question: Where are formulas stored on the local machine and how can they be shared?
+      - question: Where are tasks stored on the local machine and how can they be shared?
         answer: |
-         Predefined formulas are in the following location: **%USERPROFILE%\.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag**
+         Predefined tasks are in the following location: **%USERPROFILE%\.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag**
 
-         Custom formulas are in the following location: **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
+         Custom tasks are in the following location: **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
 
       - question: How do I switch large language models (LLMs)?
         answer: |
@@ -83,7 +83,7 @@ sections:
 
       - question: Does the tool store my source code?
         answer: |
-         No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom formulas either.
+         No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either.
 
          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
