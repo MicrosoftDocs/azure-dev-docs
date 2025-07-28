@@ -32,7 +32,7 @@ You can find available crate names in the [crate index for Azure](https://crates
 
 ## Install specific crate versions
 
-Sometimes you might need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you're **pinning** your dependency, which means your project continues using that version and won't automatically receive updates. While pinning can be useful in certain scenarios, we generally recommend using the latest version to benefit from ongoing improvements and security updates.
+Sometimes you need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
 ```console
 cargo add <crate-name>@<version-number>
@@ -55,7 +55,7 @@ azure_security_keyvault_secrets = "~0.16.2"  # Tilde range (allows >=0.16.2, <0.
 
 ## Install preview packages
 
-Azure SDK crates might have preview versions available that provide early access to new features. Preview versions are typically marked with pre-release identifiers.
+Azure SDK crates might have preview versions available that provide early access to new features. Preview versions typically include prerelease identifiers.
 
 To install a preview version, specify the exact prerelease version:
 
@@ -70,16 +70,16 @@ You can also add prerelease versions directly to your `Cargo.toml`:
 azure_storage_blob = "0.21.0-beta.1"
 ```
 
-Preview packages provide early access to new functionality but might not be as stable as general releases and shouldn't be used in production environments.
+Preview packages provide early access to new functionality but might not be as stable as general releases. Don't use preview packages in production environments.
 
 ## Configure crate features
 
-Azure SDK crates provide optional crate features that you can enable based on your needs such as:
+Azure SDK crates provide optional crate features that you can enable based on your needs, such as:
 
-- `debug`: Enables additional debugging information
-- `reqwest`: HTTP client implementation (often enabled by default)
-- `tokio`: Async runtime support
-- `xml`: XML serialization support
+- `debug`: Enables extra debugging information.
+- `reqwest`: HTTP client implementation (often enabled by default).
+- `tokio`: Async runtime support.
+- `xml`: XML serialization support.
 
 Enable features when adding a crate:
 
@@ -96,7 +96,7 @@ azure_identity = { version = "0.17", features = ["tokio", "debug"] }
 
 ## Verify crate installation
 
-After installation, you can verify that the correct version of a crate is installed.
+After installation, verify that you installed the correct version of a crate.
 
 ```console
 cargo tree | grep azure
@@ -121,13 +121,13 @@ This command shows all Azure-related crates in your dependency tree with their v
 ```
 
 
-You can also check your `Cargo.toml` file to see the crates you've explicitly added:
+Check your `Cargo.toml` file to see the crates you explicitly added:
 
 ```console
 cat Cargo.toml
 ```
 
-To see all dependencies including transitive ones:
+To see all dependencies, including transitive ones:
 
 ```console
 cargo tree
@@ -135,30 +135,30 @@ cargo tree
 
 ## Update crates
 
-To update all crates to their latest compatible versions:
+To update all crates to their latest compatible versions, run:
 
 ```console
 cargo update
 ```
 
-To update a specific crate:
+To update a specific crate, run:
 
 ```console
 cargo update <crate-name>
 ```
 
-To update to the latest version regardless of semantic versioning constraints:
+To update to the latest version regardless of semantic versioning constraints, run:
 
 ```console
 cargo upgrade
 ```
 
 > [!NOTE]
->The `cargo upgrade` command requires the `cargo-edit` plugin. Install it with `cargo install cargo-edit`.
+> The `cargo upgrade` command requires the `cargo-edit` plugin. Install it with `cargo install cargo-edit`.
 
 ## Remove a crate
 
-1. To remove a crate from your project, including the `Cargo.toml` file:
+1. To remove a crate from your project, including the `Cargo.toml` file, run:
 
     ```console
     cargo remove <crate-name>
@@ -181,26 +181,26 @@ cargo upgrade
 
 ### Build failures
 
-If you encounter build failures after adding Azure crates:
+If you encounter build failures after adding Azure crates, try the following steps:
 
-1. **Clear the build cache**:
+1. **Clear the build cache**.
    ```console
    cargo clean
    ```
 
-2. **Update your Rust toolchain**:
+1. **Update your Rust toolchain**.
    ```console
    rustup update
    ```
 
-3. **Check for platform-specific issues**: Some features might not be available on all platforms.
+1. **Check for platform-specific issues**: Some features might not be available on all platforms.
 
 ### SSL/TLS issues
 
 If you encounter SSL/TLS-related errors:
 
-- Ensure your system has up-to-date certificates
-- Consider using the `rustls` feature instead of `native-tls`:
+- Ensure your system has up-to-date certificates.
+- Consider using the `rustls` feature instead of `native-tls`.
 
   ```console
   cargo add azure_identity --features rustls
