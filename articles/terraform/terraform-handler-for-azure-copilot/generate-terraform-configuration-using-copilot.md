@@ -124,7 +124,7 @@ the "gpt-4" model. Specify the model version as "2024-05-01-preview" and
 set the deployment name to "myOpenAIModel".
 ```
 
-> [TIP]
+> [!TIP]
 > For more example prompts, see [Generate Terraform and Bicep configurations using Microsoft Copilot in Azure](/azure/copilot/generate-terraform-bicep#terraform-sample-prompts).
 
 ## Next steps
