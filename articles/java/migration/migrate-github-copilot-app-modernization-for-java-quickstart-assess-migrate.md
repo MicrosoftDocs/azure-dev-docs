@@ -26,11 +26,10 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot app modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure). 
+- [GitHub Copilot app modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
+- [Java 17](https://learn.microsoft.com/en-us/java/openjdk/download) and above.
+- [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
-  App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
-
-- [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
 
