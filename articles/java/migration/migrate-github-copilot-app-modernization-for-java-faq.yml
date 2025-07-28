@@ -30,8 +30,8 @@ sections:
 
           To manage the settings of Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
-      - question: What network configurations are required to use the GitHub Copilot app modernization for Java in VS Code?**
-        answer: To ensure the extension works correctly within VS Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you may need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, please refer to the official troubleshooting guide [Manage network access](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
+      - question: What network configurations are required to use GitHub Copilot App Modernization for Java in Visual Studio Code?
+        answer: To ensure that the extension works correctly within Visual Studio Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you might need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, see the official troubleshooting guide [Managing GitHub Copilot access to your enterprise's network](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
       
       - question: Will App Modernization for Java be open sourced in the future?
         answer: We currently have no plans to open source App Modernization for Java.
@@ -77,10 +77,10 @@ sections:
 
          For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com).
 
-      - question: How does the app modernization for Java extension use MCP server, and how can I check for updates or troubleshoot issues?
+      - question: How does App Modernization for Java extension use the MCP server, and how can I check for updates or troubleshoot issues?
         answer: |
-          App Modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the VS Code extension, the MCP server will be registered and started automatically.
+          App Modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
 
-          If you notice a special **refresh button** in the bottom-right corner of the GitHub Copilot Chat panel, it may indicate that tool updates are available. Click the button to automatically load the latest versions of the tools.
+          If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
 
-          App Modernization for Java MCP server also maintains logs. For troubleshooting, please check the log files located at: **%USERPROFILE%/.ghcp-appmod-java/logs**
+          The App Modernization for Java MCP server also maintains logs. To troubleshoot, check the log files located at: **%USERPROFILE%/.ghcp-appmod-java/logs**
