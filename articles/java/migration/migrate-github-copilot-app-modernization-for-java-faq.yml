@@ -31,7 +31,7 @@ sections:
           To manage the settings of Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
       - question: What network configurations are required to use the GitHub Copilot app modernization for Java in VS Code?**
-        answer: To ensure the extension works correctly within VS Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you may need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, please refer to the official troubleshooting guide: [Manage network access](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
+        answer: To ensure the extension works correctly within VS Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you may need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, please refer to the official troubleshooting guide [Manage network access](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
       
       - question: Will App Modernization for Java be open sourced in the future?
         answer: We currently have no plans to open source App Modernization for Java.
