@@ -4,6 +4,7 @@ description: This article provides an organized list of resources about Azure AI
 keywords: ai, azure openai service
 ms.topic: overview
 ms.date: 04/28/2025
+ms.update-cycle: 180-days
 ms.custom: overview, devx-track-go, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
 ---
