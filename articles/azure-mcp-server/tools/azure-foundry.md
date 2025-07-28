@@ -72,15 +72,15 @@ Example prompts include:
 
 <!-- azmcp foundry models deployments list -->
 
-Lists all model deployments associated with a specific Azure AI Foundry endpoint. Use this command to monitor and manage your active model deployments.
+Lists all model deployments associated with a specific Azure AI Foundry endpoint. Use this command to monitor and manage your active model deployments. In the following example prompts, replace `https://my-example-resource.openai.azure.com` with your actual Azure AI Foundry endpoint URL.
 
 Example prompts include:
 
-- **List deployments on production**: "Show me all model deployments on my https://production-ai.openai.azure.com endpoint"
-- **Check specific endpoint**: "What models are currently deployed to the https://customer-service.cognitiveservices.azure.com endpoint?"
-- **View regional deployments**: "List all deployments in my https://eastus-ai-service.openai.azure.com endpoint"
-- **Check deployment status**: "Show me the status of all models deployed to our https://main-ai.openai.azure.com endpoint"
-- **See active models**: "What AI models are running on our https://aistudio-prod.cognitiveservices.azure.com endpoint right now?"
+- **List deployments on production**: "Show me all model deployments on my https://my-example-resource.openai.azure.com endpoint"
+- **Check specific endpoint**: "What models are currently deployed to the https://my-example-resource.openai.azure.com endpoint?"
+- **View regional deployments**: "List all deployments in my https://my-example-resource.openai.azure.com endpoint"
+- **Check deployment status**: "Show me the status of all models deployed to our https://my-example-resource.openai.azure.com endpoint"
+- **See active models**: "What AI models are running on our https://my-example-resource.openai.azure.com endpoint right now?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
