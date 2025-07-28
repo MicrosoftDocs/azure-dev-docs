@@ -27,7 +27,7 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [GitHub Copilot app modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
-- [Java 17](https://learn.microsoft.com/en-us/java/openjdk/download) and above.
+- [Java 17](https://learn.microsoft.com/en-us/java/openjdk/download) or later.
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
 
