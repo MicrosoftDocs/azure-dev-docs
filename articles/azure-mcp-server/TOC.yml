@@ -15,16 +15,22 @@ items:
           href: tools/ai-search.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
+        - name: Azure Bicep schema
+          href: tools/azure-bicep-schema.md
         - name: Azure Cache for Redis
           href: tools/azure-cache-for-redis.md          
         - name: Azure CLI Extension
           href: tools/azure-cli-extension.md
+        - name: Azure Cosmos DB
+          href: tools/cosmos-db.md
         - name: Azure Data Explorer
           href: tools/azure-data-explorer.md
         - name: Azure DB for PostgreSQL
           href: tools/postgresql.md
-        - name: Azure Cosmos DB
-          href: tools/cosmos-db.md
+        - name: Azure Foundry
+          href: tools/azure-foundry.md
+        - name: Azure Grafana
+          href: tools/azure-grafana.md
         - name: Azure Key Vault 
           href: tools/key-vault-key.md
         - name: Azure Monitor
