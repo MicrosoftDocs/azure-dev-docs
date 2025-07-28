@@ -1457,34 +1457,12 @@
             }
         ]
     },
-
-
-
-
-
-    
-    "azure-bicepschema": {
-        "root": "azmcp bicepschema",
+    "azure-aks": {
+        "root": "azmcp aks",
         "tools": [
             {
-                "name": "get --resource-type",
-                "description": "Execute the get --resource-type operation.",
-                "params": [
-                    {
-                        "name": "resource-type",
-                        "description": "The resource type",
-                        "required": true
-                    }
-                ]
-            }
-        ]
-    },
-    "azure-grafana": {
-        "root": "azmcp grafana",
-        "tools": [
-            {
-                "name": "list --subscription",
-                "description": "Execute the list --subscription operation.",
+                "name": "cluster list --subscription",
+                "description": "Execute the cluster list --subscription operation.",
                 "params": [
                     {
                         "name": "subscription",
@@ -1495,17 +1473,12 @@
             }
         ]
     },
-    "azure-foundry": {
-        "root": "azmcp foundry",
+    "azure-loadtesting": {
+        "root": "azmcp loadtesting",
         "tools": [
             {
-                "name": "models list",
-                "description": "List models.",
-                "params": []
-            },
-            {
-                "name": "models deploy --subscription",
-                "description": "Execute the models deploy --subscription operation.",
+                "name": "test create --subscription",
+                "description": "Execute the test create --subscription operation.",
                 "params": [
                     {
                         "name": "subscription",
@@ -1515,12 +1488,127 @@
                 ]
             },
             {
-                "name": "models deployments list --endpoint",
-                "description": "Execute the models deployments list --endpoint operation.",
+                "name": "test get --subscription",
+                "description": "Execute the test get --subscription operation.",
                 "params": [
                     {
-                        "name": "endpoint",
-                        "description": "The endpoint",
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testresource list --subscription",
+                "description": "Execute the testresource list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testresource create --subscription",
+                "description": "Execute the testresource create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun create --subscription",
+                "description": "Execute the testrun create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun get --subscription",
+                "description": "Execute the testrun get --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun list --subscription",
+                "description": "Execute the testrun list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun update --subscription",
+                "description": "Execute the testrun update --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-sql": {
+        "root": "azmcp sql",
+        "tools": [
+            {
+                "name": "db show --subscription",
+                "description": "Execute the db show --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "firewall-rule list --subscription",
+                "description": "Execute the firewall-rule list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "elastic-pool list --subscription",
+                "description": "Execute the elastic-pool list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "server entra-admin list --subscription",
+                "description": "Execute the server entra-admin list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
                         "required": true
                     }
                 ]

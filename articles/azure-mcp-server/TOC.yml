@@ -33,6 +33,10 @@ items:
           href: tools/azure-grafana.md
         - name: Azure Key Vault 
           href: tools/key-vault-key.md
+        - name: Azure Kubernetes Service
+          href: tools/azure-aks.md
+        - name: Azure Load Testing
+          href: tools/azure-load-testing.md
         - name: Azure Monitor
           href: tools/monitor.md
         - name: Azure RBAC
@@ -41,6 +45,8 @@ items:
           href: tools/azure-native-isv.md          
         - name: Azure Service Bus
           href: tools/service-bus.md
+        - name: Azure SQL
+          href: tools/azure-sql.md
         - name: Azure Storage
           href: tools/storage.md
         - name: Resource Group
