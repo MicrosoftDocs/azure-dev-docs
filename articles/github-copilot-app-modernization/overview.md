@@ -29,13 +29,13 @@ AppCAT is also available as a stand-alone CLI tool that you can run independentl
 
 After a plan is generated, GitHub Copilot App Modernization is a powerful code transformation engine that combines expert-led migration strategies. Copilot applies structured changes with precision.
 
-For modernization scenarios, GitHub Copilot App Modernization offers predefined AI-powered formulas that encode proven migration strategies, applying expert knowledge to common Azure migration scenarios with high accuracy. Currently, app modernization offers predefined formulas that cover common migration scenarios including secret management, message queue integration, identity, and more.
+For modernization scenarios, GitHub Copilot App Modernization offers predefined AI-powered tasks that encode proven migration strategies, applying expert knowledge to common Azure migration scenarios with high accuracy. Currently, app modernization offers predefined tasks that cover common migration scenarios including secret management, message queue integration, identity, and more.
 
 For upgrades, GitHub Copilot App Modernization uses tools like OpenRewrite to perform refactoring, including API replacements and dependency updates, while GitHub Copilot addresses any remaining issues.
 
 ### 3. Automation through learning
 
-Beyond predefined formulas or strategies, you can capture migration logic into reusable formulas by converting Git commits into reusable migration patterns, or custom formulas. These custom formulas enable Copilot to apply learned remediations across multiple codebases with consistency and precision.
+Beyond predefined tasks or strategies, you can capture migration logic into reusable tasks by converting Git commits into reusable migration patterns, or custom tasks. These custom tasks enable Copilot to apply learned remediations across multiple codebases with consistency and precision.
 
 Whether you're applying a fix in the upgrade or ensuring Azure migration consistency across teams, GitHub Copilot uses these learned patterns to accelerate transformation with precision and repeatability.
 

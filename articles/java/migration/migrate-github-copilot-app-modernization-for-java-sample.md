@@ -22,7 +22,7 @@ To help you explore GitHub Copilot App Modernization for Java, we prepared a mig
 You can use App Modernization for Java to migrate the app estate to Azure by using the following features:
 
 - AppCAT for solution assessment
-- Predefined and custom formulas to migrate code and configurations to the following locations:
+- Predefined and custom tasks to migrate code and configurations to the following locations:
 
   - Azure Database for PostgreSQL
   - Azure Blob Storage

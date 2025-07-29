@@ -30,6 +30,9 @@ sections:
 
           To manage the settings of Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
+      - question: What network configurations are required to use GitHub Copilot App Modernization for Java in Visual Studio Code?
+        answer: To ensure that the extension works correctly within Visual Studio Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you might need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, see the official troubleshooting guide [Managing GitHub Copilot access to your enterprise's network](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
+      
       - question: Will App Modernization for Java be open sourced in the future?
         answer: We currently have no plans to open source App Modernization for Java.
 
@@ -60,31 +63,24 @@ sections:
       - question: Why is the code regeneration process unstable?
         answer: App Modernization for Java is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
-      - question: Where are formulas stored on the local machine and how can they be shared?
+      - question: Where are tasks stored on the local machine and how can they be shared?
         answer: |
-         Predefined formulas are in the following location: **%USERPROFILE%\.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag**
+         Predefined tasks are in the following location: **%USERPROFILE%\.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag**
 
-         Custom formulas are in the following location: **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
-
-      - question: How do I switch large language models (LLMs)?
-        answer: |
-         App Modernization for Java currently supports the following three models:
-
-         - `gpt-4o`
-         - `claude-3.5-sonnet`
-         - `gemini-2.0-flash`
-
-         To switch models, use the following steps:
-
-         1. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-         1. Select **Preferences: Open Settings (UI)**.
-         1. Search for **migrate.java**.
-         1. Adjust the **Migrate Java: Model Family** setting.
+         Custom tasks are in the following location: **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
 
       - question: Does the tool store my source code?
         answer: |
-         No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom formulas either.
+         No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either.
 
          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
 
          For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com).
+
+      - question: How does App Modernization for Java extension use the MCP server, and how can I check for updates or troubleshoot issues?
+        answer: |
+          App Modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
+
+          If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
+
+          The App Modernization for Java MCP server also maintains logs. To troubleshoot, check the log files located at: **%USERPROFILE%/.ghcp-appmod-java/logs**
