@@ -1,4 +1,37 @@
 {
+    "azure-azureterraformbestpractices": {
+        "root": "azmcp azureterraformbestpractices",
+        "tools": [
+            {
+                "name": "get",
+                "description": "Execute the get operation.",
+                "params": []
+            }
+        ]
+    },
+    "azure-bestpractices": {
+        "root": "azmcp bestpractices",
+        "tools": [
+            {
+                "name": "azurefunctions get-code-generation",
+                "description": "Execute the azurefunctions get-code-generation operation.",
+                "params": [],
+                "status": "new"
+            },
+            {
+                "name": "azurefunctions get-deployment",
+                "description": "Execute the azurefunctions get-deployment operation.",
+                "params": [],
+                "status": "new"
+            },
+            {
+                "name": "general get",
+                "description": "Get general.",
+                "params": []
+            }
+        ]
+    },
+
     "azure-app-configuration": {
         "root": "azmcp appconfig",
         "tools": [
@@ -1457,26 +1490,159 @@
             }
         ]
     },
-
-
-
-    
-    "azure-quick-review": {
-        "root": "azmcp extension azqr",
+    "azure-aks": {
+        "root": "azmcp aks",
         "tools": [
             {
-                "name": "generate report",
-                "description": "Generate compliance and security reports for Azure resources to identify non-compliant configurations.",
+                "name": "cluster list --subscription",
+                "description": "Execute the cluster list --subscription operation.",
                 "params": [
                     {
                         "name": "subscription",
-                        "description": "The Azure subscription ID or name to scan for compliance issues",
+                        "description": "The subscription",
                         "required": true
-                    },
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-loadtesting": {
+        "root": "azmcp loadtesting",
+        "tools": [
+            {
+                "name": "test create --subscription",
+                "description": "Execute the test create --subscription operation.",
+                "params": [
                     {
-                        "name": "resource-group",
-                        "description": "The name of the Azure resource group to scope the scan to a specific resource group",
-                        "required": false
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "test get --subscription",
+                "description": "Execute the test get --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testresource list --subscription",
+                "description": "Execute the testresource list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testresource create --subscription",
+                "description": "Execute the testresource create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun create --subscription",
+                "description": "Execute the testrun create --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun get --subscription",
+                "description": "Execute the testrun get --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun list --subscription",
+                "description": "Execute the testrun list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "testrun update --subscription",
+                "description": "Execute the testrun update --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-sql": {
+        "root": "azmcp sql",
+        "tools": [
+            {
+                "name": "db show --subscription",
+                "description": "Execute the db show --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "firewall-rule list --subscription",
+                "description": "Execute the firewall-rule list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "elastic-pool list --subscription",
+                "description": "Execute the elastic-pool list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "server entra-admin list --subscription",
+                "description": "Execute the server entra-admin list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
                     }
                 ]
             }

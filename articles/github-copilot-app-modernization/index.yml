@@ -28,14 +28,14 @@ landingContent:
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: reference
         links:
-          - text: Predefined formulas
-            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-formula.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Predefined tasks
+            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: quickstart
         links:
           - text: Assess and migrate a Java project
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - text: Create and apply your own formula
-            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - text: Create and apply your own task
+            url: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: sample
         links:
           - text: Migration sample
