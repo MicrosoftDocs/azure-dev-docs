@@ -45,7 +45,26 @@ Follow these steps to create and configure a pipeline:
    azd pipeline config
    ```
 
-1. Provide the requested GitHub information.
+1. When prompted to select a provider, choose **GitHub**.
+
+    ```output
+    ? Select a provider:  [Use arrows to move, type to filter]
+    > GitHub
+      Azure DevOps
+    ```
+
+1. Select your desired Azure subscription and region.
+
+1. When prompted to configure your remote repository, choose **Create a new private GitHub repository**. If you have an existing project you'd like to use, you can also choose **Select an existing GitHub project**.
+
+    ```azdeveloper
+    ? How would you like to configure your git remote to GitHub?  [Use arrows to move, type to filter]
+      Select an existing GitHub project
+    > Create a new private GitHub repository
+      Enter a remote URL directly
+    ```
+
+1. Enter a name for the new repository.
 
 1. When prompted to commit and push your local changes to start a new GitHub Actions run, enter `y`.
 
