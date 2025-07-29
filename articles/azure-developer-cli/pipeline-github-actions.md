@@ -1,9 +1,9 @@
 ---
 title: Configure a pipeline using GitHub Actions
-description: Learn how to create a pipeline and push updates using GitHub Actions and the Azure Developer CLI
+description: Learn how to create a pipeline and push updates using GitHub Actions and the Azure Developer CLI.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/12/2025
+ms.date: 07/29/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
@@ -18,12 +18,14 @@ In this article, you'll learn how to use the Azure Developer CLI (`azd`) to crea
 
 ## Prerequisites
 
-- [Install the Azure Developer CLI](install-azd.md).
-- [Visual Studio Code](https://code.visualstudio.com/download) installed.
+- [Install the Azure Developer CLI](install-azd.md)
+- [Visual Studio Code](https://code.visualstudio.com/download) (optional, for editing files)
+- A GitHub account
+- An Azure subscription
 
 ## Initialize the template
 
-This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) template, but you can follow these steps for any template that includes a pipeline definition file (typically found in the `.github` or `.azdo` folders).
+This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) template, but you can follow these steps for any `azd` template that includes a pipeline definition file (typically found in the `.github` or `.azdo` folders).
 
 1. In an empty directory, initialize the `hello-azd` template:
 
@@ -33,7 +35,7 @@ This example uses the [Hello-AZD](https://github.com/azure-samples/hello-azd) te
 
 1. When prompted, enter a name for the environment, such as *helloazd*.
 
-### Create a pipeline using GitHub Actions
+## Create a pipeline using GitHub Actions
 
 Follow these steps to create and configure a pipeline:
 
@@ -43,7 +45,26 @@ Follow these steps to create and configure a pipeline:
    azd pipeline config
    ```
 
-1. Provide the requested GitHub information.
+1. When prompted to select a provider, choose **GitHub**.
+
+    ```output
+    ? Select a provider:  [Use arrows to move, type to filter]
+    > GitHub
+      Azure DevOps
+    ```
+
+1. Select your desired Azure subscription and region.
+
+1. When prompted to configure your remote repository, choose **Create a new private GitHub repository**. If you have an existing project you'd like to use, you can also choose **Select an existing GitHub project**.
+
+    ```azdeveloper
+    ? How would you like to configure your git remote to GitHub?  [Use arrows to move, type to filter]
+      Select an existing GitHub project
+    > Create a new private GitHub repository
+      Enter a remote URL directly
+    ```
+
+1. Enter a name for the new repository.
 
 1. When prompted to commit and push your local changes to start a new GitHub Actions run, enter `y`.
 
@@ -62,50 +83,55 @@ Follow these steps to create and configure a pipeline:
 
    :::image type="content" source="media/configure-devops-pipeline/github-workflow.png" alt-text="Screenshot of GitHub workflow running.":::
 
-### Push a code change
+## Test the pipeline with a code change
 
 1. In the project's `/src/components/pages` directory, open `Home.razor`.
-2. Locate the `Hello AZD!` header text near the top of the file.
-3. Change the text to `Hello, pipeline!`.
-4. Save the file.
-5. Commit and push your change. This triggers the GitHub Actions pipeline to deploy the update.
+1. Locate the `Hello AZD!` header text near the top of the file.
+1. Change the text to `Hello, pipeline!`.
+1. Save the file.
+1. Commit and push your change. This action triggers the GitHub Actions pipeline to deploy the update.
 
    :::image type="content" source="media/configure-devops-pipeline/commit-changes-to-github.png" alt-text="Screenshot of steps required to make and commit change to test file.":::
 
-6. In your browser, open your project's GitHub repository to see:
+1. In your browser, open your project's GitHub repository to see:
    - Your commit
-   - The commit from GitHub Actions being set up
+   - The commit from GitHub Actions setup
 
    :::image type="content" source="media/configure-devops-pipeline/committed-changes-in-github-repo.png" alt-text="Screenshot of your committed change in GitHub.":::
 
-7. Select **Actions** to see the test update reflected in the workflow.
+1. Select **Actions** to see the test update reflected in the workflow.
 
    :::image type="content" source="media/configure-devops-pipeline/github-workflow-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
-8. To view the update, visit the web frontend URL.
+1. To view the deployed update, visit the web frontend URL provided in the `azd` output.
 
-### Use `azd` as a GitHub Action
+## Use `azd` as a GitHub Action
 
-Install [`azd` as a GitHub Action](https://aka.ms/azd-gha). To use it, add the following to `.github/workflows/azure-dev.yml`:
+You can install `azd` as a GitHub Action using the [setup-azd action](https://github.com/Azure/setup-azd). To use it, add the following to your `.github/workflows/azure-dev.yml` file:
 
-   ```yml
-   on: [push]
+```yml
+on: [push]
 
-   jobs:
-     build:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Install azd
-           uses: Azure/setup-azd@v0.1.0
-   ```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install azd
+        uses: Azure/setup-azd@v1.0.0
+```
+
+> [!NOTE]
+> Check the [setup-azd releases](https://github.com/Azure/setup-azd/releases) for the latest version number.
 
 ## Clean up resources
 
-When you no longer need the Azure resources created in this article, run:
+When you no longer need the Azure resources created in this article, run the following command:
 
 ```azdeveloper
 azd down
 ```
+
+This command removes all Azure resources associated with your project.
 
 ## Next steps
 
