@@ -28,6 +28,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
+| [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. 
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |

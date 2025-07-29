@@ -44,7 +44,9 @@ items:
         - name: Azure RBAC
           href: tools/azure-rbac.md
         - name: Azure Native ISV
-          href: tools/azure-native-isv.md          
+          href: tools/azure-native-isv.md
+        - name: Azure Quick Review CLI
+          href: tools/azure-compliance-quick-review.md
         - name: Azure Service Bus
           href: tools/service-bus.md
         - name: Azure SQL
