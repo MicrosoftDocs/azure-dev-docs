@@ -25,6 +25,8 @@ landingContent:
             url: https://typespec.io/docs/
           - text: .NET Quickstart
             url: quickstart-scaffold-dotnet.md
+          - text: TypeScript Quickstart
+            url: quickstart-scaffold-typescript.md
   
   - title: API language
     linkLists:
