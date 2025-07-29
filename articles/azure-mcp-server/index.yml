@@ -41,7 +41,7 @@ landingContent:
             url: tools/app-configuration.md
           - text: Azure Cache for Redis
             url: tools/azure-cache-for-redis.md
-          - text: Azure CLI Extension
+          - text: Azure CLI
             url: tools/azure-cli-extension.md
           - text: Azure Data Explorer
             url: tools/azure-data-explorer.md
