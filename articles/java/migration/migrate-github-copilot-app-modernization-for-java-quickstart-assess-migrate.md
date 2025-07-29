@@ -13,7 +13,7 @@ ms.service: azure-java
 
 # Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java
 
-This quickstart shows you how to use GitHub Copilot App Modernization for Java to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined formula to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+This quickstart shows you how to use GitHub Copilot App Modernization for Java to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
 The following video demonstrates how GitHub Copilot App Modernization for Java uses [AppCAT](/azure/migrate/appcat/java) to help assess a Java project for migration to Azure:
 
@@ -26,15 +26,10 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see the next section.
+- [GitHub Copilot app modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
+- [Java 17](/java/openjdk/download) or later.
+- [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
-  This extension pack bundles the following two extensions:
-  - [GitHub Copilot App Modernization for Java](migrate-github-copilot-app-modernization-for-java.md)
-  - [GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/overview)
-
-  App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
-
-- [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
 
 ## Sign in to use Copilot and then install App Modernization
 
@@ -80,9 +75,9 @@ When reviewing the summary report, you can select **Migrate to Azure SQL Databas
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
-## Apply a predefined formula
+## Apply a predefined task
 
-The migration Copilot provides predefined formulas for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Managed Identity formulas change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+The migration Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Managed Identity tasks change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
 1. In the **Summary Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
 
@@ -116,4 +111,4 @@ Use the following steps to apply the Test-Fix tool for fixing unit test failures
 
 ## Next step
 
-[Quickstart: create and apply your own formulas](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)
+[Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)

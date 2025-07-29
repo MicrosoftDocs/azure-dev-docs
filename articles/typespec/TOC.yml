@@ -8,6 +8,8 @@
   items:
     - name: .NET
       href: quickstart-scaffold-dotnet.md
+    - name: TypeScript
+      href: quickstart-scaffold-typescript.md
 - name: Resources
   items:
     - name: Getting started
