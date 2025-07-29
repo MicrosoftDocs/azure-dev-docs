@@ -1,36 +1,5 @@
 {
-    "azure-azureterraformbestpractices": {
-        "root": "azmcp azureterraformbestpractices",
-        "tools": [
-            {
-                "name": "get",
-                "description": "Execute the get operation.",
-                "params": []
-            }
-        ]
-    },
-    "azure-bestpractices": {
-        "root": "azmcp bestpractices",
-        "tools": [
-            {
-                "name": "azurefunctions get-code-generation",
-                "description": "Execute the azurefunctions get-code-generation operation.",
-                "params": [],
-                "status": "new"
-            },
-            {
-                "name": "azurefunctions get-deployment",
-                "description": "Execute the azurefunctions get-deployment operation.",
-                "params": [],
-                "status": "new"
-            },
-            {
-                "name": "general get",
-                "description": "Get general.",
-                "params": []
-            }
-        ]
-    },
+
 
     "azure-app-configuration": {
         "root": "azmcp appconfig",
@@ -225,6 +194,23 @@
             }
         ]
     },
+    "azure-developer-cli": {
+        "root": "azmcp extension azd",
+        "documentation": "https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/",
+        "tools": [
+            {
+                "name": "execute command",
+                "description": "Execute any Azure Developer CLI command.",
+                "params": [
+                    {
+                        "name": "command",
+                        "description": "The Azure Developer CLI command to execute (without the 'azd' prefix)",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
     "azure-cosmos-db": {
         "root": "azmcp cosmos",
         "tools": [
@@ -381,6 +367,22 @@
                 ]
             },
             {
+                "name": "secret list",
+                "description": "List secrets in a Key Vault.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    }
+                ]
+            },
+            {
                 "name": "secret get",
                 "description": "Retrieve a specific secret from a Key Vault.",
                 "params": [
@@ -400,6 +402,101 @@
                         "required": true
                     }
                 ]
+            },
+            {
+                "name": "secret create",
+                "description": "Create a new secret in a Key Vault.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "description": "The name of the secret to create",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "description": "The value of the secret to store",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "certificate list",
+                "description": "List certificates in a Key Vault.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "certificate get",
+                "description": "Retrieve a specific certificate from a Key Vault.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "description": "The name of the certificate to retrieve",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "certificate create",
+                "description": "Create a new certificate in a Key Vault with the default policy.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name",
+                        "required": true
+                    },
+                    {
+                        "name": "vault",
+                        "description": "The name of the Key Vault",
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "description": "The name of the certificate to create",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-mcp-tools": {
+        "root": "azmcp tool",
+        "documentation": "https://github.com/Azure-Samples/azure-mcp-server",
+        "tools": [
+            {
+                "name": "list",
+                "description": "List all available tools in the Azure MCP server.",
+                "params": []
             }
         ]
     },
