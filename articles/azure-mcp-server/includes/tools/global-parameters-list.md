@@ -28,7 +28,7 @@ The tools reference articles document the parameters specific to each tool. All 
 | **Retry delay** | Initial delay in seconds between retry attempts. For exponential backoff, this value is used as the base delay that gets multiplied on each retry. Default is 2 seconds. |
 | **Retry delay maximum** | Maximum delay in seconds between retries, regardless of the retry strategy. This parameter caps the delay time to prevent excessively long waits. Default is 10 seconds. |
 | **Retry mode** | Retry strategy to use when operations fail. `fixed` uses consistent delays between retries, while `exponential` increases the delay between each attempt. Default is `exponential` for better handling of temporary issues. |
-| **Retry network timeout** | Network operation time out in seconds. When operations take longer than this, they are canceled and might be retried if retries are enabled. Default is 100 seconds. |
+| **Retry network time out** | Network operation time out in seconds. When operations take longer than this time out, they are canceled and might be retried if retries are enabled. Default is 100 seconds. |
 
 Example prompts include:
 
@@ -37,5 +37,5 @@ Example prompts include:
 - **Set authentication method**: "Use 'credential' authentication for this session"
 - **Configure retries**: "Set maximum retries to 5 with a 3-second delay
 - **Set retry mode**: "Use 'fixed' retry mode with a maximum delay of 5 seconds"
-- **Set network timeout**: "Set network timeout to 120 seconds for all operations"
+- **Set network time out**: "Set network time out to 120 seconds for all operations"
 - **Configure retry parameters**: "Use exponential retry mode with a maximum of 4 retries and a delay of 2 seconds"
