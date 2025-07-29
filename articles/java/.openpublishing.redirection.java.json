@@ -255,6 +255,14 @@
             "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service"
         },
         {
+            "source_path": "migration/migrate-github-copilot-app-modernization-for-java-predefined-formula.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks"
+        },
+        {
+            "source_path": "migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task"
+        },
+        {
             "source_path": "sdk/java-sdk-add-certificate-ca-store.md",
             "redirect_url": "/azure/developer/java/sdk"
         },
