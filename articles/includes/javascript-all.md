@@ -199,7 +199,7 @@
 | Resource Management - Container Orchestrator Runtime | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerorchestratorruntime/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerorchestratorruntime-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerorchestratorruntime_1.0.0-beta.1/sdk/kubernetesruntime/arm-containerorchestratorruntime/) |
 | Resource Management - Container Registry | npm [10.1.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.1.0)<br>npm [11.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-containerregistry/v/11.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [10.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice-rest) |
-| Resource Management - Container Service | npm [22.2.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/22.2.0)<br>npm [23.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-containerservice/v/23.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [22.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service | npm [22.2.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/22.2.0)<br>npm [23.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-containerservice/v/23.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [22.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Container Service Fleet | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-containerservicefleet-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.0.0/sdk/containerservice/arm-containerservicefleet/) |
 | Resource Management - Content Delivery Network | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-cdn/v/9.1.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [16.3.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.3.0)<br>npm [17.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/17.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [16.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
@@ -400,7 +400,7 @@
 | Resource Management - Workloads SAP Virtual Instance | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-workloadssapvirtualinstance/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-workloadssapvirtualinstance-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0/sdk/workloads/arm-workloadssapvirtualinstance/) |
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.11.4](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.4) |  |  |
+| @autorest/openapi-to-typespec | npm [0.11.5](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.5) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.2) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -440,7 +440,7 @@
 | TypeSpec HTTP Client | npm [0.8.0](https://www.npmjs.com/package/@typespec/http-client/v/0.8.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.7.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.14.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.14.0) |  |  |
+| TypeSpec HTTP Client Python | npm [0.14.1-dev.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.14.1-dev.2) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.24](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.24) |  |  |
 | TypeSpec Rust | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.19.0) |  |  |
 | TypeSpec SSE | npm [0.72.1](https://www.npmjs.com/package/@typespec/sse/v/0.72.1) |  |  |
@@ -537,7 +537,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250724.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250724.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250728.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250728.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -576,7 +576,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.13.2](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.13.2) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.13.3](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.13.3) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
