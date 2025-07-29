@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 07/01/2025
+ ms.date: 07/22/2025
 ---
 
 ## Available tools
@@ -15,6 +15,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
+| [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Cache for Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Cache for Redis instances, Redis clusters, and access policies. |
 | [Azure CLI Extension](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
@@ -33,3 +34,4 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
 | [Resource Groups](../../tools/resource-group.md) | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | List Azure subscriptions. |
+| [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | Get guidance on implementing Terraform for Azure resources. |
