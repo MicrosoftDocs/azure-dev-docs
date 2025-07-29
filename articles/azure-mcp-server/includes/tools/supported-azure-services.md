@@ -14,7 +14,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|--------------|
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
-| [Azure best practices](../../tools/azure-bestpractices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Cache for Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Cache for Redis instances, Redis clusters, and access policies. |
 | [Azure CLI Extension](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
@@ -28,4 +28,4 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
 | [Resource Groups](../../tools/resource-group.md) | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | List Azure subscriptions. |
-| [Terraform best practices for Azure](../../tools/azure-terraform-bestpractices.md) | Get guidance on implementing Terraform for Azure resources. |
+| [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | Get guidance on implementing Terraform for Azure resources. |

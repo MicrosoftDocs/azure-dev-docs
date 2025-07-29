@@ -16,7 +16,7 @@ items:
         - name: Azure App Configuration
           href: tools/app-configuration.md
         - name: Azure best practices
-          href: tools/azure-bestpractices.md
+          href: tools/azure-best-practices.md
         - name: Azure Cache for Redis
           href: tools/azure-cache-for-redis.md          
         - name: Azure CLI Extension
@@ -44,4 +44,4 @@ items:
         - name: Subscription
           href: tools/subscription.md
         - name: Terraform best practices for Azure
-          href: tools/azure-terraform-bestpractices.md
+          href: tools/azure-terraform-best-practices.md
