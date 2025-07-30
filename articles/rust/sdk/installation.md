@@ -70,17 +70,17 @@ cargo update <crate-name>
 
 ## Remove a crate
 
-1. To remove a crate from your project, including the `Cargo.toml` file, run:
+To remove a crate from your project, including the `Cargo.toml` file, run:
 
-    ```console
-    cargo remove <crate-name>
-    ```
+  ```console
+  cargo remove <crate-name>
+  ```
     
-1. Build the project to update your `Cargo.lock` file:
+Build the project to update your `Cargo.lock` file:
 
-    ```console
-    cargo build
-    ```
+  ```console
+  cargo build
+  ```
 
 
 
