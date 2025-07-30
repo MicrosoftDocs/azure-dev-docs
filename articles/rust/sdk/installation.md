@@ -8,7 +8,7 @@ ms.custom: devx-track-rust
 adobe-target: true
 ---
 
-# Install Azure crates for Rust
+# Install Azure SDK crates for Rust
 
 To access specific Azure services in your projects, install Azure SDK crates for Rust by using Cargo. The Azure SDK for Rust consists of many individual crates that you can install in standard Rust environments. This modular approach lets you install only the crates you need for your project.
 
@@ -32,7 +32,7 @@ You can find available crate names in the [crate index for Azure](https://crates
 
 ## Install specific crate versions
 
-Sometimes you need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
+Sometimes you need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
 ```console
 cargo add <crate-name>@<version-number>
@@ -44,93 +44,14 @@ For example:
 cargo add azure_storage_blob@0.20.0
 ```
 
-You can also specify version requirements in your `Cargo.toml` file:
+You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html).
+
 
 ```toml
 [dependencies]
 azure_storage_blob = "0.20.0"           # Exact version
-azure_identity = "0.17"                  # Caret range (^0.17.0, allows 0.17.x)
-azure_security_keyvault_secrets = "~0.16.2"  # Tilde range (allows >=0.16.2, <0.17.0)
-```
-
-## Install preview packages
-
-Azure SDK crates might have preview versions available that provide early access to new features. Preview versions typically include prerelease identifiers.
-
-To install a preview version, specify the exact prerelease version:
-
-```console
-cargo add azure_storage_blob@0.21.0-beta.1
-```
-
-You can also add prerelease versions directly to your `Cargo.toml`:
-
-```toml
-[dependencies]
-azure_storage_blob = "0.21.0-beta.1"
-```
-
-Preview packages provide early access to new functionality but might not be as stable as general releases. Don't use preview packages in production environments.
-
-## Configure crate features
-
-Azure SDK crates provide optional crate features that you can enable based on your needs, such as:
-
-- `debug`: Enables extra debugging information.
-- `reqwest`: HTTP client implementation (often enabled by default).
-- `tokio`: Async runtime support.
-- `xml`: XML serialization support.
-
-Enable features when adding a crate:
-
-```console
-cargo add azure_identity --features tokio,debug
-```
-
-Or specify features in your `Cargo.toml`:
-
-```toml
-[dependencies]
-azure_identity = { version = "0.17", features = ["tokio", "debug"] }
-```
-
-## Verify crate installation
-
-After installation, verify that you installed the correct version of a crate.
-
-```console
-cargo tree | grep azure
-```
-
-This command shows all Azure-related crates in your dependency tree with their versions. The following output is an example:
-
-```console
-├── azure_core v0.26.0
-├── azure_data_cosmos v0.24.0
-│   ├── azure_core v0.25.0
-├── azure_identity v0.26.0
-│   ├── azure_core v0.26.0 (*)
-├── azure_messaging_eventhubs v0.5.0
-│   ├── azure_core v0.26.0 (*)
-│   ├── azure_core_amqp v0.5.0
-│   │   ├── azure_core v0.26.0 (*)
-├── azure_security_keyvault_secrets v0.5.0
-│   ├── azure_core v0.26.0 (*)
-├── azure_storage_blob v0.3.0
-│   ├── azure_core v0.26.0 (*)
-```
-
-
-Check your `Cargo.toml` file to see the crates you explicitly added:
-
-```console
-cat Cargo.toml
-```
-
-To see all dependencies, including transitive ones:
-
-```console
-cargo tree
+azure_identity = "0.17"                # Allows compatible versions (e.g., 0.17.x)
+azure_security_keyvault_secrets = "~0.16.2"  # Allows patch updates (>=0.16.2, <0.17.0)
 ```
 
 ## Update crates
@@ -147,15 +68,6 @@ To update a specific crate, run:
 cargo update <crate-name>
 ```
 
-To update to the latest version regardless of semantic versioning constraints, run:
-
-```console
-cargo upgrade
-```
-
-> [!NOTE]
-> The `cargo upgrade` command requires the `cargo-edit` plugin. Install it with `cargo install cargo-edit`.
-
 ## Remove a crate
 
 1. To remove a crate from your project, including the `Cargo.toml` file, run:
@@ -170,41 +82,29 @@ cargo upgrade
     cargo build
     ```
 
-## Troubleshooting
 
-### Common installation issues
 
-- **Compilation errors**: Ensure you're using Rust 1.85 or later. Check your Rust version with `rustc --version`.
-- **Network issues**: Verify your internet connection and proxy settings if crate downloads are failing.
-- **Version conflicts**: Use `cargo tree` to identify conflicting dependencies and consider updating or pinning specific versions.
-- **Feature conflicts**: Check that enabled features are compatible with each other and your target platform.
+## Configure crate features
 
-### Build failures
+Azure SDK crates provide features such as:
 
-If you encounter build failures after adding Azure crates, try the following steps:
+- `debug`: Enable debugging information.
+- `reqwest`: HTTP client implementation.
+- `tokio`: Async runtime support.
+- `xml`: XML serialization support.
 
-1. **Clear the build cache**.
-   ```console
-   cargo clean
-   ```
+Enable SDK features when adding a crate:
 
-1. **Update your Rust toolchain**.
-   ```console
-   rustup update
-   ```
+```console
+cargo add <crate-name> --features <feature1>,<feature2>
+```
 
-1. **Check for platform-specific issues**: Some features might not be available on all platforms.
+Or specify features in your `Cargo.toml`:
 
-### SSL/TLS issues
-
-If you encounter SSL/TLS-related errors:
-
-- Ensure your system has up-to-date certificates.
-- Consider using the `rustls` feature instead of `native-tls`.
-
-  ```console
-  cargo add azure_identity --features rustls
-  ```
+```toml
+[dependencies]
+<crate-name> = { version = "0.17", features = ["feature1", "feature2"] }<feature1>,<feature2>
+```
 
 ## Additional resources
 
