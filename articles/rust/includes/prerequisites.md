@@ -7,8 +7,6 @@ ms.date: 07/25/2025
 
 - Rust 1.67.0 or newer. The version is specified in the Azure SDK crate for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml).
 - An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/).
-- [Azure CLI](/cli/azure)
-- [Azure Developer CLI](/azure/developer/azure-developer-cli)
 
 > [!TIP]
 > For the best development experience, ensure you have the latest stable version of Rust installed. 
