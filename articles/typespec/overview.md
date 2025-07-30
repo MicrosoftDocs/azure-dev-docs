@@ -142,7 +142,7 @@ Enjoy these YouTube videos for a deeper dive on TypeSpec:
 - [APIs at scale with TypeSpec](https://youtu.be/yfCYrKaojDo)
 - [Schema-first API design using TypeSpec](https://www.youtube.com/watch?v=xDbC7Mhi9wM)
 - [TypeSpec 101](https://www.youtube.com/playlist?list=PLYWCCsom5Txglkl_I1XvwzrzM5G3SuVsR)
-- [Using TypeSpec for Open Finance Standards](https://www.youtube.com/watch?v=xDbC7Mhi9wM)
+- [Using TypeSpec for Open Finance Standards](https://www.youtube.com/watch?v=3Q6xWbWTSaU)
 
 ## Related content
 
