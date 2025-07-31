@@ -58,7 +58,7 @@ The [Tutorial: Explore Azure OpenAI in Azure AI Foundry Models embeddings and do
 The next step involves storing the vector and the content (or a pointer to the content's location) and other metadata in a vector database. A vector database is like any other type of database, but with two key differences:
 
 - Vector databases use a vector as an index to search for data
-- Vector databases implement an algorithm called *cosine similarity search*, also called *nearest neighbor*—the algorithm uses vectors that most closely match the search criteria
+- Vector databases often use nearest neighbor algorithms, which can employ *cosine similarity* as a distance metric to find vectors that most closely match the search criteria
 
 With the corpus of documents stored in a vector database, developers can build a *retriever component* to retrieve documents that match the user's query. The system uses this data to supply the LLM with what it needs to answer the user's query.
 
