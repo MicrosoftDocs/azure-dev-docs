@@ -34,7 +34,7 @@ RAG lets you build chatbots that answer questions using your own documents. Here
 
 Start by building a vector data store. This store holds the embeddings for each document or chunk. The following diagram shows the main steps to create a vectorized index of your documents.
 
-:::image type="content" source="./media/vector-embedding-pipeline-highres.png" order="false" alt-text="Diagram that depicts the different stages of document ingestion in a RAG-based chat system." :::
+:::image type="content" source="./media/vector-embedding-pipeline-highres.png" border="false" alt-text="Diagram that depicts the different stages of document ingestion in a RAG-based chat system." :::
 
 The diagram shows a *data pipeline*. This pipeline brings in data, processes it, and manages it for the system. It also prepares the data for storage in the vector database and makes sure it’s in the right format for the LLM.
 
