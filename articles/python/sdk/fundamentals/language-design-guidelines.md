@@ -13,7 +13,7 @@ Azure SDK Design Guidelines are comprehensive standards that ensure consistency,
 The guidelines consist of two categories:
 
 - **General Guidelines**: Core principles that apply to all Azure SDKs regardless of programming language
-- **Language-Specific Guidelines**: Implementation details optimized for each supported language, including Python, .NET, Java, and JavaScript
+- **Language-Specific Guidelines**: Implementation details optimized for each supported language, including [Python](https://azure.github.io/azure-sdk/python_design.html), [.NET](https://azure.github.io/azure-sdk/dotnet_introduction.html), [Java](https://azure.github.io/azure-sdk/java_introduction.html), [TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html), and many more (see the Table of Contents starting on the [General Guidelines: Introduction](https://azure.github.io/azure-sdk/general_introduction.html) page).
 
 These guidelines are developed openly on GitHub, allowing community review and contribution.
 
@@ -30,6 +30,8 @@ All Azure SDKs follow these fundamental principles:
 |Robustness|Built-in handling for errors, retries, and timeouts|
 
 ## Python-specific guidelines
+
+The rest of this document will focus on the [Python guidelines](https://azure.github.io/azure-sdk/python_design.html).
 
 ### Naming conventions
 
