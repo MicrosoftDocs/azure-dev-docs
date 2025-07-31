@@ -144,7 +144,7 @@ Some generative AI solutions need to store and retrieve data to improve results.
 
 |Product|Description|
 |---|---|
-|**[Azure AI Search](/azure/search/indexing-azure-ai-search)**|Search large datasets to find information for the language model. Use it for the retrieval part of a RAG system to make responses more relevant and useful.|
+|**[Azure AI Search](/azure/search/retrieval-augmented-generation-overview?tabs=docs)**|Search large datasets to find information for the language model. Use it for the retrieval part of a RAG system to make responses more relevant and useful.|
 |**[Azure Cosmos DB](/azure/cosmos-db/introduction)**|Store large amounts of structured and unstructured data for the RAG chat system. Fast read and write speeds help serve real-time data and store user interactions.|
 |**[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview)**|Cache frequently used information to reduce delays and speed up the RAG chat system. Store session data, user preferences, and common queries.|
 |**[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/generative-ai-overview)**|Store app data like logs, user profiles, and chat history. Its flexibility and scalability keep your data available and secure.|
