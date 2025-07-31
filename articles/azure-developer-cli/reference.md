@@ -3,9 +3,9 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/05/2025
+ms.date: 07/17/2025
 ms.service: azure-dev-cli
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
@@ -131,7 +131,7 @@ azd auth login [flags]
       --client-id string                       The client id for the service principal to authenticate with.
       --client-secret string                   The client secret for the service principal to authenticate with. Set to the empty string to read the value from the console.
       --docs                                   Opens the documentation for azd auth login in your web browser.
-      --federated-credential-provider string   The provider to use to acquire a federated token to authenticate with.
+      --federated-credential-provider string   The provider to use to acquire a federated token to authenticate with. Supported values: github, azure-pipelines, oidc
   -h, --help                                   Gets help for login.
       --managed-identity                       Use a managed identity to authenticate.
       --redirect-port int                      Choose the port to be used as part of the redirect URI during interactive login.
@@ -547,8 +547,8 @@ Manage environments (ex: default environment, environment variables).
 * [azd env new](#azd-env-new): Create a new environment and set it as the default.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
-* [azd env set](#azd-env-set): Manage your environment settings.
-* [azd env set-secret](#azd-env-set-secret): Set a `<name>` as a reference to a Key Vault secret in the environment.
+* [azd env set](#azd-env-set): Set one or more environment values.
+* [azd env set-secret](#azd-env-set-secret): Set a name as a reference to a Key Vault secret in the environment.
 * [Back to top](#azd)
 
 ## azd env get-value
@@ -727,10 +727,14 @@ azd env select <environment> [flags]
 
 ## azd env set
 
-Manage your environment settings.
+Set one or more environment values.
+
+### Synopsis
+
+Set one or more environment values using key-value pairs or by loading from a .env formatted file.
 
 ```azdeveloper
-azd env set <key> <value> [flags]
+azd env set [<key> <value>] | [<key>=<value> ...] | [--file <filepath>] [flags]
 ```
 
 ### Options
@@ -738,6 +742,7 @@ azd env set <key> <value> [flags]
 ```azdeveloper
       --docs                 Opens the documentation for azd env set in your web browser.
   -e, --environment string   The name of the environment to use.
+      --file string          Path to .env formatted file to load environment values from.
   -h, --help                 Gets help for set.
 ```
 
@@ -756,7 +761,7 @@ azd env set <key> <value> [flags]
 
 ## azd env set-secret
 
-Set a `<name>` as a reference to a Key Vault secret in the environment.
+Set a name as a reference to a Key Vault secret in the environment.
 
 ### Synopsis
 
@@ -915,6 +920,7 @@ azd init [flags]
       --from-code             Initializes a new application from your existing code.
   -h, --help                  Gets help for init.
   -l, --location string       Azure location for the new environment
+  -m, --minimal               Initializes a minimal project.
   -s, --subscription string   Name or ID of an Azure subscription to use for the new environment
   -t, --template string       Initializes a new application from a template. You can use Full URI, <owner>/<repository>, or <repository> if it's part of the azure-samples organization.
       --up                    Provision and deploy to Azure after initializing the project from a template.
@@ -1067,7 +1073,7 @@ azd provision [flags]
       --docs                 Opens the documentation for azd provision in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for provision.
-      --no-state             Do not use latest Deployment State (bicep only).
+      --no-state             (Bicep only) Forces a fresh deployment based on current Bicep template files, ignoring any stored deployment state.
       --preview              Preview changes to Azure resources.
 ```
 
