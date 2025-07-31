@@ -137,7 +137,6 @@ Some of the logic that you need to implement your generative AI vision can be bu
 
 - For guidance on [building low-code solutions](https://azure.microsoft.com/solutions/low-code-application-development/)
 
-
 ### Vector database
 
 Some generative AI solutions need to store and retrieve data to improve results. For example, a RAG-based chat system lets users chat with your company’s data. In this case, you need a vector database.
