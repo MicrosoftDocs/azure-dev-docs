@@ -1,7 +1,7 @@
 ---
 title: Augment LLMs with RAGs or Fine-Tuning
 description: Get a conceptual introduction to creating retrieval-augmented generation (RAG)-based chat systems, with an emphasis on integration, optimization, and ethical considerations for delivering contextually relevant responses.
-ms.date: 07/24/2025
+ms.date: 07/31/2025
 ms.topic: article
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -34,7 +34,7 @@ RAG lets you build chatbots that answer questions using your own documents. Here
 
 Start by building a vector data store. This store holds the embeddings for each document or chunk. The following diagram shows the main steps to create a vectorized index of your documents.
 
-:::image type="content" source="./media/vector-embedding-pipeline-highres.png" b order="false" alt-text="Diagram that depicts the different stages of document ingestion in a RAG-based chat system." :::
+:::image type="content" source="./media/vector-embedding-pipeline-highres.png" order="false" alt-text="Diagram that depicts the different stages of document ingestion in a RAG-based chat system." :::
 
 The diagram shows a *data pipeline*. This pipeline brings in data, processes it, and manages it for the system. It also prepares the data for storage in the vector database and makes sure it’s in the right format for the LLM.
 
@@ -51,7 +51,7 @@ One way to create an embedding is to send your content to the Azure OpenAI Embed
 
 All these numbers together show where the content sits in a multi-dimensional space. Imagine a 3D graph, but with hundreds or thousands of dimensions. Computers can work with this kind of space, even if we can’t draw it.
 
-The [Tutorial: Explore Azure OpenAI in Azure AI Foundry Models embeddings and document search](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/tutorials/embeddings?tabs=python-new%2Ccommand-line&pivots=programming-language-python) provides a guide on how to use the Azure OpenAI Embeddings API to create embeddings for your documents.
+The [Tutorial: Explore Azure OpenAI in Azure AI Foundry Models embeddings and document search](/azure/ai-foundry/openai/tutorials/embeddings?tabs=python-new%2Ccommand-line&pivots=programming-language-python) provides a guide on how to use the Azure OpenAI Embeddings API to create embeddings for your documents.
 
 #### Storing the vector and content
 
