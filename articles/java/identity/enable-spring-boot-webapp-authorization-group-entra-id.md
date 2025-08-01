@@ -454,7 +454,7 @@ Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automati
 
 You can use the **BulkCreateGroups.ps1** file provided in the **AppCreationScripts** folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the **BulkCreateGroups.ps1** script.
 
-Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [User.Read](/graph/permissions-reference#user-permissions) and [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permissions for the [getMemberGroups](/graph/api/user-getmembergroups) function to execute successfully.
+Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [User.Read](/graph/permissions-reference#user-permissions) and [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permissions for the [getMemberGroups](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) function to execute successfully.
 
 > [!IMPORTANT]
 > For the overage scenario, make sure you've granted `Admin Consent` for the Microsoft Graph API's `GroupMember.Read.All` scope for both the client and service apps. For more information, see the app registration steps earlier in this article.
