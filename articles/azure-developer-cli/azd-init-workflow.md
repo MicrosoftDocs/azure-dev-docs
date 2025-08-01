@@ -107,11 +107,14 @@ You can also use the initialized template as a starting point for further develo
 
 For advanced users who want to start with a minimal setup and customize everything manually, this option provides just the essential configuration.
 
-1. Run the `azd init` command:
+1. Run the `azd init` command with the `--minimal` flag:
 
    ```bash
    azd init --minimal
    ```
+   
+   > [!TIP]
+   > See the [azd init command reference](./azd-init-reference.md) for complete details on the `--minimal` flag and all available parameters.
 
 2. When prompted, enter a name for your `azd` template and press Enter. Make sure to follow the [project name validation rules](project-name-validation.md) to prevent deployment failures.
 
@@ -124,9 +127,29 @@ For advanced users who want to start with a minimal setup and customize everythi
     Run azd add to add new Azure components to your project.
     ```
 
-    Only the essential `azure.yaml` configuration file is created. No application code or comprehensive infrastructure templates are added, so you need to manually create or customize the infrastructure files based on your requirements.
+    The `--minimal` flag creates the following:
+    
+    - A basic `azure.yaml` file with just the project name and schemaVersion
+    - A `.azure` directory for environment configuration
+    - A `.gitignore` file with appropriate entries for Azure Developer CLI
 
-3. Optionally, use the `azd add` [compose feature](azd-compose.md) to start adding Azure resources to your app.
+    Unlike the other initialization options, the `--minimal` flag:
+    
+    - Does not generate any infrastructure code (no Bicep or Terraform files)
+    - Does not create application code scaffolding
+    - Does not generate any GitHub Actions workflows
+    - Does not add any services to the azure.yaml file
+    
+    This streamlined initialization is ideal when you:
+    - Want to build your infrastructure from scratch
+    - Need to integrate `azd` with an existing complex project
+    - Plan to use the `azd add` command to incrementally build your architecture
+    - Prefer full control over your project structure
+
+3. After initialization, you can:
+   - Manually create your infrastructure files in an `infra` folder
+   - Use the `azd add` [compose feature](azd-compose.md) to start adding Azure resources to your app
+   - Customize your `azure.yaml` file to define your services and resources
 
 ## Next steps
 
