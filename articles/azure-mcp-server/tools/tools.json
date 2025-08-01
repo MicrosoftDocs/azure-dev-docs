@@ -1,6 +1,4 @@
 {
-
-
     "azure-app-configuration": {
         "root": "azmcp appconfig",
         "tools": [
@@ -1742,6 +1740,123 @@
                         "required": true
                     }
                 ]
+            }
+        ]
+    },
+    "azure-bicepschema": {
+        "root": "azmcp bicepschema",
+        "tools": [
+            {
+                "name": "get --resource-type",
+                "description": "Execute the get --resource-type operation.",
+                "params": [
+                    {
+                        "name": "resource-type",
+                        "description": "The resource type",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-grafana": {
+        "root": "azmcp grafana",
+        "tools": [
+            {
+                "name": "list --subscription",
+                "description": "Execute the list --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-foundry": {
+        "root": "azmcp foundry",
+        "tools": [
+            {
+                "name": "models list",
+                "description": "List models.",
+                "params": []
+            },
+            {
+                "name": "models deploy --subscription",
+                "description": "Execute the models deploy --subscription operation.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The subscription",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "models deployments list --endpoint",
+                "description": "Execute the models deployments list --endpoint operation.",
+                "params": [
+                    {
+                        "name": "endpoint",
+                        "description": "The endpoint",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-quick-review": {
+        "root": "azmcp extension azqr",
+        "tools": [
+            {
+                "name": "generate report",
+                "description": "Generate compliance and security reports for Azure resources to identify non-compliant configurations.",
+                "params": [
+                    {
+                        "name": "subscription",
+                        "description": "The Azure subscription ID or name to scan for compliance issues",
+                        "required": true
+                    },
+                    {
+                        "name": "resource-group",
+                        "description": "The name of the Azure resource group to scope the scan to a specific resource group",
+                        "required": false
+                    }
+                ]
+            }
+        ]
+    },
+    "azure-azureterraformbestpractices": {
+        "root": "azmcp azureterraformbestpractices",
+        "tools": [
+            {
+                "name": "get",
+                "description": "Execute the get operation.",
+                "params": []
+            }
+        ]
+    },
+    "azure-bestpractices": {
+        "root": "azmcp bestpractices",
+        "tools": [
+            {
+                "name": "azurefunctions get-code-generation",
+                "description": "Execute the azurefunctions get-code-generation operation.",
+                "params": [],
+                "status": "new"
+            },
+            {
+                "name": "azurefunctions get-deployment",
+                "description": "Execute the azurefunctions get-deployment operation.",
+                "params": [],
+                "status": "new"
+            },
+            {
+                "name": "general get",
+                "description": "Get general.",
+                "params": []
             }
         ]
     }
