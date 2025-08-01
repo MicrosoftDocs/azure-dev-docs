@@ -277,8 +277,4 @@ echo 'Running "prepdocs.py"'
     --tenantid "$AZURE_TENANT_ID" -v
 ```
 
-## Next steps
-
-For more information about hooks running in interactive mode by default, debugging capabilities, and enhanced schema validation, see [interactive hooks mode](interactive-hooks.md).
-
 [!INCLUDE [request-help](includes/request-help.md)]

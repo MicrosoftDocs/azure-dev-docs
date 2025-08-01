@@ -113,7 +113,7 @@ For advanced users who want to start with a minimal setup and customize everythi
    azd init --minimal
    ```
 
-2. When prompted, enter a name for your `azd` template and press Enter. Make sure to follow the [project name validation rules](project-name-validation.md) to prevent deployment failures.
+2. When prompted, enter a name for your `azd` template and press Enter.
 
     ```output
     ? How do you want to initialize your app? Create a minimal project
@@ -142,9 +142,9 @@ For advanced users who want to start with a minimal setup and customize everythi
    - Use the `azd add` [compose feature](azd-compose.md) to start adding Azure resources to your app
    - Customize your `azure.yaml` file to define your services and resources
 
-## Project name and Azure resource naming
+## Project and Azure resource naming
 
-When you initialize a new or existing project, the project name is set in `azure.yaml`. The project name serves as a prefix for Azure resource names created during the provisioning process. By adhering to the validation rules, you ensure that generated Azure resource names will also be valid.
+When you initialize a new or existing project, the project name is set in `azure.yaml`. The project name acts as a prefix for Azure resource names created during the provisioning process. By adhering to the validation rules, you ensure that generated Azure resource names will also be valid.
 
 In Bicep or Terraform templates, the project name is often used as a base for constructing resource names, combined with the environment name and other elements. For example:
 
@@ -163,7 +163,7 @@ When using `azd init` to initialize a project or when creating a new project nam
 | Allowed characters | Project names can include lowercase letters, numbers, and hyphens only. |
 | Starting character | Project names must start with a letter. |
 | Ending character | Project names must not end with a hyphen. |
-| Length | Project names must be between 1 and 58 characters long. |
+| Length | Project names must be between 2 and 63 characters long. |
 | No consecutive hyphens | Project names cannot contain consecutive hyphens. |
 
 These validation rules ensure that your project name will be compatible with the naming requirements of Azure resources and prevent service packaging failures during deployment.
