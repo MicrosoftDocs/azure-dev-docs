@@ -19,10 +19,10 @@ To access specific Azure services in your projects, install Azure SDK crates for
 When you install a crate without specifying a version, Cargo retrieves the latest version available from [crates.io](https://crates.io). 
 
 ```console
-cargo add <crate-name>
+cargo add <crate_name>
 ```
 
-Replace `<crate-name>` with the name of the Azure crate you want to install. For example, to install the Azure Identity and Key Vault secrets crates:
+Replace `<crate_name>` with the name of the Azure crate you want to install. For example, to install the Azure Identity and Key Vault secrets crates:
 
 ```console
 cargo add azure_identity azure_security_keyvault_secrets
@@ -35,7 +35,7 @@ You can find available crate names in the [crate index for Azure](https://crates
 Sometimes you need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
 ```console
-cargo add <crate-name>@<version-number>
+cargo add <crate_name>@<version_number>
 ```
 
 For example:
@@ -57,7 +57,7 @@ cargo update
 To update a specific crate, run:
 
 ```console
-cargo update <crate-name>
+cargo update <crate_name>
 ```
 
 ## Remove a crate
@@ -65,7 +65,7 @@ cargo update <crate-name>
 To remove a crate from your project, including the `Cargo.toml` file, run:
 
   ```console
-  cargo remove <crate-name>
+  cargo remove <crate_name>
   ```
     
 Build the project to update your `Cargo.lock` file:
@@ -87,14 +87,14 @@ Azure SDK crates provide features such as:
 Enable SDK features when adding a crate:
 
 ```console
-cargo add <crate-name> --features <feature1>,<feature2>
+cargo add <crate_name> --features <feature_name_1>,<feature_name_2>
 ```
 
 Or specify features in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-<crate-name> = { version = "0.17", features = ["<feature1>", "<feature2>"] }
+<crate_name> = { version = "0.17", features = ["<feature_name_1>", "<feature_name_2>"] }
 ```
 
 ## Additional resources
