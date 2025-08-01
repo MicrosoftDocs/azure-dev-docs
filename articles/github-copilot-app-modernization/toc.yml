@@ -7,7 +7,7 @@ items:
       - name: Java
         expanded: true
         items:
-          - name: Migrate
+          - name: Migrate Java projects to Azure
             expanded: true
             items:
             - name: Overview
@@ -22,7 +22,7 @@ items:
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migration sample
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - name: Upgrade
+          - name: Upgrade Java projects
             expanded: true
             items:
             - name: Overview
@@ -42,7 +42,7 @@ items:
       - name: .NET
         expanded: true
         items:
-          - name: Migrate
+          - name: Migrate .NET projects to Azure
             expanded: true
             items:
             - name: Overview
@@ -55,7 +55,7 @@ items:
               href: /dotnet/azure/migration/appmod/quickstart?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migration sample
               href: /dotnet/azure/migration/appmod/sample?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - name: Upgrade
+          - name: Upgrade .NET projects
             expanded: true
             items:
             - name: Overview
