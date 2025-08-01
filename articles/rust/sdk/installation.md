@@ -94,7 +94,7 @@ Or specify features in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-crate_name = { version = "0.17", features = ["feature_name_1", "feature_name_2"] }
+<crate-name> = { version = "0.17", features = ["<feature1>", "<feature2>"] }
 ```
 
 ## Additional resources
