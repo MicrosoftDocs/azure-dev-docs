@@ -123,8 +123,6 @@
       href: project-name-validation.md
     - name: Customize workflows using command and event hooks
       href: azd-extensibility.md
-    - name: Interactive hooks
-      href: interactive-hooks.md
     - name: Enable demo mode
       href: demo-mode.md
     - name: Configure template sources

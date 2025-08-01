@@ -165,8 +165,6 @@ hooks:
 
 The `azd hooks run` command allows you to execute hooks independently of their normal trigger events. This is useful for testing and debugging hooks without going through the entire workflow.
 
-### Basic usage
-
 ```bash
 azd hooks run <hook-name>
 ```
@@ -187,6 +185,33 @@ azd hooks run postup -e staging
 
 # Run hooks with all options combined
 azd hooks run predeploy --service frontend --platform posix -e production --interactive
+```
+
+## Configure interactive mode
+
+Hooks run in interactive mode by default. Interactive hooks mode allows you to run hook scripts with direct console interaction, making it easier to debug, monitor, and interact with your hooks in real-time. You can explicitly set the `interactive` property in your hook configuration if you want to disable interactive mode for a specific hook:
+
+```yaml
+hooks:
+  postprovision:
+    shell: sh
+    run: ./scripts/setup-database.sh
+    interactive: false # Default is true
+```
+
+For service-specific hooks:
+
+```yaml
+services:
+  api:
+    project: ./src/api
+    language: js
+    host: appservice
+    hooks:
+      postdeploy:
+        shell: sh
+        run: ./scripts/post-deploy-verification.sh
+        interactive: false  # Override the default interactive mode
 ```
 
 ### Use environment variables with hooks
