@@ -51,7 +51,7 @@ services:
 
 | Element Name | Required | Description |
 | ------------ | -------- | ----------- | 
-| `name` | Y | _(string)_ Name of the application. |
+| `name` | Y | _(string)_ Name of the application. Must follow [project naming validation rules](project-name-validation.md) to prevent service packaging failures. |
 | `resourceGroup` | N | _(string)_ Name of the Azure resource group. When specified, will override the resource group name used for infrastructure provisioning. |
 | `metadata` | N | _(object)_ See [metadata properties](#metadata-properties) for more details. |
 | `infra` | N | _(object)_ Provides extra configuration for Azure infrastructure provisioning. See [infra properties](#infra-properties) for more details. |

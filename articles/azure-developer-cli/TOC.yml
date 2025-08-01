@@ -59,6 +59,8 @@
         href: extensions/overview.md
       - name: Quickstart - Use the AI extension
         href: extensions/quickstart-ai-extension.md
+    - name: Project name validation
+      href: project-name-validation.md
   - name: Deployment and operations
     items:
       - name: CI/CD
@@ -69,6 +71,8 @@
             href: pipeline-github-actions.md
           - name: Configure an Azure DevOps pipeline
             href: pipeline-azure-pipelines.md
+          - name: Configure Terraform with OIDC authentication
+            href: terraform-oidc-pipeline-auth.md
           - name: Create a custom pipeline definition file
             href: pipeline-create-definition.md
           - name: Advanced pipeline features
@@ -121,6 +125,8 @@
       href: azd-config.md
     - name: Customize workflows using command and event hooks
       href: azd-extensibility.md
+    - name: Default interactive hooks mode
+      href: azd-interactive-hooks.md
     - name: Enable demo mode
       href: demo-mode.md
     - name: Configure template sources

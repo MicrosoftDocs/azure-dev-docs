@@ -113,7 +113,7 @@ For advanced users who want to start with a minimal setup and customize everythi
    azd init --minimal
    ```
 
-2. When prompted, enter a name for your `azd` template and press Enter.
+2. When prompted, enter a name for your `azd` template and press Enter. Make sure to follow the [project name validation rules](project-name-validation.md) to prevent deployment failures.
 
     ```output
     ? How do you want to initialize your app? Create a minimal project
