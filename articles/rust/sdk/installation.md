@@ -46,14 +46,6 @@ cargo add azure_storage_blob@0.20.0
 
 You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html).
 
-
-```toml
-[dependencies]
-azure_storage_blob = "0.20.0"           # Exact version
-azure_identity = "0.17"                # Allows compatible versions (e.g., 0.17.x)
-azure_security_keyvault_secrets = "~0.16.2"  # Allows patch updates (>=0.16.2, <0.17.0)
-```
-
 ## Update crates
 
 To update all crates to their latest compatible versions, run:
@@ -91,7 +83,6 @@ Azure SDK crates provide features such as:
 - `debug`: Enable debugging information.
 - `reqwest`: HTTP client implementation.
 - `tokio`: Async runtime support.
-- `xml`: XML serialization support.
 
 Enable SDK features when adding a crate:
 
@@ -103,7 +94,7 @@ Or specify features in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-<crate-name> = { version = "0.17", features = ["feature1", "feature2"] }<feature1>,<feature2>
+crate_name = { version = "0.17", features = ["feature_name_1", "feature_name_2"] }
 ```
 
 ## Additional resources
