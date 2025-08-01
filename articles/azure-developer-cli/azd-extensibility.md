@@ -254,6 +254,6 @@ azd hooks run predeploy --service frontend --platform posix -e production --inte
 
 ## Next steps
 
-For more information about hooks running in interactive mode by default, debugging capabilities, and enhanced schema validation, see [Default interactive hooks mode](azd-interactive-hooks.md).
+For more information about hooks running in interactive mode by default, debugging capabilities, and enhanced schema validation, see [interactive hooks mode](azd-interactive-hooks.md).
 
 [!INCLUDE [request-help](includes/request-help.md)]

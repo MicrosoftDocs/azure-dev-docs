@@ -31,28 +31,18 @@ Interactive mode is particularly valuable when:
 
 ## Configuring interactive mode
 
-As of the latest version of Azure Developer CLI, hooks run in interactive mode by default. However, you can still explicitly configure this behavior:
+Hooks run in interactive mode by default, but you can configure this behavior using the following techniques.
 
 ### Use the azure.yaml file
 
-While hooks run in interactive mode by default, you can explicitly set the `interactive` property in your hook configuration:
+You can explicitly set the `interactive` property in your hook configuration if you want to disable interactive mode for a specific hook:
 
 ```yaml
 hooks:
   postprovision:
     shell: sh
     run: ./scripts/setup-database.sh
-    interactive: true  # This is the default in the latest version
-```
-
-If you want to disable interactive mode for a specific hook, you can set the property to `false`:
-
-```yaml
-hooks:
-  postprovision:
-    shell: sh
-    run: ./scripts/setup-database.sh
-    interactive: false  # Explicitly disable interactive mode
+    interactive: false # Default is true
 ```
 
 For service-specific hooks:
@@ -75,7 +65,7 @@ services:
 You can temporarily override a hook's interactive setting by using the `--interactive` or `--no-interactive` flags with the `azd hooks run` command:
 
 ```bash
-# Explicitly enable interactive mode (default in latest version)
+# Explicitly enable interactive mode
 azd hooks run postprovision --interactive
 
 # Explicitly disable interactive mode
@@ -170,102 +160,6 @@ In debug mode, you'll see additional information about:
 * Environment variable resolution
 * Platform-specific behavior
 
-## Common hook scenarios with interactive mode
-
-### Interactive configuration scripts
-
-Interactive hooks are useful for scripts that need to prompt for information:
-
-```yaml
-hooks:
-  preprovision:
-    shell: pwsh
-    run: ./scripts/configure-app.ps1
-    # interactive: true is the default and no longer needs to be specified
-```
-
-```powershell
-# configure-app.ps1
-$apiKey = Read-Host -Prompt "Enter your API key"
-$region = Read-Host -Prompt "Enter your preferred region (default: eastus)" -Default "eastus"
-
-# Save to azd environment
-azd env set API_KEY $apiKey
-azd env set PREFERRED_REGION $region
-
-Write-Host "Configuration saved successfully!"
-```
-
-### Database initialization with progress feedback
-
-```yaml
-hooks:
-  postprovision:
-    shell: sh
-    run: ./scripts/init-database.sh
-    # interactive: true is the default and no longer needs to be specified
-```
-
-```bash
-# init-database.sh
-#!/bin/bash
-
-echo "Starting database initialization..."
-
-# Get database connection string from azd env
-connection_string=$(azd env get-values DATABASE_CONNECTION_STRING)
-
-# Show progress while seeding database
-echo "Seeding database with initial data..."
-for i in {1..10}; do
-  echo -ne "\rProgress: $i/10"
-  sleep 1
-done
-
-echo -e "\nDatabase initialization complete!"
-```
-
-### Complex deployment validation
-
-```yaml
-hooks:
-  postdeploy:
-    shell: sh
-    run: ./scripts/validate-deployment.sh
-    # interactive: true is the default and no longer needs to be specified
-```
-
-```bash
-# validate-deployment.sh
-#!/bin/bash
-
-# Get endpoint URL
-endpoint=$(azd env get-values ENDPOINT_URL)
-
-echo "Validating deployment at $endpoint"
-
-# Interactive validation with user confirmation
-echo "Running health checks..."
-response=$(curl -s "$endpoint/health")
-
-if [[ "$response" == *"healthy"* ]]; then
-  echo "✅ Health check passed!"
-else
-  echo "❌ Health check failed!"
-  echo "Response: $response"
-  
-  read -p "Do you want to continue anyway? (y/n): " choice
-  if [[ "$choice" != "y" ]]; then
-    echo "Deployment validation failed. Exiting with error."
-    exit 1
-  fi
-  
-  echo "Continuing despite validation failure..."
-fi
-
-echo "Deployment validation complete"
-```
-
 ## Best practices for interactive hooks
 
 1. **Use interactive mode thoughtfully**: Consider disabling interactive mode selectively for hooks that don't benefit from user interaction. In CI/CD environments, explicitly disable interactive mode to prevent unexpected hangs:
@@ -305,7 +199,7 @@ echo "Deployment validation complete"
    # operation here
    echo "Step 3/3: Testing API endpoints..."
    # operation here
-   echo "✅ All verification steps completed successfully!"
+   echo "All verification steps completed successfully!"
    ```
 
 1. **Set appropriate timeouts**: For interactive operations that might wait for user input, consider setting timeouts:

@@ -127,20 +127,14 @@ For advanced users who want to start with a minimal setup and customize everythi
     Run azd add to add new Azure components to your project.
     ```
 
-    The `--minimal` flag creates the following:
-    
+    The `--minimal` flag creates only the following:
+
     - A basic `azure.yaml` file with just the project name and schemaVersion
     - A `.azure` directory for environment configuration
     - A `.gitignore` file with appropriate entries for Azure Developer CLI
 
-    Unlike the other initialization options, the `--minimal` flag:
-    
-    - Does not generate any infrastructure code (no Bicep or Terraform files)
-    - Does not create application code scaffolding
-    - Does not generate any GitHub Actions workflows
-    - Does not add any services to the azure.yaml file
-    
     This streamlined initialization is ideal when you:
+
     - Want to build your infrastructure from scratch
     - Need to integrate `azd` with an existing complex project
     - Plan to use the `azd add` command to incrementally build your architecture
