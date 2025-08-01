@@ -80,7 +80,7 @@ Build the project to update your `Cargo.lock` file:
 
 Azure SDK crates provide features such as:
 
-- `debug`: Enable debugging information.
+- `debug`: Enable additional debugging information.
 - `reqwest`: HTTP client implementation.
 - `tokio`: Async runtime support.
 
