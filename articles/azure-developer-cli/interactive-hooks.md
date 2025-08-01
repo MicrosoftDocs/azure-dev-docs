@@ -133,18 +133,6 @@ Write-Host "Hook environment variables:"
 Get-ChildItem Env: | Sort-Object Name | Format-Table -AutoSize
 ```
 
-### Hook execution context
-
-When running a hook, `azd` provides context information about the hook's execution:
-
-```output
-Running hook 'postprovision'
-  - Script: ./scripts/setup-database.sh
-  - Working directory: /home/user/myproject
-  - Environment: dev
-  - Interactive mode: enabled
-```
-
 ### Debug mode
 
 You can enable detailed debug logging for hooks by using the `--debug` flag with any `azd` command:
@@ -162,69 +150,69 @@ In debug mode, you'll see additional information about:
 
 ## Best practices for interactive hooks
 
-1. **Use interactive mode thoughtfully**: Consider disabling interactive mode selectively for hooks that don't benefit from user interaction. In CI/CD environments, explicitly disable interactive mode to prevent unexpected hangs:
+**Use interactive mode thoughtfully**: Consider disabling interactive mode selectively for hooks that don't benefit from user interaction. In CI/CD environments, explicitly disable interactive mode to prevent unexpected hangs:
 
-   ```yaml
-   # In your CI pipeline configuration:
-   hooks:
-     postprovision:
-       shell: sh
-       run: ./scripts/setup-resources.sh
-       interactive: false  # Explicitly disable interactive mode for CI
-   
-   # Or use the --no-interactive flag in your CI script:
-   # azd hooks run postprovision --no-interactive
+  ```yaml
+  # In your CI pipeline configuration:
+  hooks:
+    postprovision:
+      shell: sh
+      run: ./scripts/setup-resources.sh
+      interactive: false  # Explicitly disable interactive mode for CI
+  
+  # Or use the --no-interactive flag in your CI script:
+  # azd hooks run postprovision --no-interactive
+  ```
+
+  Your hook scripts should still handle both interactive and non-interactive environments:
+
+  ```bash
+  # Check if running in a CI environment
+  if [ -z "${CI}" ]; then
+    # Interactive prompt for local development
+    read -p "Enter configuration name: " config_name
+  else
+    # Use default for CI environments
+    config_name="default"
+  fi
+  ```
+
+**Provide clear feedback**: When running in interactive mode, provide clear status messages and progress indicators:
+
+  ```bash
+  echo "Starting deployment verification..."
+  echo "Step 1/3: Checking service health..."
+  # operation here
+  echo "Step 2/3: Verifying database connections..."
+  # operation here
+  echo "Step 3/3: Testing API endpoints..."
+  # operation here
+  echo "All verification steps completed successfully!"
+  ```
+
+**Set appropriate timeouts**: For interactive operations that might wait for user input, consider setting timeouts:
+
+  ```bash
+  read -t 30 -p "Continue with deployment? (y/n): " response
+  if [ -z "$response" ]; then
+    echo "No response received, using default (y)"
+    response="y"
+  fi
    ```
 
-   Your hook scripts should still handle both interactive and non-interactive environments:
+**Use exit codes appropriately**: Make sure your hook scripts return appropriate exit codes:
 
-   ```bash
-   # Check if running in a CI environment
-   if [ -z "${CI}" ]; then
-     # Interactive prompt for local development
-     read -p "Enter configuration name: " config_name
-   else
-     # Use default for CI environments
-     config_name="default"
-   fi
-   ```
-
-1. **Provide clear feedback**: When running in interactive mode, provide clear status messages and progress indicators:
-
-   ```bash
-   echo "Starting deployment verification..."
-   echo "Step 1/3: Checking service health..."
-   # operation here
-   echo "Step 2/3: Verifying database connections..."
-   # operation here
-   echo "Step 3/3: Testing API endpoints..."
-   # operation here
-   echo "All verification steps completed successfully!"
-   ```
-
-1. **Set appropriate timeouts**: For interactive operations that might wait for user input, consider setting timeouts:
-
-   ```bash
-   read -t 30 -p "Continue with deployment? (y/n): " response
-   if [ -z "$response" ]; then
-     echo "No response received, using default (y)"
-     response="y"
-   fi
-   ```
-
-1. **Use exit codes appropriately**: Make sure your hook scripts return appropriate exit codes:
-
-   ```bash
-   # Exit with error if verification fails
-   if [ "$status" != "success" ]; then
-     echo "Verification failed: $error_message"
-     exit 1
-   fi
-   
-   # Exit successfully
-   echo "Verification completed successfully"
-   exit 0
-   ```
+  ```bash
+  # Exit with error if verification fails
+  if [ "$status" != "success" ]; then
+    echo "Verification failed: $error_message"
+    exit 1
+  fi
+  
+  # Exit successfully
+  echo "Verification completed successfully"
+  exit 0
+  ```
 
 ## Troubleshoot interactive hooks
 

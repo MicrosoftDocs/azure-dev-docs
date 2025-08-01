@@ -159,4 +159,4 @@ After initializing your project with `azd init`, you can:
 - [Azure Developer CLI commands](azd-commands.md)
 - [Azure.yaml schema reference](azd-schema.md)
 - [Azure Developer CLI templates](azd-templates.md)
-- [Template galleries](azd-template-galleries.md)
+- [Template galleries](template-galleries.md)

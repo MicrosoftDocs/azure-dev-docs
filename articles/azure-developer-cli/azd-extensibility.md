@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Customize your Azure Developer CLI workflows using command and event hooks
 
-The Azure Developer CLI supports various extension points to customize your workflows and deployments. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name.
+Hooks are `azd` extension points that automatically execute custom scripts before and after `azd` commands and service lifecycle events. Hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name.
 
 For example, you may want to run a custom script in the following scenarios:
 
@@ -38,7 +38,7 @@ The following service lifecycle event hooks are available:
 
 ## Hook configuration
 
-Hooks can be registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
+Hooks are registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
 * `shell`: `sh` | `pwsh`
   * *Note*: PowerShell 7 is required for `pwsh`.
@@ -161,6 +161,34 @@ hooks:
           run: scripts/postprovision2.sh
 ```
 
+## Run hooks independently
+
+The `azd hooks run` command allows you to execute hooks independently of their normal trigger events. This is useful for testing and debugging hooks without going through the entire workflow.
+
+### Basic usage
+
+```bash
+azd hooks run <hook-name>
+```
+
+Replace `<hook-name>` with the name of the hook you want to run (e.g., `preprovision`, `postdeploy`).
+
+### Advanced options
+
+```bash
+# Run a specific service hook
+azd hooks run postdeploy --service api
+
+# Force hooks to run for a specific platform
+azd hooks run preprovision --platform windows
+
+# Run hooks in a specific environment
+azd hooks run postup -e staging
+
+# Run hooks with all options combined
+azd hooks run predeploy --service frontend --platform posix -e production --interactive
+```
+
 ### Use environment variables with hooks
 
 Hooks can get and set environment variables in the `.env` file using the `azd env get-values` and `azd set <key> <value>` commands. Hooks can also retrieve environment variables from your local environment using the `${YOUR_ENVIRONMENT VARIABLE}` syntax. `azd` automatically sets certain environment variables in the `.env` file when commands are run, such as `AZURE_ENV_NAME` and `AZURE_LOCATION`. Output parameters from the `main.bicep` file are also set in the `.env` file. The [manage environment variables](/azure/developer/azure-developer-cli/manage-environment-variables) page includes more information about environment variable workflows.
@@ -224,36 +252,8 @@ echo 'Running "prepdocs.py"'
     --tenantid "$AZURE_TENANT_ID" -v
 ```
 
-## Run hooks independently
-
-The `azd hooks run` command allows you to execute hooks independently of their normal trigger events. This is useful for testing and debugging hooks without going through the entire workflow.
-
-### Basic usage
-
-```bash
-azd hooks run <hook-name>
-```
-
-Replace `<hook-name>` with the name of the hook you want to run (e.g., `preprovision`, `postdeploy`).
-
-### Advanced options
-
-```bash
-# Run a specific service hook
-azd hooks run postdeploy --service api
-
-# Force hooks to run for a specific platform
-azd hooks run preprovision --platform windows
-
-# Run hooks in a specific environment
-azd hooks run postup -e staging
-
-# Run hooks with all options combined
-azd hooks run predeploy --service frontend --platform posix -e production --interactive
-```
-
 ## Next steps
 
-For more information about hooks running in interactive mode by default, debugging capabilities, and enhanced schema validation, see [interactive hooks mode](azd-interactive-hooks.md).
+For more information about hooks running in interactive mode by default, debugging capabilities, and enhanced schema validation, see [interactive hooks mode](interactive-hooks.md).
 
 [!INCLUDE [request-help](includes/request-help.md)]
