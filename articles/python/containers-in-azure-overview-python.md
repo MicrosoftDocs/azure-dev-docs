@@ -90,7 +90,7 @@ The following table provides Python-specific examples for commonly used Dockerfi
 
 | Instruction | Purpose | Example |
 | ----------- | ------- | ------- |
-| [FROM][16] | Sets the base image for subsequent instructions. | `FROM python:3.8-slim` |
+| [FROM][16] | Sets the base image for subsequent instructions. | `FROM python:3.9-slim` |
 | [EXPOSE][17] | Tells Docker that the container listens to a specified port at runtime. | `EXPOSE 5000` |
 | [COPY][38] | Copies files or directories from the specified source and adds them to the filesystem of the container at the specified destination path. | `COPY . /app` |
 | [RUN][18] | Runs a command inside the Docker image. For example, pull in dependencies. The command runs once at build time. | `RUN python -m pip install -r requirements.txt`|
@@ -105,7 +105,7 @@ docker build --rm --pull  --file "Dockerfile"  --tag "mywebapp:latest"  .
 The build process can refer to any of the files in the context. For example, your build can use a COPY instruction to reference a file in the context. Here's an example of a Dockerfile for a Python project using the [Flask][36] framework:
 
 ```Dockerfile
-FROM python:3.8-slim
+FROM python:3.9-slim
 
 EXPOSE 5000
 
