@@ -13,6 +13,9 @@ ms.custom: devx-track-azdevcli
 
 Environment variables influence how resources are provisioned and deployed to Azure. This is especially useful when running azd in CI/CD workflow scenarios.
 
+> [!TIP]
+> For a comprehensive guide on creating and managing environments in Azure Developer CLI, see [Work with environments in Azure Developer CLI](./extensions/work-with-environments.md).
+
 ## Input Parameters Substitution
 
 Environment variables can be referenced in parameter files (`*.parameters.json` for Bicep, `*.tfvars.json` for Terraform) as part of provisioning. When an environment variable substitution syntax is encountered, `azd` automatically substitutes the reference with the actual environment variable value set. Substitution also occurs for certain configuration settings in `azure.yaml` (properties documented with 'Supports environment variable substitution'), and in deployment configuration files, such as deployment manifests for `aks`.
