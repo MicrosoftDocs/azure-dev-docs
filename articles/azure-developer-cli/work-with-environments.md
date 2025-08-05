@@ -15,7 +15,7 @@ The Azure Developer CLI (`azd`) helps you manage multiple deployment environment
 
 ## What are environments?
 
-An environment in Azure Developer CLI represents a named collection of configuration settings, environment variables, and infrastructure parameters associated with a specific deployment of your application. Environments serve several important purposes:
+An environment in the Azure Developer CLI represents a named collection of configuration settings, environment variables, and infrastructure parameters associated with a specific deployment of your application. Environments serve several important purposes:
 
 - **Isolation**: Keep development, testing, staging, and production deployments separate.
 - **Configuration management**: Maintain different settings for each environment.
@@ -79,7 +79,7 @@ Common environment variables include:
 | `AZURE_RESOURCE_GROUP` | Name of the resource group for this environment |
 
 > [!TIP]
-> For other common environment variables and examples, visit the [Environment variables](manage-environment-variables.md) documentation.
+> For other common environment variables and service-specific examples, visit the [Environment variables](manage-environment-variables.md) documentation.
 
 When working with environment variables:
 
@@ -102,11 +102,14 @@ Many programming frameworks and tools such as Node.js, Django, or React use `.en
 | **Integration** | Deeply integrated with Azure services and resource provisioning | General purpose configuration, not Azure-specific |
 | **Variable Management** | Managed via `azd env` commands | Typically edited manually or via custom scripts |
 
-While both serve similar purposes, Azure Developer CLI's `.env` approach adds structure and tooling designed for managing multiple deployment environments and Azure resources. If your project already uses framework-specific `.env` files, you can keep both configuration systems without conflicts.
+While both serve similar purposes, Azure Developer CLI's `.env` approach adds structure and tooling designed for managing multiple deployment environments and Azure resources.
+
+> [!TIP]
+> If your project already uses framework-specific `.env` files, you can keep both configuration systems without conflicts.
 
 ## Create and manage environments
 
-Azure Developer CLI provides a set of commands to switch between environments, refresh their configurations, and run commands in specific environments without affecting others.
+The Azure Developer CLI provides a set of commands to manage environments, such as creating, updating or switching between them. You can run these commands in specific environments without affecting others.
 
 ### Create environments
 
@@ -122,7 +125,7 @@ For example, to create a development environment:
 azd env new dev
 ```
 
-The command prompts you to select an Azure subscription and location. Once completed, it creates the environment directory structure and sets initial environment variables.
+When you run a command such as `azd up` or `azd deploy`, you'll be prompted to select an Azure subscription and location for the new environment. Those settings are stored in the new environment `.env` file.
 
 You can also specify subscription and location directly in the command:
 
@@ -138,12 +141,13 @@ To see all available environments for your project, use:
 azd env list
 ```
 
-This command displays all environments, highlighting the current active environment. Example output:
+This command displays all the environments you created, highlighting the current active environment:
 
 ```output
-dev (current)
-test
-prod
+NAME      DEFAULT   LOCAL     REMOTE
+dev       true      true      false
+test      false     true      false
+prod      false     true      false
 ```
 
 ### Switch between environments
@@ -199,31 +203,13 @@ azd env select prod
 azd up
 ```
 
-## Delete an environment
+## Delete environment resources
 
-If you no longer need an environment, you can delete it in two ways:
+To delete the Azure resources for a specific environment, using the `azd down` command with the `--environment` flag:
 
-1. **Delete the configuration only** (keeps Azure resources):
-
-   ```azdeveloper
-   azd env delete <environment-name>
-   ```
-
-   This command removes the environment's directory and configuration files but doesn't affect any Azure resources.
-
-2. **Delete the configuration and all Azure resources**:
-
-   ```azdeveloper
-   azd down --environment <environment-name> --purge
-   ```
-
-   This command:
-   - Deletes all Azure resources in the environment's resource group
-   - Removes the environment's configuration files
-   - Completely cleans up the environment
-
-> [!CAUTION]
-> The `azd down --purge` command permanently deletes Azure resources. Make sure you're working in the correct environment before running this command.
+```azdeveloper
+azd down --environment <environment-name>
+```
 
 ## Next steps
 
