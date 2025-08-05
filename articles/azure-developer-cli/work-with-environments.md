@@ -78,11 +78,31 @@ Common environment variables include:
 | `RESOURCE_TOKEN` | Unique token used to generate consistent resource names |
 | `AZURE_RESOURCE_GROUP` | Name of the resource group for this environment |
 
+> [!TIP]
+> For other common environment variables and examples, visit the [Environment variables](manage-environment-variables.md) documentation.
+
 When working with environment variables:
 
 - Avoid committing `.env` files to source control if they contain secrets.
 - Use consistent naming across environments.
 - Use the `azd env set` command to update variables safely.
+
+> [!WARNING]
+> Never store secrets in an Azure Developer CLI `.env` file. These files can easily be shared or copied into unauthorized locations, or checked into source control. Use services such as Azure Key Vault or Azure RBAC for protected or secretless solutions.
+
+### Comparing Azure Developer CLI environments with other framework environments
+
+Many programming frameworks and tools (like Node.js with dotenv, Django, Laravel, or React) use `.env` files for configuration. While Azure Developer CLI also uses `.env` files, there are important differences:
+
+| Concept | Azure Developer CLI `.env` | Framework `.env` Files |
+|--------|---------------------------|------------------------|
+| **Location** | Stored in `.azure/<environment-name>/.env` | Typically stored in project root directory |
+| **Environment Support** | Built-in support for multiple environments (dev, test, prod) | Often require manual file switching or naming conventions (`.env.development`, `.env.production`) |
+| **Loading Mechanism** | Automatically loaded by `azd` commands | Usually require explicit loading in application code or build scripts |
+| **Integration** | Deeply integrated with Azure services and resource provisioning | General purpose configuration, not Azure-specific |
+| **Variable Management** | Managed via `azd env` commands | Typically edited manually or via custom scripts |
+
+While both serve similar purposes, Azure Developer CLI's `.env` approach adds structure and tooling specifically designed for managing multiple deployment environments and Azure resources. If your project already uses framework-specific `.env` files, you can keep both configuration systems without conflicts.
 
 ## Create and manage environments
 
@@ -120,7 +140,7 @@ azd env list
 
 This command displays all environments, highlighting the current active environment. Example output:
 
-```txt
+```output
 dev (current)
 test
 prod
