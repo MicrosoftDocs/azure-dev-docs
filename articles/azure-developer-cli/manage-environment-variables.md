@@ -14,7 +14,7 @@ ms.custom: devx-track-azdevcli
 Environment variables influence how resources are provisioned and deployed to Azure. This is especially useful when running azd in CI/CD workflow scenarios.
 
 > [!TIP]
-> For a comprehensive guide on creating and managing environments in Azure Developer CLI, see [Work with environments in Azure Developer CLI](./extensions/work-with-environments.md).
+> For a comprehensive guide on creating and managing environments in Azure Developer CLI, see [Work with environments in Azure Developer CLI](work-with-environments.md).
 
 ## Input Parameters Substitution
 

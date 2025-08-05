@@ -102,7 +102,7 @@
       - name: Work with environments
         items:
         - name: Work with environments
-          href: extensions/work-with-environments.md
+          href: work-with-environments.md
         - name: Manage environment variables
           href: manage-environment-variables.md
         - name: Environment variables FAQ

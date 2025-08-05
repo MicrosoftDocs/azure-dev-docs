@@ -14,7 +14,7 @@ ms.custom: devx-track-azdevcli
 This article answers frequently asked questions about working with environment variables and the Azure Developer CLI (`azd`).
 
 > [!TIP]
-> For a comprehensive guide on creating and managing environments in Azure Developer CLI, see [Work with environments in Azure Developer CLI](./extensions/work-with-environments.md).
+> For a comprehensive guide on creating and managing environments in Azure Developer CLI, see [Work with environments in Azure Developer CLI](work-with-environments.md).
 
 ### What are the differences between `azd` environment variables and system environment variables?
 

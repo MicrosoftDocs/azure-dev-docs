@@ -208,10 +208,10 @@ If you no longer need an environment, you can delete it in two ways:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize your Azure Developer CLI workflows using hooks](../azd-extensibility.md)
+> [Customize your Azure Developer CLI workflows using hooks](azd-extensibility.md)
 
 > [!div class="nextstepaction"]
-> [Configure CI/CD pipelines with Azure Developer CLI](../pipeline-github-actions.md)
+> [Configure CI/CD pipelines with Azure Developer CLI](pipeline-github-actions.md)
 
 > [!div class="nextstepaction"]
-> [Manage environment variables in Azure Developer CLI](../manage-environment-variables.md)
+> [Manage environment variables in Azure Developer CLI](manage-environment-variables.md)
