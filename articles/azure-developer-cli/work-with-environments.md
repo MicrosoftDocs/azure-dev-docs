@@ -15,7 +15,7 @@ The Azure Developer CLI (`azd`) helps you manage multiple deployment environment
 
 ## What are environments?
 
-An environment in the Azure Developer CLI represents a named collection of configuration settings, environment variables, and infrastructure parameters associated with a specific deployment of your application. Environments serve several important purposes:
+An environment in the Azure Developer CLI (`azd`) context represents a named collection of configuration settings, environment variables, and infrastructure parameters associated with a specific deployment of your application. Environments serve several important purposes:
 
 - **Isolation**: Keep development, testing, staging, and production deployments separate.
 - **Configuration management**: Maintain different settings for each environment.
@@ -27,7 +27,7 @@ Each environment has its own Azure resource group (typically named `rg-<environm
 
 ### Environment structure and configuration files
 
-Azure Developer CLI environments live in a directory structure within your project:
+Azure Developer CLI (`azd`) environments live in a directory structure within your project:
 
 ```txt
 ├── .azure                          [Created when you run azd init or azd up]
@@ -92,7 +92,7 @@ When working with environment variables:
 
 ### Comparing other framework environments
 
-Many programming frameworks and tools such as Node.js, Django, or React use `.env` files for configuration. While Azure Developer CLI also uses `.env` files, there are important differences:
+Many programming frameworks and tools such as Node.js, Django, or React use `.env` files for configuration. While Azure Developer CLI (`azd`) also uses `.env` files, there are important differences:
 
 | Concept | Azure Developer CLI `.env` | Framework `.env` Files |
 |--------|---------------------------|------------------------|
