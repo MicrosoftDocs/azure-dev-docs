@@ -1,7 +1,7 @@
 ---
 title: Credential Chains in the Azure Identity Client Library for C++
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for C++.
-ms.date: 6/30/2025
+ms.date: 08/05/2025
 ms.topic: conceptual
 ms.custom: devx-track-cpp
 
@@ -86,6 +86,10 @@ int main()
 
 ### How to customize DefaultAzureCredential
 
+The following sections describe strategies for controlling which credentials are included in the chain.
+
+#### Exclude a credential type category
+
 To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
 
 :::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
@@ -94,6 +98,18 @@ When a value of `dev` is used, the chain only includes `AzureCliCredential`.
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity-cpp` package versions 1.12.0 and later.
+
+#### Use a specific credential
+
+To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
+
+- `AzureCliCredential`
+- `EnvironmentCredential`
+- `ManagedIdentityCredential`
+- `WorkloadIdentityCredential`
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity-cpp` package versions 1.13.0 and later.
 
 ## ChainedTokenCredential overview
 

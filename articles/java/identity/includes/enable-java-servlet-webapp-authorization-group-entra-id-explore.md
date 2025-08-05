@@ -103,7 +103,7 @@ To create the overage scenario, you can use the following steps:
    1. If none found, look into the **groups**  claim for user's groups.
 
 > [!NOTE]
-> Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permission for the [getMemberObjects](/graph/api/user-getmemberobjects) function to execute successfully.
+> Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permission for the [getMemberObjects](/graph/api/directoryobject-getmemberobjects) function to execute successfully.
 >
 > For more information about programming for Microsoft Graph, see the video [An introduction to Microsoft Graph for developers](https://www.youtube.com/watch?v=EBbnpFdB92A).
 
