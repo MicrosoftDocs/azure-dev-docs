@@ -199,9 +199,12 @@ This command runs the `up` workflow (provision and deploy) in the `dev` environm
 Alternatively, you can first switch to your intended environment:
 
 ```azdeveloper
-azd env select prod
+azd env select test
 azd up
 ```
+
+> [!NOTE]
+> For production environments, it's recommended that teams rely on CICD pipelines using the `azd pipeline config` command, rather than direct deployments using commands such as `azd up` or `azd provision`.
 
 ## Delete environment resources
 
