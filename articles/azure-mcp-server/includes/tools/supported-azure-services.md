@@ -27,7 +27,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Key Vault](../../tools/key-vault-key.md) | Manage keys, secrets, certificates in Azure Key Vault. |
 | [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
-| [Azure Marketplace](../../azure-marketplace.md) | Discover Azure Marketplace products and offers. |
+| [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
