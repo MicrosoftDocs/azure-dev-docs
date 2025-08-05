@@ -92,13 +92,13 @@ Azure Developer CLI provides a set of commands to switch between environments, r
 
 Create a new environment using the `azd env new` command:
 
-```bash
+```azdeveloper
 azd env new <environment-name>
 ```
 
 For example, to create a development environment:
 
-```bash
+```azdeveloper
 azd env new dev
 ```
 
@@ -106,7 +106,7 @@ The command prompts you to select an Azure subscription and location. Once compl
 
 You can also specify subscription and location directly in the command:
 
-```bash
+```azdeveloper
 azd env new prod --subscription "My Production Subscription" --location eastus2
 ```
 
@@ -114,7 +114,7 @@ azd env new prod --subscription "My Production Subscription" --location eastus2
 
 To see all available environments for your project, use:
 
-```bash
+```azdeveloper
 azd env list
 ```
 
@@ -130,13 +130,13 @@ prod
 
 To switch to a different environment, use the `azd env select` command:
 
-```bash
+```azdeveloper
 azd env select <environment-name>
 ```
 
 For example, to switch to a production environment:
 
-```bash
+```azdeveloper
 azd env select prod
 ```
 
@@ -147,7 +147,7 @@ azd env select prod
 
 You can refresh your local environment variables using the `azd env refresh` command. This command locates the most recent Azure deployment for your app, retrieves the environment variable values by name, and then updates your local `.env` file with those latest values.
 
-```bash
+```azdeveloper
 azd env refresh
 ```
 
@@ -166,7 +166,7 @@ If other team members have made changes to environment configurations, or if you
 
 You can run any `azd` command in a specific environment without changing your active environment by using the `--environment` flag:
 
-```bash
+```azdeveloper
 azd up --environment dev
 ```
 
@@ -174,7 +174,7 @@ This command runs the `up` workflow (provision and deploy) in the `dev` environm
 
 Alternatively, you can first switch to your intended environment:
 
-```bash
+```azdeveloper
 azd env select prod
 azd up
 ```
@@ -185,7 +185,7 @@ If you no longer need an environment, you can delete it in two ways:
 
 1. **Delete the configuration only** (keeps Azure resources):
 
-   ```bash
+   ```azdeveloper
    azd env delete <environment-name>
    ```
 
@@ -193,7 +193,7 @@ If you no longer need an environment, you can delete it in two ways:
 
 2. **Delete the configuration and all Azure resources**:
 
-   ```bash
+   ```azdeveloper
    azd down --environment <environment-name> --purge
    ```
 
