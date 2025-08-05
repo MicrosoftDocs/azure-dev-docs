@@ -44,7 +44,7 @@ Example prompts include:
 | **Market** | Optional | The market or region code to get region-specific pricing and availability (for example, 'US', 'FR'). |
 | **Lookup offer in tenant level** | Optional | Whether to look up the offer at the tenant level for organization-specific information. |
 | **Plan ID** | Optional | The specific plan identifier within the product to get detailed plan information. |
-| **SKU ID** | Optional | The Stock Keeping Unit identifier for a specific product variant or configuration. |
+| **SKU ID** | Optional | The specific pricing SKU identifier for a specific product variant or configuration. |
 | **Include service instruction templates** | Optional | Whether to include service instruction templates in the response for deployment guidance. |
 | **Partner tenant ID** | Optional | The tenant ID of the partner for partner-specific product information. |
 | **Pricing audience** | Optional | The target audience for pricing information (for example, 'public', 'private', 'government'). |
