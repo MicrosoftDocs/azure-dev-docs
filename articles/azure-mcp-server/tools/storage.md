@@ -62,9 +62,9 @@ Example prompts include:
 
 - **List accounts**: "Show me all storage accounts in my subscription."
 - **View accounts**: "What storage accounts do I have available?"
-- **Find accounts**: "List my storage accounts"
-- **Query accounts**: "Show all my storage resources"
-- **Check accounts**: "Storage accounts in subscription abc123"
+- **Find accounts**: "List my storage accounts."
+- **Query accounts**: "Show all my storage resources."
+- **Check accounts**: "Storage accounts in subscription abc123."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -140,7 +140,24 @@ Example prompts include:
 | **Account name** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 | **Resource group** | Optional | The name of the resource group containing the resource. |
 
+## Set blob access tier in a batch
 
+Azure MCP Server can set the access tier for multiple blobs in a single batch operation. This functionality efficiently changes the storage tier for multiple blobs simultaneously to optimize storage costs and access patterns based on your data usage needs.
+
+Example prompts include:
+
+- **Set tier for multiple blobs**: "Set the access tier to 'Cool' for files 'data1.csv' and 'data2.csv' in my 'analytics' container."
+- **Archive old files**: "Change the tier to 'Archive' for all backup files in container 'backups'"
+- **Optimize storage costs**: "Set tier to 'Hot' for frequently accessed files in my 'documents' container"
+- **Batch tier change**: "Move files to 'Cool' tier: 'log1.txt', 'log2.txt', 'log3.txt' in container 'logs'"
+- **Update access tier**: "Change access tier to 'Archive' for multiple files in my storage account"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
+| **Container** | Required | The name of the container to access within the storage account. |
+| **Tier** | Required | The access tier to set for the blobs. Valid values include Hot, Cool, Archive, and others depending on the storage account type. |
+| **Blob names** | Required | The names of the blobs to set the access tier for. Provide multiple blob names separated by spaces. Each blob name should be the full path within the container (for example, 'file1.txt' or 'folder/file2.txt'). |
 
 ## Related content
 
