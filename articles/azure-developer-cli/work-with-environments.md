@@ -27,7 +27,7 @@ Each environment has its own Azure resource group (typically named `rg-<environm
 
 ### Environment structure and configuration files
 
-Azure Developer CLI environments are represented by a directory structure within your project:
+Azure Developer CLI environments live in a directory structure within your project:
 
 ```txt
 ├── .azure                          [Created when you run azd init or azd up]
@@ -43,13 +43,13 @@ Azure Developer CLI environments are represented by a directory structure within
 The key components of this structure are:
 
 1. **`.azure` directory**: The root directory for all environment configurations.
-2. **Environment-specific directories**: Named after your environments (e.g., "dev", "test", "prod").
+2. **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
 3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
 4. **`main.parameters.json`**: Contains parameters used during infrastructure provisioning with Bicep or Terraform.
 
 ## Environment variables
 
-Azure Developer CLI [Environment variables](manage-environment-variables.md) provide a way to store configuration settings that influence and may vary between environments. When you run Azure Developer CLI commands, these variables are used to:
+Azure Developer CLI [Environment variables](manage-environment-variables.md) provide a way to store configuration settings that influence and might vary between environments. When you run Azure Developer CLI commands, these variables are used to:
 
 - Configure your application's settings
 - Define infrastructure parameters
@@ -88,11 +88,11 @@ When working with environment variables:
 - Use the `azd env set` command to update variables safely.
 
 > [!WARNING]
-> Never store secrets in an Azure Developer CLI `.env` file. These files can easily be shared or copied into unauthorized locations, or checked into source control. Use services such as Azure Key Vault or Azure RBAC for protected or secretless solutions.
+> Never store secrets in an Azure Developer CLI `.env` file. These files can easily be shared or copied into unauthorized locations, or checked into source control. Use services such as Azure Key Vault or Azure Role Based Access Control (RBAC) for protected or secretless solutions.
 
-### Comparing Azure Developer CLI environments with other framework environments
+### Comparing other framework environments
 
-Many programming frameworks and tools (like Node.js with dotenv, Django, Laravel, or React) use `.env` files for configuration. While Azure Developer CLI also uses `.env` files, there are important differences:
+Many programming frameworks and tools such as Node.js, Django, or React use `.env` files for configuration. While Azure Developer CLI also uses `.env` files, there are important differences:
 
 | Concept | Azure Developer CLI `.env` | Framework `.env` Files |
 |--------|---------------------------|------------------------|
@@ -102,7 +102,7 @@ Many programming frameworks and tools (like Node.js with dotenv, Django, Laravel
 | **Integration** | Deeply integrated with Azure services and resource provisioning | General purpose configuration, not Azure-specific |
 | **Variable Management** | Managed via `azd env` commands | Typically edited manually or via custom scripts |
 
-While both serve similar purposes, Azure Developer CLI's `.env` approach adds structure and tooling specifically designed for managing multiple deployment environments and Azure resources. If your project already uses framework-specific `.env` files, you can keep both configuration systems without conflicts.
+While both serve similar purposes, Azure Developer CLI's `.env` approach adds structure and tooling designed for managing multiple deployment environments and Azure resources. If your project already uses framework-specific `.env` files, you can keep both configuration systems without conflicts.
 
 ## Create and manage environments
 
@@ -172,15 +172,15 @@ azd env refresh
 ```
 
 > [!NOTE]
-> The `azd env refresh` command does not redeploy resources. It only updates your local environment configuration to match the current state in Azure.
+> The `azd env refresh` command doesn't redeploy resources. It only updates your local environment configuration to match the current state in Azure.
 
 Refreshing your environment is useful when:
 
-- Infrastructure changes have been made outside of `azd` (e.g., resources updated in the Azure Portal)
-- You want to ensure your local `.env` file reflects the latest outputs from your infrastructure (like connection strings, endpoints, etc.)
-- You need to sync environment variables after a teammate has updated the environment
+- Infrastructure changes were made outside of `azd`, such as through the Azure portal.
+- You want to ensure your local `.env` file reflects the latest outputs from your infrastructure (like connection strings, endpoints, etc.).
+- You need to sync environment variables after a teammate updated the environment.
 
-If other team members have made changes to environment configurations, or if you've made changes through the Azure portal, you can refresh your local environment settings with:
+If other team members made changes to environment configurations, or if you made changes through the Azure portal, you can refresh your local environment settings with:
 
 ### Run commands in specific environments
 
@@ -209,7 +209,7 @@ If you no longer need an environment, you can delete it in two ways:
    azd env delete <environment-name>
    ```
 
-   This removes the environment's directory and configuration files but doesn't affect any Azure resources.
+   This command removes the environment's directory and configuration files but doesn't affect any Azure resources.
 
 2. **Delete the configuration and all Azure resources**:
 
