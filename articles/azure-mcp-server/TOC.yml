@@ -41,6 +41,8 @@ items:
           href: tools/azure-aks.md
         - name: Azure Load Testing
           href: tools/azure-load-testing.md
+        - name: Azure Marketplace
+          href: tools/azure-marketplace.md
         - name: Azure MCP tool
           href: tools/azure-mcp-tool.md
         - name: Azure Monitor
