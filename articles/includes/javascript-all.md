@@ -73,7 +73,7 @@
 | Health Insights Cancer Profiling | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-cancerprofiling/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/health-insights-cancerprofiling-rest/) |
 | Health Insights Clinical Matching | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-clinicalmatching/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/health-insights-clinicalmatching-rest/) |
 | Health Insights Radiology Insights | npm [2.0.0](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_2.0.0/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
-| Identity | npm [4.11.0](https://www.npmjs.com/package/@azure/identity/v/4.11.0) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.11.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.11.0/sdk/identity/identity/) |
+| Identity | npm [4.11.1](https://www.npmjs.com/package/@azure/identity/v/4.11.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.11.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.11.1/sdk/identity/identity/) |
 | Identity Broker | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.2.0/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.3/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -260,7 +260,7 @@
 | Resource Management - Health Data AI  Services | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-healthdataaiservices/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-healthdataaiservices-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-healthdataaiservices_1.0.0/sdk/healthdataaiservices/arm-healthdataaiservices/) |
 | Resource Management - Healthcare APIs | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-healthcareapis/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-healthcareapis-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-healthcareapis_3.1.0/sdk/healthcareapis/arm-healthcareapis/) |
 | Resource Management - Hybrid Compute | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-hybridcompute/v/4.0.0)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-hybridcompute/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-hybridcompute-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_4.0.0/sdk/hybridcompute/arm-hybridcompute/)<br>GitHub [5.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcompute_5.0.0-beta.1/sdk/hybridcompute/arm-hybridcompute/) |
-| Resource Management - Hybrid Connectivity | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-hybridconnectivity/v/1.0.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-hybridconnectivity/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-hybridconnectivity-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_1.0.0/sdk/hybridconnectivity/arm-hybridconnectivity/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_2.0.0-beta.1/sdk/hybridconnectivity/arm-hybridconnectivity/) |
+| Resource Management - Hybrid Connectivity | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-hybridconnectivity/v/1.0.0)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-hybridconnectivity/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-hybridconnectivity-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_1.0.0/sdk/hybridconnectivity/arm-hybridconnectivity/)<br>GitHub [2.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridconnectivity_2.0.0-beta.2/sdk/hybridconnectivity/arm-hybridconnectivity/) |
 | Resource Management - Hybrid Container Service | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-hybridcontainerservice/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-hybridcontainerservice-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridcontainerservice_1.0.0/sdk/hybridcontainerservice/arm-hybridcontainerservice/) |
 | Resource Management - Hybrid Kubernetes | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-hybridkubernetes/v/2.1.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-hybridkubernetes/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-hybridkubernetes-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridkubernetes_2.1.0/sdk/hybridkubernetes/arm-hybridkubernetes/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridkubernetes_3.0.0-beta.1/sdk/hybridkubernetes/arm-hybridkubernetes/) |
 | Resource Management - Hybrid Network | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-hybridnetwork/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-hybridnetwork-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridnetwork_1.0.0-beta.1/sdk/hybridnetwork/arm-hybridnetwork/) |
@@ -410,7 +410,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.19.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.19.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.58.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.58.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.58.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.58.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.26.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.26.1) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.27.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.27.0) |  |  |
 | @azure-tools/typespec-go | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.7.0) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -442,7 +442,7 @@
 | TypeSpec HTTP Client | npm [0.8.0](https://www.npmjs.com/package/@typespec/http-client/v/0.8.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.7.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.7.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.14.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.14.2) |  |  |
+| TypeSpec HTTP Client Python | npm [0.14.3-dev.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.14.3-dev.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.24](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.24) |  |  |
 | TypeSpec Rust | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.20.0) |  |  |
 | TypeSpec SSE | npm [0.72.1](https://www.npmjs.com/package/@typespec/sse/v/0.72.1) |  |  |
@@ -450,13 +450,13 @@
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
 | Unknown Display Name | npm [1.4.0](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.0) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp/v/0.5.2) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.2) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.2) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.2) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.2) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.2) |  |  |
-| Unknown Display Name | npm [0.5.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.2) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp/v/0.5.3) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.3) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.3) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.3) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.3) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.3) |  |  |
+| Unknown Display Name | npm [0.5.3](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.3) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
