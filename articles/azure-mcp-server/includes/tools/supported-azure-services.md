@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 07/22/2025
+ ms.date: 08/04/2025
 ---
 
 ## Available tools
@@ -24,7 +24,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure Grafana](../../tools/azure-grafana.md) | List Grafana workspaces.|
-| [Azure Key Vault](../../tools/key-vault-key.md) | Manage keys, secrets, certificates in Azure Key Vault. |
+| [Azure Key Vault](../../tools/key-vault-key.md) | List and create keys, secrets, certificates in Azure Key Vault. |
 | [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
