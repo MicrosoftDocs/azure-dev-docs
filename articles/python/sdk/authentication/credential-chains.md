@@ -120,8 +120,10 @@ credential = DefaultAzureCredential(
     exclude_environment_credential=True,
     exclude_workload_identity_credential=True,
     exclude_shared_token_cache_credential=True,
+    exclude_visual_studio_code_credential=True,
     exclude_azure_powershell_credential=True,
     exclude_azure_developer_cli_credential=True,
+    exclude_broker_credential=True,
     managed_identity_client_id=user_assigned_client_id
 )
 ```
