@@ -29,7 +29,7 @@ Some of the Azure Virtual Desktop tools require **one** of the following paramet
 
 Don't provide both parameters (host pool name and host pool resource ID) together, because this combination creates conflicting inputs. When you provide a host pool resource ID, the tool uses it instead of searching by name.
 
-## Host pools: list 
+## Host pools: list host pools
 
 The Azure MCP Server can list all host pools in a subscription or resource group. This feature provides an overview of your virtual desktop infrastructure and helps you manage your desktop deployment.
 
@@ -40,10 +40,6 @@ Example prompts include:
 - **Find host pools**: "List all virtual desktop host pools."
 - **Query host pools**: "Show available host pools in my environment."
 - **Check infrastructure**: "Get all Azure Virtual Desktop host pools."
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Resource group** | Optional | The name of the resource group. If specified, the command returns only host pools in that resource group. |
 
 ## Host pools: list session hosts in a host pool
 
