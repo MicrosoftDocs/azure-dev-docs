@@ -162,6 +162,7 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 - `EnvironmentCredential`
 - `InteractiveBrowserCredential`
 - `ManagedIdentityCredential`
+- `VisualStudioCodeCredential`
 - `WorkloadIdentityCredential`
 
 > [!IMPORTANT]
