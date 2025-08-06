@@ -28,7 +28,7 @@ landingContent:
           - text: AzureRM provider versions 
             url: provider-version-history-azurerm-4-0-0-to-current.md
           - text: Terraform Microsoft Graph provider
-            url: /templates/terraform/reference/v1.0/overview
+            url: /graph/templates/terraform/reference/v1.0/overview
       - linkListType: architecture
         links:
           - text: Terraform AzureRM Provider

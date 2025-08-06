@@ -545,7 +545,7 @@
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Microsoft Graph provider
-      href: /templates/terraform/reference/v1.0/overview
+      href: /graph/templates/terraform/reference/v1.0/overview
     - name: Terraform Azure Provider
       href: https://aka.ms/terraform
     - name: Terraform AzAPI Provider
