@@ -44,7 +44,7 @@ Learn more in the [LLM session of the course](https://github.com/microsoft/gener
 
 ## Essential prompt engineering techniques
 
-Prompt engineering means designing prompts to get better AI results. You can use zero-shot learning (no examples) or few-shot learning (with examples) to guide the model. When you add cues like step-by-step instructions, clear context, and output formats helps the model give better answers. You can also adjust tone and personalize responses. These basics set you up for advanced techniques like RAG.
+Prompt engineering means designing prompts to get better AI results. You can use zero-shot learning (no examples) or few-shot learning (with examples) to guide the model. Adding cues like step-by-step instructions, clear context, and output formats helps the model give better answers. You can also adjust tone and personalize responses. These basics set you up for advanced techniques like RAG.
 
 Learn more in the [prompt engineering session of the course](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/sessions/02-prompt-engineering.md):
 * [Demo](https://github.com/microsoft/generative-ai-with-javascript/blob/main/videos/demos/02-prompt-engineering/readme.md)
