@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 07/22/2025
+ms.date: 08/04/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -39,7 +39,7 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
-
+<!--
 ### Get key
 
 The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
@@ -57,7 +57,7 @@ Example prompts include:
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to retrieve. |
-
+-->
 ### List keys
 
 The Azure MCP Server can list all keys in an Azure Key Vault. This helps you manage your cryptographic keys and view your key inventory.
@@ -96,7 +96,7 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
-
+<!--
 ### Get secret
 
 The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault.
@@ -114,7 +114,7 @@ Example prompts include:
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the secret to retrieve. |
-
+-->
 ### List secrets
 
 The Azure MCP Server can list all secrets in an Azure Key Vault. This helps you manage your stored secrets and view your secret inventory.

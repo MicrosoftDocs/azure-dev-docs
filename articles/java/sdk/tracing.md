@@ -70,7 +70,7 @@ appConfigAsyncClient.setConfigurationSettingWithResponse(settings)
 
 #### Azure SDK tracing conventions
 
-To find out which spans and attributes the SDK emits, see the [Azure SDK semantic conventions specification](https://github.com/Azure/azure-sdk/blob/main/docs/tracing/distributed-tracing-conventions.yml). Azure SDK (and OpenTelemetry) semantic conventions are not stable and may change in the future.
+To find out which spans and attributes the SDK emits, see the [Azure SDK semantic conventions specification](https://github.com/Azure/azure-sdk/blob/main/docs/observability/opentelemetry-conventions.yml). Azure SDK (and OpenTelemetry) semantic conventions are not stable and may change in the future.
 
 ## Next steps
 
