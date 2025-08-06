@@ -9,7 +9,7 @@ ms.topic: install-set-up-deploy
 ms.custom: devx-track-java, spring-cloud-azure
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.22.0
+- ✅ Version 5.23.0
 ---
 
 # Deploy applications to Azure hosting services

@@ -143,9 +143,7 @@ Example prompts include:
 | **Search string** | Optional | Search string to filter metrics. |
 | **Limit** | Optional | Maximum number of results to return. |
 
-## Workbooks
-
-### List workbooks
+## Workbooks: list workbooks
 
 The Azure MCP Server can list Azure Monitor workbooks in a resource group. This helps you discover and manage your monitoring dashboards and interactive reports.
 
@@ -165,7 +163,7 @@ The Azure MCP Server can list Azure Monitor workbooks in a resource group. This 
 | **Kind** | Optional | The kind of workbook (e.g., 'shared', 'user'). |
 | **Source ID** | Optional | The source resource ID to filter workbooks by. |
 
-### Show workbook details
+## Workbooks: show workbook details
 
 The Azure MCP Server can show details of a specific Azure Monitor workbook by its resource ID. This provides comprehensive information about the workbook's configuration and content.
 
@@ -181,7 +179,7 @@ The Azure MCP Server can show details of a specific Azure Monitor workbook by it
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to retrieve. |
 
-### Create workbook
+## Workbooks: create workbook
 
 The Azure MCP Server can create a new Azure Monitor workbook. This allows you to programmatically create monitoring dashboards and interactive reports.
 
@@ -201,7 +199,7 @@ The Azure MCP Server can create a new Azure Monitor workbook. This allows you to
 | **Serialized content** | Required | The JSON content defining the workbook structure and queries. |
 | **Source ID** | Optional | The source resource ID to associate with the workbook. |
 
-### Update workbook
+## Workbooks: update workbook
 
 The Azure MCP Server can update an existing Azure Monitor workbook. This allows you to modify workbook properties and content programmatically.
 
@@ -219,7 +217,7 @@ The Azure MCP Server can update an existing Azure Monitor workbook. This allows 
 | **Display name** | Optional | The new display name for the workbook. |
 | **Serialized content** | Optional | The updated JSON content for the workbook. |
 
-### Delete workbook
+## Workbooks: delete workbooks
 
 The Azure MCP Server can delete an Azure Monitor workbook. This permanently removes the workbook and all its associated content.
 
