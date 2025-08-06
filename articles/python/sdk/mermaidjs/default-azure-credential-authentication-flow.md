@@ -3,7 +3,9 @@
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i default-azure-credential-auth-flow.md -o ../../media/mermaidjs/default-azure-credential-auth-flow.svg
+%% 2. Run commands:
+%%    mmdc -i default-azure-credential-authentication-flow.md -o ../../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg
+%%    mmdc -i default-azure-credential-authentication-flow.md -o ../../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png -w 1156
 
 %%{
   init: {
@@ -26,7 +28,16 @@ flowchart LR;
 
     subgraph CREDENTIALS;
         direction LR;
-        A(Environment):::deployed --> B(Workload Identity):::deployed --> C(Managed Identity):::deployed --> D(Shared Token Cache):::developer --> E(Azure CLI):::developer --> F(Azure PowerShell):::developer --> G(Azure Developer CLI):::developer --> H(Interactive browser):::interactive;
+        A(Environment):::deployed -->
+        B(Workload Identity):::deployed -->
+        C(Managed Identity):::deployed -->
+        D(Shared Token Cache):::developer -->
+        E(Visual Studio Code):::developer -->
+        F(Azure CLI):::developer -->
+        G(Azure PowerShell):::developer -->
+        H(Azure Developer CLI):::developer -->
+        I(Interactive browser):::interactive -->
+        J(Broker):::developer;
     end;
 
     %% Define styles for credential type boxes
@@ -39,8 +50,10 @@ flowchart LR;
     click B "https://learn.microsoft.com/python/api/azure-identity/azure.identity.workloadidentitycredential?view=azure-python" _blank;
     click C "https://learn.microsoft.com/python/api/azure-identity/azure.identity.managedidentitycredential?view=azure-python" _blank;
     click D "https://learn.microsoft.com/python/api/azure-identity/azure.identity.sharedtokencachecredential?view=azure-python" _blank;
-    click E "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azureclicredential?view=azure-python" _blank;
-    click F "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azurepowershellcredential?view=azure-python" _blank;
-    click G "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azuredeveloperclicredential?view=azure-python" _blank
-    click H "https://learn.microsoft.com/python/api/azure-identity/azure.identity.interactivebrowsercredential?view=azure-python" _blank;
+    click E "https://learn.microsoft.com/python/api/azure-identity/azure.identity.visualstudiocodecredential?view=azure-python" _blank;
+    click F "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azureclicredential?view=azure-python" _blank;
+    click G "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azurepowershellcredential?view=azure-python" _blank;
+    click H "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azuredeveloperclicredential?view=azure-python" _blank
+    click I "https://learn.microsoft.com/python/api/azure-identity/azure.identity.interactivebrowsercredential?view=azure-python" _blank;
+    click J "https://learn.microsoft.com/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential?view=azure-python" _blank;
 ```
