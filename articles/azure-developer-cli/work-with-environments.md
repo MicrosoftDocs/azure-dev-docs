@@ -23,7 +23,7 @@ An environment in the Azure Developer CLI (`azd`) context represents a named col
 - **Resource organization**: Group and provision Azure resources by environment, such as using lower tier services for dev environments.
 - **Reproducibility**: Ensure consistent deployments across different stages.
 
-Each environment has its own Azure resource group and configuration settings. The environment name typically follows the pattern `rg-<environment-name>`, but this is configurable by the user. This environment isolation helps prevent changes in one environment from affecting others.
+Each environment has its own Azure resource group and configuration settings. The environment name typically follows the pattern `rg-<environment-name>`, but this is not enforced by `azd` and is configurable by the user. This environment isolation helps prevent changes in one environment from affecting others.
 
 ### Environment structure and configuration files
 
@@ -46,6 +46,61 @@ The key components of this structure are:
 2. **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
 3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
 4. **`main.parameters.json`**: Contains parameters commonly used during infrastructure provisioning with Bicep or Terraform, but can be used for any per-environment `azd` configuration. This file is not intended to be used directly by end users.
+
+## Use the selected environment name in infrastructure files
+
+You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to customize your infrastructure deployments in Bicep. This is useful for naming, tagging, or configuring resources based on the current environment.
+
+1. Pass `AZURE_ENV_NAME` from the `.env` file to Bicep as an input parameter. This environment variable is set by `azd` when you initialize a project.
+
+    ```output
+    AZURE_ENV_NAME=dev
+    ```
+
+1. In your Bicep template, define a parameter for the environment name:
+
+    ```bicep
+    param environmentName string
+    ```
+
+1. In your `main.parameters.json` file, reference the environment variable so `azd` will substitute its value:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "environmentName": {
+          "value": "${AZURE_ENV_NAME}"
+        }
+      }
+    }
+    ```
+
+    Now, when you deploy with `azd`, the value from `.env` will be passed to your Bicep file from `main.parameters.json`.
+
+### Use the environment to tag resources in Bicep
+
+You can use the `environmentName` parameter to tag resources, making it easy to identify which environment a resource belongs to:
+
+```bicep
+param environmentName string
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+  name: 'mystorage${uniqueString(resourceGroup().id)}'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  tags: {
+    Environment: environmentName
+    Project: 'myproject'
+  }
+}
+```
+
+This approach helps with resource management, cost tracking, and automation by associating each resource with its deployment environment.
 
 ## Environment variables
 
