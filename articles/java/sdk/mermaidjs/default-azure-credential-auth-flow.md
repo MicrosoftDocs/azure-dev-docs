@@ -5,7 +5,7 @@
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
 %% 2. Run commands:
 %%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-inline.svg
-%%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-expanded.png -w 1156id
+%%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-expanded.png -w 1156
 
 %%{
   init: {
@@ -31,11 +31,12 @@ flowchart LR;
         A(Environment):::deployed --> 
         B(Workload Identity):::deployed --> 
         C(Managed Identity):::deployed --> 
-        D(Shared Token Cache):::developer --> 
-        E(IntelliJ):::developer --> 
+        D(IntelliJ):::developer --> 
+        E(Visual Studio Code):::developer --> 
         F(Azure CLI):::developer --> 
         G(Azure PowerShell):::developer --> 
-        H(Azure Developer CLI):::developer;
+        H(Azure Developer CLI):::developer -->
+        I(Broker):::developer;
     end;
 
     %% Define styles for credential type boxes
@@ -46,9 +47,10 @@ flowchart LR;
     click A "https://learn.microsoft.com/java/api/com.azure.identity.environmentcredential?view=azure-java-stable" _blank;
     click B "https://learn.microsoft.com/java/api/com.azure.identity.workloadidentitycredential?view=azure-java-stable" _blank;
     click C "https://learn.microsoft.com/java/api/com.azure.identity.managedidentitycredential?view=azure-java-stable" _blank;
-    click D "https://learn.microsoft.com/java/api/com.azure.identity.sharedtokencachecredential?view=azure-java-stable" _blank;
-    click E "https://learn.microsoft.com/java/api/com.azure.identity.intellijcredential?view=azure-java-stable" _blank;
+    click D "https://learn.microsoft.com/java/api/com.azure.identity.intellijcredential?view=azure-java-stable" _blank;
+    click E "https://learn.microsoft.com/java/api/com.azure.identity.visualstudiocodecredential?view=azure-java-stable" _blank;
     click F "https://learn.microsoft.com/java/api/com.azure.identity.azureclicredential?view=azure-java-stable" _blank;
     click G "https://learn.microsoft.com/java/api/com.azure.identity.azurepowershellcredential?view=azure-java-stable" _blank;
     click H "https://learn.microsoft.com/java/api/com.azure.identity.azuredeveloperclicredential?view=azure-java-stable" _blank;
+    click I "https://learn.microsoft.com/java/api/com.azure.identity.interactivebrowsercredential?view=azure-java-stable" _blank;
 ```

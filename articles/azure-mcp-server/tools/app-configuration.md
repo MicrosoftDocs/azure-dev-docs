@@ -94,7 +94,7 @@ Example prompts include:
 
 ## Set key-value setting
 
-The Azure MCP Server can create or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store.
+Set or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. 
 
 Example prompts include:
 
@@ -106,11 +106,12 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required | The name of the App Configuration store.                                    |
 | **Key**          | Required | The key name of the setting to set.                                         |
 | **Value**        | Required | The value to set for the key.                                               |
 | **Label**        | Optional | The label of the setting to set.                                            |
+| **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format 'key=value'. You can specify multiple tags. |
+| **Content type** | Optional | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
 
 ## Show key-value setting
 

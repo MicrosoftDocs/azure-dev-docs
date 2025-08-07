@@ -1,7 +1,7 @@
 ---
 title: 'Credential chains in the Azure Identity library for Java'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
-ms.date: 06/02/2025
+ms.date: 08/05/2025
 ms.topic: article
 author: KarlErickson
 ms.author: karler
@@ -70,20 +70,24 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 | 1     | [Environment][env-cred]         | Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally. |
 | 2     | [Workload Identity][wi-cred]    | If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.                                                                                                                                                                                                                                 |
 | 3     | [Managed Identity][mi-cred]     | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                  |
-| 4     | [Shared Token Cache][stc-cred]  | If the developer authenticated to Azure by logging into Visual Studio, authenticate the app to Azure using that same account. (Windows only.)                                                                                                                                                                                      |
-| 5     | [IntelliJ][ij-cred]             | If the developer authenticated via Azure Toolkit for IntelliJ, authenticate that account.                                                                                                                                                                                                                                          |
+| 4     | [IntelliJ][ij-cred]             | If the developer authenticated via Azure Toolkit for IntelliJ, authenticate that account.                                                                                                                                                                                                                                          |
+| 5     | [Visual Studio Code][vsc-cred]  | If the developer authenticated via Visual Studio Code's [Azure Resources extension][vsc-ext] and the [azure-identity-broker package][broker-pkg] is installed, authenticate that account.                                                                                                                                        |
 | 6     | [Azure CLI][az-cred]            | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                               |
 | 7     | [Azure PowerShell][pwsh-cred]   | If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.                                                                                                                                                                                |
 | 8     | [Azure Developer CLI][azd-cred] | If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.                                                                                                                                                                                                      |
+| 9     | [Broker][broker-cred]           | Authenticates using the default account logged into the OS via a broker. Requires that the [azure-identity-broker package][broker-pkg] is installed, since a broker-enabled instance of `InteractiveBrowserCredential` is used.                                                                                                                                                                                      |
 
 [env-cred]: /java/api/com.azure.identity.environmentcredential
 [wi-cred]: /java/api/com.azure.identity.workloadidentitycredential
 [mi-cred]: /java/api/com.azure.identity.managedidentitycredential
-[stc-cred]: /java/api/com.azure.identity.sharedtokencachecredential
 [az-cred]: /java/api/com.azure.identity.azureclicredential
 [pwsh-cred]: /java/api/com.azure.identity.azurepowershellcredential
 [azd-cred]: /java/api/com.azure.identity.azuredeveloperclicredential
 [ij-cred]: /java/api/com.azure.identity.intellijcredential
+[vsc-cred]: /java/api/com.azure.identity.visualstudiocodecredential
+[broker-cred]: /java/api/com.azure.identity.interactivebrowsercredential
+[vsc-ext]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups
+[broker-pkg]: https://central.sonatype.com/artifact/com.azure/azure-identity-broker
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
@@ -99,6 +103,10 @@ DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
 
 ### How to customize DefaultAzureCredential
 
+The following sections describe strategies for controlling which credentials are included in the chain.
+
+#### Exclude a credential type category
+
 To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
 
 :::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
@@ -109,6 +117,22 @@ When a value of `dev` is used, the chain looks as follows:
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.16.1 and later.
+
+#### Use a specific credential
+
+To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
+
+- `AzureCliCredential`
+- `AzureDeveloperCliCredential`
+- `AzurePowerShellCredential`
+- `EnvironmentCredential`
+- `IntelliJCredential`
+- `ManagedIdentityCredential`
+- `VisualStudioCodeCredential`
+- `WorkloadIdentityCredential`
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity` package versions 1.17.0 and later.
 
 ## ChainedTokenCredential overview
 
@@ -163,14 +187,13 @@ For illustration purposes, assume the parameterless form of `DefaultAzureCredent
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential WorkloadIdentityCredential is unavailable.
 [ForkJoinPool.commonPool-worker-1] WARN com.microsoft.aad.msal4j.ConfidentialClientApplication - [Correlation ID: aaaa0000-bb11-2222-33cc-444444dddddd] Execution of class com.microsoft.aad.msal4j.AcquireTokenByClientCredentialSupplier failed: java.util.concurrent.ExecutionException: com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential ManagedIdentityCredential is unavailable.
-[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential SharedTokenCacheCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential IntelliJCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential AzureCliCredential returns a token
 ```
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `IntelliJCredential` each failed to acquire a Microsoft Entra access token, in that order.
+- `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, and `IntelliJCredential` each failed to acquire a Microsoft Entra access token, in that order.
 - The `AzureCliCredential.getToken` call succeeds, as indicated by the `returns a token`-suffixed entry. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
 
 <!-- LINKS -->
