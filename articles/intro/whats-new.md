@@ -11,6 +11,91 @@ ms.topic: article
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
 
+## What's new for July 2025
+
+### AI apps using Azure services
+
+New articles:
+
+- [Build a TypeScript MCP server using Azure Container Apps](../ai/build-mcp-server-ts.md)
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Azure Container Apps deployment strategies using the Azure Developer CLI](../azure-developer-cli/container-apps-workflows.md)
+- [Remote builds support with Azure Container Registry](../azure-developer-cli/remote-builds.md)
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md)
+- [Azure best practices tools](../azure-mcp-server/tools/azure-best-practices.md)
+- [Azure Bicep Schema tools for the Azure MCP Server](../azure-mcp-server/tools/azure-bicep-schema.md)
+- [Azure Cache for Redis tools for Azure MCP Server](../azure-mcp-server/tools/azure-cache-for-redis.md)
+- [Azure Developer CLI extension tools for the Azure MCP Server](../azure-mcp-server/tools/azure-developer-cli.md)
+- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-aks.md)
+- [Azure Load Testing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md)
+- [Azure Managed Grafana tools for the Azure MCP Server](../azure-mcp-server/tools/azure-grafana.md)
+- [Azure MCP tools management for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
+- [Azure Native ISV tools for Azure MCP Server](../azure-mcp-server/tools/azure-native-isv.md)
+- [Azure Quick Review CLI tools for the Azure MCP Server](../azure-mcp-server/tools/azure-compliance-quick-review.md)
+- [Azure RBAC tools for the Azure MCP Server](../azure-mcp-server/tools/azure-rbac.md)
+- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
+- [Terraform best practices for Azure tools](../azure-mcp-server/tools/azure-terraform-best-practices.md)
+
+Updated articles:
+
+- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/key-vault-key.md) - MCP: AZD, Azure tools, Key Vault
+- [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/monitor.md)
+  - Azure Quick Review and Azure Monitor workbooks
+  - Updated MCP tools: Azure Monitor
+
+### Azure and GitHub integration
+
+New articles:
+
+- [Analyze applications and migrate to Azure by using GitHub Copilot App Modernization](../github-copilot-app-modernization/overview.md)
+- [GitHub Copilot App Modernization documentation](../github-copilot-app-modernization/index.yml)
+
+### Azure for Java
+
+New articles:
+
+- [Configure passwordless database connections for Java apps on IBM WebSphere Application Server](../java/ee/how-to-configure-passwordless-datasource-websphere.md)
+- [Configure passwordless database connections for Java apps on Red Hat JBoss EAP](../java/ee/how-to-configure-passwordless-datasource-eap.md)
+
+### Azure for JavaScript
+
+Updated articles:
+
+- [What is Azure for JavaScript developers](../javascript/what-is-azure-for-javascript-development.md) - What is JS on Azure
+
+### Azure for Python
+
+New articles:
+
+- [Authorization in the Azure SDK libraries for Python](../python/sdk/authorization/overview.md)
+
+### Terraform on Azure
+
+New articles:
+
+- [Generate Terraform on Azure configurations using Copilot](../terraform/terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md)
+
+Updated articles:
+
+- [Generate Terraform on Azure configurations using Copilot](../terraform/terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md)
+  - Copilot article changes to images, prompts, and verbiage
+  - Terraform handler for Azure Copilot
+
+### TypeSpec
+
+New articles:
+
+- [Quickstart: Create a new API project with TypeSpec and TypeScript](../typespec/quickstart-scaffold-typescript.md)
+
 ## What's new for June 2025
 
 ### AI apps using Azure services
@@ -174,43 +259,3 @@ New articles:
 New articles:
 
 - [Quickstart: Create a new API project with TypeSpec](../typespec/quickstart-scaffold-dotnet.md)
-
-## What's new for April 2025
-
-### Azure Developer CLI (azd)
-
-New articles:
-
-- [Generate Bicep using the compose feature](../azure-developer-cli/compose-generate.md)
-- [Build a minimal template using the Azure Developer CLI compose feature](../azure-developer-cli/compose-quickstart.md)
-- [Explore and customize an Azure Developer CLI template](../azure-developer-cli/quickstart-explore-templates.md)
-- [Explore the Azure Developer CLI template galleries](../azure-developer-cli/azd-template-galleries.md)
-- [Azure Developer CLI vs Azure CLI overview](../azure-developer-cli/azure-developer-cli-vs-azure-cli.md)
-
-Updated articles:
-
-- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.14.0
-- [Get started with the Azure Developer CLI compose feature](../azure-developer-cli/azd-compose.md) - Expand azd compose
-
-### GitHub Copilot for Azure
-
-Updated articles:
-
-- [Get started with GitHub Copilot for Azure Preview](../github-copilot-azure/get-started.md) - GHCPA Agent Mode Enabled
-
-### Azure for Java
-
-New articles:
-
-- [Migrate Spring Boot applications to Azure App Service](../java/migration/migrate-spring-boot-to-app-service.md)
-- [Quickstart: Create a Java Quarkus app with Azure App Configuration](../java/ee/quarkus-with-app-configuration.md)
-
-### Azure for JavaScript
-
-New articles:
-
-- [Tutorial: Build a LangChain.js agent with Azure AI Search](../javascript/ai/langchain-agent-on-azure.md)
-
-Updated articles:
-
-- [How to Test Azure SDK Integration in JavaScript Applications Using Jest](../javascript/sdk/test-sdk-integration.md) - JS - SDK testing with 3 test frameworks
