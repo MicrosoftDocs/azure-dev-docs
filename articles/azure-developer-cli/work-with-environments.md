@@ -11,107 +11,9 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Work with Azure Developer CLI environments
 
-The Azure Developer CLI (`azd`) lets you manage multiple deployment environments for your projects, to keep configurations separate for development, testing, and production. This article explains how to create, manage, and switch between environments to manage your development and deployment process.
+The Azure Developer CLI (`azd`) helps you create and manage [Environments](environments-overview.md) with their own configurations, such as dev, test, and prod. This article shows how to create and manage environments, and how to leverage them with your Bicep infrastructure files.
 
-## What are environments?
-
-An environment in the Azure Developer CLI (`azd`) context represents a named collection of configuration settings, environment variables, and infrastructure parameters associated with a specific deployment of your application. Environments serve several important purposes:
-
-- **Isolation**: Keep development, testing, staging, and production deployments separate.
-- **Configuration management**: Maintain different settings for each environment.
-- **Collaboration**: Enable team members to work with their own environments.
-- **Resource organization**: Group and provision Azure resources by environment, such as using lower tier services for dev environments.
-- **Reproducibility**: Ensure consistent deployments across different stages.
-
-Each environment has its own Azure resource group and configuration settings. The environment name typically follows the pattern `rg-<environment-name>`, but this is not enforced by `azd` and is configurable by the user. This environment isolation helps prevent changes in one environment from affecting others.
-
-### Environment structure and configuration files
-
-Azure Developer CLI (`azd`) environments live in a directory structure within your project:
-
-```txt
-├── .azure                          [Created when you run azd init or azd up]
-│   ├── <environment-name-1>        [Directory for environment-specific configurations]
-│   │   ├── .env                    [Environment variables for this environment]
-│   │   └── main.parameters.json    [Infrastructure parameters for this environment]
-│   ├── <environment-name-2>        [Another environment]
-│   │   ├── .env                    
-│   │   └── main.parameters.json    
-│   └── config.json                 [Global azd configuration]
-```
-
-The key components of this structure are:
-
-1. **`.azure` directory**: The root directory for all environment configurations. Excluded from source control by the `.gitignore` file by default.
-2. **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
-3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
-4. **`main.parameters.json`**: Contains parameters commonly used during infrastructure provisioning with Bicep or Terraform, but can be used for any per-environment `azd` configuration. This file is not intended to be used directly by end users.
-
-## Environment variables
-
-Azure Developer CLI [Environment variables](manage-environment-variables.md) provide a way to store configuration settings that influence and might vary between environments. When you run Azure Developer CLI commands, these variables are used to:
-
-- Configure your application's settings
-- Define infrastructure parameters
-- Store connection strings, endpoints, and secrets
-
-The `.env` file contains these variables in a standard format:
-
-```output
-AZURE_ENV_NAME=dev
-AZURE_LOCATION=eastus
-AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-RESOURCE_TOKEN=12345
-AZURE_RESOURCE_GROUP=rg-dev-12345
-SERVICE_WEB_HOSTNAME=web-dev-12345.azurewebsites.net
-SERVICE_API_HOSTNAME=api-dev-12345.azurewebsites.net
-```
-
-Common environment variables include:
-
-| Variable | Description |
-|----------|-------------|
-| `AZURE_ENV_NAME` | Name of the current environment |
-| `AZURE_LOCATION` | Azure region where resources are deployed |
-| `AZURE_SUBSCRIPTION_ID` | ID of the Azure subscription used for this environment |
-| `AZURE_RESOURCE_GROUP` | Name of the resource group for this environment |
-
-> [!TIP]
-> For other common environment variables and service-specific examples, visit the [Environment variables](manage-environment-variables.md) documentation.
-
-When working with environment variables:
-
-- Avoid committing `.env` files to source control. If environment configuration needs to be persisted or shared, users should leverage [Remote environments](remote-environments-support.md).
-- Use consistent naming across environments.
-- Use the `azd env set` command to update variables safely.
-
-> [!WARNING]
-> Never store secrets in an Azure Developer CLI `.env` file. These files can easily be shared or copied into unauthorized locations, or checked into source control. Use services such as Azure Key Vault or Azure Role Based Access Control (RBAC) for protected or secretless solutions.
-
-## Compare other framework environments
-
-Many programming frameworks and tools such as Node.js, Django, or React use `.env` files for configuration. While Azure Developer CLI (`azd`) also uses `.env` files, there are important differences:
-
-| Concept | Azure Developer CLI `.env` | Framework `.env` Files |
-|--------|---------------------------|------------------------|
-| **Location** | Stored in `.azure/<environment-name>/.env` | Typically stored in project root directory |
-| **Environment Support** | Support for multiple user-defined environments (dev, test, prod) | Often require manual file switching or naming conventions (`.env.development`, `.env.production`) |
-| **Loading Mechanism** | Automatically loaded by `azd` commands | Usually require explicit loading in application code or build scripts |
-| **Integration** | Deeply integrated with Azure services and resource provisioning | General purpose configuration, not Azure-specific |
-| **Variable Management** | Managed via `azd env` commands | Typically edited manually or via custom scripts |
-
-While both serve similar purposes, Azure Developer CLI's `.env` approach adds structure and tooling designed for managing multiple deployment environments and Azure resources.
-
-> [!NOTE]
-> If your project already uses framework-specific `.env` files, you can keep both configuration systems without conflicts.
->
-> `azd` environment variables override system environment variables of the same name for some operations.
-
-## Create and manage environments
-
-The Azure Developer CLI provides a set of commands to manage environments, such as creating, updating or switching between them. You can run these commands in specific environments without affecting others.
-
-### Create environments
+## Create environments
 
 Create a new environment using the `azd env new` command:
 
@@ -133,7 +35,7 @@ You can also specify subscription and location directly in the command:
 azd env new prod --subscription "My Production Subscription" --location eastus2
 ```
 
-### List environments
+## List environments
 
 To see all available environments for your project, use:
 
@@ -150,7 +52,7 @@ test      false     true      false
 prod      false     true      false
 ```
 
-### Switch between environments
+## Switch between environments
 
 To switch to a different environment, use the `azd env select` command:
 
@@ -167,13 +69,13 @@ azd env select prod
 > [!NOTE]
 > This command changes your active environment, which affects subsequent `azd` commands like `provision` or `deploy`.
 
-### Understand the default environment
+## Understand the default environment
 
 The global configuration file `.azure/config.json` keeps track of your currently selected environment. When you run `azd init` and no environments exist yet, `azd` automatically creates your first environment and sets it as the default. If you already have one or more environments and run `azd env new <name>`, you'll be prompted to choose whether to make the new environment the default. If you decline, the new environment is created but your current selection remains unchanged.
 
 You can temporarily override the default environment for a single command by using the `--environment` flag. This does not change the default for future commands—only for that specific
 
-### Refresh environment settings
+## Refresh environment settings
 
 You can refresh your local environment variables using the `azd env refresh` command. This command locates the most recent Azure deployment for your app, retrieves the environment variable values by name, and then updates your local `.env` file with those latest values for the select environment. For example, if you provisioned both a `dev` and `prod` version, and you currently have the `dev` environment selected, it will retrieve lates outputs from that deployment to populate the .env file.
 
@@ -191,7 +93,7 @@ Refreshing your environment is useful when:
 
 If other team members made changes to environment configurations, or if you made changes through the Azure portal, you can refresh your local environment settings with:
 
-### Run commands in specific environments
+## Run commands in specific environments
 
 You can run many `azd` commands in a specific environment without changing your active environment by using the `--environment` or `-e` flag:
 
