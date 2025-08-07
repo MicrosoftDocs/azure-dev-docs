@@ -40,7 +40,7 @@ Use the following Azure SDK crate:
 
 ### Authenticate with Azure CLI credential
 
-The Azure CLI credential uses the authentication state of the Azure CLI to authenticate your Rust application. This is ideal for local development when you're already signed in with `az login`.
+The Azure CLI credential uses the authentication state of the Azure CLI to authenticate your Rust application. This credential is ideal for local development when you're already signed in with `az login`.
 
 ```rust
 use azure_identity::AzureCliCredential;
@@ -68,7 +68,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ### Authenticate with Azure Developer CLI credential
 
-The Azure Developer CLI credential uses the authentication state of the Azure Developer CLI (`azd`) to authenticate your application. This is useful when working with azd templates and workflows.
+The Azure Developer CLI credential uses the authentication state of the Azure Developer CLI (`azd`) to authenticate your application. This credential is useful when working with azd templates and workflows.
 
 ```rust
 use azure_identity::AzureDeveloperCliCredential;
