@@ -47,7 +47,7 @@ The key components of this structure are:
 3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
 4. **`main.parameters.json`**: Contains parameters commonly used during infrastructure provisioning with Bicep or Terraform, but can be used for any per-environment `azd` configuration. This file is not intended to be used directly by end users.
 
-## Use the selected environment name in infrastructure files
+### Use the environment name in infrastructure files
 
 You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to customize your infrastructure deployments in Bicep. This is useful for naming, tagging, or configuring resources based on the current environment.
 
@@ -79,26 +79,24 @@ You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to
 
     Now, when you deploy with `azd`, the value from `.env` will be passed to your Bicep file from `main.parameters.json`.
 
-### Use the environment to tag resources in Bicep
+1. You can use the `environmentName` parameter to tag resources, making it easy to identify which environment a resource belongs to:
 
-You can use the `environmentName` parameter to tag resources, making it easy to identify which environment a resource belongs to:
-
-```bicep
-param environmentName string
-
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: 'mystorage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-  tags: {
-    Environment: environmentName
-    Project: 'myproject'
-  }
-}
-```
+    ```bicep
+    param environmentName string
+    
+    resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+      name: 'mystorage${uniqueString(resourceGroup().id)}'
+      location: resourceGroup().location
+      sku: {
+        name: 'Standard_LRS'
+      }
+      kind: 'StorageV2'
+      tags: {
+        Environment: environmentName
+        Project: 'myproject'
+      }
+    }
+    ```
 
 This approach helps with resource management, cost tracking, and automation by associating each resource with its deployment environment.
 
@@ -143,7 +141,7 @@ When working with environment variables:
 > [!WARNING]
 > Never store secrets in an Azure Developer CLI `.env` file. These files can easily be shared or copied into unauthorized locations, or checked into source control. Use services such as Azure Key Vault or Azure Role Based Access Control (RBAC) for protected or secretless solutions.
 
-### Comparing other framework environments
+## Compare other framework environments
 
 Many programming frameworks and tools such as Node.js, Django, or React use `.env` files for configuration. While Azure Developer CLI (`azd`) also uses `.env` files, there are important differences:
 
