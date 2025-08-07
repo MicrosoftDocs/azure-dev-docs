@@ -45,12 +45,6 @@ New articles:
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
 - [Terraform best practices for Azure tools](../azure-mcp-server/tools/azure-terraform-best-practices.md)
 
-Updated articles:
-
-- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/key-vault-key.md) - MCP: AZD, Azure tools, Key Vault
-- [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/monitor.md)
-  - Azure Quick Review and Azure Monitor workbooks
-  - Updated MCP tools: Azure Monitor
 
 ### Azure and GitHub integration
 
