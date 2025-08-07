@@ -304,6 +304,33 @@ hooks:
 > [!TIP]
 > Visit the [Customize workflows using hooks](azd-extensibility.md) article for more information about using hooks.
 
+## Remove or update variables
+
+To remove a variable from your environment:
+
+```azdeveloper
+azd env unset VARIABLE_NAME
+```
+
+To update an existing variable:
+
+```azdeveloper
+azd env set VARIABLE_NAME "new-value"
+```
+
+To refresh your local environment variables from the current state of your Azure resources:
+
+```azdeveloper
+azd env refresh
+```
+
+The `azd env refresh` command is particularly useful when:
+
+- Resources have been modified outside of `azd` (through the Azure portal or other tools)
+- Team members have updated the environment
+- You've switched to a different machine or workspace
+- You need to ensure your local configuration matches the deployed state
+
 ## Common environment variables
 
 `azd` sets and uses several common environment variables across all environments:
@@ -410,33 +437,6 @@ When working with `.env` files and source control:
 - Use CI/CD pipelines to inject secrets during deployment rather than storing them in repositories
 - Regularly rotate sensitive credentials
 - Consider using tools like pre-commit hooks to prevent secret leaks
-
-## Remove or update variables
-
-To remove a variable from your environment:
-
-```azdeveloper
-azd env unset VARIABLE_NAME
-```
-
-To update an existing variable:
-
-```azdeveloper
-azd env set VARIABLE_NAME "new-value"
-```
-
-To refresh your local environment variables from the current state of your Azure resources:
-
-```azdeveloper
-azd env refresh
-```
-
-The `azd env refresh` command is particularly useful when:
-
-- Resources have been modified outside of `azd` (through the Azure portal or other tools)
-- Team members have updated the environment
-- You've switched to a different machine or workspace
-- You need to ensure your local configuration matches the deployed state
 
 ## Next steps
 
