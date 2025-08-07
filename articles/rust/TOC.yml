@@ -5,6 +5,10 @@
     items:
     - name: What is Azure for Rust developers?
       href: what-is-azure-for-rust-developers.md
+  - name: Development
+    items:
+    - name: Configure your local Rust environment for Azure
+      href: developer-environment.md
   - name: Azure SDK for Rust
     items:
     - name: Getting started  
