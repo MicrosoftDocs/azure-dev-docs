@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Work with Azure Developer CLI environments
 
-The Azure Developer CLI (`azd`) helps you manage multiple deployment environments for your projects. This capability is essential for maintaining separate development, testing, and production environments with different configurations, Azure resources, and workflows. In this article, you learn how to create, manage, and switch between environments to manage your development and deployment process.
+The Azure Developer CLI (`azd`) lets you manage multiple deployment environments for your projects, to keep configurations separate for development, testing, and production. This article explains how to create, manage, and switch between environments to manage your development and deployment process.
 
 ## What are environments?
 
@@ -193,7 +193,7 @@ If other team members made changes to environment configurations, or if you made
 
 ### Run commands in specific environments
 
-You can run any `azd` command in a specific environment without changing your active environment by using the `--environment` or `-e` flag:
+You can run many `azd` commands in a specific environment without changing your active environment by using the `--environment` or `-e` flag:
 
 ```azdeveloper
 azd up --environment dev
@@ -223,7 +223,7 @@ azd down <environment-name>
 > It is currently not possible to delete or rename `azd` environments directly using commands. If you need to rename an environment:
 >
 > - Use `azd down` to delete the environment resources.
-> - Run `azd env new <new-name> to create the new environment.
+> - Run `azd env new <new-name>` to create the new environment.
 > - Manually delete the old `.env` folder from `.azure`.
 
 ## Next steps
