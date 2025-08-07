@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 08/04/2025
+ ms.date: 08/05/2025
 ---
 
 ## Available tools
@@ -27,6 +27,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Key Vault](../../tools/key-vault-key.md) | List and create keys, secrets, certificates in Azure Key Vault. |
 | [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
+| [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
@@ -35,6 +36,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
 | [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
+| [Azure Virtual Desktop](../../tools/azure-virtual-desktop.md) | Manage Azure Virtual Desktop host pools, session hosts, and user sessions. |
 | [Resource Groups](../../tools/resource-group.md) | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | List Azure subscriptions. |
 | [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | Get guidance on implementing Terraform for Azure resources. |
