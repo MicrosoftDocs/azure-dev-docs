@@ -47,59 +47,6 @@ The key components of this structure are:
 3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
 4. **`main.parameters.json`**: Contains parameters commonly used during infrastructure provisioning with Bicep or Terraform, but can be used for any per-environment `azd` configuration. This file is not intended to be used directly by end users.
 
-### Use the environment name in infrastructure files
-
-You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to customize your infrastructure deployments in Bicep. This is useful for naming, tagging, or configuring resources based on the current environment.
-
-1. Pass `AZURE_ENV_NAME` from the `.env` file to Bicep as an input parameter. This environment variable is set by `azd` when you initialize a project.
-
-    ```output
-    AZURE_ENV_NAME=dev
-    ```
-
-1. In your Bicep template, define a parameter for the environment name:
-
-    ```bicep
-    param environmentName string
-    ```
-
-1. In your `main.parameters.json` file, reference the environment variable so `azd` will substitute its value:
-
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "environmentName": {
-          "value": "${AZURE_ENV_NAME}"
-        }
-      }
-    }
-    ```
-
-    Now, when you deploy with `azd`, the value from `.env` will be passed to your Bicep file from `main.parameters.json`.
-
-1. You can use the `environmentName` parameter to tag resources, making it easy to identify which environment a resource belongs to:
-
-    ```bicep
-    param environmentName string
-    
-    resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-      name: 'mystorage${uniqueString(resourceGroup().id)}'
-      location: resourceGroup().location
-      sku: {
-        name: 'Standard_LRS'
-      }
-      kind: 'StorageV2'
-      tags: {
-        Environment: environmentName
-        Project: 'myproject'
-      }
-    }
-    ```
-
-This approach helps with resource management, cost tracking, and automation by associating each resource with its deployment environment.
-
 ## Environment variables
 
 Azure Developer CLI [Environment variables](manage-environment-variables.md) provide a way to store configuration settings that influence and might vary between environments. When you run Azure Developer CLI commands, these variables are used to:
@@ -140,6 +87,59 @@ When working with environment variables:
 
 > [!WARNING]
 > Never store secrets in an Azure Developer CLI `.env` file. These files can easily be shared or copied into unauthorized locations, or checked into source control. Use services such as Azure Key Vault or Azure Role Based Access Control (RBAC) for protected or secretless solutions.
+
+### Use the environment name in infrastructure files
+
+You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to customize your infrastructure deployments in Bicep. This is useful for naming, tagging, or configuring resources based on the current environment.
+
+1. The `AZURE_ENV_NAME` environment variable is set by `azd` when you initialize a project.
+
+    ```output
+    AZURE_ENV_NAME=dev
+    ```
+
+1. In your `main.parameters.json` file, reference the environment variable so `azd` will substitute its value:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "environmentName": {
+          "value": "${AZURE_ENV_NAME}"
+        }
+      }
+    }
+    ```
+
+    When you deploy with `azd`, the value from `.env` will be passed to your Bicep file from `main.parameters.json`.
+
+1. In your Bicep template, define a parameter for the environment name:
+
+    ```bicep
+    param environmentName string
+    ```
+
+1. You can use the `environmentName` parameter to tag resources, making it easy to identify which environment a resource belongs to:
+
+    ```bicep
+    param environmentName string
+    
+    resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+      name: 'mystorage${uniqueString(resourceGroup().id)}'
+      location: resourceGroup().location
+      sku: {
+        name: 'Standard_LRS'
+      }
+      kind: 'StorageV2'
+      tags: {
+        Environment: environmentName
+        Project: 'myproject'
+      }
+    }
+    ```
+
+This approach helps with resource management, cost tracking, and automation by associating each resource with its deployment environment.
 
 ## Compare other framework environments
 
