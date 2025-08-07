@@ -16,7 +16,13 @@
 }%%
 
 flowchart LR;
-    C(Managed Identity):::deployed --> D(Shared Token Cache):::developer --> E(Azure CLI):::developer --> F(Azure PowerShell):::developer --> G(Azure Developer CLI):::developer;
+    C(Managed Identity):::deployed -->
+    D(Shared Token Cache):::developer -->
+    E(Visual Studio Code):::developer -->
+    F(Azure CLI):::developer -->
+    G(Azure PowerShell):::developer -->
+    H(Azure Developer CLI):::developer -->
+    J(Broker):::developer;
 
     %% Define styles for credential type boxes
     classDef deployed fill:#95C37E, stroke:#71AD4C, stroke-width:2px;
