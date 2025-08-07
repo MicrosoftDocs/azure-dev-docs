@@ -2,7 +2,7 @@
 title: Configure Your Local Rust Environment for Azure Development
 description: Set up your local Rust development environment for Azure with installation suggestions, SDK crates, authentication methods, and essential tools. Start building cloud applications today.
 ms.date: 08/07/2025
-ms.topic: getting-started
+ms.topic: get-started
 ms.custom: devx-track-rust, azure-sdk-rust
 ---
 
@@ -70,7 +70,7 @@ The following common local workstation installations help with your local develo
 |Name|Description|
 |--|--|
 |[Azure CLI](/cli/azure/get-started-with-azure-cli)|Local or cloud-based CLI to create and use Azure resources.|
-|[Azure Developer CLI](../../azure-developer-cli/overview.md?tabs=other)|Developer-centric command-line tool for building cloud apps in developer workflow.|
+|[Azure Developer CLI](../azure-developer-cli/overview.md?tabs=other)|Developer-centric command-line tool for building cloud apps in developer workflow.|
 |[Visual Studio Code extensions for Azure](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance) |VS Code extensions to the IDE.|
 |[Git](https://git-scm.com/downloads) or [Git for Windows](https://gitforwindows.org/)| Command-line tools for source control. You can use a different source control tool if you prefer. |
 |Docker for [Windows](https://docs.docker.com/desktop/install/windows-install/) or [Mac](https://docs.docker.com/desktop/install/mac-install/)|Use [Development containers](https://containers.dev/) for consistent development environments and [test containers](https://testcontainers.com/) for testing without mocks or Cloud resources.|
@@ -98,7 +98,7 @@ For detailed installation guidance and troubleshooting, see the [Installation ch
 
 ## Create an Azure resource group for your project
 
-[!INCLUDE [create resource group 3-tab](../../includes/create-resource-group.md)]
+[!INCLUDE [create resource group 3-tab](../includes/create-resource-group.md)]
 
 ## Add Azure SDK crates to your Rust project
 You can get the Azure SDK crates for Rust from [crates.io](https://crates.io/). To learn more, see [Azure SDK for Rust](./sdk/overview.md).
@@ -115,14 +115,14 @@ For a consistent authentication experience across environments, use different au
 - **Production/hosted environment**: 
   - Use managed identity credentials when your application is hosted in Azure
 
-This approach lets you configure the appropriate authentication method for each environment. Learn more about [managed identity and passwordless connections](../../intro/passwordless-overview.md).
+This approach lets you configure the appropriate authentication method for each environment. Learn more about [managed identity and passwordless connections](../intro/passwordless-overview.md).
 
 
 ## Secure secrets and configuration settings
 
 You have several options to store secrets:
 
-- Azure [Key Vault](/azure/key-vault/) to create and maintain secrets, keys, and certificates that access cloud resources, which don't yet offer [managed identity access](../../intro/passwordless-overview.md).
+- Azure [Key Vault](/azure/key-vault/) to create and maintain secrets, keys, and certificates that access cloud resources, which don't yet offer [managed identity access](../intro/passwordless-overview.md).
 - Azure [App Configuration](/azure/azure-app-configuration/) to manage application settings and feature flags.
 
 
