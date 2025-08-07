@@ -70,7 +70,7 @@ New articles:
 
 Updated articles:
 
-- [What is Azure for JavaScript developers](../javascript/what-is-azure-for-javascript-development.md) - What is JS on Azure
+- [What is Azure for JavaScript developers](../javascript/what-is-azure-for-javascript-development.md) 
 
 ### Azure for Python
 
