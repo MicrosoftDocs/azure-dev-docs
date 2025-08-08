@@ -232,6 +232,7 @@ EnvironmentCredential.get_token failed: EnvironmentCredential authentication una
 Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
 ManagedIdentityCredential.get_token failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.     
 SharedTokenCacheCredential.get_token failed: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+VisualStudioCodeCredential.get_token failed: VisualStudioCodeCredential authentication unavailable. No Azure account information found in Visual Studio Code.
 AzureCliCredential.get_token succeeded
 [Authenticated account] Client ID: 00001111-aaaa-2222-bbbb-3333cccc4444. Tenant ID: aaaabbbb-0000-cccc-1111-dddd2222eeee. User Principal Name: unavailableUpn. Object ID (user): aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 DefaultAzureCredential acquired a token from AzureCliCredential
@@ -239,7 +240,7 @@ DefaultAzureCredential acquired a token from AzureCliCredential
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, `ManagedIdentityCredential`, and `SharedTokenCacheCredential` each failed to acquire a Microsoft Entra access token, in that order.
+- `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `VisualStudioCodeCredential` each failed to acquire a Microsoft Entra access token, in that order.
 - The `AzureCliCredential.get_token` call succeeds and the output also indicates that `DefaultAzureCredential` acquired a token from `AzureCliCredential`. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
 
 > [!NOTE]
