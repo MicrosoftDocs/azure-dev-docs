@@ -70,7 +70,7 @@ The `.env` file is also updated automatically by `azd` during operations like `a
 
 You can use different methods to set `azd` environment variables, depending on the scenario.
 
-### CLI commands
+### Use CLI commands
 
 The recommended way to set an environment variable is using the `azd env set` command, which includes checks to ensure valid values:
 
@@ -96,25 +96,6 @@ To verify that your environment variable was set correctly:
 azd env get-value API_TIMEOUT
 ```
 
-### Edit the .env file
-
-You can manually edit the `.env` file located in your environment directory at `.azure/<environment-name>/.env`:
-
-```text
-# Example .env file
-AZURE_ENV_NAME=dev
-AZURE_LOCATION=eastus
-AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
-API_TIMEOUT=5000
-```
-
-While direct editing works, using the `azd env set` command is preferred because it:
-
-- Ensures proper formatting
-- Validates the changes
-- Avoids potential syntax errors
-- Works consistently across different environments
-
 ### Output from Bicep
 
 A powerful feature of `azd` is its ability to automatically capture output parameters from your Bicep infrastructure templates as environment variables. For example, when you define an output parameter in your `main.bicep` file:
@@ -132,15 +113,13 @@ API_ENDPOINT=https://api-dev-123456.azurewebsites.net
 This approach ensures that your application always has access to the most current resource information, such as:
 
 - Service endpoints and URLs
-- Connection strings
 - Resource names and identifiers
-- API keys (when properly secured)
 
 ## Get and use environment variables
 
-Once set, you can access environment variables in several contexts:
+Once set, you can access environment variables in several contexts.
 
-### Using CLI commands
+### CLI commands
 
 To view all environment variables for the current environment:
 
@@ -160,26 +139,69 @@ For machine-readable output (useful in scripts):
 azd env get-values --output json
 ```
 
-### Pass environment variables to Bicep files
+## Use environment variables in infrastructure files
 
-Environment variables can be referenced in Bicep parameter files (`main.parameters.json`) using a special substitution syntax:
+You can use environment variables to customize your infrastructure templates. This is useful for naming, tagging, or configuring resources based on the current environment.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "value": "${AZURE_LOCATION}"
-    },
-    "environmentName": {
-      "value": "${AZURE_ENV_NAME}"
+Consider the following common flow:
+
+1. During `azd init`, `azd` sets these environment variables based on the user's response to prompts:
+
+    ```output
+    AZURE_ENV_NAME=myapp-dev
+    AZURE_LOCATION=eastus2
+    ```
+
+2. Reference those variables in `main.parameters.json` in the `infra` folder. `azd` substitutes the values during provisioning and passes the resolved parameters to Bicep:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "name": {
+          "value": "${AZURE_ENV_NAME}"
+        },
+        "location": {
+          "value": "${AZURE_LOCATION}"
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-When `azd` processes this file during provisioning, it automatically substitutes the references with the actual environment variable values from the current environment's `.env` file. This behavior is useful when you want to influence provisioned resources using `azd` environment variables.
+3. Define matching parameters in your Bicep template:
+
+    ```bicep
+    @description('Name of the environment used to derive resource names and tags.')
+    param name string
+
+    @minLength(1)
+    @description('Primary Azure region for all resources.')
+    param location string
+    ```
+
+    `azd` supplies these Bicep parameters with substituted values in `main.parameters.json`.
+
+4. Use the parameters for resource naming and tags so you can easily identify which environment a resource belongs to:
+
+    ```bicep
+    var resourceToken = toLower(uniqueString(resourceGroup().id, name, location))
+
+    resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+      name: 'st${resourceToken}'
+      location: location
+      sku: {
+        name: 'Standard_LRS'
+      }
+      kind: 'StorageV2'
+      tags: {
+        Environment: name
+        Project: 'myproject'
+      }
+    }
+    ```
+
+This pattern keeps your templates flexible, enables per-environment customization without code changes, and improves resource governance (naming, tagging, and discovery).
 
 ### Hooks
 
