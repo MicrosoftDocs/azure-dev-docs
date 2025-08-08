@@ -188,12 +188,13 @@ For illustration purposes, assume the parameterless form of `DefaultAzureCredent
 [ForkJoinPool.commonPool-worker-1] WARN com.microsoft.aad.msal4j.ConfidentialClientApplication - [Correlation ID: aaaa0000-bb11-2222-33cc-444444dddddd] Execution of class com.microsoft.aad.msal4j.AcquireTokenByClientCredentialSupplier failed: java.util.concurrent.ExecutionException: com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential ManagedIdentityCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential IntelliJCredential is unavailable.
+[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential VisualStudioCodeCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential AzureCliCredential returns a token
 ```
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, and `IntelliJCredential` each failed to acquire a Microsoft Entra access token, in that order.
+- `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `IntelliJCredential`, and `VisualStudioCodeCredential` each failed to acquire a Microsoft Entra access token, in that order.
 - The `AzureCliCredential.getToken` call succeeds, as indicated by the `returns a token`-suffixed entry. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
 
 <!-- LINKS -->
