@@ -13,6 +13,9 @@ ms.custom: devx-track-azdevcli
 
 This article answers frequently asked questions about working with environment variables and the Azure Developer CLI (`azd`).
 
+> [!TIP]
+> For a comprehensive guide on creating and managing environments in Azure Developer CLI, see [Work with environments in Azure Developer CLI](work-with-environments.md).
+
 ### What are the differences between `azd` environment variables and system environment variables?
 
 `azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/OS environment variables. `azd` environment variables configure template provisioning and deployment tasks and are accessible using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
