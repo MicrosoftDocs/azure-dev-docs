@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys.
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 07/23/2025
+ms.date: 08/07/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -22,6 +22,7 @@ The tools reference articles document the parameters specific to each tool. All 
 | Parameter       | Description       |
 |-----------------|-------------------|
 | **Subscription** | [Azure subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions) ID or name for target resources. This parameter identifies the Azure subscription that contains the resources you want to manage. You can use either the subscription GUID or the display name. Required for most operations. |
+| **Resource group** | The name of the Azure resource group. This is a logical container for Azure resources that helps organize and manage related resources together. Required for most resource-specific operations. |
 | **Tenant Id** | [Azure tenant](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-ad-define) ID for authentication. This parameter specifies the Microsoft Entra ID tenant to authenticate against. Can be either the GUID identifier or the display name of your Entra ID tenant. Optional - uses default tenant if not specified. |
 | **Authentication method** | [Authentication method](/entra/identity/authentication/concept-authentication-methods) to use for Azure operations. Options include `credential` (Azure CLI/managed identity), `key` (access key), or `connectionString`. Default is `credential`, which uses Azure CLI authentication or managed identity. |
 | **Maximum retries** | Maximum number of retry attempts for failed operations before giving up. Controls how many times the system attempts to retry a failed request. Default is 3 retries. |
