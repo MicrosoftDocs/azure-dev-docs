@@ -15,7 +15,7 @@ The Azure Developer CLI (`azd`) lets you manage multiple deployment environments
 
 ## What are environments?
 
-An environment in the Azure Developer CLI (`azd`) context represents a named collection of configuration settings, environment variables, and infrastructure parameters associated with a specific deployment of your application. Environments serve several important purposes:
+An environment in the Azure Developer CLI (`azd`) is a separate deployed copy of your application running in Azure. Different environments can configured with different values. Environments serve several important purposes:
 
 - **Isolation**: Keep development, testing, staging, and production deployments separate.
 - **Configuration management**: Maintain different settings for each environment.
@@ -23,9 +23,9 @@ An environment in the Azure Developer CLI (`azd`) context represents a named col
 - **Resource organization**: Group and provision Azure resources by environment, such as using lower tier services for dev environments.
 - **Reproducibility**: Ensure consistent deployments across different stages.
 
-Each environment has its own Azure resource group and configuration settings. The environment name typically follows the pattern `rg-<environment-name>`, but this is not enforced by `azd` and is configurable by the user. This environment isolation helps prevent changes in one environment from affecting others.
+Each environment has its own Azure resource group and configuration settings. This environment isolation helps prevent changes in one environment from affecting others.
 
-## Environment structure and configuration files
+## Environment structure and configuration
 
 Azure Developer CLI (`azd`) environments live in a directory structure within your project:
 
@@ -46,6 +46,15 @@ The key components of this structure are:
 2. **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
 3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
 4. **`main.parameters.json`**: Contains parameters commonly used during infrastructure provisioning with Bicep or Terraform, but can be used for any per-environment `azd` configuration. This file is not intended to be used directly by end users.
+
+### Environment names
+
+The environment name typically follows these patterns:
+
+- Team projects: `<project-name-[dev/int/prod]>`
+- Personal projects: `<personal-unique-alias-[dev/int/prod]>`
+
+Environment naming conventions are not enforced by `azd` and are configurable by the user.
 
 ## Environment variables
 
