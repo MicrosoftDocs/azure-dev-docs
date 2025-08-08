@@ -99,8 +99,12 @@
           href: remote-environments-support.md
         - name: Azure Deployment Environments integration
           href: ade-integration.md
-      - name: Work with environments
+      - name: Environments
         items:
+        - name: Overview
+          href: environments-overview.md
+        - name: Work with environments
+          href: work-with-environments.md
         - name: Manage environment variables
           href: manage-environment-variables.md
         - name: Environment variables FAQ
