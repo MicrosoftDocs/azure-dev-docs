@@ -1,6 +1,6 @@
 ---
 title: Azure Developer CLI environments overview
-description: Learn essential concenpts about environments using Azure Developer CLI (azd).
+description: Learn essential concepts about environments using Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 08/04/2025
@@ -45,7 +45,7 @@ The key components of this structure are:
 1. **`.azure` directory**: The root directory for all environment configurations. Excluded from source control by the `.gitignore` file by default.
 2. **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
 3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
-4. **`config.json`**: Used to drive settings that influence `azd` command behavior and features. This file is not intended to be used directly by end users.
+4. **`config.json`**: Used to drive settings that influence `azd` command behavior and features. This file isn't intended to be used directly by end users.
 
 ### Environment names
 
@@ -54,7 +54,7 @@ Environment naming typically follows these patterns:
 - Team projects: `<project-name-[dev/int/prod]>`
 - Personal projects: `<personal-unique-alias-[dev/int/prod]>`
 
-These naming conventions are not enforced by `azd` and are configurable by the user.
+These naming conventions aren't enforced by `azd` and are configurable by the user.
 
 ## Environment variables
 
@@ -88,7 +88,7 @@ Common environment variables include:
 
 When working with environment variables:
 
-- Avoid committing `.env` files to source control. If environment configuration needs to be persisted or shared, users should leverage [Remote environments](remote-environments-support.md).
+- Avoid committing `.env` files to source control. If environment configuration needs to be persisted or shared, users should use [Remote environments](remote-environments-support.md).
 - Use consistent naming across environments.
 - Use the `azd env set` command to update variables safely.
 

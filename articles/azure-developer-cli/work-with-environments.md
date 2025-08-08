@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Work with Azure Developer CLI environments
 
-The Azure Developer CLI (`azd`) helps you create and manage [Environments](environments-overview.md) with their own configurations, such as dev, test, and prod. This article shows how to create and manage environments, and how to leverage them with your Bicep infrastructure files.
+The Azure Developer CLI (`azd`) helps you create and manage [Environments](environments-overview.md) with their own configurations, such as dev, test, and prod. This article shows how to create and manage environments, and how to use them with your Bicep infrastructure files.
 
 ## Create environments
 
@@ -27,7 +27,7 @@ For example, to create a development environment:
 azd env new dev
 ```
 
-When you run a command such as `azd up` or `azd deploy`, you'll be prompted to select an Azure subscription and location for the new environment. Prompt settings are stored in the new environment `.env` or `config.json` files.
+When you run a command such as `azd up` or `azd deploy`, `azd` prompts you to select an Azure subscription and location for the new environment. Prompt settings are stored in the new environment `.env` or `config.json` files.
 
 You can also specify subscription and location directly in the command:
 
@@ -71,13 +71,13 @@ azd env select prod
 
 ## Understand the default environment
 
-The global configuration file `.azure/config.json` keeps track of your currently selected environment. When you run `azd init` and no environments exist yet, `azd` automatically creates your first environment and sets it as the default. If you already have one or more environments and run `azd env new <name>`, you'll be prompted to choose whether to make the new environment the default. If you decline, the new environment is created but your current selection remains unchanged.
+The global configuration file `.azure/config.json` keeps track of your currently selected environment. When you run `azd init` and no environments exist yet, `azd` automatically creates your first environment and sets it as the default. If you already have one or more environments and run `azd env new <name>`, `azd` prompts you to choose whether to make the new environment the default. If you decline, the new environment is created but your current selection remains unchanged.
 
-You can temporarily override the default environment for a single command by using the `--environment` flag. This does not change the default for future commands.
+You can temporarily override the default environment for a single command by using the `--environment` flag. Using this flag doesn't change the default for future commands.
 
 ## Refresh environment settings
 
-You can refresh your local environment variables using the `azd env refresh` command. This command locates the most recent Azure deployment for your app, retrieves the environment variable values by name, and then updates your local `.env` file with those latest values for the select environment. For example, if you provisioned both a `dev` and `prod` version, and you currently have the `dev` environment selected, it will retrieve lates outputs from that deployment to populate the .env file.
+You can refresh your local environment variables using the `azd env refresh` command. This command locates the most recent Azure deployment for your app, retrieves the environment variable values by name, and then updates your local `.env` file with those latest values for the select environment. For example, if you provisioned both a `dev` and `prod` version, and you currently have the `dev` environment selected, it retrieves the latest output from that deployment to populate the .env file.
 
 ```azdeveloper
 azd env refresh
@@ -111,7 +111,7 @@ azd up
 ```
 
 > [!NOTE]
-> It's recommended that teams rely on CICD pipelines using the `azd pipeline config` command, rather than direct deployments using commands such as `azd up` or `azd provision`.
+> Teams should consider using CICD pipelines via the `azd pipeline config` command, rather than direct deployments using commands such as `azd up` or `azd provision`.
 
 ## Delete environment resources
 
@@ -122,7 +122,7 @@ azd down <environment-name>
 ```
 
 > [!NOTE]
-> It is currently not possible to delete or rename `azd` environments directly using commands. If you need to rename an environment:
+> It's currently not possible to delete or rename `azd` environments directly using commands. If you need to rename an environment:
 >
 > - Use `azd down` to delete the environment resources.
 > - Run `azd env new <new-name>` to create the new environment.
@@ -135,13 +135,13 @@ You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to
 > [!NOTE]
 > Visit the [Work with environment variables](manage-environment-variables.md) to learn more about how to use environment variables to configure your Azure Developer CLI projects.
 
-1. The `AZURE_ENV_NAME` environment variable is set by `azd` when you initialize a project.
+1. `azd` sets the `AZURE_ENV_NAME` environment variable when you initialize a project.
 
     ```output
     AZURE_ENV_NAME=dev
     ```
 
-1. In your `main.parameters.json` file, reference the environment variable so `azd` will substitute its value:
+1. In your `main.parameters.json` file, reference the environment variable so `azd` substitutes its value:
 
     ```json
     {
@@ -155,7 +155,7 @@ You can use the `AZURE_ENV_NAME` variable from your environment's `.env` file to
     }
     ```
 
-    When you deploy with `azd`, the value from `.env` will be passed to your Bicep file from `main.parameters.json`.
+    When you deploy with `azd`, the value from `.env` is passed to your Bicep file from `main.parameters.json`.
 
 1. In your Bicep template, define a parameter for the environment name:
 
