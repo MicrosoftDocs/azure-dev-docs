@@ -101,6 +101,8 @@
           href: ade-integration.md
       - name: Environments
         items:
+        - name: Overview
+          href: environments-overview.md
         - name: Work with environments
           href: work-with-environments.md
         - name: Manage environment variables

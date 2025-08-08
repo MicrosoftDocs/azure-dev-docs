@@ -13,7 +13,7 @@ ms.custom: build-2025
 --- 
 # Azure Monitor tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Monitor resources, including querying Log Analytics workspaces for operational insights natural language prompts. You can query Log Analytics workspaces, analyze operational data, and gain insights into your Azure resources without needing to know complex KQL syntax.
+The Azure MCP Server allows you to manage Azure Monitor resources using natural language prompts. You can query Log Analytics workspaces, analyze operational data, monitor resource health, retrieve performance metrics, and manage Azure Monitor workbooks without needing to know complex KQL syntax.
 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
@@ -26,10 +26,10 @@ The Azure MCP Server can list all Log Analytics workspaces in a subscription. Th
 Example prompts include:
 
 - **List workspaces**: "Show me all Log Analytics workspaces in my subscription."
-- **View workspaces**: "What Log Analytics workspaces do I have?"
-- **Find workspaces**: "List my monitoring workspaces"
-- **Query workspaces**: "Show all Log Analytics workspaces"
-- **Check workspaces**: "Get all monitoring workspaces in subscription abc123"
+- **View workspaces**: "what workspaces do i have"
+- **Find workspaces**: "List monitoring workspaces"
+- **Query workspaces**: "Show workspaces"
+- **Check workspaces**: "Get all monitoring workspaces in subscription abc123 please"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -41,11 +41,11 @@ The Azure MCP Server can list all tables in a Log Analytics workspace. This help
 
 Example prompts include:
 
-- **List tables**: "Show me all tables in my 'centralmonitoring' Log Analytics workspace."
-- **View tables**: "What tables do I have in Log Analytics workspace 'app-monitoring'?"
-- **Find tables**: "List all tables in my workspace 'security-logs'"
-- **Query tables**: "Show available tables in my Log Analytics workspace"
-- **Check tables**: "Get all log tables in my 'operations' workspace"
+- **List tables**: "show tables in centralmonitoring workspace"
+- **View tables**: "What tables in workspace app-monitoring?"
+- **Find tables**: "List tables in security-logs"
+- **Query tables**: "Show tables in my workspace"
+- **Check tables**: "Get all log tables in operations workspace please"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -59,11 +59,11 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 
 Example prompts include:
 
-- **Simple query**: "Query all error events from the last hour in my 'centralmonitoring' workspace"
-- **Filter query**: "Find all failed login attempts in the SecurityEvent table"
-- **Complex query**: "Show me the CPU usage trend for my web servers over the last 24 hours"
-- **Join query**: "Query errors and correlate them with performance metrics"
-- **Aggregation query**: "Count errors by application in my monitoring workspace"
+- **Simple query**: "query errors from last hour"
+- **Filter query**: "Find failed login attempts in SecurityEvent table please"
+- **Complex query**: "Show CPU usage trend for web servers last 24 hours"
+- **Join query**: "query errors and performance metrics"
+- **Aggregation query**: "Count errors by application in monitoring workspace"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -80,11 +80,11 @@ The Azure MCP Server can get the health status of an entity using Azure Monitor 
 
 Example prompts include:
 
-- **Check entity health**: "Get the health status for my application entity with model 'webapp-health' and entity 'app-prod-001'"
-- **Monitor resource health**: "What is the current health of entity 'web-app-prod' using health model 'application-model'?"
-- **Check system status**: "Get health information for my database entity 'sql-prod' with model 'database-health'"
-- **Monitor service health**: "Show me the health status of entity 'api-service' using model 'service-monitoring'"
-- **Check application status**: "Get the health model data for entity 'production-workload' with model 'workload-health'"
+- **Check entity health**: "get health for app-prod-001 with webapp-health model"
+- **Monitor resource health**: "What's the health of web-app-prod using application-model?"
+- **Check system status**: "Get health info for sql-prod database entity"
+- **Monitor service health**: "show health status of api-service"
+- **Check application status**: "Get health data for production-workload with workload-health model please"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -99,11 +99,11 @@ The Azure MCP Server can query Azure Monitor metrics for resources. This allows 
 
 Example prompts include:
 
-- **Query VM metrics with time range**: "Get CPU percentage and available memory for my VM 'prod-vm01' in the production resource group from January 1st 2024 to January 2nd 2024, aggregated hourly with average values"
-- **Query storage metrics with specific type**: "Show me transaction metrics for storage account 'mystorageaccount' in the storage resource group"
-- **Query app service metrics over time**: "Get response time and request count for my web app 'mywebapp' over the last 24 hours with hourly intervals"
-- **Query with filtering**: "Show me CPU metrics for virtual machine 'prod-vm' but only include high usage periods and limit to 1000 data points"
-- **Query multiple performance metrics**: "Get both CPU percentage and available memory for my server 'vm-prod-001' from yesterday with hourly breakdowns"
+- **Query VM metrics**: "get cpu and memory for prod-vm01 from jan 1 to jan 2"
+- **Query storage metrics**: "Show transaction metrics for mystorageaccount in storage group"
+- **Query app metrics**: "Get response time for mywebapp last 24 hours"
+- **Query with filtering**: "show cpu metrics for prod-vm high usage only"
+- **Query performance**: "Get CPU and memory for vm-prod-001 from yesterday hourly"
 
 
 | Parameter | Required or optional | Description |
@@ -127,11 +127,11 @@ The Azure MCP Server can list available metric definitions for a resource. This 
 
 Example prompts include:
 
-- **List all metrics for a storage account**: "Show me all available metrics for my storage account 'mystorageaccount'"
-- **Find transaction-related metrics**: "Find all metrics related to transactions for my storage account 'storageacct'"
-- **List VM metrics with filtering**: "List available metrics for my virtual machine 'prod-vm' in the production resource group"
-- **Search metrics by keyword**: "Show me metrics for my App Service 'mywebapp' that contain the word 'response', limited to 50 results"
-- **List database metrics with namespace**: "Show all available metrics for my SQL database 'proddb' in the database resource group"
+- **List storage metrics**: "show metrics for mystorageaccount"
+- **Find transaction metrics**: "find transaction metrics for storageacct"
+- **List VM metrics**: "List metrics for prod-vm in production group"
+- **Search by keyword**: "Show mywebapp metrics with response word, limit 50"
+- **List database metrics**: "show metrics for proddb in database group"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -142,6 +142,96 @@ Example prompts include:
 | **Metric namespace** | Optional | The metric namespace. |
 | **Search string** | Optional | Search string to filter metrics. |
 | **Limit** | Optional | Maximum number of results to return. |
+
+## Workbooks: list workbooks
+
+The Azure MCP Server can list Azure Monitor workbooks in a resource group. This helps you discover and manage your monitoring dashboards and interactive reports.
+
+**Example prompts** include:
+
+- **List workbooks**: "Show workbooks in monitoring group"
+- **List by category**: "list workbooks in Insights category"
+- **List shared workbooks**: "Show shared workbooks in monitoring"
+- **List with source**: "find workbooks linked to Application Insights"
+- **Query workbooks**: "List monitoring workbooks please"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **Category** | Optional | The category to filter workbooks by. |
+| **Kind** | Optional | The kind of workbook (e.g., 'shared', 'user'). |
+| **Source ID** | Optional | The source resource ID to filter workbooks by. |
+
+## Workbooks: show workbook details
+
+The Azure MCP Server can show details of a specific Azure Monitor workbook by its resource ID. This provides comprehensive information about the workbook's configuration and content.
+
+**Example prompts** include:
+
+- **Show workbook**: "show workbook details for /subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/workbook-guid"
+- **Get workbook info**: "Get info about workbook /subscriptions/xyz/resourceGroups/rg/providers/Microsoft.Insights/workbooks/my-workbook"
+- **View workbook**: "display workbook details"
+- **Check workbook**: "show config for workbook /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/analytics"
+- **Retrieve workbook**: "get workbook /subscriptions/456/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/performance"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Workbook ID** | Required | The full Azure resource ID of the workbook to retrieve. |
+
+## Workbooks: create workbook
+
+The Azure MCP Server can create a new Azure Monitor workbook. This allows you to programmatically create monitoring dashboards and interactive reports.
+
+**Example prompts** include:
+
+- **Create workbook**: "create workbook Performance Dashboard in monitoring group"
+- **Create with source**: "Create workbook App Insights Analysis linked to my Application Insights"
+- **Create monitoring workbook**: "create new workbook Infrastructure Overview"
+- **Create dashboard**: "Create Security Dashboard with custom JSON"
+- **Create analytics workbook**: "create Cost Analysis workbook in finance group please"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the Azure resource group. |
+| **Display name** | Required | The display name for the new workbook. |
+| **Serialized content** | Required | The JSON content defining the workbook structure and queries. |
+| **Source ID** | Optional | The source resource ID to associate with the workbook. |
+
+## Workbooks: update workbook
+
+The Azure MCP Server can update an existing Azure Monitor workbook. This allows you to modify workbook properties and content programmatically.
+
+**Example prompts** include:
+
+- **Update name**: "update workbook /subscriptions/abc/resourceGroups/rg/providers/Microsoft.Insights/workbooks/wb1 name to Updated Dashboard"
+- **Update content**: "Update workbook content for /subscriptions/xyz/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/dashboard"
+- **Modify workbook**: "change name and content for workbook /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/analytics"
+- **Update dashboard**: "update workbook with new performance metrics"
+- **Refresh workbook**: "update content for workbook /subscriptions/789/resourceGroups/ops/providers/Microsoft.Insights/workbooks/operations please"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Workbook ID** | Required | The full Azure resource ID of the workbook to update. |
+| **Display name** | Optional | The new display name for the workbook. |
+| **Serialized content** | Optional | The updated JSON content for the workbook. |
+
+## Workbooks: delete workbooks
+
+The Azure MCP Server can delete an Azure Monitor workbook. This permanently removes the workbook and all its associated content.
+
+**Example prompts** include:
+
+- **Delete workbook**: "delete workbook /subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/old-dashboard"
+- **Remove workbook**: "Remove workbook /subscriptions/xyz/resourceGroups/rg/providers/Microsoft.Insights/workbooks/unused-workbook"
+- **Clean up**: "remove workbook at /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/deprecated"
+- **Delete dashboard**: "delete monitoring workbook please"
+- **Remove unused**: "Delete /subscriptions/789/resourceGroups/test/providers/Microsoft.Insights/workbooks/test-dashboard"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Workbook ID** | Required | The full Azure resource ID of the workbook to delete. |
 
 
 ## Related content

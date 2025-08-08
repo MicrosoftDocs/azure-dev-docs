@@ -1,7 +1,7 @@
 ---
 title: Credential Chains in the Azure Identity Client Library for C++
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for C++.
-ms.date: 6/30/2025
+ms.date: 08/05/2025
 ms.topic: conceptual
 ms.custom: devx-track-cpp
 
@@ -86,6 +86,10 @@ int main()
 
 ### How to customize DefaultAzureCredential
 
+The following sections describe strategies for controlling which credentials are included in the chain.
+
+#### Exclude a credential type category
+
 To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
 
 :::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
@@ -94,6 +98,18 @@ When a value of `dev` is used, the chain only includes `AzureCliCredential`.
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity-cpp` package versions 1.12.0 and later.
+
+#### Use a specific credential
+
+To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
+
+- `AzureCliCredential`
+- `EnvironmentCredential`
+- `ManagedIdentityCredential`
+- `WorkloadIdentityCredential`
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity-cpp` package versions 1.13.0 and later.
 
 ## ChainedTokenCredential overview
 
@@ -159,7 +175,7 @@ Successful creation does not guarantee further successful token retrieval.
 INFO  : Identity: DefaultAzureCredential: Created with the following credentials: EnvironmentCredential, WorkloadIdentityCredential, ManagedIdentityCredential, AzureCliCredential.
 DEBUG : Identity: DefaultAzureCredential: Failed to get token from EnvironmentCredential: GetToken(): error response: 400 Bad Request
 
-{"error":"invalid_grant","error_description":"AADSTS53003: Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. Trace ID: 11223344-5566-7788-9900-aabbccddeeff Correlation ID: ffeeddcc-bbaa-9988-7766-554433221100 Timestamp: 2025-03-07 21:25:44Z","error_codes":[53003],"timestamp":"2025-03-07 21:25:44Z","trace_id":"11223344-5566-7788-9900-aabbccddeeff","correlation_id":"ffeeddcc-bbaa-9988-7766-554433221100","error_uri":"https://login.microsoftonline.com/error?code=53003","suberror":"message_only","claims":"{\"access_token\":{\"capolids\":{\"essential\":true,\"values\":[\"01234567-89ab-cdef-fedc-ba9876543210\"]}}}"}
+{"error":"invalid_grant","error_description":"AADSTS53003: Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. Trace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333 Correlation ID: aaaa0000-bb11-2222-33cc-444444dddddd Timestamp: 2025-03-07 21:25:44Z","error_codes":[53003],"timestamp":"2025-03-07 21:25:44Z","trace_id":"0000aaaa-11bb-cccc-dd22-eeeeee333333","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd","error_uri":"https://login.microsoftonline.com/error?code=53003","suberror":"message_only","claims":"{\"access_token\":{\"capolids\":{\"essential\":true,\"values\":[\"cccc2222-dd33-4444-55ee-666666ffffff\"]}}}"}
 WARN  : Identity: WorkloadIdentityCredential authentication unavailable. See earlier WorkloadIdentityCredential log messages for details.
 DEBUG : Identity: DefaultAzureCredential: Failed to get token from WorkloadIdentityCredential: WorkloadIdentityCredential authentication unavailable. Azure Kubernetes environment is not set up correctly.
 INFO  : Identity: DefaultAzureCredential: Successfully got token from ManagedIdentityCredential. This credential will be reused for subsequent calls.

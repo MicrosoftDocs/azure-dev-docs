@@ -30,12 +30,20 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java.md
           - text: FAQ
             url: migrate-github-copilot-app-modernization-for-java-faq.yml
+      - linkListType: reference
+        links:
+          - text: Predefined tasks
+            url: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
       - linkListType: quickstart
         links:
           - text: Assess and migrate a Java project
             url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
-          - text: Create and apply your own formula
-            url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md
+          - text: Create and apply your own task
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
+      - linkListType: sample
+        links:
+          - text: Migration sample
+            url: migrate-github-copilot-app-modernization-for-java-sample.md
   - title: Migrate Spring to Azure
     linkLists:
       - linkListType: how-to-guide

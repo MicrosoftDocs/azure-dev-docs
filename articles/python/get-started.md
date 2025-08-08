@@ -58,7 +58,7 @@ You can also use the [Azure Management Libraries for Python](https://azure.githu
 
 ## Write your Python app
 
-Developing on Azure requires [Python](https://www.python.org/downloads/) 3.8 or higher. To verify the version of Python on your workstation, in a console window type the command `python3 --version` for macOS/Linux or `py --version` for Windows.
+Developing on Azure requires [Python](https://www.python.org/downloads/) 3.9 or higher. To verify the version of Python on your workstation, in a console window type the command `python3 --version` for macOS/Linux or `py --version` for Windows.
 
 Use your favorite tools to write your Python app. If you use Visual Studio Code, you should try the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 

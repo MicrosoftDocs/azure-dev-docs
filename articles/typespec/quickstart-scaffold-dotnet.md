@@ -1012,6 +1012,27 @@ Create the files needed to have a repeatable deployment with [Azure Developer CL
     ...bicep..
     ```
 
+## Project structure
+
+The final project structure includes the TypeSpec API files, the Express.js server, and the Azure deployment files: 
+
+```console
+├── infra
+├── tsp-output
+├── .gitignore
+├── .azure.yaml
+├── Dockerfile
+├── main.tsp
+├── package-lock.json
+├── package.json
+├── tspconfig.yaml
+```
+
+| Area                     | Files/Directories                                                                 |
+|--------------------------|-----------------------------------------------------------------------------------|
+| **TypeSpec**             | `main.tsp`, `tspconfig.yaml`                                        |
+| **Express.js server**    | `./tsp-output/server/` (includes generated files like `controllers/`, `models/`, `ServiceProject.csproj`) |
+| **Azure Developer CLI deployment** | `./azure.yaml`,`./infra/`                             |
 
 ## Deploy application to Azure
 

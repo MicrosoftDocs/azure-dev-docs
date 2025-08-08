@@ -41,7 +41,7 @@ Use the `container-app-upsert` strategy when:
 Here's how to use the `container-app-upsert` strategy in your Bicep files:
 
 ```bicep
-module api 'br/public:avm/ptn/`azd`/container-app-upsert:0.1.1' = {
+module api 'br/public:avm/ptn/azd/container-app-upsert:0.1.2' = {
   name: 'api'
   params: {
     name: 'my-api'

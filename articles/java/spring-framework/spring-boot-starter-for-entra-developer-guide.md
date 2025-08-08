@@ -9,7 +9,7 @@ ms.reviewer: seal
 ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.22.0
+- ✅ Version 5.23.0
 ---
 
 # Spring Boot Starter for Microsoft Entra developer's guide

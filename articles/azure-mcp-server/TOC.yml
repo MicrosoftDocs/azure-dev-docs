@@ -15,29 +15,55 @@ items:
           href: tools/ai-search.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
+        - name: Azure best practices
+          href: tools/azure-best-practices.md
+        - name: Azure Bicep schema
+          href: tools/azure-bicep-schema.md
         - name: Azure Cache for Redis
           href: tools/azure-cache-for-redis.md          
-        - name: Azure CLI Extension
+        - name: Azure CLI
           href: tools/azure-cli-extension.md
+        - name: Azure Cosmos DB
+          href: tools/cosmos-db.md
         - name: Azure Data Explorer
           href: tools/azure-data-explorer.md
         - name: Azure DB for PostgreSQL
           href: tools/postgresql.md
-        - name: Azure Cosmos DB
-          href: tools/cosmos-db.md
+        - name: Azure Developer CLI
+          href: tools/azure-developer-cli.md
+        - name: Azure Foundry
+          href: tools/azure-foundry.md
+        - name: Azure Grafana
+          href: tools/azure-grafana.md
         - name: Azure Key Vault 
           href: tools/key-vault-key.md
+        - name: Azure Kubernetes Service
+          href: tools/azure-aks.md
+        - name: Azure Load Testing
+          href: tools/azure-load-testing.md
+        - name: Azure Marketplace
+          href: tools/azure-marketplace.md
+        - name: Azure MCP tool
+          href: tools/azure-mcp-tool.md
         - name: Azure Monitor
           href: tools/monitor.md
         - name: Azure RBAC
           href: tools/azure-rbac.md
         - name: Azure Native ISV
-          href: tools/azure-native-isv.md          
+          href: tools/azure-native-isv.md
+        - name: Azure Quick Review CLI
+          href: tools/azure-compliance-quick-review.md
         - name: Azure Service Bus
           href: tools/service-bus.md
+        - name: Azure SQL
+          href: tools/azure-sql.md
         - name: Azure Storage
           href: tools/storage.md
+        - name: Azure Virtual Desktop
+          href: tools/azure-virtual-desktop.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription
           href: tools/subscription.md
+        - name: Terraform best practices for Azure
+          href: tools/azure-terraform-best-practices.md
