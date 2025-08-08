@@ -73,7 +73,7 @@ azd env select prod
 
 The global configuration file `.azure/config.json` keeps track of your currently selected environment. When you run `azd init` and no environments exist yet, `azd` automatically creates your first environment and sets it as the default. If you already have one or more environments and run `azd env new <name>`, you'll be prompted to choose whether to make the new environment the default. If you decline, the new environment is created but your current selection remains unchanged.
 
-You can temporarily override the default environment for a single command by using the `--environment` flag. This does not change the default for future commands—only for that specific
+You can temporarily override the default environment for a single command by using the `--environment` flag. This does not change the default for future commands.
 
 ## Refresh environment settings
 
