@@ -1,5 +1,5 @@
 ---
-title: Azure Developer CLI environments overview
+title: Azure Developer CLI Environments Overview
 description: Learn essential concepts about environments using Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
@@ -42,10 +42,10 @@ Azure Developer CLI (`azd`) environments live in a directory structure within yo
 
 The key components of this structure are:
 
-1. **`.azure` directory**: The root directory for all environment configurations. Excluded from source control by the `.gitignore` file by default.
-2. **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
-3. **`.env` file**: Contains environment-specific variables used by your application and during deployment.
-4. **`config.json`**: Used to drive settings that influence `azd` command behavior and features. This file isn't intended to be used directly by end users.
+- **`.azure` directory**: The root directory for all environment configurations. Excluded from source control by the `.gitignore` file by default.
+- **Environment-specific directories**: Directories named after your environments, such as `dev`, `test`, `prod`.
+- **`.env` file**: Contains environment-specific variables used by your application and during deployment.
+- **`config.json`**: Used to drive settings that influence `azd` command behavior and features. This file isn't intended to be used directly by end users.
 
 ### Environment names
 
