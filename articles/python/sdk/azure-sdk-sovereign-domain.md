@@ -25,6 +25,11 @@ To use a definition, import the appropriate constant from `azure.identity.AzureA
 When using [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential), as shown in the following example, you can specify the cloud by using the appropriate value from `azure.identity.AzureAuthorityHosts`.
 
 :::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/sovereign_cloud.py":::
+ 
+> [!NOTE]
+> The `cloud_setting` feature is newly added and is rolling out across Azure SDK management libraries. During this period, some clients support it while others do not. To check support, look for a `cloud_setting` parameter on the client constructor. If your service's client doesn't expose `cloud_setting` yet, you can still target sovereign clouds using the previous approach shown in the examples below.
+
+:::code language="python" source="~/../python-sdk-docs-examples/sovereign_domain/sovereign_cloud_old.py":::
   
 ## Using your own cloud definition
 
