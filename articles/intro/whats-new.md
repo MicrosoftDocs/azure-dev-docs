@@ -72,6 +72,16 @@ New articles:
 
 - [Authorization in the Azure SDK libraries for Python](../python/sdk/authorization/overview.md)
 
+### Azure for .NET
+
+New articles:
+
+- [GitHub Copilot app modernization for .NET (Preview) overview](/dotnet/azure/migration/appmod/overview)
+- [Frequently Asked Questions for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/faq)
+- [Predefined tasks for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/predefined-tasks)
+- [Quickstart: Assess and migrate a .NET Project with GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/quickstart)
+- [Contoso University migration sample](/dotnet/azure/migration/appmod/sample)
+
 ### Terraform on Azure
 
 New articles:
@@ -157,16 +167,6 @@ Updated articles:
 - [Deploy Python web apps to App Service by using GitHub Actions (Linux)](../python/python-web-app-github-actions-app-service.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 - [Get started: Chat using your own data (Python sample)](../python/get-started-app-chat-template.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 - [Overview of the Python web azd templates](../python/overview-azd-templates.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
-
-### Azure for .NET
-
-New articles:
-
-- [GitHub Copilot app modernization for .NET (Preview) overview](/dotnet/azure/migration/appmod/overview)
-- [Frequently Asked Questions for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/faq)
-- [Predefined tasks for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/predefined-tasks)
-- [Quickstart: Assess and migrate a .NET Project with GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/quickstart)
-- [Contoso University migration sample](/dotnet/azure/migration/appmod/sample)
 
 ## What's new for May 2025
 
