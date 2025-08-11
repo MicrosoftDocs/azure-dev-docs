@@ -44,7 +44,7 @@ Use the following steps to create a custom task:
 
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository.
 
-1. In Visual Studio Code, open the **rabbitmq-sender** project folder in the samples repository. Then, check out the project to the **expected** branch.
+1. In Visual Studio Code, open the **rabbitmq-sender** project folder in the samples repository. Then, check out the project to the **source** branch.
 
 1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane and then, in the **Tasks - Custom** section, select **Create Custom Task**.
 
@@ -54,7 +54,7 @@ Use the following steps to create a custom task:
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/select-create-custom-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/select-create-custom-task.png" alt-text="Screenshot of Visual Studio Code that shows the Create new task option.":::
 
-1. Type **migrate rabbitmq to expected** to search for the commit that migrates RabbitMQ. Select the corresponding commit and then select **OK**.
+1. Type **migrate rabbitmq to service bus** to search for the commit that migrates RabbitMQ. Select the corresponding commit and then select **OK**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-task.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select commits you want to save.":::
 
