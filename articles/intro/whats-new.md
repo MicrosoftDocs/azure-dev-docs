@@ -15,7 +15,7 @@ Welcome to what's new in the [Azure developer documentation](../index.yml) for t
 
 ### AI apps using Azure services
 
-New articles:
+New article:
 
 - [Build a TypeScript MCP server using Azure Container Apps](../ai/build-mcp-server-ts.md)
 
@@ -45,30 +45,21 @@ New articles:
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
 - [Terraform best practices for Azure tools](../azure-mcp-server/tools/azure-terraform-best-practices.md)
 
-
-### Azure and GitHub integration
-
-New articles:
-
-- [Analyze applications and migrate to Azure by using GitHub Copilot App Modernization](../github-copilot-app-modernization/overview.md)
-- [GitHub Copilot App Modernization documentation](../github-copilot-app-modernization/index.yml)
-
 ### Azure for Java
 
-New articles:
+New article:
 
-- [Configure passwordless database connections for Java apps on IBM WebSphere Application Server](../java/ee/how-to-configure-passwordless-datasource-websphere.md)
 - [Configure passwordless database connections for Java apps on Red Hat JBoss EAP](../java/ee/how-to-configure-passwordless-datasource-eap.md)
 
 ### Azure for JavaScript
 
-Updated articles:
+Updated article:
 
 - [What is Azure for JavaScript developers](../javascript/what-is-azure-for-javascript-development.md) 
 
 ### Azure for Python
 
-New articles:
+New article:
 
 - [Authorization in the Azure SDK libraries for Python](../python/sdk/authorization/overview.md)
 
@@ -82,13 +73,20 @@ New articles:
 - [Quickstart: Assess and migrate a .NET Project with GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/quickstart)
 - [Contoso University migration sample](/dotnet/azure/migration/appmod/sample)
 
-### Terraform on Azure
+### GitHub Copilot App Modernization
 
 New articles:
 
+- [Analyze applications and migrate to Azure by using GitHub Copilot App Modernization](../github-copilot-app-modernization/overview.md)
+- [GitHub Copilot App Modernization documentation](../github-copilot-app-modernization/index.yml)
+
+### Terraform on Azure
+
+New article:
+
 - [Generate Terraform on Azure configurations using Copilot](../terraform/terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md)
 
-Updated articles:
+Updated article:
 
 - [Generate Terraform on Azure configurations using Copilot](../terraform/terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md)
   - Copilot article changes to images, prompts, and verbiage
@@ -96,7 +94,7 @@ Updated articles:
 
 ### TypeSpec
 
-New articles:
+New article:
 
 - [Quickstart: Create a new API project with TypeSpec and TypeScript](../typespec/quickstart-scaffold-typescript.md)
 
@@ -104,23 +102,23 @@ New articles:
 
 ### AI apps using Azure services
 
-New articles:
+New article:
 
 - [Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK](../ai/how-to/use-reasoning-model-inference.md)
 
 ### Azure Developer CLI (azd)
 
-New articles:
+New article:
 
 - [Docker support as a language](../azure-developer-cli/docker-language-support.md)
 
-Updated articles:
+Updated article:
 
 - [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.17.0
 
 ### Azure MCP Server
 
-New articles:
+New article:
 
 - [Azure MCP Server documentation](../azure-mcp-server/index.yml)
 
@@ -131,7 +129,7 @@ Updated articles:
 
 ### Azure and GitHub integration
 
-New articles:
+New article:
 
 - [Integrate Azure Key Vault into a GitHub Actions workflow](../github/github-actions-key-vault.md)
 
@@ -172,7 +170,7 @@ Updated articles:
 
 ### AI apps using Azure services
 
-New articles:
+New article:
 
 - [Build Agents using Model Context Protocol on Azure](../ai/intro-agents-mcp.md)
 
@@ -188,7 +186,7 @@ New articles:
 - [Explore the Azure Developer CLI initialization workflows](../azure-developer-cli/azd-init-workflow.md)
 - [Quickstart: Explore the demo extension](../azure-developer-cli/extensions/quickstart-ai-extension.md)
 
-Updated articles:
+Updated article:
 
 - [Explore Azure Developer CLI support for CI/CD pipelines](../azure-developer-cli/configure-devops-pipeline.md) - Split out large CI/CD pipeline article into smaller, more relevant docs.
 
@@ -254,12 +252,12 @@ New articles:
 
 ### Azure for JavaScript
 
-New articles:
+New article:
 
 - [Authentication best practices with the Azure Identity library for JavaScript](../javascript/sdk/authentication/best-practices.md)
 
 ### TypeSpec
 
-New articles:
+New article:
 
 - [Quickstart: Create a new API project with TypeSpec](../typespec/quickstart-scaffold-dotnet.md)
