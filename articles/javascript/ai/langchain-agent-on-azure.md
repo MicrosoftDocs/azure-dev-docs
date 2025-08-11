@@ -177,7 +177,7 @@ Key Considerations:
 
 ### Steps to load documents
 
-1. **Locate the PDF Documents**: The documents are stored in the [data directory](https://github.com/Azure-Samples/azure-typescript-langchainjs/packages/langgraph_agent/data/).
+1. **Locate the PDF Documents**: The documents are stored in the [data directory](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages/langgraph-agent/data/).
 
 2. **Load PDFs into LangChain.js**: Use the `loadPdfsFromDirectory` function to load the documents. This function utilizes the LangChain.js community's `PDFLoader.load` method to read each file and return a `Document[]` array. This array is a standard LangChain.js document format.
 
