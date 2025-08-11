@@ -11,25 +11,25 @@ ms.custom: devx-track-azdevcli
 
 # Work with Azure Developer CLI environment variables
 
-The Azure Developer CLI (`azd`) uses environment variables to store and manage configuration settings across multiple deployment environments. These variables control how your application is provisioned, deployed, and run in Azure. This article explains how environment variables work within `azd` environments and provides guidance on managing them effectively.
+The Azure Developer CLI (`azd`) uses environment variables to store and manage configuration settings for deployment environments. These variables control how your application is provisioned, deployed, and runs in Azure. This article explains how environment variables work within `azd` environments and provides guidance on managing them effectively.
 
 ## Understand environment variables
 
 In the context of the Azure Developer CLI, environment variables are key-value pairs that are tied to specific named environments like *dev*, *test*, or *prod*. Each `azd` environment maintains its own set of environment variables, allowing you to configure different settings for different deployment targets.
 
-Environment variables in `azd` are configuration settings stored in `.env` files within your environment folders in the `.azure` folder. They serve as inputs to:
+Environment variables in `azd` are stored in `.env` files within your environment folders in the `.azure` folder. They serve as inputs to:
 
 - Application deployment workflows
 - Configurations for Azure services and connections
-- Infrastructure provisioning processes
+- Infrastructure provisioning via Bicep and Terraform
 
 Unlike traditional environment variables that exist at the operating system level, `azd` environment variables are scoped to specific environments within your project, providing isolation between different deployment targets.
 
 Environment variables provide several key benefits when working with `azd`:
 
 - **Environment isolation**: Keep configurations for development, testing, and production separate and distinct.
-- **Configuration consistency**: Ensure all team members use the same settings when working with a specific environment.
-- **Infrastructure as Code**: Define your infrastructure parameterization through variables rather than hard-coded values.
+- **Configuration consistency**: Ensure all team members use the same settings for a specific environment.
+- **Infrastructure as Code**: Define infrastructure parameterization through variables instead of hard-coded values.
 - **Deployment automation**: Enable CI/CD pipelines to deploy to different environments using the same codebase but different configurations.
 - **Simplified management**: Easily update settings across all services in an environment from a central location.
 
@@ -55,7 +55,7 @@ KEY2=value2
 > [!TIP]
 > Visit the [Working with environments](work-with-environments.md) article for more information about `azd` environments.
 
-When you run `azd` commands such as `azd up`, the CLI automatically loads variables from the select environment's `.env` file.
+When you run commands such as `azd up`, `azd` automatically loads variables from the select environment's `.env` file.
 
 These variables influence:
 
@@ -141,7 +141,7 @@ azd env get-values --output json
 
 ## Use environment variables in infrastructure files
 
-You can use environment variables to customize your infrastructure templates. This is useful for naming, tagging, or configuring resources based on the current environment.
+You can use environment variables to customize your infrastructure templates. This is useful for naming, tagging, or configuring resources based on the current environment. `azd` also uses tags to locate resources in Azure for deployment and other tasks.
 
 Consider the following common flow:
 
@@ -180,9 +180,9 @@ Consider the following common flow:
     param location string
     ```
 
-    `azd` supplies these Bicep parameters with substituted values in `main.parameters.json`.
+    `azd` supplies these Bicep parameters with the substituted values in `main.parameters.json`.
 
-4. Use the parameters for resource naming and tags so you can easily identify which environment a resource belongs to:
+4. Use the parameters for resource naming and tags to later identify which environment a resource belongs to:
 
     ```bicep
     var resourceToken = toLower(uniqueString(resourceGroup().id, name, location))
@@ -202,6 +202,9 @@ Consider the following common flow:
     ```
 
 This pattern keeps your templates flexible, enables per-environment customization without code changes, and improves resource governance (naming, tagging, and discovery).
+
+> [!NOTE]
+> `azd` also relies on tagging to locate Azure resources during the deployment stage.
 
 ### Hooks
 
