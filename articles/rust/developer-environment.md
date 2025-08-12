@@ -38,7 +38,7 @@ For Azure development with Rust on your local workstation, install the following
 
 Follow these steps to install Rust:
 
-1. Go to <https://www.rust-lang.org/tools/install>
+1. Go to <https://www.rust-lang.org/tools/install>.
 1. Follow the instructions for your operating system to install **rustup**, the Rust toolchain installer.
 1. Verify your installation by running the following commands:
 
@@ -61,7 +61,7 @@ You can get the Azure SDK for Rust crates from [crates.io][Crates]. To learn mor
 
 ## Authenticate to Azure
 
-To authenticate to Azure from your Rust application, you can use the [Azure Identity SDK crate][Azure Identity rust crate]. This library provides a set of credential types that can be used to authenticate to Azure services.
+To authenticate to Azure from your Rust application, use the [Azure Identity SDK crate][Azure Identity rust crate]. This library provides a set of credential types that you can use to authenticate to Azure services.
 
 ## Additional Rust resources
 
