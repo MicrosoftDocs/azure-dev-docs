@@ -11,9 +11,9 @@ zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-group
 zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
-# Get started with Azure MCP Server in Cursor
+# Get started with the Azure MCP Server in Cursor
 
-[!INCLUDE [get-started-intro](includes/get-started-intro.md)]
+[!INCLUDE [get-started-intro](../../includes/get-started-intro.md)]
 
 In this article, you learn how to complete the following tasks:
 
@@ -27,7 +27,7 @@ In this article, you learn how to complete the following tasks:
 - [Cursor](https://cursor.sh/) - The AI-powered code editor
 - [Node.js](https://nodejs.org/) version 18 or higher installed on your system
 
-[!INCLUDE [permissions-note](permissions-note.md)]
+[!INCLUDE [permissions-note](../../permissions-note.md)]
 
 ## Install the Azure MCP Server
 
@@ -91,4 +91,4 @@ To install and configure Azure MCP Server in Cursor:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure MCP Server tools](tools/index.md)
+> [Learn more about Azure MCP Server tools](../../tools/index.md)

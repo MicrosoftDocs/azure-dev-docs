@@ -11,9 +11,9 @@ zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-group
 zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
-# Get started with Azure MCP Server
+# Get started using the Azure MCP Server with .NET
 
-[!INCLUDE [get-started-intro](includes/get-started-intro.md)]
+[!INCLUDE [get-started-intro](../../includes/get-started-intro.md)]
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
@@ -26,9 +26,9 @@ In this article, you learn how to complete the following tasks:
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-[!INCLUDE [permissions-note](permissions-note.md)]
+[!INCLUDE [permissions-note](../../permissions-note.md)]
 
-[!INCLUDE [sign-in-local-development](sign-in-local-development.md)]
+[!INCLUDE [sign-in-local-development](../../sign-in-local-development.md)]
 
 ## Create the .NET host app
 
@@ -180,4 +180,4 @@ Complete the following steps to test your .NET host app:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure MCP Server tools](tools/index.md)
+> [Learn more about Azure MCP Server tools](../../tools/index.md)
