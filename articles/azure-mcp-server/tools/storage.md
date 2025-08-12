@@ -76,6 +76,27 @@ Example prompts include:
 | **Blob names** | Required | The names of the blobs to set the access tier for. Provide multiple blob names separated by spaces. Each blob name should be the full path within the container (for example, 'file1.txt' or 'folder/file2.txt'). |
 
 
+## Blob: create container
+
+Create a blob container with optional blob public access.
+
+Example prompts include:
+
+- **Create private container**: "Create a private container named 'mycontainer' in storage account 'mystorageaccount'."
+- **New private blob container**: "Make a new private blob container called 'images' in storage account 'mydata'."
+- **Add private container**: "Add a private container named 'archive' to storage account 'contosostore'."
+- **Set up private container**: "Set up a private blob container named 'logs' in storage account 'prodstore'."
+- **Create private container (simple)**: "Create a private blob container called 'images' in storage account 'mystorageaccount'."
+- **Create private container (explicit access)**: "Create a blob container named 'logs' in storage account 'mydata' with access level 'private'."
+
+
+| Parameter | Required or optional | Description |
+|-----------|----------|-------------|
+| **Account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| **Container** |  Required | The name of the container to access within the storage account. |
+| **Access level** | Optional | The [access tier](/azure/storage/blobs/access-tiers-overview). Default: `private`. Valid values: `private`, `blob` (allows public read access to blobs), `container` (allows public read access to both blobs and container metadata).  |
+
+
 ## Blob: get container details
 
 The Azure MCP Server shows detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
@@ -93,7 +114,7 @@ Example prompts include:
 | **Container** | Required | The name of the container to access. |
 
 
-## Blob: List containers
+## Blob: list containers
 
 The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
 
