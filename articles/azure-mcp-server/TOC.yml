@@ -23,6 +23,8 @@ items:
           href: tools/azure-cache-for-redis.md          
         - name: Azure CLI
           href: tools/azure-cli-extension.md
+        - name: Azure Container Registry
+          href: tools/azure-container-registry.md
         - name: Azure Cosmos DB
           href: tools/cosmos-db.md
         - name: Azure Data Explorer
