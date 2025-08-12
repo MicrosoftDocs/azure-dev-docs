@@ -424,7 +424,7 @@ ENHANCEMENTS:
 ## 4.11.0 (November 22, 2024)
 
 NOTES:
-* New [ephemeral resources](https://developer.hashicorp.com/terraform/language/v1.10.x/resources/ephemeral) `azurerm_key_vault_certificate` and `azurerm_key_vault_secret` now support [ephemeral values](https://developer.hashicorp.com/terraform/language/v1.10.x/values/variables#exclude-values-from-state)
+* New [ephemeral resources](https://developer.hashicorp.com/terraform/language/ephemeral) `azurerm_key_vault_certificate` and `azurerm_key_vault_secret` now support [ephemeral values](https://developer.hashicorp.com/terraform/language/v1.10.x/values/variables#exclude-values-from-state)
 
 FEATURES:
 

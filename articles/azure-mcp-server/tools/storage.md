@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Storage.
 keywords: azure mcp server, azmcp, storage account, blob storage
 author: diberry
 ms.author: diberry
-ms.date: 08/05/2025
+ms.date: 08/07/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,41 +19,6 @@ The Azure MCP Server enables you to manage Azure Storage resources, including st
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Create directory
-
-The Azure MCP Server can create directories in a Data Lake file system. This functionality helps you organize your hierarchical data structure in Azure Data Lake Storage by creating new folder paths as needed.
-
-Example prompts include:
-
-- **Create directory**: "Create a new directory called 'data/logs' in my 'analytics' file system in storage account 'mydatalake'."
-- **Make folder**: "Create folder 'archives/2024' in file system 'backup-data'"
-- **New directory**: "Make a directory 'processed/monthly' in my data lake file system"
-- **Create path**: "Create directory structure 'raw-data/sales/quarterly' in my file system"
-- **Make subdirectory**: "Create subdirectory 'temp/staging' in my 'workflow' file system"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Directory path** | Required | The full path of the directory to create in the Data Lake, including the file system name (for example, 'myfilesystem/data/logs' or 'myfilesystem/archives/2024'). Use forward slashes (/) to separate the file system name from the directory path and for subdirectories. |
-| **Account name** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
-| **Resource group** | Optional | The name of the resource group containing the resource. |
-
-## Get container details
-
-The Azure MCP Server shows detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
-
-Example prompts include:
-
-- **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
-- **Container info**: "Get properties of container 'images' in storage account 'media_files'"
-- **Container properties**: "What are the settings for my 'backups' container?"
-- **Container status**: "Check access policy for 'user_data' container"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Account name** | Required | The name of the Azure Storage account. |
-| **Container name** | Required | The name of the container to access. |
-
 ## List accounts
 
 The Azure MCP Server can list all storage accounts in a subscription. This functionality provides an overview of your storage infrastructure.
@@ -66,81 +31,7 @@ Example prompts include:
 - **Query accounts**: "Show all my storage resources."
 - **Check accounts**: "Storage accounts in subscription abc123."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-
-## List containers
-
-The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
-
-Example prompts include:
-
-- **List containers**: "Show me all containers in my 'mystorageaccount' storage account."
-- **View containers**: "What containers do I have in storage account 'app_data'?"
-- **Find containers**: "List all containers in my storage 'user_files'"
-- **Query containers**: "Show available containers in my storage account"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Account name** | Required | The name of the Azure Storage account. |
-
-## List container blobs
-
-The Azure MCP Server can list all blobs in a container. This feature helps you manage the files stored in your blob storage.
-
-Example prompts include:
-
-- **List blobs**: "Show me all files in the 'documents' container in my 'mystorageaccount' storage account."
-- **View blobs**: "What files do I have in container 'images'?"
-- **Find blobs**: "List all files in my 'backups' container"
-- **Query blobs**: "Show available files in container 'logs'"
-- **Check blobs**: "Get all blobs in my 'user_data' container"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Account name** | Required | The name of the Azure Storage account. |
-| **Container name** | Required | The name of the container to access. |
-
-## List tables
-
-The Azure MCP Server can list all tables in a storage account. This functionality helps you manage your structured NoSQL data.
-
-Example prompts include:
-
-- **List tables**: "Show me all tables in my 'mystorageaccount' storage account."
-- **View tables**: "What tables do I have in storage account 'app_data'?"
-- **Find tables**: "List all tables in my storage 'user_data'"
-- **Query tables**: "Show available tables in my storage account"
-- **Check tables**: "Get all storage tables in my 'analytics_data' account"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Account name** | Required | The name of the Azure Storage account. |
-
-## List file system paths
-
-
-The Azure MCP Server can list all paths (files and directories) in a Data Lake file system. This functionality helps you explore and manage your hierarchical data stored in Azure Data Lake Storage.
-
-Example prompts include:
-
-- **List paths**: "Show me all files and folders in the 'data' file system in my 'mydatalake' storage account."
-- **View paths**: "What paths are available in file system 'logs'?"
-- **Find paths**: "List all paths in my 'analytics' file system"
-- **Query paths**: "Show available files and directories in file system 'raw-data'"
-- **Check paths**: "Get all paths in my 'processed-data' file system"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **File system name** | Required | The name of the Data Lake file system to access within the storage account. |
-| **Account name** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
-| **Resource group** | Optional | The name of the resource group containing the resource. |
-
-## Set blob access tier in a batch
+## Blob: set blob access tier in a batch
 
 Azure MCP Server can set the access tier for multiple blobs in a single batch operation. This functionality efficiently changes the storage tier for multiple blobs simultaneously to optimize storage costs and access patterns based on your data usage needs.
 
@@ -158,6 +49,128 @@ Example prompts include:
 | **Container** | Required | The name of the container to access within the storage account. |
 | **Tier** | Required | The access tier to set for the blobs. Valid values include Hot, Cool, Archive, and others depending on the storage account type. |
 | **Blob names** | Required | The names of the blobs to set the access tier for. Provide multiple blob names separated by spaces. Each blob name should be the full path within the container (for example, 'file1.txt' or 'folder/file2.txt'). |
+
+
+## Blob: get container details
+
+The Azure MCP Server shows detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
+
+Example prompts include:
+
+- **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
+- **Container info**: "Get properties of container 'images' in storage account 'media_files'"
+- **Container properties**: "What are the settings for my 'backups' container?"
+- **Container status**: "Check access policy for 'user_data' container"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Account name** | Required | The name of the Azure Storage account. |
+| **Container name** | Required | The name of the container to access. |
+
+
+## Blob: List containers
+
+The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
+
+Example prompts include:
+
+- **List containers**: "Show me all containers in my 'mystorageaccount' storage account."
+- **View containers**: "What containers do I have in storage account 'app_data'?"
+- **Find containers**: "List all containers in my storage 'user_files'"
+- **Query containers**: "Show available containers in my storage account"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Account name** | Required | The name of the Azure Storage account. |
+
+## Blob: list container blobs
+
+The Azure MCP Server can list all blobs in a container. This feature helps you manage the files stored in your blob storage.
+
+Example prompts include:
+
+- **List blobs**: "Show me all files in the 'documents' container in my 'mystorageaccount' storage account."
+- **View blobs**: "What files do I have in container 'images'?"
+- **Find blobs**: "List all files in my 'backups' container"
+- **Query blobs**: "Show available files in container 'logs'"
+- **Check blobs**: "Get all blobs in my 'user_data' container"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Account name** | Required | The name of the Azure Storage account. |
+| **Container name** | Required | The name of the container to access. |
+
+
+## Datalake: create directory
+
+The Azure MCP Server can create directories in a Data Lake file system. This functionality helps you organize your hierarchical data structure in Azure Data Lake Storage by creating new folder paths as needed.
+
+Example prompts include:
+
+- **Create directory**: "Create a new directory called 'data/logs' in my 'analytics' file system in storage account 'mydatalake'."
+- **Make folder**: "Create folder 'archives/2024' in file system 'backup-data'"
+- **New directory**: "Make a directory 'processed/monthly' in my data lake file system"
+- **Create path**: "Create directory structure 'raw-data/sales/quarterly' in my file system"
+- **Make subdirectory**: "Create subdirectory 'temp/staging' in my 'workflow' file system"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Directory path** | Required | The full path of the directory to create in the Data Lake, including the file system name (for example, 'myfilesystem/data/logs' or 'myfilesystem/archives/2024'). Use forward slashes (/) to separate the file system name from the directory path and for subdirectories. |
+| **Account name** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
+
+## Datalake: list file system paths
+
+The Azure MCP Server can list all paths (files and directories) in a Data Lake file system. This functionality helps you explore and manage your hierarchical data stored in Azure Data Lake Storage.
+
+Example prompts include:
+
+- **List paths**: "Show me all files and folders in the 'data' file system in my 'mydatalake' storage account."
+- **View paths**: "What paths are available in file system 'logs'?"
+- **Find paths**: "List all paths in my 'analytics' file system"
+- **Query paths**: "Show available files and directories in file system 'raw-data'"
+- **Check paths**: "Get all paths in my 'processed-data' file system"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **File system name** | Required | The name of the Data Lake file system to access within the storage account. |
+| **Account name** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
+| **Filter path** | Optional | The prefix to filter paths in the Data Lake. Only paths that start with this prefix will be listed. |
+| **Recursive** | Optional | Flag to indicate whether the command will operate recursively on all subdirectories. |
+
+## Share: list files
+
+The Azure MCP Server can list files and directories within a file share directory. This functionality recursively lists all items in a specified file share directory, including files, subdirectories, and their properties. Files and directories may be filtered by a prefix.
+
+Example prompts include:
+
+- **List files**: "Show me all files in the 'documents' directory of my 'myshare' file share in storage account 'mystorageaccount'."
+- **View directory contents**: "What files are in directory 'projects/2024' in my 'teamshare' file share?"
+- **Find files with prefix**: "List all files starting with 'report_' in directory 'reports' of my file share"
+- **Browse folders**: "Show contents of directory 'uploads/images' in my file share"
+- **Check directory**: "Get all files and folders in 'backup/daily' directory of my file share"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Account** | Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| **Share** | Required | The name of the file share to access within the storage account. |
+| **Directory path** | Required | The path of the directory to list within the file share (for example, 'documents/projects' or 'uploads/2024'). Use forward slashes (/) to separate subdirectories. |
+| **Prefix** | Optional | Optional prefix to filter results. Only items that start with this prefix will be returned. |
+
+## Table: list tables
+
+The Azure MCP Server can list all tables in a storage account. This functionality helps you manage your structured NoSQL data.
+
+Example prompts include:
+
+- **List tables**: "Show me all tables in my 'mystorageaccount' storage account."
+- **View tables**: "What tables do I have in storage account 'app_data'?"
+- **Find tables**: "List all tables in my storage 'user_data'"
+- **Query tables**: "Show available tables in my storage account"
+- **Check tables**: "Get all storage tables in my 'analytics_data' account"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Account name** | Required | The name of the Azure Storage account. |
 
 ## Related content
 
