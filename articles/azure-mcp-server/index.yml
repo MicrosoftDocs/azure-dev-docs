@@ -21,11 +21,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: GitHub Copilot in Visual Studio Code
-            url: get-started.md?pivots=mcp-github-copilot
+            url: get-started/tools/visual-studio-code.md
           - text: .NET
-            url: get-started.md?pivots=mcp-csharp
+            url: get-started/languages/dotnet.md
           - text: Python
-            url: get-started.md?pivots=mcp-python
+            url: get-started/languages/python.md
   
   - title: Azure MCP Server tools
     linkLists:

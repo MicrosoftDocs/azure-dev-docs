@@ -39,4 +39,4 @@ Example prompts include:
 
 - [Subscription tools](subscription.md)
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../overview.md)
+- [Get started using Azure MCP Server](../get-started.md)

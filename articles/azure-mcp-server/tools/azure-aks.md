@@ -64,6 +64,6 @@ Example prompts include:
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../overview.md)
+- [Get started using Azure MCP Server](../get-started.md)
 - [Azure Kubernetes Service documentation](/azure/aks/)
 - [Kubernetes best practices](/azure/aks/best-practices)

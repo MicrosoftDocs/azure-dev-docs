@@ -38,5 +38,5 @@ The Azure MCP Server can list all available tools and their capabilities. This h
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../overview.md)
+- [Get started using Azure MCP Server](../get-started.md)
 - [Azure MCP Server GitHub repository](https://github.com/Azure-Samples/azure-mcp-server)

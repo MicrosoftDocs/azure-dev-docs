@@ -39,5 +39,5 @@ The Azure MCP Server can execute Azure Quick Review CLI commands to generate com
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../overview.md)
+- [Get started using Azure MCP Server](../get-started.md)
 - [Azure Quick Review CLI GitHub repository](https://github.com/Azure/azqr)
