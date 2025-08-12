@@ -1,3 +1,20 @@
+---
+title: Get started using the Azure MCP Server with Python
+description: Learn how to connect to and consume Azure MCP Server operations with Python
+keywords: azure developer cli, azd
+author: alexwolfmsft
+ms.author: alexwolf
+ms.date: 05/14/2025
+ms.topic: get-started
+ms.custom: build-2025
+zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-groups.json
+zone_pivot_groups: azure-mcp-server-tools-frameworks
+---
+
+# Get started with Azure MCP Server
+
+[!INCLUDE [get-started-intro](includes/get-started-intro.md)]
+
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
@@ -211,3 +228,8 @@ Complete the following steps to test your .NET host app:
     List all of the storage accounts in my subscription
     Get the available tables in my storage accounts
     ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure MCP Server tools](tools/index.md)
