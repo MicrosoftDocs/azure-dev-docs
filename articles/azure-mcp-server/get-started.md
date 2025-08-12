@@ -1,6 +1,6 @@
 ---
 title: Get started with the Azure MCP Server
-description: Overview of the features and capabilities of the Azure MCP Server that helps developers be more productive when building and deploying apps to Azure
+description: Overview of the options for using the Azure MCP Server with tools and languages
 author: alexwolfmsft
 ms.author: alexwolf
 ms.service: azure
