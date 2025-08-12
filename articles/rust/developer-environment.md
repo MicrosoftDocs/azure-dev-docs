@@ -80,7 +80,7 @@ If you're new to Rust, these official resources can help you get up to speed:
 
 <!-- Reference links for Rust resources -->
 [Azure portal]: https://portal.azure.com/
-[Azure CLI]: https://docs.microsoft.com/cli/azure/
+[Azure CLI]: /cli/azure/
 [Azure crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
 [Crates.io]: https://crates.io/
 [official Rust development tools guide]: https://www.rust-lang.org/tools
