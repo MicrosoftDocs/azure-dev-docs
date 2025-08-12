@@ -27,7 +27,7 @@ In this article, you learn how to complete the following tasks:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 
-[!INCLUDE [permissions-note](../../permissions-note.md)]
+[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
 ## Install the Azure MCP Server
 

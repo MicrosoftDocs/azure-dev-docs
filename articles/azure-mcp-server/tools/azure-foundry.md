@@ -90,7 +90,7 @@ Example prompts include:
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure AI Foundry documentation](/azure/ai-foundry/)
 - [Azure AI Services overview](/azure/ai-services/)
 - [Deploy and consume models](/azure/ai-foundry/concepts/deployments-overview)

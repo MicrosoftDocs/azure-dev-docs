@@ -46,6 +46,6 @@ Example prompts include:
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure Partner Solutions documentation](/azure/partner-solutions/partners)
 - [Datadog Azure integration documentation](/azure/partner-solutions/datadog/)

@@ -35,5 +35,5 @@ The Azure MCP Server can execute Azure CLI commands. This provides complete acce
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure CLI reference documentation](/cli/azure/reference-index)

@@ -225,7 +225,7 @@ Example prompts include:
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure Load Testing documentation](/azure/load-testing/)
 - [Create and run a load test](/azure/load-testing/quickstart-create-and-run-load-test)
 - [Testing best practices](/azure/architecture/framework/scalability/performance-test)

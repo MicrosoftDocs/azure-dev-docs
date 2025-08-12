@@ -51,7 +51,7 @@ Example prompts include:
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure Marketplace documentation](/azure/marketplace/)
 - [Find solutions in Azure Marketplace](/marketplace/find-solutions-azure-marketplace)
 - [Azure Marketplace purchasing overview](/marketplace/purchasing-overview)

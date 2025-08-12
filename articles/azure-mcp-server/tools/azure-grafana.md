@@ -35,7 +35,7 @@ Example prompts include:
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure Managed Grafana documentation](/azure/managed-grafana/)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Data visualization in Azure](/azure/architecture/best-practices/monitoring)

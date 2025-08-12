@@ -38,6 +38,6 @@ The Azure MCP Server can execute Azure Developer CLI commands. This provides com
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
-- [Get started using Azure MCP Server](../get-started.md)
+- [Get started using Azure MCP Server](../overview.md)
 - [Azure Developer CLI reference documentation](/azure/developer/azure-developer-cli/reference)
 - [Azure Developer CLI overview](/azure/developer/azure-developer-cli/overview)

@@ -27,7 +27,7 @@ In this article, you learn how to complete the following tasks:
 - [Cursor](https://cursor.sh/) - The AI-powered code editor
 - [Node.js](https://nodejs.org/) version 18 or higher installed on your system
 
-[!INCLUDE [permissions-note](../../permissions-note.md)]
+[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
 ## Install the Azure MCP Server
 
