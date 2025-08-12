@@ -175,7 +175,7 @@ Example prompts include:
 | **File system name** | Required | The name of the Data Lake file system to access within the storage account. |
 | **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 | **Filter path** | Optional | The prefix to filter paths in the Data Lake. Only paths that start with this prefix will be listed. |
-| **Recursive** | Optional | Flag to indicate whether the command will operate recursively on all subdirectories. |
+| **Recursive** | Optional | Flag to indicate whether the command operates recursively on all subdirectories. |
 
 
 ## Queue: send message
@@ -193,7 +193,7 @@ Example prompts include:
 | **Account** | Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | **Queue** | Required | The name of the queue to access within the storage account. |
 | **Message** | Required | The content of the message to send to the queue. |
-| **Time-to-live (seconds)** | Optional | The time-to-live for the message in seconds. If not specified, the message will use the queue's default TTL. Set to -1 for messages that never expire. |
+| **Time-to-live (seconds)** | Optional | The time-to-live for the message in seconds. If not specified, the message uses the queue's default TTL. Set to -1 for messages that never expire. |
 | **Visibility timeout (seconds)** | Optional | The visibility timeout for the message in seconds. This determines how long the message will be invisible after it's retrieved. If not specified, defaults to 0 (immediately visible). |
 
 
@@ -214,7 +214,7 @@ Example prompts include:
 | **Account** | Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | **Share** | Required | The name of the file share to access within the storage account. |
 | **Directory path** | Required | The path of the directory to list within the file share (for example, 'documents/projects' or 'uploads/2024'). Use forward slashes (/) to separate subdirectories. |
-| **Prefix** | Optional | Optional prefix to filter results. Only items that start with this prefix will be returned. |
+| **Prefix** | Optional | Optional prefix to filter results. Only items that start with this prefix are returned. |
 
 ## Table: list tables
 
