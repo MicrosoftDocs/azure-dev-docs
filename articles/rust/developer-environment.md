@@ -20,7 +20,7 @@ If you already have a subscription, access your existing subscription with:
 
 * [Azure portal][Azure portal]
 * [Azure CLI][Azure CLI]
-* [Azure SDK for Rust][Azure SDK for Rust]
+* [Azure SDK crates for Rust][Azure crates]
 * [Visual Studio Code extensions][Visual Studio Code extensions]
 
 ## One-time software installation
@@ -57,7 +57,7 @@ For detailed installation guidance and troubleshooting, see the [Installation ch
 
 ## Add Azure SDK crates to your Rust project
 
-You can get the Azure SDK for Rust crates from [crates.io][Crates]. To learn more, see [Azure SDK for Rust](./sdk/overview.md).
+You can get the Azure SDK for Rust crates from [crates.io][Azure crates]. To learn more, see [Azure SDK for Rust](./sdk/overview.md).
 
 ## Authenticate to Azure
 
@@ -71,7 +71,7 @@ If you're new to Rust, these official resources can help you get up to speed:
 - [Rust by Example][Rust by Example] - Learn Rust through hands-on examples
 - [The Cargo Book][The Cargo Book] - Complete guide to Cargo, Rust's package manager and build system
 - [Rustlings][Rustlings] - Interactive exercises to learn Rust
-- [Rust development tools][Rust development tools] - Official overview of IDEs, editors, and development tools
+- [Rust development tools][[official Rust development tools guide] - Official overview of IDEs, editors, and development tools
 
 ## Next steps
 
@@ -79,7 +79,10 @@ If you're new to Rust, these official resources can help you get up to speed:
 
 
 <!-- Reference links for Rust resources -->
-[Crates]: https://crates.io/
+[Azure portal]: https://portal.azure.com/
+[Azure CLI]: https://docs.microsoft.com/cli/azure/
+[Azure crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
+[Crates.io]: https://crates.io/
 [official Rust development tools guide]: https://www.rust-lang.org/tools
 [Rust by Example]: https://doc.rust-lang.org/rust-by-example/
 [rust-analyzer-extension]: https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer
