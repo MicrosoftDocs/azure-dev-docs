@@ -71,11 +71,7 @@ If you're new to Rust, these official resources can help you get up to speed:
 - [Rust by Example][Rust by Example] - Learn Rust through hands-on examples
 - [The Cargo Book][The Cargo Book] - Complete guide to Cargo, Rust's package manager and build system
 - [Rustlings][Rustlings] - Interactive exercises to learn Rust
-- [Rust development tools][[official Rust development tools guide] - Official overview of IDEs, editors, and development tools
-
-## Next steps
-
-* [Azure SDK for Rust][Azure SDK for Rust]
+- [Rust development tools][official Rust development tools guide] - Official overview of IDEs, editors, and development tools
 
 
 <!-- Reference links for Rust resources -->
