@@ -35,7 +35,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
 | **Account** | Required | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
-| **Region** | Required | The Azure region where the storage account will be created (for example, 'eastus', 'westus2'). |
+| **Region** | Required | The Azure region where you want to create the storage account (for example, 'eastus', 'westus2'). |
 | **SKU** | Optional | The storage account SKU. Valid values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, Standard_RAGZRS. |
 | **Kind** | Optional | The storage account kind. Valid values: Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage. |
 | **Default access tier for blobs** | Optional | The default access tier for blob storage. Valid values: Hot, Cool. |
@@ -137,9 +137,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Account** | Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| **Account** | Required | The name of the Azure Storage account. This name is unique across Azure (for example, 'mystorageaccount'). |
 | **Container** | Required | The name of the container to access within the storage account. |
-| **Blob** | Required | The name of the blob to access within the container. This should be the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| **Blob** | Required | The name of the blob to access within the container. This name includes the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 
 ## Datalake: create directory
 
@@ -174,7 +174,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **File system name** | Required | The name of the Data Lake file system to access within the storage account. |
 | **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
-| **Filter path** | Optional | The prefix to filter paths in the Data Lake. Only paths that start with this prefix will be listed. |
+| **Filter path** | Optional | The prefix to filter paths in the Data Lake. Only paths that start with this prefix are listed. |
 | **Recursive** | Optional | Flag to indicate whether the command operates recursively on all subdirectories. |
 
 
@@ -190,16 +190,16 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Account** | Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| **Account** | Required | The name of the Azure Storage account. This name is unique across Azure (for example, 'mystorageaccount'). |
 | **Queue** | Required | The name of the queue to access within the storage account. |
 | **Message** | Required | The content of the message to send to the queue. |
-| **Time-to-live (seconds)** | Optional | The time-to-live for the message in seconds. If not specified, the message uses the queue's default TTL. Set to -1 for messages that never expire. |
-| **Visibility timeout (seconds)** | Optional | The visibility timeout for the message in seconds. This determines how long the message will be invisible after it's retrieved. If not specified, defaults to 0 (immediately visible). |
+| **Time-to-live (seconds)** | Optional | The time-to-live for the message in seconds. If you don't specify this value, the message uses the queue's default TTL. Set to -1 for messages that never expire. |
+| **Visibility timeout (seconds)** | Optional | The visibility timeout for the message in seconds. This value determines how long the message is invisible after it's retrieved. If you don't specify this value, it defaults to 0 (immediately visible). |
 
 
 ## Share: list files
 
-The Azure MCP Server can list files and directories within a file share directory. This functionality recursively lists all items in a specified file share directory, including files, subdirectories, and their properties. Files and directories may be filtered by a prefix.
+The Azure MCP Server can list files and directories within a file share directory. This functionality recursively lists all items in a specified file share directory, including files, subdirectories, and their properties. You can filter files and directories by a prefix.
 
 Example prompts include:
 
@@ -211,7 +211,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Account** | Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| **Account** | Required | The name of the Azure Storage account. This name is unique across Azure (for example, 'mystorageaccount'). |
 | **Share** | Required | The name of the file share to access within the storage account. |
 | **Directory path** | Required | The path of the directory to list within the file share (for example, 'documents/projects' or 'uploads/2024'). Use forward slashes (/) to separate subdirectories. |
 | **Prefix** | Optional | Optional prefix to filter results. Only items that start with this prefix are returned. |
