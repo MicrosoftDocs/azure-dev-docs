@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 08/05/2025
+ ms.date: 08/12/2025
 ---
 
 ## Available tools
@@ -18,6 +18,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Cache for Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Cache for Redis instances, Redis clusters, and access policies. |
 | [Azure CLI](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
+| [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
 | [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |

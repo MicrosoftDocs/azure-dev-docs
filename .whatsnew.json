@@ -46,12 +46,16 @@
             "heading": "Dev tunnels"
         },
         {
-            "names": ["github-copilot-azure"],
-            "heading": "GitHub Copilot for Azure"
-        },
-        {
             "names": ["github"],
             "heading": "Azure and GitHub integration"
+        },
+        {
+            "names": ["github-copilot-app-modernization"],
+            "heading": "GitHub Copilot App Modernization"
+        },
+        {
+            "names": ["github-copilot-azure"],
+            "heading": "GitHub Copilot for Azure"
         },
         {
             "names": ["go"],
