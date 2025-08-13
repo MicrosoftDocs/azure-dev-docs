@@ -1,8 +1,8 @@
 ---
 title: Developers Guide for using Spring Cloud Azure App Configuration
 description: This developer guide walks you through using Spring Cloud Azure App Configuration.
-author: KarlErickson
-ms.author: karler
+author: mrm9084
+ms.author: mametcal
 ms.reviewer: xiada
 ms.date: 08/19/2025
 ms.update-cycle: 365-days
@@ -96,10 +96,6 @@ To use the feature in an application, you can build it as a Spring Boot applicat
 </build>
 ```
 
-> [!NOTE]
-> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-> For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
-
 The following example shows a basic Spring Boot application using App Configuration:
 
 ```java
@@ -121,40 +117,36 @@ public class Application {
 For this example, the **bootstrap.properties** file contains the following line:
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].connection-string=${CONFIG_STORE_CONNECTION_STRING}
+spring.cloud.azure.appconfiguration.stores[0].endpoint=${CONFIG_STORE_ENDPOINT}
 ```
 
-`CONFIG_STORE_CONNECTION_STRING` is an environment variable with the connection string to your Azure App Configuration Store. You can access your connection string by using the following command:
-
-```azurecli
-az appconfig credential list --name <name-of-your-store>
-```
+`CONFIG_STORE_ENDPOINT` is an environment variable with the endpoint URL to your Azure App Configuration Store.
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
-By default, if no configurations are set, the configurations starting with `/application/` are loaded with a default label of `(No Label)` unless a Spring Profile is set, in which case the default label is your Spring Profile. Because the store is empty, no configurations are loaded, but the Azure App Configuration Property Source is still generated.
+By default, if no configurations are set, the configurations starting with `/application/` are loaded with a default label of `(No Label)` unless a Spring Profile is set, in which case the default label is your Spring Profile.
 
 A property source named `/application/https://<name-of-your-store>.azconfig.io/` is created containing the properties of that store. The label used in the request is appended to the end of the name. If no label is set, the character `\0` is present as an empty space.
 
 ## Loading configuration
 
-The library supports the loading of one or multiple App Configuration stores. In the situation where a key is duplicated across multiple stores, loading all stores results in the highest priority stores configuration being loaded. The last one wins. This process is illustrated in the following example:
+The library supports the loading of one or multiple App Configuration stores. In the situation where a key is duplicated across multiple stores, the last one wins.
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].connection-string=[first-store-connection-string]
-spring.cloud.azure.appconfiguration.stores[1].connection-string=[second-store-connection-string]
+spring.cloud.azure.appconfiguration.stores[0].endpoint=[first-store-endpoint]
+spring.cloud.azure.appconfiguration.stores[1].endpoint=[second-store-endpoint]
 ```
 
-In the example, if both the first and second stores have the same configuration, the configuration in the second store has the highest priority, and the last one wins.
+In this example, if both the stores have the same configuration key, then the configuration in the second store has the highest priority.
 
 > [!NOTE]
 > You can use Azure App Configuration settings like any other Spring Configuration. For more information, see [Core Features](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html) in the Spring Boot documentation or [Quickstart: Create a Java Spring app with Azure App Configuration](/azure/azure-app-configuration/quickstart-java-spring-app).
 
 ### Selecting configurations
 
-Configurations are loaded by their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `${spring.profiles.active}`. If `${spring.profiles.active}` isn't set, then configurations with the `null` label are loaded. The `null` label appears as `(No Label)` in the Azure portal.
+Configurations are loaded by their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `\0` which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profiles i.e. `${spring.profiles.active}`.
 
-You can configure the configurations that are loaded by selecting different key and label filters, as shown in the following example:
+You can configure which configurations are loaded by selecting different key and label filters:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=[my-key]
@@ -180,7 +172,7 @@ The `label-filter` property supports the following filters:
 | `1.0.*`  | Matches labels that start with `1.0.*`.                                     |
 | `,1.0.0` | Matches labels `null` and `1.0.0`. Limited to five comma-separated values.  |
 
-If you're using YAML with label filters, and you need to start with `null`, then the label filter needs to be surrounded by single quotes, as shown in the following example:
+If you're using YAML with label filters, and you need to start with `,`, then the label filter needs to be surrounded by single quotes, in order to load configuration with no label, then others in the same filter:
 
 ```yml
 spring:
@@ -195,6 +187,9 @@ spring:
 > [!NOTE]
 > You can't combine `*` with `,` in filters. In that case, you need to use an additional select value.
 
+> [!NOTE]
+> When using `*` in the label filter, and multiple configurations with the same key are loaded, they are loaded in alphabetical order, and the label last in alphabetical order is used.
+
 ### Spring Profiles
 
 By default, `spring.profiles.active` is set as the default `label-filter` for all selected configurations. You can override this functionality by using `label-filter`. You can use the Spring Profiles in the `label-filter` by using `${spring.profiles.active}`, as shown in the following example:
@@ -204,17 +199,13 @@ spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter=,${spring.
 spring.cloud.azure.appconfiguration.stores[0].selects[1].label-filter=${spring.profiles.active}_local
 ```
 
-In the first `label-filter`, all configurations with the `null` label are loaded, followed by all configurations matching the Spring Profiles. Spring Profiles have priority over the `null` configurations, because they're at the end.
+In the first `label-filter`, all configurations with the `\0` label are loaded, followed by all configurations matching the Spring Profiles. Spring Profiles have priority over the `\0` configurations, because they're at the end.
 
-In the second `label-filter`, the string `_local` is appended to the end of the Spring Profiles, though only to the last Spring Profile.
+In the second `label-filter`, the string `_local` is appended to the end of the Spring Profiles, though only to the last Spring Profile if there is more than one.
 
 ### Disabled stores
 
 Using the configuration `spring.cloud.azure.appconfiguration.enabled`, you can disable loading for all configuration stores. With the `spring.cloud.azure.appconfiguration.stores[0].enabled` configuration, you can disable an individual store.
-
-In addition to disabling stores, you can configure stores to be disabled if they fail to load. For this configuration, use `spring.cloud.azure.appconfiguration.stores[0].fail-fast`. When `fail-fast` is disabled by setting it to `false`, a `RuntimeException` results in the application store being disabled with no configurations from it being loaded. If a configuration store is disabled on startup, it isn't checked for changes upon refresh. Also, there's no attempt to load values from it if configurations are updated.
-
-If an error resulting in a `RuntimeException` happens during a refresh check or while attempting to reload configurations, then the refresh attempt ends and is retried after the `refresh-interval` has passed.
 
 ## Authentication
 
@@ -224,13 +215,13 @@ The library supports all forms of identity supported by the [Azure Identity Libr
 
 ### Connection string
 
-Authentication through connection string is the simplest form to set up. You can access a store's connection strings by using the following command:
+Authentication through connection string is the simplest form to set up, though it it isn't suggested. You can access a store's connection strings by using the following command:
 
 ```azurecli
 az appconfig credential list --name <name-of-your-store>
 ```
 
-You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-string` property to the connection string. We highly recommend setting the connection string in the local configuration file to a placeholder value that maps to an environment variable. This approach enables you to avoid adding the connection string to source control.
+You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-string` property to the connection string. If it's being used, it's highly recommend setting the connection string in the local configuration file to a placeholder value that maps to an environment variable. This approach enables you to avoid adding the connection string to source control.
 
 ### Spring Cloud Azure configuration
 
@@ -240,16 +231,9 @@ You can use [Spring Cloud Azure configuration](configuration.md) to configure th
 spring.cloud.azure.appconfiguration.stores[0].endpoint= <URI-of-your-configuration-store>
 ```
 
-When only the endpoint is set, the client library uses the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#credential-classes) to authenticate. The `DefaultAzureCredential` uses the following methods to authenticate:
+When only the endpoint is set, the client library uses the [ManagedIdentityCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#credential-classes) to authenticate using a system assigned identity.
 
-- Environment credential
-- Managed Identity credential
-- Azure Developer CLI credential
-- IntelliJ credential
-- Azure CLI credential
-- Azure PowerShell credential
-
-You need to assign an identity such as a system assigned identity to read configurations. You can create this assignment by using the following command:
+You need to assign the identity to read configurations. You can create this assignment by using the following command:
 
 ```azurecli
 az role assignment create \
@@ -259,7 +243,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> You can define only one authentication method per endpoint: connection string, user assigned identity, or token credential. If you need to mix and match, you can use `ConfigurationClientCustomizer` to modify stores that use a different method.
+> You can define only one authentication method per endpoint: connection string, user assigned identity, or token credential. If you need to mix and match, you can use `ConfigurationClientCustomizer` to modify the `ConfigurationClientBuilder` to use different methods.
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
@@ -269,11 +253,33 @@ The library supports the geo-replication feature of Azure App Configuration. Thi
 
 Each replica you create has a dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Because each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
+By default, the library auto discovers all replicas that exist for a configuration store. When a request is made to the provided store and fails, the library will automatically retry the request against the available replicas.
+
 The failover may occur if the library observes any of the following conditions:
 
 - Receives responses with service unavailable status code (HTTP 500 or above) from an endpoint.
 - Experiences network connectivity issues.
 - Requests are throttled (HTTP status code 429).
+
+Once the provided store comes back online, the library will automatically retry the request against the provided store.
+
+If you want to control the failover behavior, you can manually provide a list of stores to use for failover.
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoints[0]=[your primary store endpoint]
+spring.cloud.azure.appconfiguration.stores[0].endpoints[1]=[your replica store endpoint]
+```
+
+or
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]=[your primary store connection string]
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]=[your replica store connection string]
+```
+
+If all provided replica endpoints fail, the library will attempt to connect to auto discovered replicas of the primary store.
+
+This can be disabled by the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
 
 ### Creating a configuration store with geo-replication
 
@@ -282,38 +288,6 @@ To create a replica of your configuration store, you can use the Azure CLI or th
 ```azurecli
 az appconfig replica create --location --name --store-name [--resource-group]
 ```
-
-### Using the configuration store replica
-
-After you've created a replica, you can use it in your application. Like the origin store, you can connect to your replica using Microsoft Entra ID or a connection string.
-
-[!INCLUDE [security-note](../includes/security-note.md)]
-
-<a name='azure-ad'></a>
-
-#### [Microsoft Entra ID (recommended)](#tab/azure-ad)
-
-To use Microsoft Entra ID to connect to your replica, you need to list the `endpoints` of your configuration store instances, as shown in the following example:
-
-```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoints[0]=[your primary store endpoint]
-spring.cloud.azure.appconfiguration.stores[0].endpoints[1]=[your replica store endpoint]
-```
-
-You can list as many endpoints as you have replicas. The library tries to connect to the endpoints in the order they're listed. If the library is unable to connect to a replica, it tries the next one in the list. After a period of time has passed, the library attempts to reconnect to the preferred endpoints.
-
-#### [connection string](#tab/connection-string)
-
-To use a connection string to connect to your replica, you need to list the `connectionStrings` of your configuration store instances, as shown in the following example:
-
-```properties
-spring.cloud.azure.appconfiguration.stores[0].connectionStrings[0]=[your primary store connection string]
-spring.cloud.azure.appconfiguration.stores[0].connectionStrings[1]=[your replica store connection string]
-```
-
-You can list as many connection strings as you have replicas. The library tries to connect to the connection strings in the order they're listed. If the library is unable to connect to a replica, it tries the next one in the list. After a period of time has passed, the library attempts to reconnect to the preferred connection strings.
-
----
 
 ## Key values
 
@@ -324,7 +298,7 @@ Azure App Configuration supports multiple types of key values, some of which hav
 The library supports configurations with `${}`-style environment placeholders. When referencing an Azure App Configuration key with a placeholder, remove prefixes from the reference. For example, `/application/config.message` is referenced as `${config.message}`.
 
 > [!NOTE]
-> The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`.
+> The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`, this can be changed by setting a value for `spring.cloud.azure.appconfiguration.stores[0].trim-key-prefix[0]`.
 
 ### JSON
 
@@ -383,12 +357,11 @@ You can create any secret-identifier through the Azure CLI. Secret identifiers j
 
 You can use [Spring Cloud Azure configuration](configuration.md) to configure the library. You can use the same credential used to connect to App Configuration to connect to Azure Key Vault.
 
+In addition, you can create a `SecretClientCustomizer` the same way as you would create a `ConfigurationClientCustomizer` to provide your own authentication method.
+
 #### Resolve non-Key Vault secrets
 
-The App Configuration library provides a method to locally resolve secrets that don't have a Key Vault associated with them. This resolution is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider` is called when a `TokenCredential` isn't provided for a Key Vault reference. The URI of the Key Vault reference is provided and the returned value becomes the value of the secret.
-
-> [!WARNING]
-> The use of a `KeyVaultSecretProvider` overrides the automatic use of the system-assigned managed identity. To use both, you need to use `KeyVaultCredentialProvider` and return `null` for the URIs that need resolving.
+The App Configuration library provides a method to override the resolution of key vault references. For example, it can be used to locally resolve secrets in a dev environment. This resolution is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider` if provided is called on every key vault reference. If `getSecret` returns a non-null value, it is used as the secret value. Otherwise, the Key Vault Reference is resolved normally.
 
 ```java
 public class MySecretProvider implements KeyVaultSecretProvider {
@@ -420,7 +393,7 @@ Enabled feature flags are loaded into the Spring configuration system with the p
 
 The easiest way to use feature management is by using the `spring-cloud-azure-feature-management` and `spring-cloud-azure-feature-management-web` libraries. The difference between the two libraries is that `spring-cloud-azure-feature-management-web` takes a dependency on the `spring-web` and `spring-webmvc` libraries to add more features, such as [feature gates](#routing).
 
-You can enable feature flags by using key/label filters. By default, a `null` label, seen as `(No Label)`, is assigned. You can configure the feature flags that are loaded by setting a label filter, as shown in the following example:
+By default, all feature flags with a `\0` label, seen as `(No Label)`, are loaded. You can configure the feature flags that are loaded by setting a label filter, as shown in the following example:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].key-filter=A*
@@ -431,7 +404,7 @@ spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-fil
 
 #### Feature flags
 
-Feature flags are composed of two parts: a name and a list of feature-filters that are used to turn on the feature. Feature flags can either have a boolean state of on/off, or they can have a list of feature filters. Feature flags evaluate feature filters until one returns `true`. If no feature filter returns `true`, then the feature flag returns `false`.
+Feature flags are composed of multiple parts including; a name and a list of feature-filters that are used to turn on the feature. Feature flags can either have a boolean state of on/off, or they can have a list of feature filters. Feature flags evaluate feature filters until one returns `true`. If no feature filter returns `true`, then the feature flag returns `false`.
 
 #### Feature filters
 
@@ -443,24 +416,30 @@ You can create custom feature filters. For example, you can use a feature filter
 
 #### Feature flag declaration
 
-The feature management library supports Azure App Configuration along with **application.yml** or **bootstrap.yml** as sources for feature flags. Here's an example of the format used to set up feature flags in an **application.yml** file:
+The feature management library supports Azure App Configuration along with **application.yml** or **application.properties** as sources for feature flags. Here's an example of the format used to set up feature flags in an **application.yml** file:
 
 ```yaml
 feature-management:
-  feature-t: false
-  feature-u:
-    enabled-for:
-    - name: Random
-  feature-v:
-    enabled-for:
-    - name: TimeWindowFilter
-      parameters:
-        Start: "Wed, 01 May 2019 13:59:59 GMT"
-        End: "Mon, 01 July 2019 00:00:00 GMT"
-  feature-w:
+  feature_flags:
+  - name: feature-t
+    enabled: false
+  - name: feature-u
+    conditions:
+      client_filters:
+      - name: Random
+  - name: feature-v
+    conditions:
+      client_filters:
+      - name: TimeWindowFilter
+        parameters:
+          Start: "Wed, 01 May 2019 13:59:59 GMT"
+          End: "Mon, 01 July 2019 00:00:00 GMT"
+
+  - name: feature-w
     evaluate: false
-    enabled-for:
-    - name: AlwaysOnFilter
+    conditions:
+      client_filters:
+      - name: AlwaysOnFilter
 ```
 
 This example has the following feature flags:
@@ -484,13 +463,15 @@ The `spring-cloud-azure-feature-management` library provides `FeatureManager` to
 @Autowired
 FeatureManager featureManager;
 
+...
+
 if (featureManager.isEnabled("feature-t")) {
     // Do Something
 }
 ```
 
 > [!NOTE]
-> `FeatureManger` also has an asynchronous version of `isEnabled` called `isEnabledAsync`.
+> `FeatureManager` also has an asynchronous version of `isEnabled` called `isEnabledAsync`.
 
 If you haven't configured feature management or the feature flag doesn't exist, `isEnabled` always returns `false`. If an existing feature flag is configured with an unknown feature filter, then a `FilterNotFoundException` is thrown. You can change this behavior to return `false` by configuring `fail-fast` to `false`. The following table describes `fail-fast`:
 
@@ -561,15 +542,17 @@ This filter always returns `true`. For a usage example, see the [feature flag de
 
 #### PercentageFilter
 
-Each time a user makes a request, the evaluation of `PercentageFilter` can return a different result. You can circumvent this inconsistency by using the `FeatureManagementSnapshot`, which caches the result of the feature flag per user. This capability ensures that a user has a consistent experience, even if they have to resend the request.
+Each time it is checked, the evaluation of `PercentageFilter` can return a different result. You can circumvent this inconsistency by using the `FeatureManagementSnapshot`, which caches the result of the feature flag per request.
 
 ```yaml
 feature-management:
-  feature-v:
-    enabled-for:
-    - name: PercentageFilter
-      parameters:
-        Value: 50
+  feature_flags:
+  - name: feature-v
+    conditions:
+      client_filters:
+      - name: PercentageFilter
+        parameters:
+          Value: 50
 ```
 
 #### TimeWindowFilter
@@ -578,13 +561,60 @@ This filter provides the capability to enable a feature based on a time window. 
 
 ```yaml
 feature-management:
-  feature-v:
-    enabled-for:
-    - name: TimeWindowFilter
-      parameters:
-        Start: "Wed, 01 May 2019 13:59:59 GMT",
-        End: "Mon, 01 July 2019 00:00:00 GMT"
+  feature_flags:
+  - name: feature-v
+    conditions:
+      client_filters:
+      - name: TimeWindowFilter
+        parameters:
+          Start: "Wed, 01 May 2019 13:59:59 GMT"
+          End: "Mon, 01 July 2019 00:00:00 GMT"
 ```
+
+This filter also, supports recurring time window filters. It supports both daily and weekly recurrences, along with an expiration time.
+
+```yaml
+feature-management:
+  feature_flags:
+  - name: feature-v
+    conditions:
+      client_filters:
+      - name: TimeWindowFilter
+        parameters:
+          Start: "Mon, 01 July 2019 00:00:00 GMT"
+          End: "Mon, 01 July 2019 12:00:00 GMT"
+          Recurrence:
+            Pattern:
+              Type: Weekly
+              Interval: 1
+              FirstDayOfWeek: Sunday
+              DaysOfWeek:
+              - Monday
+              - Wednesday
+```
+
+This recurrence pattern happens every week on Monday and Wednesday. From 00:00:00 GMT to 12:00:00 GMT and will never expire.
+
+```yaml
+feature-management:
+  feature_flags:
+  - name: feature-v
+    conditions:
+      client_filters:
+      - name: TimeWindowFilter
+        parameters:
+          Start: "Mon, 01 July 2019 00:00:00 GMT"
+          End: "Mon, 01 July 2019 12:00:00 GMT"
+          Recurrence:
+            Pattern:
+              Type: Daily
+              Interval: 2
+            Range:
+              Type: EndDate
+              EndDate: "Fri, 15 Aug 2025 07:00:00 GMT"
+```
+
+This recurrence pattern happens every other day from 00:00:00 GMT to 12:00:00 GMT until the end date.
 
 #### TargetingFilter
 
@@ -595,20 +625,22 @@ This filter provides the capability to enable a feature for a target audience. F
 - The user falls into the default rollout percentage.
 
 ```yaml
-feature-management: 
-  target:
-    enabled-for:
-    - name: targetingFilter
-      parameters:
-        users:
-        - Jeff
-        - Alicia
-        groups:
-        - name: Ring0
-          rollout-percentage: 100
-        - name: Ring1
-          rolloutPercentage: 100
-        default-rollout-percentage: 50
+feature-management:
+  feature_flags:
+  - name: target
+    conditions:
+      client_filters:
+      - name: targetingFilter
+        parameters:
+          users:
+          - Jeff
+          - Alicia
+          groups:
+          - name: Ring0
+            rollout-percentage: 100
+          - name: Ring1
+            rolloutPercentage: 100
+          default-rollout-percentage: 50
 ```
 
 ### Custom feature filters
@@ -632,7 +664,7 @@ public class Random implements FeatureFilter {
 
 #### Parameterized feature filters
 
-Some feature filters require parameters to determine whether a feature should be turned on. For example, a browser feature filter may turn on a feature for a certain set of browsers. You might want a feature enabled for Microsoft Edge and Chrome browsers, but not Firefox. To set up this situation, you can design a feature filter to expect parameters. These parameters would be specified in the feature configuration and in code, and would be accessible via the `FeatureFilterEvaluationContext` parameter of `evaluate`. `FeatureFilterEvaluationContext` has a property `parameters`, which is a `HashMap<String, Object>`.
+Some feature filters require parameters to determine whether a feature should be turned on. For example, a browser feature filter may turn on a feature for a certain set of browsers. You might want a feature enabled for Microsoft Edge and Chrome browsers, but not Firefox. To set up this situation, you can design a feature filter to expect parameters. These parameters would be specified in the feature configuration and in code, and would be accessible via the `FeatureFilterEvaluationContext` parameter of `evaluate`. `FeatureFilterEvaluationContext` has a property `parameters`, which is a `Map<String, Object>`.
 
 ### Targeting
 
@@ -659,7 +691,7 @@ To begin using the `TargetingFilter` in an application, you must add it as a `@B
 public class MyTargetingContextAccessor implements TargetingContextAccessor {
 
     @Override
-    public void getContextAsync(TargetingContext context) {
+    public void configureTargetingContext(TargetingContext context) {
         context.setUserId("Jeff");
         ArrayList<String> groups = new ArrayList<String>();
         groups.add("Ring0");
@@ -715,7 +747,7 @@ After the application generates the log, it refreshes all `@Bean`s in the refres
 
 ### Pull-based refresh
 
-The App Configuration Spring libraries support the ability to periodically check on a refresh interval for changes made to the monitoring triggers. By default, the refresh interval is set to 30 seconds. After the refresh interval has passed, all triggers are checked in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
+The App Configuration Spring libraries support the ability to periodically check on a refresh interval for changes made to the monitoring triggers. By default, the refresh interval is set to 30 seconds. After the refresh interval has passed, when a refresh attempt is made, all triggers are checked in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 5m
@@ -732,6 +764,9 @@ In applications that use only `spring-cloud-azure-appconfiguration-config`, such
 Also, because the library uses Spring's configuration system, triggering a refresh causes a refresh of all of your configurations, not just a reload of the ones from your Azure App Configuration store.
 
 ### Push-based refresh
+
+> [!NOTE]
+> This method is no longer recommended, but is currently still supported.
 
 You can set up the `spring-cloud-azure-appconfiguration-config-web` library to receive push notifications from your Azure App Configuration store to refresh your configuration values. You can set up this configuration through an Azure Event Grid Web Hook, which you can configure to send notifications of changes to specified keys. By adding the Spring Actuator library as a dependency, you can expose App Configuration's refresh endpoints. There are two different endpoints: `appconfiguration-refresh` and `appconfiguration-refresh-bus`. These endpoints work similarly to their counterparts `refresh` and `refresh-bus`, where the app configuration endpoints expire the refresh interval instead of forcing a refresh upon receiving. You can still use the `refresh` and `refresh-bus`, but you can't connect them directly to Azure Event Grid with a Web Hook because they require a response in setup.
 
@@ -797,11 +832,11 @@ The App Configuration library uses the [Azure SDK for Java](https://github.com/A
 
 ```java
 public interface ConfigurationClientCustomizer {
-    public void setup(ConfigurationClientBuilder builder, String endpoint);
+    public void customize(ConfigurationClientBuilder builder, String endpoint);
 }
 
 public interface SecretClientCustomizer {
-    public void setup(SecretClientBuilder builder, String endpoint);
+    public void customize(SecretClientBuilder builder, String endpoint);
 }
 ```
 
