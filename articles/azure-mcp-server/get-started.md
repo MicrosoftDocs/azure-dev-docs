@@ -29,9 +29,8 @@ Azure MCP Server works with AI-powered code editors that support the Model Conte
 Learn how to get started with the following code editors:
 
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
-- **Visual Studio**
+- [**Visual Studio**](get-started/tools/visual-studio.md)
 - [**Cursor**](get-started/tools/cursor.md)
-- **Windsurf**
 
 ### Other tools
 

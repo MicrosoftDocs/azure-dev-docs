@@ -7,8 +7,6 @@ ms.author: alexwolf
 ms.date: 08/11/2025
 ms.topic: get-started
 ms.custom: build-2025
-zone_pivot_group_filename: developer/azure-mcp-server/azure-mcp-zone-pivot-groups.json
-zone_pivot_groups: azure-mcp-server-tools-frameworks
 ---
 
 # Get started using the Azure MCP Server with .NET
