@@ -16,16 +16,16 @@ The Azure SDK crates for Rust provide a collection of client libraries that make
 ## Azure SDK crate concepts
 
 - **Idiomatic Rust**: Built with Rust best practices and conventions.
-- **Async/await support**: Fully async APIs with pluggable runtime support (defaulting to tokio).
+- **Async support**: Fully async APIs with pluggable runtime support (defaulting to tokio).
 - **Type safety**: Uses Rust's type system for compile-time safety.
 - **Thread safety**: All client instance methods are thread-safe and independent of each other.
 - **Memory safety**: Zero-cost abstractions with no garbage collection overhead.
 - **Modular design**: Use only the crates you need.
-- **Unified configuration**: Configure service clients, logging, and retries with `ClientOptions`.
-- **Consistent error handling**: Handle errors consistently across services with `azure_core::Error`.
-- **Response handling**: Access detailed HTTP response data with `Response<T>`.
-- **Pagination support**: Work with paginated APIs by using `Pager<T>` for async streams.
-- **Authentication abstractions**: Standardized credential management via `TokenCredential`.
+- **Unified configuration**: Configure service clients, logging, and retries with [`ClientOptions`][Ref doc - core - ClientOptions].
+- **Consistent error handling**: Handle errors consistently across services with [`azure_core::Error`][Ref doc - core - Error].
+- **Response handling**: Access detailed HTTP response data with [`Response<T>`][Ref doc - core - Response].
+- **Pagination support**: Work with paginated APIs by using [`Pager<T>`][Ref doc - core - Pager] for async streams.
+- **Authentication abstractions**: Standardized credential management via [`TokenCredential`][Ref doc - core - TokenCredential].
 
 ## Differences between crates and REST APIs
 
@@ -43,23 +43,23 @@ The Azure SDK crates for Rust are currently in **beta**. While the APIs are stab
 
 ## Prerequisites to develop with crates
 
-- Rust 1.85 or later. The version is specified in the Azure SDK crate for Rust [Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml).
-- An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/).
-- [Azure CLI](/cli/azure)
-- [Azure Developer CLI](/azure/developer/azure-developer-cli)
+- Rust 1.85 or later. The version is specified in the Azure SDK crate for Rust [Cargo.toml][Azure SDK main Cargo.toml].
+- An Azure subscription. You can [create one for free][Free Subscription].
+- [Azure CLI]
+- [Azure Developer CLI]
 
 > [!TIP]
 > For the best development experience, ensure you have the latest stable version of Rust installed. 
 
 ### Install Azure SDK crates
 
-Get Azure SDK crates from [crates.io](https://crates.io). Install the individual crates that you need. 
+Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. 
 
 ```console
 cargo add azure_identity azure_security_keyvault_secrets azure_storage_blob
 ```
 
-These crates depend on [azure_core](https://crates.io/crates/azure_core) for common functionality. You don't need to install `azure_core` directly, as it's a dependency of all Azure SDK crates.
+These crates depend on [`azure_core`][Crate - core] for common functionality. You don't need to install `azure_core` directly, since it's a dependency of all Azure SDK crates.
 
 ## Supported Azure services
 
@@ -67,16 +67,16 @@ The following Azure services, prefixed with `azure_`, are currently supported:
 
 | Service | Crate | Description |
 |---------|---------|-------------|
-| **Cosmos DB** | [azure_data_cosmos](https://crates.io/crates/azure_data_cosmos) | NoSQL database operations |
-| **Event Hubs** | [azure_messaging_eventhubs](https://crates.io/crates/azure_messaging_eventhubs) | Big data streaming platform |
-| **Key Vault** | [azure_security_keyvault_certificates](https://crates.io/crates/azure_security_keyvault_certificates)<br>[azure_security_keyvault_secrets](https://crates.io/crates/azure_security_keyvault_secrets)<br>[azure_security_keyvault_keys](https://crates.io/crates/azure_security_keyvault_keys) | Manage secrets, keys, and certificates |
-| **Storage** | [azure_storage_blob](https://crates.io/crates/azure_storage_blob) | Create and manage Azure Storage blobs and containers. |
+| **Cosmos DB** | [`azure_data_cosmos`][Crate - cosmos] | NoSQL database operations |
+| **Event Hubs** | [`azure_messaging_eventhubs`][Crate - event hubs] | Big data streaming platform |
+| **Key Vault** | [`azure_security_keyvault_certificates`][Crate - key vault - certificates]<br>[`azure_security_keyvault_secrets`][Crate - key vault - secrets]<br>[`azure_security_keyvault_keys`][Crate - key vault - keys] | Manage secrets, keys, and certificates |
+| **Storage** | [`azure_storage_blob`][Crate - storage] | Create and manage Azure Storage blobs and containers. |
 
 Crates.io has other crates for Azure services that were established before the official Azure SDK crates listed above. These crates aren't associated with the Azure SDK and shouldn't be used for modern development.
 
 ## Crate Cargo.toml features
 
-Each crate defines its features in its Cargo.toml file. For example, see the features for the Azure Identity crate in the [`azure_identity` Cargo.toml](https://github.com/Azure/azure-sdk-for-rust/blob/a5e6ae390021eb95fca3f01bc4bfadc83f076246/sdk/identity/azure_identity/Cargo.toml). Use these features to depend on additional functionality.
+Each crate defines its features in its Cargo.toml file. For example, see the features for the Azure Core crate in the [`azure_core`][Crate - core] Cargo.toml. Use these features to depend on additional functionality.
 
 * `debug`: enables extra information for developers, including emitting all fields in std::fmt::Debug implementation.
 * `hmac_openssl`: configures HMAC using OpenSSL.
@@ -92,12 +92,12 @@ An example `Cargo.toml` configuration for an Azure SDK for Rust feature might lo
 
 ```toml
 [dependencies]
-azure_security_keyvault_certificates = { features = ["debug", "hmac_openssl"] }
+azure_security_keyvault_certificates = { features = ["hmac_openssl"] }
 ```
 
 ## Provide authentication credentials
 
-The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [azure_identity](https://crates.io/crates/azure_identity) crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
+The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
 
 * Fast onboarding
 * Most secure method
@@ -114,57 +114,100 @@ After creating a credential, pass it to your Azure SDK client along with any nec
 - **Never hardcode credentials** in your source code
 - Use **Managed Identity** when running in Azure
 - Store sensitive configuration in **Azure Key Vault**
-- Enable **logging** for security monitoring
 - Regularly **rotate credentials**
 
-### Client initialization example
+## Client objects
+
+Client objects are used to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Secret client] is used to interact with Azure Key Vault secrets.
+
+When you create the client objects, you can provide a [`ClientOptions`][Client Options Docs] parameter for customizing the interactions with the service. The `ClientOptions` can be used to set things like timeouts, retry policies, and other configurations.
 
 ```rust
-use azure_identity::DefaultAzureCredential;
-use azure_security_keyvault_secrets::SecretClient;
+use azure_identity::{
+    ManagedIdentityCredential,
+    ManagedIdentityCredentialOptions,
+    UserAssignedId
+};
+use azure_security_keyvault_secrets::{
+    SecretClient, 
+    SecretClientOptions
+};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // ✅ DO: Use DefaultAzureCredential for automatic authentication
-    let credential = DefaultAzureCredential::new()?;
 
-    // Create the client with endpoint, credential, and options
+    // Get environment variables
+    let key_vault_name = std::env::var("AZURE_KEYVAULT_NAME")
+        .map_err(|_| "AZURE_KEYVAULT_NAME environment variable is required")?;
+
+    let user_assigned_id: Option<UserAssignedId> = std::env::var("AZURE_USER_ASSIGNED_IDENTITY")
+        .ok()
+        .map(|id| UserAssignedId::ClientId(id.clone()));
+
+    // Set up authentication 
+    let options = SecretClientOptions {
+        api_version: "7.5".to_string(),
+        ..Default::default()
+    };
+
+    let credential = ManagedIdentityCredential::new(Some(credential_options))?;
+
+    // Create a Key Vault client for secrets
+     let client = SecretClient::new(
+        key_vault_name.as_str(),
+        credential,
+        Some(SecretClientOptions::default()),
+    )?;
+
+    Ok(())
+}
+```
+
+## Accessing HTTP response details using `Response<T>`
+
+_Service clients_ have methods that can be used to call Azure services. We refer to these client methods as _service methods_.
+_Service methods_ return a shared `azure_core` type `Response<T>` where `T` is either a `Model` type or a `ResponseBody` representing a raw stream of bytes.
+This type provides access to both the deserialized result of the service call, and to the details of the HTTP response returned from the server.
+
+```rust no_run
+use azure_core::http::Response;
+use azure_identity::DeveloperToolsCredential;
+use azure_security_keyvault_secrets::{models::Secret, SecretClient};
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // create a client
+    let credential = DeveloperToolsCredential::new(None)?;
     let client = SecretClient::new(
         "https://<your-key-vault-name>.vault.azure.net/",
         credential.clone(),
         None,
     )?;
 
-    // ❌ DON'T: Hardcode credentials like this:
-    // let bad_credential = ClientSecretCredential::new(
-    //     "hardcoded-tenant-id",
-    //     "hardcoded-client-id", 
-    //     "hardcoded-secret",
-    //     None,
-    // );
+    // call a service method, which returns Response<T>
+    let response = client.get_secret("secret-name", "", None).await?;
+
+    // Response<T> has two main accessors:
+    // 1. The `into_body()` function consumes self to deserialize into a model type
+    let secret = response.into_body().await?;
+
+    // get response again because it was moved in above statement
+    let response: Response<Secret> = client.get_secret("secret-name", "", None).await?;
+
+    // 2. The deconstruct() method for accessing all the details of the HTTP response
+    let (status, headers, body) = response.deconstruct();
+
+    // for example, you can access HTTP status
+    println!("Status: {}", status);
+
+    // or the headers
+    for (header_name, header_value) in headers.iter() {
+        println!("{}: {}", header_name.as_str(), header_value.as_str());
+    }
 
     Ok(())
 }
 ```
-
-`DefaultAzureCredential` automatically finds and uses the authentication token stored locally by checking a series of credentials based on the environment. This approach provides flexibility when running your code in different environments.
-
-:::image type="content" source="./media/mermaidjs/default-azure-credential-authentication-flow.svg" alt-text="Default Azure Credential Authentication Flow for Rust showing the first choice of Azure CLI and the second choice of Azure Developer CLI.":::
-
-
-### Connection pooling and reuse
-
-The Azure SDK automatically manages connection pooling for optimal performance. The default configuration:
-
-- Reuses connections when possible
-- Implements keep-alive for connection persistence
-- Pools connections to improve throughput for multiple requests to the same endpoint
-
-For high-volume workloads, you can adjust the connection timeout and pool size through client options.
-
-For more details on performance optimization and connection handling, refer to the [Azure crates for Rust HTTP client documentation](https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/core/azure_core#http-clients).
-
-
 
 ## Error handling
 
@@ -275,59 +318,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Secure logging
-
-When you're working with sensitive information, the client libraries implement secure logging practices, by default, to avoid exposing secrets in logs.
-
-
-### Rust feature for debug logging
-
-To help protect end users from accidental exposure of personal data in logs or traces, models' default implementation of `core::fmt::Debug` formats as a non-exhaustive structure tuple.
-
-```rust
-use azure_identity::DefaultAzureCredential;
-use azure_security_keyvault_secrets::{ResourceExt, SecretClient};
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // create a client
-    let credential = DefaultAzureCredential::new()?;
-    let client = SecretClient::new(
-        "https://<your-key-vault-name>.vault.azure.net/",
-        credential.clone(),
-        None,
-    )?;
-
-    // get a secret
-    let secret = client.get_secret("secret-name", "", None)
-        .await?
-        .into_body()
-        .await?;
-
-    println!("{secret:#?}");
-
-    Ok(())
-}
-```
-
-By default, this implementation prints: 
-
-```console
-Secret { .. }
-```
-
-Though not recommended for production, you can enable normal `core::fmt::Debug` formatting, which includes field names and values, by enabling the debug feature of `azure_core`.
-
-```console
-cargo add azure_core -F debug
-```
-
-### Environment variable for debug logging
-
-To log tracing information to the terminal, add the `RUST_LOG` environment variable using the [same format supported by `env_logger`](https://docs.rs/env_logger/latest/env_logger/#enabling-logging).
-
-The targets are the crate names if you want to trace more or less for specific targets. For example, use `RUST_LOG=info,azure_core=trace` to trace information messages by default but detailed traces for the `azure_core` crate.
-
 
 ## Next steps
 
@@ -339,3 +329,25 @@ The targets are the crate names if you want to trace more or less for specific t
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
 [REST API documentation]: /rest/api/
 [Product documentation]: /azure/
+
+[Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
+
+[Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
+[Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
+[Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/type.Pager.html
+[Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
+
+[Crate - identity]: https://crates.io/crates/azure_identity
+[Crate - core]: https://crates.io/crates/azure_core
+[Crate - cosmos]: https://crates.io/crates/azure_data_cosmos
+[Crate - event hubs]: https://crates.io/crates/azure_messaging_eventhubs
+[Crate - key vault - secrets]: https://crates.io/crates/azure_security_keyvault_secrets
+[Crate - key vault - certificates]: https://crates.io/crates/azure_security_keyvault_certificates
+[Crate - key vault - keys]: https://crates.io/crates/azure_security_keyvault_keys
+[Crate - storage]: https://crates.io/crates/azure_storage
+
+[Free Subscription]: https://azure.microsoft.com/free/
+
+[Azure Developer CLI]: /azure/developer/azure-developer-cli
+[Azure CLI]: /cli/azure/
