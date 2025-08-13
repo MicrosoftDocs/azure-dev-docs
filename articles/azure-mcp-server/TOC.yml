@@ -19,7 +19,7 @@ items:
           href: tools/azure-best-practices.md
         - name: Azure Bicep schema
           href: tools/azure-bicep-schema.md
-        - name: Azure Cache for Redis
+        - name: Azure Redis
           href: tools/azure-cache-for-redis.md          
         - name: Azure CLI
           href: tools/azure-cli-extension.md
@@ -35,7 +35,7 @@ items:
           href: tools/azure-developer-cli.md
         - name: Azure Foundry
           href: tools/azure-foundry.md
-        - name: Azure Grafana
+        - name: Azure Managed Grafana
           href: tools/azure-grafana.md
         - name: Azure Key Vault 
           href: tools/key-vault-key.md

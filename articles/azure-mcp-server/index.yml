@@ -39,7 +39,7 @@ landingContent:
             url: tools/ai-search.md
           - text: Azure App Configuration
             url: tools/app-configuration.md
-          - text: Azure Cache for Redis
+          - text: Azure Redis
             url: tools/azure-cache-for-redis.md
           - text: Azure CLI
             url: tools/azure-cli-extension.md
