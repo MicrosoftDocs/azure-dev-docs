@@ -89,6 +89,6 @@ If you're new to Rust, these official resources can help you get up to speed:
 [The Rust Book installation chapter]: https://doc.rust-lang.org/book/ch01-01-installation.html
 [The Rust Programming Language]: https://doc.rust-lang.org/book/
 [trial subscription]: https://azure.microsoft.com/free/
-[Visual Studio Code extensions]: https://marketplace.visualstudio.com/search?target=team&category=All%20Categories&sortBy=Installs&product=rust
+[Visual Studio Code extensions]: https://marketplace.visualstudio.com/search?term=rust&target=VSCode
 [Visual Studio Code]: https://code.visualstudio.com/
 [Azure Identity rust crate]: https://crates.io/crates/azure_identity
