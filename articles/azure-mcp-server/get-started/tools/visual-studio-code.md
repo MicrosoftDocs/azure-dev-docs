@@ -16,7 +16,7 @@ ms.custom: build-2025
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
-- Connect to Azure MCP Server using using GitHub Copilot agent mode in Visual Studio Code
+- Connect to Azure MCP Server using GitHub Copilot agent mode in Visual Studio Code
 - Run prompts to test Azure MCP Server operations and interact with Azure resources
 
 ## Prerequisites

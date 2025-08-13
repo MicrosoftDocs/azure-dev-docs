@@ -23,7 +23,6 @@ In this article, you learn how to complete the following tasks:
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
 - [Cursor](https://cursor.sh/) - The AI-powered code editor
-- [Node.js](https://nodejs.org/) version 18 or higher installed on your system
 
 [!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
@@ -62,7 +61,7 @@ To install and configure Azure MCP Server in Cursor:
 3. If you're prompted to authenticate to Azure, run the suggested auth tool to sign-in through the browser.
 
     > [!NOTE]
-    > Cursor won't prompt you to sign in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
+    > Cursor doesn't prompt you to sign in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
 
 4. Cursor prompts you to run a tool to retrieve the storage accounts, such as `storage account list`. Select **Run tool** to continue.
 
@@ -80,7 +79,7 @@ To install and configure Azure MCP Server in Cursor:
     Let me know if you need further details or actions related to any of these resource groups!
     ```
 
-5. Explore additional Azure MCP operations using other relevant prompts, such as:
+5. Explore more Azure MCP operations using other relevant prompts, such as:
 
     ```text
     List all of the storage accounts in my subscription

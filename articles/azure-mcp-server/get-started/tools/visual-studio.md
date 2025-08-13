@@ -30,9 +30,9 @@ In this article, you learn how to complete the following tasks:
 
 Visual Studio uses a file named `mcp.json` to check for MCP Server configurations, including configurations set up by other development environments. MCP server configurations are read from the following directories, in the following order:
 
-1. `%USERPROFILE%\.mcp.json`: Serves as a global MCP server configuration for a specific user. Adding an MCP server here would make it load for all Visual Studio solutions.
+1. `%USERPROFILE%\.mcp.json`: Serves as a global MCP server configuration for a specific user. Add an MCP server here to make it load for all Visual Studio solutions.
 1. `<SOLUTIONDIR>\.vs\mcp.json`: Specific to Visual Studio and only loads the specified MCP servers for a specific user, for the specified solution.
-1. `<SOLUTIONDIR>\.mcp.json`: Works well if you're looking for an MCP configuration that you can track in source control for a repo.
+1. `<SOLUTIONDIR>\.mcp.json`: A solution-level MCP configuration that you can track in source control for a repo.
 1. `<SOLUTIONDIR>\.vscode\mcp.json`: Scoped to the repository/solution and typically not included in source control.
 1. `<SOLUTIONDIR>\.cursor\mcp.json`: Scoped to the repository/solution and typically not included in source control.
 
@@ -41,34 +41,7 @@ Visual Studio uses a file named `mcp.json` to check for MCP Server configuration
 
 The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio. 
 
-## [Global install](#tab/one-click)
-
-Complete the following steps to globally add Azure MCP Server for all Visual Studio solutions for a specific user:
-
-1. Create a new file `%USERPROFILE%\.mcp.json`. Use Visual Studio to edit this file so that its JSON schema is automatically applied.
-1. Inside the `.mcp.json` file, add the following JSON:
-
-    ```json
-    {
-      "servers": {
-        "Azure MCP Server": {
-          "command": "npx",
-          "args": [
-            "-y",
-            "@azure/mcp@latest",
-            "server",
-            "start"
-          ]
-        }
-      }
-    }
-    ```
-
-1. Save your changes.
-1. Inside Visual Studio, Open GitHub Copilot and select Agent Mode.
-1. Select the tools icon to view the available tools. Search for *Azure MCP Server* to filter the results.
-
-## [Directory install](#tab/manual)
+## [Solution install](#tab/manual)
 
 Complete the following steps to install Azure MCP Server for a specific directory:
 
@@ -95,13 +68,40 @@ Complete the following steps to install Azure MCP Server for a specific director
 1. Open GitHub Copilot and select Agent Mode.
 1. Select the tools icon to view the available tools. Search for *Azure MCP Server* to filter the results.
 
+## [Global install](#tab/one-click)
+
+Complete the following steps to globally add Azure MCP Server for all Visual Studio solutions for a specific user:
+
+1. Create a new file at `%USERPROFILE%\.mcp.json`. Use Visual Studio to edit this file so that its JSON schema is automatically applied.
+1. Inside the `.mcp.json` file, add the following JSON:
+
+    ```json
+    {
+      "servers": {
+        "Azure MCP Server": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@azure/mcp@latest",
+            "server",
+            "start"
+          ]
+        }
+      }
+    }
+    ```
+
+1. Save your changes.
+1. Inside Visual Studio, Open GitHub Copilot and select Agent Mode.
+1. Select the tools icon to view the available tools. Search for *Azure MCP Server* to filter the results.
+
 ---
 
 :::image type="content" source="../../media/github-copilot-mcp-tools-visual-studio.png" alt-text="A screenshot showing how to configure Azure MCP Server in Visual Studio.":::
 
 ## Use prompts to test the Azure MCP Server
 
-1. If you haven't already, Open GitHub Copilot and select Agent Mode.
+1. Open GitHub Copilot and select Agent Mode.
 1. Enter a prompt that causes the agent to use Azure MCP Server tools, such as *List my Azure resource groups*.
 1. In order to authenticate Azure MCP Server, Copilot prompts you to sign-in to Azure using the browser.
 
