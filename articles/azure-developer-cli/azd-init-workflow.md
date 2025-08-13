@@ -107,7 +107,7 @@ You can also use the initialized template as a starting point for further develo
 
 For advanced users who want to start with a minimal setup and customize everything manually, this option provides just the essential configuration.
 
-1. Run the `azd init` command:
+1. Run the `azd init` command with the `--minimal` flag:
 
    ```bash
    azd init --minimal
@@ -124,9 +124,49 @@ For advanced users who want to start with a minimal setup and customize everythi
     Run azd add to add new Azure components to your project.
     ```
 
-    Only the essential `azure.yaml` configuration file is created. No application code or comprehensive infrastructure templates are added, so you need to manually create or customize the infrastructure files based on your requirements.
+    The `--minimal` flag creates only the following:
 
-3. Optionally, use the `azd add` [compose feature](azd-compose.md) to start adding Azure resources to your app.
+    - A basic `azure.yaml` file with just the project name and schemaVersion
+    - A `.azure` directory for environment configuration
+    - A `.gitignore` file with appropriate entries for Azure Developer CLI
+
+    This streamlined initialization is ideal when you:
+
+    - Want to build your infrastructure from scratch
+    - Need to integrate `azd` with an existing complex project
+    - Plan to use the `azd add` command to incrementally build your architecture
+    - Prefer full control over your project structure
+
+3. After initialization, you can:
+   - Manually create your infrastructure files in an `infra` folder
+   - Use the `azd add` [compose feature](azd-compose.md) to start adding Azure resources to your app
+   - Customize your `azure.yaml` file to define your services and resources
+
+## Project and Azure resource naming
+
+When you initialize a new or existing project, the project name is set in `azure.yaml`. The project name acts as a prefix for Azure resource names created during the provisioning process. By adhering to the validation rules, you ensure that generated Azure resource names will also be valid.
+
+In Bicep or Terraform templates, the project name is often used as a base for constructing resource names, combined with the environment name and other elements. For example:
+
+```bicep
+var resourceToken = '${name}-${environmentName}'
+```
+
+Where `name` refers to the project name and `environmentName` is the name of your `azd` environment.
+
+## Project name validation rules
+
+When using `azd init` to initialize a project or when creating a new project name in the `azure.yaml` file, the following validation rules are applied:
+
+| Rule | Description |
+|------|-------------|
+| Allowed characters | Project names can include lowercase letters, numbers, and hyphens only. |
+| Starting character | Project names must start with a letter. |
+| Ending character | Project names must not end with a hyphen. |
+| Length | Project names must be between 2 and 63 characters long. |
+| No consecutive hyphens | Project names cannot contain consecutive hyphens. |
+
+These validation rules ensure that your project name will be compatible with the naming requirements of Azure resources and prevent service packaging failures during deployment.
 
 ## Next steps
 
