@@ -39,7 +39,7 @@ Use the following information to understand when to use each type of access.
 
 ## Rust version
 
-The Azure SDK crates for Rust are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes may occur before the 1.0 release. These crates support the most commonly used Azure services with more being added regularly based on community feedback and demand.
+The Azure SDK crates for Rust are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on community feedback and demand.
 
 ## Prerequisites to develop with crates
 
@@ -107,7 +107,7 @@ The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azu
 
 ## Create secure clients with proper authentication
 
-After creating a credential, pass it to your Azure SDK client along with any necessary configuration. The client might need additional information such as a service endpoint, or container name, which you can find in the Azure portal for your resource.
+After creating a credential, pass it to your Azure SDK client along with any necessary configuration. The client might need extra information such as a service endpoint or container name, which you can find in the Azure portal for your resource.
 
 ### Security best practices
 
@@ -118,9 +118,9 @@ After creating a credential, pass it to your Azure SDK client along with any nec
 
 ## Client objects
 
-Client objects are used to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Secret client] is used to interact with Azure Key Vault secrets.
+You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Secret client] is used to interact with Azure Key Vault secrets.
 
-When you create the client objects, you can provide a [`ClientOptions`][Client Options Docs] parameter for customizing the interactions with the service. The `ClientOptions` can be used to set things like timeouts, retry policies, and other configurations.
+When you create the client objects, you can provide a [`ClientOptions`][Client Options Docs] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
 
 ```rust
 use azure_identity::{
@@ -163,11 +163,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Accessing HTTP response details using `Response<T>`
+## Access HTTP response details by using `Response<T>`
 
-_Service clients_ have methods that can be used to call Azure services. We refer to these client methods as _service methods_.
-_Service methods_ return a shared `azure_core` type `Response<T>` where `T` is either a `Model` type or a `ResponseBody` representing a raw stream of bytes.
-This type provides access to both the deserialized result of the service call, and to the details of the HTTP response returned from the server.
+_Service clients_ include methods you use to call Azure services. We call these client methods _service methods_.
+_Service methods_ return a shared `azure_core` type `Response<T>`, where `T` is either a `Model` type or a `ResponseBody` that represents a raw stream of bytes.
+This type provides access to both the deserialized result of the service call and the details of the HTTP response returned from the server.
 
 ```rust no_run
 use azure_core::http::Response;
@@ -282,7 +282,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Pagination: Process each page of items
 
-When you want to iterate through all items in a paginated response, use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, allowing you to process each page as it becomes available. This feature is useful for operations with large result sets.
+To iterate through all items in a paginated response, use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, so you can process each page as it becomes available. This feature is useful for operations with large result sets.
 
 
 ```rust
