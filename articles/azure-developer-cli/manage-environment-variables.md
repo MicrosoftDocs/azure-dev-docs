@@ -208,39 +208,22 @@ This pattern keeps your templates flexible, enables per-environment customizatio
 
 ### Hooks
 
-In custom scripts and [hooks](azd-extensibility.md) defined in your `azure.yaml` file, you can access environment variables using the `azd env get-values` command:
+`azd` environment variables are automatically preloaded and available in [hooks](azd-extensibility.md) and custom scripts defined in your `azure.yaml` file, you can access environment variables using the following syntax:
 
 ### [Bash](#tab/bash)
 
 ```bash
-#!/bin/bash
-echo "Loading azd .env file from current environment..."
-
-while IFS='=' read -r key value; do
-    value=$(echo "$value" | sed 's/^"//' | sed 's/"$//')
-    export "$key=$value"
-done <<EOF
-$(azd env get-values)
-EOF
-
-# Now you can use the variables like regular environment variables
+# Use the variables in your script
 echo "API endpoint: $API_ENDPOINT"
+echo "Deploying to: $AZURE_LOCATION"
 ```
 
 ### [PowerShell](#tab/powershell)
 
 ```powershell
-Write-Host "Loading azd .env file from current environment"
-foreach ($line in (& azd env get-values)) {
-    if ($line -match "([^=]+)=(.*)") {
-        $key = $matches[1]
-        $value = $matches[2] -replace '^"|"$'
-        [Environment]::SetEnvironmentVariable($key, $value)
-    }
-}
-
-# Now you can use the variables like regular environment variables
-Write-Host "API endpoint: $env:API_ENDPOINT"
+# Use the variables in your script
+Write-Host "API endpoint: $API_ENDPOINT"
+Write-Host "Deploying to: $AZURE_LOCATION"
 ```
 
 ---
@@ -327,7 +310,7 @@ Write-Host "AZD variable: $(azd env get-value MY_VARIABLE)"
 
 ---
 
-**Convert `azd` environment variables to OS environment variables:**
+**Write `azd` environment variables to OS or framework environment variables:**
 
 ### [Bash](#tab/bash)
 
@@ -356,7 +339,7 @@ foreach ($line in (& azd env get-values)) {
 
 ---
 
-## Common environment variables
+## Standard environment variables
 
 `azd` sets and uses several common environment variables across all environments:
 
