@@ -66,7 +66,7 @@ These variables influence:
 
 The `.env` file is also updated automatically by `azd` during operations like `azd init`, `azd provision`, and `azd deploy`, capturing outputs from your infrastructure templates and storing them for future use.
 
-## Set Environment Variables
+## Set environment variables
 
 You can use different methods to set `azd` environment variables, depending on the scenario.
 
