@@ -1,37 +1,29 @@
 ---
 title: How to Authenticate Rust Apps with Azure Services
 description: Learn how to authenticate Rust applications with Azure services using the Azure Identity crate. Includes code examples for local development and server environments with managed identities.
-ms.date: 08/07/2025
+ms.date: 08/13/2025
 ms.topic: overview
 ms.custom:
   - devx-track-rust
 ---
 
-## How to authenticate Rust apps to Azure services using the Azure Identity crate
+## How to authenticate Rust apps to Azure services by using the Azure Identity crate
 
-[!INCLUDE [Create app registration step 1](<../../../includes/authentication/overview-para-1.md>)] This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
+When an application needs to access an Azure resource, such as Storage, Key Vault, or Cosmos DB, the application must be authenticated to Azure. This authentication requirement applies to all applications, whether deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for Rust.
 
-## Recommended app authentication approach
+## Recommended token-based authentication
 
-[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication-rust.md>)]
-
-TBD - image from Scott Addie
-
+[!INCLUDE [Recommended token-based app authentication approach](<../../../includes/authentication/overview-recommend-authentication-rust.md>)]
 
 ### Advantages of token-based authentication
 
-[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/defaultazurecredential-overview-javascript.md>)]
+When building apps for Azure, we strongly recommend using token-based authentication instead of secrets like connection strings or keys.
 
 [!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
 Use the following Azure SDK crate: 
 
 * [azure_identity](https://crates.io/crates/azure_identity)
-
-
-## Authentication in server environments
-
-[!INCLUDE [Authentication in server environments](<../../../includes/authentication/overview-server-environments.md>)]
 
 ## Authentication during local development
 
@@ -96,7 +88,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Authenticate in server environments
 
-In server environments, use **managed identities** for secure, passwordless authentication. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) are automatically created and managed by Azure, allowing your application to authenticate without needing to store credentials.
+In server environments, use **managed identities** for secure, passwordless authentication. [Managed identities](/entra/identity/managed-identities-azure-resources/overview) are automatically created and managed by Azure, so your application can authenticate without needing to store credentials.
+
+When hosting in a server environment, assign a unique application identity to each application for each environment. In Azure, an app identity is represented by a service principal, a special type of security principal that identifies and authenticates apps to Azure. The type of service principal you use for your app depends on where your app runs.
 
 ```rust
 use azure_identity::{
@@ -123,7 +117,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Set up authentication 
     let credential_options = ManagedIdentityCredentialOptions {
         user_assigned_id,
-        ..Default::default()
+        credential_options: Default::default()
     };
 
     let credential = ManagedIdentityCredential::new(Some(credential_options))?;
