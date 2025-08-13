@@ -29,7 +29,7 @@ For Azure development with Rust on your local workstation, install the following
 
 |Name/Installer|Description|
 |--|--|
-|[Rust][Rust]|Install the Rust programming language via rustup, which includes the Rust compiler (rustc), package manager (cargo), and standard library.|
+|[Rust]|Install the Rust programming language via rustup, which includes the Rust compiler (rustc), package manager (cargo), and standard library.|
 |[Visual Studio Code][Visual Studio Code]|Visual Studio Code gives you a great Rust integration and coding experience but it isn't required. You can use any code editor.|
 |[Visual Studio Code extensions][Visual Studio Code extensions]|Install any relevant extensions for Azure services you intend to use.|
 |[rust-analyzer extension][rust-analyzer-extension]|The recommended VS Code extension for Rust language support, providing code completion, error checking, and more.|
