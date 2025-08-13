@@ -7,13 +7,15 @@ items:
     - name: Get started
       expanded: true
       items:
-        - name: Overview
+        - name: Get started with Azure MCP Server
           href: get-started.md
         - name: Tools
           expanded: true
           items:
           - name: Visual Studio Code
             href: get-started/tools/visual-studio-code.md
+          - name: Visual Studio
+            href: get-started/tools/visual-studio.md
           - name: Cursor
             href: get-started/tools/cursor.md
         - name: Languages and frameworks

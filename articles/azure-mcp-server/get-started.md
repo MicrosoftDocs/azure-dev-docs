@@ -18,26 +18,13 @@ The Azure MCP Server enables AI-powered development tools to interact with Azure
 
 Azure MCP Server is designed to work across multiple tools, languages, frameworks, and use cases. You can use it to manage Azure resources through natural language conversations, build automation scripts, or integrate Azure operations into your applications.
 
-## Tooling integration
+## Code editors
 
-Azure MCP Server integrates with various development tools and environments to fit your preferred workflow.
-
-### Code editors
-
-Azure MCP Server works with AI-powered code editors that support the Model Context Protocol.
-
-Learn how to get started with the following code editors:
+Azure MCP Server works with AI-powered code editors that support the Model Context Protocol. Learn how to get started with the following code editors:
 
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
 - [**Visual Studio**](get-started/tools/visual-studio.md)
 - [**Cursor**](get-started/tools/cursor.md)
-
-### Other tools
-
-You can also run Azure MCP Server independently and connect to it from other tools:
-
-- **Node.js**: Run Azure MCP Server directly using Node.js to create custom integrations or host it as a service for multiple tools to connect to.
-- **MCP Inspector**: Connect the MCP Inspector debugging tool to explore Azure MCP Server capabilities, test operations, and understand available functionality through a visual interface.
 
 ## Languages & frameworks
 
