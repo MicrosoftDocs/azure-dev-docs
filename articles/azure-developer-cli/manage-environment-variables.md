@@ -353,18 +353,7 @@ foreach ($line in (& azd env get-values)) {
 | `AZURE_PRINCIPAL_TYPE` | The type of a principal in the environment. | `1a2b3c` | During provisioning |
 | `AZURE_TENANT_ID` | The type of a principal in the environment. | `1a2b3c` | During provisioning |
 
-<<<<<<< HEAD
 ## Secrets and sensitive data considerations
-=======
-| Name  | Description  | Examples  | When available  |
-|---------|---------|---------|---------|
-|`AZURE_ENV_NAME`     | The name of the environment in-use.       | `todo-app-dev`        | When an environment is created (after running azd init or azd env new, for example).        |
-|`AZURE_LOCATION`     | The location of the environment in-use.        |  `eastus2`        |  Right before an environment is provisioned for the first time.       |
-|`AZURE_PRINCIPAL_ID`     | The running user/service principal.       | `925cff12-ffff-4e9f-9580-8c06239dcaa4`        | Determined automatically during provisioning (ephemeral).        |
-|`AZURE_PRINCIPAL_TYPE`     | The type of the principal used for conditional role assignments. Can be used in CI/CD scenarios for determining appropriate permission levels.       | `User`, `ServicePrincipal`        | Determined automatically during provisioning in CI/CD pipelines.        |
-|`AZURE_SUBSCRIPTION_ID`    | The targeted subscription.       |  `925cff12-ffff-4e9f-9580-8c06239dcaa4`       | Right before an environment is provisioned for the first time.        |
-|`SERVICE_<service>_IMAGE_NAME`     | The full name of the container image published to Azure Container Registry for container app services.        | `todoapp/web-dev:azdev-deploy-1664988805`        | After a successful publishing of a `containerapp` image        |
->>>>>>> main
 
 While environment variables are convenient for configuration, they require special handling for sensitive data:
 
