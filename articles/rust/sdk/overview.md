@@ -1,6 +1,6 @@
 ---
-title: Use Azure SDK crates for Rust
-description: Get started with Azure SDK crates for Rust. Learn authentication, explore supported services like Storage and Key Vault, and follow best practices with code examples.
+title: Use Azure SDK crates for Rust to access Azure services
+description: Get started with Azure SDK crates for Rust. Learn authentication, explore supported services, and follow best practices with code examples. Start building secure Azure apps in Rust today.
 ms.date: 07/17/2025
 ms.topic: concept-article
 ms.service: azure
@@ -9,7 +9,7 @@ ms.custom: devx-track-rust
 
 # Use Azure SDK crates for Rust 
 
-The Azure SDK crates for Rust provide a collection of client libraries that make it easy to interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience that's natural for Rust developers.
+The Azure SDK crates for Rust are client libraries that help you interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience for Rust developers.
 
 [Crates] | [API reference documentation] | [Source code] 
 
