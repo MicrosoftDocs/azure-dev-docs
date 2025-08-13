@@ -97,24 +97,7 @@ azure_security_keyvault_certificates = { features = ["hmac_openssl"] }
 
 ## Provide authentication credentials
 
-The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication, which provides a set of credential structures that you can use across multiple Azure services. `azure_identity` offers several benefits over keys or connection strings:
-
-* Fast onboarding
-* Most secure method
-* Separation of the authentication mechanism from the code. This separation allows you to use the same code locally and on the Azure platform while the credentials are different.
-* Chained authentication so several mechanisms can be available.
-
-
-## Create secure clients with proper authentication
-
-After creating a credential, pass it to your Azure SDK client along with any necessary configuration. The client might need extra information such as a service endpoint or container name, which you can find in the Azure portal for your resource.
-
-### Security best practices
-
-- **Never hardcode credentials** in your source code
-- Use **Managed Identity** when running in Azure
-- Store sensitive configuration in **Azure Key Vault**
-- Regularly **rotate credentials**
+The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication. Learn more about [authentication for Azure SDK for Rust].
 
 ## Client objects
 
@@ -351,3 +334,5 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 [Azure Developer CLI]: /azure/developer/azure-developer-cli
 [Azure CLI]: /cli/azure/
+
+[authentication for Azure SDK for Rust]: ./authentication/overview.md
