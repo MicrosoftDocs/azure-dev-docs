@@ -316,5 +316,5 @@ This approach gives you fine-grained control over logging verbosity when working
 [Azure CLI]: /cli/azure/install-azure-cli
 [Azure JS SDK logging]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging
 [@azure/logger]: https://www.npmjs.com/package/@azure/logger
-[Authorize access to blobs using Microsoft Entra ID]: /storage/blobs/authorize-access-azure-active-directory
+[Authorize access to blobs using Microsoft Entra ID]: /azure/storage/common/authorize-data-access
 [Passwordless connections for Azure services]: ../../intro/passwordless-overview.md
