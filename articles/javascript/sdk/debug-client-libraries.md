@@ -1,30 +1,31 @@
 ---
-title: "Configure logging in the Azure SDK libraries for JavaScript"
-description: This article describes how to use Azure SDK logging for JavaScript to see internal library information to debug an Azure Identity credential chain.
+title: Configure logging in Azure SDK libraries for JavaScript
+description: Learn how to configure logging in Azure SDK libraries for JavaScript to diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
 ms.date: 08/14/2024
 ms.topic: how-to
 ms.custom: devx-track-js
-zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
+zone_pivot_group_filename: ../javascript/javascript-zone-pivot-groups.json
 zone_pivot_groups: js-ts
 #customer intent: As a JavaScript developer using Azure services, I want to understand how to enable and configure logging in Azure SDK client libraries to diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
 ---
 
-# How to log with Azure SDK client libraries
+# Configure logging in Azure SDK client libraries for JavaScript
 
-To diagnose an unexpected issue or to understand what any Azure SDK client library for JavaScript is doing, [enable logging][Azure JS SDK logging] in your app. You can do this with either of the methods below:
+This article explains how to configure logging in Azure SDK libraries for JavaScript. Enabling logging helps you diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
 
-* Use `AZURE_LOG_LEVEL=verbose` environment variable to turn on logging.
-* Use `@azure/logger` package in your source code.
+
+* Set the `AZURE_LOG_LEVEL=verbose` environment variable to turn on logging.
+* Use the `@azure/logger` package in your source code.
 
 Valid log levels include `verbose`, `info`, `warning`, and `error`.
 
-You can also set different log levels for specific Azure services by using service-specific environment variables. For example:
+You can also set different log levels for specific Azure services with service-specific environment variables. For example:
 
 * `AZURE_IDENTITY_LOGGER_LEVEL=verbose` - For Azure Identity specific logging
 * `AZURE_STORAGE_LOGGER_LEVEL=verbose` - For Azure Storage specific logging
 * `AZURE_KEYVAULT_LOGGER_LEVEL=verbose` - For Azure Key Vault specific logging
 
-These service-specific log levels override the global `AZURE_LOG_LEVEL` setting for their respective services.
+These service-specific log levels take precedence over the global `AZURE_LOG_LEVEL` setting for their respective services.
 
 
 ::: zone pivot="js"
@@ -33,11 +34,11 @@ These service-specific log levels override the global `AZURE_LOG_LEVEL` setting 
 
 - An Azure subscription: [Create one for free][Free Subscription]
 - [Node.js LTS][Node.js website]
-- Optional, authentication tool such as [Azure CLI] used for authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
+- Optional, an authentication tool such as [Azure CLI] used for authentication in a local development environment. To create the necessary context, sign in with the Azure CLI. 
 
-## Debug with environment variable
+## Enable logging with environment variable
 
-A simple way to use the environment variable is to start the application with the environment variable.
+Start the application with the environment variable for a simple way to enable logging.
 
 ```shell
 AZURE_LOG_LEVEL=verbose node index.js
@@ -45,7 +46,7 @@ AZURE_LOG_LEVEL=verbose node index.js
 
 ## Set environment variables
 
-You can also set environment variables in a `.env` file in your project root. Create a file named `.env` and add the following content.
+You can also add environment variables to a `.env` file in your project root. Create a file named `.env` and add the following content.
 
 ```ini
 AZURE_LOG_LEVEL=verbose
@@ -54,7 +55,7 @@ AZURE_STORAGE_ACCOUNT_NAME=<YOUR_STORAGE_ACCOUNT_NAME>
 AZURE_STORAGE_CONTAINER_NAME=<YOUR_STORAGE_CONTAINER_NAME>
 ```
 
-## Debug with logger package in source code
+## Enable logging with logger package in source code
 
 The following code sample uses the [@azure/logger] package to debug the Azure SDK client libraries.
 
@@ -135,7 +136,7 @@ This approach gives you fine-grained control over logging verbosity when working
     ```
 
 
-2. Create the project and install the npm dependencies.
+1. Create the project and install the npm dependencies.
 
     ```console
     npm init -y
@@ -143,19 +144,19 @@ This approach gives you fine-grained control over logging verbosity when working
     npm install @azure/identity @azure/storage-blob
     ```
 
-3. Sign into your Azure subscription in your local environment with Azure CLI.
+1. Sign in to your Azure subscription in your local environment with Azure CLI.
 
     ```azurecli
     az login
     ```
 
-4. Run the app with an environment variable file. The `--env-file` option was introduced in Node.js 20.6.0.
+1. Run the app with an environment variable file. The `--env-file` option was introduced in Node.js 20.6.0.
 
     ```console
     node --env-file .env index.mjs
     ```
 
-5. Find the successful credential in the output - the `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
+1. Find the successful credential in the output - the `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
 
 ::: zone-end
 
@@ -169,11 +170,11 @@ This approach gives you fine-grained control over logging verbosity when working
 - An Azure subscription: [Create one for free][Free Subscription]
 - [Node.js LTS][Node.js website]
 - [TypeScript]
-- Optional, authentication tool such as [Azure CLI] used for authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
+- Optional, an authentication tool such as [Azure CLI] used for authentication in a local development environment. To create the necessary context, sign in with the Azure CLI. 
 
-## Debug with environment variable
+## Enable logging with environment variable
 
-A simple way to use the environment variable is to start the application with the environment variable.
+Start the application with the environment variable for a simple way to enable logging.
 
 ```shell
 AZURE_LOG_LEVEL=verbose node index.js
@@ -181,7 +182,7 @@ AZURE_LOG_LEVEL=verbose node index.js
 
 ## Set environment variables
 
-You can also set environment variables in a `.env` file in your project root. Create a file named `.env` and add the following content.
+You can also add environment variables to a `.env` file in your project root. Create a file named `.env` and add the following content.
 
 ```ini
 AZURE_LOG_LEVEL=verbose
@@ -190,7 +191,7 @@ AZURE_STORAGE_ACCOUNT_NAME=<YOUR_STORAGE_ACCOUNT_NAME>
 AZURE_STORAGE_CONTAINER_NAME=<YOUR_STORAGE_CONTAINER_NAME>
 ```
 
-## Debug with logger package in source code
+## Enable logging with logger package in source code
 
 The following code sample uses the [@azure/logger] package to debug the Azure SDK client libraries.
 
@@ -272,7 +273,7 @@ This approach gives you fine-grained control over logging verbosity when working
     ```
 
 
-2. Create the project and install the npm dependencies.
+1. Create the project and install the npm dependencies.
 
     ```console
     npm init -y
@@ -280,25 +281,25 @@ This approach gives you fine-grained control over logging verbosity when working
     npm install @azure/identity @azure/storage-blob @types/node
     ```
 
-3. Sign into your Azure subscription in your local environment with Azure CLI.
+1. Sign in to your Azure subscription in your local environment with Azure CLI.
 
     ```azurecli
     az login
     ```
 
-4. Build the application.
+1. Build the application.
 
     ```console
     tsc
     ```
  
-5. Run the app with an environment variable file.  The `--env-file` option was introduced in Node.js 20.6.0.
+1. Run the app with an environment variable file.  The `--env-file` option was introduced in Node.js 20.6.0.
 
     ```console
     node --env-file .env index.js
     ```
 
-6. Find the successful credential in the output - the `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
+1. Find the successful credential in the output - the `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
 
 
 ::: zone-end
