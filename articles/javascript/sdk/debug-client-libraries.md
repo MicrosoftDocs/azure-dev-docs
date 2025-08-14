@@ -13,7 +13,6 @@ zone_pivot_groups: js-ts
 
 This article explains how to configure logging in Azure SDK libraries for JavaScript. Enabling logging helps you diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
 
-
 * Set the `AZURE_LOG_LEVEL=verbose` environment variable to turn on logging.
 * Use the `@azure/logger` package in your source code.
 
@@ -27,6 +26,8 @@ You can also set different log levels for specific Azure services with service-s
 
 These service-specific log levels take precedence over the global `AZURE_LOG_LEVEL` setting for their respective services.
 
+> [!NOTE]
+> The Azure Storage code shown in this article assumes the storage resource has been configured with the appropriate Microsoft Entra ID roles. Learn more: [Authorize access to blobs using Microsoft Entra ID].
 
 ::: zone pivot="js"
 
@@ -304,9 +305,16 @@ This approach gives you fine-grained control over logging verbosity when working
 
 ::: zone-end
 
+## Additional resources
+
+- [Azure Javascript SDK logging][Azure JS SDK logging]
+- [Passwordless connections for Azure services]
+
 [Free Subscription]: https://azure.microsoft.com/free/
 [TypeScript]: https://www.typescriptlang.org/ 
 [Node.js website]: https://nodejs.org/
 [Azure CLI]: /cli/azure/install-azure-cli
 [Azure JS SDK logging]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging
 [@azure/logger]: https://www.npmjs.com/package/@azure/logger
+[Authorize access to blobs using Microsoft Entra ID]: /storage/blobs/authorize-access-azure-active-directory
+[Passwordless connections for Azure services]: ../../intro/passwordless-overview.md
