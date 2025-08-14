@@ -1,7 +1,7 @@
 ---
 title: "Configure logging in the Azure SDK libraries for JavaScript"
 description: This article describes how to use Azure SDK logging for JavaScript to see internal library information to debug an Azure Identity credential chain.
-ms.date: 09/10/2024
+ms.date: 08/14/2024
 ms.topic: how-to
 ms.custom: devx-track-js
 #customer intent: As a JavaScript developer new to Azure, I want understand how to get runtime information from Azure SDK client libraries.
@@ -43,9 +43,9 @@ The following code sample uses the [@azure/logger](https://www.npmjs.com/package
         AzureCliCredential 
     } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
+    import { AzureLogger, setLogLevel } from "@azure/logger";
 
     // Turn on debugging    
-    const { AzureLogger, setLogLevel } = require("@azure/logger");
     setLogLevel("verbose");
     AzureLogger.log = (...args) => {
         console.log(...args);
