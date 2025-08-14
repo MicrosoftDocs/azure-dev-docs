@@ -28,11 +28,11 @@ Replace `<crate_name>` with the name of the Azure crate you want to install. For
 cargo add azure_identity azure_security_keyvault_secrets
 ```
 
-You can find available crate names in the [crate index for Azure](https://crates.io/users/azure-sdk?sort=recent-downloads).
+You can find available crate names in the [crate index for Azure][Crates].
 
 ## Install specific crate versions
 
-Sometimes you need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
+Sometimes you need to install a particular [version of a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
 The following Azure services, prefixed with `azure_`, are currently supported:
 
@@ -55,7 +55,7 @@ For example:
 cargo add azure_storage_blob@0.20.0
 ```
 
-You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html).
+You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
 
 ## Update crates
 
@@ -87,7 +87,7 @@ Build the project to update your `Cargo.lock` file:
 
 ## Configure crate features
 
-The [`azure_core`] crate provides features for all Azure SDK crates, such as:
+The [`azure_core`][Crate - core] crate provides features for all Azure SDK crates, such as:
 
 - `reqwest`: HTTP client implementation.
 - `tokio`: Async runtime support.
@@ -109,5 +109,16 @@ Or specify features in your `Cargo.toml`:
 
 [!INCLUDE [common resources](../includes/resources.md)]
 
+[Rust docs - dependency]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html
+[Rust docs - crate version syntax]: https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax
 
 [Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
+[Crate - identity]: https://crates.io/crates/azure_identity
+[Crate - core]: https://crates.io/crates/azure_core
+[Crate - cosmos]: https://crates.io/crates/azure_data_cosmos
+[Crate - event hubs]: https://crates.io/crates/azure_messaging_eventhubs
+[Crate - key vault - secrets]: https://crates.io/crates/azure_security_keyvault_secrets
+[Crate - key vault - certificates]: https://crates.io/crates/azure_security_keyvault_certificates
+[Crate - key vault - keys]: https://crates.io/crates/azure_security_keyvault_keys
+[Crate - storage]: https://crates.io/crates/azure_storage
+
