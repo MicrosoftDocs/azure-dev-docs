@@ -4,7 +4,7 @@ description: Learn how to configure logging in Azure SDK libraries for JavaScrip
 ms.date: 08/14/2024
 ms.topic: how-to
 ms.custom: devx-track-js
-zone_pivot_group_filename: ../javascript/javascript-zone-pivot-groups.json
+zone_pivot_group_filename: ../javascript/javascript-zone-pivot-groups.yml
 zone_pivot_groups: js-ts
 #customer intent: As a JavaScript developer using Azure services, I want to understand how to enable and configure logging in Azure SDK client libraries to diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
 ---
