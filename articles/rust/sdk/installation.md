@@ -16,7 +16,7 @@ To access specific Azure services in your projects, install Azure SDK crates for
 
 ## Install the latest version of a crate
 
-When you install a crate without specifying a version, Cargo retrieves the latest version available from [crates.io](https://crates.io). 
+Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. These crates depend on [`azure_core`][Crate - core] for common functionality. You don't need to install `azure_core` directly, since it's a dependency of all Azure SDK crates.
 
 ```console
 cargo add <crate_name>
@@ -33,6 +33,17 @@ You can find available crate names in the [crate index for Azure](https://crates
 ## Install specific crate versions
 
 Sometimes you need to install a particular [version of a crate](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#version-requirement-syntax) for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
+
+The following Azure services, prefixed with `azure_`, are currently supported:
+
+| Service | Crate | Description |
+|---------|---------|-------------|
+| **Cosmos DB** | [`azure_data_cosmos`][Crate - cosmos] | NoSQL database operations |
+| **Event Hubs** | [`azure_messaging_eventhubs`][Crate - event hubs] | Big data streaming platform |
+| **Key Vault** | [`azure_security_keyvault_certificates`][Crate - key vault - certificates]<br>[`azure_security_keyvault_secrets`][Crate - key vault - secrets]<br>[`azure_security_keyvault_keys`][Crate - key vault - keys] | Manage secrets, keys, and certificates |
+| **Storage** | [`azure_storage_blob`][Crate - storage] | Create and manage Azure Storage blobs and containers. |
+
+Crates.io has other crates for Azure services that were established before the official Azure SDK crates listed above. These crates aren't associated with the Azure SDK and shouldn't be used for modern development.
 
 ```console
 cargo add <crate_name>@<version_number>
@@ -74,13 +85,10 @@ Build the project to update your `Cargo.lock` file:
   cargo build
   ```
 
-
-
 ## Configure crate features
 
-Azure SDK crates provide features such as:
+The [`azure_core`] crate provides features for all Azure SDK crates, such as:
 
-- `debug`: Enable additional debugging information.
 - `reqwest`: HTTP client implementation.
 - `tokio`: Async runtime support.
 
@@ -100,3 +108,6 @@ Or specify features in your `Cargo.toml`:
 ## Additional resources
 
 [!INCLUDE [common resources](../includes/resources.md)]
+
+
+[Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads

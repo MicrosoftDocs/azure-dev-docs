@@ -7,10 +7,12 @@
       href: what-is-azure-for-rust-developers.md
   - name: Azure SDK for Rust
     items:
-    - name: Getting started  
-      href: sdk/overview.md   
+    - name: Overview
+      href: sdk/overview.md
     - name: Installation
       href: sdk/installation.md
+    - name: Use crates
+      href: sdk/use-crates.md
   - name: Resources
     items:
     - name: Azure SDK for Rust on GitHub
