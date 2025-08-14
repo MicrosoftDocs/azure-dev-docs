@@ -79,7 +79,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ## Access HTTP response details by using `Response<T>`
 
 _Service clients_ include methods you use to call Azure services. We call these client methods _service methods_.
-_Service methods_ return a shared `azure_core` type `Response<T>`, where `T` is either a `Model` type or a `ResponseBody` that represents a raw stream of bytes.
+_Service methods_ return a shared `azure_core` type [`Response<T>`][Ref doc - core - Response], where `T` is either a `Model` type or a `ResponseBody` that represents a raw stream of bytes.
 This type provides access to both the deserialized result of the service call and the details of the HTTP response returned from the server.
 
 ```rust no_run
@@ -124,7 +124,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Error handling
 
-When a service call fails, the returned result contains an error. The error type provides a `status` property with an HTTP status code and an `error_code` property with a service-specific error code.
+When a service call fails, the returned result contains an error. The error type provides a [`status`][Ref doc - core - error status] property with an HTTP status code and an [`error_code`][Ref doc - core - error_code] property with a service-specific error code.
 
 ```rust
 use azure_core::{error::{ErrorKind, HttpError}, http::{Response, StatusCode}};
@@ -162,7 +162,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Pagination to get all items
 
-If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a result. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets.
+If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a [`Result`][Ref doc - core - Result] of [`Pager`][Ref doc - core - Pager]. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets.
 
 ```rust
 use azure_identity::DefaultAzureCredential;
@@ -195,7 +195,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Pagination to process each page of items
 
-To iterate through all items in a paginated response, use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, so you can process each page as it becomes available. This feature is useful for operations with large result sets.
+To iterate through all items in a paginated response, use the [`into_pages()`][Ref doc - core - into_pages] method on the returned [`Pager`][Ref doc - core - Pager]. This method returns an async stream of pages as a [`PageIterator`][Ref doc - core - PageIterator], so you can process each page as it becomes available. This feature is useful for operations with large result sets.
 
 
 ```rust
@@ -248,9 +248,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 [Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/struct.SecretClient.html
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
+[Ref doc - core - error_code]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.error_code
+[Ref doc - core - Result]: https://docs.rs/azure_core/latest/azure_core/type.Result.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
 [Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/type.Pager.html
+[Ref doc - core - into_pages]: https://docs.rs/azure_core/latest/azure_core/http/struct.ItemIterator.html#method.into_pages
+[Ref doc - core - PageIterator]: https://docs.rs/azure_core/latest/azure_core/http/struct.PageIterator.html
 [Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
+[Ref doc - core - error status]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.status
 
 [Crate - identity]: https://crates.io/crates/azure_identity
 [Crate - core]: https://crates.io/crates/azure_core
