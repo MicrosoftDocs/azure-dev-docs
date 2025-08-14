@@ -31,9 +31,9 @@ The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azu
 
 ## Client objects
 
-You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Secret client] is used to interact with Azure Key Vault secrets.
+You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Ref doc - secret - SecretClient] is used to interact with Azure Key Vault secrets.
 
-When you create the client objects, you can provide a [`ClientOptions`][Client Options Docs] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
+When you create the client objects, you can provide a [`ClientOptions`][Ref doc - core - ClientOptions] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
 
 ```rust
 use azure_identity::{
@@ -245,6 +245,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 [Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
 
+[Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/struct.SecretClient.html
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
