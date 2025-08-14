@@ -410,7 +410,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.20.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.59.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.59.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.59.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.59.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.27.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.27.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.28.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.28.0) |  |  |
 | @azure-tools/typespec-go | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -450,7 +450,7 @@
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
-| Unknown Display Name | npm [1.4.0](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.0) |  |  |
+| Unknown Display Name | npm [1.4.1](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.1) |  |  |
 | Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp/v/0.5.5) |  |  |
 | Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.5) |  |  |
 | Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.5) |  |  |
@@ -540,7 +540,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250811.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250811.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250813.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250813.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -631,7 +631,7 @@
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
 | Git Rest Api SDK | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  | GitHub [0.3.3](https://github.com/azure/git-rest-api) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
-| Oad | npm [0.10.14](https://www.npmjs.com/package/@azure/oad/v/0.10.14) |  | GitHub [0.10.14](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.11.0](https://www.npmjs.com/package/@azure/oad/v/0.11.0) |  | GitHub [0.11.0](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
