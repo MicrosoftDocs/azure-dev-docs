@@ -1,6 +1,6 @@
 ---
-title: Install Azure SDK Crates for Rust - Setup Guide
-description: Learn how to install, update, and manage Azure SDK crates for Rust using Cargo. Get step-by-step instructions for specific versions and preview packages.
+title: Install and manage Azure SDK crates for Rust
+description: Install, update, and manage Azure SDK crates for Rust using Cargo. Learn how to keep your Rust projects up to date with Azure services.
 ms.date: 07/25/2025
 ms.topic: how-to
 ms.service: azure-rust
@@ -10,11 +10,11 @@ adobe-target: true
 
 # Install Azure SDK crates for Rust
 
-To access specific Azure services in your projects, install Azure SDK crates for Rust by using Cargo. The Azure SDK for Rust consists of many individual crates that you can install in standard Rust environments. This modular approach lets you install only the crates you need for your project.
+The Azure SDK for Rust lets you access Azure services in your Rust projects by installing individual SDK crates with Cargo. This article shows how to install, update, and manage Azure SDK crates for Rust, so you can add only the features you need and keep your projects up to date.
 
 [!INCLUDE [prerequisites](../includes/prerequisites.md)]
 
-## Install the latest version of a crate
+## Install the latest Azure SDK crate version
 
 Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. These crates depend on [`azure_core`][Crate - core] for common functionality. You don't need to install `azure_core` directly, since it's a dependency of all Azure SDK crates.
 
@@ -30,7 +30,7 @@ cargo add azure_identity azure_security_keyvault_secrets
 
 You can find available crate names in the [crate index for Azure][Crates].
 
-## Install specific crate versions
+## Install specific Azure SDK crate versions
 
 Sometimes you need to install a particular [version of a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
@@ -57,7 +57,7 @@ cargo add azure_storage_blob@0.20.0
 
 You can also specify version requirements in your `Cargo.toml` file. For more information on version requirement syntax, see the [Rust documentation][Rust docs - dependency].
 
-## Update crates
+## Update Azure SDK crates
 
 To update all crates to their latest compatible versions, run:
 
@@ -71,7 +71,7 @@ To update a specific crate, run:
 cargo update <crate_name>
 ```
 
-## Remove a crate
+## Remove an Azure SDK crate
 
 To remove a crate from your project, including the `Cargo.toml` file, run:
 
@@ -85,7 +85,7 @@ Build the project to update your `Cargo.lock` file:
   cargo build
   ```
 
-## Configure crate features
+## Configure Azure SDK crate features
 
 The [`azure_core`][Crate - core] crate provides features for all Azure SDK crates, such as:
 

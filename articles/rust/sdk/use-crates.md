@@ -1,6 +1,6 @@
 ---
 title: Use Azure SDK crates for Rust to access Azure services
-description: Get started with Azure SDK crates for Rust. Learn authentication, explore supported services, and follow best practices with code examples. Start building secure Azure apps in Rust today.
+description: Get started with Azure SDK crates for Rust. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
 ms.date: 07/17/2025
 ms.topic: concept-article
 ms.service: azure
@@ -9,7 +9,7 @@ ms.custom: devx-track-rust
 
 # Use Azure SDK crates for Rust to access Azure services
 
-The Azure SDK crates for Rust are client libraries that help you interact with Azure services from Rust applications. These crates follow Azure client library design guidelines to provide a consistent, idiomatic experience for Rust developers.
+The Azure SDK crates for Rust help you access Azure services from Rust applications. This article explains how to use these crates, including authentication, supported services, and best practices.
 
 [Crates] | [API reference documentation] | [Source code]
 
@@ -160,7 +160,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Pagination: Get all items
+## Pagination to get all items
 
 If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a result. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets.
 
@@ -193,7 +193,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-## Pagination: Process each page of items
+## Pagination to process each page of items
 
 To iterate through all items in a paginated response, use the `into_pages()` method on the returned `Pager<T>`. This method returns an async stream of pages, so you can process each page as it becomes available. This feature is useful for operations with large result sets.
 
