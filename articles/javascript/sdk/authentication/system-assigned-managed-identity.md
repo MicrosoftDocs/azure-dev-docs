@@ -25,40 +25,60 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 ### Implement the code
 
-Add the [Azure.Identity](/dotnet/api/azure.identity) package. In an ASP.NET Core project, also install the [Microsoft.Extensions.Azure](/dotnet/api/microsoft.extensions.azure) package:
+In a JavaScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
 
-### [Command Line](#tab/command-line)
-
-In a terminal of your choice, navigate to the application project directory and run the following commands:
-
-```dotnetcli
-dotnet add package Azure.Identity
-dotnet add package Microsoft.Extensions.Azure
+```console
+npm install @azure/identity
 ```
 
-### [NuGet Package Manager](#tab/nuget-package)
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. In `index.js`, complete the following steps to configure token-based authentication:
 
-Right-click your project in the Visual Studio **Solution Explorer** window and select **Manage NuGet Packages**. Search for **Azure.Identity**, and install the matching package. Repeat this process for the **Microsoft.Extensions.Azure** package.
+1. Import the `@azure/identity` package.
+1. Pass an appropriate `TokenCredential` instance to the client:
+    - Use `DefaultAzureCredential` when your app is running locally
+    - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
 
-:::image type="content" source="../media/nuget-azure-identity.png" alt-text="Install a package using the package manager.":::
+    ```javascript
+    import { BlobServiceClient } from '@azure/storage-blob';
+    import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
+    
+    function createBlobServiceClient() {
+    
+        const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+        if (!accountName) throw Error('Azure Storage accountName not found');
+    
+        const url = `https://${accountName}.blob.core.windows.net`;
+    
+        if (process.env.NODE_ENV === "production") {
+            return new BlobServiceClient(url, new ManagedIdentityCredential());
+        } else {
+            return new BlobServiceClient(url, new DefaultAzureCredential());
+        }
+    }
+    
 
----
+    async function main() {
+        try {
+            const blobServiceClient = createBlobServiceClient();
 
-Azure services are accessed using specialized client classes from the various Azure SDK client libraries. These classes and your own custom services should be registered for dependency injection so they can be used throughout your app. In `Program.cs`, complete the following steps to configure a client class for dependency injection and token-based authentication:
+            const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
 
-1. Include the `Azure.Identity` and `Microsoft.Extensions.Azure` namespaces via `using` directives.
-1. Register the Azure service client using the corresponding `Add`-prefixed extension method.
-1. Pass an appropriate `TokenCredential` instance to the `UseCredential` method:
-    - Use `DefaultAzureCredential` when your app is running locally.
-    - Use `ManagedIdentityCredential` when your app is running in Azure.
-
-:::code language="csharp" source="../snippets/authentication/system-assigned-managed-identity/Program.cs" id="snippet_MIC_UseCredential":::
-
-An alternative to the `UseCredential` method is to provide the credential to the service client directly:
-
-:::code language="csharp" source="../snippets/authentication/system-assigned-managed-identity/Program.cs" id="snippet_MIC":::
-
----
+            // do something with client
+            const properties = await containerClient.getProperties();
+    
+            console.log(properties);
+        } catch (err) {
+            const error = err;
+            console.error("Error retrieving container properties:", error.message);
+            throw error;
+        }
+    }
+    
+    main().catch((err) => {
+        console.error("Error running sample:", err.message);
+        process.exit(1);
+    })
+    ```
 
 The preceding code behaves differently depending on the environment where it's running:
 

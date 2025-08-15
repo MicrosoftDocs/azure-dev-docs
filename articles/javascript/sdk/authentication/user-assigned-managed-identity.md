@@ -2,7 +2,7 @@
 title: Authenticate Azure-hosted JavaScript apps to Azure resources using a user-assigned managed identity
 description: Learn how to authenticate Azure-hosted JavaScript apps to other Azure services using a user-assigned managed identity.
 ms.topic: how-to
-ms.custom: devx-track-dotnet, engagement-fy23, devx-track-azurecli
+ms.custom: devx-track-js, engagement-fy23, devx-track-azurecli
 ms.date: 08/15/2025
 ---
 
@@ -25,30 +25,16 @@ The following sections describe the steps to enable and use a user-assigned mana
 
 ### Implement the code
 
-Add the [Azure.Identity](/dotnet/api/azure.identity) package. In an ASP.NET Core project, also install the [Microsoft.Extensions.Azure](/dotnet/api/microsoft.extensions.azure) package:
+In a JavaScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
 
-### [Command Line](#tab/command-line)
-
-In a terminal of your choice, navigate to the application project directory and run the following commands:
-
-```dotnetcli
-dotnet add package Azure.Identity
-dotnet add package Microsoft.Extensions.Azure
+```console
+npm install @azure/identity
 ```
 
-### [NuGet Package Manager](#tab/nuget-package)
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. In `index.js`, complete the following steps to configure token-based authentication:
 
-Right-click your project in the Visual Studio **Solution Explorer** window and select **Manage NuGet Packages**. Search for **Azure.Identity**, and install the matching package. Repeat this process for the **Microsoft.Extensions.Azure** package.
-
-:::image type="content" source="../media/nuget-azure-identity.png" alt-text="Install a package using the package manager.":::
-
----
-
-Azure services are accessed using specialized client classes from the various Azure SDK client libraries. These classes and your own custom services should be registered for dependency injection so they can be used throughout your app. In `Program.cs`, complete the following steps to configure a client class for dependency injection and token-based authentication:
-
-1. Include the `Azure.Identity` and `Microsoft.Extensions.Azure` namespaces via `using` directives.
-1. Register the Azure service client using the corresponding `Add`-prefixed extension method.
-1. Pass an appropriate `TokenCredential` instance to the `UseCredential` method:
+1. Import the `@azure/identity` package.
+1. Pass an appropriate `TokenCredential` instance to the client:
     - Use `DefaultAzureCredential` when your app is running locally
     - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
 
@@ -67,11 +53,48 @@ The client ID is used to identify a managed identity when configuring applicatio
 
 1. Configure `ManagedIdentityCredential` with the client ID:
 
-    :::code language="csharp" source="../snippets/authentication/user-assigned-managed-identity/Program.cs" id="snippet_MIC_ClientId_UseCredential":::
+    ```javascript
+    import { BlobServiceClient } from '@azure/storage-blob';
+    import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
+    
+    console.log(process.env);
+    
+    function createBlobServiceClient() {
+        const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+        if (!accountName) throw Error('Azure Storage accountName not found');
+        const url = `https://${accountName}.blob.core.windows.net`;
+    
+        if (process.env.NODE_ENV === "production") {
+            const clientId = process.env.AZURE_CLIENT_ID;
+            if (!clientId) throw Error('AZURE_CLIENT_ID not found for Managed Identity');
+            return new BlobServiceClient(url, new ManagedIdentityCredential(clientId));
+        } else {
+            return new BlobServiceClient(url, new DefaultAzureCredential());
+        }
+    }
+    
+    async function main() {
+        try {
+            const blobServiceClient = createBlobServiceClient();
 
-    An alternative to the `UseCredential` method is to provide the credential to the service client directly:
+            const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
 
-    :::code language="csharp" source="../snippets/authentication/user-assigned-managed-identity/Program.cs" id="snippet_MIC_ClientId":::
+            // do something with client
+            const properties = await containerClient.getProperties();
+    
+            console.log(properties);
+        } catch (err) {
+            const error = err;
+            console.error("Error retrieving container properties:", error.message);
+            throw error;
+        }
+    }
+    
+    main().catch((err) => {
+        console.error("Error running sample:", err.message);
+        process.exit(1);
+    });
+    ```
 
 ## [Resource ID](#tab/resource-id)
 
@@ -92,11 +115,49 @@ Resource IDs can be built by convention, which makes them more convenient when w
 
 1. Configure `ManagedIdentityCredential` with the resource ID:
 
-    :::code language="csharp" source="../snippets/authentication/user-assigned-managed-identity/Program.cs" id="snippet_MIC_ResourceId_UseCredential":::
+    ```javascript
+    import { BlobServiceClient } from '@azure/storage-blob';
+    import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
+    
+    console.log(process.env);
+    
+    function createBlobServiceClient() {
+        const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+        if (!accountName) throw Error('Azure Storage accountName not found');
+        const url = `https://${accountName}.blob.core.windows.net`;
+    
+        if (process.env.NODE_ENV === "production") {
+            const resourceId = process.env.AZURE_RESOURCE_ID;
+            if (!resourceId) throw Error('AZURE_RESOURCE_ID not found for Managed Identity');
+            return new BlobServiceClient(url, new ManagedIdentityCredential(resourceId));
+        } else {
+            return new BlobServiceClient(url, new DefaultAzureCredential());
+        }
+    }
+    
 
-    An alternative to the `UseCredential` method is to provide the credential to the service client directly:
+    async function main() {
+        try {
+            const blobServiceClient = createBlobServiceClient();
 
-    :::code language="csharp" source="../snippets/authentication/user-assigned-managed-identity/Program.cs" id="snippet_MIC_ResourceId":::
+            const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
+
+            // do something with client
+            const properties = await containerClient.getProperties();
+    
+            console.log(properties);
+        } catch (err) {
+            const error = err;
+            console.error("Error retrieving container properties:", error.message);
+            throw error;
+        }
+    }
+    
+    main().catch((err) => {
+        console.error("Error running sample:", err.message);
+        process.exit(1);
+    });
+    ```
 
 ## [Object ID](#tab/object-id)
 
@@ -113,11 +174,48 @@ A principal ID is another name for an object ID.
 
 1. Configure `ManagedIdentityCredential` with the object ID:
 
-    :::code language="csharp" source="../snippets/authentication/user-assigned-managed-identity/Program.cs" id="snippet_MIC_ObjectId_UseCredential":::
+    ```javascript
+    import { BlobServiceClient } from '@azure/storage-blob';
+    import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
+    
+    console.log(process.env);
+    
+    function createBlobServiceClient() {
+        const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+        if (!accountName) throw Error('Azure Storage accountName not found');
+        const url = `https://${accountName}.blob.core.windows.net`;
+    
+        if (process.env.NODE_ENV === "production") {
+            const objectId = process.env.AZURE_OBJECT_ID;
+            if (!objectId) throw Error('AZURE_OBJECT_ID not found for Managed Identity');
+            return new BlobServiceClient(url, new ManagedIdentityCredential(objectId));
+        } else {
+            return new BlobServiceClient(url, new DefaultAzureCredential());
+        }
+    }
+    
+    async function main() {
+        try {
+            const blobServiceClient = createBlobServiceClient();
+            
+            const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
 
-    An alternative to the `UseCredential` method is to provide the credential to the service client directly:
-
-    :::code language="csharp" source="../snippets/authentication/user-assigned-managed-identity/Program.cs" id="snippet_MIC_ObjectId":::
+            // do something with client
+            const properties = await containerClient.getProperties();
+    
+            console.log(properties);
+        } catch (err) {
+            const error = err;
+            console.error("Error retrieving container properties:", error.message);
+            throw error;
+        }
+    }
+    
+    main().catch((err) => {
+        console.error("Error running sample:", err.message);
+        process.exit(1);
+    });
+    ```
 
 ---
 
