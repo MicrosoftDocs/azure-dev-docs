@@ -1,0 +1,9 @@
+groups:
+- id: js-ts
+  title: Language
+  prompt: Choose a language
+  pivots:
+  - id: ts
+    title: TypeScript
+  - id: js
+    title: JavaScript

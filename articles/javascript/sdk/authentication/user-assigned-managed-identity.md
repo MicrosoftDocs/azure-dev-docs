@@ -4,6 +4,8 @@ description: Learn how to authenticate Azure-hosted JavaScript apps to other Azu
 ms.topic: how-to
 ms.custom: devx-track-js, engagement-fy23, devx-track-azurecli
 ms.date: 08/15/2025
+zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
+zone_pivot_groups: js-ts
 ---
 
 # Authenticate Azure-hosted JavaScript apps to Azure resources using a user-assigned managed identity

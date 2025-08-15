@@ -4,6 +4,8 @@ description: Learn how to authenticate Azure-hosted JavaScript apps to other Azu
 ms.date: 08/15/2025
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli
+zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
+zone_pivot_groups: js-ts
 ---
 
 # Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity
@@ -38,6 +40,9 @@ Azure services are accessed using specialized client classes from the various Az
     - Use `DefaultAzureCredential` when your app is running locally
     - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
 
+::: zone pivot="js"
+
+
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
@@ -56,14 +61,13 @@ Azure services are accessed using specialized client classes from the various Az
         }
     }
     
-
     async function main() {
         try {
+    
             const blobServiceClient = createBlobServiceClient();
-
+            
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
-
-            // do something with client
+    
             const properties = await containerClient.getProperties();
     
             console.log(properties);
@@ -77,8 +81,55 @@ Azure services are accessed using specialized client classes from the various Az
     main().catch((err) => {
         console.error("Error running sample:", err.message);
         process.exit(1);
-    })
+    });
     ```
+
+::: zone-end
+
+::: zone pivot="ts"
+
+    ```typescript
+    import { BlobServiceClient } from '@azure/storage-blob';
+    import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
+    
+    function createBlobServiceClient(): BlobServiceClient {
+    
+        const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+        if (!accountName) throw Error('Azure Storage accountName not found');
+    
+        const url = `https://${accountName}.blob.core.windows.net`;
+    
+        if (process.env.NODE_ENV === "production") {
+            return new BlobServiceClient(url, new ManagedIdentityCredential());
+        } else {
+            return new BlobServiceClient(url, new DefaultAzureCredential());
+        }
+    }
+    
+    async function main(): Promise<void> {
+        try {
+    
+            const blobServiceClient = createBlobServiceClient();
+    
+            const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME!);
+    
+            const properties = await containerClient.getProperties();
+    
+            console.log(properties);
+        } catch (err) {
+            const error = err as Error;
+            console.error("Error retrieving container properties:", error.message);
+            throw error;
+        }
+    }
+    
+    main().catch((err: Error) => {
+        console.error("Error running sample:", err.message);
+        process.exit(1);
+    });
+    ```
+
+::: zone-end
 
 The preceding code behaves differently depending on the environment where it's running:
 
