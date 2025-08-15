@@ -25,6 +25,9 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 [!INCLUDE [JavaScript implement-managed-identity-concepts](includes/implement-managed-identity-concepts.md)]
 
+
+::: zone pivot="js"
+
 ### Implement the code
 
 In a JavaScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
@@ -39,9 +42,6 @@ Azure services are accessed using specialized client classes from the various Az
 1. Pass an appropriate `TokenCredential` instance to the client:
     - Use `DefaultAzureCredential` when your app is running locally
     - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
-
-::: zone pivot="js"
-
 
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
@@ -87,6 +87,21 @@ Azure services are accessed using specialized client classes from the various Az
 ::: zone-end
 
 ::: zone pivot="ts"
+
+### Implement the code
+
+In a JavaScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
+
+```console
+npm install @azure/identity @types/node
+```
+
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. In `index.js`, complete the following steps to configure token-based authentication:
+
+1. Import the `@azure/identity` package.
+1. Pass an appropriate `TokenCredential` instance to the client:
+    - Use `DefaultAzureCredential` when your app is running locally
+    - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
 
     ```typescript
     import { BlobServiceClient } from '@azure/storage-blob';
