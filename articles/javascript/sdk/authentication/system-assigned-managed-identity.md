@@ -21,7 +21,7 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 [!INCLUDE [Language agnostic system assigned procedures](<../../../includes/authentication/system-assigned-managed-identity.md>)]
 
-[!INCLUDE [JavaScript implement-managed-identity-concepts](implement-managed-identity-concepts.md)]
+[!INCLUDE [JavaScript implement-managed-identity-concepts](includes/implement-managed-identity-concepts.md)]
 
 ### Implement the code
 

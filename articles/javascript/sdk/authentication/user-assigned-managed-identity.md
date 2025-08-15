@@ -21,7 +21,7 @@ The following sections describe the steps to enable and use a user-assigned mana
 
 [!INCLUDE [Language agnostic user assigned procedures](<../../../includes/authentication/user-assigned-managed-identity.md>)]
 
-[!INCLUDE [JavaScript implement-managed-identity-concepts](implement-managed-identity-concepts.md)]
+[!INCLUDE [JavaScript implement-managed-identity-concepts](includes/implement-managed-identity-concepts.md)]
 
 ### Implement the code
 
