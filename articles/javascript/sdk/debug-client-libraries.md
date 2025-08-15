@@ -1,7 +1,7 @@
 ---
 title: Configure logging in Azure SDK libraries for JavaScript
 description: Learn how to configure logging in Azure SDK libraries for JavaScript to diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
-ms.date: 08/14/2024
+ms.date: 08/15/2024
 ms.topic: how-to
 ms.custom: devx-track-js
 zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
@@ -77,13 +77,13 @@ setStorageLogLevel("warning");   // Only warnings and errors for storage operati
 This approach gives you fine-grained control over logging verbosity when working with multiple Azure services in the same application.
 
 
-1. Create `index.mjs` with the following code.
+1. Create `index.js` with the following code.
 
     ```javascript
-    import { 
-        ChainedTokenCredential, 
-        ManagedIdentityCredential, 
-        AzureCliCredential 
+    import {
+        ChainedTokenCredential,
+        ManagedIdentityCredential,
+        AzureCliCredential
     } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
     import { AzureLogger, setLogLevel } from "@azure/logger";
@@ -103,11 +103,11 @@ This approach gives you fine-grained control over logging verbosity when working
     // Turn on debugging for all Azure SDKs   
     setLogLevel("verbose");
     
-    // Configure the logger to use console.log
-    AzureLogger.log = (...args) => {
+    // Configure the logger to use console.
+    AzureLogger.log = (...args)=> {
         console.log(...args);
     };
-
+    
     const credential = new ChainedTokenCredential(
         new ManagedIdentityCredential({ clientId: process.env.AZURE_CLIENT_ID }),
         new AzureCliCredential()
@@ -120,19 +120,21 @@ This approach gives you fine-grained control over logging verbosity when working
     // get container properties
     const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
     
-    async function main(){
+    async function main() {
         try {
             const properties = await containerClient.getProperties();
+    
             console.log(properties);
         } catch (err) {
-            console.error("Error retrieving container properties:", err.message);
-            throw err; // Re-throw to allow the catch handler below to process it
+            const error = err;
+            console.error("Error retrieving container properties:", error.message);
+            throw error;
         }
     }
     
     main().catch((err) => {
         console.error("Error running sample:", err.message);
-        process.exit(1); // Exit with error code
+        process.exit(1);
     });
     ```
 
@@ -142,7 +144,7 @@ This approach gives you fine-grained control over logging verbosity when working
     ```console
     npm init -y
     npm pkg set type=module
-    npm install @azure/identity @azure/storage-blob
+    npm install @azure/identity @azure/storage-blob @azure/logger
     ```
 
 1. Sign in to your Azure subscription in your local environment with Azure CLI.
@@ -154,7 +156,7 @@ This approach gives you fine-grained control over logging verbosity when working
 1. Run the app with an environment variable file. The `--env-file` option was introduced in Node.js 20.6.0.
 
     ```console
-    node --env-file .env index.mjs
+    node --env-file .env index.js
     ```
 
 1. Find the successful credential in the output - the `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
@@ -216,12 +218,12 @@ This approach gives you fine-grained control over logging verbosity when working
 1. Create `index.ts` with the following code.
 
     ```typescript
-    import { 
-        ChainedTokenCredential, 
-        ManagedIdentityCredential, 
-        AzureCliCredential 
+    import {
+        ChainedTokenCredential,
+        ManagedIdentityCredential,
+        AzureCliCredential
     } from "@azure/identity";
-    import { BlobServiceClient, ContainerProperties } from "@azure/storage-blob";
+    import { BlobServiceClient, ContainerGetPropertiesResponse } from "@azure/storage-blob";
     import { AzureLogger, setLogLevel } from "@azure/logger";
     
     // Check required environment variables
@@ -258,7 +260,8 @@ This approach gives you fine-grained control over logging verbosity when working
     
     async function main(): Promise<void> {
         try {
-            const properties: ContainerProperties = await containerClient.getProperties();
+            const properties: ContainerGetPropertiesResponse = await containerClient.getProperties();
+    
             console.log(properties);
         } catch (err) {
             const error = err as Error;
@@ -279,7 +282,7 @@ This approach gives you fine-grained control over logging verbosity when working
     ```console
     npm init -y
     npm pkg set type=module
-    npm install @azure/identity @azure/storage-blob @types/node
+    npm install @azure/identity @azure/storage-blob @types/node @azure/logger
     ```
 
 1. Sign in to your Azure subscription in your local environment with Azure CLI.
