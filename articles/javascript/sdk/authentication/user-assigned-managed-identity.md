@@ -27,13 +27,13 @@ The following sections describe the steps to enable and use a user-assigned mana
 
 ::: zone pivot="js"
 
-[!INCLUDE [JavaScript implement the code](includes/user-assigned-implement-the-code-js.md)]
+[!INCLUDE [JavaScript implement the code](includes/user-assigned-implement-code-js.md)]
 
 ::: zone-end
 
 ::: zone pivot="ts"
 
-[!INCLUDE [TypeScript implement the code](includes/user-assigned-implement-the-code-ts.md)]
+[!INCLUDE [TypeScript implement the code](includes/user-assigned-implement-code-ts.md)]
 ::: zone-end
 
 The preceding code behaves differently depending on the environment where it's running:
