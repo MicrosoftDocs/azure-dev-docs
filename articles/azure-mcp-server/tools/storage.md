@@ -45,7 +45,7 @@ Example prompts include:
 
 ## Account: get details
 
-Get detailed information about a specific Azure Storage account. This command retrieves comprehensive
+Get detailed information about a specific Azure Storage account. This functionality retrieves comprehensive
 metadata for the specified storage account including name, location, SKU, access settings, and configuration
 details. 
 
@@ -60,7 +60,7 @@ Example prompts include:
 
 | Parameter | Type | Required or optional | Description |
 |-----------|------|----------|-------------|
-| `Account` | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
+| `Account` | Yes | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 
 
 ## Account: list 

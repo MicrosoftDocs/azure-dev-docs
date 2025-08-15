@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Function Apps.
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 08/13/2025
+ms.date: 08/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
