@@ -1,6 +1,6 @@
 ---
-title: Azure Function App Tools
-description: Learn how to use the Azure MCP Server with Azure Function Apps.
+title: Azure Functions app tools in Azure MCP Server
+description: Learn how to use the Azure MCP Server to manage your function app resources in Azure.
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
@@ -13,21 +13,21 @@ ms.custom: build-2025
 --- 
 # Azure Functions tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Functions, using natural language prompts. This allows you to quickly list Azure Functions without remembering complex syntax.
+The Azure MCP Server allows you to manage Azure resources, including function apps, using natural language prompts. This allows you to quickly list your apps without remembering complex syntax.
 
-[Azure Functions](/azure/azure-functions/)  is a serverless solution that allows you to build robust apps while using less code, and with less infrastructure and lower costs. Instead of worrying about deploying and maintaining servers, you can use the cloud infrastructure to provide all the up-to-date resources needed to keep your applications running.
+[Azure Functions](/azure/azure-functions/) is a serverless compute service that enables you to integrate code execution into your Azure services with less code and using popular development tools. Instead of worrying about deploying and maintaining servers, you can spend time developing your applications.
 
 ## List
 
-Lists all Azure Function Apps in a subscription.
+Lists all function apps in an Azure subscription.
 
 
 Example prompts include:
 
-- **List function apps**: "List all Azure Function Apps in my subscription."
+- **List function apps**: "List all function apps in my subscription."
 - **Show function apps**: "What function apps do I have?"
 - **Find function apps in a group**: "Show me all function apps in resource group 'devops-resources'."
 - **Filter by resource group**: "List function apps in the resource group 'production-resources'."
-- **Query function apps**: "Can you list all my Azure Function Apps?"
+- **Query function apps**: "Can you list all my function apps?"
 - **Check function apps**: "Function apps in subscription abc123."
 
