@@ -451,13 +451,13 @@
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.4.1](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.1) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.5.5](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.5) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.6) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
@@ -540,7 +540,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250813.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250813.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250815.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250815.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
