@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Storage.
 keywords: azure mcp server, azmcp, storage account, blob storage
 author: diberry
 ms.author: diberry
-ms.date: 08/12/2025
+ms.date: 08/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -42,6 +42,25 @@ Example prompts include:
 | **Require secure transfer (HTTPS)** | Optional | Whether to require secure transfer (HTTPS) for the storage account. |
 | **Allow public access to blobs** | Optional | Whether to allow public access to blobs in the storage account. |
 | **Enable hierarchical namespace (Data Lake)** | Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
+
+## Account: get details
+
+Get detailed information about a specific Azure Storage account. This command retrieves comprehensive
+metadata for the specified storage account including name, location, SKU, access settings, and configuration
+details. 
+
+Example prompts include:
+
+- **Get account details**: "Show me details for the storage account 'mystorageaccount'."
+- **Account info**: "Get information about my 'datastore2025' storage account."
+- **View account configuration**: "What are the settings for storage account 'mydata'?"
+- **Check account properties**: "Check the properties of 'securestore' storage account."
+- **Account metadata**: "Show metadata for my storage account 'datalakeacct'."
+
+
+| Parameter | Type | Required or optional | Description |
+|-----------|------|----------|-------------|
+| `Account` | Yes | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 
 
 ## Account: list 
