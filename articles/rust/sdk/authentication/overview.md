@@ -36,7 +36,7 @@ The Azure CLI credential uses the authentication state of the Azure CLI to authe
 
 ```rust
 use azure_identity::AzureCliCredential;
-use azure_security_keyvault_secrets::{SecretClient, SecretClientOptions};
+use azure_security_keyvault_secrets::SecretClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
