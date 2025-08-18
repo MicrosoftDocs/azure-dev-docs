@@ -33,6 +33,9 @@ To install and configure Azure MCP Server in Cursor:
 1. Navigate to **File > Preferences > Cursor Settings**
 1. Select **Tools & Integrations** from the left navigation.
 1. In the **MCP Tools** section of the page, select **New MCP Server** to open the `mcp.json` file for editing.
+
+    :::image type="content" source="../../media/cursor-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in Cursor.":::
+
 1. Add the following configuration to the `mcpServers` JSON object:
 
     ```json
@@ -46,8 +49,6 @@ To install and configure Azure MCP Server in Cursor:
       ]
     }
     ```
-
-    :::image type="content" source="../../media/cursor-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in Cursor.":::
 
 ## Use prompts to test the Azure MCP Server
 

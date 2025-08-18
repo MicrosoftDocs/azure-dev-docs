@@ -9,7 +9,7 @@ items:
       items:
         - name: Get started with Azure MCP Server
           href: get-started.md
-        - name: Tools
+        - name: Code editors and tools
           expanded: true
           items:
           - name: Visual Studio Code
