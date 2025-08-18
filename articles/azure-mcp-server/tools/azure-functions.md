@@ -11,6 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
+
 # Azure Functions tools for the Azure MCP Server
 
 The Azure MCP Server allows you to manage Azure resources, including function apps, using natural language prompts. This allows you to quickly list your apps without remembering complex syntax.
@@ -20,7 +21,6 @@ The Azure MCP Server allows you to manage Azure resources, including function ap
 ## List
 
 Lists all function apps in an Azure subscription.
-
 
 Example prompts include:
 

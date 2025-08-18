@@ -11,6 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 --- 
+
 # Azure Storage tools for the Azure MCP Server
 
 The Azure MCP Server enables you to manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts. You don't need to remember specific command syntax.
@@ -19,8 +20,7 @@ The Azure MCP Server enables you to manage Azure Storage resources, including st
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-
-## Account: create
+## Account: Create
 
 Create a new Azure Storage account.
 
@@ -43,11 +43,9 @@ Example prompts include:
 | **Allow public access to blobs** | Optional | Whether to allow public access to blobs in the storage account. |
 | **Enable hierarchical namespace (Data Lake)** | Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 
-## Account: get details
+## Account: Get details
 
-Get detailed information about a specific Azure Storage account. This functionality retrieves comprehensive
-metadata for the specified storage account including name, location, SKU, access settings, and configuration
-details. 
+Get detailed information about a specific Azure Storage account. This functionality retrieves comprehensive metadata for the specified storage account including name, location, SKU, access settings, and configuration details. 
 
 Example prompts include:
 
@@ -63,7 +61,7 @@ Example prompts include:
 | `Account` | Yes | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 
 
-## Account: list 
+## Account: List 
 
 The Azure MCP Server can list all storage accounts in a subscription. This functionality provides an overview of your storage infrastructure.
 
@@ -75,7 +73,7 @@ Example prompts include:
 - **Query accounts**: "Show all my storage resources."
 - **Check accounts**: "Storage accounts in subscription abc123."
 
-## Blob: set blob access tier in a batch
+## Blob: Set blob access tier in a batch
 
 Azure MCP Server can set the access tier for multiple blobs in a single batch operation. This functionality efficiently changes the storage tier for multiple blobs simultaneously to optimize storage costs and access patterns based on your data usage needs.
 
@@ -95,7 +93,7 @@ Example prompts include:
 | **Blob names** | Required | The names of the blobs to set the access tier for. Provide multiple blob names separated by spaces. Each blob name should be the full path within the container (for example, 'file1.txt' or 'folder/file2.txt'). |
 
 
-## Blob: create container
+## Blob: Create container
 
 Create a blob container with optional blob public access.
 
@@ -116,7 +114,7 @@ Example prompts include:
 | **Access level** | Optional | The [access tier](/azure/storage/blobs/access-tiers-overview). Default: `private`. Valid values: `private`, `blob` (allows public read access to blobs), `container` (allows public read access to both blobs and container metadata).  |
 
 
-## Blob: get container details
+## Blob: Get container details
 
 The Azure MCP Server shows detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
 
@@ -133,7 +131,7 @@ Example prompts include:
 | **Container** | Required | The name of the container to access. |
 
 
-## Blob: list containers
+## Blob: List containers
 
 The Azure MCP Server can list all blob containers in a storage account. This functionality helps you organize and manage your blob data.
 
@@ -148,7 +146,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Account** | Required | The name of the Azure Storage account. |
 
-## Blob: list container blobs
+## Blob: List container blobs
 
 The Azure MCP Server can list all blobs in a container. This feature helps you manage the files stored in your blob storage.
 
@@ -165,7 +163,7 @@ Example prompts include:
 | **Account** | Required | The name of the Azure Storage account. |
 | **Container** | Required | The name of the container to access. |
 
-## Blob: get blob details
+## Blob: Get blob details
 
 Get blob properties, metadata, and general information. 
 
@@ -181,7 +179,7 @@ Example prompts include:
 | **Container** | Required | The name of the container to access within the storage account. |
 | **Blob** | Required | The name of the blob to access within the container. This name includes the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 
-## Datalake: create directory
+## Datalake: Create directory
 
 The Azure MCP Server can create directories in a Data Lake file system. This functionality helps you organize your hierarchical data structure in Azure Data Lake Storage by creating new folder paths as needed.
 
@@ -198,7 +196,7 @@ Example prompts include:
 | **Directory path** | Required | The full path of the directory to create in the Data Lake, including the file system name (for example, 'myfilesystem/data/logs' or 'myfilesystem/archives/2024'). Use forward slashes (/) to separate the file system name from the directory path and for subdirectories. |
 | **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 
-## Datalake: list file system paths
+## Datalake: List file system paths
 
 The Azure MCP Server can list all paths (files and directories) in a Data Lake file system. This functionality helps you explore and manage your hierarchical data stored in Azure Data Lake Storage.
 
@@ -218,7 +216,7 @@ Example prompts include:
 | **Recursive** | Optional | Flag to indicate whether the command operates recursively on all subdirectories. |
 
 
-## Queue: send message
+## Queue: Send message
 
 Send messages to an Azure Storage queue for asynchronous processing.
 
@@ -237,7 +235,7 @@ Example prompts include:
 | **Visibility timeout (seconds)** | Optional | The visibility timeout for the message in seconds. This value determines how long the message is invisible after it's retrieved. If you don't specify this value, it defaults to 0 (immediately visible). |
 
 
-## Share: list files
+## Share: List files
 
 The Azure MCP Server can list files and directories within a file share directory. This functionality recursively lists all items in a specified file share directory, including files, subdirectories, and their properties. You can filter files and directories by a prefix.
 
@@ -256,7 +254,7 @@ Example prompts include:
 | **Directory path** | Required | The path of the directory to list within the file share (for example, 'documents/projects' or 'uploads/2024'). Use forward slashes (/) to separate subdirectories. |
 | **Prefix** | Optional | Optional prefix to filter results. Only items that start with this prefix are returned. |
 
-## Table: list tables
+## Table: List tables
 
 The Azure MCP Server can list all tables in a storage account. This functionality helps you manage your structured NoSQL data.
 
