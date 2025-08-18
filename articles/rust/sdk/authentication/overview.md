@@ -50,7 +50,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let client = SecretClient::new(
         key_vault_name.as_str(),
-        credential,
+        credential.clone(),
         Some(key_vault_options),
     )?;
 
