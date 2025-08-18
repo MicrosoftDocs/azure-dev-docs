@@ -1,7 +1,7 @@
 ---
-title: Azure Cache for Redis Tools for Azure MCP Server
-description: Learn how to manage Azure Cache for Redis instances using the Azure MCP Server with natural language prompts. Discover tools for Redis clusters, databases, caches, and access policies.
-keywords: azure mcp server, azmcp, cache for redis, redis cache, redis cluster, redis enterprise
+title: Azure Redis Tools for Azure MCP Server
+description: Learn how to manage Azure Redis instances using the Azure MCP Server with natural language prompts. Discover tools for Redis clusters, databases, caches, and access policies.
+keywords: azure mcp server, azmcp, managed redis, cache for redis, redis cache, redis cluster, redis enterprise
 author: diberry
 ms.author: diberry
 ms.date: 07/01/2025
@@ -11,19 +11,19 @@ ai-usage: ai-assisted
 ms.custom: build-2025
 ---
 
-# Azure Cache for Redis tools for Azure MCP Server
+# Azure Redis tools for Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Cache for Redis instances using natural language prompts. You can quickly manage Redis caches, clusters, databases, and access policies without remembering complex syntax or commands.
+The Azure MCP Server allows you to manage Azure Redis instances using natural language prompts. You can quickly manage Redis caches, clusters, databases, and access policies without remembering complex syntax or commands.
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) provides an in-memory data store based on the Redis software. Redis improves the performance and scalability of applications that use backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in server memory, which can be written to and read from quickly.
+[Azure Redis](/azure/redis) provides an in-memory data store based on the Redis software. Redis improves the performance and scalability of applications that use backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in server memory, which can be written to and read from quickly.
 
-Azure Cache for Redis offers both Redis open-source (OSS Redis) and Redis Enterprise as managed services. The service supports multiple tiers including Basic, Standard, Premium, Enterprise, and Enterprise Flash, each offering different levels of performance, features, and availability.
+The Azure Redis tools support both [Azure Managed Redis](/azure/redis/overview) and [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List Redis clusters
 
-The Azure MCP Server can list Redis clusters in Azure Cache for Redis Enterprise services. This allows you to view all your Redis Enterprise clusters across your subscription.
+The Azure MCP Server can list Redis clusters in Azure Redis services. This allows you to view all your Redis clusters across your subscription.
 
 Example prompts include:
 
@@ -57,15 +57,15 @@ Example prompts include:
 
 ## List Redis caches
 
-The Azure MCP Server can list Redis caches in the Azure Cache for Redis service. This includes Basic, Standard, and Premium tier caches that provide traditional Redis functionality.
+The Azure MCP Server can list Redis caches in the Azure Redis service. This includes Basic, Standard, and Premium tier caches that provide traditional Redis functionality.
 
 Example prompts include:
 
 - **List caches:** "Show me all Redis caches in my subscription."
-- **Find caches:** "What Azure Cache for Redis instances do I have?"
+- **Find caches:** "What Azure Redis instances do I have?"
 - **View cache inventory:** "List all my Redis caches"
 - **Check cache status:** "Show Redis caches in subscription abc123"
-- **Query caches:** "Get all my Azure Cache for Redis instances"
+- **Query caches:** "Get all my Azure Redis instances"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
@@ -73,7 +73,7 @@ Example prompts include:
 
 ## List cache access policies
 
-The Azure MCP Server can list access policy assignments in an Azure Redis cache. Azure Cache for Redis provides role-based access control (RBAC) to manage user permissions and enforce authentication and authorization rules.
+The Azure MCP Server can list access policy assignments in an Azure Redis cache. Azure Redis provides role-based access control (RBAC) to manage user permissions and enforce authentication and authorization rules.
 
 Example prompts include:
 
@@ -93,4 +93,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/)
+- [Azure Redis](/azure/redis/)

@@ -4,8 +4,8 @@
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
 %% 2. Run commands:
-%%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-inline.svg
-%%    mmdc -i default-azure-credential-auth-flow.md -o ../media/mermaidjs/default-azure-credential-auth-flow-expanded.png -w 1156
+%%    mmdc -i default-azure-credential-authentication-flow.md -o ../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg
+%%    mmdc -i default-azure-credential-authentication-flow.md -o ../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png -w 1156
 
 %%{
   init: {
@@ -25,7 +25,7 @@ flowchart LR;
 
     subgraph CREDENTIALS;
         direction LR;
-        A(Environment):::deployed --> B(Workload Identity):::deployed --> C(Managed Identity):::deployed --> D(Azure CLI):::developer --> E(Azure PowerShell):::developer --> F(Azure Developer CLI):::developer;
+        A(Environment):::deployed --> B(Workload Identity):::deployed --> C(Managed Identity):::deployed --> D(Visual Studio Code):::developer --> E(Azure CLI):::developer --> F(Azure PowerShell):::developer --> G(Azure Developer CLI):::developer --> H(Broker):::developer;
     end;
 
     %% Define styles for credential type boxes
@@ -36,7 +36,8 @@ flowchart LR;
     click A "https://learn.microsoft.com/javascript/api/@azure/identity/environmentcredential?view=azure-node-latest" _blank;
     click B "https://learn.microsoft.com/javascript/api/@azure/identity/workloadidentitycredential?view=azure-node-latest" _blank;
     click C "https://learn.microsoft.com/javascript/api/@azure/identity/managedidentitycredential?view=azure-node-latest" _blank;
-    click D "https://learn.microsoft.com/javascript/api/@azure/identity/azureclicredential?view=azure-node-latest" _blank;
-    click E "https://learn.microsoft.com/javascript/api/@azure/identity/azurepowershellcredential?view=azure-node-latest" _blank;
-    click F "https://learn.microsoft.com/javascript/api/@azure/identity/azuredeveloperclicredential?view=azure-node-latest" _blank;
+    click D "https://learn.microsoft.com/javascript/api/@azure/identity/visualstudiocodecredential?view=azure-node-latest" _blank;
+    click E "https://learn.microsoft.com/javascript/api/@azure/identity/azureclicredential?view=azure-node-latest" _blank;
+    click F "https://learn.microsoft.com/javascript/api/@azure/identity/azurepowershellcredential?view=azure-node-latest" _blank;
+    click G "https://learn.microsoft.com/javascript/api/@azure/identity/azuredeveloperclicredential?view=azure-node-latest" _blank;
 ```

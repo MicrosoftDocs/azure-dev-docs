@@ -18,12 +18,19 @@ landingContent:
         links:
           - text: What is Azure for Rust developers?
             url: what-is-azure-for-rust-developers.md
+
+      - linkListType: get-started
+        links:
+          - text: Configure your local Rust environment for Azure
+            url: developer-environment.md
+
       - linkListType: overview
         links:
           - text: Azure SDK for Rust
             url: sdk/overview.md
           - text: Authentication
             url: sdk/authentication/overview.md
+  
 
   - title: Azure libraries (SDK)
     linkLists:

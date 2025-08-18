@@ -105,7 +105,7 @@ These crates offer an idiomatic Rust API following the [Azure SDK Guidelines](ht
 - Cancellation support
 - Full async/await support
 
-Run your Rust code anywhere—locally, in hybrid environments, or in the cloud—while interacting with Azure services through the SDK.
+Run your Rust code anywhere: locally, in hybrid environments, or in the cloud—while interacting with Azure services through the SDK.
 
 ## Deploy Rust apps to Azure
 
