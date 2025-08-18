@@ -51,7 +51,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = SecretClient::new(
         key_vault_name.as_str(),
         credential.clone(),
-        None,
+        None
     )?;
 
     Ok(())
@@ -79,7 +79,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = SecretClient::new(
         key_vault_name.as_str(),
         credential,
-        None,
+        None
     )?;
 
     Ok(())
@@ -126,7 +126,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
      let client = SecretClient::new(
         key_vault_name.as_str(),
         credential,
-        None,
+        None
     )?;
 
     Ok(())
