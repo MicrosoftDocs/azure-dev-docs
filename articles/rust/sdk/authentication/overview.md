@@ -117,7 +117,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Set up authentication 
     let credential_options = ManagedIdentityCredentialOptions {
         user_assigned_id,
-        credential_options: Default::default()
+        ..Default::default()
     };
 
     let credential = ManagedIdentityCredential::new(Some(credential_options))?;
