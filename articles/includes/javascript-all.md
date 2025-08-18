@@ -402,7 +402,7 @@
 | Resource Management - Workloads SAP Virtual Instance | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-workloadssapvirtualinstance/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-workloadssapvirtualinstance-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0/sdk/workloads/arm-workloadssapvirtualinstance/) |
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.11.7](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.7) |  |  |
+| @autorest/openapi-to-typespec | npm [0.11.9](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.9) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.2) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -410,7 +410,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.20.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.59.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.59.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.59.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.59.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.28.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.28.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.28.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.28.1) |  |  |
 | @azure-tools/typespec-go | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
