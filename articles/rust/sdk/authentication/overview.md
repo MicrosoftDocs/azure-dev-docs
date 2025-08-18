@@ -46,8 +46,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let credential = AzureCliCredential::new(None)?;
 
-    let key_vault_options = SecretClientOptions::default();
-
     let client = SecretClient::new(
         key_vault_name.as_str(),
         credential.clone(),
@@ -64,7 +62,7 @@ The Azure Developer CLI credential uses the authentication state of the Azure De
 
 ```rust
 use azure_identity::AzureDeveloperCliCredential;
-use azure_security_keyvault_secrets::{SecretClient, SecretClientOptions};
+use azure_security_keyvault_secrets::SecretClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -74,11 +72,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let credential = AzureDeveloperCliCredential::new(None)?;
 
-    let key_vault_options = SecretClientOptions::default();
-
     let client = SecretClient::new(
         key_vault_name.as_str(),
-        credential,
+        credential.clone(),
         None
     )?;
 
@@ -98,10 +94,7 @@ use azure_identity::{
     ManagedIdentityCredentialOptions,
     UserAssignedId
 };
-use azure_security_keyvault_secrets::{
-    SecretClient, 
-    SecretClientOptions
-};
+use azure_security_keyvault_secrets::SecretClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -125,8 +118,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Create a Key Vault client for secrets
      let client = SecretClient::new(
         key_vault_name.as_str(),
-        credential,
-        None
+        credential.clone(),
+       None
     )?;
 
     Ok(())
