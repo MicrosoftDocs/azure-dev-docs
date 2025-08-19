@@ -306,7 +306,7 @@ authorization-clients:
 
 [Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see **application.yml**.
 
-By default, the application sets the scopes value to `https://graph.microsoft.com/User.Read`. The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me). Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
+By default, the application sets the scopes value to `https://graph.microsoft.com/User.Read`. The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request). Valid requests to the [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request) must contain the `User.Read` scope.
 
 When a user signs in, Microsoft Entra ID presents a consent dialogue to the user based on the scopes requested by the application. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting access token.
 
