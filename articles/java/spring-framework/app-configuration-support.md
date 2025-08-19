@@ -172,7 +172,7 @@ The `label-filter` property supports the following filters:
 | `1.0.*`  | Matches labels that start with `1.0.*`.                                     |
 | `,1.0.0` | Matches labels `null` and `1.0.0`. Limited to five comma-separated values.  |
 
-If you're using YAML with label filters, and you need to start with `,`, then the label filter needs to be surrounded by single quotes, in order to load configuration with no label, then others in the same filter:
+If you're using YAML with label filters, and you need to start with `,`, then the label filter needs to be surrounded by single quotes. This allows you to load configuration with no label first, followed by configurations with specific labels in the same filter:
 
 ```yml
 spring:
@@ -215,13 +215,13 @@ The library supports all forms of identity supported by the [Azure Identity Libr
 
 ### Connection string
 
-Authentication through connection string is the simplest form to set up, though it it isn't suggested. You can access a store's connection strings by using the following command:
+Authentication through connection string is the simplest form to set up, though it isn't suggested. You can access a store's connection strings by using the following command:
 
 ```azurecli
 az appconfig credential list --name <name-of-your-store>
 ```
 
-You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-string` property to the connection string. If it's being used, it's highly recommend setting the connection string in the local configuration file to a placeholder value that maps to an environment variable. This approach enables you to avoid adding the connection string to source control.
+You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-string` property to the connection string. When using this approach, it's highly recommend to set the connection string in the local configuration file to a placeholder value that maps to an environment variable. This approach enables you to avoid adding the connection string to source control.
 
 ### Spring Cloud Azure configuration
 
@@ -253,7 +253,7 @@ The library supports the geo-replication feature of Azure App Configuration. Thi
 
 Each replica you create has a dedicated endpoint. If your application resides in multiple geolocations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Because each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
-By default, the library auto discovers all replicas that exist for a configuration store. When a request is made to the provided store and fails, the library will automatically retry the request against the available replicas.
+By default, the library auto discovers all replicas that exist for a configuration store. When a request is made to the provided store and fails, the library automatically retries the request against the available replicas.
 
 The failover may occur if the library observes any of the following conditions:
 
@@ -261,7 +261,7 @@ The failover may occur if the library observes any of the following conditions:
 - Experiences network connectivity issues.
 - Requests are throttled (HTTP status code 429).
 
-Once the provided store comes back online, the library will automatically retry the request against the provided store.
+Once the provided store comes back online, the library automatically retries the request against the provided store.
 
 If you want to control the failover behavior, you can manually provide a list of stores to use for failover.
 
@@ -277,9 +277,9 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]=[your primar
 spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]=[your replica store connection string]
 ```
 
-If all provided replica endpoints fail, the library will attempt to connect to auto discovered replicas of the primary store.
+If all provided replica endpoints fail, the library attempts to connect to auto discovered replicas of the primary store.
 
-This can be disabled by the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
+This can be disabled with the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
 
 ### Creating a configuration store with geo-replication
 
@@ -298,7 +298,7 @@ Azure App Configuration supports multiple types of key values, some of which hav
 The library supports configurations with `${}`-style environment placeholders. When referencing an Azure App Configuration key with a placeholder, remove prefixes from the reference. For example, `/application/config.message` is referenced as `${config.message}`.
 
 > [!NOTE]
-> The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`, this can be changed by setting a value for `spring.cloud.azure.appconfiguration.stores[0].trim-key-prefix[0]`.
+> The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`. This can be changed by setting a value for `spring.cloud.azure.appconfiguration.stores[0].trim-key-prefix[0]`.
 
 ### JSON
 
