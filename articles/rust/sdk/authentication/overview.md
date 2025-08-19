@@ -34,53 +34,13 @@ Use the following Azure SDK crate:
 
 The Azure CLI credential uses the authentication state of the Azure CLI to authenticate your Rust application. This credential is ideal for local development when you're already signed in with `az login`.
 
-```rust
-use azure_identity::AzureCliCredential;
-use azure_security_keyvault_secrets::SecretClient;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-
-    let key_vault_name = std::env::var("AZURE_KEYVAULT_NAME")
-        .map_err(|_| "AZURE_KEYVAULT_NAME environment variable is required")?;
-
-    let credential = AzureCliCredential::new(None)?;
-
-    let client = SecretClient::new(
-        key_vault_name.as_str(),
-        credential.clone(),
-        None
-    )?;
-
-    Ok(())
-}
-```
+:::code language="rust" source="~/azure-sdk-for-rust-docs/examples/authenticate_azure_cli.rs":::
 
 ### Authenticate with Azure Developer CLI credential
 
 The Azure Developer CLI credential uses the authentication state of the Azure Developer CLI (`azd`) to authenticate your application. This credential is useful when working with azd templates and workflows.
 
-```rust
-use azure_identity::AzureDeveloperCliCredential;
-use azure_security_keyvault_secrets::SecretClient;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-
-    let key_vault_name = std::env::var("AZURE_KEYVAULT_NAME")
-        .map_err(|_| "AZURE_KEYVAULT_NAME environment variable is required")?;
-
-    let credential = AzureDeveloperCliCredential::new(None)?;
-
-    let client = SecretClient::new(
-        key_vault_name.as_str(),
-        credential.clone(),
-        None
-    )?;
-
-    Ok(())
-}
-```
+:::code language="rust" source="~/azure-sdk-for-rust-docs/examples/authenticate_azure_developer_cli.rs":::
 
 ## Authenticate in server environments
 
@@ -88,40 +48,4 @@ In server environments, use **managed identities** for secure, passwordless auth
 
 When hosting in a server environment, assign a unique application identity to each application for each environment. In Azure, an app identity is represented by a service principal, a special type of security principal that identifies and authenticates apps to Azure. The type of service principal you use for your app depends on where your app runs.
 
-```rust
-use azure_identity::{
-    ManagedIdentityCredential,
-    ManagedIdentityCredentialOptions,
-    UserAssignedId
-};
-use azure_security_keyvault_secrets::SecretClient;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-
-    // Get environment variables
-    let key_vault_name = std::env::var("AZURE_KEYVAULT_NAME")
-        .map_err(|_| "AZURE_KEYVAULT_NAME environment variable is required")?;
-
-    let user_assigned_id: Option<UserAssignedId> = std::env::var("AZURE_USER_ASSIGNED_IDENTITY")
-        .ok()
-        .map(|id| UserAssignedId::ClientId(id.clone()));
-
-    // Set up authentication 
-    let credential_options = ManagedIdentityCredentialOptions {
-        user_assigned_id,
-        ..Default::default()
-    };
-
-    let credential = ManagedIdentityCredential::new(Some(credential_options))?;
-
-    // Create a Key Vault client for secrets
-     let client = SecretClient::new(
-        key_vault_name.as_str(),
-        credential.clone(),
-       None
-    )?;
-
-    Ok(())
-}
-```
+:::code language="rust" source="~/azure-sdk-for-rust-docs/examples/authenticate_server.rs":::
