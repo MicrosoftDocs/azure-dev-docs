@@ -16,9 +16,9 @@ This part of the Java on Azure developer center provides links to many resources
 
 If you're new to Java or to particular subjects within Java, take a look at the [Java learning path](fundamentals.md). This learning path provides a list of resources ranging from basic to advanced subjects, and ending with some initial Java on Azure articles.
 
-## Books, cheat sheets, and certifications
+## Books and certifications
 
-To supplement these resources, you might consider reading some books or consulting cheat sheets for quick reference. For more information, see [Books for Java developers](books.md) and [Cheat sheets for Java developers](cheat-sheets.md).
+To supplement these resources, you might consider reading some books. For more information, see [Books for Java developers](books.md).
 
  If you're already an expert on Java development, or when you become one, consider getting some [Java certifications](certifications.md).
 
@@ -30,7 +30,7 @@ To understand the practical usage of Java on Azure, see our [samples](samples.md
 
 ## Migrate to Azure
 
-If you're thinking about migrating existing resources to Azure, see [Migrate Java applications to Azure](../migration/migration-overview.md). You can also get help with your migration. For more information, see [Get Java help from Microsoft](get-help.md).
+If you're thinking about migrating existing resources to Azure, see [Migrate Java applications to Azure](../migration/migration-overview.md).
 
 ## Related technologies
 
