@@ -1,7 +1,8 @@
 ---
 title: Use Spring Data JDBC with Azure SQL Database
 description: Learn how to use Spring Data JDBC with an Azure SQL Database.
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal

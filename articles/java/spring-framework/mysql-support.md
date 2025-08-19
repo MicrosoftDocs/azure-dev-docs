@@ -1,7 +1,8 @@
 ---
 title: Spring Cloud Azure MySQL support
 description: This article describes how Spring Cloud Azure and Azure MySQL can be used together.
-ms.date: 04/06/2023
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal

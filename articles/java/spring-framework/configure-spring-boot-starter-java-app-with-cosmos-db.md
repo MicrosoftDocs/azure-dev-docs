@@ -4,7 +4,8 @@ description: Learn how to configure an application created with the Spring Boot 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 01/18/2023
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: how-to
 ms.custom:
   - devx-track-java

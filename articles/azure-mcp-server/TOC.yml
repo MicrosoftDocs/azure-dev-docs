@@ -33,6 +33,8 @@ items:
           href: tools/postgresql.md
         - name: Azure Developer CLI
           href: tools/azure-developer-cli.md
+        - name: Azure Functions
+          href: tools/azure-functions.md
         - name: Azure Foundry
           href: tools/azure-foundry.md
         - name: Azure Managed Grafana
