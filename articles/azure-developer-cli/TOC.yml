@@ -57,7 +57,7 @@
       items:
       - name: Overview
         href: extensions/overview.md
-      - name: Quickstart - Use the AI extension
+      - name: Quickstart - Use the demo extension
         href: extensions/quickstart-ai-extension.md
   - name: Deployment and operations
     items:
