@@ -20,6 +20,8 @@ items:
             href: get-started/tools/cursor.md
           - name: Windsurf
             href: get-started/tools/windsurf.md
+          - name: IntelliJ
+            href: get-started/tools/windsurf.md
         - name: Languages and frameworks
           expanded: true
           items:
