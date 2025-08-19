@@ -28,7 +28,7 @@ Azure MCP Server works with AI-powered code editors that support the Model Conte
 
 ## Languages & frameworks
 
-Azure MCP Server supports programmatic access through popular programming languages and frameworks.
+You can also connect to Azure MCP Server using programming languages and frameworks. This documentation currently provides guidance and examples for Python and .NET.
 
 ### Python
 
