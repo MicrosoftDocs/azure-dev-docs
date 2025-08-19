@@ -40,7 +40,7 @@ The Azure CLI credential uses the authentication state of the Azure CLI to authe
 
 The Azure Developer CLI credential uses the authentication state of the Azure Developer CLI (`azd`) to authenticate your application. This credential is useful when working with azd templates and workflows.
 
-:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_azure_developer_cli.rs":::
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_azure_dev_cli.rs":::
 
 ## Authenticate in server environments
 
