@@ -1,6 +1,6 @@
 ---
-title: How to Authenticate Rust Apps with Azure Services Using Azure Identity
-description: Authenticate Rust applications with Azure services using the Azure Identity crate. Learn recommended approaches for local development and managed identities.
+title: Authenticate Rust Apps with Azure Services Using Azure Identity
+description: Authenticate Rust applications with Azure services using the Azure Identity crate. Discover secure approaches for local development and managed identities. Start integrating with Azure today.
 ms.date: 08/13/2025
 ms.topic: overview
 ms.custom:
