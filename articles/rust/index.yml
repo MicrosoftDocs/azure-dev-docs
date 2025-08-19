@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: Azure SDK for Rust
             url: sdk/overview.md
+          - text: Installation
+            url: sdk/installation.md
           - text: Authentication
             url: sdk/authentication/overview.md
   
