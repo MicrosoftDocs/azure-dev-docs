@@ -1,7 +1,8 @@
 ---
 title: Spring Cloud Stream support
 description: This article describes how Spring Cloud Azure and Spring Cloud Stream can be used together.
-ms.date: 04/06/2023
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal

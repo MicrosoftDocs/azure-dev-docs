@@ -1,7 +1,8 @@
 ---
 title: Spring Boot Starter for Microsoft Entra developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Microsoft Entra starter.
-ms.date: 04/06/2023
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: how-to
 author: KarlErickson
 ms.author: karler

@@ -4,7 +4,8 @@ description: This article demonstrates how to use Spring Cloud Stream Binder to 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
