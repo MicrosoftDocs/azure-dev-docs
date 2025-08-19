@@ -4,7 +4,8 @@ description: This developer guide walks you through using Spring Cloud Azure App
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: tutorial
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.

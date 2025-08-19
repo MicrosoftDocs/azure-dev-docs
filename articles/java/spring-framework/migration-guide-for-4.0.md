@@ -4,7 +4,8 @@ description: Helps with migration to Spring Cloud Azure 4.0 from legacy Azure Sp
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 04/06/2023
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

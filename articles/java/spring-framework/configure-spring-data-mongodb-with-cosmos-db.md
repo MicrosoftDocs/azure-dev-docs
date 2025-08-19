@@ -1,7 +1,8 @@
 ---
 title: Use Spring Data with Azure Cosmos DB for MongoDB API
 description: Learn how to use Spring Data MongoDB API with Azure Cosmos DB.
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
