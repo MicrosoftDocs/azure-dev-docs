@@ -4,7 +4,8 @@ description: Describes how to deploy applications to Azure hosting services
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 05/15/2025 
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-java, spring-cloud-azure
 appliesto:

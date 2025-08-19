@@ -4,7 +4,8 @@ description: Learn how to use Spring Data with Azure Cosmos DB for Apache Cassan
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
+ms.date: 08/19/2025
+ms.update-cycle: 365-days
 ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
