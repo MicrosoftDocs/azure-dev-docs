@@ -35,7 +35,7 @@ Example prompts include:
 - **Query registries**: "Can you list all my Azure Container Registries?"
 - **Check registries**: "Container registries in subscription abc123"
 
-## Registry: list registries in account
+## Registry: list repositories in registry
 
 List repositories in Azure Container Registries. By default, lists repositories for all registries in the subscription.
 

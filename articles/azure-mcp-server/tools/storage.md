@@ -181,7 +181,6 @@ Example prompts include:
 
 ## Blob: Upload
 
-<!-- `azmcp storage blob upload` -->
 
 Uploads a local file to a blob in Azure Storage with the option to overwrite if the blob if it already exists. 
 
