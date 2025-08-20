@@ -8,7 +8,7 @@ ms.reviewer: xiading
 ms.topic: quickstart
 ms.date: 06/30/2025
 ms.custom: devx-track-java
-ms.service: azure-java
+ms.subservice: migration-copilot
 ---
 
 # Quickstart: create and apply your own tasks for GitHub Copilot App Modernization for Java
