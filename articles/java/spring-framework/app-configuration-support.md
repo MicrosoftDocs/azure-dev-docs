@@ -144,7 +144,7 @@ In this example, if both the stores have the same configuration key, then the co
 
 ### Selecting configurations
 
-The library loads configurations using their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profiles which is `${spring.profiles.active}`.
+The library loads configurations using their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profile, which is `${spring.profiles.active}`.
 
 You can configure which configurations are loaded by selecting different key and label filters:
 
@@ -172,7 +172,7 @@ The `label-filter` property supports the following filters:
 | `1.0.*`  | Matches labels that start with `1.0.*`.                                     |
 | `,1.0.0` | Matches labels `null` and `1.0.0`. Limited to five comma-separated values.  |
 
-If you're using YAML with label filters, and you want to load configuration with no label and more configurations with other labels you need to include an empty `,` for example `,dev` will match `\0` and `dev`, then the label filter needs to be surrounded by single quotes. This allows you to load configuration with no label first, followed by configurations with specific labels in the same filter:
+If you're using YAML with label filters, and you want to load configurations with no label and more configurations with other labels, you need to include an empty `,`. For example, `,dev` matches `\0` and `dev`. In this case, surround the label filter with single quotes. This value enables you to load configuration with no label first, followed by configurations with specific labels, in the same filter:
 
 ```yml
 spring:
@@ -186,9 +186,8 @@ spring:
 
 > [!NOTE]
 > You can't combine `*` with `,` in filters. In that case, you need to use an additional select value.
-
-> [!NOTE]
-> When using `*` in the label filter, and multiple configurations with the same key are loaded, they are loaded in alphabetical order, and the label last in alphabetical order is used.
+>
+> When you use `*` in the label filter, and multiple configurations with the same key are loaded, they're loaded in alphabetical order, and the label last in alphabetical order is used.
 
 ### Spring Profiles
 
@@ -201,7 +200,7 @@ spring.cloud.azure.appconfiguration.stores[0].selects[1].label-filter=${spring.p
 
 In the first `label-filter`, the library first loads all configurations with the `\0` label, followed by all configurations matching the Spring Profiles. Spring Profiles have priority over the `\0` configurations, because they're at the end.
 
-In the second `label-filter`, the string `_local` is appended to the end of the Spring Profiles, though only to the last Spring Profile if there is more than one.
+In the second `label-filter`, the string `_local` is appended to the end of the Spring Profiles, though only to the last Spring Profile if there's more than one.
 
 ### Disabled stores
 
@@ -221,7 +220,7 @@ Authentication through connection string is the simplest form to set up, though 
 az appconfig credential list --name <name-of-your-store>
 ```
 
-You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-string` property to the connection string. When using this approach, it's highly recommend to set the connection string in the local configuration file to a placeholder value that maps to an environment variable. This approach enables you to avoid adding the connection string to source control.
+You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-string` property to the connection string. When using this approach, we highly recommend setting the connection string in the local configuration file to a placeholder value that maps to an environment variable. This approach enables you to avoid adding the connection string to source control.
 
 ### Spring Cloud Azure configuration
 
@@ -255,13 +254,13 @@ Each replica you create has a dedicated endpoint. If your application resides in
 
 By default, the library auto discovers all replicas that exist for a configuration store. When a request is made to the provided store and fails, the library automatically retries the request against the available replicas.
 
-The failover may occur if the library observes any of the following conditions:
+The failover might occur if the library observes any of the following conditions:
 
 - Receives responses with service unavailable status code (HTTP 500 or above) from an endpoint.
 - Experiences network connectivity issues.
 - Requests are throttled (HTTP status code 429).
 
-Once the provided store comes back online, the library automatically retries the request against the provided store.
+After the provided store comes back online, the library automatically retries the request against the provided store.
 
 If you want to control the failover behavior, you can manually provide a list of stores to use for failover.
 
@@ -279,7 +278,7 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]=[your replic
 
 If all provided replica endpoints fail, the library attempts to connect to auto discovered replicas of the primary store.
 
-Replication can be disabled with the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
+You can disable replication with the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
 
 ### Creating a configuration store with geo-replication
 
@@ -357,11 +356,11 @@ You can create any secret-identifier through the Azure CLI. Secret identifiers j
 
 You can use [Spring Cloud Azure configuration](configuration.md) to configure the library. You can use the same credential used to connect to App Configuration to connect to Azure Key Vault.
 
-In addition, you can create a `SecretClientCustomizer` the same way as you would create a `ConfigurationClientCustomizer` to provide your own authentication method.
+You can also create a `SecretClientCustomizer` the same way as you would create a `ConfigurationClientCustomizer` to provide your own authentication method.
 
 #### Resolve non-Key Vault secrets
 
-The App Configuration library provides a method to override the resolution of key vault references. For example, it can be used to locally resolve secrets in a dev environment. This resolution is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider` if provided is called on every key vault reference. If `getSecret` returns a non-null value, it is used as the secret value. Otherwise, the Key Vault Reference is resolved normally.
+The App Configuration library provides a method to override the resolution of key vault references. For example, you can use it to locally resolve secrets in a dev environment. This resolution is done through the `KeyVaultSecretProvider`. The `KeyVaultSecretProvider`, if provided, is called on every key vault reference. If `getSecret` returns a non-null value, it's used as the secret value. Otherwise, the Key Vault Reference is resolved normally.
 
 ```java
 public class MySecretProvider implements KeyVaultSecretProvider {
@@ -404,7 +403,7 @@ spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-fil
 
 #### Feature flags
 
-Feature flags are composed of multiple parts including; a name and a list of feature-filters that are used to turn on the feature. Feature flags can either have a boolean state of on/off, or they can have a list of feature filters. Feature flags evaluate feature filters until one returns `true`. If no feature filter returns `true`, then the feature flag returns `false`.
+Feature flags are composed of multiple parts including a name and a list of feature-filters that are used to turn on the feature. Feature flags can either have a boolean state of on or off, or they can have a list of feature filters. Feature flags evaluate feature filters until one returns `true`. If no feature filter returns `true`, then the feature flag returns `false`.
 
 #### Feature filters
 
@@ -473,7 +472,7 @@ if (featureManager.isEnabled("feature-t")) {
 > [!NOTE]
 > `FeatureManager` also has an asynchronous version of `isEnabled` called `isEnabledAsync`.
 
-Without feature management configuration or when the feature flag does not exist, `isEnabled` always returns `false`. If an existing feature flag is configured with an unknown feature filter, then a `FilterNotFoundException` is thrown. You can change this behavior to return `false` by configuring `fail-fast` to `false`. The following table describes `fail-fast`:
+Without feature management configuration or when the feature flag doesn't exist, `isEnabled` always returns `false`. If an existing feature flag is configured with an unknown feature filter, then a `FilterNotFoundException` is thrown. You can change this behavior to return `false` by configuring `fail-fast` to `false`. The following table describes `fail-fast`:
 
 | Name                                              | Description                                                                                                                           | Required | Default |
 |---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
@@ -515,7 +514,7 @@ public class MyDisabledFeaturesHandler implements DisabledFeaturesHandler {
 
 ##### Routing
 
-Certain routes may expose application capabilities that are gated by features. If a feature is disabled, you can redirect these routes to another endpoint, as shown in the following example:
+Certain routes might expose application capabilities that are gated by features. If a feature is disabled, you can redirect these routes to another endpoint, as shown in the following example:
 
 ```java
 @GetMapping("/featureT")
@@ -542,7 +541,7 @@ This filter always returns `true`. For a usage example, see the [feature flag de
 
 #### PercentageFilter
 
-Each time it is checked, the evaluation of `PercentageFilter` can return a different result. You can circumvent this inconsistency by using the `FeatureManagementSnapshot`, which caches the result of the feature flag per request.
+Each time it's checked, the evaluation of `PercentageFilter` can return a different result. You can circumvent this inconsistency by using the `FeatureManagementSnapshot`, which caches the result of the feature flag per request.
 
 ```yaml
 feature-management:
@@ -571,7 +570,7 @@ feature-management:
           End: "Mon, 01 July 2019 00:00:00 GMT"
 ```
 
-This filter also, supports recurring time window filters. It supports both daily and weekly recurrences, along with an expiration time.
+This filter also supports recurring time window filters. It supports both daily and weekly recurrences, along with an expiration time.
 
 ```yaml
 feature-management:
@@ -593,7 +592,7 @@ feature-management:
               - Wednesday
 ```
 
-This recurrence pattern happens every week on Monday and Wednesday. From 00:00:00 GMT to 12:00:00 GMT and will never expire.
+This recurrence pattern happens every week on Monday and Wednesday from 00:00:00 GMT to 12:00:00 GMT and doesn't expire.
 
 ```yaml
 feature-management:
@@ -664,7 +663,7 @@ public class Random implements FeatureFilter {
 
 #### Parameterized feature filters
 
-Some feature filters require parameters to determine whether a feature should be turned on. For example, a browser feature filter may turn on a feature for a certain set of browsers. You might want a feature enabled for Microsoft Edge and Chrome browsers, but not Firefox. To set up this situation, you can design a feature filter to expect parameters. These parameters would be specified in the feature configuration and in code, and would be accessible via the `FeatureFilterEvaluationContext` parameter of `evaluate`. `FeatureFilterEvaluationContext` has a property `parameters`, which is a `Map<String, Object>`.
+Some feature filters require parameters to determine whether a feature should be turned on. For example, a browser feature filter might turn on a feature for a certain set of browsers. You might want a feature enabled for Microsoft Edge and Chrome browsers, but not Firefox. To set up this situation, you can design a feature filter to expect parameters. These parameters would be specified in the feature configuration and in code, and would be accessible via the `FeatureFilterEvaluationContext` parameter of `evaluate`. `FeatureFilterEvaluationContext` has a property `parameters`, which is a `Map<String, Object>`.
 
 ### Targeting
 
@@ -716,7 +715,7 @@ Options are available to customize how targeting evaluation is performed across 
 
 Enabling config refresh for your configurations lets you pull their latest values from your App Configuration store or stores without having to restart the application.
 
-To enable refresh, you need to enable monitoring along with monitoring triggers. A monitoring trigger is a key with an optional label which the system monitors for value changes to trigger updates. The value of the monitoring trigger can be any value, as long as it changes when a refresh is needed.
+To enable refresh, you need to enable monitoring along with monitoring triggers. A monitoring trigger is a key with an optional label that the system monitors for value changes to trigger updates. The value of the monitoring trigger can be any value, as long as it changes when a refresh is needed.
 
 > [!NOTE]
 > Any operation that changes the ETag of a monitoring trigger causes a refresh, such as a content-type change.
@@ -747,7 +746,7 @@ After the application generates the log, it refreshes all `@Bean`s in the refres
 
 ### Pull-based refresh
 
-The App Configuration Spring libraries support the ability to periodically check on a refresh interval for changes made to the monitoring triggers. By default, the refresh interval is set to 30 seconds. After the refresh interval has passed, when a refresh attempt is made, all triggers are checked in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
+The App Configuration Spring libraries support the ability to periodically check on a refresh interval for changes made to the monitoring triggers. By default, the refresh interval is set to 30 seconds. After the refresh interval passes, when a refresh attempt is made, all triggers are checked in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 5m
