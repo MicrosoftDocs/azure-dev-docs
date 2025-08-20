@@ -53,5 +53,5 @@ Example prompts include:
 
 | Parameters | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Region for deployment** | Required | The Azure region where you want to check the usage and quota. For example: 'eastus', 'westus'. |
-| **Resource types to deploy** | Required | The Azure resource types that you want to check the usage and quota for (comma-separated). For example: 'Microsoft.App/containerApps, Microsoft.Web/sites, Microsoft.CognitiveServices/accounts'. |
+| **Region for deployment** | Required | The Azure region where you want to check the usage and quota. For example: `eastus`, `westus`. |
+| **Resource types to deploy** | Required | The Azure resource types that you want to check the usage and quota for (comma-separated). For example: `Microsoft.App/containerApps`, `Microsoft.Web/sites`, `Microsoft.CognitiveServices/accounts`. |
