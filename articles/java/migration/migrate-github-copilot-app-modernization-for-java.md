@@ -8,7 +8,7 @@ ms.reviewer: xiading
 ms.topic: overview
 ms.date: 06/30/2025
 ms.custom: devx-track-java
-ms.service: azure-java
+ms.subservice: migration-copilot
 ---
 
 # GitHub Copilot App Modernization for Java

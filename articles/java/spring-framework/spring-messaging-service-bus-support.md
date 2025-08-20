@@ -2,7 +2,6 @@
 title: Spring Cloud Azure support for Spring Messaging Azure Service Bus
 description: Spring Cloud Azure support for Spring Messaging Azure Service Bus provides integration with Azure Service Bus.
 ms.date: 08/19/2025
-ms.update-cycle: 365-days
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
