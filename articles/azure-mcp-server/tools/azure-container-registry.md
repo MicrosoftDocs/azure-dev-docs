@@ -50,4 +50,4 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
-| Registry | Optional | The name of the Azure Container Registry. This is the unique name you chose for your container registry. |
+| Registry | Optional | The name of the Azure Container Registry. This is the unique name you choose for your container registry. |
