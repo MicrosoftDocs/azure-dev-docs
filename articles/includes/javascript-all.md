@@ -94,7 +94,6 @@
 | Microsoft Playwright Testing | npm [1.0.0-beta.7](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.7) | [docs](/javascript/api/overview/azure/microsoft-playwright-testing-readme) | GitHub [1.0.0-beta.7](https://github.com/Azure/azure-sdk-for-js/tree/@azure/microsoft-playwright-testing_1.0.0-beta.7/sdk/playwrighttesting/microsoft-playwright-testing/) |
 | Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
 | Monitor Ingestion | npm [1.2.0](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.2.0) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.2.0/sdk/monitor/monitor-ingestion/) |
-| Monitor Query | npm [1.3.3](https://www.npmjs.com/package/@azure/monitor-query/v/1.3.3) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.3.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.3.3/sdk/monitor/monitor-query/) |
 | Monitor Query Logs | npm [1.0.0](https://www.npmjs.com/package/@azure/monitor-query-logs/v/1.0.0) | [docs](/javascript/api/overview/azure/monitor-query-logs-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query-logs_1.0.0/sdk/monitor/monitor-query-logs/) |
 | Monitor Query Metrics | npm [1.0.0](https://www.npmjs.com/package/@azure/monitor-query-metrics/v/1.0.0) | [docs](/javascript/api/overview/azure/monitor-query-metrics-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query-metrics_1.0.0/sdk/monitor/monitor-query-metrics/) |
 | Notification Hubs | npm [2.0.0](https://www.npmjs.com/package/@azure/notification-hubs/v/2.0.0) | [docs](/javascript/api/overview/azure/notification-hubs-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_2.0.0/sdk/notificationhubs/notification-hubs/) |
@@ -451,13 +450,13 @@
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.4.1](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.1) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp/v/0.5.6) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.6) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.6) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.6) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.6) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.6) |  |  |
-| Unknown Display Name | npm [0.5.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.6) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp/v/0.5.7) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.7) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.7) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.7) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.7) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.7) |  |  |
+| Unknown Display Name | npm [0.5.7](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.7) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
@@ -540,7 +539,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250815.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250815.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250820.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250820.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |

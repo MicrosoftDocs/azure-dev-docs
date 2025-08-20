@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
 ms.date: 08/19/2025
-ms.update-cycle: 365-days
 ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 zone_pivot_groups: redis-type
