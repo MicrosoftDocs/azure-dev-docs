@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 08/19/2025
-ms.update-cycle: 365-days
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-java, spring-cloud-azure
 appliesto:

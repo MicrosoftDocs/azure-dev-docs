@@ -6,7 +6,6 @@ ms.author: karler
 ms.reviewer: seal
 ms.topic: overview
 ms.date: 08/19/2025
-ms.update-cycle: 365-days
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
