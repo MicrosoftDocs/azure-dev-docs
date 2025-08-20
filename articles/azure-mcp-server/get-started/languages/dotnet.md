@@ -1,3 +1,17 @@
+---
+title: Get started using the Azure MCP Server with .NET
+description: Learn how to connect to and consume Azure MCP Server operations with .NET
+keywords: azure developer cli, azd
+author: alexwolfmsft
+ms.author: alexwolf
+ms.date: 08/11/2025
+ms.topic: get-started
+ms.custom: build-2025
+---
+
+# Get started using the Azure MCP Server with .NET
+
+[!INCLUDE [get-started-intro](../../includes/get-started-intro.md)]
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
@@ -10,9 +24,9 @@ In this article, you learn how to complete the following tasks:
 - [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-[!INCLUDE [permissions-note](permissions-note.md)]
+[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
-[!INCLUDE [sign-in-local-development](sign-in-local-development.md)]
+[!INCLUDE [sign-in-local-development](../../includes/sign-in-local-development.md)]
 
 ## Create the .NET host app
 
@@ -160,3 +174,8 @@ Complete the following steps to test your .NET host app:
     List all of the storage accounts in my subscription
     Get the available tables in my storage accounts
     ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure MCP Server tools](../../tools/index.md)
