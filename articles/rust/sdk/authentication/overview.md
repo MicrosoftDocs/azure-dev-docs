@@ -1,5 +1,5 @@
 ---
-title: Authenticate Rust Apps with Azure Services Using Azure Identity
+title: Authenticate Rust apps to Azure services by using the Azure Identity crate
 description: Authenticate Rust applications with Azure services using the Azure Identity crate. Discover secure approaches for local development and managed identities. Start integrating with Azure today.
 ms.date: 08/13/2025
 ms.topic: overview
@@ -9,7 +9,7 @@ ms.custom:
 
 # Authenticate Rust apps to Azure services by using the Azure Identity crate
 
-Rust applications must authenticate to Azure services such as Storage, Key Vault, or Cosmos DB. This article explains how to use the Azure Identity SDK crate to securely authenticate Rust apps in local development and server environments, improving security and simplifying credential management.
+Rust applications must authenticate to Azure services such as Storage, Key Vault, or Cosmos DB. This article explains how to use the Azure Identity crate to securely authenticate Rust apps in local development and server environments, improving security and simplifying credential management.
 
 ## Recommended token-based authentication
 
@@ -21,7 +21,7 @@ When building apps for Azure, we strongly recommend using token-based authentica
 
 [!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
-Use the following Azure SDK crate: 
+Use the following Azure SDK for Rust crate: 
 
 * [azure_identity](https://crates.io/crates/azure_identity)
 
