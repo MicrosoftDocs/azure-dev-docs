@@ -144,7 +144,7 @@ In this example, if both the stores have the same configuration key, then the co
 
 ### Selecting configurations
 
-Configurations are loaded by their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `\0` which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profiles i.e. `${spring.profiles.active}`.
+The library loads configurations using their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profiles which is `${spring.profiles.active}`.
 
 You can configure which configurations are loaded by selecting different key and label filters:
 
@@ -172,7 +172,7 @@ The `label-filter` property supports the following filters:
 | `1.0.*`  | Matches labels that start with `1.0.*`.                                     |
 | `,1.0.0` | Matches labels `null` and `1.0.0`. Limited to five comma-separated values.  |
 
-If you're using YAML with label filters, and you need to start with `,`, then the label filter needs to be surrounded by single quotes. This allows you to load configuration with no label first, followed by configurations with specific labels in the same filter:
+If you're using YAML with label filters, and you want to load configuration with no label and more configurations with other labels you need to include an empty `,` for example `,dev` will match `\0` and `dev`, then the label filter needs to be surrounded by single quotes. This allows you to load configuration with no label first, followed by configurations with specific labels in the same filter:
 
 ```yml
 spring:
@@ -199,7 +199,7 @@ spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter=,${spring.
 spring.cloud.azure.appconfiguration.stores[0].selects[1].label-filter=${spring.profiles.active}_local
 ```
 
-In the first `label-filter`, all configurations with the `\0` label are loaded, followed by all configurations matching the Spring Profiles. Spring Profiles have priority over the `\0` configurations, because they're at the end.
+In the first `label-filter`, the library first loads all configurations with the `\0` label, followed by all configurations matching the Spring Profiles. Spring Profiles have priority over the `\0` configurations, because they're at the end.
 
 In the second `label-filter`, the string `_local` is appended to the end of the Spring Profiles, though only to the last Spring Profile if there is more than one.
 
@@ -279,7 +279,7 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]=[your replic
 
 If all provided replica endpoints fail, the library attempts to connect to auto discovered replicas of the primary store.
 
-This can be disabled with the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
+Replication can be disabled with the setting `spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false`.
 
 ### Creating a configuration store with geo-replication
 
@@ -298,7 +298,7 @@ Azure App Configuration supports multiple types of key values, some of which hav
 The library supports configurations with `${}`-style environment placeholders. When referencing an Azure App Configuration key with a placeholder, remove prefixes from the reference. For example, `/application/config.message` is referenced as `${config.message}`.
 
 > [!NOTE]
-> The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`. This can be changed by setting a value for `spring.cloud.azure.appconfiguration.stores[0].trim-key-prefix[0]`.
+> The prefix being removed matches the value `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter`. The prefix being trimmed can be changed by setting a value for `spring.cloud.azure.appconfiguration.stores[0].trim-key-prefix[0]`.
 
 ### JSON
 
@@ -331,7 +331,7 @@ public class MyConfigurations {
 
 ### Key Vault references
 
-Azure App Configuration and its libraries support referencing secrets stored in Key Vault. In App Configuration, you can create keys with values that map to secrets stored in a Key Vault. Secrets are securely stored in Key Vault, but can be accessed in the same way as any other configuration after it's loaded.
+Azure App Configuration and its libraries support referencing secrets stored in Key Vault. In App Configuration, you can create keys with values that map to secrets stored in a Key Vault. Secrets remain secure in Key Vault, but you can access them in the same way as any other configuration when loading the app.
 
 Your application uses the client provider to retrieve Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client connects to Key Vault to retrieve their values for you.
 
@@ -445,7 +445,7 @@ feature-management:
 This example has the following feature flags:
 
 - `feature-t` is set to `false`. This setting always returns the feature flag's value.
-- `feature-u` is used with feature filters. These filters are defined under the `enabled-for` property.  In this case, `feature-u` has one feature filter called `Random`, which doesn't require any configuration, so only the name property is required.
+- `feature-u` is used with feature filters. These filters are defined under the `enabled-for` property. In this case, `feature-u` has one feature filter called `Random`, which doesn't require any configuration, so only the name property is required.
 - `feature-v` specifies a feature filter named `TimeWindowFilter`. This feature filter can be passed parameters to use as configuration. In this example, a `TimeWindowFilter`, passes in the start and end times during which the feature is active.
 - `feature-w` is used for the `AlwaysOnFilter`, which always evaluates to `true`. The `evaluate` field is used to stop the evaluation of the feature filters, and results in the feature filter always returning `false`.
 
@@ -473,7 +473,7 @@ if (featureManager.isEnabled("feature-t")) {
 > [!NOTE]
 > `FeatureManager` also has an asynchronous version of `isEnabled` called `isEnabledAsync`.
 
-If you haven't configured feature management or the feature flag doesn't exist, `isEnabled` always returns `false`. If an existing feature flag is configured with an unknown feature filter, then a `FilterNotFoundException` is thrown. You can change this behavior to return `false` by configuring `fail-fast` to `false`. The following table describes `fail-fast`:
+Without feature management configuration or when the feature flag does not exist, `isEnabled` always returns `false`. If an existing feature flag is configured with an unknown feature filter, then a `FilterNotFoundException` is thrown. You can change this behavior to return `false` by configuring `fail-fast` to `false`. The following table describes `fail-fast`:
 
 | Name                                              | Description                                                                                                                           | Required | Default |
 |---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
@@ -716,7 +716,7 @@ Options are available to customize how targeting evaluation is performed across 
 
 Enabling config refresh for your configurations lets you pull their latest values from your App Configuration store or stores without having to restart the application.
 
-To enable refresh, you need to enable monitoring along with monitoring triggers. A monitoring trigger is a key with an optional label that's checked for value changes to trigger updates. The value of the monitoring trigger can be any value, as long as it changes when a refresh is needed.
+To enable refresh, you need to enable monitoring along with monitoring triggers. A monitoring trigger is a key with an optional label which the system monitors for value changes to trigger updates. The value of the monitoring trigger can be any value, as long as it changes when a refresh is needed.
 
 > [!NOTE]
 > Any operation that changes the ETag of a monitoring trigger causes a refresh, such as a content-type change.
@@ -755,6 +755,11 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 5m
 
 #### Automated
 
+When the refresh interval ends and the system attempts a refresh, it checks all triggers in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
+```
+
+#### Automated
+
 When you use the `spring-cloud-azure-appconfiguration-config-web` library, the application automatically checks for a refresh whenever a servlet request occurs, specifically `ServletRequestHandledEvent`. The most common way this event is sent is by requests to endpoints in a `@RestController`.
 
 #### Manual
@@ -776,7 +781,7 @@ The `appconfiguration-refresh` property expires the refresh interval, so the rem
 management.endpoints.web.exposure.include= appconfiguration-refresh, appconfiguration-refresh-bus
 ```
 
-In addition to exposing the refresh endpoints, a required query parameter has been added for security. No token name or value is set by default, but setting one is required in order to use the endpoints, as shown in the following example:
+In addition to exposing the refresh endpoints, the library requires a query parameter for security. No token name or value exists by default, but you must set one to use the endpoints, as shown in the following example:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name=[primary-token-name]
@@ -810,7 +815,7 @@ Because Azure Key Vault stores the public and private key pair of a certificate 
 
 ### Feature flag refresh
 
-If feature flags and monitoring are both enabled, then by default the refresh interval for feature flags is set to 30 seconds. After the refresh interval has passed, all feature flags are checked in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
+If feature flags and monitoring are both enabled, then by default the refresh interval for feature flags is set to 30 seconds. When the refresh interval ends, the system checks all feature flags in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-interval= 5m
@@ -843,7 +848,7 @@ public interface SecretClientCustomizer {
 These interfaces allow for customization of the HTTP client and its configurations. The following example replaces the default `HttpClient` with another one that uses a proxy for all traffic directed to App Configuration and Key Vault.
 
 > [!NOTE]
-> The `ConfigurationClientBuilder` and `SecretClientBuilder` are already set up for use when passed into `customize`. Any changes to the clients, including the credentials and retry policy, override those already in place.
+> The `ConfigurationClientBuilder` and `SecretClientBuilder` are already set up for use when passed into `customize`. Any changes to the clients, including the credentials and retry policy, override the defaults already in place.
 >
 > You can also do this configuration by using [Spring Cloud Azure configuration](configuration.md).
 
