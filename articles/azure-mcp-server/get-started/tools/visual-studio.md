@@ -123,7 +123,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
     2. **rg-testing** (Location: `centralus`)
     3. **rg-azd** (Location: `eastus2`)
     4. **msdocs-sample** (Location: `southcentralus`)
-    14. **ai-testing** (Location: `eastus2`)
+    5. **ai-testing** (Location: `eastus2`)
     
     Let me know if you need further details or actions related to any of these resource groups!
     ```
