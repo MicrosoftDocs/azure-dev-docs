@@ -31,6 +31,8 @@ items:
           href: tools/azure-data-explorer.md
         - name: Azure DB for PostgreSQL
           href: tools/postgresql.md
+        - name: Azure Deploy
+          href: tools/azure-deploy.md
         - name: Azure Developer CLI
           href: tools/azure-developer-cli.md
         - name: Azure Functions
@@ -57,6 +59,8 @@ items:
           href: tools/azure-native-isv.md
         - name: Azure Quick Review CLI
           href: tools/azure-compliance-quick-review.md
+        - name: Azure Quotas
+          href: tools/azure-quotas.md
         - name: Azure Service Bus
           href: tools/service-bus.md
         - name: Azure SQL

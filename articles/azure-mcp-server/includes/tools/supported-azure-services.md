@@ -22,6 +22,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
 | [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
+| [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Functions](../../tools/azure-functions.md) | List Azure Functions. |
 | [Azure Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
@@ -33,7 +34,8 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
 | [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
-| [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. 
+| [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. |
+| [Azure Quotas](../../tools/azure-quotas.md) | Manage Azure resource quotas and limits. |
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
