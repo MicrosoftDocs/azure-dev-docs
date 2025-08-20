@@ -196,7 +196,7 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
 | **Container** |  Required | The name of the container to access within the storage account. |
-| **Blob** | Required | The name of the blob to access within the container. This should be the full path within the container (e.g., `file.txt` or `folder/file.txt`). |
+| **Blob** | Required | The name of the blob to access within the container. This should be the full path within the container (for example, `file.txt` or `folder/file.txt`). |
 | **Local file path** | Required | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
 | **Overwrite**  | Optional | Whether to overwrite content if it already exists. Defaults to false. |
 
