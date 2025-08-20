@@ -9,6 +9,7 @@ metadata:
   description: Get started developing generative AI capabilities into your applications.
   ms.date: 05/16/2025
   ms.topic: landing-page
+  ms.subservice: intelligent-apps
   ms.collection: collection
 
 landingContent:
