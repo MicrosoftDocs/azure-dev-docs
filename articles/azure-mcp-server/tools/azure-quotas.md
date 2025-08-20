@@ -14,9 +14,9 @@ ms.date: 08/20/2025
 
 # Azure Quotas for the Azure MCP Server
 
-Azure MCP Server helps you manage Azure quotas efficiently using natural language prompts. This article explains how to monitor quota usage, set alerts, and optimize resource allocation for your Azure resources.
+Azure MCP Server helps you manage Azure quotas efficiently by using natural language prompts. This article explains how to monitor quota usage, set alerts, and optimize resource allocation for your Azure resources.
 
-[Azure Quotas](/azure/quotas/quotas-overview) allows you to monitor & create alerts for specific Quotas, enabling you to receive notifications when the usage reaches predefined thresholds.
+[Azure Quotas](/azure/quotas/quotas-overview) enables you to monitor and create alerts for specific quotas. You can receive notifications when the usage reaches predefined thresholds.
 
 
 ## Region: availability list
@@ -53,5 +53,5 @@ Example prompts include:
 
 | Parameters | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Region for deployment** | Required | The Azure region where the resources will be deployed. For example: 'eastus', 'westus'. |
-| **Resource types to deploy** | Required | The Azure resource types that are going to be deployed (comma-separated). For example: 'Microsoft.App/containerApps, Microsoft.Web/sites, Microsoft.CognitiveServices/accounts'. |
+| **Region for deployment** | Required | The Azure region where you want to check the usage and quota. For example: 'eastus', 'westus'. |
+| **Resource types to deploy** | Required | The Azure resource types that you want to check the usage and quota for (comma-separated). For example: 'Microsoft.App/containerApps, Microsoft.Web/sites, Microsoft.CognitiveServices/accounts'. |

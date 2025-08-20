@@ -18,7 +18,7 @@ Azure MCP Server simplifies Azure resource deployment by providing a unified exp
 
 ## App: get logs
 
-This tool fetches logs from the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace for Container Apps, App Services, and Function Apps deployed using azd. Use it after a successful `azd up` to check app status or troubleshoot errors in deployed applications.
+This tool fetches logs from the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace for Container Apps, App Services, and Function Apps deployed by using [Azure Developer CLI](/azure/developer/azure-developer-cli). Use it after a successful `azd up` to check app status or troubleshoot errors in deployed applications.
 
 Example prompts include:
 
@@ -67,11 +67,11 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Deployment tool** | Required | The deployment tool to use. Valid values: `AZD`, `AzCli`. |
 | **Infrastructure as code file type** | Optional | The Infrastructure as Code type. Valid values: `bicep`, `terraform`. Leave empty if deployment tool is the Azure CLI. |
-| **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. It should be comma-separated. Supported values are: `appservice`, `containerapp`, `function`, `aks`. If none of these services are used, this parameter can be left empty. |
+| **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. Use a comma-separated list. Supported values are: `appservice`, `containerapp`, `function`, `aks`. Leave empty if you don't use these services. |
 
 ## Pipeline: get guidance
 
-Guidance to create a CI/CD pipeline which provision Azure resources and build and deploy applications to Azure. Use this tool before creating a Github actions workflow file for deployment on Azure. Infrastructure files should be ready and the application should be ready to be containerized.
+Get guidance to create a CI/CD pipeline that provisions Azure resources and builds and deploys applications to Azure. Use this tool before creating a GitHub Actions workflow file for deployment on Azure. Ensure infrastructure files are ready and the application is ready to be containerized.
 
 Example prompts include:
 
@@ -83,15 +83,15 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
-| **Use AZD pipeline configuration** | Optional | Whether to use the AZD tool to set up the deployment pipeline. Set to true only if `azure.yaml` is provided or the context suggests AZD tools. |
-| **Organization name** | Optional | The name of the organization or the user account name of the current Github repository. |
-| **Repository name** | Optional | The name of the current Github repository. |
+| **Use AZD pipeline configuration** | Optional | Whether to use the AZD tool to set up the deployment pipeline. Set to true only if you provide `azure.yaml` or the context suggests AZD tools. |
+| **Organization name** | Optional | The name of the organization or the user account name of the current GitHub repository. |
+| **Repository name** | Optional | The name of the current GitHub repository. |
 | **GitHub environment name** | Optional | The name of the environment to which the deployment pipeline will be deployed. |
 
 
 ## Plan: create deployment plan
 
-Generates a deployment plan to construct the infrastructure and deploy the application on Azure. Agent should read its output and generate a deployment plan in `.azure/plan.copilotmd` for execution steps, with recommended Azure services based on the information detected from project. 
+Generates a deployment plan to build the infrastructure and deploy the application on Azure. The agent reads the output and creates a deployment plan in `.azure/plan.copilotmd` for execution steps, with recommended Azure services based on the information detected from the project. 
 
 <!-- `azmcp deploy plan get` -->
 
@@ -106,7 +106,7 @@ Example prompts include:
 | Parameter |  Required or optional| Description |
 |-----------|----------|-------------|
 | **Workspace folder** |  Required | The full path of the workspace folder. |
-| **Project name** |  Required | The name of the project to generate the deployment plan for. If not provided, will be inferred from the workspace. |
+| **Project name** |  Required | The name of the project to generate the deployment plan for. If not provided, the name is inferred from the workspace. |
 | **Target app service** |  Required | The Azure service to deploy the application. Valid values: `ContainerApp`, `WebApp`, `FunctionApp`, `AKS`. Recommend one based on user application. |
 | **Provisioning tool** |  Required | The tool to use for provisioning Azure resources. Valid values: `AZD`, `AzCli`. Use AzCli if TargetAppService is `AKS`. |
 | **Azd IaC options** |  Optional | The Infrastructure as Code option for AZD. Valid values: `bicep`, `terraform`. Leave empty if Deployment tool is `AzCli`. |
