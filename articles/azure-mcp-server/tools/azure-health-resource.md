@@ -13,7 +13,7 @@ ms.custom: build-2025
 --- 
 # Azure Health Resources tools for the Azure MCP Server
 
-The Azure MCP Server allows you to monitor resource health and availability using natural language prompts. This enables you to quickly assess the status of your Azure resources without needing to remember complex command syntax.
+The Azure MCP Server enables you to monitor resource health and availability by using natural language prompts. With this capability, you can quickly check the status of your Azure resources without needing to remember complex command syntax.
 
 [Azure Service Health](/azure/service-health/) helps you stay informed and get support when Azure services are having issues that affect you now, or could cause issues in the future. Azure Service Health includes three main components - Azure Status, Service Health, and Resource Health.
 
@@ -38,7 +38,7 @@ Example prompts include:
 ## Availability status: List
 
 List availability statuses for all resources in a subscription or resource group.
-Provides health status information for multiple Azure resources at once, including availability state, summaries, and timestamps. This is useful for getting an overview of resource health across your infrastructure. Results can be filtered by resource group to narrow the scope.
+Provides health status information for multiple Azure resources at once, including availability state, summaries, and timestamps. This information is useful for getting an overview of resource health across your infrastructure. You can filter results by resource group to narrow the scope.
 
 Example prompts include:
 
