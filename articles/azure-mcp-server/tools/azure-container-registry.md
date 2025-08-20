@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Container Registry
 keywords: azure mcp server, azmcp, container registry
 author: diberry
 ms.author: diberry
-ms.date: 08/12/2025
+ms.date: 08/20/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -21,7 +21,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Conta
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Registry: list registry accounts
+## Registry: list registry accounts in subscription
 
 List accounts in a subscription. Optionally filter by resource group. 
 
@@ -34,3 +34,20 @@ Example prompts include:
 - **Filter by resource group**: "List container registries in the resource group 'production-resources'."
 - **Query registries**: "Can you list all my Azure Container Registries?"
 - **Check registries**: "Container registries in subscription abc123"
+
+## Registry: list registries in account
+
+List repositories in Azure Container Registries. By default, lists repositories for all registries in the subscription.
+
+Example prompts include:
+
+- **List all repositories**: "List all repositories in my Azure Container Registries."
+- **Show repositories for a registry**: "What repositories are in my registry 'myregistry'?"
+- **Find specific repository**: "Show me the repository 'myapp' in registry 'myregistry'."
+- **Filter by image name**: "List all repositories with images named 'myimage' in my registries."
+- **Query repositories**: "Can you list all my container images?"
+- **Check repository details**: "Get details for repository 'myapp' in registry 'myregistry'."
+
+| Parameter | Required or optional | Description |
+|-----------|----------|-------------|
+| Registry | Optional | The name of the Azure Container Registry. This is the unique name you chose for your container registry. |

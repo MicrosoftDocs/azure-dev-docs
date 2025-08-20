@@ -61,6 +61,8 @@ items:
           href: tools/azure-compliance-quick-review.md
         - name: Azure Quotas
           href: tools/azure-quotas.md
+        - name: Azure Resource Health
+          href: tools/azure-health-resource.md
         - name: Azure Service Bus
           href: tools/service-bus.md
         - name: Azure SQL
