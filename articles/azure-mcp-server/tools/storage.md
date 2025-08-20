@@ -179,6 +179,29 @@ Example prompts include:
 | **Container** | Required | The name of the container to access within the storage account. |
 | **Blob** | Required | The name of the blob to access within the container. This name includes the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 
+## Blob: Upload
+
+<!-- `azmcp storage blob upload` -->
+
+Uploads a local file to a blob in Azure Storage with the option to overwrite if the blob if it already exists. 
+
+Example prompts include:
+
+- **Upload file to blob**: "Upload file 'report.pdf' to blob 'documents/report.pdf' in container 'documents' in storage account 'mystorageaccount'."
+- **Upload and overwrite blob**: "Upload 'data.csv' to blob 'archive/data.csv' in container 'archive' in storage account 'mydata', overwriting if it exists."
+- **Overwrite blob with file**: "Overwrite blob 'images/photo.jpg' in container 'images' in storage account 'mediafiles' with local file 'C:\\photos\\photo.jpg'."
+- **Upload file to container**: "Upload 'backup.zip' to container 'backups' in storage account 'securestore'."
+- **Replace blob content**: "Replace the content of blob 'logs/app.log' in container 'logs' in storage account 'prodstore' with file 'app.log'."
+
+| Parameter |  Required or optional| Description |
+|-----------|----------|-------------|
+| **Account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+| **Container** |  Required | The name of the container to access within the storage account. |
+| **Blob** | Required | The name of the blob to access within the container. This should be the full path within the container (e.g., `file.txt` or `folder/file.txt`). |
+| **Local file path** | Required | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
+| **Overwrite**  | Optional | Whether to overwrite content if it already exists. Defaults to false. |
+
+
 ## Datalake: Create directory
 
 The Azure MCP Server can create directories in a Data Lake file system. This functionality helps you organize your hierarchical data structure in Azure Data Lake Storage by creating new folder paths as needed.
