@@ -69,7 +69,7 @@ The following table shows the exported WebLogic metrics:
 - Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 - Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
 - Install [cURL](https://curl.se/).
-- Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
+- Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://profile.oracle.com/myprofile/account/create-account.jspx).
 - Use the following steps to accept the license terms for WLS:
   1. Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
   1. If you have a support entitlement, select **Middleware**, then search for and select **weblogic_cpu**.
