@@ -14,9 +14,9 @@ ms.custom: build-2025
 
 # Azure Container Registry tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Azure Container Registries, using natural language prompts. This enables you to work with container registries without needing to remember complex command syntax.
+The Azure MCP Server enables you to manage Azure resources, including Azure Container Registries, by using natural language prompts. This capability lets you work with container registries without needing to remember complex command syntax.
 
-[Azure Container Registry](/azure/container-registry/) allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers.
+[Azure Container Registry](/azure/container-registry/) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers.
 
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
@@ -37,7 +37,7 @@ Example prompts include:
 
 ## Registry: list repositories in registry
 
-List repositories in Azure Container Registries. By default, lists repositories for all registries in the subscription.
+List repositories in Azure Container Registries. By default, the command lists repositories for all registries in the subscription.
 
 Example prompts include:
 
@@ -50,4 +50,10 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
-| Registry | Optional | The name of the Azure Container Registry. This is the unique name you choose for your container registry. |
+| Registry | Optional | The name of the Azure Container Registry. This name is unique for your container registry. |
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Common parameters for all tools](../includes/tools/parameter-consideration.md)
