@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ---
 
 You're now ready to deploy your app to Azure App Service. Use the following command to make sure you're signed in to your Azure environment to execute the deployment:
