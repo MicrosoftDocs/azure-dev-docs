@@ -52,11 +52,8 @@ The client ID is used to identify a managed identity when configuring applicatio
     
     async function main(): Promise<void> {
         try {
-    
             const blobServiceClient = createBlobServiceClient();
-    
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME!);
-    
             const properties = await containerClient.getProperties();
     
             console.log(properties);

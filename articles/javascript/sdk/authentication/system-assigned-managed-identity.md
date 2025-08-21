@@ -48,7 +48,6 @@ Azure services are accessed using specialized client classes from the various Az
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
     
     function createBlobServiceClient() {
-    
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
         if (!accountName) throw Error('Azure Storage accountName not found');
     
@@ -63,11 +62,8 @@ Azure services are accessed using specialized client classes from the various Az
     
     async function main() {
         try {
-    
             const blobServiceClient = createBlobServiceClient();
-            
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
-    
             const properties = await containerClient.getProperties();
     
             console.log(properties);
