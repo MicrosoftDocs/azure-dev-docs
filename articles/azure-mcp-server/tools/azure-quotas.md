@@ -55,3 +55,9 @@ Example prompts include:
 |-----------------------------|----------------------|-------------|
 | **Region for deployment** | Required | The Azure region where you want to check the usage and quota. For example: `eastus`, `westus`. |
 | **Resource types to deploy** | Required | The Azure resource types that you want to check the usage and quota for (comma-separated). For example: `Microsoft.App/containerApps`, `Microsoft.Web/sites`, `Microsoft.CognitiveServices/accounts`. |
+
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)

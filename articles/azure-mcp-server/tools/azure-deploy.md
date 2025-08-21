@@ -112,4 +112,9 @@ Example prompts include:
 | **Azd IaC options** |  Optional | The Infrastructure as Code option for AZD. Valid values: `bicep`, `terraform`. Leave empty if Deployment tool is `AzCli`. |
 
 
+## Related content
 
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure Developer CLI](/azure/developer/azure-developer-cli)
+- [Azure CLI](/azure/cli)

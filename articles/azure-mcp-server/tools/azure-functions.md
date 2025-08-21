@@ -31,3 +31,8 @@ Example prompts include:
 - **Query function apps**: "Can you list all my function apps?"
 - **Check function apps**: "Function apps in subscription abc123."
 
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure Functions](/azure/azure-functions/)
