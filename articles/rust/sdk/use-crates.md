@@ -1,25 +1,25 @@
 ---
-title: Use Azure SDK crates for Rust to access Azure services
-description: Get started with Azure SDK crates for Rust. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
+title: Use Azure SDK for Rust crates to access Azure services
+description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
 ms.date: 07/17/2025
 ms.topic: concept-article
 ms.service: azure
 ms.custom: devx-track-rust
 ---
 
-# Use Azure SDK crates for Rust to access Azure services
+# Use Azure SDK for Rust crates to access Azure services
 
-The Azure SDK crates for Rust help you access Azure services from Rust applications. This article explains how to use these crates, including authentication, supported services, and best practices.
+The Azure SDK for Rust crates help you access Azure services from Rust applications. This article explains how to use these crates, including authentication, supported services, and best practices.
 
 [Crates] | [API reference documentation] | [Source code]
 
 ## Prerequisites to develop with crates
 
-- Rust 1.85 or later. The version is specified in the Azure SDK crate for Rust [Cargo.toml][Azure SDK main Cargo.toml].
+- Rust 1.85 or later. The version is specified in the Azure SDK for Rust crates [Cargo.toml][Azure SDK main Cargo.toml].
 - An Azure subscription. You can [create one for free][Free Subscription].
 - [Azure CLI]
 - [Azure Developer CLI]
-- [Azure SDK crates for Rust](./installation.md)
+- [Azure SDK for Rust crates](./installation.md)
 
 > [!TIP]
 > For the best development experience, ensure you have the latest stable version of Rust installed. 
@@ -27,7 +27,7 @@ The Azure SDK crates for Rust help you access Azure services from Rust applicati
 
 ## Provide authentication credentials
 
-The Azure SDK crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication. Learn more about [authentication for Azure SDK for Rust].
+The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication. Learn more about [authentication for Azure SDK for Rust crates].
 
 ## Client objects
 
