@@ -5,7 +5,7 @@ description: Shows you how to develop a Java Spring Boot web app to sign in user
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ms.topic: how-to
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
