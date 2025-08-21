@@ -739,7 +739,7 @@ These steps require the Azure Container Apps extension, *containerapp*.
     #!/bin/bash
     APP_ENV_NAME=<app-env-name> # Use a unique name for the environment, such as "python-container-env".
     az containerapp env create \
-    --name python-container-env \
+    --name $APP_ENV_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --location $LOCATION
     ```
