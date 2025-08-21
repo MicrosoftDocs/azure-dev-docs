@@ -170,4 +170,3 @@ Example prompts include:
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Key Vault documentation](/azure/key-vault/)
-- [Common parameters for all tools](../includes/tools/parameter-consideration.md)
