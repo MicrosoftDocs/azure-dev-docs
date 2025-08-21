@@ -760,11 +760,11 @@ These steps require the Azure Container Apps extension, *containerapp*.
     ```azurecli
     UA_CLIENT_ID=$(az identity show \
         --name "$UA_MANAGED_IDENTITY_NAME" \
-        --resource-group "$RESOURCE_GROUP" \
+        --resource-group "$RESOURCE_GROUP_NAME" \
         --query clientId -o tsv)
     UA_RESOURCE_ID=$(az identity show \
         --name "$UA_MANAGED_IDENTITY_NAME" \
-        --resource-group "$RESOURCE_GROUP" \
+        --resource-group "$RESOURCE_GROUP_NAME" \
         --query id -o tsv)
     ```
 
@@ -786,8 +786,8 @@ These steps require the Azure Container Apps extension, *containerapp*.
     ```azurecli
     az containerapp create \
       --name "$CONTAINER_APP_NAME" \
-      --resource-group "$RESOURCE_GROUP" \
-      --environment "$APP_ENV" \
+      --resource-group "$RESOURCE_GROUP_NAME" \
+      --environment "$APP_ENV_NAME" \
       --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME" \
       --target-port "$TARGET_PORT" \
       --ingress external \
@@ -802,7 +802,7 @@ These steps require the Azure Container Apps extension, *containerapp*.
           RUNNING_IN_PRODUCTION=1 \
           AZURE_CLIENT_ID="$UA_CLIENT_ID" \
           AZURE_SECRET_KEY="$AZURE_SECRET_KEY"
-        ```
+    ```
 
 1. For Django only, migrate and create a database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
