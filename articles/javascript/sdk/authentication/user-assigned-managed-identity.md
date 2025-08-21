@@ -38,5 +38,5 @@ The following sections describe the steps to enable and use a user-assigned mana
 
 The preceding code behaves differently depending on the environment where it's running:
 
-- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Visual Studio, for a set of developer credentials.
+- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Visual Studio Code, for a set of developer credentials.
 - When deployed to Azure, `ManagedIdentityCredential` discovers your managed identity configurations to authenticate to other services automatically.

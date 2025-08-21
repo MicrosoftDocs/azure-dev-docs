@@ -30,7 +30,7 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 ### Implement the code
 
-In a JavaScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
+In a JavaScript project, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. In a terminal of your choice, navigate to the application project directory and run the following commands:
 
 ```console
 npm install @azure/identity
@@ -90,7 +90,7 @@ Azure services are accessed using specialized client classes from the various Az
 
 ### Implement the code
 
-In a JavaScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
+In a JavaScript project, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. In a terminal of your choice, navigate to the application project directory and run the following commands:
 
 ```console
 npm install @azure/identity @types/node
@@ -108,8 +108,8 @@ Azure services are accessed using specialized client classes from the various Az
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
     
     function createBlobServiceClient(): BlobServiceClient {
-    
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+        
         if (!accountName) throw Error('Azure Storage accountName not found');
     
         const url = `https://${accountName}.blob.core.windows.net`;
@@ -123,11 +123,8 @@ Azure services are accessed using specialized client classes from the various Az
     
     async function main(): Promise<void> {
         try {
-    
             const blobServiceClient = createBlobServiceClient();
-    
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME!);
-    
             const properties = await containerClient.getProperties();
     
             console.log(properties);
@@ -148,5 +145,5 @@ Azure services are accessed using specialized client classes from the various Az
 
 The preceding code behaves differently depending on the environment where it's running:
 
-- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Visual Studio, for a set of developer credentials.
+- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Visual Studio Code, for a set of developer credentials.
 - When deployed to Azure, `ManagedIdentityCredential` discovers your managed identity configurations to authenticate to other services automatically.

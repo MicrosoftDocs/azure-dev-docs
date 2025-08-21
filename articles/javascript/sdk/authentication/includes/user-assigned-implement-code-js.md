@@ -14,7 +14,7 @@ Azure services are accessed using specialized client classes from the various Az
 
 1. Import the `@azure/identity` package.
 1. Pass an appropriate `TokenCredential` instance to the client:
-    - Use `DefaultAzureCredential` when your app is running locally
+    - Use `DefaultAzureCredential` when your app is running locally.
     - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
 
 ## [Client ID](#tab/client-id)
@@ -55,9 +55,7 @@ The client ID is used to identify a managed identity when configuring applicatio
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
-
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
-
             // do something with client
             const properties = await containerClient.getProperties();
     
@@ -114,13 +112,10 @@ Resource IDs can be built by convention, which makes them more convenient when w
         }
     }
     
-
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
-
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
-
             // do something with client
             const properties = await containerClient.getProperties();
     
@@ -176,9 +171,7 @@ A principal ID is another name for an object ID.
     async function main() {
         try {
             const blobServiceClient = createBlobServiceClient();
-            
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME);
-
             // do something with client
             const properties = await containerClient.getProperties();
     

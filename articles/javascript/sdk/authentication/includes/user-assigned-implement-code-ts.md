@@ -112,11 +112,8 @@ Resource IDs can be built by convention, which makes them more convenient when w
     
     async function main(): Promise<void> {
         try {
-            
             const blobServiceClient = createBlobServiceClient();
-    
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME!);
-    
             const properties = await containerClient.getProperties();
     
             console.log(properties);
@@ -168,11 +165,8 @@ A principal ID is another name for an object ID.
     
     async function main(): Promise<void> {
         try {
-            
             const blobServiceClient = createBlobServiceClient();
-    
             const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER_NAME!);
-    
             const properties = await containerClient.getProperties();
     
             console.log(properties);
