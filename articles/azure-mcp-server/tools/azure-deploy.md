@@ -16,7 +16,7 @@ ms.date: 08/20/2025
 
 Azure MCP Server simplifies Azure resource deployment by providing a unified experience for deploying applications and infrastructure. This article explains how to use Azure MCP Server to streamline your deployment process and improve efficiency.
 
-## App: get logs
+## App: Get logs
 
 This tool fetches logs from the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace for Container Apps, App Services, and Function Apps deployed by using [Azure Developer CLI](/azure/developer/azure-developer-cli). Use it after a successful `azd up` to check app status or troubleshoot errors in deployed applications.
 
@@ -34,7 +34,7 @@ Example prompts include:
 | **AZD environment name** | Required | The name of the environment created by AZD in the AZURE_ENV_NAME variable during `azd init` or `azd up`. |
 | **Limit** | Optional | The maximum row number of logs to retrieve. Use this to get a specific number of logs or to avoid the retrieved logs from reaching token limit. Default is 200. |
 
-## Architecture: generate mermaid diagram
+## Architecture: Generate mermaid diagram
 
 Generate a [Mermaid](https://mermaid.js.org/) architecture diagram for the application topology. 
 
@@ -51,7 +51,7 @@ Example prompts include:
 | **Raw input** | Required | The raw input to process. |
 
 
-## Infrastructure as Code: get guidance
+## Infrastructure as Code: Get guidance
 
 This tool offers guidance for creating [Bicep](/azure/azure-resource-manager/bicep/) or Terraform files to deploy applications on Azure. The guidelines outline rules to improve the quality of Infrastructure as Code files, ensuring they are compatible with the AZD tool and adhere to best practices.
 
@@ -69,7 +69,7 @@ Example prompts include:
 | **Infrastructure as code file type** | Optional | The Infrastructure as Code type. Valid values: `bicep`, `terraform`. Leave empty if deployment tool is the Azure CLI. |
 | **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. Use a comma-separated list. Supported values are: `appservice`, `containerapp`, `function`, `aks`. Leave empty if you don't use these services. |
 
-## Pipeline: get guidance
+## Pipeline: Get guidance
 
 Get guidance to create a CI/CD pipeline that provisions Azure resources and builds and deploys applications to Azure. Use this tool before creating a GitHub Actions workflow file for deployment on Azure. Ensure infrastructure files are ready and the application is ready to be containerized.
 
@@ -89,7 +89,7 @@ Example prompts include:
 | **GitHub environment name** | Optional | The name of the environment to which the deployment pipeline will be deployed. |
 
 
-## Plan: create deployment plan
+## Plan: Create deployment plan
 
 Generates a deployment plan to build the infrastructure and deploy the application on Azure. The agent reads the output and creates a deployment plan in `.azure/plan.copilotmd` for execution steps, with recommended Azure services based on the information detected from the project. 
 

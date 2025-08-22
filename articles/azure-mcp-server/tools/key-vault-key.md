@@ -38,7 +38,7 @@ Example prompts include:
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
 
-## Keys: list keys
+## Keys: List keys
 
 The Azure MCP Server can list all keys in an Azure Key Vault. This helps you manage your cryptographic keys and view your key inventory.
 
@@ -56,7 +56,7 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Include managed** | Required | Whether or not to include managed keys in results. |
 
-## Secrets: create secret
+## Secrets: Create secret
 
 The Azure MCP Server can create a new secret in an Azure Key Vault. This allows you to securely store sensitive information like passwords, API keys, and connection strings.
 
@@ -75,7 +75,7 @@ Example prompts include:
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
-## Secrets: list
+## Secrets: List secrets
 
 The Azure MCP Server can list all secrets in an Azure Key Vault. This helps you manage your stored secrets and view your secret inventory.
 
@@ -92,7 +92,7 @@ Example prompts include:
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 
-## Certificates: create certificate
+## Certificates: Create certificate
 
 The Azure MCP Server can create a new certificate in an Azure Key Vault using the default policy. This allows you to generate SSL/TLS certificates for your applications.
 
@@ -110,7 +110,7 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the certificate to create. |
 
-## Certificates: get certificate
+## Certificates: Get certificate
 
 The Azure MCP Server can retrieve details of a specific certificate from an Azure Key Vault. This allows you to view certificate properties, expiration dates, and metadata.
 
@@ -128,7 +128,7 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the certificate to retrieve. |
 
-## Certificates: import
+## Certificates: Import certificates
 
 Imports an existing certificate (PFX or PEM with private key) into an Azure Key Vault without generating
 a new certificate or key material. If the certificate is a password-protected PFX, a password must be provided.
@@ -148,7 +148,7 @@ Example prompts include:
 | **Certificate data or path** | Required | Either the path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with `-----BEGIN`. |
 | **Password** |  Optional | Password for a protected PFX being imported. |
 
-## Certificates: list certificates
+## Certificates: List certificates
 
 The Azure MCP Server can list all certificates in an Azure Key Vault. This helps you manage your certificates and track expiration dates.
 

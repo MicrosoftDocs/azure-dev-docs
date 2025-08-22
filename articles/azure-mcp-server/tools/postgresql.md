@@ -19,7 +19,7 @@ The Azure MCP Server allows you to manage Azure Database for PostgreSQL resource
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Database: list databases
+## Database: List databases
 
 The Azure MCP Server can list all databases in a PostgreSQL server.
 
@@ -38,7 +38,7 @@ Example prompts include:
 | **User name** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
-## Database: execute database query
+## Database: Execute database query
 
 The Azure MCP Server can execute a query on a PostgreSQL database.
 
@@ -59,7 +59,7 @@ Example prompts include:
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
 
-## Table: list tables
+## Table: List tables
 
 The Azure MCP Server can list all tables in a PostgreSQL database.
 
@@ -79,7 +79,7 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 
-## Table: get table schema
+## Table: Get table schema
 
 The Azure MCP Server can get the schema of a specific table in a PostgreSQL database.
 
@@ -100,7 +100,7 @@ Example prompts include:
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
 
-## Server: list servers
+## Server: List servers
 
 The Azure MCP Server can list all PostgreSQL servers in a subscription and resource group.
 
@@ -118,7 +118,7 @@ Example prompts include:
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
 
-## Server: get server configuration
+## Server: Get server configuration
 
 The Azure MCP Server can retrieve the configuration of a PostgreSQL server.
 
@@ -137,7 +137,7 @@ Example prompts include:
 | **User name** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
-## Server: get server parameter
+## Server: Get server parameter
 
 The Azure MCP Server can retrieve a specific parameter of a PostgreSQL server.
 
@@ -157,7 +157,7 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Param** | Required | The PostgreSQL parameter to be accessed. |
 
-## Server: set server parameter
+## Server: Set server parameter
 
 The Azure MCP Server can set or update a specific parameter on a PostgreSQL server. This allows you to configure server settings, optimize performance, and adjust database behavior according to your application requirements.
 

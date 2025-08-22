@@ -19,7 +19,7 @@ Azure MCP Server helps you manage Azure quotas efficiently by using natural lang
 [Azure Quotas](/azure/quotas/quotas-overview) enables you to monitor and create alerts for specific quotas. You can receive notifications when the usage reaches predefined thresholds.
 
 
-## Region: availability list
+## Region: Availability list
 
 Given a list of Azure resource types, this tool returns a list of regions where the resource types are available. Always get the user's subscription ID before calling this tool.
 
@@ -39,7 +39,7 @@ Example prompts include:
 | **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
 
 
-## Usage: check
+## Usage: Check usage and quotas
 
 This tool checks the usage and quota information for Azure resources in a region.
 

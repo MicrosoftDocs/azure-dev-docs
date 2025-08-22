@@ -21,7 +21,7 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Cont
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Registry: list registry accounts in subscription
+## Registry: List registry accounts in subscription
 
 List accounts in a subscription. Optionally filter by resource group. 
 
@@ -35,7 +35,7 @@ Example prompts include:
 - **Query registries**: "Can you list all my Azure Container Registries?"
 - **Check registries**: "Container registries in subscription abc123"
 
-## Registry: list repositories in registry
+## Registry: List repositories in registry
 
 List repositories in Azure Container Registries. By default, the command lists repositories for all registries in the subscription.
 
