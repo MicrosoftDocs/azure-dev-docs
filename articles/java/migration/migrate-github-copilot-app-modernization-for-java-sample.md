@@ -8,7 +8,7 @@ ms.reviewer: xiading
 ms.topic: overview
 ms.date: 05/19/2025
 ms.custom: devx-track-java
-ms.service: azure-java
+ms.subservice: migration-copilot
 ---
 
 # Asset Manager migration sample for GitHub Copilot App Modernization for Java

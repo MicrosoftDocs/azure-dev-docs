@@ -15,9 +15,9 @@ ms.custom: build-2025
 
 In this article, you learn how to complete the following tasks:
 
-- Install and authenticate to the Azure MCP Server
-- Connect to Azure MCP Server using GitHub Copilot agent mode in Visual Studio
-- Run prompts to test Azure MCP Server operations and interact with Azure resources
+- Install and authenticate to the Azure MCP Server.
+- Connect to Azure MCP Server using GitHub Copilot agent mode in Visual Studio.
+- Run prompts to test Azure MCP Server operations and interact with Azure resources.
 
 ## Prerequisites
 
@@ -106,7 +106,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 1. In order to authenticate Azure MCP Server, Copilot prompts you to sign-in to Azure using the browser.
 
     > [!NOTE]
-    > Copilot doesn't you to sign-in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
+    > Copilot doesn't prompt you to sign-in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
 
 1. Copilot requests permission to run the necessary Azure MCP Server operation for your prompt. Select **Allow this time** or use the arrow to select a more specific behavior:
     - **Always allow** sets the operation to always run for any GitHub Copilot Agent Mode session or any Visual Studio Code workspace.
@@ -123,7 +123,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
     2. **rg-testing** (Location: `centralus`)
     3. **rg-azd** (Location: `eastus2`)
     4. **msdocs-sample** (Location: `southcentralus`)
-    14. **ai-testing** (Location: `eastus2`)
+    5. **ai-testing** (Location: `eastus2`)
     
     Let me know if you need further details or actions related to any of these resource groups!
     ```

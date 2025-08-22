@@ -8,7 +8,7 @@ ms.reviewer: xiading
 ms.topic: quickstart
 ms.date: 06/30/2025
 ms.custom: devx-track-java
-ms.service: azure-java
+ms.subservice: migration-copilot
 ---
 
 # Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java

@@ -1,7 +1,7 @@
 ---
 title: Spring Boot Native Applications
 description: Shows you how to enable Spring Cloud Azure libraries to work with Spring Boot native image applications.
-ms.date: 03/10/2025
+ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal

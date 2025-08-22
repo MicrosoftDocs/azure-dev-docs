@@ -28,24 +28,24 @@ Azure MCP Server works with AI-powered code editors that support the Model Conte
 
 ## Languages & frameworks
 
-Azure MCP Server supports programmatic access through popular programming languages and frameworks.
+You can also connect to Azure MCP Server using programming languages and frameworks. This documentation currently provides guidance and examples for Python and .NET.
 
 ### Python
 
 [Get started with Azure MCP Server and Python](get-started/languages/python.md) to enhance your apps and workflows:
 
-- Use Python MCP client libraries to connect directly to Azure MCP Server
-- Build automation scripts that manage Azure resources
-- Integrate into web frameworks like Django, Flask, or FastAPI
-- Incorporate Azure operations into data science workflows with Jupyter notebooks
+- Use Python MCP client libraries to connect directly to Azure MCP Server.
+- Build automation scripts that manage Azure resources.
+- Integrate into web frameworks like Django, Flask, or FastAPI.
+- Incorporate Azure operations into data science workflows with Jupyter notebooks.
 
 ### .NET
 
 [Get started with Azure MCP Server and .NET](get-started/languages/dotnet.md) to enhance your apps and workflows:
 
-- Create console applications and command-line tools for Azure management
-- Build ASP.NET Core web applications with integrated Azure capabilities
-- Develop Azure Functions that leverage Azure MCP Server for resource management
-- Create Windows desktop applications with Azure integration
+- Create console applications and command-line tools for Azure management.
+- Build ASP.NET Core web applications with integrated Azure capabilities.
+- Develop Azure Functions that leverage Azure MCP Server for resource management.
+- Create Windows desktop applications with Azure integration.
 
 The Azure MCP Server provides flexibility to work with Azure in the way that best fits your development style and requirements, whether through interactive AI-powered editors or programmatic integration in your applications.

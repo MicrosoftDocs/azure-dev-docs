@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 10/04/2024
+ms.date: 08/21/2025
 ---
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.

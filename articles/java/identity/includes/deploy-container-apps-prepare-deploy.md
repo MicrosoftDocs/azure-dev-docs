@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 10/04/2024
+ms.date: 08/21/2025
 ---
 
 When you deploy your application to Azure Container Apps, your redirect URL changes to the redirect URL of your deployed app instance in Azure Container Apps. Use the following steps to change these settings in your **application.yml** file:

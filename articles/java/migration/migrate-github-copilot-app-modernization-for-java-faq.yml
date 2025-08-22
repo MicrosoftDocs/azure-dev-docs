@@ -9,7 +9,7 @@ metadata:
   ms.topic: faq
   ms.date: 06/30/2025
   ms.custom: devx-track-java
-  ms.service: azure-java
+  ms.subservice: migration-copilot
 
 title: GitHub Copilot App Modernization for Java FAQ
 summary: |
