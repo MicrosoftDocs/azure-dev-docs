@@ -15,6 +15,8 @@
       href: sdk/overview.md   
     - name: Installation
       href: sdk/installation.md
+    - name: Authentication
+      href: sdk/authentication/overview.md
   - name: Resources
     items:
     - name: Azure SDK for Rust on GitHub
