@@ -34,8 +34,7 @@ Example prompts include:
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| Subscription | Required | The ID of the Azure subscription containing the resources. |
-| Scope | Required | The scope to list role assignments for. Can be a subscription, resource group, or resource. |
+| **Scope** | Required | The scope to list role assignments for. Can be a subscription, resource group, or resource. |
 
 ## Related content
 

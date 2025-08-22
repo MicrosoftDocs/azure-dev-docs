@@ -33,9 +33,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
 ## Database: Execute database query
@@ -52,9 +50,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
@@ -73,9 +69,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 
@@ -93,9 +87,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
@@ -114,9 +106,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 
 ## Server: Get server configuration
 
@@ -132,9 +122,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
 ## Server: Get server parameter
@@ -151,9 +139,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **User name** | Required | The user name to access PostgreSQL server. |
+| **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Param** | Required | The PostgreSQL parameter to be accessed. |
 
@@ -171,9 +157,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the resource group containing the PostgreSQL server. |
-| **User name** | Required | The user name to access the PostgreSQL server. |
+| **User** | Required | The user name to access the PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server name to configure. |
 | **Param** | Required | The PostgreSQL parameter to be set. |
 | **Value** | Required | The value to set for the parameter. |

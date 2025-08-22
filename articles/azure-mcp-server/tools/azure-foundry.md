@@ -35,10 +35,10 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Search for free playground | Optional | If set to true, returns a list of models from Azure AI Foundry that can also be used with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
-| Publisher name | Optional | A filter to specify the publisher of the models to retrieve. |
-| License name | Optional | A filter to specify the license type of the models to retrieve. |
-| Model name | Optional | The name of the model to search for. |
+| **Search for free playground** | Optional | If set to true, returns a list of models from Azure AI Foundry that can also be used with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
+| **Publisher** | Optional | A filter to specify the publisher of the models to retrieve. |
+| **License** | Optional | A filter to specify the license type of the models to retrieve. |
+| **Model** | Optional | The name of the model to search for. |
 
 ## Deploy a model
 
@@ -56,17 +56,17 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Deployment-name | Required | A unique name for this model deployment |
-| Model name | Required | The name of the model to deploy |
-| Model format | Required | The format of the model (for example, 'OpenAI', 'Meta', 'Microsoft') |
-| Azure AI services name | Required | The name of the Azure AI services account to deploy to |
-| Resource group | Required | The name of the Azure resource group where the model will be deployed |
-| Model version | Optional | The version of the model to deploy |
-| Model source | Optional | The source of the model |
-| Scale type | Optional | The scale type for the deployment |
-| Scale capacity | Optional | The scale capacity for the deployment |
-| Sku name | Optional | The SKU name for the deployment |
-| Sku capacity | Optional | The SKU capacity for the deployment |
+| **Deployment** | Required | A unique name for this model deployment |
+| **Model** | Required | The name of the model to deploy |
+| **Model format** | Required | The format of the model (for example, 'OpenAI', 'Meta', 'Microsoft') |
+| **Azure AI services** | Required | The name of the Azure AI services account to deploy to |
+| **Resource group** | Required | The name of the Azure resource group where the model will be deployed |
+| **Model version** | Optional | The version of the model to deploy |
+| **Model source** | Optional | The source of the model |
+| **Scale type** | Optional | The scale type for the deployment |
+| **Scale capacity** | Optional | The scale capacity for the deployment |
+| **SKU** | Optional | The SKU name for the deployment |
+| **SKU capacity** | Optional | The SKU capacity for the deployment |
 
 ## List model deployments
 
@@ -84,7 +84,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Endpoint | Required | The endpoint URL for the Azure AI service |
+| **Endpoint** | Required | The endpoint URL for the Azure AI service |
 
 
 ## Related content

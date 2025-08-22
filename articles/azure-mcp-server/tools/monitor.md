@@ -31,10 +31,6 @@ Example prompts include:
 - **Query workspaces**: "Show workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123 please"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-
 ## Log analytics: List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
@@ -49,9 +45,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
 
 ## Log analytics: Query logs
 
@@ -67,9 +61,8 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
-| **Table name** | Required | The name of the table to query. |
+| **Table** | Required | The name of the table to query. |
 | **Query** | Required | The KQL query to execute against the Log Analytics workspace. |
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
@@ -88,9 +81,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **Model name** | Required | The name of the health model. |
+| **Model** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
 
 ## Metrics: Query metrics
@@ -108,11 +99,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource name** | Required | The name of the resource to query metrics for. |
+| **Resource** | Required | The name of the resource to query metrics for. |
 | **Metric namespace** | Required | The metric namespace. |
-| **Metric names** | Required | The metric names to query. |
-| **Resource group** | Optional | The name of the Azure resource group. |
+| **Metrics** | Required | The metric names to query. |
 | **Resource type** | Optional | The type of the resource. |
 | **Start time** | Optional | The start time for the query. |
 | **End time** | Optional | The end time for the query. |
@@ -135,9 +124,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource name** | Required | The name of the resource. |
-| **Resource group** | Optional | The name of the Azure resource group. |
 | **Resource type** | Optional | The type of the resource. |
 | **Metric namespace** | Optional | The metric namespace. |
 | **Search string** | Optional | Search string to filter metrics. |
@@ -157,7 +144,6 @@ The Azure MCP Server can list Azure Monitor workbooks in a resource group. This 
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **Category** | Optional | The category to filter workbooks by. |
 | **Kind** | Optional | The kind of workbook (e.g., 'shared', 'user'). |
@@ -193,9 +179,7 @@ The Azure MCP Server can create a new Azure Monitor workbook. This allows you to
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **Display name** | Required | The display name for the new workbook. |
+| **Display** | Required | The display name for the new workbook. |
 | **Serialized content** | Required | The JSON content defining the workbook structure and queries. |
 | **Source ID** | Optional | The source resource ID to associate with the workbook. |
 
@@ -214,7 +198,7 @@ The Azure MCP Server can update an existing Azure Monitor workbook. This allows 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to update. |
-| **Display name** | Optional | The new display name for the workbook. |
+| **Display** | Optional | The new display name for the workbook. |
 | **Serialized content** | Optional | The updated JSON content for the workbook. |
 
 ## Workbooks: Delete workbooks

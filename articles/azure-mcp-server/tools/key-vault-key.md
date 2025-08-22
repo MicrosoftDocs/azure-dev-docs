@@ -33,7 +33,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
@@ -52,7 +51,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Include managed** | Required | Whether or not to include managed keys in results. |
 
@@ -70,7 +68,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
@@ -89,7 +86,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 
 ## Certificates: Create certificate
@@ -106,7 +102,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the certificate to create. |
 
@@ -124,7 +119,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the certificate to retrieve. |
 
@@ -162,7 +156,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Vault** | Required | The name of the Key Vault. |
 
 ## Related content

@@ -31,7 +31,7 @@ Example prompts include:
 | Parameter | Required or optional| Description |
 |-----------|----------|-------------|
 | **Workspace folder** |  Required | The full path of the workspace folder. |
-| **AZD environment name** | Required | The name of the environment created by AZD in the AZURE_ENV_NAME variable during `azd init` or `azd up`. |
+| **AZD environment** | Required | The name of the environment created by AZD in the AZURE_ENV_NAME variable during `azd init` or `azd up`. |
 | **Limit** | Optional | The maximum row number of logs to retrieve. Use this to get a specific number of logs or to avoid the retrieved logs from reaching token limit. Default is 200. |
 
 ## Architecture: Generate mermaid diagram
@@ -84,9 +84,9 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Use AZD pipeline configuration** | Optional | Whether to use the AZD tool to set up the deployment pipeline. Set to true only if you provide `azure.yaml` or the context suggests AZD tools. |
-| **Organization name** | Optional | The name of the organization or the user account name of the current GitHub repository. |
-| **Repository name** | Optional | The name of the current GitHub repository. |
-| **GitHub environment name** | Optional | The name of the environment to which the deployment pipeline will be deployed. |
+| **Organization** | Optional | The name of the organization or the user account name of the current GitHub repository. |
+| **Repository** | Optional | The name of the current GitHub repository. |
+| **GitHub environment** | Optional | The name of the environment to which the deployment pipeline will be deployed. |
 
 
 ## Plan: Create deployment plan
@@ -106,7 +106,7 @@ Example prompts include:
 | Parameter |  Required or optional| Description |
 |-----------|----------|-------------|
 | **Workspace folder** |  Required | The full path of the workspace folder. |
-| **Project name** |  Required | The name of the project to generate the deployment plan for. If not provided, the name is inferred from the workspace. |
+| **Project** |  Required | The name of the project to generate the deployment plan for. If not provided, the name is inferred from the workspace. |
 | **Target app service** |  Required | The Azure service to deploy the application. Valid values: `ContainerApp`, `WebApp`, `FunctionApp`, `AKS`. Recommend one based on user application. |
 | **Provisioning tool** |  Required | The tool to use for provisioning Azure resources. Valid values: `AZD`, `AzCli`. Use AzCli if TargetAppService is `AKS`. |
 | **Azd IaC options** |  Optional | The Infrastructure as Code option for AZD. Valid values: `bicep`, `terraform`. Leave empty if Deployment tool is `AzCli`. |
