@@ -23,7 +23,6 @@ When building apps for Azure, we strongly recommend using token-based authentica
 
 Use the following Azure SDK for Rust crate: 
 
-* [azure_identity](https://crates.io/crates/azure_identity)
 
 ## Authenticate during local development
 
