@@ -21,7 +21,7 @@ items:
           - name: Windsurf
             href: get-started/tools/windsurf.md
           - name: IntelliJ
-            href: get-started/tools/jetbrains.md
+            href: get-started/tools/jet-brains.md
         - name: Languages and frameworks
           expanded: true
           items:
