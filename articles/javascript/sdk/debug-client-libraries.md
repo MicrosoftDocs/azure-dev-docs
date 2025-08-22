@@ -1,7 +1,7 @@
 ---
 title: Configure logging in Azure SDK libraries for JavaScript
 description: Learn how to configure logging in Azure SDK libraries for JavaScript to diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
-ms.date: 08/15/2024
+ms.date: 08/22/2024
 ms.topic: how-to
 ms.custom: devx-track-js
 zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
@@ -13,18 +13,12 @@ zone_pivot_groups: js-ts
 
 This article explains how to configure logging in Azure SDK libraries for JavaScript. Enabling logging helps you diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
 
+To enable logging you can use either of the options below:  
+
 * Set the `AZURE_LOG_LEVEL=verbose` environment variable to turn on logging.
 * Use the `@azure/logger` package in your source code.
 
 Valid log levels include `verbose`, `info`, `warning`, and `error`.
-
-You can also set different log levels for specific Azure services with service-specific environment variables. For example:
-
-* `AZURE_IDENTITY_LOGGER_LEVEL=verbose` - For Azure Identity specific logging
-* `AZURE_STORAGE_LOGGER_LEVEL=verbose` - For Azure Storage specific logging
-* `AZURE_KEYVAULT_LOGGER_LEVEL=verbose` - For Azure Key Vault specific logging
-
-These service-specific log levels take precedence over the global `AZURE_LOG_LEVEL` setting for their respective services.
 
 > [!NOTE]
 > The Azure Storage code shown in this article assumes the storage resource has been configured with the appropriate Microsoft Entra ID roles. Learn more: [Authorize access to blobs using Microsoft Entra ID].
