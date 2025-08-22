@@ -32,12 +32,12 @@ In this article, you learn how to complete the following tasks:
 To install and configure Azure MCP Server in Windsurf:
 
 1. Navigate to **File > Preferences > Windsurf Settings**.
-1. On the **Windsurf Settings** page, select **Manage MCP Servers**.
+1. On the **Windsurf Settings** page, select **Manage MCPs**.
 
     :::image type="content" source="../../media/windsurf-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in Windsurf.":::
 
-1. On the **Manage MCP Servers** settings page, select **View raw config** at the top to open the `mcp_config.json` file for editing. This approach enables you to manually install MCP Servers by adding a JSON configuration object.
-1. Update the `mcp_config.json` file to match the following:
+1. On the **Manage MCP Servers** settings page, select **View raw config** at the top to open the `mcp_config.json` file for editing.
+1. The `mcp_config.json` file lets you manually install MCP Servers by adding a JSON configuration object. Update the `mcp_config.json` file to match the following:
 
     ```json
     {
