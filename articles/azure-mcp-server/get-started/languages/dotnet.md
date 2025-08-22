@@ -21,8 +21,8 @@ In this article, you learn how to complete the following tasks:
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
-- [.NET 9.0](https://dotnet.microsoft.com/en-us/download)
-- [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [.NET 9.0](https://dotnet.microsoft.com/en-us/download) or higher installed
+- [Node.js](https://nodejs.org/) installed (v20.19.4+)
 
 [!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
