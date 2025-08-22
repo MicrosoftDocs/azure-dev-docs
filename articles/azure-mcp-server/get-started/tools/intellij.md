@@ -21,7 +21,8 @@ In this article, you learn how to complete the following tasks:
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
-- [IntelliJ](https://cursor.sh/)
+- [IntelliJ](https://cursor.sh/) installed
+- [Node.js](https://node.org) installed (v20.19.4+)
 
 [!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
