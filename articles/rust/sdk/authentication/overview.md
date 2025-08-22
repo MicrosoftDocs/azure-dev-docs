@@ -21,9 +21,6 @@ When building apps for Azure, we strongly recommend using token-based authentica
 
 [!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
-Use the following Azure SDK for Rust crate: 
-
-
 ## Authenticate during local development
 
 [!INCLUDE [Authentication during local development](<../../../includes/authentication/overview-local-environments.md>)]
