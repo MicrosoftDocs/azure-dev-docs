@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 10/04/2024
+ms.date: 08/21/2025
 ---
 
 - An Azure account. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the `Contributor` or `Owner` permission on the Azure subscription to proceed. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).

@@ -5,7 +5,7 @@ description: Shows how to enable sign-in for Java JBoss EAP apps and restrict ac
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
