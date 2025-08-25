@@ -188,20 +188,30 @@ First you provide instructions and guidance on building and testing the applicat
 
 After GitHub Copilot generates the site locally, you'll author a prompt asking GitHub Copilot to make changes to the site in preparation for deployment, and then to perform the deployment. The GitHub Copilot for Azure extension handles this request by creating Bicep files then running those files using the `azd` CLI.
 
-Use the following prompt:
+Use the following prompt ... you may copy to Notepad and change any value in brackets like `<resource-group-name>` and `<region-name>`:
 
 ```copilot-prompt
 
-Please help me deploy this Django app to Azure. Use Azure App Service for the Django app, 
-and Azure PostgreSQL Flexible Server using Service Connector (and any other services you 
-need to make this configuration work successfully). You may need to modify the 
-application code to accommodate Service Connector. Please choose the least expensive 
-options. Also, please ensure a secure connection between the Azure App Service web site 
-and the Azure PostgreSQL Flexible Server. When prompted, use an environment named 
-`contacts-env`. Create and use a Resource Group named `contacts-rg`. Use the `West US` 
-location. Configure my firewall to allow my IP address. Beyond that, if there's anything 
+Please help me deploy this Django app to Azure. 
+
+First, create and use a Resource Group named "`<resource-group-name>`" in the "`<region-name>`" region.
+
+Second, create an Azure App Service for the Django app in the new "`<resource-group-name>`" in the "`<region-name>`" region.
+
+Third, create a new Azure Database for PostgreSQL flexible server named "`<server-name>`" in a resource group named "`<resource-group-name>`" in my subscription "`<subscription-id>`". Use my current account (`<account-id>`) as the Microsoft Entra administrator. For the PostgreSQL "Administrator login", use "`<azure-database-username>`" and password "`<azure-database-password>`". Use a "development" class database configuration in the "`<region-name>`" region. Create a new database named "contact_manager_db" and migrate all tables and data from the local version of "contact_manager_db". The local database uses the username "`<local-database-username>`" and password "`<local-database-password>`". Add my IP address as a firewall rule, allow public access to this resource through the internet using a public IP address, and allow public access from any Azure service within Azure to this server.
+
+Third, use use Service Connector (and any other services you need to make this configuration work successfully) to connect the web app to the database. You may need to modify the application code to accommodate Service Connector. Also, please ensure a secure connection between the Azure App Service web site and the Azure PostgreSQL Flexible Server.
+
+Please choose the least expensive options.  
+
+If you are prompted for an environment, use name `contacts-env`.  Configure my firewall to allow my IP address. Beyond that, if there's anything 
 I need to do, please include instructions. But I want you to do as much as you can on 
 your own.
+
+Before you start: 
+
+- Do you have any questions that need to be clarified? 
+- Please create a plan for deployment in the form of a TODO list, and then update the TODO list as you progress. Do not start until I have a chance to review your plan and tell you to proceed.
 
 ```
 
