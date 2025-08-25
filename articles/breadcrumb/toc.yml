@@ -58,3 +58,6 @@ items:
     - name: Azure MCP Server
       tocHref: /azure/developer/azure-mcp-server
       topicHref: /azure/developer/azure-mcp-server/index
+    - name: Introduction
+      tocHref: /azure/developer/intro
+      topicHref: /azure/developer/intro/index

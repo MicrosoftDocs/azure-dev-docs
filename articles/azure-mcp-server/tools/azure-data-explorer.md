@@ -28,7 +28,7 @@ Some of the Azure Data Explorer tools require **one** of the following parameter
 
 Don't provide all three parameters (cluster URI, cluster name, and subscription) together, because this creates conflicting inputs.
 
-## List clusters
+## Cluster: List clusters
 
 The Azure MCP Server can list all Azure Data Explorer clusters in a subscription.
 
@@ -40,11 +40,7 @@ Example prompts include:
 - **Query clusters**: "Show my Azure Data Explorer cluster organization."
 - **Find clusters**: "Get all ADX clusters in my Azure subscription."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-
-## Get cluster details
+## Cluster: Get cluster details
 
 The Azure MCP Server can get details for a specific Azure Data Explorer cluster.
 
@@ -58,10 +54,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Cluster name** | Required | The name of the Azure Data Explorer cluster. |
+| **Cluster** | Required | The name of the Azure Data Explorer cluster. |
 
-## List databases
+## Database: List databases
 
 The Azure MCP Server can list all databases in an Azure Data Explorer cluster.
 
@@ -76,11 +71,11 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 
 
-## List tables
+
+## Table: List tables
 
 The Azure MCP Server can list all tables in a specific Azure Data Explorer database.
 
@@ -95,11 +90,10 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
-| **Database name** | Required | The name of the Azure Data Explorer database. |
+| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+| **Database** | Required | The name of the Azure Data Explorer database. |
 
-## Get table schema
+## Table: Get table schema
 
 The Azure MCP Server can get the schema of a specific table in an Azure Data Explorer database.
 
@@ -114,12 +108,11 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
-| **Database name** | Required | The name of the Azure Data Explorer database. |
-| **Table name** | Required | The name of the table. |
+| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+| **Database** | Required | The name of the Azure Data Explorer database. |
+| **Table** | Required | The name of the table. |
 
-## Execute query
+## Database: Execute query
 
 The Azure MCP Server can execute a KQL query against an Azure Data Explorer database.
 
@@ -134,12 +127,11 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
-| **Database name** | Required | The name of the Azure Data Explorer database. |
+| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+| **Database** | Required | The name of the Azure Data Explorer database. |
 | **Query** | Required | The KQL query to execute. |
 
-## Sample table data
+## Table: Sample table data
 
 The Azure MCP Server can retrieve a sample of data from a specified Azure Data Explorer table.
 
@@ -154,10 +146,9 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
-| **Subscription** | [Conditionally](#conditional-parameters) required | The Azure subscription ID or name. |
-| **Cluster name** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
-| **Database name** | Required | The name of the Azure Data Explorer database. |
-| **Table name** | Required | The name of the table to sample data from. |
+| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+| **Database** | Required | The name of the Azure Data Explorer database. |
+| **Table** | Required | The name of the table to sample data from. |
 | **Limit** | Optional | The maximum number of rows to return in the sample. |
 
 ## Related content
