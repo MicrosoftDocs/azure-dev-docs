@@ -1,6 +1,6 @@
 ---
 author: KarlErickson
-ms.date: 04/06/2023
+ms.date: 08/19/2025
 ms.author: karler
 ms.reviewer: seal
 ---
@@ -81,7 +81,7 @@ To install the Spring Cloud Azure Starter JDBC MySQL module, add the following d
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>5.23.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

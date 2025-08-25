@@ -1,14 +1,14 @@
 ---
 title: Spring Cloud Azure PostgreSQL support
 description: This article describes how Spring Cloud Azure and Azure PostgreSQL can be used together.
-ms.date: 04/06/2023
+ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.topic: reference
 appliesto:
   - ✅ Version 4.20.0
-  - ✅ Version 5.22.0
+  - ✅ Version 5.23.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java

@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 10/04/2024
+ms.date: 08/21/2025
 ---
 
 In this example, the `containerapp up` command includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL. Use the following steps to check the app's logs to investigate any deployment issue:

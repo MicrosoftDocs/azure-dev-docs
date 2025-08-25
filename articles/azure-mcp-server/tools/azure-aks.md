@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 7/22/2025
+ms.date: 08/05/2025
 ---
 
 # Azure Kubernetes Service tools for the Azure MCP Server
@@ -42,6 +42,23 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | Subscription | Required | The ID or name of your Azure subscription containing the AKS clusters. |
+
+## Get cluster details
+
+Gets detailed information about a specific Azure Kubernetes Service (AKS) cluster, including configuration, status, node pools, and networking details. This operation helps you examine cluster properties and monitor the health of your Kubernetes environment.
+
+Example prompts include:
+
+- **Cluster details**: "Show me details about the 'production-aks' cluster in my subscription."
+- **Check cluster**: "Get information about cluster 'dev-kubernetes' in subscription 'dev-123'."
+- **Cluster status**: "What's the current status of my 'staging-aks' cluster?"
+- **View configuration**: "Show me the configuration for cluster 'web-app-cluster'."
+- **Cluster health**: "Get detailed health information for my 'ml-workload-aks' cluster."
+- **Node pool info**: "What are the node pool details for cluster 'analytics-cluster'?"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Name** | Required | The name of the AKS cluster to retrieve details for. |
 
 
 ## Related content

@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ---
 
 Because the redirect URI changes to your deployed app to Azure App Service, you also need to change the redirect URI in your Microsoft Entra ID app registration. Use the following steps to make this change:

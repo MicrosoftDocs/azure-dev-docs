@@ -57,7 +57,7 @@
       items:
       - name: Overview
         href: extensions/overview.md
-      - name: Quickstart - Use the AI extension
+      - name: Quickstart - Use the demo extension
         href: extensions/quickstart-ai-extension.md
   - name: Deployment and operations
     items:
@@ -99,8 +99,12 @@
           href: remote-environments-support.md
         - name: Azure Deployment Environments integration
           href: ade-integration.md
-      - name: Work with environments
+      - name: Environments
         items:
+        - name: Overview
+          href: environments-overview.md
+        - name: Work with environments
+          href: work-with-environments.md
         - name: Manage environment variables
           href: manage-environment-variables.md
         - name: Environment variables FAQ
@@ -141,10 +145,30 @@
       href: azd-schema.md
     - name: Commands reference
       href: reference.md
-    - name: Blog posts and news
-      items:
-      - name: Release blog posts
-        href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
-      - name: CDN changes
-        href: content-delivery-network-changes.md
+    - name: CDN changes
+      href: content-delivery-network-changes.md
+  - name: Release notes and blog posts
+    items:
+    - name: All release notes and blog posts
+      href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
+    - name: July 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-july-2025/
+    - name: June 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-june-2025/
+    - name: May 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-may-2025/
+    - name: April 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-april-2025/
+    - name: March 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-march-2025/
+    - name: February 2025
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-february-2025/
+    - name: November 2024
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-november-2024/
+    - name: October 2024
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-october-2024/
+    - name: September 2024
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-september-2024/
+    - name: August 2024
+      href: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-august-2024/
     

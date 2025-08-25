@@ -4,7 +4,7 @@ description: Learn how to configure a Spring Boot Initializer app with the Azure
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 08/28/2024
+ms.date: 08/19/2025
 ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -48,7 +48,7 @@ To install the Spring Cloud Azure Storage Blob Starter module, add the following
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>5.23.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

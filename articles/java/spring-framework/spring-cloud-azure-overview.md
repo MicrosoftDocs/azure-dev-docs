@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.topic: overview
-ms.date: 08/28/2024
+ms.date: 08/19/2025
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
@@ -189,7 +189,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>

@@ -542,6 +542,8 @@
           href: provider-version-history-azurerm-0-1-0-to-0-3-3.md
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
+    - name: Terraform Microsoft Graph provider
+      href: /graph/templates/terraform/reference/v1.0/overview
     - name: Terraform Azure Provider
       href: https://aka.ms/terraform
     - name: Terraform AzAPI Provider

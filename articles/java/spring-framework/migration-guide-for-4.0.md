@@ -4,7 +4,7 @@ description: Helps with migration to Spring Cloud Azure 4.0 from legacy Azure Sp
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 04/06/2023
+ms.date: 08/19/2025
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -64,7 +64,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.22.0</version>
+      <version>5.23.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

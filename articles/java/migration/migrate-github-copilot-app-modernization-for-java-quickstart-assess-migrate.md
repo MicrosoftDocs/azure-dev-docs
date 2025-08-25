@@ -8,7 +8,7 @@ ms.reviewer: xiading
 ms.topic: quickstart
 ms.date: 06/30/2025
 ms.custom: devx-track-java
-ms.service: azure-java
+ms.subservice: migration-copilot
 ---
 
 # Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java
@@ -51,7 +51,7 @@ For more information, see [Install a VS Code extension](https://code.visualstudi
 
 Use the following steps to start your migration process with solution assessment. This assessment helps you understand what your cloud readiness challenges are and how impactful they are, provides recommended solutions. A solution recommendation includes references to set up Azure resources, add configurations, and make code changes.
 
-1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository.
+1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository and then check out to the **source** branch.
 
 1. In Visual Studio Code, open the **mi-sql-public-demo** project folder in the samples repository.
 

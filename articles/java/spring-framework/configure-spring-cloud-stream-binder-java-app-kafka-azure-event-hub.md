@@ -4,7 +4,7 @@ description: Shows you how to configure a Java-based Spring Cloud Stream Binder 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
+ms.date: 08/19/2025
 ms.topic: how-to
 ms.custom: devx-track-java, passwordless-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -78,7 +78,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>5.23.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

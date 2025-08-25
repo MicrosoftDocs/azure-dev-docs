@@ -3,7 +3,6 @@ title: What is the Azure MCP Server (Preview)?
 description: Overview of the features and capabilities of the Azure MCP Server that helps developers be more productive when building and deploying apps to Azure
 author: ms-johnalex
 ms.author: johalexander
-ms.service: azure
 ms.date: 05/14/2025
 ms.topic: overview 
 content_well_notification: 
@@ -34,13 +33,13 @@ The Azure MCP Server implements a set of [tools](./tools/index.md) per the Model
 
 ## Scenarios for using the Azure MCP Server
 
-The most common scenario for using the Azure MCP Server is to connect to it from an existing client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app. The client can then use all the available [tools](./tools/index.md) to access and interact with Azure resources using natural language. For example, you could use GitHub Copilot agent mode with the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. To learn how to connect to Azure MCP server from an existing client, see [Get started using the Azure MCP Server](./get-started.md).
+The most common scenario for using the Azure MCP Server is to connect to it from an existing client, such as GitHub Copilot agent mode in VS Code or a custom intelligent app. The client can then use all the available [tools](./tools/index.md) to access and interact with Azure resources using natural language. For example, you could use GitHub Copilot agent mode with the Azure MCP Server to list Azure storage accounts or run KQL queries on Azure databases. To learn how to connect to Azure MCP server from an existing client, see [Get started using the Azure MCP Server](get-started.md).
 
 In more advanced scenarios, some developers may create their own MCP servers to offer custom tools, resources, and prompts for specific tasks that involve Azure resources. If you're building an MCP server that needs to connect with Azure, you can use the Azure MCP Server tools from your MCP server.
 
 ## Related content
 
-- [Get started using the Azure MCP Server](./get-started.md)
+- [Get started using the Azure MCP Server](get-started.md)
 - [Azure MCP Server tools](./tools/index.md)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/introduction)
 - [Azure MCP Server repository](https://github.com/Azure/azure-mcp)
