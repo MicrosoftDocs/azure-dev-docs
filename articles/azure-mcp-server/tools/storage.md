@@ -56,9 +56,9 @@ Example prompts include:
 - **Account metadata**: "Show metadata for my storage account 'datalakeacct'."
 
 
-| Parameter | Type | Required or optional | Description |
-|-----------|------|----------|-------------|
-| `Account` | Yes | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
+| Parameter | Required or optional | Description |
+|-----------|----------|-------------|
+| **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 
 
 ## Account: List 

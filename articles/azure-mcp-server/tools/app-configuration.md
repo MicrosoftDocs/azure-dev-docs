@@ -33,7 +33,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required | The name of the App Configuration store.                                    |
 | **Key**          | Required | The key name of the setting to delete.                                      |
 | **Label**        | Optional | The label of the setting to delete.                                         |
@@ -52,7 +51,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required | The name of the App Configuration store.                                    |
 | **Key**          | Optional | The key filter to list settings (supports wildcards).                       |
 | **Label**        | Optional | The label filter to list settings (supports wildcards).                     |
@@ -69,10 +67,6 @@ Example prompts include:
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
-
 ## Lock key-value setting
 
 The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.
@@ -87,7 +81,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required | The name of the App Configuration store.                                    |
 | **Key**          | Required | The key name of the setting to lock.                                        |
 | **Label**        | Optional | The label of the setting to lock.                                           |
@@ -127,7 +120,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required | The name of the App Configuration store.                                    |
 | **Key**          | Required | The key name of the setting to set.                                         |
 | **Label**        | Optional | The label of the setting to set.                                            |
@@ -146,7 +138,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The ID of the subscription containing the App Configuration store.          |
 | **Account name** | Required | The name of the App Configuration store.                                    |
 | **Key**          | Required | The key name of the setting to set.                                         |
 | **Label**        | Optional | The label of the setting to set.                                            |

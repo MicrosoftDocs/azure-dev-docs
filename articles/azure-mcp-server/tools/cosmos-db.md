@@ -19,7 +19,7 @@ The Azure MCP Server allows you to manage Azure resources, including Cosmos DB a
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## List accounts
+## Account: List
 
 The Azure MCP Server can list all Cosmos DB accounts in a subscription. This provides a quick overview of your Cosmos DB resources.
 
@@ -31,11 +31,7 @@ Example prompts include:
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-
-## List databases
+## Database: List
 
 The Azure MCP Server can list all databases in a Cosmos DB account. This helps you view your database resources in a specific account.
 
@@ -49,10 +45,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Account name** | Required | The name of the Cosmos DB account. |
 
-## List containers
+## Database: List containers
 
 The Azure MCP Server can list all containers in a Cosmos DB database. This helps you manage your data organization within a database.
 
@@ -66,11 +61,10 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Account name** | Required | The name of the Cosmos DB account. |
 | **Database name** | Required | The name of the database. |
 
-## Query items
+## Database: Query container items
 
 The Azure MCP Server can execute SQL queries against items in a Cosmos DB container. This powerful feature allows you to retrieve specific data based on query conditions.
 
@@ -84,7 +78,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Account name** | Required | The name of the Cosmos DB account. |
 | **Database name** | Required | The name of the database. |
 | **Container name** | Required | The name of the container. |
