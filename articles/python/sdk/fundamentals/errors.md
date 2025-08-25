@@ -472,6 +472,6 @@ Effective error handling in Azure SDK for Python applications requires:
 
 ## Next steps
 
-- [Azure Core exceptions Module reference](/python/api/azure-core/azure.core.exceptions?view=azure-python)
+- [Azure Core exceptions Module reference](/python/api/azure-core/azure.core.exceptions)
 - Learn about [troubleshooting authentication and authorization issues](../authentication/overview.md)
 - Explore [Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable?tabs=python) for comprehensive application monitoring
