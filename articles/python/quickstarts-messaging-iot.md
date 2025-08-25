@@ -2,7 +2,7 @@
 title: Getting starting with messaging, events, and IoT for Python apps on Azure
 description: Index of Python-specific articles in Azure documentation for learning more about messaging, events, and IoT.
 ms.date: 06/02/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

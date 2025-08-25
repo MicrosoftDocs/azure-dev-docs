@@ -5,7 +5,7 @@ metadata:
   author: alexwolfmsft
   ms.author: alexwolf
   ms.date: 9/14/2024
-  ms.topic: conceptual
+  ms.topic: article
   ms.custom: devx-track-azdevcli, build-2023
   ms.service: azure-dev-cli
 title: Azure Developer CLI FAQ
@@ -76,7 +76,7 @@ sections:
             } 
           ```
 
-          The output of `secretOrRandomPassword` should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across deploys can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the Bicep code below. You can view the full sample code for these modules in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev/tree/main/templates/common/infra/bicep/core/security). 
+          The output of `secretOrRandomPassword` should also be saved to Key Vault using Bicep for future runs. Retrieving and reusing the same secrets across deploys can prevent errors or unintended behaviors that can surface when repeatedly generating new values. To create a Key Vault and store the generated secret in it, use the Bicep code below. You can view the full sample code for these modules in the [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev/tree/main). 
 
           ```json
           module keyVault './core/security/keyvault.bicep' = {

@@ -2,10 +2,16 @@
 title: "Get started with chat private endpoints"
 description: "Secure the chat app with a virtual network."
 ms.date: 02/26/2025
+ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - devx-track-python
+  - devx-track-python-ai
+  - devx-track-extended-azdevcli
+  - build-2024-intelligent-apps
+  - sfi-image-nochange
 # CustomerIntent: As a Python developer new to Azure, I want to deploy a chat app with private access so that I understand how to secure my chat app endpoint.
 ---
 
@@ -194,7 +200,7 @@ Change the deployment configuration to secure the chat app for private access.
 
 ## Access the chat app
 
-To access the chat app, use a tool such as [Azure VPN Gateway](/azure/vpn-gateway/) or [Azure Virtual Desktop](/azure/virtual-desktop/users/). Remember that any tool you use to access the app must be secure and compliant with your organization's security policies.
+To access the chat app, use a tool such as [Azure VPN Gateway](/azure/vpn-gateway/) or [Azure Virtual Desktop](/azure/virtual-desktop/). Remember that any tool you use to access the app must be secure and compliant with your organization's security policies.
 
 ### Clean up resources
 

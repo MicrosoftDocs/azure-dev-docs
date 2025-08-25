@@ -1,103 +1,88 @@
 ---
-title: Key Concepts and Considerations in Generative AI
-description: As a developer, learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, implementing an inference pipeline, and modifying optional API call parameters.
-ms.date: 01/15/2025
-ms.topic: conceptual
-ms.custom: build-2024-intelligent-apps
+title: Key concepts and considerations in generative AI
+description: Learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, building an inference pipeline, and adjusting API call parameters.
+ms.date: 07/31/2025
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
+ms.topic: concept-article
+ms.collection: ce-skilling-ai-copilot
+ms.subservice: intelligent-apps
+# CustomerIntent: As an AI app developer, I want to learn about the limitations and best practices for using LLMs in my applications.
 ---
 
 # Key concepts and considerations for building generative AI solutions
 
-Large language models (LLMs) are amazing, but they have limitations. As a developer, you need to understand those limitations, what LLMs are capable of "out of the box," and how to modify them to get the best results for the generative AI solutions you build. This article identifies several challenges and limiting factors of LLMs. It explains common ways to overcome the challenges and take control of the content generation process regardless of the type of generative AI features you build into your application.
+Large language models (LLMs) are powerful, but they have limits. You need to know what LLMs can do by default and how to adjust them to get the best results for your generative AI apps. This article covers the main challenges with LLMs and shows simple ways to solve them and improve how you generate content, no matter what kind of generative AI features you build.
 
 ## Engineering challenges when working with LLMs
 
-The following list summarizes the most significant challenges or limitations to be aware of when you work with LLMs:
+Here are the most significant challenges and limitations to keep in mind when you work with LLMs:
 
-- **Knowledge cutoff**: Due to the high cost of training an LLM, an LLM's body of knowledge is limited to what it was trained on at a point in time. Without any plug-ins or other accommodations, an LLM has no access to real-time information, and it can't access private data.
+- **Knowledge cutoff**: LLMs only know what they were trained on up to a certain date. Without external data connections, they can’t access real-time or private information.
 
-- **Hallucination**: An LLM uses statistical probabilities and a little randomness to generate information. Mechanisms are in place to keep generated responses aligned to the human's intent in the questions that are asked and the information an LLM was trained on, but it's possible for an LLM to create replies that aren't accurate.
+- **Hallucination**: LLMs might generate inaccurate or misleading information. The Groundedness detection feature in Azure AI Foundry helps you determine whether an LLM’s responses are based on the source materials you provide. Ungrounded responses  include information not supported by your data. Learn how to use groundedness detection in this [quickstart](/azure/ai-services/content-safety/quickstart-groundedness?tabs=python&pivots=programming-language-rest).
 
-- **Transparency**: Also because of the way an LLM is trained, it no longer has access to the foundational knowledge it was trained on. Even if it did, there's no guarantee that the information was truthful and grounded to begin with. Also, there's no verification step to ensure that the generated response is accurate.
+- **Transparency**: You can’t always trace the source or accuracy of generated content, and there’s no built-in verification step.
 
-- **No domain-specific knowledge**: Similar to knowledge cutoff, if you have private information like internal-only company documents, the LLM wasn't trained on this information. It has no knowledge of domain-specific data.
+- **No domain-specific knowledge**: LLMs don’t know your internal or proprietary data unless you integrate it.
 
-What can you do to mitigate the possible challenges or problems with LLMs and get the best possible results to help your users and your organization? Start by understanding the ways you can supplement where an LLM gets its data.
+- **Inability to learn from interactions**: LLMs don’t have memory or awareness of past interactions, so they can’t adapt or improve over time based on user feedback.
+To overcome these challenges and get the best results, supplement the LLM’s knowledge with your own data and use validation tools.
 
 ### Where LLMs get their information
 
-A good starting point to getting the best results from an LLM is to understand where or how LLMs get their information. The following categories represent different approaches to how LLMs interact with various sources of information to generate responses.
-
-:::image type="content" source="./media/llm-knowledge.png" alt-text="Diagram that depicts three different types of retrieval generation: retrieval-off generation, retrieval-augmented generation, and retrieval-centric generation." :::
-
-- **Retrieval-off generation (ROG)**:  Traditional LLMs use this model. The model generates responses based solely on the knowledge it was trained on, without accessing or retrieving any external information during the generation process. The model's knowledge is static and limited to what was included in its training data up to the cutoff date. In addition to creative writing, it can answer questions about information that's readily available on the internet.
-
-- **Retrieval-augmented generation (RAG)**: Combines the generative capabilities of LLMs with the ability to retrieve information from external databases or documents in real time. The model queries an external source to find relevant information. It then uses the information to form its response. This approach allows the model to provide more accurate and up-to-date information than it provides by using its pretrained knowledge alone. Use cases include fact checking, answering questions based on real-time data, or answering questions based on private, domain-specific data.
-
-- **Retrieval-centric generation (RCG)**: Places even more emphasis on the externally retrieved content, often structuring responses around the information fetched from external sources. The model might directly incorporate large segments of retrieved text into its outputs, editing or annotating them to fit the user's query. This approach can be seen as a hybrid between retrieval-based and generative methods, where the balance might heavily favor the information retrieved over the model's own generative capabilities. Use cases include summarization of a longer document, research assistance to provide comparisons and thematic explorations across multiple similar documents, and compilation or collation of different sources of material into a combined output.
-
-A good example of ROG is ChatGPT. By contrast, Copilot (via Bing) extends an LLM by using external sources from news sources (and by providing links to those sources).
-
-At first glance, RAG and RCG appear similar because both involve integrating external information into the language generation process. However, they differ in how they prioritize and use retrieved information in the generation process.
-
-In a RAG system, the external data retrieval is used to _augment_ the generative capabilities of a pretrained language model. The retrieved information provides more context or specific data that the model uses to inform its responses. In a RAG system, the generative aspect of the language model remains central to the response. Retrieved data acts as a _supportive element_ to enhance accuracy or depth.
-
-An RCG system places a stronger emphasis on the retrieved information itself. In an RCG system, the retrieved data often is the _centerpiece_ of the response, and the generative model’s role primarily is to refine, format, or slightly enhance the retrieved text. This approach is used particularly when accuracy and direct relevance of the information are paramount, and less creative synthesis or extrapolation is required.
-
-The mechanisms for external retrieval of data that power both RAG and RCG are discussed in articles about storing vectorized embeddings of documents versus fine-tuning an LLM, the two prevalent approaches to supplementing the knowledge available to the LLM based on its initial training.
-
-Understanding the distinctions between retrieval models can help you choose the right approach for specific applications. It helps you balance the need for creative synthesis versus accuracy and fidelity to source material.
+LLMs are trained on large datasets from books, articles, websites, and other sources. Their responses reflect patterns in this data, but anything that happened after the training cutoff isn’t included. Without external connections, LLMs can’t access real-time information or browse the internet, which can lead to outdated or incomplete answers.
 
 ## Factors that affect how inference works
 
-Because you're likely familiar with ChatGPT's web-based user interface, understanding how it works to answer questions can help you understand concepts that are vital when you build generative AI features in your own applications.
+When you use an LLM, it might look like the model remembers your whole conversation. In reality, each new prompt you send includes all your earlier prompts and the model’s replies. The LLM uses this full history as context to create the next answer. This running history is the _context window_.
 
-When a user chats with ChatGPT, the user interface design gives you the illusion of a long-running chat session that maintains state over the course of several back-and-forth exchanges between you and the LLM. In reality, for a given chat session, all prompts and all LLM responses (also called _completions_) are sent with each new prompt. As your conversation grows, you send increasingly more text to the LLM to process. With each new prompt, you send all previous prompts and completions. ChatGPT uses the entire chat session's context, and not just the current prompt, when it composes a response to your current prompt. The entire chat session is called the _context window_.
+Each LLM has a maximum context window size, which changes by model and version. If your conversation goes over this limit, the model drops the oldest parts and ignores them in its answer.
 
-A context window has a length limit that varies by the version of ChatGPT you work with. Any part of your chat conversation that exceeds the context window length limit is ignored when ChatGPT composes a response to your latest prompt.
+Longer context windows mean the model has to process more data, which can slow down things and cost more.
 
-Long conversations might seem like a good idea at first, but long context windows can affect the amount of computation required to process the prompt and compose a completion. The size of the context windows affects the latency of the response and how much it costs for OpenAI to process the request.
+The context window size uses tokens, not words. Tokens are the smallest pieces of text the model can handle—these parts might be whole words, parts of words, or single characters, depending on the language and tokenizer.
 
-What is ChatGPT's context window limit? That is, how many words can ChatGPT work with?
+For developers, token usage directly impacts:
 
-The context window limit depends on the LLM model, version, and edition you're working with. Furthermore, context lengths are measured in tokens, not in words. Tokens are the smallest units of text that the model can understand and generate. These units can be words, parts of words (like syllables or stems), or even individual characters. Tokens are at the heart of natural language processing (NLP).
-
-The use of tokens impacts two important considerations for developers:
-
-- The maximum context window limit
-- The price per prompt and completion
+- The maximum amount of conversation history the model can consider (context window)
+- The cost of each prompt and completion, since billing is based on the number of tokens processed
 
 ## What is tokenization?
 
-_Tokenization_ is the process of converting text into tokens. It's a crucial step in preparing data for training or inference (the process of composing completions based on prompts) with an LLM. The process involves several steps, including breaking down complex text into manageable pieces (tokens), which the model can then process. This process can be simple, such as splitting text by spaces and punctuation, or more complex, involving sophisticated algorithms to handle different languages, morphologies (the structure of words), and syntaxes (the arrangement of words). LLM researchers and developers decide on the method of tokenization based on what they're trying to accomplish.
+_Tokenization_ is the process of breaking text into tokens—the smallest units a model can process. Tokenization is essential for both training and inference with LLMs. Depending on the language and tokenizer, tokens might be whole words, subwords, or even single characters. Tokenization can be as simple as splitting by spaces and punctuation, or as complex as using algorithms that account for language structure and morphology.
 
-The OpenAI [tokenizer](https://platform.openai.com/tokenizer) page explains more about tokenization. The page even has a calculator that illustrates how a sentence or paragraph breaks down into tokens.
+The OpenAI [tokenizer](https://platform.openai.com/tokenizer) page explains tokenization in detail and includes a calculator to show how sentences are split into tokens.
 
-As the note at the bottom of the OpenAI Tokenizer page states, in typical English texts, one token is equivalent to about four characters. On average, 100 tokens are approximately equal to 75 words or three-quarters of a word per token.
+In typical English text, one token is about four characters. On average, 100 tokens are roughly 75 words.
 
-The OpenAI Tokenizer page also talks about [tiktoken](https://github.com/openai/tiktoken), a package for Python and JavaScript that you can use to programmatically estimate how many tokens are required to send a specific prompt to the OpenAI API.
+For developers, the following libraries help estimate token counts for prompts and completions, which is useful for managing context window limits and costs:
+- the [tiktoken](https://github.com/openai/tiktoken) library (Python and JavaScript)
+- the [Microsoft.ML.Tokenizers](https://www.nuget.org/packages/Microsoft.ML.Tokenizers/2.0.0-preview.1.25127.4#readme-body-tab) library (.NET)
+- the [Hugging Face Tokenizers](https://huggingface.co/docs/tokenizers/python/latest/index) library (JavaScript, Python, and Java)
 
 ### Token usage affects billing
 
 Each Azure OpenAI API has a different billing methodology. For processing and generating text with the Chat Completions API, you're billed based on the number of tokens you submit as a prompt and the number of tokens that are generated as a result (completion).
 
-Each LLM model (for example, GPT-3.5, GPT-3.5 Turbo, or GPT-4) usually has a different price, which reflects the amount of computation required to process and generate tokens. Many times, price is presented as "price per 1,000 tokens" or "price per 1 million tokens."
+Each LLM model (for example, GPT-4.1, GPT-4o, or GPT-4o mini) usually has a different price, which reflects the amount of computation required to process and generate tokens. Many times, price is presented as "price per 1,000 tokens" or "price per 1 million tokens."
 
 This pricing model has a significant effect on how you design the user interactions and the amount of preprocessing and post-processing you add.
 
 ## System prompts vs. user prompts
 
-Up to this point, the discussion has focused solely on _user prompts_. A user prompt is the type of prompt that makes up the interchange between a user and ChatGPT.
+So far, this article discussed _user prompts_. A _user prompt_ is what you send to the model and what the model replies to.
 
-OpenAI introduced the _system prompt_ (also called _custom instructions_). A system prompt is an overarching set of instructions that you define and add to all your chat conversations. Think of it as a set of meta instructions you want the LLM to always observe each time you start a new chat session. For example, you can set the system prompt to "always respond in the poetic form of haiku." From that point on, every new prompt to ChatGPT results in a haiku containing the answer.
+OpenAI also added the _system prompt_ (or _custom instructions_). A system prompt is a set of rules you add to every chat. For example, you can tell the LLM to "always answer in haiku form." After that, every answer will be a haiku.
 
-While "reply in haiku form" isn't a useful example, it does illustrate the idea that you can influence an LLM's completion to your prompt by modifying the prompt itself.
+This haiku example shows how you can change the LLM's answers by changing the prompt.
 
-Why would you want to modify the user's prompt? If you're building a generative AI feature or application for a professional audience, which might include company employees, customers, and partners, you undoubtedly want to add safeguards to limit the scope of topics or domains it can answer.
+Why change the user's prompt? If you build a generative AI app for work, customers, or partners, you might want to add rules to limit what the model can answer.
 
-But modifying the user prompt is only one method to improve the text generation experience for users.
+But changing the user prompt is just one way to make text generation better.
 
-## Methods to improve the text generation experience for users in ChatGPT
+## Methods to improve the text generation experience for users 
 
 To improve text generation results, developers are limited to simply improving the prompt, and there are many prompt engineering techniques that can help. However, if you're building your own generative AI application, there are several ways to improve the text generation experience for users, and you might want to experiment with implementing all of them:
 
@@ -121,15 +106,18 @@ The caveat to this approach is that the longer the prompt, the higher the cost f
 
 ### Implement an inference pipeline
 
-The next step beyond modifying the user's prompt programmatically is to create an entire inference pipeline.
+After you improve the user's prompt, the next step is to build an inference pipeline.
 
-An _inference pipeline_ is an end-to-end process that "cleans up" raw input (like text or an image) before using it to perform your primary prompt (preprocessing) or checks the completion to ensure that it meets the user's needs before displaying it (postprocessing).
+An _inference pipeline_ is a process that:
+1. Cleans up raw input (like text or images) 
+1. Sends it to the model (preprocessing) 
+1. Checks the model's answer to make sure it meets the user's needs before showing it (postprocessing).
 
-Preprocessing might involve keyword checking, relevance scoring, or transforming the query to better fit the expected domain language. For example, you can analyze the initial prompt the user submits. Begin by asking the LLM if the prompt makes sense, if it is within the boundaries of what you are willing to accept, if it's based on a faulty premise, or if it needs to be rewritten to avoid certain biases. If the LLM analyzes the prompt and finds issues, you might go a step further. You can ask the LLM to reword the prompt to potentially improve the answer.
+Preprocessing can include checking for keywords, scoring relevance, or changing the query to better fit your domain. For example, look at the user's first prompt. Ask the LLM if the prompt makes sense, follows your rules, is based on a correct idea, or needs rewriting to avoid bias. If the LLM finds problems, you can ask it to rewrite the prompt to get a better answer.
 
-Postprocessing might involve validating the answer's relevance and appropriateness to the domain. It might include removing or flagging answers that don't fit the domain requirements. For example, you might want to inspect the completion provided by the LLM to ensure that it meets your quality and safety requirements. You can ask the LLM to evaluate the answer to see if it in fact meets the requirements you asked it to adhere to. If it doesn't, you can ask the LLM to modify the completion. Repeat these steps until you have a satisfactory result.
+Postprocessing can mean checking if the answer fits your domain and meets your standards. You might remove or flag answers that don't match your rules. For example, check the LLM's answer to see if it meets your quality and safety needs. You can ask the LLM to review its answer and change it if needed. Repeat this process until you get a good result.
 
-There's one caveat to adding preprocessing steps: each time you add a call to an LLM in your inference pipeline, you increase the overall latency  (time to respond) and the cost of each interaction with the user. As an experienced software developer, you're likely already aware of these kinds of trade-offs that affect the budget, performance, and effectiveness of a software system.
+Keep in mind: every time you call an LLM in your inference pipeline, it takes longer to respond and costs more. You need to balance these trade-offs with your budget, speed, and how well your system works.
 
 For information about the specific steps to take to build an inference pipeline, see [Build an advanced retrieval-augmented generation system](advanced-retrieval-augmented-generation.md).
 
@@ -141,7 +129,7 @@ To review required and optional parameters to pass that can affect various aspec
 
 - **`Temperature`**: Control the randomness of the output the model generates. At zero, the model becomes deterministic, consistently selecting the most likely next token from its training data. At a temperature of 1, the model balances between choosing high-probability tokens and introducing randomness into the output.
 
-- **`Max Tokens`**: Controls the maximum length of the response. Setting a higher or lower limit can affect the detail and scope of the content that's generated.
+- **`Max Tokens`**: Controls the maximum length of the response. Setting a higher or lower limit can affect the detail and scope of the generated content.
 
 - **`Top P` (nucleus sampling)**: Used with `Temperature` to control the randomness of the response. `Top P` limits AI to consider only the top percent of probability mass (`P`) when it generates each token. Lower values lead to text that is more focused and predictable. Higher values allow for more diversity.
 
@@ -153,15 +141,32 @@ To review required and optional parameters to pass that can affect various aspec
 
 - **`Logit Bias`**: Allows you to modify the likelihood of specified tokens appearing in the completion. `Logit Bias` can be used to guide the completion in a certain direction or to suppress specific content.
 
-## Microsoft OpenAI safeguards
+## Microsoft Azure OpenAI safeguards
 
 In addition to keeping the LLM's responses bound to specific subject matter or domains, you also likely are concerned about the kinds of questions your users are asking of the LLM. It's important to consider the kinds of answers it's generating.
 
-First, API calls to Microsoft OpenAI Services automatically filter content that the API finds potentially offensive and reports this back to you in many filtering categories.
+First, API calls to Microsoft Azure OpenAI Services automatically filter content that the API finds potentially offensive and reports this back to you in many filtering categories.
 
-You can directly use the OpenAI Moderation API directly to check any content for potentially harmful content.
+You can directly use the [Content Moderation API](/azure/ai-services/content-moderator/api-reference) directly to check any content for potentially harmful content.
 
-Then, you can use Azure AI Content Safety to help with text moderation, image moderation, jailbreak risk detection, and protected material detection. This combines a portal setup, configuration, and reporting experience with code you can add to your application to identify harmful content.
+Then, you can use [Azure AI Content Safety](/azure/ai-services/content-safety/overview) to help with text moderation, image moderation, jailbreak risk detection, and protected material detection. This service combines a portal setup, configuration, and reporting experience with code you can add to your application to identify harmful content.
+
+## AI Agents
+
+AI agents are a new way to build generative AI apps that work on their own. They use LLMs to read and write text, and they can also connect to outside systems, APIs, and data sources.
+AI agents can manage complex tasks, make choices using real-time data, and learn from how people use them.
+For more information about AI agents, see [Quickstart: Create a new agent](/azure/ai-foundry/agents/quickstart?pivots=programming-language-python-azure).
+
+### Tool calling
+
+AI agents can use outside tools and APIs to get information, take action, or connect with other services. This feature lets them do more than just generate text and handle more complex tasks.
+
+For example, an AI agent can get real-time weather updates from a weather API or pull details from a database based on what a user asks.
+For more information about tool calling, see [Tool calling in Azure AI Foundry](/azure/ai-foundry/agents/how-to/tools/overview).
+
+### Model Context Protocol (MCP)
+
+The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) lets apps provide capabilities and context to a large language model. A key feature of MCP is defining tools that AI agents use to complete tasks. MCP servers can run locally, but remote MCP servers are crucial for sharing tools at cloud scale. For more information: see [Build Agents using Model Context Protocol on Azure](intro-agents-mcp.md).
 
 ## Final considerations for application design
 

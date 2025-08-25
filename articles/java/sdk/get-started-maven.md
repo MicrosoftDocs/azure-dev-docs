@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jogiles
 ms.date: 02/14/2025
-ms.topic: article
+ms.topic: get-started
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

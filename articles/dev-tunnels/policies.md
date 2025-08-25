@@ -7,6 +7,7 @@ ms.author: debekoe
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
 ms.date: 03/27/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Configure and deploy Group Policy Administrative Templates for Dev Tunnels

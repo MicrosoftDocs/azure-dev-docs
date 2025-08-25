@@ -70,7 +70,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/pre-deployment-check.png" alt-text="Screenshot of the GitHub Copilot chat pane checking files and local environment to ensure they're ready for azd up.":::
 
 
-1. Select **Continue** and Copilot agent checks if the app is ready to deploy with `azd`. If there’s an issue, Copilot agent fixes it and checks again, like in the following example. 
+1. Select **Continue** and Copilot agent checks if the app is ready to deploy with `azd`. If there's an issue, Copilot agent fixes it and checks again, like in the following example. 
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/pre-deployment-issues.png" alt-text="Screenshot of the GitHub Copilot chat pane checking files fixing issues before running azd up.":::
 
@@ -100,7 +100,7 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
 ## Tips
 
-- Use Claude 3.5 Sonnet or Claude 3.7 Sonnet for better results.
+- Use Claude Sonnet 4  for better results.
 - Make sure the following GitHub Copilot for Azure tools are selected in the GitHub Copilot tools list:
   - **@azure recommend service config**
   - **@azure check pre-deploy**
@@ -118,3 +118,4 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
 - [What is GitHub Copilot for Azure?](introduction.md)
 - [Get started with GitHub Copilot for Azure](get-started.md)
+- [Video - GitHub Copilot App Modernization for Java - Automated Deployment to Azure](https://www.youtube.com/watch?v=469QHVDJiIk)

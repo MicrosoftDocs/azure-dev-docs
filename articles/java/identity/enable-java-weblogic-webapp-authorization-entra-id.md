@@ -5,8 +5,8 @@ description: Shows you how to develop a Java WebLogic app to sign in users and c
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 03/11/2024
-ms.topic: article
+ms.date: 08/21/2025
+ms.topic: how-to
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 

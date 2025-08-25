@@ -5,9 +5,17 @@ description: Shows you how to deploy a Java application with Open Liberty/WebSph
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jiangma
-ms.topic: conceptual
+ms.topic: install-set-up-deploy
 ms.date: 04/29/2025
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-liberty
+  - devx-track-javaee-liberty-aro
+  - devx-track-javaee-websphere
+  - devx-track-extended-java
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster

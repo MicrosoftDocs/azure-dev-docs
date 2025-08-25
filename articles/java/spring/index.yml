@@ -7,39 +7,30 @@ summary: Learn to code, deploy, and scale your Spring apps on Azure. # < 160 cha
 brand: azure
 
 metadata:
-  title: Azure for Spring developers # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn to code, deploy, and scale your Spring apps on Azure # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure for Spring developers
+  description: Learn to code, deploy, and scale your Spring apps on Azure.
   services: azure
-  ms.service: azure #Required; service per approved list. service slug assigned to your service by ACOM.
-  # ms.subservice: subservice # Optional; Remove if no subservice is used.
-  ms.topic: hub-page # Required
-  ms.collection: collection # Optional; Remove if no collection is used.
-  author: KarlErickson #Required; your GitHub user alias, with correct capitalization.
+  ms.topic: hub-page
+  author: KarlErickson
   ms.author: karler
-  ms.reviewer: fangjimmy #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/14/2022 #Required; mm/dd/yyyy format.
+  ms.reviewer: fangjimmy
+  ms.date: 10/14/2022
   ms.custom: devx-track-java, devx-track-extended-java, spring-cloud-azure
 
-# highlightedContent section (optional)
 # Maximum of 8 items
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-    # Card
     - title: Introduction to Spring Cloud Azure
       itemType: overview
       url: ../spring-framework/index.yml
-    # Card
     - title: Deploy your first application to Azure Spring Apps
       itemType: quickstart
       url: /azure/spring-apps/enterprise/quickstart
-    # Card
     - title: Secure your app using the Spring Boot Starter for Microsoft Entra ID
       itemType: tutorial
       url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra.md
 
-
-# conceptualContent section (optional)
 conceptualContent:
   sections:
     - title: Code
@@ -251,10 +242,8 @@ conceptualContent:
               itemType: get-started
               text: Migrate Spring Cloud applications to Azure Spring Apps
 
-
-# tools section (optional)
 tools:
-  title: Tools # < 60 chars (optional)
+  title: Tools
   summary: Tools you can use to accelerate Spring development using Azure resources. # < 160 chars (optional)
   items:
     - title: Spring Initializr

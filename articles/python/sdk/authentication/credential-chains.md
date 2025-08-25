@@ -1,8 +1,8 @@
 ---
 title: Credential chains in the Azure Identity library for Python
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
-ms.date: 06/02/2025
-ms.topic: conceptual
+ms.date: 08/06/2025
+ms.topic: article
 ms.custom: devx-track-python
 ---
 
@@ -44,7 +44,7 @@ There are two disparate philosophies to credential chaining:
 
 [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow-big.png":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
@@ -54,19 +54,24 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 | 2     | [Workload Identity][wi-cred]    | If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.                                                                                                                                                                                                                                             | Yes                 |
 | 3     | [Managed Identity][mi-cred]     | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                              | Yes                 |
 | 4     | [Shared Token Cache][vs-cred]   | On Windows only, if the developer authenticated to Azure by logging into Visual Studio, authenticate the app to Azure using that same account.                                                                                                                                                                                                 | Yes                 |
-| 5     | [Azure CLI][az-cred]            | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                                           | Yes                 |
-| 6     | [Azure PowerShell][pwsh-cred]   | If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.                                                                                                                                                                                            | Yes                 |
-| 7     | [Azure Developer CLI][azd-cred] | If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.                                                                                                                                                                                                                  | Yes                 |
-| 8     | [Interactive browser][int-cred] | If enabled, interactively authenticate the developer via the current system's default browser.                                                                                                                                                                                                                                                 | No                  |
+| 5     | [Visual Studio Code][vsc-cred]  | If the developer authenticated via Visual Studio Code's [Azure Resources extension][vsc-ext] and the [azure-identity-broker package][broker-pkg] is installed, authenticate that account.                                                                                                                                                        | Yes                 |
+| 6     | [Azure CLI][az-cred]            | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                                           | Yes                 |
+| 7     | [Azure PowerShell][pwsh-cred]   | If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.                                                                                                                                                                                            | Yes                 |
+| 8     | [Azure Developer CLI][azd-cred] | If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.                                                                                                                                                                                                                  | Yes                 |
+| 9     | [Interactive browser][int-cred] | If enabled, interactively authenticate the developer via the current system's default browser.                                                                                                                                                                                                                                                 | No                  |
+| 10    | [Broker][int-cred]              | Authenticates using the default account logged into the OS via a broker. Requires that the [azure-identity-broker package][broker-pkg] is installed, since an instance of `InteractiveBrowserBrokerCredential` is used.                                                                                                              | Yes                  |
 
 [env-cred]: /python/api/azure-identity/azure.identity.environmentcredential
 [wi-cred]: /python/api/azure-identity/azure.identity.workloadidentitycredential
 [mi-cred]: /python/api/azure-identity/azure.identity.managedidentitycredential
 [vs-cred]: /python/api/azure-identity/azure.identity.sharedtokencachecredential
+[vsc-cred]: /python/api/azure-identity/azure.identity.visualstudiocodecredential
 [az-cred]: /python/api/azure-identity/azure.identity.azureclicredential
 [pwsh-cred]: /python/api/azure-identity/azure.identity.azurepowershellcredential
 [azd-cred]: /python/api/azure-identity/azure.identity.azuredeveloperclicredential
 [int-cred]: /python/api/azure-identity/azure.identity.interactivebrowsercredential
+[vsc-ext]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups
+[broker-pkg]: https://pypi.org/project/azure-identity-broker/
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
@@ -85,7 +90,7 @@ blob_service_client = BlobServiceClient(
 
 ### How to customize DefaultAzureCredential
 
-The following sections describe strategies for omitting credentials from the chain.
+The following sections describe strategies for controlling which credentials are included in the chain.
 
 #### Exclude an individual credential
 
@@ -115,8 +120,10 @@ credential = DefaultAzureCredential(
     exclude_environment_credential=True,
     exclude_workload_identity_credential=True,
     exclude_shared_token_cache_credential=True,
+    exclude_visual_studio_code_credential=True,
     exclude_azure_powershell_credential=True,
     exclude_azure_developer_cli_credential=True,
+    exclude_broker_credential=True,
     managed_identity_client_id=user_assigned_client_id
 )
 ```
@@ -136,14 +143,30 @@ credential = ChainedTokenCredential(
 
 To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-prod.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'prod'.":::
 
 When a value of `dev` is used, the chain looks as follows:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-env-var-dev.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="Diagram that shows DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'.":::
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.23.0 and later.
+
+#### Use a specific credential
+
+To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
+
+- `AzureCliCredential`
+- `AzureDeveloperCliCredential`
+- `AzurePowerShellCredential`
+- `EnvironmentCredential`
+- `InteractiveBrowserCredential`
+- `ManagedIdentityCredential`
+- `VisualStudioCodeCredential`
+- `WorkloadIdentityCredential`
+
+> [!IMPORTANT]
+> The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity` package versions 1.24.0 and later.
 
 ## ChainedTokenCredential overview
 
@@ -158,7 +181,7 @@ credential = ChainedTokenCredential(
 
 The preceding code sample creates a tailored credential chain comprised of two development-time credentials. `AzureCliCredential` is attempted first, followed by `AzureDeveloperCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of Azure CLI and Azure Developer CLI credentials.":::
+:::image type="content" source="../media/mermaidjs/chained-token-credential-authentication-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of Azure CLI and Azure Developer CLI credentials.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
@@ -209,6 +232,7 @@ EnvironmentCredential.get_token failed: EnvironmentCredential authentication una
 Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
 ManagedIdentityCredential.get_token failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.     
 SharedTokenCacheCredential.get_token failed: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+VisualStudioCodeCredential.get_token failed: VisualStudioCodeCredential authentication unavailable. No Azure account information found in Visual Studio Code.
 AzureCliCredential.get_token succeeded
 [Authenticated account] Client ID: 00001111-aaaa-2222-bbbb-3333cccc4444. Tenant ID: aaaabbbb-0000-cccc-1111-dddd2222eeee. User Principal Name: unavailableUpn. Object ID (user): aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 DefaultAzureCredential acquired a token from AzureCliCredential
@@ -216,7 +240,7 @@ DefaultAzureCredential acquired a token from AzureCliCredential
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, `ManagedIdentityCredential`, and `SharedTokenCacheCredential` each failed to acquire a Microsoft Entra access token, in that order.
+- `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `VisualStudioCodeCredential` each failed to acquire a Microsoft Entra access token, in that order.
 - The `AzureCliCredential.get_token` call succeeds and the output also indicates that `DefaultAzureCredential` acquired a token from `AzureCliCredential`. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
 
 > [!NOTE]

@@ -6,7 +6,6 @@ summary: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud
 metadata:
   title: Java EE, Jakarta EE, and MicroProfile
   description: Java EE, Jakarta EE, and MicroProfile are open specifications for Cloud Native Java. Learn how to combine the power of Azure with technologies based on these specifications with this documentation.
-  ms.service: azure-java
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
@@ -75,7 +74,7 @@ landingContent:
           - text: WebLogic to Azure VMs with Entra ID
             url: ../migration/migrate-weblogic-with-entra-id-via-ldap.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: Passwordless database connections for WebLogic Server
-            url: how-to-configure-passwordless-datasource.md
+            url: how-to-configure-passwordless-datasource-wls.md
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: quickstart
@@ -98,6 +97,8 @@ landingContent:
             url: ../migration/migrate-jboss-eap-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Migrate JBoss EAP applications to JBoss EAP on Azure VMs
             url: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          - text: Passwordless database connections for JBoss EAP
+            url: how-to-configure-passwordless-datasource-eap.md
   - title: Migrate WebSphere to Azure
     linkLists:
       - linkListType: quickstart
@@ -130,6 +131,8 @@ landingContent:
             url: liberty-with-microsoft-entra-id.md
           - text: Azure Redis as WebSphere Liberty/Open Liberty session cache
             url: how-to-deploy-java-liberty-jcache.md
+          - text: Passwordless database connections for WebSphere
+            url: how-to-configure-passwordless-datasource-websphere.md
   - title: High Availability/Disaster Recovery (HA/DR)
     linkLists:
       - linkListType: tutorial

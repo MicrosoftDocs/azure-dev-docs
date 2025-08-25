@@ -6,6 +6,7 @@ ms.service: github-copilot-for-azure
 ms.topic: get-started
 ms.date: 5/30/2025
 ms.collection: ce-skilling-ai-copilot
+ms.custom: sfi-image-nochange
 ---
 
 # Get started with GitHub Copilot for Azure

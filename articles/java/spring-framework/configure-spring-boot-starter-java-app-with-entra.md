@@ -4,8 +4,8 @@ description: Shows you how to develop a Spring web app that supports sign-in by 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 01/17/2023
-ms.topic: article
+ms.date: 08/19/2025
+ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 adobe-target: true
 ---

@@ -5,9 +5,12 @@ description: This article provides an overview of some key Azure services and fe
 author: KarlErickson
 ms.author: karler
 ms.reviewer: asirveda
-ms.topic: conceptual
-ms.date: 09/30/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.topic: article
+ms.date: 08/19/2025
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Scale with end-to-end security, monitoring, and automation

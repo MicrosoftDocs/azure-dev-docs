@@ -1,7 +1,7 @@
 ---
 title: Spring Data support
 description: This article describes how Spring Cloud Azure and Spring Data can be used together.
-ms.date: 08/10/2023
+ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.22.0
+- ✅ Version 5.23.0
 ---
 
 # Spring Data support

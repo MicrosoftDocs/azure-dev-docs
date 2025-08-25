@@ -4,8 +4,8 @@ description: Shows you how to use Azure Service Bus in Java applications built w
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
-ms.topic: article
+ms.date: 08/19/2025
+ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
@@ -64,7 +64,7 @@ To install the Spring Cloud Azure Service Bus Starter module, add the following 
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -320,7 +320,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -462,7 +462,7 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -569,7 +569,7 @@ To install the Spring Cloud Azure Service Bus Integration Starter module, add th
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -728,7 +728,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>

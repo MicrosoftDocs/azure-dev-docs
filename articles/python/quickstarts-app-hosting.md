@@ -2,13 +2,13 @@
 title: Getting started with hosting Python apps on Azure
 description: Index of getting started material in the Azure documentation for hosting Python app code.
 ms.date: 05/20/2025
-ms.topic: conceptual
+ms.topic: get-started
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Hosting Python apps on Azure
 
-Azure offers several options for hosting your application, each suited to different levels of control and responsibility. For an overview of these options, see [Hosting applications on Azure](../intro/hosting-apps-on-azure.md)e.
+Azure offers several options for hosting your application, each suited to different levels of control and responsibility. For an overview of these options, see [Hosting applications on Azure](../intro/hosting-apps-on-azure.md).
 
 In general, selecting a hosting option involves balancing control with management responsibility. The more control you require over the infrastructure, the more responsibility you take on for management of one or more resources.
 

@@ -5,8 +5,17 @@ ms.topic: how-to
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 01/18/2023
-ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
+ms.date: 08/19/2025
+ms.custom:
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
+  - passwordless-dotnet
+  - spring-cloud-azure
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-ga-nochange
 ---
 
 # Migrate an application to use passwordless connections with Azure Database for MySQL
@@ -404,7 +413,7 @@ export AZ_MI_OBJECT_ID=$(az containerapp identity assign \
 
 ##### [Azure Spring Apps](#tab/azure-spring-apps)
 
-You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command, as shown in the following example:
+You can assign a managed identity to an Azure Spring Apps instance as shown in the following example:
 
 ```azurecli
 export AZ_MI_OBJECT_ID=$(az spring app identity assign \

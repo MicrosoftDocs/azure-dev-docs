@@ -6,7 +6,9 @@ ms.topic: how-to
 service: azure-app-service
 ms.service: azure-app-service
 ms.date: 8/13/2024
-ms.custom: devx-track-terraform
+ms.custom:
+  - devx-track-terraform
+  - sfi-image-nochange
 ---
 
 # Provision infrastructure with Azure deployment slots using Terraform

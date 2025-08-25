@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Customize your Azure Developer CLI workflows using command and event hooks
 
-The Azure Developer CLI supports various extension points to customize your workflows and deployments. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name.
+Hooks are `azd` extension points that automatically execute custom scripts before and after `azd` commands and service lifecycle events. Hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name.
 
 For example, you may want to run a custom script in the following scenarios:
 
@@ -38,7 +38,7 @@ The following service lifecycle event hooks are available:
 
 ## Hook configuration
 
-Hooks can be registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
+Hooks are registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
 * `shell`: `sh` | `pwsh`
   * *Note*: PowerShell 7 is required for `pwsh`.
@@ -159,6 +159,59 @@ hooks:
           run: scripts/postprovision1.sh
         - shell: sh
           run: scripts/postprovision2.sh
+```
+
+## Run hooks independently
+
+The `azd hooks run` command allows you to execute hooks independently of their normal trigger events. This is useful for testing and debugging hooks without going through the entire workflow.
+
+```bash
+azd hooks run <hook-name>
+```
+
+Replace `<hook-name>` with the name of the hook you want to run (e.g., `preprovision`, `postdeploy`).
+
+### Advanced options
+
+```bash
+# Run a specific service hook
+azd hooks run postdeploy --service api
+
+# Force hooks to run for a specific platform
+azd hooks run preprovision --platform windows
+
+# Run hooks in a specific environment
+azd hooks run postup -e staging
+
+# Run hooks with all options combined
+azd hooks run predeploy --service frontend --platform posix -e production --interactive
+```
+
+## Configure interactive mode
+
+Hooks run in interactive mode by default. Interactive hooks mode allows you to run hook scripts with direct console interaction, making it easier to debug, monitor, and interact with your hooks in real-time. You can explicitly set the `interactive` property in your hook configuration if you want to disable interactive mode for a specific hook:
+
+```yaml
+hooks:
+  postprovision:
+    shell: sh
+    run: ./scripts/setup-database.sh
+    interactive: false # Default is true
+```
+
+For service-specific hooks:
+
+```yaml
+services:
+  api:
+    project: ./src/api
+    language: js
+    host: appservice
+    hooks:
+      postdeploy:
+        shell: sh
+        run: ./scripts/post-deploy-verification.sh
+        interactive: false  # Override the default interactive mode
 ```
 
 ### Use environment variables with hooks

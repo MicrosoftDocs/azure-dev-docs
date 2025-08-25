@@ -4,9 +4,13 @@ description: Shows you how to create a Java app with sign-in capability by using
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 08/28/2024
-ms.topic: article
-ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
+ms.date: 08/19/2025
+ms.topic: how-to
+ms.custom:
+  - devx-track-java
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Add sign-in with Azure Active Directory B2C to a Spring web app

@@ -4,8 +4,8 @@ description: This article shows you how to use Azure Event Hubs in Java applicat
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
-ms.topic: article
+ms.date: 08/19/2025
+ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
@@ -63,7 +63,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -392,7 +392,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -516,7 +516,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -705,7 +705,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -813,7 +813,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -915,7 +915,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.22.0</version>
+         <version>5.23.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>

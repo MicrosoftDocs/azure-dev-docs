@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Azure overview
 description: This reference doc contains Spring Cloud Azure overview.
-ms.date: 04/06/2023
+ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.22.0
+- ✅ Version 5.23.0
 ---
 
 # Spring Cloud Azure developer guide
@@ -66,7 +66,7 @@ If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagem
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.22.0</version>
+      <version>5.23.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

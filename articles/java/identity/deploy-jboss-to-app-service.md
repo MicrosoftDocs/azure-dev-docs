@@ -4,8 +4,8 @@ description: Shows you how to deploy a JBoss EAP app with sign-in by Microsoft E
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
-ms.topic: article
+ms.date: 08/21/2025
+ms.topic: install-set-up-deploy
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 

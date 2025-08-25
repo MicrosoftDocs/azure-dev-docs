@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ---
 
 This application implements role-based access control (RBAC) using Microsoft Entra ID's application roles and role claims feature. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID groups and application roles aren't mutually exclusive. You can use them both to provide fine-grained access control.

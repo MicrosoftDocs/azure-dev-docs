@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Database for Postg
 keywords: azure mcp server, azmcp, postgresql, database
 author: diberry
 ms.author: diberry
-ms.date: 05/20/2025
+ms.date: 07/01/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,11 +19,11 @@ The Azure MCP Server allows you to manage Azure Database for PostgreSQL resource
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## List databases
+## Database: list databases
 
 The Azure MCP Server can list all databases in a PostgreSQL server.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List databases**: "Show me all databases in my PostgreSQL server."
 - **View databases**: "What databases do I have in my PostgreSQL server?"
@@ -32,17 +32,17 @@ The Azure MCP Server can list all databases in a PostgreSQL server.
 - **Find databases**: "Get all databases from my PostgreSQL instance."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
-## Execute database query
+## Database: execute database query
 
 The Azure MCP Server can execute a query on a PostgreSQL database.
 
-**Example prompts** include:
+Example prompts include:
 
 - **Run query**: "Execute 'SELECT * FROM users LIMIT 10' in my PostgreSQL database."
 - **Query data**: "Run a query to get recent orders from PostgreSQL database."
@@ -51,7 +51,7 @@ The Azure MCP Server can execute a query on a PostgreSQL database.
 - **Retrieve records**: "Select top sales records from PostgreSQL database."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
@@ -59,11 +59,11 @@ The Azure MCP Server can execute a query on a PostgreSQL database.
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
 
-## List tables
+## Table: list tables
 
 The Azure MCP Server can list all tables in a PostgreSQL database.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List tables**: "Show me all tables in my PostgreSQL database."
 - **View tables**: "What tables do I have in my PostgreSQL database?"
@@ -72,18 +72,18 @@ The Azure MCP Server can list all tables in a PostgreSQL database.
 - **Find tables**: "Get all tables from my PostgreSQL database."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 
-## Get table schema
+## Table: get table schema
 
 The Azure MCP Server can get the schema of a specific table in a PostgreSQL database.
 
-**Example prompts** include:
+Example prompts include:
 
 - **View schema**: "Show me the schema of the 'users' table in my PostgreSQL database."
 - **Get structure**: "What columns does the 'products' table have in my PostgreSQL database?"
@@ -92,7 +92,7 @@ The Azure MCP Server can get the schema of a specific table in a PostgreSQL data
 - **Examine table**: "Get the structure of 'transactions' table in my PostgreSQL database."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
@@ -100,11 +100,11 @@ The Azure MCP Server can get the schema of a specific table in a PostgreSQL data
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
 
-## List servers
+## Server: list servers
 
 The Azure MCP Server can list all PostgreSQL servers in a subscription and resource group.
 
-**Example prompts** include:
+Example prompts include:
 
 - **List servers**: "Show me all PostgreSQL servers in my resource group."
 - **View servers**: "What PostgreSQL servers do I have in resource group 'my-rg'?"
@@ -113,16 +113,16 @@ The Azure MCP Server can list all PostgreSQL servers in a subscription and resou
 - **Find servers**: "Get all PostgreSQL instances in my environment."
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
 
-## Get server configuration
+## Server: get server configuration
 
 The Azure MCP Server can retrieve the configuration of a PostgreSQL server.
 
-**Example prompts** include:
+Example prompts include:
 
 - **View configuration**: "Show me the configuration of my PostgreSQL server."
 - **Get settings**: "What are the settings of my PostgreSQL server 'pg-prod'?"
@@ -131,17 +131,17 @@ The Azure MCP Server can retrieve the configuration of a PostgreSQL server.
 - **Get server setup**: "What is the configuration of my PostgreSQL instance?"
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
-## Get server parameter
+## Server: get server parameter
 
 The Azure MCP Server can retrieve a specific parameter of a PostgreSQL server.
 
-**Example prompts** include:
+Example prompts include:
 
 - **View parameter**: "Show me the 'max_connections' parameter of my PostgreSQL server."
 - **Get setting**: "What is the value of 'shared_buffers' in my PostgreSQL server?"
@@ -150,11 +150,36 @@ The Azure MCP Server can retrieve a specific parameter of a PostgreSQL server.
 - **Get configuration value**: "What is the 'maintenance_work_mem' set to in my PostgreSQL instance?"
 
 | Parameter | Required or optional | Description |
-|-----------|-------------------|-------------|
+|-----------|-------------|-------------|
 | **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **User name** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Param** | Required | The PostgreSQL parameter to be accessed. |
 
-[!INCLUDE [global-params](../includes/tools/global-parameters-link.md)]
+## Server: set server parameter
+
+The Azure MCP Server can set or update a specific parameter on a PostgreSQL server. This allows you to configure server settings, optimize performance, and adjust database behavior according to your application requirements.
+
+Example prompts include:
+
+- **Update connection setting**: "Set the 'max_connections' parameter to '200' on my 'prod-postgres-server'"
+- **Configure memory**: "Update the 'shared_buffers' parameter to '256MB' on server 'database-server-east'"
+- **Adjust timeout**: "Set 'statement_timeout' to '30000' on my PostgreSQL server"
+- **Configure logging**: "Update the 'log_statement' parameter to 'all' on server 'dev-postgres'"
+- **Set maintenance parameter**: "Configure 'maintenance_work_mem' to '64MB' on my database server"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Subscription** | Required | The Azure subscription ID or name. |
+| **Resource group** | Required | The name of the resource group containing the PostgreSQL server. |
+| **User name** | Required | The user name to access the PostgreSQL server. |
+| **Server** | Required | The PostgreSQL server name to configure. |
+| **Param** | Required | The PostgreSQL parameter to be set. |
+| **Value** | Required | The value to set for the parameter. |
+
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)

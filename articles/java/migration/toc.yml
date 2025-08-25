@@ -5,20 +5,20 @@ items:
     - name: Overview
       href: migration-overview.md
     - name: Azure Migrate application and code assessment
-      href: /azure/migrate/appcat/java-preview?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-    - name: GitHub Copilot App Modernization for Java (preview)
+      href: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: GitHub Copilot App Modernization for Java
       expanded: true
       items:
         - name: Overview
           href: migrate-github-copilot-app-modernization-for-java.md
         - name: FAQ
           href: migrate-github-copilot-app-modernization-for-java-faq.yml
-        - name: Predefined formulas
-          href: migrate-github-copilot-app-modernization-for-java-predefined-formula.md
+        - name: Predefined tasks
+          href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
         - name: "Quickstart: Assess and migrate a Java project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
-        - name: "Quickstart: Create and apply your own formula"
-          href: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md
+        - name: "Quickstart: Create and apply your own task"
+          href: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
         - name: "Sample: Asset Manager"
           href: migrate-github-copilot-app-modernization-for-java-sample.md
     - name: Spring to Azure

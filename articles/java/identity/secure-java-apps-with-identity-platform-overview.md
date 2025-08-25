@@ -5,8 +5,8 @@ description: Provides an overview of recommended strategies for securing Java ap
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
-ms.topic: article
+ms.date: 08/21/2025
+ms.topic: get-started
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 

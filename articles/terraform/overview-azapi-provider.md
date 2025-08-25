@@ -3,8 +3,10 @@ title: Overview of the Terraform AzAPI provider
 description: Get an overview of the AzAPI provider and when to use it.
 ms.topic: overview
 ms.date: 04/05/2022
-ms.custom: devx-track-terraform
 adobe-target: trues
+ms.custom:
+  - devx-track-terraform
+  - sfi-image-nochange
 ---
 
 # Overview of the Terraform AzAPI provider

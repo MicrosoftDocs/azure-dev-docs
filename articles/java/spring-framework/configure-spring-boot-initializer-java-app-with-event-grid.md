@@ -4,8 +4,8 @@ description: Configure a Spring Boot application created with the Spring Initial
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
-ms.topic: article
+ms.date: 08/19/2025
+ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 
@@ -53,7 +53,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.22.0</version>
+        <version>5.23.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

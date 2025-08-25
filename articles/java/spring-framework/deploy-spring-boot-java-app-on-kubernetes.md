@@ -4,9 +4,15 @@ description: This tutorial will walk you though the steps to deploy a Spring Boo
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 08/28/2024
-ms.topic: article
-ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
+ms.date: 08/19/2025
+ms.topic: install-set-up-deploy
+ms.custom:
+  - mvc
+  - devx-track-java
+  - devx-track-azurecli
+  - spring-cloud-azure
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Deploy Spring Boot Application to Azure Kubernetes Service

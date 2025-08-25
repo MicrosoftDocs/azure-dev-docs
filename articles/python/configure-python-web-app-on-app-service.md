@@ -1,7 +1,7 @@
 ---
 title: "Configure a custom startup file for Python apps on Azure App Service on Linux"
 description: Discusses how to start a Python web app running on App Service, including specific instructions for Django, Flask, and other frameworks.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 ms.custom: devx-track-python, linux-related-content
 ---
@@ -34,7 +34,7 @@ When you need a custom startup file, use the following steps:
 
 1. In Visual Studio Code, select the Azure icon in the Activity Bar, expand **RESOURCES**,  find and expand your subscription, expand **App Services**, and right-click the App Service, and select **Open in Portal**.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Configuration** page for the App Service, select **General settings**, enter the name of your startup file (like *startup.txt* or *startup.sh*) under **Stack settings** > **Startup Command**, then select **Save**.
+1. In the [Azure portal](https://portal.azure.com/), from the service menu on the left, choose **Settings** > **Configuration**. On the **Configuration** page for the App Service, select **General settings**, enter the name of your startup file (like *startup.txt* or *startup.sh*) under **Stack settings** > **Startup Command**, then select **Save**.
 
     > [!NOTE]
     > Instead of using a startup command file, you can put the startup command itself directly in the **Startup Command** field on the Azure portal. Using a startup command file is recommended because it stores your configuration in your repository. This enables version control to track changes and simplifies redeployment to other Azure App Service instances.

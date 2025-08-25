@@ -13,17 +13,6 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 The Azure Developer CLI (`azd`) composability (compose) feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. Compose also uses [Azure Verified Modules (AVM)](https://aka.ms/avm) when possible, providing recommended practices using building blocks for Azure.
 
-> [!NOTE]
-> The `azd` compose feature is currently in alpha and shouldn't be used in production apps. Changes to alpha features in subsequent releases can result in breaking changes. Visit the [azd feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) and [feature stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md) pages for more information. Use the **Feedback** button on the upper right to share feedback about the `compose` feature and this article.
-
-## Enable the compose feature
-
-The `azd` compose feature is currently in alpha, which means you need to enable it manually. Visit the [azd feature stages](https://aka.ms/azd-feature-stages) page for more information.
-
-```bash
-azd config set alpha.compose on
-```
-
 ## What is the compose feature?
 
 The `azd` compose feature offers a new way to get started with `azd`. Before the compose feature, developers had two primary options to configure the Azure resources to provision and deploy an application:
@@ -32,6 +21,13 @@ The `azd` compose feature offers a new way to get started with `azd`. Before the
 - Start from an existing codebase by following the instructions in the [simplified init flow](/azure/developer/azure-developer-cli/start-with-app-code).
 
 Any further customization required the user to manually modify the Bicep files—until the introduction of the compose feature.
+
+## Project compatability with compose
+
+The `azd` compose feature is designed for projects that don't already use infrastructure as code to manage Azure resources. As a result, compose does *not* support the following scenarios:
+
+- Projects that already have an `infra` folder for Azure resource creation (such as existing templates).
+- .NET Aspire projects, which use the Aspire app host file to manage resources.
 
 ### Streamline resource creation with compose
 

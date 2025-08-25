@@ -2,7 +2,7 @@
 title: HTTP clients and pipelines in the Azure SDK for Java
 description: Provides an overview of the HTTP client and pipelines functionality in the Azure SDK for Java.
 ms.date: 04/01/2025 
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: karler
@@ -16,6 +16,11 @@ This article provides an overview of using the HTTP client and pipeline function
 ## HTTP clients
 
 The Azure SDK for Java is implemented using an `HttpClient` abstraction. This abstraction enables a pluggable architecture that accepts multiple HTTP client libraries or custom implementations. However, to simplify dependency management for most users, all Azure client libraries depend on `azure-core-http-netty`. As such, the [Netty](https://netty.io) HTTP client is the default client used in all Azure SDK for Java libraries.
+
+> [!IMPORTANT]
+> Ensure that your `azure-core-http-netty` dependency uses version `1.15.12` or later. If you're using a [BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.36/versions), ensure that your BOM version is at least `1.2.36`.
+>
+> This minimum version is required to enable large HTTP headers returned by [Azure Resource Manager](/azure/azure-resource-manager/management/async-operations#url-to-monitor-status) during long-running operations.
 
 Although Netty is the default HTTP client, the SDK provides three client implementations, depending on which dependencies you already have in your project. These implementations are for:
 

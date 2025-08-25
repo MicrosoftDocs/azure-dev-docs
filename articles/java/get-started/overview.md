@@ -5,8 +5,8 @@ description: This article provides an overview to a collection of articles that 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: asirveda
-ms.topic: conceptual
-ms.date: 09/30/2024
+ms.topic: article
+ms.date: 08/19/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
