@@ -26,7 +26,7 @@ The Azure MCP Server can list all Log Analytics workspaces in a subscription. Th
 Example prompts include:
 
 - **List workspaces**: "Show me all Log Analytics workspaces in my subscription."
-- **View workspaces**: "what workspaces do I have"
+- **View workspaces**: "what workspaces do i have"
 - **Find workspaces**: "List monitoring workspaces"
 - **Query workspaces**: "Show workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123 please"
