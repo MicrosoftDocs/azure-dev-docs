@@ -115,29 +115,6 @@ except ResourceExistsError:
     # Continue with existing container
 ```
 
-### Network and timeout errors
-
-Network issues require special handling:
-
-```python
-from azure.core.exceptions import ServiceRequestError
-import time
-
-max_retries = 3
-retry_count = 0
-
-while retry_count < max_retries:
-    try:
-        response = client.get_secret("mysecret")
-        break
-    except ServiceRequestError as e:
-        retry_count += 1
-        if retry_count >= max_retries:
-            raise
-        print(f"Network error. Retrying... ({retry_count}/{max_retries})")
-        time.sleep(2 ** retry_count)  # Exponential backoff
-```
-
 ### Server errors
 
 Handle server-side failures appropriately:
@@ -260,6 +237,31 @@ blob_service = BlobServiceClient(
 )
 ```
 
+### Avoid handling network and timeout errors with custom loops
+
+You should try to use built-in retries for network and timeout errors before implementing your own custom logic.
+
+```python
+from azure.core.exceptions import ServiceRequestError
+import time
+
+# Avoid this approach if possible
+max_retries = 3
+retry_count = 0
+
+while retry_count < max_retries:
+    try:
+        response = client.get_secret("mysecret")
+        break
+    except ServiceRequestError as e:
+        retry_count += 1
+        if retry_count >= max_retries:
+            raise
+        print(f"Network error. Retrying... ({retry_count}/{max_retries})")
+        time.sleep(2 ** retry_count)  # Exponential backoff
+```
+
+
 ### Implementing circuit breaker patterns
 
 For critical operations, consider implementing circuit breaker patterns:
@@ -366,7 +368,12 @@ Azure services return structured error responses that provide valuable debugging
   logging.getLogger('azure.identity').setLevel(logging.DEBUG)
   ```
 
+  For more information about logging, see [Configure logging in the Azure libraries for Python](../azure-sdk-logging.md).
+
 - **Using network tracing** - For deep debugging, enable network-level tracing:
+
+  > [!IMPORTANT]
+  > HTTP logging can include sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
 
   ```python
   from azure.storage.blob import BlobServiceClient

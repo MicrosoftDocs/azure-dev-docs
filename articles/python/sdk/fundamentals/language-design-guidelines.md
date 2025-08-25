@@ -90,8 +90,7 @@ Clients provide multiple instantiation methods:
 from azure.storage.blob import BlobServiceClient
 from azure.identity import DefaultAzureCredential
 
-# Using connection string
-client = BlobServiceClient.from_connection_string(conn_str)
+# Note: do not use connection string if you can possibly avoid it!
 
 # Using account URL and credential
 credential = DefaultAzureCredential()

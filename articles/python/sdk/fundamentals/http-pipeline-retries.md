@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Understanding HTTP pipeline and retries in the Azure SDK for Python
 
-When you make a call to any Azure service using the Azure SDK for Python—whether it's Blob Storage, Key Vault, Cosmos DB, or any other service—your request doesn't go directly to the Azure service. Instead, it flows through a sophisticated HTTP pipeline that handles critical cross-cutting concerns automatically.
+When you make a call to any Azure service using the Azure SDK for Python—whether it's Blob Storage, Key Vault, Cosmos DB, or any other HTTP based service—your request doesn't go directly to the Azure service. Instead, it flows through a sophisticated HTTP pipeline that handles critical cross-cutting concerns automatically.
 
 Understanding how the HTTP pipeline works is essential for building robust, performant applications. The pipeline manages retries for transient failures, handles authentication, provides logging capabilities, and enables you to add custom behavior when needed. This knowledge helps you debug performance issues, optimize resiliency, and customize your application's interaction with Azure services.
 

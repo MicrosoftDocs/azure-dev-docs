@@ -8,9 +8,12 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Understanding common response types in the Azure SDK for Python
 
-When you call any Azure service using the Azure SDK for Python, you're fundamentally making HTTP requests and receiving HTTP responses. However, the SDK abstracts away this complexity, allowing you to work with intuitive Python objects instead of raw HTTP responses or JSON payloads.
+The Azure SDK for Python abstracts calls to the underlying Azure service communication protocol, whether that protocol is HTTP or AMQP (which is used for messaging SDKs like ServiceBus, EventHubs, etc.). For example, if you use one of the libraries that utilizes HTTP, then the Azure SDK for Python is making HTTP requests and receiving HTTP responses under the hood. The SDK abstracts away this complexity, allowing you to work with intuitive Python objects instead of raw HTTP responses or JSON payloads.
 
 Understanding the types of objects you receive from SDK operations is essential for writing effective Azure applications. This article explains the common response types you encounter and how they relate to the underlying HTTP communication.
+
+> [!NOTE] 
+> This article only examines the HTTP scenario, not the AMQP scenario.
 
 ## Deserialized Python objects
 
@@ -100,46 +103,43 @@ for blob in blobs:
     print(f"Blob: {blob.name}, Size: {blob.size}")
 ```
 
-### Polling objects for long-running operations
 
-Operations that take time to complete return poller objects (LROPoller for synchronous code, AsyncLROPoller for asynchronous code):
-
-```python
-from azure.mgmt.compute import ComputeManagementClient
-from azure.core.polling import LROPoller
-
-compute_client = ComputeManagementClient(credential, subscription_id)
-
-# Start VM creation - returns immediately with a poller
-poller: LROPoller = compute_client.virtual_machines.begin_create_or_update(
-    resource_group_name="myresourcegroup",
-    vm_name="myvm",
-    parameters=vm_parameters
-)
-
-# Wait for completion and get the result
-vm = poller.result()  # Blocks until operation completes
-print(f"VM {vm.name} provisioned successfully")
-```
 
 ### HttpResponse for advanced scenarios
 
-In advanced scenarios, you might need access to the raw HTTP response:
+
+
+## Accessing the raw HTTP response
+
+While the SDK's high-level abstractions meet most needs, you sometimes need access to the underlying HTTP response. Common scenarios include:
+
+- Debugging failed requests
+- Accessing custom response headers
+- Implementing custom retry logic
+- Working with nonstandard response formats
+
+Most SDK methods accept a `raw_response_hook` parameter:
 
 ```python
-from azure.storage.blob import BlobServiceClient
+from azure.keyvault.secrets import SecretClient
 
-blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-container_client = blob_service_client.get_container_client("mycontainer")
-blob_client = container_client.get_blob_client("myblob.txt")
+secret_client = SecretClient(vault_url=vault_url, credential=credential)
 
-# Get raw response by setting raw_response_hook
-def callback(response):
+def inspect_response(response):
+    # Access the raw HTTP response
+    print(f"Request URL: {response.http_request.url}")
     print(f"Status code: {response.http_response.status_code}")
-    print(f"Headers: {response.http_response.headers}")
+    print(f"Response headers: {dict(response.http_response.headers)}")
+    
+    # Access custom headers
+    request_id = response.http_response.headers.get('x-ms-request-id')
+    print(f"Request ID: {request_id}")
+    
+    # Must return the response
     return response
 
-properties = blob_client.get_blob_properties(raw_response_hook=callback)
+# Hook is called before deserialization
+secret = secret_client.get_secret("mysecret", raw_response_hook=inspect_response)
 ```
 
 ## Paging and iterators
@@ -182,7 +182,11 @@ Many list operations accept a results_per_page parameter:
 blobs = container_client.list_blobs(results_per_page=100)
 ```
 
+Some methods for some Azure services have other mechanisms for controlling page size. For example, KeyVault and Azure Search use the `top` kwarg to limit results per call. See the [source code](https://github.com/Azure/azure-sdk-for-python/blob/0cf4523c054fc793c6ce46616daa5e23f9607d33/sdk/search/azure-search-documents/azure/search/documents/_search_client.py#L174) for Azure Search's `search()` method as an example.
+
+
 ## Special case: Long-running operations and pollers
+
 
 Some Azure operations can't complete immediately. Examples include:
 
@@ -236,40 +240,30 @@ async with BlobServiceClient.from_connection_string(connection_string) as client
     copy_properties = await poller.result()
 ```
 
-## Accessing the raw HTTP response
+### Polling objects for long-running operations example: Virtual Machines
 
-While the SDK's high-level abstractions meet most needs, you sometimes need access to the underlying HTTP response. Common scenarios include:
-
-- Debugging failed requests
-- Accessing custom response headers
-- Implementing custom retry logic
-- Working with nonstandard response formats
-
-### Using `raw_response_hook`
-
-Most SDK methods accept a `raw_response_hook` parameter:
+Deploying Virtual Machines in an example of an operation that takes time to complete and handles it by returning poller objects (LROPoller for synchronous code, AsyncLROPoller for asynchronous code):
 
 ```python
-from azure.keyvault.secrets import SecretClient
+from azure.mgmt.compute import ComputeManagementClient
+from azure.core.polling import LROPoller
 
-secret_client = SecretClient(vault_url=vault_url, credential=credential)
+compute_client = ComputeManagementClient(credential, subscription_id)
 
-def inspect_response(response):
-    # Access the raw HTTP response
-    print(f"Request URL: {response.http_request.url}")
-    print(f"Status code: {response.http_response.status_code}")
-    print(f"Response headers: {dict(response.http_response.headers)}")
-    
-    # Access custom headers
-    request_id = response.http_response.headers.get('x-ms-request-id')
-    print(f"Request ID: {request_id}")
-    
-    # Must return the response
-    return response
+# Start VM creation - returns immediately with a poller
+poller: LROPoller = compute_client.virtual_machines.begin_create_or_update(
+    resource_group_name="myresourcegroup",
+    vm_name="myvm",
+    parameters=vm_parameters
+)
 
-# Hook is called before deserialization
-secret = secret_client.get_secret("mysecret", raw_response_hook=inspect_response)
+# Wait for completion and get the result
+vm = poller.result()  # Blocks until operation completes
+print(f"VM {vm.name} provisioned successfully")
 ```
+
+
+
 
 ### Accessing response for paged results
 
@@ -290,7 +284,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
 ## Best practices
 
 - **Prefer high-level abstractions**
-- **Work with the SDK's resource models rather than raw responses** whenever possible:
+- **Work with the SDK's resource models rather than raw responses** whenever possible, and **avoid accessing any method prefixed with an underscore `_`** since, by convention, those are private in Python. There are no guarantees about breaking changes etc compared to public APIs:
 
   ```python
   # Preferred: Work with typed objects
@@ -298,12 +292,15 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
   if secret.properties.enabled:
       use_secret(secret.value)
 
-  # Avoid: Manual JSON parsing (unless necessary)
+  # Avoid: Manual JSON parsing (unless necessary) ...
+  # AND avoid accessing any objects or methods that start with `_`
   response = secret_client._client.get(...)  # Don't access internal clients
   data = json.loads(response.text)
   if data['attributes']['enabled']:
       use_secret(data['value'])
   ```
+
+
 
 - **Handle pagination properly** - Always iterate over paged results instead of converting to a list:
 
