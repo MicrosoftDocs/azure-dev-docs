@@ -188,23 +188,23 @@ First you provide instructions and guidance on building and testing the applicat
 
 After GitHub Copilot generates the site locally, you'll author a prompt asking GitHub Copilot to make changes to the site in preparation for deployment, and then to perform the deployment. The GitHub Copilot for Azure extension handles this request by creating Bicep files then running those files using the `azd` CLI.
 
-Use the following prompt ... you may copy to Notepad and change any value in brackets like `<resource-group-name>` and `<region-name>`:
+Use the following prompt ... you may copy to Notepad and change any value in brackets like `<resource-group-name>` and `<region-name>` then copy and paste into GitHub Copilot:
 
 ```copilot-prompt
 
 Please help me deploy this Django app to Azure. 
 
-First, create and use a Resource Group named "`<resource-group-name>`" in the "`<region-name>`" region.
+First, create and use a Resource Group named "<resource-group-name>" in the "<region-name>" region.
 
-Second, create an Azure App Service for the Django app in the new "`<resource-group-name>`" in the "`<region-name>`" region.
+Second, create an Azure App Service for the Django app in the new "<resource-group-name>" in the "<region-name>" region.
 
-Third, create a new Azure Database for PostgreSQL flexible server named "`<server-name>`" in a resource group named "`<resource-group-name>`" in my subscription "`<subscription-id>`". Use my current account (`<account-id>`) as the Microsoft Entra administrator. For the PostgreSQL "Administrator login", use "`<azure-database-username>`" and password "`<azure-database-password>`". Use a "development" class database configuration in the "`<region-name>`" region. Create a new database named "contact_manager_db" and migrate all tables and data from the local version of "contact_manager_db". The local database uses the username "`<local-database-username>`" and password "`<local-database-password>`". Add my IP address as a firewall rule, allow public access to this resource through the internet using a public IP address, and allow public access from any Azure service within Azure to this server.
+Third, create a new Azure Database for PostgreSQL flexible server named "<server-name>" in a resource group named "<resource-group-name>" in my subscription "<subscription-id>". Use my current account ("<account-id>") as the Microsoft Entra administrator. For the PostgreSQL "Administrator login", use "<azure-database-username>" and password "<azure-database-password>". Use a "development" class database configuration in the "<region-name>" region. Create a new database named "contact_manager_db" and migrate all tables and data from the local version of "contact_manager_db". The local database uses the username "<local-database-username>" and password "<local-database-password>". Add my IP address as a firewall rule, allow public access to this resource through the internet using a public IP address, and allow public access from any Azure service within Azure to this server.
 
 Third, use use Service Connector (and any other services you need to make this configuration work successfully) to connect the web app to the database. You may need to modify the application code to accommodate Service Connector. Also, please ensure a secure connection between the Azure App Service web site and the Azure PostgreSQL Flexible Server.
 
 Please choose the least expensive options.  
 
-If you are prompted for an environment, use name `contacts-env`.  Configure my firewall to allow my IP address. Beyond that, if there's anything 
+If you are prompted for an environment, use name "contacts-env".  Configure my firewall to allow my IP address. Beyond that, if there's anything 
 I need to do, please include instructions. But I want you to do as much as you can on 
 your own.
 
@@ -223,6 +223,8 @@ The prompt has the following features:
    - **Anticipate decisions ahead of time.** In this case, you provide the answer to settings it needs, such as an environment name for `azd`, 
    - **Explicit expectations that you want it to do as much work on its own.** Otherwise, it might provide instructions for you to take.
    - **Explicit expectations for instructions / context.** Set the expectation that you need help and guidance when it asks you to take action.
+   - **Asks if any clarification is needed.** This often surfaces potential issues like edge cases or unclear instructions.
+   - **Requests a plan with a TODO list.** Gives you confidence that GitHub Copilot for Azure understands the assignment and plans to carry it out as you intended.
 
    GitHub Copilot uses the built-in terminal and the Visual Studio Code environment to:
 
