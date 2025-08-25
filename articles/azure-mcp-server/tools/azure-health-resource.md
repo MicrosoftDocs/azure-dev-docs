@@ -46,3 +46,9 @@ Example prompts include:
 - **Check resource group health**: "Show me the health status of all resources in resource group 'mygroup'."
 - **Filter by resource type**: "Get the availability status for all virtual machines in my subscription."
 - **Summarize resource health**: "What is the overall health status of resources in resource group 'mygroup'?"
+
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)

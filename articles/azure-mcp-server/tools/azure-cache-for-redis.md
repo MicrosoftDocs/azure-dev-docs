@@ -33,10 +33,6 @@ Example prompts include:
 - **Check cluster status:** "Show Redis clusters in subscription abc123"
 - **View cluster inventory:** "Get all Redis Enterprise clusters"
 
-| Parameter | Required | Description |
-| --- | --- | --- |
-| Subscription | Required | The ID of the subscription containing the Redis clusters. |
-
 ## List cluster databases
 
 The Azure MCP Server can list databases in an Azure Redis cluster. Redis Enterprise supports multiple databases within a single cluster, allowing you to organize and isolate your data.
@@ -51,9 +47,7 @@ Example prompts include:
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| Subscription | Required | The ID of the subscription containing the Redis cluster. |
-| Resource group | Required | The name of the Azure resource group containing the cluster. |
-| Cluster | Required | The name of the Redis cluster. |
+| **Cluster** | Required | The name of the Redis cluster. |
 
 ## List Redis caches
 
@@ -66,10 +60,6 @@ Example prompts include:
 - **View cache inventory:** "List all my Redis caches"
 - **Check cache status:** "Show Redis caches in subscription abc123"
 - **Query caches:** "Get all my Azure Redis instances"
-
-| Parameter | Required | Description |
-| --- | --- | --- |
-| Subscription | Required | The ID of the subscription containing the Redis caches. |
 
 ## List cache access policies
 
@@ -85,9 +75,7 @@ Example prompts include:
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| Subscription | Required | The ID of the subscription containing the Redis cache. |
-| Resource group | Required | The name of the Azure resource group containing the cache. |
-| Cache | Required | The name of the Redis cache. |
+| **Cache** | Required | The name of the Redis cache. |
 
 ## Related content
 

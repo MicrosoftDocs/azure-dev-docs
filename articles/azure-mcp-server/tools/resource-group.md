@@ -31,10 +31,6 @@ Example prompts include:
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-
 ## Related content
 
 - [Subscription tools](subscription.md)
