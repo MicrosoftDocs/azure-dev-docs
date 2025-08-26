@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 07/24/2025
+ms.date: 08/26/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -18,11 +18,32 @@ The Azure MCP Server enables you to manage Azure resources, including Azure AI F
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## List available models
+## Knowledge: index list
+
+Get a list of knowledge indexes from Azure AI Foundry:
+
+- Get list of knowledge indexes specifically created within Azure AI Foundry projects.
+- These indexes can be used with AI agents for knowledge retrieval and RAG applications.
+- The list may change as new indexes are created or existing ones are updated.
+
+Example prompts include: 
+
+- **View all indexes**: "Show me all knowledge indexes in Azure AI Foundry"
+- **Filter by project**: "List knowledge indexes in the 'support-bot' project"
+- **Search by name**: "Find the knowledge index named 'product-faqs'"
+- **Filter by tag**: "List knowledge indexes tagged with 'security' or 'onboarding'"
+- **Show index details**: "Show details for the 'customer-service' knowledge index, including document count and last updated date"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+    
+
+## Models: List available models
 
 <!-- azmcp foundry models list -->
 
-Lists all available AI models in Azure AI Foundry. Use this command to view all models that you can deploy or use in your Azure environment.
+Lists all available AI models in Azure AI Foundry.
 
 Example prompts include:
 
@@ -40,7 +61,7 @@ Example prompts include:
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |
 
-## Deploy a model
+## Models: Deploy a model
 
 <!-- azmcp foundry models deploy -->
 
@@ -68,7 +89,7 @@ Example prompts include:
 | **SKU** | Optional | The SKU name for the deployment |
 | **SKU capacity** | Optional | The SKU capacity for the deployment |
 
-## List model deployments
+## Models: List model deployments
 
 <!-- azmcp foundry models deployments list -->
 
