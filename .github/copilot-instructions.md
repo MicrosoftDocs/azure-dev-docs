@@ -8,12 +8,7 @@ This file provides central guidance for Copilot and copyediting tasks in this re
 
 ## Referenced Instruction Files
 
-- [Copyediting Instructions](./instructions/copyedit.instructions.md):
-  - Follow these for all markdown copyediting, formatting, and style tasks.
-  - The Microsoft Writing Style Guide is the authoritative source for all style and voice decisions. If any instruction conflicts, defer to the Microsoft Style Guide.
-- [Developer Content Review Instructions](./instructions/developer-content-review.instructions.md):
-  - Use these for reviewing developer-focused articles, code sample standards, and snippet structure.
-  - Follow these guidelines to ensure technical accuracy, clarity, and best practices for developer content.
+
 
 ## General Guidance
 
