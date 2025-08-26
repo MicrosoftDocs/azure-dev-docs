@@ -23,8 +23,8 @@ The Azure MCP Server enables you to manage Azure resources, including Azure AI F
 Get a list of knowledge indexes from Azure AI Foundry:
 
 - Get list of knowledge indexes specifically created within Azure AI Foundry projects.
-- These indexes can be used with AI agents for knowledge retrieval and RAG applications.
-- The list may change as new indexes are created or existing ones are updated.
+- Use these indexes with AI agents for knowledge retrieval and RAG applications.
+- The list changes as new indexes are created or existing ones are updated.
 
 Example prompts include: 
 
@@ -56,7 +56,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Search for free playground** | Optional | If set to true, returns a list of models from Azure AI Foundry that can also be used with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
+| **Search for free playground** | Optional | If set to true, returns a list of models from Azure AI Foundry that you can also use with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
 | **Publisher** | Optional | A filter to specify the publisher of the models to retrieve. |
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |

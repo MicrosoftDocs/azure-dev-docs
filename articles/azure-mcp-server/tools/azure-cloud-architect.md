@@ -14,7 +14,7 @@ ms.date: 08/26/2025
 
 # Azure Cloud Architect design tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure Cloud Architect services, using natural language prompts. This feature helps you quickly gather requirements and get architecture recommendations without having to remember complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure Cloud Architect services, by using natural language prompts. This feature helps you quickly gather requirements and get architecture recommendations without having to remember complex syntax.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -35,5 +35,5 @@ Example prompts include:
 | **Total questions** |  Optional | Estimated total questions needed |
 | **Answer** |  Optional | The user's response to the question |
 | **Next question needed** |  Optional | Whether another question is needed |
-| **Confidence score** |  Optional | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this reaches 0.7 or higher, nextQuestionNeeded should be set to false. |
+| **Confidence score** |  Optional | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this reaches 0.7 or higher, set `nextQuestionNeeded` to false. |
 | **State** |  Optional | The complete architecture state from the previous request. |

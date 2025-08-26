@@ -14,9 +14,9 @@ ms.date: 08/26/2025
 
 # Azure Managed Lustre tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure Managed Lustre services, using natural language prompts. 
+The Azure MCP Server lets you manage Azure resources, including Azure Managed Lustre services, by using natural language prompts. 
 
-[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a managed file system that offers scalable, powerful, cost-effective storage for high-performance computing (HPC) workloads. It is built on the popular open-source Lustre file system and is optimized for performance, scalability, and ease of use in Azure.
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a managed file system that offers scalable, powerful, cost-effective storage for high-performance computing (HPC) workloads. It's built on the popular open-source Lustre file system and is optimized for performance, scalability, and ease of use in Azure.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -34,7 +34,7 @@ Example prompts include:
 
 ## File system: Get required subnet size
 
-Calculates the required subnet size for an Azure Managed Lustre file system, given a SKU and size. Use this to plan network deployment for AMLFS.
+Calculates the required subnet size for an Azure Managed Lustre file system, given a SKU and size. Use this calculation to plan network deployment for AMLFS.
 
 Example prompts include:
 

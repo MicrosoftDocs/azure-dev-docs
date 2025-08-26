@@ -14,9 +14,9 @@ ms.custom: build-2025
 
 # Azure Functions tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including function apps, using natural language prompts. This allows you to quickly list your apps without remembering complex syntax.
+The Azure MCP Server enables you to manage Azure resources, including function apps, by using natural language prompts. With this approach, you can quickly list your apps without needing to remember complex syntax.
 
-[Azure Functions](/azure/azure-functions/) is a serverless compute service that enables you to integrate code execution into your Azure services with less code and using popular development tools. Instead of worrying about deploying and maintaining servers, you can spend time developing your applications.
+[Azure Functions](/azure/azure-functions/) is a serverless compute service that enables you to integrate code execution into your Azure services with less code and by using popular development tools. Instead of worrying about deploying and maintaining servers, you can spend time developing your applications.
 
 ## Get
 

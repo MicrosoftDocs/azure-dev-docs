@@ -14,7 +14,7 @@ ms.custom: build-2025
 
 # Azure Database for MySQL tools for the Azure MCP Server
 
-Azure MCP Server helps you manage Azure resources, including Azure Database for MySQL servers, databases, and tables, using natural language prompts. It lets you manage MySQL resources quickly without remembering complex syntax.
+Azure MCP Server helps you manage Azure resources, including Azure Database for MySQL servers, databases, and tables, by using natural language prompts. You can manage MySQL resources quickly without remembering complex syntax.
 
 [Azure Database for MySQL](/azure/mysql/) is a fully managed relational database service powered by the MySQL community edition. Use it to host a MySQL database in Azure. It handles mission-critical workloads with predictable performance and dynamic scalability.
 
@@ -52,7 +52,7 @@ Execute a safe, read-only SQL SELECT query against a database on an Azure Databa
 
 **Not allowed:**  
 - Non-SELECT statements (INSERT, UPDATE, DELETE, REPLACE, MERGE, TRUNCATE, ALTER, CREATE, DROP).  
-- Multi-statements are not permitted.  
+- Multi-statements.  
 - Comments that hide write operations.  
 - Transaction control statements (BEGIN, COMMIT, ROLLBACK).  
 - INTO OUTFILE and other destructive keywords.
@@ -77,7 +77,7 @@ Example prompts include:
 
 ## Server: config get
 
-Retrieves comprehensive configuration details for the specified Azure Database for MySQL Flexible Server instance. This command provides insights into server settings, performance parameters, security configurations, and operational characteristics essential for database administration and optimization. It returns configuration data in JSON format, including ServerName, Location, Version, SKU, StorageSizeGB, BackupRetentionDays, and GeoRedundantBackup properties.
+Retrieves comprehensive configuration details for the specified Azure Database for MySQL Flexible Server instance. This command provides insights into server settings, performance parameters, security configurations, and operational characteristics essential for database administration and optimization. It returns configuration data in JSON format, including `ServerName`, `Location`, `Version`, `SKU`, `StorageSizeGB`, `BackupRetentionDays`, and `GeoRedundantBackup` properties.
 
 Example prompts include:
 
@@ -95,7 +95,7 @@ Example prompts include:
 
 ## Server: list all instances in resource group
 
-List all Azure Database for MySQL Flexible Server instances within the specified resource group. This command provides an inventory of available MySQL server resources, including their names and current status, enabling efficient server management and resource planning.
+List all Azure Database for MySQL Flexible Server instances within the specified resource group. This command provides an inventory of available MySQL server resources, including their names and current status, so you can efficiently manage servers and plan resources.
 
 Example prompts include:
 
@@ -111,15 +111,15 @@ Example prompts include:
 
 ## Server: get parameter
 
-Retrieve the current value of a single server configuration parameter on an Azure Database for MySQL Flexible Server. Use this to inspect a setting (for example, max_connections, wait_timeout, slow_query_log) before changing it.
+Retrieve the current value of a single server configuration parameter on an Azure Database for MySQL Flexible Server. Use this server command to inspect a setting, such as `max_connections`, `wait_timeout`, or `slow_query_log`, before changing it.
 
 Example prompts include:
 
-- **Get parameter value**: "Get the value of 'max_connections' for server 'my-mysql-server'."
-- **Check slow_query_log**: "Is slow_query_log enabled on server 'my-mysql-server'?"
-- **Get wait_timeout**: "Show the wait_timeout value for server 'my-mysql-server'."
-- **Show buffer pool size**: "Get innodb_buffer_pool_size for server 'my-mysql-server'."
-- **Retrieve parameter before change**: "Retrieve max_allowed_packet on server 'my-mysql-server' before update."
+- **Get parameter value**: "Get the value of `max_connections` for server `my-mysql-server`."
+- **Check slow_query_log**: "Is `slow_query_log` enabled on server `my-mysql-server`?"
+- **Get wait_timeout**: "Show the `wait_timeout` value for server `my-mysql-server`."
+- **Show buffer pool size**: "Get `innodb_buffer_pool_size` for server `my-mysql-server`."
+- **Retrieve parameter before change**: "Retrieve `max_allowed_packet` on server `my-mysql-server` before update."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -130,15 +130,15 @@ Example prompts include:
 
 ## Server: set parameter
 
-Sets or updates a MySQL server configuration parameter to a new value to optimize performance, security, or operational behavior. This command enables fine-tuned configuration management with validation to ensure parameter changes are compatible with the server's current state and constraints.
+Sets or updates a MySQL server configuration parameter to a new value. Use this command to optimize performance, security, or operational behavior. This command enables fine-tuned configuration management with validation to ensure parameter changes are compatible with the server's current state and constraints.
 
 Example prompts include:
 
-- **Set parameter**: "Set max_connections to 500 on server 'my-mysql-server'."
-- **Enable slow query log**: "Enable slow_query_log on server 'my-mysql-server'."
-- **Adjust timeout**: "Set wait_timeout to 300 on server 'my-mysql-server'."
-- **Increase buffer pool**: "Set innodb_buffer_pool_size to '2G' on server 'my-mysql-server'."
-- **Change max allowed packet**: "Set max_allowed_packet to '64M' on server 'my-mysql-server'."
+- **Set parameter**: "Set `max_connections` to 500 on server `my-mysql-server`."
+- **Enable slow query log**: "Enable `slow_query_log` on server `my-mysql-server`."
+- **Adjust timeout**: "Set `wait_timeout` to 300 on server `my-mysql-server`."
+- **Increase buffer pool**: "Set `innodb_buffer_pool_size` to `2G` on server `my-mysql-server`."
+- **Change max allowed packet**: "Set `max_allowed_packet` to `64M` on server `my-mysql-server`."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -168,7 +168,7 @@ Example prompts include:
 
 ## Table: get schema 
 
-Retrieve detailed schema information for a specific table within an Azure Database for MySQL Flexible Server database. This command provides comprehensive metadata including column definitions, data types, constraints, indexes, and relationships, essential for understanding table structure and supporting application development.
+Retrieve detailed schema information for a specific table within an Azure Database for MySQL Flexible Server database. This command provides comprehensive metadata including column definitions, data types, constraints, indexes, and relationships. This information is essential for understanding table structure and supporting application development.
 
 Example prompts include:
 
