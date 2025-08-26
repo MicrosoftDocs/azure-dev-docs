@@ -49,13 +49,13 @@ Make sure your CLI tools and Visual Studio Code are updated, properly configured
 
 1. In a new chat, enter the following prompt:
 
-```
-
-I want to create a new Django website that stores data in PostgreSQL. Then, I'll want
-to deploy that new website to Azure. Do I have everything installed on my local 
-computer that you will need to perform these tasks?
-
-```
+   ```
+   
+   I want to create a new Django website that stores data in PostgreSQL. Then, I'll want
+   to deploy that new website to Azure. Do I have everything installed on my local 
+   computer that you will need to perform these tasks?
+   
+   ```
 
 GitHub Copilot will ask permission to run a series of command line checks to ensure you have the tools, as well as the most up to date versions of those tools, installed.
 
@@ -66,8 +66,8 @@ GitHub Copilot will ask permission to run a series of command line checks to ens
 
 1. In Visual Studio Code, set the default terminal to Git Bash. 
 
-> [!Note] 
-> Using Git Bash isn't strictly necessary, but at the time of this writing it yields the best results.
+   > [!Note] 
+   > Using Git Bash isn't strictly necessary, but at the time of this writing it yields the best results.
 
 1. In Visual Studio Code, use the PostgreSQL extension and navigate to the `contacts` database.
 
@@ -112,7 +112,7 @@ While GitHub Copilot is capable of performing virtually any application developm
    localhost:5432:<database-name>:<database-user>:<password>
    ```
 
-   This assumes your working with an instance of PostgreSQL on your local computer, and that it's hosted at the default port (5432).
+   This assumes you're working with an instance of PostgreSQL on your local computer, and that it's hosted at the default port (5432).
    
    Replace `<database-name>` with `contacts` and replace `<db-username>` and `<password>` with the credentials you used in the previous step.
 
