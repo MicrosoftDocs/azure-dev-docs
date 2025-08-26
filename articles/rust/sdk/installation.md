@@ -1,6 +1,6 @@
 ---
-title: Install and manage Azure SDK crates for Rust
-description: Install, update, and manage Azure SDK crates for Rust using Cargo. Learn how to keep your Rust projects up to date with Azure services.
+title: Install and manage Azure SDK for Rust crates
+description: Install, update, and manage Azure SDK for Rust crates using Cargo. Learn how to keep your Rust projects up to date with Azure services.
 ms.date: 07/25/2025
 ms.topic: how-to
 ms.service: azure-rust
@@ -8,9 +8,9 @@ ms.custom: devx-track-rust
 adobe-target: true
 ---
 
-# Install Azure SDK crates for Rust
+# Install Azure SDK for Rust crates
 
-The Azure SDK for Rust lets you access Azure services in your Rust projects by installing individual SDK crates with Cargo. This article shows how to install, update, and manage Azure SDK crates for Rust, so you can add only the features you need and keep your projects up to date.
+The Azure SDK for Rust lets you access Azure services in your Rust projects by installing individual SDK crates with Cargo. This article shows how to install, update, and manage Azure SDK for Rust crates, so you can add only the features you need and keep your projects up to date.
 
 [!INCLUDE [prerequisites](../includes/prerequisites.md)]
 
@@ -30,7 +30,7 @@ cargo add azure_identity azure_security_keyvault_secrets
 
 You can find available crate names in the [crate index for Azure][Crates].
 
-## Install specific Azure SDK crate versions
+## Install a specific Azure SDK crate version
 
 Sometimes you need to install a particular [version of a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
@@ -43,7 +43,7 @@ The following Azure services, prefixed with `azure_`, are currently supported:
 | **Key Vault** | [`azure_security_keyvault_certificates`][Crate - key vault - certificates]<br>[`azure_security_keyvault_secrets`][Crate - key vault - secrets]<br>[`azure_security_keyvault_keys`][Crate - key vault - keys] | Manage secrets, keys, and certificates |
 | **Storage** | [`azure_storage_blob`][Crate - storage] | Create and manage Azure Storage blobs and containers. |
 
-Crates.io has other crates for Azure services that were established before the official Azure SDK crates listed above. These crates aren't associated with the Azure SDK and shouldn't be used for modern development.
+Crates.io has other crates for Azure services that were established before the official Azure SDK crates listed above. These crates aren't associated with the Azure SDK for Rust and shouldn't be used for modern development.
 
 ```console
 cargo add <crate_name>@<version_number>
@@ -71,7 +71,7 @@ To update a specific crate, run:
 cargo update <crate_name>
 ```
 
-## Remove an Azure SDK crate
+## Remove a specific Azure SDK crate
 
 To remove a crate from your project, including the `Cargo.toml` file, run:
 

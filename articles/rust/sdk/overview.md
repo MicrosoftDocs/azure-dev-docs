@@ -1,19 +1,19 @@
 ---
-title: Access Azure services using Azure SDK crates for Rust
-description: Learn how to access Azure services using Azure SDK crates for Rust. Build secure, scalable Rust apps with Azure—get started today.
+title: Access Azure services using Azure SDK for Rust crates
+description: Learn how to access Azure services using Azure SDK for Rust crates. Build secure, scalable Rust apps with Azure—get started today.
 ms.date: 08/14/2025
 ms.topic: overview
 ms.service: azure
 ms.custom: devx-track-rust
 ---
 
-# What are Azure SDK crates for Rust?
+# What are Azure SDK for Rust crates?
 
-Azure SDK crates for Rust enable Rust applications to access Azure services. These client libraries provide a consistent, idiomatic experience, making it easier to build secure and scalable cloud solutions with Rust and Azure.
+Azure SDK for Rust crates enable Rust applications to access Azure services. These client libraries provide a consistent, idiomatic experience, making it easier to build secure and scalable cloud solutions with Rust and Azure.
 
 [Crates] | [API reference documentation] | [Source code] 
 
-## Key concepts for Azure SDK crates
+## Key concepts for Azure SDK for Rust crates
 
 - **Idiomatic Rust**: Built with Rust best practices and conventions.
 - **Async support**: Fully async APIs with pluggable runtime support (defaulting to tokio).
@@ -29,7 +29,7 @@ Azure SDK crates for Rust enable Rust applications to access Azure services. The
 
 ## Rust guidance
 
-The [Azure SDK design guidelines for Rust](https://azure.github.io/azure-sdk/rust_introduction.html) outline the core design principles and patterns that all Azure SDK crates follow. These guidelines ensure that SDKs are consistent, intuitive, and idiomatic for Rust, making it easier for developers to adopt and use Azure services. By adhering to these standards, the Azure SDK for Rust provides a familiar and predictable experience, with clear patterns for authentication, error handling, and client configuration that align with the broader Azure SDK ecosystem.
+The [Azure SDK design guidelines for Rust](https://azure.github.io/azure-sdk/rust_introduction.html) outline the core design principles and patterns that all Azure SDK crates follow. These guidelines ensure that SDKs are consistent, intuitive, and idiomatic for Rust, making it easier for developers to adopt and use Azure services. By adhering to these standards, the Azure SDK crates provides a familiar and predictable experience, with clear patterns for authentication, error handling, and client configuration that align with the broader Azure SDK ecosystem.
 
 ## Differences between crates and REST APIs
 
@@ -43,11 +43,11 @@ Use the following information to understand when to use each type of access.
 
 ## Rust version
 
-The Azure SDK crates for Rust are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on community feedback and demand.
+The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on community feedback and demand.
 
 ## Next steps
 
-- [Install the Azure SDK for Rust](./installation.md)
+- [Install the Azure SDK for Rust crates](./installation.md)
 [!INCLUDE [common resources](../includes/resources.md)]
 
 
