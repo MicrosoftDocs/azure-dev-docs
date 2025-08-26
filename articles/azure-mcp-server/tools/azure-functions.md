@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server to manage your function app r
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 08/15/2025
+ms.date: 08/26/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -17,6 +17,25 @@ ms.custom: build-2025
 The Azure MCP Server allows you to manage Azure resources, including function apps, using natural language prompts. This allows you to quickly list your apps without remembering complex syntax.
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service that enables you to integrate code execution into your Azure services with less code and using popular development tools. Instead of worrying about deploying and maintaining servers, you can spend time developing your applications.
+
+## Get
+
+Get the Azure function app details.
+
+
+Example prompts include:
+
+- **Get function app details**: "Get details for my function app 'my-function-app' in resource group 'my-resource-group'."
+- **Get specific function app**: "Show me the function app 'my-function-app' in resource group 'my-resource-group'."
+- **Get function app settings**: "Show the settings for function app 'my-function-app' in resource group 'my-resource-group'."
+- **Get function app status**: "Get the current status of function app 'my-function-app' in resource group 'my-resource-group'."
+- **Get function app hostnames**: "List the hostnames for function app 'my-function-app' in resource group 'my-resource-group'."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Function app** |  Required | The name of the function app. |
+
 
 ## List
 
