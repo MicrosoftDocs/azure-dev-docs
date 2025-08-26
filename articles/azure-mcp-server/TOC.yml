@@ -38,6 +38,8 @@ items:
           href: tools/azure-best-practices.md
         - name: Azure Bicep schema
           href: tools/azure-bicep-schema.md
+        - name: Azure Cloud Architect
+          href: tools/azure-cloud-architect.md
         - name: Azure Redis
           href: tools/azure-cache-for-redis.md          
         - name: Azure CLI
