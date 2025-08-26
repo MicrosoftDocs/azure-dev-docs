@@ -33,7 +33,6 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Function app** |  Required | The name of the function app. |
 
 
