@@ -57,8 +57,7 @@ Make sure your CLI tools and Visual Studio Code are updated, properly configured
    
    ```
 
-GitHub Copilot will ask permission to run a series of command line checks to ensure you have the tools, as well as the most up to date versions of those tools, installed.
-
+   GitHub Copilot will ask permission to run a series of command line checks to ensure you have the tools, as well as the most up to date versions of those tools, installed.
 
 1. In your terminal, update the Azure CLI with the command `az --upgrade`.
 
@@ -94,7 +93,7 @@ While GitHub Copilot is capable of performing virtually any application developm
 
    ```
 
-  Replace `<db-username>` and `<password>` with your desired database username and password, respectively.
+   Replace `<db-username>` and `<password>` with your desired database username and password, respectively.
 
 1. On Windows machines, the recommended security best practice is to store the database username and password in a local file:
 
