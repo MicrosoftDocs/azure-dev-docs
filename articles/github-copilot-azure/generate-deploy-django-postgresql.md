@@ -199,7 +199,7 @@ Second, create an Azure App Service for the Django app in the new "<resource-gro
 
 Third, create a new Azure Database for PostgreSQL flexible server named "<server-name>" in a resource group named "<resource-group-name>" in my subscription "<subscription-id>". Use my current account ("<account-id>") as the Microsoft Entra administrator. For the PostgreSQL "Administrator login", use "<azure-database-username>" and password "<azure-database-password>". Use a "development" class database configuration in the "<region-name>" region. Create a new database named "contact_manager_db" and migrate all tables and data from the local version of "contact_manager_db". The local database uses the username "<local-database-username>" and password "<local-database-password>". Add my IP address as a firewall rule, allow public access to this resource through the internet using a public IP address, and allow public access from any Azure service within Azure to this server.
 
-Third, use use Service Connector (and any other services you need to make this configuration work successfully) to connect the web app to the database. You may need to modify the application code to accommodate Service Connector. Also, please ensure a secure connection between the Azure App Service web site and the Azure PostgreSQL Flexible Server.
+Fourth, use Service Connector (and any other services you need to make this configuration work successfully) to connect the web app to the database. You may need to modify the application code to accommodate Service Connector. Also, please ensure a secure connection between the Azure App Service web site and the Azure PostgreSQL Flexible Server.
 
 Please choose the least expensive options.  
 
