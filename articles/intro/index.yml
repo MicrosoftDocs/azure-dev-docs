@@ -11,9 +11,10 @@ metadata:
   description: Learn how you can build applications using Azure.
   author: PatAltimore
   ms.author: patricka
-  ms.date: 04/25/2025
+  ms.date: 08/26/2025
   ms.topic: landing-page
   ms.service: azure
+  ms.subservice: developer
 
 landingContent:
   # Card
