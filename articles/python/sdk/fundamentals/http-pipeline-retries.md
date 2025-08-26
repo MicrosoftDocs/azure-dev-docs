@@ -80,7 +80,6 @@ delay = min(base_delay * (2 ** retry_attempt), max_delay)
 ### Customizing retries
 
 You can customize retry behavior when creating SDK clients to match your application's specific requirements.
-Common Retry Parameters
 
 ```python
 from azure.storage.blob import BlobServiceClient

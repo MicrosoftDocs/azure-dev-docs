@@ -1,6 +1,6 @@
 ---
 title: Understanding common response types in the Azure SDK for Python
-description: Learn types of objects you receive from SDK operations wyhen using the Azure SDK for Python.
+description: Learn types of objects you receive from SDK operations when using the Azure SDK for Python.
 ms.date: 7/10/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
@@ -17,7 +17,7 @@ Understanding the types of objects you receive from SDK operations is essential 
 
 ## Deserialized Python objects
 
-The Azure SDK for Python prioritizes developer productivity by returning strongly-typed Python objects from service operations. Instead of parsing JSON or handling HTTP status codes directly, you work with resource models that represent Azure resources as Python objects.
+The Azure SDK for Python prioritizes developer productivity by returning strongly typed Python objects from service operations. Instead of parsing JSON or handling HTTP status codes directly, you work with resource models that represent Azure resources as Python objects.
 
 For example, when you retrieve a blob from Azure Storage, you receive a BlobProperties object with attributes like name, size, and last_modified, rather than a raw JSON dictionary:
 
@@ -102,12 +102,6 @@ blobs: ItemPaged[BlobProperties] = container_client.list_blobs()
 for blob in blobs:
     print(f"Blob: {blob.name}, Size: {blob.size}")
 ```
-
-
-
-### HttpResponse for advanced scenarios
-
-
 
 ## Accessing the raw HTTP response
 
@@ -262,9 +256,6 @@ vm = poller.result()  # Blocks until operation completes
 print(f"VM {vm.name} provisioned successfully")
 ```
 
-
-
-
 ### Accessing response for paged results
 
 For paged results, use the `by_page()` method with `raw_response_hook`:
@@ -284,7 +275,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
 ## Best practices
 
 - **Prefer high-level abstractions**
-- **Work with the SDK's resource models rather than raw responses** whenever possible, and **avoid accessing any method prefixed with an underscore `_`** since, by convention, those are private in Python. There are no guarantees about breaking changes etc compared to public APIs:
+- **Work with the SDK's resource models rather than raw responses** whenever possible, and **avoid accessing any method prefixed with an underscore `_`** since, by convention, those are private in Python. There are no guarantees about breaking changes, etc. compared to public APIs:
 
   ```python
   # Preferred: Work with typed objects
@@ -346,7 +337,3 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
           raise CustomApplicationError("Custom error condition detected")
       return response
   ```
-
-## Next steps
-
-- TBD
