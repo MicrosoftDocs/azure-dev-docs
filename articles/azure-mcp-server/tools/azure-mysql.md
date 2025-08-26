@@ -60,6 +60,7 @@ Execute a safe, read-only SQL SELECT query against a database on an Azure Databa
 
 **Example:**  
 `SELECT ID, name, status FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50;`
+
 Example prompts include:
 
 - **Run a query**: "Run SELECT id, name FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50 on database 'salesdb' on server 'my-mysql-server'."
