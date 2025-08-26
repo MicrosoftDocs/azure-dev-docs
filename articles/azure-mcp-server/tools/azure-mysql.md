@@ -40,14 +40,6 @@ List all databases available on the specified Azure Database for MySQL Flexible 
 
 Execute a safe, read-only SQL SELECT query against a database on an Azure Database for MySQL Flexible Server. Use this tool to explore or retrieve table data without modifying it.
 
-**Restrictions:**  
-- Only single SELECT statements are allowed.  
-- Non-SELECT statements (INSERT, UPDATE, DELETE, REPLACE, MERGE, TRUNCATE, ALTER, CREATE, DROP) are rejected.  
-- Multi-statements are not permitted.  
-- Comments that hide write operations are not allowed.  
-- Transaction control statements (BEGIN, COMMIT, ROLLBACK) are rejected.  
-- INTO OUTFILE and other destructive keywords are not permitted.
-
 **Best practices:**  
 - List only the needed columns (avoid `SELECT *`).  
 - Add WHERE filters to narrow results.  
@@ -55,18 +47,26 @@ Execute a safe, read-only SQL SELECT query against a database on an Azure Databa
 - Use ORDER BY for deterministic results.  
 - Avoid returning unnecessary sensitive data.
 
+**Allowed:**  
+- Only single SELECT statements are allowed.  
+
+**Not allowed:**  
+- Non-SELECT statements (INSERT, UPDATE, DELETE, REPLACE, MERGE, TRUNCATE, ALTER, CREATE, DROP).  
+- Multi-statements are not permitted.  
+- Comments that hide write operations.  
+- Transaction control statements (BEGIN, COMMIT, ROLLBACK).  
+- INTO OUTFILE and other destructive keywords.
+
+
 **Example:**  
 `SELECT ID, name, status FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50;`
 Example prompts include:
 
 - **Run a query**: "Run SELECT id, name FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50 on database 'salesdb' on server 'my-mysql-server'."
 - **Count rows**: "Run SELECT COUNT(*) FROM orders WHERE status = 'completed' on database 'salesdb' on server 'my-mysql-server'."
-- **Filtered query**: "Run SELECT name, email FROM users WHERE created_at > '2025-01-01' LIMIT 25 on database 'appdb' on server 'my-mysql-server'."
-- **Top products**: "Run SELECT product_id, SUM(quantity) AS total FROM sales GROUP BY product_id ORDER BY total DESC LIMIT 10 on database 'analytics' on server 'my-mysql-server'."
+- **Filtered query**: "Run SELECT name FROM users WHERE created_at > '2025-01-01' ORDER BY created_at LIMIT 25 on database 'appdb' on server 'my-mysql-server'."
+- **Top products**: "Run SELECT product_id, SUM(quantity) AS total FROM sales WHERE sale_date >= '2025-01-01' GROUP BY product_id ORDER BY total DESC LIMIT 10 on database 'analytics' on server 'my-mysql-server'."
 - **Distinct values**: "Run SELECT DISTINCT category FROM products LIMIT 20 on database 'inventory' on server 'my-mysql-server'."
-
-
-#### Parameters with Natural Language Names
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
