@@ -22,6 +22,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
+| [Azure Database for MySQL](../../tools/azure-mysql.md) | Manage Azure Database for MySQL servers, databases, and tables. |
 | [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
