@@ -38,8 +38,25 @@ List all databases available on the specified Azure Database for MySQL Flexible 
 
 ## Database: query
 
-Execute a safe, read-only SQL SELECT query against a database on an Azure Database for MySQL Flexible Server. Use this tool to explore or retrieve table data without modifying it. The tool rejects non-SELECT statements (INSERT/UPDATE/DELETE/REPLACE/MERGE/TRUNCATE/ALTER/CREATE/DROP), multi-statements, comments hiding writes, transaction control (BEGIN/COMMIT/ROLLBACK), INTO OUTFILE, and other destructive keywords. The tool executes only a single SELECT statement to ensure data integrity. Best practices: list needed columns (avoid SELECT *), add WHERE filters, use LIMIT/OFFSET for paging, use ORDER BY for deterministic results, and avoid returning unnecessary sensitive data. Example: SELECT ID, name, status FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50;
+Execute a safe, read-only SQL SELECT query against a database on an Azure Database for MySQL Flexible Server. Use this tool to explore or retrieve table data without modifying it.
 
+**Restrictions:**  
+- Only single SELECT statements are allowed.  
+- Non-SELECT statements (INSERT, UPDATE, DELETE, REPLACE, MERGE, TRUNCATE, ALTER, CREATE, DROP) are rejected.  
+- Multi-statements are not permitted.  
+- Comments that hide write operations are not allowed.  
+- Transaction control statements (BEGIN, COMMIT, ROLLBACK) are rejected.  
+- INTO OUTFILE and other destructive keywords are not permitted.
+
+**Best practices:**  
+- List only the needed columns (avoid `SELECT *`).  
+- Add WHERE filters to narrow results.  
+- Use LIMIT/OFFSET for paging.  
+- Use ORDER BY for deterministic results.  
+- Avoid returning unnecessary sensitive data.
+
+**Example:**  
+`SELECT ID, name, status FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50;`
 Example prompts include:
 
 - **Run a query**: "Run SELECT id, name FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50 on database 'salesdb' on server 'my-mysql-server'."
