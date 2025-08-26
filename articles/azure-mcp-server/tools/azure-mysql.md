@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL tools
-description: Learn how to use the Azure MCP Server with Azure Database for MySQL.
+title: Azure Database for MySQL Tools for Azure MCP Server
+description: Learn how to manage Azure Database for MySQL with Azure MCP Server using natural language prompts.
 keywords: azure mcp server, azmcp, mysql
 author: diberry
 ms.author: diberry
@@ -12,16 +12,16 @@ ms.topic: reference
 ms.custom: build-2025
 --- 
 
-# Azure Database for MySQL tools for the Azure MCP Server
+# Azure Database for MySQL tools for Azure MCP Server
 
-Azure MCP Server helps you manage Azure resources, including Azure Database for MySQL servers, databases, and tables, by using natural language prompts. You can manage MySQL resources quickly without remembering complex syntax.
+Azure MCP Server enables you to manage Azure Database for MySQL servers, databases, and tables using natural language prompts. Simplify MySQL resource management without complex syntax.
 
 [Azure Database for MySQL](/azure/mysql/) is a fully managed relational database service powered by the MySQL community edition. Use it to host a MySQL database in Azure. It handles mission-critical workloads with predictable performance and dynamic scalability.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 
-## Database: list
+## Database: list all databases
 
 List all databases available on the specified Azure Database for MySQL Flexible Server instance. This command provides visibility into the database structure and helps you identify databases for connection and querying operations.
 
@@ -166,7 +166,7 @@ Example prompts include:
 | **Server** |  Required | The MySQL server to be accessed. |
 | **Database** |  Required | The MySQL database to be accessed. |
 
-## Table: get schema 
+## Table: get table schema 
 
 Retrieve detailed schema information for a specific table within an Azure Database for MySQL Flexible Server database. This command provides comprehensive metadata including column definitions, data types, constraints, indexes, and relationships. This information is essential for understanding table structure and supporting application development.
 
