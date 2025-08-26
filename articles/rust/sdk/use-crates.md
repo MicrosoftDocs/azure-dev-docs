@@ -1,7 +1,7 @@
 ---
 title: Use Azure SDK for Rust crates to access Azure services
 description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
-ms.date: 07/17/2025
+ms.date: 08/26/2025
 ms.topic: concept-article
 ms.service: azure
 ms.custom: devx-track-rust
@@ -35,206 +35,34 @@ You use client objects to interact with Azure services. Each client object, from
 
 When you create the client objects, you can provide a [`ClientOptions`][Ref doc - core - ClientOptions] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
 
-```rust
-use azure_identity::{
-    ManagedIdentityCredential,
-    ManagedIdentityCredentialOptions,
-    UserAssignedId
-};
-use azure_security_keyvault_secrets::{
-    SecretClient, 
-    SecretClientOptions
-};
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-
-    // Get environment variables
-    let key_vault_name = std::env::var("AZURE_KEYVAULT_NAME")
-        .map_err(|_| "AZURE_KEYVAULT_NAME environment variable is required")?;
-
-    let user_assigned_id: Option<UserAssignedId> = std::env::var("AZURE_USER_ASSIGNED_IDENTITY")
-        .ok()
-        .map(|id| UserAssignedId::ClientId(id.clone()));
-
-    // Set up authentication 
-    let options = SecretClientOptions {
-        api_version: "7.5".to_string(),
-        ..Default::default()
-    };
-
-    let credential = ManagedIdentityCredential::new(Some(credential_options))?;
-
-    // Create a Key Vault client for secrets
-     let client = SecretClient::new(
-        key_vault_name.as_str(),
-        credential,
-        Some(SecretClientOptions::default()),
-    )?;
-
-    Ok(())
-}
-```
-
-## Access HTTP response details by using `Response<T>`
-
-_Service clients_ include methods you use to call Azure services. We call these client methods _service methods_.
-_Service methods_ return a shared `azure_core` type [`Response<T>`][Ref doc - core - Response], where `T` is either a `Model` type or a `ResponseBody` that represents a raw stream of bytes.
-This type provides access to both the deserialized result of the service call and the details of the HTTP response returned from the server.
-
-```rust no_run
-use azure_core::http::Response;
-use azure_identity::DeveloperToolsCredential;
-use azure_security_keyvault_secrets::{models::Secret, SecretClient};
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // create a client
-    let credential = DeveloperToolsCredential::new(None)?;
-    let client = SecretClient::new(
-        "https://<your-key-vault-name>.vault.azure.net/",
-        credential.clone(),
-        None,
-    )?;
-
-    // call a service method, which returns Response<T>
-    let response = client.get_secret("secret-name", "", None).await?;
-
-    // Response<T> has two main accessors:
-    // 1. The `into_body()` function consumes self to deserialize into a model type
-    let secret = response.into_body().await?;
-
-    // get response again because it was moved in above statement
-    let response: Response<Secret> = client.get_secret("secret-name", "", None).await?;
-
-    // 2. The deconstruct() method for accessing all the details of the HTTP response
-    let (status, headers, body) = response.deconstruct();
-
-    // for example, you can access HTTP status
-    println!("Status: {}", status);
-
-    // or the headers
-    for (header_name, header_value) in headers.iter() {
-        println!("{}: {}", header_name.as_str(), header_value.as_str());
-    }
-
-    Ok(())
-}
-```
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_azure_cli.rs":::
 
 ## Error handling
 
 When a service call fails, the returned result contains an error. The error type provides a [`status`][Ref doc - core - error status] property with an HTTP status code and an [`error_code`][Ref doc - core - error_code] property with a service-specific error code.
 
-```rust
-use azure_core::{error::{ErrorKind, HttpError}, http::{Response, StatusCode}};
-use azure_identity::DefaultAzureCredential;
-use azure_security_keyvault_secrets::SecretClient;
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/error_handling.rs":::
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // create a client
-    let credential = DefaultAzureCredential::new()?;
-    let client = SecretClient::new(
-        "https://<your-key-vault-name>.vault.azure.net/",
-        credential.clone(),
-        None,
-    )?;
+## Page results
 
-    match client.get_secret("secret-name", "", None).await {
-        Ok(secret) => println!("Secret: {:?}", secret.into_body().await?.value),
-        Err(e) => match e.kind() {
-            ErrorKind::HttpResponse { status, error_code, .. } if *status == StatusCode::NotFound => {
-                // handle not found error
-                if let Some(code) = error_code {
-                    println!("ErrorCode: {}", code);
-                } else {
-                    println!("Secret not found, but no error code provided.");
-                }
-            },
-            _ => println!("An error occurred: {e:?}"),
-        },
-    }
+If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a [`Result`][Ref doc - core - Result] of [`Pager`][Ref doc - core - Pager]. 
 
-    Ok(())
-}
-```
-
-## Pagination to get all items
-
-If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a [`Result`][Ref doc - core - Result] of [`Pager`][Ref doc - core - Pager]. You can iterate all items from all pages. This feature is useful for operations with small to medium result sets.
-
-```rust
-use azure_identity::DefaultAzureCredential;
-use azure_security_keyvault_secrets::{ResourceExt, SecretClient};
-use futures::TryStreamExt;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // create a client
-    let credential = DefaultAzureCredential::new()?;
-    let client = SecretClient::new(
-        "https://<your-key-vault-name>.vault.azure.net/",
-        credential.clone(),
-        None,
-    )?;
-
-    // get a stream of items
-    let mut pager = client.list_secret_properties(None)?;
-
-    // poll the pager until there are no more SecretListResults
-    while let Some(secret) = pager.try_next().await? {
-        // get the secret name from the ID
-        let name = secret.resource_id()?.name;
-        println!("Found secret with name: {}", name);
-    }
-
-    Ok(())
-}
-```
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/page_results.rs":::
 
 ## Pagination to process each page of items
 
-To iterate through all items in a paginated response, use the [`into_pages()`][Ref doc - core - into_pages] method on the returned [`Pager`][Ref doc - core - Pager]. This method returns an async stream of pages as a [`PageIterator`][Ref doc - core - PageIterator], so you can process each page as it becomes available. This feature is useful for operations with large result sets.
+To iterate through all items in a paginated response, use the [`into_pages()`][Ref doc - core - into_pages] method on the returned [`Pager`][Ref doc - core - Pager]. This method returns an async stream of pages as a [`PageIterator`][Ref doc - core - PageIterator], so you can process each page as it becomes available. 
 
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/paging_all_items.rs":::
 
-```rust
-use azure_identity::DefaultAzureCredential;
-use azure_security_keyvault_secrets::{ResourceExt, SecretClient};
-use futures::TryStreamExt;
+## Sample code
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // create a client
-    let credential = DefaultAzureCredential::new()?;
-    let client = SecretClient::new(
-        "https://<your-key-vault-name>.vault.azure.net/",
-        credential.clone(),
-        None,
-    )?;
-
-    // get a stream of pages
-    let mut pager = client.list_secret_properties(None)?.into_pages();
-
-    // poll the pager until there are no more SecretListResults
-    while let Some(secrets) = pager.try_next().await? {
-        let secrets = secrets.into_body().await?.value;
-        // loop through secrets in SecretsListResults
-        for secret in secrets {
-            // get the secret name from the ID
-            let name = secret.resource_id()?.name;
-            println!("Found secret with name: {}", name);
-        }
-    }
-
-    Ok(())
-}
-```
-
+The code shown in this article is available on <https://github.com/Azure/azure-sdk-for-rust-docs/>.
 
 ## Next steps
 
 [!INCLUDE [common resources](../includes/resources.md)]
+
 
 [cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
 [API reference documentation]: https://docs.rs/releases/search?query=azure_

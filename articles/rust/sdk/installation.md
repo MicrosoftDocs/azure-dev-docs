@@ -1,7 +1,7 @@
 ---
 title: Install and manage Azure SDK for Rust crates
 description: Install, update, and manage Azure SDK for Rust crates using Cargo. Learn how to keep your Rust projects up to date with Azure services.
-ms.date: 07/25/2025
+ms.date: 08/26/2025
 ms.topic: how-to
 ms.service: azure-rust
 ms.custom: devx-track-rust
