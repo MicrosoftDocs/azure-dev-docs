@@ -31,3 +31,5 @@ items:
       items: 
         - name: Create Bicep files
           href: bicep-generate-edit.md
+        - name: Generate and deploy a Django / PostgreSQL app
+          href: generate-deploy-django-postgresql.md
