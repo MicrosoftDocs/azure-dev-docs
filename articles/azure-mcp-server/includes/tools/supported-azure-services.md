@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 08/12/2025
+ ms.date: 08/26/2025
 ---
 
 ## Available tools
@@ -18,15 +18,18 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure CLI](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
+| [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
+| [Azure Database for MySQL](../../tools/azure-mysql.md) | Manage Azure Database for MySQL servers, databases, and tables. |
 | [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Functions](../../tools/azure-functions.md) | List Azure Functions. |
 | [Azure Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|
+| [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
 | [Azure Key Vault](../../tools/key-vault-key.md) | List and create keys, secrets, certificates in Azure Key Vault. |
 | [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
