@@ -41,7 +41,7 @@ Azure services are accessed using specialized client classes from the various Az
 1. Import the `@azure/identity` package.
 1. Pass an appropriate `TokenCredential` instance to the client:
     - Use `DefaultAzureCredential` when your app is running locally
-    - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
+    - Use `ManagedIdentityCredential` when your app is running in Azure.
 
     ```javascript
     import { BlobServiceClient } from '@azure/storage-blob';
@@ -97,7 +97,7 @@ Azure services are accessed using specialized client classes from the various Az
 1. Import the `@azure/identity` package.
 1. Pass an appropriate `TokenCredential` instance to the client:
     - Use `DefaultAzureCredential` when your app is running locally
-    - Use `ManagedIdentityCredential` when your app is running in Azure and configure either the client ID, resource ID, or object ID.
+    - Use `ManagedIdentityCredential` when your app is running in Azure.
 
     ```typescript
     import { BlobServiceClient } from '@azure/storage-blob';
@@ -105,9 +105,7 @@ Azure services are accessed using specialized client classes from the various Az
     
     function createBlobServiceClient(): BlobServiceClient {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-        
         if (!accountName) throw Error('Azure Storage accountName not found');
-    
         const url = `https://${accountName}.blob.core.windows.net`;
     
         if (process.env.NODE_ENV === "production") {

@@ -4,7 +4,7 @@ ms.date: 08/15/2025
 ---
 ### Implement the code
 
-In a TypeScript project, add the [@azure/identity] package. In a terminal of your choice, navigate to the application project directory and run the following commands:
+In a TypeScript project, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package. In a terminal of your choice, navigate to the application project directory and run the following commands:
 
 ```console
 npm install typescript @azure/identity @types/node
