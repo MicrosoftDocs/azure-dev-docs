@@ -304,7 +304,7 @@ This approach gives you fine-grained control over logging verbosity when working
 
 ## Additional resources
 
-- [Azure Javascript SDK logging][Azure JS SDK logging]
+- [Azure JavaScript SDK logging][Azure JS SDK logging]
 - [Passwordless connections for Azure services]
 
 [Free Subscription]: https://azure.microsoft.com/free/
