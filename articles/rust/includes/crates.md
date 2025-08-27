@@ -37,7 +37,7 @@ Crates.io has other crates for Azure services that were established before the o
 [Crate - key vault - keys]: https://crates.io/crates/azure_security_keyvault_keys
 [Crate - storage]: https://crates.io/crates/azure_storage
 
-[Docs - identity]: https://docs.rs/azure_identity/latest/azure_identity/
+[Docs - identity]: https://docs.rs/azure_identity
 [Docs - core]: https://docs.rs/azure_core
 [Docs - cosmos]: https://docs.rs/azure_data_cosmos
 [Docs - event hubs]: https://docs.rs/azure_messaging_eventhubs
