@@ -60,9 +60,6 @@ conceptualContent:
         - text: Java on Azure samples
           itemType: quickstart
           url: learning-resources/samples.md
-        - text: Get Java help from Microsoft
-          itemType: overview
-          url: learning-resources/get-help.md
       footerLink:
         text: See more
         url: learning-resources/index.yml

@@ -19,7 +19,7 @@ The Azure MCP Server allows you to manage Azure Monitor resources using natural 
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Log analytics: list workspaces
+## Log analytics: List workspaces
 
 The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
@@ -31,11 +31,7 @@ Example prompts include:
 - **Query workspaces**: "Show workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123 please"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-
-## Log analytics: list tables
+## Log analytics: List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
@@ -49,11 +45,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
 
-## Log analytics: query logs
+## Log analytics: Query logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 
@@ -67,14 +61,13 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
-| **Table name** | Required | The name of the table to query. |
+| **Table** | Required | The name of the table to query. |
 | **Query** | Required | The KQL query to execute against the Log Analytics workspace. |
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
-## Health: get entity health
+## Health: Get entity health
 
 The Azure MCP Server can get the health status of an entity using Azure Monitor health models. This provides comprehensive health information and monitoring status for Azure resources and applications.
 
@@ -88,12 +81,10 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **Model name** | Required | The name of the health model. |
+| **Model** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
 
-## Metrics: query metrics
+## Metrics: Query metrics
 
 The Azure MCP Server can query Azure Monitor metrics for resources. This allows you to retrieve performance metrics, usage statistics, and monitoring data for your Azure resources over specified time periods.
 
@@ -108,11 +99,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource name** | Required | The name of the resource to query metrics for. |
+| **Resource** | Required | The name of the resource to query metrics for. |
 | **Metric namespace** | Required | The metric namespace. |
-| **Metric names** | Required | The metric names to query. |
-| **Resource group** | Optional | The name of the Azure resource group. |
+| **Metrics** | Required | The metric names to query. |
 | **Resource type** | Optional | The type of the resource. |
 | **Start time** | Optional | The start time for the query. |
 | **End time** | Optional | The end time for the query. |
@@ -121,7 +110,7 @@ Example prompts include:
 | **Filter** | Optional | Filter for the metrics query. |
 | **Max buckets** | Optional | Maximum number of buckets. |
 
-## Metrics: list metric definitions
+## Metrics: List metric definitions
 
 The Azure MCP Server can list available metric definitions for a resource. This helps you discover what metrics are available for monitoring before querying specific metric data.
 
@@ -135,15 +124,13 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource name** | Required | The name of the resource. |
-| **Resource group** | Optional | The name of the Azure resource group. |
 | **Resource type** | Optional | The type of the resource. |
 | **Metric namespace** | Optional | The metric namespace. |
 | **Search string** | Optional | Search string to filter metrics. |
 | **Limit** | Optional | Maximum number of results to return. |
 
-## Workbooks: list workbooks
+## Workbooks: List workbooks
 
 The Azure MCP Server can list Azure Monitor workbooks in a resource group. This helps you discover and manage your monitoring dashboards and interactive reports.
 
@@ -157,13 +144,12 @@ The Azure MCP Server can list Azure Monitor workbooks in a resource group. This 
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Resource group** | Required | The name of the Azure resource group. |
 | **Category** | Optional | The category to filter workbooks by. |
 | **Kind** | Optional | The kind of workbook (e.g., 'shared', 'user'). |
 | **Source ID** | Optional | The source resource ID to filter workbooks by. |
 
-## Workbooks: show workbook details
+## Workbooks: Show workbook details
 
 The Azure MCP Server can show details of a specific Azure Monitor workbook by its resource ID. This provides comprehensive information about the workbook's configuration and content.
 
@@ -179,7 +165,7 @@ The Azure MCP Server can show details of a specific Azure Monitor workbook by it
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to retrieve. |
 
-## Workbooks: create workbook
+## Workbooks: Create workbook
 
 The Azure MCP Server can create a new Azure Monitor workbook. This allows you to programmatically create monitoring dashboards and interactive reports.
 
@@ -193,13 +179,11 @@ The Azure MCP Server can create a new Azure Monitor workbook. This allows you to
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
-| **Resource group** | Required | The name of the Azure resource group. |
-| **Display name** | Required | The display name for the new workbook. |
+| **Display** | Required | The display name for the new workbook. |
 | **Serialized content** | Required | The JSON content defining the workbook structure and queries. |
 | **Source ID** | Optional | The source resource ID to associate with the workbook. |
 
-## Workbooks: update workbook
+## Workbooks: Update workbook
 
 The Azure MCP Server can update an existing Azure Monitor workbook. This allows you to modify workbook properties and content programmatically.
 
@@ -214,10 +198,10 @@ The Azure MCP Server can update an existing Azure Monitor workbook. This allows 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to update. |
-| **Display name** | Optional | The new display name for the workbook. |
+| **Display** | Optional | The new display name for the workbook. |
 | **Serialized content** | Optional | The updated JSON content for the workbook. |
 
-## Workbooks: delete workbooks
+## Workbooks: Delete workbooks
 
 The Azure MCP Server can delete an Azure Monitor workbook. This permanently removes the workbook and all its associated content.
 

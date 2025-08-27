@@ -4,7 +4,7 @@ description: Shows you how to deploy a Java WebLogic web app with sign-in by Mic
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---

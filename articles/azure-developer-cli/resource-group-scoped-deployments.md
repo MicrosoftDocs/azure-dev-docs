@@ -1,8 +1,8 @@
 ---
 title: Resource Group Scoped Deployments
 description: How to deploy templates that target resource group scope instead of subscription scope with the Azure Developer CLI (azd)
-author: gkulin
-ms.author: gracekulin
+author: alexwolfmsft
+ms.author: alexwolf
 ms.date: 09/12/2024
 ms.service: azure-dev-cli
 ms.topic: article
@@ -55,7 +55,7 @@ In this article, you learn how to modify templates to enable resource group scop
 > [!NOTE]
 > For an example of these changes applied to the [React Web App with Node.js API and MongoDB on Azure template](https://github.com/Azure-Samples/todo-nodejs-mongo), see [this GitHub comparison](https://github.com/Azure-Samples/todo-nodejs-mongo/compare/main...ellismg:todo-nodejs-mongo:ellismg/move-to-rg-scope).
 
-To set the resource group to deploy to manually, you can set `AZURE_RESOURCE_GROUP` in your environment. Learn more about that [here](./manage-environment-variables.md#user-provided-environment-variables).
+To set the resource group to deploy to manually, you can set `AZURE_RESOURCE_GROUP` in your [environment variables](./manage-environment-variables.md).
 
 Alternatively, if you do not have a resource group specified in your environment, `azd` prompts you to pick an existing resource group from your subscription or create a new one when you run `azd provision`.
 

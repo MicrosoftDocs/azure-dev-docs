@@ -38,11 +38,6 @@ Example prompts include:
 - **Find clusters**: "List clusters in the East US region only"
 - **Monitor deployments**: "What's the status of our production AKS clusters? Are they all running properly?"
 
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription containing the AKS clusters. |
-
 ## Get cluster details
 
 Gets detailed information about a specific Azure Kubernetes Service (AKS) cluster, including configuration, status, node pools, and networking details. This operation helps you examine cluster properties and monitor the health of your Kubernetes environment.

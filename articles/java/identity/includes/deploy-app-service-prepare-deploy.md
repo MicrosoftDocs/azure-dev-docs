@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ---
 
 When you deploy your application to App Service, your redirect URL changes to the redirect URL of your deployed app instance. Use the following steps to change these settings in your properties file:
