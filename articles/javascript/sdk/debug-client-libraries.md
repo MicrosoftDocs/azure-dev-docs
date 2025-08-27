@@ -1,7 +1,7 @@
 ---
 title: Configure logging in Azure SDK libraries for JavaScript
 description: Learn how to configure logging in Azure SDK libraries for JavaScript to diagnose authentication issues, troubleshoot credential chains, and gain visibility into SDK operations.
-ms.date: 08/22/2024
+ms.date: 08/22/2025
 ms.topic: how-to
 ms.custom: devx-track-js
 zone_pivot_group_filename: developer/javascript/javascript-zone-pivot-groups.json
@@ -21,7 +21,7 @@ To enable logging you can use either of the options below:
 Valid log levels include `verbose`, `info`, `warning`, and `error`.
 
 > [!NOTE]
-> The Azure Storage code shown in this article assumes the storage resource has been configured with the appropriate Microsoft Entra ID roles. Learn more: [Authorize access to blobs using Microsoft Entra ID].
+> The Azure Storage code shown in this article assumes the storage resource has been configured with the appropriate Microsoft Entra roles. Learn more: [Authorize access to blobs using Microsoft Entra ID].
 
 ::: zone pivot="js"
 
@@ -29,7 +29,7 @@ Valid log levels include `verbose`, `info`, `warning`, and `error`.
 
 - An Azure subscription: [Create one for free][Free Subscription]
 - [Node.js LTS][Node.js website]
-- Optional, an authentication tool such as [Azure CLI] used for authentication in a local development environment. To create the necessary context, sign in with the Azure CLI. 
+- Optional, a developer tool such as [Azure CLI] used for authentication in a local development environment. To create the necessary context, sign in with the Azure CLI. 
 
 ## Enable logging with environment variable
 
@@ -153,7 +153,7 @@ This approach gives you fine-grained control over logging verbosity when working
     node --env-file .env index.js
     ```
 
-1. Find the successful credential in the output - the `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
+1. Find the successful credential in the output. `ChainedTokenCredential` allows your code to seamlessly switch between authentication methods, first trying `ManagedIdentityCredential` (for production environments like Azure App Service) and then falling back to `AzureCliCredential` (for local development), with logs showing which credential succeeded.
 
 ::: zone-end
 
