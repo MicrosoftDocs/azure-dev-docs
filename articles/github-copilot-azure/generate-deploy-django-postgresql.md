@@ -14,8 +14,8 @@ This article guides you in how to interact with GitHub Copilot to generate a loc
 
 The specific application you create is a trivial contact management application that features CRUD operations with a list-detail style architecture.
 
->[!NOTE]
-> Using a Large Language Model (LLM) to generate an application yields inconsistent results. Your results depend on the LLM model, your instructions, and more. The focus of this guide is to help you understand how to get better results. However each time you go through this example, you get (potentially) dramatically different results.
+> [!NOTE]
+> Using a Large Language Model (LLM) to generate an application may yield inconsistent results. Your results depend on the LLM model, your instructions, and more. The focus of this guide is to help you understand how to get better results. However each time you go through this example, you get (potentially) dramatically different results.
 
 ## Prerequisites
 
@@ -61,16 +61,16 @@ Make sure your CLI tools and Visual Studio Code are updated, properly configured
 
 1. In your terminal, update the Azure CLI with the command `az --upgrade`.
 
-1. In your terminal, install the service connector passwordless extension for Azure CLI with the command: `az extension add --name serviceconnector-passwordless --upgrade`
+1. In your terminal, install the service connector passwordless extension for Azure CLI with the command `az extension add --name serviceconnector-passwordless --upgrade`
 
-1. In Visual Studio Code, set the default terminal to Git Bash. 
+1. In Visual Studio Code, set the default terminal to Git Bash. Go to File > Preferences > Settings, then in "Search settings", type  "Default Profile: Windows" and select "Git Bash". You may need to restart Visual Studio Code for this setting to take effect.
 
    > [!Note] 
    > Using Git Bash isn't strictly necessary, but at the time of this writing it yields the best results.
 
-1. In Visual Studio Code, use the PostgreSQL extension and navigate to the `contacts` database.
+1. In Visual Studio Code, use the PostgreSQL for Visual Studio Code (Preview) extension and navigate to the `contacts` database.
 
-1. In Visual Studio Code, use the Azure extension and ensure you're logged into your Azure account and subscription.
+1. In Visual Studio Code, use the Azure extension and ensure you're logged into your Azure account and subscription. When you open the Azure extension in the primary side bar, you should be able to view your existing subscriptions and resources.
 
 1. Create a new folder for your new application files and open it in Visual Studio Code as your workspace.
 
@@ -132,7 +132,7 @@ While GitHub Copilot is capable of performing virtually any application developm
 
 ## Generate an app using GitHub Copilot
 
-First you provide instructions and guidance on building and testing the application on your local computer.
+First, you provide instructions and guidance on building and testing the application on your local computer.
 
 1. In Visual Studio Code, use the Toggle Chat button in the title bar to open the Chat Window. Use the New Chat icon to create a new chat session.
 
@@ -150,7 +150,7 @@ First you provide instructions and guidance on building and testing the applicat
    Python / Django project please make sure to work inside of a virtual environment (venv). 
    I've already created a PostgreSQL database at `localhost` named `contacts`. There are 
    no tables yet. For local development in PostgreSQL, I'm using a `pgpass.conf` file 
-   and I have tested it works. Prefer Git Bash in the terminal. Beyond that, if there's 
+   and I have tested that it works. Prefer Git Bash in the terminal. Beyond that, if there's 
    anything I need to do, please include instructions. But I want you to do as much as 
    you can on your own.
 
@@ -164,7 +164,7 @@ First you provide instructions and guidance on building and testing the applicat
    - **More detail about the problem domain.** In this case, you provide the fields of data you want the application to manage, including the contact's name, address, and phone number.
    - **Specific instructions regarding the database.** In this case, you instruct GitHub Copilot to use a specific database that you already created, you provide the state of the database, and how to interact
    - **Specific instructions about the environment.** In this case, you instruct it to use Git Bash. You also tell it that you want the work to be performed in a Python environment (venv), which is a best practice. GitHub Copilot might choose these options on its own, but stating it explicitly makes the process go smoothly.
-   - **Explicit expectations that you want it to do as much work on its own.** Otherwise, GitHub Copilot might provide instructions for you to take.
+   - **Explicit expectations that you want it to do as much work on its own as possible.** Otherwise, GitHub Copilot might provide instructions for you to take.
    - **Explicit expectations for instructions / context.** If it needs you to perform other actions, you set the expectation that you need it to help you by providing instructions and guidance.
 
    >[!IMPORTANT]
@@ -187,7 +187,7 @@ First you provide instructions and guidance on building and testing the applicat
 
 After GitHub Copilot generates the site locally, you'll author a prompt asking GitHub Copilot to make changes to the site in preparation for deployment, and then to perform the deployment. The GitHub Copilot for Azure extension handles this request by creating Bicep files then running those files using the `azd` CLI.
 
-Use the following prompt ... you may copy to Notepad and change any value in brackets like `<resource-group-name>` and `<region-name>` then copy and paste into GitHub Copilot:
+Use the following prompt ... you may copy to Notepad and change any value in brackets like `<resource-group-name>` and `<region-name>` then copy and paste into GitHub Copilot chat:
 
 ```copilot-prompt
 
@@ -203,9 +203,8 @@ Fourth, use Service Connector (and any other services you need to make this conf
 
 Please choose the least expensive options.  
 
-If you are prompted for an environment, use name "contacts-env".  Configure my firewall to allow my IP address. Beyond that, if there's anything 
-I need to do, please include instructions. But I want you to do as much as you can on 
-your own.
+If you are prompted for an environment, use the name "contacts-env". Configure my firewall to allow my IP address. Beyond that, if there's anything 
+I need to do, please include instructions. But I want you to do as much as you can on your own.
 
 Before you start: 
 
@@ -252,7 +251,7 @@ Occasionally, you're required to provide input. There are a few distinct moments
 
 ### Testing and asking for changes
 
-When GitHub Copilot finishes, it's possible that it considers the site to be complete and functional. However your testing might discover issues, or unexpected / undesirable app features.
+When GitHub Copilot finishes, it's possible that it considers the site to be complete and functional. However, your testing might discover issues, or unexpected / undesirable app features.
 
 Use prompts that describe the issue with as much detail as possible. For example, if the application isn't functioning, provide as much information as possible,**including the exact error message** and the expected result.
 
