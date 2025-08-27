@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: givermei
-ms.date: 03/11/2024
+ms.date: 08/21/2025
 ---
 
 The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).

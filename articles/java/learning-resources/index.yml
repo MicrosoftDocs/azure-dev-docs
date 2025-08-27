@@ -70,24 +70,6 @@ landingContent:
         links:
           - text: Azure OSS developer support
             url: https://azureossd.github.io/tags/ 
-  - title: Refer to cheat sheets
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Java language
-            url: https://cs2113f18.github.io/java/JavaCheatSheet.pdf
-          - text: JVM options
-            url: https://www.jrebel.com/system/files/jvm-options-cheat-sheet.pdf
-          - text: Spring annotations
-            url: https://www.jrebel.com/system/files/spring-annotations-cheat-sheet.pdf
-          - text: Maven
-            url: https://www.jrebel.com/system/files/maven-cheat-sheet.pdf
-          - text: Gradle
-            url: https://docs.gradle.org/current/userguide/command_line_interface.html
-          - text: IntelliJ
-            url: https://www.jrebel.com/system/files/cheat-sheet-rebel-intellij-idea-web.pdf
-          - text: Git 
-            url: https://www.jrebel.com/system/files/git-cheat-sheet.pdf
   - title: Get certified
     linkLists:
       - linkListType: reference

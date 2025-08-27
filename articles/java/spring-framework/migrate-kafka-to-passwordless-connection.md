@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 08/19/2025
 ms.custom:
   - passwordless-java
   - passwordless-js
@@ -514,7 +514,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az containerapp identity assign \
 
 ##### [Azure Spring Apps](#tab/azure-spring-apps)
 
-You can assign a managed identity to an Azure Spring Apps instance with the [az spring app identity assign](/cli/azure/spring/app/identity) command, as shown in the following example:
+You can assign a managed identity to an Azure Spring Apps instance as shown in the following example:
 
 ```azurecli
 export AZURE_MANAGED_IDENTITY_ID=$(az spring app identity assign \
@@ -528,7 +528,7 @@ export AZURE_MANAGED_IDENTITY_ID=$(az spring app identity assign \
 
 ##### [Virtual Machines](#tab/virtual-machines)
 
-You can assign a managed identity to a virtual machine with the [az vm identity assign](/cli/azure/vm/identity) command, as shown in the following example:
+You can assign a managed identity to a virtual machine as shown in the following example:
 
 ```azurecli
 export AZURE_MANAGED_IDENTITY_ID=$(az vm identity assign \

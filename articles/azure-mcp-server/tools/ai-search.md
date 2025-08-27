@@ -31,10 +31,6 @@ Example prompts include:
 - **Query accounts**: "Show me all my search services"
 - **Check accounts**: "AI Search services in subscription abc123"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name.  |
-
 ## List indexes
 
 The Azure MCP Server can list all indexes in an AI Search service. This helps you view the search indexes available in a specific service.
@@ -49,7 +45,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Service name** | Required | The name of the AI Search service. |
 
 ## Get index details
@@ -66,7 +61,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Service name** | Required | The name of the AI Search service. |
 | **Index name** | Required | The name of the index to describe. |
 
@@ -84,7 +78,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Required | The Azure subscription ID or name. |
 | **Service name** | Required | The name of the AI Search service. |
 | **Index name** | Required | The name of the index to query. |
 | **Query** | Required | The search query to execute against the index. |

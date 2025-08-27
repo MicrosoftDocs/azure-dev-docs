@@ -61,7 +61,7 @@ This article uses Azure Backup to protect AKS. For region availability, supporte
 - Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 - Install a Java SE implementation, version 17 or later - for example, [the Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.9.3 or later.
-- Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
+- Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://profile.oracle.com/myprofile/account/create-account.jspx).
 - Use the following steps to accept the license terms for WLS:
   1. Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
   1. If you have a support entitlement, select **Middleware**, then search for and select **weblogic_cpu**.
