@@ -34,8 +34,6 @@ You can find available crate names in the [crate index for Azure][Crates].
 
 Sometimes you need to install a particular [version of a crate][Rust docs - crate version syntax] for compatibility testing or to maintain consistency across environments. When you specify a version, you **pin** your dependency. Your project continues using that version and doesn't automatically receive major or minor updates, but it can still receive patch updates. While pinning can be useful in certain scenarios, we recommend using the latest version to benefit from ongoing improvements and security updates.
 
-[!INCLUDE [crates](../includes/crates.md)]
-
 ```console
 cargo add <crate_name>@<version_number>
 ```

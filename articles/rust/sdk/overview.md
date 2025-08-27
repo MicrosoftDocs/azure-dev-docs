@@ -40,10 +40,13 @@ Use the following information to understand when to use each type of access.
   * Working with preview services that don't have Azure crates available yet. Consider your code as preview, which should be updated when the service is generally available with crates.
   * Wanting to make REST calls directly because you don't want to use the entire crate to use a single REST API or you want deeper control over the HTTP requests.
 
-
 ## Rust version
 
 The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on community feedback and demand.
+
+## Azure SDK for Rust crates
+
+[!INCLUDE [crates](../includes/crates.md)]
 
 ## Next steps
 
