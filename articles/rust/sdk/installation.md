@@ -16,7 +16,7 @@ The Azure SDK for Rust lets you access Azure services in your Rust projects by i
 
 ## Install the latest Azure SDK crate version
 
-Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. These crates depend on [`azure_core`][Crate - core] for common functionality. You don't need to install `azure_core` directly, since it's a dependency of all Azure SDK crates.
+Get Azure SDK crates from [crates.io][Crates]. Install the individual crates that you need. 
 
 ```console
 cargo add <crate_name>

@@ -14,7 +14,7 @@ The following Azure services, prefixed with `azure_`, are currently supported:
 | [**Key Vault certificates**][1P docs - key vault - certificates] | [`azure_security_keyvault_certificates`][Crate - key vault - certificates] | [Docs][Docs - key vault - certificates] | Manage certificates in Azure Key Vault |
 | [**Key Vault keys**][1P docs - key vault - keys] | [`azure_security_keyvault_keys`][Crate - key vault - keys] | [Docs][Docs - key vault - keys] | Manage keys in Azure Key Vault |
 | [**Key Vault secrets**][1P docs - key vault - secrets] | [`azure_security_keyvault_secrets`][Crate - key vault - secrets] | [Docs][Docs - key vault - secrets] | Manage secrets in Azure Key Vault |
-| [**Storage**][1P docs - storage] | [`azure_storage_blob`][Crate - storage] | [Docs][Docs - storage] | Create and manage Azure Storage blobs and containers. |
+| [**Storage Blob**][1P docs - storage] | [`azure_storage_blob`][Crate - storage] | [Docs][Docs - storage] | Create and manage Azure Storage blobs and containers. |
 
 Common functionality for all crates such as authentication, error handling, and logging is provided by the [`azure_core`][Crate - core] crate.
 

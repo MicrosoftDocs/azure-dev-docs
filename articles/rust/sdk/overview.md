@@ -1,7 +1,7 @@
 ---
 title: Access Azure services using Azure SDK for Rust crates
 description: Learn how to access Azure services using Azure SDK for Rust crates. Build secure, scalable Rust apps with Azure—get started today.
-ms.date: 08/14/2025
+ms.date: 08/27/2025
 ms.topic: overview
 ms.service: azure
 ms.custom: devx-track-rust
@@ -25,6 +25,7 @@ Azure SDK for Rust crates enable Rust applications to access Azure services. The
 - **Consistent error handling**: Handle errors consistently across services with [`azure_core::Error`][Ref doc - core - Error].
 - **Response handling**: Access detailed HTTP response data with [`Response<T>`][Ref doc - core - Response].
 - **Pagination support**: Work with paginated APIs by using [`Pager<T>`][Ref doc - core - Pager] for async streams.
+- **Long-running operations**: Wait for long-running operation (LRO) with [`Poller<T`][Ref doc - core - Poller]
 - **Authentication abstractions**: Standardized credential management via [`TokenCredential`][Ref doc - core - TokenCredential].
 
 ## Rust guidance
@@ -64,3 +65,4 @@ The Azure SDK crates are currently in **beta**. While the APIs are stabilizing a
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
 [Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/type.Pager.html
 [Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
+[Ref doc - core - Poller]: https://docs.rs/azure_core/latest/azure_core/http/poller/struct.Poller.html
