@@ -182,11 +182,13 @@ productDirectory:
       imageSrc: ./intro/media/logo-rust.png
       links:
         - url: ./rust/what-is-azure-for-rust-developers.md
-          text: Azure for Rust developers
+          text: Rust on Azure
+        - url: ./rust/what-is-azure-for-rust-developers.md
+          text: Set up development environment
         - url: ./rust/sdk/overview.md
           text: Azure SDK for Rust
         - url: ./rust/sdk/installation.md
-          text: Install the Azure SDK for Rust crates
+          text: Install the Azure SDK
         - url: ./rust/sdk/authentication/overview.md
           text: Authenticate your app
         - url: ./rust/index.yml
