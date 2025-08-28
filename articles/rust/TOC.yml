@@ -11,17 +11,21 @@
       href: developer-environment.md
   - name: Azure SDK for Rust
     items:
-    - name: Getting started  
-      href: sdk/overview.md   
+    - name: Overview
+      href: sdk/overview.md
     - name: Installation
       href: sdk/installation.md
     - name: Authentication
       href: sdk/authentication/overview.md
+    - name: Use crates
+      href: sdk/use-crates.md
   - name: Resources
     items:
     - name: Azure SDK for Rust on GitHub
       href: https://github.com/Azure/azure-sdk-for-rust
     - name: Azure SDK Guidelines
       href: https://azure.github.io/azure-sdk/rust_introduction.html
+    - name: Crates
+      href: sdk/overview.md#azure-sdk-for-rust-crates
 - name: Crates
   href: https://crates.io/users/azure-sdk?sort=recent-downloads
