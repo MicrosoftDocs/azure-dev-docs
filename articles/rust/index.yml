@@ -24,7 +24,7 @@ landingContent:
           - text: Configure your local Rust environment for Azure
             url: developer-environment.md
 
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Azure SDK for Rust
             url: sdk/overview.md
