@@ -32,7 +32,8 @@ landingContent:
             url: sdk/installation.md
           - text: Authentication
             url: sdk/authentication/overview.md
-  
+          - text: Use crates
+            url: sdk/use-crates.md  
 
   - title: Azure libraries (SDK)
     linkLists:
