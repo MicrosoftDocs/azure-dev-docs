@@ -21,7 +21,7 @@ landingContent:
 
       - linkListType: get-started
         links:
-          - text: Configure your local Rust environment for Azure
+          - text: Set up developer environment
             url: developer-environment.md
 
       - linkListType: how-to-guide
