@@ -183,7 +183,7 @@ productDirectory:
       links:
         - url: ./rust/what-is-azure-for-rust-developers.md
           text: Rust on Azure
-        - url: ./rust/what-is-azure-for-rust-developers.md
+        - url: ./rust/developer-environment.md
           text: Set up development environment
         - url: ./rust/sdk/overview.md
           text: Azure SDK for Rust
