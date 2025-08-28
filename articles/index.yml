@@ -179,7 +179,7 @@ productDirectory:
         - url: ./cpp/index.yml
           text: See more in the C++ developer center
     - title: Rust
-      imageSrc: ./intro/media/logo_rust.svg
+      imageSrc: ./rust/media/logo_rust.svg
       links:
         - url: ./rust/what-is-azure-for-rust-developers.md
           text: Azure for Rust developers
