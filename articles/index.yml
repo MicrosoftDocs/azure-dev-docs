@@ -183,14 +183,14 @@ productDirectory:
       links:
         - url: ./rust/what-is-azure-for-rust-developers.md
           text: Azure for Rust developers
-        - text: Azure SDK for Rust
-          url: ./rust/sdk/overview.md
-        - text: Install the Azure SDK for Rust crates
-          url: sdk/installation.md
-        - text: Authenticate your app
-          url: ./rust/sdk/authentication/overview.md
-        - text: See more in the Rust developer center
-          url: ./rust/index.yml
+        - url: ./rust/sdk/overview.md
+          text: Azure SDK for Rust
+        - url: ./rust/sdk/installation.md
+          text: Install the Azure SDK for Rust crates
+        - url: ./rust/sdk/authentication/overview.md
+          text: Authenticate your app
+        - url: ./rust/index.yml
+          text: See more in the Rust developer center
     - title: Azure PowerShell
       imageSrc: /powershell/media/index/ps_black_128.svg
       links:
