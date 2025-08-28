@@ -34,7 +34,7 @@ To install and configure Azure MCP Server in IntelliJ:
 1. On the **Settings** dialog, select **Tools > AI Assistant > Model Context Protocol (MPC)**.
 1. Select the **+** icon to open the **New MCP Server** dialog.
 
-    :::image type="content" source="../../media/IntelliJ-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in IntelliJ.":::
+    :::image type="content" source="../../media/jet-brains-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in IntelliJ.":::
 
 1. Enter the following values:
     - **Name**: *Azure MCP Server*
