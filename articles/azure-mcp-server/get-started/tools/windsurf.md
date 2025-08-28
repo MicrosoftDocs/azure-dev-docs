@@ -23,7 +23,7 @@ In this article, you learn how to complete the following tasks:
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
 - [Cursor](https://cursor.sh/) installed
-- [Node.js](https://nodejs.org/) installed (v20.19.4+)
+- [Node.js](https://nodejs.org/) LTS installed
 
 [!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
