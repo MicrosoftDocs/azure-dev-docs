@@ -21,10 +21,10 @@ landingContent:
 
       - linkListType: get-started
         links:
-          - text: Configure your local Rust environment for Azure
+          - text: Set up developer environment
             url: developer-environment.md
 
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Azure SDK for Rust
             url: sdk/overview.md
@@ -32,7 +32,8 @@ landingContent:
             url: sdk/installation.md
           - text: Authentication
             url: sdk/authentication/overview.md
-  
+          - text: Use crates
+            url: sdk/use-crates.md  
 
   - title: Azure libraries (SDK)
     linkLists:
