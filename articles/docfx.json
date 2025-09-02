@@ -58,6 +58,7 @@
         "github-copilot-azure/**/*.md": "get-product-support"
       },
       "feedback_product_url" : {
+        "rust/**/*.md": "https://github.com/Azure/azure-sdk-for-rust/issues",
         "python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
         "ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "chef/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
@@ -116,6 +117,8 @@
         "terraform/**/*.yml": "TomArcherMsft",
         "typespec/**/*.md": "diberry",
         "typespec/**/*.yml": "diberry",
+        "rust/**/*.md": "diberry",
+        "rust/**/*.yml": "diberry",
         "intro/**/*.md": "PatAltimore",
         "intro/**/*.yml": "PatAltimore",
         "ai/**/*.md": "ms-johnalex",
@@ -162,6 +165,8 @@
         "terraform/**/*.yml": "tarcher",
         "typespec/**/*.md": "diberry",
         "typespec/**/*.yml": "diberry",
+        "rust/**/*.md": "diberry",
+        "rust/**/*.yml": "diberry",
         "intro/**/*.md": "patricka",
         "intro/**/*.yml": "patricka",
         "ai/**/*.md": "johalexander",
@@ -185,7 +190,11 @@
         "go/**/*.md": "golang",
         "go/**/*.yml": "golang",
         "javascript/**/*.md": "nodejs",
-        "javascript/**/*.yml": "nodejs"
+        "javascript/**/*.yml": "nodejs",
+        "rust/**/*.md": "rust",
+        "rust/**/*.yml": "rust"
+
+
       },
       "ms.service": {
         "ai/**/*.md": "azure",
@@ -220,7 +229,9 @@
         "terraform/**/*.md": "terraform",
         "terraform/**/*.yml": "terraform",
         "typespec/**/*.md": "typespec",
-        "typespec/**/*.yml": "typespec"
+        "typespec/**/*.yml": "typespec",
+        "rust/**/*.md": "azure-rust",
+        "rust/**/*.yml": "azure-rust"
       },
       "ms.subservice": {
         "ai/**/*.md": "intelligent-apps",
@@ -272,7 +283,9 @@
         "github-copilot-azure/**/*.md": "GitHub Copilot for Azure",
         "github-copilot-azure/**/*.yml": "GitHub Copilot for Azure",
         "typespec/**/*.md": "TypeSpec",
-        "typespec/**/*.yml": "TypeSpec",
+        "typespec/**/*.md": "TypeSpec",
+        "rust/**/*.yml": "Rust on Azure",
+        "rust/**/*.yml": "Rust on Azure",
         "azure-mcp-server/**/*.md": "Azure MCP Server",
         "azure-mcp-server/**/*.yml": "Azure MCP Server"
       },
