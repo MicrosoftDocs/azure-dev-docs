@@ -96,7 +96,6 @@ Resource IDs can be built by convention, which makes them more convenient when w
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
     
-    console.log(process.env);
     
     function createBlobServiceClient() {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
@@ -152,7 +151,6 @@ A principal ID is another name for an object ID.
     import { BlobServiceClient } from '@azure/storage-blob';
     import { ManagedIdentityCredential, DefaultAzureCredential } from '@azure/identity';
     
-    console.log(process.env);
     
     function createBlobServiceClient() {
         const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
