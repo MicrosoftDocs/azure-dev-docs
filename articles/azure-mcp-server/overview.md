@@ -42,4 +42,4 @@ In more advanced scenarios, some developers may create their own MCP servers to 
 - [Get started using the Azure MCP Server](get-started.md)
 - [Azure MCP Server tools](./tools/index.md)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/introduction)
-- [Azure MCP Server repository](https://github.com/microsoft/mcp)
+- [Azure MCP Server repository](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server)
