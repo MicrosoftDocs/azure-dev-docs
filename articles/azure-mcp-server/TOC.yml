@@ -5,7 +5,30 @@ items:
     - name: Overview
       href: overview.md
     - name: Get started
-      href: get-started.md
+      expanded: true
+      items:
+        - name: Get started with Azure MCP Server
+          href: get-started.md
+        - name: Code editors and tools
+          expanded: true
+          items:
+          - name: Visual Studio Code
+            href: get-started/tools/visual-studio-code.md
+          - name: Visual Studio
+            href: get-started/tools/visual-studio.md
+          - name: Cursor
+            href: get-started/tools/cursor.md
+          - name: Windsurf
+            href: get-started/tools/windsurf.md
+          - name: IntelliJ
+            href: get-started/tools/jet-brains.md
+        - name: Languages and frameworks
+          expanded: true
+          items:
+          - name: Python
+            href: get-started/languages/python.md
+          - name: .NET
+            href: get-started/languages/dotnet.md
     - name: Tools
       expanded: true
       items:
@@ -19,6 +42,8 @@ items:
           href: tools/azure-best-practices.md
         - name: Azure Bicep schema
           href: tools/azure-bicep-schema.md
+        - name: Azure Cloud Architect
+          href: tools/azure-cloud-architect.md
         - name: Azure Redis
           href: tools/azure-cache-for-redis.md          
         - name: Azure CLI
@@ -29,15 +54,23 @@ items:
           href: tools/cosmos-db.md
         - name: Azure Data Explorer
           href: tools/azure-data-explorer.md
+        - name: Azure Database for MySQL
+          href: tools/azure-mysql.md
         - name: Azure DB for PostgreSQL
           href: tools/postgresql.md
+        - name: Azure Deploy
+          href: tools/azure-deploy.md
         - name: Azure Developer CLI
           href: tools/azure-developer-cli.md
+        - name: Azure Functions
+          href: tools/azure-functions.md
         - name: Azure Foundry
           href: tools/azure-foundry.md
         - name: Azure Managed Grafana
           href: tools/azure-grafana.md
-        - name: Azure Key Vault 
+        - name: Azure Managed Lustre
+          href: tools/azure-managed-lustre.md
+        - name: Azure Key Vault
           href: tools/key-vault-key.md
         - name: Azure Kubernetes Service
           href: tools/azure-aks.md
@@ -55,6 +88,10 @@ items:
           href: tools/azure-native-isv.md
         - name: Azure Quick Review CLI
           href: tools/azure-compliance-quick-review.md
+        - name: Azure Quotas
+          href: tools/azure-quotas.md
+        - name: Azure Resource Health
+          href: tools/azure-health-resource.md
         - name: Azure Service Bus
           href: tools/service-bus.md
         - name: Azure SQL

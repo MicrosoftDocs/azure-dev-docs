@@ -39,9 +39,7 @@ Example prompts include:
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| Subscription | Required | The ID of the subscription containing the Datadog resource. |
-| Resource group | Required | The name of the Azure resource group containing the Datadog resource. |
-| Datadog resource | Required | The name of the Datadog resource in Azure. |
+| **Datadog resource** | Required | The name of the Datadog resource in Azure. |
 
 ## Related content
 

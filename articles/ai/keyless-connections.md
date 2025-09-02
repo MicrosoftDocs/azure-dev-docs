@@ -2,7 +2,7 @@
 title: Use keyless connections with Azure OpenAI
 description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.date: 08/25/2025
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
@@ -124,8 +124,8 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 1. Select an identity type to use.
 
-    * **Personal identity**: This is your personal identity tied to your sign in to Azure.
-    * **Managed identity**: This is an identity managed by and created for use on Azure. For [managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity), create a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). When you create the managed identity, you need the `Client ID`, also known as the `app ID`.  
+    * **Personal identity**: Your personal identity tied to your sign in to Azure.
+    * **Managed identity**: An identity managed by and created for use on Azure. For [managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity), create a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). When you create the managed identity, you need the `Client ID`, also known as the `app ID`.  
 
 1. To find your personal identity, use one of the following commands. Use the ID as the `<identity-id>` in the next step.
 
@@ -148,7 +148,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
     ### [Bicep](#tab/bicep)
 
-    When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment is set to the `principalId` parameter.
+    The identity of the person or service running the deployment is set to the `principalId` parameter when using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli).
 
     The following `main.parameters.json` variable is set to the identity running the process.
 

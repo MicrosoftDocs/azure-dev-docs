@@ -4,7 +4,7 @@ description: Shows you how to deploy a Java Spring Boot app with sign-in by Micr
 author: KarlErickson
 ms.author: karler
 ms.reviewer: bbanerjee
-ms.date: 10/04/2024
+ms.date: 08/21/2025
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
