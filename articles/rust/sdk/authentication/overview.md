@@ -46,3 +46,11 @@ In server environments, use **managed identities** for secure, passwordless auth
 When hosting in a server environment, assign a unique application identity to each application for each environment. In Azure, an app identity is represented by a service principal, a special type of security principal that identifies and authenticates apps to Azure. The type of service principal you use for your app depends on where your app runs.
 
 :::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_server.rs":::
+
+## Sample code
+
+The code shown in this article is available on <https://github.com/Azure/azure-sdk-for-rust-docs/>.
+
+## Additional resources
+
+[!INCLUDE [common resources](../../includes/resources.md)]
