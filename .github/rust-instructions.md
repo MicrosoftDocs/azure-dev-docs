@@ -1,3 +1,10 @@
+---
+ms.author: diberry
+ms.date: 09/02/2025
+title: Copilot Instructions for Rust on Azure
+description: "Central instructions for Copilot tasks for Rust on Azure. References detailed instructions in .github/instructions."
+---
+
 # Copilot instructions for all Rust language content
 
 Use the following instructions when creating, editing, or reviewing articles which include the Rust programming language.
