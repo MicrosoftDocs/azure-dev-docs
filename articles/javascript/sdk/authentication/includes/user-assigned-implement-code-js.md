@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/15/2025
+ms.date: 09/02/2025
 ---
 ### Implement the code
 
@@ -61,9 +61,8 @@ The client ID is used to identify a managed identity when configuring applicatio
     
             console.log(properties);
         } catch (err) {
-            const error = err;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
@@ -120,9 +119,8 @@ Resource IDs can be built by convention, which makes them more convenient when w
     
             console.log(properties);
         } catch (err) {
-            const error = err;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
@@ -175,9 +173,8 @@ A principal ID is another name for an object ID.
     
             console.log(properties);
         } catch (err) {
-            const error = err;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     

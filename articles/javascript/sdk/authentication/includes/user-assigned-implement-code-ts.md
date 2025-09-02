@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/15/2025
+ms.date: 09/02/2025
 ---
 ### Implement the code
 
@@ -57,10 +57,9 @@ The client ID is used to identify a managed identity when configuring applicatio
             const properties = await containerClient.getProperties();
     
             console.log(properties);
-        } catch (err) {
-            const error = err as Error;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+        } catch (err: any) {
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
@@ -114,10 +113,9 @@ Resource IDs can be built by convention, which makes them more convenient when w
             const properties = await containerClient.getProperties();
     
             console.log(properties);
-        } catch (err) {
-            const error = err as Error;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+        } catch (err: any) {
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
@@ -167,10 +165,9 @@ A principal ID is another name for an object ID.
             const properties = await containerClient.getProperties();
     
             console.log(properties);
-        } catch (err) {
-            const error = err as Error;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+        } catch (err: any) {
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
