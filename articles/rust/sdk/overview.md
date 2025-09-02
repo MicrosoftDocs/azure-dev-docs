@@ -38,7 +38,7 @@ Use the following information to understand when to use each type of access.
 
 * The Azure SDK crates are the preferred method for accessing your Azure service. These crates abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * Azure REST APIs are the preferred method if you are:
-  * Working with preview services that don't have Azure crates available yet. Consider your code as preview, which should be updated when the service is generally available with crates.
+  * Working with services that don't have Azure crates available yet. Migrate your code to use Azure SDK crates when the crates become available.
   * Wanting to make REST calls directly because you don't want to use the entire crate to use a single REST API or you want deeper control over the HTTP requests.
 
 ## Rust version
