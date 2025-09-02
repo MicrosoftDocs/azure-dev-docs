@@ -7,6 +7,7 @@ metadata:
   title: Azure for Rust developers
   description: Get started developing with Rust on Azure using services like Azure Functions, Key Vault, Messaging, Identity, Cosmos DB, Blob Storage, and the Azure SDK for Rust.
   ms.topic: landing-page
+  ms.service: azure-rust
   ms.collection: collection
   ms.date: 07/07/2025
   ms.custom: dexx-track-rust

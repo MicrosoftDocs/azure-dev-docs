@@ -1,4 +1,5 @@
 ---
+ms.service: azure-rust
 ms.custom: devx-track-rust
 ms.topic: include
 ms.date: 08/27/2025
