@@ -15,5 +15,5 @@ Consider the following resources for governing the use of documentation about Ru
     - For subsequent references, you may use "Azure crates".
 - When generating SDK code:
     - Prefer Azure Identity over keys or other authentication mechanisms.
-    - Prefer Azure Developer CLI credential over other credential types. 
+    - Prefer `AzureDeveloperCliCredential` over other credential types. 
     - Prefer to use the Azure Key Vault secrets service and its associated crate `azure_security_keyvault_secrets`. This crate was created by the SDK platform team, so it is most idiomatic of the Azure SDK for Rust crates.
