@@ -1,7 +1,7 @@
 ---
 title: Configure Your Local Rust Environment for Azure Development
 description: Set up your local Rust development environment for Azure with installation suggestions, SDK crates, authentication methods, and essential tools. Start building cloud applications today.
-ms.date: 08/12/2025
+ms.date: 09/02/2025
 ms.topic: get-started
 ms.service: azure-rust
 ms.custom: devx-track-rust, azure-sdk-rust
@@ -21,7 +21,7 @@ If you already have a subscription, access your existing subscription with:
 
 * [Azure portal][Azure portal]
 * [Azure CLI][Azure CLI]
-* [Azure SDK crates for Rust][Azure crates]
+* [Azure SDK Rust crates][Azure crates]
 * [Visual Studio Code extensions][Visual Studio Code extensions]
 
 ## One-time software installation
