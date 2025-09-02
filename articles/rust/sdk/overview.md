@@ -25,7 +25,7 @@ Azure SDK for Rust crates enable Rust applications to access Azure services. The
 - **Consistent error handling**: Handle errors consistently across services with [`azure_core::Error`][Ref doc - core - Error].
 - **Response handling**: Access detailed HTTP response data with [`Response<T>`][Ref doc - core - Response].
 - **Pagination support**: Work with paginated APIs by using [`Pager<T>`][Ref doc - core - Pager] for async streams.
-- **Long-running operations**: Wait for long-running operation (LRO) with [`Poller<T`][Ref doc - core - Poller]
+- **Long-running operations**: Wait for long-running operation (LRO) with [`Poller<T>`][Ref doc - core - Poller]
 - **Authentication abstractions**: Standardized credential management via [`TokenCredential`][Ref doc - core - TokenCredential].
 
 ## Rust guidance
