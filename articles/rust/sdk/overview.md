@@ -43,7 +43,7 @@ Use the following information to understand when to use each type of access.
 
 ## Rust version
 
-The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on community feedback and demand.
+The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on [community feedback][AZURE SDK FOR RUST issues] and demand.
 
 ## Azure SDK for Rust crates
 
@@ -58,7 +58,7 @@ The Azure SDK crates are currently in **beta**. While the APIs are stabilizing a
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
 [Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
-
+[AZURE SDK FOR RUST issues]: https://github.com/Azure/azure-sdk-for-rust/issues
 
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
