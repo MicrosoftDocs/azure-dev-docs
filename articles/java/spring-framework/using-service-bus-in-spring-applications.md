@@ -4,7 +4,7 @@ description: Shows you how to use Azure Service Bus in Java applications built w
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiada
-ms.date: 04/18/2025
+ms.date: 08/19/2025
 ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

@@ -23,6 +23,8 @@ landingContent:
             url: get-started.md
           - text: Quickstart - Building, Deploying and Improving your application with GitHub Copilot for Azure
             url: quickstart-build-deploy-applications.md
+          - text: Generate and deploy a Django / PostgreSQL app
+            url: generate-deploy-django-postgresql.md
 
   - title: Prompts for Azure
     linkLists:

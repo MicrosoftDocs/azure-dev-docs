@@ -30,13 +30,8 @@ The Azure MCP Server can list all available tools and their capabilities. This h
 - **Check available services**: "What Azure services can I manage with MCP?"
 - **Find tools**: "Show me what Azure operations are available"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| None | N/A | This command requires no parameters and lists all available tools. |
-
-
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure MCP Server GitHub repository](https://github.com/Azure/azure-mcp)
+- [Azure MCP Server GitHub repository](https://github.com/Azure-Samples/azure-mcp-server)

@@ -20,10 +20,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure SQL databa
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Server
-
-
-### List Microsoft Entra administrators
+## Server: List Microsoft Entra administrators
 
 <!-- 
 azmcp sql server entra-admin list --subscription
@@ -42,13 +39,10 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription that contains the SQL server. |
-| Resource group | Required | The resource group that contains the SQL server. |
-| Server name | Required | The name of the SQL server to list Microsoft Entra administrators for. |
+| **Server** | Required | The name of the SQL server to list Microsoft Entra administrators for. |
 
-## Database 
 
-### Show database details
+## Database: Show database details
 
 <!-- 
 azmcp sql db show --subscription
@@ -66,15 +60,11 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription that contains the SQL database. |
-| Resource group | Required | The resource group that contains the SQL server and database. |
-| Server name | Required | The name of the SQL server hosting the database. |
-| Database name | Required | The name of the database to get details for. |
+| **Server** | Required | The name of the SQL server hosting the database. |
+| **Database** | Required | The name of the database to get details for. |
 
 
-## Firewall rules
-
-### List firewall rules
+## Firewall rules: List firewall rules
 
 <!-- 
 azmcp sql firewall-rule list --subscription
@@ -92,13 +82,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription that contains the SQL server. |
-| Resource group | Required | The resource group that contains the SQL server. |
-| Server name | Required | The name of the SQL server to list firewall rules for. |
+| **Server** | Required | The name of the SQL server to list firewall rules for. |
 
-## Elastic pools
-
-### List elastic pools
+## Elastic pools: List elastic pools
 
 <!-- 
 azmcp sql elastic-pool list --subscription
@@ -116,9 +102,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Subscription | Required | The ID or name of your Azure subscription that contains the SQL server. |
-| Resource group | Required | The resource group that contains the SQL server. |
-| Server name | Required | The name of the SQL server to list elastic pools for. |
+| **Server** | Required | The name of the SQL server to list elastic pools for. |
 
 ## Related content
 

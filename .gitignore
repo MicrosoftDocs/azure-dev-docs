@@ -11,7 +11,3 @@ _repo.*/
 .openpublishing.buildcore.ps1.vscode/
 *.DS_Store
 *.lnk
-.github/copilot-instructions.md
-.github/instructions/
-.github/logs/
-.github/prompts/

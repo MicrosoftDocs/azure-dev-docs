@@ -6,7 +6,6 @@ ms.author: karler
 ms.reviewer: edburns
 ms.topic: install-set-up-deploy
 ms.date: 05/05/2025
-ms.service: azure-kubernetes-service
 ms.custom:
   - devx-track-java
   - devx-track-javaee

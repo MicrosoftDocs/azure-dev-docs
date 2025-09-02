@@ -4,7 +4,7 @@ description: This reference doc contains all Azure Service Bus JMS configuration
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.date: 05/10/2023
+ms.date: 08/19/2025
 ms.topic: reference
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

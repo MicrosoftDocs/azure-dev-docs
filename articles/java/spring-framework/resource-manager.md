@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Azure resource manager
 description: This article describes Spring Cloud Azure resource manager.
-ms.date: 04/06/2023
+ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal

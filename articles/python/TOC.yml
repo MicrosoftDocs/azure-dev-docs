@@ -205,6 +205,18 @@
         href: sdk/azure-sdk-configure-proxy.md
       - name: Use a sovereign domain
         href: sdk/azure-sdk-sovereign-domain.md
+    - name: SDK Fundamentals
+      items:
+      - name: Overview
+        href: sdk/Fundamentals/overview.md
+      - name: Errors
+        href: sdk/Fundamentals/errors.md
+      - name: HTTP Pipeline & retries
+        href: sdk/Fundamentals/http-pipeline-retries.md
+      - name: Common Types (Response)
+        href: sdk/Fundamentals/common-types-response.md
+      - name: Language design guidelines 
+        href: sdk/Fundamentals/language-design-guidelines.md        
 - name: SDK PyPI package index
   href: sdk/azure-sdk-library-package-index.md
 - name: SDK reference documentation

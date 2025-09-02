@@ -28,10 +28,6 @@ Example prompts include:
 - **List subscriptions**: "Show me all of my subscriptions."
 - **Find subscriptions**: "List all subscriptions starting with `northeast`."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Required | The name or ID of the user subscription. |
-
 ## Related content
 
 - [Resource group tools](resource-group.md)

@@ -1,7 +1,7 @@
 ---
 title: Spring Data support
 description: This article describes how Spring Cloud Azure and Spring Data can be used together.
-ms.date: 08/10/2023
+ms.date: 08/19/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal

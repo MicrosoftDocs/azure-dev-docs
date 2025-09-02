@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 07/24/2025
+ms.date: 08/26/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -18,11 +18,32 @@ The Azure MCP Server enables you to manage Azure resources, including Azure AI F
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## List available models
+## Knowledge: index list
+
+Get a list of knowledge indexes from Azure AI Foundry:
+
+- Get list of knowledge indexes specifically created within Azure AI Foundry projects.
+- Use these indexes with AI agents for knowledge retrieval and RAG applications.
+- The list changes as new indexes are created or existing ones are updated.
+
+Example prompts include: 
+
+- **View all indexes**: "Show me all knowledge indexes in Azure AI Foundry"
+- **Filter by project**: "List knowledge indexes in the 'support-bot' project"
+- **Search by name**: "Find the knowledge index named 'product-faqs'"
+- **Filter by tag**: "List knowledge indexes tagged with 'security' or 'onboarding'"
+- **Show index details**: "Show details for the 'customer-service' knowledge index, including document count and last updated date"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+    
+
+## Models: List available models
 
 <!-- azmcp foundry models list -->
 
-Lists all available AI models in Azure AI Foundry. Use this command to view all models that you can deploy or use in your Azure environment.
+Lists all available AI models in Azure AI Foundry.
 
 Example prompts include:
 
@@ -35,12 +56,12 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Search for free playground | Optional | If set to true, returns a list of models from Azure AI Foundry that can also be used with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
-| Publisher name | Optional | A filter to specify the publisher of the models to retrieve. |
-| License name | Optional | A filter to specify the license type of the models to retrieve. |
-| Model name | Optional | The name of the model to search for. |
+| **Search for free playground** | Optional | If set to true, returns a list of models from Azure AI Foundry that you can also use with GitHub inference endpoint and GitHub PAT token. If false, returns a list of models from Azure AI Foundry, regardless of GitHub support. To learn more, see [GitHub Models](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground).|
+| **Publisher** | Optional | A filter to specify the publisher of the models to retrieve. |
+| **License** | Optional | A filter to specify the license type of the models to retrieve. |
+| **Model** | Optional | The name of the model to search for. |
 
-## Deploy a model
+## Models: Deploy a model
 
 <!-- azmcp foundry models deploy -->
 
@@ -56,19 +77,19 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Deployment-name | Required | A unique name for this model deployment |
-| Model name | Required | The name of the model to deploy |
-| Model format | Required | The format of the model (for example, 'OpenAI', 'Meta', 'Microsoft') |
-| Azure AI services name | Required | The name of the Azure AI services account to deploy to |
-| Resource group | Required | The name of the Azure resource group where the model will be deployed |
-| Model version | Optional | The version of the model to deploy |
-| Model source | Optional | The source of the model |
-| Scale type | Optional | The scale type for the deployment |
-| Scale capacity | Optional | The scale capacity for the deployment |
-| Sku name | Optional | The SKU name for the deployment |
-| Sku capacity | Optional | The SKU capacity for the deployment |
+| **Deployment** | Required | A unique name for this model deployment |
+| **Model** | Required | The name of the model to deploy |
+| **Model format** | Required | The format of the model (for example, 'OpenAI', 'Meta', 'Microsoft') |
+| **Azure AI services** | Required | The name of the Azure AI services account to deploy to |
+| **Resource group** | Required | The name of the Azure resource group where the model will be deployed |
+| **Model version** | Optional | The version of the model to deploy |
+| **Model source** | Optional | The source of the model |
+| **Scale type** | Optional | The scale type for the deployment |
+| **Scale capacity** | Optional | The scale capacity for the deployment |
+| **SKU** | Optional | The SKU name for the deployment |
+| **SKU capacity** | Optional | The SKU capacity for the deployment |
 
-## List model deployments
+## Models: List model deployments
 
 <!-- azmcp foundry models deployments list -->
 
@@ -84,7 +105,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| Endpoint | Required | The endpoint URL for the Azure AI service |
+| **Endpoint** | Required | The endpoint URL for the Azure AI service |
 
 
 ## Related content

@@ -126,7 +126,7 @@
         href: sdk/authentication/best-practices.md
     - name: Looping over data
       href: sdk/loop-over-data.md
-    - name: Debugging 
+    - name: Logging 
       href: sdk/debug-client-libraries.md
     - name: Testing
       href: sdk/test-sdk-integration.md
