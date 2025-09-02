@@ -68,9 +68,8 @@ Azure services are accessed using specialized client classes from the various Az
     
             console.log(properties);
         } catch (err) {
-            const error = err;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
@@ -122,10 +121,9 @@ Azure services are accessed using specialized client classes from the various Az
             const properties = await containerClient.getProperties();
     
             console.log(properties);
-        } catch (err) {
-            const error = err as Error;
-            console.error("Error retrieving container properties:", error.message);
-            throw error;
+        } catch (err: any) {
+            console.error("Error retrieving container properties:", err.message);
+            throw err;
         }
     }
     
