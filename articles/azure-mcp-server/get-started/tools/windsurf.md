@@ -1,59 +1,63 @@
 ---
-title: Get started using the Azure MCP Server with Cursor
-description: Learn how to connect to and consume Azure MCP Server operations with Cursor
-keywords: azure developer cli, azd, cursor, mcp
+title: Get started using the Azure MCP Server with Windsurf
+description: Learn how to connect to and consume Azure MCP Server operations with Windsurf
+keywords: azure developer cli, azd, windsurf, mcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/11/2025
+ms.date: 08/14/2025
 ms.topic: get-started
 ms.custom: build-2025
 ---
 
-# Get started with the Azure MCP Server in Cursor
+# Get started with the Azure MCP Server in Windsurf
 
 [!INCLUDE [get-started-intro](../../includes/get-started-intro.md)]
 
 In this article, you learn how to complete the following tasks:
 
 - Install and authenticate to the Azure MCP Server
-- Connect to Azure MCP Server using Cursor's AI-powered development environment
+- Connect to Azure MCP Server using Windsurf's AI-powered development environment
 - Run prompts to test Azure MCP Server operations and interact with Azure resources
 
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
-- [Cursor](https://cursor.sh/) - The AI-powered code editor
+- [Cursor](https://cursor.sh/) installed
 - [Node.js](https://nodejs.org/) LTS installed
 
 [!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
 ## Install the Azure MCP Server
 
-To install and configure Azure MCP Server in Cursor:
+To install and configure Azure MCP Server in Windsurf:
 
-1. Navigate to **File > Preferences > Cursor Settings**
-1. Select **Tools & Integrations** from the left navigation.
-1. In the **MCP Tools** section of the page, select **New MCP Server** to open the `mcp.json` file for editing.
+1. Navigate to **File > Preferences > Windsurf Settings**.
+1. On the **Windsurf Settings** page, select **Manage MCPs**.
 
-    :::image type="content" source="../../media/cursor-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in Cursor.":::
+    :::image type="content" source="../../media/windsurf-configure-mcp-server.png" alt-text="A screenshot showing how to configure an MCP Server in Windsurf.":::
 
-1. Add the following configuration to the `mcpServers` JSON object:
+1. On the **Manage MCP Servers** settings page, select **View raw config** at the top to open the `mcp_config.json` file for editing.
+1. The `mcp_config.json` file lets you manually install MCP Servers by adding a JSON configuration object. Update the `mcp_config.json` file to match the following:
 
     ```json
-    "Azure MCP Server": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@azure/mcp@latest",
-        "server",
-        "start"
-      ]
+    {
+    "mcpServers": {
+          "Azure MCP Server": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@azure/mcp@latest",
+                "server",
+                "start"
+            ]
+        }
+        }
     }
     ```
 
 ## Use prompts to test the Azure MCP Server
 
-1. Open Cursor's AI chat interface by pressing `Ctrl+L` or clicking the chat icon in the sidebar.
+1. Open Windsurf's AI chat interface by pressing `Ctrl+L` or clicking the chat icon in the sidebar.
 2. Enter a prompt that utilizes Azure MCP Server capabilities, such as:
 
     ```text
@@ -63,9 +67,9 @@ To install and configure Azure MCP Server in Cursor:
 3. If you're prompted to authenticate to Azure, run the suggested auth tool to sign-in through the browser.
 
     > [!NOTE]
-    > Cursor doesn't prompt you to sign in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
+    > Windsurf doesn't prompt you to sign in to Azure if you're already authenticated via other local tooling such as the Azure CLI.
 
-4. Cursor prompts you to run a tool to retrieve the storage accounts, such as `storage account list`. Select **Run tool** to continue.
+4. Windsurf prompts you to run a tool to retrieve the storage accounts, such as `storage account list`. Select **Run tool** to continue.
 
     The output should resemble the following text:
 
