@@ -1,5 +1,8 @@
 ---
-description: "Central instructions for Copilottasks. References detailed instructions in .github/instructions."
+ms.author: johalexander
+ms.date: 09/02/2025
+title: Copilot Instructions
+description: "Central instructions for Copilot tasks. References detailed instructions in .github/instructions."
 ---
 
 # Copilot Instructions
@@ -17,4 +20,4 @@ This file provides central guidance for Copilot and copyediting tasks in this re
 
 ---
 
-_Note: Add new instruction files to `.github/instructions/` and reference them here as needed._
+_Note: Add new instruction files to `.github/instructions/` and reference them under Referenced Instruction Files as needed._
