@@ -21,7 +21,7 @@ If you already have a subscription, access your existing subscription with:
 
 * [Azure portal][Azure portal]
 * [Azure CLI][Azure CLI]
-* [Azure SDK Rust crates][Azure crates]
+* [Azure SDK for Rust crates][Azure crates]
 * [Visual Studio Code extensions][Visual Studio Code extensions]
 
 ## One-time software installation
