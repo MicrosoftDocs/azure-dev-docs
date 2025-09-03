@@ -22,6 +22,8 @@ items:
             href: get-started/tools/windsurf.md
           - name: IntelliJ
             href: get-started/tools/jet-brains.md
+          - name: Cline
+            href: get-started/tools/cline.md
         - name: Languages and frameworks
           expanded: true
           items:
