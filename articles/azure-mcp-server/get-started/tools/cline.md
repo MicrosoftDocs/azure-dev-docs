@@ -32,7 +32,7 @@ In this article, you learn how to complete the following tasks:
 To install and configure Azure MCP Server in Cline:
 
 1. Open the **Cline** panel in your editor.
-1. Select **Manage MCP Servers**.
+1. Select **Manage MCP Servers** to open the **MCP Servers** flyout, and then select the **Settings** icon.
 
     :::image type="content" source="../../media/cline-add-server.png" alt-text="A screenshot showing how to add an MCP Server in Cline.":::
 
