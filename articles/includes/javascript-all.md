@@ -450,13 +450,20 @@
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.9.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.4.1](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.1) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.5.10](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.10) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native-linux-arm64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.5.11) |  |  |
+| Unknown Display Name | npm [0.5.11](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.5.11) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-102](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-102) |  |  |
 | Unknown Display Name | npm [0.0.0-0](https://www.npmjs.com/package/typespec-mcp-http-server-csharp/v/0.0.0-0) |  |  |
@@ -472,7 +479,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.37.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.37.2) |  | GitHub [1.37.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.38.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.38.1) |  | GitHub [1.38.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.34](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.34) |  | GitHub [1.0.0-beta.34](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -539,7 +546,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250821.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250821.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250901.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250901.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
