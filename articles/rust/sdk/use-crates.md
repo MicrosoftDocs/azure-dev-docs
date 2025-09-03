@@ -1,7 +1,7 @@
 ---
 title: Use Azure SDK for Rust crates to access Azure services
 description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
-ms.date: 08/26/2025
+ms.date: 09/02/2025
 ms.topic: concept-article
 ms.service: azure-rust
 ms.custom: devx-track-rust
@@ -27,7 +27,7 @@ The Azure SDK for Rust crates help you access Azure services from Rust applicati
 
 ## Provide authentication credentials
 
-The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication. Learn more about [authentication for Azure SDK for Rust crates].
+The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication. Learn more about [authentication for Azure SDK for Rust crates](./authentication/overview.md).
 
 ## Client objects
 
@@ -57,7 +57,7 @@ To iterate through all items in a paginated response, use the [`into_pages()`][R
 
 ## Sample code
 
-The code shown in this article is available on <https://github.com/Azure/azure-sdk-for-rust-docs/>.
+The code shown in this article is available on <https://github.com/azure-samples/azure-sdk-for-rust-docs/>.
 
 ## Next steps
 

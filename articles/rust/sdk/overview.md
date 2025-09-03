@@ -1,7 +1,7 @@
 ---
 title: Access Azure services using Azure SDK for Rust crates
 description: Learn how to access Azure services using Azure SDK for Rust crates. Build secure, scalable Rust apps with Azure—get started today.
-ms.date: 08/27/2025
+ms.date: 09/02/2025
 ms.topic: overview
 ms.service: azure-rust
 ms.custom: devx-track-rust
@@ -25,7 +25,7 @@ Azure SDK for Rust crates enable Rust applications to access Azure services. The
 - **Consistent error handling**: Handle errors consistently across services with [`azure_core::Error`][Ref doc - core - Error].
 - **Response handling**: Access detailed HTTP response data with [`Response<T>`][Ref doc - core - Response].
 - **Pagination support**: Work with paginated APIs by using [`Pager<T>`][Ref doc - core - Pager] for async streams.
-- **Long-running operations**: Wait for long-running operation (LRO) with [`Poller<T`][Ref doc - core - Poller]
+- **Long-running operations**: Wait for long-running operation (LRO) with [`Poller<T>`][Ref doc - core - Poller]
 - **Authentication abstractions**: Standardized credential management via [`TokenCredential`][Ref doc - core - TokenCredential].
 
 ## Rust guidance
@@ -38,12 +38,12 @@ Use the following information to understand when to use each type of access.
 
 * The Azure SDK crates are the preferred method for accessing your Azure service. These crates abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * Azure REST APIs are the preferred method if you are:
-  * Working with preview services that don't have Azure crates available yet. Consider your code as preview, which should be updated when the service is generally available with crates.
+  * Working with services that don't have Azure crates available yet. Migrate your code to use Azure SDK crates when the crates become available.
   * Wanting to make REST calls directly because you don't want to use the entire crate to use a single REST API or you want deeper control over the HTTP requests.
 
 ## Rust version
 
-The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on community feedback and demand.
+The Azure SDK crates are currently in **beta**. While the APIs are stabilizing and the crates are suitable for development and testing, some breaking changes might occur before the 1.0 release. These crates support the most commonly used Azure services, and we regularly add more based on [community feedback][AZURE SDK FOR RUST issues] and demand.
 
 ## Azure SDK for Rust crates
 
@@ -58,7 +58,7 @@ The Azure SDK crates are currently in **beta**. While the APIs are stabilizing a
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
 [Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
-
+[AZURE SDK FOR RUST issues]: https://github.com/Azure/azure-sdk-for-rust/issues
 
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html

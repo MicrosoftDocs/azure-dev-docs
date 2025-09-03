@@ -2,7 +2,7 @@
 ms.service: azure-rust
 ms.custom: devx-track-rust
 ms.topic: include
-ms.date: 08/27/2025
+ms.date: 09/02/2025
 ---
 
 The following Azure services, prefixed with `azure_`, are currently supported:
