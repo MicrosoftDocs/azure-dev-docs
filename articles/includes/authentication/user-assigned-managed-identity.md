@@ -14,12 +14,12 @@ User-assigned managed identities are created as standalone resources in your Azu
 1. In the Azure portal, enter *Managed identities* in the main search bar and select the matching result under the **Services** section.
 1. On the **Managed Identities** page, select **+ Create**.
 
-    :::image type="content" source="./media/user-assigned-identity-create.png" alt-text="A screenshot showing the page to manage user-assigned managed identities.":::
+    :::image type="content" source="./media/user-assigned-identity-create.png" lightbox="./media/user-assigned-identity-create.png" alt-text="A screenshot showing the page to manage user-assigned managed identities.":::
 
 1. On the **Create User Assigned Managed Identity** page, select a subscription, resource group, and region for the user-assigned managed identity, and then provide a name.
 1. Select **Review + create** to review and validate your inputs.
 
-    :::image type="content" source="./media/user-assigned-identity-form.png" alt-text="A screenshot showing the form to create a user-assigned managed identity.":::
+    :::image type="content" source="./media/user-assigned-identity-form.png" lightbox="./media/user-assigned-identity-form.png" alt-text="A screenshot showing the form to create a user-assigned managed identity.":::
 
 1. Select **Create** to create the user-assigned managed identity.
 1. After the identity is created, select **Go to resource**.
@@ -63,7 +63,7 @@ A user-assigned managed identity can be associated with one or more Azure resour
 1. On the **Add user assigned managed identity** panel, use the **Subscription** dropdown to filter the search results for your identities. Use the **User assigned managed identities** search box to locate the user-assigned managed identity you enabled for the Azure resource hosting your app.
 1. Select the identity and choose **Add** at the bottom of the panel to continue.
 
-    :::image type="content" source="./media/add-user-assigned-identity-to-app.png" alt-text="A screenshot showing how to associate a user-assigned managed identity with an app.":::
+    :::image type="content" source="./media/add-user-assigned-identity-to-app.png" lightbox="./media/add-user-assigned-identity-to-app.png" alt-text="A screenshot showing how to associate a user-assigned managed identity with an app.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -126,7 +126,7 @@ The following example shows how to assign roles at the resource group scope, sin
 1. Select **Access control (IAM)** on the left navigation.
 1. On the **Access control (IAM)** page, select **+ Add** on the top menu and then choose **Add role assignment** to navigate to the **Add role assignment** page.
 
-    :::image type="content" source="./media/add-role-assignment.png" alt-text="A screenshot showing how to access the identity role assignment page.":::
+    :::image type="content" source="./media/add-role-assignment.png" lightbox="./media/add-role-assignment.png" alt-text="A screenshot showing how to access the identity role assignment page.":::
 
 1. The **Add role assignment** page presents a tabbed, multi-step workflow to assign roles to identities. On the initial **Role** tab, use the search box at the top to locate the role you want to assign to the identity.
 1. Select the role from the results and then choose **Next** to move to the **Members** tab.
@@ -134,7 +134,7 @@ The following example shows how to assign roles at the resource group scope, sin
 1. For the **Members** option, choose **+ Select members** to open the **Select managed identities** panel.
 1. On the **Select managed identities** panel, use the **Subscription** and **Managed identity** dropdowns to filter the search results for your identities. Use the **Select** search box to locate the user-assigned managed identity you enabled for the Azure resource hosting your app.
 
-    :::image type="content" source="./media/user-assigned-identity-assign-roles.png" alt-text="A screenshot showing the managed identity assignment process.":::
+    :::image type="content" source="./media/user-assigned-identity-assign-roles.png" lightbox="./media/user-assigned-identity-assign-roles.png" alt-text="A screenshot showing the managed identity assignment process.":::
 
 1. Select the identity and choose **Select** at the bottom of the panel to continue.
 1. Select **Review + assign** at the bottom of the page.
