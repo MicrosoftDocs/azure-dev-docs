@@ -49,7 +49,7 @@ When hosting in a server environment, assign a unique application identity to ea
 
 ## Sample code
 
-The code shown in this article is available on <https://github.com/Azure/azure-sdk-for-rust-docs/>.
+The code shown in this article is available on <https://github.com/azure-samples/azure-sdk-for-rust-docs/>.
 
 ## Additional resources
 

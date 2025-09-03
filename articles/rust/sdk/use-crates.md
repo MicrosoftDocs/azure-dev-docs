@@ -57,7 +57,7 @@ To iterate through all items in a paginated response, use the [`into_pages()`][R
 
 ## Sample code
 
-The code shown in this article is available on <https://github.com/Azure/azure-sdk-for-rust-docs/>.
+The code shown in this article is available on <https://github.com/azure-samples/azure-sdk-for-rust-docs/>.
 
 ## Next steps
 
