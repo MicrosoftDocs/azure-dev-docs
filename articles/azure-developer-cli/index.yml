@@ -37,7 +37,7 @@ landingContent:
             url: /azure/developer/azure-developer-cli/azd-templates
           - text: Visit the template gallery
             url: https://azure.github.io/awesome-azd
-          - text: Make your project azd compatiable
+          - text: Make your project azd compatible
             url: /azure/developer/azure-developer-cli/make-azd-compatible
           - text: Training - Build and deploy azd templates
             url: /training/paths/azure-developer-cli

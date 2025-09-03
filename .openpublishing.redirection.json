@@ -311,6 +311,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/sdk/authentication/azure-hosted-apps.md",
+      "redirect_url": "/azure/developer/javascript/sdk/authentication/system-assigned-managed-identity"
+    },
+    {
       "source_path": "articles/javascript/core/what-is-azure-for-javascript-development.md",
       "redirect_url": "/azure/developer/javascript/what-is-azure-for-javascript-development",
       "redirect_document_id": false

@@ -112,8 +112,12 @@
           href: sdk/authentication/local-development-environment-service-principal.md
         - name: With developer account
           href: sdk/authentication/local-development-environment-developer-account.md            
-      - name: Azure-hosted apps
-        href: sdk/authentication/azure-hosted-apps.md
+      - name: Auth for Azure-hosted apps
+        items: 
+        - name: Use a system-assigned managed identity
+          href: sdk/authentication/system-assigned-managed-identity.md
+        - name: Use a user-assigned managed identity
+          href: sdk/authentication/user-assigned-managed-identity.md
       - name: On-premises apps
         href: sdk/authentication/on-premises-apps.md
       - name: Credential chains
