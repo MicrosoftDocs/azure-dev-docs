@@ -1,0 +1,102 @@
+---
+title: Use Azure SDK for Rust crates to access Azure services
+description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
+ms.date: 09/02/2025
+ms.topic: concept-article
+ms.service: azure-rust
+ms.custom: devx-track-rust
+---
+
+# Use Azure SDK for Rust crates to access Azure services
+
+The Azure SDK for Rust crates help you access Azure services from Rust applications. This article explains how to use these crates, including authentication, supported services, and best practices.
+
+[Crates] | [API reference documentation] | [Source code]
+
+## Prerequisites to develop with crates
+
+- Rust 1.85 or later. The version is specified in the Azure SDK for Rust crates [Cargo.toml][Azure SDK main Cargo.toml].
+- An Azure subscription. You can [create one for free][Free Subscription].
+- [Azure CLI]
+- [Azure Developer CLI]
+- [Azure SDK for Rust crates](./installation.md)
+
+> [!TIP]
+> For the best development experience, ensure you have the latest stable version of Rust installed. 
+
+
+## Provide authentication credentials
+
+The Azure crates need credentials to authenticate to Microsoft Entra ID. Azure services provide different authentication methods for connection. We recommend using the [`azure_identity`][Crate - identity] crate for authentication. Learn more about [authentication for Azure SDK for Rust crates](./authentication/overview.md).
+
+## Client objects
+
+You use client objects to interact with Azure services. Each client object, from a service's crate, corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`azure_security_keyvault_secrets::SecretClient`][Ref doc - secret - SecretClient] is used to interact with Azure Key Vault secrets.
+
+When you create the client objects, you can provide a [`ClientOptions`][Ref doc - core - ClientOptions] parameter for customizing the interactions with the service. Use `ClientOptions` to set things like timeouts, retry policies, and other configurations.
+
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/authenticate_azure_cli.rs":::
+
+## Error handling
+
+When a service call fails, the returned result contains an error. The error type provides a [`status`][Ref doc - core - error status] property with an HTTP status code and an [`error_code`][Ref doc - core - error_code] property with a service-specific error code.
+
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/error_handling.rs":::
+
+## Page results
+
+If a service call returns multiple values in pages, it returns `Result<Pager<T>>` as a [`Result`][Ref doc - core - Result] of [`Pager`][Ref doc - core - Pager]. 
+
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/page_results.rs":::
+
+## Pagination to process each page of items
+
+To iterate through all items in a paginated response, use the [`into_pages()`][Ref doc - core - into_pages] method on the returned [`Pager`][Ref doc - core - Pager]. This method returns an async stream of pages as a [`PageIterator`][Ref doc - core - PageIterator], so you can process each page as it becomes available. 
+
+:::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/paging_all_items.rs":::
+
+## Sample code
+
+The code shown in this article is available on <https://github.com/azure-samples/azure-sdk-for-rust-docs/>.
+
+## Next steps
+
+[!INCLUDE [common resources](../includes/resources.md)]
+
+
+[cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
+[API reference documentation]: https://docs.rs/releases/search?query=azure_
+[Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
+[Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
+[REST API documentation]: /rest/api/
+[Product documentation]: /azure/
+
+[Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
+
+[Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/struct.SecretClient.html
+[Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
+[Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
+[Ref doc - core - error_code]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.error_code
+[Ref doc - core - Result]: https://docs.rs/azure_core/latest/azure_core/type.Result.html
+[Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/type.Pager.html
+[Ref doc - core - into_pages]: https://docs.rs/azure_core/latest/azure_core/http/struct.ItemIterator.html#method.into_pages
+[Ref doc - core - PageIterator]: https://docs.rs/azure_core/latest/azure_core/http/struct.PageIterator.html
+[Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
+[Ref doc - core - error status]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.status
+
+[Crate - identity]: https://crates.io/crates/azure_identity
+[Crate - core]: https://crates.io/crates/azure_core
+[Crate - cosmos]: https://crates.io/crates/azure_data_cosmos
+[Crate - event hubs]: https://crates.io/crates/azure_messaging_eventhubs
+[Crate - key vault - secrets]: https://crates.io/crates/azure_security_keyvault_secrets
+[Crate - key vault - certificates]: https://crates.io/crates/azure_security_keyvault_certificates
+[Crate - key vault - keys]: https://crates.io/crates/azure_security_keyvault_keys
+[Crate - storage]: https://crates.io/crates/azure_storage
+
+[Free Subscription]: https://azure.microsoft.com/free/
+
+[Azure Developer CLI]: /azure/developer/azure-developer-cli
+[Azure CLI]: /cli/azure/
+
+[authentication for Azure SDK for Rust]: ./authentication/overview.md

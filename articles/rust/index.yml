@@ -1,0 +1,70 @@
+### YamlMime:Landing
+
+title: Azure for Rust developers
+summary: You can deploy your Rust applications to Azure in various environments, including web apps, serverless functions, containers, and microservices. Azure offers flexible hosting options to suit different performance and reliability needs. To interact with Azure services programmatically, use the Azure SDK for Rust. This set of libraries provides type-safe APIs for authentication, resource management, and service integration—making it easier to build secure, high-performance cloud applications with Rust's memory safety guarantees and zero-cost abstractions.
+
+metadata:
+  title: Azure for Rust developers
+  description: Get started developing with Rust on Azure using services like Azure Functions, Key Vault, Messaging, Identity, Cosmos DB, Blob Storage, and the Azure SDK for Rust.
+  ms.topic: landing-page
+  ms.service: azure-rust
+  ms.collection: collection
+  ms.date: 09/02/2025
+  ms.custom: dexx-track-rust
+
+landingContent:
+  - title: Azure for Rust developers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure for Rust developers?
+            url: what-is-azure-for-rust-developers.md
+
+      - linkListType: get-started
+        links:
+          - text: Set up developer environment
+            url: developer-environment.md
+
+      - linkListType: how-to-guide
+        links:
+          - text: Azure SDK for Rust
+            url: sdk/overview.md
+          - text: Installation
+            url: sdk/installation.md
+          - text: Authentication
+            url: sdk/authentication/overview.md
+          - text: Use crates
+            url: sdk/use-crates.md  
+
+  - title: Azure libraries (SDK)
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Cosmos DB
+            url: https://crates.io/crates/azure_data_cosmos
+          - text: Azure Event Hubs
+            url: https://crates.io/crates/azure_messaging_eventhubs
+          - text: Azure Identity
+            url: https://crates.io/crates/azure_identity
+          - text: Azure Key Vault - Secrets
+            url: https://crates.io/crates/azure_security_keyvault_secrets
+          - text: Azure Key Vault - Certificates
+            url: https://crates.io/crates/azure_security_keyvault_certificates
+          - text: Azure Key Vault - Keys
+            url: https://crates.io/crates/azure_security_keyvault_keys
+          - text: Azure Storage - Blobs
+            url: https://crates.io/crates/azure_storage_blob
+  - title: Hosting
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Hosting apps on Azure
+            url: /azure/developer/intro/hosting-apps-on-azure
+          - text: Azure Functions
+            url: /azure/azure-functions/create-first-function-vs-code-other?tabs=rust%2Cwindows
+          - text: Azure App Service
+            url: /azure/app-service
+          - text: Azure Container Apps
+            url: /azure/container-apps
+          - text: Azure Kubernetes Service (AKS)
+            url: /azure/aks
