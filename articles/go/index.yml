@@ -7,7 +7,7 @@ metadata:
   description: Get started developing with the Azure SDK for Go.
   author: PatAltimore
   ms.author: patricka
-  ms.date: 07/30/2024
+  ms.date: 09/03/2025
   ms.topic: landing-page
   ms.service: azure-go
   ms.collection: collection
@@ -29,10 +29,12 @@ landingContent:
         links:
           - text: Install the Azure SDK for Go
             url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
+          - text: Azure SDK for Go samples
+            url: https://github.com/azure-samples/azure-sdk-for-go-samples
       - linkListType: training
         links:
-          - text: Take your first steps with Go
-            url: /training/paths/go-first-steps
+          - text: Build serverless apps with Go
+            url: /training/modules/serverless-go
   - title: Data and storage
     linkLists:
       - linkListType: quickstart
