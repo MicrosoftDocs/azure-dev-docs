@@ -51,7 +51,7 @@
 | Core - Client - Tracing | npm [1.3.0](https://www.npmjs.com/package/@azure/core-tracing/v/1.3.0) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.3.0/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.5.0](https://www.npmjs.com/package/@azure/core-xml/v/1.5.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.5.0/sdk/core/core-xml/) |
 | Core - Paging | npm [1.6.2](https://www.npmjs.com/package/@azure/core-paging/v/1.6.2) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.6.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.2/sdk/core/core-paging/) |
-| Cosmos DB | npm [4.5.0](https://www.npmjs.com/package/@azure/cosmos/v/4.5.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.5.0/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [4.5.1](https://www.npmjs.com/package/@azure/cosmos/v/4.5.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.5.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.5.1/sdk/cosmosdb/cosmos/) |
 | Create - Microsoft Playwright Testing | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/create-microsoft-playwright-testing/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-microsoft-playwright-testing_1.0.0-beta.2/sdk/playwrighttesting/create-microsoft-playwright-testing/) |
 | Create Playwright | npm [1.0.0](https://www.npmjs.com/package/@azure/create-playwright/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0/sdk/loadtesting/create-playwright/) |
 | Defender EASM | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/defender-easm/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.2/sdk/easm/defender-easm-rest/) |
@@ -410,7 +410,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.59.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.59.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.59.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.59.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.28.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.28.1) |  |  |
-| @azure-tools/typespec-go | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.0) |  |  |
+| @azure-tools/typespec-go | npm [0.8.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -443,7 +443,7 @@
 | TypeSpec HTTP Client JavaScript | npm [0.8.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.8.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.16.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.16.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.25](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.25) |  |  |
-| TypeSpec Rust | npm [0.20.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.20.0) |  |  |
+| TypeSpec Rust | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.21.0) |  |  |
 | TypeSpec SSE | npm [0.73.0](https://www.npmjs.com/package/@typespec/sse/v/0.73.0) |  |  |
 | TypeSpec Streams | npm [0.73.0](https://www.npmjs.com/package/@typespec/streams/v/0.73.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
