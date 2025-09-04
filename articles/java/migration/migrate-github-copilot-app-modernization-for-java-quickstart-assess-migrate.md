@@ -27,7 +27,7 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
 - [GitHub Copilot app modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
-- [Java 17](/java/openjdk/download) or later.
+- [Java 21](/java/openjdk/download) or later.
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
 
@@ -47,6 +47,17 @@ After installation completes, you should see a notification in the corner of Vis
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
 
+## Upgrade JDK and dependencies version
+Here are 2 ways to upgrade JDK version:
+On the sidebar, select the **Github Copilot app modernization for Java** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
+
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-jdk-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-jdk-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
+
+Use the following steps to upgrade Spring framework or third-party dependency:
+Run **Upgrade Java Framework** task in the **TASKS - Upgrade Tasks** section. See [Upgrade a framework or third-party dependency by using GitHub Copilot App Modernization – upgrade for Java](https://learn.microsoft.com/java/upgrade/framework-upgrade) for more information.
+
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-framework-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-framework-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade framework.":::
+
 ## Assess cloud readiness
 
 Use the following steps to start your migration process with solution assessment. This assessment helps you understand what your cloud readiness challenges are and how impactful they are, provides recommended solutions. A solution recommendation includes references to set up Azure resources, add configurations, and make code changes.
@@ -55,9 +66,9 @@ Use the following steps to start your migration process with solution assessment
 
 1. In Visual Studio Code, open the **mi-sql-public-demo** project folder in the samples repository.
 
-1. On the sidebar, select the **App Modernization for Java** pane, and then, in the **Assessment** section, select **Run Assessment**.
+1. On the sidebar, select the **Github Copilot app modernization for Java** pane, you can click **Migrate to Azure** button or click **Run Assessment** in the **ASSESSMENT** section.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assess-button-of-assessment.png" alt-text="Screenshot of Visual Studio Code that shows the Assessment section with the Assess button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" alt-text="Screenshot of Visual Studio Code that shows how to generate assessment report.":::
 
    The GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the App Modernization assessment.
 
@@ -65,21 +76,21 @@ Use the following steps to start your migration process with solution assessment
 
 The modernization assessor now opens **assessment.md**. This file is the configuration for running AppCAT, which performs the app assessment. AppCAT asks for your confirmation to continue. You can examine its content and make changes there, if necessary.
 
-The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, then you need to install them first. For more information, see [Overview of Azure Migrate Application and Code Assessment for Java](/azure/migrate/appcat/java). After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
+The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, agent will help to install. After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
 
 Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
 
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-summary-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
 
-When reviewing the summary report, you can select **Migrate to Azure SQL Database (SDK, Public Cloud)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, select **Migrate** to move to the code remediation stage.
+When reviewing the summary report, you can select **Migrate to Azure SQL Database (Spring)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, select **Migrate** to move to the code remediation stage.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
 ## Apply a predefined task
 
-The migration Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Managed Identity tasks change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+The migration Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Database Migration (Microsoft SQL) tasks change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
-1. In the **Summary Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
+1. In the **Assessment Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot agent uses various tools for App Modernization and each tool requires confirmation to proceed.
 
@@ -87,27 +98,48 @@ The migration Copilot provides predefined tasks for common migration scenarios t
 
 1. Wait for the code changes to be generated.
 
-## Apply the Build-Fix tool
+## Validation Iteration
 
-Use the following steps to apply the Build-Fix tool:
+After migration, manually input **continue** to proceed build validation. It includes four steps:
 
-1. When the Java Application Build-Fix tool is suggested, select **Continue** to build the project and fix errors. This tool attempts to resolve any build errors in up to 10 iterations.
+### Apply the Validate-CVEs tool
 
-1. After the Build-Fix tool begins, select **Continue** to proceed and show progress.
+1. This tool attempts to detected CVEs in current dependencies and fix them.
 
-1. After the process finishes, review the code changes and confirm them by selecting **Keep**.
+### Apply the Build-Project tool
 
-## Apply the Test-Fix tool
+1. This tool attempts to resolve any build errors in up to 10 iterations.
 
-Use the following steps to apply the Test-Fix tool for fixing unit test failures:
+### Apply the Consistency-Validation tool
 
-1. When the Java Application Test-Fix tool is suggested, select **Continue** to proceed. The tool analyzes the project for unit test failures and automatically generates a plan to fix them.
+1. This tool analyzes the codes for functional consistency.
 
-1. Select **Continue** to approve the generated test-fixing plan.
+### Apply the Run-Test tool
 
-1. The Test-Fix tool iteratively runs unit tests and fixes any failures in up to 10 iterations.
+1. This tool analyzes the project for unit test failures and automatically generates a plan to fix them.
 
-1. After the process completes, review the code changes and confirm them by selecting **Keep**.
+1. The Run-Test tool iteratively runs unit tests and fixes any failures in up to 10 iterations.
+
+1. After all processes completes, review the code changes and confirm them by selecting **Keep**.
+
+## Apply a Quality & Security Task
+
+### Scan & Resolve CVEs
+1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Scan & Resolve CVEs**.
+
+1. This task will scan for vulnerabilities for these dependencies and get recommended fix versions. Its function is consistent with Validate CVEs tool.
+
+### Generate Unit Test Cases
+1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
+
+1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-unit-tests) for more information.
+
+## Deploy to Azure
+> [!NOTE]
+> This step needs you open Docker Desktop to prepare container.
+
+On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Deployment Tasks** in the **TASKS** section and click **Deploy to Azure**.
+This tool will help prepare Azure resources and push codes image to Azure. See .
 
 ## Next step
 
