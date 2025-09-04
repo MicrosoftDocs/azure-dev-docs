@@ -1,7 +1,7 @@
 ---
 title: "Build Agents using Model Context Protocol on Azure"
 description: "This article explains how to build AI agents using the Model Context Protocol (MCP) on Azure to create intelligent, scalable applications."
-ms.date: 05/30/2025
+ms.date: 09/04/2025
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 content_well_notification: 
@@ -74,6 +74,7 @@ There are two main scenarios for building your own MCP server:
 ## Related resources
 
 - [Build a TypeScript MCP server using Azure Container Apps](build-mcp-server-ts.md)
+- [Build a .NET OpenAI Agent using an MCP server on Azure Container Apps](build-openai-mcp-server-dotnet.md)
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [Azure MCP Server](..\azure-mcp-server\index.yml)
 - [Use MCP servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)

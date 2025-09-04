@@ -67,6 +67,13 @@ To install the Azure AI Foundry for Visual Studio Code extension from the Visual
 
 1. To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
 
+1. Once you have deployed the `gpt-5-mini` model, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. You will need this API key later in the article.
+
+1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard. You will also need this endpoint later in the article.
+
+1. Finally, create a connection string for the deployed `gpt-5-mini` model using the copied endpoint and API key in the following format:
+ `Endpoint=<AZURE_OPENAI_ENDPOINT>;Key=<AZURE_OPENAI_API_KEY>`.
+
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 - An Azure subscription – [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
@@ -119,7 +126,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
-    ```azdeveloper
+    ```shell
     azd auth login
     ```
 
@@ -152,7 +159,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open a new terminal in Visual Studio Code.
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-    ```azdeveloper
+    ```shell
     azd init -t openai-mcp-agent-dotnet
     ```
 
@@ -180,10 +187,11 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 ---
 
 > [!NOTE]
-> To run the MCP server locally:
->    1. Set up your environment as described in the [Local environment setup](https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#local-environment) section in the sample repository.
->    1. Configure your MCP Server to use the local environment by following the instructions in the [Configure the MCP server in Visual Studio Code](https://github.com/Azure-Samples/mcp-container-ts?tab=readme-ov-file#test-your-mcp-server-with-desktop-mcp-clients) section in the sample repository.
->    1. Skip to the [Use TODO MCP server tools in agent mode](#use-todo-mcp-server-tools-in-agent-mode) section to continue.
+> To run the MCP agent locally:
+>    1. Set up your environment as described in the [Getting started](https://github.com/Azure-Samples/openai-mcp-agent-dotnet?tab=readme-ov-file#getting-started) section in the sample repository.
+>    1. Install your MCP Server by following the instructions in the [Get MCP Server App](https://github.com/Azure-Samples/openai-mcp-agent-dotnet?tab=readme-ov-file#get-mcp-server-app) section in the sample repository.
+>    1. Run the MCP agent locally by following the instructions in the [Run locally](https://github.com/Azure-Samples/openai-mcp-agent-dotnet?tab=readme-ov-file#run-locally) section in the sample repository.
+>    1. Skip to the [Use the TODO MCP agent](#use-the-todo-mcp-agent) section to continue.
 
 ## Deploy and run
 
@@ -194,9 +202,43 @@ The sample repository contains all the code and configuration files for the MCP 
 > [!IMPORTANT]
 > Azure resources in this section start costing money immediately, even if you stop the command before it finishes.
 
+1. Set JWT token for the MCP server by running the following command in the terminal at the bottom of the screen:
+
+    ```bash
+    # zsh/bash
+    ./scripts/set-jwttoken.sh
+    ```
+
+    ```powershell
+    # PowerShell
+    ./scripts/Set-JwtToken.ps1
+    ```
+
+1. Add JWT token to azd environment configuration by running the following command in the terminal at the bottom of the screen:
+
+    ```bash
+    # zsh/bash
+    env_dir=".azure/$(azd env get-value AZURE_ENV_NAME)"
+    mkdir -p "$env_dir"
+    cat ./src/McpTodo.ServerApp/.env >> "$env_dir/.env"
+    ```
+
+    ```powershell
+    # PowerShell
+    $dotenv = Get-Content ./src/McpTodo.ServerApp/.env
+    $dotenv | Add-Content -Path ./.azure/$(azd env get-value AZURE_ENV_NAME)/.env -Encoding utf8 -Force
+    ```
+
+> [!NOTE]>
+> 1. By default, the MCP client app is protected by the ACA built-in auth feature. You can turn off this feature before running `azd up` by setting:
+>
+>    ```bash
+>    azd env set USE_LOGIN false
+>    ```
+
 1. Run the following Azure Developer CLI command for Azure resource provisioning and source code deployment:
 
-    ```azdeveloper
+    ```shell
     azd up
     ```
 
@@ -211,52 +253,40 @@ The sample repository contains all the code and configuration files for the MCP 
 
 1. Wait until the app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
 
-1. Once the deployment is complete, you can access the MCP server using the URL provided in the output. The URL looks like this:
+1. Once the deployment is complete, you can access the MCP agent using the URL provided in the output. The URL looks like this:
 
 ```bash
 https://<env-name>.<container-id>.<region>.azurecontainerapps.io
 ```
 
-1. Copy the URL to your clipboard. You'll need it in the next section.
+1. Navigate to URL in a web browser to access the MCP agent.
 
-### Configure the MCP server in Visual Studio Code
+### Use the TODO MCP agent
 
-Configure the MCP server in your local VS Code environment by adding the URL to the `mcp.json` file in the `.vscode` folder.
+After the MCP agent is running, you can use the tools it provides in agent mode. To use MCP tools in agent mode:
 
-1. Open the `mcp.json` file in the `.vscode` folder.
+1. Navigate to the client app URL and login to the app.
 
-1. Locate the `mcp-server-sse-remote` section in the file. It should look like this:
+    > [!NOTE]
+    > if you set the `USE_LOGIN` value to `false`, you might not be asked to login.
 
-    ```json
-        "mcp-server-sse-remote": {
-        "type": "sse",
-        "url": "https://<container-id>.<location>.azurecontainerapps.io/sse"
-    }
+1. Enter a prompt such as "I need to send an email to my manager on Wednesday" in the chat input box and notice how tools are automatically invoked as needed.
+
+1. The MCP agent will use the tools provided by the MCP server to fulfill the request and return a response in the chat interface.
+
+1. Experiment with other prompts like:
+
+    ```text
+    Give me a list of to dos.
+    Set "meeting at 1pm".
+    Give me a list of to dos.
+    Mark #1 as completed.
+    Delete #1 from the to-do list.
     ```
 
-1. Replace the existing `url` value with the URL you copied in the previous step.
-
-1. Save the `mcp.json` file in the `.vscode` folder.
-
-### Use TODO MCP server tools in agent mode
-
-After modifying the MCP server, you can use the tools, it provides in agent mode. To use MCP tools in agent mode:
-
-1. Open the Chat view (`Ctrl+Alt+I`), and select Agent mode from the dropdown.
-
-1. Select the **Tools** button to view the list of available tools.
-      Optionally, select or deselect the tools you want to use. You can search tools by typing in the search box.
-
-1. Enter a prompt such as "I need to send an email to my manager on Wednesday" in the chat input box and notice how tools are automatically invoked as needed, as in the following screenshot:
-
-    :::image type="content" source="./media/build-mcp-server-ts/mcp-server-tools-invocation.png" lightbox="./media/build-mcp-server-ts/mcp-server-tools-invocation.png"alt-text="Screenshot showing the MCP server tools invocation.":::
-
-> [!NOTE]
-> By default, when a tool is invoked, you need to confirm the action before the tool runs. Otherwise, tools might run locally on your machine and might perform actions that modify files or data.
-
-Use the Continue button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations.
-
 ## Explore the code
+
+The sample repository contains all the code and configuration files for the MCP agent Azure deployment. The following sections walk you through the key components of the MCP agent code.
 
 ### MCP Client configuration and setup
 
@@ -714,6 +744,8 @@ var openAIClient = Constants.GitHubModelEndpoints.Contains(endpoint.TrimEnd('/')
 
 ## Clean up resources 
 
+After you finish using the MCP agent, clean up the resources you created to avoid incurring unnecessary costs.
+
 ### Clean up GitHub Codespaces
 
 #### [GitHub Codespaces](#tab/github-codespaces)
@@ -745,3 +777,5 @@ Open the **Command Palette**, search for **Dev Containers**, and select **Dev Co
 Log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-mcp-agent-dotnet/issues).
 
 ## Related resources
+
+- [Build a TypeScript MCP server using Azure Container Apps](build-mcp-server-ts.md)
