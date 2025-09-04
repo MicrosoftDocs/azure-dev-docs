@@ -1,6 +1,6 @@
 ---
-title: "Build a .NET OpenAI Agent using an MCP server on Azure Container Apps"
-description: "Learn how to build a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps."
+title: Build a .NET OpenAI Agent using an MCP server on Azure Container Apps
+description: Learn how to build a .NET OpenAI Agent using an MCP server using Azure Container Apps.
 ms.date: 09/04/2025
 ms.topic: get-started 
 ms.subservice: intelligent-apps
@@ -8,7 +8,7 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As an AI app developer, I want to learn how to build a TypeScript Model Context Protocol (MCP) server using Azure Container Apps.
+# CustomerIntent: As an AI app developer, I want to learn how to build a .NET OpenAI Agent using an MCP server using Azure Container Apps.
 ---
 
 # Build a .NET OpenAI Agent using an MCP server on Azure Container Apps
