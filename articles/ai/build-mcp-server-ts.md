@@ -1,7 +1,7 @@
 ---
 title: "Build a TypeScript MCP server using Azure Container Apps"
 description: "Learn how to build a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps."
-ms.date: 07/02/2025
+ms.date: 09/04/2025
 ms.topic: get-started 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -223,13 +223,13 @@ The `index.ts` file is the main entry point for the MCP server. It initializes t
 
 #### Create the MCP server instance
 
-The following code snippet initializes the MCP server using the `SSEPServer` class, which is a wrapper around the core MCP `Server` class. This class handles the transport layer for Server-Sent Events (SSE) and manages client connections.
+The following code snippet initializes the MCP server using the `StreamableHTTPServer` class, which is a wrapper around the core MCP `Server` class. This class handles the transport layer for Server-Sent Events (SSE) and manages client connections.
 
 ```typescript
-const server = new SSEPServer(
+const server = new StreamableHTTPServer(
   new Server(
     {
-      name: 'todo-sse-server',
+      name: 'todo-http-server',
       version: '1.0.0',
     },
     {
@@ -710,4 +710,4 @@ Log your issue to the repository's [Issues](https://github.com/Azure-Samples/mcp
 ## Related resources
 
 - [Introduction to Agents and the Model Context Protocol](intro-agents-mcp.md)
-- [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai)
+- [Build a .NET OpenAI Agent using an MCP server on Azure Container Apps](build-openai-mcp-server-dotnet.md)
