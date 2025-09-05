@@ -230,12 +230,12 @@ The sample repository contains all the code and configuration files for the MCP 
     $dotenv | Add-Content -Path ./.azure/$(azd env get-value AZURE_ENV_NAME)/.env -Encoding utf8 -Force
     ```
 
-> [!NOTE]
-> 1. By default, the MCP client app is protected by the ACA built-in authentication feature. You can turn off this feature before running `azd up` by setting:
->
->    ```bash
->    azd env set USE_LOGIN false
->    ```
+    > [!NOTE]
+    > By default, the MCP client app is protected by the ACA built-in authentication feature. You can turn off this feature before running `azd up` by setting:
+    >
+    >    ```bash
+    >    azd env set USE_LOGIN false
+    >    ```
 
 1. Run the following Azure Developer CLI command for Azure resource provisioning and source code deployment:
 
@@ -256,9 +256,9 @@ The sample repository contains all the code and configuration files for the MCP 
 
 1. After deployment finishes, you can access the MCP agent using the URL in the output. The URL looks like this:
 
-```bash
-https://<env-name>.<container-id>.<region>.azurecontainerapps.io
-```
+    ```bash
+    https://<env-name>.<container-id>.<region>.azurecontainerapps.io
+    ```
 
 1. Open the URL in a web browser to use the MCP agent.
 
@@ -397,9 +397,9 @@ public static Uri Resolve(this Uri uri, IConfiguration config)
 
 This sample uses JWT (JSON Web Token) authentication to secure the connection between the MCP client and server.
 
-```bash
-dotnet user-secrets --project ./src/McpTodo.ClientApp set McpServers:JWT:Token "$TOKEN"
-```
+    ```bash
+    dotnet user-secrets --project ./src/McpTodo.ClientApp set McpServers:JWT:Token "$TOKEN"
+    ```
 
 > [!NOTE]
 > The scripts created the `$TOKEN` variable automatically when you ran either the Bash (`set-jwttoken.sh`) or PowerShell (`Set-JwtToken.ps1`) script earlier in the **Deploy to Azure** section.
