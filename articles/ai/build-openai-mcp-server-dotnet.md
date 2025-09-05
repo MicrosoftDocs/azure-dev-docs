@@ -17,7 +17,7 @@ This article shows you how to build a Model Context Protocol (MCP) agent using .
 
 ## Get to the code
 
-Check out the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai). This example shows how to use an existing MCP server. The template builds an MCP agent app in .NET that uses Azure OpenAI and connects to a remote MCP server written in TypeScript.
+Check out the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai). This example shows how to build an OpenAI agent that uses an MCP client to consume an existing MCP server.
 
 ## Architectural overview
 
