@@ -1,7 +1,7 @@
 ---
 title: Build a .NET OpenAI Agent using an MCP server on Azure Container Apps
 description: Learn how to build a .NET OpenAI Agent using an MCP server using Azure Container Apps.
-ms.date: 09/04/2025
+ms.date: 09/05/2025
 ms.topic: get-started 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -65,11 +65,15 @@ To install the Azure AI Foundry for Visual Studio Code extension from the Visual
 1. After installation, open Visual Studio Code and verify the extension is installed successfully from the status messages.
 1. The extension should now be visible in the primary navigation bar on the left side of Visual Studio Code.
 
+#### Create an AI Foundry project and deploy the model
+
 1. To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
 
-1. Once the `gpt-5-mini` model is deployed, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. You need this API key later in the article.
+#### Create the OpenAI Model connection string
 
-1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard. You also need this endpoint later in the article.
+1. Once the `gpt-5-mini` model is deployed, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. You need this API key later in the article as part of the connection string.
+
+1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard. You also need this endpoint later in the article as part of the connection string.
 
 1. Finally, create a connection string for the deployed `gpt-5-mini` model using the copied endpoint and API key in the following format:
  `Endpoint=<AZURE_OPENAI_ENDPOINT>;Key=<AZURE_OPENAI_API_KEY>`.
@@ -202,7 +206,9 @@ The sample repository contains all the code and configuration files for the MCP 
 > [!IMPORTANT]
 > Azure resources in this section start costing money immediately, even if you stop the command before it finishes.
 
-1. Set JWT token for the MCP server by running the following command in the terminal at the bottom of the screen:
+#### Set the JWT token
+
+1. Set the JWT token for the MCP server by running the following command in the terminal at the bottom of the screen:
 
     ```bash
     # zsh/bash
@@ -214,7 +220,9 @@ The sample repository contains all the code and configuration files for the MCP 
     ./scripts/Set-JwtToken.ps1
     ```
 
-1. Add JWT token to azd environment configuration by running the following command in the terminal at the bottom of the screen:
+#### Add JWT token to azd environment configuration
+
+1. Add the JWT token to azd environment configuration by running the following command in the terminal at the bottom of the screen:
 
     ```bash
     # zsh/bash
@@ -230,7 +238,7 @@ The sample repository contains all the code and configuration files for the MCP 
     ```
 
 > [!NOTE]
-> 1. By default, the MCP client app is protected by the ACA built-in auth feature. You can turn off this feature before running `azd up` by setting:
+> 1. By default, the MCP client app is protected by the ACA built-in authentication feature. You can turn off this feature before running `azd up` by setting:
 >
 >    ```bash
 >    azd env set USE_LOGIN false
@@ -249,7 +257,7 @@ The sample repository contains all the code and configuration files for the MCP 
     |Environment name|Use a short, lowercase name. Add your name or alias. For example, `my-mcp-agent`. This becomes part of the resource group name.|
     |Subscription|Choose the subscription where you want to create resources.|
     |Location (for hosting)|Pick the model deployment location from the list.|
-    |OpenAI / GitHub model Connection string|Type the connection string for the OpenAI or GitHub model.|
+    |OpenAI Connection string|Paste the connection string for the OpenAI model you created earlier in the [Create the OpenAI Model connection string](#create-the-openai-model-connection-string) section.|
 
 1. App deployment takes 5 to 10 minutes.
 
@@ -394,13 +402,20 @@ public static Uri Resolve(this Uri uri, IConfiguration config)
 
 ### Authentication Implementation
 
-This sample uses JWT (JSON Web Token) authentication to secure the connection between the MCP client and server. The server creates a JWT token and stores it in .NET user secrets:
+This sample uses JWT (JSON Web Token) authentication to secure the connection between the MCP client and server.
 
 ```bash
 dotnet user-secrets --project ./src/McpTodo.ClientApp set McpServers:JWT:Token "$TOKEN"
 ```
 
-The token is then retrieved from configuration and included in HTTP headers:
+> [!NOTE]
+> The scripts created the `$TOKEN` variable automatically when you ran either the Bash (`set-jwttoken.sh`) or PowerShell (`Set-JwtToken.ps1`) script earlier in the **Deploy to Azure** section.
+> These scripts perform the following steps:
+> 1. Run `npm run generate-token` in the MCP server app to create a JWT token
+> 1. Parse the generated `.env` file to extract the JWT_TOKEN value
+> 1. Automatically store it in .NET user secrets for the MCPClient
+
+The MCP client retrieves the JWT token from configuration and includes it in the HTTP headers for authentication when connecting to the MCP server:
 
 ```csharp
 AdditionalHeaders = new Dictionary<string, string>
@@ -742,9 +757,17 @@ var openAIClient = Constants.GitHubModelEndpoints.Contains(endpoint.TrimEnd('/')
 - **Container Deployment**: Azure Container Apps for production hosting
 
 
-## Clean up resources 
+## Clean up resources
 
 After you finish using the MCP agent, clean up the resources you created to avoid incurring unnecessary costs.
+
+To clean up resources, follow these steps:
+
+1. Delete the Azure resources created by the Azure Developer CLI by running the following command in the terminal at the bottom of the screen:
+
+    ```shell
+    azd down --purge --force
+    ```
 
 ### Clean up GitHub Codespaces
 
