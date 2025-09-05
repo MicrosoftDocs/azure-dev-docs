@@ -22,7 +22,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure SQL databa
 
 
 
-## Database: list
+## Database: List databases
 
 <!-- `azmcp sql db list` -->
 
@@ -103,7 +103,7 @@ Example prompts include:
 | **Server** | Required | The name of the SQL server to list firewall rules for. |
 
 
-## Server: create firewall rule
+## Server: Create firewall rule
 
 <!-- `azmcp sql server firewall-rule create` -->
 
@@ -125,7 +125,7 @@ Example prompts include:
 
 
 
-## Server: delete firewall rule
+## Server: Delete firewall rule
 
 <!-- `azmcp sql server firewall-rule delete` -->
 
