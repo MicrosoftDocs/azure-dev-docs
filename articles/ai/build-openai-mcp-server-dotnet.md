@@ -32,6 +32,9 @@ The following diagram shows the simple architecture of the sample app:
 
 The MCP server runs as a containerized app on Azure Container Apps (ACA). It uses a TypeScript backend to provide tools to the MCP client through the Model Context Protocol. All tools work with a backend SQLite database.
 
+> [!NOTE]
+> Visit [Build a TypeScript MCP server using Azure Container Apps](build-mcp-server-ts.md) to see the code walkthrough of the TypeScript MCP Server used in this article.
+
 ## Cost
 
 To keep costs low, this sample uses basic or consumption pricing tiers for most resources. Adjust the tier as needed, and delete resources when you're done to avoid charges.
