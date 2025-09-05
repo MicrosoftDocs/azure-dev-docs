@@ -55,16 +55,6 @@ To follow this article, make sure you meet these prerequisites:
 
 Deploy a `gpt-5-mini` model using the AI Foundry Extension in Visual Studio Code using the following steps:
 
-#### Install AI Foundry VS Code Extension from the Visual Studio Code Marketplace
-
-To install the Azure AI Foundry for Visual Studio Code extension from the Visual Studio Code Marketplace, follow these steps:
-
-1. Open the [Azure AI Foundry for Visual Studio Code extension page](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.vscode-ai-foundry).
-1. Select the **Install** button.
-1. Follow the prompts to install the extension in Visual Studio Code.
-1. After installation, open Visual Studio Code and verify the extension is installed successfully from the status messages.
-1. The extension should now be visible in the primary navigation bar on the left side of Visual Studio Code.
-
 #### Create an AI Foundry project and deploy the model
 
 1. To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
