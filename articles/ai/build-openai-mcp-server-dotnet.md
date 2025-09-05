@@ -122,14 +122,14 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Make sure that your deployed model name is `gpt-5-mini`. If your deployed model is different, update `src/McpTodo.ClientApp/appsettings.json` with the correct deployment name.
 
-```json
-{
-  "OpenAI": {
-    // Make sure this is the right deployment name.
-    "DeploymentName": "gpt-5-mini"
-  }
-}
-```
+    ```json
+    {
+      "OpenAI": {
+        // Make sure this is the right deployment name.
+        "DeploymentName": "gpt-5-mini"
+      }
+    }
+    ```
 
 1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
