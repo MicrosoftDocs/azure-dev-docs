@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 7/22/2025
+ms.date: 09/03/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
@@ -20,26 +20,24 @@ The Azure MCP Server lets you manage Azure resources, including Azure SQL databa
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Server: List Microsoft Entra administrators
 
-<!-- 
-azmcp sql server entra-admin list --subscription
--->
 
-Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your SQL servers.
+## Database: list
+
+<!-- `azmcp sql db list` -->
+
+Lists all databases in an Azure SQL Server with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status across a server, compare database configurations, or find databases for management operations.
 
 Example prompts include:
+- **List databases**: "Show me all databases on my 'eastus-sql' server"
+- **Database inventory**: "List databases in resource group 'data' and subscription 'corp-main'"
+- **Check database status**: "What databases are currently active on my SQL server?"
+- **Database overview**: "I need a quick overview of all databases hosted on our production SQL server for the upcoming team meeting"
+- **Database configurations**: "Can you provide a detailed list of all databases on the 'analytics-sql' server, including their performance tiers, sizes, and current operational status?"
 
-- **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
-- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
-- **Security check**: "Who has admin access to my SQL servers?"
-- **Administrator review**: "Need to verify Entra ID admins on SQL server now"
-- **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
-
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Server** | Required | The name of the SQL server to list Microsoft Entra administrators for. |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
 
 
 ## Database: Show database details
@@ -63,8 +61,28 @@ Example prompts include:
 | **Server** | Required | The name of the SQL server hosting the database. |
 | **Database** | Required | The name of the database to get details for. |
 
+## Server: List Microsoft Entra administrators
 
-## Firewall rules: List firewall rules
+<!-- 
+azmcp sql server entra-admin list --subscription
+-->
+
+Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your SQL servers.
+
+Example prompts include:
+
+- **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
+- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
+- **Security check**: "Who has admin access to my SQL servers?"
+- **Administrator review**: "Need to verify Entra ID admins on SQL server now"
+- **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
+
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Server** | Required | The name of the SQL server to list Microsoft Entra administrators for. |
+
+## Server: List firewall rules
 
 <!-- 
 azmcp sql firewall-rule list --subscription
@@ -83,6 +101,50 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the SQL server to list firewall rules for. |
+
+
+## Server: create firewall rule
+
+<!-- `azmcp sql server firewall-rule create` -->
+
+Creates a firewall rule for a SQL server. Firewall rules control which IP addresses 
+are allowed to connect to the SQL server. You can specify either a single IP address 
+(by setting start and end IP to the same value) or a range of IP addresses. 
+
+Example prompts include:
+- **Add firewall rule**: "Create a firewall rule named 'office-access' for my 'prod-sql' server allowing IP range 192.168.1.1 to 192.168.1.100"
+- **Set access range**: "I need to set a firewall rule on my 'analytics-sql' server to allow access from the IP range 10.0.0.1 to 10.0.0.255"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Firewall rule name** |  Required | The name of the firewall rule. |
+| **Start ip address** |  Required | The start IP address of the firewall rule range. |
+| **End ip address** |  Required | The end IP address of the firewall rule range. |
+
+
+
+## Server: delete firewall rule
+
+<!-- `azmcp sql server firewall-rule delete` -->
+
+Deletes a firewall rule from a SQL server. This operation removes the specified 
+firewall rule, potentially restricting access for the IP addresses that were 
+previously allowed by this rule. If the rule 
+doesn't exist, no error is returned.
+
+Example prompts include:
+- **Remove firewall rule**: "Delete the firewall rule named 'office-access' from my 'prod-sql' server"
+- **Revoke access**: "Revoke the firewall rule 'office-access' on my 'prod-sql' server"
+- **Delete access rule**: "I need to delete the firewall rule named 'temp-access' from our 'test-sql' server to tighten security"
+- **Security update**: "Please remove the firewall rule 'guest-access' from our development SQL server immediately to prevent unauthorized access"
+- **Access control**: "Can you delete the firewall rule 'external-access' on our 'marketing-sql' server in the westus region?"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Firewall rule name** |  Required | The name of the firewall rule. |
 
 ## Elastic pools: List elastic pools
 
