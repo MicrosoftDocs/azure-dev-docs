@@ -119,7 +119,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Server** |  Required | The Azure SQL Server name. |
-| **Firewall rule name** |  Required | The name of the firewall rule. |
+| **Firewall rule** |  Required | The name of the firewall rule. |
 | **Start ip address** |  Required | The start IP address of the firewall rule range. |
 | **End ip address** |  Required | The end IP address of the firewall rule range. |
 
@@ -144,7 +144,7 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Server** |  Required | The Azure SQL Server name. |
-| **Firewall rule name** |  Required | The name of the firewall rule. |
+| **Firewall rule** |  Required | The name of the firewall rule. |
 
 ## Elastic pools: List elastic pools
 
