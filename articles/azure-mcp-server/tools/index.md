@@ -29,4 +29,4 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 
 - [What is the Azure MCP Server?](../get-started.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure MCP Server repository](https://github.com/Azure/azure-mcp)
+- [Azure MCP Server repository](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server)
