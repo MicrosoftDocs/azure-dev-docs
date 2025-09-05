@@ -65,7 +65,7 @@ Deploy a `gpt-5-mini` model using the AI Foundry Extension in Visual Studio Code
 
 1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard, as shown in the following screenshot:
 
-    :::image type="content" source="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" lightbox="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" alt-text="Diagram showing architecture from Visual Studio Code hosting the agent and MCP client to MCP Server.":::
+    :::image type="content" source="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" lightbox="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" alt-text="Screenshot showing the context menu for the deployed model with the Copy endpoint and Copy API key options highlighted.":::
 
 
 1. Finally, create a connection string for the deployed `gpt-5-mini` model using the copied endpoint and API key in the following format:
@@ -397,9 +397,9 @@ public static Uri Resolve(this Uri uri, IConfiguration config)
 
 This sample uses JWT (JSON Web Token) authentication to secure the connection between the MCP client and server.
 
-    ```bash
-    dotnet user-secrets --project ./src/McpTodo.ClientApp set McpServers:JWT:Token "$TOKEN"
-    ```
+  ```bash
+  dotnet user-secrets --project ./src/McpTodo.ClientApp set McpServers:JWT:Token "$TOKEN"
+  ```
 
 > [!NOTE]
 > The scripts created the `$TOKEN` variable automatically when you ran either the Bash (`set-jwttoken.sh`) or PowerShell (`Set-JwtToken.ps1`) script earlier in the **Deploy to Azure** section.
