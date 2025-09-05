@@ -387,7 +387,7 @@ public static Uri Resolve(this Uri uri, IConfiguration config)
     var absoluteUrl = uri.ToString();
     if (absoluteUrl.StartsWith("https+http://"))
     {
-        var appname = absoluteUrl.Substring("https+http://".Length").Split('/')[0];
+        var appname = absoluteUrl.Substring("https+http://".Length).Split('/')[0];
         var https = config[$"services:{appname}:https:0"]!;
         var http = config[$"services:{appname}:http:0"]!;
         
