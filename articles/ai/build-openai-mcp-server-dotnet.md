@@ -229,7 +229,7 @@ The sample repository contains all the code and configuration files for the MCP 
     $dotenv | Add-Content -Path ./.azure/$(azd env get-value AZURE_ENV_NAME)/.env -Encoding utf8 -Force
     ```
 
-> [!NOTE]>
+> [!NOTE]
 > 1. By default, the MCP client app is protected by the ACA built-in auth feature. You can turn off this feature before running `azd up` by setting:
 >
 >    ```bash
