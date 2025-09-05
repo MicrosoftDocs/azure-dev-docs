@@ -41,14 +41,14 @@ To keep costs low, this sample uses basic or consumption pricing tiers for most 
 
 ## Prerequisites
 
-1. [Visual Studio Code](https://code.visualstudio.com/) - Latest version to support MCP Server development.
-1. [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
-1. [C# Dev Kit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) Visual Studio Code extension
-1. [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
-1. [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) Visual Studio Code extension
-1. [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [The AI Foundry Extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-foundry) Visual Studio Code extension
-1. A deployed AI Foundry gpt-5-mini model
+- [Visual Studio Code](https://code.visualstudio.com/) - Latest version to support MCP Server development.
+- [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- [C# Dev Kit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) Visual Studio Code extension
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
+- [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) Visual Studio Code extension
+- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+- [The AI Foundry Extension](https://marketplace.visualstudio.com/items?itemName=ms-ai-foundry) Visual Studio Code extension
+- A deployed AI Foundry gpt-5-mini model
 
 A [development container](https://containers.dev/) includes all the dependencies you need for this article. You can run it in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
@@ -60,7 +60,7 @@ Deploy a `gpt-5-mini` model using the AI Foundry Extension in Visual Studio Code
 
 #### Create an AI Foundry project and deploy the model
 
-1. To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
+- To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
 
 #### Create the OpenAI Model connection string
 
@@ -167,14 +167,14 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Make sure that your deployed model name is `gpt-5-mini`. If your deployed model is different, update `src/McpTodo.ClientApp/appsettings.json` with the correct deployment name.
 
-```json
-{
-  "OpenAI": {
-    // Make sure this is the right deployment name.
-    "DeploymentName": "gpt-5-mini"
-  }
-}
-```
+    ```json
+    {
+      "OpenAI": {
+        // Make sure this is the right deployment name.
+        "DeploymentName": "gpt-5-mini"
+      }
+    }
+    ```
 
 1. Sign in to Azure with the Azure Developer CLI.
 
@@ -204,7 +204,7 @@ The sample repository contains all the code and configuration files for the MCP 
 
 #### Set the JWT token
 
-1. Set the JWT token for the MCP server by running the following command in the terminal at the bottom of the screen:
+- Set the JWT token for the MCP server by running the following command in the terminal at the bottom of the screen:
 
     ```bash
     # zsh/bash
@@ -759,7 +759,7 @@ After you finish using the MCP agent, clean up the resources you created to avoi
 
 To clean up resources, follow these steps:
 
-1. Delete the Azure resources created by the Azure Developer CLI by running the following command in the terminal at the bottom of the screen:
+- Delete the Azure resources created by the Azure Developer CLI by running the following command in the terminal at the bottom of the screen:
 
     ```shell
     azd down --purge --force
