@@ -257,7 +257,7 @@ The sample repository contains all the code and configuration files for the MCP 
 
     |Prompt|Answer|
     |--|--|
-    |Environment name|Use a short, lowercase name. Add your name or alias. For example, `my-mcp-agent`. This becomes part of the resource group name.|
+    |Environment name|Use a short, lowercase name. Add your name or alias. For example, `my-mcp-agent`. The environment name becomes part of the resource group name.|
     |Subscription|Choose the subscription where you want to create resources.|
     |Location (for hosting)|Pick the model deployment location from the list.|
     |OpenAI Connection string|Paste the connection string for the OpenAI model you created earlier in the [Create the OpenAI Model connection string](#create-the-openai-model-connection-string) section.|
@@ -336,7 +336,7 @@ builder.Services.AddSingleton<IMcpClient>(sp =>
 
 **Key implementation details:**
 
-- **Transport Configuration**: `SseClientTransportOptions` sets up Server-Sent Events transport. This approach lets the client and server talk to each other in real-time
+- **Transport Configuration**: `SseClientTransportOptions` supports both Server-Sent Events (SSE) and streamable HTTP transport. The transport method depends on the endpoint URL - endpoints ending with `/sse` use Server-Sent Events, while endpoints ending with `/mcp` use streamable HTTP. This approach enables real-time communication between client and server
 - **Authentication Headers**: JWT tokens go in the `AdditionalHeaders` to keep server communication secure
 - **Client Information**: `McpClientOptions` tells the server the client's name and version
 - **Factory Pattern**: `McpClientFactory.CreateAsync()` connects and completes the protocol handshake
