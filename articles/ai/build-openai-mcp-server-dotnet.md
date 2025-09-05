@@ -13,11 +13,11 @@ ms.collection: ce-skilling-ai-copilot
 
 # Build a .NET OpenAI Agent using an MCP server on Azure Container Apps
 
-This article explains how to build a Model Context Protocol (MCP) server using .NET. The server runs tools and services in a serverless environment. Use this structure as a starting point to create custom MCP servers.
+This article shows you how to build a Model Context Protocol (MCP) agent using .NET. In this sample, the MCP client (written in C#/.NET) connects to an MCP server (written in TypeScript) to manage a todo list. The client finds available tools from the server and sends them to an Azure OpenAI model. Users can then talk to the todo system using everyday language.
 
 ## Get to the code
 
-Explore the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai), an example of consuming an existing MCP server. This template creates an MCP agent app in .NET that uses Azure OpenAI and connects to a remote MCP server written in Typescript.
+Check out the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai). This example shows how to use an existing MCP server. The template builds an MCP agent app in .NET that uses Azure OpenAI and connects to a remote MCP server written in TypeScript.
 
 ## Architectural overview
 
@@ -30,7 +30,7 @@ The following diagram shows the simple architecture of the sample app:
 - **Transport Layer**: Uses Server-Sent Events (SSE) to send messages in real-time
 - **Authentication**: Uses JWT tokens to keep the connection secure
 
-The MCP server runs as a containerized app on Azure Container Apps (ACA). It uses a .NET backend to provide tools to the MCP client through the Model Context Protocol. All tools work with a backend SQLite database.
+The MCP server runs as a containerized app on Azure Container Apps (ACA). It uses a TypeScript backend to provide tools to the MCP client through the Model Context Protocol. All tools work with a backend SQLite database.
 
 ## Cost
 
@@ -67,9 +67,9 @@ To install the Azure AI Foundry for Visual Studio Code extension from the Visual
 
 1. To create an AI Foundry project and deploy a `gpt-5-mini` model, follow the **Get Started** instructions in the [Work with the Azure AI Foundry for Visual Studio Code extension (Preview)](/azure/ai-foundry/how-to/develop/get-started-projects-vs-code#get-started) article.
 
-1. Once you have deployed the `gpt-5-mini` model, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. You will need this API key later in the article.
+1. Once the `gpt-5-mini` model is deployed, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. You need this API key later in the article.
 
-1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard. You will also need this endpoint later in the article.
+1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard. You also need this endpoint later in the article.
 
 1. Finally, create a connection string for the deployed `gpt-5-mini` model using the copied endpoint and API key in the following format:
  `Endpoint=<AZURE_OPENAI_ENDPOINT>;Key=<AZURE_OPENAI_API_KEY>`.
@@ -246,33 +246,33 @@ The sample repository contains all the code and configuration files for the MCP 
 
     |Prompt|Answer|
     |--|--|
-    |Environment name|Keep it short and lowercase. Add your name or alias. For example, `my-mcp-agent`. It's used as part of the resource group name.|
-    |Subscription|Select the subscription to create the resources in. |
-    |Location (for hosting)|Select a location near you from the list.|
-    |OpenAI / GitHub model Connection string|Enter the connection string for the OpenAI or GitHub model.|
+    |Environment name|Use a short, lowercase name. Add your name or alias. For example, `my-mcp-agent`. This becomes part of the resource group name.|
+    |Subscription|Choose the subscription where you want to create resources.|
+    |Location (for hosting)|Pick the model deployment location from the list.|
+    |OpenAI / GitHub model Connection string|Type the connection string for the OpenAI or GitHub model.|
 
-1. Wait until the app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
+1. App deployment takes 5 to 10 minutes.
 
-1. Once the deployment is complete, you can access the MCP agent using the URL provided in the output. The URL looks like this:
+1. After deployment finishes, you can access the MCP agent using the URL in the output. The URL looks like this:
 
 ```bash
 https://<env-name>.<container-id>.<region>.azurecontainerapps.io
 ```
 
-1. Navigate to URL in a web browser to access the MCP agent.
+1. Open the URL in a web browser to use the MCP agent.
 
 ### Use the TODO MCP agent
 
 After the MCP agent is running, you can use the tools it provides in agent mode. To use MCP tools in agent mode:
 
-1. Navigate to the client app URL and login to the app.
+1. Navigate to the client app URL and sign in to the app.
 
     > [!NOTE]
-    > if you set the `USE_LOGIN` value to `false`, you might not be asked to login.
+    > if you set the `USE_LOGIN` value to `false`, you might not be asked to sign in.
 
 1. Enter a prompt such as "I need to send an email to my manager on Wednesday" in the chat input box and notice how tools are automatically invoked as needed.
 
-1. The MCP agent will use the tools provided by the MCP server to fulfill the request and return a response in the chat interface.
+1. The MCP agent uses the tools provided by the MCP server to fulfill the request and return a response in the chat interface.
 
 1. Experiment with other prompts like:
 
@@ -325,14 +325,14 @@ builder.Services.AddSingleton<IMcpClient>(sp =>
 
 **Key implementation details:**
 
-- **Transport Configuration**: `SseClientTransportOptions` sets up Server-Sent Events transport. This lets the client and server talk to each other in real-time
+- **Transport Configuration**: `SseClientTransportOptions` sets up Server-Sent Events transport. This approach lets the client and server talk to each other in real-time
 - **Authentication Headers**: JWT tokens go in the `AdditionalHeaders` to keep server communication secure
 - **Client Information**: `McpClientOptions` tells the server the client's name and version
 - **Factory Pattern**: `McpClientFactory.CreateAsync()` connects and completes the protocol handshake
 
 #### .NET Aspire service defaults integration
 
-The application leverages .NET Aspire's service defaults pattern for cross-cutting concerns:
+The application uses .NET Aspire's service defaults pattern for cross-cutting concerns:
 
 ```csharp
 // McpTodo.ServiceDefaults/Extensions.cs
@@ -609,7 +609,7 @@ Here's how a typical user interaction flows through the system:
 1. **User Input**: The user types a message like "Add 'Buy groceries' to my todo list"
 2. **Message Processing**: The system adds the message to the conversation history
 3. **LLM Analysis**: Azure OpenAI analyzes the request and decides which tools to use
-4. **Tool Discovery**: The model finds the right MCP tool (e.g., `addTodo`)
+4. **Tool Discovery**: The model finds the right MCP tool (for example, `addTodo`)
 5. **Tool Execution**: The MCP client calls the server with the needed parameters
 6. **Response Processing**: The system adds the server response to the conversation
 7. **UI Update**: The system shows the result to the user in real-time
