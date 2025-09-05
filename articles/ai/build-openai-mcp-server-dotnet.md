@@ -71,12 +71,15 @@ To install the Azure AI Foundry for Visual Studio Code extension from the Visual
 
 #### Create the OpenAI Model connection string
 
-1. Once the `gpt-5-mini` model is deployed, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. You need this API key later in the article as part of the connection string.
+1. Once the `gpt-5-mini` model is deployed, right-click the model in the AI Foundry extension and select **Copy API key** to copy the model's API key to your clipboard. 
 
-1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard. You also need this endpoint later in the article as part of the connection string.
+1. Next, right-click the deployed `gpt-5-mini` model in the AI Foundry extension and select **Copy endpoint** to copy the model's endpoint to your clipboard, as shown in the following screenshot:
+
+    :::image type="content" source="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" lightbox="./media/build-openai-mcp-server-dotnet/copy-api-key-endpoint.png" alt-text="Diagram showing architecture from Visual Studio Code hosting the agent and MCP client to MCP Server.":::
+
 
 1. Finally, create a connection string for the deployed `gpt-5-mini` model using the copied endpoint and API key in the following format:
- `Endpoint=<AZURE_OPENAI_ENDPOINT>;Key=<AZURE_OPENAI_API_KEY>`.
+ `Endpoint=<AZURE_OPENAI_ENDPOINT>;Key=<AZURE_OPENAI_API_KEY>`. You need this connection string later in the article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -432,7 +435,7 @@ This approach ensures:
 
 #### Azure Container Apps Authentication Integration
 
-The infrastructure shows advanced authentication patterns using Azure Container Apps EasyAuth:
+The infrastructure shows advanced authentication patterns using [Azure Container Apps built-in authentication and authorization features ("Easy Auth")](/azure/container-apps/authentication):
 
 ```bicep
 // containerapps-authconfigs.bicep
