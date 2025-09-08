@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 07/08/2025
+ms.date: 09/08/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
@@ -10,6 +10,79 @@ ms.topic: article
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for August 2025
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Azure Developer CLI environments overview](../azure-developer-cli/environments-overview.md)
+- [Work with Azure Developer CLI environments](../azure-developer-cli/work-with-environments.md)
+
+Updated articles:
+
+- [Customize your Azure Developer CLI workflows using command and event hooks](../azure-developer-cli/azd-extensibility.md) - Expand feature coverage
+- [Explore the Azure Developer CLI initialization workflows](../azure-developer-cli/azd-init-workflow.md) - Expand feature coverage
+- [Work with Azure Developer CLI environment variables](../azure-developer-cli/manage-environment-variables.md) - Environment variables refresh
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure Cloud Architect design tools for the Azure MCP Server](../azure-mcp-server/tools/azure-cloud-architect.md)
+- [Azure Container Registry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-container-registry.md)
+- [Azure Database for MySQL tools for Azure MCP Server](../azure-mcp-server/tools/azure-mysql.md)
+- [Azure Deploy tools for the Azure MCP Server](../azure-mcp-server/tools/azure-deploy.md)
+- [Azure Functions tools for the Azure MCP Server](../azure-mcp-server/tools/azure-functions.md)
+- [Azure Health Resources tools for the Azure MCP Server](../azure-mcp-server/tools/azure-health-resource.md)
+- [Azure Managed Lustre tools for Azure MCP Server](../azure-mcp-server/tools/azure-managed-lustre.md)
+- [Azure Quotas for the Azure MCP Server](../azure-mcp-server/tools/azure-quotas.md)
+- [Azure Virtual Desktop tools for the Azure MCP Server](../azure-mcp-server/tools/azure-virtual-desktop.md)
+- [Get started with the Azure MCP Server in Cursor](../azure-mcp-server/get-started/tools/cursor.md)
+- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md)
+- [Marketplace tools for the Azure MCP Server](../azure-mcp-server/tools/azure-marketplace.md)
+
+Updated articles:
+
+- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
+  - MCP tool - new Azure Container Registries, updated Storage w/new operations - 0.5.5
+  - MCP: 0.5.3 - Storage - updated operations and parameters
+  - MCP - updates to storage, aks, best practices
+
+### GitHub Copilot for Azure
+
+New articles:
+
+- [Generate a Django and PostgreSQL app and deploy to Azure](../github-copilot-azure/generate-deploy-django-postgresql.md)
+
+### Azure for Java
+
+Updated Azure Search articles to include Java coverage:
+
+- [Quickstart: Generative search (RAG) using grounding data from Azure AI Search](/azure/search/search-get-started-rag?pivots=java)
+- [Quickstart: Semantic ranking](/azure/search/search-get-started-semantic?pivots=java)
+
+### Azure for JavaScript
+
+New articles:
+
+- [TypeScript](../javascript/javascript-zone-pivot-groups.yml)
+
+Updated articles:
+
+- [Configure logging in Azure SDK client libraries for JavaScript](../javascript/sdk/debug-client-libraries.md) - Update SDK debug client libraries
+- [Credential chains in the Azure Identity client library for JavaScript](../javascript/sdk/authentication/credential-chains.md) - Update JS credential chains doc for 4.11.0 release
+
+### Azure for Python
+
+New articles:
+
+- [Azure SDK Language Design Guidelines for Python](../python/sdk/fundamentals/language-design-guidelines.md)
+- [Handling errors produced by the Azure SDK for Python](../python/sdk/fundamentals/errors.md)
+- [Overview of Azure SDK for Python fundamentals](../python/sdk/fundamentals/overview.md)
+- [Understanding common response types in the Azure SDK for Python](../python/sdk/fundamentals/common-types-response.md)
+- [Understanding HTTP pipeline and retries in the Azure SDK for Python](../python/sdk/fundamentals/http-pipeline-retries.md)
 
 ## What's new for July 2025
 
@@ -165,99 +238,3 @@ Updated articles:
 - [Deploy Python web apps to App Service by using GitHub Actions (Linux)](../python/python-web-app-github-actions-app-service.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 - [Get started: Chat using your own data (Python sample)](../python/get-started-app-chat-template.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 - [Overview of the Python web azd templates](../python/overview-azd-templates.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
-
-## What's new for May 2025
-
-### AI apps using Azure services
-
-New article:
-
-- [Build Agents using Model Context Protocol on Azure](../ai/intro-agents-mcp.md)
-
-### Azure Developer CLI (azd)
-
-New articles:
-
-- [Advanced pipeline features and configurations](../azure-developer-cli/pipeline-advanced-features.md)
-- [Azure Developer CLI extensions overview](../azure-developer-cli/extensions/overview.md)
-- [Create a GitHub Actions CI/CD pipeline using the Azure Developer CLI](../azure-developer-cli/pipeline-github-actions.md)
-- [Create a pipeline definition](../azure-developer-cli/pipeline-create-definition.md)
-- [Create an Azure DevOps CI/CD pipeline using the Azure Developer CLI](../azure-developer-cli/pipeline-azure-pipelines.md)
-- [Explore the Azure Developer CLI initialization workflows](../azure-developer-cli/azd-init-workflow.md)
-- [Quickstart: Explore the demo extension](../azure-developer-cli/extensions/quickstart-ai-extension.md)
-
-Updated article:
-
-- [Explore Azure Developer CLI support for CI/CD pipelines](../azure-developer-cli/configure-devops-pipeline.md) - Split out large CI/CD pipeline article into smaller, more relevant docs.
-
-### Azure for .NET
-
-New articles:
-
-- [C# SDK for MCP overview](/dotnet/ai/get-started-mcp)
-- [Create and connect to a minimal MCP server using .NET](/dotnet/ai/quickstarts/build-mcp-server)
-- [Create a minimal MCP client using .NET](/dotnet/ai/quickstarts/build-mcp-client)
-
-### Azure MCP Server
-
-New articles:
-
-- [What is the Azure MCP Server (Preview)?](../azure-mcp-server/index.yml)
-- [Get started with Azure MCP Server](../azure-mcp-server/get-started.md)
-- [What are the Azure MCP Server tools?](../azure-mcp-server/tools/index.md)
-- [Azure AI Search tools for the Azure MCP Server](../azure-mcp-server/tools/ai-search.md)
-- [Azure App Configuration tools for the Azure MCP Server](../azure-mcp-server/tools/app-configuration.md)
-- [Azure CLI extension tools for the Azure MCP Server](../azure-mcp-server/tools/azure-cli-extension.md)
-- [Azure Data Explorer with Kusto tools for the Azure MCP Server](../azure-mcp-server/tools/kusto.md)
-- [Azure Database for PostgreSQL tools for the Azure MCP Server](../azure-mcp-server/tools/postgresql.md)
-- [Azure Cosmos DB tools for the Azure MCP Server](../azure-mcp-server/tools/cosmos-db.md)
-- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/key-vault-key.md)
-- [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/monitor.md)
-- [Azure Service Bus tools for the Azure MCP Server](../azure-mcp-server/tools/service-bus.md)
-- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
-- [Resource Group tools for the Azure MCP Server](../azure-mcp-server/tools/resource-group.md)
-- [Subscription tools for the Azure MCP Server](../azure-mcp-server/tools/subscription.md)
-
-### Azure for C++
-
-New articles:
-
-- [Azure for C++ developers](../cpp/index.yml)
-- [Install & Integrate libraries from the Azure SDK for C++](../cpp/sdk/install-and-integrate-the-sdk.md)
-- [What is the Azure SDK for C++?](../cpp/sdk/overview.md)
-- [Core Concepts of the Azure SDK for C++](../cpp/sdk/fundamentals/overview.md)
-- [Error handling in the Azure SDK for C++](../cpp/sdk/fundamentals/errors.md)
-- [HTTP Pipelines and Retries in the Azure SDK for C++](../cpp/sdk/fundamentals/http-pipelines-and-retries.md)
-- [Common Types in the Azure SDK for C++](../cpp/sdk/fundamentals/common-types.md)
-- [Authenticate C++ apps to Azure services by using the Azure SDK for C++](../cpp/sdk/authentication/overview.md)
-- [Credential chains in the Azure Identity client library for C++](../cpp/sdk/authentication/credential-chains.md)
-
-### GitHub Copilot for Azure
-
-New articles:
-
-- [Getting support for GitHub Copilot for Azure](../github-copilot-azure/support.md)
-- [Quickstart: Deploy your application to Azure with agent mode in GitHub Copilot for Azure](../github-copilot-azure/quickstart-deploy-app-agent-mode.md)
-
-### Azure for Java
-
-New articles:
-
-- [GitHub Copilot App Modernization for Java (preview)](../java/migration/migrate-github-copilot-app-modernization-for-java.md)
-- [GitHub Copilot App Modernization for Java (preview) FAQ](../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml)
-- [Predefined formulas for GitHub Copilot App Modernization for Java (preview)](../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-formula.md)
-- [Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java (preview)](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-- [Quickstart: create and apply your own formulas for GitHub Copilot App Modernization for Java (preview)](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-formula.md)
-- [Asset Manager migration sample for GitHub Copilot App Modernization for Java (preview)](../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md)
-
-### Azure for JavaScript
-
-New article:
-
-- [Authentication best practices with the Azure Identity library for JavaScript](../javascript/sdk/authentication/best-practices.md)
-
-### TypeSpec
-
-New article:
-
-- [Quickstart: Create a new API project with TypeSpec](../typespec/quickstart-scaffold-dotnet.md)
