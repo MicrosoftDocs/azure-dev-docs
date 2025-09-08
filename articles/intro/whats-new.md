@@ -65,10 +65,6 @@ Updated Azure Search articles to include Java coverage:
 
 ### Azure for JavaScript
 
-New articles:
-
-- [TypeScript](../javascript/javascript-zone-pivot-groups.yml)
-
 Updated articles:
 
 - [Configure logging in Azure SDK client libraries for JavaScript](../javascript/sdk/debug-client-libraries.md) - Update SDK debug client libraries
