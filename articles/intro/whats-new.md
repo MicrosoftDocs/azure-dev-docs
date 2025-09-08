@@ -58,7 +58,7 @@ New articles:
 
 ### Azure for Java
 
-Updated Azure Search articles to include Java coverage:
+Updated Azure AI Search articles to include Java coverage:
 
 - [Quickstart: Generative search (RAG) using grounding data from Azure AI Search](/azure/search/search-get-started-rag?pivots=java)
 - [Quickstart: Semantic ranking](/azure/search/search-get-started-semantic?pivots=java)
