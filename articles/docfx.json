@@ -50,6 +50,9 @@
       "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/"      
     },
     "fileMetadata": {
+      "monikerRange": {
+        ".articles/azure-mcp/server/tools/azure-sql.md": "= azuresql || = azuresql-db"
+      },
       "feedback_help_link_url": {
         "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure"
       },
