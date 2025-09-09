@@ -134,7 +134,9 @@
       },
       "manager": {
         "**/*.md": "mcleans",
-        "**/*.yml": "mcleans"
+        "**/*.yml": "mcleans",
+        "terraform/**/*.md": "jasongroce",
+        "terraform/**/*.yml": "jasongroce"
       },
       "ms.author": {
         "**/*.md": "mcleans",
@@ -193,8 +195,6 @@
         "javascript/**/*.yml": "nodejs",
         "rust/**/*.md": "rust",
         "rust/**/*.yml": "rust"
-
-
       },
       "ms.service": {
         "ai/**/*.md": "azure",
@@ -215,7 +215,9 @@
         "github-copilot-azure/**/*.yml": "github-copilot-for-azure",
         "go/**/*.md": "azure-go",
         "go/**/*.yml": "azure-go",
+        "iac/**/*.yml": "azure",
         "intro/**/*.md": "azure",
+        "intro/**/*.yml": "azure",
         "java/**/*.md": "azure-java",
         "java/**/*.yml": "azure-java",
         "javascript/**/*.md": "azure-javascript",
@@ -236,6 +238,9 @@
       "ms.subservice": {
         "ai/**/*.md": "intelligent-apps",
         "ai/**/*.yml": "intelligent-apps",
+        "iac/**/*.yml": "developer",
+        "intro/**/*.md": "developer",
+        "intro/**/*.yml": "developer",
         "javascript/ai/**/*.md": "intelligent-apps",
         "java/ai/**/*.md": "intelligent-apps",
         "java/ai/**/*.yml": "intelligent-apps",
