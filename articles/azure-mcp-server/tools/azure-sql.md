@@ -9,14 +9,14 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/03/2025
+ms.date: 09/09/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure SQL databases and servers, using natural language prompts. This feature lets you quickly manage your database resources without remembering complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure SQL Database resources, using natural language prompts. This feature lets you quickly manage your database resources without remembering complex syntax.
 
-[Azure SQL](/azure/azure-sql/) is a family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. 
+[Azure SQL Database](/azure/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
