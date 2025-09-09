@@ -10,7 +10,6 @@ ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
 ms.date: 09/03/2025
-monikerRange: "= azuresql || = azuresql-db"
 ---
 
 # Azure SQL tools for the Azure MCP Server
