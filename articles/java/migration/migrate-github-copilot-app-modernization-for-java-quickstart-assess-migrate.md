@@ -82,7 +82,7 @@ Upon completion of the analysis, the modernization assessor produces a categoriz
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
 
-When reviewing the summary report, you can select **Migrate to Azure SQL Database (Spring)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, select **Migrate** to move to the code remediation stage.
+When reviewing the summary report, you can select **Migrate to Azure SQL Database (Spring)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, select **Run Task** to move to the code remediation stage.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
@@ -90,7 +90,7 @@ When reviewing the summary report, you can select **Migrate to Azure SQL Databas
 
 The migration Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Database Migration (Microsoft SQL) tasks change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
-1. In the **Assessment Report**, select **Migrate**. The Copilot chat window opens with Agent Mode.
+1. In the **Assessment Report**, select **Run Task**. The Copilot chat window opens with Agent Mode.
 
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot agent uses various tools for App Modernization and each tool requires confirmation to proceed.
 
@@ -138,8 +138,7 @@ After migration, manually input **continue** to proceed build validation. It inc
 > [!NOTE]
 > This step needs you open Docker Desktop to prepare container.
 
-On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Deployment Tasks** in the **TASKS** section and click **Deploy to Azure**.
-This tool will help prepare Azure resources and push codes image to Azure. See .
+On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Deployment Tasks** in the **TASKS** section and click **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**. See []() for more information.
 
 ## Next step
 
