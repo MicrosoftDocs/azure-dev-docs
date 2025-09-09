@@ -164,7 +164,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Server** | Required | The name of the resource to list elastic pools for. |
+| **Server** | Required | The name of the resource. |
 
 ## Related content
 
