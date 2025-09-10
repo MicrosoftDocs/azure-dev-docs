@@ -49,12 +49,12 @@ For more information, see [Install a VS Code extension](https://code.visualstudi
 
 ## Upgrade JDK and dependencies version
 Here are 2 ways to upgrade JDK version:
-On the sidebar, select the **Github Copilot app modernization for Java** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
+On the sidebar, select the **Github Copilot app modernization for Java** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](java/upgrade/quickstart-upgrade) for more information.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-jdk-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-jdk-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
 
 Use the following steps to upgrade Spring framework or third-party dependency:
-Run **Upgrade Java Framework** task in the **TASKS - Upgrade Tasks** section. See [Upgrade a framework or third-party dependency by using GitHub Copilot App Modernization – upgrade for Java](https://learn.microsoft.com/java/upgrade/framework-upgrade) for more information.
+Run **Upgrade Java Framework** task in the **TASKS - Upgrade Tasks** section. See [Upgrade a framework or third-party dependency by using GitHub Copilot App Modernization – upgrade for Java](java/upgrade/framework-upgrade) for more information.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-framework-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-framework-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade framework.":::
 
@@ -132,7 +132,7 @@ After migration, manually input **continue** to proceed build validation. It inc
 ### Generate Unit Test Cases
 1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
 
-1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-unit-tests) for more information.
+1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](java/upgrade/quickstart-unit-tests) for more information.
 
 ## Deploy to Azure
 > [!NOTE]
