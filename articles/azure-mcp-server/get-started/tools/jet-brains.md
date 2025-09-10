@@ -43,20 +43,6 @@ To install and configure Azure MCP Server in IntelliJ:
 
 [!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
-## Authenticate to Azure
-
-1. Make sure you're signed-in to Azure using one of the supported local tooling options, such as:
-
-    - [Azure CLI](/cli/azure/install-azure-cli-windows)
-    - [Azure Toolkit for IntelliJ](/azure/developer/java/sdk/authentication/dev-env#intellij-credential)
-    - [Azure Developer CLI](/azure/developer/azure-developer-cli/reference#azd-auth)
-
-    For example, run the following command in a terminal window to sign-in using the Azure CLI:
-
-    ```azurecli
-    az login
-    ```
-
 ## Use prompts to test the Azure MCP Server
 
 1. Select the **AI Chat** button on the right toolbar to open IntelliJ's AI assistant interface.
