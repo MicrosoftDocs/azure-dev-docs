@@ -24,7 +24,7 @@ In this article, you learn how to complete the following tasks:
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
 - [Visual Studio](https://visualstudio.microsoft.com)
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Install the Azure MCP Server
 

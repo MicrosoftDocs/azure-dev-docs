@@ -27,6 +27,8 @@ In this article, you learn how to complete the following tasks:
 
 [!INCLUDE [permissions-note](../../includes/permissions-note.md)]
 
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
+
 ## Install the Azure MCP Server
 
 Select one of the following options to install the Azure MCP Server in Visual Studio Code:

@@ -25,7 +25,7 @@ In this article, you learn how to complete the following tasks:
 - [Cline](https://cline.bot/) installed
 - [Node.js](https://nodejs.org/) LTS installed
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Install the Azure MCP Server
 

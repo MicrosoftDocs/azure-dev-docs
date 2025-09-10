@@ -24,8 +24,6 @@ In this article, you learn how to complete the following tasks:
 - [IntelliJ](https://cursor.sh/) installed
 - [Node.js](https://nodejs.org/) LTS installed
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
-
 ## Install the Azure MCP Server
 
 To install and configure Azure MCP Server in IntelliJ:
@@ -42,6 +40,8 @@ To install and configure Azure MCP Server in IntelliJ:
     - **Arguments**: *-y @azure/mcp@latest server start*
 
 1. Leave the rest of the form fields blank, and select **OK** to close the dialog.
+
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Authenticate to Azure
 

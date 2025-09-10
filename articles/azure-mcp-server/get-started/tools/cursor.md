@@ -51,6 +51,8 @@ To install and configure Azure MCP Server in Cursor:
     }
     ```
 
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
+
 ## Use prompts to test the Azure MCP Server
 
 1. Open Cursor's AI chat interface by pressing `Ctrl+L` or clicking the chat icon in the sidebar.
