@@ -9,16 +9,56 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 7/22/2025
+ms.date: 09/09/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure SQL databases and servers, using natural language prompts. This feature lets you quickly manage your database resources without remembering complex syntax.
+The Azure MCP Server lets you manage Azure resources, including Azure SQL Database resources, using natural language prompts. This feature lets you quickly manage your database resources without remembering complex syntax.
 
-[Azure SQL](/azure/azure-sql/) is a family of managed, secure, and intelligent products that use the SQL Server database engine in the Azure cloud. Azure SQL includes Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VMs. These products provide flexible options for migrating, modernizing, and developing applications.
+[Azure SQL Database](/azure/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
+
+
+## Database: List databases
+
+<!-- `azmcp sql db list` -->
+
+Lists all databases in your cloud resource with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status, compare database configurations, or find databases for management operations.
+
+Example prompts include:
+- **List databases**: "Show me all databases on my 'eastus-sql' server"
+- **Database inventory**: "List databases in resource group 'data' and subscription 'corp-main'"
+- **Check database status**: "What databases are currently active on my SQL server?"
+- **Database overview**: "I need a quick overview of all databases hosted on our production SQL server for the upcoming team meeting"
+- **Database configurations**: "Can you provide a detailed list of all databases on the 'analytics-sql' server, including their performance tiers, sizes, and current operational status?"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required |The name of the resource. |
+
+
+## Database: Show database details
+
+<!-- 
+azmcp sql db show --subscription
+-->
+
+Retrieves detailed information about a specific database. Use this command to check the configuration, performance tier, size, and other characteristics of your database.
+
+Example prompts include:
+
+- **View database details**: "Show me details for the 'inventory' database on my 'eastus-sql' server"
+- **Check database configuration**: "Can you tell me the specifications and current state of my customer-db database in the prod-dbs resource group and finance subscription?"
+- **Database information**: "Database details... financial-data... need info now"
+- **Check performance tier**: "What service tier is my analytics database using? And is it properly sized for our workload?"
+- **Database properties**: "I want to see all performance metrics, sizing options, and configuration settings for the orders database hosted on commerce-sql-01 in the west-europe region"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Server** | Required | The name of the resource. |
+| **Database** | Required | The name of the database on the resource. |
 
 ## Server: List Microsoft Entra administrators
 
@@ -26,7 +66,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure SQL databa
 azmcp sql server entra-admin list --subscription
 -->
 
-Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your SQL servers.
+Lists Microsoft Entra ID administrators configured for a resource. Use this command to manage and audit identity-based access to your resource.
 
 Example prompts include:
 
@@ -39,38 +79,15 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Server** | Required | The name of the SQL server to list Microsoft Entra administrators for. |
+| **Server** | Required | The name of the resource. |
 
-
-## Database: Show database details
-
-<!-- 
-azmcp sql db show --subscription
--->
-
-Retrieves detailed information about a specific Azure SQL database. Use this command to check the configuration, performance tier, size, and other characteristics of your database.
-
-Example prompts include:
-
-- **View database details**: "Show me details for the 'inventory' database on my 'eastus-sql' server"
-- **Check database configuration**: "Can you tell me the specifications and current state of my customer-db database in the prod-dbs resource group and finance subscription?"
-- **Database information**: "Database details... financial-data... need info now"
-- **Check performance tier**: "What service tier is my analytics database using? And is it properly sized for our workload?"
-- **Database properties**: "I want to see all performance metrics, sizing options, and configuration settings for the orders database hosted on commerce-sql-01 in the west-europe region"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Server** | Required | The name of the SQL server hosting the database. |
-| **Database** | Required | The name of the database to get details for. |
-
-
-## Firewall rules: List firewall rules
+## Server: List firewall rules
 
 <!-- 
 azmcp sql firewall-rule list --subscription
 -->
 
-Lists all firewall rules for a specific Azure SQL server. Use this command to manage and review the network access settings for your SQL server.
+Lists all firewall rules for a specific resource. Use this command to manage and review the network access settings for your resource.
 
 Example prompts include:
 
@@ -82,7 +99,51 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Server** | Required | The name of the SQL server to list firewall rules for. |
+| **Server** | Required | The name of the resource. |
+
+
+## Server: Create firewall rule
+
+<!-- `azmcp sql server firewall-rule create` -->
+
+Creates a firewall rule for a resource. Firewall rules control which IP addresses 
+are allowed to connect to the resource. You can specify either a single IP address 
+(by setting start and end IP to the same value) or a range of IP addresses. 
+
+Example prompts include:
+- **Add firewall rule**: "Create a firewall rule named 'office-access' for my 'prod-sql' server allowing IP range 192.168.1.1 to 192.168.1.100"
+- **Set access range**: "I need to set a firewall rule on my 'analytics-sql' server to allow access from the IP range 10.0.0.1 to 10.0.0.255"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The name of the resource. |
+| **Firewall rule** |  Required | The name of the firewall rule. |
+| **Start ip address** |  Required | The start IP address of the firewall rule range. |
+| **End ip address** |  Required | The end IP address of the firewall rule range. |
+
+
+
+## Server: Delete firewall rule
+
+<!-- `azmcp sql server firewall-rule delete` -->
+
+Deletes a firewall rule from a resource. This operation removes the specified 
+firewall rule, potentially restricting access for the IP addresses that were 
+previously allowed by this rule. If the rule 
+doesn't exist, no error is returned.
+
+Example prompts include:
+- **Remove firewall rule**: "Delete the firewall rule named 'office-access' from my 'prod-sql' server"
+- **Revoke access**: "Revoke the firewall rule 'office-access' on my 'prod-sql' server"
+- **Delete access rule**: "I need to delete the firewall rule named 'temp-access' from our 'test-sql' server to tighten security"
+- **Security update**: "Please remove the firewall rule 'guest-access' from our development SQL server immediately to prevent unauthorized access"
+- **Access control**: "Can you delete the firewall rule 'external-access' on our 'marketing-sql' server in the westus region?"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The name of the resource. |
+| **Firewall rule** |  Required | The name of the firewall rule. |
 
 ## Elastic pools: List elastic pools
 
@@ -90,7 +151,7 @@ Example prompts include:
 azmcp sql elastic-pool list --subscription
 -->
 
-Lists all elastic pools for a specific Azure SQL server. Elastic pools are a resource allocation solution that lets you manage and scale multiple databases with varying resource demands.
+Lists all elastic pools for a specific resource. Elastic pools are a resource allocation solution that lets you manage and scale multiple databases with varying resource demands.
 
 Example prompts include:
 
@@ -102,10 +163,11 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Server** | Required | The name of the SQL server to list elastic pools for. |
+| **Server** | Required | The name of the resource. |
 
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure SQL Database documentation](/azure/azure-sql/database/)
+
