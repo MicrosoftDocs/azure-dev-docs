@@ -104,10 +104,7 @@ Choose an authentication method which suits your needs. We offer multiple creden
     }
     ```
 
-    **Key points:**
-
-    - The `subscriptionId` value is retrieved from the `AZURE_SUBSCRIPTION_ID` environment variable.
-    - The `location` and `resourceGroupName` strings are set to test values. If necessary, change those values to something appropriate for your location and subscription.
+    The `location` and `resourceGroupName` strings are set to test values. If necessary, change those values to something appropriate for your location and subscription.
 
 1. Run [go mod tidy](https://go.dev/ref/mod#go-mod-tidy) to clean up the dependencies in the `go.mod` file based on your source code.
 
