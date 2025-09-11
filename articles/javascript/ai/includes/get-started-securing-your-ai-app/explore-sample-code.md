@@ -9,9 +9,7 @@ While OpenAI and Azure OpenAI Service rely on a [openai](https://www.npmjs.com/p
 
 ### Keyless authentication for each environment
 
-The Azure Identity client library provides credential classes that implement the Azure Core library's [TokenCredential](/javascript/api/@azure/identity/tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together using [`ChainedTokenCredential`](/javascript/api/%40azure/identity/chainedtokencredential) to form an ordered sequence of authentication mechanisms to be attempted. This allows you to deploy the same code in both production and local development environments.
-
-:::image type="content" source="./chained-token-credential.svg" alt-text="Diagram showing the two credentials in the flow where the managed identity is tried first then the default Azure credential is tried.":::
+The Azure Identity client library provides credential classes that implement the Azure Core library's [`TokenCredential`](/javascript/api/@azure/identity/tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together using a [ChainedTokenCredential](../../../sdk/authentication/credential-chains.md) to form an ordered sequence of authentication mechanisms to be attempted. This allows you to deploy the same code in both production and local development environments.
 
 ### Configure authentication with managed identity
 
