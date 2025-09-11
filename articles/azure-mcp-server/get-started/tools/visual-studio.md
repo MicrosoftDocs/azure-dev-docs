@@ -39,8 +39,6 @@ Visual Studio uses a file named `mcp.json` to check for MCP Server configuration
 
 The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio. 
 
-[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
-
 ## [Solution install](#tab/manual)
 
 Complete the following steps to install Azure MCP Server for a specific directory:
@@ -98,6 +96,8 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 ---
 
 :::image type="content" source="../../media/github-copilot-mcp-tools-visual-studio.png" alt-text="A screenshot showing how to configure Azure MCP Server in Visual Studio.":::
+
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Use prompts to test the Azure MCP Server
 
