@@ -311,11 +311,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/javascript/ai/includes/get-started-securing-your-ai-app/chained-credential-quickstart-mermaid.md",
-      "redirect_url": "/azure/developer/javascript/sdk/authentication/credential-chains",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/javascript/sdk/authentication/azure-hosted-apps.md",
       "redirect_url": "/azure/developer/javascript/sdk/authentication/system-assigned-managed-identity"
     },
