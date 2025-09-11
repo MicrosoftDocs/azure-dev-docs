@@ -1,14 +1,14 @@
 ---
 title: Key Azure Services for Go developers
 description: Azure has over 100 services, but these are the 8 services most frequently used by Go developers.
-ms.date: 7/29/2024
+ms.date: 09/11/2025
 ms.topic: article
 ms.custom: devx-track-go
 ---
 
 # Key Azure services for Go developers
 
-While Azure offers over 100 services, Go developers use the following Azure services the most frequently.
+Azure offers over 100 services, but Go developers most often use these services.
 
 | Icon | Service | Description |
 |:----:|:--------|:------------|
@@ -19,9 +19,9 @@ While Azure offers over 100 services, Go developers use the following Azure serv
 | ![Azure Kubernetes Service](./media/service-icons/azure-kubernetes-service.svg) | **Azure Kubernetes Service** | [Azure Kubernetes Service](/azure/aks/) (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. |
 | ![Azure Virtual Machines](./media/service-icons/virtual-machine.svg) | **Azure Virtual Machines**   | [Azure virtual machines](/azure/virtual-machines/) (VMs) enable you to create dedicated compute resources in minutes that can be used just like a physical desktop or server machine. |
 | ![Azure Key Vault Icon](./media/service-icons/key-vaults.svg) | **Azure Key Vault**   | [Azure Key Vault](/azure/key-vault/general/) helps you store and access secrets securely, in an encrypted vault with restricted access to make sure your secrets and your application are not compromised.   |
-| ![Azure AI services Icon](./media/service-icons/azure-openai.svg) | **Azure AI services**   | [Azure AI services](/azure/ai-services/) are a collection of cloud-based services that allow you to add AI based capabilities to your application.  Examples include computer vision, speech recognition, language understanding, and anomaly detection. |
+| ![Azure AI services Icon](./media/service-icons/azure.svg) | **Azure AI services**   | [Azure AI services](/azure/ai-foundry/) are a collection of cloud-based services that allow you to add AI based capabilities to your application.  Examples include computer vision, speech recognition, language understanding, and anomaly detection. |
 
-For the full list of Azure products and services, visit the [Azure documentation home page](/azure/?product=all).
+For the full list of Azure products and services, see the [Azure documentation home page](/azure/?product=all).
 
 ### Next steps
 
