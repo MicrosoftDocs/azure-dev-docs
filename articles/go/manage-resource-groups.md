@@ -1,7 +1,7 @@
 ---
 title: Manage resource groups with the Azure SDK for Go
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
-ms.date: 08/05/2024
+ms.date: 09/10/2025
 ms.topic: quickstart
 ms.custom: devx-track-go, mode-api
 ---
@@ -56,59 +56,55 @@ Choose an authentication method which suits your needs. We offer multiple creden
 
     // Import key modules.
     import (
-    	"context"
-    	"log"
-    	"os"
+        "context"
+        "log"
 
-    	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-    	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
-    	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+        "github.com/Azure/azure-sdk-for-go/sdk/azcore"
+        "github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+        "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
     )
 
     // Define key global variables.
     var (
-    	subscriptionId    = "<your_subscription_id>"
-    	location          = "<your_region>"
-    	resourceGroupName = "<your_resource_group_name>" // !! IMPORTANT: Change this to a unique name in your subscription.
-    	ctx               = context.Background()
+        subscriptionId    = "<your_subscription_id>"
+        location          = "<your_region>"
+        resourceGroupName = "<your_resource_group_name>" // !! IMPORTANT: Change this to a unique name in your subscription.
+        ctx               = context.Background()
     )
 
     // Define the function to create a resource group.
     func createResourceGroup(subscriptionId string, credential azcore.TokenCredential) (armresources.ResourceGroupsClientCreateOrUpdateResponse, error) {
-    	rgClient, _ := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+        rgClient, _ := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
 
-    	param := armresources.ResourceGroup{
-    		Location: to.Ptr(location),
-    	}
+        param := armresources.ResourceGroup{
+            Location: to.Ptr(location),
+        }
 
-    	return rgClient.CreateOrUpdate(ctx, resourceGroupName, param, nil)
+        return rgClient.CreateOrUpdate(ctx, resourceGroupName, param, nil)
     }
 
     // Define the standard 'main' function for an app that is called from the command line.
     func main() {
 
-    	// Create a credentials object.
-    	cred, err := azidentity.NewDefaultAzureCredential(nil)
-    	if err != nil {
-    		log.Fatalf("Authentication failure: %+v", err)
-    	}
+        // Create a credentials object.
+        cred, err := azidentity.NewDefaultAzureCredential(nil)
+        if err != nil {
+            log.Fatalf("Authentication failure: %+v", err)
+        }
 
-    	// Call your function to create an Azure resource group.
-    	resourceGroup, err := createResourceGroup(subscriptionId, cred)
-    	if err != nil {
-    		log.Fatalf("Creation of resource group failed: %+v", err)
-    	}
+        // Call your function to create an Azure resource group.
+        resourceGroup, err := createResourceGroup(subscriptionId, cred)
+        if err != nil {
+            log.Fatalf("Creation of resource group failed: %+v", err)
+        }
 
-    	// Print the name of the new resource group.
-    	log.Printf("Resource group %s created", *resourceGroup.ResourceGroup.ID)
+        // Print the name of the new resource group.
+        log.Printf("Resource group %s created", *resourceGroup.ResourceGroup.ID)
     }
     ```
 
-    **Key points:**
-
-    - The `subscriptionId` value is retrieved from the `AZURE_SUBSCRIPTION_ID` environment variable.
-    - The `location` and `resourceGroupName` strings are set to test values. If necessary, change those values to something appropriate for your location and subscription.
+    The `location` and `resourceGroupName` strings are set to test values. If necessary, change those values to something appropriate for your location and subscription.
 
 1. Run [go mod tidy](https://go.dev/ref/mod#go-mod-tidy) to clean up the dependencies in the `go.mod` file based on your source code.
 
@@ -212,7 +208,7 @@ After you've added the code, move on to the next section. You run the code in a 
     ```go
     // Delete a resource group.
     func deleteResourceGroup(subscriptionId string, credential azcore.TokenCredential) error {
-        rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+        rgClient, _ := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
 
         poller, err := rgClient.BeginDelete(ctx, resourceGroupName, nil)
         if err != nil {
