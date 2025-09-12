@@ -9,6 +9,11 @@ applyTo: "articles/**/*.md"
 
 This file provides central guidance for Copilot in this repository.
 
+The Azure Developer Experiences documentation repository contains Microsoft's technical
+documentation for application development using Microsoft Azure that publishes to Microsoft Learn. This is a documentation-only repository using Microsoft's OpenPublishing platform with DocFX for building content.
+
+
+
 ## Referenced Instruction Files
 
 - [.github/instructions/rust-instructions.md](.github/instructions/rust-instructions.md)
