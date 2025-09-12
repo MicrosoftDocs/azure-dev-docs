@@ -78,11 +78,11 @@ Use the following steps to start your migration process with solution assessment
 
 1. Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened **Assessment Report**.
 
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
 
 1. When reviewing the summary report, you can select **Migrate to Azure SQL Database (Spring)** from the solution list under the issue **Database Migration (Microsoft SQL)**. Then, select **Run Task** to move to the code remediation stage.
 
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
 ## Apply a predefined task
 
@@ -102,25 +102,25 @@ The migration Copilot provides predefined tasks for common migration scenarios t
 
 After code changes, manually input **continue** to proceed with the validation and fix iteration loop. It includes five parts:
 
-#### Apply the Validate-CVEs tool
+- Apply the Validate-CVEs tool
 
 1. This tool attempts to detected CVEs in current dependencies and fix them.
 
-#### Apply the Build-Project tool
+- Apply the Build-Project tool
 
 1. This tool attempts to resolve any build errors.
 
-#### Apply the Consistency-Validation tool
+- Apply the Consistency-Validation tool
 
 1. This tool analyzes the codes for functional consistency.
 
-#### Apply the Run-Test tool
+- Apply the Run-Test tool
 
 1. This tool analyzes the project for unit test failures and automatically generates a plan to fix them.
 
 1. The Run-Test tool iteratively runs unit tests and fixes any failures.
 
-#### Apply the Completeness-Validation tool
+- Apply the Completeness-Validation tool
 
 1. This tool catches migration items missed in initial code migration and fix them.
 
