@@ -135,9 +135,6 @@ This extension also integrates other interesting tools:
 1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-unit-tests) for more information.
 
 ### Deploy to Azure
-> [!NOTE]
-> This step needs you open Docker Desktop to prepare container.
-
 1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Deployment Tasks** in the **TASKS** section and click **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**. See []() for more information.
 
 ## Next step
