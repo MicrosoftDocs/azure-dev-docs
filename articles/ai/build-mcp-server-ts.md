@@ -1,7 +1,7 @@
 ---
 title: "Build a TypeScript MCP server using Azure Container Apps"
 description: "Learn how to build a remote TypeScript Model Context Protocol (MCP) server using Azure Container Apps."
-ms.date: 09/04/2025
+ms.date: 09/12/2025
 ms.topic: get-started 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -18,6 +18,8 @@ This article explains how to build a Model Context Protocol (MCP) server using N
 ## Get to the code
 
 Explore the [TypeScript remote Model Context Protocol (MCP) server](https://github.com/Azure-Samples/mcp-container-ts) sample. It demonstrates how to use Node.js and TypeScript to build a remote MCP server and deploy it to Azure Container Apps.
+
+Jump to the [code walkthrough section](#exploring-the-sample-code) to understand how this sample works.
 
 ## Architectural overview
 
