@@ -70,75 +70,75 @@ Use the following steps to start your migration process with solution assessment
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" alt-text="Screenshot of Visual Studio Code that shows how to generate assessment report.":::
 
-   The GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the App Modernization assessment.
+1. Then the GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the App Modernization assessment, click **Continue** to confirm.
 
-1. Select **Continue** to confirm.
+1. The modernization assessor now opens **appcat.log**. This file will show the logs for running AppCAT, which performs the app assessment, click **Continue** to confirm again. 
 
-The modernization assessor now opens **assessment.md**. This file is the configuration for running AppCAT, which performs the app assessment. AppCAT asks for your confirmation to continue. You can examine its content and make changes there, if necessary.
+1. The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, agent will help to install. After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
 
-The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, agent will help to install. After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
-
-Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened summary report.
+1. Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened **Assessment Report**.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/assessment-report.png" alt-text="Screenshot of the Visual Studio Code pane that shows the summary report of the assessment.":::
 
-When reviewing the summary report, you can select **Migrate to Azure SQL Database (Spring)** from the solution list under the issue **"Database Migration (Microsoft SQL)"**. Then, select **Run Task** to move to the code remediation stage.
+1. When reviewing the summary report, you can select **Migrate to Azure SQL Database (Spring)** from the solution list under the issue **Database Migration (Microsoft SQL)**. Then, select **Run Task** to move to the code remediation stage.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/confirm-sql-solution.png" alt-text="Screenshot of the Visual Studio Code Solution pane with the Migrate to Azure SQL Database option selected and the Confirm Solution button highlighted.":::
 
 ## Apply a predefined task
 
-The migration Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the Database Migration (Microsoft SQL) tasks change the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+The migration Copilot provides predefined tasks for common migration scenarios that you might face when migrating to Azure. For example, with the **mi-sql-public-demo** sample, the **Database Migration (Microsoft SQL)** task changes the Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
 1. In the **Assessment Report**, select **Run Task**. The Copilot chat window opens with Agent Mode.
 
-1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot agent uses various tools for App Modernization and each tool requires confirmation to proceed.
+1. The Copilot agent uses various tools for App Modernization and each tool may require confirmation to proceed. **plan.md** and **progress.md** will be generated first, you can review the **plan.md** and make changes there, if necessary.
 
-1. After each step, manually input **continue** to confirm and proceed.
+1. Then manually input **continue** to confirm and start the migration process.
 
-1. Wait for the code changes to be generated.
+1. Before doing code changes, agent will check the version control system status and checkout a new branch for migration.
 
-## Validation Iteration
+1. Repeatedly click or input **Continue** to confirm the use of tools or commands and wait for the code changes to be finished.
 
-After migration, manually input **continue** to proceed build validation. It includes four steps:
+### Validation Iteration
 
-### Apply the Validate-CVEs tool
+After code changes, manually input **continue** to proceed with the validation and fix iteration loop. It includes five parts:
+
+#### Apply the Validate-CVEs tool
 
 1. This tool attempts to detected CVEs in current dependencies and fix them.
 
-### Apply the Build-Project tool
+#### Apply the Build-Project tool
 
-1. This tool attempts to resolve any build errors in up to 10 iterations.
+1. This tool attempts to resolve any build errors.
 
-### Apply the Consistency-Validation tool
+#### Apply the Consistency-Validation tool
 
 1. This tool analyzes the codes for functional consistency.
 
-### Apply the Run-Test tool
+#### Apply the Run-Test tool
 
 1. This tool analyzes the project for unit test failures and automatically generates a plan to fix them.
 
-1. The Run-Test tool iteratively runs unit tests and fixes any failures in up to 10 iterations.
+1. The Run-Test tool iteratively runs unit tests and fixes any failures.
 
-1. After all processes completes, review the code changes and confirm them by selecting **Keep**.
+#### Apply the Completeness-Validation tool
 
-## Apply a Quality & Security Task
+1. This tool catches migration items missed in initial code migration and fix them.
 
-### Scan & Resolve CVEs
-1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Scan & Resolve CVEs**.
+After all processes completes, input **continue** to generate the migration summary as the final step. Review the code changes and confirm them by selecting **Keep**.
 
-1. This task will scan for vulnerabilities for these dependencies and get recommended fix versions. Its function is consistent with Validate CVEs tool.
+## More Tasks
+This extension also integrates other interesting tools:
 
 ### Generate Unit Test Cases
 1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
 
 1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-unit-tests) for more information.
 
-## Deploy to Azure
+### Deploy to Azure
 > [!NOTE]
 > This step needs you open Docker Desktop to prepare container.
 
-On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Deployment Tasks** in the **TASKS** section and click **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**. See []() for more information.
+1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Deployment Tasks** in the **TASKS** section and click **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**. See []() for more information.
 
 ## Next step
 
