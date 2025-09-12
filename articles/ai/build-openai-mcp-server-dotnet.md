@@ -1,7 +1,7 @@
 ---
 title: Build a .NET OpenAI Agent using an MCP server on Azure Container Apps
 description: Learn how to build a .NET OpenAI Agent using an MCP server using Azure Container Apps.
-ms.date: 09/05/2025
+ms.date: 09/12/2025
 ms.topic: get-started 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -18,6 +18,8 @@ This article shows you how to build a Model Context Protocol (MCP) agent using .
 ## Get to the code
 
 Check out the [OpenAI MCP Agent Building Block AI template](https://aka.ms/mcp/openai). This example shows how to build an OpenAI agent that uses an MCP client to consume an existing MCP server.
+
+Jump to the [code walkthrough section](#explore-the-code) to understand how this sample works.
 
 ## Architectural overview
 
