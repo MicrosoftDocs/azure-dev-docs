@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/15/2025
+ms.date: 09/12/2025
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -31,6 +31,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 
 * [azd add](#azd-add): Add a component to your project.
 * [azd auth](#azd-auth): Authenticate with Azure.
+* [azd completion](#azd-completion): Generate shell completion scripts.
 * [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [azd deploy](#azd-deploy): Deploy your project code to Azure.
 * [azd down](#azd-down): Delete your project's Azure resources.
@@ -182,6 +183,154 @@ azd auth logout [flags]
 ### See also
 
 * [azd auth](#azd-auth): Authenticate with Azure.
+* [Back to top](#azd)
+
+## azd completion
+
+Generate shell completion scripts.
+
+### Synopsis
+
+Generate shell completion scripts for azd.
+
+The completion command allows you to generate autocompletion scripts for your shell,
+currently supports bash, zsh, fish and PowerShell.
+
+See each sub-command's help for details on how to use the generated script.
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd completion in your web browser.
+  -h, --help   Gets help for completion.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd completion bash](#azd-completion-bash): Generate bash completion script.
+* [azd completion fish](#azd-completion-fish): Generate fish completion script.
+* [azd completion powershell](#azd-completion-powershell): Generate PowerShell completion script.
+* [azd completion zsh](#azd-completion-zsh): Generate zsh completion script.
+* [Back to top](#azd)
+
+## azd completion bash
+
+Generate bash completion script.
+
+```azdeveloper
+azd completion bash
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd completion bash in your web browser.
+  -h, --help   Gets help for bash.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd completion](#azd-completion): Generate shell completion scripts.
+* [Back to top](#azd)
+
+## azd completion fish
+
+Generate fish completion script.
+
+```azdeveloper
+azd completion fish
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd completion fish in your web browser.
+  -h, --help   Gets help for fish.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd completion](#azd-completion): Generate shell completion scripts.
+* [Back to top](#azd)
+
+## azd completion powershell
+
+Generate PowerShell completion script.
+
+```azdeveloper
+azd completion powershell
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd completion powershell in your web browser.
+  -h, --help   Gets help for powershell.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd completion](#azd-completion): Generate shell completion scripts.
+* [Back to top](#azd)
+
+## azd completion zsh
+
+Generate zsh completion script.
+
+```azdeveloper
+azd completion zsh
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd completion zsh in your web browser.
+  -h, --help   Gets help for zsh.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd completion](#azd-completion): Generate shell completion scripts.
 * [Back to top](#azd)
 
 ## azd config
@@ -545,7 +694,7 @@ Manage environments (ex: default environment, environment variables).
 * [azd env get-values](#azd-env-get-values): Get all environment values.
 * [azd env list](#azd-env-list): List environments.
 * [azd env new](#azd-env-new): Create a new environment and set it as the default.
-* [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
+* [azd env refresh](#azd-env-refresh): Refresh environment values by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Set one or more environment values.
 * [azd env set-secret](#azd-env-set-secret): Set a name as a reference to a Key Vault secret in the environment.
@@ -669,7 +818,7 @@ azd env new <environment> [flags]
 
 ## azd env refresh
 
-Refresh environment settings by using information from a previous infrastructure provision.
+Refresh environment values by using information from a previous infrastructure provision.
 
 ```azdeveloper
 azd env refresh <environment> [flags]
