@@ -52,10 +52,18 @@ sections:
          - When you upgrade the extension to a newer version.
 
       - question: Why does App Modernization for Java stop after listing a plan without making any code changes?
-        answer: Sometimes, App Modernization for Java requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
+        answer: |
+          Sometimes, App Modernization for Java requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
 
-      - question: Why does App Modernization for Java frequently prompt me to select **Continue**?
-        answer: To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools.
+          ![Typing continue in the chat to proceed with code modifications](./media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png)
+
+      - question: Why does App Modernization for Java frequently prompt me to select **Allow**?
+        answer: |
+          To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `128` to reduce the number of steps that require confirmation to continue.
+
+          Here's an example of where to find this option:
+
+          ![Dropdown menu with Always allow option](./media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png)
 
       - question: How can I view more details about the code changes made by the agent?
         answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
