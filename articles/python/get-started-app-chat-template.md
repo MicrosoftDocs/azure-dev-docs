@@ -233,7 +233,7 @@ The sample repository includes everything you need to deploy a Chat with your ow
 * Infrastructure-as-code files (Bicep)
 * Configuration for GitHub integration and CI/CD (optional)
 
-Use the folloowing steps to deploy the app with the Azure Developer CLI (azd).
+Use the following steps to deploy the app with the Azure Developer CLI (azd).
 
 > [!IMPORTANT]
 > Azure resources created in this section—especially Azure AI Search—can begin accruing charges immediately upon provisioning, even if the deployment is interrupted before completion. To avoid unexpected charges, monitor your Azure usage and delete unused resources promptly after testing.
