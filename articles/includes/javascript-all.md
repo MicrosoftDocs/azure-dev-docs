@@ -465,9 +465,9 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.11) |  |  |
-| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.11) |  |  |
-| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.11) |  |  |
-| Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.11) |  |  |
+| Unknown Display Name | npm [0.0.12](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12) |  |  |
+| Unknown Display Name | npm [0.0.12](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12) |  |  |
+| Unknown Display Name | npm [0.0.12](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12) |  |  |
 | Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.11) |  |  |
 | Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.11) |  |  |
 | Unknown Display Name | npm [0.0.11](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.11) |  |  |
