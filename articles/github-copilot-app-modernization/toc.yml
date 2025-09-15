@@ -22,6 +22,8 @@ items:
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: "Quickstart: Deploy your project"
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            - name: "Quickstart: Containerize your project"
+              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migration sample
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Upgrade Java projects
