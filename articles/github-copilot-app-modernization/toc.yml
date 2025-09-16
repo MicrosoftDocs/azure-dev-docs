@@ -59,8 +59,6 @@ items:
             expanded: true
             items:
             - name: Overview
-              href: /dotnet/core/porting/upgrade-assistant-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: Install
-              href: /dotnet/core/porting/upgrade-assistant-install?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: How to upgrade
-              href: /dotnet/core/porting/upgrade-assistant-how-to-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: /dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            - name: FAQ
+              href: /dotnet/core/porting/github-copilot-app-modernization-overview-FAQ?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
