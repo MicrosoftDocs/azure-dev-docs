@@ -180,7 +180,7 @@ The steps for implementing [`ManagedIdentityCredential`](https://pkg.go.dev/gith
 
 First, add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
-```terminal
+```console
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
