@@ -94,3 +94,7 @@ landingContent:
         links:
           - text: FAQ
             url: /dotnet/core/porting/github-copilot-app-modernization-faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: How to upgrade a .NET app
+            url: /dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
