@@ -1,7 +1,7 @@
 ---
 title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Go
 description: This article covers how to configure authentication for apps to Azure services with the Azure SDK for Go when the app is hosted in an Azure service like Azure App Service, Azure Container Apps, or Azure Virtual Machines.
-ms.date: 08/20/2024
+ms.date: 09/16/2025
 ms.topic: how-to
 ms.custom:
   - devx-track-go
@@ -13,7 +13,7 @@ ms.custom:
 
 When you host an app in Azure using services like Azure App Service, Azure Virtual Machines, or Azure Container Instances, the recommended approach to authenticate an app to Azure resources is with [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
-A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret. Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
+A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret. Internally, Azure knows the identity of your app and what resources it can connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
 
 > [!NOTE]
 > Apps running on Azure Kubernetes Service (AKS) can use a workload identity to authenticate with Azure resources. In AKS, a workload identity represents a trust relationship between a managed identity and a Kubernetes service account. If an application deployed to AKS is configured with a Kubernetes service account in such a relationship, `DefaultAzureCredential` authenticates the app to Azure by using the managed identity. Authentication by using a workload identity is discussed in [Use Microsoft Entra Workload ID with Azure Kubernetes Service](/azure/aks/workload-identity-overview?tabs=go). For steps on how to configure workload identity, see [Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster](/azure/aks/workload-identity-deploy-cluster).
@@ -22,7 +22,7 @@ A managed identity provides an identity for your app such that it can connect to
 
 There are two types of managed identities:
 
-- **System-assigned managed identities** - This type of managed identity is provided by and tied directly to an Azure resource. When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource. A system-assigned managed identity is tied to the lifecycle of the Azure resource it's associated with. When the resource is deleted, Azure automatically deletes the identity for you. Since all you have to do is enable managed identity for the Azure resource hosting your code, this approach is the easiest type of managed identity to use.
+- **System-assigned managed identities** - This type of managed identity is provided by and tied directly to an Azure resource. When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource. A system-assigned managed identity is tied to the lifecycle of the associated Azure resource. When the resource is deleted, Azure automatically deletes the identity for you. Since all you have to do is enable managed identity for the Azure resource hosting your code, this approach is the easiest type of managed identity to use.
 - **User-assigned managed identities** - You can also create a managed identity as a standalone Azure resource. This approach is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, if your solution had components that run on multiple App Service and virtual machine instances that all need access to the same set of Azure resources, then a user-assigned managed identity used across those resources makes sense.
 
 This article covers the steps to enable and use a system-assigned managed identity for an app. If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
@@ -37,11 +37,11 @@ You can enable managed identity to be used for an Azure resource using either th
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`. Specific commands for popular Azure services are shown below.
+The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`. Specific commands for popular Azure services are:
 
 [!INCLUDE [Enable managed identity Azure CLI](<../../../includes/sdk-auth-passwordless/enable-managed-identity-azure-cli-2.md>)]
 
-The output will look like the following.
+The output looks like the following.
 
 ```json
 {
@@ -71,7 +71,7 @@ Next, you need to determine what roles (permissions) your app needs and assign t
 
 ### [Azure CLI](#tab/azure-cli)
 
-A managed identity is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. For the assignee, use the `principalId` you copied in step 1.
+A managed identity is assigned to a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. For the assignee, use the `principalId` you copied in step 1.
 
 ```azurecli
 az role assignment create --assignee {managedIdentityprincipalId} \
@@ -113,7 +113,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-When your code is running in Azure and managed identity has been enabled on the Azure resource hosting your app, the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) determines the credentials to use in the following order:
+When your code is running in Azure and managed identity is enabled on the Azure resource hosting your app, the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) determines the credentials to use in the following order:
 
 1. Check the environment for a service principal as defined by the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH` and (optionally) `AZURE_CLIENT_CERTIFICATE_PASSWORD`.
 1. Check the `AZURE_CLIENT_ID` environment variable for the client ID of a user-assigned managed identity.
@@ -123,11 +123,11 @@ In this article, we're using the system-assigned managed identity for an Azure C
 
 First, add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
-```terminal
+```console
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-Next, for any Go code that instantiates an Azure SDK client in your app, you'll want to:
+Next, for any Go code that instantiates an Azure SDK client in your app, you want to:
 
 1. Import the `azidentity` package.
 1. Create an instance of `DefaultAzureCredential` type.
@@ -137,17 +137,17 @@ An example of these steps is shown in the following code segment with an Azure S
 
 ```go
 import (
-	"context"
+    "context"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
 )
 
 const (
-	account       = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/"
-	containerName = "sample-container"
-	blobName      = "sample-blob"
-	sampleFile    = "path/to/sample/file"
+    account       = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/"
+    containerName = "sample-container"
+    blobName      = "sample-blob"
+    sampleFile    = "path/to/sample/file"
 )
 
 func main() {
@@ -168,7 +168,7 @@ func main() {
 }
 ```
 
-As discussed in the [Azure SDK for Go authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code. When the preceding code is run on your workstation during local development, `DefaultAzureCredential` will use either an application service principal, as determined by environment settings, or developer tool credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+As discussed in the [Azure SDK for Go authentication overview](./authentication-overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code. When the preceding code is run on your workstation during local development, `DefaultAzureCredential` uses either an application service principal, as determined by environment settings, or developer tool credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
 
 > [!IMPORTANT]
 > `DefaultAzureCredential` simplifies authentication while developing applications that deploy to Azure by combining credentials used in Azure hosting environments and credentials used in local development. In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
@@ -180,11 +180,11 @@ The steps for implementing [`ManagedIdentityCredential`](https://pkg.go.dev/gith
 
 First, add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
-```terminal
+```console
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-Next, for any Go code that instantiates an Azure SDK client in your app, you'll want to:
+Next, for any Go code that instantiates an Azure SDK client in your app, you want to:
 
 1. Import the `azidentity` package.
 1. Create an instance of `ManagedIdentityCredential` type.
@@ -194,17 +194,18 @@ An example of these steps is shown in the following code segment with an Azure S
 
 ```go
 import (
-	"context"
+    "context"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
 )
 
 const (
-	account       = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/"
-	containerName = "sample-container"
-	blobName      = "sample-blob"
-	sampleFile    = "path/to/sample/file"
+                    // Replace placeholder text with your storage account name
+    account       = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/"
+    containerName = "sample-container"
+    blobName      = "sample-blob"
+    sampleFile    = "path/to/sample/file"
 )
 
 func main() {
