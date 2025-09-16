@@ -62,3 +62,5 @@ items:
               href: /dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: FAQ
               href: /dotnet/core/porting/github-copilot-app-modernization-overview-FAQ?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            - name: How to upgrade
+              href: /dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
