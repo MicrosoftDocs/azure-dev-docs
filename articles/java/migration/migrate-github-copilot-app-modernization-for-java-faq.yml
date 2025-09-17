@@ -37,7 +37,7 @@ sections:
         answer: We currently have no plans to open source app modernization for Java.
 
       - question: What GitHub Copilot license plan do I need to use app modernization for Java?
-        answer: app modernization for Java is available to Pro, Pro+, Business, or Enterprise plan.
+        answer: App modernization for Java is available to Pro, Pro+, Business, or Enterprise plan.
 
       - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for app modernization to go beyond Java or consolidate with the .NET experience?
         answer: Currently, app modernization for Java is focused on assisting with Java applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
@@ -47,7 +47,7 @@ sections:
 
       - question: Why don't I see tools in app modernization for Java that use the Model Context Protocol (MCP) server?
         answer: |
-          app modernization for Java uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
+          App modernization for Java uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
           - When you open a Java project for migration for the first time.
           - When you upgrade the extension to a newer version.
 
@@ -67,7 +67,7 @@ sections:
         answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
 
       - question: Why is the code regeneration process unstable?
-        answer: app modernization for Java is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
+        answer: App modernization for Java is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
       - question: Where are tasks stored on the local machine and how can they be shared?
         answer: |
@@ -85,7 +85,7 @@ sections:
 
       - question: How does app modernization for Java extension use the MCP server, and how can I check for updates or troubleshoot issues?
         answer: |
-          app modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
+          App modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
 
           If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
 
