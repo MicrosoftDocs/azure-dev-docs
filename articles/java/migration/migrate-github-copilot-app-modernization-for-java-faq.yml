@@ -1,92 +1,168 @@
 ### YamlMime:FAQ
 metadata:
-  title: GitHub Copilot App Modernization for Java FAQ
+  title: GitHub Copilot App Modernization FAQ
   titleSuffix: Azure
-  description: Answers frequently asked questions about GitHub Copilot app modernization for Java.
+  description: Answers frequently asked questions about GitHub Copilot app modernization.
   author: KarlErickson
   ms.author: karler
   ms.reviewer: xiading
   ms.topic: faq
-  ms.date: 06/30/2025
+  ms.date: 09/23/2025
   ms.custom: devx-track-java
   ms.subservice: migration-copilot
 
-title: GitHub Copilot app modernization for Java FAQ
-summary: |
-  Answers frequently asked questions about GitHub Copilot app modernization for Java.
+title: GitHub Copilot app modernization FAQ
+summary: Answers frequently asked questions about GitHub Copilot app modernization.
 
 sections:
   - name: FAQ
     questions:
-      - question: What's the product scope of the GitHub Copilot app modernization for Java?
-        answer: We recognize that the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps.
 
-      - question: Can I use app modernization for Java to upgrade my Java version?
-        answer: There's a separate [GitHub Copilot app modernization - upgrade for Java](/java/upgrade/overview) tool, and you can use it together with app modernization for Java.
-
-      - question: Are there any settings in GitHub Copilot that I should configure to make sure I get all the features?
+      - question: What's the product scope of the GitHub Copilot app modernization?
         answer: |
-          GitHub Copilot normally blocks certain code generations for files that commonly resemble public code, such as **pom.xml**. To prevent Copilot from blocking these changes, you must allow suggestions matching public code. For instructions, see [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+          We recognize that the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps. We support projects that are built with Maven or Gradle. Additionally, see key product capabilities in the [overview](/azure/developer/github-copilot-app-modernization/overview) page.
 
-          To manage the settings of Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+      - question: Will GitHub Copilot app modernization be open sourced in the future?
+        answer: We currently have no plans to open source GitHub Copilot app modernization.
 
-      - question: What network configurations are required to use GitHub Copilot app modernization for Java in Visual Studio Code?
-        answer: To ensure that the extension works correctly within Visual Studio Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you might need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, see the official troubleshooting guide [Managing GitHub Copilot access to your enterprise's network](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
-      
-      - question: Will app modernization for Java be open sourced in the future?
-        answer: We currently have no plans to open source app modernization for Java.
+      - question: What GitHub Copilot license plan do I need to use GitHub Copilot app modernization?
+        answer: GitHub Copilot app modernization is available to Pro, Pro+, Business, or Enterprise plan.
 
-      - question: What GitHub Copilot license plan do I need to use app modernization for Java?
-        answer: App modernization for Java is available to Pro, Pro+, Business, or Enterprise plan.
+      - question: How is GitHub Copilot app modernization billed?
+        answer: GitHub Copilot app modernization is a feature of GitHub Copilot, and shares the same [subscription billing model](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans) as GitHub Copilot. App modernization tasks consume premium requests, with each subscription plan offering a monthly allowance of premium requests. Exceeding the plan limit requires a plan upgrade or extra purchase of premium requests.
 
-      - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for app modernization to go beyond Java or consolidate with the .NET experience?
-        answer: Currently, app modernization for Java is focused on assisting with Java applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages and potentially consolidate with the .NET experience.
+      - question: In addition to Java, I also need to migrate apps written in other languages. Is there a plan for GitHub Copilot app modernization to go beyond Java?
+        answer: Currently, GitHub Copilot app modernization is focused on assisting with Java and .NET applications. However, we're actively collecting requirements and feedback from customers regarding the need to support other languages.
+
+      - question: Does GitHub Copilot app modernization store my source code?
+        answer: |
+          No. GitHub Copilot app modernization uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either.
+
+          Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
+
+          For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com/).
+
+      - question: What kind of applications did we use to evaluate GitHub Copilot app modernization?
+        answer: We tested GitHub Copilot app modernization on hundreds of open-source repositories to ensure build, consistency and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. Feedback can be submitted using this [link](https://www.surveymonkey.com/r/NDBTC6B).
+
+      - question: What frameworks is GitHub Copilot app modernization optimized for upgrade scenarios?
+        answer: |
+          Although GitHub Copilot app modernization focuses on upgrading Java runtimes, it also optimizes upgrades for the following frameworks:
+
+          - Spring Boot up to version 3.5.
+          - Java EE - Javax to Jakarta EE, up to Jakarta EE 10.
+          - Legacy Spring Framework up to version 6.2+.
+          - JUnit.
+          - Various third-party dependencies.
+
+          For more information, see [Customize the upgrade plan](/java/upgrade/customize-upgrade-plan).
+
+      - question: What versions of Java are supported for upgrade?
+        answer: |
+          We currently support the following Java Development Kit (JDK) versions:
+
+          - JDK 8
+          - JDK 11
+          - JDK 17
+          - JDK 21
+
+          The minimum required JDK version for a project is JDK 8, and you can upgrade the project to use any version up to JDK 21.
+
+      - question: What types of Java projects are supported?
+        answer: |
+          Currently, only the following project types are supported:
+
+          - Maven projects (including Maven Wrapper)
+          - Gradle projects (Gradle Wrapper only, version 5+)
+
+          Kotlin DSL-based Gradle projects aren't supported.
+
+      - question: What are the limitations of Java upgrades?
+        answer: |
+          Currently, the extension has the following functional limitations:
+
+          - The extension exclusively supports Java upgrades and doesn't cater to other programming languages.
+          - It works only with Java projects built using Maven and Gradle.
+          - Only Git repositories are supported. Other version control systems aren't compatible.
+          - The extension can't guarantee that the changes it proposes are optimal or considered best practices.
+
+          We recommend using the following best practices with this tool:
+
+          - Run the extension only on projects that meet the specified characteristics as previously described.
+          - Complete thorough code reviews before merging extension output into production branches.
+          - Run all tests and complete the usual QA checks associated with your change management process as appropriate.
+
+      - question: How do I modernize multiple apps at once and how can I scale the app mod experience for large number of apps?
+        answer: You can use [AppCAT CLI](/azure/migrate/appcat/appcat-7-cli-guide?view=migrate-classic) to scan multiple projects at once with the -bulk flag. However, we recommend that you only modernize 1 project/app at a time. You can create your own migration task based on code changes from one project and apply them to other projects, reducing repetitive work.
+
+      - question: Which model should I use?
+        answer: As a general rule of thumb, newer models will outperform previous models. For coding tasks, we recommend Claud Sonnet models to for better accuracy. However to reduce cost,  consider start exploring from the models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
+
+  - name: Troubleshooting guide
+
+    questions:
 
       - question: What are the token size limits of the top models?
-        answer: For detailed model specifications, see the [GitHub Copilot documentation](https://docs.github.com/copilot).
+        answer: For detailed model specifications, see the[GitHub Copilot documentation](https://docs.github.com/copilot).
 
-      - question: Why don't I see tools in app modernization for Java that use the Model Context Protocol (MCP) server?
-        answer: |
-          App modernization for Java uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
-          - When you open a Java project for migration for the first time.
-          - When you upgrade the extension to a newer version.
 
-      - question: Why does app modernization for Java stop after listing a plan without making any code changes?
+
+      - question: What are the operational requirements for Java runtime and framework upgrades?
         answer: |
-          Sometimes, app modernization for Java requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
+          To ensure successful Java runtime and framework upgrades, the following information is required:
+
+          - The Project type. The project must be a Git-based Java project buildable with Maven or Gradle.
+          - The target Java version - the JDK version you want to upgrade to - for example, Java 21.
+          - The source and target JDK paths - the paths to the installed JDKs for the current and target versions.
+          - The Maven/Gradle setup - paths to the Maven/Gradle build tools. For Gradle, only Gradle wrappers are supported.
+
+      - question: How does GitHub Copilot app modernization use the MCP server, and how can I check for updates or troubleshoot issues?
+        answer: |
+          GitHub Copilot app modernization uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
+
+          If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
+
+          The GitHub Copilot app modernization MCP server also maintains logs. To troubleshoot, check the log files located at: `%USERPROFILE%/.ghcp-appmod-java/logs`
+
+      - question: Why does GitHub Copilot app modernization stop after listing a plan without making any code changes?
+        answer: |
+          Sometimes, GitHub Copilot app modernization requires explicit confirmation before proceeding. You can type **yes** or **continue** in the chat to enable the agent to move forward with the code modifications.
 
           :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png" alt-text="Screenshot of the GitHub Copilot chat pane in Visual Studio Code that shows the user typing continue in response to an update plan." lightbox="media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png":::
 
-      - question: Why does app modernization for Java frequently prompt me to select **Continue**?
+      - question: Why does GitHub Copilot app modernization for Java frequently prompt me to select **Continue**?
         answer: |
           To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always Allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `128` to reduce the number of steps that require confirmation to continue.
 
           :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button and the drop-down menu with Allow options." lightbox="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png":::
 
-      - question: How can I view more details about the code changes made by the agent?
-        answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
+      - question: What network configurations are required to use GitHub Copilot app modernization in Visual Studio Code?
+        answer: To ensure that the extension works correctly within Visual Studio Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you might need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, see the official troubleshooting guide [Managing GitHub Copilot access to your enterprise's network](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
+
+      - question: Are there any settings in GitHub Copilot that I should configure to make sure I get all the features?
+        answer: |
+          GitHub Copilot may block certain code generations for files that commonly resemble public code, such as **pom.xml**. To prevent Copilot from blocking these changes, you must allow suggestions matching public code. For instructions, see [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+
+          To manage the settings of Github Copilot in your organization, see[Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
+      - question: Why don't I see tools in GitHub Copilot app modernization that use the Model Context Protocol (MCP) server?
+        answer: |
+          GitHub Copilot app modernization the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
+
+          - When you open a Java project for migration for the first time.
+          - When you upgrade the extension to a newer version.
+
+      - question: Why does GitHub Copilot app modernization frequently prompt me to select Continue?
+        answer: To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the Continue button and then select **Always allow**, or update your Visual Studio Code setting chat.tools.autoApprove to true to automatically approve all tools.
 
       - question: Why is the code regeneration process unstable?
-        answer: App modernization for Java is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
+        answer: GitHub Copilot app modernization is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.
 
       - question: Where are tasks stored on the local machine and how can they be shared?
         answer: |
-         Predefined tasks are in the following location: **%USERPROFILE%\.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag**
+          Predefined tasks are in the following location: `%USERPROFILE%.vscode\extensions\microsoft.migrate-java-to-azure-0.1.0\rag`
 
-         Custom tasks are in the following location: **%USERPROFILE%\.azure\migrate-copilot\custom-rule**
+          Custom tasks are in the following location: `%USERPROFILE%.azure\migrate-copilot\custom-rule`
 
-      - question: Does the tool store my source code?
-        answer: |
-         No. The tool uses GitHub Copilot in the same way you use it to modify code, which doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either.
-
-         Telemetry metrics are collected and analyzed to track feature usage and effectiveness.
-
-         For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com).
-
-      - question: How does app modernization for Java extension use the MCP server, and how can I check for updates or troubleshoot issues?
-        answer: |
-          App modernization for Java uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
-
-          If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
-
-          The app modernization for Java MCP server also maintains logs. To troubleshoot, check the log files located at: **%USERPROFILE%/.ghcp-appmod-java/logs**
+      - question: How can I view more details about the code changes made by the agent?
+        answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
