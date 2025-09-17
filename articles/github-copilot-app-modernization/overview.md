@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: upgrade-and-migration-article
 ai-usage: ai-assisted
-ms.date: 09/17/2025
+ms.date: 09/23/2025
 ---
 
 # GitHub Copilot app modernization
