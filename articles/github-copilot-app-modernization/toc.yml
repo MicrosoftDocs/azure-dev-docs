@@ -42,13 +42,13 @@ items:
       - name: .NET
         expanded: true
         items:
+          - name: Overview
+            href: /dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - name: FAQ
+            href: /dotnet/core/porting/github-copilot-app-modernization-faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Migrate .NET projects to Azure
             expanded: true
             items:
-            - name: Overview
-              href: /dotnet/azure/migration/appmod/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: FAQ
-              href: /dotnet/azure/migration/appmod/faq?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Predefined tasks
               href: /dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: "Quickstart: Assess and migrate a .NET project"
@@ -58,9 +58,5 @@ items:
           - name: Upgrade .NET projects
             expanded: true
             items:
-            - name: Overview
-              href: /dotnet/core/porting/upgrade-assistant-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: Install
-              href: /dotnet/core/porting/upgrade-assistant-install?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: How to upgrade
-              href: /dotnet/core/porting/upgrade-assistant-how-to-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: /dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
