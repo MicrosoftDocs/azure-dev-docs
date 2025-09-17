@@ -21,24 +21,6 @@ The following video demonstrates how GitHub Copilot app modernization uses [AppC
 
 > [!VIDEO https://www.youtube.com/embed/eX8rSMd4Dls]
 
-[!INCLUDE [migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites](includes/migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)]
-
-## Sign in to use Copilot and then install App Modernization
-
-To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
-
-Then, use the following steps to install GitHub Copilot app modernization:
-
-1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
-1. Search for **GitHub Copilot app modernization** in the marketplace.
-1. Select the **GitHub Copilot app modernization** extension.
-1. On the extension page, select **Install**.
-1. Restart Visual Studio Code.
-
-After installation completes, you should see a notification in the corner of Visual Studio Code confirming success.
-
-For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
-
 ## Upgrade JDK and dependencies version
 Here are 2 ways to upgrade JDK version:
 On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
