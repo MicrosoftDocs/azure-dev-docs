@@ -42,6 +42,6 @@ After installation completes, you should see a notification in the corner of Vis
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
 
-## See also
+## Next step
 
 [Quickstart: Assess and migrate a Java project](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
