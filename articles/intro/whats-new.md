@@ -80,6 +80,16 @@ New articles:
 - [Understanding common response types in the Azure SDK for Python](../python/sdk/fundamentals/common-types-response.md)
 - [Understanding HTTP pipeline and retries in the Azure SDK for Python](../python/sdk/fundamentals/http-pipeline-retries.md)
 
+### Azure for .NET
+
+New articles:
+
+- [Authenticate .NET apps to Azure services during local development using brokered authentication](/dotnet/azure/sdk/authentication/local-development-broker)
+
+Updated articles:
+
+- [Credential chains in the Azure Identity library for .NET](/dotnet/azure/sdk/authentication/credential-chains)
+
 ## What's new for July 2025
 
 ### AI apps using Azure services
