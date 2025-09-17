@@ -21,6 +21,9 @@ The following video demonstrates how GitHub Copilot app modernization uses [AppC
 
 > [!VIDEO https://www.youtube.com/embed/eX8rSMd4Dls]
 
+## Prerequisites
+See [Prerequisites for Using GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)
+
 ## Upgrade JDK and dependencies version
 Here are 2 ways to upgrade JDK version:
 On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
