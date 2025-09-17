@@ -51,7 +51,7 @@ For more information, see [Install a VS Code extension](https://code.visualstudi
 Here are 2 ways to upgrade JDK version:
 On the sidebar, select the **Github Copilot app modernization for Java** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
 
-:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-jdk-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-jdk-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
+:::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
 
 Use the following steps to upgrade Spring framework or third-party dependency:
 Run **Upgrade Java Framework** task in the **TASKS - Upgrade Tasks** section. See [Upgrade a framework or third-party dependency by using GitHub Copilot App Modernization – upgrade for Java](https://learn.microsoft.com/java/upgrade/framework-upgrade) for more information.

@@ -44,7 +44,7 @@ Use the following steps to create your own task:
 
 1. In Visual Studio Code, open the **rabbitmq-sender** project folder in the samples' repository. Then, check out the project to the **source** branch.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot app modernization for Java** extension pane, hover the mouse over the **TASKS** section, select **Create a Custom Task**.
+1. In the **Activity** sidebar, open the **GitHub Copilot app modernization for Java** extension pane, hover the mouse over the **TASKS** section, click **Create a Custom Task**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-task-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-task-from-source-control.png" alt-text="Screenshot of Visual Studio Code that shows the button for Create Custom Task.":::
 
