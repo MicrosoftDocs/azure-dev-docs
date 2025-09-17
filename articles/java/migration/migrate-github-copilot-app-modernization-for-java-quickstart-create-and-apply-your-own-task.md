@@ -34,7 +34,7 @@ The following video demonstrates using GitHub Copilot App Modernization for Java
   - [GitHub Copilot App Modernization for Java](migrate-github-copilot-app-modernization-for-java.md)
   - [GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/overview)
 
-  App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
+  App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) 21 or later and [Maven](https://maven.apache.org/download.cgi).
 
 ## Create your own task
 
