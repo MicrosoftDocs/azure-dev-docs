@@ -1,12 +1,11 @@
 ---
-title: "Quickstart: deploy your project to Azure using GitHub Copilot App Modernization for Java"
-titleSuffix: GitHub Copilot App Modernization for Java - Azure
+title: "Quickstart: deploy your project to Azure using GitHub Copilot App Modernization"
 description: Shows you how to deploy your migrated Java application to Azure
-author: JiDong
-ms.author: donji
-ms.reviewer: 
+author: KarlErickson
+ms.author: karler
+ms.reviewer: donji
 ms.topic: quickstart
-ms.date: 09/03/2025
+ms.date: 09/23/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
@@ -34,11 +33,11 @@ In code development, developers often need to deploy their project to a cloud en
 ## Deploy your project
 
 Use the following steps to start your deployment process:
-1.	In Visual Studio Code, open your migrated project.
+1. In Visual Studio Code, open your migrated project.
 
-1.	In the **Activity** sidebar, open the **App Modernization for Java** extension pane. In the Tasks section, open **Deploy tasks** and select **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**.
+1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane. In the Tasks section, open **Deploy tasks** and select **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**.
 
-      :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" alt-text="Screenshot of Visual Studio Code that shows the button for deploy to Azure.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" alt-text="Screenshot of Visual Studio Code that shows the button for deploy to Azure.":::
 
 1. If you choose **Deploy to Existing Azure Infrastructure**, Copilot will ask your for your existing resource group during the deployment process. It will analyze your resource group and deploy to the corresponding compute resource.
 
@@ -49,13 +48,13 @@ Use the following steps to start your deployment process:
 1. Select **Continue** repeatedly to confirm each tool action in the Copilot Chat window. The Copilot Agent uses various tools to facilitate deployment to Azure. Each tool's usage requires confirmation by selecting **Continue**. Provide Copilot with the necessary information, like subscription and resource group, as it prompts you.
 
 1. Copilot typically goes through the following steps to deploy your project:
-   * Copilot generates a plan.copilot.md file with the deployment goal, project information, Azure resource architecture, Azure resources, and execution steps.
-   * Copilot follows the execution steps in plan.md.
-   * Copilot fixes deployment errors.
-   * Copilot generates a summary.md explaining the results of the deployment.
+
+   - Copilot generates a plan.copilot.md file with the deployment goal, project information, Azure resource architecture, Azure resources, and execution steps.
+   - Copilot follows the execution steps in plan.md.
+   - Copilot fixes deployment errors.
+   - Copilot generates a summary.md explaining the results of the deployment.
 
 ## Notes
-* We recommend using Claude Sonnet 4 or later models for the best results.
 
-* It might take Copilot a few iterations to correct deployment errors.
-
+- We recommend using Claude Sonnet 4 or later models for the best results.
+- It might take Copilot a few iterations to correct deployment errors.
