@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot App Modernization for Java"
+title: "Quickstart: Assess and Migrate a Java Project Using GitHub Copilot app modernization"
 titleSuffix: Azure
-description: Shows you how to use GitHub Copilot App Modernization for Java to assess and migrate a Java project.
+description: Shows you how to use GitHub Copilot app modernization to assess and migrate a Java project.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
@@ -11,11 +11,11 @@ ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java
+# Quickstart: assess and migrate a Java project using GitHub Copilot app modernization
 
-This quickstart shows you how to use GitHub Copilot App Modernization for Java to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
+This quickstart shows you how to use GitHub Copilot app modernization to assess and migrate a Java project. In this quickstart, you install and configure the extension, then assess and migrate a sample project. For example, you use a predefined task to update an Azure SQL database connection to use Azure Managed Identity instead of a username and password.
 
-The following video demonstrates how GitHub Copilot App Modernization for Java uses [AppCAT](/azure/migrate/appcat/java) to help assess a Java project for migration to Azure:
+The following video demonstrates how GitHub Copilot app modernization uses [AppCAT](/azure/migrate/appcat/java) to help assess a Java project for migration to Azure:
 
 <br>
 
@@ -26,7 +26,7 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot app modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
+- [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure).
 - [Java 21](/java/openjdk/download) or later.
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
@@ -35,11 +35,11 @@ The following video demonstrates how GitHub Copilot App Modernization for Java u
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
-Then, use the following steps to install GitHub Copilot App Modernization for Java:
+Then, use the following steps to install GitHub Copilot app modernization:
 
 1. In Visual Studio Code, open the **Extensions** view from the Activity Bar.
-1. Search for **GitHub Copilot App Modernization** in the marketplace.
-1. Select the **GitHub Copilot App Modernization for Java** extension or the **GitHub Copilot App Modernization** extension pack.
+1. Search for **GitHub Copilot app modernization** in the marketplace.
+1. Select the **GitHub Copilot app modernization** extension.
 1. On the extension page, select **Install**.
 1. Restart Visual Studio Code.
 
@@ -49,7 +49,7 @@ For more information, see [Install a VS Code extension](https://code.visualstudi
 
 ## Upgrade JDK and dependencies version
 Here are 2 ways to upgrade JDK version:
-On the sidebar, select the **Github Copilot app modernization for Java** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
+On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-upgrade) for more information.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
 
@@ -66,7 +66,7 @@ Use the following steps to start your migration process with solution assessment
 
 1. In Visual Studio Code, open the **mi-sql-public-demo** project folder in the samples repository.
 
-1. On the sidebar, select the **Github Copilot app modernization for Java** pane, you can click **Migrate to Azure** button or click **Run Assessment** in the **ASSESSMENT** section.
+1. On the sidebar, select the **GitHub Copilot app modernization** pane, you can click **Migrate to Azure** button or click **Run Assessment** in the **ASSESSMENT** section.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" alt-text="Screenshot of Visual Studio Code that shows how to generate assessment report.":::
 
@@ -130,7 +130,7 @@ After all processes completes, input **continue** to generate the migration summ
 This extension also integrates other interesting tools:
 
 ### Generate Unit Test Cases
-1. On the sidebar, select the **Github Copilot app modernization for Java** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
+1. On the sidebar, select the **GitHub Copilot app modernization** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
 
 1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/java/upgrade/quickstart-unit-tests) for more information.
 
