@@ -45,4 +45,3 @@ For more information, see [Install a VS Code extension](https://code.visualstudi
 ## See also
 
 [Quickstart: Assess and migrate a Java project](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-[Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
