@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 06/30/2025
+ms.date: 09/23/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
@@ -29,12 +29,12 @@ See [Prerequisites for Using GitHub Copilot app modernization](migrate-github-co
 
 Here are 2 ways to upgrade JDK version:
 
-On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/quickstart-upgrade) for more information.
+On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot app modernization](/java/upgrade/quickstart-upgrade) for more information.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
 
 Use the following steps to upgrade Spring framework or third-party dependency:
-Run **Upgrade Java Framework** task in the **TASKS - Upgrade Tasks** section. See [Upgrade a framework or third-party dependency by using GitHub Copilot App Modernization – upgrade for Java](/java/upgrade/framework-upgrade) for more information.
+Run **Upgrade Java Framework** task in the **TASKS - Upgrade Tasks** section. See [Upgrade a framework or third-party dependency by using GitHub Copilot app modernization](/java/upgrade/framework-upgrade) for more information.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-framework-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-framework-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade framework.":::
 
@@ -50,7 +50,7 @@ Use the following steps to start your migration process with solution assessment
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" alt-text="Screenshot of Visual Studio Code that shows how to generate assessment report.":::
 
-1. Then the GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the App Modernization assessment, click **Continue** to confirm.
+1. Then the GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the app modernization assessment, click **Continue** to confirm.
 
 1. The modernization assessor now opens **appcat.log**. This file will show the logs for running AppCAT, which performs the app assessment, click **Continue** to confirm again. 
 
@@ -70,7 +70,7 @@ The migration Copilot provides predefined tasks for common migration scenarios t
 
 1. In the **Assessment Report**, select **Run Task**. The Copilot chat window opens with Agent Mode.
 
-1. The Copilot agent uses various tools for App Modernization and each tool may require confirmation to proceed. **plan.md** and **progress.md** will be generated first, you can review the **plan.md** and make changes there, if necessary.
+1. The Copilot agent uses various tools for app modernization and each tool may require confirmation to proceed. **plan.md** and **progress.md** will be generated first, you can review the **plan.md** and make changes there, if necessary.
 
 1. Then manually input **continue** to confirm and start the migration process.
 
@@ -114,7 +114,7 @@ This extension also integrates other interesting tools:
 
 1. On the sidebar, select the **GitHub Copilot app modernization** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
 
-1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/quickstart-unit-tests) for more information.
+1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot app modernization](/java/upgrade/quickstart-unit-tests) for more information.
 
 ## Next step
 

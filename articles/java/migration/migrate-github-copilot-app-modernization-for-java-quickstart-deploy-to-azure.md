@@ -10,9 +10,10 @@ ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# Quickstart: deploy your project to Azure using GitHub Copilot App Modernization for Java
+# Quickstart: deploy your Java project to Azure using GitHub Copilot app modernization
 
-This quickstart shows you how to deploy your project to Azure when you use GitHub Copilot App Modernization for Java.
+This quickstart shows you how to deploy your project to Azure when you use GitHub Copilot app modernization.
+
 In code development, developers often need to deploy their project to a cloud environment for testing. Our tools help deploy your migrated project to Azure and fix any deployment errors in the process.
 
 ## Prerequisites
@@ -20,13 +21,13 @@ In code development, developers often need to deploy their project to a cloud en
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
 - The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot App Modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see [Quickstart: assess and migrate a Java project using GitHub Copilot App Modernization for Java](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md).
+- [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see [Quickstart: assess and migrate a Java project using GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md).
 
   This extension pack bundles the following two extensions:
-  - [GitHub Copilot App Modernization for Java](migrate-github-copilot-app-modernization-for-java.md)
-  - [GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/overview)
+  - [GitHub Copilot app modernization for Java](migrate-github-copilot-app-modernization-for-java.md)
+  - [GitHub Copilot app modernization - upgrade for Java](/java/upgrade/overview)
 
-  App Modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
+  App modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
 
 - [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
 
@@ -35,7 +36,7 @@ In code development, developers often need to deploy their project to a cloud en
 Use the following steps to start your deployment process:
 1. In Visual Studio Code, open your migrated project.
 
-1. In the **Activity** sidebar, open the **App Modernization for Java** extension pane. In the Tasks section, open **Deploy tasks** and select **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**.
+1. In the **Activity** sidebar, open the **App modernization** extension pane. In the Tasks section, open **Deploy tasks** and select **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" alt-text="Screenshot of Visual Studio Code that shows the button for deploy to Azure.":::
 
