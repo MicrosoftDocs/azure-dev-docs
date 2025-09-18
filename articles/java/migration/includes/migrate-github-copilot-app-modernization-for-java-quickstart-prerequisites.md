@@ -2,10 +2,6 @@
 ms.date: 09/23/2025
 ---
 
-# Prerequisites for Using GitHub Copilot app modernization
-
-This article describes the prerequisites for Using GitHub Copilot app modernization.
-
 ## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
