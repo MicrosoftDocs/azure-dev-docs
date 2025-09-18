@@ -609,7 +609,7 @@
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.1](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.1) |  |  |
-| @azure/static-web-apps-cli | npm [2.0.6](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.6) |  |  |
+| @azure/static-web-apps-cli | npm [2.0.7](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.7) |  |  |
 | @cadl-lang/compiler | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.40.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.40.0) |  |  |
