@@ -41,7 +41,7 @@ Use the following steps to start your containerization process:
 
 1. In the **Activity** sidebar, open the **App modernization** extension pane. In the Tasks section, open **Migration Tasks** and select **Containerize Application**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/appmod-java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/appmod-java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the button for containerize project":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the button for containerize project":::
 
 1. After you select the task, the Copilot chat window with Agent Mode opens automatically.
 
