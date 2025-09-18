@@ -25,7 +25,7 @@ The following GitHub Copilot app modernization capabilities are currently availa
 
 <br>
 
-[!VIDEO https://www.youtube.com/embed/] <-- need actual sizzling video YouTube ID
+> [!VIDEO https://www.youtube.com/embed/] <-- need actual sizzling video YouTube ID
 
 -->
 
