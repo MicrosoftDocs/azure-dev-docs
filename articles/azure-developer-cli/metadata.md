@@ -19,7 +19,7 @@ The following table describes the supported `azd` metadata configuration fields:
 
 | Field | Description |
 |-------|-------------|
-| `type` | Defines how `azd` should prompt for this parameter. | `location`
+| `type` | Defines how `azd` should prompt for this parameter. `location` |
 | `config` | Describes the settings for some of the types, like `generate`. |
 | `default` | Defines a value for `azd` to highlight initially during a select prompt. |
 | `usageName` | Controls quota-check for ai-model location select |
