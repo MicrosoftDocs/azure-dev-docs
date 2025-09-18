@@ -36,8 +36,6 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
       - linkListType: quickstart
         links:
-          - text: Installation
-            url: migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md
           - text: Assess and migrate a Java project
             url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
           - text: Create and apply your own task

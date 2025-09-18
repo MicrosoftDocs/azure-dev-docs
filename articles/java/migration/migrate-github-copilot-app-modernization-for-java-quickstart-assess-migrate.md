@@ -21,9 +21,7 @@ The following video demonstrates how GitHub Copilot app modernization uses [AppC
 
 > [!VIDEO https://www.youtube.com/embed/eX8rSMd4Dls]
 
-## Prerequisites
-
-See [Prerequisites for Using GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)
+[!INCLUDE [prerequisites](includes/migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)]
 
 ## Upgrade JDK and dependencies version
 

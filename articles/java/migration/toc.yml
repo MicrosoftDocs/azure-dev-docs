@@ -15,8 +15,6 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-faq.yml
         - name: Predefined tasks
           href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
-        - name: Installation
-          href: migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md
         - name: "Quickstart: Assess and migrate a Java project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
         - name: "Quickstart: Create and apply your own task"
