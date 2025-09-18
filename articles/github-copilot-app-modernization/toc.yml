@@ -1,5 +1,5 @@
 items:
-  - name: GitHub Copilot App Modernization documentation
+  - name: GitHub Copilot app modernization documentation
     href: index.yml
     items:
       - name: Overview

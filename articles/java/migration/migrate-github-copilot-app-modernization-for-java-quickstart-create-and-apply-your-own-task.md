@@ -23,9 +23,7 @@ The following video demonstrates using GitHub Copilot app modernization to creat
 
 > [!VIDEO https://www.youtube.com/embed/ZiO3eznAl5w]
 
-## Prerequisites
-
-See [Prerequisites for Using GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)
+[!INCLUDE [prerequisites](includes/migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)]
 
 ## Create your own task
 

@@ -1,5 +1,6 @@
 ---
 title: Analyze Applications and Migrate to Azure by using GitHub Copilot App Modernization
+titleSuffix: Azure
 description: Provides an overview of GitHub Copilot app modernization.
 author: KarlErickson
 ms.author: karler
