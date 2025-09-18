@@ -16,9 +16,9 @@ GitHub Copilot app modernization provides AI-powered agents that analyze and upg
 
 The following GitHub Copilot app modernization capabilities are currently available:
 
-- **General availability:** Language and framework upgrades for .NET and Java
-- **General availability:** App modernization – migration scenarios for Java
-- **Public preview:** App modernization – migration scenarios for .NET
+- **General availability**: Language and framework upgrades for .NET and Java
+- **General availability**: App modernization – migration scenarios for Java
+- **Public preview**: App modernization – migration scenarios for .NET
 
 <!--
 
@@ -28,38 +28,25 @@ The following GitHub Copilot app modernization capabilities are currently availa
 
 -->
 
-## Key benefits
+## Key capabilities
 
-### Accelerate language framework upgrades**
+- **Application assessment and planning**: Analyze code, configuration, and dependencies.
 
-- **Analyze codebase and map dependencies**: Automatically scan your application to identify runtime versions, libraries, and interdependencies.
-- **Detect breaking changes and propose migration paths**: Use AI to surface potential upgrade blockers and recommend safe, guided migration strategies.
-- **Automatically fix build errors and unit test issues**: Resolve common build failures and test regressions with AI-generated code fixes.
-- **Validate changes to ensure build integrity**: Confirm successful upgrades by verifying builds and running automated validations.
-- **Scan for and remediate Common Vulnerabilities and Exposures (CVEs)**: Identify known security vulnerabilities and apply recommended patches or updates.
+  Modernization begins with comprehensive codebase analysis. GitHub Copilot app modernization analyzes your project's current state and generates modernization plans. The tool identifies dependencies, outdated libraries, and potential migration issues. It provides actionable strategies to remediate problems.
 
-### Streamline end-to-end application migration
+- **Code transformations**: Upgrade Java or .NET runtime and framework, and migrate to Azure.
 
-- **Assess application with recommended priorities**: Automatically analyze the codebase to identify dependencies, issues, and modernization opportunities—prioritized by criticality to guide remediation efforts.
-- **Rewrite platform-specific code for Azure-native services**: Refactor application logic to target services like Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), and AKS Automatic.
-- **Update core service integrations**: Modernize key components including queuing systems, authentication, storage access, configuration, database connections, logging, and secrets management—following cloud best practices.
-- **Apply code transformations aligned with organizational standards**: Ensure consistency with internal coding guidelines while preserving version history and traceability.
-- **Customize tasks for automated code changes and modernization**: Define and tailor automation rules to apply targeted code updates, refactoring patterns, and modernization actions based on your app's architecture and business requirements.
+  Uses tools like `OpenRewrite` to upgrade code, including API replacements and dependency updates. AI-powered predefined tasks encode expert knowledge for common Azure migration scenarios including secret management, message queue integration, and identity services. The system can capture and reuse migration patterns. You can convert Git commits into reusable migration patterns through custom tasks. The system learns from existing code changes and applies similar fixes across multiple codebases. Migration patterns are applied uniformly across teams and projects to ensure consistency.
 
-### Modernize applications to be cloud and AI ready
+- **Modernize and secure**: Ensure successful build, migrate unit tests, and address Common Vulnerabilities and Exposures (CVEs).
 
-- **Generate deployment files for Azure environments**: Automatically create infrastructure-as-code templates and configuration files optimized for Azure services.
-- **Containerize applications post-modernization**: Package updated applications into containers for scalable, cloud-native deployment.
-- **Resolve cloud compatibility issues**: Identify and fix platform-specific blockers to ensure smooth operation in Azure environments.
-- **Reduce technical debt and strengthen security**: Modernize legacy code, eliminate outdated dependencies, and remediate known vulnerabilities.
-- **Unlock Azure managed services**: Enable seamless integration with services like Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), and AKS Automatic to support cloud-native and AI-driven workloads.
+  Modernization includes comprehensive build validation. The tool automatically resolves build issues that arise during transformation. It performs test validations to ensure error-free changes. Production pipeline integrity is maintained throughout the modernization process.
 
-## Key capabilities and workflow
+  Security vulnerability management is integrated into the modernization process. The system scans for CVEs after upgrades. It automatically applies security fixes in Agent Mode. You can review all security-related changes. This improves your security posture while maintaining compliance requirements.
 
-- **Application assessment and planning**: GitHub Copilot analyzes your codebase, configuration files, and dependencies to identify modernization opportunities. It provides a detailed assessment report that outlines required tasks, highlights critical issues, and recommends priorities to guide your planning.
-- **Code transformations**: GitHub Copilot suggests and applies targeted code changes to support upgrade and migration scenarios, including runtime updates, framework transitions, platform-specific refactoring, and dependency remediation. It proposes changes that you can review, validate, and customize to ensure they align with your application architecture, coding standards, and business requirements.
-- **Build, patching and tests**: GitHub Copilot verifies that your project builds successfully after remediation and applies automated fixes when needed. It performs CVE scans to identify security vulnerabilities and generates unit tests to validate modernization outcomes. You can confirm build integrity and refine test coverage as necessary.
-- **Containerization and deployment**: GitHub Copilot automatically generates Dockerfiles and deployment artifacts tailored for Azure environments. You can customize deployment configurations and integrate them into your CI/CD workflows for production readiness.
+- **Containerization and deployment**: Generate assets for app containerization and deployment.
+
+  The tool creates Infrastructure as Code files for Azure deployment. It addresses deployment errors automatically. CI/CD pipelines are set up for continuous integration. This completes the modernization workflow from analysis to production.
 
 ## Get started
 
