@@ -40,6 +40,10 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
           - text: Create and apply your own task
             url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
+          - text: Deploy your project
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
+          - text: Containerize your project
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md
       - linkListType: sample
         links:
           - text: Migration sample
