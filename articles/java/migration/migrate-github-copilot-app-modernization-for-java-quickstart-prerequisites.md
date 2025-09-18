@@ -1,23 +1,12 @@
 ---
-title: "Prerequisites for Using GitHub Copilot app modernization"
-titleSuffix: GitHub Copilot app modernization - Azure
-description: Shows the prerequisites for Using GitHub Copilot app modernization.
-author: KarlErickson
-ms.author: karler
-ms.reviewer: xiading
-ms.topic: quickstart
-ms.date: 09/17/2025
-ms.custom: devx-track-java
-ms.subservice: migration-copilot
+ms.date: 09/23/2025
 ---
 
 # Prerequisites for Using GitHub Copilot app modernization
 
 This article describes the prerequisites for Using GitHub Copilot app modernization.
 
-## Prerequisites list
-
-GitHub Copilot app modernization needs the following prerequisites:
+## Prerequisites
 
 - A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
@@ -26,7 +15,7 @@ GitHub Copilot app modernization needs the following prerequisites:
 - [Java 21](/java/openjdk/download) or later.
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
-## Sign in to use Copilot and then install App Modernization
+## Sign in to use Copilot and then install app modernization
 
 To use GitHub Copilot, sign in to your GitHub account in Visual Studio Code. Select the Copilot icon at the top of Visual Studio Code to access the GitHub Copilot pane. For more information about setting up GitHub Copilot, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup).
 
@@ -41,8 +30,3 @@ Then, use the following steps to install GitHub Copilot app modernization:
 After installation completes, you should see a notification in the corner of Visual Studio Code confirming success.
 
 For more information, see [Install a VS Code extension](https://code.visualstudio.com/docs/getstarted/extensions#_install-a-vs-code-extension).
-
-## Next step
-
-- [Quickstart: Assess and migrate a Java project](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-- [Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
