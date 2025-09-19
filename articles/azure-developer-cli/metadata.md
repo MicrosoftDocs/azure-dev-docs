@@ -15,7 +15,7 @@ The Azure Developer CLI (`azd`) provides enhanced support for Bicep templates th
 
 ## Adding metadata
 
-Input parameters in Bicep support [@metadata](https://learn.microsoft.com/azure/azure-resource-manager/bicep/parameters#metadata) as a schema-free object. You can include `azd` metadata by adding the `azd` field to the parameter metadata:
+Input parameters in Bicep support [@metadata](/azure/azure-resource-manager/bicep/parameters#metadata) as a schema-free object. You can include `azd` metadata by adding the `azd` field to the parameter metadata:
 
 ```bicep
 @metadata({
@@ -114,7 +114,7 @@ This configuration defines a unique way for `azd` to prompt for an input paramet
 
     Prompt flow:
 
-    :::image type="content" source="media/metadata/prompt-with-rg.png" alt-text="A screenshot showing a prompt with the resource group type.":::
+    :::image type="content" source="media/metadata/prompt-with-resource-group.png" alt-text="A screenshot showing a prompt with the resource group type.":::
 
 ### Config
 
