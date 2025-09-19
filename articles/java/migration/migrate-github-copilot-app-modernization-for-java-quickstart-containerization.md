@@ -19,29 +19,21 @@ To utilize container compute services like Azure Kubernetes Service and Azure Co
 
 ## Prerequisites
 
-- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
-- The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
-- The latest version of the [GitHub Copilot extension in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
-- [GitHub Copilot app modernization](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-app-mod-pack) extension pack. For install instructions, see [Quickstart: assess and migrate a Java project using GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md).
-
-  This extension pack bundles the following two extensions:
-  - [GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java.md)
-  - [GitHub Copilot app modernization - upgrade for Java](/java/upgrade/overview)
-
-  GitHub Copilot app modernization doesn't require Java in your local environment. However, to build your project successfully, install the correct version of Java and Maven. We recommend the [Microsoft Build of OpenJDK](/java/openjdk/) and [Maven](https://maven.apache.org/download.cgi).
-
-- [AppCAT](/azure/migrate/appcat/java). This tool is required for the app assessment feature.
+[!INCLUDE [prerequisites](includes/migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)]
 
 ## Containerize your project
 
 Use the following steps to start your containerization process:
+
 1. Make sure you have docker installed and running.
 
 1. In Visual Studio Code, open your migrated project.
 
-1. In the **Activity** sidebar, open the **App modernization** extension pane. In the Tasks section, open **Migration Tasks** and select **Containerize Application**.
+1. In the **Activity** sidebar, open the **App modernization** extension pane.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the button for containerize project":::
+1. In the **Tasks** section, open **Migration Tasks** and select **Containerize Application**.
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
 1. After you select the task, the Copilot chat window with Agent Mode opens automatically.
 

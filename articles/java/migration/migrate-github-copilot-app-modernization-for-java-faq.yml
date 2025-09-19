@@ -96,7 +96,7 @@ sections:
         answer: You can use [AppCAT CLI](/azure/migrate/appcat/appcat-7-cli-guide?view=migrate-classic) to scan multiple projects at once with the -bulk flag. However, we recommend that you only modernize 1 project/app at a time. You can create your own migration task based on code changes from one project and apply them to other projects, reducing repetitive work.
 
       - question: Which model should I use?
-        answer: As a general rule of thumb, newer models will outperform previous models. For coding tasks, we recommend Claud Sonnet models to for better accuracy. However to reduce cost,  consider start exploring from the models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
+        answer: As a general rule of thumb, newer models outperform previous models. For coding tasks, we recommend Claud Sonnet models to for better accuracy. However to reduce cost,  consider start exploring from the models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
 
   - name: Troubleshooting guide
 
