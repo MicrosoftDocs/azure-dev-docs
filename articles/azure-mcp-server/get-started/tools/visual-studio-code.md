@@ -25,8 +25,6 @@ In this article, you learn how to complete the following tasks:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) Visual Studio Code extension
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
-
 ## Install the Azure MCP Server
 
 Select one of the following options to install the Azure MCP Server in Visual Studio Code:
@@ -44,6 +42,8 @@ Select one of the following options to install the Azure MCP Server in Visual St
 1. Refresh the tools list to see Azure MCP Server as an available option:
 
     :::image type="content" source="../../media/github-copilot-integration.png" alt-text="A screenshot showing Azure MCP Server as GitHub Copilot tool.":::
+
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## [Directory install](#tab/manual)
 
