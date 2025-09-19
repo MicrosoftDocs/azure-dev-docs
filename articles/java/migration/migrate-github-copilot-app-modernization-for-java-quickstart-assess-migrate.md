@@ -21,13 +21,16 @@ The following video demonstrates how GitHub Copilot app modernization uses [AppC
 
 > [!VIDEO https://www.youtube.com/embed/eX8rSMd4Dls]
 
+## Prerequisites
+
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 [!INCLUDE [prerequisites](includes/migrate-github-copilot-app-modernization-for-java-quickstart-prerequisites.md)]
 
 ## Upgrade JDK and dependencies version
 
 Here are 2 ways to upgrade JDK version:
 
-On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to click **Upgrade Runtime & Frameworks** in the **QUICKSTART** section, another is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot app modernization](/java/upgrade/quickstart-upgrade) for more information.
+On the sidebar, select the **GitHub Copilot app modernization** pane, one way is to select **Upgrade Runtime & Frameworks** in the **QUICKSTART** section. Another way is to run **Upgraded Java Runtime** task in the **TASKS - Upgrade Tasks** section. See [Quickstart: upgrade a Java project with GitHub Copilot app modernization](/java/upgrade/quickstart-upgrade) for more information.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/upgrade-java-version.png" alt-text="Screenshot of Visual Studio Code that shows how to upgrade JDK.":::
 
@@ -44,15 +47,15 @@ Use the following steps to start your migration process with solution assessment
 
 1. In Visual Studio Code, open the **mi-sql-public-demo** project folder in the samples repository.
 
-1. On the sidebar, select the **GitHub Copilot app modernization** pane, you can click **Migrate to Azure** button or click **Run Assessment** in the **ASSESSMENT** section.
+1. On the sidebar, select the **GitHub Copilot app modernization** pane, where you can select **Migrate to Azure** or **Run Assessment** in the **ASSESSMENT** section.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-assessment.png" alt-text="Screenshot of Visual Studio Code that shows how to generate assessment report.":::
 
-1. Then the GitHub Copilot chat window with agent mode is opened to call the modernization assessor to execute the app modernization assessment, click **Continue** to confirm.
+1. The GitHub Copilot chat window with agent mode opens to call the modernization assessor to execute the app modernization assessment. Select **Continue** to confirm.
 
-1. The modernization assessor now opens **appcat.log**. This file will show the logs for running AppCAT, which performs the app assessment, click **Continue** to confirm again. 
+1. The modernization assessor now opens **appcat.log**. This file shows the logs for running AppCAT, which performs the app assessment. Select **Continue** to confirm again.
 
-1. The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, agent will help to install. After installation, it calls AppCAT to assess the current project. This step could take several minutes to complete.
+1. The modernization assessor verifies your local environment first. If the AppCAT and its dependencies aren't installed, the agent helps you install them. After installation, the agent calls AppCAT to assess the current project. This step could take several minutes to complete.
 
 1. Upon completion of the analysis, the modernization assessor produces a categorized view of cloud readiness issues in an opened **Assessment Report**.
 
@@ -68,13 +71,13 @@ The migration Copilot provides predefined tasks for common migration scenarios t
 
 1. In the **Assessment Report**, select **Run Task**. The Copilot chat window opens with Agent Mode.
 
-1. The Copilot agent uses various tools for app modernization and each tool may require confirmation to proceed. **plan.md** and **progress.md** will be generated first, you can review the **plan.md** and make changes there, if necessary.
+1. The Copilot agent uses various tools for app modernization and each tool may require confirmation to proceed. **plan.md** and **progress.md** are generated first, and you can review **plan.md** and make changes there, if necessary.
 
-1. Then manually input **continue** to confirm and start the migration process.
+1. Manually input **continue** to confirm and start the migration process.
 
-1. Before doing code changes, agent will check the version control system status and checkout a new branch for migration.
+1. Before doing code changes, the agent checks the version control system status and checks out a new branch for migration.
 
-1. Repeatedly click or input **Continue** to confirm the use of tools or commands and wait for the code changes to be finished.
+1. Repeatedly select or input **Continue** to confirm the use of tools or commands and wait for the code changes to be finished.
 
 ### Validation iteration
 
@@ -110,9 +113,9 @@ This extension also integrates other interesting tools:
 
 ### Generate unit test cases
 
-1. On the sidebar, select the **GitHub Copilot app modernization** pane, open **Quality & Security Tasks** in the **TASKS** section and click **Generate Unit Test Cases**.
+1. On the sidebar, select the **GitHub Copilot app modernization** pane, open **Quality & Security Tasks** in the **TASKS** section, and then select **Generate Unit Test Cases**.
 
-1. Then it will start generate unit tests and create a **TestReport** to show test results before and after generation. See [Quickstart: generate unit tests with GitHub Copilot app modernization](/java/upgrade/quickstart-unit-tests) for more information.
+1. The agent generates unit tests and creates a **TestReport** to show test results before and after generation. For more information, see [Quickstart: generate unit tests with GitHub Copilot app modernization](/java/upgrade/quickstart-unit-tests).
 
 ## Next step
 

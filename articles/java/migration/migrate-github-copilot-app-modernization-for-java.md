@@ -19,16 +19,16 @@ Enterprises often deal with technical debt throughout their development cycles, 
 - Planning Azure resources
 - Remediating issues to enable successful migration
 
-**GitHub Copilot app modernization** is an AI assistant that delivers end-to-end support for application modernization. Built on **GitHub Copilot agent mode**, it offers predefined tasks for common upgrade and migration scenarios while incorporating industry best practices for running applications on Azure. At the same time, it enables teams to infuse their own coding standards, organizational policies, and existing practices into the modernization process.
+GitHub Copilot app modernization is an AI assistant that delivers end-to-end support for application modernization. Built on **GitHub Copilot agent mode**, it offers predefined tasks for common upgrade and migration scenarios while incorporating industry best practices for running applications on Azure. At the same time, it enables teams to infuse their own coding standards, organizational policies, and existing practices into the modernization process.
 
-**Key Capabilities at a Glance**
+## Key capabilities at a glance
 
-- **Application Assessment and Planning** – Analyze code, configuration, and dependencies. Visualize every task in the modernization process, from assessment to deployment.
-- **Code Transformations** – Suggest and apply code remediation for upgrade and migration scenarios.
-- **Build, Patching and Tests** – Verify the project builds successfully after remediation, and apply fixes when needed, perform Common Vulnerabilities and Exposures (CVE) checks to reduce exposure to security vulnerabilities, and migrate existing and generate new unit tests to validate modernization outcomes and improve test coverage.
-- **Containerization and Deployment** – Generate Dockerfiles for app containerization, and other artifacts to automate deployment to Azure.
+- **Application assessment and planning** – Analyze code, configuration, and dependencies. Visualize every task in the modernization process, from assessment to deployment.
+- **Code transformations** – Suggest and apply code remediation for upgrade and migration scenarios.
+- **Build, patching, and tests** – Verify the project builds successfully after remediation, and apply fixes when needed, perform Common Vulnerabilities and Exposures (CVE) checks to reduce exposure to security vulnerabilities, and migrate existing and generate new unit tests to validate modernization outcomes and improve test coverage.
+- **Containerization and deployment** – Generate Dockerfiles for app containerization, and other artifacts to automate deployment to Azure.
 
-App Mod integrates **GitHub Copilot's AI-powered capabilities** with open-source tools like **OpenRewrite** to automate complex upgrade steps. It supports both **Maven** and **Gradle** projects and targets upgrades between **Java versions 8, 11, 17, and 21**. The tool has a particular focus on modernizing applications that use the **Spring Boot** framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
+App Mod integrates **GitHub Copilot's AI-powered capabilities** with open-source tools like `OpenRewrite` to automate complex upgrade steps. It supports both **Maven** and **Gradle** projects and targets upgrades between **Java versions 8, 11, 17, and 21**. The tool has a particular focus on modernizing applications that use the **Spring Boot** framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
 
 Start your migration journey with **App Assessments** to get an overview of cloud readiness migration issues, including:
 
@@ -57,4 +57,4 @@ For more information, see [Use specific Java utilities outside of GitHub Copilot
 
 Modernization isn't just about upgrading code—it's about preparing your applications for the cloud. Whether you're targeting Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS) or AKS Automatic, Copilot helps you get there faster and with confidence.
 
-A process that once took **months** can now be completed in just **days**, thanks to automated app modernization capability powered by GitHub Copilot!
+A process that used to take months can now be completed in just days, thanks to automated app modernization capability powered by GitHub Copilot!
