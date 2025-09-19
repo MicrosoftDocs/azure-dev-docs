@@ -25,8 +25,6 @@ In this article, you learn how to complete the following tasks:
 - [Cline](https://cline.bot/) installed
 - [Node.js](https://nodejs.org/) LTS installed
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
-
 ## Install the Azure MCP Server
 
 To install and configure the Azure MCP Server in Cline:
@@ -54,6 +52,8 @@ To install and configure the Azure MCP Server in Cline:
     :::image type="content" source="../../media/cline-configure-server.png" alt-text="A screenshot showing how to configure an MCP Server in Cline.":::
 
 1. Select **Done** to close the configuration panel and return to the chat interface.
+
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Use prompts to test the Azure MCP Server
 
