@@ -21,13 +21,9 @@ The following GitHub Copilot app modernization capabilities are currently availa
 - **General availability**: App modernization – migration scenarios for Java
 - **Public preview**: App modernization – migration scenarios for .NET
 
-<!--
-
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/] <-- need actual sizzling video YouTube ID
-
--->
+> [!VIDEO https://www.youtube.com/embed/Olt5getqPoo]
 
 ## Key capabilities
 
