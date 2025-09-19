@@ -83,6 +83,8 @@
           href: remote-builds.md
         - name: Docker support as a language
           href: docker-language-support.md
+        - name: Metadata configuration
+          href: metadata.md
         - name: Resource Group Scoped Deployments
           href: resource-group-scoped-deployments.md
         - name: Use third-party container registries

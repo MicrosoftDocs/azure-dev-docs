@@ -33,9 +33,11 @@ The supported configuration fields for `azd` metadata are:
   | Field | Description |
   |-------|-------------|
   | `type` | Defines how `azd` should prompt for this parameter. Example: `location`. |
-  | `config` | Describes the settings for some of the types, like `generate`. |
+  | `config` | Describes the settings for some of the metadata types, such as `generate`. |
   | `default` | Defines a value for `azd` to highlight initially during a select prompt. |
   | `usageName` | Controls quota-check for AI model location selection. |
+
+Each of these is explored in more detail in the following sections.
 
 ### Type
 
@@ -151,7 +153,7 @@ param someInput string
 
 ### Default
 
-Defines the initial value from a list to highlight. It can be combined with `type: 'location'` or applied directly to an input with a defined list of options:
+Defines the initial value from a list to highlight. It can be combined with the `location` type or applied directly to an input with a defined list of options:
 
 ```bicep
 @allowed(['foo', 'bar', 'baz'])
