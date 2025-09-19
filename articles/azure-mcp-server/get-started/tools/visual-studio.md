@@ -24,8 +24,6 @@ In this article, you learn how to complete the following tasks:
 - An [Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) with an active subscription
 - [Visual Studio](https://visualstudio.microsoft.com)
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
-
 ## Install the Azure MCP Server
 
 Visual Studio uses a file named `mcp.json` to check for MCP Server configurations, including configurations set up by other development environments. MCP server configurations are read from the following directories, in the following order:
@@ -98,6 +96,8 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 ---
 
 :::image type="content" source="../../media/github-copilot-mcp-tools-visual-studio.png" alt-text="A screenshot showing how to configure Azure MCP Server in Visual Studio.":::
+
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Use prompts to test the Azure MCP Server
 

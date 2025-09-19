@@ -25,8 +25,6 @@ In this article, you learn how to complete the following tasks:
 - [Cursor](https://cursor.sh/) installed
 - [Node.js](https://nodejs.org/) LTS installed
 
-[!INCLUDE [permissions-note](../../includes/permissions-note.md)]
-
 ## Install the Azure MCP Server
 
 To install and configure Azure MCP Server in Windsurf:
@@ -54,6 +52,8 @@ To install and configure Azure MCP Server in Windsurf:
         }
     }
     ```
+
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
 ## Use prompts to test the Azure MCP Server
 
