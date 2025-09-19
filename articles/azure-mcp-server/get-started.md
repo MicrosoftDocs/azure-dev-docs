@@ -14,11 +14,13 @@ ms.custom: build-2025
 
 # Get started with the Azure MCP Server
 
-The Azure MCP Server enables AI-powered development tools to interact with Azure cloud services through the Model Context Protocol (MCP). It provides a unified way to manage Azure resources, deploy applications, and query cloud services directly from your development environment.
+The [Azure MCP Server](overview.md) enables AI-powered development tools to interact with Azure cloud services through the Model Context Protocol (MCP). It provides a unified way to manage Azure resources, deploy applications, and query cloud services directly from your development environment.
 
 Azure MCP Server is designed to work across multiple tools, languages, frameworks, and use cases. You can use it to manage Azure resources through natural language conversations, build automation scripts, or integrate Azure operations into your applications.
 
-## Code editors
+You can also explore and contribute to the [Azure MCP Server on GitHub](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server).
+
+## Use a code editor
 
 Azure MCP Server works with AI-powered code editors that support the Model Context Protocol. Learn how to get started with the following code editors:
 
@@ -26,7 +28,7 @@ Azure MCP Server works with AI-powered code editors that support the Model Conte
 - [**Visual Studio**](get-started/tools/visual-studio.md)
 - [**Cursor**](get-started/tools/cursor.md)
 
-## Languages & frameworks
+## Use languages & frameworks
 
 You can also connect to Azure MCP Server using programming languages and frameworks. This documentation currently provides guidance and examples for Python and .NET.
 
