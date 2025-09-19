@@ -72,7 +72,7 @@ This configuration defines a unique way for `azd` to prompt for an input paramet
 
     Prompting flow:
 
-    :::image type="content" source="media/metadata/prompt-with-location-defaultmetadata.png" alt-text="A screenshot showing a prompt for location with metadata that includes a default value.":::
+    :::image type="content" source="media/metadata/prompt-with-location-default-metadata.png" alt-text="A screenshot showing a prompt for location with metadata that includes a default value.":::
 
     Note how the highlighted default option matches the `default` field from the metadata. This is convenient for template authors to recommend a location while letting users confirm or change it. This differs from setting a default value for the input parameter in Bicep because that makes `azd` skip the prompt flow and directly use the default value without user confirmation.
 
