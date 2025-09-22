@@ -43,7 +43,7 @@ sections:
           For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com/).
 
       - question: What kind of applications did you use to evaluate GitHub Copilot app modernization?
-        answer: We tested GitHub Copilot app modernization on hundreds of open-source repositories to ensure build, consistency, and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. You can submit feedback using this [link](https://www.surveymonkey.com/r/NDBTC6B).
+        answer: We tested GitHub Copilot app modernization on hundreds of open-source repositories to ensure build, consistency, and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. You can submit feedback using [this link](https://www.surveymonkey.com/r/NDBTC6B).
 
       - question: What frameworks is GitHub Copilot app modernization optimized for in upgrade scenarios?
         answer: |
@@ -116,7 +116,7 @@ sections:
 
       - question: How does GitHub Copilot app modernization use the MCP server, and how can I check for updates or troubleshoot issues?
         answer: |
-          GitHub Copilot app modernization uses the MCP server to enhance code transformation capabilities. After installing the Visual Studio Code extension, the MCP server is registered and starts automatically.
+          GitHub Copilot app modernization uses the MCP server to enhance code transformation capabilities. After you install the Visual Studio Code extension, the MCP server is registered and starts automatically.
 
           If you notice a special refresh button in the bottom-right corner of the GitHub Copilot Chat panel, it might indicate that tool updates are available. Select the button to automatically load the latest versions of the tools.
 
@@ -141,7 +141,7 @@ sections:
         answer: |
           GitHub Copilot might block certain code generations for files that commonly resemble public code, such as **pom.xml**. To prevent Copilot from blocking these changes, you must allow suggestions matching public code. For instructions, see [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
-          To manage the settings for Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+          To manage the settings for GitHub Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
       - question: Why don't I see tools in GitHub Copilot app modernization that use the Model Context Protocol (MCP) server?
         answer: |

@@ -76,7 +76,7 @@ To apply a predefined task, use the following steps:
 
 1. Manually input **continue** to confirm and start the migration process.
 
-1. Before making any code changes, the agent checks the version control system status and checks out a new branch for migration.
+1. Before it makes any code changes, the agent checks the version control system status and checks out a new branch for migration.
 
 1. Repeatedly select or input **Continue** to confirm the use of tools or commands and wait for the code changes to finish.
 
@@ -84,7 +84,7 @@ To apply a predefined task, use the following steps:
 
 After the code changes finish, manually input **continue** to proceed with the validation and fix iteration loop. This loop includes the following five parts:
 
-- Apply the `Validate-CVEs` tool. This tool attempts to detected CVEs in current dependencies and fix them.
+- Apply the `Validate-CVEs` tool. This tool attempts to detected Common Vulnerabilities and Exposures (CVEs) in current dependencies and fixes them.
 - Apply the `Build-Project` tool. This tool attempts to resolve any build errors.
 - Apply the `Consistency-Validation` tool. This tool analyzes the codes for functional consistency.
 - Apply the `Run-Test` tool. This tool analyzes the project for unit test failures and automatically generates a plan to fix them. The `Run-Test` tool iteratively runs unit tests and fixes any failures.
