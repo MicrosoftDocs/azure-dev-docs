@@ -47,7 +47,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## How it works
 
-GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the [Azure MCP Server](../azure-mcp-server/overview) that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
+GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the [Azure MCP Server](../azure-mcp-server/overview.md) that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
 
 ## Best practices
 
