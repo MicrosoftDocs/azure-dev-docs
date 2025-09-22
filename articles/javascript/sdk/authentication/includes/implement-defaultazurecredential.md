@@ -15,14 +15,14 @@ To use `DefaultAzureCredential`, add the [@azure/identity](https://www.npmjs.com
 
 In a terminal of your choice, navigate to the application project directory and run the following commands:
 
-```javascript
+```console
 npm install @azure/identity
 ```
 
 Azure services are accessed using specialized client classes from the various Azure SDK client libraries. These classes and your own custom services should be registered so they can be accessed throughout your app. Complete the following programmatic steps to create a client class and `DefaultAzureCredential`:
 
 1. Import the `@azure/identity` package.
-1. Create the Azure service client with an instance of `DefaultAzureCredential` to the `UseCredential` method.
+1. Create the Azure service client with a new instance of `DefaultAzureCredential`.
 
 
 ```typescript
