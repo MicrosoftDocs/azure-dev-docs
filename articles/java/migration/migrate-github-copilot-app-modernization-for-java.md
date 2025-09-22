@@ -55,6 +55,6 @@ GitHub Copilot app modernization also includes specialized agents to:
 - Reduce technical debt by addressing CVEs
 - Validate behavioral integrity with unit tests
 
-For more information, see [Use specific Java utilities outside of GitHub Copilot app modernization](/java/upgrade/tools).
+For more information, see [GitHub Copilot app modernization Java utilities](/java/upgrade/tools).
 
 Modernization isn't just about upgrading code, it's about preparing your applications for the cloud. Whether you're targeting Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or AKS Automatic, Copilot helps you get there faster and with confidence.
