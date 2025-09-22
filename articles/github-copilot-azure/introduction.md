@@ -17,7 +17,7 @@ GitHub Copilot for Azure is a GitHub Copilot extension that enables developers t
 - Get information about Azure resources.
 - Diagnose and troubleshoot problems with Azure resources.
 
-GitHub Copilot for Azure is currently available for Visual Studio Code. You must have access to an Azure subscription and be subscribed to GitHub Copilot.
+GitHub Copilot for Azure is currently available for Visual Studio Code and Visual Studio 2022. You must have access to an Azure subscription and be subscribed to GitHub Copilot. [Get started](get-started.md) using the extension.
 
 GitHub Copilot is designed to help developers, including those who are new to Azure, to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure saves time because they can access Azure functionality without needing to look up commands and arguments, and without needing to sign in and browse through the Azure portal.
 
@@ -28,7 +28,7 @@ You can use GitHub Copilot for Azure in the following supported development envi
 |Supported Client|Description|Feature Stage|Download Link|
 |---|---|---|---|
 |Visual Studio Code|Surfaces the Azure MCP Server tools via the GitHub Copilot user interface for both Ask and Agent modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
-|Visual Studio 2022|Public preview|Same, but only provides access to Agent mode.|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
+|Visual Studio 2022|Same, but only provides access to Agent mode.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
 
 
 ## Primary scenarios
@@ -47,9 +47,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## How it works
 
-GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with continuously updated knowledge from Microsoft Learn. Its intelligent agents interact with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
-
-The GitHub Copilot Chat extension delivers the chat experience. You can open the chat extension as a pane in Visual Studio Code by selecting the **Chat** icon on the Activity Bar. In the chat pane, you can create a new chat, access a history of chat sessions, open a chat session in a full editor window, and more.
+GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the [Azure MCP Server](../azure-mcp-server/overview) that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
 
 ## Best practices
 
@@ -69,6 +67,14 @@ When you're working with any tool that's based on large language models, use goo
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
+When working in agent mode, it is important to constrain the AI before allowing it to act on your behalf especially when working with your Azure account.
+
+- Command: "Do not take any action until I authorize it."
+- Express what you want to happen.
+- Ask: "Do you have any clarifying questions to ask me before you begin?" You may need to iterate with the copilot until it understands what you are asking it to do.
+- Request: "Create a step-by-step plan that I can review before I authorize you to execute the plan."
+- Make sure you review the plan and clarify what you want.
+- Authorize: "I've reviewed the plan and I am authorizing you to begin."
 
 ## Related content
 
