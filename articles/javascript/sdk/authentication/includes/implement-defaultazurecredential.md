@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 09/11/2025
+ms.date: 09/22/2025
 ---
 
 ## Authenticate to Azure services from your app
