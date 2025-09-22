@@ -6,7 +6,6 @@ ms.author: karler
 ms.reviewer: edburns
 ms.topic: tutorial
 ms.date: 05/13/2025
-recommendations: false
 ms.custom:
   - devx-track-azurecli
   - devx-track-extended-java

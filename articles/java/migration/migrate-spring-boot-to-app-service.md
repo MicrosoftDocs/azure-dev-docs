@@ -6,7 +6,6 @@ ms.author: karler
 ms.topic: upgrade-and-migration-article
 ms.date: 01/22/2019
 ms.custom: devx-track-java, migration-java, devx-track-extended-java
-recommendations: false
 ---
 
 # Migrate Spring Boot applications to Azure App Service
