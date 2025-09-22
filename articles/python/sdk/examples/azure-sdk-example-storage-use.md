@@ -1,20 +1,20 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access an existing blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 09/30/2024
+ms.date: 09/22/2025
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Example: Access Azure Storage using the Azure libraries for Python
 
-In this article, you learn how to use the Azure client libraries in Python application code to upload a file to an Azure Blob storage container. The article assumes you've created the resources shown in [Example: Create Azure Storage](azure-sdk-example-storage.md).
+In this article, you learn how to use the Azure client libraries in Python application code to upload a file to an Azure Blob storage container. The article assumes you created the resources shown in [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1. Set up your local development environment
 
-If you haven't already, set up an environment where you can run this code. Here are some options:
+If you haven't already, set up an environment where you can run the code. Here are some options:
 
 [!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
@@ -48,17 +48,17 @@ For the following reasons and more, we recommend using the passwordless method w
 
 - A connection string authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed. With `DefaultAzureCredential` you can grant more granular, least privileged permissions over your storage resources to the identity your app runs under using [Azure RBAC](/azure/role-based-access-control/overview).
 
-- A connection string contains access info in plain text and therefore presents potential vulnerabilities if it's not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
+- A connection string contains access info in plain text and therefore presents potential vulnerabilities if not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
 
 - A connection string is usually stored in an environment variable, which makes it vulnerable to compromise if an attacker gains access to your environment. Many of the credential types supported by `DefaultAzureCredential` don't require storing secrets in your environment.
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
-`DefaultAzureCredential` is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. An instance of `DefaultAzureCredential` determines which credential types to try to get a token for based on a combination of its runtime environment, the value of certain well-known environment variables, and, optionally, parameters passed into its constructor.
+`DefaultAzureCredential` is an opinionated, preconfigured chain of credentials. `DefaultAzureCredential` supports many environments, along with the most common authentication flows and developer tools. An instance of `DefaultAzureCredential` determines which credential types to try to get a token for based on a combination of its runtime environment, the value of certain well-known environment variables, and, optionally, parameters passed into its constructor.
 
 In the following steps, you configure an application service principal as the application identity. Application service principals are suitable for use both during local development and for apps hosted on-premises. To configure `DefaultAzureCredential` to use the application service principal, you set the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
-Notice that a client secret is configured. This is necessary for an application service principal, but, depending on your scenario, you can also configure `DefaultAzureCredential` to use credentials that don't require setting a secret or password in an environment variable.
+Notice that a client secret is configured. A client secret is necessary for an application service principal, but, depending on your scenario, you can also configure `DefaultAzureCredential` to use credentials that don't require setting a secret or password in an environment variable.
 
 For example, in local development, if `DefaultAzureCredential` can't get a token using configured environment variables, it tries to get one using the user (already) signed into development tools like Azure CLI; for an app hosted in Azure, `DefaultAzureCredential` can be configured to use a managed identity. In all cases, the code in your app remains the same, only the configuration and/or the runtime environment changes.
 
@@ -96,7 +96,7 @@ For example, in local development, if `DefaultAzureCredential` can't get a token
     az ad sp create-for-rbac --name <service-principal-name>
     ```
 
-    The output of this command will look like the following. Make note of these values or keep this window open as you'll need these values in the next step and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
+    The output of this command looks like the following JSON snippet. Make note of these values or keep this window open as you'll need these values in the next step and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
 
     ```json
     {
