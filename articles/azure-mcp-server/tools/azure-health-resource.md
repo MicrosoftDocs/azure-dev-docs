@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Health Resources.
 keywords: azure mcp server, azmcp, health resources
 author: diberry
 ms.author: diberry
-ms.date: 08/20/2025
+ms.date: 09/22/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -46,6 +46,29 @@ Example prompts include:
 - **Check resource group health**: "Show me the health status of all resources in resource group 'mygroup'."
 - **Filter by resource type**: "Get the availability status for all virtual machines in my subscription."
 - **Summarize resource health**: "What is the overall health status of resources in resource group 'mygroup'?"
+
+
+
+## Service health events: List events
+
+<!-- `azmcp resourcehealth service-health-events list` -->
+
+List Azure service health events for a subscription to identify ongoing or past service issues. Provides comprehensive information about service incidents, planned maintenance, advisories, and security events. Supports filtering by event type, status, tracking ID, and custom OData filters.
+Equivalent to Azure Service Health API for service events.
+
+
+Example prompts include: 
+
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Event Type** |  Optional | Filter by event type (ServiceIssue, PlannedMaintenance, HealthAdvisory, Security). If not specified, all event types are included. |
+| **Status** |  Optional | Filter by status (Active, Resolved). If not specified, all statuses are included. |
+| **Tracking ID** |  Optional | Filter by tracking ID to get a specific service health event. |
+| **Filter** |  Optional | Additional OData filter expression to apply to the service health events query. |
+| **Query Start Time** |  Optional | Start time for the query in ISO 8601 format (for example, 2024-01-01T00:00:00Z). Events from this time onwards will be included. |
+| **Query End Time** |  Optional | End time for the query in ISO 8601 format (for example, 2024-01-31T23:59:59Z). Events up to this time will be included. |
 
 
 ## Related content

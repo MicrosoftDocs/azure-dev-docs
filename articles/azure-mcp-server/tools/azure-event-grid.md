@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Event Grid.
 keywords: azure mcp server, azmcp, kusto, azure event grid
 author: diberry
 ms.author: diberry
-ms.date: 05/20/2025
+ms.date: 09/22/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,7 +19,7 @@ The Azure MCP Server allows you to manage Azure Event Grid resources using natur
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Subscription: list
+## Subscription: List
 
 <!-- `azmcp eventgrid subscription list` -->
 
@@ -41,7 +41,7 @@ Example prompts include:
 | **Topic** |  Optional | The name of the Event Grid topic. |
 | **Region** |  Optional | The Azure region to filter resources by (for example, `eastus`, `westus2`). |
 
-## Topic: list
+## Topic: List
 
 List all Event Grid topics in an Event Grid subscription with configuration and status information. This tool retrieves
 topic details including endpoints, access keys, and subscription information for event publishing and management.
