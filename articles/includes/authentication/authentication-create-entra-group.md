@@ -1,6 +1,9 @@
 ---
+author: diberry
+ms.service: azure
 ms.topic: include
-ms.date: 09/11/2025
+ms.date: 09/22/2025
+ms.author: diberry
 ---
 
 ## Create a Microsoft Entra group for local development

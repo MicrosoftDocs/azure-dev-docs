@@ -1,6 +1,9 @@
 ---
+author: diberry
+ms.service: azure-javascript
 ms.topic: include
 ms.date: 09/22/2025
+ms.author: diberry
 ---
 
 ## Authenticate to Azure services from your app

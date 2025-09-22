@@ -1,6 +1,9 @@
 ---
+author: diberry
+ms.service: azure
 ms.topic: include
-ms.date: 09/11/2025
+ms.date: 09/22/2025
+ms.author: diberry
 ---
 ## Sign-in to Azure using developer tooling
 
@@ -32,7 +35,7 @@ To authenticate with the Azure Developer CLI, run the `azd auth login` command. 
 azd auth login
 ```
 
-For systems without a default web browser, the `azd auth login --use-device-code` uses the device code authentication flow. The user can also force the the Azure Developer CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
+For systems without a default web browser, the `azd auth login --use-device-code` uses the device code authentication flow. The user can also force the Azure Developer CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
 
 ```azdeveloper
 azd auth login --use-device-code
