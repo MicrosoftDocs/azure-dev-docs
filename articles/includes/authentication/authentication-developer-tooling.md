@@ -8,7 +8,7 @@ Next, sign-in to Azure using one of several developer tools that can be used to 
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Developers coding outside of an IDE can also use the [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using `DefaultAzureCredential` or `AzureCliCredential` can then use this account to authenticate app requests when running locally.
+Developers can use the [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `AzureCliCredential` can then use this account to authenticate app requests when running locally.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 
