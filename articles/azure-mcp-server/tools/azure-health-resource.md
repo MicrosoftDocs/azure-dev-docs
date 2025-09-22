@@ -19,8 +19,9 @@ The Azure MCP Server enables you to monitor resource health and availability by 
 
 ## Availability status: Get
 
-Get the current availability status of an Azure resource to diagnose health issues. 
-Provides detailed information about resource availability state, potential issues, and timestamps. 
+<!-- `azmcp resourcehealth availability-status get` -->
+
+Get the current availability status of an Azure resource to diagnose health issues. Provides detailed information about resource availability state, potential issues, and timestamps. 
 
 Example prompts include:
 
@@ -37,8 +38,9 @@ Example prompts include:
 
 ## Availability status: List
 
-List availability statuses for all resources in a subscription or resource group.
-Provides health status information for multiple Azure resources at once, including availability state, summaries, and timestamps. This information is useful for getting an overview of resource health across your infrastructure. You can filter results by resource group to narrow the scope.
+<!-- `azmcp resourcehealth availability-status list` -->
+
+List availability statuses for all resources in a subscription or resource group. Provides health status information for multiple Azure resources at once, including availability state, summaries, and timestamps. This information is useful for getting an overview of resource health across your infrastructure. You can filter results by resource group to narrow the scope.
 
 Example prompts include:
 
@@ -56,10 +58,13 @@ Example prompts include:
 List Azure service health events for a subscription to identify ongoing or past service issues. Provides comprehensive information about service incidents, planned maintenance, advisories, and security events. Supports filtering by event type, status, tracking ID, and custom OData filters.
 Equivalent to Azure Service Health API for service events.
 
-
 Example prompts include: 
 
-
+- **View all events**: "List all service health events in my subscription"
+- **Filter by subscription**: "Show me Azure service health events for subscription 'dev-subscription'"
+- **Time-based filtering**: "What service issues have occurred in the last 30 days?"
+- **Active events only**: "List active service health events in my subscription"
+- **Planned maintenance**: "Show me planned maintenance events for my Azure services"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|

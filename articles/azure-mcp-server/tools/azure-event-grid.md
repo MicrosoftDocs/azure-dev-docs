@@ -43,6 +43,9 @@ Example prompts include:
 
 ## Topic: List
 
+<!-- `azmcp eventgrid topic list` -->
+
+
 List all Event Grid topics in an Event Grid subscription with configuration and status information. This tool retrieves
 topic details including endpoints, access keys, and subscription information for event publishing and management.
 

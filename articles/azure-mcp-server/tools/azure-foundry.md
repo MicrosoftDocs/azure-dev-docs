@@ -62,6 +62,9 @@ Example prompts include:
 
 ## Agents: List agents
 
+<!-- `azmcp foundry agents list` -->
+
+
 List all Azure AI Agents available in the configured project.
 
 Example prompts include:
@@ -79,8 +82,9 @@ Example prompts include:
 
 ## Agents: Query and execute an agent
 
-Query an agent and evaluate its response in a single operation.
-This command returns both the agent response and evaluation results.
+<!-- `azmcp foundry agents query-and-evaluate` -->
+
+Query an agent and evaluate its response in a single operation. This command returns both the agent response and evaluation results.
 
 Example prompts include:
 
