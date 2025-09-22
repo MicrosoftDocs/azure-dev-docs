@@ -19,7 +19,14 @@ GitHub Copilot for Azure is a GitHub Copilot extension that enables developers t
 
 GitHub Copilot for Azure is currently available for Visual Studio Code and Visual Studio 2022. You must have access to an Azure subscription and be subscribed to GitHub Copilot. [Get started](get-started.md) using the extension.
 
-GitHub Copilot is designed to help developers, including those who are new to Azure, to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure saves time because they can access Azure functionality without needing to look up commands and arguments, and without needing to sign in and browse through the Azure portal.
+GitHub Copilot is designed to help developers, including developers new to Azure, to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure it replaces:
+- the need to memorize or look up Azure CLI commands and arguments.
+- create complex deployment scripts by hand.
+- the need to sign in and browse through the Azure portal.
+
+## How it works
+
+GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the Azure Model Context Protocol (MCP) Server that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
 
 ## Supported development environments
 
@@ -38,16 +45,12 @@ GitHub Copilot for Azure currently enables four primary scenarios:
 |Category|Explanation|Examples|
 |---|---|---|
 |Learn|Learn about Azure services and tools from the latest Microsoft Learn documentation.|<ul><li>"@azure What Azure services should I use with my app?"</li><li>"@azure What are the available types of Azure OpenAI models?"</li><li>"@azure What is Azure AI Search and why should I use it?"</li><li>"@azure How does pricing work for Azure SQL?"</li></ul>|
-|Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"@azure Can you help me build a RAG application with Python?"</li><li>"@azure Use azd to undeploy my project."</li><li>"@azure We are a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders."</li></ul>|
+|Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"@azure Can you help me build a RAG application with Python?"</li><li>"@azure Use azd to undeploy my project."</li><li>"@azure We're a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders."</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"@azure Can you help me deploy my application?"</li><li>"@azure I need a CI/CD pipeline so I can get my app deployed."</li><li>"@azure Use azd to undeploy my project."</li></ul>|
-|Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"@azure What is using up my GPT-4o model quota?"</li><li>"@azure Find out why my store-service-prod Kubernetes cluster is running slow."</li><li>"@azure Why am I seeing 500 errors when opening my website?"</li></ul>|
+|Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"@azure What is using up my GPT-4o model quota?"</li><li>"@azure Find out why my Kubernetes cluster is running slow."</li><li>"@azure Why am I seeing 500 errors when opening my website?"</li></ul>|
 |Optimize|Answer questions about resources, including locations, settings, and resource health.|<ul><li>"@azure How many Azure OpenAI deployments do I have?"</li><li>"@azure Give me a count of storage accounts in eastus by subscription, sorted from largest to smallest."</li></ul>|
 
 The documentation provides a quickstart and example prompts to help you start using GitHub Copilot for Azure as quickly as possible.
-
-## How it works
-
-GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the [Azure MCP Server](../azure-mcp-server/overview.md) that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
 
 ## Best practices
 
@@ -57,7 +60,7 @@ Using copilots can increase developer productivity by answering questions, execu
 - Never save application secrets or credentials in source code.
 - Never submit application secrets or credentials in questions or in code when you ask questions.
 
-When you're working with any tool that's based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
+When you're working with any tool based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -67,16 +70,16 @@ When you're working with any tool that's based on large language models, use goo
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
-When working in agent mode, you can create longer prompts, however it is important to constrain the copilot before allowing it to act on your behalf especially when working with your Azure account. Here's an approach to building a longer prompt that might help get the results you desire.
+When working in agent mode, you can create longer prompts, however it's important to constrain the copilot before allowing it to act on your behalf especially when working with your Azure account. Here's an approach to building a longer prompt that might help get the results you desire.
 
-- **Command** - "Do not take any action until I authorize it." This prevents the copilot from taking action before you are confident it will do what you want it to.
-- **Describe** - Express what you want to happen. Here, you describe the work like you would to a co-worker in sufficient detail for your co-worker to be successful.
+- **Command** - "Don't take any action until I authorize it." Prevent the copilot from taking action before you validate its understanding of the prompt.
+- **Describe** - Express what you want to happen. Here, you describe the work like you would to a coworker in sufficient detail for your coworker to be successful.
 - **Ask** - "Do you have any clarifying questions to ask me before you begin?" - Give the copilot an opportunity to identify unclear instructions.
-- **Iterate** - You may need to iterate with the copilot until it understands what you are asking it to do. This may require a round or two before it has everything it needs to be successful.
-- **Request** - "Create a step-by-step checklist plan that I can review before I authorize you to execute the plan." This not only forces the copilot to think ahead of its actions and explain its approach to you, it also will follow these steps and provide a status.
-- **Review** - At some point, you may come to trust the copilot and not closely review its work. However, it's always best to make sure you review the plan and clarify what you want.
-- **Authorize** - "I've reviewed the plan and I am authorizing you to begin."
-- **Validate** - Spend time checking the work to ensure that it accomplishes what you intended. This is a critical step.
+- **Iterate** - Iterate with the copilot until it understands what you are asking it to do. The copilot might require several iterations before it has everything it needs to be successful.
+- **Request** - "Create a step-by-step checklist plan that I can review before I authorize you to execute the plan." This not only forces the copilot to think ahead of its actions and explain its approach, it also follows these steps and provides a status.
+- **Review** - At some point, you might trust the copilot and not closely review its work. However, it's always best to make sure you review the plan and clarify what you want.
+- **Authorize** - "I've reviewed the plan and you're authorized to begin."
+- **Validate** - Spend time checking the work to ensure that it accomplishes what you intended.
 
 ## Related content
 
