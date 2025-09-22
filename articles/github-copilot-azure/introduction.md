@@ -21,6 +21,16 @@ GitHub Copilot for Azure is currently available for Visual Studio Code. You must
 
 GitHub Copilot is designed to help developers, including those who are new to Azure, to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure saves time because they can access Azure functionality without needing to look up commands and arguments, and without needing to sign in and browse through the Azure portal.
 
+## Supported development environments
+
+You can use GitHub Copilot for Azure in the following supported development environments:
+
+|Supported Client|Description|Feature Stage|Download Link|
+|---|---|---|---|
+|Visual Studio Code|Surfaces the Azure MCP Server tools via the GitHub Copilot user interface for both Ask and Agent modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
+|Visual Studio 2022|Public preview|Same, but only provides access to Agent mode.|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
+
+
 ## Primary scenarios
 
 GitHub Copilot for Azure currently enables four primary scenarios:
