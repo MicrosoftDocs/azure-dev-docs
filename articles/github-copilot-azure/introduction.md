@@ -67,14 +67,16 @@ When you're working with any tool that's based on large language models, use goo
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
-When working in agent mode, it is important to constrain the AI before allowing it to act on your behalf especially when working with your Azure account.
+When working in agent mode, you can create longer prompts, however it is important to constrain the copilot before allowing it to act on your behalf especially when working with your Azure account. Here's an approach to building a longer prompt that might help get the results you desire.
 
-- Command: "Do not take any action until I authorize it."
-- Express what you want to happen.
-- Ask: "Do you have any clarifying questions to ask me before you begin?" You may need to iterate with the copilot until it understands what you are asking it to do.
-- Request: "Create a step-by-step plan that I can review before I authorize you to execute the plan."
-- Make sure you review the plan and clarify what you want.
-- Authorize: "I've reviewed the plan and I am authorizing you to begin."
+- **Command** - "Do not take any action until I authorize it." This prevents the copilot from taking action before you are confident it will do what you want it to.
+- **Describe** - Express what you want to happen. Here, you describe the work like you would to a co-worker in sufficient detail for your co-worker to be successful.
+- **Ask** - "Do you have any clarifying questions to ask me before you begin?" - Give the copilot an opportunity to identify unclear instructions.
+- **Iterate** - You may need to iterate with the copilot until it understands what you are asking it to do. This may require a round or two before it has everything it needs to be successful.
+- **Request** - "Create a step-by-step checklist plan that I can review before I authorize you to execute the plan." This not only forces the copilot to think ahead of its actions and explain its approach to you, it also will follow these steps and provide a status.
+- **Review** - At some point, you may come to trust the copilot and not closely review its work. However, it's always best to make sure you review the plan and clarify what you want.
+- **Authorize** - "I've reviewed the plan and I am authorizing you to begin."
+- **Validate** - Spend time checking the work to ensure that it accomplishes what you intended. This is a critical step.
 
 ## Related content
 
