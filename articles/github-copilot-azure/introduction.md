@@ -35,8 +35,8 @@ You can use GitHub Copilot for Azure in the following supported development envi
 
 |Supported Client|Description|Feature Stage|Download Link|
 |---|---|---|---|
-|Visual Studio Code|Surfaces the Azure MCP Server tools via the GitHub Copilot user interface for both Ask and Agent modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
-|Visual Studio 2022|Same, but only provides access to Agent mode.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
+|Visual Studio Code|Surfaces the Azure MCP Server tools via the GitHub Copilot user interface for both Ask and Agent modes. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
+|Visual Studio 2022|Also Surfaces the Azure MCP Server tools via the GitHub Copilot user interface, but only provides access to Agent mode.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
 
 
 ## Primary scenarios
