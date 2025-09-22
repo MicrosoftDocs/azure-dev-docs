@@ -45,7 +45,7 @@ GitHub Copilot app modernization currently supports the following predefined tas
 
 - Managed Identities for Credential Migration on Azure
 
-  Authentication using connection strings introduces security vulnerabilities and maintenance overhead. This task transforms your Java applications to use Azure's Managed Identity authentication for messaging services like Azure Event Hubs and Azure Service Bus. By integrating with Microsoft Identity client libraries, your code no longer needs to store sensitive connection strings or shared access signatures in configuration files.
+  Authentication using connection strings introduces security vulnerabilities and maintenance overhead. This task transforms your Java applications to use Azure's Managed Identity authentication for messaging services like Azure Event Hubs and Azure Service Bus. When you integrate with Microsoft Identity client libraries, your code no longer needs to store sensitive connection strings or shared access signatures in configuration files.
 
 - Amazon Web Services (AWS) S3 to Azure Storage Blob
 
@@ -73,15 +73,15 @@ GitHub Copilot app modernization currently supports the following predefined tas
 
 - SQL Dialect: Oracle to PostgreSQL
 
-  When transitioning from Oracle to PostgreSQL, differences in SQL dialects can pose significant challenges. This task converts Oracle-specific SQL queries, data types, and proprietary functions in your Java code to their PostgreSQL equivalents, ensuring a seamless integration with Azure Database for PostgreSQL.
+  When you transition from Oracle to PostgreSQL, differences in SQL dialects can pose significant challenges. This task converts Oracle-specific SQL queries, data types, and proprietary functions in your Java code to their PostgreSQL equivalents, ensuring a seamless integration with Azure Database for PostgreSQL.
 
 - AWS Secret Manager to Azure Key Vault
 
-  Moving from AWS Secret Manager to Azure Key Vault requires reconfiguring how your application handles sensitive information. This task transforms all aspects of secret management in your code - from creation and retrieval to updating and deletion - and leverages Azure Key Vault's comprehensive security capabilities and authentication models.
+  Moving from AWS Secret Manager to Azure Key Vault requires reconfiguring how your application handles sensitive information. This task transforms all aspects of secret management in your code - from creation and retrieval to updating and deletion - and uses Azure Key Vault's comprehensive security capabilities and authentication models.
 
 - ActiveMQ to Azure Service Bus
 
-  Applications built on Apache ActiveMQ can be modernized to leverage Azure's managed messaging service. This task converts your ActiveMQ message producers, consumers, connection factories, and queue/topic interactions to their Azure Service Bus equivalents, implementing best practices for reliability and authentication in cloud environments.
+  Applications built on Apache ActiveMQ can be modernized to use Azure's managed messaging service. This task converts your ActiveMQ message producers, consumers, connection factories, and queue/topic interactions to their Azure Service Bus equivalents, implementing best practices for reliability and authentication in cloud environments.
 
 - Amazon Web Services (AWS) Simple Queue Service (SQS) to Azure Service Bus
 

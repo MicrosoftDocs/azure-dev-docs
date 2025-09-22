@@ -33,7 +33,7 @@ Use the following steps to start your deployment process:
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" alt-text="Screenshot of Visual Studio Code that shows the Provision Infrastructure and Deploy to Azure task with the Run Task button highlighted.":::
 
-1. If you choose **Deploy to Existing Azure Infrastructure**, Copilot asks your for your existing resource group during the deployment process. It analyzes your resource group and deploys to the corresponding compute resource.
+1. If you choose **Deploy to Existing Azure Infrastructure**, Copilot asks you for your existing resource group during the deployment process. It analyzes your resource group and deploys to the corresponding compute resource.
 
 1. If you choose **Provision Infrastructure and Deploy to Azure**, Copilot provisions new Azure resources for you to test your application and deploys to that resource.
 

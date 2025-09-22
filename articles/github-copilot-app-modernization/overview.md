@@ -39,11 +39,11 @@ The following GitHub Copilot app modernization capabilities are currently availa
 
   Modernization includes comprehensive build validation. The tool automatically resolves build issues that arise during transformation. It performs test validations to ensure error-free changes. Production pipeline integrity is maintained throughout the modernization process.
 
-  Security vulnerability management is integrated into the modernization process. The system scans for CVEs after upgrades. It automatically applies security fixes in Agent Mode. You can review all security-related changes. This improves your security posture while maintaining compliance requirements.
+  Security vulnerability management is integrated into the modernization process. The system scans for CVEs after upgrades. It automatically applies security fixes in Agent Mode. You can review all security-related changes. This process improves your security posture while maintaining compliance requirements.
 
 - **Containerization and deployment**: Generate assets for app containerization and deployment.
 
-  The tool creates Infrastructure as Code files for Azure deployment. It addresses deployment errors automatically. CI/CD pipelines are set up for continuous integration. This completes the modernization workflow from analysis to production.
+  The tool creates Infrastructure as Code files for Azure deployment. It addresses deployment errors automatically. CI/CD pipelines are set up for continuous integration. This task completes the modernization workflow from analysis to production.
 
 ## Get started
 
