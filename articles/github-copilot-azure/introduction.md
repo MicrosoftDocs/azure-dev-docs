@@ -17,7 +17,7 @@ GitHub Copilot for Azure is a GitHub Copilot extension that enables developers t
 - Get information about Azure resources.
 - Diagnose and troubleshoot problems with Azure resources.
 
-GitHub Copilot for Azure is currently available for Visual Studio Code and Visual Studio 2022. You must have access to an Azure subscription and be subscribed to GitHub Copilot. [Get started](get-started.md) using the extension.
+You must have access to an Azure subscription and be subscribed to GitHub Copilot. [Get started](get-started.md) using the extension.
 
 GitHub Copilot is designed to help developers, including developers new to Azure, to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure it replaces:
 
