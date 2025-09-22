@@ -6,7 +6,6 @@ ms.author: karler
 ms.reviewer: haiche
 ms.topic: tutorial
 ms.date: 12/09/2024
-recommendations: false
 ms.custom:
   - devx-track-java
   - devx-track-javaee

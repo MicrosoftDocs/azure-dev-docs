@@ -1,7 +1,7 @@
 ---
 title: How to authenticate JavaScript apps with Azure services
 description: Learn how to authenticate a JavaScript app with Azure services by using classes in the Azure Identity library.
-ms.date: 12/04/2024
+ms.date: 09/22/2025
 ms.topic: overview
 ms.custom:
   - devx-track-js
@@ -20,9 +20,9 @@ ms.custom:
 
 ### Advantages of token-based authentication
 
-[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/defaultazurecredential-overview-javascript.md>)]
+[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/default-azure-credential-overview-javascript.md>)]
 
-[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
+[!INCLUDE [Overview of Advantages](<../../../includes/authentication/overview-advantages.md>)]
 
 Use the following library: 
 

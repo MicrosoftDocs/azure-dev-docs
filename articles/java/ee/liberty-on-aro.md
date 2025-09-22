@@ -1,6 +1,5 @@
 ---
 title: Manually Deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift Cluster
-recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster.
 author: KarlErickson
 ms.author: karler
