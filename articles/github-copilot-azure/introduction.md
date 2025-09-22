@@ -20,13 +20,14 @@ GitHub Copilot for Azure is a GitHub Copilot extension that enables developers t
 GitHub Copilot for Azure is currently available for Visual Studio Code and Visual Studio 2022. You must have access to an Azure subscription and be subscribed to GitHub Copilot. [Get started](get-started.md) using the extension.
 
 GitHub Copilot is designed to help developers, including developers new to Azure, to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure it replaces:
+
 - the need to memorize or look up Azure CLI commands and arguments.
 - create complex deployment scripts by hand.
 - the need to sign in and browse through the Azure portal.
 
 ## How it works
 
-GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the Azure Model Context Protocol (MCP) Server that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
+GitHub Copilot for Azure is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with tool calling using the **Azure Model Context Protocol (MCP) Server** that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf. Over [35 Azure services](../azure-mcp-server/tools.md) are already available and more services and capabilities are being added regularly. Learn more about the capabilities of [Azure MCP Server](../azure-mcp-server/overview.md).
 
 ## Supported development environments
 
