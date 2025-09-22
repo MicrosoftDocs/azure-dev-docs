@@ -8,7 +8,7 @@ Next, sign-in to Azure using one of several developer tools that can be used to 
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Developers can use the [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `AzureCliCredential` can then use this account to authenticate app requests when running locally.
+Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `AzureCliCredential` can then use this account to authenticate app requests when running locally.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 
@@ -24,7 +24,7 @@ az login --use-device-code
 
 ### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
 
-Developers coding outside of an IDE can also use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate. Apps using `DefaultAzureCredential` or `AzureDeveloperCliCredential` can then use this account to authenticate app requests when running locally.
+Developers can use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `AzureDeveloperCliCredential` can then use this account to authenticate app requests when running locally.
 
 To authenticate with the Azure Developer CLI, run the `azd auth login` command. On a system with a default web browser, the Azure Developer CLI launches the browser to authenticate the user.
 
@@ -40,7 +40,7 @@ azd auth login --use-device-code
 
 ### [Azure PowerShell](#tab/sign-in-azure-powershell)
 
-Developers coding outside of an IDE can also use [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to authenticate. Apps using `DefaultAzureCredential` or `AzurePowerShellCredential` can then use this account to authenticate app requests when running locally.
+Developers can use [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `AzurePowerShellCredential` can then use this account to authenticate app requests when running locally.
 
 To authenticate with Azure PowerShell, run the command `Connect-AzAccount`. On a system with a default web browser and version 5.0.0 or later of Azure PowerShell, it launches the browser to authenticate the user.
 

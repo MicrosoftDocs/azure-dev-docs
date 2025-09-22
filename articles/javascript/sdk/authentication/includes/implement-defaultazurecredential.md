@@ -9,11 +9,9 @@ The [Azure Identity library](/javascript/api/overview/azure/identity-readme) pro
 
 ### Implement the code
 
-`DefaultAzureCredential` is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/identity/defaultazurecredential) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
+[DefaultAzureCredential](/azure/developer/javascript/sdk/authentication/credential-chains#use-defaultazurecredential-for-flexibility) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/identity/defaultazurecredential) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
 
-To use `DefaultAzureCredential`, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) packages to your application:
-
-In a terminal of your choice, navigate to the application project directory and run the following commands:
+To use `DefaultAzureCredential`, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) packages to your application. In a terminal of your choice, navigate to the application project directory and run the following command:
 
 ```console
 npm install @azure/identity
@@ -22,7 +20,7 @@ npm install @azure/identity
 Azure services are accessed using specialized client classes from the various Azure SDK client libraries. These classes and your own custom services should be registered so they can be accessed throughout your app. Complete the following programmatic steps to create a client class and `DefaultAzureCredential`:
 
 1. Import the `@azure/identity` package.
-1. Create the Azure service client with a new instance of `DefaultAzureCredential`.
+1. Create the Azure service client, and pass to it a new instance of `DefaultAzureCredential`.
 
 
 ```typescript
