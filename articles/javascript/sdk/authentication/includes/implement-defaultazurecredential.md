@@ -9,7 +9,7 @@ The [Azure Identity library](/javascript/api/overview/azure/identity-readme) pro
 
 ### Implement the code
 
-The `DefaultAzureCredential` is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/identity/defaultazurecredential) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
+`DefaultAzureCredential` is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/identity/defaultazurecredential) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
 
 To use `DefaultAzureCredential`, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) packages to your application:
 
