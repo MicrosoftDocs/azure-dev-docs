@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 06/30/2025
+ms.date: 09/23/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
@@ -47,15 +47,15 @@ Use the following steps to create your own task:
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-task.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select commits you want to save.":::
 
-1. Select any uncommitted changes from **Working tree** if they exist, you can just skip the choice and select **OK** here.
+1. Select any uncommitted changes from **Working tree** if they exist, or you can just skip the choice and select **OK** here.
 
-    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/select-uncommitted-changes.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/select-uncommitted-changes.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select uncommitted changes you want to save.":::
+    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/select-uncommitted-changes.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/select-uncommitted-changes.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select uncommitted changes.":::
 
 1. If you want to import the commits from a file, choose **Select Files** in the next pop-up dialog box. This option enables you to select files that contain the commit history you want to use for the custom task and the file you selected is processed locally. Select **Skip file selection** to continue.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/import-diff-from-file.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/import-diff-from-file.png" alt-text="Screenshot of Visual Studio Code that shows the Describe changes using local files dialog box.":::
 
-1. A default task name is generated. Rename it with **custom task migrate rabbitmq** and press <kbd>Enter</kbd> to confirm.
+1. A default task name is generated. Rename it **custom task migrate rabbitmq** and press <kbd>Enter</kbd> to confirm.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/enter-task-name.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/enter-task-name.png" alt-text="Screenshot of Visual Studio Code that shows the Enter task name dialog box.":::
 
@@ -73,17 +73,17 @@ Use the following steps to apply your own task:
 
 1. Find your own task in the **TASKS - My Tasks** section of **GitHub Copilot app modernization** pane. Run this task by selecting **Run Task**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-task.png" alt-text="Screenshot of Visual Studio Code that shows the Tasks section with the Run task button indicated by a tooltip.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-task.png" alt-text="Screenshot of Visual Studio Code that shows the Tasks section with the Run task button highlighted.":::
 
-1. The Copilot chat window with Agent Mode opens automatically and proceed various tools in the Copilot Chat window. It creates **plan.md** and **progress.md** for you to review and change. Manually input **continue** to confirm and proceed the plan.
+1. The Copilot chat window with Agent Mode opens automatically and proceeds to run various tools in the Copilot Chat window. It creates **plan.md** and **progress.md** for you to review and change. Manually input **continue** to confirm and proceed with the plan.
 
-1. During the code changes, repeatedly select **Allow** to let agent run Git commands such as check the version control system status or checkout a new branch for migration.
+1. During the code changes, repeatedly select **Allow** to let the agent run Git commands - for example, to check the version control system status or checkout a new branch for migration.
 
-1. Repeatedly input **Continue** to confirm the use of tools and wait for the code changes to be finished.
+1. Repeatedly input **Continue** to confirm the use of tools and wait for the code changes to finish.
 
-1. After code changes have been finished, repeatedly input **Continue** to proceed the validation and fix iteration loop.
+1. After code changes finish, repeatedly input **Continue** to proceed with the validation and fix iteration loop.
 
-1. After all validation are finished, review the code changes and confirm them by selecting **Keep**.
+1. After all validation finishes, review the code changes and confirm them by selecting **Keep**.
 
 ## See also
 

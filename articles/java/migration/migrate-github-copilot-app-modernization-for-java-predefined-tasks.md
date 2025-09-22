@@ -1,21 +1,21 @@
 ---
-title: Predefined Tasks for GitHub Copilot App Modernization for Java
+title: Predefined Tasks for GitHub Copilot App Modernization for Java Developers
 titleSuffix: Azure
 description: Provides an overview of predefined tasks.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: overview
-ms.date: 06/30/2025
+ms.date: 09/23/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# Predefined tasks for GitHub Copilot App Modernization for Java
+# Predefined tasks for GitHub Copilot app modernization for Java developers
 
-This article describes the predefined tasks available for GitHub Copilot App Modernization for Java.
+This article describes the predefined tasks available to Java developers for GitHub Copilot app modernization.
 
-Predefined tasks capture industry best practices for using Azure services. Currently, App Modernization for Java offers predefined tasks that cover common migration scenarios. These tasks address the following subjects, and more:
+Predefined tasks capture industry best practices for using Azure services. Currently, GitHub Copilot app modernization offers predefined tasks that cover common migration scenarios. These tasks address the following subjects, and more:
 
 - Secret management
 - Message queue integration
@@ -25,7 +25,7 @@ Predefined tasks capture industry best practices for using Azure services. Curre
 > [!NOTE]
 > This list will grow based on customer feedback and evolving cloud needs.
 
-The following video demonstrates using GitHub Copilot App Modernization for Java to apply a predefined task to migrate a Java project to Azure:
+The following video demonstrates using GitHub Copilot app modernization to apply a predefined task to migrate a Java project to Azure:
 
 <br>
 
@@ -33,7 +33,7 @@ The following video demonstrates using GitHub Copilot App Modernization for Java
 
 ## Task list
 
-App Modernization for Java currently supports the following predefined tasks:
+GitHub Copilot app modernization currently supports the following predefined tasks:
 
 - Spring RabbitMQ to Azure Service Bus
 

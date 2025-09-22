@@ -20,7 +20,7 @@ sections:
 
       - question: What's the product scope of the GitHub Copilot app modernization?
         answer: |
-          We recognize that the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps. We support projects that are built with Maven or Gradle. Additionally, see key product capabilities in the [overview](/azure/developer/github-copilot-app-modernization/overview) page.
+          We recognize that the migration process is always complex and intertwined, with different layers of app ecosystems. At this time, we're limiting the migration scope to Java backend apps. We support projects that are built with Maven or Gradle. For information about key product capabilities, see the [GitHub Copilot app modernization overview](../../github-copilot-app-modernization/overview.md).
 
       - question: Will GitHub Copilot app modernization be open sourced in the future?
         answer: We currently have no plans to open source GitHub Copilot app modernization.
@@ -42,10 +42,10 @@ sections:
 
           For more information, see the [Microsoft Privacy Statement](https://privacy.microsoft.com/).
 
-      - question: What kind of applications did we use to evaluate GitHub Copilot app modernization?
-        answer: We tested GitHub Copilot app modernization on hundreds of open-source repositories to ensure build, consistency and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. Feedback can be submitted using this [link](https://www.surveymonkey.com/r/NDBTC6B).
+      - question: What kind of applications did you use to evaluate GitHub Copilot app modernization?
+        answer: We tested GitHub Copilot app modernization on hundreds of open-source repositories to ensure build, consistency, and unit tests pass after the modernization process. We also worked extensively with customers during the Technical Preview phase. Input from users is used to improve the product experience. You can submit feedback using this [link](https://www.surveymonkey.com/r/NDBTC6B).
 
-      - question: What frameworks is GitHub Copilot app modernization optimized for upgrade scenarios?
+      - question: What frameworks is GitHub Copilot app modernization optimized for in upgrade scenarios?
         answer: |
           Although GitHub Copilot app modernization focuses on upgrading Java runtimes, it also optimizes upgrades for the following frameworks:
 
@@ -55,7 +55,7 @@ sections:
           - JUnit.
           - Various third-party dependencies.
 
-          For more information, see [Customize the upgrade plan](/java/upgrade/customize-upgrade-plan).
+          For more information, see [Customize the Java project upgrade plan](/java/upgrade/customize-upgrade-plan).
 
       - question: What versions of Java are supported for upgrade?
         answer: |
@@ -92,20 +92,18 @@ sections:
           - Complete thorough code reviews before merging extension output into production branches.
           - Run all tests and complete the usual QA checks associated with your change management process as appropriate.
 
-      - question: How do I modernize multiple apps at once and how can I scale the app mod experience for large number of apps?
-        answer: You can use [AppCAT CLI](/azure/migrate/appcat/appcat-7-cli-guide?view=migrate-classic) to scan multiple projects at once with the -bulk flag. However, we recommend that you only modernize 1 project/app at a time. You can create your own migration task based on code changes from one project and apply them to other projects, reducing repetitive work.
+      - question: How do I modernize multiple apps at the same time and how can I scale the app mod experience for a large number of apps?
+        answer: You can use the [AppCAT CLI](/azure/migrate/appcat/appcat-7-cli-guide?view=migrate-classic) to scan multiple projects at the same time by using the `-bulk` flag. However, we recommend that you only modernize one project or app at a time. You can create your own migration task based on code changes from one project and apply them to other projects, reducing repetitive work.
 
       - question: Which model should I use?
-        answer: As a general rule of thumb, newer models outperform previous models. For coding tasks, we recommend Claud Sonnet models to for better accuracy. However to reduce cost,  consider start exploring from the models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
+        answer: As a general rule of thumb, newer models outperform previous models. For coding tasks, we recommend Claud Sonnet models for better accuracy. However to reduce cost, consider starting your exploration from models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
 
   - name: Troubleshooting guide
 
     questions:
 
       - question: What are the token size limits of the top models?
-        answer: For detailed model specifications, see the[GitHub Copilot documentation](https://docs.github.com/copilot).
-
-
+        answer: For detailed model specifications, see the [GitHub Copilot documentation](https://docs.github.com/copilot).
 
       - question: What are the operational requirements for Java runtime and framework upgrades?
         answer: |
@@ -130,7 +128,7 @@ sections:
 
           :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png" alt-text="Screenshot of the GitHub Copilot chat pane in Visual Studio Code that shows the user typing continue in response to an update plan." lightbox="media/migrate-github-copilot-app-modernization-for-java/continue-in-chat.png":::
 
-      - question: Why does GitHub Copilot app modernization for Java frequently prompt me to select **Continue**?
+      - question: Why does GitHub Copilot app modernization frequently prompt me to select **Continue**?
         answer: |
           To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always Allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `128` to reduce the number of steps that require confirmation to continue.
 
@@ -141,19 +139,16 @@ sections:
 
       - question: Are there any settings in GitHub Copilot that I should configure to make sure I get all the features?
         answer: |
-          GitHub Copilot may block certain code generations for files that commonly resemble public code, such as **pom.xml**. To prevent Copilot from blocking these changes, you must allow suggestions matching public code. For instructions, see [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+          GitHub Copilot might block certain code generations for files that commonly resemble public code, such as **pom.xml**. To prevent Copilot from blocking these changes, you must allow suggestions matching public code. For instructions, see [Enabling or disabling suggestions matching public code](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
-          To manage the settings of Github Copilot in your organization, see[Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+          To manage the settings for Github Copilot in your organization, see [Enabling Copilot features in your organization](https://docs.github.com/en/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
       - question: Why don't I see tools in GitHub Copilot app modernization that use the Model Context Protocol (MCP) server?
         answer: |
-          GitHub Copilot app modernization the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
+          GitHub Copilot app modernization uses the MCP server to provide specialized migration functionalities. When you select **Refresh**, it establishes a connection with this server and updates the available tools in the chat agent. This action is only necessary in the following cases:
 
           - When you open a Java project for migration for the first time.
           - When you upgrade the extension to a newer version.
-
-      - question: Why does GitHub Copilot app modernization frequently prompt me to select Continue?
-        answer: To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the Continue button and then select **Always allow**, or update your Visual Studio Code setting chat.tools.autoApprove to true to automatically approve all tools.
 
       - question: Why is the code regeneration process unstable?
         answer: GitHub Copilot app modernization is powered by AI, so occasional errors might occur. Always review the output carefully before use. You can also retry the regeneration process to see alternative code suggestions.

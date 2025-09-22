@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: containerize your project using GitHub Copilot App Modernization"
+title: "Quickstart: Containerize Your Java Project Using GitHub Copilot App Modernization"
 titleSuffix: Azure
-description: Quickstart guide for containerizing a project using GitHub Copilot app modernization
+description: Shows you how to containerize your Java project using GitHub Copilot app modernization.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: donji
@@ -11,11 +11,11 @@ ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# Quickstart: containerize your project using GitHub Copilot app modernization
+# Quickstart: containerize your Java project using GitHub Copilot app modernization
 
-This quickstart shows you how to containerize your project using GitHub Copilot app modernization.
+In this Quickstart, you containerize your Java project using GitHub Copilot app modernization.
 
-To utilize container compute services like Azure Kubernetes Service and Azure Container Apps, developers need to containerize their project by creating Dockerfile and other related config files, and build container images. Our tools help you complete the containerization process.
+To use container compute services like Azure Kubernetes Service and Azure Container Apps, developers need to containerize their project by creating Dockerfile and other related configuration files, and build container images. Our tools help you complete the containerization process.
 
 ## Prerequisites
 
@@ -25,11 +25,11 @@ To utilize container compute services like Azure Kubernetes Service and Azure Co
 
 Use the following steps to start your containerization process:
 
-1. Make sure you have docker installed and running.
+1. Make sure you have Docker installed and running.
 
 1. In Visual Studio Code, open your migrated project.
 
-1. In the **Activity** sidebar, open the **App modernization** extension pane.
+1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane.
 
 1. In the **Tasks** section, open **Migration Tasks** and select **Containerize Application**.
 
@@ -41,13 +41,13 @@ Use the following steps to start your containerization process:
 
 1. Copilot typically goes through the following steps to containerize your project:
 
-   - Check if docker is installed and running.
-   - Check if application code is ready to run in container.
-   - Create Dockerfile for each project.
-   - Build docker images for each project.
-   - Create a summary of the containerization results.
+   - Checks that docker is installed and running.
+   - Checks that the application code is ready to run in a container.
+   - Creates a Dockerfile for each project.
+   - Builds docker images for each project.
+   - Creates a summary of the containerization results.
 
-## Notes
-
-- We recommend using Claude Sonnet 4 or later models for the best results.
-- It might take Copilot a few iterations to correct containerization errors.
+> [!NOTE]
+> We recommend using Claude Sonnet 4 or later models for the best results.
+>
+> It might take Copilot a few iterations to correct containerization errors.
