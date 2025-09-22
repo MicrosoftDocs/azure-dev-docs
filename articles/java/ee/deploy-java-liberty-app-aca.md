@@ -1,6 +1,5 @@
 ---
 title: Deploy a Java Application with Open Liberty on Azure Container Apps
-recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty on Azure Container Apps.
 author: KarlErickson
 ms.author: karler

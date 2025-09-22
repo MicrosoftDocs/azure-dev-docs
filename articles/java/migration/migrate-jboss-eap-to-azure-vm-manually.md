@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 05/29/2024
-recommendations: false
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli, linux-related-content
 ---
 

@@ -7,7 +7,6 @@ ms.reviewer: brborges
 ms.topic: article
 ms.date: 04/13/2022
 ms.custom: devx-track-java, devx-track-extended-java
-recommendations: false
 ---
 
 # Containerize your Java applications

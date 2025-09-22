@@ -6,7 +6,6 @@ ms.author: karler
 ms.topic: upgrade-and-migration-article
 ms.date: 09/30/2024
 ms.custom: devx-track-java, migration-java, devx-track-extended-java
-recommendations: false
 ---
 
 # Migrate Spring Cloud applications to Azure Container Apps
