@@ -50,8 +50,6 @@ items:
           href: tools/azure-cloud-architect.md
         - name: Azure Redis
           href: tools/azure-cache-for-redis.md          
-        - name: Azure CLI
-          href: tools/azure-cli-extension.md
         - name: Azure Container Registry
           href: tools/azure-container-registry.md
         - name: Azure Cosmos DB
@@ -64,8 +62,6 @@ items:
           href: tools/postgresql.md
         - name: Azure Deploy
           href: tools/azure-deploy.md
-        - name: Azure Developer CLI
-          href: tools/azure-developer-cli.md
         - name: Azure Functions
           href: tools/azure-functions.md
         - name: Azure Foundry
