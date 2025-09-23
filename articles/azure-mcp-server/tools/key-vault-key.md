@@ -56,7 +56,7 @@ Example prompts include:
 
 ## Secrets: Create secret
 
-The Azure MCP Server can create a new secret in an Azure Key Vault. This allows you to securely store sensitive information like passwords, API keys, and connection strings. This operation requires [user consent](../includes/tools/user-consent.md).
+The Azure MCP Server can create a new secret in an Azure Key Vault. This allows you to securely store sensitive information like passwords, API keys, and connection strings. This operation requires [user consent](index.md#azure-mcp-server-start-parameters).
 
 Example prompts include:
 
@@ -74,7 +74,7 @@ Example prompts include:
 
 ## Secrets: List secrets
 
-The Azure MCP Server can list all secrets in an Azure Key Vault. This helps you manage your stored secrets and view your secret inventory. This operation requires [user consent](../includes/tools/user-consent.md).
+The Azure MCP Server can list all secrets in an Azure Key Vault. This helps you manage your stored secrets and view your secret inventory. This operation requires [user consent](index.md#azure-mcp-server-start-parameters).
 
 Example prompts include:
 
