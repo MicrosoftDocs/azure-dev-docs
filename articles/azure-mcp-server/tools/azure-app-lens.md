@@ -32,6 +32,6 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Question** |  Required | User question |
-| **Resource** |  Required | The name of the resource to investigate or diagnose |
-| **Resource Type** |  Required | Resource type. Try to get this information using the Azure CLI tool before asking the user. |
+| **Question** |  Required | User question. |
+| **Resource** |  Required | The name of the resource to investigate or diagnose. |
+| **Resource Type** |  Required | Resource type.  |

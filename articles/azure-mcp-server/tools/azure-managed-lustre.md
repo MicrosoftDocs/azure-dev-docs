@@ -45,7 +45,7 @@ Example prompts include:
 | **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size (TiB). |
 
-## Filesystem: Sku Get
+## Filesystem: Get SKU
 
 <!-- `azmcp azuremanagedlustre filesystem sku get` -->
 
