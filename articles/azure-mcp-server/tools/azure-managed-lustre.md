@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 09/23/2025
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server
@@ -42,5 +42,20 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **SKU** |  Required | The AMLFS SKU. Allowed values: AMLFS-Durable-Premium-40, AMLFS-Durable-Premium-125, AMLFS-Durable-Premium-250, AMLFS-Durable-Premium-500. |
+| **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size (TiB). |
+
+## Filesystem: Sku Get
+
+<!-- `azmcp azuremanagedlustre filesystem sku get` -->
+
+Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets and zonal support. 
+
+Example prompts include: 
+
+* **Get SKU details**: "Show me the details of the 'AMLFS-Durable-Premium-125' SKU."
+* **View SKU information**: "What are the properties of the 'AMLFS-Durable-Premium-250' SKU?"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Location** |  Optional | Azure region. Examples: `uaenorth`, `swedencentral`, `eastus`. |
