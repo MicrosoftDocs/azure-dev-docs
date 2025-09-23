@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server to manage your function app r
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 08/26/2025
+ms.date: 09/23/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -34,20 +34,6 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Function app** |  Required | The name of the function app. |
-
-
-## List
-
-Lists all function apps in an Azure subscription.
-
-Example prompts include:
-
-- **List function apps**: "List all function apps in my subscription."
-- **Show function apps**: "What function apps do I have?"
-- **Find function apps in a group**: "Show me all function apps in resource group 'devops-resources'."
-- **Filter by resource group**: "List function apps in the resource group 'production-resources'."
-- **Query function apps**: "Can you list all my function apps?"
-- **Check function apps**: "Function apps in subscription abc123."
 
 ## Related content
 
