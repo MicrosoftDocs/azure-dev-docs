@@ -1,24 +1,27 @@
 items:
   - name: Introduction to Azure for developers
     href: index.yml
-  - name: Overview
-    href: azure-developer-overview.md
-  - name: Key Azure services for developers
-    href: azure-developer-key-services.md
-  - name: Host applications on Azure
-    href: hosting-apps-on-azure.md
-  - name: Develop apps that use Azure AI services
-    href: ../ai/index.yml
-  - name: Connect apps to Azure services
-    href: connect-to-azure-services.md
-  - name: Create Azure resources
-    href: azure-developer-create-resources.md
-  - name: Key concepts for building Azure apps
-    href: azure-developer-key-concepts.md
-  - name: Overview of Azure billing
-    href: azure-developer-billing.md
   - name: What's new in Azure developer documentation
     href: whats-new.md
+  - name: Get started
+    expanded: true
+    items:
+      - name: Overview
+        href: azure-developer-overview.md
+      - name: Key Azure services for developers
+        href: azure-developer-key-services.md
+      - name: Host applications on Azure
+        href: hosting-apps-on-azure.md
+      - name: Connect apps to Azure services
+        href: connect-to-azure-services.md
+      - name: Create Azure resources
+        href: azure-developer-create-resources.md
+      - name: Key concepts for building Azure apps
+        href: azure-developer-key-concepts.md
+      - name: Overview of Azure billing
+        href: azure-developer-billing.md
+  - name: Develop apps that use Azure AI services
+    href: ../ai/index.yml
   - name: Azure developer centers
     expanded: true
     items:
@@ -32,6 +35,10 @@ items:
         href: ../python/index.yml
       - name: Go on Azure
         href: ../go/index.yml
+      - name: C++ on Azure
+        href: ../cpp/index.yml
+      - name: Rust on Azure
+        href: ../rust/index.yml
   - name: Passwordless connections for Azure services
     items:
       - name: Overview
