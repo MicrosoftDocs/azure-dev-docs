@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/09/2025
+ms.date: 09/23/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
@@ -20,6 +20,51 @@ The Azure MCP Server lets you manage Azure resources, including Azure SQL Databa
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+## Database: Create database
+
+<!-- `azmcp sql db create` -->
+
+Create a new Azure SQL Database on an existing SQL Server. This command creates a database with configurable
+performance tiers, size limits, and other settings. Equivalent to 'az sql db create'.
+
+Example prompts include:
+
+- **Create database**: "Create a new SQL database named 'sales-data' in server 'prod-sql-server'"
+- **Specify tier**: "Create a SQL database 'inventory' with Basic tier in server 'eastus-sql'"
+- **Resource group**: "Create a new database called 'customer-info' on SQL server 'analytics-sql' in resource group 'data-services'"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Database** |  Required | The Azure SQL Database name. |
+| **SKU name** |  Optional | The SKU name for the database (for example, Basic, S0, P1, GP_Gen5_2). |
+| **SKU tier** |  Optional | The SKU tier for the database (for example, Basic, Standard, Premium, GeneralPurpose). |
+| **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
+| **Collation** |  Optional | The collation for the database (for example, SQL_Latin1_General_CP1_CI_AS). |
+| **Max size bytes** |  Optional | The maximum size of the database in bytes. |
+| **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
+| **Zone redundant** |  Optional | Whether the database should be zone redundant. |
+| **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
+
+
+## Database: Delete database
+
+Delete a SQL database.
+
+<!-- `azmcp sql db delete` -->
+
+Example prompts include:
+
+- **Delete database**: "Delete the SQL database 'sales-data' from server 'prod-sql-server'"
+- **Remove from resource group**: "Remove database 'inventory' from SQL server 'eastus-sql' in resource group 'data-services'"
+- **Delete by name**: "Delete the database called 'customer-info' on server 'analytics-sql'"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Database** |  Required | The Azure SQL Database name. |
 
 ## Database: List databases
 
@@ -59,6 +104,101 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the resource. |
 | **Database** | Required | The name of the database on the resource. |
+
+## Database: Update database
+
+<!-- `azmcp sql db update` -->
+
+Update configuration settings for an existing Azure SQL Database. 
+
+Example prompts include:
+
+- **Update performance tier**: "Update the performance tier of SQL database 'sales-data' on server 'prod-sql-server'"
+- **Scale database SKU**: "Scale SQL database 'inventory' on server 'eastus-sql' to use S3 SKU"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Database** |  Required | The Azure SQL Database name. |
+| **SKU name** |  Optional | The SKU name for the database (for example, Basic, S0, P1, GP_Gen5_2). |
+| **SKU tier** |  Optional | The SKU tier for the database (for example, Basic, Standard, Premium, GeneralPurpose). |
+| **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
+| **Collation** |  Optional | The collation for the database (for example, SQL_Latin1_General_CP1_CI_AS). |
+| **Max size bytes** |  Optional | The maximum size of the database in bytes. |
+| **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
+| **Zone redundant** |  Optional | Whether the database should be zone redundant. |
+| **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
+
+## Server: Create
+
+<!-- `azmcp sql server create` -->
+
+Creates a new Azure SQL server in the specified resource group and location.
+
+Example prompts include:
+
+- **Create SQL server**: "Create a new Azure SQL server named 'prod-sql-server' in resource group 'data-services'"
+- **Specify admin user**: "Create an Azure SQL server with name 'eastus-sql' in location 'East US' with admin user 'sqladmin'"
+- **Set up server in resource group**: "Set up a new SQL server called 'analytics-sql' in my resource group 'analytics-group'"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Administrator user** |  Required | The administrator login name for the SQL server. |
+| **Administrator password** |  Required | The administrator password for the SQL server. |
+| **Location** |  Required | The Azure region location where the SQL server is created. |
+| **Version** |  Optional | The version of SQL Server to create (for example, '12.0'). |
+| **Public network access** |  Optional | Whether public network access is enabled for the SQL server ('Enabled' or 'Disabled'). |
+
+
+## Server: Delete
+
+<!-- `azmcp sql server delete` -->
+
+Deletes an Azure SQL server and all of its databases from the specified resource group.
+
+Example prompts include:
+
+- **Delete SQL server**: "Delete the Azure SQL server 'prod-sql-server' from resource group 'data-services'"
+- **Remove from subscription**: "Remove the SQL server 'test-sql-server' from my subscription"
+- **Permanent delete**: "Delete SQL server 'analytics-sql' permanently"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Force** |  Optional | Force delete the server without confirmation prompts. |
+
+## Server: List
+
+<!-- `azmcp sql server list` -->
+
+Lists Azure SQL servers within a resource group. 
+
+Example prompts include:
+
+- **List SQL servers**: "List all Azure SQL servers in resource group 'data-services'"
+- **Show all servers**: "Show me every SQL server available in resource group 'analytics-group'"
+
+## Server: Show
+
+<!-- `azmcp sql server show` -->
+
+Retrieves detailed information about an Azure SQL server including its configuration,
+status, and properties such as the fully qualified domain name, version,
+administrator login, and network access settings.
+
+Example prompts include:
+
+- **Show server details**: "Show me the details of Azure SQL server 'prod-sql-server' in resource group 'data-services'"
+- **Get configuration**: "Get the configuration details for SQL server 'analytics-sql'"
+- **Display properties**: "Display the properties of SQL server 'eastus-sql'"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+
 
 ## Server: List Microsoft Entra administrators
 
