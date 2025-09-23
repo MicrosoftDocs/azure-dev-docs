@@ -45,8 +45,7 @@ New articles:
 
 Updated articles:
 
-- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
-  - MCP tool - Added new operations and parameters
+- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md) - MCP tool - Added new operations and parameters
 
 ### GitHub Copilot for Azure
 
@@ -144,18 +143,18 @@ New article:
 
 New articles:
 
-- [GitHub Copilot app modernization for .NET (Preview) overview](/dotnet/azure/migration/appmod/overview)
-- [Frequently Asked Questions for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/faq)
+- [GitHub Copilot app modernization for .NET (Preview) overview](/dotnet/core/porting/github-copilot-app-modernization-overview)
+- [Frequently Asked Questions for GitHub Copilot app modernization for .NET (Preview)](/dotnet/core/porting/github-copilot-app-modernization-faq)
 - [Predefined tasks for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/predefined-tasks)
 - [Quickstart: Assess and migrate a .NET Project with GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/quickstart)
 - [Contoso University migration sample](/dotnet/azure/migration/appmod/sample)
 
-### GitHub Copilot App Modernization
+### GitHub Copilot app modernization
 
 New articles:
 
-- [Analyze applications and migrate to Azure by using GitHub Copilot App Modernization](../github-copilot-app-modernization/overview.md)
-- [GitHub Copilot App Modernization documentation](../github-copilot-app-modernization/index.yml)
+- [GitHub Copilot app modernization documentation](../github-copilot-app-modernization/index.yml)
+- [Analyze applications and migrate to Azure by using GitHub Copilot app modernization](../github-copilot-app-modernization/overview.md)
 
 ### Terraform on Azure
 
