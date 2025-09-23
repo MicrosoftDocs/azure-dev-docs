@@ -14,7 +14,7 @@ ms.date: 09/23/2025
 
 # Azure Managed Lustre tools for Azure MCP Server
 
-Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre services, using natural language prompts. Learn how to optimize HPC workloads with scalable Lustre file systems.
+Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre services, by using natural language prompts. Learn how to optimize HPC workloads with scalable Lustre file systems.
 
 [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a managed file system that offers scalable, powerful, cost-effective storage for high-performance computing (HPC) workloads. It's built on the popular open-source Lustre file system and is optimized for performance, scalability, and ease of use in Azure.
 
@@ -49,7 +49,7 @@ Example prompts include:
 
 <!-- `azmcp azuremanagedlustre filesystem sku get` -->
 
-Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets and zonal support. 
+Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets, and zonal support. 
 
 Example prompts include: 
 

@@ -16,5 +16,5 @@ The `azmcp` server supports the following options for server start parameters:
 | **Enable insecure transports** | Optional | Enable insecure transport. |
 | **Insecure disable user confirmation** | Optional | Disable user confirmation (elicitation) before allowing high risk commands to run, such as returning secrets (passwords) from KeyVault. |
 | **Namespace** | Optional | The Azure service namespaces to expose on the MCP server (for example, `storage`, `keyvault`, `cosmos`). |
-| **Read only** | Optional | Whether the MCP server should be read-only. If true, no write operations will be allowed. |
+| **Read only** | Optional | Whether the MCP server should be read-only. If true, no write operations are allowed. |
 | **Transport** | Optional | Transport mechanism to use for Azure MCP Server. |
