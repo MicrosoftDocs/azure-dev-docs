@@ -7,7 +7,7 @@ summary: Learn to code, deploy, and scale your Spring apps on Azure. # < 160 cha
 brand: azure
 
 metadata:
-  title: Azure for Spring developers
+  title: Azure for Spring Developers
   description: Learn to code, deploy, and scale your Spring apps on Azure.
   services: azure
   ms.topic: hub-page
