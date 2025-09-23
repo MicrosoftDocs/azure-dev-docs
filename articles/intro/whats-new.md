@@ -46,9 +46,7 @@ New articles:
 Updated articles:
 
 - [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
-  - MCP tool - new Azure Container Registries, updated Storage w/new operations - 0.5.5
-  - MCP: 0.5.3 - Storage - updated operations and parameters
-  - MCP - updates to storage, aks, best practices
+  - MCP tool - Added new operations and parameters
 
 ### GitHub Copilot for Azure
 
