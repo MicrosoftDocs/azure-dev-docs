@@ -4,7 +4,7 @@ description: This developer guide walks you through using Spring Cloud Azure App
 author: KarlErickson
 ms.author: karler
 ms.reviewer: mametcal
-ms.date: 08/19/2025
+ms.date: 08/25/2025
 ms.topic: tutorial
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.
@@ -64,7 +64,7 @@ To use the feature in an application, you can build it as a Spring Boot applicat
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.23.0</version>
+      <version>6.0.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -113,9 +113,10 @@ public class Application {
 }
 ```
 
-For this example, the **bootstrap.properties** file contains the following line:
+For this example, the **application.properties** file contains the following line:
 
 ```properties
+spring.config.import=azureAppConfiguration
 spring.cloud.azure.appconfiguration.stores[0].endpoint=${CONFIG_STORE_ENDPOINT}
 ```
 

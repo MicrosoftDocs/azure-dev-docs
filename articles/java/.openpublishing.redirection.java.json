@@ -625,6 +625,90 @@
         {
             "source_path": "migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md",
             "redirect_url": "/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service"
+        },
+        {
+            "source_path": "learning-resources/index.yml",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/books.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/certifications.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/fundamentals.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/more-resources.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/overview.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/samples.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "learning-resources/workshops-videos.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/index.yml",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/caching.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/cognitive-services.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/compute.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/data.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/devops.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/directories.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/messaging-and-eventing.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/monitoring.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/networking.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/secrets-and-configuration-management.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "quickstarts/storage.md",
+            "redirect_url": "/azure/developer/java/index"
+        },
+        {
+            "source_path": "spring/index.yml",
+            "redirect_url": "/azure/developer/java/index"
         }
     ]
 }
