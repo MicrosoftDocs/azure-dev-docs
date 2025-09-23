@@ -411,7 +411,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.21.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.60.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.60.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.60.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.60.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.28.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.28.2) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.28.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.28.3) |  |  |
 | @azure-tools/typespec-go | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.2) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.8.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -641,7 +641,7 @@
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
-| Avocado | npm [0.9.3](https://www.npmjs.com/package/@azure/avocado/v/0.9.3) |  | GitHub [0.9.3](https://github.com/Azure/avocado) |
+| Avocado | npm [0.10.2](https://www.npmjs.com/package/@azure/avocado/v/0.10.2) |  | GitHub [0.10.2](https://github.com/Azure/avocado) |
 | cadl-msbuild-target | npm [0.1.0](https://www.npmjs.com/package/cadl-msbuild-target/v/0.1.0) |  |  |
 | cadl-vs | npm [0.40.0](https://www.npmjs.com/package/cadl-vs/v/0.40.0) |  |  |
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
