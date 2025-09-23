@@ -4,7 +4,7 @@ title: Java to Azure migration strategy documentation
 summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
-  title: Java to Azure migration guidance documentation
+  title: Java to Azure Migration Guidance Documentation
   description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
