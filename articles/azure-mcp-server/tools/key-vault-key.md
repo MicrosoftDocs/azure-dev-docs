@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 08/20/2025
+ms.date: 09/23/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -36,6 +36,23 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
+
+## Keys: Get key
+
+The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
+
+Example prompts include:
+
+- **Get key details**: "Show me details of the 'app-encryption-key' in my 'mykeyvault' Key Vault."
+- **View key info**: "Get information about the 'signing-key' in Key Vault 'security-kv'"
+- **Retrieve key**: "Get properties of the 'data-key' in my Key Vault"
+- **Check key**: "Show me the details of the encryption key in my vault"
+- **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Vault** | Required | The name of the Key Vault. |
+| **Key** | Required | The name of the key to retrieve. |
 
 ## Keys: List keys
 
@@ -71,6 +88,23 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
+
+## Secrets: Get secret
+
+The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault.
+
+Example prompts include:
+
+- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my 'production-vault' Key Vault."
+- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
+- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my Key Vault?"
+- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
+- **Access credentials**: "Show me the 'service-principal-secret' from my production Key Vault"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Vault** | Required | The name of the Key Vault. |
+| **Name** | Required | The name of the secret to retrieve. |
 
 ## Secrets: List secrets
 

@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure App Configuration.
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
-ms.date: 05/14/2025
+ms.date: 09/23/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -67,23 +67,26 @@ Example prompts include:
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
-## Lock key-value setting
 
-The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.
+## Set lock on key-value 
+
+Sets the lock state of a key-value in an App Configuration store. This command can lock and unlock key-values.
 
 Example prompts include:
 
-- **Lock a setting**: "Make the 'AppName:ConnectionString' key read-only in my 'myappconfigstore' App Configuration store."
-- **Lock a labeled setting**: "Lock the 'AppName:ApiKey' setting with label 'production'"
-- **Protect configuration**: "Lock my database connection string in 'contoso-appconfig' so it can't be changed"
-- **Secure setting**: "Make ApiSecrets read-only"
-- **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
+- **Lock a setting**: "Lock the key 'AppName:ConnectionString' in App Configuration store 'myappconfigstore'."
+- **Lock a labeled setting**: "Lock the key 'AppName:ApiKey' with label 'production' in App Configuration store 'contoso-appconfig'."
+- **Unlock a setting**: "Unlock the key 'AppName:ConnectionString' in App Configuration store 'myappconfigstore'."
+- **Unlock a labeled setting**: "Unlock the key 'AppName:ApiKey' with label 'production' in App Configuration store 'contoso-appconfig'."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Required | The key name of the setting to lock.                                        |
-| **Label**        | Optional | The label of the setting to lock.                                           |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account.** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Key.** |  Required | The name of the key to access within the App Configuration store. |
+| **Label.** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
+| **Content. type.** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
+| **Lock.** |  Optional | Whether a key-value will be locked (set to read-only) or unlocked (read-only removed). |
+                      |
 
 ## Set key-value setting
 
@@ -124,23 +127,6 @@ Example prompts include:
 | **Key**          | Required | The key name of the setting to set.                                         |
 | **Label**        | Optional | The label of the setting to set.                                            |
 
-## Unlock key-value setting
-
-The Azure MCP Server can unlock a previously locked [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it editable again.
-
-Example prompts include:
-
-- **Unlock a setting**: "Make the 'AppName:ConnectionString' key editable in my 'myappconfigstore' App Configuration store."
-- **Unlock a labeled setting**: "Unlock the 'AppName:ApiKey' setting with label 'production'"
-- **Allow edits**: "Remove the read-only lock from 'DatabaseSettings' in contoso-appconfig"
-- **Enable changes**: "Unlock the config values for TestEndpoint"
-- **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Required | The key name of the setting to set.                                         |
-| **Label**        | Optional | The label of the setting to set.                                            |
 
 ## Related content
 
