@@ -50,7 +50,7 @@ The following GitHub Copilot app modernization capabilities are currently availa
 Use the following link to begin modernizing applications with GitHub Copilot:
 
 - [GitHub Copilot app modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
-- [GitHub Copilot app modernization for .NET](/dotnet/azure/migration/appmod/overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
+- [GitHub Copilot app modernization for .NET](/dotnet/core/porting/github-copilot-app-modernization-overview?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json)
 
 After you modernize on Azure, applications can integrate with Azure AI capabilities and services:
 
