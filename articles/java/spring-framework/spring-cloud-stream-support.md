@@ -431,6 +431,57 @@ A `PartitionSupplier` with user-provided partition information is created to con
 
 #### Handle error messages
 
+##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+* Handle outbound binding error messages
+
+  By default, Spring Integration creates a global error channel called `errorChannel`. Configure the following message endpoint to handle outbound binding error messages.
+
+  ```java
+  @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+  public void handleError(ErrorMessage message) {
+      LOGGER.error("Handling outbound binding error: " + message);
+  }
+  ```
+
+* Handle inbound binding error messages
+
+  Spring Cloud Stream Event Hubs Binder supports one solution to handle errors for the inbound message bindings: error handlers.
+
+  **Error Handler**:
+
+  Spring Cloud Stream exposes a mechanism for you to provide a custom error handler by adding a `Consumer` that accepts `ErrorMessage` instances. For more information, see [Handle Error Messages](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_handle_error_messages) in the Spring Cloud Stream documentation.
+
+    * Binding-default error handler
+
+      Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel:
+
+      ```java
+      @Bean
+      public Consumer<ErrorMessage> myDefaultHandler() {
+          return message -> {
+              // consume the error message
+          };
+      }
+      ```
+
+      You also need to set the `spring.cloud.stream.default.error-handler-definition` property to the function name.
+
+    * Binding-specific error handler
+
+      Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel and has a higher priority than the binding-default error handler:
+
+      ```java
+      @Bean
+      public Consumer<ErrorMessage> myErrorHandler() {
+          return message -> {
+              // consume the error message
+          };
+      }
+      ```
+
+      You also need to set the `spring.cloud.stream.bindings.<input-binding-name>.error-handler-definition` property to the function name.
+
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 * Handle outbound binding error messages
@@ -1005,6 +1056,61 @@ public Supplier<Message<String>> generate() {
 > According to [Service Bus partitioning](/azure/service-bus-messaging/service-bus-partitioning), session ID has higher priority than partition key. So when both of `ServiceBusMessageHeaders#SESSION_ID` and `ServiceBusMessageHeaders#PARTITION_KEY` headers are set, the value of the session ID is eventually used to overwrite the value of the partition key.
 
 #### Handle error messages
+
+##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+* Handle outbound binding error messages
+
+  By default, Spring Integration creates a global error channel called `errorChannel`. Configure the following message endpoint to handle outbound binding error message.
+
+  ```java
+  @ServiceActivator(inputChannel = IntegrationContextUtils.ERROR_CHANNEL_BEAN_NAME)
+  public void handleError(ErrorMessage message) {
+      LOGGER.error("Handling outbound binding error: " + message);
+  }
+  ```
+
+* Handle inbound binding error messages
+
+  Spring Cloud Stream Service Bus Binder supports two solutions to handle errors for the inbound message bindings: the binder error handler and handlers.
+
+  **Binder error handler**:
+
+  The default binder error handler handles the inbound binding. You use this handler to send failed messages to the dead-letter queue when `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.requeue-rejected` is enabled. Otherwise, the failed messages are abandoned. The binder error handler is mutually exclusive with other provided error handlers.
+
+  **Error handler**:
+
+  Spring Cloud Stream exposes a mechanism for you to provide a custom error handler by adding a `Consumer` that accepts `ErrorMessage` instances. For more information, see [Handle Error Messages](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_handle_error_messages) in the Spring Cloud Stream documentation.
+
+    * Binding-default error handler
+
+      Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel:
+
+      ```java
+      @Bean
+      public Consumer<ErrorMessage> myDefaultHandler() {
+          return message -> {
+              // consume the error message
+          };
+      }
+      ```
+
+      You also need to set the `spring.cloud.stream.default.error-handler-definition` property to the function name.
+
+    * Binding-specific error handler
+
+      Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel with a higher priority than the binding-default error handler.
+
+      ```java
+      @Bean
+      public Consumer<ErrorMessage> myDefaultHandler() {
+          return message -> {
+              // consume the error message
+          };
+      }
+      ```
+
+      You also need to set the `spring.cloud.stream.bindings.<input-binding-name>.error-handler-definition` property to the function name.
 
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
