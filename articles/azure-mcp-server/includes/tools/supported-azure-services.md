@@ -13,6 +13,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Tool |  Description |
 |------|--------------|
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
