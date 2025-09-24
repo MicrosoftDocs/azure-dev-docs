@@ -496,7 +496,7 @@ Write Java code to configure multiple `HttpSecurity` instances.
 
 #### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
 
-In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security  filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
+In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -527,7 +527,7 @@ public class AadWebApplicationAndResourceServerConfig {
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
-In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security  filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
+In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
 
 ```java
 @Configuration(proxyBeanMethods = false)

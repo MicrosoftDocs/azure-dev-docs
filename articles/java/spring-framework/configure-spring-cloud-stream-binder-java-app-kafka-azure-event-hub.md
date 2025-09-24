@@ -88,8 +88,11 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 
   > [!NOTE]
   > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
+  >
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  >
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter artifact:
@@ -144,7 +147,7 @@ Use the following steps to configure your application to produce and consume mes
 
    > [!TIP]
    > We recommend that you don't use connection strings to connect to Azure Event Hubs for Kafka in version 4.3.0 or higher. This functionality is being removed in the future, so you should consider using passwordless connections instead.
-   > 
+   >
    > If you're using Spring Cloud Azure version 4.x, update the `spring.cloud.stream.binders.kafka.environment.spring.main.sources` property value to `com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`.
 
    The following table describes the fields in the configuration:

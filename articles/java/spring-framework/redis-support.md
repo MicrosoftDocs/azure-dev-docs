@@ -91,7 +91,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 #### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
 
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
@@ -105,7 +105,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    ```
 
    > [!NOTE]
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > Remember to add the `spring-cloud-azure-dependencies` BOM along with this dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Configure the following properties in your **application.yml** file:
 
@@ -129,7 +129,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
@@ -145,7 +145,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    > [!NOTE]
    > Passwordless connections have been supported since version `5.13.0`.
    >
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > Remember to add the `spring-cloud-azure-dependencies` BOM along with this dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Configure the following properties in your **application.yml** file:
 
@@ -169,7 +169,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 #### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
@@ -181,7 +181,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    > [!NOTE]
    > Passwordless connections have been supported since version `4.6.0`.
    >
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > Remember to add the `spring-cloud-azure-dependencies` BOM along with this dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Configure the following properties in your **application.yml** file:
 
@@ -228,7 +228,7 @@ Use the following steps to connect to Azure Cache for Redis:
 
 #### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
 
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
@@ -246,11 +246,11 @@ Use the following steps to connect to Azure Cache for Redis:
    ```
 
    > [!NOTE]
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > Remember to add the `spring-cloud-azure-dependencies` BOM along with this dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
@@ -268,11 +268,11 @@ Use the following steps to connect to Azure Cache for Redis:
    ```
 
    > [!NOTE]
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > Remember to add the `spring-cloud-azure-dependencies` BOM along with this dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 #### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
@@ -290,7 +290,7 @@ Use the following steps to connect to Azure Cache for Redis:
    ```
 
    > [!NOTE]
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > Remember to add the `spring-cloud-azure-dependencies` BOM along with this dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 ---
 
