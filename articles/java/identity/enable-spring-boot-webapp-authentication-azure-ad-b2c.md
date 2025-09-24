@@ -1,8 +1,8 @@
 ---
 title: Secure Spring Boot apps using Azure Active Directory B2C
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Azure Active Directory B2C.
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: how-to
