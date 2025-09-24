@@ -340,7 +340,7 @@ public class AadOAuth2ResourceServerSecurityConfig {
     */
    @Bean
    public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
-       http.with(AadResourceServerHttpSecurityConfigurer.aadResourceServer())
+       http.apply(AadResourceServerHttpSecurityConfigurer.aadResourceServer())
                .and()
            .authorizeHttpRequests()
                .anyRequest().authenticated();
