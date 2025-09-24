@@ -8,8 +8,8 @@ metadata:
   description: Cloud development using Java on Azure
   ms.date: 04/01/2025 
   ms.topic: landing-page
-  author: KarlErickson
-  ms.author: karler
+  author: bmitchell287
+  ms.author: brendm
   ms.reviewer: jogiles
   ms.custom: devx-track-java, devx-track-extended-java
 

@@ -2,8 +2,8 @@
 title: Secure Java Spring Boot apps using roles and role claims
 titleSuffix: Azure
 description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform.
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: how-to

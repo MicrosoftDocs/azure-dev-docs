@@ -10,6 +10,7 @@ ms.custom: devx-track-java, devx-track-arm-template, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.23.0
+- ✅ Version 6.0.0
 ---
 
 # Spring Cloud Azure Resource Manager

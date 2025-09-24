@@ -4,8 +4,8 @@ description: Provides an overview of asynchronous programming model in the Azure
 ms.date: 02/14/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: srnagar
 ---
 

@@ -2,8 +2,8 @@
 title: Secure Java WebSphere apps using groups and group claims
 titleSuffix: Azure
 description: Shows how to develop a WebSphere app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform.
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: article
