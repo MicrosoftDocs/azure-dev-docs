@@ -19,6 +19,23 @@ The Azure MCP Server lets you manage Azure Key Vault resources, including keys, 
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+## Administration: Get all managed HSM settings
+
+<!-- `azmcp keyvault admin get` -->
+
+Retrieves all Key Vault Managed HSM account settings for a given vault. This includes settings such as purge protection and soft-delete retention days. This tool ONLY applies to Managed HSM vaults.
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Vault.** |  Required | The name of the Key Vault. |
+
+Example prompts include:
+
+- **Get account settings**: "Get the account settings for my key vault 'mykeyvault'"
+- **Show managed HSM settings**: "Show me the account settings for managed HSM keyvault 'contoso-hsm'"
+- **Query specific setting**: "What's the value of the 'purgeProtection' setting in my key vault with name 'mykeyvault'"
+
+
 ## Keys: Create key
 
 The Azure MCP Server can create a new key in an Azure Key Vault. This operation lets you add cryptographic keys for your applications.

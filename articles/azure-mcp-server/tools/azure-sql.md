@@ -84,6 +84,24 @@ Example prompts include:
 | **Server** |  Required |The name of the resource. |
 
 
+## Database: Rename database
+
+<!-- `azmcp sql db rename` -->
+
+Rename an existing Azure SQL Database to a new name within the same SQL server.
+
+Example prompts include:
+
+- **Rename database**: "Rename the SQL database 'sales-data' on server 'prod-sql-server' to 'sales-archive'"
+- **Rename with explicit server**: "Rename my Azure SQL database 'inventory' to 'inventory-2025' on server 'eastus-sql'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Server** |  Required | The Azure SQL Server name. |
+| **Database** |  Required | The Azure SQL Database name. |
+| **New database name** |  Required | The new name for the Azure SQL Database. |
+
+
 ## Database: Show database details
 
 <!-- 
@@ -169,7 +187,7 @@ Example prompts include:
 | **Server** |  Required | The Azure SQL Server name. |
 | **Force** |  Optional | Force delete the server without confirmation prompts. |
 
-## Server: List
+## Server: List servers
 
 <!-- `azmcp sql server list` -->
 
