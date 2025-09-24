@@ -109,7 +109,7 @@ Example prompts include:
 
 ## Secrets: Get secret
 
-The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault.
+The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
 
 Example prompts include:
 
@@ -126,7 +126,7 @@ Example prompts include:
 
 ## Secrets: List secrets
 
-The Azure MCP Server can list all secrets in an Azure Key Vault. This operation helps you manage your stored secrets and view your secret inventory. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
+The Azure MCP Server can list all secrets in an Azure Key Vault. This operation helps you manage your stored secrets and view your secret inventory. 
 
 Example prompts include:
 
