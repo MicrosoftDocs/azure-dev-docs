@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli
 
 # Work with Azure Developer CLI metadata for Bicep input parameters
 
-The Azure Developer CLI (`azd`) provides enhanced support for Bicep templates through the `@metadata` decorator. By adding specific metadata to your Bicep input parameters, you can improve the deployment experience with intelligent defaults, automatic value generation, and better parameter prompting.
+Azure Developer CLI (`azd`) supports Bicep templates with the `@metadata` decorator. Add metadata to Bicep input parameters to improve deployment with intelligent defaults, automatic value generation, and better parameter prompting.
 
 ## Adding metadata
 
-Input parameters in Bicep support [@metadata](/azure/azure-resource-manager/bicep/parameters#metadata) as a schema-free object. You can include `azd` metadata by adding the `azd` field to the parameter metadata:
+Input parameters in Bicep support [@metadata](/azure/azure-resource-manager/bicep/parameters#metadata) as a schema-free object. Add `azd` metadata by including the `azd` field in the parameter metadata:
 
 ```bicep
 @metadata({
@@ -24,7 +24,7 @@ Input parameters in Bicep support [@metadata](/azure/azure-resource-manager/bice
 param someInput <param-type>
 ```
 
-Azure Developer CLI metadata doesn't depend on the parameter's type and can be added to any parameter.
+Azure Developer CLI metadata doesn't depend on the parameter's type, and you can add it to any parameter.
 
 ## Supported metadata
 
@@ -32,20 +32,20 @@ The supported configuration fields for `azd` metadata are:
 
   | Field | Description |
   |-------|-------------|
-  | `type` | Defines how `azd` should prompt for this parameter. Example: `location`. |
-  | `config` | Describes the settings for some of the metadata types, such as `generate`. |
-  | `default` | Defines a value for `azd` to highlight initially during a select prompt. |
-  | `usageName` | Controls quota-check for AI model location selection. |
+  | `type` | Defines how `azd` prompts for this parameter. For example, `location`. |
+  | `config` | Describes settings for some metadata types, like `generate`. |
+  | `default` | Defines a value for `azd` to highlight first during a select prompt. |
+  | `usageName` | Controls quota check for AI model location selection. |
 
-Each of these is explored in more detail in the following sections.
+Each field is described in more detail in the following sections.
 
 ### Type
 
-This configuration defines a unique way for `azd` to prompt for an input parameter. The supported types are the following:
+This configuration defines how `azd` prompts for an input parameter. Supported types include:
 
 - **location**
 
-    Use the `location` type to signal `azd` about an input parameter that handles an Azure location. When `azd` finds the `location` type in the metadata, it prompts the user for a value using the location selection list. Example:
+    Use the `location` type to tell `azd` that an input parameter handles an Azure location. When `azd` finds the `location` type in the metadata, it prompts for a value using the location selection list. For example:
 
     ```bicep
     @metadata({
@@ -56,11 +56,11 @@ This configuration defines a unique way for `azd` to prompt for an input paramet
     param someInput string
     ```
 
-    Prompting flow:
+    Prompt flow:
 
     :::image type="content" source="media/metadata/prompt-with-location-metadata.png" alt-text="A screenshot showing a prompt for location with metadata.":::
 
-    The `location` type can be combined with the `default` field to control which location should be initially highlighted during the prompt flow. For example:
+    Combine the `location` type with the `default` field to control which location is highlighted first during the prompt flow. For example:
 
     ```bicep
     @metadata({
@@ -76,11 +76,11 @@ This configuration defines a unique way for `azd` to prompt for an input paramet
 
     :::image type="content" source="media/metadata/prompt-with-location-default-metadata.png" alt-text="A screenshot showing a prompt for location with metadata that includes a default value.":::
 
-    Note how the highlighted default option matches the `default` field from the metadata. This is convenient for template authors to recommend a location while letting users confirm or change it. This differs from setting a default value for the input parameter in Bicep because that makes `azd` skip the prompt flow and directly use the default value without user confirmation.
+    The highlighted default option matches the `default` field from the metadata. This approach lets template authors recommend a location while users can confirm or change it. Setting a default value for the input parameter in Bicep skips the prompt flow and uses the default value without user confirmation.
 
 - **generate**
 
-    Use the `generate` type to request `azd` to automatically produce the value for the input parameter. This is typically used to auto-generate passwords or unique identifiers:
+    Use the `generate` type to tell `azd` to automatically create the value for the input parameter. This type is often used to generate passwords or unique identifiers:
 
     ```bicep
     @metadata({
@@ -95,13 +95,13 @@ This configuration defines a unique way for `azd` to prompt for an input paramet
     ```
 
     > [!NOTE]
-    > The `config` field is required when using `type: 'generate'`.
+    > The `config` field is required with `type: 'generate'`.
 
-    When `azd` runs, it automatically generates a 10-character value for the input parameter without prompting the user to input a value. See the [config](#config) section to learn more about the options for configuring auto-generation values.
+    When `azd` runs, it generates a 10-character value for the input parameter without prompting for input. See the [config](#config) section for options to configure auto-generation values.
 
 - **resourceGroup**
 
-    Use the `resourceGroup` type to signal `azd` that for prompting for this input, it should pick a resource group:
+    Use the `resourceGroup` type to tell `azd` to prompt for a resource group for this input:
 
     ```bicep
     @metadata({
@@ -118,24 +118,24 @@ This configuration defines a unique way for `azd` to prompt for an input paramet
 
 ### Config
 
-The `config` object is required when using `generate` type. It controls the auto-generation options. The following table describes the generate configuration options:
+The `config` object is required with the `generate` type. It controls auto-generation options. The following table describes the generate configuration options:
 
 | Field Name | Type | Description | Default |
 |------------|------|-------------|---------|
-| length | int | Total length of the generated password | 0 |
-| noLower | bool | If true, excludes lowercase letters | false |
-| noUpper | bool | If true, excludes uppercase letters | false |
-| noNumeric | bool | If true, excludes numbers | false |
-| noSpecial | bool | If true, excludes special characters | false |
-| minLower | int | Minimum number of lowercase letters required | 0 |
-| minUpper | int | Minimum number of uppercase letters required | 0 |
-| minNumeric | int | Minimum number of numbers required | 0 |
-| minSpecial | int | Minimum number of special characters required | 0 |
+| length | int | Total length of the generated value | 0 |
+| noLower | bool | If true, excludes lowercase letters. | false |
+| noUpper | bool | If true, excludes uppercase letters. | false |
+| noNumeric | bool | If true, excludes numbers. | false |
+| noSpecial | bool | If true, excludes special characters. | false |
+| minLower | int | Minimum number of lowercase letters required. | 0 |
+| minUpper | int | Minimum number of uppercase letters required. | 0 |
+| minNumeric | int | Minimum number of numbers required. | 0 |
+| minSpecial | int | Minimum number of special characters required. | 0 |
 
 > [!IMPORTANT]
-> The sum of all minimum requirements (MinLower + MinUpper + MinNumeric + MinSpecial) must not exceed the total Length. If any "No-" flag is set to true, the corresponding "Min-" value should be 0.
+> The sum of all minimum requirements (MinLower + MinUpper + MinNumeric + MinSpecial) can't exceed the total Length. If any "No-" flag is true, set the corresponding "Min-" value to 0.
 
-Example: Generate a value with length 10 with no special characters and with no numbers:
+For example, generate a value with length 10, no special characters, and no numbers:
 
 ```bicep
 @metadata({
@@ -153,7 +153,7 @@ param someInput string
 
 ### Default
 
-Defines the initial value from a list to highlight. It can be combined with the `location` type or applied directly to an input with a defined list of options:
+Defines the initial value from a list to highlight. Combine it with the `location` type or apply it directly to an input with a defined list of options:
 
 ```bicep
 @allowed(['foo', 'bar', 'baz'])
@@ -165,13 +165,13 @@ Defines the initial value from a list to highlight. It can be combined with the 
 param someInput string
 ```
 
-This example uses the `@allowed()` annotation from Bicep to define a list of supported values for the input parameter. When `azd` prompts for this input, it uses the list of allowed values. The `default` field from the metadata controls which option to set as the initial selection:
+This example uses the `@allowed()` annotation from Bicep to define a list of supported values for the input parameter. When `azd` prompts for this input, it uses the list of allowed values. The `default` field in the metadata controls which option is set as the initial selection:
 
 :::image type="content" source="media/metadata/prompt-with-default.png" alt-text="A screenshot showing default during prompt from allowed values.":::
 
 ### UsageName
 
-The `usageName` field defines a filter to scope the location list to only those locations where a given AI SKU and capacity are available:
+The `usageName` field filters the location list to only locations where a given AI SKU and capacity are available:
 
 ```bicep
 @metadata({
@@ -185,11 +185,11 @@ The `usageName` field defines a filter to scope the location list to only those 
 param someInput string
 ```
 
-This example makes `azd` reduce the list of Azure locations to only those where the AI model `gpt-5-mini` has enough quota (capacity of at least 10).
+This example makes `azd` show only Azure locations where the AI model `gpt-5-mini` has enough quota (capacity of at least 10).
 
 Prompt flow:
 
 :::image type="content" source="media/metadata/prompt-with-usage-name.png" alt-text="A screenshot showing setting usageName to prompt for AI location.":::
 
 > [!NOTE]
-> `azd` returns an error if there isn't at least one location with enough quota.
+> `azd` returns an error if there isn't a location with enough quota.
