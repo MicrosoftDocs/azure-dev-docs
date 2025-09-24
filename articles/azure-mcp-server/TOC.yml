@@ -68,7 +68,7 @@ items:
           href: tools/azure-event-grid.md
         - name: Azure Functions
           href: tools/azure-functions.md
-        - name: Azure Foundry
+        - name: Azure AI Foundry
           href: tools/azure-foundry.md
         - name: Azure Managed Grafana
           href: tools/azure-grafana.md
