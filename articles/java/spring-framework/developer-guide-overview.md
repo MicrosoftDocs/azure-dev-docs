@@ -67,7 +67,7 @@ If you use Maven, add the BOM to your **pom.xml** file in the `dependencyManagem
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.23.0</version>
+      <version>6.0.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
