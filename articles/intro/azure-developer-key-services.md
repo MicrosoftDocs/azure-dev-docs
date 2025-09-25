@@ -27,8 +27,8 @@ This article introduces some of the key Azure services that developers use most 
 
 Whether you need to host a web app's static resources, an API, or long-running back-end processes using containers, VMs, or serverless technologies, these Azure services help you architect your entire solution.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 |:::image type="icon" source="media/azure-app-service.png":::| [Azure App Service](/azure/app-service/) |Host .NET, Java, Node.js, and Python web applications and APIs in a fully managed Azure service. You only need to deploy your code to Azure. Azure manages infrastructure tasks like high availability, load balancing, and autoscaling. |
 |:::image type="icon" source="media/static-web-apps.png":::| [Azure Static Web Apps](/azure/static-web-apps/) |Host static web apps built using frameworks like Gatsby, Hugo, or VuePress, or modern web apps built using Angular, React, Svelte, or Vue. Static web apps automatically build and deploy based on code changes and feature API integration with Azure Functions.|
 |:::image type="icon" source="media/azure-container-apps.png":::| [Azure Container Apps](/azure/container-apps/) |Azure Container Apps lets you run containerized applications on a serverless platform without managing orchestration or infrastructure.|
@@ -44,8 +44,8 @@ You might wonder, "Why are there so many different ways to host an application?"
 
 [Azure AI services](/azure/ai-services/) help you create AI apps with prebuilt and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision making.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 | :::image type="icon" source="media/azure-openai.png"::: | [Azure OpenAI](/azure/ai-services/openai/) | Use powerful language models including the GPT, Codex, and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. |
 | :::image type="icon" source="media/azure-speech.png"::: | [Azure AI Speech](/azure/ai-services/speech-service/) | Transcribe audible speech into readable, searchable text or convert text to lifelike speech for more natural interfaces. |
 | :::image type="icon" source="media/language.png"::: | [Azure AI Language](/azure/ai-services/language-service) | Use natural language processing (NLP) to identify key phrases and conduct sentiment analysis from text. |
@@ -58,8 +58,8 @@ You might wonder, "Why are there so many different ways to host an application?"
 
 Azure offers a wide array of relational and NoSQL storage options, including managed versions of many popular open-source database products.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 |:::image type="icon" source="media/azure-sql.png":::| [Azure SQL](/azure/azure-sql/) | A family of SQL Server database engine products in the cloud.|
 |:::image type="icon" source="media/azure-sql-database.png":::| [Azure SQL Database](/azure/azure-sql/database/) |A fully managed, cloud-based version of SQL Server.|
 |:::image type="icon" source="media/azure-cosmos-db.png":::| [Azure Cosmos DB](/azure/cosmos-db/) |A fully managed, cloud-based NoSQL database. Azure Cosmos DB features multiple APIs, including APIs compatible with [MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction), [Cassandra](/azure/cosmos-db/cassandra/cassandra-introduction), and [Gremlin](/azure/cosmos-db/graph/gremlin-support).|
@@ -72,8 +72,8 @@ Azure offers a wide array of relational and NoSQL storage options, including man
 
 [Azure Storage](/azure/storage/) products offer secure, scalable cloud, and hybrid data storage services. Offerings include services for hybrid storage solutions and services to transfer, share, and back up data.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 |:::image type="icon" source="media/azure-storage-accounts.png":::| [Azure Blob Storage](/azure/storage/blobs/) |Azure Blob Storage lets your applications store and retrieve files in the cloud. Azure Storage is highly scalable, stores massive amounts of data, and ensures high availability with redundant storage.|
 |:::image type="icon" source="media/azure-storage-accounts.png":::| [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) |Azure Data Lake Storage supports big data analytics with scalable, cost-effective storage for structured, semi-structured, or unstructured data.|
 
@@ -81,8 +81,8 @@ Azure offers a wide array of relational and NoSQL storage options, including man
 
 These are some of the most popular services that manage sending, receiving, and routing of messages from and to apps.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 |:::image type="icon" source="media/azure-service-bus.png":::| [Azure Service Bus](/azure/service-bus-messaging/) |A fully managed enterprise message broker that supports point-to-point and publish-subscribe integrations. It's ideal for building decoupled applications, queue-based load leveling, or facilitating communication between microservices.|
 |:::image type="icon" source="media/event-hubs.png":::| [Azure Event Hubs](/azure/event-hubs/) |Azure Event Hubs is a managed service that ingests and processes massive data streams from websites, apps, or devices.|
 |:::image type="icon" source="media/azure-storage-queues.png":::| [Azure Queue Storage](/azure/storage/queues/) |A simple and reliable queue that handles large workloads.|
@@ -91,8 +91,8 @@ These are some of the most popular services that manage sending, receiving, and 
 
 One of Azure's strengths lies in its secure-by-default security posture. You can enhance application-level security with the following services.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 |:::image type="icon" source="media/active-directory.png":::| [Microsoft Entra ID](/entra/identity/) |Manage user identities and control access to your apps, data, and resources.|
 |:::image type="icon" source="media/azure-key-vault.png":::| [Azure Key Vault](/azure/key-vault/) |Store and access application secrets, like connection strings and API keys, in an encrypted vault with restricted access to ensure your secrets and application aren't compromised.|
 |:::image type="icon" source="media/app-configuration.png":::| [App Configuration](/azure/azure-app-configuration/) |A fast and scalable service to centrally manage application settings and feature flags.|
@@ -101,8 +101,8 @@ One of Azure's strengths lies in its secure-by-default security posture. You can
 
 Most applications benefit from letting DevOps, developers, and admins have deep visibility into the code running in the cloud. The following services provide insight into application performance and logging.
 
-| |Service|Description|
-|:----:|-------|-----------|
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
+|----|-------|-----------|
 |:::image type="icon" source="media/monitor.png":::| [Azure Monitor](/azure/azure-monitor/) |A comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments.|
 |:::image type="icon" source="media/application-insights.png":::| [Application Insights](/azure/azure-monitor/app/app-insights-overview) |This feature of Azure Monitor provides Application Performance Management (APM) for enhancing the performance, reliability, and quality of your live web applications.|
 
