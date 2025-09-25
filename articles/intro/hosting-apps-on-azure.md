@@ -121,8 +121,8 @@ Azure provides a container registry to store and manage your container images or
 
 |Service|Use|
 |--|--|
-|[Azure Container Apps][azure-container-apps]|Host containers|
-|[Azure Functions][azure-functions]|Run code or containers|
+|[Azure Container Apps][azure-container-apps]|Container hosting|
+|[Azure Functions][azure-functions]|Code or container hosting|
 
 ## Microservices
 
