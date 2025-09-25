@@ -215,7 +215,7 @@ Event-based compute is compute that is triggered by an event such as a timed sch
 
 |Service|Use|
 |--|--|
-|[Microsoft Copilot Studio][power-virtual-agents]|Use when you need to create chatbots with a no-code interface.|
+|[Microsoft Copilot Studio][microsoft-copilot-studio]|Use when you need to create chatbots with a no-code interface.|
 |[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
 |[Azure Service Bus Messaging][azure-service-bus-messaging]|Use when you need to decouple applications and services.|
 
@@ -265,7 +265,7 @@ CI/CD compute is compute that is used to build and deploy your application.
 
 [power-apps]:/power-apps
 [power-automate]:/power-automate
-[power-virtual-agents]:/power-virtual-agents
+[microsoft-copilot-studio]:/microsoft-copilot-studio
 
 [quantum]:/azure/quantum
 
