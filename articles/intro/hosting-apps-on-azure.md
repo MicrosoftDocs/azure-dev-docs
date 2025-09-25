@@ -207,7 +207,7 @@ High-performance computing (HPC) is the use of parallel processing for running a
 |[Azure Quantum workspace][quantum]|Use when you need to develop and experiment with quantum algorithms.|
 |[Microsoft Genomics][microsoft-genomics]|Use for ISO-certified, HIPAA-compliant genomic processing.|
 
-To Learn more, see [High-performance computing on Azure](/azure/architecture/topics/high-performance-computing).
+To learn more, see [High-performance computing on Azure](/azure/architecture/topics/high-performance-computing).
 
 ## Event-based compute
 
@@ -215,7 +215,7 @@ Event-based compute is compute that is triggered by an event such as a timed sch
 
 |Service|Use|
 |--|--|
-|[Power Virtual Agents][power-virtual-agents]|Use when you need to create chatbots with a no-code interface.|
+|[Microsoft Copilot Studio][power-virtual-agents]|Use when you need to create chatbots with a no-code interface.|
 |[Azure Functions][azure-functions]|Use when you need to run code based on a timed schedule or in response to events in other Azure services.|
 |[Azure Service Bus Messaging][azure-service-bus-messaging]|Use when you need to decouple applications and services.|
 
