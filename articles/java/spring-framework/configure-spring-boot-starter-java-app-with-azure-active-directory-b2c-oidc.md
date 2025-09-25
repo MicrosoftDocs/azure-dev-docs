@@ -134,6 +134,7 @@ Select **Certificates & secrets**, then **New client secrets**. Input your secre
 
 > [!NOTE]
 > If you leave the **Certificates & secrets** section and come back, you'll not be able to see the secret value. In that case, you must create another secret and copy it for future use.
+>
 > Occasionally, the generated secret value may contain characters that are problematic for inclusion in the **application.yml** file, such as backslash or backtick. In that case, discard that secret and generate another one.
 
 ### Add user flow

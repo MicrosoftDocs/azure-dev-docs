@@ -262,8 +262,10 @@ This Service Connector command does the following tasks in the background:
 ### [Azure SQL Database](#tab/sqlserver)
 
 > [!NOTE]
-> Please make sure Azure CLI use the 64-bit Python, 32-bit Python has compatibility issue with the command's dependency [pyodbc](https://pypi.org/project/pyodbc/). 
+> Please make sure Azure CLI use the 64-bit Python, 32-bit Python has compatibility issue with the command's dependency [pyodbc](https://pypi.org/project/pyodbc/).
+>
 > The Python information of Azure CLI can be got with command `az --version`. If it shows `[MSC v.1929 32 bit (Intel)]`, then it means it use 32-bit Python.
+>
 > The solution is to install 64-bit Python and install Azure CLI from [PyPI](https://pypi.org/project/azure-cli/).
 
 Use the following command to create a passwordless connection to the database.
