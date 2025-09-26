@@ -66,13 +66,14 @@ Most Azure solutions involve multiple Azure services, making it challenging to d
 
 The Azure portal provides an easy-to-navigate and visual presentation of all the services your organization uses during a particular month. You can view the data by service, resource group, and more.
 
-To access billing information in the Azure portal, [sign in to the Azure portal](https://portal.azure.com), and follow these steps.
+To access billing information in the Azure portal:
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app service step 1](<./includes/billing-azure-portal-1.md>)] | :::image type="content" source="./media/billing-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the search box at the top of the Azure portal to locate the cost management and billing page." lightbox="./media/billing-azure-portal-1.png"::: |
-| [!INCLUDE [Create app service step 2](<./includes/billing-azure-portal-2.md>)] | :::image type="content" source="./media/billing-azure-portal-2-240px.png" alt-text="A screenshot showing the overview page for cost management and billing that summarizes spending across your Azure subscriptions" lightbox="./media/billing-azure-portal-2.png"::: |
-| [!INCLUDE [Create app service step 4](<./includes/billing-azure-portal-3.md>)] | :::image type="content" source="./media/billing-azure-portal-3-240px.png" alt-text="A screenshot of the detailed overview page for an Azure subscription showing the links used for cost analysis, setting up cost alerts, and how to get detailed billing data by Azure resource." lightbox="./media/billing-azure-portal-3.png"::: |
+1. [Sign in to the Azure portal](https://portal.azure.com).
+1. In the search box at the top of the portal, enter **Cost Management + Billing**.
+1. Select **Cost Management + Billing** from the search results.
+1. Review your current spend and other billing information.
+
+   :::image type="content" source="./media/billing-azure-portal.png" alt-text="A screenshot of the detailed overview page for an Azure subscription showing the links used for cost analysis, setting up cost alerts, and how to get detailed billing data by Azure resource." lightbox="./media/billing-azure-portal.png":::
 
 You can also access the Cost Management + Billing overview page directly.
 
