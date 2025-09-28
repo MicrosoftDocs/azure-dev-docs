@@ -47,7 +47,7 @@ Using Microsoft Entra ID for authentication provides the following benefits:
 ### SAS authentication
 
 > [!IMPORTANT]
-> Spring Cloud Azure 6.0.0 or higher doesn't support Connection String anymore, please use Passwordless instead.
+> Spring Cloud Azure 6.0.0 or higher doesn't support SAS Authentication anymore, please use Microsoft Entra Authentication instead.
 
 Event Hubs also provides Shared Access Signatures (SAS) for delegated access to Event Hubs for Kafka resources.
 
