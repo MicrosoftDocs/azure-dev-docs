@@ -53,6 +53,8 @@ Developers using [Visual Studio Code](https://code.visualstudio.com) manage Azur
 * Create, debug, and deploy Azure Functions directly in VS Code
 * Deploy containerized applications in VS Code
 
+For the full list of features, see the extension's download page.
+
 > [!div class="nextstepaction"]
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
