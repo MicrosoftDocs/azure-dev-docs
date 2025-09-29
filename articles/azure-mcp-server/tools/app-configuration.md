@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure App Configuration.
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
-ms.date: 05/14/2025
+ms.date: 09/23/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,7 +19,20 @@ The Azure MCP Server allows you to manage Azure resources, including App Configu
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Delete key-value setting
+## Account: List stores
+
+The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
+
+Example prompts include:
+
+- **List stores**: "List all App Configuration stores in my subscription."
+- **Show stores**: "What App Configuration stores do I have?"
+- **Find stores**: "I need to see my App Configuration resources"
+- **Query stores**: "Can you show me all my App Config stores?"
+- **Check stores**: "App Configuration stores in subscription abc123"
+
+
+## Key-value: Delete setting
 
 The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
 
@@ -37,7 +50,7 @@ Example prompts include:
 | **Key**          | Required | The key name of the setting to delete.                                      |
 | **Label**        | Optional | The label of the setting to delete.                                         |
 
-## List key-value settings
+## Key-value: List all key-values
 
 The Azure MCP Server can list all [key-value settings](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. This allows you to view your application settings and their values in one place.
 
@@ -55,37 +68,29 @@ Example prompts include:
 | **Key**          | Optional | The key filter to list settings (supports wildcards).                       |
 | **Label**        | Optional | The label filter to list settings (supports wildcards).                     |
 
-## List stores
 
-The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
 
-Example prompts include:
+## Key-value: Set lock on key-value
 
-- **List stores**: "List all App Configuration stores in my subscription."
-- **Show stores**: "What App Configuration stores do I have?"
-- **Find stores**: "I need to see my App Configuration resources"
-- **Query stores**: "Can you show me all my App Config stores?"
-- **Check stores**: "App Configuration stores in subscription abc123"
-
-## Lock key-value setting
-
-The Azure MCP Server can lock a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it read-only.
+Sets the lock state of a key-value in an App Configuration store. This command can lock and unlock key-values.
 
 Example prompts include:
 
-- **Lock a setting**: "Make the 'AppName:ConnectionString' key read-only in my 'myappconfigstore' App Configuration store."
-- **Lock a labeled setting**: "Lock the 'AppName:ApiKey' setting with label 'production'"
-- **Protect configuration**: "Lock my database connection string in 'contoso-appconfig' so it can't be changed"
-- **Secure setting**: "Make ApiSecrets read-only"
-- **Prevent edits**: "Set the production endpoint URL in app-config-central to read-only mode"
+- **Lock a setting**: "Lock the key 'AppName:ConnectionString' in App Configuration store 'myappconfigstore'."
+- **Lock a labeled setting**: "Lock the key 'AppName:ApiKey' with label 'production' in App Configuration store 'contoso-appconfig'."
+- **Unlock a setting**: "Unlock the key 'AppName:ConnectionString' in App Configuration store 'myappconfigstore'."
+- **Unlock a labeled setting**: "Unlock the key 'AppName:ApiKey' with label 'production' in App Configuration store 'contoso-appconfig'."
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Required | The key name of the setting to lock.                                        |
-| **Label**        | Optional | The label of the setting to lock.                                           |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account.** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Key.** |  Required | The name of the key to access within the App Configuration store. |
+| **Label.** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
+| **Content. type.** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
+| **Lock.** |  Optional | Whether a key-value will be locked (set to read-only) or unlocked (read-only removed). |
+                      |
 
-## Set key-value setting
+## Key-value: Set key-value setting
 
 Set or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. 
 
@@ -106,7 +111,7 @@ Example prompts include:
 | **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format 'key=value'. You can specify multiple tags. |
 | **Content type** | Optional | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
 
-## Show key-value setting
+## Key-value: Show specific key-value setting
 
 The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. This is useful for checking the current value of a particular setting.
 
@@ -124,23 +129,6 @@ Example prompts include:
 | **Key**          | Required | The key name of the setting to set.                                         |
 | **Label**        | Optional | The label of the setting to set.                                            |
 
-## Unlock key-value setting
-
-The Azure MCP Server can unlock a previously locked [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store, making it editable again.
-
-Example prompts include:
-
-- **Unlock a setting**: "Make the 'AppName:ConnectionString' key editable in my 'myappconfigstore' App Configuration store."
-- **Unlock a labeled setting**: "Unlock the 'AppName:ApiKey' setting with label 'production'"
-- **Allow edits**: "Remove the read-only lock from 'DatabaseSettings' in contoso-appconfig"
-- **Enable changes**: "Unlock the config values for TestEndpoint"
-- **Remove lock**: "Make the MaxConnections setting in 'app-config-central' writable again"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Required | The key name of the setting to set.                                         |
-| **Label**        | Optional | The label of the setting to set.                                            |
 
 ## Related content
 
