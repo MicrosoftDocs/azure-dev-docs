@@ -20,7 +20,7 @@ To install necessary tools, follow the instructions for [Install content authori
 
 ## License
 
-Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) and [ThirdPartyNotices](ThirdPartyNotices.md) for all Licensing information.
+Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) and [ThirdPartyNotices](ThirdPartyNotices) for all Licensing information.
 
 ## Code of Conduct
 
