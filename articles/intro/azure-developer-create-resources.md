@@ -32,7 +32,7 @@ Different tools support various use cases, and most Azure developers use a combi
 
 * **Write a script using the Azure CLI or Azure PowerShell** to automate a common task. For example, you might create a script that creates a basic dev environment for a new web application consisting of an Azure App Service, a database, and blob storage. Writing a script ensures consistent resource creation and is faster than using a UI.
 
-* **Use Infrastructure as Code (IaC) tools to declaratively deploy and manage Azure resources**. Tools like Terraform, Ansible, and Bicep let you codify Azure resources in declarative syntax, ensuring consistent deployment across environments and preventing environmental drift.
+* **Use Infrastructure as code (IaC) tools to declaratively deploy and manage Azure resources**. Tools like Terraform, Ansible, and Bicep let you codify Azure resources in declarative syntax, ensuring consistent deployment across environments and preventing environmental drift.
 
 ## Azure portal
 
@@ -128,7 +128,7 @@ For more information on choosing between Azure CLI and Azure PowerShell, see the
 
 ## Infrastructure as code tools
 
-[Infrastructure as Code](/devops/deliver/what-is-infrastructure-as-code) is the process of managing and provisioning resources through declarative configuration files. Infrastructure as code tools use a declarative end state specification to guarantee a set of resources are created and configured the same way each time. Most infrastructure as code tools also monitor resources to ensure they remain configured in the desired state.
+[Infrastructure as code](/devops/deliver/what-is-infrastructure-as-code) is the process of managing and provisioning resources through declarative configuration files. Infrastructure as code tools use a declarative end state specification to guarantee a set of resources are created and configured the same way each time. Most infrastructure as code tools also monitor resources to ensure they remain configured in the desired state.
 
 Azure supports various infrastructure as code tools for automated, repeated, and reliable deployments.
 
