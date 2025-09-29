@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Monitor.
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 07/01/2025
+ms.date: 09/23/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -18,6 +18,19 @@ The Azure MCP Server allows you to manage Azure Monitor resources using natural 
 [Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
+
+## Application insights: List recommendations
+
+<!-- `azmcp applicationinsights recommendation list` -->
+
+List [Application Insights](/azure/azure-monitor/app/app-insights-overview) code optimization recommendations in a subscription. 
+
+Example prompts include:
+
+- **List code optimization recommendations**: "List code optimization recommendations across my Application Insights components."
+- **Show recommendations for all resources**: "Show me code optimization recommendations for all Application Insights resources in my subscription."
+- **List profiler recommendations by group**: "List profiler recommendations for Application Insights in resource group 'devops-group'."
+- **Show performance improvement recommendations**: "Show me performance improvement recommendations from Application Insights."
 
 ## Log analytics: List workspaces
 
