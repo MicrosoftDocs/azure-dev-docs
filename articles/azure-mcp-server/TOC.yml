@@ -64,9 +64,11 @@ items:
           href: tools/azure-deploy.md
         - name: Azure Developer CLI
           href: tools/azure-developer-cli.md
+        - name: Azure Event Grid
+          href: tools/azure-event-grid.md
         - name: Azure Functions
           href: tools/azure-functions.md
-        - name: Azure Foundry
+        - name: Azure AI Foundry
           href: tools/azure-foundry.md
         - name: Azure Managed Grafana
           href: tools/azure-grafana.md
