@@ -1,7 +1,7 @@
 ---
 title: Get started with the chat using your own data sample for JavaScript
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 03/17/2025
+ms.date: 09/30/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -89,7 +89,7 @@ Use the following instructions to deploy a preconfigured development environment
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
-1. Right-click on the following button, and select _Open link in new window_ in order to have both the development environment and the documentation available at the same time. 
+1. Right-click the following button and select _Open link in new window_ to keep both the development environment and documentation open at the same time.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)
 
@@ -107,14 +107,13 @@ Use the following instructions to deploy a preconfigured development environment
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
-
 1. The remaining tasks in this article take place in the context of this development container.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Create a new local directory on your computer for the project. 
+1. Create a new local directory on your computer for the project.
 
     ```bash
     mkdir my-intelligent-app && cd my-intelligent-app
@@ -139,7 +138,9 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```bash
     azd auth login
     ```
+
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
@@ -153,7 +154,7 @@ The sample repository contains all the code and configuration files you need to 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+1. To provision the Azure resources and deploy the source code, run the following Azure Developer CLI command:
 
     ```bash
     azd up
@@ -167,7 +168,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application successfully deploys, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="../media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="../media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser with suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from markdown files
 
@@ -185,24 +186,24 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
     |Tab|Description|
     |---|---|
-    |**Thought process**|This is a script of the interactions in chat. You can view the system prompt (`content`) and your user question (`content`).|
-    |**Supporting content**|This includes the information to answer your question and the source material. The number of source material citations is noted in the **Developer settings**. The default value is **3**.|
-    |**Citation**|This displays the original page that contains the citation.|
+    |**Thought process**|This tab is a script of the interactions in chat. You can view the system prompt (`content`) and your user question (`content`).|
+    |**Supporting content**|This tab includes the information to answer your question and the source material. The number of source material citations is noted in the **Developer settings**. The default value is **3**.|
+    |**Citation**|This tab displays the original page that contains the citation.|
 
 1. When you're done, select the _hide_ button denoted with an **X** above the tabs.
 
 ### Use chat app settings to change behavior of responses
 
-The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
+The specific OpenAI model determines the intelligence of the chat and the settings used to interact with the model. The **Developer settings** option opens the **Configure answer generation** pane where you can change settings for the chat app:
 
 :::image type="content" source="../media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
 
 |Setting|Description|
 |---|---|
-|Override prompt template|This is the prompt that is used to generate the answer.|
-|Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
-|Exclude category|This is the category of documents that are excluded from the search results.|
-|Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
+|Override prompt template|This setting controls the prompt used to generate the answer.|
+|Retrieve this many search results|This setting controls the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
+|Exclude category|This setting controls the category of documents that are excluded from the search results.|
+|Use semantic ranker for retrieval|This setting enables a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
 |Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
 |Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
 |Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
@@ -211,13 +212,13 @@ The intelligence of the chat app is determined by the OpenAI model and the setti
 The following steps walk you through the process of changing the settings.
 
 1. In the browser, select the **Developer Settings** tab.
-1. Check the **Use query-contextual summaries instead of** checkbox and ask the same question again.
+1. Check the **Use query-contextual summaries instead of whole summaries** checkbox and ask the same question again.
 
     ```
     What happens if the rental doesn't fit the description?
     ```
 
-    The chat returned with a more concise answer such as the following.
+    The chat returned with a more concise answer.
 
 ## Clean up resources
 
@@ -225,7 +226,7 @@ The following steps walk you through the process of changing the settings.
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+Delete the Azure resources and remove the source code using the following Azure Developer CLI command:
 
 ```bash
 azd down --purge
@@ -279,5 +280,3 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 - Learn more about how AZD is used in this template:
     - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
     - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)
-
-
