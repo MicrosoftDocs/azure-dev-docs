@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/23/2025
+ms.date: 09/30/2025
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server
@@ -53,8 +53,8 @@ Retrieves the available Azure Managed Lustre SKU, including increments, bandwidt
 
 Example prompts include: 
 
-* **Get SKU details**: "Show me the details of the 'AMLFS-Durable-Premium-125' SKU."
-* **View SKU information**: "What are the properties of the 'AMLFS-Durable-Premium-250' SKU?"
+* **List available SKUs**: "Show me the available Azure Managed Lustre SKUs."
+* **Get SKUs by region**: "Display the available Azure Managed Lustre SKUs in West Europe."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
