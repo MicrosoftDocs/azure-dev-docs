@@ -23,7 +23,13 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 
 [!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
 
+[!INCLUDE [server start options](../includes/tools/server-start-options.md)]
+
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+
+## User confirmation for sensitive data
+
+[!INCLUDE [user-consent](../includes/tools/user-consent.md)]
 
 ## Related content
 

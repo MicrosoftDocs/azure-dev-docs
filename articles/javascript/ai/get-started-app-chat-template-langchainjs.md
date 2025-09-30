@@ -1,12 +1,12 @@
 ---
 title: "Get started with Serverless AI Chat using LangChain.js"
-description: "Use LangChainjs to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
+description: "Use LangChain.js to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
 ms.topic: get-started 
-ms.date: 03/17/2025
+ms.date: 09/30/2025
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-#customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchainjs helps a chat app.
+#customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchain.js helps a chat app.
 
 ---
 
@@ -16,7 +16,7 @@ Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverl
 
 The code includes sample data for a fictitious company. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
-:::image type="content" source="../media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+:::image type="content" source="../media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing the chat text box and several suggestions for chat input.":::
 
 > [!NOTE]
 > This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
@@ -49,7 +49,7 @@ The API flow is useful to understand how LangChain.js is helpful in this scenari
 - Creates a retrieval chain from the document chain and the vector store.
 - Streams the responses from the retrieval chain.
 
-The developer's work is to correctly configure the dependencies services, such as Azure OpenAI and Azure AI Search and construct the chains correctly. The underlying chain logic knows how to resolve the query. This allows you to construct chains from many different services and configurations as long as they work with the LangChain.js requirements.
+The developer's work is to correctly configure the dependencies services, such as Azure OpenAI and Azure AI Search and construct the chains correctly. The underlying chain logic allows you to construct chains from many different services and configurations as long as they work with the LangChain.js requirements.
 
 ### Where is Azure in this architecture?
 
@@ -97,7 +97,7 @@ Use the following instructions to deploy a preconfigured development environment
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Open in codespace.
 
@@ -147,6 +147,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```
 
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
@@ -158,7 +159,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
+> Azure resources in this section start costing money immediately, even if you stop the command before it finishes.
 
 1. Provision the Azure resources and deploy the source code by using the following Azure Developer CLI command:
 
@@ -191,8 +192,7 @@ The chat app is preloaded with rental information from a [PDF file catalog](http
 
     :::image type="content" source="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" lightbox="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" alt-text="Screenshot of chat app's suggested follow-up prompt and answer.":::
 
-1. From the response, select the citation to see the document used to generate the answer. This delivers the document from Azure Storage to the client. When you're done with the new browser tab, close it to return to the serverless chat app.
-
+1. Select the citation in the response to view the source document. Azure Storage delivers the document to your browser. When you finish reviewing the document, close the tab to return to the chat app.
 
     :::image type="content" source="../media/get-started-app-chat-langchainjs/citation-document.png" lightbox="../media/get-started-app-chat-langchainjs/citation-document.png" alt-text="Screenshot of original document containing citation.":::
 
@@ -200,7 +200,7 @@ The chat app is preloaded with rental information from a [PDF file catalog](http
 
 ### Clean up Azure resources
 
-The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
+Azure bills the resources created in this article to your Azure subscription. If you don't need these resources in the future, delete them to avoid more charges.
 
 Delete the Azure resources and remove the source code with the following Azure Developer CLI command:
 
@@ -212,7 +212,7 @@ azd down --purge
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
-Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+Delete the GitHub Codespaces environment to maximize your free per-core hours.
 
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
@@ -234,7 +234,7 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="../media/get-started-app-chat-langchainjs/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. Free up space on your local machine by deleting the container instance, image, and volumes from Docker.
 
 ---
 

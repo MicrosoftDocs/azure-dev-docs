@@ -1,7 +1,7 @@
 ---
 title: "Extract Entities Using Azure OpenAI Structured Outputs Mode"
 description: "Learn how to improve your Azure OpenAI model responses with structured outputs."
-ms.date: 03/06/2025
+ms.date: 09/30/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -20,12 +20,18 @@ In this article, you explore several examples to extract different types of enti
 
 The sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI `gpt-4o` model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
 
+## Get to the code
+
+Explore the [Azure OpenAI structured outputs](https://github.com/Azure-Samples/azure-openai-entity-extraction) sample this article is based on.
+
+Jump to the [code walkthrough section](#explore-the-code-examples) to understand how each sample example works.
+
 By following the instructions in this article, you will:
 
 - Deploy a model [from the list of models supported for structured outputs](/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure#supported-models).
 - Run the example Python files that use the [OpenAI Python package](https://pypi.org/project/openai/) and [Pydantic models](https://docs.pydantic.dev/) to make requests for structured outputs.
 
-Structured outputs in Azure OpenAI make sure the AI model's responses follow a predefined [JSON Schema](https://json-schema.org/overview/what-is-jsonschema). This feature provides several key benefits by:
+Structured outputs in OpenAI make sure the AI model's responses follow a predefined [JSON Schema](https://json-schema.org/overview/what-is-jsonschema). This feature provides several key benefits by:
 
 - Making sure the responses match the defined schema, reducing errors and inconsistencies.
 - Helping turn unstructured data into well-defined, structured formats, making integration with other systems easier.
@@ -136,7 +142,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Open a new terminal in Visual Studio Code.
 
-1. Run the following AZD command to bring the GitHub repository to your local computer.
+1. Bring the GitHub repository to your local computer with the following Azure Developer CLI (AZD) command.
 
     ```azdeveloper
     azd init -t azure-openai-entity-extraction
@@ -175,7 +181,7 @@ The sample repository has all the code and configuration files for an Azure Open
     |Location for the OpenAI model|Select a location near you from the list.|
 
     > [!NOTE]
-    > If you get an error or time-out during deployment, try changing the location. There might be availability constraints for the OpenAI resource. To change the location run:
+    > If you get an error or timeout during deployment, try changing the location. There might be availability constraints for the OpenAI resource. To change the location run:
     >    ```shell
     >    azd env set AZURE_LOCATION "yournewlocationname"
     >    ```
