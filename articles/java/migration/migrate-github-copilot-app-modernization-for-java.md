@@ -1,77 +1,60 @@
 ---
-title: GitHub Copilot App Modernization for Java
+title: GitHub Copilot App Modernization for Java Developers
 titleSuffix: Azure
-description: Provides an overview of GitHub Copilot App Modernization for Java.
+description: Provides an overview of GitHub Copilot app modernization for Java developers.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: overview
-ms.date: 06/30/2025
+ms.date: 09/23/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# GitHub Copilot App Modernization for Java
+# GitHub Copilot app modernization for Java developers
 
-This article provides an overview of GitHub Copilot App Modernization for Java.
+This article describes GitHub Copilot app modernization, which is an AI assistant that delivers end-to-end support for application modernization.
 
-Many enterprises intend to migrate and modernize their application estate to the cloud. This journey involves the following tasks:
+Enterprises often deal with technical debt throughout their development cycles, and upgrading Java runtimes, frameworks, and dependencies is a common but resource-intensive task. At the same time, many organizations aim to migrate and modernize their application estate to the cloud, which involves:
 
-- Assessing the current state of the application's code, config, and dependencies.
-- Planning Azure resources.
-- Remediating issues so apps can be migrated to the cloud.
+- Assessing the current state of code, configuration, and dependencies
+- Planning Azure resources
+- Remediating issues to enable successful migration
 
-App Modernization for Java is an all-in-one migration assistant that harnesses the power of AI to accomplish the following tasks:
+Built on **GitHub Copilot agent mode**, GitHub Copilot app modernization offers predefined tasks for common upgrade and migration scenarios while incorporating industry best practices for running applications on Azure. At the same time, it enables teams to infuse their own coding standards, organizational policies, and existing practices into the modernization process.
 
-- Perform code assessment.
-- Suggest and apply remediation.
-- Ensure builds and tests succeed.
+## Key capabilities at a glance
 
-This process improves developer velocity, quality, and confidence.
+- **Application assessment and planning**: Analyzes code, configuration, and dependencies. Helps you visualize every task in the modernization process, from assessment to deployment.
+- **Code transformations**: Suggests and applies code remediation for upgrade and migration scenarios.
+- **Build, patching, and tests**: Verifies that the project builds successfully after remediation, and applies fixes when needed. Performs Common Vulnerabilities and Exposures (CVE) checks to reduce exposure to security vulnerabilities. Migrates existing and generates new unit tests to validate modernization outcomes and improve test coverage.
+- **Containerization and deployment**: Generates Dockerfiles for app containerization and other artifacts to automate deployment to Azure.
 
-## Common use cases of GitHub Copilot App Modernization for Java
+GitHub Copilot app modernization integrates GitHub Copilot's AI-powered capabilities with open-source tools like `OpenRewrite` to automate complex upgrade steps. It supports both Maven and Gradle projects and targets upgrades between Java versions 8, 11, 17, and 21. The tool has a particular focus on modernizing applications that use the Spring Boot framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
 
-App Modernization for Java enables the following use cases:
+Start your migration journey with **App Assessments** to get an overview of cloud readiness migration issues, including:
 
-- Assess applications' cloud readiness issues.
-- Propose solutions and recommend target Azure services.
-- Remediate code and configurations before migrating to Azure.
-- Automatically fix code to resolve compile-time errors.
-- Resolve mock-based unit test failures with a test fix tool.
+- Instructions for setting up Azure resources
+- Recommendations on following best practices
+- Recommendations for changing your application code
 
-Upgrading Java runtimes, frameworks, and dependencies is a common task that requires substantial time and resources. GitHub Copilot App Modernization - upgrade for Java is an AI-based solution designed to assist with updating your Java apps. For more information, see [GitHub Copilot App Modernization - upgrade for Java](/java/upgrade/overview).
+In scenarios where code changes are required, GitHub Copilot app modernization guides you through the remediation step. At this stage, you can use predefined tasks for common issues, such as:
 
-## Concepts
+- Switching from password-based authentication to managed identities
+- Moving from Amazon Web Services (AWS) S3 to Azure Blob Storage
 
-GitHub Copilot App Modernization for Java is a tool covering application migration to Azure end to end, from application assessment, planning, code remediation, build fix, and unit test fix. It aims to help you migrate to and run your applications on Azure with confidence and accelerate the whole cycle, powered by the artificial intelligence of GitHub Copilot.
+To learn more about predefined tasks available in GitHub Copilot app modernization today, see [Predefined tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
 
-GitHub Copilot App Modernization for Java uses Azure Migrate application and code assessment (AppCAT) to discover and assess your code. This tool is a good starting point in your App Modernization journey. For more information, see [Overview of Azure Migrate Application and Code Assessment for Java](/azure/migrate/appcat/java).
+When it comes to development, enterprises often have strict processes and controls, which is where customer-defined tasks come in. For more information, see [Quickstart: create and apply your own tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
 
-You can invoke GitHub Copilot App Modernization for Java to get an overview of cloud readiness migration issues, including the following recommendations:
+Customer-defined tasks are automatically generated by analyzing code commits from previously migrated applications. These tasks serve as remediation guides for similar issues in other apps, enabling Copilot to apply proven patterns across multiple codebases. With each successful migration, the knowledge base expands, accelerating future remediations and reducing manual effort
 
-- Instructions for setting up Azure resources.
-- Recommendations on following best practices.
-- Recommendations on changing your application code.
+GitHub Copilot app modernization also includes specialized agents to:
 
-In scenarios where code changes are required, App Modernization for Java guides you on the code remediation step. At this stage, you can use predefined tasks for common issues, such as the following issues:
+- Verify your app builds successfully
+- Reduce technical debt by addressing CVEs
+- Validate behavioral integrity with unit tests
 
-- Switching from password-based authentication to managed identities.
-- Moving from Amazon Web Services (AWS) S3 to Azure Blob Storage.
+For more information, see [GitHub Copilot app modernization Java utilities](/java/upgrade/tools).
 
-To learn more about predefined tasks available in the App Modernization for Java today, see [Predefined tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
-
-When it comes to development, enterprises often have strict processes and controls. This area is where *customer-defined tasks* come in.
-
-Customer-defined tasks are generated by analyzing code commits from an already-migrated application. These tasks guide Copilot to remediate code in another app based on the same pattern. This process enables rapid remediation across multiple applications. Each successful migration grows the knowledge base and reduces effort for the next one.
-
-App Modernization for Java also includes specialized agents to ensure your migration process remains smooth:
-
-- A Build Fix agent designed to help with build-related errors. Because AI-based suggestions can sometimes miss a parameter or change a method incorrectly, the Build Fix agent intervenes to provide support and correction.
-
-- A Test Fix tool dedicated to fixing unit test failures that may occur after migration. This tool analyzes test failures, identifies root causes, and systematically applies fixes to ensure your unit tests pass successfully after migration, maintaining the integrity of your application's functionality.
-
-This agent and tool work together to provide end-to-end support throughout your migration journey, from code remediation to successful build and test completion.
-
-## See also
-
-[Predefined tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)
+Modernization isn't just about upgrading code, it's about preparing your applications for the cloud. Whether you're targeting Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or AKS Automatic, Copilot helps you get there faster and with confidence.

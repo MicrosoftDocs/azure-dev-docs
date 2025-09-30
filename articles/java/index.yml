@@ -5,7 +5,7 @@ summary: Get started developing apps for the cloud with these tutorials and tool
 brand: azure
 
 metadata:
-  title: Azure for Java developer documentation
+  title: Azure for Java Developer Documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
   ms.date: 06/15/2025
@@ -51,33 +51,6 @@ conceptualContent:
       footerLink:
         text: See more
         url: ai/index.yml
-
-    - title: Java learning resources
-      links:
-        - text: Overview
-          itemType: overview
-          url: learning-resources/overview.md
-        - text: Java on Azure samples
-          itemType: quickstart
-          url: learning-resources/samples.md
-      footerLink:
-        text: See more
-        url: learning-resources/index.yml
-
-    - title: Azure for Java quickstarts
-      links:
-        - text: Deploy a Java SE web app to Linux
-          itemType: quickstart
-          url: /azure/app-service/quickstart-java?pivots=platform-linux%252cplatform-linux
-        - text: Create a serverless function
-          itemType: quickstart
-          url: /azure/azure-functions/functions-create-first-java-maven
-        - text: Launch your first app in Azure Container Apps
-          itemType: quickstart
-          url: /azure/container-apps/java-get-started
-      footerLink:
-        text: See more
-        url: quickstarts/index.yml
 
     - title: Tools, IDEs, and supported JDKs
       links:

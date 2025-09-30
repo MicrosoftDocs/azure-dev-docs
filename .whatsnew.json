@@ -46,16 +46,16 @@
             "heading": "Dev tunnels"
         },
         {
-            "names": ["github"],
-            "heading": "Azure and GitHub integration"
-        },
-        {
             "names": ["github-copilot-app-modernization"],
             "heading": "GitHub Copilot App Modernization"
         },
         {
             "names": ["github-copilot-azure"],
             "heading": "GitHub Copilot for Azure"
+        },
+        {
+            "names": ["github"],
+            "heading": "Azure and GitHub integration"
         },
         {
             "names": ["go"],
@@ -70,12 +70,12 @@
             "heading": "Introduction to Azure for developers"
         },
         {
-            "names": ["java"],
-            "heading": "Azure for Java"
-        },
-        {
             "names": ["javascript"],
             "heading": "Azure for JavaScript"
+        },
+        {
+            "names": ["java"],
+            "heading": "Azure for Java"
         },
         {
             "names": ["jenkins"],
@@ -84,6 +84,10 @@
         {
             "names": ["python"],
             "heading": "Azure for Python"
+        },
+        {
+            "names": ["rust"],
+            "heading": "Azure for Rust"
         },
         {
             "names": ["terraform"],

@@ -1,55 +1,31 @@
 ---
-title: Azure AI Search Tools 
+title: Azure AI Search Tools
 description: Learn how to use the Azure MCP Server with Azure AI Search.
 keywords: azure mcp server, azmcp, ai search, cognitive search, azure search
 author: diberry
 ms.author: diberry
-ms.date: 05/21/2025
-content_well_notification: 
+ms.date: 09/23/2025
+content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
---- 
+---
 # Azure AI Search tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure AI Search resources, including search services, indexes, and [queries](/azure/search/query-simple-syntax) with natural language prompts without having to remember specific command syntax.
+<!-- azmcp ai-search service list -->
 
-[Azure AI Search](/azure/search/) (formerly known as Azure Cognitive Search) is a cloud search service that gives developers APIs and tools for building rich search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+Use the Azure MCP Server to manage Azure AI Search resources, including search services, indexes, and [queries](/azure/search/query-simple-syntax) with natural language prompts. You don't need to remember specific command syntax.
+
+[Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) is a cloud search service that provides APIs and tools for building rich search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## List accounts
+## Index: Get index details
 
-The Azure MCP Server can list all AI Search accounts in a subscription. This provides a quick overview of your search services.
+<!-- azmcp ai-search index get -->
 
-Example prompts include:
-
-- **List accounts**: "List all my AI Search services in my subscription."
-- **Show accounts**: "What AI Search accounts do I have?"
-- **Find accounts**: "I need to see my Azure AI Search resources"
-- **Query accounts**: "Show me all my search services"
-- **Check accounts**: "AI Search services in subscription abc123"
-
-## List indexes
-
-The Azure MCP Server can list all indexes in an AI Search service. This helps you view the search indexes available in a specific service.
-
-Example prompts include:
-
-- **List indexes**: "Show me all indexes in my 'mysearchservice' AI Search account."
-- **View indexes**: "What indexes do I have in search service 'cognitive-search-prod'?"
-- **Find indexes**: "List indexes in my search service 'data-search'"
-- **Query indexes**: "Show all indexes in my AI Search account"
-- **Check indexes**: "What indexes are available in my 'analytics-search' service?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Service name** | Required | The name of the AI Search service. |
-
-## Get index details
-
-The Azure MCP Server can retrieve detailed information about a specific [index](/azure/search/search-what-is-an-index) in an AI Search service. This includes the index schema, fields, analyzers, scorers, and other index properties.
+Use the Azure MCP Server to retrieve detailed information about AI Search [indexes](/azure/search/search-what-is-an-index). You can view the index schema, fields, analyzers, scorers, and other index properties.
 
 Example prompts include:
 
@@ -61,12 +37,14 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Service name** | Required | The name of the AI Search service. |
-| **Index name** | Required | The name of the index to describe. |
+| **Service** | Required | The name of the AI Search service. |
+| **Index** | Optional | The name of the index to describe. |
 
-## Query index
+## Index: Query index
 
-The Azure MCP Server can execute [search queries](/azure/search/query-simple-syntax) against an AI Search index. This powerful feature allows you to find specific content using search terms.
+<!-- azmcp ai-search index query -->
+
+Use the Azure MCP Server to run [search queries](/azure/search/query-simple-syntax) against an AI Search index. This feature helps you find specific content using search terms.
 
 Example prompts include:
 
@@ -78,9 +56,23 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Service name** | Required | The name of the AI Search service. |
-| **Index name** | Required | The name of the index to query. |
-| **Query** | Required | The search query to execute against the index. |
+| **Service** | Required | The name of the AI Search service. |
+| **Index** | Required | The name of the index to query. |
+| **Query** | Required | The search query to run against the index. |
+
+## Service: List accounts
+
+<!-- azmcp ai-search service list -->
+
+Use the Azure MCP Server to list all AI Search accounts in a subscription. This command gives you a quick overview of your search services.
+
+Example prompts include:
+
+- **List accounts**: "List all my AI Search services in my subscription."
+- **Show accounts**: "What AI Search accounts do I have?"
+- **Find accounts**: "I need to see my Azure AI Search resources"
+- **Query accounts**: "Show me all my search services"
+- **Check accounts**: "AI Search services in subscription abc123"
 
 ## Related content
 
