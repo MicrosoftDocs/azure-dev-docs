@@ -20,6 +20,12 @@ In this article, you explore several examples to extract different types of enti
 
 The sample provides everything you need. It includes the infrastructure and Python files to set up an Azure OpenAI `gpt-4o` model deployment. You can then use it to perform entity extraction with the Azure OpenAI structured outputs mode and the Python OpenAI SDK.
 
+## Get to the code
+
+Explore the [Azure OpenAI structured outputs](https://github.com/Azure-Samples/azure-openai-entity-extraction) sample this article is based on.
+
+Jump to the [code walkthrough section](#explore-the-code-examples) to understand how each sample example works.
+
 By following the instructions in this article, you will:
 
 - Deploy a model [from the list of models supported for structured outputs](/azure/ai-services/openai/how-to/structured-outputs?tabs=python-secure#supported-models).
