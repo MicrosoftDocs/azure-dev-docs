@@ -5,8 +5,8 @@ description: Helps you troubleshoot Service Bus issues when you use the Azure SD
 ms.date: 02/23/2024
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: jogiles
 ---
 

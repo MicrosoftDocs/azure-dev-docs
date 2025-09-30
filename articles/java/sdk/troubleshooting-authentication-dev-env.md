@@ -5,8 +5,8 @@ description: Provides an overview of how to troubleshoot development environment
 ms.date: 04/02/2025 
 ms.topic: troubleshooting-general
 ms.custom: devx-track-java, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: jogiles
 ---
 

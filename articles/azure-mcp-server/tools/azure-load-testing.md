@@ -212,4 +212,3 @@ Example prompts include:
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Load Testing documentation](/azure/load-testing/)
 - [Create and run a load test](/azure/load-testing/quickstart-create-and-run-load-test)
-- [Testing best practices](/azure/architecture/framework/scalability/performance-test)

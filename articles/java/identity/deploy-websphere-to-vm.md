@@ -1,8 +1,8 @@
 ---
 title: Deploy WebSphere to Traditional WebSphere on Azure VMs
 description: Shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on Azure Virtual Machines.
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: givermei
 ms.date: 08/21/2025
 ms.topic: install-set-up-deploy

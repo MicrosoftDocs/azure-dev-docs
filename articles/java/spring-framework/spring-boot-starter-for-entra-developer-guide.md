@@ -10,6 +10,7 @@ ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-exte
 appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.23.0
+- ✅ Version 6.0.0
 ---
 
 # Spring Boot Starter for Microsoft Entra developer's guide
@@ -95,6 +96,35 @@ spring:
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Use the default security configuration or provide your own configuration.
+
+#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+Option 1: Use the default configuration.
+
+With this option, you don't need to do anything. The `DefaultAadWebSecurityConfiguration` class is configured automatically.
+
+Option 2: Provide a self-defined configuration.
+
+To provide a configuration, apply the `AadWebApplicationHttpSecurityConfigurer#aadWebApplication` method for the `HttpSecurity`, as shown in the following example:
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadOAuth2LoginSecurityConfig {
+
+   /**
+    * Add configuration logic as needed.
+    */
+   @Bean
+   SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+     http.with(AadWebApplicationHttpSecurityConfigurer.aadWebApplication(), Customizer.withDefaults())
+         .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+         // Do some custom configuration.
+       return http.build();
+   }
+}
+```
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -260,6 +290,34 @@ You can use both the `<your-client-ID>` and `<your-app-ID-URI>` values to verify
 :::image type="content" source="media/spring-boot-starter-for-entra-developer-guide/get-app-id-uri-2.png" alt-text="Screenshot of Azure portal showing web app Expose an API page with Application ID URI highlighted.":::
 
 Use the default security configuration or provide your own configuration.
+
+#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+Option 1: Use the default configuration.
+
+With this option, you don't need to do anything. The `DefaultAadResourceServerConfiguration` class is configured automatically.
+
+Option 2: Provide a self-defined configuration.
+
+To provide a configuration, apply the `AadResourceServerHttpSecurityConfigurer#aadResourceServer` method for the `HttpSecurity`, as shown in the following example:
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadOAuth2ResourceServerSecurityConfig {
+
+   /**
+    * Add configuration logic as needed.
+    */
+   @Bean
+   public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
+       http.with(AadResourceServerHttpSecurityConfigurer.aadResourceServer(), Customizer.withDefaults())
+           .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+       return http.build();
+   }
+}
+```
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -436,9 +494,40 @@ spring:
 
 Write Java code to configure multiple `HttpSecurity` instances.
 
+#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadWebApplicationAndResourceServerConfig {
+
+    @Bean
+    @Order(1)
+    public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
+        http.with(AadResourceServerHttpSecurityConfigurer.aadResourceServer(), Customizer.withDefaults())
+            // All the paths that match `/api/**`(configurable) work as the resource server. Other paths work as the web application.
+            .securityMatcher("/api/**")
+            .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+        return http.build();
+    }
+
+    @Bean
+    public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http.with(AadWebApplicationHttpSecurityConfigurer.aadWebApplication(), Customizer.withDefaults())
+            .authorizeHttpRequests(authorize -> authorize.requestMatchers("/login").permitAll().anyRequest().authenticated());
+        // @formatter:on
+        return http.build();
+    }
+}
+```
+
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
-In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security  filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
+In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -574,6 +663,33 @@ spring:
 ```
 
 Use the default security configuration or provide your own configuration.
+
+#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+Option 1: Use the default configuration. With this option, you don't need to do anything. The `DefaultAadWebSecurityConfiguration` class is configured automatically.
+
+Option 2: Provide a self-defined configuration. To provide a configuration, apply the `AadWebApplicationHttpSecurityConfigurer#aadWebApplication` method for the `HttpSecurity`, as shown in the following example:
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadOAuth2LoginSecurityConfig {
+
+   /**
+    * Add configuration logic as needed.
+    */
+   @Bean
+   public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
+       // @formatter:off
+       http.with(AadWebApplicationHttpSecurityConfigurer.aadWebApplication(), Customizer.withDefaults())
+           .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+       // @formatter:on
+       // Do some custom configuration.
+       return http.build();
+   }
+}
+```
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
