@@ -1,7 +1,7 @@
 ---
 title: Logging and telemetry in Azure SDK for Rust crates
 description: Learn how to implement logging and telemetry in Rust applications using Azure crates for visibility into SDK inner workings.
-ms.date: 09/29/2025
+ms.date: 09/30/2025
 ms.topic: how-to
 ms.custom: devx-track-rust
 ai-usage: ai-generated
@@ -12,24 +12,108 @@ ai-usage: ai-generated
 When working with Azure SDK for Rust crates, having visibility into SDK operations is essential for debugging issues, monitoring performance, and understanding how your application interacts with Azure services. This article shows you how to implement effective logging and telemetry strategies that provide insights into the inner workings of Azure SDK operations.
 
 
-## Built-in tracing vs. OpenTelemetry
+## Telemetry for Azure developers
 
-The Azure SDK for Rust crates provide comprehensive observability through two main approaches: built-in tracing with the `tracing` crate for immediate debugging needs, and OpenTelemetry integration for production monitoring and distributed tracing scenarios. Whether you're troubleshooting authentication flows, monitoring API request cycles, or analyzing performance bottlenecks, this guide covers the tools and techniques you need to gain visibility into your Azure SDK operations.
+The Azure SDK for Rust crates provide comprehensive observability through two main approaches: OpenTelemetry is the recommended integration for monitoring and distributed tracing scenarios, and core tracing with the `tracing` crate for visibility into Azure SDK Rust crates. Whether you're troubleshooting authentication flows, monitoring API request cycles, or analyzing performance bottlenecks, this guide covers the tools and techniques you need to gain visibility into your Azure SDK operations.
 
 Azure SDK for Rust crates provide two complementary approaches to observability:
 
 | Approach | When to use | Benefits | Limitations |
 |----------|-------------|----------|-------------|
-| **Built-in tracing** (`tracing` crate) | - Local development and debugging<br>- Simple logging to console or files<br>- Quick troubleshooting of SDK issues<br>- Applications with basic observability needs | - Zero additional dependencies<br>- Automatic SDK instrumentation<br>- Simple setup<br>- Structured logging support | - Limited export options<br>- No distributed tracing across services<br>- Fewer integration options |
-| **OpenTelemetry integration** | - Production environments<br>- Microservices architectures<br>- Need for distributed tracing<br>- Integration with observability platforms<br>- Compliance with OpenTelemetry standards | - Industry-standard telemetry<br>- Distributed tracing support<br>- Wide range of exporters<br>- Integration with monitoring platforms<br>- Correlation across services | - Additional dependencies required<br>- More complex setup<br>- Potential performance overhead |
+| **OpenTelemetry integration (Recommended)** | - Production environments<br>- Microservices architectures<br>- Need for distributed tracing<br>- Integration with observability platforms<br>- Compliance with OpenTelemetry standards | - Industry-standard telemetry<br>- Distributed tracing support<br>- Wide range of exporters<br>- Integration with monitoring platforms<br>- Correlation across services | - Additional dependencies required<br>- More complex setup<br>- Potential performance overhead |
+| **Core tracing** (`tracing` crate) | - Local development and debugging<br>- Simple logging to console or files<br>- Quick troubleshooting of SDK issues<br>- Applications with basic observability needs | - Zero additional dependencies<br>- Automatic SDK instrumentation<br>- Simple setup<br>- Structured logging support | - Limited export options<br>- No distributed tracing across services<br>- Fewer integration options |
 
 
-**Use both together**: Most production applications benefit from using the `tracing` crate for local development and debugging, while adding OpenTelemetry for production observability and monitoring.
+**Use both together**: Some production applications benefit from using the `tracing` crate for local development and debugging, while adding OpenTelemetry for production observability and monitoring.
 
 
-## How to log with built-in tracing
 
-Set up logging with Azure SDK for Rust crates using the built-in `tracing` crate:
+## How to log with OpenTelemetry
+
+OpenTelemetry provides the following capabilities for production environments:
+
+- **Distributed tracing**: Track requests across multiple services and Azure resources
+- **Standardized telemetry**: Use industry-standard formats compatible with monitoring platforms
+- **Advanced exporters**: Send data to Azure Monitor, Jaeger, Prometheus, Grafana, and other observability platforms
+- **Correlation across services**: Automatically propagate trace context between microservices
+- **Production monitoring**: Built for high-scale production environments with sampling and performance optimizations
+
+To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_core` package alone does not include OpenTelemetry support.
+
+1. Create Azure Monitor resources using Azure CLI:
+    
+    ```bash
+    # Set variables
+    RESOURCE_GROUP="rust-telemetry-rg"
+    LOCATION="eastus"
+    APP_INSIGHTS_NAME="rust-app-insights"
+    LOG_ANALYTICS_WORKSPACE="rust-logs-workspace"
+    
+    # Create resource group
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    
+    # Create Log Analytics workspace
+    WORKSPACE_ID=$(az monitor log-analytics workspace create \
+      --resource-group $RESOURCE_GROUP \
+      --workspace-name $LOG_ANALYTICS_WORKSPACE \
+      --location $LOCATION \
+      --query id -o tsv)
+    
+    # Create Application Insights instance
+    az extension add --name application-insights
+    INSTRUMENTATION_KEY=$(az monitor app-insights component create \
+      --app $APP_INSIGHTS_NAME \
+      --location $LOCATION \
+      --resource-group $RESOURCE_GROUP \
+      --workspace $WORKSPACE_ID \
+      --query instrumentationKey -o tsv)
+    
+    # Get connection string
+    CONNECTION_STRING=$(az monitor app-insights component show \
+      --app $APP_INSIGHTS_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --query connectionString -o tsv)
+    
+    echo "Application Insights Connection String: $CONNECTION_STRING"
+    ```
+
+2. Configure your Rust project. Add the required dependencies to your `Cargo.toml`:
+    
+    ```toml
+    [dependencies]
+    azure_core = "0.20"
+    azure_core_opentelemetry = "0.1"
+    azure_security_keyvault_secrets = "0.20"
+    azure_identity = "0.20"
+    opentelemetry = "0.23"
+    opentelemetry-appinsights = "0.31"
+    opentelemetry_sdk = "0.23"
+    tracing = "0.1"
+    tracing-opentelemetry = "0.24"
+    tracing-subscriber = "0.3"
+    tokio = { version = "1.0", features = ["full"] }
+    anyhow = "1.0"
+    ```
+
+3. Create your main application with OpenTelemetry configuration. See the [azure_core_opentelemetry](https://docs.rs/azure_core_opentelemetry/latest/azure_core_opentelemetry/) documentation for details.
+
+4. Set the required environment variables and run your application:
+
+    ```bash
+    # Set the connection string (replace with your actual connection string)
+    export APPLICATIONINSIGHTS_CONNECTION_STRING="InstrumentationKey=your-key;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/"
+    
+    # Set Key Vault URL (replace with your actual Key Vault URL)
+    export AZURE_KEYVAULT_URL="https://mykeyvault.vault.azure.net/"
+    
+    # Run the application
+    cargo run
+    ```
+
+
+## How to log with core tracing
+
+Set up logging with Azure SDK for Rust crates using the `tracing` crate:
 
 1. Add these dependencies to your `Cargo.toml`:
 
@@ -56,7 +140,7 @@ Set up logging with Azure SDK for Rust crates using the built-in `tracing` crate
         tracing_subscriber::fmt()
             .with_env_filter(
                 EnvFilter::try_from_default_env()
-                    .unwrap_or_else(|_| EnvFilter::new("info,azure_security_keyvault_secrets=debug"))
+                    .unwrap_or_else(|_| EnvFilter::new("info,azure=debug"))
             )
             .init();
     
@@ -64,7 +148,7 @@ Set up logging with Azure SDK for Rust crates using the built-in `tracing` crate
     }
     ```
 
-3. Use Azure SDK with automatic logging
+3. Use Azure SDK with logging
 
     ```rust
     async fn run_keyvault_example() -> Result<(), Box<dyn std::error::Error>> {
@@ -73,12 +157,12 @@ Set up logging with Azure SDK for Rust crates using the built-in `tracing` crate
         let credential = DefaultAzureCredential::default();
         let keyvault_url = "https://mykeyvault.vault.azure.net/";
         
-        // Create secrets client - this will automatically log SDK operations
+        // Create secrets client - this logs SDK operations
         let secrets_client = SecretClient::new(keyvault_url, credential)?;
         
         info!("Connecting to Key Vault: {}", keyvault_url);
         
-        // Get a secret - SDK will automatically log the HTTP requests
+        // Get a secret - SDK logs the HTTP requests
         match secrets_client.get_secret("my-secret").await {
             Ok(secret) => {
                 info!("Successfully retrieved secret");
@@ -160,205 +244,8 @@ To enable HTTP logging for better visibility into SDK network operations:
 - **Configure appropriate log levels**: Set DEBUG or TRACE level for the specific Azure crates you want to monitor
 - **Use environment variables**: Set `RUST_LOG=azure_core=debug` to enable HTTP logging for all Azure SDK operations
 - **Enable request/response body logging**: Set `RUST_LOG=azure_core=trace` to see complete request and response bodies. Be aware this can expose sensitive data like authentication tokens and personal information in the logs
-
-## How to log with OpenTelemetry
-
-While Azure SDK for Rust crates include excellent built-in tracing support, OpenTelemetry provides additional capabilities for production environments:
-
-- **Distributed tracing**: Track requests across multiple services and Azure resources
-- **Standardized telemetry**: Use industry-standard formats compatible with monitoring platforms
-- **Advanced exporters**: Send data to Azure Monitor, Jaeger, Prometheus, Grafana, and other observability platforms
-- **Correlation across services**: Automatically propagate trace context between microservices
-- **Production monitoring**: Built for high-scale production environments with sampling and performance optimizations
-
-To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_core` package alone does not include OpenTelemetry support.
-
-1. Create Azure Monitor resources using Azure CLI:
-    
-    ```bash
-    # Set variables
-    RESOURCE_GROUP="rust-telemetry-rg"
-    LOCATION="eastus"
-    APP_INSIGHTS_NAME="rust-app-insights"
-    LOG_ANALYTICS_WORKSPACE="rust-logs-workspace"
-    
-    # Create resource group
-    az group create --name $RESOURCE_GROUP --location $LOCATION
-    
-    # Create Log Analytics workspace
-    WORKSPACE_ID=$(az monitor log-analytics workspace create \
-      --resource-group $RESOURCE_GROUP \
-      --workspace-name $LOG_ANALYTICS_WORKSPACE \
-      --location $LOCATION \
-      --query id -o tsv)
-    
-    # Create Application Insights instance
-    az extension add --name application-insights
-    INSTRUMENTATION_KEY=$(az monitor app-insights component create \
-      --app $APP_INSIGHTS_NAME \
-      --location $LOCATION \
-      --resource-group $RESOURCE_GROUP \
-      --workspace $WORKSPACE_ID \
-      --query instrumentationKey -o tsv)
-    
-    # Get connection string
-    CONNECTION_STRING=$(az monitor app-insights component show \
-      --app $APP_INSIGHTS_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --query connectionString -o tsv)
-    
-    echo "Application Insights Connection String: $CONNECTION_STRING"
-    ```
-
-2. Configure your Rust project. Add the required dependencies to your `Cargo.toml`:
-    
-    ```toml
-    [dependencies]
-    azure_core = "0.20"
-    azure_core_opentelemetry = "0.1"
-    azure_security_keyvault_secrets = "0.20"
-    azure_identity = "0.20"
-    opentelemetry = "0.23"
-    opentelemetry-appinsights = "0.31"
-    opentelemetry_sdk = "0.23"
-    tracing = "0.1"
-    tracing-opentelemetry = "0.24"
-    tracing-subscriber = "0.3"
-    tokio = { version = "1.0", features = ["full"] }
-    anyhow = "1.0"
-    ```
-
-3. Create your main application with OpenTelemetry configuration:
-    
-    ```rust
-    use azure_core_opentelemetry::OpenTelemetryTracingPolicy;
-    use azure_identity::DefaultAzureCredential;
-    use azure_security_keyvault_secrets::prelude::*;
-    use opentelemetry::{global, KeyValue};
-    use opentelemetry_appinsights::Exporter;
-    use opentelemetry_sdk::{
-        trace::{self, Tracer},
-        Resource,
-    };
-    use tracing::{info, warn, error, instrument};
-    use tracing_opentelemetry::OpenTelemetryLayer;
-    use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
-    use std::env;
-    
-    #[tokio::main]
-    async fn main() -> Result<(), Box<dyn std::error::Error>> {
-        // Get connection string from environment variable
-        let connection_string = env::var("APPLICATIONINSIGHTS_CONNECTION_STRING")
-            .expect("APPLICATIONINSIGHTS_CONNECTION_STRING environment variable must be set");
-    
-        // Initialize OpenTelemetry tracer
-        let tracer = init_telemetry(&connection_string)?;
-    
-        // Initialize tracing subscriber with OpenTelemetry layer
-        tracing_subscriber::registry()
-            .with(
-                tracing_subscriber::fmt::layer()
-                    .with_target(false)
-            )
-            .with(OpenTelemetryLayer::new(tracer))
-            .init();
-    
-        // Run your application
-        run_azure_operations().await?;
-    
-        // Shutdown telemetry to ensure all data is sent
-        global::shutdown_tracer_provider();
-        
-        Ok(())
-    }
-    
-    fn init_telemetry(connection_string: &str) -> Result<Tracer, Box<dyn std::error::Error>> {
-        let exporter = Exporter::new_from_connection_string(connection_string)?;
-        
-        let tracer = opentelemetry_sdk::trace::TracerProvider::builder()
-            .with_batch_exporter(exporter, opentelemetry_sdk::runtime::Tokio)
-            .with_resource(Resource::new(vec![
-                KeyValue::new("service.name", "rust-azure-app"),
-                KeyValue::new("service.version", "1.0.0"),
-            ]))
-            .build()
-            .tracer("azure-rust-sdk");
-    
-        global::set_tracer_provider(tracer.provider().unwrap().clone());
-        
-        Ok(tracer)
-    }
-    
-    #[instrument]
-    async fn run_azure_operations() -> Result<(), Box<dyn std::error::Error>> {
-        info!("Starting Azure operations");
-    
-        // Configure Azure SDK client with OpenTelemetry policy
-        let credential = DefaultAzureCredential::default();
-        let keyvault_url = env::var("AZURE_KEYVAULT_URL")
-            .unwrap_or_else(|_| "https://mykeyvault.vault.azure.net/".to_string());
-    
-        let secrets_client = SecretClient::builder(keyvault_url, credential)
-            .with_policy(OpenTelemetryTracingPolicy::new())
-            .build()?;
-    
-        // Perform operations that will generate telemetry
-        match get_keyvault_secrets(&secrets_client).await {
-            Ok(_) => info!("Key Vault operations completed successfully"),
-            Err(e) => error!("Key Vault operations failed: {}", e),
-        }
-    
-        // Custom telemetry data
-        warn!("This is a custom warning message");
-        info!("Application completed processing");
-    
-        Ok(())
-    }
-    
-    #[instrument]
-    async fn get_keyvault_secrets(
-        secrets_client: &SecretClient,
-    ) -> Result<(), Box<dyn std::error::Error>> {
-        info!("Retrieving secrets from Key Vault");
-        
-        let secret_names = vec!["database-password", "api-key", "connection-string"];
-        let mut retrieved_count = 0;
-        
-        // This will generate spans for the Azure SDK operations
-        for secret_name in secret_names {
-            match secrets_client.get_secret(&secret_name).await {
-                Ok(secret) => {
-                    retrieved_count += 1;
-                    info!("Retrieved secret: {}", secret.name());
-                    debug!("Secret version: {}", secret.properties().version().unwrap_or("latest"));
-                }
-                Err(e) => {
-                    warn!("Failed to retrieve secret {}: {}", secret_name, e);
-                    // Continue with other secrets instead of failing completely
-                }
-            }
-        }
-        
-        info!("Total secrets retrieved: {}", retrieved_count);
-        Ok(())
-    }
-    ```
-
-4. Set the required environment variables and run your application:
-
-    ```bash
-    # Set the connection string (replace with your actual connection string)
-    export APPLICATIONINSIGHTS_CONNECTION_STRING="InstrumentationKey=your-key;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/"
-    
-    # Set Key Vault URL (replace with your actual Key Vault URL)
-    export AZURE_KEYVAULT_URL="https://mykeyvault.vault.azure.net/"
-    
-    # Run the application
-    cargo run
-    ```
-
-
-## How to combine built-in tracing with OpenTelemetry
+- 
+## How to combine core tracing with OpenTelemetry
 
 Most production applications benefit from using both approaches:
 
@@ -518,3 +405,4 @@ Key strategies for Rust applications:
 - [Azure SDK for Rust guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
 - [Tracing crate documentation](https://docs.rs/tracing/)
 - [OpenTelemetry Rust documentation](https://docs.rs/opentelemetry/)
+- [Azure Monitor service](/azure/azure-monitor)

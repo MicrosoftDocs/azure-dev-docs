@@ -20,7 +20,7 @@
     - name: Use crates
       href: sdk/use-crates.md
     - name: Logging and telemetry
-      href: logging.md
+      href: sdk/logging.md
   - name: Resources
     items:
     - name: Azure SDK for Rust on GitHub
