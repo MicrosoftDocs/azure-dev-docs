@@ -41,7 +41,7 @@ SAS authentication uses the connection string of your Azure Event Hubs namespace
 ### Prepare credentials
 
 > [!IMPORTANT]
-> Spring Cloud Azure 6.0.0 or higher doesn't support Connection String anymore, please use Passwordless instead.
+> Connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use passwordless connections instead.
 
 #### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -112,7 +112,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 Use the following steps to configure your application to produce and consume messages using Azure Event Hubs.
 
 > [!IMPORTANT]
-> Spring Cloud Azure 6.0.0 or higher doesn't support Connection String anymore, please use Passwordless instead.
+> Connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use passwordless connections instead.
 
 1. Configure the Event hub credentials by adding the following properties to your **application.properties** file.
 
