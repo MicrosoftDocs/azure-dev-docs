@@ -25,6 +25,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Database for MySQL](../../tools/azure-mysql.md) | Manage Azure Database for MySQL servers, databases, and tables. |
 | [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
+| [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Functions](../../tools/azure-functions.md) | List Azure Functions. |
 | [Azure Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|

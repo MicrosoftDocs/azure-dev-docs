@@ -1845,11 +1845,7 @@
     },
     {
       "source_path": "articles/azure-mcp-server/tools/azure-cli-extension.md",
-      "redirect_url": "/azure/developer/azure-mcp-server/tools/overview"
-    },
-    {
-      "source_path": "articles/azure-mcp-server/tools/azure-developer-cli.md",
-      "redirect_url": "/azure/developer/azure-mcp-server/tools/overview"
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/index"
     },
     {
       "source_path": "articles/azure-mcp-server/tools/kusto.md",

@@ -62,6 +62,8 @@ items:
           href: tools/postgresql.md
         - name: Azure Deploy
           href: tools/azure-deploy.md
+        - name: Azure Developer CLI
+          href: tools/azure-developer-cli.md
         - name: Azure Functions
           href: tools/azure-functions.md
         - name: Azure Foundry
