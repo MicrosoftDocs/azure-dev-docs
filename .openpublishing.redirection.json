@@ -1835,6 +1835,10 @@
       "source_path": "articles/ai/get-started-multi-agents.md",
       "redirect_url": "/azure/developer/ai/azure-ai-for-developers"
     },
+        {
+      "source_path": "articles/javascript/ai/get-started-app-chat-scaling-with-azure-api-management.md",
+      "redirect_url": "/azure/developer/javascript/ai/azure-ai-for-javascript-developers"
+    },
     {
       "source_path": "articles/terraform/azure-terraform-resource-provider/resource-provider-overview.md",
       "redirect_url": "/azure/developer/terraform/azure-export-for-terraform/resource-provider-overview"
