@@ -241,6 +241,8 @@
         "iac/**/*.yml": "developer",
         "intro/**/*.md": "developer",
         "intro/**/*.yml": "developer",
+        "github-copilot-app-modernization/**/*.md": "migration-copilot",
+        "github-copilot-app-modernization/**/*.yml": "migration-copilot",
         "javascript/ai/**/*.md": "intelligent-apps",
         "java/ai/**/*.md": "intelligent-apps",
         "java/ai/**/*.yml": "intelligent-apps",
