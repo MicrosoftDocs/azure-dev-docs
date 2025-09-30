@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 08/20/2025
+ms.date: 09/24/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -13,15 +13,32 @@ ms.custom: build-2025
 --- 
 # Azure Key Vault tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You can manage these resources without remembering specialized command syntax.
+The Azure MCP Server lets you manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You don't need to remember specialized command syntax to manage these resources.
 
 [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+## Administration: Get all managed HSM settings
+
+<!-- `azmcp keyvault admin get` -->
+
+Retrieves all Key Vault Managed HSM account settings for a given vault. This includes settings such as purge protection and soft-delete retention days. This tool ONLY applies to Managed HSM vaults.
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Vault.** |  Required | The name of the Key Vault. |
+
+Example prompts include:
+
+- **Get account settings**: "Get the account settings for my key vault 'mykeyvault'"
+- **Show managed HSM settings**: "Show me the account settings for managed HSM keyvault 'contoso-hsm'"
+- **Query specific setting**: "What's the value of the 'purgeProtection' setting in my key vault with name 'mykeyvault'"
+
+
 ## Keys: Create key
 
-The Azure MCP Server can create a new key in an Azure Key Vault. This allows you to add cryptographic keys for your applications.
+The Azure MCP Server can create a new key in an Azure Key Vault. This operation lets you add cryptographic keys for your applications.
 
 Example prompts include:
 
@@ -37,9 +54,27 @@ Example prompts include:
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
 
+
+## Keys: Get key
+
+The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
+
+Example prompts include:
+
+- **Get key details**: "Show me details of the 'app-encryption-key' in my 'mykeyvault' Key Vault."
+- **View key info**: "Get information about the 'signing-key' in Key Vault 'security-kv'"
+- **Retrieve key**: "Get properties of the 'data-key' in my Key Vault"
+- **Check key**: "Show me the details of the encryption key in my vault"
+- **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Vault** | Required | The name of the Key Vault. |
+| **Key** | Required | The name of the key to retrieve. |
+
 ## Keys: List keys
 
-The Azure MCP Server can list all keys in an Azure Key Vault. This helps you manage your cryptographic keys and view your key inventory.
+The Azure MCP Server can list all keys in an Azure Key Vault. This operation helps you manage your cryptographic keys and view your key inventory.
 
 Example prompts include:
 
@@ -56,7 +91,7 @@ Example prompts include:
 
 ## Secrets: Create secret
 
-The Azure MCP Server can create a new secret in an Azure Key Vault. This allows you to securely store sensitive information like passwords, API keys, and connection strings.
+The Azure MCP Server can create a new secret in an Azure Key Vault. This operation lets you securely store sensitive information like passwords, API keys, and connection strings. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
 
 Example prompts include:
 
@@ -72,9 +107,26 @@ Example prompts include:
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
+## Secrets: Get secret
+
+The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
+
+Example prompts include:
+
+- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my 'production-vault' Key Vault."
+- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
+- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my Key Vault?"
+- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
+- **Access credentials**: "Show me the 'service-principal-secret' from my production Key Vault"
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Vault** | Required | The name of the Key Vault. |
+| **Name** | Required | The name of the secret to retrieve. |
+
 ## Secrets: List secrets
 
-The Azure MCP Server can list all secrets in an Azure Key Vault. This helps you manage your stored secrets and view your secret inventory.
+The Azure MCP Server can list all secrets in an Azure Key Vault. This operation helps you manage your stored secrets and view your secret inventory. 
 
 Example prompts include:
 
@@ -90,7 +142,7 @@ Example prompts include:
 
 ## Certificates: Create certificate
 
-The Azure MCP Server can create a new certificate in an Azure Key Vault using the default policy. This allows you to generate SSL/TLS certificates for your applications.
+The Azure MCP Server can create a new certificate in an Azure Key Vault by using the default policy. With this operation, you can generate SSL/TLS certificates for your applications.
 
 Example prompts include:
 
@@ -107,7 +159,7 @@ Example prompts include:
 
 ## Certificates: Get certificate
 
-The Azure MCP Server can retrieve details of a specific certificate from an Azure Key Vault. This allows you to view certificate properties, expiration dates, and metadata.
+The Azure MCP Server retrieves details of a specific certificate from an Azure Key Vault. With this information, you can view certificate properties, expiration dates, and metadata.
 
 Example prompts include:
 
@@ -125,7 +177,7 @@ Example prompts include:
 ## Certificates: Import certificates
 
 Imports an existing certificate (PFX or PEM with private key) into an Azure Key Vault without generating
-a new certificate or key material. If the certificate is a password-protected PFX, a password must be provided.
+a new certificate or key material. If the certificate is a password-protected PFX, provide a password.
 
 Example prompts include:
 
@@ -138,13 +190,13 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Vault** |  Required | The name of the Key Vault. |
-| **Certificate** | Required | The name of the certificate as it will appear in Key Vault. |
+| **Certificate** | Required | The name of the certificate as it appears in Key Vault. |
 | **Certificate data or path** | Required | Either the path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with `-----BEGIN`. |
 | **Password** |  Optional | Password for a protected PFX being imported. |
 
 ## Certificates: List certificates
 
-The Azure MCP Server can list all certificates in an Azure Key Vault. This helps you manage your certificates and track expiration dates.
+The Azure MCP Server lists all certificates in an Azure Key Vault. This operation helps you manage your certificates and track expiration dates.
 
 Example prompts include:
 

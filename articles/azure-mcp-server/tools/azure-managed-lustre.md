@@ -9,12 +9,12 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 09/30/2025
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server
 
-Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre services, using natural language prompts. Learn how to optimize HPC workloads with scalable Lustre file systems.
+Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre services, by using natural language prompts. Learn how to optimize HPC workloads with scalable Lustre file systems.
 
 [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a managed file system that offers scalable, powerful, cost-effective storage for high-performance computing (HPC) workloads. It's built on the popular open-source Lustre file system and is optimized for performance, scalability, and ease of use in Azure.
 
@@ -42,5 +42,20 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **SKU** |  Required | The AMLFS SKU. Allowed values: AMLFS-Durable-Premium-40, AMLFS-Durable-Premium-125, AMLFS-Durable-Premium-250, AMLFS-Durable-Premium-500. |
+| **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size (TiB). |
+
+## Filesystem: Get SKU
+
+<!-- `azmcp azuremanagedlustre filesystem sku get` -->
+
+Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets, and zonal support. 
+
+Example prompts include: 
+
+* **List available SKUs**: "Show me the available Azure Managed Lustre SKUs."
+* **Get SKUs by region**: "Display the available Azure Managed Lustre SKUs in West Europe."
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Location** |  Optional | Azure region. Examples: `uaenorth`, `swedencentral`, `eastus`. |

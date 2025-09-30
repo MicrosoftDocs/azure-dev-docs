@@ -42,6 +42,8 @@ items:
           href: tools/azure-app-service.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
+        - name: Azure App Lens
+          href: tools/azure-app-lens.md
         - name: Azure best practices
           href: tools/azure-best-practices.md
         - name: Azure Bicep schema
@@ -50,8 +52,6 @@ items:
           href: tools/azure-cloud-architect.md
         - name: Azure Redis
           href: tools/azure-cache-for-redis.md          
-        - name: Azure CLI
-          href: tools/azure-cli-extension.md
         - name: Azure Container Registry
           href: tools/azure-container-registry.md
         - name: Azure Cosmos DB
