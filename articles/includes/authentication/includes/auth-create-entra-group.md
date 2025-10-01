@@ -21,7 +21,7 @@ Create a Microsoft Entra group to encapsulate the roles (permissions) the app ne
     - **Group name**: Enter a name for the group that includes a reference to the app or environment name.
     - **Group description**: Enter a description that explains the purpose of the group.
 
-    :::image type="content" source="../../media/create-group.png" alt-text="A screenshot showing how to create a group in the Azure portal.":::
+    :::image type="content" source="../media/create-group.png" alt-text="A screenshot showing how to create a group in the Azure portal.":::
 
 1. Select the **No members selected** link under **Members** to add members to the group.
 1. In the flyout panel that opens, search for the service principal you created earlier and select it from the filtered results. Choose the **Select** button at the bottom of the panel to confirm your selection.
