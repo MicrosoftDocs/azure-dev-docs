@@ -32,3 +32,9 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** | Optional | The name of the Azure resource group. When omitted, the system lists all namespaces in the subscription. When provided without namespace, the system lists all namespaces in the resource group. Required when getting a specific namespace. |
 | **Namespace** | Optional | The name of the Event Hubs namespace to retrieve. When provided, returns detailed information for the specific namespace (requires resource group). When omitted, returns a list of namespaces. |
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure Event Hubs tools](/azure/event-hubs)

@@ -41,8 +41,14 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The Azure AI Services endpoint URL (for example, `https://your-service.cognitiveservices.azure.com/`). |
-| **File** |  Required | Path to the audio file to recognize. |
+| **File** |  Required | Path to the local audio file to recognize. |
 | **Language** |  Optional | The language for speech recognition (for example, `en-US`, `es-ES`). Default is `en-US`. |
 | **Phrases** |  Optional | Phrase hints to improve recognition accuracy. Can be specified multiple times or as comma-separated values . |
 | **Format** |  Optional | Output format: `simple` or `detailed`. Default is `simple`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure AI Services tools](/azure/ai-services)
