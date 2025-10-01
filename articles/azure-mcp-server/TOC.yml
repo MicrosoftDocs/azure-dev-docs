@@ -38,6 +38,8 @@ items:
           href: tools/index.md
         - name: Azure AI Search
           href: tools/ai-search.md
+        - name: Azure AI Services
+          href: tools/ai-services.md
         - name: Azure App Service
           href: tools/azure-app-service.md
         - name: Azure App Configuration
@@ -68,6 +70,8 @@ items:
           href: tools/azure-developer-cli.md
         - name: Azure Event Grid
           href: tools/azure-event-grid.md
+        - name: Azure Event Hubs
+          href: tools/azure-event-hubs.md
         - name: Azure Functions
           href: tools/azure-functions.md
         - name: Azure AI Foundry
