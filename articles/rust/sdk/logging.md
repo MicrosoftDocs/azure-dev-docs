@@ -28,6 +28,12 @@ Azure SDK for Rust crates use OpenTelemetry as the standard approach to observab
 
 To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_core` package alone doesn't include OpenTelemetry support.
 
+1. Log in to Azure CLI:
+
+    ```bash
+    az login
+    ```
+
 1. Create Azure Monitor resources by using Azure CLI:
     
     ```bash
@@ -69,14 +75,13 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     
     ```toml
     [dependencies]
-    azure_core = "0.20"
-    azure_core_opentelemetry = "0.1"
-    azure_security_keyvault_secrets = "0.20"
-    azure_identity = "0.20"
-    opentelemetry = "0.23"
-    opentelemetry-appinsights = "0.31"
-    opentelemetry_sdk = "0.23"
-    tokio = { version = "1.0", features = ["full"] }
+    azure_core = "*"
+    azure_core_opentelemetry = "*"
+    azure_security_keyvault_secrets = "*"
+    azure_identity = "*"
+    opentelemetry = "0.31"
+    opentelemetry_sdk = "0.31"
+    tokio = { version = "1.47.1", features = ["full"] }
     anyhow = "1.0"
     ```
 
@@ -85,9 +90,6 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
 1. Set the required environment variables and run your application:
 
     ```bash
-    # Set the connection string (replace with your actual connection string)
-    export APPLICATIONINSIGHTS_CONNECTION_STRING="InstrumentationKey=your-key;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/"
-    
     # Set Key Vault URL (replace with your actual Key Vault URL)
     export AZURE_KEYVAULT_URL="https://mykeyvault.vault.azure.net/"
     
