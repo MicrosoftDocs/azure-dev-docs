@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs Tools
-description: Learn how to use the Azure MCP Server with Azure Event Hubs.
+description: Learn to use the Azure MCP Server with Azure Event Hubs.
 keywords: azure mcp server, azmcp, event hubs, azure services
 author: diberry
 ms.author: diberry
@@ -21,23 +21,14 @@ Use the Azure MCP Server to manage Azure Event Hubs resources with natural langu
 
 ## Namespace: Get
 
-Get Event Hubs namespaces from Azure. This command supports three modes of operation:
-- List all Event Hubs namespaces in a subscription (when no --resource-group is provided)
-- List all Event Hubs namespaces in a specific resource group (when only --resource-group is provided)
-- Get a single namespace by name (using --namespace with --resource-group)
-
-When retrieving a single namespace, detailed information including SKU, settings, and metadata 
-is returned. When listing namespaces, the same detailed information is returned for all 
-namespaces in the specified scope.
-
-The [resource group parameter](index.md#tool-parameters) is optional for listing operations but required when getting a specific namespace.
+Get Event Hubs namespaces from Azure. The behavior depends on which parameters you provide. When you retrieve a single namespace, the system returns detailed information including SKU, settings, and metadata. When you list namespaces, the system returns the same detailed information for all namespaces in the specified scope.
 
 Example prompts include:
 
 - **List all namespaces**: "List all Event Hubs namespaces in my subscription"
 - **Get specific namespace**: "Get the details of my namespace 'eventhub-prod' in my resource group 'production-resources'"
 
-| Parameter |  Required or optional | Description |
+| Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Optional | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Namespace** |  Optional | The name of the Event Hubs namespace to retrieve. Must be used with --resource-group option. |
+| **Resource group** | Optional | The name of the Azure resource group. When omitted, the system lists all namespaces in the subscription. When provided without namespace, the system lists all namespaces in the resource group. Required when getting a specific namespace. |
+| **Namespace** | Optional | The name of the Event Hubs namespace to retrieve. When provided, returns detailed information for the specific namespace (requires resource group). When omitted, returns a list of namespaces. |
