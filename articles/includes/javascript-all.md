@@ -444,7 +444,7 @@
 | TypeSpec HTTP Client | npm [0.10.0](https://www.npmjs.com/package/@typespec/http-client/v/0.10.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.9.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.9.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.18.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.18.1) |  |  |
+| TypeSpec HTTP Client Python | npm [0.19.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.19.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.26](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.26) |  |  |
 | TypeSpec Rust | npm [0.23.2](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.23.2) |  |  |
 | TypeSpec SSE | npm [0.74.0](https://www.npmjs.com/package/@typespec/sse/v/0.74.0) |  |  |
@@ -453,11 +453,11 @@
 | Unknown Display Name | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.10.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.4.2](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.2) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp/v/0.8.2) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.8.2) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.8.2) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.8.2) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.8.2) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp/v/0.8.3) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.8.3) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.8.3) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.8.3) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.8.3) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -472,8 +472,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5340259](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5340259) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5340259](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5340259) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5340259](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5340259) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.8.2) |  |  |
-| Unknown Display Name | npm [0.8.2](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.8.2) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.8.3) |  |  |
+| Unknown Display Name | npm [0.8.3](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.8.3) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.0.0-103](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-103) |  |  |
 | Unknown Display Name | npm [0.0.0-103](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-103) |  |  |
@@ -638,7 +638,7 @@
 | AutoRest - Go | npm [4.0.0-preview.74](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.74) |  |  |
 | AutoRest - Modeler Four | npm [4.27.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.2) |  | GitHub [4.27.2](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.41.1](https://www.npmjs.com/package/@autorest/python/v/6.41.1) |  | GitHub [6.41.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.41.2](https://www.npmjs.com/package/@autorest/python/v/6.41.2) |  | GitHub [6.41.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
