@@ -32,15 +32,46 @@ The following prerequisites are required to complete the steps in this article:
 1. Browse to <https://start.spring.io/>.
 
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
-1. Add **Dependencies** for **Spring Web**, **Microsoft Entra ID**, and **OAuth2 Client**.
+1. Add **Dependencies** for **Spring Web** and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
 1. When prompted, download the project to a path on your local computer.
 
+## Add the Microsoft Entra dependency
+
+1. Extract the downloaded project files to a directory on your local computer.
+
+1. Open the **pom.xml** file in a text editor.
+
+1. Add the Spring Cloud Azure Bill of Materials (BOM) to the `<dependencyManagement>` section:
+
+   ```xml
+   <dependencyManagement>
+     <dependencies>
+       <dependency>
+         <groupId>com.azure.spring</groupId>
+         <artifactId>spring-cloud-azure-dependencies</artifactId>
+         <version>5.23.0</version>
+         <type>pom</type>
+         <scope>import</scope>
+       </dependency>
+     </dependencies>
+   </dependencyManagement>
+   ```
+
+1. Add the Spring Cloud Azure Starter Microsoft Entra dependency to the `<dependencies>` section:
+
+   ```xml
+   <dependency>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
+   </dependency>
+   ```
+
+1. Save and close the **pom.xml** file.
+
 <a name='create-azure-active-directory-instance'></a>
 
-## Create Microsoft Entra instance
-
-### Create the Active Directory instance
+## Create the Microsoft Entra instance
 
 If you're the administrator of an existing instance, you can skip this process.
 
@@ -58,13 +89,13 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Copy the **Tenant ID**. You'll use the ID value to configure your **application.properties** file later in this tutorial.
 
-### Add an application registration for your Spring Boot app
+## Add an application registration for your Spring Boot app
 
 1. From the portal menu, select **App registrations**, and then select **Register an application**.
 
 1. Specify your application, and then select **Register**.
 
-1. When the page for your app registration appears, copy your **Application (client) ID** and the **Directory (tenant) ID**. You'll use these values to configure your **application.properties** file later in this tutorial.
+1. When the page for your app registration appears, copy your **Application (client) ID** and the **Tenant ID**. You'll use these values to configure your **application.properties** file later in this tutorial.
 
 1. Select **Certificates & secrets** in the navigation pane. Then, select **New client secret**.
 
@@ -82,9 +113,9 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. If you've modified the **pom.xml** file to use a Microsoft Entra starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 
-### Add a user account to your directory, and add that account to an appRole
+## Add a user account to your directory, and add that account to an appRole
 
-1. From the **Overview** page of your Active Directory, select **Users**, and then select **New user**.
+1. From the **Overview** page of your Microsoft Entra ID tenant, select **Users**, and then select **New user**.
 
 1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then select **Create**.
 
@@ -120,7 +151,7 @@ If you're the administrator of an existing instance, you can skip this process.
    ```properties
    # Enable related features.
    spring.cloud.azure.active-directory.enabled=true
-   # Specifies your Active Directory ID:
+   # Specifies your Microsoft Entra ID tenant ID:
    spring.cloud.azure.active-directory.profile.tenant-id=<tenant-ID>
    # Specifies your App Registration's Application ID:
    spring.cloud.azure.active-directory.credential.client-id=<client-ID>
@@ -133,7 +164,7 @@ If you're the administrator of an existing instance, you can skip this process.
    | Parameter | Description |
    |---|---|
    | `spring.cloud.azure.active-directory.enabled` | Enable the features provided by spring-cloud-azure-starter-active-directory |
-   | `spring.cloud.azure.active-directory.profile.tenant-id` | Contains your Active Directory's **Directory ID** from earlier. |
+   | `spring.cloud.azure.active-directory.profile.tenant-id` | Contains your Microsoft Entra ID tenant's **Tenant ID** from earlier. |
    | `spring.cloud.azure.active-directory.credential.client-id` | Contains the **Application ID** from your app registration that you completed earlier. |
    | `spring.cloud.azure.active-directory.credential.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
    
