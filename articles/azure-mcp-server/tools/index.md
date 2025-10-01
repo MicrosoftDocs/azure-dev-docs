@@ -21,10 +21,6 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 - "Query my log analytics workspace for errors in the last hour"
 - "Show me all my Cosmos DB databases"
 
-[!INCLUDE [product-categories](../includes/tools/product-categories.md)]
-
-[!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
-
 [!INCLUDE [server start options](../includes/tools/server-start-options.md)]
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
@@ -32,6 +28,9 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 ## User confirmation for sensitive data
 
 [!INCLUDE [user-consent](../includes/tools/user-consent.md)]
+
+[!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
+
 
 ## Related content
 
