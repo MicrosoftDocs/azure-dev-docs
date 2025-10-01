@@ -19,7 +19,7 @@
       href: sdk/authentication/overview.md
     - name: Use crates
       href: sdk/use-crates.md
-    - name: Logging and telemetry
+    - name: Telemetry
       href: sdk/logging.md
   - name: Resources
     items:
