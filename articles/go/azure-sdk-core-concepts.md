@@ -2,7 +2,7 @@
 title: Common usage patterns in Azure SDK for Go
 description: This article provides an overview of the common usage patterns in Azure SDK for Go.
 ms.date: 06/2/2025
-ms.topic: article
+ms.topic: overview
 ms.custom: devx-track-go
 ---
 
@@ -206,57 +206,57 @@ type MyPolicy struct {
 }
 
 func (m *MyPolicy) Do(req *policy.Request) (*http.Response, error) {
-	// Mutate/process request.
-	start := time.Now()
-	// Forward the request to the next policy in the pipeline.
-	res, err := req.Next()
-	// Mutate/process response.
-	// Return the response & error back to the previous policy in the pipeline.
-	record := struct {
-		Policy   string
-		URL      string
-		Duration time.Duration
-	}{
-		Policy:   "MyPolicy",
-		URL:      req.Raw().URL.RequestURI(),
-		Duration: time.Duration(time.Since(start).Milliseconds()),
-	}
-	b, _ := json.Marshal(record)
-	log.Printf("%s %s\n", m.LogPrefix, b)
-	return res, err
+    // Mutate/process request.
+    start := time.Now()
+    // Forward the request to the next policy in the pipeline.
+    res, err := req.Next()
+    // Mutate/process response.
+    // Return the response & error back to the previous policy in the pipeline.
+    record := struct {
+        Policy   string
+        URL      string
+        Duration time.Duration
+    }{
+        Policy:   "MyPolicy",
+        URL:      req.Raw().URL.RequestURI(),
+        Duration: time.Duration(time.Since(start).Milliseconds()),
+    }
+    b, _ := json.Marshal(record)
+    log.Printf("%s %s\n", m.LogPrefix, b)
+    return res, err
 }
 
 func ListResourcesWithPolicy(subscriptionID string) error {
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		return err
-	}
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+        return err
+    }
 
-	mp := &MyPolicy{
-		LogPrefix: "[MyPolicy]",
-	}
-	options := &arm.ConnectionOptions{}
-	options.PerCallPolicies = []policy.Policy{mp}
-	options.Retry = policy.RetryOptions{
-		RetryDelay: 20 * time.Millisecond,
-	}
+    mp := &MyPolicy{
+        LogPrefix: "[MyPolicy]",
+    }
+    options := &arm.ConnectionOptions{}
+    options.PerCallPolicies = []policy.Policy{mp}
+    options.Retry = policy.RetryOptions{
+        RetryDelay: 20 * time.Millisecond,
+    }
 
-	con := arm.NewDefaultConnection(cred, options)
-	if err != nil {
-		return err
-	}
+    con := arm.NewDefaultConnection(cred, options)
+    if err != nil {
+        return err
+    }
 
-	client := armresources.NewResourcesClient(con, subscriptionID)
-	pager := client.List(nil)
-	for pager.NextPage(context.Background()) {
-		if err := pager.Err(); err != nil {
-			log.Fatalf("failed to advance page: %v", err)
-		}
-		for _, r := range pager.PageResponse().ResourceListResult.Value {
-			printJSON(r)
-		}
-	}
-	return nil
+    client := armresources.NewResourcesClient(con, subscriptionID)
+    pager := client.List(nil)
+    for pager.NextPage(context.Background()) {
+        if err := pager.Err(); err != nil {
+            log.Fatalf("failed to advance page: %v", err)
+        }
+        for _, r := range pager.PageResponse().ResourceListResult.Value {
+            printJSON(r)
+        }
+    }
+    return nil
 }
 ```
 
