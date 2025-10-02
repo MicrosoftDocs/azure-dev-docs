@@ -1,7 +1,7 @@
 ---
-title: Azure AI Services Speech Tools
-description: Learn how to use the Azure MCP Server with Azure AI Services.
-keywords: azure mcp server, azmcp, ai services, cognitive services, azure services
+title: Azure AI Speech Tools
+description: Learn how to use the Azure MCP Server with Azure AI Speech.
+keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, cognitive services, azure services
 author: diberry
 ms.author: diberry
 ms.date: 10/01/2025
@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
 ---
-# Azure AI Services tools for the Azure MCP Server
+# Azure AI Speech tools for the Azure MCP Server
 
-Use the Azure MCP Server to manage Azure AI Service resources with natural language prompts. You don't need to remember specific command syntax.
+Use the Azure MCP Server to manage Azure AI Speech functionalities such as speech-to-text (SST) with natural language prompts. You don't need to remember specific command syntax.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
