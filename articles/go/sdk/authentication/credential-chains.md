@@ -113,10 +113,10 @@ When a value of `dev` is used, the chain looks as follows:
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azidentity` module versions 1.10.0 and later.
 
-To ensure the environment variable is defined and set to a supported string, set option `RequireAzureTokenCredentials` to `true`:
+To ensure the environment variable is defined, set option `RequireAzureTokenCredentials` to `true`:
 
 ```go
-opts := DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
+opts := azidentity.DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
 credential, err := azidentity.NewDefaultAzureCredential(&opts)
 if err != nil {
     // TODO: handle error
@@ -139,7 +139,7 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 To ensure the environment variable is defined and set to a supported string, set option `RequireAzureTokenCredentials` to `true`:
 
 ```go
-opts := DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
+opts := azidentity.DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
 credential, err := azidentity.NewDefaultAzureCredential(&opts)
 if err != nil {
     // TODO: handle error
