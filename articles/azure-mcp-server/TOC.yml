@@ -38,7 +38,7 @@ items:
           href: tools/index.md
         - name: Azure AI Search
           href: tools/ai-search.md
-        - name: Azure AI Services
+        - name: Azure AI Services Speech
           href: tools/ai-services.md
         - name: Azure App Service
           href: tools/azure-app-service.md

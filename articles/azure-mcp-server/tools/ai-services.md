@@ -1,5 +1,5 @@
 ---
-title: Azure AI Services Tools
+title: Azure AI Services Speech Tools
 description: Learn how to use the Azure MCP Server with Azure AI Services.
 keywords: azure mcp server, azmcp, ai services, cognitive services, azure services
 author: diberry
