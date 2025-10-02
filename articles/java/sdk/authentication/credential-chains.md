@@ -1,7 +1,7 @@
 ---
 title: 'Credential chains in the Azure Identity library for Java'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
-ms.date: 08/05/2025
+ms.date: 10/02/2025
 ms.topic: article
 author: bmitchell287
 ms.author: brendm
@@ -118,6 +118,14 @@ When a value of `dev` is used, the chain looks as follows:
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.16.1 and later.
 
+To ensure the environment variable is defined and set to a supported string, call method `requireEnvVars` as follows:
+
+```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+    .requireEnvVars(AzureIdentityEnvVars.AZURE_TOKEN_CREDENTIALS)
+    .build();
+```
+
 #### Use a specific credential
 
 To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
@@ -133,6 +141,14 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity` package versions 1.17.0 and later.
+
+To ensure the environment variable is defined and set to a supported string, call method `requireEnvVars` as follows:
+
+```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+    .requireEnvVars(AzureIdentityEnvVars.AZURE_TOKEN_CREDENTIALS)
+    .build();
+```
 
 ## ChainedTokenCredential overview
 
