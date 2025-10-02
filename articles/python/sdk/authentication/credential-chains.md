@@ -1,7 +1,7 @@
 ---
 title: Credential chains in the Azure Identity library for Python
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
-ms.date: 08/06/2025
+ms.date: 10/02/2025
 ms.topic: article
 ms.custom: devx-track-python
 ---
@@ -151,6 +151,12 @@ When a value of `dev` is used, the chain looks as follows:
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity` package versions 1.23.0 and later.
+
+To ensure the environment variable is defined and set to a supported string, set parameter `require_envvar` to `True` in the constructor:
+
+```python
+credential = DefaultAzureCredential(require_envvar=True)
+```
 
 #### Use a specific credential
 
