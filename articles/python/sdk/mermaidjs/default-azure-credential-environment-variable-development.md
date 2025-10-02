@@ -23,7 +23,8 @@ flowchart LR;
     E(Visual Studio Code):::developer -->
     F(Azure CLI):::developer -->
     G(Azure PowerShell):::developer -->
-    H(Azure Developer CLI):::developer;
+    H(Azure Developer CLI):::developer -->
+    J(Broker):::developer;
 
     %% Define styles for credential type boxes
     classDef developer fill:#F5AF6F, stroke:#EB7C39, stroke-width:2px;
