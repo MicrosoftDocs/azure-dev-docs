@@ -136,7 +136,7 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azidentity` module versions 1.11.0 and later.
 
-To ensure the environment variable is defined and set to a supported string, set option `RequireAzureTokenCredentials` to `true`:
+To ensure the environment variable is defined, set option `RequireAzureTokenCredentials` to `true`:
 
 ```go
 opts := azidentity.DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
