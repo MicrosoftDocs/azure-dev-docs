@@ -1,7 +1,7 @@
 ---
 title: Credential chains in the Azure Identity library for Go
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for Go.
-ms.date: 06/03/2025
+ms.date: 10/02/2025
 ms.topic: article
 ms.custom: devx-track-go
 ---
@@ -113,6 +113,16 @@ When a value of `dev` is used, the chain looks as follows:
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azidentity` module versions 1.10.0 and later.
 
+To ensure the environment variable is defined and set to a supported string, set option `RequireAzureTokenCredentials` to `true`:
+
+```go
+opts := DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
+credential, err := azidentity.NewDefaultAzureCredential(&opts)
+if err != nil {
+    // TODO: handle error
+}
+```
+
 #### Use a specific credential
 
 To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCLICredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCLICredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
@@ -125,6 +135,16 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azidentity` module versions 1.11.0 and later.
+
+To ensure the environment variable is defined and set to a supported string, set option `RequireAzureTokenCredentials` to `true`:
+
+```go
+opts := DefaultAzureCredentialOptions{RequireAzureTokenCredentials: true}
+credential, err := azidentity.NewDefaultAzureCredential(&opts)
+if err != nil {
+    // TODO: handle error
+}
+```
 
 ## ChainedTokenCredential overview
 
