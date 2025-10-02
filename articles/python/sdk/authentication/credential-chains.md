@@ -174,6 +174,12 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity` package versions 1.24.0 and later.
 
+To ensure the environment variable is defined and set to a supported string, set parameter `require_envvar` to `True` in the constructor:
+
+```python
+credential = DefaultAzureCredential(require_envvar=True)
+```
+
 ## ChainedTokenCredential overview
 
 [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
