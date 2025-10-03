@@ -24,8 +24,8 @@ items:
       items:
         - name: Extract entities using Azure OpenAI Structured Outputs Mode
           href: how-to/extract-entities-using-structured-outputs.md
-        - name: Switch between OpenAI and Azure OpenAI endpoints with Python
-          href: /azure/ai-services/openai/how-to/switching-endpoints?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json    
+        - name: Switch between OpenAI and Azure OpenAI endpoints
+          href: /how-to/switching-endpoints.md
         - name: Security
           items: 
             - name: Use Azure OpenAI without keys
