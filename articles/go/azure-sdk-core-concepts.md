@@ -122,27 +122,27 @@ resp = WidgetPollerResponse()
 err := resp.Resume(tk, ...)
 
 if err != nil {
-    // Handle error...
+	// Handle error...
 }
 
 for {
-    resp, err := poller.Poll(context.Background())
+	resp, err := poller.Poll(context.Background())
 
-    if err != nil {
-        // Handle error...
-    }
+	if err != nil {
+		// Handle error...
+	}
 
-    if poller.Done() {
-        break
-    }
+	if poller.Done() {
+		break
+	}
 
-    // Do other work while waiting.
+	// Do other work while waiting.
 }
 
 w, err := poller.FinalResponse(ctx)
 
 if err != nil {
-    // Handle error...
+	// Handle error...
 }
 
 process(w)
@@ -202,61 +202,61 @@ The following code can be used as a starting point to define a custom policy.
 
 ```go
 type MyPolicy struct {
-    LogPrefix string
+	LogPrefix string
 }
 
 func (m *MyPolicy) Do(req *policy.Request) (*http.Response, error) {
-    // Mutate/process request.
-    start := time.Now()
-    // Forward the request to the next policy in the pipeline.
-    res, err := req.Next()
-    // Mutate/process response.
-    // Return the response & error back to the previous policy in the pipeline.
-    record := struct {
-        Policy   string
-        URL      string
-        Duration time.Duration
-    }{
-        Policy:   "MyPolicy",
-        URL:      req.Raw().URL.RequestURI(),
-        Duration: time.Duration(time.Since(start).Milliseconds()),
-    }
-    b, _ := json.Marshal(record)
-    log.Printf("%s %s\n", m.LogPrefix, b)
-    return res, err
+	// Mutate/process request.
+	start := time.Now()
+	// Forward the request to the next policy in the pipeline.
+	res, err := req.Next()
+	// Mutate/process response.
+	// Return the response & error back to the previous policy in the pipeline.
+	record := struct {
+		Policy   string
+		URL      string
+		Duration time.Duration
+	}{
+		Policy:   "MyPolicy",
+		URL:      req.Raw().URL.RequestURI(),
+		Duration: time.Duration(time.Since(start).Milliseconds()),
+	}
+	b, _ := json.Marshal(record)
+	log.Printf("%s %s\n", m.LogPrefix, b)
+	return res, err
 }
 
 func ListResourcesWithPolicy(subscriptionID string) error {
-    cred, err := azidentity.NewDefaultAzureCredential(nil)
-    if err != nil {
-        return err
-    }
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		return err
+	}
 
-    mp := &MyPolicy{
-        LogPrefix: "[MyPolicy]",
-    }
-    options := &arm.ConnectionOptions{}
-    options.PerCallPolicies = []policy.Policy{mp}
-    options.Retry = policy.RetryOptions{
-        RetryDelay: 20 * time.Millisecond,
-    }
+	mp := &MyPolicy{
+		LogPrefix: "[MyPolicy]",
+	}
+	options := &arm.ConnectionOptions{}
+	options.PerCallPolicies = []policy.Policy{mp}
+	options.Retry = policy.RetryOptions{
+		RetryDelay: 20 * time.Millisecond,
+	}
 
-    con := arm.NewDefaultConnection(cred, options)
-    if err != nil {
-        return err
-    }
+	con := arm.NewDefaultConnection(cred, options)
+	if err != nil {
+		return err
+	}
 
-    client := armresources.NewResourcesClient(con, subscriptionID)
-    pager := client.List(nil)
-    for pager.NextPage(context.Background()) {
-        if err := pager.Err(); err != nil {
-            log.Fatalf("failed to advance page: %v", err)
-        }
-        for _, r := range pager.PageResponse().ResourceListResult.Value {
-            printJSON(r)
-        }
-    }
-    return nil
+	client := armresources.NewResourcesClient(con, subscriptionID)
+	pager := client.List(nil)
+	for pager.NextPage(context.Background()) {
+		if err := pager.Err(); err != nil {
+			log.Fatalf("failed to advance page: %v", err)
+		}
+		for _, r := range pager.PageResponse().ResourceListResult.Value {
+			printJSON(r)
+		}
+	}
+	return nil
 }
 ```
 
@@ -282,8 +282,8 @@ This behavior conflicts with the SDK's default marshaling that specifies `omitem
 
 ```go
 type Widget struct {
-    Name *string `json:",omitempty"`
-    Count *int `json:",omitempty"`
+	Name *string `json:",omitempty"`
+	Count *int `json:",omitempty"`
 }
 ```
 
@@ -295,7 +295,7 @@ To fulfill the requirement for sending a JSON `null`, the `NullValue` function i
 
 ```go
 w := Widget{
-    Count: azcore.NullValue(0).(*int),
+	Count: azcore.NullValue(0).(*int),
 }
 ```
 
