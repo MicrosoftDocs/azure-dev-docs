@@ -30,7 +30,7 @@ We recommend using Microsoft Entra ID or Azure Key Vault. You can use environmen
 :::zone pivot="python"
 <table>
 <tr>
-<td> Azure OpenAI </td> <td> Azure OpenAI using OpenAI v1 endpoint</td>
+<td> OpenAI </td> <td> Azure OpenAI</td>
 </tr>
 <tr>
 <td>
@@ -70,7 +70,7 @@ client = OpenAI(
 
 <table>
 <tr>
-<td> Azure OpenAI </td> <td> Azure OpenAI using OpenAI v1 endpoint</td>
+<td> Azure OpenAI </td> <td> Azure OpenAI </td>
 </tr>
 <tr>
 <td>
@@ -95,6 +95,20 @@ client = OpenAI(
 </td>
 <td>
 
+```python
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from openai import OpenAI
+
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+)
+
+client = OpenAI(
+    base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/", 
+    api_key = token_provider,
+)
+```
+
 </td>
 </tr>
 </table>
@@ -103,7 +117,7 @@ client = OpenAI(
 :::zone pivot="dotnet"
 <table>
 <tr>
-<td> Azure OpenAI </td> <td> Azure OpenAI using OpenAI v1 endpoint</td>
+<td> OpenAI </td> <td> Azure OpenAI</td>
 </tr>
 <tr>
 <td>
@@ -137,13 +151,14 @@ var client = new OpenAIClient(
 );
 
 ```
-<a name='azure-active-directory-authentication'></a>
+</tr>
+</table>
 
 ### Microsoft Entra ID authentication
 
 <table>
 <tr>
-<td> AzureOpenAI </td> <td> Azure OpenAI usingOpenAI v1 endpoint</td>
+<td> OpenAI </td> <td> Azure OpenAI </td>
 </tr>
 <tr>
 <td>
@@ -194,52 +209,52 @@ OpenAI uses the `model` keyword argument to specify what model to use. Azure Ope
 
 :::zone pivot="python"
 <table>
-    <tr>
-    <td> OpenAI </td> <td> Azure OpenAI </td>
-    </tr>
-    <tr>
-    <td>
+<tr>
+<td> OpenAI </td> <td> Azure OpenAI </td>
+</tr>
+<tr>
+<td>
 
-    ```python
-    response = client.responses.create(   
-        model="gpt-4.1-nano", # Replace with your model deployment name 
-        input="This is a test."
-    )
+```python
+response = client.responses.create(   
+    model="gpt-4.1-nano", # Replace with your model deployment name 
+    input="This is a test."
+)
 
-    chat_completion = client.chat.completions.create(
-        model="gpt-4o",
-        messages="<messages>"
-    )
+chat_completion = client.chat.completions.create(
+    model="gpt-4o",
+    messages="<messages>"
+)
 
-    embedding = client.embeddings.create(
-        model="text-embedding-3-large",
-        input="<input>"
-    )
-    ```
+embedding = client.embeddings.create(
+    model="text-embedding-3-large",
+    input="<input>"
+)
+```
 
-    </td>
-    <td>
+</td>
+<td>
 
-    ```python
-    response = client.responses.create(   
-        model="gpt-4.1-nano", # Replace with your model deployment name 
-        input="This is a test."
-    )
+```python
+response = client.responses.create(   
+    model="gpt-4.1-nano", # Replace with your model deployment name 
+    input="This is a test."
+)
 
-    chat_completion = client.chat.completions.create(
-        model="gpt-4o", # model = "deployment_name".
-        messages="<messages>"
-    )
+chat_completion = client.chat.completions.create(
+    model="gpt-4o", # model = "deployment_name".
+    messages="<messages>"
+)
 
-    embedding = client.embeddings.create(
-        model="text-embedding-3-large", # model = "deployment_name".
-        input="<input>"
-    )
-    ```
+embedding = client.embeddings.create(
+    model="text-embedding-3-large", # model = "deployment_name".
+    input="<input>"
+)
+```
 
-    </td>
-    </tr>
-    </table>
+</td>
+</tr>
+</table>
 :::zone-end
 :::zone pivot="dotnet"
 :::zone-end
