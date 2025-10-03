@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 09/23/2025
+ ms.date: 10/01/2025
 ---
 
 ## Available tools
@@ -13,6 +13,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Tool |  Description |
 |------|--------------|
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
 | [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
@@ -28,6 +29,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Event Grid](../../tools/azure-event-grid.md) | Manage Azure Event Grid resources, including topics and subscriptions. |
+| [Azure Event Hubs](../../tools/azure-event-hubs.md) | Manage Azure Event Hubs namespaces and event hubs. |
 | [Azure Functions](../../tools/azure-functions.md) | List Azure Functions. |
 | [Azure AI Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|
