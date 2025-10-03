@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/22/2025
+ms.date: 10/02/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -15,6 +15,8 @@ ai-usage: ai-assisted
 The Azure MCP Server enables you to manage Azure resources, including Azure AI Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
 
 [Azure AI Foundry](/azure/ai-foundry/) is a platform for deploying and managing custom AI models in Azure. It provides tools and services for training, fine-tuning, deploying, and monitoring AI models in production environments. With Azure AI Foundry, you can more easily incorporate AI capabilities into your applications.
+
+When connecting to your Azure AI Foundry resource, the Azure MCP Server requires either the **endpoint** or the **resource group** of your Azure AI Foundry resource. For operations that don't require a specific resource, such as listing available models, neither the endpoint or resource group is required.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -207,6 +209,31 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Endpoint** | Required | The endpoint URL for the Azure AI service. |
+
+
+## OpenAI: Create text Completion
+
+<!-- `azmcp foundry openai create-completion` -->
+
+Generate text completions using deployed Azure OpenAI models in AI Foundry. This tool sends prompts to Azure OpenAI 
+completion models and returns generated text as JSON with configurable parameters like temperature and max tokens. 
+
+Example prompts include:
+
+- **Basic completion**: "Create a completion with the prompt 'What is Azure?' using my 'gpt-35-turbo' deployment"
+- **With temperature control**: "Generate text completion for 'Explain machine learning' using deployment 'text-davinci-003' with temperature 0.3"
+- **Limited tokens**: "Create a completion with prompt 'Write a summary' using my 'gpt-4' deployment with max 100 tokens"
+- **Creative writing**: "Generate completion for 'Tell me a story about AI' using deployment 'gpt-35-turbo' with temperature 0.8 and 200 max tokens"
+- **Technical explanation**: "Create completion with prompt 'How does cloud computing work?' using my OpenAI resource 'ai-services-east' and deployment 'gpt-4'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** | Required | The name of the Azure resource group where the AI resource is hosted. |
+| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Deployment** |  Required | The name of the deployment. |
+| **Prompt text** |  Required | The prompt text to send to the completion model. |
+| **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
+| **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
 
 
 ## Related content
