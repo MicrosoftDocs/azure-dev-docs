@@ -1,7 +1,7 @@
 ---
 title: Credential Chains in the Azure Identity Client Library for C++
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for C++.
-ms.date: 08/05/2025
+ms.date: 10/03/2025
 ms.topic: conceptual
 ms.custom: devx-track-cpp
 
@@ -96,8 +96,14 @@ To exclude all `Developer tool` or `Deployed service` credentials, set environme
 
 When a value of `dev` is used, the chain only includes `AzureCliCredential`.
 
+To ensure the environment variable is defined and set to a supported string, pass `true` to the `DefaultAzureCredential` constructor:
+
+```cpp
+auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
+```
+
 > [!IMPORTANT]
-> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `azure-identity-cpp` package versions 1.12.0 and later.
+> The aforementioned constructor overload is supported in `azure-identity-cpp` package versions 1.13.1 and later.
 
 #### Use a specific credential
 
@@ -108,8 +114,14 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 - `ManagedIdentityCredential`
 - `WorkloadIdentityCredential`
 
+To ensure the environment variable is defined and set to a supported string, pass `true` to the `DefaultAzureCredential` constructor:
+
+```cpp
+auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
+```
+
 > [!IMPORTANT]
-> The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity-cpp` package versions 1.13.0 and later.
+> The aforementioned constructor overload is supported in `azure-identity-cpp` package versions 1.13.1 and later.
 
 ## ChainedTokenCredential overview
 
