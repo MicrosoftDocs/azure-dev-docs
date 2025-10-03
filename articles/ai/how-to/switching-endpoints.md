@@ -14,7 +14,7 @@ zone_pivot_groups: intelligent-apps-languages-python-dotnet
 ---
 # How to switch between OpenAI and Azure OpenAI endpoints
 
-This article walks you through how to make the switch to the new unified OpenAI v1 chat completion endpoint, highlighting the common changes and differences you'll experience when working across OpenAI and Azure OpenAI.
+This article shows you how to switch to the new unified OpenAI v1 chat completion endpoint. It covers the common changes and differences when you work with OpenAI and Azure OpenAI.
 
 :::zone pivot="python"
 While OpenAI and Azure OpenAI rely on a [common Python client library](https://github.com/openai/openai-python), there were small changes you needed to make to your code in order to swap back and forth between the endpoints. The new unified OpenAI v1 chat completion endpoint eliminates the need for separate Azure-specific code paths.
