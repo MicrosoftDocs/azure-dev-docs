@@ -66,7 +66,7 @@ client = OpenAI(
 
 ### Microsoft Entra ID authentication
 
-When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` in production. Set it to `dev` in local developer environment.
+When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `ManagedIdentityCredential` in production. Set your RBAC permissions as well. Set it to `dev` in local developer environment.
 
 <table>
 <tr>
