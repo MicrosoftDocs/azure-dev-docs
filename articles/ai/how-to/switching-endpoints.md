@@ -66,6 +66,8 @@ client = OpenAI(
 
 ### Microsoft Entra ID authentication
 
+When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `ManagedIdentityCredential` in production. Set it to `dev` in local developer environment.
+
 <table>
 <tr>
 <td> Azure OpenAI </td> <td> Azure OpenAI </td>
@@ -80,8 +82,6 @@ from openai import OpenAI
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
-
-
 
 
 
@@ -152,6 +152,8 @@ var client = new OpenAIClient(
 
 ### Microsoft Entra ID authentication
 
+When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `ManagedIdentityCredential` in production. Set it to `dev` in local developer environment.
+
 <table>
 <tr>
 <td> OpenAI </td> <td> Azure OpenAI </td>
@@ -179,7 +181,7 @@ using System;
 using Azure.Identity;
 using OpenAI;
 
-var credential = new DefaultAzureCredential();
+var credential = new DefaultAzureCredential(DefaultAzureCredential.DefaultEnvironmentVariableName);
 
 var client = new OpenAIClient(
     new OpenAIClientOptions
