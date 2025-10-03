@@ -66,7 +66,7 @@ client = OpenAI(
 
 ### Microsoft Entra ID authentication
 
-When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `ManagedIdentityCredential` in production. Set it to `dev` in local developer environment.
+When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` in production. Set it to `dev` in local developer environment.
 
 <table>
 <tr>
@@ -95,8 +95,10 @@ client = OpenAI(
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from openai import OpenAI
 
+credential = DefaultAzureCredential(require_envvar=True)
+
 token_provider = get_bearer_token_provider(
-    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+    credential, "https://cognitiveservices.azure.com/.default"
 )
 
 client = OpenAI(
