@@ -255,6 +255,62 @@ embedding = client.embeddings.create(
 </table>
 :::zone-end
 :::zone pivot="dotnet"
+<table>
+<tr>
+<td> OpenAI </td> <td> Azure OpenAI </td>
+</tr>
+<tr>
+<td>
+
+```csharp
+var response = client.GetOpenAIResponseClient(
+    model: "gpt-4.1-nano" 
+).CreateResponse(
+    new ResponseItem[] { "This is a test." }
+);
+
+var chatCompletion = client.GetChatClient(
+    model: "gpt-4o"
+).CompleteChat(
+    messages: new ChatMessage[] { 
+        new SystemChatMessage("You are a helpful assistant.") 
+    }
+);
+
+var embedding = client.GetEmbeddingClient(
+    model: "text-embedding-3-large"
+).GenerateEmbedding(
+    input: new string[] { "<input>" }
+);
+```
+
+</td>
+<td>
+
+```csharp
+var response = client.GetOpenAIResponseClient(
+    model: "gpt-4.1-nano" // Replace with your deployment name
+).CreateResponse(
+    new ResponseItem[] { "This is a test." }
+);
+
+var chatCompletion = client.GetChatClient(
+    model: "gpt-4o" // Replace with your deployment name
+).CompleteChat(
+    messages: new ChatMessage[] { 
+        new SystemChatMessage("You are a helpful assistant.") 
+    }
+);
+
+var embedding = client.GetEmbeddingClient(
+    model: "text-embedding-3-large" // Replace with your deployment name
+).GenerateEmbedding(
+    input: new string[] { "<input>" }
+);
+```
+</td>
+</tr>
+</table>
 :::zone-end
 
 ## Azure OpenAI embeddings multiple input support
@@ -299,4 +355,38 @@ embedding = client.embeddings.create(
 </table>
 :::zone-end
 :::zone pivot="dotnet"
+<table>
+<tr>
+<td> OpenAI </td> <td> Azure OpenAI </td>
+</tr>
+<tr>
+<td>
+
+```csharp
+var inputs = new string[] { "A", "B", "C" };
+
+var embedding = client.GetEmbeddingClient(
+    model: "text-embedding-3-large"
+).GenerateEmbedding(
+    input: inputs
+);
+```
+
+</td>
+<td>
+
+```csharp
+var inputs = new string[] { "A", "B", "C" }; //max array size=2048
+
+var embedding = client.GetEmbeddingClient(
+    model: "text-embedding-3-large"// This must match the custom deployment name you chose for your model.
+    // engine:"text-embedding-ada-002"
+).GenerateEmbedding(
+    input: inputs
+);
+```
+
+</td>
+</tr>
+</table>
 :::zone-end
