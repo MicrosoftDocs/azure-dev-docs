@@ -4,7 +4,6 @@ description: "Learn how to switch between OpenAI and Azure OpenAI endpoints in y
 ms.date: 10/03/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, devx-track-python-ai
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -64,7 +63,16 @@ client = OpenAI(
 
 ### Microsoft Entra ID authentication
 
-When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `ManagedIdentityCredential` in production. Set your RBAC permissions as well. Set it to `dev` in local developer environment.
+Use the following steps to configure Microsoft Entra ID authentication with `DefaultAzureCredential`:
+
+1. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to the following values depending on your environment:
+
+    - In production: `ManagedIdentityCredential`
+    - In local development: `dev`
+
+    For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+
+2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 <table>
 <tr>
@@ -152,7 +160,16 @@ var client = new OpenAIClient(
 
 ### Microsoft Entra ID authentication
 
-When using `DefaultAzureCredential`, set environment variable `AZURE_TOKEN_CREDENTIALS` to `ManagedIdentityCredential` in production. Set it to `dev` in local developer environment.
+Use the following steps to configure Microsoft Entra ID authentication with `DefaultAzureCredential`:
+
+1. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to the following values depending on your environment:
+
+    - In production: `ManagedIdentityCredential`
+    - In local development: `dev`
+
+    For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+
+2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 <table>
 <tr>
