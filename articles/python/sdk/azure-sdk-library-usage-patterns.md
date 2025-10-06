@@ -87,7 +87,7 @@ The full example is on GitHub at [use_blob_auth_async.py](https://github.com/Mic
 
 ### Long running operations
 
-Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and [`WebAppsClient.web_apps.begin_create_or_update`](/python/api/azure-mgmt-web/azure.mgmt.web.v2022_09_01.models.site)) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
+Some management operations that you invoke (such as [`ComputeManagementClient.virtual_machines.begin_create_or_update`](/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks#azure-mgmt-compute-v2022-08-01-operations-virtualmachinesoperations-begin-create-or-update) and `WebAppsClient.web_apps.begin_create_or_update`) return a poller for long running operations, `LROPoller[<type>]`, where `<type>` is specific to the operation in question.
 
 > [!NOTE]
 > You may notice differences in method names in a library depending on its version and whether it's based on azure.core. Older libraries that aren't based on azure.core typically use names like `create_or_update`. Libraries based on azure.core add the `begin_` prefix to method names to better indicate that they are long polling operations. Migrating old code to a newer azure.core-based library typically means adding the `begin_` prefix to method names, as most method signatures remain the same.

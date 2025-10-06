@@ -25,8 +25,9 @@ To develop functions using Java, you must have the following installed:
 - [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#v4) version 4
 
 > [!IMPORTANT]
-> 1. You must set the `JAVA_HOME` environment variable to the install location of the JDK to complete this quickstart.
-> 2. Make sure your core tools version is at least 4.0.5455.
+> You must set the `JAVA_HOME` environment variable to the install location of the JDK to complete this quickstart.
+>
+> Make sure your core tools version is at least 4.0.5455.
 
 ## What we're going to build
 
@@ -403,6 +404,7 @@ Now, you're going to publish the Azure Function to production. Remember that the
 
 > [!NOTE]
 > The Maven plugin needs to authenticate with Azure. If you have Azure CLI installed, use `az login` before continuing.
+>
 > For more authentication options, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository.
 
 Run Maven to deploy your function automatically:

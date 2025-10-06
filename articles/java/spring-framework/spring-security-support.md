@@ -9,6 +9,7 @@ ms.topic: reference
 appliesto:
   - ✅ Version 4.20.0
   - ✅ Version 5.23.0
+  - ✅ Version 6.0.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
@@ -85,6 +86,27 @@ Now, start your application and access your application through the browser. You
 #### Advanced usages
 
 ##### Add extra security configurations
+
+###### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadOAuth2LoginSecurityConfig {
+
+   /**
+    * Add configuration logic as needed.
+    */
+   @Bean
+   SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+       http.with(AadWebApplicationHttpSecurityConfigurer.aadWebApplication(), Customizer.withDefaults())
+           .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+           // Do some custom configuration.
+       return http.build();
+   }
+}
+```
 
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -259,6 +281,29 @@ Update `redirect-uri` in the Azure portal.
 :::image type="content" source="media/spring-cloud-azure/web-application-configuration-redirect-uri.png" alt-text="Configure Redirect URI Template." lightbox="media/spring-cloud-azure/web-application-configuration-redirect-uri.png":::
 
 After we set `redirect-uri-template`, we need to update the security builder:
+
+###### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadOAuth2LoginSecurityConfig {
+
+    /**
+     * Add configuration logic as needed.
+     */
+    @Bean
+    public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http.with(AadWebApplicationHttpSecurityConfigurer.aadWebApplication(), Customizer.withDefaults())
+            .oauth2Login(login -> login.loginProcessingUrl("${REDIRECT-URI-TEMPLATE}"))
+            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
+        // @formatter:on
+        return http.build();
+    }
+}
+```
 
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -543,6 +588,28 @@ For more information about the access token, see [MS docs about Microsoft identi
 #### Advanced usages
 
 ##### Add extra security configurations
+
+###### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadOAuth2ResourceServerSecurityConfig {
+
+    /**
+     * Add configuration logic as needed.
+     */
+    @Bean
+    public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http.with(AadResourceServerHttpSecurityConfigurer.aadResourceServer(), Customizer.withDefaults())
+            .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+        // @formatter:on
+        return http.build();
+    }
+}
+```
 
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -874,6 +941,35 @@ spring:
 
 Configure multiple `SecurityFilterChain` instances. `AadWebApplicationAndResourceServerConfig` contains two security filter chain configurations for resource server and web application.
 
+##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class AadWebApplicationAndResourceServerConfig {
+
+    @Bean
+    @Order(1)
+    public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
+        http.with(AadResourceServerHttpSecurityConfigurer.aadResourceServer(), Customizer.withDefaults())
+            // All the paths that match `/api/**`(configurable) work as the resource server. Other paths work as the web application.
+            .securityMatcher("/api/**")
+            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
+        return http.build();
+    }
+
+    @Bean
+    public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http.with(AadWebApplicationHttpSecurityConfigurer.aadWebApplication(), Customizer.withDefaults())
+            .authorizeHttpRequests(auth -> auth.requestMatchers("/login").permitAll().anyRequest().authenticated());
+        // @formatter:on
+        return http.build();
+    }
+}
+```
+
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -1062,6 +1158,33 @@ Grant admin consent for ***Graph*** permissions.
 
 Add the following dependencies to your **pom.xml** file.
 
+##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```xml
+<dependencies>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-thymeleaf</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-security</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.thymeleaf.extras</groupId>
+       <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+   </dependency>
+</dependencies>
+```
+
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```xml
@@ -1168,6 +1291,30 @@ public class WebController {
 ```
 
 For your security configuration code, you can refer to the following example:
+
+##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+public class WebSecurityConfiguration {
+
+    private final AadB2cOidcLoginConfigurer configurer;
+
+    public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
+        this.configurer = configurer;
+    }
+
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+            .with(configurer, Customizer.withDefaults());
+        // @formatter:on
+        return http.build();
+    }
+}
+```
 
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -1406,6 +1553,29 @@ class Demo {
 ```
 
 For your security configuration code, you can refer to the following example:
+
+##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+
+```java
+@Configuration(proxyBeanMethods = false)
+@EnableWebSecurity
+@EnableMethodSecurity
+public class ResourceServerConfiguration {
+    
+    @Bean
+    public SecurityFilterChain htmlFilterChain(HttpSecurity http) throws Exception {
+        JwtAuthenticationConverter authenticationConverter = new JwtAuthenticationConverter();
+        JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("APPROLE_");
+        authenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
+        // @formatter:off
+        http.authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+            .oauth2ResourceServer(o -> o.jwt(j -> j.jwtAuthenticationConverter(authenticationConverter)));
+        // @formatter:on
+        return http.build();
+    }
+}
+```
 
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 

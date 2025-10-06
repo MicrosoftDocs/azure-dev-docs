@@ -2,8 +2,8 @@
 title: Enable sign-in for Java WebLogic apps using MSAL4J
 titleSuffix: Azure Active Directory B2C
 description: Shows you how to develop a Java WebLogic app that supports sign-in by Azure Active Directory B2C.
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: bbanerjee
 ms.date: 08/21/2025
 ms.topic: how-to

@@ -79,9 +79,6 @@ conceptualContent:
           - itemType: quickstart
             text: "Scale with Azure Container Apps"
             url: ./ai/get-started-app-chat-scaling-with-azure-container-apps.md
-          - itemType: quickstart
-            text: "Scale with Azure API Management"
-            url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
           - itemType: tutorial
             text: Build a LangChain.js agent with Azure AI Search
             url: ai/langchain-agent-on-azure.md

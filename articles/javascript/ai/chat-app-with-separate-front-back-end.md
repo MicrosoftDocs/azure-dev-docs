@@ -1,19 +1,19 @@
 ---
 title: "AI Chat: JavaScript frontend + Python backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
-ms.date: 03/17/2025
+ms.date: 09/30/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a multilanguage developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
+# CustomerIntent: As a multi-language developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
 ---
 
 # Update the Chat app to use the JavaScript frontend with the Python backend
 
 The Chat app is a reference application that demonstrates how to use the Azure OpenAI service. Each programming language reference architecture provides slightly different functionality. This article describes how to use the JavaScript frontend with the Python backend.
 
-By mixing and matching the frontend and backend, you can create a multilanguage application that uses the best of both worlds.
+By mixing and matching the frontend and backend, you can create a multi-language application that uses the best of both worlds.
 
 * [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
 
@@ -28,16 +28,16 @@ This article is part of a collection of articles that show you how to build a ch
 
 ## Prerequisites
 
-Deploy the two reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment might take up to 20 minutes. Leave the deployments up; don't complete the _Clean up resources_ section until you're done with this article.
+Deploy the two reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment might take up to 20 minutes. Leave the deployments up; don't complete the _Clean-up resources_ section until you're done with this article.
 
 * Deploy the JavaScript chat app using this [article](/azure/developer/javascript/get-started-app-chat-template)
 * Deploy the Python chat app using this [article](/azure/developer/python/get-started-app-chat-template)
 
 ## Get the URLs for the frontend and backend
 
-After deploying the two reference architectures, you have two full-stack apps deployed. To use the JavaScript frontend with the Python backend, you need to get the URLs for the JS frontend and the PY backend and configure them in the other app.
+After you deploy the two reference architectures, you have two full-stack apps. To connect the JavaScript frontend with the Python backend, get the URLs for both apps and configure them.
 
-You should have each repo in a separate development environment, either locally on in Codespaces.
+You should have each repo in a separate development environment, either locally or in Codespaces.
 
 ### Set JavaScript front-end URL in Python backend
 
@@ -93,7 +93,7 @@ The Python app uses an HR benefits subject area while the JavaScript app uses a 
 * What happens in a performance review?
 * What does a Product Manager do?
 
-## Clean up resources
+## Clean-up resources
 
 When you're done with the apps, you can delete the resources to avoid incurring more charges.
 
@@ -102,7 +102,7 @@ When you're done with the apps, you can delete the resources to avoid incurring 
 
 ## Troubleshooting
 
-* If you get an error, review the URLs you entered in the environment. Make sure they don't end with a slash, `/`.
+* If you get an error, make sure the URLs you entered in the environment don't end with a slash, `/`.
 
 ## Next steps
 
@@ -110,6 +110,6 @@ When you're done with the apps, you can delete the resources to avoid incurring 
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
 * [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
-- Learn more about how AZD is used in this template:
+- Learn more about how the Azure Developer CLI (AZD) is used in this template:
     - [Tech community blog post](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/kickstart-projects-with-azd-templates/4295235?WT.mc_id=javascript-155021-juliamuiruri)
     - [Reactor video series](https://www.youtube.com/watch?v=sp4_cWnlNQs&list=PLmsFUfdnGr3zzLIPdJsfdSwymIwOsyQ9Z&index=1)

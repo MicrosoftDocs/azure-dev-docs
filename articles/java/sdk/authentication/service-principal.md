@@ -5,8 +5,8 @@ description: Provides an overview of the Azure SDK for Java concepts related to 
 ms.date: 04/01/2025 
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: vigera
 ---
 

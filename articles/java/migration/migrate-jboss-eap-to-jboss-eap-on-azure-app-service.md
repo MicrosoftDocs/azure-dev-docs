@@ -6,7 +6,6 @@ ms.author: karler
 ms.topic: upgrade-and-migration-article
 ms.date: 03/18/2025
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java, linux-related-content
-recommendations: false
 ---
 
 # Migrate JBoss EAP applications to JBoss EAP on Azure App Service

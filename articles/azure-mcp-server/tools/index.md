@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server tools for consuming servers.
 keywords: azure mcp server, azmcp
 author: diberry
 ms.author: diberry
-ms.date: 05/14/2025
+ms.date: 10/01/2025
 ms.topic: overview
 content_well_notification: 
   - AI-contribution
@@ -21,9 +21,16 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 - "Query my log analytics workspace for errors in the last hour"
 - "Show me all my Cosmos DB databases"
 
-[!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
+[!INCLUDE [server start options](../includes/tools/server-start-options.md)]
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
+
+## User confirmation for sensitive data
+
+[!INCLUDE [user-consent](../includes/tools/user-consent.md)]
+
+[!INCLUDE [supported-azure-services](../includes/tools/supported-azure-services.md)]
+
 
 ## Related content
 

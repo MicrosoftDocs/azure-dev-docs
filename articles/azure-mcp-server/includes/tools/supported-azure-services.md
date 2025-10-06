@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 08/26/2025
+ ms.date: 10/01/2025
 ---
 
 ## Available tools
@@ -13,11 +13,13 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Tool |  Description |
 |------|--------------|
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
+| [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
+| [Azure App Lens](../../tools/azure-app-lens.md) | Diagnose and analyze application performance issues using Azure App Lens. |
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
-| [Azure CLI](../../tools/azure-cli-extension.md) | Execute Azure CLI commands within the MCP server. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
@@ -26,8 +28,10 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
+| [Azure Event Grid](../../tools/azure-event-grid.md) | Manage Azure Event Grid resources, including topics and subscriptions. |
+| [Azure Event Hubs](../../tools/azure-event-hubs.md) | Manage Azure Event Hubs namespaces and event hubs. |
 | [Azure Functions](../../tools/azure-functions.md) | List Azure Functions. |
-| [Azure Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
+| [Azure AI Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
 | [Azure Key Vault](../../tools/key-vault-key.md) | List and create keys, secrets, certificates in Azure Key Vault. |

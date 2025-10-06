@@ -76,7 +76,8 @@
         "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
         "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues",
         "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure/issues",
-        "typespec/**/*.md": "https://github.com/microsoft/typespec/"
+        "typespec/**/*.md": "https://github.com/microsoft/typespec/",
+        "azure-mcp-server": "https://github.com/Microsoft/mcp"
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
@@ -129,8 +130,8 @@
         "javascript/ai/**/*.yml": "ms-johnalex",
         "python/ai/**/*.md": "ms-johnalex",
         "python/ai/**/*.yml": "ms-johnalex",
-        "azure-mcp-server/**/*.md": "ms-johnalex",
-        "azure-mcp-server/**/*.yml": "ms-johnalex"
+        "azure-mcp-server/**/*.md": "diberry",
+        "azure-mcp-server/**/*.yml": "diberry"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -179,8 +180,8 @@
         "javascript/ai/**/*.yml": "johalexander",
         "python/ai/**/*.md": "johalexander",
         "python/ai/**/*.yml": "johalexander",
-        "azure-mcp-server/**/*.md": "johalexander",
-        "azure-mcp-server/**/*.yml": "johalexander"
+        "azure-mcp-server/**/*.md": "diberry",
+        "azure-mcp-server/**/*.yml": "diberry"
       },
       "ms.devlang": {
         "cpp/**/*.md": "cpp",
@@ -241,6 +242,8 @@
         "iac/**/*.yml": "developer",
         "intro/**/*.md": "developer",
         "intro/**/*.yml": "developer",
+        "github-copilot-app-modernization/**/*.md": "migration-copilot",
+        "github-copilot-app-modernization/**/*.yml": "migration-copilot",
         "javascript/ai/**/*.md": "intelligent-apps",
         "java/ai/**/*.md": "intelligent-apps",
         "java/ai/**/*.yml": "intelligent-apps",

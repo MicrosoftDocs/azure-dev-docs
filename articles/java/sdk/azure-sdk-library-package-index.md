@@ -4,8 +4,8 @@ description: Listing of the package names, Maven Central links, docs links, and 
 ms.date: 05/21/2025
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: jogiles
 ---
 

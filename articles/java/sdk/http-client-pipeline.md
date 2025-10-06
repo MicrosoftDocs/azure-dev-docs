@@ -4,8 +4,8 @@ description: Provides an overview of the HTTP client and pipelines functionality
 ms.date: 04/01/2025 
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
-author: KarlErickson
-ms.author: karler
+author: bmitchell287
+ms.author: brendm
 ms.reviewer: srnagar
 ---
 

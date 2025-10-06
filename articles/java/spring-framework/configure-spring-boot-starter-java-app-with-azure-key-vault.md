@@ -48,7 +48,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.23.0</version>
+        <version>6.0.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -57,8 +57,12 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
   ```
 
   > [!NOTE]
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
+  >
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  >
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Key Vault Starter artifact:
@@ -189,8 +193,7 @@ To retrieve the URL of an H2 database from Key Vault and store data from the H2 
 
    > [!TIP]
    > For examples of Spring Cloud Azure property configuration, see the [Configuration examples](configuration.md#configuration-examples) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
-
-   > [!TIP]
+   >
    > This example is a simple database scenario using an H2 database. We recommend using Azure Database for MySQL or Azure Database for PostgreSQL in a production environment and storing database URL, user name, and password in Azure Key Vault. If you want to avoid the password, passwordless connections is a good choice. For more information, see [Passwordless connections for Azure services](../../intro/passwordless-overview.md).
 
 1. Create a new `Todo` Java class. This class is a domain model mapped onto the `todo` table that will be automatically created by JPA. The following code ignores the `getters` and `setters` methods.

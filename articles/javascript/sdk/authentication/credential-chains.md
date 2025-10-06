@@ -1,7 +1,7 @@
 ---
 title: "Credential chains in the Azure library for JavaScript"
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
-ms.date: 08/08/2025
+ms.date: 10/02/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 #customer intent: As a JavaScript developer new to Azure, I want understand credential chains so that select the appropriate chain and understand how to configure and debug it.
@@ -108,6 +108,14 @@ When a value of `dev` is used, the chain looks as follows:
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `@azure/identity` package versions 4.10.0 and later.
 
+To ensure the environment variable is defined and set to a supported string, set property [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) to `AZURE_TOKEN_CREDENTIALS`:
+
+```javascript
+const credential = new DefaultAzureCredential({ 
+    requiredEnvVars: [ "AZURE_TOKEN_CREDENTIALS" ]
+});
+```
+
 #### Use a specific credential
 
 To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
@@ -122,6 +130,14 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `@azure/identity` package versions 4.11.0 and later.
+
+To ensure the environment variable is defined and set to a supported string, set property [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) to `AZURE_TOKEN_CREDENTIALS`:
+
+```javascript
+const credential = new DefaultAzureCredential({ 
+    requiredEnvVars: [ "AZURE_TOKEN_CREDENTIALS" ]
+});
+```
 
 ## Use ChainedTokenCredential for granularity
 

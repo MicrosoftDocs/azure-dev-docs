@@ -2,7 +2,7 @@
 title: Common usage patterns in Azure SDK for Go
 description: This article provides an overview of the common usage patterns in Azure SDK for Go.
 ms.date: 06/2/2025
-ms.topic: article
+ms.topic: overview
 ms.custom: devx-track-go
 ---
 
@@ -122,27 +122,27 @@ resp = WidgetPollerResponse()
 err := resp.Resume(tk, ...)
 
 if err != nil {
-    // Handle error...
+	// Handle error...
 }
 
 for {
-    resp, err := poller.Poll(context.Background())
+	resp, err := poller.Poll(context.Background())
 
-    if err != nil {
-        // Handle error...
-    }
+	if err != nil {
+		// Handle error...
+	}
 
-    if poller.Done() {
-        break
-    }
+	if poller.Done() {
+		break
+	}
 
-    // Do other work while waiting.
+	// Do other work while waiting.
 }
 
 w, err := poller.FinalResponse(ctx)
 
 if err != nil {
-    // Handle error...
+	// Handle error...
 }
 
 process(w)
@@ -202,7 +202,7 @@ The following code can be used as a starting point to define a custom policy.
 
 ```go
 type MyPolicy struct {
-    LogPrefix string
+	LogPrefix string
 }
 
 func (m *MyPolicy) Do(req *policy.Request) (*http.Response, error) {
@@ -282,8 +282,8 @@ This behavior conflicts with the SDK's default marshaling that specifies `omitem
 
 ```go
 type Widget struct {
-    Name *string `json:",omitempty"`
-    Count *int `json:",omitempty"`
+	Name *string `json:",omitempty"`
+	Count *int `json:",omitempty"`
 }
 ```
 
@@ -295,7 +295,7 @@ To fulfill the requirement for sending a JSON `null`, the `NullValue` function i
 
 ```go
 w := Widget{
-    Count: azcore.NullValue(0).(*int),
+	Count: azcore.NullValue(0).(*int),
 }
 ```
 

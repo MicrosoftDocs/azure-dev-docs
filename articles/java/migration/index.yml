@@ -4,12 +4,12 @@ title: Java to Azure migration strategy documentation
 summary: Recommended strategies for migrating Java applications to Azure.
 
 metadata:
-  title: Java to Azure migration guidance documentation
+  title: Java to Azure Migration Guidance Documentation
   description: Discover recommended migration strategies for java migration. Move Java, Tomcat, WebSphere, JBoss EAP, and WebLogic Server applications to Azure with ease.
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
-  ms.date: 06/02/2025
+  ms.date: 09/23/2025
   ms.topic: landing-page
   ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java
 
@@ -22,7 +22,7 @@ landingContent:
             url: migration-overview.md
           - text: Azure Migrate application and code assessment
             url: /azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-  - title: GitHub Copilot App Modernization for Java
+  - title: GitHub Copilot app modernization for Java
     linkLists:
       - linkListType: overview
         links:
@@ -40,6 +40,10 @@ landingContent:
             url: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
           - text: Create and apply your own task
             url: migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md
+          - text: Deploy your project
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md
+          - text: Containerize your project
+            url: migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md
       - linkListType: sample
         links:
           - text: Migration sample
