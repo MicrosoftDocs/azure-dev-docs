@@ -75,14 +75,12 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     
     ```toml
     [dependencies]
-    azure_core = "*"
     azure_core_opentelemetry = "*"
     azure_security_keyvault_secrets = "*"
     azure_identity = "*"
     opentelemetry = "0.31"
     opentelemetry_sdk = "0.31"
     tokio = { version = "1.47.1", features = ["full"] }
-    anyhow = "1.0"
     ```
 
 1. Create your main application with OpenTelemetry configuration. See the [azure_core_opentelemetry](https://docs.rs/azure_core_opentelemetry/latest/azure_core_opentelemetry/) documentation for details.
