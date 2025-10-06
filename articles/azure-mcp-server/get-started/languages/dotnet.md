@@ -82,19 +82,18 @@ using Azure.AI.OpenAI;
 using Azure.Identity;
 using Microsoft.Extensions.AI;
 using ModelContextProtocol.Client;
-using ModelContextProtocol.Protocol.Transport;
 
 // Create an IChatClient
 IChatClient client =
     new ChatClientBuilder(
-        new AzureOpenAIClient(new Uri("<your-Azure-OpenAI-endpoint>"), 
+        new AzureOpenAIClient(new Uri("<your-azure-openai-endpoint>"), 
         new DefaultAzureCredential())
         .GetChatClient("gpt-4o").AsIChatClient())
     .UseFunctionInvocation()
     .Build();
 
 // Create the MCP client
-var mcpClient = await McpClientFactory.CreateAsync(
+var mcpClient = await McpClient.CreateAsync(
     new StdioClientTransport(new()
     {
         Command = "npx",
