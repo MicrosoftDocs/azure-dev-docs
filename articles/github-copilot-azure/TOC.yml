@@ -12,8 +12,6 @@ items:
       items:
         - name: Build and deploy an app with ask mode
           href: quickstart-build-deploy-applications.md
-        - name: Deploy an existing app with ask mode
-          href: quickstart-deploy-existing-app.md
         - name: Deploy an existing app with agent mode
           href: quickstart-deploy-app-agent-mode.md
     - name: Learn about Azure and your app
