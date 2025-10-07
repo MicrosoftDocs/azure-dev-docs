@@ -1,7 +1,7 @@
 ---
 title: Authenticate to Azure resources from Go apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Go in on-premises hosted applications. 
-ms.date: 08/20/2024
+ms.date: 10/07/2025
 ms.topic: how-to
 ms.custom:
   - devx-track-go
@@ -10,13 +10,13 @@ ms.custom:
 
 # Authenticate to Azure resources from Go apps hosted on-premises
 
-Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When an application service principal is created, a client ID and client secret will be generated for your app. The client ID, client secret, and your tenant ID are then stored in environment variables so they can be used by the Azure SDK for Go to authenticate your app to Azure at runtime.
+Apps hosted outside of Azure, like on-premises or at a third-party data center, should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When you create an application service principal, a client ID and client secret are generated for your app. Store the client ID, client secret, and your tenant ID in environment variables so the Azure SDK for Go can use them to authenticate your app to Azure at runtime.
 
-A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+Create a different app registration for each environment where the app is hosted. This setup lets you configure environment-specific resource permissions for each service principal and ensures that an app deployed to one environment doesn't access Azure resources in another environment.
 
 ## 1 - Register the application in Azure
 
-An app can be registered with Azure using either the Azure portal or the Azure CLI.
+You can register an app with Azure using either the Azure portal or the Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -24,7 +24,7 @@ An app can be registered with Azure using either the Azure portal or the Azure C
 az ad sp create-for-rbac --name <app-name>
 ```
 
-The output of the command will be similar to the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again.
+The command output is similar to the following. Note these values or keep this window open because you need them in the next steps and can't view the password (client secret) value again.
 
 ```json
 {
@@ -37,7 +37,7 @@ The output of the command will be similar to the following. Make note of these v
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
+Sign in to the [Azure portal](https://portal.azure.com/) and complete these steps.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -53,11 +53,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 
 ## 2 - Assign roles to the application service principal
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles for the service principal at the resource group scope because most applications group all their Azure resources into a single resource group.
 
 ### [Azure CLI](#tab/azure-cli)
 
-A service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
+Assign a role to a service principal in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
 ```azurecli
 az role assignment create --assignee {appId} \
@@ -99,12 +99,12 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Configure environment variables for application
 
-You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Go app to make the application service principal credentials available to your app at runtime. The [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) object looks for the service principal information in these environment variables.
+Set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process running your Go app to make the application service principal credentials available at runtime. The [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) object retrieves the service principal information from these environment variables.
 
 |Variable name|Value
 |-|-
 |`AZURE_CLIENT_ID`|Application ID of an Azure service principal
-|`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
+|`AZURE_TENANT_ID`|Tenant ID of the application's Microsoft Entra tenant
 |`AZURE_CLIENT_SECRET`|Password of the Azure service principal
 
 # [Bash](#tab/bash)
@@ -125,7 +125,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 
 ---
 
-## 4 - Implement DefaultAzureCredential in application
+## 4 - Implement DefaultAzureCredential in your application
 
 To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package.
 
@@ -135,13 +135,13 @@ Start by adding the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-Next, for any Go code that instantiates an Azure SDK client in your app, you'll want to:
+Next, for any Go code that instantiates an Azure SDK client in your app, follow these steps:
 
 1. Import the `azidentity` package.
 1. Create an instance of `DefaultAzureCredential` type.
 1. Pass the instance of `DefaultAzureCredential` type to the Azure SDK client constructor.
 
-An example of this is shown in the following code segment.
+The following code segment shows an example.
 
 ```go
 import (
@@ -176,4 +176,4 @@ func main() {
 }
 ```
 
-When the above code instantiates `DefaultAzureCredential`, then `DefaultAzureCredential` reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure with.
+When the code instantiates `DefaultAzureCredential`, it reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` to retrieve the application service principal information needed to connect to Azure.
