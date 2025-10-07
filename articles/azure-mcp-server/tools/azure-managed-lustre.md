@@ -9,12 +9,12 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/30/2025
+ms.date: 10/7/2025
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server
 
-Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre service, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
+Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
 
 [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training and fine-tuning.‌
 
