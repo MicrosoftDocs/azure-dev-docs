@@ -142,7 +142,7 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `azure-identity` package versions 1.17.0 and later.
 
-To ensure the environment variable is defined and set to a supported string, call method `requireEnvVars` as follows:
+To ensure the environment variable is defined and set to a supported string, call method [requireEnvVars](/java/api/com.azure.identity.defaultazurecredentialbuilder#com-azure-identity-defaultazurecredentialbuilder-requireenvvars(com-azure-identity-azureidentityenvvars-)) as follows:
 
 ```java
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
