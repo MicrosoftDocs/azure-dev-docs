@@ -120,18 +120,20 @@ var client = new OpenAIClient(
 
 #### [Azure OpenAI](#tab/azure-openai)
 
-
 ```csharp
 using System;
 using OpenAI;
 
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        ApiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY"),
-        BaseUri = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-    }
-);
+OpenAIClientOptions clientOptions = new()
+{
+    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+};
+
+string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+
+OpenAIClient client = new(
+    credential: new ApiKeyCredential(apiKey),
+    options: clientOptions);
 
 ```
 
@@ -172,15 +174,26 @@ using System;
 using Azure.Identity;
 using OpenAI;
 
-var credential = new DefaultAzureCredential(DefaultAzureCredential.DefaultEnvironmentVariableName);
+DefaultAzureCredentialOptions credentialOptions = new()
+        {
+            TenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID"),
+        };
 
-var client = new OpenAIClient(
-    new OpenAIClientOptions
+DefaultAzureCredential credential = new(credentialOptions);
+
+BearerTokenPolicy tokenPolicy = new(
+    tokenProvider: credential,
+    scope: "https://cognitiveservices.azure.com/.default");
+
+OpenAIClientOptions clientOptions = new()
     {
-        Credential = credential,
-        BaseUri = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-    }
-);
+        Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+    };
+
+
+OpenAIClient client = new(
+    authenticationPolicy: tokenPolicy,
+    options: clientOptions);
 
 ```
 
