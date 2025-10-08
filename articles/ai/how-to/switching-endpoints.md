@@ -72,7 +72,7 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 > [!NOTE]
-> Microsoft Entra ID authentication is only supported in the Azure OpenAI SDK.
+> Microsoft Entra authentication is only supported in the Azure OpenAI library.
 
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
