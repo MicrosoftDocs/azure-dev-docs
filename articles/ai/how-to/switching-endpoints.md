@@ -176,7 +176,7 @@ using OpenAI;
 using System;
 using System.ClientModel.Primitives;
 
-DefaultAzureCredential credential = new(credentialOptions);
+DefaultAzureCredential credential = new(DefaultAzureCredential.DefaultEnvironmentVariableName);
 
 BearerTokenPolicy tokenPolicy = new(
     tokenProvider: credential,
