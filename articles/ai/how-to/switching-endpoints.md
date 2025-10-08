@@ -176,7 +176,7 @@ using OpenAI;
 
 DefaultAzureCredentialOptions credentialOptions = new()
         {
-            TenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID"),
+            tokenCredential = Environment.GetEnvironmentVariable("AZURE_TOKEN_CREDENTIALS"),
         };
 
 DefaultAzureCredential credential = new(credentialOptions);
@@ -206,7 +206,7 @@ OpenAIClient client = new(
 OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). When you use Azure OpenAI, `model` should refer to the underlying deployment name you chose when you deployed the model.
 
 > [!IMPORTANT]
-> Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. You can choose any naming convention for deployment names that works best for you.
+> Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. Choose any naming convention for deployment names that works best for you.
 
 :::zone pivot="python"
 
