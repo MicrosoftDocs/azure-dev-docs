@@ -1,6 +1,6 @@
 ---
 title: 'Credential chains in the Azure Identity library for JavaScript'
-description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
+description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for JavaScript.'
 ms.topic: concept-article
 ms.date: 10/07/2025
 ms.custom: devx-track-js
