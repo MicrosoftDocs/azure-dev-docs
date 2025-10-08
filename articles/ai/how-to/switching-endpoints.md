@@ -66,6 +66,9 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
 
     For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
+    > [!NOTE]
+    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`.
+
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 > [!NOTE]
@@ -137,6 +140,9 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
     - In local development: `dev`
 
     For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+
+    > [!NOTE]
+    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`.
 
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
