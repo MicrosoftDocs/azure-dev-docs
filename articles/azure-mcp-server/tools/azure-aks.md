@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/23/2025
+ms.date: 10/08/2025
 ---
 # Azure Kubernetes Service tools for the Azure MCP Server
 
@@ -23,68 +23,52 @@ Use the Azure MCP Server to manage Azure resources, including Azure Kubernetes S
 
 <!-- azmcp aks cluster get -->
 
-Use the Azure MCP Server to get detailed information about a specific Azure Kubernetes Service (AKS) cluster, including configuration, status, node pools, and networking details. This operation helps you examine cluster properties and monitor the health of your Kubernetes environment.
+Get or list Azure Kubernetes Service (AKS) clusters. If a specific cluster name is provided, that cluster will
+be retrieved. Otherwise, all clusters will be listed in the specified subscription. Returns detailed cluster
+information including configuration, network settings, and status.
 
 Example prompts include:
 
-- **Cluster details**: "Show me details about the 'production-aks' cluster in my subscription."
-- **Check cluster**: "Get information about cluster 'dev-kubernetes' in subscription 'dev-123'."
-- **Cluster status**: "What's the current status of my 'staging-aks' cluster?"
-- **View configuration**: "Show me the configuration for cluster 'web-app-cluster'."
-- **Cluster health**: "Get detailed health information for my 'ml-workload-aks' cluster."
-- **Node pool info**: "What are the node pool details for cluster 'analytics-cluster'?"
+- **Get cluster configuration**: "Get the configuration of AKS cluster 'production-aks'"
+- **Cluster details with resource group**: "Show me the details of AKS cluster 'web-app-cluster' in resource group 'containers-rg'"
+- **Network configuration**: "Show me the network configuration for AKS cluster 'ml-workloads'"
+- **Detailed cluster info**: "What are the details of my AKS cluster 'dev-kubernetes' in 'development-rg'?"
+- **List all clusters**: "List all AKS clusters in my subscription"
+- **Show clusters**: "Show me my Azure Kubernetes Service clusters"
+- **Cluster inventory**: "What AKS clusters do I have?"
+- **Production environment**: "Get configuration details for AKS cluster 'prod-aks-001' in resource group 'production'"
+- **Development setup**: "Show me the setup of AKS cluster 'staging-aks' in 'staging-resources'"
+- **Microservices cluster**: "What's the configuration of AKS cluster 'microservices-cluster' in 'apps-rg'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Name** | Required | The name of the AKS cluster to get details for. |
 
-## Cluster: List clusters
-
-<!-- azmcp aks cluster list --subscription -->
-
-List all Azure Kubernetes Service (AKS) clusters in the specified subscription. Use this command to quickly inventory and monitor your AKS deployments across your Azure environment.
-
-Example prompts include:
-
-- **List all clusters**: "Show me all my AKS clusters in my subscription"
-- **View cluster inventory**: "Can you list the Kubernetes clusters in resource group 'container-rg' for subscription 'dev-123'?"
-- **Check cluster status**: "AKS clusters... dev environment... quick overview"
-- **Cluster overview**: "I need a complete inventory of all our Kubernetes deployments across our enterprise subscription with their node counts and versions."
-- **Find clusters**: "List clusters in the East US region only"
-- **Monitor deployments**: "What's the status of our production AKS clusters? Are they all running properly?"
-
 ## Node pool: Get details for a specific node pool
 
 <!-- azmcp aks nodepool get -->
 
-Get details for a specific node pool (agent pool) in an Azure Kubernetes Service (AKS) cluster. This command returns key configuration and status, including size, count, OS, mode, autoscaling, and provisioning state.
+Get or list Azure Kubernetes Service (AKS) node pools (agent pools) in a cluster. If a specific node pool name
+is provided, that node pool will be retrieved. Otherwise, all node pools will be listed in the specified cluster.
+Returns key configuration and status including size, count, OS, mode, autoscaling, and provisioning state.
 
 Example prompts include:
 
-- **Node pool details**: "Get details for node pool 'agentpool1' in AKS cluster 'production-aks' in resource group 'container-rg'"
-- **View configuration**: "Show me the configuration for node pool 'spotpool' in AKS cluster 'web-app-cluster' in resource group 'dev-resources'"
-- **Check setup**: "What is the setup of node pool 'gpu-pool' for AKS cluster 'analytics-aks' in 'data-group'?"
+- **Get nodepool details**: "Get details for nodepool 'agentpool1' in AKS cluster 'production-aks' in 'containers-rg'"
+- **Nodepool configuration**: "Show me the configuration for nodepool 'spotpool' in AKS cluster 'web-app-cluster' in resource group 'apps-rg'"
+- **Setup information**: "What is the setup of nodepool 'gpu-pool' for AKS cluster 'ml-workloads' in 'ai-resources'?"
+- **List all nodepools**: "List nodepools for AKS cluster 'dev-kubernetes' in 'development-rg'"
+- **Show nodepool list**: "Show me the nodepool list for AKS cluster 'microservices-cluster' in 'production'"
+- **Nodepool inventory**: "What nodepools do I have for AKS cluster 'analytics-aks' in 'data-rg'?"
+- **Production nodepools**: "Get details for nodepool 'systempool' in AKS cluster 'prod-aks-001' in 'production-rg'"
+- **User nodepools**: "Show configuration for nodepool 'userpool' in AKS cluster 'staging-aks' in 'staging-resources'"
+- **Specialized pools**: "What's the setup of nodepool 'gpupool' for AKS cluster 'training-cluster' in 'ml-rg'?"
+- **Scale information**: "List all nodepools with scaling details for AKS cluster 'scalable-apps' in 'compute-rg'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Cluster** |  Required | AKS cluster name. |
 | **Node pool** |  Required | AKS node pool (agent pool) name. |
-
-## Node pool: List node pools
-
-<!-- azmcp aks nodepool list -->
-
-List all node pools for a specific Azure Kubernetes Service (AKS) cluster. This command returns key node pool details, including sizing, count, OS type, mode, and autoscaling settings.
-
-Example prompts include:
-
-- **List node pools**: "List node pools for AKS cluster 'production-aks' in 'container-rg'"
-- **Show node pool list**: "Show me the node pool list for AKS cluster 'web-app-cluster' in 'dev-resources'"
-- **Check available node pools**: "What node pools do I have for AKS cluster 'analytics-aks' in 'data-group'?"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Cluster** |  Required | AKS cluster name. |
 
 ## Related content
 

@@ -52,8 +52,10 @@ items:
           href: tools/azure-bicep-schema.md
         - name: Azure Cloud Architect
           href: tools/azure-cloud-architect.md
-        - name: Azure Redis
-          href: tools/azure-cache-for-redis.md          
+        - name: Azure Communication Services
+          href: tools/azure-communications.md
+        - name: Azure Confidential Ledger
+          href: tools/azure-confidential-ledger.md
         - name: Azure Container Registry
           href: tools/azure-container-registry.md
         - name: Azure Cosmos DB
@@ -100,10 +102,14 @@ items:
           href: tools/azure-compliance-quick-review.md
         - name: Azure Quotas
           href: tools/azure-quotas.md
+        - name: Azure Redis
+          href: tools/azure-cache-for-redis.md    
         - name: Azure Resource Health
           href: tools/azure-health-resource.md
         - name: Azure Service Bus
           href: tools/service-bus.md
+        - name: Azure SignalR
+          href: tools/azure-signalr.md
         - name: Azure SQL
           href: tools/azure-sql.md
         - name: Azure Storage

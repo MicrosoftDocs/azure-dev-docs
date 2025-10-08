@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure App Configuration.
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
-ms.date: 09/23/2025
+ms.date: 10/08/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -50,24 +50,33 @@ Example prompts include:
 | **Key**          | Required | The key name of the setting to delete.                                      |
 | **Label**        | Optional | The label of the setting to delete.                                         |
 
-## Key-value: List all key-values
+## Key-value: Get key-values
 
-The Azure MCP Server can list all [key-value settings](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. This allows you to view your application settings and their values in one place.
+Gets key-values in an App Configuration store. This command can either retrieve a specific key-value by its key
+and optional label, or list key-values if no key is provided. Listing key-values can optionally be filtered by a
+key filter and label filter. Each key-value includes its key, value, label, content type, ETag, last modified time,
+and lock status.
 
 Example prompts include:
 
-- **List all settings**: "Show me all the key-value settings in my 'myappconfigstore' App Configuration store."
-- **List filtered settings**: "List all settings starting with 'AppName' in my configuration store"
-- **Get multiple settings**: "What keys and values do I have in my 'app-config-dev' store?"
-- **View configuration**: "List all configuration entries from contoso-appconfig"
-- **Find settings with label**: "Show me settings with label 'dev'"
+- **List all key-value settings**: "List all key-value settings in App Configuration store 'myappconfigstore'"
+- **Show key-value settings**: "Show me the key-value settings in App Configuration store 'contoso-appconfig'"
+- **Filter by key prefix**: "List all key-value settings with key name starting with 'prod-' in App Configuration store 'production-config'"
+- **Get specific key content**: "Show the content for the key 'AppName:ConnectionString' in App Configuration store 'eastus-config'"
+- **Environment-specific settings**: "List all key-value settings with key name starting with 'dev-' in App Configuration store 'development-config'"
+- **Get labeled configuration**: "Show me the key-value settings with label 'staging' in App Configuration store 'app-config-staging'"
+- **API configuration**: "Show the content for the key 'ApiSettings:Endpoint' in App Configuration store 'api-config'"
+- **Database settings**: "List all key-value settings with key name starting with 'Database' in App Configuration store 'backend-config'"
+- **Feature flags**: "Show me the key-value settings with label 'features' in App Configuration store 'feature-config'"
+- **Application secrets**: "Show the content for the key 'Secrets:ApiKey' in App Configuration store 'secure-config'"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Optional | The key filter to list settings (supports wildcards).                       |
-| **Label**        | Optional | The label filter to list settings (supports wildcards).                     |
-
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Key** |  Optional | The name of the key to access within the App Configuration store. |
+| **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
+| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of 'foo' would get all key-values with a key of 'foo', or the filter can include a '*' character at the end of the string for wildcard searches (for example, 'App*'). If omitted all keys will be retrieved. |
+| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of 'foo' would get all key-values with a label of 'foo', or the filter can include a '*' character at the end of the string for wildcard searches (for example, 'Prod*'). This filter is case-sensitive. If omitted, all labels will be retrieved. |
 
 
 ## Key-value: Set lock on key-value
@@ -83,11 +92,11 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account.** |  Required | The name of the App Configuration store (for example, my-appconfig). |
-| **Key.** |  Required | The name of the key to access within the App Configuration store. |
-| **Label.** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Content. type.** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
-| **Lock.** |  Optional | Whether a key-value will be locked (set to read-only) or unlocked (read-only removed). |
+| **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Key** |  Required | The name of the key to access within the App Configuration store. |
+| **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
+| **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
+| **Lock** |  Optional | Whether a key-value will be locked (set to read-only) or unlocked (read-only removed). |
                       |
 
 ## Key-value: Set key-value setting
@@ -111,26 +120,8 @@ Example prompts include:
 | **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format 'key=value'. You can specify multiple tags. |
 | **Content type** | Optional | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
 
-## Key-value: Show specific key-value setting
-
-The Azure MCP Server can retrieve a specific [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store. This is useful for checking the current value of a particular setting.
-
-Example prompts include:
-
-- **Show a setting**: "What is the value of the 'AppName:ConnectionString' key in my 'myappconfigstore' App Configuration store?"
-- **Get one setting**: "Show me the 'AppName:Theme' setting with label 'production'"
-- **Query specific setting**: "I need to check the value of 'ServiceTimeout' in my 'contoso-appconfig' configuration"
-- **Find single key**: "What's the current value for AppSettings:LogLevel?"
-- **Retrieve specific config**: "Get the database connection string from eastus-config"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Required | The key name of the setting to set.                                         |
-| **Label**        | Optional | The label of the setting to set.                                            |
-
-
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure App Configuration](/azure/azure-app-configuration/overview)

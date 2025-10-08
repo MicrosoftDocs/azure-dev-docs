@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/7/2025
+ms.date: 10/08/2025
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server
@@ -19,6 +19,34 @@ Azure MCP Server enables you to manage Azure resources, including Azure Managed 
 [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training and fine-tuning.‌
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
+
+## File system: Create a file system
+
+Create an Azure Managed Lustre (AMLFS) file system using the specified network, capacity, maintenance window and availability zone.
+
+Example prompts include:
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
+| **Location** |  Required | Azure region/region short name (use Azure location token, lowercase). Examples: `uaenorth`, `swedencentral`, `eastus`. |
+| **SKU** |  Required | The AMLFS SKU. Exact allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
+| **Size** |  Required | The AMLFS size in TiB as an integer (no unit). Examples: `4`, `12`, `128`. |
+| **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
+| **Zone** |  Required | Availability zone identifier. Use a single digit string matching the region's AZ labels (for example `1`). Example: `1`. |
+| **Maintenance day** |  Required | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
+| **Maintenance time** |  Required | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
+| **Hsm container** |  Optional | Full blob container resource ID for HSM integration. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}/blobServices/default/containers/{container}`. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-container`. |
+| **Hsm log container** |  Optional | Full blob container resource ID for HSM logging. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Same format as hsm container. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-logs`. |
+| **Import prefix** |  Optional | Optional HSM import prefix (path prefix inside the container starting with `/`). Examples: `'/ingest/'`, `'/archive/2019/'`. |
+| **Root squash mode** |  Optional | Root squash mode. Allowed values: `All`, `RootOnly`, `None`. |
+| **No squash nid list** |  Optional | Comma-separated list of NIDs (network identifiers) not to squash. Example: `'10.0.2.4@tcp;10.0.2.[6-8]@tcp'`. |
+| **Squash uid** |  Optional | Numeric UID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
+| **Squash gid** |  Optional | Numeric GID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
+| **Custom encryption** |  Optional | Enable customer-managed encryption using a Key Vault key. When `true`, key URL and source vault required, with a user-assigned identity already configured for Key Vault key access. |
+| **Key URL** |  Optional | Full Key Vault key URL. Format: `https://{vaultName}.vault.azure.net/keys/{keyName}/{keyVersion}`. Example: `https://kv-amlfs-001.vault.azure.net/keys/key-amlfs-001/0000`. |
+| **Source vault** |  Optional | Full Key Vault resource ID. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.KeyVault/vaults/{vaultName}`. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.KeyVault/vaults/kv-amlfs-001`. |
+| **User assigned identity ID** |  Optional | User-assigned managed identity resource ID (full resource ID) to use for Key Vault access when custom encryption is enabled. The identity must have RBAC role to access the encryption key. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{name}`. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1`. |
 
 ## File system: List file systems
 
@@ -45,7 +73,7 @@ Example prompts include:
 | **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size (TiB). |
 
-## Filesystem: Get SKU
+## File system: Get SKU
 
 <!-- `azmcp azuremanagedlustre filesystem sku get` -->
 
@@ -59,3 +87,57 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Location** |  Optional | Azure region. Examples: `uaenorth`, `swedencentral`, `eastus`. |
+
+## File system: Update a file system
+
+Update maintenance window and/or root squash settings of an existing Azure Managed Lustre (AMLFS) file system. Provide either maintenance day and time or root squash fields (`no-squash-nid-list`, `squash-uid`, `squash-gid`). Root squash fields must be provided if root squash is not None. In case of maintenance window update, both maintenance day and maintenance time should be provided.
+
+Example prompts include:
+
+- **Basic maintenance window update**: "Update the maintenance window of the Azure Managed Lustre filesystem 'amlfs-prod-001' to Sunday at 02:00"
+- **Weekend maintenance schedule**: "Change maintenance window for filesystem 'hpc-lustre-fs' to Saturday at 23:00"
+- **Business hours maintenance**: "Update Azure Managed Lustre filesystem 'dev-amlfs' maintenance to Wednesday at 14:30"
+- **Off-peak scheduling**: "Set maintenance window for filesystem 'analytics-lustre' to Monday at 01:00"
+- **Root squash configuration**: "Update filesystem 'secure-amlfs' with root squash mode 'All' and squash UID 1000 and GID 1000"
+- **Network squash settings**: "Configure filesystem 'research-lustre' with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp' and root squash mode 'RootOnly'"
+- **Combined update**: "Update filesystem 'ml-amlfs' maintenance to Friday at 03:00 and set root squash mode to 'None'"
+- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' with root squash mode 'All', squash UID 999, and squash GID 999"
+- **Development environment**: "Update filesystem 'test-lustre' maintenance window to Thursday at 12:00 for development testing"
+- **Regional maintenance**: "Set maintenance schedule for filesystem 'europe-amlfs' to Tuesday at 04:00 for minimal impact"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
+| **Maintenance day** |  Optional | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
+| **Maintenance time** |  Optional | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
+| **No squash nid list** |  Optional | Comma-separated list of NIDs (network identifiers) not to squash. Example: `'10.0.2.4@tcp;10.0.2.[6-8]@tcp'`. |
+| **Squash uid** |  Optional | Numeric UID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
+| **Squash gid** |  Optional | Numeric GID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
+| **Root squash mode** |  Optional | Root squash mode. Allowed values: `All`, `RootOnly`, `None`. |
+
+
+## File system: Validate subnet size
+
+Validates that the provided subnet can host an Azure Managed Lustre filesystem for the given SKU and size.
+
+Example prompts include:
+
+- **Basic validation**: "Validate if the network '/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001' can host Azure Managed Lustre filesystem of size 128 TiB using the SKU 'AMLFS-Durable-Premium-125'"
+- **Production environment**: "Check if subnet '/subscriptions/prod-sub/resourceGroups/hpc-rg/providers/Microsoft.Network/virtualNetworks/hpc-vnet/subnets/lustre-subnet' can support AMLFS filesystem of 256 TiB with SKU 'AMLFS-Durable-Premium-250' in eastus"
+- **Development setup**: "Validate subnet capacity for Azure Managed Lustre filesystem size 32 TiB using SKU 'AMLFS-Durable-Premium-40' in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet' in westus2"
+- **Large scale deployment**: "Can subnet '/subscriptions/enterprise/resourceGroups/ai-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet' host a 512 TiB Azure Managed Lustre filesystem using 'AMLFS-Durable-Premium-500' SKU in swedencentral?"
+- **Regional validation**: "Verify if network '/subscriptions/research/resourceGroups/ml-rg/providers/Microsoft.Network/virtualNetworks/research-vnet/subnets/compute-subnet' supports AMLFS size 64 TiB with 'AMLFS-Durable-Premium-125' in uaenorth"
+- **Multi-region check**: "Validate subnet '/subscriptions/global/resourceGroups/analytics/providers/Microsoft.Network/virtualNetworks/analytics-vnet/subnets/data-subnet' for Azure Managed Lustre 96 TiB filesystem using 'AMLFS-Durable-Premium-250' in northeurope"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **SKU** |  Required | The AMLFS SKU. Exact allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
+| **Size** |  Required | The AMLFS size in TiB as an integer (no unit). Examples: `4`, `12`, `128`. |
+| **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
+| **Location** |  Required | Azure region/region short name (use Azure location token, lowercase). Examples: `uaenorth`, `swedencentral`, `eastus`. |
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
