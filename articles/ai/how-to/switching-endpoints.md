@@ -183,9 +183,9 @@ BearerTokenPolicy tokenPolicy = new(
     scope: "https://cognitiveservices.azure.com/.default");
 
 OpenAIClientOptions clientOptions = new()
-    {
-        Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-    };
+{
+    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+};
 
 
 OpenAIClient client = new(
