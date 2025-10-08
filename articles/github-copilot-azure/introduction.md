@@ -91,23 +91,23 @@ GitHub Copilot for Azure uses agentic tools behind the scenes to perform all ope
 
 Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
 
-|Tool|Prompt|Migration Status|
+|Tool|Description and sample prompts|Migration Status|
 |---|---|---|
-|azure_diagnose_resource|Fetches recent Azure activity logs for a specified resource to inspect operational history or troubleshoot issues.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>|In progress|
+|azure_diagnose_resource|Fetches recent Azure activity logs for a specified resource to inspect operational history or troubleshoot issues.<br /><ul><li>Please diagnose the issues in my `<app-service-name>` app service</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>|In progress|
 |azure_generate_azure_cli_command|Runs Azure AppLens diagnostics on a resource to surface health insights, failures, and recommended fixes.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_get_auth_state|||
-|azure_get_available_tenants|||
-|azure_get_azure_verified_module|||
-|azure_get_current_tenant|||
-|azure_get_dotnet_template_tags|||
-|azure_getdotnet_templates_for_tag|||
-|azure_get_selected_subscriptions|||
-|azure_list_activity_logs|||
-|azure_open_subscription_picker|||
-|azure_query_azure_resource_graph|||
-|azure_set_current_tenant|||
-|azure_sign_out_azure_user|||
-|azure_summarize_topic|||
+|azure_get_auth_state|Returns the currently signed-in Azure account and authentication status.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_get_available_tenants|Lists all Azure AD tenants accessible to the signed-in account.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_get_azure_verified_module|Retrieves Azure Verified Bicep modules for a given resource type.<br /><ul><li>Give me a ARM template that deploys a Container App Environment with a basic Container App. In addition, it should deploy a Log Analytics Workspace to store logs.</li><li>How to use ARM templates to create Azure OpenAI service?</li><li>How to create a private endpoint resource using ARM templates?</li></ul>||
+|azure_get_current_tenant|Switches the active tenant used for future Azure interactions.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_get_dotnet_template_tags|Lists available tags to filter .NET templates for `dotnet new`.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_getdotnet_templates_for_tag|Returns .NET project templates that match a specified tag.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_get_selected_subscriptions|Shows the subscriptions currently selected for resource queries.<br /><ul><li>Rotate secrets in my keyvault</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_list_activity_logs|Fetches recent Azure activity logs for a specified resource to inspect operational history or troubleshoot issues.<br /><ul><li>Find error messages in the logs that may correlate to 500 errors</li><li>Grab all the errors in the logs between yesterday and today</li><li>Is my web app experiencing any downtime?</li></ul>||
+|azure_open_subscription_picker|Opens the subscription picker so the user can change selected subscriptions.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_query_azure_resource_graph|Queries Azure Resource Graph for subscription, resource group, or resource metadata.<br /><ul><li>List the subscriptions I have access to</li><li>How many Azure Functions are in my subscription?</li><li>List the resoruces that are in the resource group named `<resource-group-name>` and provide a link to each resource in the portal</li></ul>||
+|azure_set_current_tenant|Identifies which tenant is currently active for resource operations.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_sign_out_azure_user|Signs the user out of Azure within this session.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_summarize_topic|Captures the user’s Azure-related intent to recommend custom workflow modes.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
 
 ## Related content
 
