@@ -85,6 +85,30 @@ When working in agent mode, you can create longer prompts, however it's importan
 - **Authorize** - "I've reviewed the plan and you're authorized to begin."
 - **Validate** - Spend time checking the work to ensure that it accomplishes what you intended.
 
+## Tool calling
+
+GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server]().
+
+Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
+
+|Tool|Prompt|Migration Status|
+|---|---|---|
+|azure_diagnose_resource|This tool can be used to ask questions about application state, this tool can help when doing diagnostics and address issues about performance and failures. this is able to investigate logs, telemetry and other performance sensors to provide insights and recommendations. For example, the user may say: "Why is my app slow?" or "Please help me diagnose issues with my app" or "Is my web site experiencing problems?". Do not ask for the "subsctiptionNameOrId", "resourceGroup" or "resourceType"; just pass null if they aren't known. If we can't find any resources matching "resourceName", this returns an error message. Ask the user to check the spelling. If we find more than one resource matching "resourceName", this returns the list of resources. Ask the user which one they are interested in, and then try again by filling in the "subscriptionNameOrId" and "resourceGroup". If we find exactly one resource matching "resourceName", this returns a list of insights and solutions to the user question.|In progress|
+|azure_generate_azure_cli_command|This tool generates Azure CLI (az) commands based on the given intent. Always use this to generate az commands; Do not generate them yourself. This tool is most appropriate when the user explicitly asks for help wuith, or examples for, using the Azure CLI. If the answer to a question relies on Azure CLI commands, use this tool to obtain those commands. If the CLI commands returned by this tool include placeholders, you MUST substitute as many of those placeholds with information you have knowledge of, such as from your instructions. Example user inputs: "Create a new resoure group using the Azure CLI", "List all virtual machines in a resource group using az", "How do I create an app service using azure cli"?. Returns: one or more Azure CLI commands, and descriptions on how to use them.||
+|azure_get_auth_state|||
+|azure_get_available_tenants|||
+|azure_get_azure_verified_module|||
+|azure_get_current_tenant|||
+|azure_get_dotnet_template_tags|||
+|azure_getdotnet_templates_for_tag|||
+|azure_get_selected_subscriptions|||
+|azure_list_activity_logs|||
+|azure_open_subscription_picker|||
+|azure_query_azure_resource_graph|||
+|azure_set_current_tenant|||
+|azure_sign_out_azure_user|||
+|azure_summarize_topic|||
+
 ## Related content
 
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
