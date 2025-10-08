@@ -170,9 +170,10 @@ var client = new OpenAIClient(
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-using System;
 using Azure.Identity;
 using OpenAI;
+using System;
+using System.ClientModel.Primitives;
 
 DefaultAzureCredentialOptions credentialOptions = new()
         {
