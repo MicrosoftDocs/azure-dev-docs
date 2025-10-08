@@ -91,7 +91,7 @@ import { BlobServiceClient } from "@azure/storage-blob";
 const credential = new DefaultAzureCredential();
 
 const blobServiceClient = new BlobServiceClient(
-    "https://<my_account_name>.blob.core.windows.net",
+    `https://${storageAccountName}.blob.core.windows.net`,
     credential
 );
 ```
@@ -110,10 +110,7 @@ When a value of `dev` is used, the chain looks as follows:
 
 :::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="DefaultAzureCredential with AZURE_TOKEN_CREDENTIALS set to 'dev'":::
 
-> [!IMPORTANT]
-> The `AZURE_TOKEN_CREDENTIALS` environment variable is supported in `@azure/identity` package versions 4.10.0 and later.
-
-To ensure the environment variable is defined and set to a supported string, set property [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) to `AZURE_TOKEN_CREDENTIALS`:
+To ensure the environment variable is defined and set to a supported string, set the [DefaultAzureCredentialOptions](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) property to `AZURE_TOKEN_CREDENTIALS`:
 
 ```javascript
 const credential = new DefaultAzureCredential({ 
@@ -132,6 +129,7 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 - `ManagedIdentityCredential`
 - `VisualStudioCodeCredential`
 - `WorkloadIdentityCredential`
+- `BrokerCredential`
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `@azure/identity` package versions 4.11.0 and later.
@@ -151,17 +149,22 @@ const credential = new DefaultAzureCredential({
 ```javascript
 import { 
     ChainedTokenCredential, 
-    AzurePowerShellCredential, 
+    ManagedIdentityCredential, 
     VisualStudioCodeCredential 
 } from "@azure/identity";
 
 const credential = new ChainedTokenCredential(
-    new AzurePowerShellCredential(),
+    new ManagedIdentityCredential(),
     new VisualStudioCodeCredential()
+);
+
+const blobServiceClient = new BlobServiceClient(
+    `https://${storageAccountName}.blob.core.windows.net`,
+    credential
 );
 ```
 
-The preceding code sample creates a tailored credential chain comprised of two development-time credentials. `AzurePowerShellCredential` is attempted first, followed by `VisualStudioCodeCredential`, if necessary. In graphical form, the chain looks like this:
+The preceding code sample creates a tailored credential chain comprised of one product-time credential and one development-time credential. `ManagedIdentityCredential` is attempted first, followed by `VisualStudioCodeCredential`, if necessary. In graphical form, the chain looks like this:
 
 :::image type="content" source="../media/mermaidjs/chained-token-credential-authentication-flow.svg" alt-text="ChainedTokenCredential":::
 
@@ -183,26 +186,55 @@ Here's why:
 To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../debug-client-libraries.md) in your app. For example:
 
 ```javascript
-import { setLogLevel } from "@azure/logger";
+import { setLogLevel, AzureLogger } from "@azure/logger";
+import { BlobServiceClient } from "@azure/storage-blob";
+import { 
+    DefaultAzureCredential 
+} from "@azure/identity";
 
-// Enable logging for Azure Identity
-setLogLevel("info");
+// Constant for the Azure identity log prefix
+const AZURE_IDENTITY_LOG_PREFIX = "azure:identity";
+
+// override logging to output to console.log (default location is stderr)
+// only log messages that start with the Azure identity log prefix
+setLogLevel("verbose");
+AzureLogger.log = (...args) => {
+  const message = args[0];
+  if (typeof message === 'string' && message.startsWith(AZURE_IDENTITY_LOG_PREFIX)) {
+    console.log(...args);
+  }
+};
+
+// Get storage account name from environment variable
+const storageAccountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+
+if (!storageAccountName) {
+    throw new Error("AZURE_STORAGE_ACCOUNT_NAME environment variable is required");
+}
+
+const credential = new DefaultAzureCredential({ 
+    requiredEnvVars: [ "AZURE_TOKEN_CREDENTIALS" ]
+});
+
+
+const blobServiceClient = new BlobServiceClient(
+    `https://${storageAccountName}.blob.core.windows.net`,
+    credential
+);
 ```
 
-For illustration purposes, assume the parameterless form of `DefaultAzureCredential` was used to authenticate a request to a storage account. The app ran in the local development environment, and Azure CLI was authenticated to an Azure account. The next time the app ran, the following pertinent entries appeared in the output:
-
-```
-azure:identity:info DefaultAzureCredential => EnvironmentCredential is not available.
-azure:identity:info DefaultAzureCredential => WorkloadIdentityCredential is not available.
-azure:identity:info DefaultAzureCredential => ManagedIdentityCredential is not available.
-azure:identity:info DefaultAzureCredential => VisualStudioCodeCredential is not available.
-azure:identity:info DefaultAzureCredential => AzureCliCredential authentication succeeded.
+```console
+azure:identity:warning DefaultAzureCredential => Skipped createDefaultBrokerCredential because of an error creating the credential: Error: Broker for WAM was requested, but no plugin was configured or no authentication record was found. You must install the @azure/identity-broker plugin package (npm install --save @azure/identity-broker) and enable it by importing `useIdentityPlugin` from `@azure/identity` and calling useIdentityPlugin(nativeBrokerPlugin) before using enableBroker.
+azure:identity:info AzureCliCredential => getToken() => Using the scope https://storage.azure.com/.default
+azure:identity:info AzureCliCredential => getToken() => expires_on is available and is valid, using it
+azure:identity:info AzureCliCredential => getToken() => SUCCESS. Scopes: https://storage.azure.com/.default.
+azure:identity:info ChainedTokenCredential => getToken() => Result for AzureCliCredential: SUCCESS. Scopes: https://storage.azure.com/.default.
 ```
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, and `VisualStudioCodeCredential` each failed to acquire a Microsoft Entra access token, in that order.
-- The `authentication succeeded` entry indicates the credential that was selected&mdash;`AzureCliCredential` in this case. Since `AzureCliCredential` succeeded, no credentials beyond it were used.
+- `createDefaultBrokerCredential` was skipped.
+- The `DefaultAzureCredential` succeeded using `AzureCliCredential`.
 
 <!-- LINKS -->
 [env-vars]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#environment-variables
