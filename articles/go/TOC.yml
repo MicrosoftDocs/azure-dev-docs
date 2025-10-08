@@ -35,9 +35,9 @@ items:
           href: sdk/authentication/authentication-overview.md
         - name: Auth during local development
           items:
-          - name: Auth using developer service principals
+          - name: Use a developer service principal
             href: sdk/authentication/local-development-service-principal.md
-          - name: Auth using developer accounts
+          - name: Use a developer account
             href: sdk/authentication/local-development-dev-accounts.md
         - name: Auth from Azure-hosted apps
           items:
