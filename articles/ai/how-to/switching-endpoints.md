@@ -96,7 +96,7 @@ client = OpenAI(
 #### [OpenAI](#tab/openai)
 
 > [!NOTE]
-> Use `ApiKeyCredential` for API key authentication. For more information, [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet) reference.
+> Use `ApiKeyCredential` for API key authentication. For more information, [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet&preserve-view=true) reference.
 
 ```csharp
 using OpenAI;
