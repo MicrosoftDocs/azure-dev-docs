@@ -25,7 +25,7 @@ The following sections describe the steps to enable and use a user-assigned mana
 
 ## Implement the code
 
-Add the [Azure Identity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module.
+Add the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module.
 
 In a terminal of your choice, navigate to the application project directory and run the following commands:
 
@@ -34,7 +34,7 @@ go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
 
-Azure services are accessed using specialized client classes from the various Azure SDK client libraries. For any Go code that instantiates an Azure SDK client in your app, you need to:
+Azure services are accessed using specialized clients from the various Azure SDK client libraries. For any Go code that instantiates an Azure SDK client in your app, you need to:
 
 1. Import the `azidentity` package.
 1. Create an instance of `DefaultAzureCredential` type.
@@ -81,7 +81,7 @@ As discussed in the [Azure SDK for Go authentication overview](./authentication-
 > `DefaultAzureCredential` simplifies authentication while developing applications that deploy to Azure by combining credentials used in Azure hosting environments and credentials used in local development. In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
 
 
-An alternative to `DefaultAzureCredential` is to use [`ManagedIdentityCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential). The steps for implementing `ManagedIdentityCredential` are the same as using `DefaultAzureCredential` type.
+An alternative to `DefaultAzureCredential` is to use [`ManagedIdentityCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential). The steps for using `ManagedIdentityCredential` are the same as for using the `DefaultAzureCredential` type.
 
 An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
