@@ -25,7 +25,7 @@ While OpenAI and Azure OpenAI rely on a [common Python client library](https://g
 
 We recommend using Microsoft Entra ID or Azure Key Vault. You can use environment variables for testing outside of your production environment.
 
-### API key
+### API key authentication
 
 :::zone pivot="python"
 
@@ -68,19 +68,8 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
 
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
-#### [OpenAI](#tab/openai)
-
-```python
-import os
-from openai import OpenAI
-
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
-)
-
-```
-
-#### [Azure OpenAI](#tab/azure-openai)
+> [!NOTE]
+> Microsoft Entra ID authentication is only supported in the Azure OpenAI SDK.
 
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
@@ -97,8 +86,6 @@ client = OpenAI(
     api_key = token_provider,
 )
 ```
-
----
 
 :::zone-end
 :::zone pivot="dotnet"
@@ -153,22 +140,8 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
 
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
-#### [OpenAI](#tab/openai)
-
-```csharp
-using System;
-using OpenAI;
-
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
-    }
-);
-
-```
-
-#### [Azure OpenAI](#tab/azure-openai)
+> [!NOTE]
+> Microsoft Entra ID authentication is only supported in the Azure OpenAI SDK.
 
 ```csharp
 using Azure.Identity;
@@ -193,8 +166,6 @@ OpenAIClient client = new(
     options: clientOptions);
 
 ```
-
----
 
 :::zone-end
 
