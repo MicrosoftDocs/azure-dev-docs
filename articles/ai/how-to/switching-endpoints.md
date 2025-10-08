@@ -95,16 +95,16 @@ client = OpenAI(
 
 #### [OpenAI](#tab/openai)
 
-```csharp
-using System;
-using OpenAI;
+> [!NOTE]
+> Use `ApiKeyCredential` for API key authentication. For more information, [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet) reference.
 
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
-    }
-);
+```csharp
+using OpenAI;
+using System;
+using System.ClientModel;
+
+string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+OpenAIClient openAIClient = new(new ApiKeyCredential(apiKey));
 
 ```
 
