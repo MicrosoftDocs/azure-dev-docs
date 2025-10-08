@@ -121,8 +121,9 @@ var client = new OpenAIClient(
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-using System;
 using OpenAI;
+using System;
+using System.ClientModel;
 
 OpenAIClientOptions clientOptions = new()
 {
