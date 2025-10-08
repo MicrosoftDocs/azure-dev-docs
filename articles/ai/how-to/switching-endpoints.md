@@ -67,7 +67,7 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
     For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
     > [!IMPORTANT]
-    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`. Using `require_envvar=True` in the `DefaultAzureCredential` constructor will throw an exception if the environment variable is not set.
+    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`. Using `require_envvar=True` in the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
 
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
@@ -96,7 +96,7 @@ client = OpenAI(
 #### [OpenAI](#tab/openai)
 
 > [!NOTE]
-> Use `ApiKeyCredential` for API key authentication. For more information, [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet&preserve-view=true) reference.
+> Use `ApiKeyCredential` for API key authentication. For more information, see the [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet&preserve-view=true) reference.
 
 ```csharp
 using OpenAI;
@@ -142,7 +142,7 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
     For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
     > [!IMPORTANT]
-    > For this sample, set environment variable `AZURE_TOKEN_CREDENTIALS` to `dev`. Passing `DefaultAzureCredential.DefaultEnvironmentVariableName` to the `DefaultAzureCredential` constructor will throw an exception if the environment variable is not set.
+    > For this sample, set environment variable `AZURE_TOKEN_CREDENTIALS` to `dev`. Passing `DefaultAzureCredential.DefaultEnvironmentVariableName` to the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
 
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
