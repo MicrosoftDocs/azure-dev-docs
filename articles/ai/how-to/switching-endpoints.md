@@ -1,7 +1,7 @@
 ---
 title: "How to switch between OpenAI and Azure OpenAI endpoints"
 description: "Learn how to switch between OpenAI and Azure OpenAI endpoints in your application."
-ms.date: 10/03/2025
+ms.date: 10/07/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -25,14 +25,11 @@ While OpenAI and Azure OpenAI rely on a [common Python client library](https://g
 
 We recommend using Microsoft Entra ID or Azure Key Vault. You can use environment variables for testing outside of your production environment.
 
-### API key
+### API key authentication
+
 :::zone pivot="python"
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI</td>
-</tr>
-<tr>
-<td>
+
+#### [OpenAI](#tab/openai)
 
 ```python
 import os
@@ -44,8 +41,7 @@ client = OpenAI(
 
 ```
 
-</td>
-<td>
+#### [Azure OpenAI](#tab/azure-openai)
 
 ```python
 import os
@@ -57,9 +53,7 @@ client = OpenAI(
 )
 ```
 
-</td>
-</tr>
-</table>
+---
 
 ### Microsoft Entra ID authentication
 
@@ -72,30 +66,13 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
 
     For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
+    > [!IMPORTANT]
+    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`. Using `require_envvar=True` in the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
+
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
-<table>
-<tr>
-<td> Azure OpenAI </td> <td> Azure OpenAI </td>
-</tr>
-<tr>
-<td>
-
-```python
-import os
-from openai import OpenAI
-
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
-)
-
-
-
-
-```
-
-</td>
-<td>
+> [!NOTE]
+> Microsoft Entra authentication is only supported in the Azure OpenAI library.
 
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
@@ -113,50 +90,45 @@ client = OpenAI(
 )
 ```
 
-</td>
-</tr>
-</table>
-
 :::zone-end
 :::zone pivot="dotnet"
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI</td>
-</tr>
-<tr>
-<td>
+
+#### [OpenAI](#tab/openai)
+
+> [!NOTE]
+> Use `ApiKeyCredential` for API key authentication. For more information, see the [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet&preserve-view=true) reference.
 
 ```csharp
-using System;
 using OpenAI;
+using System;
+using System.ClientModel;
 
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
-    }
-);
+string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+OpenAIClient openAIClient = new(new ApiKeyCredential(apiKey));
 
 ```
 
-</td>
-<td>
+#### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-using System;
 using OpenAI;
+using System;
+using System.ClientModel;
 
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        ApiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY"),
-        BaseUri = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-    }
-);
+OpenAIClientOptions clientOptions = new()
+{
+    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+};
+
+string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+
+OpenAIClient client = new(
+    credential: new ApiKeyCredential(apiKey),
+    options: clientOptions);
 
 ```
-</tr>
-</table>
+
+---
 
 ### Microsoft Entra ID authentication
 
@@ -169,49 +141,37 @@ Use the following steps to configure Microsoft Entra ID authentication with `Def
 
     For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
+    > [!IMPORTANT]
+    > For this sample, set environment variable `AZURE_TOKEN_CREDENTIALS` to `dev`. Passing `DefaultAzureCredential.DefaultEnvironmentVariableName` to the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
+
 2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI </td>
-</tr>
-<tr>
-<td>
+> [!NOTE]
+> Microsoft Entra authentication is only supported in the Azure OpenAI library.
 
 ```csharp
-using System;
-using OpenAI;
-
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
-    }
-);
-
-```
-</td>
-<td>
-
-```csharp
-using System;
 using Azure.Identity;
 using OpenAI;
+using System;
+using System.ClientModel.Primitives;
 
-var credential = new DefaultAzureCredential(DefaultAzureCredential.DefaultEnvironmentVariableName);
+DefaultAzureCredential credential = new(DefaultAzureCredential.DefaultEnvironmentVariableName);
 
-var client = new OpenAIClient(
-    new OpenAIClientOptions
-    {
-        Credential = credential,
-        BaseUri = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-    }
-);
+BearerTokenPolicy tokenPolicy = new(
+    tokenProvider: credential,
+    scope: "https://cognitiveservices.azure.com/.default");
+
+OpenAIClientOptions clientOptions = new()
+{
+    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+};
+
+
+OpenAIClient client = new(
+    authenticationPolicy: tokenPolicy,
+    options: clientOptions);
 
 ```
-</td>
-</tr>
-</table>
 
 :::zone-end
 
@@ -220,15 +180,11 @@ var client = new OpenAIClient(
 OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). When you use Azure OpenAI, `model` should refer to the underlying deployment name you chose when you deployed the model.
 
 > [!IMPORTANT]
-> When you access the model via the API in Azure OpenAI, you need to refer to the deployment name rather than the underlying model name in API calls, which is one of the key differences between OpenAI and Azure OpenAI. OpenAI only requires the model name. Azure OpenAI always requires deployment name, even when using the model parameter. In our docs, we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.
+> Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. Choose any naming convention for deployment names that works best for you.
 
 :::zone pivot="python"
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI </td>
-</tr>
-<tr>
-<td>
+
+#### [OpenAI](#tab/openai)
 
 ```python
 response = client.responses.create(   
@@ -247,8 +203,7 @@ embedding = client.embeddings.create(
 )
 ```
 
-</td>
-<td>
+#### [Azure OpenAI](#tab/azure-openai)
 
 ```python
 response = client.responses.create(   
@@ -267,17 +222,12 @@ embedding = client.embeddings.create(
 )
 ```
 
-</td>
-</tr>
-</table>
+---
+
 :::zone-end
 :::zone pivot="dotnet"
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI </td>
-</tr>
-<tr>
-<td>
+
+#### [OpenAI](#tab/openai)
 
 ```csharp
 var response = client.GetOpenAIResponseClient(
@@ -301,8 +251,7 @@ var embedding = client.GetEmbeddingClient(
 );
 ```
 
-</td>
-<td>
+#### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
 var response = client.GetOpenAIResponseClient(
@@ -325,9 +274,9 @@ var embedding = client.GetEmbeddingClient(
     input: new string[] { "<input>" }
 );
 ```
-</td>
-</tr>
-</table>
+
+---
+
 :::zone-end
 
 ## Azure OpenAI embeddings multiple input support
@@ -335,12 +284,8 @@ var embedding = client.GetEmbeddingClient(
 OpenAI and Azure OpenAI currently support input arrays up to 2,048 input items for `text-embedding-ada-002`. Both require the max input token limit per API request to remain under 8,191 for this model.
 
 :::zone pivot="python"
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI </td>
-</tr>
-<tr>
-<td>
+
+#### [OpenAI](#tab/openai)
 
 ```python
 inputs = ["A", "B", "C"] 
@@ -353,8 +298,7 @@ embedding = client.embeddings.create(
 
 ```
 
-</td>
-<td>
+#### [Azure OpenAI](#tab/azure-openai)
 
 ```python
 inputs = ["A", "B", "C"] #max array size=2048
@@ -367,17 +311,12 @@ embedding = client.embeddings.create(
 
 ```
 
-</td>
-</tr>
-</table>
+---
+
 :::zone-end
 :::zone pivot="dotnet"
-<table>
-<tr>
-<td> OpenAI </td> <td> Azure OpenAI </td>
-</tr>
-<tr>
-<td>
+
+#### [OpenAI](#tab/openai)
 
 ```csharp
 var inputs = new string[] { "A", "B", "C" };
@@ -389,8 +328,7 @@ var embedding = client.GetEmbeddingClient(
 );
 ```
 
-</td>
-<td>
+#### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
 var inputs = new string[] { "A", "B", "C" }; //max array size=2048
@@ -403,7 +341,6 @@ var embedding = client.GetEmbeddingClient(
 );
 ```
 
-</td>
-</tr>
-</table>
+---
+
 :::zone-end
