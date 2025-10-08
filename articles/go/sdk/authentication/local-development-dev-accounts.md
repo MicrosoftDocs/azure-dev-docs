@@ -41,7 +41,7 @@ Next, sign-in to Azure using one of several developer tools that can be used to 
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) or [AzureCliCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
+Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 
@@ -57,7 +57,7 @@ az login --use-device-code
 
 ### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
 
-Developers can use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureDeveloperCliCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential) can then use this account to authenticate app requests.
+Developers can use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureDeveloperCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential) can then use this account to authenticate app requests.
 
 To authenticate with the Azure Developer CLI, run the `azd auth login` command. On a system with a default web browser, the Azure Developer CLI launches the browser to authenticate the user.
 

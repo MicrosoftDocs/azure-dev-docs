@@ -39,7 +39,7 @@ Azure services are accessed using specialized clients from the various Azure SDK
 1. Import the `azidentity` package.
 1. Create an instance of `DefaultAzureCredential` type.
 1. Pass the instance of `DefaultAzureCredential` type to the Azure SDK client constructor.
-
+1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned identity
 An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
 ```go
@@ -103,13 +103,9 @@ const (
 
 func main() {
 	// create a credential
-	cred, err := azidentity.NewManagedIdentityCredential(nil)
-	
-	// When using User Assigned Managed Identity use this instead and pass your client id in the options
-	// clientID := azidentity.ClientID("abcd1234-...")
-	// opts := azidentity.ManagedIdentityCredentialOptions{ID: clientID}
-	// cred, err := azidentity.NewManagedIdentityCredential(&opts)
-	
+	clientID := azidentity.ClientID("abcd1234-...")
+	opts := azidentity.ManagedIdentityCredentialOptions{ID: clientID}
+	cred, err := azidentity.NewManagedIdentityCredential(&opts)
 	if err != nil {
 		// TODO: handle error
 	}
@@ -127,5 +123,5 @@ func main() {
 
 The preceding code behaves differently depending on the environment where it's running:
 
-- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Visual Studio Code, for a set of developer credentials.
+- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Azure CLI, for a set of developer credentials.
 - When deployed to Azure, `ManagedIdentityCredential` discovers your managed identity configurations to authenticate to other services automatically.

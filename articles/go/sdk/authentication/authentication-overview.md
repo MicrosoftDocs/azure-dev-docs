@@ -23,7 +23,7 @@ Token-based authentication offers the following advantages over connection strin
 - When using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for token-based authentication, Azure handles administrative functions for you, so you don't have to worry about tasks like securing or rotating secrets. This makes the app more secure because there's no connection string or application secret that can be compromised.
 - The Azure Identity library acquires and manages Microsoft Entra tokens for you.
 
-Use of connection strings should be limited to scenarios where token-based authentication isn't an option, initial proof-of-concept apps, or development prototypes that don't access production or sensitive data. When possible, use the token-based authentication classes available in the Azure Identity library to authenticate to Azure resources.
+Use of connection strings should be limited to scenarios where token-based authentication isn't an option, initial proof-of-concept apps, or development prototypes that don't access production or sensitive data. When possible, use the credential types in the Azure Identity library to authenticate to Azure resources.
 
 ## Authentication across different environments
 
@@ -61,7 +61,7 @@ During local development, you can authenticate to Azure resources using your dev
 
 #### Use developer credentials
 
-You can use your own Azure credentials to authenticate to Azure resources during local development. This is typically done using a development tool, such as Azure CLI or Visual Studio, which can provide your app with the necessary tokens to access Azure services. This method is convenient but should only be used for development purposes.
+You can use your own Azure credentials to authenticate to Azure resources during local development. This is typically done using a development tool, such as Azure CLI, which can provide your app with the necessary tokens to access Azure services. This method is convenient but should only be used for development purposes.
 
 > [!div class="nextstepaction"]
 > [Authenticate locally using developer credentials](local-development-dev-accounts.md)
