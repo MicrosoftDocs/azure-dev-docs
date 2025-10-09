@@ -27,9 +27,8 @@ Create an Azure Managed Lustre (AMLFS) file system using the specified network, 
 Example prompts include:
 
 - **Basic filesystem creation**: "Create Azure Managed Lustre filesystem 'amlfs-prod-001' in eastus with SKU 'AMLFS-Durable-Premium-125', size 128 TiB, in subnet '/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001', zone 1, maintenance on Sunday at 02:00"
-- **Development environment**: "Create test filesystem 'dev-amlfs' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 32 TiB capacity in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
+- **Development environment**: "Create test filesystem 'dev-amlfs' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 48 TiB capacity in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
 - **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/prod/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/prod/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/v1'"
-- **Multi-region deployment**: "Create filesystem 'global-amlfs' in westeurope using 'AMLFS-Durable-Premium-125', 128 TiB, subnet '/subscriptions/global/resourceGroups/europe-rg/providers/Microsoft.Network/virtualNetworks/europe-vnet/subnets/data-subnet', zone 1, maintenance Thursday at 02:30"
 - **Budget-optimized setup**: "Create cost-effective filesystem 'budget-fs' in eastus2 with 'AMLFS-Durable-Premium-40', 16 TiB, subnet '/subscriptions/dev/resourceGroups/budget-rg/providers/Microsoft.Network/virtualNetworks/budget-vnet/subnets/storage-subnet', zone 1, maintenance Sunday at 05:00"
 
 | Parameter |  Required or optional | Description |
@@ -72,16 +71,13 @@ Calculates the required subnet size for an Azure Managed Lustre file system, giv
 
 Example prompts include:
 
-- **Basic calculation**: "What is the required subnet size for my file system 'my-lustre-fs' with SKU 'AMLFS-Durable-Premium-125' and size 100 TiB?"
-- **Small deployment**: "Calculate subnet size for Azure Managed Lustre filesystem with SKU 'AMLFS-Durable-Premium-40' and size 8 TiB"
+- **Basic calculation**: "What is the required subnet size for my file system 'my-lustre-fs' with SKU 'AMLFS-Durable-Premium-125' and size 128 TiB?"
+- **Small deployment**: "Calculate subnet size for Azure Managed Lustre filesystem with SKU 'AMLFS-Durable-Premium-250' and size 8 TiB"
 - **Large scale planning**: "What subnet size do I need for a 512 TiB filesystem using 'AMLFS-Durable-Premium-500' SKU?"
 - **Development environment**: "Calculate required subnet size for test filesystem with 'AMLFS-Durable-Premium-125' SKU and 32 TiB capacity"
 - **Production planning**: "What is the subnet size requirement for production filesystem 'prod-amlfs-001' with 256 TiB using 'AMLFS-Durable-Premium-250'?"
 - **High-performance setup**: "Calculate subnet requirements for AI training filesystem with 'AMLFS-Durable-Premium-500' and 1024 TiB"
 - **Research environment**: "What subnet size is needed for research filesystem 'ml-data-fs' with SKU 'AMLFS-Durable-Premium-125' and 64 TiB?"
-- **Multi-project planning**: "Calculate subnet size for shared filesystem with 'AMLFS-Durable-Premium-250' SKU and 128 TiB capacity"
-- **Budget optimization**: "What is the minimum subnet size for 'AMLFS-Durable-Premium-40' with 16 TiB for cost-effective deployment?"
-- **Enterprise scale**: "Calculate subnet requirements for enterprise filesystem 'corp-lustre' using 'AMLFS-Durable-Premium-500' with 2048 TiB"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -113,10 +109,9 @@ Example prompts include:
 - **Weekend maintenance schedule**: "Change maintenance window for filesystem 'hpc-lustre-fs' to Saturday at 23:00"
 - **Business hours maintenance**: "Update Azure Managed Lustre filesystem 'dev-amlfs' maintenance to Wednesday at 14:30"
 - **Off-peak scheduling**: "Set maintenance window for filesystem 'analytics-lustre' to Monday at 01:00"
-- **Root squash configuration**: "Update filesystem 'secure-amlfs' with root squash mode 'All' and squash UID 1000 and GID 1000"
-- **Network squash settings**: "Configure filesystem 'research-lustre' with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp' and root squash mode 'RootOnly'"
+- **Root squash configuration**: "Update filesystem 'secure-amlfs' with root squash mode 'All' and squash UID 1000 and GID 1000 with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp'"
 - **Combined update**: "Update filesystem 'ml-amlfs' maintenance to Friday at 03:00 and set root squash mode to 'None'"
-- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' with root squash mode 'All', squash UID 999, and squash GID 999"
+- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' withno squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp', and squash GID 999"
 - **Development environment**: "Update filesystem 'test-lustre' maintenance window to Thursday at 12:00 for development testing"
 - **Regional maintenance**: "Set maintenance schedule for filesystem 'europe-amlfs' to Tuesday at 04:00 for minimal impact"
 
@@ -139,10 +134,8 @@ Example prompts include:
 
 - **Basic validation**: "Validate if the network '/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001' can host Azure Managed Lustre filesystem of size 128 TiB using the SKU 'AMLFS-Durable-Premium-125'"
 - **Production environment**: "Check if subnet '/subscriptions/prod-sub/resourceGroups/hpc-rg/providers/Microsoft.Network/virtualNetworks/hpc-vnet/subnets/lustre-subnet' can support AMLFS filesystem of 256 TiB with SKU 'AMLFS-Durable-Premium-250' in eastus"
-- **Development setup**: "Validate subnet capacity for Azure Managed Lustre filesystem size 32 TiB using SKU 'AMLFS-Durable-Premium-40' in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet' in westus2"
+- **Development setup**: "Validate subnet capacity for Azure Managed Lustre filesystem size 48 TiB using SKU 'AMLFS-Durable-Premium-40' in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet' in westus2"
 - **Large scale deployment**: "Can subnet '/subscriptions/enterprise/resourceGroups/ai-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet' host a 512 TiB Azure Managed Lustre filesystem using 'AMLFS-Durable-Premium-500' SKU in swedencentral?"
-- **Regional validation**: "Verify if network '/subscriptions/research/resourceGroups/ml-rg/providers/Microsoft.Network/virtualNetworks/research-vnet/subnets/compute-subnet' supports AMLFS size 64 TiB with 'AMLFS-Durable-Premium-125' in uaenorth"
-- **Multi-region check**: "Validate subnet '/subscriptions/global/resourceGroups/analytics/providers/Microsoft.Network/virtualNetworks/analytics-vnet/subnets/data-subnet' for Azure Managed Lustre 96 TiB filesystem using 'AMLFS-Durable-Premium-250' in northeurope"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
