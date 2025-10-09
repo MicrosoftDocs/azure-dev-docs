@@ -94,7 +94,7 @@ A [development container](https://containers.dev/) environment is available with
 
 To use this article, you need the following prerequisites:
 
-* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Azure account permissions: Your Azure account must have:
     * Permission to [manage applications in Microsoft Entra ID](/azure/active-directory/roles/permissions-reference#cloud-application-administrator).
     * `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).

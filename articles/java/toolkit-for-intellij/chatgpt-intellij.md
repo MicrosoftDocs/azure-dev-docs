@@ -21,7 +21,7 @@ This article shows you how to get started with Azure OpenAI Service in IntelliJ 
 - A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
 - The Azure Toolkit for IntelliJ. For more information, see [Install the Azure Toolkit for IntelliJ](install-toolkit.md). You also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [Request Access to Azure OpenAI Service](https://aka.ms/oai/access?azure-portal=true).

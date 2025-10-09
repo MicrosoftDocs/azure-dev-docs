@@ -28,7 +28,7 @@ Spring Boot apps typically enable TLS by installing the certificates. The certif
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 

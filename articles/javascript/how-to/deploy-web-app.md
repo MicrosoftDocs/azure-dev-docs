@@ -15,7 +15,7 @@ To deploy your JavaScript-based app to Azure, you move a file or set of files to
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Node.js LTS](https://nodejs.org/).
 * A GitHub account if you plan to deploy from a GitHub repository.
 

@@ -260,7 +260,7 @@ Before you get started using `azd`, ensure you have:
 - Installed:
   - [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon.)
   - [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Install `azd` in a dev container
 

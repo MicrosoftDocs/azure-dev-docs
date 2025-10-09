@@ -45,14 +45,14 @@ To follow this article, make sure you meet these prerequisites:
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-- An Azure subscription – [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+- An Azure subscription – [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure account permissions – Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, you must be granted [RBAC](/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and deploy to that group.
   - Your Azure account also needs `Microsoft.Resources/deployments/write` permissions at the subscription level.
 - GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-- An Azure subscription – [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+- An Azure subscription – [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure account permissions – Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) – make sure Docker Desktop is running

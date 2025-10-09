@@ -18,7 +18,7 @@ This article illustrates how to use Blob storage as a repository of build artifa
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Jenkins server**: If you don't have a Jenkins server installed, [create a Jenkins server on Azure](./configure-on-linux-vm.md).
 - **Azure CLI**: Install Azure CLI (version 2.0.67 or higher) on the Jenkins server.
 - **Azure storage account**: If you don't already have a storage account, [create a Storage Account](/azure/storage/common/storage-account-create).
