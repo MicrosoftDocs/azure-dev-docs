@@ -127,7 +127,6 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 - `ManagedIdentityCredential`
 - `VisualStudioCodeCredential`
 - `WorkloadIdentityCredential`
-- `BrokerCredential`
 
 > [!IMPORTANT]
 > The `AZURE_TOKEN_CREDENTIALS` environment variable supports individual credential names in `@azure/identity` package versions 4.11.0 and later.
@@ -186,9 +185,7 @@ To diagnose an unexpected issue or to understand what a credential is doing, [en
 ```javascript
 import { setLogLevel, AzureLogger } from "@azure/logger";
 import { BlobServiceClient } from "@azure/storage-blob";
-import { 
-    DefaultAzureCredential 
-} from "@azure/identity";
+import { DefaultAzureCredential } from "@azure/identity";
 
 // Constant for the Azure Identity log prefix
 const AZURE_IDENTITY_LOG_PREFIX = "azure:identity";
@@ -250,4 +247,4 @@ In the preceding output, notice that:
 - The `DefaultAzureCredential` succeeded using `AzureCliCredential`.
 
 <!-- LINKS -->
-[env-vars]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#environment-variables
+[env-vars]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md#environment-variables
