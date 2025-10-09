@@ -41,7 +41,7 @@ The `*` represents the well-known Java proxy properties. For more information, s
 If the builder finds any of the environment configurations, it creates a `ProxyOptions` instance by calling `ProxyOptions.fromConfiguration(Configuration.getGlobalConfiguration())`. This article provides more details below about the `ProxyOptions` type.
 
 > [!Important]
-> To use any proxy configuration, Java requires you to set the system environment property `java.net.useSystemProxies` to `true`.
+> To implicitly use `HTTPS_PROXY` or `HTTP_PROXY`, Java requires you to set the system environment property `java.net.useSystemProxies` to `true`.
 
 You can also create an HTTP client instance that doesn't use any proxy configuration present in the system environment variables. To override the default behavior, you explicitly set a differently-configured `Configuration` in the HTTP client builder. When you set a `Configuration` in the builder, it will no longer call `Configuration.getGlobalConfiguration()`. For example, if you call `configuration(Configuration)` using `Configuration.NONE`, you can explicitly prevent the builder from inspecting the environment for configuration.
 
@@ -75,12 +75,12 @@ Rather than read from the environment, you can configure HTTP client builders to
 The following example uses the `http.proxy*` configurations set in a `Configuration` object to use a proxy that authenticates Fiddler as the proxy.
 
 ```java
-Configuration configuration = new Configuration()
-    .put("java.net.useSystemProxies", "true")
-    .put("http.proxyHost", "localhost")
-    .put("http.proxyPort", "8888")
-    .put("http.proxyUser", "1")
-    .put("http.proxyPassword", "1");
+Configuration configuration = new ConfigurationBuilder()
+    .putProperty("http.proxyHost", "localhost")
+    .putProperty("http.proxyPort", "8888")
+    .putProperty("http.proxyUser", "1")
+    .putProperty("http.proxyPassword", "1")
+    .build();
 
 HttpClient nettyHttpClient = new NettyAsyncHttpClientBuilder()
     .configuration(configuration)
