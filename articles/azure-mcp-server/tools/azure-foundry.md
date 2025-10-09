@@ -211,7 +211,7 @@ Example prompts include:
 | **Endpoint** | Required | The endpoint URL for the Azure AI service. |
 
 
-## Openai: Create chat completions
+## OpenAI: Create chat completions
 
 <!-- `azmcp foundry openai chat-completions-create` -->
 
@@ -278,7 +278,7 @@ Example prompts include:
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
 | **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
 
-## OpenAI: Create text Completion
+## OpenAI: Create text completions
 
 <!-- `azmcp foundry openai create-completion` -->
 
