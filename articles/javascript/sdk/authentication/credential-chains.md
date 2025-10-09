@@ -2,7 +2,7 @@
 title: 'Credential chains in the Azure Identity library for JavaScript'
 description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for JavaScript.'
 ms.topic: concept-article
-ms.date: 10/07/2025
+ms.date: 10/09/2025
 ms.custom: devx-track-js
 ai-usage: ai-generated
 ---
@@ -190,11 +190,11 @@ import {
     DefaultAzureCredential 
 } from "@azure/identity";
 
-// Constant for the Azure identity log prefix
+// Constant for the Azure Identity log prefix
 const AZURE_IDENTITY_LOG_PREFIX = "azure:identity";
 
 // override logging to output to console.log (default location is stderr)
-// only log messages that start with the Azure identity log prefix
+// only log messages that start with the Azure Identity log prefix
 setLogLevel("verbose");
 AzureLogger.log = (...args) => {
   const message = args[0];
