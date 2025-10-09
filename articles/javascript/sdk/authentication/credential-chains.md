@@ -175,13 +175,13 @@ The preceding code sample creates a tailored credential chain comprised of two d
 
 Here's why:
 
-- **Debugging challenges**: When authentication fails, it can be challenging to debug and identify the offending credential. You must enable logging to see the progression from one credential to the next and the success/failure status of each. For more information, see [Debug a chained credential](#debug-a-chained-credential).
+- **Debugging challenges**: When authentication fails, it can be challenging to debug and identify the offending credential. You must enable logging to see the progression from one credential to the next and the success/failure status of each. For more information, see [Debug a credential](#debug-a-credential).
 - **Performance overhead**: The process of sequentially trying multiple credentials can introduce performance overhead. For example, when running on a local development machine, managed identity is unavailable. Consequently, `ManagedIdentityCredential` always fails in the local development environment.
 - **Unpredictable behavior**: `DefaultAzureCredential` checks for the presence of certain [environment variables][env-vars]. It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
 
-## Debug a chained credential
+## Debug a credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../debug-client-libraries.md) in your app. For example:
+To diagnose an unexpected issue or to understand what a credential is doing, [enable logging](../debug-client-libraries.md) in your app. For example:
 
 ```javascript
 import { setLogLevel, AzureLogger } from "@azure/logger";
@@ -222,11 +222,26 @@ const blobServiceClient = new BlobServiceClient(
 ```
 
 ```console
+azure:identity:info EnvironmentCredential => Found the following environment variables: 
+azure:identity:verbose EnvironmentCredential => AZURE_CLIENT_SEND_CERTIFICATE_CHAIN: undefined; sendCertificateChain: false
+azure:identity:info WorkloadIdentityCredential => Found the following environment variables:
+azure:identity:warning DefaultAzureCredential => Skipped createDefaultWorkloadIdentityCredential because of an error creating the credential: CredentialUnavailableError: WorkloadIdentityCredential: is unavailable. clientId is a required parameter. In DefaultAzureCredential and ManagedIdentityCredential, this can be provided as an environment variable - "AZURE_CLIENT_ID".
+        See the troubleshooting guide for more information: https://aka.ms/azsdk/js/identity/workloadidentitycredential/troubleshoot
+azure:identity:info ManagedIdentityCredential => Using DefaultToImds managed identity.
 azure:identity:warning DefaultAzureCredential => Skipped createDefaultBrokerCredential because of an error creating the credential: Error: Broker for WAM was requested, but no plugin was configured or no authentication record was found. You must install the @azure/identity-broker plugin package (npm install --save @azure/identity-broker) and enable it by importing `useIdentityPlugin` from `@azure/identity` and calling useIdentityPlugin(nativeBrokerPlugin) before using enableBroker.
+azure:identity:info DefaultAzureCredential => getToken() => Skipping createDefaultWorkloadIdentityCredential, reason: WorkloadIdentityCredential: is unavailable. clientId is a required parameter. In DefaultAzureCredential and ManagedIdentityCredential, this can be provided as an environment variable - "AZURE_CLIENT_ID".
+        See the troubleshooting guide for more information: https://aka.ms/azsdk/js/identity/workloadidentitycredential/troubleshoot
+azure:identity:info ManagedIdentityCredential => getToken() => Using the MSAL provider for Managed Identity.
+azure:identity:info ManagedIdentityCredential - Token Exchange => ManagedIdentityCredential - Token Exchange: Unavailable. The environment variables needed are: AZURE_CLIENT_ID (or the client ID sent through the parameters), AZURE_TENANT_ID and AZURE_FEDERATED_TOKEN_FILE
+azure:identity:info ManagedIdentityCredential => getToken() => MSAL Identity source: DefaultToImds
+azure:identity:info ManagedIdentityCredential => getToken() => Using the IMDS endpoint to probe for availability.
+azure:identity:info ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: Pinging the Azure IMDS endpoint
+azure:identity:verbose ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: Caught error RestError: connect ENETUNREACH 169.254.169.254:80
+azure:identity:info ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: The Azure IMDS endpoint is unavailable
+azure:identity:error ManagedIdentityCredential => getToken() => ERROR. Scopes: https://storage.azure.com/.default. Error message: Attempted to use the IMDS endpoint, but it is not available..
 azure:identity:info AzureCliCredential => getToken() => Using the scope https://storage.azure.com/.default
 azure:identity:info AzureCliCredential => getToken() => expires_on is available and is valid, using it
 azure:identity:info AzureCliCredential => getToken() => SUCCESS. Scopes: https://storage.azure.com/.default.
-azure:identity:info ChainedTokenCredential => getToken() => Result for AzureCliCredential: SUCCESS. Scopes: https://storage.azure.com/.default.
 ```
 
 In the preceding output, notice that:
