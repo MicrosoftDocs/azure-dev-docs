@@ -16,7 +16,7 @@ ms.custom: build-2025
 
 The Azure MCP Server enables you to manage Azure resources, including Azure Confidential Ledger Services, by using natural language prompts. This capability lets you work with confidential ledger services without needing to remember complex command syntax.
 
-[Azure Confidential Ledger](/azure/confidential-ledger) is a fully managed, secure, and highly available ledger service that provides a trusted environment for storing sensitive data. It leverages trusted execution environments (TEEs) to ensure data integrity and confidentiality, making it suitable for scenarios that require tamper-proof records, such as financial transactions, supply chain management, and compliance auditing.
+[Azure Confidential Ledger](/azure/confidential-ledger) is a fully managed, secure, and highly available ledger service that provides a trusted environment for storing sensitive data. It applies trusted execution environments (TEEs) to ensure data integrity and confidentiality, making it suitable for scenarios that require tamper-proof records, such as financial transactions, supply chain management, and compliance auditing.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -30,7 +30,7 @@ Example prompts include:
 
 - **Simple data entry**: "Append an entry to 'audit-ledger' with data {"key": "value"}"
 - **Tamper-proof transaction**: "Write a tamper-proof entry to ledger 'financial-ledger' containing {"transaction": "data"}"
-- **Collection-specific entry**: "Append {"hello": "from mcp"} to my confidential ledger 'test-ledger' in collection 'user-data'"
+- **Collection-specific entry**: "Append {"hello": "from tool"} to my confidential ledger 'test-ledger' in collection 'user-data'"
 - **Immutable audit log**: "Create an immutable ledger entry in 'compliance-ledger' with content {"audit": "log"}"
 - **Basic ledger write**: "Write an entry to confidential ledger 'business-ledger' with data {"timestamp": "2025-10-08", "event": "user_login"}"
 - **Financial transaction**: "Append a financial transaction to ledger 'bank-ledger' with content {"amount": 1000, "account": "123456", "type": "deposit"}"

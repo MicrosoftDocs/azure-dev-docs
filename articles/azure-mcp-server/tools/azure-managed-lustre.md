@@ -16,13 +16,13 @@ ms.date: 10/08/2025
 
 Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
 
-[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training and fine-tuning.‌
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning.‌
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## File system: Create a file system
 
-Create an Azure Managed Lustre (AMLFS) file system using the specified network, capacity, maintenance window and availability zone.
+Create an Azure Managed Lustre (AMLFS) file system using the specified network, capacity, maintenance window, and availability zone.
 
 Example prompts include:
 
@@ -36,13 +36,13 @@ Example prompts include:
 | **Zone** |  Required | Availability zone identifier. Use a single digit string matching the region's AZ labels (for example `1`). Example: `1`. |
 | **Maintenance day** |  Required | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
 | **Maintenance time** |  Required | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
-| **Hsm container** |  Optional | Full blob container resource ID for HSM integration. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}/blobServices/default/containers/{container}`. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-container`. |
-| **Hsm log container** |  Optional | Full blob container resource ID for HSM logging. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Same format as hsm container. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-logs`. |
+| **HSM container** |  Optional | Full blob container resource ID for HSM integration. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}/blobServices/default/containers/{container}`. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-container`. |
+| **HSM log container** |  Optional | Full blob container resource ID for HSM logging. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Same format as HSM container. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-logs`. |
 | **Import prefix** |  Optional | Optional HSM import prefix (path prefix inside the container starting with `/`). Examples: `'/ingest/'`, `'/archive/2019/'`. |
 | **Root squash mode** |  Optional | Root squash mode. Allowed values: `All`, `RootOnly`, `None`. |
-| **No squash nid list** |  Optional | Comma-separated list of NIDs (network identifiers) not to squash. Example: `'10.0.2.4@tcp;10.0.2.[6-8]@tcp'`. |
-| **Squash uid** |  Optional | Numeric UID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
-| **Squash gid** |  Optional | Numeric GID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
+| **No squash NID list** |  Optional | Comma-separated list of NIDs (network identifiers) not to squash. Example: `'10.0.2.4@tcp;10.0.2.[6-8]@tcp'`. |
+| **Squash UID** |  Optional | Numeric UID to squash root to. Required in case root squash mode isn't `None`. Example: `1000`. |
+| **Squash GID** |  Optional | Numeric GID to squash root to. Required in case root squash mode isn't `None`. Example: `1000`. |
 | **Custom encryption** |  Optional | Enable customer-managed encryption using a Key Vault key. When `true`, key URL and source vault required, with a user-assigned identity already configured for Key Vault key access. |
 | **Key URL** |  Optional | Full Key Vault key URL. Format: `https://{vaultName}.vault.azure.net/keys/{keyName}/{keyVersion}`. Example: `https://kv-amlfs-001.vault.azure.net/keys/key-amlfs-001/0000`. |
 | **Source vault** |  Optional | Full Key Vault resource ID. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.KeyVault/vaults/{vaultName}`. Example: `/subscriptions/0000/resourceGroups/rg/providers/Microsoft.KeyVault/vaults/kv-amlfs-001`. |
@@ -90,7 +90,7 @@ Example prompts include:
 
 ## File system: Update a file system
 
-Update maintenance window and/or root squash settings of an existing Azure Managed Lustre (AMLFS) file system. Provide either maintenance day and time or root squash fields (`no-squash-nid-list`, `squash-uid`, `squash-gid`). Root squash fields must be provided if root squash is not None. In case of maintenance window update, both maintenance day and maintenance time should be provided.
+Update maintenance window and/or root squash settings of an existing Azure Managed Lustre (AMLFS) file system. Provide either maintenance day and time or root squash fields (`no-squash-nid-list`, `squash-uid`, `squash-gid`). Root squash fields must be provided if root squash isn't None. If updating the maintenance window, both maintenance day and maintenance time should be provided.
 
 Example prompts include:
 
@@ -110,9 +110,9 @@ Example prompts include:
 | **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
 | **Maintenance day** |  Optional | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
 | **Maintenance time** |  Optional | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
-| **No squash nid list** |  Optional | Comma-separated list of NIDs (network identifiers) not to squash. Example: `'10.0.2.4@tcp;10.0.2.[6-8]@tcp'`. |
-| **Squash uid** |  Optional | Numeric UID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
-| **Squash gid** |  Optional | Numeric GID to squash root to. Required in case root squash mode is not `None`. Example: `1000`. |
+| **No squash NID list** |  Optional | Comma-separated list of NIDs (network identifiers) not to squash. Example: `'10.0.2.4@tcp;10.0.2.[6-8]@tcp'`. |
+| **Squash UID** |  Optional | Numeric UID to squash root to. Required in case root squash mode isn't `None`. Example: `1000`. |
+| **Squash GID** |  Optional | Numeric GID to squash root to. Required in case root squash mode isn't `None`. Example: `1000`. |
 | **Root squash mode** |  Optional | Root squash mode. Allowed values: `All`, `RootOnly`, `None`. |
 
 

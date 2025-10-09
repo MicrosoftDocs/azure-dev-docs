@@ -97,7 +97,6 @@ Example prompts include:
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
 | **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 | **Lock** |  Optional | Whether a key-value will be locked (set to read-only) or unlocked (read-only removed). |
-                      |
 
 ## Key-value: Set key-value setting
 

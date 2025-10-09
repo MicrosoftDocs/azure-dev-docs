@@ -24,7 +24,7 @@ Use the Azure MCP Server to manage Azure resources, including Azure Kubernetes S
 <!-- azmcp aks cluster get -->
 
 Get or list Azure Kubernetes Service (AKS) clusters. If a specific cluster name is provided, that cluster will
-be retrieved. Otherwise, all clusters will be listed in the specified subscription. Returns detailed cluster
+be retrieved. Otherwise, all clusters is listed in the specified subscription. Returns detailed cluster
 information including configuration, network settings, and status.
 
 Example prompts include:
@@ -49,21 +49,21 @@ Example prompts include:
 <!-- azmcp aks nodepool get -->
 
 Get or list Azure Kubernetes Service (AKS) node pools (agent pools) in a cluster. If a specific node pool name
-is provided, that node pool will be retrieved. Otherwise, all node pools will be listed in the specified cluster.
+is provided, that node pool is retrieved. Otherwise, all node pools is listed in the specified cluster.
 Returns key configuration and status including size, count, OS, mode, autoscaling, and provisioning state.
 
 Example prompts include:
 
-- **Get nodepool details**: "Get details for nodepool 'agentpool1' in AKS cluster 'production-aks' in 'containers-rg'"
-- **Nodepool configuration**: "Show me the configuration for nodepool 'spotpool' in AKS cluster 'web-app-cluster' in resource group 'apps-rg'"
-- **Setup information**: "What is the setup of nodepool 'gpu-pool' for AKS cluster 'ml-workloads' in 'ai-resources'?"
-- **List all nodepools**: "List nodepools for AKS cluster 'dev-kubernetes' in 'development-rg'"
-- **Show nodepool list**: "Show me the nodepool list for AKS cluster 'microservices-cluster' in 'production'"
-- **Nodepool inventory**: "What nodepools do I have for AKS cluster 'analytics-aks' in 'data-rg'?"
-- **Production nodepools**: "Get details for nodepool 'systempool' in AKS cluster 'prod-aks-001' in 'production-rg'"
-- **User nodepools**: "Show configuration for nodepool 'userpool' in AKS cluster 'staging-aks' in 'staging-resources'"
-- **Specialized pools**: "What's the setup of nodepool 'gpupool' for AKS cluster 'training-cluster' in 'ml-rg'?"
-- **Scale information**: "List all nodepools with scaling details for AKS cluster 'scalable-apps' in 'compute-rg'"
+- **Get node pool details**: "Get details for node pool 'agentpool1' in AKS cluster 'production-aks' in 'containers-rg'"
+- **Node pool configuration**: "Show me the configuration for node pool 'spotpool' in AKS cluster 'web-app-cluster' in resource group 'apps-rg'"
+- **Setup information**: "What is the setup of node pool 'gpu-pool' for AKS cluster 'ml-workloads' in 'ai-resources'?"
+- **List all node pools**: "List node pools for AKS cluster 'dev-kubernetes' in 'development-rg'"
+- **Show node pool list**: "Show me the node pool list for AKS cluster 'microservices-cluster' in 'production'"
+- **Node pool inventory**: "What node pools do I have for AKS cluster 'analytics-aks' in 'data-rg'?"
+- **Production node pools**: "Get details for node pool 'systempool' in AKS cluster 'prod-aks-001' in 'production-rg'"
+- **User node pools**: "Show configuration for node pool 'userpool' in AKS cluster 'staging-aks' in 'staging-resources'"
+- **Specialized pools**: "What's the setup of node pool 'gpupool' for AKS cluster 'training-cluster' in 'ml-rg'?"
+- **Scale information**: "List all node pools with scaling details for AKS cluster 'scalable-apps' in 'compute-rg'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
