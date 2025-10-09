@@ -26,6 +26,17 @@ Create an Azure Managed Lustre (AMLFS) file system using the specified network, 
 
 Example prompts include:
 
+- **Basic filesystem creation**: "Create Azure Managed Lustre filesystem 'amlfs-prod-001' in eastus with SKU 'AMLFS-Durable-Premium-125', size 128 TiB, in subnet '/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001', zone 1, maintenance on Sunday at 02:00"
+- **Development environment**: "Create test filesystem 'dev-amlfs' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 32 TiB capacity in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
+- **High-performance AI workload**: "Create Azure Managed Lustre 'ai-training-fs' in swedencentral with 'AMLFS-Durable-Premium-500' SKU, 1024 TiB size, subnet '/subscriptions/ai-sub/resourceGroups/ml-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet', zone 1, maintenance Saturday at 01:00"
+- **Research environment with HSM**: "Create filesystem 'research-lustre' in uaenorth using 'AMLFS-Durable-Premium-250', 256 TiB, subnet '/subscriptions/research/resourceGroups/hpc-rg/providers/Microsoft.Network/virtualNetworks/research-vnet/subnets/lustre-subnet', zone 3, maintenance Tuesday at 03:00, with HSM container '/subscriptions/research/resourceGroups/storage-rg/providers/Microsoft.Storage/storageAccounts/researchdata/blobServices/default/containers/lustre-hsm'"
+- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/prod/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/prod/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/v1'"
+- **Production with root squash**: "Create production filesystem 'prod-lustre-001' in eastus with 'AMLFS-Durable-Premium-250', 512 TiB, subnet '/subscriptions/prod/resourceGroups/prod-rg/providers/Microsoft.Network/virtualNetworks/prod-vnet/subnets/lustre-subnet', zone 2, maintenance Monday at 04:00, root squash mode 'All', squash UID 1000, squash GID 1000"
+- **Multi-region deployment**: "Create filesystem 'global-amlfs' in westeurope using 'AMLFS-Durable-Premium-125', 128 TiB, subnet '/subscriptions/global/resourceGroups/europe-rg/providers/Microsoft.Network/virtualNetworks/europe-vnet/subnets/data-subnet', zone 1, maintenance Thursday at 02:30"
+- **Budget-optimized setup**: "Create cost-effective filesystem 'budget-fs' in eastus2 with 'AMLFS-Durable-Premium-40', 16 TiB, subnet '/subscriptions/dev/resourceGroups/budget-rg/providers/Microsoft.Network/virtualNetworks/budget-vnet/subnets/storage-subnet', zone 1, maintenance Sunday at 05:00"
+- **Analytics workload**: "Create analytics filesystem 'analytics-lustre' in centralus using 'AMLFS-Durable-Premium-250', 256 TiB, subnet '/subscriptions/analytics/resourceGroups/data-rg/providers/Microsoft.Network/virtualNetworks/analytics-vnet/subnets/compute-subnet', zone 3, maintenance Wednesday at 01:30"
+- **Enterprise with logging**: "Create enterprise filesystem 'corp-amlfs-001' in southcentralus with 'AMLFS-Durable-Premium-500', 2048 TiB, subnet '/subscriptions/enterprise/resourceGroups/corp-rg/providers/Microsoft.Network/virtualNetworks/corp-vnet/subnets/hpc-subnet', zone 1, maintenance Saturday at 03:00, HSM container '/subscriptions/enterprise/resourceGroups/storage-rg/providers/Microsoft.Storage/storageAccounts/corpdata/blobServices/default/containers/lustre-data', HSM log container '/subscriptions/enterprise/resourceGroups/storage-rg/providers/Microsoft.Storage/storageAccounts/corpdata/blobServices/default/containers/lustre-logs'"
+
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
@@ -66,12 +77,21 @@ Calculates the required subnet size for an Azure Managed Lustre file system, giv
 
 Example prompts include:
 
-- **Get required subnet size**: "What is the required subnet size for my file system 'my-lustre-fs' with SKU 'AMLFS-Durable-Premium-125' and size 100 TiB?"
+- **Basic calculation**: "What is the required subnet size for my file system 'my-lustre-fs' with SKU 'AMLFS-Durable-Premium-125' and size 100 TiB?"
+- **Small deployment**: "Calculate subnet size for Azure Managed Lustre filesystem with SKU 'AMLFS-Durable-Premium-40' and size 8 TiB"
+- **Large scale planning**: "What subnet size do I need for a 512 TiB filesystem using 'AMLFS-Durable-Premium-500' SKU?"
+- **Development environment**: "Calculate required subnet size for test filesystem with 'AMLFS-Durable-Premium-125' SKU and 32 TiB capacity"
+- **Production planning**: "What is the subnet size requirement for production filesystem 'prod-amlfs-001' with 256 TiB using 'AMLFS-Durable-Premium-250'?"
+- **High-performance setup**: "Calculate subnet requirements for AI training filesystem with 'AMLFS-Durable-Premium-500' and 1024 TiB"
+- **Research environment**: "What subnet size is needed for research filesystem 'ml-data-fs' with SKU 'AMLFS-Durable-Premium-125' and 64 TiB?"
+- **Multi-project planning**: "Calculate subnet size for shared filesystem with 'AMLFS-Durable-Premium-250' SKU and 128 TiB capacity"
+- **Budget optimization**: "What is the minimum subnet size for 'AMLFS-Durable-Premium-40' with 16 TiB for cost-effective deployment?"
+- **Enterprise scale**: "Calculate subnet requirements for enterprise filesystem 'corp-lustre' using 'AMLFS-Durable-Premium-500' with 2048 TiB"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
-| **Size** |  Required | The AMLFS size (TiB). |
+| **Size** |  Required | The AMLFS size in tebibytes (TiB). |
 
 ## File system: Get SKU
 

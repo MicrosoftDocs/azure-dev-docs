@@ -41,7 +41,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Ledger** |  Required | The name of the Confidential Ledger instance (for example, `myledger`). |
+| **Ledger** |  Required | The name of the Confidential Ledger instance (for example, `myledger` ). |
 | **Content** |  Required | The JSON or text payload to append as a tamper-proof ledger entry. |
 | **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
 

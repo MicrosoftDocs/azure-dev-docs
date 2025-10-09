@@ -29,12 +29,12 @@ Sends SMS messages to one or more recipients using Azure Communication Services.
 Example prompts include:
 
 - **Simple SMS**: "Send an SMS message to +1234567890 saying 'Hello' using my communication service"
-- **Specify sender and recipient**: "Send SMS to +1234567890 from +1234567891 with message 'Test message' using endpoint https://myservice.communication.azure.com"
+- **Specify sender and recipient**: "Send SMS to +1234567890 from +1234567891 with message 'Test message' using endpoint myservice.communication.azure.com"
 - **Multiple recipients**: "Send SMS to multiple recipients: +1234567890, +1234567891 with message 'Group announcement'"
 - **With delivery reporting**: "Send SMS with delivery reporting enabled to +1234567890 saying 'Important update'"
 - **Custom tracking tag**: "Send SMS message with custom tracking tag 'campaign1' to +1234567890 from +1234567891"
 - **Broadcast message**: "Send broadcast SMS to +1234567890 and +1234567891 saying 'Urgent notification' with delivery tracking"
-- **Using communication service**: "Send SMS from my communication service endpoint https://myservice.communication.azure.com to +1234567890 saying 'Welcome message'"
+- **Using communication service**: "Send SMS from my communication service endpoint myservice.communication.azure.com to +1234567890 saying 'Welcome message'"
 - **Delivery receipt tracking**: "Send an SMS with delivery receipt tracking enabled to +1234567890 with message 'Appointment reminder'"
 - **Marketing campaign**: "Send SMS from +1234567891 to +1234567890 with message 'Special offer today!' and tag 'promo-oct2025'"
 - **Emergency notification**: "Send urgent SMS to multiple numbers +1234567890, +1234567891, +1234567892 saying 'System maintenance alert' with delivery reports enabled"

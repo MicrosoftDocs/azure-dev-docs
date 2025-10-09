@@ -182,7 +182,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Deployment** | Required | The name of the Azure AI Foundry model deployment. |
 | **Model** | Required | The name of the model to deploy. |
-| **Model format** | Required | The format of the model (for example, 'OpenAI', 'Meta', 'Microsoft'). |
+| **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
 | **Azure AI services** | Required | The name of the Azure AI services account to deploy to. |
 | **Resource group** | Required | The name of the Azure resource group where the model will be deployed. |
 | **Model version** | Optional | The version of the model to deploy. |

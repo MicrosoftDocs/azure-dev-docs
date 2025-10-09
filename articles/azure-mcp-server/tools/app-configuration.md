@@ -72,11 +72,11 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Account** |  Required | The name of the App Configuration store (for example, `my-appconfig`). |
 | **Key** |  Optional | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of 'foo' would get all key-values with a key of 'foo', or the filter can include a '*' character at the end of the string for wildcard searches (for example, 'App*'). If omitted all keys will be retrieved. |
-| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of 'foo' would get all key-values with a label of 'foo', or the filter can include a '*' character at the end of the string for wildcard searches (for example, 'Prod*'). This filter is case-sensitive. If omitted, all labels will be retrieved. |
+| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted all keys will be retrieved. |
+| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels will be retrieved. |
 
 
 ## Key-value: Set lock on key-value
@@ -92,11 +92,11 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Account** |  Required | The name of the App Configuration store (for example,`my-appconfig`). |
 | **Key** |  Required | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
 | **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
-| **Lock** |  Optional | Whether a key-value will be locked (set to read-only) or unlocked (read-only removed). |
+| **Lock** |  Optional | Whether a key-value will be locked (set to `read-only`) or unlocked (`read-only` removed). |
 
 ## Key-value: Set key-value setting
 
@@ -116,7 +116,7 @@ Example prompts include:
 | **Key**          | Required | The key name of the setting to set.                                         |
 | **Value**        | Required | The value to set for the key.                                               |
 | **Label**        | Optional | The label of the setting to set.                                            |
-| **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format 'key=value'. You can specify multiple tags. |
+| **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format `key=value`. You can specify multiple tags. |
 | **Content type** | Optional | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
 
 ## Related content
