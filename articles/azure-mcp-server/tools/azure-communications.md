@@ -43,8 +43,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Required for credential authentication. |
 | **From** |  Required | The SMS-enabled phone number associated with your Communication Services resource (in E.164 format, for example, `+14255550123`). Can also be a short code or alphanumeric sender ID. |
-| **To** |  Required | The recipient phone number(s) in E.164 international standard format (for example, `+14255550123`). Multiple numbers can be provided. |
-| **Message** |  Required | The SMS message content to send to the recipient(s). |
+| **To** |  Required | The recipient phone numbers in `E.164` international standard format (for example, `+14255550123`). Multiple numbers can be provided. |
+| **Message** |  Required | The SMS message content to send to the recipients. |
 | **Enable delivery report** |  Optional | Whether to enable delivery reporting for the SMS message. When enabled, events are emitted when delivery is successful. |
 | **Tag** |  Optional | Optional custom tag to apply to the SMS message for tracking purposes. |
 
