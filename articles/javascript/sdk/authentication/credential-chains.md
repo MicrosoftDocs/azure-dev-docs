@@ -240,10 +240,7 @@ azure:identity:info AzureCliCredential => getToken() => expires_on is available 
 azure:identity:info AzureCliCredential => getToken() => SUCCESS. Scopes: https://storage.azure.com/.default.
 ```
 
-In the preceding output, notice that:
-
-- `createDefaultBrokerCredential` was skipped.
-- The `DefaultAzureCredential` succeeded using `AzureCliCredential`.
+In the preceding output, notice that `DefaultAzureCredential` successfully acquired a token using `AzureCliCredential`.
 
 <!-- LINKS -->
 [env-vars]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md#environment-variables
