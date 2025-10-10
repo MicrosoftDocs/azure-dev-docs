@@ -42,7 +42,7 @@ Use the following library:
 
 ## Use DefaultAzureCredential in an application
 
-[DefaultAzureCredential](credential-chains.md#how-a-chained-credential-works) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential?view=azure-node-latest&preserve-view=true) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
+[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential?view=azure-node-latest&preserve-view=true) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
 
 To use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential), add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
