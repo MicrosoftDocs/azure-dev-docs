@@ -28,4 +28,4 @@
     - name: Azure SDK Guidelines
       href: https://azure.github.io/azure-sdk/rust_introduction.html
 - name: Crates
-  href: ../includes/rust-new.md
+  href: azure-sdk-library-package-index.md

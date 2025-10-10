@@ -1,7 +1,7 @@
 ---
 title: Use Azure SDK for Rust crates to access Azure services
 description: Get started with Azure SDK for Rust crates. Learn authentication, explore supported Azure services, and follow best practices with code examples. Build secure Azure applications in Rust—start now.
-ms.date: 09/02/2025
+ms.date: 10/10/2025
 ms.topic: concept-article
 ms.service: azure-rust
 ms.custom: devx-track-rust
@@ -66,7 +66,7 @@ The code shown in this article is available on <https://github.com/azure-samples
 
 [cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
-[Crates]: https://crates.io/users/azure-sdk?sort=recent-downloads
+[Crates]: ../azure-sdk-library-package-index.md
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
 [REST API documentation]: /rest/api/
 [Product documentation]: /azure/
