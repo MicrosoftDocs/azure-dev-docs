@@ -112,13 +112,13 @@ Begin by setting up a development environment that has all the dependencies inst
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 * A GitHub account. Required to fork the repository and use GitHub Codespaces or clone it locally.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 * [Azure Developer CLI](/azure/developer/azure-developer-cli).
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/). * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Make sure Docker Desktop is installed and running before beginning.

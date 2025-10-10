@@ -21,7 +21,7 @@ This article provides the process to perform load testing on a Python chat appli
 
 ## Prerequisites
 
-* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Dev containers](https://containers.dev/) are available for both samples with all the dependencies that are required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)

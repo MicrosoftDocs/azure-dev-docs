@@ -24,7 +24,7 @@ Redis authentication uses passwords in Redis. If you choose to use passwords as 
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or higher.
 

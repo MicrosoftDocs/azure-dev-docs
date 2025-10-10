@@ -17,7 +17,7 @@ This article shows you how to deploy a containerized application to Azure Contai
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi).

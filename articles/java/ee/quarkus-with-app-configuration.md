@@ -15,7 +15,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Quarkus 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) 2.68.0 or above.
 - An App Configuration store. For more information, see [Quickstart: Create an Azure App Configuration store](/azure/azure-app-configuration/quickstart-azure-app-configuration-create?tabs=azure-cli).
 - [Java Development Kit (JDK)](/java/openjdk) version 17.

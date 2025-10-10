@@ -49,7 +49,7 @@ A local development environment is a great choice for traditional development wo
 ::: zone pivot="programming-language-nodejs"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
@@ -58,7 +58,7 @@ A local development environment is a great choice for traditional development wo
 ::: zone pivot="programming-language-python"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.8](https://www.python.org/downloads/)
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
@@ -68,7 +68,7 @@ A local development environment is a great choice for traditional development wo
 ::: zone pivot="programming-language-csharp"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
@@ -77,7 +77,7 @@ A local development environment is a great choice for traditional development wo
 ::: zone pivot="programming-language-java"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [OpenJDK 17](/java/openjdk/download#openjdk-17)
 - [Docker](https://docs.docker.com/get-docker/).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo-aca/blob/main/README.md).
@@ -318,7 +318,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 ::: zone pivot="programming-language-nodejs"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -326,7 +326,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 ::: zone pivot="programming-language-python"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -334,7 +334,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 ::: zone pivot="programming-language-csharp"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -342,7 +342,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 ::: zone pivot="programming-language-java"
 
 - [Install the Azure Developer CLI](./install-azd.md).
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo-aca/blob/main/README.md).
 
 ::: zone-end

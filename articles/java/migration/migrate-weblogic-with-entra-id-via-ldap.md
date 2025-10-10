@@ -34,7 +34,7 @@ This guide doesn't help you reconfigure an existing Microsoft Entra ID Domain Se
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * The ability to deploy Microsoft Entra Domain Services. For more information, see [Create and configure a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance).
 * The ability to deploy one of the WLS Azure applications listed in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 * A local machine with either Windows with Windows Subsystem for Linux (WSL), GNU/Linux, or macOS installed.
