@@ -25,7 +25,6 @@ A chained credential can offer the following benefits:
 
     ```javascript
     import { 
-        EnvironmentCredential, 
         ManagedIdentityCredential, 
         AzureCliCredential 
     } from "@azure/identity";
