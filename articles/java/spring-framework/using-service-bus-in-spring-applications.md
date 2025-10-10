@@ -31,7 +31,7 @@ You can use the following modules independently or combine them for different us
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 - An Azure Service Bus and queue or topic/subscription. If you don't have one, create a Service Bus queue or topic. For more information, see [Use Azure portal to create a Service Bus namespace and a queue](/azure/service-bus-messaging/service-bus-quickstart-portal) or [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).

@@ -21,7 +21,7 @@ This guide provides developers with the necessary steps to install libraries fro
 - A C++ compiler
 - [git](https://git-scm.com/downloads)
 - [CMake](https://cmake.org/download/)
-- [An Azure subscription](https://azure.microsoft.com/free/)
+- [An Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Verify git and CMake installation

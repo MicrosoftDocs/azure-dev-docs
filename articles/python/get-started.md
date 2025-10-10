@@ -25,10 +25,10 @@ To develop Python applications with Azure, you need an Azure account. Your Azure
 
 If you're using Azure at work, talk to your company's cloud administrator to get your credentials used to sign-in to Azure.
 
-Otherwise, you can create an [Azure account for free](https://azure.microsoft.com/free/python/) and receive 12 months of popular services for free and a $200 credit to explore Azure for 30 days.
+Otherwise, you can create an [Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and receive 12 months of popular services for free and a $200 credit to explore Azure for 30 days.
 
 > [!div class="nextstepaction"]
-> [Create an Azure account for free](https://azure.microsoft.com/free/python/)
+> [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 ## Create and manage resources
 

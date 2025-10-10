@@ -21,7 +21,7 @@ SAS authentication uses the connection string of your Azure Event Hubs namespace
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 

@@ -17,7 +17,7 @@ This tutorial shows you how to upload and read from container blobs in an Azure 
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 - [cURL](https://curl.se/) or a similar HTTP utility to test functionality.

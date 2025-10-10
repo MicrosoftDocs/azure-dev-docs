@@ -15,7 +15,7 @@
 | App Configuration | npm [1.9.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.9.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.16) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.16](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
-| Azure AI Search | npm [12.1.0](https://www.npmjs.com/package/@azure/search-documents/v/12.1.0)<br>npm [12.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/12.2.0-beta.2) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0/sdk/search/search-documents/)<br>GitHub [12.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.2/sdk/search/search-documents/) |
+| Azure AI Search | npm [12.2.0](https://www.npmjs.com/package/@azure/search-documents/v/12.2.0) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0/sdk/search/search-documents/) |
 | Azure Blob Storage Checkpoint Store | npm [2.0.0](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/2.0.0) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_2.0.0/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Azure Monitor OpenTelemetry | npm [1.14.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.14.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.14.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.14.0/sdk/monitor/monitor-opentelemetry/) |
 | Batch | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.2/sdk/batch/batch-rest/) |
@@ -50,7 +50,7 @@
 | Core - Client - Tracing | npm [1.3.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.3.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.3.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.5.0](https://www.npmjs.com/package/@azure/core-xml/v/1.5.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.5.0/sdk/core/core-xml/) |
 | Core - Paging | npm [1.6.2](https://www.npmjs.com/package/@azure/core-paging/v/1.6.2) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.6.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.2/sdk/core/core-paging/) |
-| Cosmos DB | npm [4.5.1](https://www.npmjs.com/package/@azure/cosmos/v/4.5.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.5.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.5.1/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [4.6.0](https://www.npmjs.com/package/@azure/cosmos/v/4.6.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.6.0/sdk/cosmosdb/cosmos/) |
 | Create Playwright | npm [1.0.0](https://www.npmjs.com/package/@azure/create-playwright/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0/sdk/loadtesting/create-playwright/) |
 | Defender EASM | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/defender-easm/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.2/sdk/easm/defender-easm-rest/) |
 | Dev Center | npm [1.0.1](https://www.npmjs.com/package/@azure-rest/developer-devcenter/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.1/sdk/devcenter/developer-devcenter-rest/) |
@@ -452,11 +452,11 @@
 | Unknown Display Name | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.10.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.4.3](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.3) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp/v/0.8.5) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.8.5) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.8.5) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.8.5) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.8.5) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.8.6) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -471,8 +471,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5425605](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5425605) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5425605](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5425605) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5425605](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5425605) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.8.5) |  |  |
-| Unknown Display Name | npm [0.8.5](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.8.5) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.8.6) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
@@ -595,7 +595,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.14.8](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.14.8) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.14.9](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.14.9) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |

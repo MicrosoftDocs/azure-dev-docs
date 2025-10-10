@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
    Even though there could be other tools available for certificate management, this tutorial uses OpenSSL. You can find OpenSSL bundled with many GNU/Linux distributions, such as Ubuntu.
 * An active Azure subscription.
-  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+  * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * The ability to deploy the [WebLogic Server configured cluster on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic#weblogic-server-configured-cluster-on-azure-vms) offer described in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic) The other virtual machine (VM) offers don't support automatic integration of Azure Application Gateway. The steps in this article only apply to offers that support automatic integration of Azure Application Gateway.
 
 > [!NOTE]
