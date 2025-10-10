@@ -107,7 +107,7 @@ When a value of `dev` is used, the chain looks as follows:
 
 :::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="Diagram of DefaultAzureCredential chain with AZURE_TOKEN_CREDENTIALS set to 'dev', showing Developer tool credentials used for authentication.":::
 
-To ensure the environment variable is defined and set to a supported string, set the [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) property in `DefaultAzureCredentialOptions` to `AZURE_TOKEN_CREDENTIALS`:
+To ensure the environment variable is defined and set to a supported string, set the [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) property to `AZURE_TOKEN_CREDENTIALS`:
 
 ```javascript
 const credential = new DefaultAzureCredential({ 
