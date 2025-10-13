@@ -34,7 +34,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Resource type** | Required | The Azure resource type in format '{ResourceProvider}/{ResourceType}' (e.g., 'Microsoft.Storage/storageAccounts', 'Microsoft.Compute/virtualMachines') |
+| **Resource type** | Required | The Azure resource type in format `{ResourceProvider}/{ResourceType}` (such as `Microsoft.Storage/storageAccounts`, `Microsoft.Compute/virtualMachines`) |
 
 ## Related content
 

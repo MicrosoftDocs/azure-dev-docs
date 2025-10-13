@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 10/01/2025
+ ms.date: 10/08/2025
 ---
 
 ## Available tools
@@ -15,12 +15,14 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
 | [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
-| [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
 | [Azure App Lens](../../tools/azure-app-lens.md) | Diagnose and analyze application performance issues using Azure App Lens. |
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
+| [Azure Communication Services](../../tools/azure-communications.md) | Send SMS messages using Azure Communication Services. |
+| [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
 | [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
@@ -34,7 +36,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure AI Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
-| [Azure Key Vault](../../tools/key-vault-key.md) | List and create keys, secrets, certificates in Azure Key Vault. |
+| [Azure Key Vault](../../tools/azure-key-vault.md) | List and create keys, secrets, certificates in Azure Key Vault. |
 | [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
 | [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
@@ -46,6 +48,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | Check the health status of Azure resources. |
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
+| [Azure SignalR](../../tools/azure-signalr.md) | Manage Azure SignalR resources and runtimes. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
 | [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
 | [Azure Virtual Desktop](../../tools/azure-virtual-desktop.md) | Manage Azure Virtual Desktop host pools, session hosts, and user sessions. |

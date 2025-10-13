@@ -159,7 +159,7 @@ The Azure MCP Server can list Azure Monitor workbooks in a resource group. This 
 |-----------|-------------|-------------|
 | **Resource group** | Required | The name of the Azure resource group. |
 | **Category** | Optional | The category to filter workbooks by. |
-| **Kind** | Optional | The kind of workbook (e.g., 'shared', 'user'). |
+| **Kind** | Optional | The kind of workbook (such as `shared`, `user`). |
 | **Source ID** | Optional | The source resource ID to filter workbooks by. |
 
 ## Workbooks: Show workbook details
