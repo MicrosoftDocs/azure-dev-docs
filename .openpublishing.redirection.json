@@ -1852,16 +1852,16 @@
       "redirect_url": "/azure/developer/azure-mcp-server/tools/index"
     },
     {
+      "source_path": "articles/azure-mcp-server/tools/key-vault-key.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-key-vault"
+    },
+    {
       "source_path": "articles/azure-mcp-server/tools/kusto.md",
       "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-data-explorer"
     },
     {
       "source_path": "articles/github-copilot-azure/quickstart-deploy-existing-app.md",
       "redirect_url": "/azure/developer/github-copilot-azure/quickstart-deploy-app-agent-mode"
-    },
-    {
-      "source_path": "articles/azure-mcp-server/tools/key-vault-key.md",
-      "redirect_document_id": "/azure/developer/azure-mcp-server/tools/azure-key-vault"
     }
   ]
 }
