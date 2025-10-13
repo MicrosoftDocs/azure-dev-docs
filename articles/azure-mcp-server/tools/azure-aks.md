@@ -24,7 +24,7 @@ Use the Azure MCP Server to manage Azure resources, including Azure Kubernetes S
 <!-- azmcp aks cluster get -->
 
 Get or list Azure Kubernetes Service (AKS) clusters. If a specific cluster name is provided, that cluster will
-be retrieved. Otherwise, all clusters is listed in the specified subscription. Returns detailed cluster
+be retrieved. Otherwise, all clusters are listed in the specified subscription. Returns detailed cluster
 information including configuration, network settings, and status.
 
 Example prompts include:
@@ -49,7 +49,7 @@ Example prompts include:
 <!-- azmcp aks nodepool get -->
 
 Get or list Azure Kubernetes Service (AKS) node pools (agent pools) in a cluster. If a specific node pool name
-is provided, that node pool is retrieved. Otherwise, all node pools is listed in the specified cluster.
+is provided, that node pool is retrieved. Otherwise, all node pools are listed in the specified cluster.
 Returns key configuration and status including size, count, OS, mode, autoscaling, and provisioning state.
 
 Example prompts include:
