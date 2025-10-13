@@ -64,41 +64,24 @@ The code shown in this article is available on <https://github.com/azure-samples
 [!INCLUDE [common resources](../includes/resources.md)]
 
 
-[cargo]: https://dev-doc.rust-lang.org/stable/cargo/commands/cargo.html
 [API reference documentation]: https://docs.rs/releases/search?query=azure_
 [Crates]: ../azure-sdk-library-package-index.md
 [Source code]: https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/
-[REST API documentation]: /rest/api/
-[Product documentation]: /azure/
 
 [Azure SDK main Cargo.toml]: https://github.com/Azure/azure-sdk-for-rust/blob/main/Cargo.toml
 
 [Ref doc - secret - SecretClient]: https://docs.rs/azure_security_keyvault_secrets/latest/azure_security_keyvault_secrets/struct.SecretClient.html
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
-[Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
-[Ref doc - core - error_code]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.error_code
-[Ref doc - core - Result]: https://docs.rs/azure_core/latest/azure_core/type.Result.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/response/struct.Response.html
-[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager/type.Pager.html
-[Ref doc - core - into_pages]: https://docs.rs/azure_core/latest/azure_core/http/struct.ItemIterator.html#method.into_pages
-[Ref doc - core - PageIterator]: https://docs.rs/azure_core/latest/azure_core/http/struct.PageIterator.html
-[Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
-[Ref doc - core - error status]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.status
 [Ref doc - core - http status code]: https://docs.rs/azure_core/latest/azure_core/http/enum.StatusCode.html
-[Ref doc - core - ItemIterator - into pages]: https://docs.rs/azure_core/latest/azure_core/http/pager/struct.ItemIterator.html
+[Ref doc - core - Result]: https://docs.rs/azure_core/latest/azure_core/type.Result.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager/type.Pager.html
+[Ref doc - core - into_pages]: https://docs.rs/azure_core/latest/azure_core/http/pager/struct.ItemIterator.html#method.into_pages
+[Ref doc - core - PageIterator]: https://docs.rs/azure_core/latest/azure_core/http/pager/struct.PageIterator.html
 
 [Crate - identity]: https://crates.io/crates/azure_identity
-[Crate - core]: https://crates.io/crates/azure_core
-[Crate - cosmos]: https://crates.io/crates/azure_data_cosmos
-[Crate - event hubs]: https://crates.io/crates/azure_messaging_eventhubs
-[Crate - key vault - secrets]: https://crates.io/crates/azure_security_keyvault_secrets
-[Crate - key vault - certificates]: https://crates.io/crates/azure_security_keyvault_certificates
-[Crate - key vault - keys]: https://crates.io/crates/azure_security_keyvault_keys
-[Crate - storage]: https://crates.io/crates/azure_storage
 
 [Free Subscription]: https://azure.microsoft.com/free/
 
 [Azure Developer CLI]: /azure/developer/azure-developer-cli
 [Azure CLI]: /cli/azure/
-
-[authentication for Azure SDK for Rust]: ./authentication/overview.md
