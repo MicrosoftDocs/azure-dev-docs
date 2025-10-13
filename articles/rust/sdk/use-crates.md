@@ -39,7 +39,7 @@ When you create the client objects, you can provide a [`ClientOptions`][Ref doc 
 
 ## Error handling
 
-When a service call fails, the returned result contains an error. The error type provides a [`status`][Ref doc - core - error status] property with an HTTP status code and an [`error_code`][Ref doc - core - error_code] property with a service-specific error code.
+When a service call fails, the returned [Response][Ref doc - core - Response] contains the [`status`][Ref doc - core - http status code].  
 
 :::code language="rust" source="~/../azure-sdk-for-rust-docs/examples/error_handling.rs":::
 
@@ -78,12 +78,14 @@ The code shown in this article is available on <https://github.com/azure-samples
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
 [Ref doc - core - error_code]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.error_code
 [Ref doc - core - Result]: https://docs.rs/azure_core/latest/azure_core/type.Result.html
-[Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
-[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/type.Pager.html
+[Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/response/struct.Response.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager/type.Pager.html
 [Ref doc - core - into_pages]: https://docs.rs/azure_core/latest/azure_core/http/struct.ItemIterator.html#method.into_pages
 [Ref doc - core - PageIterator]: https://docs.rs/azure_core/latest/azure_core/http/struct.PageIterator.html
 [Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
 [Ref doc - core - error status]: https://docs.rs/azure_core/latest/azure_core/error/struct.HttpError.html#method.status
+[Ref doc - core - http status code]: https://docs.rs/azure_core/latest/azure_core/http/enum.StatusCode.html
+[Ref doc - core - ItemIterator - into pages]: https://docs.rs/azure_core/latest/azure_core/http/pager/struct.ItemIterator.html
 
 [Crate - identity]: https://crates.io/crates/azure_identity
 [Crate - core]: https://crates.io/crates/azure_core
