@@ -83,7 +83,7 @@ items:
         - name: Azure Managed Lustre
           href: tools/azure-managed-lustre.md
         - name: Azure Key Vault
-          href: tools/key-vault-key.md
+          href: tools/azure-key-vault.md
         - name: Azure Kubernetes Service
           href: tools/azure-aks.md
         - name: Azure Load Testing
