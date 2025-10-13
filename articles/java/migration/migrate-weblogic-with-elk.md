@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+* An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * The ability to deploy one of the WLS on Virtual Machines Azure Applications listed at [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 * A terminal for SSH access to virtual machines.
 

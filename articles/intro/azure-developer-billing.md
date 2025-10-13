@@ -24,10 +24,10 @@ When creating applications that use Azure, you need to understand the factors th
 
 ## What is an Azure Account?
 
-Your Azure account lets you sign in to Azure. You might have an Azure account through the organization you work for or the school you attend. You can also create an individual Azure account for personal use linked to your Microsoft account. If you're looking to learn about and experiment with Azure, [create an Azure account for free](https://azure.microsoft.com/free/).
+Your Azure account lets you sign in to Azure. You might have an Azure account through the organization you work for or the school you attend. You can also create an individual Azure account for personal use linked to your Microsoft account. If you're looking to learn about and experiment with Azure, [create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!div class="nextstepaction"]
-> [Create a free Azure account](https://azure.microsoft.com/free/)
+> [Create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 If you're using an Azure account from your workplace or school, your organization's Azure administrators have likely assigned different groups and roles to your account that govern what you can and can't do in Azure. If you can't create a certain type of resource, check with your Azure administrator about the permissions assigned to your account.
 

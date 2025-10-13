@@ -55,7 +55,7 @@ Top service categories for JavaScript developers include:
 
 ## Create Azure services in the Quickstart Center
 
-When you start learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then go to the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
+When you start learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), then go to the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
 Each service's page on the Azure portal includes connection information you need to access your resource outside of the portal. 
 

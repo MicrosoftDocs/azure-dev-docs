@@ -29,7 +29,7 @@ This article provides setup instructions to create and validate a local developm
         Trial subscription
     :::column-end:::
     :::column span="2":::
-        Create a _free_ [trial subscription](https://azure.microsoft.com/free/).
+        Create a _free_ [trial subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
     :::column-end:::
 :::row-end:::
 :::row:::

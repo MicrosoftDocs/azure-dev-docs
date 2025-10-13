@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/02/2025
+ms.date: 10/08/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -59,8 +59,8 @@ Example prompts include:
 | **Evaluator** |  Required | The name of the evaluator to use (`intent_resolution`, `tool_call_accuracy`, `task_adherence`). |
 | **Response** |  Optional | The response from the agent. |
 | **Tool Definitions** |  Optional | Optional tool definitions made by the agent in JSON format. |
-| **Azure Openai Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
-| **Azure Openai Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
+| **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
+| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
 ## Agents: List agents
 
@@ -102,8 +102,8 @@ Example prompts include:
 | **Query** |  Required | The query sent to the agent. |
 | **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
 | **Evaluators** |  Optional | The list of evaluators to use for evaluation, separated by commas. If not specified, all evaluators are used. |
-| **Azure Openai Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
-| **Azure Openai Deployment** |  Required | The deployment name for the Azure 
+| **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
+| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
 ## Knowledge: List indexes
 
@@ -180,9 +180,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Deployment** | Required | A unique name for this model deployment. |
+| **Deployment** | Required | The name of the Azure AI Foundry model deployment. |
 | **Model** | Required | The name of the model to deploy. |
-| **Model format** | Required | The format of the model (for example, 'OpenAI', 'Meta', 'Microsoft'). |
+| **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
 | **Azure AI services** | Required | The name of the Azure AI services account to deploy to. |
 | **Resource group** | Required | The name of the Azure resource group where the model will be deployed. |
 | **Model version** | Optional | The version of the model to deploy. |
@@ -211,12 +211,78 @@ Example prompts include:
 | **Endpoint** | Required | The endpoint URL for the Azure AI service. |
 
 
-## OpenAI: Create text Completion
+## OpenAI: Create chat completions
+
+<!-- `azmcp foundry openai chat-completions-create` -->
+
+Create interactive chat completions using Azure OpenAI chat models. This tool processes conversational 
+inputs with message history and system instructions to generate contextual responses. Returns chat 
+response as JSON.
+
+Example prompts include:
+
+- **Simple greeting**: "Create a chat completion with the message 'Hello, how are you today?'"
+- **With system message**: "Create a chat completion with system message 'You are a helpful assistant' and user message 'Explain quantum computing' using deployment 'gpt-35-turbo' on resource 'openai-west'"
+- **Control creativity**: "Generate a chat completion for 'Write a creative story' using deployment 'gpt-4' with temperature 0.8 and max 150 tokens on resource 'ai-central'"
+- **Deterministic response**: "Create chat completion with message 'List 5 facts about Mars' using deployment 'gpt-35-turbo' with temperature 0.1 and seed 12345 on resource 'ai-services-prod'"
+- **Conversation with history**: "Continue chat completion with messages: system 'You are a coding assistant', user 'How do I create a function in Python?', assistant 'Here's how...', user 'Can you show an example?' using deployment 'gpt-4' on resource 'dev-openai'"
+- **With penalties for repetition**: "Create completion for 'Describe the benefits of cloud computing' using deployment 'gpt-35-turbo' with frequency penalty 0.5 and presence penalty 0.3 on resource 'ai-services-main'"
+- **Streaming response**: "Generate streaming chat completion for 'Explain machine learning step by step' using deployment 'gpt-4' with stream true on resource 'openai-research'"
+- **With stop sequences**: "Create completion for 'Count from 1 to 10' using deployment 'gpt-35-turbo' with stop sequences ['5', 'STOP'] on resource 'ai-test'"
+- **User tracking**: "Generate completion for 'What is Azure AI?' using deployment 'gpt-4' with user identifier 'user-123' on resource 'prod-openai'"
+- **Fine-tuned control**: "Create chat completion for 'Summarize this article' using deployment 'gpt-35-turbo' with temperature 0.2, top_p 0.9, max tokens 200, and AAD authentication on resource 'secure-ai'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Deployment** |  Required | The name of the Azure AI Foundry model deployment. |
+| **Message array** |  Required | Array of messages in the conversation (JSON format). Each message should have `role` and `content` properties. |
+| **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
+| **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
+| **Top p** |  Optional | Controls diversity via nucleus sampling (0.0 to 1.0). Default is `1.0`. |
+| **Frequency penalty** |  Optional | Penalizes new tokens based on their frequency (-2.0 to 2.0). Default is `0`. |
+| **Presence penalty** |  Optional | Penalizes new tokens based on presence (-2.0 to 2.0). Default is `0`. |
+| **Stop** |  Optional | Up to 4 sequences where the API will stop generating further tokens. |
+| **Stream** |  Optional | Whether to stream back partial progress. Default is `false`. |
+| **Seed** |  Optional | If specified, the system will make a best effort to sample deterministically. |
+| **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
+| **Authentication type** |  Optional | The type of authentication to use. Options are `key` (default) or `aad`. |
+
+## OpenAI: Create embeddings
+
+<!-- `azmcp foundry openai embeddings-create` -->
+
+Generate vector embeddings for text using Azure OpenAI embedding models. This tool converts text into 
+high-dimensional vector representations for similarity search and machine learning applications. 
+
+Example prompts include:
+
+- **Basic text embedding**: "Generate embeddings for the text 'Azure OpenAI Service' using my 'text-embedding-ada-002' deployment"
+- **Create vector embeddings**: "Create vector embeddings for my text using Azure OpenAI with deployment 'text-embedding-3-large' on resource 'ai-services-prod'"
+- **Document embedding**: "Generate embeddings for 'Machine learning revolutionizes data analysis' using deployment 'ada-002' on resource 'embedding-service'"
+- **Multiple sentences**: "Create embeddings for the text 'Cloud computing provides scalable infrastructure. It enables global accessibility.' using my embedding deployment"
+- **With user tracking**: "Generate embeddings for 'Natural language processing applications' using deployment 'text-embedding-3-small' with user identifier 'analytics-team'"
+- **Specific dimensions**: "Create embeddings for 'Artificial intelligence transforms business operations' using deployment 'text-embedding-3-large' with 1536 dimensions on resource 'ai-central'"
+- **Base64 format**: "Generate embeddings for 'Deep learning neural networks' using deployment 'ada-002' with base64 encoding format on resource 'ml-services'"
+- **Research text**: "Create vector embeddings for 'Quantum computing demonstrates computational advantages in specific algorithms' using my text-embedding deployment"
+- **Product description**: "Generate embeddings for 'High-performance laptop with advanced graphics processing unit' using deployment 'text-embedding-3-small' on resource 'product-ai'"
+- **Technical documentation**: "Create embeddings for 'API authentication requires valid credentials and proper authorization headers' using deployment 'ada-002' with float encoding on resource 'docs-embedding'"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource name** |  Required | The name of the Azure OpenAI resource. |
+| **Deployment** |  Required | The name of the Azure AI Foundry model deployment. |
+| **Input text** |  Required | The input text to generate embeddings for. |
+| **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
+| **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
+| **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
+
+## OpenAI: Create text completions
 
 <!-- `azmcp foundry openai create-completion` -->
 
-Generate text completions using deployed Azure OpenAI models in AI Foundry. This tool sends prompts to Azure OpenAI 
-completion models and returns generated text as JSON with configurable parameters like temperature and max tokens. 
+Generate text completions using deployed Azure OpenAI models in AI Foundry. 
 
 Example prompts include:
 
@@ -234,6 +300,33 @@ Example prompts include:
 | **Prompt text** |  Required | The prompt text to send to the completion model. |
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
+
+
+## OpenAI: List models and deployments
+
+<!-- `azmcp foundry openai models-list` -->
+
+List all available OpenAI models and deployments in an Azure resource. This tool retrieves information about 
+deployed models including model names, versions, capabilities, and deployment status. 
+
+Example prompts include:
+
+- **View all models**: "List all OpenAI models in my 'ai-services-prod' resource"
+- **Check deployments**: "Show me all deployed models and their status in resource 'openai-east'"
+- **Production inventory**: "What models are available in my 'production-openai' resource?"
+- **Development check**: "List all models and deployments in my 'dev-ai-services' resource"
+- **Model capabilities**: "Show me all available OpenAI models with their capabilities in resource 'ai-central'"
+- **Deployment status**: "What's the current status of all deployments in my 'openai-west' resource?"
+- **Regional models**: "List all models available in my 'europe-openai' resource"
+- **Service overview**: "Give me a complete overview of models and deployments in resource 'customer-ai'"
+- **Model versions**: "Show me all model versions available in my 'ai-services-main' resource"
+- **Resource audit**: "I need to audit all OpenAI models and deployments in resource 'enterprise-ai'"
+
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource name** |  Required | The name of the Azure OpenAI resource. |
 
 
 ## Related content

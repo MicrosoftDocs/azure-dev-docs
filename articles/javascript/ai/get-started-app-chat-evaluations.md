@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Prerequisites
 
-* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
+* Azure subscription.  [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) 
 
 * Deploy a chat app.
 

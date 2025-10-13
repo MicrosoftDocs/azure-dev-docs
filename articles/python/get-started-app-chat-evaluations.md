@@ -17,7 +17,7 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Prerequisites
 
-* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Complete the [previous chat app procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This resource is required for the evaluations app to work. Don't complete the "Clean up resources" section of the previous procedure.
 
     You need the following Azure resource information from that deployment, which is referred to as the *chat app* in this article:

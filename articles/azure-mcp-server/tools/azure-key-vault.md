@@ -27,7 +27,7 @@ Retrieves all Key Vault Managed HSM account settings for a given vault. This inc
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Vault.** |  Required | The name of the Key Vault. |
+| **Vault** |  Required | The name of the Key Vault. |
 
 Example prompts include:
 

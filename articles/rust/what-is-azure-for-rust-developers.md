@@ -63,7 +63,7 @@ Key service categories for Rust developers include:
 
 ## Create Azure services: Quickstart Center guide
 
-Start your Azure journey by [creating a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then visit the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
+Start your Azure journey by [creating a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), then visit the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
 Find connection information on each service's page in the Azure portal to access your resources from your code.
 
