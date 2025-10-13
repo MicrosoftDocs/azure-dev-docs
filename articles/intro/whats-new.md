@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 09/08/2025
+ms.date: 10/13/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
@@ -10,6 +10,93 @@ ms.topic: article
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for September 2025
+
+### AI apps using Azure services
+
+New articles:
+
+- [Build a .NET OpenAI Agent using an MCP server on Azure Container Apps](../ai/build-openai-mcp-server-dotnet.md)
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Work with Azure Developer CLI metadata for Bicep input parameters](../azure-developer-cli/metadata.md)
+
+Updated articles:
+
+- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.19.0
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure App Lens tools for the Azure MCP Server](../azure-mcp-server/tools/azure-app-lens.md)
+- [Azure App Service tools for Azure MCP Server](../azure-mcp-server/tools/azure-app-service.md)
+- [Azure Event Grid tools for the Azure MCP Server](../azure-mcp-server/tools/azure-event-grid.md)
+- [Get started with the Azure MCP Server in Cline](../azure-mcp-server/get-started/tools/cline.md)
+- [Get started with the Azure MCP Server in IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
+- [Get started with the Azure MCP Server in Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
+
+Updated articles:
+
+- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP tools - Event Grid, Foundry, Health Resource
+- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-aks.md) - MCP tools - AKS, AI Search, Storage
+- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
+  - MCP tools: user consent, App Lens, Managed Lustre, Azure SQL, Key Vault, remove AZ and AZD
+  - MCP tool v0.5.12
+- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/azure-key-vault.md) - MCP tools: user consent, App Lens, Managed Lustre, Azure SQL, Key Vault, remove AZ and AZD
+
+### Azure for Java
+
+Updated articles:
+
+- Update for Spring Cloud Azure 6.0.0:
+  - [Spring Boot Starter for Microsoft Entra developer's guide](../java/spring-framework/spring-boot-starter-for-entra-developer-guide.md)
+  - [Spring Cloud Azure Redis support](../java/spring-framework/redis-support.md)
+  - [Spring Cloud Azure support for Spring Cloud Stream](../java/spring-framework/spring-cloud-stream-support.md)
+  - [Spring Cloud Azure support for Spring Security](../java/spring-framework/spring-security-support.md)
+
+### Azure for JavaScript
+
+New articles:
+
+- [Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity](../javascript/sdk/authentication/system-assigned-managed-identity.md)
+- [Authenticate Azure-hosted JavaScript apps to Azure resources using a user-assigned managed identity](../javascript/sdk/authentication/user-assigned-managed-identity.md)
+
+### Azure for Rust
+
+New articles:
+
+- [Authenticate Rust apps to Azure services](../rust/sdk/authentication/overview.md)
+- [Azure for Rust developers](../rust/index.yml)
+- [Azure for Rust developers: Build cloud applications](../rust/what-is-azure-for-rust-developers.md)
+- [Configure your Rust development environment for Azure](../rust/developer-environment.md)
+- [Install Azure SDK for Rust crates](../rust/sdk/installation.md)
+- [Use Azure SDK for Rust crates to access Azure services](../rust/sdk/use-crates.md)
+- [What are Azure SDK for Rust crates?](../rust/sdk/overview.md)
+
+### GitHub Copilot for Azure
+
+Updated articles:
+
+- [What is GitHub Copilot for Azure?](../github-copilot-azure/introduction.md) - Added table for supported development environments
+
+### GitHub Copilot app modernization
+
+New articles:
+
+- [Quickstart: containerize your Java project using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md)
+- [Quickstart: deploy your Java project to Azure by using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md)
+
+Updated articles:
+
+- GA release updates:
+  - [GitHub Copilot app modernization](../github-copilot-app-modernization/overview.md)
+  - [GitHub Copilot app modernization FAQ](../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml)
+  - [Quickstart: assess and migrate a Java project using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
 
 ## What's new for August 2025
 
@@ -173,71 +260,3 @@ Updated article:
 New article:
 
 - [Quickstart: Create a new API project with TypeSpec and TypeScript](../typespec/quickstart-scaffold-typescript.md)
-
-## What's new for June 2025
-
-### AI apps using Azure services
-
-New article:
-
-- [Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK](../ai/how-to/use-reasoning-model-inference.md)
-
-### Azure Developer CLI (azd)
-
-New article:
-
-- [Docker support as a language](../azure-developer-cli/docker-language-support.md)
-
-Updated article:
-
-- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.17.0
-
-### Azure MCP Server
-
-New article:
-
-- [Azure MCP Server documentation](../azure-mcp-server/index.yml)
-
-Updated articles:
-
-- [Azure App Configuration tools for the Azure MCP Server](../azure-mcp-server/tools/app-configuration.md) - Azure MCP Server docs updates - landing page and more
-- [Azure Data Explorer tools for the Azure MCP Server](../azure-mcp-server/tools/azure-data-explorer.md) - Updated Azure Data Explorer tools article
-
-### Azure and GitHub integration
-
-New article:
-
-- [Integrate Azure Key Vault into a GitHub Actions workflow](../github/github-actions-key-vault.md)
-
-### Azure for Java
-
-New articles:
-
-- [Configure passwordless database connections for Java apps on IBM WebSphere Application Server](../java/ee/how-to-configure-passwordless-datasource-websphere.md)
-- [Configure passwordless database connections for Java apps on Oracle WebLogic Server](../java/ee/how-to-configure-passwordless-datasource-wls.md)
-- AppCAT 7:
-  - [CLI command guide](/azure/migrate/appcat/appcat-7-cli-guide)
-  - [Rules development guide](/azure/migrate/appcat/appcat-7-rule-guide)
-
-Updated articles:
-
-- AppCAT 7 - Split content into multiple articles focusing on AppCAT 7:
-  - [Overview](/azure/migrate/appcat/java)
-  - [Release notes](/azure/migrate/appcat/appcat-7-release-notes)
-  - [Quickstart: Assess a Java project](/azure/migrate/appcat/appcat-7-quickstart)
-  - [Interpret the report](/azure/migrate/appcat/appcat-7-interpret-report)
-
-### Azure for JavaScript
-
-Updated articles:
-
-- [Azure Test Guide for JavaScript Applications](../javascript/core/test-azure-sdk-integrated-code.md)
-- [Monitor JavaScript applications in Azure with logs, metrics, and alerts](../javascript/logging.md)
-
-### Azure for Python
-
-Updated articles:
-
-- [Deploy Python web apps to App Service by using GitHub Actions (Linux)](../python/python-web-app-github-actions-app-service.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
-- [Get started: Chat using your own data (Python sample)](../python/get-started-app-chat-template.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
-- [Overview of the Python web azd templates](../python/overview-azd-templates.md) - Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
