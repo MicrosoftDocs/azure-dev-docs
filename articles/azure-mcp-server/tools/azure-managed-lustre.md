@@ -28,7 +28,7 @@ Example prompts include:
 
 - **Basic filesystem creation**: "Create Azure Managed Lustre filesystem 'amlfs-prod-001' in eastus with SKU 'AMLFS-Durable-Premium-125', size 128 TiB, in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001', zone 1, maintenance on Sunday at 02:00"
 - **Development environment**: "Create test filesystem 'dev-amlfs' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 48 TiB capacity in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
-- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/prod/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/prod/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/v1'"
+- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p'"
 - **Budget-optimized setup**: "Create cost-effective filesystem 'budget-fs' in eastus2 with 'AMLFS-Durable-Premium-40', 48 TiB, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/budget-rg/providers/Microsoft.Network/virtualNetworks/budget-vnet/subnets/storage-subnet', zone 1, maintenance Sunday at 05:00"
 
 | Parameter |  Required or optional | Description |
@@ -132,16 +132,16 @@ Validates that the provided subnet can host an Azure Managed Lustre filesystem f
 
 Example prompts include:
 
-- **Basic validation**: "Validate if the network '/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001' can host Azure Managed Lustre filesystem of size 128 TiB using the SKU 'AMLFS-Durable-Premium-125'"
-- **Production environment**: "Check if subnet '/subscriptions/prod-sub/resourceGroups/hpc-rg/providers/Microsoft.Network/virtualNetworks/hpc-vnet/subnets/lustre-subnet' can support AMLFS filesystem of 256 TiB with SKU 'AMLFS-Durable-Premium-250' in eastus"
+- **Basic validation**: "Validate if the network '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001' can host Azure Managed Lustre filesystem of size 128 TiB using the SKU 'AMLFS-Durable-Premium-125'"
+- **Production environment**: "Check if subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hpc-rg/providers/Microsoft.Network/virtualNetworks/hpc-vnet/subnets/lustre-subnet' can support AMLFS filesystem of 256 TiB with SKU 'AMLFS-Durable-Premium-250' in eastus"
 - **Development setup**: "Validate subnet capacity for Azure Managed Lustre filesystem size 48 TiB using SKU 'AMLFS-Durable-Premium-40' in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet' in westus2"
-- **Large scale deployment**: "Can subnet '/subscriptions/enterprise/resourceGroups/ai-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet' host a 512 TiB Azure Managed Lustre filesystem using 'AMLFS-Durable-Premium-500' SKU in swedencentral?"
+- **Large scale deployment**: "Can subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ai-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet' host a 512 TiB Azure Managed Lustre filesystem using 'AMLFS-Durable-Premium-500' SKU in swedencentral?"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **SKU** |  Required | The AMLFS SKU. Exact allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size in TiB as an integer (no unit). Examples: `4`, `12`, `128`. |
-| **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
+| **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
 | **Location** |  Required | Azure region/region short name (use Azure location token, lowercase). Examples: `uaenorth`, `swedencentral`, `eastus`. |
 
 ## Related content
