@@ -59,8 +59,8 @@ Example prompts include:
 | **Evaluator** |  Required | The name of the evaluator to use (`intent_resolution`, `tool_call_accuracy`, `task_adherence`). |
 | **Response** |  Optional | The response from the agent. |
 | **Tool Definitions** |  Optional | Optional tool definitions made by the agent in JSON format. |
-| **Azure Openai Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
-| **Azure Openai Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
+| **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
+| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
 ## Agents: List agents
 
@@ -102,8 +102,8 @@ Example prompts include:
 | **Query** |  Required | The query sent to the agent. |
 | **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
 | **Evaluators** |  Optional | The list of evaluators to use for evaluation, separated by commas. If not specified, all evaluators are used. |
-| **Azure Openai Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
-| **Azure Openai Deployment** |  Required | The deployment name for the Azure OpenAI model.|
+| **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
+| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
 ## Knowledge: List indexes
 
