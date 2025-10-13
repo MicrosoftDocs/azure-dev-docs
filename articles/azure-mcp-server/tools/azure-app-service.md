@@ -44,10 +44,10 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **App** |  Required | The name of the Azure App Service (for example, my-webapp). |
-| **Database type.** |  Required | The type of database (for example, SqlServer, MySQL, PostgreSQL, Cosmos DB). |
-| **Database server.** |  Required | The server name or endpoint for the database (for example, myserver.database.windows.net). |
+| **Database type** |  Required | The type of database (for example, SqlServer, MySQL, PostgreSQL, Cosmos DB). |
+| **Database server** |  Required | The server name or endpoint for the database (for example, myserver.database.windows.net). |
 | **Database** |  Required | The name of the database to connect to (for example, mydb). |
-| **Connection string.** |  Optional | The connection string for the database. If not provided, a default is generated. |
+| **Connection string** |  Optional | The connection string for the database. If not provided, a default is generated. |
 
 ## Related resources
 
