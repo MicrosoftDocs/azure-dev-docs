@@ -37,7 +37,7 @@ productDirectory:
       imageSrc: ./intro/media/azure-openai.png
       url: /azure/developer/ai/
     - title: Python
-      summary: Build secure, scalable cloud applications with Python libraries that streamline tasks like authentication, resource management, and service integration.
+      summary: Build secure, scalable cloud applications with Python libraries that interact with Azure services.
       imageSrc: /media/logos/logo_python.svg
       url: ./python/index.yml
     - title: JavaScript
@@ -53,15 +53,15 @@ productDirectory:
       imageSrc: /azure/media/index/net-logo.svg
       url: /dotnet/azure/
     - title: Go
-      summary: Simplify provisioning, managing, and using Azure resources from Go application code.
+      summary: Simplify provisioning, managing, and using Azure resources with Go.
       imageSrc: /media/logos/logo_Go-lightblue.svg
       url: ./go/index.yml
     - title: C++
-      summary: Learn how to enable your C++ applications to interact seamlessly with Azure services, whether in local or cloud environments.
+      summary: Learn how to enable your C++ applications to interact with Azure services.
       imageSrc: /media/logos/logo_Cplusplus.svg
       url: ./cpp/index.yml
     - title: Rust
-      summary: Build, deploy, and manage high-performance applications using Rust libraries that simplify interactions with Azure services.
+      summary: Build, deploy, and manage high-performance applications using Rust libraries.
       imageSrc: ./intro/media/logo-rust.png
       url: ./rust/index.yml
 
@@ -82,7 +82,7 @@ additionalContent:
         - title: GitHub Copilot for Azure
           summary: Use AI to add cloud features and deploy your app to Azure.
           url: /azure/developer/github-copilot-azure/
-    - title: Developer Tools
+    - title: Developer tools
       summary: Use your favorite development tools when working with Azure.
       items:
         # Card
