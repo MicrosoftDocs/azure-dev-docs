@@ -31,12 +31,12 @@ To install and configure Azure MCP Server in IntelliJ:
 
 1. Select the **IDE and Project Settings** gear icon, and then choose **Plugins..**.
 
-    :::image type="content" source="../../media/jet-brains-install-plugins.png" alt-text="A screenshot showing how to configure an MCP Server in IntelliJ.":::
+    :::image type="content" source="../../media/jet-brains-install-plugins.png" alt-text="A screenshot showing how to install plugins.":::
 
 1. In the **Plugins** panel of the **Settings** dialog, search for *Azure ToolKit for IntelliJ*.
 1. Select the matching result, and then select **Install**.
 
-    :::image type="content" source="../../media/jet-brains-install-azure-mcp-server-plugin.png" alt-text="A screenshot showing how to configure an MCP Server in IntelliJ.":::
+    :::image type="content" source="../../media/jet-brains-install-azure-mcp-server.png" alt-text="A screenshot showing how to install the Azure MCP Server plugin.":::
 
     > [!NOTE]
     > Azure MCP Server is only included with the Azure Toolkit for IntelliJ installation if you already have the [GitHub Copilot for IntelliJ](https://plugins.jetbrains.com/plugin/17718-github-copilot) plugin installed.
