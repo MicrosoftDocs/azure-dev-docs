@@ -49,7 +49,7 @@ productDirectory:
       imageSrc: /media/logos/logo_java.svg
       url: ./java/index.yml
     - title: .NET
-      summary: Learn to develop .NET apps leveraging a variety of Azure services.
+      summary: Learn to develop .NET apps using various Azure services.
       imageSrc: /azure/media/index/net-logo.svg
       url: /dotnet/azure/
     - title: Go
