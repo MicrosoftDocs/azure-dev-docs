@@ -33,22 +33,31 @@ Updated articles:
 
 New articles:
 
+- [Get started with the Azure MCP Server in Cline](../azure-mcp-server/get-started/tools/cline.md)
 - [Azure App Lens tools for the Azure MCP Server](../azure-mcp-server/tools/azure-app-lens.md)
 - [Azure App Service tools for Azure MCP Server](../azure-mcp-server/tools/azure-app-service.md)
 - [Azure Event Grid tools for the Azure MCP Server](../azure-mcp-server/tools/azure-event-grid.md)
-- [Get started with the Azure MCP Server in Cline](../azure-mcp-server/get-started/tools/cline.md)
-- [Get started with the Azure MCP Server in IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
-- [Get started with the Azure MCP Server in Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
 
 Updated articles:
-
-- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP tools - Event Grid, Foundry, Health Resource
-- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-aks.md) - MCP tools - AKS, AI Search, Storage
+- [Get started with the Azure MCP Server in Cursor](../azure-mcp-server/get-started/tools/cursor.md)
+- [Get started with the Azure MCP Server in IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
+- [Get started with the Azure MCP Server in Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
+- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md)
+- [Get started with the Azure MCP Server using Visual Studio Code](../azure-mcp-server/get-started/tools/visual-studio-code.md)
+- [Azure App Configuration tools for the Azure MCP Server](../azure-mcp-server/tools/app-configuration.md)
+- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md)
+- [Azure AI Search tools for the Azure MCP Server](../azure-mcp-server/tools/ai-search.md)
+- [Azure Functions tools for the Azure MCP Server](../azure-mcp-server/tools/azure-functions.md)
+- [Azure Health Resource tools for the Azure MCP Server](../azure-mcp-server/tools/azure-health-resource.md)
+- [Azure Load Testing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md)
+- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/azure-key-vault.md)
+- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-aks.md)
+- [Azure Managed Lustre tools for the Azure MCP Server](../azure-mcp-server/tools/azure-managed-lustre.md)
+- [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/monitor.md)
+- [Azure MCP Tool tools for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
-  - MCP tools: user consent, App Lens, Managed Lustre, Azure SQL, Key Vault, remove AZ and AZD
-  - MCP tool v0.5.12
-- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/azure-key-vault.md) - MCP tools: user consent, App Lens, Managed Lustre, Azure SQL, Key Vault, remove AZ and AZD
-
+- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
+- 
 ### Azure for Java
 
 Updated articles:
@@ -61,20 +70,22 @@ Updated articles:
 
 ### Azure for JavaScript
 
-New articles:
+Updated articles:
 
 - [Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity](../javascript/sdk/authentication/system-assigned-managed-identity.md)
 - [Authenticate Azure-hosted JavaScript apps to Azure resources using a user-assigned managed identity](../javascript/sdk/authentication/user-assigned-managed-identity.md)
-
+- [Authenticate Node.js apps to Azure services during local development using developer accounts](../javascript/sdk/authentication/local-development-environment-developer-account.md)
+  
 ### Azure for Rust
 
 New articles:
 
+- [OpenTelemetry in Azure SDK for Rust crates](../rust/sdk/logging.md)
+
+Updated articles:
+
 - [Authenticate Rust apps to Azure services](../rust/sdk/authentication/overview.md)
-- [Azure for Rust developers](../rust/index.yml)
-- [Azure for Rust developers: Build cloud applications](../rust/what-is-azure-for-rust-developers.md)
 - [Configure your Rust development environment for Azure](../rust/developer-environment.md)
-- [Install Azure SDK for Rust crates](../rust/sdk/installation.md)
 - [Use Azure SDK for Rust crates to access Azure services](../rust/sdk/use-crates.md)
 - [What are Azure SDK for Rust crates?](../rust/sdk/overview.md)
 
