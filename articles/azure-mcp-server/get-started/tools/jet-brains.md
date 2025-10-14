@@ -27,7 +27,7 @@ In this article, you learn how to complete the following tasks:
 
 ## Install the Azure MCP Server
 
-To install and configure Azure MCP Server in IntelliJ:
+To install and configure Azure MCP Server in IntelliJ, choose one of the following options:
 
 ### [Azure Toolkit for IntelliJ](#tab/azure-toolkit)
 
