@@ -403,7 +403,7 @@
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourcesdeployments/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resourcesdeployments-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesdeployments_1.0.0-beta.1/sdk/resources/arm-resourcesdeployments/) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.11.11](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.11) |  |  |
+| @autorest/openapi-to-typespec | npm [0.11.12](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.11.12) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.2.2](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.2.2) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -412,7 +412,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.61.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.61.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.61.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.61.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.29.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.29.0) |  |  |
-| @azure-tools/typespec-go | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.2) |  |  |
+| @azure-tools/typespec-go | npm [0.8.3](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.3) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.10.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -452,11 +452,11 @@
 | Unknown Display Name | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.10.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.4.3](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.3) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp/v/0.8.6) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.8.6) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.8.6) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.8.6) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp/v/0.9.0) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.0) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.0) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.0) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.0) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -471,8 +471,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5425605](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5425605) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5425605](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5425605) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5425605](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5425605) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.8.6) |  |  |
-| Unknown Display Name | npm [0.8.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.8.6) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.0) |  |  |
+| Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.0) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
@@ -647,7 +647,7 @@
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
 | Git Rest Api SDK | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  | GitHub [0.3.3](https://github.com/azure/git-rest-api) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
-| Oad | npm [0.12.2](https://www.npmjs.com/package/@azure/oad/v/0.12.2) |  | GitHub [0.12.2](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.12.3](https://www.npmjs.com/package/@azure/oad/v/0.12.3) |  | GitHub [0.12.3](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
