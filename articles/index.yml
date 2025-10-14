@@ -33,27 +33,35 @@ productDirectory:
   summary: Use your favorite programming languages to build applications on Azure.
   items:
     - title: Develop AI apps using Azure services
+      summary: Build applications with generative AI capabilities on Azure.
       imageSrc: ./intro/media/azure-openai.png
       url: /azure/developer/ai/
     - title: Python
+      summary: Build secure, scalable cloud applications with Python libraries that streamline tasks like authentication, resource management, and service integration.
       imageSrc: /media/logos/logo_python.svg
       url: ./python/index.yml
     - title: JavaScript
+      summary: Learn to develop JavaScript apps using various Azure services.
       imageSrc: /media/logos/logo_js.svg
       url: ./javascript/index.yml
     - title: Java
+      summary: Learn how to get started developing apps for the cloud using Java.
       imageSrc: /media/logos/logo_java.svg
       url: ./java/index.yml
     - title: .NET
+      summary: Learn to develop .NET apps leveraging a variety of Azure services.
       imageSrc: /azure/media/index/net-logo.svg
       url: /dotnet/azure/
     - title: Go
+      summary: Simplify provisioning, managing, and using Azure resources from Go application code.
       imageSrc: /media/logos/logo_Go-lightblue.svg
       url: ./go/index.yml
     - title: C++
+      summary: Learn how to enable your C++ applications to interact seamlessly with Azure services, whether in local or cloud environments.
       imageSrc: /media/logos/logo_Cplusplus.svg
       url: ./cpp/index.yml
     - title: Rust
+      summary: Build, deploy, and manage high-performance applications using Rust libraries that simplify interactions with Azure services.
       imageSrc: ./intro/media/logo-rust.png
       url: ./rust/index.yml
 
@@ -99,7 +107,7 @@ additionalContent:
           url: ./java/toolkit-for-eclipse/index.yml
         # Card
         - title: Maven plugins for Azure
-          summary: Use Maven to automate building and managing Java projects. It also works with other languages.
+          summary: Use Maven to automate building and managing Java projects and other languages.
           url: https://github.com/Microsoft/azure-maven-plugins#readme
         # Card
         - title: TypeSpec
@@ -122,5 +130,5 @@ additionalContent:
           url: /powershell/azure/
         # Card
         - title: Azure Developer CLI (azd)
-          summary: Azure Developer CLI (azd) provides commands for key stages in your workflow (code, build, deploy, monitor). The CLI helps you stay consistent across the terminal, your editor or integrated development environment (IDE), GitHub Actions pipeline, and more.
+          summary: Azure Developer CLI (azd) provides commands for key stages in your workflow including code, build, deploy, and monitor. Stay consistent across terminal, IDE, GitHub Actions pipeline, and more.
           url: /azure/developer/azure-developer-cli/
