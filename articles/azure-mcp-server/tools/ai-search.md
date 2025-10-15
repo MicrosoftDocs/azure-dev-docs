@@ -1,10 +1,10 @@
 ---
 title: Azure AI Search Tools
-description: Learn how to use the Azure MCP Server with Azure AI Search.
+description: Learn how to use Azure MCP Server tools to manage Azure AI Search resources, indexes, and queries with natural language prompts.
 keywords: azure mcp server, azmcp, ai search, cognitive search, azure search
 author: diberry
 ms.author: diberry
-ms.date: 09/23/2025
+ms.date: 10/15/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -59,6 +59,49 @@ Example prompts include:
 | **Service** | Required | The name of the AI Search service. |
 | **Index** | Required | The name of the index to query. |
 | **Query** | Required | The search query to run against the index. |
+
+## Knowledge: Get knowledge base
+
+<!-- `azmcp search knowledge base get` -->
+
+Gets the details of Azure AI Search knowledge bases. Knowledge bases encapsulate retrieval and reasoning
+capabilities over one or more knowledge sources or indexes. If a specific knowledge base name is not provided,
+the command will return details for all knowledge bases within the specified service.
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
+| **Knowledge base** |  Optional | The name of the knowledge base within the Azure AI Search service. |
+
+## Knowledge: Retrieve knowledge base
+
+<!-- `azmcp search knowledge base retrieve` -->
+
+Execute a retrieval operation using a specific Azure AI Search knowledge base, effectively searching and querying the underlying data sources as needed to find relevant information. Provide either a query for single-turn retrieval or one or more conversational messages. Specifying both query and messages is not allowed.
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
+| **Knowledge base** |  Required | The name of the knowledge base within the Azure AI Search service. |
+| **Query** |  Optional | Natural language query for retrieval when a conversational message history isn't provided. |
+| **Messages** |  Optional | Conversation history messages passed to the knowledge base. Able to specify multiple messages entries. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:How many docs?`). |
+
+## Knowledge: Get source
+
+<!-- `azmcp search knowledge source get` -->
+
+Gets the details of Azure AI Search knowledge sources. A knowledge source may point directly at an
+existing Azure AI Search index, or may represent external data (for example, a blob storage container) that has been
+indexed in Azure AI Search internally. These knowledge sources are used by knowledge bases during retrieval.
+If a specific knowledge source name is not provided, the command will return details for all knowledge sources
+within the specified service.
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Service** |  Required | The name of the Azure AI Search service (for example, my-search-service). |
+| **Knowledge source** |  Optional | The name of the knowledge source within the Azure AI Search service. |
+
 
 ## Service: List accounts
 
