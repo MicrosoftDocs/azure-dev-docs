@@ -88,7 +88,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     )
     ```
 
-1. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+1. Set the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 :::zone-end
 :::zone pivot="dotnet"
@@ -162,7 +162,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     OpenAIClient client = new(tokenPolicy, clientOptions);
     ```
 
-1. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+1. Set the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 :::zone-end
 
