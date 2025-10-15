@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 09/12/2025
+ms.date: 10/09/2025
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -36,13 +36,16 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd deploy](#azd-deploy): Deploy your project code to Azure.
 * [azd down](#azd-down): Delete your project's Azure resources.
 * [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
+* [azd extension](#azd-extension): Manage azd extensions.
 * [azd hooks](#azd-hooks): Develop, test and run hooks for a project.
 * [azd infra](#azd-infra): Manage your Infrastructure as Code (IaC).
 * [azd init](#azd-init): Initialize a new application.
+* [azd mcp](#azd-mcp): Manage Model Context Protocol (MCP) server. (Alpha)
 * [azd monitor](#azd-monitor): Monitor a deployed project.
 * [azd package](#azd-package): Packages the project's code to be deployed to Azure.
 * [azd pipeline](#azd-pipeline): Manage and configure your deployment pipelines.
 * [azd provision](#azd-provision): Provision Azure resources for your project.
+* [azd publish](#azd-publish): Publish a service to a container registry.
 * [azd restore](#azd-restore): Restores the project's dependencies.
 * [azd show](#azd-show): Display information about your project and its resources.
 * [azd template](#azd-template): Find and view template details.
@@ -942,6 +945,300 @@ azd env set-secret <name> [flags]
 * [azd env](#azd-env): Manage environments (ex: default environment, environment variables).
 * [Back to top](#azd)
 
+## azd extension
+
+Manage azd extensions.
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd extension in your web browser.
+  -h, --help   Gets help for extension.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension install](#azd-extension-install): Installs specified extensions.
+* [azd extension list](#azd-extension-list): List available extensions.
+* [azd extension show](#azd-extension-show): Show details for a specific extension.
+* [azd extension source](#azd-extension-source): View and manage extension sources
+* [azd extension uninstall](#azd-extension-uninstall): Uninstall specified extensions.
+* [azd extension upgrade](#azd-extension-upgrade): Upgrade specified extensions.
+* [Back to top](#azd)
+
+## azd extension install
+
+Installs specified extensions.
+
+```azdeveloper
+azd extension install <extension-name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs             Opens the documentation for azd extension install in your web browser.
+  -f, --force            Force installation even if it would downgrade the current version
+  -h, --help             Gets help for install.
+  -s, --source string    The extension source to use for installs
+  -v, --version string   The version of the extension to install
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension](#azd-extension): Manage azd extensions.
+* [Back to top](#azd)
+
+## azd extension list
+
+List available extensions.
+
+```azdeveloper
+azd extension list [--installed] [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs            Opens the documentation for azd extension list in your web browser.
+  -h, --help            Gets help for list.
+      --installed       List installed extensions
+      --source string   Filter extensions by source
+      --tags strings    Filter extensions by tags
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension](#azd-extension): Manage azd extensions.
+* [Back to top](#azd)
+
+## azd extension show
+
+Show details for a specific extension.
+
+```azdeveloper
+azd extension show <extension-name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs            Opens the documentation for azd extension show in your web browser.
+  -h, --help            Gets help for show.
+  -s, --source string   The extension source to use.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension](#azd-extension): Manage azd extensions.
+* [Back to top](#azd)
+
+## azd extension source
+
+View and manage extension sources
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd extension source in your web browser.
+  -h, --help   Gets help for source.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension](#azd-extension): Manage azd extensions.
+* [azd extension source add](#azd-extension-source-add): Add an extension source with the specified name
+* [azd extension source list](#azd-extension-source-list): List extension sources
+* [azd extension source remove](#azd-extension-source-remove): Remove an extension source with the specified name
+* [Back to top](#azd)
+
+## azd extension source add
+
+Add an extension source with the specified name
+
+```azdeveloper
+azd extension source add [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs              Opens the documentation for azd extension source add in your web browser.
+  -h, --help              Gets help for add.
+  -l, --location string   The location of the extension source
+  -n, --name string       The name of the extension source
+  -t, --type string       The type of the extension source. Supported types are 'file' and 'url'
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension source](#azd-extension-source): View and manage extension sources
+* [Back to top](#azd)
+
+## azd extension source list
+
+List extension sources
+
+```azdeveloper
+azd extension source list [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd extension source list in your web browser.
+  -h, --help   Gets help for list.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension source](#azd-extension-source): View and manage extension sources
+* [Back to top](#azd)
+
+## azd extension source remove
+
+Remove an extension source with the specified name
+
+```azdeveloper
+azd extension source remove <name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd extension source remove in your web browser.
+  -h, --help   Gets help for remove.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension source](#azd-extension-source): View and manage extension sources
+* [Back to top](#azd)
+
+## azd extension uninstall
+
+Uninstall specified extensions.
+
+```azdeveloper
+azd extension uninstall <extension-name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --all    Uninstall all installed extensions
+      --docs   Opens the documentation for azd extension uninstall in your web browser.
+  -h, --help   Gets help for uninstall.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension](#azd-extension): Manage azd extensions.
+* [Back to top](#azd)
+
+## azd extension upgrade
+
+Upgrade specified extensions.
+
+```azdeveloper
+azd extension upgrade <extension-name> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --all              Upgrade all installed extensions
+      --docs             Opens the documentation for azd extension upgrade in your web browser.
+  -h, --help             Gets help for upgrade.
+  -s, --source string    The extension source to use for upgrades
+  -v, --version string   The version of the extension to upgrade to
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd extension](#azd-extension): Manage azd extensions.
+* [Back to top](#azd)
+
 ## azd hooks
 
 Develop, test and run hooks for a project.
@@ -1087,6 +1384,221 @@ azd init [flags]
 
 * [Back to top](#azd)
 
+## azd mcp
+
+Manage Model Context Protocol (MCP) server. (Alpha)
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd mcp in your web browser.
+  -h, --help   Gets help for mcp.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd mcp consent](#azd-mcp-consent): Manage MCP tool consent.
+* [azd mcp start](#azd-mcp-start): Starts the MCP server.
+* [Back to top](#azd)
+
+## azd mcp consent
+
+Manage MCP tool consent.
+
+### Synopsis
+
+Manage consent rules for MCP tool execution.
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd mcp consent in your web browser.
+  -h, --help   Gets help for consent.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd mcp](#azd-mcp): Manage Model Context Protocol (MCP) server. (Alpha)
+* [azd mcp consent grant](#azd-mcp-consent-grant): Grant consent trust rules.
+* [azd mcp consent list](#azd-mcp-consent-list): List consent rules.
+* [azd mcp consent revoke](#azd-mcp-consent-revoke): Revoke consent rules.
+* [Back to top](#azd)
+
+## azd mcp consent grant
+
+Grant consent trust rules.
+
+### Synopsis
+
+Grant trust rules for MCP tools and servers.
+
+This command creates consent rules that allow MCP tools to execute
+without prompting for permission. You can specify different permission
+levels and scopes for the rules.
+
+Examples:
+  # Grant always permission to all tools globally
+  azd mcp consent grant --global --permission always
+
+  # Grant project permission to a specific tool with read-only scope
+  azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
+
+```azdeveloper
+azd mcp consent grant [flags]
+```
+
+### Options
+
+```azdeveloper
+      --action string       Action type: 'all' or 'readonly' (default "all")
+      --docs                Opens the documentation for azd mcp consent grant in your web browser.
+      --global              Apply globally to all servers
+  -h, --help                Gets help for grant.
+      --operation string    Operation type: 'tool' or 'sampling' (default "tool")
+      --permission string   Permission: 'allow', 'deny', or 'prompt' (default "allow")
+      --scope string        Rule scope: 'global', or 'project' (default "global")
+      --server string       Server name
+      --tool string         Specific tool name (requires --server)
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd mcp consent](#azd-mcp-consent): Manage MCP tool consent.
+* [Back to top](#azd)
+
+## azd mcp consent list
+
+List consent rules.
+
+### Synopsis
+
+List all consent rules for MCP tools.
+
+```azdeveloper
+azd mcp consent list [flags]
+```
+
+### Options
+
+```azdeveloper
+      --action string       Action type to filter by (readonly, any)
+      --docs                Opens the documentation for azd mcp consent list in your web browser.
+  -h, --help                Gets help for list.
+      --operation string    Operation to filter by (tool, sampling)
+      --permission string   Permission to filter by (allow, deny, prompt)
+      --scope string        Consent scope to filter by (global, project). If not specified, lists rules from all scopes.
+      --target string       Specific target to operate on (server/tool format)
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd mcp consent](#azd-mcp-consent): Manage MCP tool consent.
+* [Back to top](#azd)
+
+## azd mcp consent revoke
+
+Revoke consent rules.
+
+### Synopsis
+
+Revoke consent rules for MCP tools.
+
+```azdeveloper
+azd mcp consent revoke [flags]
+```
+
+### Options
+
+```azdeveloper
+      --action string       Action type to filter by (readonly, any)
+      --docs                Opens the documentation for azd mcp consent revoke in your web browser.
+  -h, --help                Gets help for revoke.
+      --operation string    Operation to filter by (tool, sampling)
+      --permission string   Permission to filter by (allow, deny, prompt)
+      --scope string        Consent scope to filter by (global, project). If not specified, revokes rules from all scopes.
+      --target string       Specific target to operate on (server/tool format)
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd mcp consent](#azd-mcp-consent): Manage MCP tool consent.
+* [Back to top](#azd)
+
+## azd mcp start
+
+Starts the MCP server.
+
+### Synopsis
+
+Starts the Model Context Protocol (MCP) server.
+
+This command starts an MCP server that can be used by MCP clients to access
+azd functionality through the Model Context Protocol interface.
+
+```azdeveloper
+azd mcp start [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd mcp start in your web browser.
+  -h, --help   Gets help for start.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd mcp](#azd-mcp): Manage Model Context Protocol (MCP) server. (Alpha)
+* [Back to top](#azd)
+
 ## azd monitor
 
 Monitor a deployed project.
@@ -1224,6 +1736,37 @@ azd provision [flags]
   -h, --help                 Gets help for provision.
       --no-state             (Bicep only) Forces a fresh deployment based on current Bicep template files, ignoring any stored deployment state.
       --preview              Preview changes to Azure resources.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [Back to top](#azd)
+
+## azd publish
+
+Publish a service to a container registry.
+
+```azdeveloper
+azd publish <service> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --all                   Publishes all services that are listed in azure.yaml
+      --docs                  Opens the documentation for azd publish in your web browser.
+  -e, --environment string    The name of the environment to use.
+      --from-package string   Publishes the service from a container image (image tag).
+  -h, --help                  Gets help for publish.
+      --to string             The target container image in the form '[registry/]repository[:tag]' to publish to.
 ```
 
 ### Options inherited from parent commands
