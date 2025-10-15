@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Marketplace to dis
 keywords: azure mcp server, azmcp, marketplace, products, offers, solutions
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 08/05/2025
+ms.date: 10/15/2025
 author: diberry
 ms.author: diberry
 content_well_notification: 
@@ -14,19 +14,19 @@ ai-usage: ai-assisted
 
 # Marketplace tools for the Azure MCP Server
 
-The Azure MCP Server enables you to manage Azure resources, including Azure Marketplace products, by using natural language prompts. With this capability, you can quickly discover and retrieve information about marketplace offerings without needing to remember complex syntax.
+The Azure MCP Server lets you to manage Azure resources, including Azure Marketplace products, by using natural language prompts. With this capability, you can quickly discover and retrieve information about marketplace offerings without needing to remember complex syntax.
 
 [Azure Marketplace](/azure/marketplace/) is an online store for solutions that are built on or built for Azure. It's designed for IT professionals and developers. The marketplace offers a catalog of applications, services, and solutions from Microsoft and partners that help you accelerate your cloud adoption and digital transformation.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Get marketplace product information
+## Get Marketplace product information
 
 <!--
 azmcp marketplace productget --product-id --include-stop-sold-plans --language --market --lookup-offer-in-tenant-level --plan-id --sku-id --include-service-instruction-templates --partner-tenant-id --pricing-audience
 -->
 
-Retrieve detailed information about a specific product or offer from Azure Marketplace. This operation helps you get comprehensive details about marketplace solutions, including pricing, plans, and availability information for evaluation and procurement decisions.
+Get detailed information about a specific product or offer from Azure Marketplace. This operation helps you get comprehensive details about marketplace solutions, including pricing, plans, and availability information for evaluation and procurement decisions.
 
 Example prompts include:
 
@@ -47,6 +47,26 @@ Example prompts include:
 | **SKU ID** | Optional | The specific pricing SKU identifier for a specific product variant or configuration. |
 | **Include service instruction templates** | Optional | Whether to include service instruction templates in the response for deployment guidance. |
 | **Pricing audience** | Optional | The target audience for pricing information (for example, 'public', 'private', 'government'). |
+
+## List Marketplace information
+
+Gets and lists all marketplace products (offers) available to a subscription in the Azure Marketplace. Use this tool to search, select, browse, or filter marketplace offers by product name, publisher, pricing, or metadata. Returns information for each product, including display name, publisher details, category, pricing data, and available plans.
+
+Example prompts include:
+
+- **List all products**: "List all marketplace products available in my subscription"
+- **Search products**: "Find marketplace products related to 'database'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Language** |  Optional | Product language code (for example, `en` for English, `fr` for French). |
+| **Search** |  Optional | Search for products using a short general term (up to 25 characters). |
+| **Filter** |  Optional | OData filter expression to filter results based on ProductSummary properties (for example, `displayName eq 'Azure'`). |
+| **Orderby** |  Optional | OData orderby expression to sort results by ProductSummary fields (for example, `displayName asc` or `popularity desc`). |
+| **Select** |  Optional | OData select expression to choose specific ProductSummary fields to return (for example, `displayName,publisherDisplayName,uniqueProductId`). |
+| **Next cursor** |  Optional | Pagination cursor to retrieve the next page of results. Use the NextPageLink value from a previous response. |
+| **Expand** |  Optional | OData expand expression to include related data in the response (for example, `plans` to include plan details). |
+
 
 ## Related content
 
