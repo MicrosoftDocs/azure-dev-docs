@@ -25,7 +25,7 @@ Use the Azure MCP Server to manage Azure AI Search resources, including search s
 
 <!-- azmcp ai-search index get -->
 
-Use the Azure MCP Server to retrieve detailed information about AI Search [indexes](/azure/search/search-what-is-an-index). You can view the index schema, fields, analyzers, scorers, and other index properties.
+Use the Azure MCP Server to retrieve detailed information about AI Search [indexes](/azure/search/search-what-is-an-index). You can view the index schema, fields, analyzers, scoring profiles, and other index properties.
 
 Example prompts include:
 
@@ -62,11 +62,11 @@ Example prompts include:
 
 ## Knowledge: Get knowledge base
 
-<!-- `azmcp search knowledge base get` -->
+<!-- azmcp search knowledge base get -->
 
 Gets the details of Azure AI Search knowledge bases. Knowledge bases encapsulate retrieval and reasoning
-capabilities over one or more knowledge sources or indexes. If a specific knowledge base name is not provided,
-the command will return details for all knowledge bases within the specified service.
+capabilities over one or more knowledge sources or indexes. If a specific knowledge base name isn't provided,
+the command returns details for all knowledge bases within the specified service.
 
 
 | Parameter |  Required or optional | Description |
@@ -76,9 +76,9 @@ the command will return details for all knowledge bases within the specified ser
 
 ## Knowledge: Retrieve knowledge base
 
-<!-- `azmcp search knowledge base retrieve` -->
+<!-- azmcp search knowledge base retrieve -->
 
-Execute a retrieval operation using a specific Azure AI Search knowledge base, effectively searching and querying the underlying data sources as needed to find relevant information. Provide either a query for single-turn retrieval or one or more conversational messages. Specifying both query and messages is not allowed.
+Execute a retrieval operation using a specific Azure AI Search knowledge base, effectively searching and querying the underlying data sources as needed to find relevant information. Provide either a query for single-turn retrieval or one or more conversational messages. Specifying both query and messages isn't allowed.
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -89,12 +89,9 @@ Execute a retrieval operation using a specific Azure AI Search knowledge base, e
 
 ## Knowledge: Get source
 
-<!-- `azmcp search knowledge source get` -->
+<!-- azmcp search knowledge source get -->
 
-Gets the details of Azure AI Search knowledge sources. A knowledge source may point directly at an
-existing Azure AI Search index, or may represent external data (for example, a blob storage container) that has been
-indexed in Azure AI Search internally. These knowledge sources are used by knowledge bases during retrieval.
-If a specific knowledge source name is not provided, the command will return details for all knowledge sources
+Gets the details of Azure AI Search knowledge sources. A knowledge source can point directly at an existing Azure AI Search index, or can represent external data (for example, a blob storage container) that Azure AI Search has indexed internally. These knowledge sources are used by knowledge bases during retrieval. If a specific knowledge source name isn't provided, the command returns details for all knowledge sources
 within the specified service.
 
 | Parameter |  Required or optional | Description |
