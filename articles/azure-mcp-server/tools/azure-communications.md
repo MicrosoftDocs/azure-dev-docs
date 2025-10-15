@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Communications Ser
 keywords: azure mcp server, azmcp, communications services
 author: diberry
 ms.author: diberry
-ms.date: 10/08/2025
+ms.date: 10/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,6 +19,41 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Comm
 [Azure Communications Services](/azure/communication-services/) is a set of rich communication APIs that enable developers to build intelligent communication solutions. These solutions can include voice and video calling, chat, SMS, and telephony capabilities into applications.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
+
+## Email: Send email
+
+<!-- azmcp communication email send -->\
+
+Send an email message using Azure Communication Services.
+
+Example prompts include:
+
+- **Simple email**: "Send email to user@example.com with subject 'Welcome' and message 'Hello there!' from noreply@mydomain.com"
+- **Email with sender name**: "Send email from 'Support Team <support@mydomain.com>' to customer@example.com with subject 'Thank you' and message 'Thanks for your purchase'"
+- **Email with CC and BCC**: "Send email to client@example.com with CC to manager@company.com and BCC to audit@company.com, subject 'Project Update' and message 'Project completed'"
+- **HTML email**: "Send HTML email to subscriber@example.com with subject 'Newsletter' and HTML message '<h1>Latest News</h1><p>Check out our updates!</p>'"
+- **Email with reply-to**: "Send email to contact@example.com with reply-to feedback@mydomain.com, subject 'Survey' and message 'Please provide your feedback'"
+- **Multiple recipients**: "Send email to team@company.com, lead@company.com with subject 'Meeting Reminder' and message 'Don't forget about tomorrow's meeting'"
+- **Marketing email**: "Send email from 'Marketing <marketing@mydomain.com>' to customers@example.com with subject 'Special Offer' and HTML message containing promotional content"
+- **Notification email**: "Send email using endpoint myservice.communication.azure.com to admin@company.com with subject 'System Alert' and message 'Server maintenance scheduled'"
+- **Follow-up email**: "Send email to prospect@example.com with reply-to sales@mydomain.com, subject 'Follow up on your inquiry' and personalized message"
+- **Automated email**: "Send transactional email from system@mydomain.com to user@example.com with subject 'Password Reset' and HTML message with reset link"
+
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Required for credential authentication. |
+| **From** |  Required | The email address to send from (must be from a verified domain). |
+| **Sender name** |  Optional | The display name of the sender. |
+| **To** |  Required | The recipient email addresses to send the email to. |
+| **Cc** |  Optional | CC recipient email addresses. |
+| **Bcc** |  Optional | BCC recipient email addresses. |
+| **Subject** |  Required | The email subject. |
+| **Message** |  Required | The email message content to send to the recipients. |
+| **Is html** |  Optional | Flag indicating whether the message content is HTML. |
+| **Reply to** |  Optional | Reply-to email addresses. |
+
 
 ## SMS: Send SMS message
 
