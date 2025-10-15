@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Monitor.
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 09/23/2025
+ms.date: 10/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -44,6 +44,14 @@ Example prompts include:
 - **Query workspaces**: "Show workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123 please"
 
+## Log analytics: List table types
+
+List available table types in a Log Analytics workspace. 
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Workspace** |  Required | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
+
 ## Log analytics: List tables
 
 The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
@@ -60,7 +68,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
 
-## Log analytics: Query logs
+## Log analytics: Query workspace logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 
@@ -79,6 +87,19 @@ Example prompts include:
 | **Query** | Required | The KQL query to execute against the Log Analytics workspace. |
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
+
+## Log analytics: Query resource logs
+
+Query diagnostic and activity logs for a SPECIFIC Azure resource in a Log Analytics workspace using Kusto Query Language (KQL). 
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource ID** |  Required | The Azure Resource ID to query logs. Example: `/subscriptions/<YOUR-SUBSCRIPION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.OperationalInsights/workspaces/<YOUR-WORKSPACE>`. |
+| **Table** |  Required | The name of the table to query. This is the specific table within the workspace. |
+| **Query** |  Required | The KQL query to execute against the Log Analytics workspace. You can use predefined queries by name such as `recent` which shows most recent logs ordered by TimeGenerated and `errors` which shows error-level logs ordered by TimeGenerated. Otherwise, provide a custom KQL query. |
+| **Hours** |  Optional | The number of hours to query back from now. |
+| **Limit** |  Optional | The maximum number of results to return. |
+
 
 ## Health: Get entity health
 
@@ -235,3 +256,7 @@ The Azure MCP Server can delete an Azure Monitor workbook. This permanently remo
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Monitor](/azure/azure-monitor/overview)
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [Workbooks in Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview)
+- [Metrics in Azure Monitor](/azure/azure-monitor/platform/tutorial-metrics)
