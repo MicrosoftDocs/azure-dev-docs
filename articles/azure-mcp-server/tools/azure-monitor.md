@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Tools 
-description: Learn how to use the Azure MCP Server with Azure Monitor.
+description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics workspaces, analyze metrics, and manage workbooks using natural language prompts."
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to manage Azure Monitor resources using natural language prompts. You can query Log Analytics workspaces, analyze operational data, monitor resource health, retrieve performance metrics, and manage Azure Monitor workbooks without needing to know complex KQL syntax.
 
-[Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+[Azure Monitor](/azure/azure-monitor/overview) helps you maximize the availability and performance of your applications and services. It provides a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -23,7 +23,7 @@ The Azure MCP Server allows you to manage Azure Monitor resources using natural 
 
 <!-- `azmcp applicationinsights recommendation list` -->
 
-List [Application Insights](/azure/azure-monitor/app/app-insights-overview) code optimization recommendations in a subscription. 
+Lists [Application Insights](/azure/azure-monitor/app/app-insights-overview) code optimization recommendations in a subscription. 
 
 Example prompts include:
 
@@ -32,9 +32,9 @@ Example prompts include:
 - **List profiler recommendations by group**: "List profiler recommendations for Application Insights in resource group 'devops-group'."
 - **Show performance improvement recommendations**: "Show me performance improvement recommendations from Application Insights."
 
-## Log analytics: List workspaces
+## Log Analytics: List workspaces
 
-The Azure MCP Server can list all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
+The Azure MCP Server lists all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
 Example prompts include:
 
@@ -44,17 +44,17 @@ Example prompts include:
 - **Query workspaces**: "Show workspaces"
 - **Check workspaces**: "Get all monitoring workspaces in subscription abc123 please"
 
-## Log analytics: List table types
+## Log Analytics: List table types
 
-List available table types in a Log Analytics workspace. 
+Lists available table types in a Log Analytics workspace. 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Workspace** |  Required | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
 
-## Log analytics: List tables
+## Log Analytics: List tables
 
-The Azure MCP Server can list all tables in a Log Analytics workspace. This helps you understand the data available for querying.
+The Azure MCP Server lists all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
 Example prompts include:
 
@@ -68,7 +68,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
 
-## Log analytics: Query workspace logs
+## Log Analytics: Query workspace logs
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 
@@ -88,9 +88,9 @@ Example prompts include:
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
-## Log analytics: Query resource logs
+## Log Analytics: Query resource logs
 
-Query diagnostic and activity logs for a SPECIFIC Azure resource in a Log Analytics workspace using Kusto Query Language (KQL). 
+Queries diagnostic and activity logs for a SPECIFIC Azure resource in a Log Analytics workspace using Kusto Query Language (KQL). 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -103,7 +103,7 @@ Query diagnostic and activity logs for a SPECIFIC Azure resource in a Log Analyt
 
 ## Health: Get entity health
 
-The Azure MCP Server can get the health status of an entity using Azure Monitor health models. This provides comprehensive health information and monitoring status for Azure resources and applications.
+The Azure MCP Server gets the health status of an entity using Azure Monitor health models. This provides comprehensive health information and monitoring status for Azure resources and applications.
 
 Example prompts include:
 
@@ -120,7 +120,7 @@ Example prompts include:
 
 ## Metrics: Query metrics
 
-The Azure MCP Server can query Azure Monitor metrics for resources. This allows you to retrieve performance metrics, usage statistics, and monitoring data for your Azure resources over specified time periods.
+The Azure MCP Server queries Azure Monitor metrics for resources. This allows you to retrieve performance metrics, usage statistics, and monitoring data for your Azure resources over specified time periods.
 
 Example prompts include:
 
@@ -146,7 +146,7 @@ Example prompts include:
 
 ## Metrics: List metric definitions
 
-The Azure MCP Server can list available metric definitions for a resource. This helps you discover what metrics are available for monitoring before querying specific metric data.
+The Azure MCP Server lists available metric definitions for a resource. This helps you discover what metrics are available for monitoring before querying specific metric data.
 
 Example prompts include:
 
@@ -166,7 +166,7 @@ Example prompts include:
 
 ## Workbooks: List workbooks
 
-The Azure MCP Server can list Azure Monitor workbooks in a resource group. This helps you discover and manage your monitoring dashboards and interactive reports.
+The Azure MCP Server lists Azure Monitor workbooks in a resource group. This helps you discover and manage your monitoring dashboards and interactive reports.
 
 **Example prompts** include:
 
@@ -185,7 +185,7 @@ The Azure MCP Server can list Azure Monitor workbooks in a resource group. This 
 
 ## Workbooks: Show workbook details
 
-The Azure MCP Server can show details of a specific Azure Monitor workbook by its resource ID. This provides comprehensive information about the workbook's configuration and content.
+The Azure MCP Server shows details of a specific Azure Monitor workbook by its resource ID. This provides comprehensive information about the workbook's configuration and content.
 
 **Example prompts** include:
 
@@ -219,7 +219,7 @@ The Azure MCP Server can create a new Azure Monitor workbook. This allows you to
 
 ## Workbooks: Update workbook
 
-The Azure MCP Server can update an existing Azure Monitor workbook. This allows you to modify workbook properties and content programmatically.
+The Azure MCP Server updates an existing Azure Monitor workbook. This allows you to modify workbook properties and content programmatically.
 
 **Example prompts** include:
 
@@ -237,7 +237,7 @@ The Azure MCP Server can update an existing Azure Monitor workbook. This allows 
 
 ## Workbooks: Delete workbooks
 
-The Azure MCP Server can delete an Azure Monitor workbook. This permanently removes the workbook and all its associated content.
+The Azure MCP Server deletes an Azure Monitor workbook. This permanently removes the workbook and all its associated content.
 
 **Example prompts** include:
 
