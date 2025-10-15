@@ -1,7 +1,7 @@
 ---
 title: "How to switch between OpenAI and Azure OpenAI endpoints"
 description: "Learn how to switch between OpenAI and Azure OpenAI endpoints in your application."
-ms.date: 10/07/2025
+ms.date: 10/15/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -23,7 +23,7 @@ While OpenAI and Azure OpenAI rely on a [common Python client library](https://g
 
 ## Authentication
 
-We recommend using Microsoft Entra ID or Azure Key Vault. You can use environment variables for testing outside of your production environment.
+We recommend keyless authentication using Microsoft Entra ID. If that's not possible, use an API key and store it in Azure Key Vault. You can use an environment variable for testing outside of your Azure environments.
 
 ### API key authentication
 
@@ -38,7 +38,6 @@ from openai import OpenAI
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
-
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
@@ -49,46 +48,47 @@ from openai import OpenAI
     
 client = OpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/"
+    base_url="https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/"
 )
 ```
 
 ---
 
-### Microsoft Entra ID authentication
+### Microsoft Entra authentication
 
-Use the following steps to configure Microsoft Entra ID authentication with `DefaultAzureCredential`:
+Microsoft Entra authentication is only supported in the Azure OpenAI library. Use the following steps to configure it:
 
-1. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to the following values depending on your environment:
+1. Install the Azure Identity client library:
 
-    - In production: `ManagedIdentityCredential`
-    - In local development: `dev`
+    ```
+    pip install azure-identity
+    ```
 
-    For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+1. Define an environment variable named `AZURE_TOKEN_CREDENTIALS`, and set it according to the environment in which the code is running:
 
-    > [!IMPORTANT]
-    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`. Using `require_envvar=True` in the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
+    - In Azure, set it to `ManagedIdentityCredential`.
+    - In local development, set it to `dev`.
 
-2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+    This environment variable will be read by the Azure Identity library's `DefaultAzureCredential`. For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
-> [!NOTE]
-> Microsoft Entra authentication is only supported in the Azure OpenAI library.
+1. Configure the OpenAI client object as follows:
 
-```python
-from azure.identity import DefaultAzureCredential, get_bearer_token_provider
-from openai import OpenAI
+    ```python
+    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    from openai import OpenAI
+    
+    credential = DefaultAzureCredential(require_envvar=True)
+    token_provider = get_bearer_token_provider(
+        credential, "https://cognitiveservices.azure.com/.default"
+    )
+    
+    client = OpenAI(
+        base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/", 
+        api_key = token_provider,
+    )
+    ```
 
-credential = DefaultAzureCredential(require_envvar=True)
-
-token_provider = get_bearer_token_provider(
-    credential, "https://cognitiveservices.azure.com/.default"
-)
-
-client = OpenAI(
-    base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/", 
-    api_key = token_provider,
-)
-```
+1. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 :::zone-end
 :::zone pivot="dotnet"
@@ -104,8 +104,7 @@ using System;
 using System.ClientModel;
 
 string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-OpenAIClient openAIClient = new(new ApiKeyCredential(apiKey));
-
+OpenAIClient client = new(new ApiKeyCredential(apiKey));
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
@@ -121,57 +120,50 @@ OpenAIClientOptions clientOptions = new()
 };
 
 string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-
-OpenAIClient client = new(
-    credential: new ApiKeyCredential(apiKey),
-    options: clientOptions);
-
+OpenAIClient client = new(new ApiKeyCredential(apiKey), clientOptions);
 ```
 
 ---
 
-### Microsoft Entra ID authentication
+### Microsoft Entra authentication
 
-Use the following steps to configure Microsoft Entra ID authentication with `DefaultAzureCredential`:
+Microsoft Entra authentication is only supported in the Azure OpenAI library. Use the following steps to configure it:
 
-1. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to the following values depending on your environment:
+1. Install the Azure Identity client library:
 
-    - In production: `ManagedIdentityCredential`
-    - In local development: `dev`
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
 
-    For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+1. Define an environment variable named `AZURE_TOKEN_CREDENTIALS`, and set it according to the environment in which the code is running:
 
-    > [!IMPORTANT]
-    > For this sample, set environment variable `AZURE_TOKEN_CREDENTIALS` to `dev`. Passing `DefaultAzureCredential.DefaultEnvironmentVariableName` to the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
+    - In Azure, set it to `ManagedIdentityCredential`.
+    - In local development, set it to `dev`.
 
-2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+    This environment variable will be read by the Azure Identity library's `DefaultAzureCredential`. For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
 
-> [!NOTE]
-> Microsoft Entra authentication is only supported in the Azure OpenAI library.
+1. Configure the `OpenAIClient` object as follows:
 
-```csharp
-using Azure.Identity;
-using OpenAI;
-using System;
-using System.ClientModel.Primitives;
+    ```csharp
+    using Azure.Identity;
+    using OpenAI;
+    using System;
+    using System.ClientModel.Primitives;
+    
+    // code omitted for brevity
 
-DefaultAzureCredential credential = new(DefaultAzureCredential.DefaultEnvironmentVariableName);
+    DefaultAzureCredential credential = new(DefaultAzureCredential.DefaultEnvironmentVariableName);
+    BearerTokenPolicy tokenPolicy = new(credential, "https://cognitiveservices.azure.com/.default");
+    
+    OpenAIClientOptions clientOptions = new()
+    {
+        Endpoint = new Uri($"{resourceEndpoint}/openai/v1/")
+    };
+    
+    OpenAIClient client = new(tokenPolicy, clientOptions);
+    ```
 
-BearerTokenPolicy tokenPolicy = new(
-    tokenProvider: credential,
-    scope: "https://cognitiveservices.azure.com/.default");
-
-OpenAIClientOptions clientOptions = new()
-{
-    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-};
-
-
-OpenAIClient client = new(
-    authenticationPolicy: tokenPolicy,
-    options: clientOptions);
-
-```
+1. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
 :::zone-end
 
