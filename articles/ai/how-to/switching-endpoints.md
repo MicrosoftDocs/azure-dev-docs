@@ -178,14 +178,14 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
 
 :::zone-end
 
-## Keyword argument for model
+## Specify the model
+
+:::zone pivot="python"
 
 OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). When you use Azure OpenAI, `model` should refer to the underlying deployment name you chose when you deployed the model.
 
 > [!IMPORTANT]
 > Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. Choose any naming convention for deployment names that works best for you.
-
-:::zone pivot="python"
 
 #### [OpenAI](#tab/openai)
 
@@ -230,16 +230,21 @@ embedding = client.embeddings.create(
 :::zone-end
 :::zone pivot="dotnet"
 
+OpenAI uses the `model` parameter to specify what model to use. Azure OpenAI has the concept of unique model [deployments](/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). When you use Azure OpenAI, `model` should refer to the underlying deployment name you chose when you deployed the model.
+
+> [!IMPORTANT]
+> Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. Choose any naming convention for deployment names that works best for you.
+
 #### [OpenAI](#tab/openai)
 
 ```csharp
-var response = client.GetOpenAIResponseClient(
+OpenAIResponseClient response = client.GetOpenAIResponseClient(
     model: "gpt-4.1-nano" 
 ).CreateResponse(
     new ResponseItem[] { "This is a test." }
 );
 
-var chatCompletion = client.GetChatClient(
+ChatClient chatCompletion = client.GetChatClient(
     model: "gpt-4o"
 ).CompleteChat(
     messages: new ChatMessage[] { 
@@ -247,7 +252,7 @@ var chatCompletion = client.GetChatClient(
     }
 );
 
-var embedding = client.GetEmbeddingClient(
+EmbeddingClient embedding = client.GetEmbeddingClient(
     model: "text-embedding-3-large"
 ).GenerateEmbedding(
     input: new string[] { "<input>" }
@@ -257,13 +262,13 @@ var embedding = client.GetEmbeddingClient(
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-var response = client.GetOpenAIResponseClient(
+OpenAIResponseClient response = client.GetOpenAIResponseClient(
     model: "gpt-4.1-nano" // Replace with your deployment name
 ).CreateResponse(
     new ResponseItem[] { "This is a test." }
 );
 
-var chatCompletion = client.GetChatClient(
+ChatClient chatCompletion = client.GetChatClient(
     model: "gpt-4o" // Replace with your deployment name
 ).CompleteChat(
     messages: new ChatMessage[] { 
@@ -271,7 +276,7 @@ var chatCompletion = client.GetChatClient(
     }
 );
 
-var embedding = client.GetEmbeddingClient(
+EmbeddingClient embedding = client.GetEmbeddingClient(
     model: "text-embedding-3-large" // Replace with your deployment name
 ).GenerateEmbedding(
     input: new string[] { "<input>" }
@@ -297,8 +302,6 @@ embedding = client.embeddings.create(
     input=inputs,
     model="text-embedding-3-large"
 )
-
-
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
@@ -311,7 +314,6 @@ embedding = client.embeddings.create(
     model="text-embedding-3-large" # This must match the custom deployment name you chose for your model.
     # engine="text-embedding-ada-002"
 )
-
 ```
 
 ---
@@ -322,9 +324,9 @@ embedding = client.embeddings.create(
 #### [OpenAI](#tab/openai)
 
 ```csharp
-var inputs = new string[] { "A", "B", "C" };
+string[] inputs = [ "A", "B", "C" ];
 
-var embedding = client.GetEmbeddingClient(
+EmbeddingClient embedding = client.GetEmbeddingClient(
     model: "text-embedding-3-large"
 ).GenerateEmbedding(
     input: inputs
@@ -334,9 +336,9 @@ var embedding = client.GetEmbeddingClient(
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-var inputs = new string[] { "A", "B", "C" }; //max array size=2048
+string[] inputs = [ "A", "B", "C" ]; //max array size=2048
 
-var embedding = client.GetEmbeddingClient(
+EmbeddingClient embedding = client.GetEmbeddingClient(
     model: "text-embedding-3-large"// This must match the custom deployment name you chose for your model.
     // engine:"text-embedding-ada-002"
 ).GenerateEmbedding(
