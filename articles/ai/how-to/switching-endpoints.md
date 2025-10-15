@@ -100,7 +100,7 @@ using OpenAI;
 using System;
 using System.ClientModel;
 
-string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
 OpenAIClient client = new(new ApiKeyCredential(apiKey));
 ```
 
