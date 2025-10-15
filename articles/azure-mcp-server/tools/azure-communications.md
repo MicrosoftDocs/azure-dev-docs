@@ -1,6 +1,6 @@
 ---
 title: Azure Communications Services Tools 
-description: Learn how to use the Azure MCP Server with Azure Communications Services.
+description: Send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
 keywords: azure mcp server, azmcp, communications services
 author: diberry
 ms.author: diberry
@@ -14,9 +14,9 @@ ms.custom: build-2025
 
 # Azure Communications Services tools for the Azure MCP Server
 
-The Azure MCP Server enables you to manage Azure resources, including Azure Communications Services, by using natural language prompts. This capability lets you work with communications services without needing to remember complex command syntax.
+The Azure MCP Server enables you to manage Azure Communications Services using natural language prompts. Learn how to send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
 
-[Azure Communications Services](/azure/communication-services/) is a set of rich communication APIs that enable developers to build intelligent communication solutions. These solutions can include voice and video calling, chat, SMS, and telephony capabilities into applications.
+[Azure Communications Services](/azure/communication-services/) is a set of rich communication APIs that enable developers to build intelligent communication solutions. These solutions include voice and video calling, chat, SMS, and telephony capabilities in applications.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -43,7 +43,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Required for credential authentication. |
+| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Used for credential authentication. |
 | **From** |  Required | The email address to send from (must be from a verified domain). |
 | **Sender name** |  Optional | The display name of the sender. |
 | **To** |  Required | The recipient email addresses to send the email to. |
@@ -76,7 +76,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Required for credential authentication. |
+| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Used for credential authentication. |
 | **From** |  Required | The SMS-enabled phone number associated with your Communication Services resource (in E.164 format, for example, `+14255550123`). Can also be a short code or alphanumeric sender ID. |
 | **To** |  Required | The recipient phone numbers in `E.164` international standard format (for example, `+14255550123`). Multiple numbers can be provided. |
 | **Message** |  Required | The SMS message content to send to the recipients. |
