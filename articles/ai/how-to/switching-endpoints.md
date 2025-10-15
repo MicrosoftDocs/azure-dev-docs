@@ -111,9 +111,11 @@ using OpenAI;
 using System;
 using System.ClientModel;
 
+// code omitted for brevity
+
 OpenAIClientOptions clientOptions = new()
 {
-    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+    Endpoint = new Uri($"{resourceEndpoint}/openai/v1/")
 };
 
 string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
