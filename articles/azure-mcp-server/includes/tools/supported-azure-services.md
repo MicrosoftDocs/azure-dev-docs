@@ -19,7 +19,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Lens](../../tools/azure-app-lens.md) | Diagnose and analyze application performance issues using Azure App Lens. |
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
-| [Azure Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
+| [Azure Redis](../../tools/azure-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Communication Services](../../tools/azure-communications.md) | Send SMS messages using Azure Communication Services. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
