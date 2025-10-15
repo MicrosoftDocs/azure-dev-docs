@@ -111,7 +111,7 @@ New articles:
 - [Azure Bicep Schema tools for the Azure MCP Server](../azure-mcp-server/tools/azure-bicep-schema.md)
 - [Azure Cache for Redis tools for Azure MCP Server](../azure-mcp-server/tools/azure-cache-for-redis.md)
 - [Azure Developer CLI extension tools for the Azure MCP Server](../azure-mcp-server/tools/azure-developer-cli.md)
-- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-aks.md)
+- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-kubernetes.md)
 - [Azure Load Testing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md)
 - [Azure Managed Grafana tools for the Azure MCP Server](../azure-mcp-server/tools/azure-grafana.md)
 - [Azure MCP tools management for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
