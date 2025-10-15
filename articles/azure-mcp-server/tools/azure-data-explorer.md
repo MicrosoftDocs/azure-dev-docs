@@ -1,10 +1,10 @@
 ---
 title: Azure Data Explorer 
-description: Learn how to use the Azure MCP Server with Azure Data Explorer.
+description: "Learn how to use the Azure MCP Server with Azure Data Explorer. Query data, list clusters, and manage databases using natural language prompts without complex KQL syntax."
 keywords: azure mcp server, azmcp, kusto, azure data explorer, adx
 author: diberry
 ms.author: diberry
-ms.date: 05/20/2025
+ms.date: 10/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -30,7 +30,7 @@ Don't provide all three parameters (cluster URI, cluster name, and subscription)
 
 ## Cluster: List clusters
 
-The Azure MCP Server can list all Azure Data Explorer clusters in a subscription.
+The Azure MCP Server lists all Azure Data Explorer clusters in a subscription.
 
 Example prompts include:
 
@@ -42,7 +42,7 @@ Example prompts include:
 
 ## Cluster: Get cluster details
 
-The Azure MCP Server can get details for a specific Azure Data Explorer cluster.
+The Azure MCP Server gets details for a specific Azure Data Explorer cluster.
 
 Example prompts include:
 
@@ -56,9 +56,11 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Cluster** | Required | The name of the Azure Data Explorer cluster. |
 
+
+
 ## Database: List databases
 
-The Azure MCP Server can list all databases in an Azure Data Explorer cluster.
+The Azure MCP Server lists all databases in an Azure Data Explorer cluster.
 
 Example prompts include:
 
@@ -77,7 +79,7 @@ Example prompts include:
 
 ## Table: List tables
 
-The Azure MCP Server can list all tables in a specific Azure Data Explorer database.
+The Azure MCP Server lists all tables in a specific Azure Data Explorer database.
 
 Example prompts include:
 
@@ -95,7 +97,7 @@ Example prompts include:
 
 ## Table: Get table schema
 
-The Azure MCP Server can get the schema of a specific table in an Azure Data Explorer database.
+The Azure MCP Server gets the schema of a specific table in an Azure Data Explorer database.
 
 Example prompts include:
 
@@ -112,28 +114,10 @@ Example prompts include:
 | **Database** | Required | The name of the Azure Data Explorer database. |
 | **Table** | Required | The name of the table. |
 
-## Database: Execute query
 
-The Azure MCP Server can execute a KQL query against an Azure Data Explorer database.
+## Sample data
 
-Example prompts include:
-
-- **Run query**: "Execute 'Logs | where Timestamp > ago(1h) | count' in my Azure Data Explorer database."
-- **Query data**: "Run KQL query to find all errors in the last 24 hours in my ADX database."
-- **Fetch data**: "Get recent events from my Data Explorer database with query."
-- **Extract insights**: "Query user activity patterns from my Azure Data Explorer database."
-- **Analyze logs**: "Execute KQL to summarize performance metrics by service in my ADX database."
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
-| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
-| **Database** | Required | The name of the Azure Data Explorer database. |
-| **Query** | Required | The KQL query to execute. |
-
-## Table: Sample table data
-
-The Azure MCP Server can retrieve a sample of data from a specified Azure Data Explorer table.
+The Azure MCP Server retrieves a sample of data from a specified Azure Data Explorer table.
 
 Example prompts include:
 
@@ -151,7 +135,28 @@ Example prompts include:
 | **Table** | Required | The name of the table to sample data from. |
 | **Limit** | Optional | The maximum number of rows to return in the sample. |
 
+
+## Query
+
+The Azure MCP Server executes a KQL query against an Azure Data Explorer database.
+
+Example prompts include:
+
+- **Run query**: "Execute 'Logs | where Timestamp > ago(1h) | count' in my Azure Data Explorer database."
+- **Query data**: "Run KQL query to find all errors in the last 24 hours in my ADX database."
+- **Fetch data**: "Get recent events from my Data Explorer database with query."
+- **Extract insights**: "Query user activity patterns from my Azure Data Explorer database."
+- **Analyze logs**: "Execute KQL to summarize performance metrics by service in my ADX database."
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
+| **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+| **Database** | Required | The name of the Azure Data Explorer database. |
+| **Query** | Required | The KQL query to execute. |
+
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview)
