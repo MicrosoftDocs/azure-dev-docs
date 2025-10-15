@@ -40,7 +40,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
 | [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
-| [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
+| [Azure Monitor](../../tools/azure-monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | Manage Azure resource quotas and limits. |

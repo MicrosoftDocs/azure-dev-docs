@@ -1886,7 +1886,10 @@
     {
       "source_path": "articles/azure-mcp-server/tools/cosmos-db.md",
       "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-cosmos-db"
-
+    },
+    {
+      "source_path": "articles/azure-mcp-server/tools/monitor.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-monitor"
     }
   ]
 }
