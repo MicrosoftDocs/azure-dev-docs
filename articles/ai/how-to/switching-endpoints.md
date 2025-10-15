@@ -95,9 +95,6 @@ Microsoft Entra authentication is only supported in the Azure OpenAI library. Us
 
 #### [OpenAI](#tab/openai)
 
-> [!NOTE]
-> Use `ApiKeyCredential` for API key authentication. For more information, see the [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet&preserve-view=true) reference.
-
 ```csharp
 using OpenAI;
 using System;
