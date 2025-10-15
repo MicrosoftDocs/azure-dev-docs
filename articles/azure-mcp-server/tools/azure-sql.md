@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Tools - Azure MCP Server
-description: Learn how to use the Azure MCP Server with Azure SQL to manage your databases, servers, and other SQL resources.
+description: "Learn how to use Azure MCP Server with Azure SQL Database to manage databases, servers, and firewall rules. Complete reference guide with examples."
 keywords: azure mcp server, azmcp, azure sql, sql database, sql server
 ai-usage: ai-assisted
 content_well_notification: 
@@ -9,14 +9,14 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 09/23/2025
+ms.date: 10/15/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
 
-The Azure MCP Server lets you manage Azure resources, including Azure SQL Database resources, using natural language prompts. This feature lets you quickly manage your database resources without remembering complex syntax.
+The Azure MCP Server lets you manage Azure SQL Database resources by using natural language prompts. This Azure SQL tools reference provides comprehensive commands for managing databases, servers, firewall rules, and elastic pools without complex syntax.
 
-[Azure SQL Database](/azure/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.
+[Azure SQL Database](/azure/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most database management functions such as upgrading, patching, backups, and monitoring without user involvement.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -24,8 +24,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure SQL Databa
 
 <!-- `azmcp sql db create` -->
 
-Create a new Azure SQL Database on an existing SQL Server. This command creates a database with configurable
-performance tiers, size limits, and other settings. Equivalent to 'az sql db create'.
+Create a new Azure SQL Database on an existing SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings. Equivalent to 'az sql db create'.
 
 Example prompts include:
 
@@ -147,6 +146,28 @@ Example prompts include:
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
 | **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
 
+
+## Server authentication: List Microsoft Entra administrators
+
+<!-- 
+azmcp sql server entra-admin list --subscription
+-->
+
+Lists Microsoft Entra ID administrators configured for a resource. Use this command to manage and audit identity-based access to your resource.
+
+Example prompts include:
+
+- **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
+- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
+- **Security check**: "Who has admin access to my SQL servers?"
+- **Administrator review**: "Need to verify Entra ID admins on SQL server now"
+- **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
+
+
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Server** | Required | The name of the resource. |
+
 ## Server: Create
 
 <!-- `azmcp sql server create` -->
@@ -218,28 +239,8 @@ Example prompts include:
 | **Server** |  Required | The Azure SQL Server name. |
 
 
-## Server: List Microsoft Entra administrators
 
-<!-- 
-azmcp sql server entra-admin list --subscription
--->
-
-Lists Microsoft Entra ID administrators configured for a resource. Use this command to manage and audit identity-based access to your resource.
-
-Example prompts include:
-
-- **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
-- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
-- **Security check**: "Who has admin access to my SQL servers?"
-- **Administrator review**: "Need to verify Entra ID admins on SQL server now"
-- **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
-
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Server** | Required | The name of the resource. |
-
-## Server: List firewall rules
+## Server firewall: List rules
 
 <!-- 
 azmcp sql firewall-rule list --subscription
@@ -260,7 +261,7 @@ Example prompts include:
 | **Server** | Required | The name of the resource. |
 
 
-## Server: Create firewall rule
+## Server firewall: Create rule
 
 <!-- `azmcp sql server firewall-rule create` -->
 
@@ -282,14 +283,11 @@ Example prompts include:
 
 
 
-## Server: Delete firewall rule
+## Server firewall: Delete rule
 
 <!-- `azmcp sql server firewall-rule delete` -->
 
-Deletes a firewall rule from a resource. This operation removes the specified 
-firewall rule, potentially restricting access for the IP addresses that were 
-previously allowed by this rule. If the rule 
-doesn't exist, no error is returned.
+Deletes a firewall rule from a resource. This operation removes the specified firewall rule, potentially restricting access for the IP addresses that were previously allowed by this rule. If the rule doesn't exist, no error is returned.
 
 Example prompts include:
 - **Remove firewall rule**: "Delete the firewall rule named 'office-access' from my 'prod-sql' server"
