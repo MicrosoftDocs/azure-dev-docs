@@ -67,6 +67,10 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
 1. Define an environment variable named `AZURE_TOKEN_CREDENTIALS`, and set it according to the environment in which the code is running:
 
     - In Azure, set it to `ManagedIdentityCredential`.
+
+        > [!IMPORTANT]
+        > If using a user-assigned managed identity, define an environment variable named `AZURE_CLIENT_ID`. Set it the client ID of the managed identity. If that environment variable isn't set, `DefaultAzureCredential` will assume a system-assigned managed identity is being used.
+
     - In local development, set it to `dev`.
 
     This environment variable will be read by the Azure Identity library's `DefaultAzureCredential`. For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
@@ -88,7 +92,9 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     )
     ```
 
-1. Set the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+
+    When running in Azure, assign roles to the managed identity used by the Azure host resource. When running in the local development environment, assign roles to the user running the app.
 
 :::zone-end
 :::zone pivot="dotnet"
@@ -137,6 +143,10 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
 1. Define an environment variable named `AZURE_TOKEN_CREDENTIALS`, and set it according to the environment in which the code is running:
 
     - In Azure, set it to `ManagedIdentityCredential`.
+
+        > [!IMPORTANT]
+        > If using a user-assigned managed identity, define an environment variable named `AZURE_CLIENT_ID`. Set it the client ID of the managed identity. If that environment variable isn't set, `DefaultAzureCredential` will assume a system-assigned managed identity is being used.
+
     - In local development, set it to `dev`.
 
     This environment variable will be read by the Azure Identity library's `DefaultAzureCredential`. For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
@@ -162,7 +172,9 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     OpenAIClient client = new(tokenPolicy, clientOptions);
     ```
 
-1. Set the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+
+    When running in Azure, assign roles to the managed identity used by the Azure host resource. When running in the local development environment, assign roles to the user running the app.
 
 :::zone-end
 
