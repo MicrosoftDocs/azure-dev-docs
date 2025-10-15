@@ -37,7 +37,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
 | [Azure Key Vault](../../tools/azure-key-vault.md) | List and create keys, secrets, certificates in Azure Key Vault. |
-| [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
+| [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
 | [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
