@@ -56,7 +56,7 @@ client = OpenAI(
 
 ### Microsoft Entra authentication
 
-Microsoft Entra authentication is only supported in the Azure OpenAI library. Use the following steps to configure it:
+Microsoft Entra authentication is only supported with Azure OpenAI resources. Complete the following steps:
 
 1. Install the Azure Identity client library:
 
@@ -126,7 +126,7 @@ OpenAIClient client = new(new ApiKeyCredential(apiKey), clientOptions);
 
 ### Microsoft Entra authentication
 
-Microsoft Entra authentication is only supported in the Azure OpenAI library. Use the following steps to configure it:
+Microsoft Entra authentication is only supported with Azure OpenAI resources. Complete the following steps:
 
 1. Install the Azure Identity client library:
 
