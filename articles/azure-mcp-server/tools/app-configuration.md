@@ -1,6 +1,6 @@
 ---
 title: Azure App Configuration Tools 
-description: Learn how to use the Azure MCP Server with Azure App Configuration.
+description: "Learn how to use Azure MCP Server tools to manage Azure App Configuration stores, key-value settings, and feature flags with natural language prompts."
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to manage Azure resources, including App Configuration stores using natural language prompts. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
 
-[Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
+[Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their access in one place.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -44,18 +44,21 @@ Example prompts include:
 - **Clean up settings**: "Delete all test settings with label 'deprecated'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Account name** | Required | The name of the App Configuration store.                                    |
-| **Key**          | Required | The key name of the setting to delete.                                      |
-| **Label**        | Optional | The label of the setting to delete.                                         |
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Account** |  Required | The name of the App Configuration store (for example, my-appconfig). |
+| **Key** |  Required | The name of the key to access within the App Configuration store. |
+| **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
+| **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 
 ## Key-value: Get key-values
 
-Gets key-values in an App Configuration store. This command can either retrieve a specific key-value by its key
-and optional label, or list key-values if no key is provided. Listing key-values can optionally be filtered by a
-key filter and label filter. Each key-value includes its key, value, label, content type, ETag, last modified time,
-and lock status.
+Gets key-values in an App Configuration store. This command can provide one of the following actions:
+
+- Retrieve a specific key-value by its key and optional label
+- List key-values if no key is provided. 
+
+Listing key-values can optionally be filtered by a key filter and label filter. Each key-value includes its key, value, label, content type, ETag, last modified time, and lock status.
 
 Example prompts include:
 
@@ -75,8 +78,8 @@ Example prompts include:
 | **Account** |  Required | The name of the App Configuration store (for example, `my-appconfig`). |
 | **Key** |  Optional | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
-| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted all keys will be retrieved. |
-| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels will be retrieved. |
+| **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted all keys is retrieved. |
+| **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels is retrieved. |
 
 
 ## Key-value: Set lock on key-value
@@ -96,7 +99,7 @@ Example prompts include:
 | **Key** |  Required | The name of the key to access within the App Configuration store. |
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
 | **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
-| **Lock** |  Optional | Whether a key-value will be locked (set to `read-only`) or unlocked (`read-only` removed). |
+| **Lock** |  Optional | Whether a key-value is locked (set to `read-only`) or unlocked (`read-only` removed). |
 
 ## Key-value: Set key-value setting
 
