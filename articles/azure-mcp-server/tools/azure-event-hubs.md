@@ -15,15 +15,13 @@ ms.custom: build-2025
 
 The Azure MCP Server lets you manage Azure Event Hubs resources with natural language prompts. You don't need to remember specific command syntax.
 
-[Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. Event Hubs is compatible with Apache Kafka. It enables you to run existing Kafka workloads without any code changes.
+[Azure Event Hubs](/azure/event-hubs/event-hubs-about) is a native data-streaming service in the cloud that streams millions of events per second, with low latency, from any source to any destination. Event Hubs is compatible with Apache Kafka and lets you run existing Kafka workloads without any code changes.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Event Hub: Delete consumer group
 
-<!-- `azmcp eventhubs consumergroup delete` -->
-
-Delete a consumer group. This tool deletes a pre-existing consumer group from the specified Event Hub.
+Delete a consumer group from the specified Event Hub.
 
 Example prompts include: 
 
@@ -34,15 +32,13 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with --resource-group option. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with [resource group parameter](index.md). |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 
 ## Event Hub: Get consumer group
 
-<!-- `azmcp eventhubs consumergroup get` -->
-
-Get consumer groups from Azure Event Hubs. This command can either:
+Get consumer groups from Azure Event Hubs. This tool can:
 
 - List all consumer groups in an Event Hub
 - Get a single consumer group by name
@@ -57,15 +53,13 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with --resource-group option. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with [resource group parameter](index.md). |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Optional | The name of the consumer group within the Event Hub. |
 
 ## Event Hub: Create or update consumer group
 
-<!-- `azmcp eventhubs consumergroup create` -->
-
-Create or update a consumer group. This tool either creates a consumer group resource or updates an existing consumer group resource within the specified Event Hub, depending on whether the specified consumer group exists.
+Create or update a consumer group within the specified Event Hub. The tool creates a new consumer group or updates an existing one.
 
 Example prompts include:
 
@@ -76,17 +70,14 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with --resource-group option. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with [resource group parameter](index.md). |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 | **User metadata** |  Optional | User metadata for the consumer group. |
 
 ## Event Hub: Delete Event Hub    
 
-<!-- `azmcp eventhubs eventhub delete` -->
-
-Delete an event hub from an Azure Event Hubs namespace. All messages and consumer groups in the Event Hub
-will be permanently deleted.
+Delete an event hub from an Azure Event Hubs namespace. This action permanently deletes all messages and consumer groups in the Event Hub.
 
 Example prompts include:
 
@@ -96,14 +87,14 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the resource group parameter. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 
 ## Event Hub: Get Event Hub
 
 <!-- `azmcp eventhubs eventhub get` -->
 
-Get event hubs from an Azure namespace. This command can either:
+Get event hubs from an Azure namespace. This tool:
 
 - List all event hubs in a namespace
 - Get a single event hub by name
@@ -119,14 +110,12 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the resource group parameter. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
 
 ## Namespace: Delete namespace
 
-<!-- `azmcp eventhubs namespace delete` -->
-
-Delete an Event Hubs namespace. This operation is irreversible. The process permanently deletes all event hubs, consumer groups, and configurations within the namespace.
+Delete an Event Hubs namespace. This operation is irreversible and permanently deletes all event hubs, consumer groups, and configurations within the namespace.
 
 Example prompts include:
 
@@ -136,14 +125,12 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the resource group parameter. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
 
 
 ## Namespace: Get namespace
 
-<!-- `azmcp eventhubs namespace get` -->
-
-Get Event Hubs namespaces from Azure. The behavior depends on which parameters you provide. When you retrieve a single namespace, the system returns detailed information including SKU, settings, and metadata. When you list namespaces, the system returns the same detailed information for all namespaces in the specified scope.
+Get Event Hubs namespaces from Azure. The behavior depends on which parameters you provide. When you retrieve a single namespace, the tool returns detailed information including SKU, settings, and metadata. When you list namespaces, the tool returns the same detailed information for all namespaces in the specified scope.
 
 Example prompts include:
 
@@ -158,10 +145,7 @@ Example prompts include:
 
 ## Namespace: Create or update namespace
 
-<!-- `azmcp eventhubs namespace update` -->
-
-Create or update a namespace. This tool either creates a namespace resource or updates an existing namespace resource within the specified resource group, depending on 
-whether the specified namespace exists. This tool might modify existing configurations, and is considered destructive. This operation can take a long time.
+Create or update a namespace within the specified resource group. This tool creates a new namespace or updates an existing one. The tool might modify existing configurations and is considered destructive. This tool might take a long time.
 
 When updating an existing namespace, provide only the properties you want to change. Unspecified properties keep their existing values. You must provide at least one update property.
 
@@ -171,7 +155,7 @@ Common update scenarios include:
 - Enable or disable auto-inflate and set the maximum throughput units
 - Enable or disable Kafka support
 - Modify tags for resource management
-- Enable or disable zone redundancy (Premium SKU only).
+- Enable or disable zone redundancy (Premium SKU only)
 
 Example prompts include:
 
@@ -182,7 +166,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the resource group parameter. |
+| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
 | **Location** |  Optional | The Azure region where the namespace is located (for example, `eastus`, `westus2`). |
 | **SKU name** |  Optional | The SKU name for the namespace. Valid values: `Basic`, `Standard`, `Premium`. |
 | **SKU tier** |  Optional | The SKU tier for the namespace. Valid values: `Basic`, `Standard`, `Premium`. |
