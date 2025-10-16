@@ -53,9 +53,3 @@ In Visual Studio 2022, GitHub Copilot for Azure only works in **Agent** mode.  A
 The answer to your question depends on what's currently running in Azure in your subscription.
 
 
-# TODO
-
-- Take screenshots and re-write "Write your first prompt"
-- Add more prompts to sync with "### Use agent mode" in vscode
-- Thin out VSCode
-- Bring both docs into relative parity
