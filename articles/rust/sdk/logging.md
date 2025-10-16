@@ -1,6 +1,6 @@
 ---
 title: OpenTelemetry in Azure SDK for Rust crates
-description: Learn how to implement OpenTelemetry in Rust applications using Azure crates for comprehensive observability.
+description: description: Learn how to implement OpenTelemetry in Rust applications using Azure SDK crates for comprehensive observability and monitoring. Configure telemetry, export to Azure Monitor, and troubleshoot Azure services effectively.
 ms.date: 10/16/2025
 ms.topic: how-to
 ms.custom: devx-track-rust
@@ -25,9 +25,9 @@ Azure SDK for Rust crates use OpenTelemetry as the standard approach to observab
 - **Production monitoring**: Built for high-scale production environments with sampling and performance optimizations
 
 > [!IMPORTANT]
-> Currently, Microsoft does not provide a direct Azure Monitor OpenTelemetry exporter for Rust applications. The [Azure Monitor OpenTelemetry Distro](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-overview) only supports .NET, Java, Node.js, and Python. For Rust applications, you need to export OpenTelemetry data to an intermediate system (such as Azure Storage, Event Hubs, or the OpenTelemetry Collector) and then import that data into Azure Monitor using supported ingestion methods.
+> Currently, Microsoft does not provide a direct Azure Monitor OpenTelemetry exporter for Rust applications. The [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-overview) only supports .NET, Java, Node.js, and Python. For Rust applications, you need to export OpenTelemetry data to an intermediate system (such as Azure Storage, Event Hubs, or the OpenTelemetry Collector) and then import that data into Azure Monitor using supported ingestion methods.
 
-## How to log with OpenTelemetry
+## Set up OpenTelemetry logging
 
 To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_core` package alone doesn't include OpenTelemetry support.
 
@@ -122,7 +122,7 @@ For scenarios where you need more control over data processing:
 
 1. **Export telemetry to Azure Storage** (Blob Storage or Data Lake)
 2. **Process the data** using Azure Functions, Logic Apps, or custom applications
-3. **Ingest processed data** into Azure Monitor using the [Logs Ingestion API](https://learn.microsoft.com/azure/azure-monitor/logs/logs-ingestion-api-overview)
+3. **Ingest processed data** into Azure Monitor using the [Logs Ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview)
 
 ### Option 3: Event Hubs Streaming
 
@@ -132,7 +132,7 @@ For real-time telemetry processing:
 2. **Process events** using Azure Stream Analytics, Azure Functions, or custom consumers
 3. **Forward processed telemetry** to Azure Monitor or Application Insights
 
-## Customize your telemetry
+## Customize telemetry data
 
 OpenTelemetry provides a flexible framework for customizing telemetry data to suit your application's needs. Use these strategies to enhance your telemetry:
 
@@ -192,7 +192,7 @@ Pick the right telemetry for your question:
 After setting up OpenTelemetry in your Rust application and configuring an intermediate export mechanism, you can view the telemetry data in Azure Monitor through Application Insights. Since Rust doesn't have direct Azure Monitor export capabilities, you'll need to implement one of these approaches:
 
 - **OpenTelemetry Collector**: Configure the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) to receive data from your Rust application and forward it to Azure Monitor
-- **Azure Storage integration**: Export telemetry to Azure Storage and use [Azure Monitor data ingestion APIs](https://learn.microsoft.com/azure/azure-monitor/logs/logs-ingestion-api-overview) to import the data
+- **Azure Storage integration**: Export telemetry to Azure Storage and use [Azure Monitor data ingestion APIs](/azure/azure-monitor/logs/logs-ingestion-api-overview) to import the data
 - **Event Hubs streaming**: Stream telemetry through Azure Event Hubs and process it for Azure Monitor ingestion
 
 Once your telemetry data reaches Azure Monitor through one of these methods, you can analyze it:
