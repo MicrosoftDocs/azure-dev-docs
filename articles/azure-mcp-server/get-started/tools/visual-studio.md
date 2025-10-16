@@ -38,37 +38,41 @@ Visual Studio uses a file named `mcp.json` to check for MCP Server configuration
 > [!NOTE]
 > Some of these locations require .mcp.json while others require mcp.json.
 
-The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio. 
+Azure MCP Server is available as a NuGet package or as an NPM package. The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio.
 
 ## [Solution install](#tab/manual)
 
 Complete the following steps to install Azure MCP Server for a specific directory:
 
 1. Create a new file at the root of your solution named `.mcp.json`. Use Visual Studio to edit this file so that its JSON schema is automatically applied.
-1. Inside the `.mcp.json` file, add the following JSON:
+1. Inside the `.mcp.json` file, add the following JSON for your preferred package:
+
+    Use NuGet:
 
     ```json
-    // Use NuGet package
     {
-        "servers": {
-            "Azure MCP Server": {
-                "command": "dnx",
-                "args": [
-                    "Azure.Mcp",
-                    "--source",
-                    "https://api.nuget.org/v3/index.json",
-                    "--yes",
-                    "--",
-                    "azmcp",
-                    "server",
-                    "start"
-                ],
-                "type": "stdio"
-            }
-        }
+      "servers": {
+          "Azure MCP Server": {
+              "command": "dnx",
+              "args": [
+                  "Azure.Mcp",
+                  "--source",
+                  "https://api.nuget.org/v3/index.json",
+                  "--yes",
+                  "--",
+                  "azmcp",
+                  "server",
+                  "start"
+              ],
+              "type": "stdio"
+          }
+      }
     }
+    ```
 
-    // Use Node package
+    Use NPX:
+
+    ```json
     {
       "servers": {
         "Azure MCP Server": {
@@ -93,30 +97,34 @@ Complete the following steps to install Azure MCP Server for a specific director
 Complete the following steps to globally add Azure MCP Server for all Visual Studio solutions for a specific user:
 
 1. Create a new file at `%USERPROFILE%\.mcp.json`. Use Visual Studio to edit this file so that its JSON schema is automatically applied.
-1. Inside the `.mcp.json` file, add the following JSON:
+1. Inside the `.mcp.json` file, add the following JSON for your preferred package:
+
+    Use NuGet:
 
     ```json
-    // Use NuGet package
     {
-        "servers": {
-            "Azure MCP Server": {
-                "command": "dnx",
-                "args": [
-                    "Azure.Mcp",
-                    "--source",
-                    "https://api.nuget.org/v3/index.json",
-                    "--yes",
-                    "--",
-                    "azmcp",
-                    "server",
-                    "start"
-                ],
-                "type": "stdio"
-            }
-        }
+      "servers": {
+          "Azure MCP Server": {
+              "command": "dnx",
+              "args": [
+                  "Azure.Mcp",
+                  "--source",
+                  "https://api.nuget.org/v3/index.json",
+                  "--yes",
+                  "--",
+                  "azmcp",
+                  "server",
+                  "start"
+              ],
+              "type": "stdio"
+          }
+      }
     }
+    ```
 
-    // Use Node package
+    Use NPX:
+
+    ```json
     {
       "servers": {
         "Azure MCP Server": {
