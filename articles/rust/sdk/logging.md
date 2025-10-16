@@ -228,5 +228,5 @@ Key strategies for Rust applications:
 ## Resources and next steps
 
 - [Azure SDK for Rust guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
-- [OpenTelemetry Rust documentation](https://docs.rs/opentelemetry/)
+- [OpenTelemetry Rust documentation](https://docs.rs/opentelemetry/latest/opentelemetry/)
 - [Azure Monitor service](/azure/azure-monitor)
