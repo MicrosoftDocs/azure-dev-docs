@@ -32,7 +32,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 
@@ -43,7 +43,7 @@ Get consumer groups from Azure Event Hubs. This tool can:
 - List all consumer groups in an Event Hub
 - Get a single consumer group by name
 
-The event hub, namespace, and resource group parameters are required for both get and list. You only need the consumer group parameter when getting a specific consumer group.
+The event hub and namespace parameters are required for both get and list. You only need the consumer group parameter when getting a specific consumer group.
 
 Example prompts include:
 
@@ -53,7 +53,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Optional | The name of the consumer group within the Event Hub. |
 
@@ -70,7 +70,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Must be used with [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 | **User metadata** |  Optional | User metadata for the consumer group. |
@@ -87,7 +87,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 
 ## Event Hub: Get Event Hub
@@ -110,7 +110,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
 
 ## Namespace: Delete namespace
@@ -125,7 +125,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 
 
 ## Namespace: Get namespace
@@ -166,7 +166,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Namespace** |  Required | The name of the Event Hubs namespace to retrieve. Use this name with the [resource group parameter](index.md). |
+| **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Location** |  Optional | The Azure region where the namespace is located (for example, `eastus`, `westus2`). |
 | **SKU name** |  Optional | The SKU name for the namespace. Valid values: `Basic`, `Standard`, `Premium`. |
 | **SKU tier** |  Optional | The SKU tier for the namespace. Valid values: `Basic`, `Standard`, `Premium`. |
