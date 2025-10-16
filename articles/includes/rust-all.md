@@ -305,3 +305,4 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_storage_datamovement_files_shares/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_storage_files_datalake/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_storage_files_shares/0.0.1) |  |  |
+| Unknown Display Name | crate [0.1.0](https://crates.io/crates/azure_storage_queue/0.1.0) |  |  |

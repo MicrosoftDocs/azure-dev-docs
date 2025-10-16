@@ -27,7 +27,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
 | [Azure Database for MySQL](../../tools/azure-mysql.md) | Manage Azure Database for MySQL servers, databases, and tables. |
-| [Azure Database for PostgreSQL](../../tools/postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
+| [Azure Database for PostgreSQL](../../tools/azure-database-postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
 | [Azure Developer CLI](../../tools/azure-developer-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
 | [Azure Event Grid](../../tools/azure-event-grid.md) | Manage Azure Event Grid resources, including topics and subscriptions. |
@@ -37,7 +37,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | List Azure Managed Grafana workspaces.|
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
 | [Azure Key Vault](../../tools/azure-key-vault.md) | List and create keys, secrets, certificates in Azure Key Vault. |
-| [Azure Kubernetes Service](../../tools/azure-aks.md) | List Azure Kubernetes Service clusters. |
+| [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | List Azure Kubernetes Service clusters. |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | Create, run, and see load testing. |
 | [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
@@ -47,10 +47,10 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Quotas](../../tools/azure-quotas.md) | Manage Azure resource quotas and limits. |
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | Check the health status of Azure resources. |
-| [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
+| [Azure Service Bus](../../tools/azure-service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SignalR](../../tools/azure-signalr.md) | Manage Azure SignalR resources and runtimes. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
-| [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
+| [Azure Storage](../../tools/azure-storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
 | [Azure Virtual Desktop](../../tools/azure-virtual-desktop.md) | Manage Azure Virtual Desktop host pools, session hosts, and user sessions. |
 | [Resource Groups](../../tools/resource-group.md) | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | List Azure subscriptions. |
