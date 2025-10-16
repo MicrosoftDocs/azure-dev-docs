@@ -23,6 +23,7 @@ In this article, you learn how to complete the following tasks:
 
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - [Visual Studio](https://visualstudio.microsoft.com)
+- [.NET 10](https://dotnet.microsoft.com/download) OR [Node.js](https://nodejs.org/) LTS installed
 
 ## Install the Azure MCP Server
 
@@ -47,6 +48,27 @@ Complete the following steps to install Azure MCP Server for a specific director
 1. Inside the `.mcp.json` file, add the following JSON:
 
     ```json
+    // Use NuGet package
+    {
+        "servers": {
+            "Azure MCP Server": {
+                "command": "dnx",
+                "args": [
+                    "Azure.Mcp",
+                    "--source",
+                    "https://api.nuget.org/v3/index.json",
+                    "--yes",
+                    "--",
+                    "azmcp",
+                    "server",
+                    "start"
+                ],
+                "type": "stdio"
+            }
+        }
+    }
+
+    // Use Node package
     {
       "servers": {
         "Azure MCP Server": {
@@ -74,6 +96,27 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 1. Inside the `.mcp.json` file, add the following JSON:
 
     ```json
+    // Use NuGet package
+    {
+        "servers": {
+            "Azure MCP Server": {
+                "command": "dnx",
+                "args": [
+                    "Azure.Mcp",
+                    "--source",
+                    "https://api.nuget.org/v3/index.json",
+                    "--yes",
+                    "--",
+                    "azmcp",
+                    "server",
+                    "start"
+                ],
+                "type": "stdio"
+            }
+        }
+    }
+
+    // Use Node package
     {
       "servers": {
         "Azure MCP Server": {
