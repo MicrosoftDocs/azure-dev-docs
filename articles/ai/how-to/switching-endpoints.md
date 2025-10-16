@@ -1,7 +1,7 @@
 ---
 title: "How to switch between OpenAI and Azure OpenAI endpoints"
 description: "Learn how to switch between OpenAI and Azure OpenAI endpoints in your application."
-ms.date: 10/15/2025
+ms.date: 10/16/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -64,26 +64,16 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     pip install azure-identity
     ```
 
-1. Define an environment variable named `AZURE_TOKEN_CREDENTIALS`, and set it according to the environment in which the code is running:
-
-    - In Azure, set it to `ManagedIdentityCredential`.
-
-        > [!IMPORTANT]
-        > If using a user-assigned managed identity, define an environment variable named `AZURE_CLIENT_ID`. Set it the client ID of the managed identity. If that environment variable isn't set, `DefaultAzureCredential` will assume a system-assigned managed identity is being used.
-
-    - In local development, set it to `dev`.
-
-    This environment variable will be read by the Azure Identity library's `DefaultAzureCredential`. For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
-
 1. Configure the OpenAI client object as follows:
 
     ```python
     from azure.identity import DefaultAzureCredential, get_bearer_token_provider
     from openai import OpenAI
     
-    credential = DefaultAzureCredential(require_envvar=True)
+    credential = DefaultAzureCredential()
     token_provider = get_bearer_token_provider(
-        credential, "https://cognitiveservices.azure.com/.default"
+        credential,
+        "https://cognitiveservices.azure.com/.default"
     )
     
     client = OpenAI(
@@ -91,6 +81,9 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
         api_key = token_provider,
     )
     ```
+
+    > [!TIP]
+    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
@@ -140,17 +133,6 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     dotnet add package Azure.Identity
     ```
 
-1. Define an environment variable named `AZURE_TOKEN_CREDENTIALS`, and set it according to the environment in which the code is running:
-
-    - In Azure, set it to `ManagedIdentityCredential`.
-
-        > [!IMPORTANT]
-        > If using a user-assigned managed identity, define an environment variable named `AZURE_CLIENT_ID`. Set it the client ID of the managed identity. If that environment variable isn't set, `DefaultAzureCredential` will assume a system-assigned managed identity is being used.
-
-    - In local development, set it to `dev`.
-
-    This environment variable will be read by the Azure Identity library's `DefaultAzureCredential`. For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
-
 1. Configure the `OpenAIClient` object as follows:
 
     ```csharp
@@ -161,7 +143,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     
     // code omitted for brevity
 
-    DefaultAzureCredential credential = new(DefaultAzureCredential.DefaultEnvironmentVariableName);
+    DefaultAzureCredential credential = new();
     BearerTokenPolicy tokenPolicy = new(credential, "https://cognitiveservices.azure.com/.default");
     
     OpenAIClientOptions clientOptions = new()
@@ -171,6 +153,9 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     
     OpenAIClient client = new(tokenPolicy, clientOptions);
     ```
+
+    > [!TIP]
+    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
