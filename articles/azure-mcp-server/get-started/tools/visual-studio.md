@@ -70,7 +70,7 @@ Complete the following steps to install Azure MCP Server for a specific director
     }
     ```
 
-    NPX:
+    NPM:
 
     ```json
     {
@@ -122,7 +122,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
     }
     ```
 
-    NPX:
+    NPM:
 
     ```json
     {
