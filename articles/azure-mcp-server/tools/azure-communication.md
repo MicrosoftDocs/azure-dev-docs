@@ -4,7 +4,7 @@ description: Send emails and SMS messages without needing to remember complex co
 keywords: azure mcp server, azmcp, communication services
 author: diberry
 ms.author: diberry
-ms.date: 10/15/2025
+ms.date: 10/16/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -58,7 +58,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Used for credential authentication. |
+| **Connection string** |  Required | The Communication Services connection string (for example, `endpoint=https://myservice.communication.azure.com/;accesskey=...`). Used for authentication. |
 | **From** |  Required | The SMS-enabled phone number associated with your Communication Services resource (in E.164 format, for example, `+14255550123`). Can also be a short code or alphanumeric sender ID. |
 | **To** |  Required | The recipient phone numbers in `E.164` international standard format (for example, `+14255550123`). Multiple numbers can be provided. |
 | **Message** |  Required | The SMS message content to send to the recipients. |

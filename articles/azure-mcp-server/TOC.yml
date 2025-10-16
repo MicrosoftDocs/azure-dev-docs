@@ -53,7 +53,7 @@ items:
         - name: Azure Cloud Architect
           href: tools/azure-cloud-architect.md
         - name: Azure Communication Services
-          href: tools/azure-communications.md
+          href: tools/azure-communication.md
         - name: Azure Confidential Ledger
           href: tools/azure-confidential-ledger.md
         - name: Azure Container Registry
