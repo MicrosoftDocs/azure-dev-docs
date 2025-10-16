@@ -64,8 +64,8 @@ items:
           href: tools/azure-data-explorer.md
         - name: Azure Database for MySQL
           href: tools/azure-mysql.md
-        - name: Azure DB for PostgreSQL
-          href: tools/postgresql.md
+        - name: Azure Database for PostgreSQL
+          href: tools/azure-database-postgresql.md
         - name: Azure Deploy
           href: tools/azure-deploy.md
         - name: Azure Developer CLI
