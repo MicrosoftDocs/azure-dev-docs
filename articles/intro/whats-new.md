@@ -45,7 +45,7 @@ New articles:
 
 Updated articles:
 
-- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md) - MCP tool - Added new operations and parameters
+- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/azure-storage.md) - MCP tool - Added new operations and parameters
 
 ### GitHub Copilot for Azure
 

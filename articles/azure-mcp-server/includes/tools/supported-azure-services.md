@@ -50,7 +50,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SignalR](../../tools/azure-signalr.md) | Manage Azure SignalR resources and runtimes. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
-| [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
+| [Azure Storage](../../tools/azure-storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
 | [Azure Virtual Desktop](../../tools/azure-virtual-desktop.md) | Manage Azure Virtual Desktop host pools, session hosts, and user sessions. |
 | [Resource Groups](../../tools/resource-group.md) | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | List Azure subscriptions. |
