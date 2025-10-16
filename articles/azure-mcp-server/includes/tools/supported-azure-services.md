@@ -24,7 +24,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Communication Services](../../tools/azure-communications.md) | Send SMS messages using Azure Communication Services. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
 | [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
-| [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
+| [Azure Cosmos DB](../../tools/azure-cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Data Explorer](../../tools/azure-data-explorer.md) | Work with Azure Data Explorer clusters, databases, tables, and queries. |
 | [Azure Database for MySQL](../../tools/azure-mysql.md) | Manage Azure Database for MySQL servers, databases, and tables. |
 | [Azure Database for PostgreSQL](../../tools/azure-database-postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables.  |
