@@ -57,7 +57,6 @@ Updated articles:
 - [Azure MCP Tool tools for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
 - [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
-- 
 ### Azure for Java
 
 Updated articles:
