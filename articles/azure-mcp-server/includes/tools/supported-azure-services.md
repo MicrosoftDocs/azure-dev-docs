@@ -12,7 +12,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Tool |  Description |
 |------|--------------|
-| [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure AI Search](../../tools/azure-ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
 | [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
