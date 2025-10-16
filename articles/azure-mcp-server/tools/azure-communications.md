@@ -1,7 +1,7 @@
 ---
-title: Azure Communications Services Tools 
+title: Azure Communication Services Tools 
 description: Send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
-keywords: azure mcp server, azmcp, communications services
+keywords: azure mcp server, azmcp, communication services
 author: diberry
 ms.author: diberry
 ms.date: 10/15/2025
@@ -12,17 +12,15 @@ ms.topic: reference
 ms.custom: build-2025
 --- 
 
-# Azure Communications Services tools for the Azure MCP Server
+# Azure Communication Services tools for the Azure MCP Server
 
-The Azure MCP Server enables you to manage Azure Communications Services using natural language prompts. Learn how to send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
+The Azure MCP Server lets you manage Azure Communication Services using natural language prompts. Learn how to send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
 
-[Azure Communications Services](/azure/communication-services/) is a set of rich communication APIs that enable developers to build intelligent communication solutions. These solutions include voice and video calling, chat, SMS, and telephony capabilities in applications.
+[Azure Communication Services](/azure/communication-services/) is a set of rich communication APIs that enable developers to build intelligent communication solutions. These solutions include voice and video calling, chat, SMS, and telephony capabilities in applications.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Email: Send email
-
-<!-- azmcp communication email send -->\
 
 Send an email message using Azure Communication Services.
 
@@ -30,14 +28,7 @@ Example prompts include:
 
 - **Simple email**: "Send email to user@example.com with subject 'Welcome' and message 'Hello there!' from noreply@mydomain.com"
 - **Email with sender name**: "Send email from 'Support Team <support@mydomain.com>' to customer@example.com with subject 'Thank you' and message 'Thanks for your purchase'"
-- **Email with CC and BCC**: "Send email to client@example.com with CC to manager@company.com and BCC to audit@company.com, subject 'Project Update' and message 'Project completed'"
 - **HTML email**: "Send HTML email to subscriber@example.com with subject 'Newsletter' and HTML message '<h1>Latest News</h1><p>Check out our updates!</p>'"
-- **Email with reply-to**: "Send email to contact@example.com with reply-to feedback@mydomain.com, subject 'Survey' and message 'Please provide your feedback'"
-- **Multiple recipients**: "Send email to team@company.com, lead@company.com with subject 'Meeting Reminder' and message 'Don't forget about tomorrow's meeting'"
-- **Marketing email**: "Send email from 'Marketing <marketing@mydomain.com>' to customers@example.com with subject 'Special Offer' and HTML message containing promotional content"
-- **Notification email**: "Send email using endpoint myservice.communication.azure.com to admin@company.com with subject 'System Alert' and message 'Server maintenance scheduled'"
-- **Follow-up email**: "Send email to prospect@example.com with reply-to sales@mydomain.com, subject 'Follow up on your inquiry' and personalized message"
-- **Automated email**: "Send transactional email from system@mydomain.com to user@example.com with subject 'Password Reset' and HTML message with reset link"
 
 
 
@@ -57,8 +48,6 @@ Example prompts include:
 
 ## SMS: Send SMS message
 
-<!-- `azmcp communication sms send` -->
-
 Sends SMS messages to one or more recipients using Azure Communication Services.
 
 Example prompts include:
@@ -66,13 +55,6 @@ Example prompts include:
 - **Simple SMS**: "Send an SMS message to +1234567890 saying 'Hello' using my communication service"
 - **Specify sender and recipient**: "Send SMS to +1234567890 from +1234567891 with message 'Test message' using endpoint myservice.communication.azure.com"
 - **Multiple recipients**: "Send SMS to multiple recipients: +1234567890, +1234567891 with message 'Group announcement'"
-- **With delivery reporting**: "Send SMS with delivery reporting enabled to +1234567890 saying 'Important update'"
-- **Custom tracking tag**: "Send SMS message with custom tracking tag 'campaign1' to +1234567890 from +1234567891"
-- **Broadcast message**: "Send broadcast SMS to +1234567890 and +1234567891 saying 'Urgent notification' with delivery tracking"
-- **Using communication service**: "Send SMS from my communication service endpoint myservice.communication.azure.com to +1234567890 saying 'Welcome message'"
-- **Delivery receipt tracking**: "Send an SMS with delivery receipt tracking enabled to +1234567890 with message 'Appointment reminder'"
-- **Marketing campaign**: "Send SMS from +1234567891 to +1234567890 with message 'Special offer today!' and tag 'promo-oct2025'"
-- **Emergency notification**: "Send urgent SMS to multiple numbers +1234567890, +1234567891, +1234567892 saying 'System maintenance alert' with delivery reports enabled"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -88,4 +70,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Communications Services](/azure/communication-services/)
+- [Azure Communication Services](/azure/communication-services/)
