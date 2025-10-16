@@ -63,6 +63,6 @@ Use the [index of Azure SDK for Rust crates](../azure-sdk-library-package-index.
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
-[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager/index.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager
 [Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
 [Ref doc - core - Poller]: https://docs.rs/azure_core/latest/azure_core/http/poller/struct.Poller.html
