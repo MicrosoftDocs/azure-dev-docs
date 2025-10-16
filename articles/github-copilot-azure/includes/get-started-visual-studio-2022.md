@@ -11,7 +11,7 @@ ms.date: 10/09/2025
 
 - A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
 
-- Visual Studio 2022 (Any edition). For details on how to download and install it, see [Install Visual Studio](/visualstudio/install/install-visual-studio?view=vs-2022).
+- Visual Studio 2022 (Any edition). For details on how to download and install it, see [Install Visual Studio](/visualstudio/install/install-visual-studio).
 
 >[!IMPORTANT]
 >GitHub Copilot is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Getting started with a GitHub Copilot plan](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan).
@@ -30,4 +30,32 @@ ms.date: 10/09/2025
 1. In the "Select tools" dialog, you should see "Azure MCP Server v0.8.4" (or whatever version is displayed). To the right of that, you'll see "0/153" if not tools are selected (which is currently the default). Select the parent node to choose all of the tools.
 
 > [!Note]
-> If you do not see "Azure MCP Server" in the list of tools, you may > need to uninstall and re-install the extension.
+> If you do not see "Azure MCP Server" in the list of tools, you may need to uninstall and re-install the extension.
+
+## Write your first prompt
+
+1. Ensure that the extension is installed, that you're properly authenticated, and that the extension is working correctly.
+
+1. If the Chat window isn't already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
+
+   :::image type="content" source="../media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the Open Chat menu option.":::
+
+1. In the chat text area at the bottom of the chat pane, enter the following prompt:
+
+   ```prompt
+   @azure Do I have any resources currently running?
+   ```
+
+   :::image type="content" source="../media/get-started/ask-mode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
+
+In Visual Studio 2022, GitHub Copilot for Azure only works in **Agent** mode.  Agent mode enables GitHub Copilot to take action in your workspace, but it can also answer queries and provide information about your Azure account.
+
+The answer to your question depends on what's currently running in Azure in your subscription.
+
+
+# TODO
+
+- Take screenshots and re-write "Write your first prompt"
+- Add more prompts to sync with "### Use agent mode" in vscode
+- Thin out VSCode
+- Bring both docs into relative parity

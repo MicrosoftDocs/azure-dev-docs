@@ -9,3 +9,5 @@ groups:
     title: Visual Studio Code
   - id: visual-studio-2022
     title: Visual Studio 2022
+  - id: visual-studio-2026
+    title: Visual Studio 2026

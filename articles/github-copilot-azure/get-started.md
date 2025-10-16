@@ -21,8 +21,11 @@ Get started with GitHub Copilot for Azure to streamline your development workflo
 
 ::: zone pivot="visual-studio-2022"  
 [!INCLUDE [get-started-vs2022](./includes/get-started-visual-studio-2022.md)]
-::: zone-end  
+::: zone-end
 
+::: zone pivot="visual-studio-2026"  
+[!INCLUDE [get-started-vs2026](./includes/get-started-visual-studio-2026.md)]
+::: zone-end
 
 ## Related content
 
