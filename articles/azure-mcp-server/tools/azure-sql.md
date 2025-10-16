@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/15/2025
+ms.date: 10/16/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
@@ -24,7 +24,7 @@ The Azure MCP Server lets you manage Azure SQL Database resources by using natur
 
 <!-- `azmcp sql db create` -->
 
-Create a new Azure SQL Database on an existing SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings. Equivalent to 'az sql db create'.
+Create a new Azure SQL Database on an existing SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings. Equivalent to `az sql db create`.
 
 Example prompts include:
 
@@ -37,14 +37,14 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Server** |  Required | The Azure SQL Server name. |
 | **Database** |  Required | The Azure SQL Database name. |
-| **SKU name** |  Optional | The SKU name for the database (for example, Basic, S0, P1, GP_Gen5_2). |
-| **SKU tier** |  Optional | The SKU tier for the database (for example, Basic, Standard, Premium, GeneralPurpose). |
+| **SKU name** |  Optional | The SKU name for the database (for example, `Basic`, `S0`, `P1`, `GP_Gen5_2`). |
+| **SKU tier** |  Optional | The SKU tier for the database (for example, `Basic`, `Standard`, `Premium`, `GeneralPurpose`). |
 | **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
-| **Collation** |  Optional | The collation for the database (for example, SQL_Latin1_General_CP1_CI_AS). |
+| **Collation** |  Optional | The collation for the database (for example, `SQL_Latin1_General_CP1_CI_AS`). |
 | **Max size bytes** |  Optional | The maximum size of the database in bytes. |
 | **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
-| **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
+| **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
 
 
 ## Database: Delete database
@@ -72,11 +72,10 @@ Example prompts include:
 Lists all databases in your cloud resource with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status, compare database configurations, or find databases for management operations.
 
 Example prompts include:
+
 - **List databases**: "Show me all databases on my 'eastus-sql' server"
 - **Database inventory**: "List databases in resource group 'data' and subscription 'corp-main'"
 - **Check database status**: "What databases are currently active on my SQL server?"
-- **Database overview**: "I need a quick overview of all databases hosted on our production SQL server for the upcoming team meeting"
-- **Database configurations**: "Can you provide a detailed list of all databases on the 'analytics-sql' server, including their performance tiers, sizes, and current operational status?"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -112,10 +111,8 @@ Retrieves detailed information about a specific database. Use this command to ch
 Example prompts include:
 
 - **View database details**: "Show me details for the 'inventory' database on my 'eastus-sql' server"
-- **Check database configuration**: "Can you tell me the specifications and current state of my customer-db database in the prod-dbs resource group and finance subscription?"
-- **Database information**: "Database details... financial-data... need info now"
-- **Check performance tier**: "What service tier is my analytics database using? And is it properly sized for our workload?"
-- **Database properties**: "I want to see all performance metrics, sizing options, and configuration settings for the orders database hosted on commerce-sql-01 in the west-europe region"
+- **Check database configuration**: "Can you tell me the specifications and current state of my customer-db database?"
+- **Check performance tier**: "What service tier is my analytics database using?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -132,19 +129,20 @@ Example prompts include:
 
 - **Update performance tier**: "Update the performance tier of SQL database 'sales-data' on server 'prod-sql-server'"
 - **Scale database SKU**: "Scale SQL database 'inventory' on server 'eastus-sql' to use S3 SKU"
+- **Change database settings**: "Update the Azure SQL database 'analytics' to use Premium tier"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Server** |  Required | The Azure SQL Server name. |
 | **Database** |  Required | The Azure SQL Database name. |
-| **SKU name** |  Optional | The SKU name for the database (for example, Basic, S0, P1, GP_Gen5_2). |
-| **SKU tier** |  Optional | The SKU tier for the database (for example, Basic, Standard, Premium, GeneralPurpose). |
+| **SKU name** |  Optional | The SKU name for the database (for example, `Basic`, `S0`, `P1`, `GP_Gen5_2`). |
+| **SKU tier** |  Optional | The SKU tier for the database (for example, `Basic`, `Standard`, `Premium`, `GeneralPurpose`). |
 | **SKU capacity** |  Optional | The SKU capacity (DTU or vCore count) for the database. |
-| **Collation** |  Optional | The collation for the database (for example, SQL_Latin1_General_CP1_CI_AS). |
+| **Collation** |  Optional | The collation for the database (for example, `SQL_Latin1_General_CP1_CI_AS`). |
 | **Max size bytes** |  Optional | The maximum size of the database in bytes. |
 | **Elastic pool name** |  Optional | The name of the elastic pool to assign the database to. |
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
-| **Read scale** |  Optional | Read scale option for the database (Enabled or Disabled). |
+| **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
 
 
 ## Server authentication: List Microsoft Entra administrators
@@ -158,17 +156,15 @@ Lists Microsoft Entra ID administrators configured for a resource. Use this comm
 Example prompts include:
 
 - **Check admin users**: "Show me all Microsoft Entra administrators for my 'prod-sql' server"
-- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data' and subscription 'corp-main'"
+- **Identity access**: "List Microsoft Entra admins for SQL server 'finance-db' in resource group 'data'"
 - **Security check**: "Who has admin access to my SQL servers?"
-- **Administrator review**: "Need to verify Entra ID admins on SQL server now"
-- **Access audit**: "Could you please provide a comprehensive breakdown of all Microsoft Entra administrators assigned to my eastus-sql-02 server in the development environment for security compliance documentation?"
 
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the resource. |
 
-## Server: Create
+## Server: Create server
 
 <!-- `azmcp sql server create` -->
 
@@ -187,11 +183,11 @@ Example prompts include:
 | **Administrator user** |  Required | The administrator login name for the SQL server. |
 | **Administrator password** |  Required | The administrator password for the SQL server. |
 | **Location** |  Required | The Azure region location where the SQL server is created. |
-| **Version** |  Optional | The version of SQL Server to create (for example, '12.0'). |
-| **Public network access** |  Optional | Whether public network access is enabled for the SQL server ('Enabled' or 'Disabled'). |
+| **Version** |  Optional | The version of SQL Server to create (for example, `12.0`). |
+| **Public network access** |  Optional | Whether public network access is enabled for the SQL server (`Enabled` or `Disabled`). |
 
 
-## Server: Delete
+## Server: Delete server
 
 <!-- `azmcp sql server delete` -->
 
@@ -218,8 +214,15 @@ Example prompts include:
 
 - **List SQL servers**: "List all Azure SQL servers in resource group 'data-services'"
 - **Show all servers**: "Show me every SQL server available in resource group 'analytics-group'"
+- **Server inventory**: "What SQL servers do I have in my subscription?"
 
-## Server: Show
+| Parameter | Required or optional | Description |
+|-----------|-------------|-------------|
+| **Resource group** | Optional | The resource group to filter servers by. |
+
+
+
+## Server: Show server details
 
 <!-- `azmcp sql server show` -->
 
@@ -251,10 +254,8 @@ Lists all firewall rules for a specific resource. Use this command to manage and
 Example prompts include:
 
 - **View firewall settings**: "Show me all firewall rules for my 'prod-sql-server' in resource group 'data'"
-- **Check access controls**: "Are there any firewall rules for my analytics-db SQL server in the eastus region?"
-- **Review security**: "IP addresses... SQL server eastus-sql-01... security review"
-- **Network access**: "I need to immediately identify all network access points and IP address ranges that have been granted permissions to connect to our production SQL server environment for the compliance audit happening tomorrow"
-- **Security audit**: "List the firewall rules for our finance-db server in resource group accounting and subscription finance-prod"
+- **Check access controls**: "Are there any firewall rules for my analytics-db SQL server?"
+- **Security audit**: "List the firewall rules for our finance-db server in resource group accounting"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -270,8 +271,10 @@ are allowed to connect to the resource. You can specify either a single IP addre
 (by setting start and end IP to the same value) or a range of IP addresses. 
 
 Example prompts include:
+
 - **Add firewall rule**: "Create a firewall rule named 'office-access' for my 'prod-sql' server allowing IP range 192.168.1.1 to 192.168.1.100"
-- **Set access range**: "I need to set a firewall rule on my 'analytics-sql' server to allow access from the IP range 10.0.0.1 to 10.0.0.255"
+- **Set access range**: "I need to set a firewall rule on my 'analytics-sql' server to allow access from IP range 10.0.0.1 to 10.0.0.255"
+- **Allow single IP**: "Create a firewall rule to allow access from IP address 203.0.113.5 to my SQL server"
 
 
 | Parameter |  Required or optional | Description |
@@ -290,11 +293,10 @@ Example prompts include:
 Deletes a firewall rule from a resource. This operation removes the specified firewall rule, potentially restricting access for the IP addresses that were previously allowed by this rule. If the rule doesn't exist, no error is returned.
 
 Example prompts include:
+
 - **Remove firewall rule**: "Delete the firewall rule named 'office-access' from my 'prod-sql' server"
-- **Revoke access**: "Revoke the firewall rule 'office-access' on my 'prod-sql' server"
-- **Delete access rule**: "I need to delete the firewall rule named 'temp-access' from our 'test-sql' server to tighten security"
-- **Security update**: "Please remove the firewall rule 'guest-access' from our development SQL server immediately to prevent unauthorized access"
-- **Access control**: "Can you delete the firewall rule 'external-access' on our 'marketing-sql' server in the westus region?"
+- **Revoke access**: "Revoke the firewall rule 'temp-access' on my 'test-sql' server"
+- **Delete access rule**: "Remove the firewall rule 'guest-access' from our development SQL server"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -312,10 +314,8 @@ Lists all elastic pools for a specific resource. Elastic pools are a resource al
 Example prompts include:
 
 - **View resource pools**: "Show me all elastic pools on my 'main-sql' server"
-- **Check elasticity**: "Could you list any elastic pools we have running on our customer-db SQL server in the production environment?"
-- **Resource management**: "Elastic pools... SQL server... need status report"
-- **Pool inventory**: "I need a complete inventory of every single elastic pool deployed across all our SQL servers in the dev-subscription, including their DTU allocation, storage limits, and current database count"
-- **Database scaling**: "What's the current configuration and available capacity in the analytics elastic pool on our main SQL server in resource group data-services?"
+- **Check elasticity**: "List any elastic pools we have running on our customer-db SQL server"
+- **Pool inventory**: "What elastic pools are deployed on our SQL servers in the dev-subscription?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
