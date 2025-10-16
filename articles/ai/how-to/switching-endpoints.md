@@ -238,49 +238,27 @@ OpenAI uses the `model` parameter to specify what model to use. Azure OpenAI has
 #### [OpenAI](#tab/openai)
 
 ```csharp
-OpenAIResponseClient response = client.GetOpenAIResponseClient(
-    model: "gpt-4.1-nano" 
-).CreateResponse(
-    new ResponseItem[] { "This is a test." }
-);
+string modelName = "gpt-4.1-nano";
+OpenAIResponseClient response = client.GetOpenAIResponseClient(modelName);
 
-ChatClient chatCompletion = client.GetChatClient(
-    model: "gpt-4o"
-).CompleteChat(
-    messages: new ChatMessage[] { 
-        new SystemChatMessage("You are a helpful assistant.") 
-    }
-);
+modelName = "gpt-4o";
+ChatClient chatCompletion = client.GetChatClient(modelName);
 
-EmbeddingClient embedding = client.GetEmbeddingClient(
-    model: "text-embedding-3-large"
-).GenerateEmbedding(
-    input: new string[] { "<input>" }
-);
+modelName = "text-embedding-3-large";
+EmbeddingClient embedding = client.GetEmbeddingClient(modelName);
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-OpenAIResponseClient response = client.GetOpenAIResponseClient(
-    model: "gpt-4.1-nano" // Replace with your deployment name
-).CreateResponse(
-    new ResponseItem[] { "This is a test." }
-);
+string deploymentName = "my-gpt-4.1-nano-deployment";
+OpenAIResponseClient response = client.GetOpenAIResponseClient(deploymentName);
 
-ChatClient chatCompletion = client.GetChatClient(
-    model: "gpt-4o" // Replace with your deployment name
-).CompleteChat(
-    messages: new ChatMessage[] { 
-        new SystemChatMessage("You are a helpful assistant.") 
-    }
-);
+deploymentName = "my-gpt-4o-deployment";
+ChatClient chatCompletion = client.GetChatClient(deploymentName);
 
-EmbeddingClient embedding = client.GetEmbeddingClient(
-    model: "text-embedding-3-large" // Replace with your deployment name
-).GenerateEmbedding(
-    input: new string[] { "<input>" }
-);
+deploymentName = "my-text-embedding-3-large-deployment";
+EmbeddingClient embedding = client.GetEmbeddingClient(deploymentName);
 ```
 
 ---
@@ -311,7 +289,7 @@ inputs = ["A", "B", "C"] #max array size=2048
 
 embedding = client.embeddings.create(
     input=inputs,
-    model="text-embedding-3-large" # This must match the custom deployment name you chose for your model.
+    model="my-text-embedding-3-large-deployment" # This must match the custom deployment name you chose for your model.
     # engine="text-embedding-ada-002"
 )
 ```
@@ -339,7 +317,7 @@ EmbeddingClient embedding = client.GetEmbeddingClient(
 string[] inputs = [ "A", "B", "C" ]; //max array size=2048
 
 EmbeddingClient embedding = client.GetEmbeddingClient(
-    model: "text-embedding-3-large"// This must match the custom deployment name you chose for your model.
+    model: "my-text-embedding-3-large-deployment" // This must match the custom deployment name you chose for your model.
     // engine:"text-embedding-ada-002"
 ).GenerateEmbedding(
     input: inputs
