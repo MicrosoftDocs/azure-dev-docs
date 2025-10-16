@@ -47,7 +47,7 @@ Complete the following steps to install Azure MCP Server for a specific director
 1. Create a new file at the root of your solution named `.mcp.json`. Use Visual Studio to edit this file so that its JSON schema is automatically applied.
 1. Inside the `.mcp.json` file, add the following JSON for your preferred package:
 
-    Use NuGet:
+    NuGet:
 
     ```json
     {
@@ -70,7 +70,7 @@ Complete the following steps to install Azure MCP Server for a specific director
     }
     ```
 
-    Use NPX:
+    NPX:
 
     ```json
     {
@@ -99,7 +99,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 1. Create a new file at `%USERPROFILE%\.mcp.json`. Use Visual Studio to edit this file so that its JSON schema is automatically applied.
 1. Inside the `.mcp.json` file, add the following JSON for your preferred package:
 
-    Use NuGet:
+    NuGet:
 
     ```json
     {
@@ -122,7 +122,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
     }
     ```
 
-    Use NPX:
+    NPX:
 
     ```json
     {
