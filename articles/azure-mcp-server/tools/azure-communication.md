@@ -28,7 +28,7 @@ Example prompts include:
 
 - **Simple email**: "Send email to user@example.com with subject 'Welcome' and message 'Hello there!' from noreply@mydomain.com"
 - **Email with sender name**: "Send email from 'Support Team <support@mydomain.com>' to customer@example.com with subject 'Thank you' and message 'Thanks for your purchase'"
-- **HTML email**: "Send HTML email to subscriber@example.com with subject 'Newsletter' and HTML message '<h1>Latest News</h1><p>Check out our updates!</p>'"
+- **HTML email**: "Send HTML email to subscriber@example.com with subject 'Newsletter' and HTML message '&lt;h1&gt;Latest News&lt;/h1&gt;&lt;p&gt;Check out our updates!&lt;/p&gt;'"
 
 
 
