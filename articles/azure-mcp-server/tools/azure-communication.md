@@ -26,9 +26,9 @@ Send an email message using Azure Communication Services.
 
 Example prompts include:
 
-- **Simple email**: "Send email to user@example.com with subject 'Welcome' and message 'Hello there!' from noreply@mydomain.com"
-- **Email with sender name**: "Send email from 'Support Team <support@mydomain.com>' to customer@example.com with subject 'Thank you' and message 'Thanks for your purchase'"
-- **HTML email**: "Send HTML email to subscriber@example.com with subject 'Newsletter' and HTML message '&lt;h1&gt;Latest News&lt;/h1&gt;&lt;p&gt;Check out our updates!&lt;/p&gt;'"
+- **Simple email**: "Send email to 'user@example.com' with subject 'Welcome' and message 'Hello there!' from 'noreply@mydomain.com' using endpoint 'https://myservice.communication.azure.com'"
+- **Email with sender name**: "Send email from 'Support Team <support@mydomain.com>' to 'customer@example.com' with subject 'Thank you' and message 'Thanks for your purchase' using endpoint 'https://myservice.communication.azure.com'"
+- **HTML email**: "Send HTML email to 'subscriber@example.com' with subject 'Newsletter' and HTML message '&lt;h1&gt;Latest News&lt;/h1&gt;&lt;p&gt;Check out our updates!&lt;/p&gt;' from 'newsletter@mydomain.com' using endpoint 'https://myservice.communication.azure.com'"
 
 
 
@@ -45,16 +45,15 @@ Example prompts include:
 | **Is html** |  Optional | Flag indicating whether the message content is HTML. |
 | **Reply to** |  Optional | Reply-to email addresses. |
 
-
 ## SMS: Send SMS message
 
 Sends SMS messages to one or more recipients using Azure Communication Services.
 
 Example prompts include:
 
-- **Simple SMS**: "Send an SMS message to +1234567890 saying 'Hello' using my communication service"
-- **Specify sender and recipient**: "Send SMS to +1234567890 from +1234567891 with message 'Test message' using endpoint myservice.communication.azure.com"
-- **Multiple recipients**: "Send SMS to multiple recipients: +1234567890, +1234567891 with message 'Group announcement'"
+- **Simple SMS**: "Send an SMS message to '+12345550123' saying 'Hello' from '+12345550456' using connection string 'endpoint=https://myservice.communication.azure.com/;accesskey=abc123...'"
+- **Specify sender and recipient**: "Send SMS to '+12345550789' from '+12345550456' with message 'Test message' using connection string 'endpoint=https://myservice.communication.azure.com/;accesskey=def456...'"
+- **Multiple recipients**: "Send SMS to multiple recipients: '+12345550123', '+12345550789' with message 'Group announcement' from '+12345550456' using connection string 'endpoint=https://myservice.communication.azure.com/;accesskey=ghi789...'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
