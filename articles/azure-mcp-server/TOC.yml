@@ -61,13 +61,13 @@ items:
         - name: Azure Container Registry
           href: tools/azure-container-registry.md
         - name: Azure Cosmos DB
-          href: tools/cosmos-db.md
+          href: tools/azure-cosmos-db.md
         - name: Azure Data Explorer
           href: tools/azure-data-explorer.md
         - name: Azure Database for MySQL
           href: tools/azure-mysql.md
-        - name: Azure DB for PostgreSQL
-          href: tools/postgresql.md
+        - name: Azure Database for PostgreSQL
+          href: tools/azure-database-postgresql.md
         - name: Azure Deploy
           href: tools/azure-deploy.md
         - name: Azure Developer CLI
@@ -87,7 +87,7 @@ items:
         - name: Azure Key Vault
           href: tools/azure-key-vault.md
         - name: Azure Kubernetes Service
-          href: tools/azure-aks.md
+          href: tools/azure-kubernetes.md
         - name: Azure Load Testing
           href: tools/azure-load-testing.md
         - name: Azure Marketplace
