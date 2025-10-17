@@ -13,7 +13,6 @@
     'themeVariables': {
       'tertiaryBorderColor': '#ffffff',
       'tertiaryColor': '#ffffff'
-
     }
   }
 }%%
@@ -26,7 +25,7 @@ flowchart LR;
 
     subgraph CREDENTIALS;
         direction LR
-        A(Environment):::deployed --> B(Workload Identity):::deployed --> C(Managed Identity):::deployed --> D(Azure CLI):::developer --> E(Azure Developer CLI):::developer;
+        A(Environment):::deployed --> B(Workload Identity):::deployed --> C(Managed Identity):::deployed --> D(Azure CLI):::developer --> E(Azure Developer CLI):::developer --> F(Azure PowerShell):::developer;
     end;
 
     %% Define styles for credential type boxes
@@ -39,4 +38,5 @@ flowchart LR;
     click C "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential" _blank;
     click D "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential" _blank;
     click E "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential" _blank;
+    click F "https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzurePowerShellCredential" _blank;
 ```
