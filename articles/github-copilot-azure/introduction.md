@@ -124,14 +124,14 @@ Here's a list of all the tools currently supported by GitHub Copilot for Azure. 
 
 |Tool|Description|Example Prompts|
 |---|---|---|
-|create_azure_devops_workflow|Generate an Azure DevOps Workflow for Azure Functions or ASP.NET projects. Creates directory structure and YAML for publishing.|“Create Azure DevOps workflow for my Blazor project”, “Create yaml file to publish to ADO”|
-|create_github_actions_workflow|Generate a GitHub Actions Workflow for Azure Functions or ASP.NET projects. Creates directory, YAML, and sets up secrets.|“Create GitHub Actions workflow for deployment”, “Publish with GitHub Actions to Azure”|
-|create_website_azure_publish_profile|Create a publish profile for Azure Web Apps or Azure Function Apps.|“Create publish profile for my Azure web app”, “Set up Azure publish profile for my Blazor project”|
-|generate_azure_cli_command|Generates Azure CLI (az) commands based on natural language intent. Always use this tool for CLI requests.|“Create a new resource group using the Azure CLI”, “How do I create an app service using azure cli?”|
-|publish_project_to_azure_website|Publish a project to an Azure Web site using an existing publish profile (.pubxml file).|“Publish my Blazor project to Azure using the existing profile”, “Deploy my project to Azure website”|
-|query_azure_resource_graph|Query Azure Resource Graph using natural language prompts; returns results as JSON.|“Find all virtual machines in my subscription”, “Show me all storage accounts in the West US region”|
-|select_website_for_azure_publish|Select an Azure Web site for publishing projects; guides through choosing or creating instances.|“Help me select an Azure web app for my Blazor project”, “I need to choose an Azure Function App for deployment”|
-|verify_azure_publish_compatibility|Verify if a project is compatible with Azure publish operations (ASP.NET Core, Blazor, Azure Function).|“Check if my project can be published to Azure”, “Verify Azure compatibility for my Blazor application”|
+|create_azure_devops_workflow|Generate an Azure DevOps Workflow for Azure Functions or ASP.NET projects. Creates directory structure and YAML for publishing.|<ul><li>“Create Azure DevOps workflow for my Blazor project”</li><li>“Create yaml file to publish to ADO”</li></ul>|
+|create_github_actions_workflow|Generate a GitHub Actions Workflow for Azure Functions or ASP.NET projects. Creates directory, YAML, and sets up secrets.|<ul><li>“Create GitHub Actions workflow for deployment”</li><li>“Publish with GitHub Actions to Azure”</li></ul>|
+|create_website_azure_publish_profile|Create a publish profile for Azure Web Apps or Azure Function Apps.|<ul><li>“Create publish profile for my Azure web app”</li><li>“Set up Azure publish profile for my Blazor project”</li></ul>|
+|generate_azure_cli_command|Generates Azure CLI (az) commands based on natural language intent. Always use this tool for CLI requests.|<ul><li>“Create a new resource group using the Azure CLI”</li><li>“How do I create an app service using azure cli?”</li></ul>|
+|publish_project_to_azure_website|Publish a project to an Azure Web site using an existing publish profile (.pubxml file).|<ul><li>“Publish my Blazor project to Azure using the existing profile”</li><li>“Deploy my project to Azure website”</li></ul>|
+|query_azure_resource_graph|Query Azure Resource Graph using natural language prompts; returns results as JSON.|<ul><li>“Find all virtual machines in my subscription”</li><li>“Show me all storage accounts in the West US region”</li></ul>|
+|select_website_for_azure_publish|Select an Azure Web site for publishing projects; guides through choosing or creating instances.|<ul><li>“Help me select an Azure web app for my Blazor project”</li><li>“I need to choose an Azure Function App for deployment”</li></ul>|
+|verify_azure_publish_compatibility|Verify if a project is compatible with Azure publish operations (ASP.NET Core, Blazor, Azure Function).|<ul><li>“Check if my project can be published to Azure”</li><li>“Verify Azure compatibility for my Blazor application”</li></ul>|
 
 ---
 
