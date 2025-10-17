@@ -46,9 +46,9 @@ Use the Azure MCP Server to run [search queries](/azure/search/query-simple-synt
 
 Example prompts include:
 
-- **Simple query**: "Search for 'machine learning' in the 'documents' index."
-- **Filter query**: "Find all products with category 'electronics' in my product index."
-- **Text search**: "Search my 'content' index for anything mentioning 'climate change'."
+- **Simple query**: "Search for 'machine learning' in the 'documents' index of my 'my-search-service' service."
+- **Filter query**: "Find all products with category 'electronics' in my 'products' index in service 'retail-search-service'."
+- **Text search**: "Search my 'content' index in 'my-search-service' for anything mentioning 'climate change'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -83,9 +83,9 @@ Execute a retrieval operation using a specific Azure AI Search knowledge base, e
 
 Example prompts include:
 
-- **Retrieve with query**: "Search the 'support' knowledge base for information about troubleshooting."
-- **Conversational retrieval**: "Ask the 'docs' knowledge base: How do I configure authentication?"
-- **Knowledge base search**: "Query the 'products' knowledge base for pricing information."
+- **Retrieve with query**: "Search the 'support' knowledge base in service 'my-search-service' for information about troubleshooting."
+- **Conversational retrieval**: "Ask the 'docs' knowledge base in 'help-search-service': How do I configure authentication?"
+- **Knowledge base search**: "Query the 'products' knowledge base in 'retail-search-service' for pricing information."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
