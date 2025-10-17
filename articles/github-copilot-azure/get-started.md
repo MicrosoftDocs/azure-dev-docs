@@ -13,7 +13,7 @@ zone_pivot_groups: ide-options
 
 # Get started with GitHub Copilot for Azure
 
-Get started with GitHub Copilot for Azure to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure extension in Visual Studio Code, so you can write your first prompt.
+Get started with GitHub Copilot for Azure to streamline your development workflow and enhance your productivity on the Azure platform. This guide walks you through the prerequisites and installation of the GitHub Copilot for Azure in Visual Studio, so you can write your first prompt.
 
 ::: zone pivot="visual-studio-code"
 [!INCLUDE [get-started-vscode](./includes/get-started-vscode.md)]
