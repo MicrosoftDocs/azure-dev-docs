@@ -31,8 +31,7 @@ Get detailed information about a specific product or offer from Azure Marketplac
 Example prompts include:
 
 - **Get product details**: "Show me information about product ID 'microsoft-ads.windows-data-science-vm'"
-- **Check specific plan**: "Get marketplace product details for plan ID 'standard-data-science-vm'"
-- **View pricing information**: "Retrieve marketplace product info with pricing audience set to 'public'"
+- **Check specific plan**: "Get marketplace product details for product ID 'standard-data-science-vm'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
