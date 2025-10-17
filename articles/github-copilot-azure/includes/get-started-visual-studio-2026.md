@@ -68,7 +68,7 @@ In Agent mode, GitHub Copilot can perform tasks across your entire Visual Studio
 
 GitHub Copilot for Azure provides "tools" to GitHub Copilot to enhance the agentic experience through deep integration with Azure.
 
-To switch, between ask and agent mode, select the down chevron next to the Ask icon in the chat area and select the desired mode.
+To switch, between ask and agent mode, select the down chevron next to the Ask option in the chat area and select the desired mode.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-switch-agent-mode.png" alt-text="Screenshot that shows the mode menu in the chat area in Visual Studio 2026.":::
 

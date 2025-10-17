@@ -2,7 +2,7 @@
 author: rotabor
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 10/09/2025
+ms.date: 10/17/2025
 ---
 
 ## Prerequisites
@@ -29,27 +29,43 @@ ms.date: 10/09/2025
 1. When the "GitHub Copilot Chat" window appears, in the chat area at the bottom, select "Agent" mode, then click the "Select tools" button (two wrenches).
 1. In the "Select tools" dialog, you should see "Azure MCP Server v0.8.4" (or whatever version is displayed). To the right of that, you'll see "0/153" if not tools are selected (which is currently the default). Select the parent node to choose all of the tools.
 
-> [!Note]
+> [!Important]
 > If you do not see "Azure MCP Server" in the list of tools, you may need to uninstall and re-install the extension.
 
 ## Write your first prompt
 
-1. Ensure that the extension is installed, that you're properly authenticated, and that the extension is working correctly.
+1. If the Chat window isn't already open, make sure it's open by selecting the **View** > **GitHub Copilot Chat** menu option. You should see chat window docked to the right side by default.
 
-1. If the Chat window isn't already open, make sure it's open by either selecting the **Toggle Chat** button in the menu bar, or select the dropdown next to the **Toggle Chat** button and select **Open Chat (Ctrl+Alt+I)**.
-
-   :::image type="content" source="../media/get-started/open-chat.png" alt-text="Screenshot that shows the Toggle Chat menu open and selecting the Open Chat menu option.":::
+   :::image type="content" source="../media/get-started/visual-studio-2022-chat-window.png" alt-text="Screenshot that shows the GitHub Copilot Chat window in Visual Studio 2022.":::
 
 1. In the chat text area at the bottom of the chat pane, enter the following prompt:
 
    ```prompt
-   @azure Do I have any resources currently running?
+   Do I have any resources currently running?
    ```
 
-   :::image type="content" source="../media/get-started/ask-mode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
+   :::image type="content" source="../media/get-started/visual-studio-2022-first-prompt.png" alt-text="Screenshot that shows an example prompt typed into the chat area in Visual Studio 2022.":::
 
-In Visual Studio 2022, GitHub Copilot for Azure only works in **Agent** mode.  Agent mode enables GitHub Copilot to take action in your workspace, but it can also answer queries and provide information about your Azure account.
+By default, GitHub Copilot uses **ask** mode. Ask mode provides answers to your prompts in the chat pane. **Agent** mode enables GitHub Copilot to take action in your workspace.
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
+## Agent mode
 
+In Agent mode, GitHub Copilot can perform tasks across your entire Visual Studio workspace, making edits, executing terminal commands, and so on.
+
+GitHub Copilot for Azure provides "tools" to GitHub Copilot to enhance the agentic experience through deep integration with Azure.
+
+To switch, between ask and agent mode, select the down chevron next to the Ask option in the chat area and select the desired mode.
+
+   :::image type="content" source="../media/get-started/visual-studio-2022-switch-agent-mode.png" alt-text="Screenshot that shows the mode menu in the chat area in Visual Studio 2022.":::
+
+### Enable and disable tools in agent mode
+
+You might want to disable or re-enable certain tools available by GitHub Copilot for Azure.
+
+1. Select the "Select tools" icon in the chat pane.
+
+   :::image type="content" source="../media/get-started/visual-studio-2022-select-tools-icon.png" alt-text="Screenshot of chat pane with the select tools button clicked in Visual Studio 2022.":::
+
+1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
