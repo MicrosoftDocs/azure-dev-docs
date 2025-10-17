@@ -19,3 +19,22 @@ ms.date: 10/16/2025
 
 ## Install GitHub Copilot for Azure
 
+1. If you've already installed Visual Studio 2026 and want to add GitHub Copilot for Azure after initial install, open Visual Studio Installer and select the **Modify** button, which displays the available workloads.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-installer-modify.png" alt-text="Screenshot that shows the Visual Studio Installer with the Modify button highlighted.":::
+
+1. If you're installing Visual Studio 2026 for the first time, the Visual Studio Installer will display the available workloads.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-installer-workloads.png" alt-text="Screenshot that shows the Visual Studio Installer's available workloads with the Azure AI development option selected and highlighted.":::
+
+1. Open Visual Studio Installer and validate that the workload, Azure development is installed. If the workload isn't installed, select it to be installed. 
+
+1. Open GitHub Copilot Chat. 
+
+1. If prompted, sign in to your GitHub account. 
+
+1. If prompted, sign in to your Azure account. 
+
+1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes **Azure** and **Azure MCP**.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot that shows the select tools dialog.":::
