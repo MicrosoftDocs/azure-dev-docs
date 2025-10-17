@@ -26,8 +26,8 @@ The Azure MCP Server generates Azure CLI commands to accomplish specific goals.
 
 **Example prompts** include:
 
-- **Generate creation commands**: "Generate a command to create a storage account"
-- **Generate query commands**: "Create a command to list all virtual machines in a resource group"
+- **Generate creation commands**: "Generate an 'az' command to create a storage account"
+- **Generate query commands**: "Create an 'az' command to list all virtual machines in a resource group"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -40,8 +40,8 @@ The Azure MCP Server provides installation instructions for CLI tools including 
 
 **Example prompts** include:
 
-- **Azure CLI installation**: "How do I install the Azure CLI?"
-- **Azure Developer CLI installation**: "Show me how to install azd"
+- **Azure CLI installation**: "How do I install the 'az' CLI?"
+- **Azure Developer CLI installation**: "Show me how to install 'azd'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
