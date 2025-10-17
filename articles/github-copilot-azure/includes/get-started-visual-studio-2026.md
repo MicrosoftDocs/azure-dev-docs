@@ -78,8 +78,6 @@ You might want to disable or re-enable certain tools available by GitHub Copilot
 
 1. Select the "Select tools" icon in the chat pane.
 
-   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot of chat pane with the select tools button clicked in Visual Studio 2026.":::
+   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools-icon.png" alt-text="Screenshot of chat pane with the select tools button clicked in Visual Studio 2026.":::
 
 1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
-
-
