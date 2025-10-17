@@ -1,10 +1,10 @@
 ---
 title: Azure Storage Tools 
-description: Learn how to use the Azure MCP Server with Azure Storage.
+description: "Learn how to use Azure MCP Server with Azure Storage tools to manage storage accounts, containers, and blobs using natural language prompts."
 keywords: azure mcp server, azmcp, storage account, blob storage
 author: diberry
 ms.author: diberry
-ms.date: 09/24/2025
+ms.date: 10/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -14,7 +14,7 @@ ms.custom: build-2025
 
 # Azure Storage tools for the Azure MCP Server
 
-The Azure MCP Server enables you to manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts. You don't need to remember specific command syntax.
+The Azure MCP Server lets you manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts. You don't need to remember specific command syntax.
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for various data objects in the cloud.
 
