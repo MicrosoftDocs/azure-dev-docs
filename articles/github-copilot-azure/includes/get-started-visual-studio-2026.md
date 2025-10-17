@@ -23,11 +23,15 @@ ms.date: 10/16/2025
 
    :::image type="content" source="../media/get-started/visual-studio-2026-installer-modify.png" alt-text="Screenshot that shows the Visual Studio Installer with the Modify button highlighted.":::
 
-1. If you're installing Visual Studio 2026 for the first time, the Visual Studio Installer will display the available workloads.
+   If you're installing Visual Studio 2026 for the first time, the Visual Studio Installer will automatically display the available workloads.
+
+1.  On the Workloads tab, make sure "Azure AI development" is selected.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-installer-workloads.png" alt-text="Screenshot that shows the Visual Studio Installer's available workloads with the Azure AI development option selected and highlighted.":::
 
-1. Open Visual Studio Installer and validate that the workload, Azure development is installed. If the workload isn't installed, select it to be installed. 
+1. Select the **Install** button to complete the installation.
+
+1. Launch Visual Studio 2026 and create or load a project.
 
 1. Open GitHub Copilot Chat. 
 
