@@ -26,6 +26,7 @@ For an app to authenticate to Azure during local development using the developer
 
 - Azure CLI
 - Azure Developer CLI
+- Azure PowerShell
 
 The Azure Identity library can detect that the developer is signed-in from one of these tools. The library can then obtain the Microsoft Entra access token via the tool to authenticate the app to Azure as the signed-in user.
 
@@ -69,6 +70,22 @@ For systems without a default web browser, the `azd auth login --use-device-code
 
 ```azdeveloper
 azd auth login --use-device-code
+```
+
+### [Azure PowerShell](#tab/sign-in-azure-powershell)
+
+Developers can use [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzurePowerShellCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzurePowerShellCredential) can then use this account to authenticate app requests.
+
+To authenticate with Azure PowerShell, run the command `Connect-AzAccount`. On a system with a default web browser and version 5.0.0 or later of Azure PowerShell, it launches the browser to authenticate the user.
+
+```azurepowershell
+Connect-AzAccount
+```
+
+For systems without a default web browser, the `Connect-AzAccount` command uses the device code authentication flow. The user can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
+
+```azurepowershell
+Connect-AzAccount -UseDeviceAuthentication
 ```
 
 ---
