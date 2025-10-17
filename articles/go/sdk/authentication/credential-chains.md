@@ -1,7 +1,7 @@
 ---
 title: Credential chains in the Azure Identity library for Go
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for Go.
-ms.date: 10/02/2025
+ms.date: 10/17/2025
 ms.topic: article
 ms.custom: devx-track-go
 ---
@@ -82,7 +82,7 @@ In its simplest form, you can use the parameterless version of `DefaultAzureCred
 import (
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
-    )
+)
 
 // create a credential
 credential, err := azidentity.NewDefaultAzureCredential(nil)
