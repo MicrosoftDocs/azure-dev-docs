@@ -1,7 +1,7 @@
 ---
 title: Credential chains in the Azure Identity library for Go
-description: This article describes the DefaultAzureCredential and ChainedTokenCredential APIs in the Azure Identity library for Go.
-ms.date: 10/02/2025
+description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library for Go.
+ms.date: 10/17/2025
 ms.topic: article
 ms.custom: devx-track-go
 ---
@@ -67,12 +67,14 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 | 3     | [Managed Identity][mi-cred]     | If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.                                                                                                                                                                                                              |
 | 4     | [Azure CLI][az-cred]            | If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.                                                                                                                                                                                                           |
 | 5     | [Azure Developer CLI][azd-cred] | If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.                                                                                                                                                                                                                  |
+| 6     | [Azure PowerShell][pwsh-cred] | If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate with that account.                                                                                                                                                                                                                  |
 
 [env-cred]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#EnvironmentCredential
 [wi-cred]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#WorkloadIdentityCredential
 [mi-cred]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential
 [az-cred]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential
 [azd-cred]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential
+[pwsh-cred]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzurePowerShellCredential
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
@@ -80,7 +82,7 @@ In its simplest form, you can use the parameterless version of `DefaultAzureCred
 import (
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
-    )
+)
 
 // create a credential
 credential, err := azidentity.NewDefaultAzureCredential(nil)
@@ -129,6 +131,7 @@ To exclude all credentials except for one, set environment variable `AZURE_TOKEN
 
 - `AzureCLICredential`
 - `AzureDeveloperCLICredential`
+- `AzurePowerShellCredential`
 - `EnvironmentCredential`
 - `ManagedIdentityCredential`
 - `WorkloadIdentityCredential`
