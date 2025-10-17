@@ -27,7 +27,7 @@ ms.date: 10/17/2025
 1. Re-open Visual Studio 2022.
 1. Select the "GitHub Copilot" button in upper-right of window on the toolbar. Select "Open Chat Window".
 1. When the "GitHub Copilot Chat" window appears, in the chat area at the bottom, select "Agent" mode, then click the "Select tools" button (two wrenches).
-1. In the "Select tools" dialog, you should see "Azure MCP Server v0.8.4" (or whatever version is displayed). To the right of that, you'll see "0/153" if not tools are selected (which is currently the default). Select the parent node to choose all of the tools.
+1. In the "Select tools" dialog, you should see "Azure MCP Server". To the right of that, you'll see "0/153" if no tools are selected (which is currently the default). Select the parent node to choose all of the tools.
 
 > [!Important]
 > If you do not see "Azure MCP Server" in the list of tools, you may need to uninstall and re-install the extension.

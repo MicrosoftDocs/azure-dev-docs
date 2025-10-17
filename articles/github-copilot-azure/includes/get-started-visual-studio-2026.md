@@ -39,9 +39,13 @@ ms.date: 10/16/2025
 
 1. If prompted, sign in to your Azure account. 
 
-1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes **Azure** and **Azure MCP**.
+1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes for **Azure**.
 
-   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot that shows the select tools dialog.":::
+   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot that shows the select tools dialog with the Azure node checked.":::
+
+   Also select the top node for **Azure MCP Server**.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools-mcp-server.png" alt-text="Screenshot that shows the select tools dialog with the Azure MCP Server node checked.":::
 
 
 ## Write your first prompt
