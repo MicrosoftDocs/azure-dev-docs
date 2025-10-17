@@ -42,3 +42,44 @@ ms.date: 10/16/2025
 1. In the chat area, select the **Select tools** button (two wrenches icon) to display a list of available tools. Enable all Azure tools by checking the top nodes **Azure** and **Azure MCP**.
 
    :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot that shows the select tools dialog.":::
+
+
+## Write your first prompt
+
+1. If the Chat window isn't already open, make sure it's open by selecting the **View** > **GitHub Copilot Chat** menu option. You should see chat window docked to the right side by default.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-chat-window.png" alt-text="Screenshot that shows the GitHub Copilot Chat window in Visual Studio 2026.":::
+
+1. In the chat text area at the bottom of the chat pane, enter the following prompt:
+
+   ```prompt
+   Do I have any resources currently running?
+   ```
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-first-prompt.png" alt-text="Screenshot that shows an example prompt typed into the chat area in Visual Studio 2026.":::
+
+By default, GitHub Copilot uses **ask** mode. Ask mode provides answers to your prompts in the chat pane. **Agent** mode enables GitHub Copilot to take action in your workspace.
+
+The answer to your question depends on what's currently running in Azure in your subscription.
+
+## Agent mode
+
+In Agent mode, GitHub Copilot can perform tasks across your entire Visual Studio workspace, making edits, executing terminal commands, and so on.
+
+GitHub Copilot for Azure provides "tools" to GitHub Copilot to enhance the agentic experience through deep integration with Azure.
+
+To switch, between ask and agent mode, select the down chevron next to the Ask icon in the chat area and select the desired mode.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-switch-agent-mode.png" alt-text="Screenshot that shows the mode menu in the chat area in Visual Studio 2026.":::
+
+### Enable and disable tools in agent mode
+
+You might want to disable or re-enable certain tools available by GitHub Copilot for Azure.
+
+1. Select the "Select tools" icon in the chat pane.
+
+   :::image type="content" source="../media/get-started/visual-studio-2026-select-tools.png" alt-text="Screenshot of chat pane with the select tools button clicked in Visual Studio 2026.":::
+
+1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
+
+
