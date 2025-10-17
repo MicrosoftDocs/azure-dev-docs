@@ -4,7 +4,7 @@ description: This article describes the requirements and installation procedure 
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 5/30/2025
+ms.date: 10/17/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: sfi-image-nochange
 zone_pivot_group_filename: developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json

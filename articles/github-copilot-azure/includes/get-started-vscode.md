@@ -2,7 +2,7 @@
 author: rotabor
 ms.service: github-copilot-for-azure
 ms.topic: include
-ms.date: 09/24/2025
+ms.date: 10/17/2025
 ---
 
 ## Prerequisites
