@@ -36,6 +36,8 @@ items:
       items:
         - name: Overview
           href: tools/index.md
+        - name: Application Insights
+          href: tools/application-insights.md
         - name: Azure AI Search
           href: tools/ai-search.md
         - name: Azure AI Speech

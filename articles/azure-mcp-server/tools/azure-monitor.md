@@ -19,15 +19,6 @@ The Azure MCP Server allows you to manage Azure Monitor resources using natural 
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Application insights: List recommendations
-
-Lists [Application Insights](/azure/azure-monitor/app/app-insights-overview) code optimization recommendations in a subscription. 
-
-Example prompts include:
-
-- **List code optimization recommendations**: "List code optimization recommendations across my Application Insights components."
-- **Show recommendations for all resources**: "Show me code optimization recommendations for all Application Insights resources in my subscription."
-- **List profiler recommendations by group**: "List profiler recommendations for Application Insights in resource group 'devops-group'."
 
 ## Log Analytics: List workspaces
 

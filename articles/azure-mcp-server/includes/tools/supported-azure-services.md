@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 10/08/2025
+ ms.date: 10/17/2025
 ---
 
 ## Available tools
@@ -12,6 +12,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Tool |  Description |
 |------|--------------|
+| [Application Insights](../../tools/application-insights.md) | List Application Insights resources. |
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
 | [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
