@@ -35,7 +35,7 @@ items:
           href: sdk/authentication/authentication-overview.md
         - name: Auth during local development
           items:
-          - name: Use a developer service principal
+          - name: Use a service principal
             href: sdk/authentication/local-development-service-principal.md
           - name: Use a developer account
             href: sdk/authentication/local-development-dev-accounts.md
