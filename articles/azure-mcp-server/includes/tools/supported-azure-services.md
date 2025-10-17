@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 10/08/2025
+ ms.date: 10/17/2025
 ---
 
 ## Available tools
@@ -13,6 +13,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Tool |  Description |
 |------|--------------|
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Application Insights](../../tools/application-insights.md) | List code optimizations for Application Insights resources. |
 | [Azure AI Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |

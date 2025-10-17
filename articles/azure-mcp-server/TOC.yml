@@ -38,6 +38,8 @@ items:
           href: tools/index.md
         - name: Azure best practices
           href: tools/azure-best-practices.md
+        - name: Application Insights
+          href: tools/application-insights.md
         - name: Azure AI Foundry
           href: tools/azure-foundry.md
         - name: Azure AI Search
