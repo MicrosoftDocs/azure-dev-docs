@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure MCP Server documentation
-summary: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from AI agents and other types of clients.
+summary: Learn how to use the Azure MCP Server to manage Azure resources through natural language commands. Connect from GitHub Copilot, custom AI agents, and MCP-compatible clients to access Azure services using the Model Context Protocol (MCP).
 
 metadata:
   title: Azure MCP Server documentation
   description: Learn how to use the Azure MCP Server to interact with Azure resources through natural language commands from AI agents and other types of clients.
   ms.topic: landing-page
-  ms.date: 07/01/2025
+  ms.date: 10/20/2025
 
 landingContent:
   # Card
@@ -15,17 +15,48 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Azure MCP Server (Preview)?
+          - text: What is Azure MCP Server (Preview)?
             url: overview.md
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
-          - text: GitHub Copilot in Visual Studio Code
+          - text: Install in an IDE
+            url: get-started#use-a-code-editor
+          - text: Install with a package manager
+            url: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager
+      - linkListType: quickstart
+        links:
+          - text: Connect from Cline
+            url: get-started/tools/cline.md
+          - text: Connect from Cursor
+            url: get-started/tools/cursor.md
+          - text: Connect from IntelliJ
+            url: get-started/tools/jet-brains.md
+          - text: Connect from Visual Studio
+            url: get-started/tools/visual-studio.md
+          - text: Connect from Visual Studio Code
             url: get-started/tools/visual-studio-code.md
-          - text: .NET
+          - text: Connect from Windsurf
+            url: get-started/tools/windsurf.md
+
+  - title: Languages and frameworks
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Use with .NET applications
             url: get-started/languages/dotnet.md
-          - text: Python
+          - text: Use with Python applications
             url: get-started/languages/python.md
-  
+
+  - title: Understand Azure MCP Server
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Model Context Protocol overview
+            url: overview.md#introduction-to-the-model-context-protocol-mcp
+          - text: Scenarios for using Azure MCP Server
+            url: overview.md#scenarios-for-using-the-azure-mcp-server
+          - text: Authentication and permissions
+            url: overview.md
   - title: Azure MCP Server tools
     linkLists:
       - linkListType: overview
@@ -34,16 +65,39 @@ landingContent:
             url: tools/index.md
       - linkListType: reference
         links:
+          - text: Azure best practices
+            url: tools/azure-best-practices.md
           - text: Azure AI Search
             url: tools/ai-search.md
           - text: Azure App Configuration
             url: tools/app-configuration.md
-          - text: Azure Redis
-            url: tools/azure-cache-for-redis.md
+          - text: Azure Cosmos DB
+            url: tools/azure-cosmos-db.md
           - text: Azure Data Explorer
             url: tools/azure-data-explorer.md
+          - text: Azure Developer CLI
+            url: tools/azure-developer-cli.md
+          - text: Azure Key Vault
+            url: tools/azure-key-vault.md
+          - text: Azure Monitor
+            url: tools/monitor.md
           - text: Azure RBAC
             url: tools/azure-rbac.md
+          - text: Azure Redis
+            url: tools/azure-cache-for-redis.md
           - text: Complete list of tools
             url: tools/index.md#available-tools
-
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure MCP Server GitHub repository
+            url: https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server
+          - text: Model Context Protocol documentation
+            url: https://modelcontextprotocol.io/
+      - linkListType: how-to-guide
+        links:
+          - text: Authentication guidance
+            url: overview.md
+          - text: Tool reference
+            url: tools/index.md
