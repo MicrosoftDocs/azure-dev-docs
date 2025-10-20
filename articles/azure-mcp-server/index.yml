@@ -20,9 +20,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Install in an IDE
-            url: get-started#use-a-code-editor
+            url: get-started.md#use-a-code-editor.md
           - text: Install with a package manager
-            url: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager
+            url: get-started.md#install-with-a-package-manager
       - linkListType: quickstart
         links:
           - text: Connect from Cline
@@ -73,8 +73,6 @@ landingContent:
             url: tools/app-configuration.md
           - text: Azure Cosmos DB
             url: tools/azure-cosmos-db.md
-          - text: Azure Data Explorer
-            url: tools/azure-data-explorer.md
           - text: Azure Developer CLI
             url: tools/azure-developer-cli.md
           - text: Azure Key Vault
