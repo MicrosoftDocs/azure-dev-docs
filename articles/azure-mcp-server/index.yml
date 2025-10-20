@@ -96,6 +96,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Authentication guidance
-            url: overview.md
+            url: overview.md#authentication-and-permissions
           - text: Tool reference
             url: tools/index.md
