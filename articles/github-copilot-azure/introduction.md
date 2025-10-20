@@ -90,7 +90,7 @@ When working in agent mode, you can create longer prompts, however it's importan
 
 # [Visual Studio Code](#tab/vscode)
 
-GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server](.../azure-mcp-server/overview).
+GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server](../azure-mcp-server/overview.md).
 
 Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
 
@@ -110,11 +110,11 @@ Here's a list of all the tools currently supported by GitHub Copilot for Azure. 
 
 # [Visual Studio 2022](#tab/vs2022)
 
-See the the [Azure MCP Server](.../azure-mcp-server/overview) documentation.
+See the the [Azure MCP Server](../azure-mcp-server/overview.md) documentation.
 
 # [Visual Studio 2026](#tab/vs2026)
 
-GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server](.../azure-mcp-server/overview).
+GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server](../azure-mcp-server/overview.md).
 
 Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
 
