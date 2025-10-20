@@ -109,7 +109,7 @@ New articles:
 - [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md)
 - [Azure best practices tools](../azure-mcp-server/tools/azure-best-practices.md)
 - [Azure Bicep Schema tools for the Azure MCP Server](../azure-mcp-server/tools/azure-bicep-schema.md)
-- [Azure Cache for Redis tools for Azure MCP Server](../azure-mcp-server/tools/azure-cache-for-redis.md)
+- [Azure Redis tools for Azure MCP Server](../azure-mcp-server/tools/azure-cache-for-redis.md)
 - [Azure Developer CLI extension tools for the Azure MCP Server](../azure-mcp-server/tools/azure-developer-cli.md)
 - [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-kubernetes.md)
 - [Azure Load Testing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md)
