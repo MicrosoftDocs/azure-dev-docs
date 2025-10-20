@@ -96,25 +96,21 @@ Here's a list of all the tools currently supported by GitHub Copilot for Azure. 
 
 |Tool|Description and sample prompts|Migration Status|
 |---|---|---|
-|azure_diagnose_resource|Fetches recent Azure activity logs for a specified resource to inspect operational history or troubleshoot issues.<br /><ul><li>Please diagnose the issues in my `<app-service-name>` app service</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>|In progress|
-|azure_generate_azure_cli_command|Runs Azure AppLens diagnostics on a resource to surface health insights, failures, and recommended fixes.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_get_auth_state|Returns the currently signed-in Azure account and authentication status.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_get_available_tenants|Lists all Azure AD tenants accessible to the signed-in account.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_get_azure_verified_module|Retrieves Azure Verified Bicep modules for a given resource type.<br /><ul><li>Give me a ARM template that deploys a Container App Environment with a basic Container App. In addition, it should deploy a Log Analytics Workspace to store logs.</li><li>How to use ARM templates to create Azure OpenAI service?</li><li>How to create a private endpoint resource using ARM templates?</li></ul>||
-|azure_get_current_tenant|Switches the active tenant used for future Azure interactions.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_get_dotnet_template_tags|Lists available tags to filter .NET templates for `dotnet new`.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_getdotnet_templates_for_tag|Returns .NET project templates that match a specified tag.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_get_selected_subscriptions|Shows the subscriptions currently selected for resource queries.<br /><ul><li>Rotate secrets in my keyvault</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_list_activity_logs|Fetches recent Azure activity logs for a specified resource to inspect operational history or troubleshoot issues.<br /><ul><li>Find error messages in the logs that may correlate to 500 errors</li><li>Grab all the errors in the logs between yesterday and today</li><li>Is my web app experiencing any downtime?</li></ul>||
-|azure_open_subscription_picker|Opens the subscription picker so the user can change selected subscriptions.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_query_azure_resource_graph|Queries Azure Resource Graph for subscription, resource group, or resource metadata.<br /><ul><li>List the subscriptions I have access to</li><li>How many Azure Functions are in my subscription?</li><li>List the resoruces that are in the resource group named `<resource-group-name>` and provide a link to each resource in the portal</li></ul>||
-|azure_set_current_tenant|Identifies which tenant is currently active for resource operations.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_sign_out_azure_user|Signs the user out of Azure within this session.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
-|azure_summarize_topic|Captures the user’s Azure-related intent to recommend custom workflow modes.<br /><ul><li>Example prompt 1</li><li>Example prompt 2</li><li>Example prompt 3</li></ul>||
+|azure_list_activity_logs|Lists activity logs for a resource over a specified time.<br /><ul><li>“Show me the activity logs for my web app”</li><li>“What happened to my VM in the last 24 hours?”</li></ul>|Complete|
+|azure_diagnose_resource|Diagnoses app performance or failures using logs and telemetry.<br /><ul><li>“Why is my app slow?”</li><li>“Help me diagnose issues with my app”</li></ul>|Complete|
+|azure_get_auth_context|Retrieves current Azure authentication context (account, subscription, tenant).<br /><ul><li>“What Azure account am I signed in with?”</li><li>“Show me my current tenant”</li></ul>|N/A|
+|azure_set_auth_context|Updates Azure authentication context (sign in/out, switch tenant or subscription).<br /><ul><li>"Sign me into Azure”</li><li>“Change my subscription”</li></ul>|N/A|
+|azure_get_azure_verified_module|Fetches verified Bicep modules for a resource type.<br /><ul><li>“Get Bicep module for storage account”</li><li>“Find verified module for virtual machine”</li></ul>|Planned|
+|azure_generate_azure_cli_command|Generates Azure CLI commands based on user intent.<br /><ul><li>“Create a new resource group using Azure CLI”</li><li>“List all VMs in a resource group”</li></ul>|Complete|
+|azure_recommend_custom_modes|Captures Azure-related intent and suggests modes to enhance workflows.<br /><ul><li>“I want to build an Azure Function”</li><li>“Help me deploy to Azure”</li></ul>|N/A|
+|azure_get_dotnet_template_tags|Lists tags for filtering .NET templates	“What .NET template tags are available?”</li><li>“Show me template categories for Azure projects”</li></ul>|N/A|
+|azure_dotnet_templates_for_tag|Retrieves the list of .NET project templates matching a given tag for dotnet new commands.<br /><ul><li>“Show me Azure Function templates”, “Get web API templates”</li></ul>|N/A|
+|azure_query_azure_resource_graph|Queries Azure Resource Graph for resources, subscriptions, or resource groups.<br /><ul><li>“List all my virtual machines”</li><li>“Show me resources in my resource group”</li></ul>|Planned|
+
 
 # [Visual Studio 2022](#tab/vs2022)
 
-Content for VS2022 ...
+See the the [Azure MCP Server](/azure-mcp-server/overview) documentation.
 
 # [Visual Studio 2026](#tab/vs2026)
 
