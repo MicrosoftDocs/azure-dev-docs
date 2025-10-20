@@ -15,5 +15,5 @@ ms.date: 09/23/2025
 - [Maven](https://maven.apache.org/download.cgi) or [Gradle](https://gradle.org/install/) to build Java projects.
 
 > [!NOTE]
-> - If you're using Gradle, only the Gradle wrapper version 5+ is supported. The Kotlin Domain Specific Languages (DSL) isn't supported.
+> - If you're using Gradle, only the Gradle wrapper version 5+ is supported. The Kotlin Domain Specific Language (DSL) isn't supported.
 > - The function `My Tasks` isn't supported yet for Intellij IDEA.
