@@ -20,7 +20,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Install in an IDE
-            url: get-started.md#use-a-code-editor.md
+            url: get-started.md#use-a-code-editor
           - text: Install with a package manager
             url: get-started.md#install-with-a-package-manager
       - linkListType: quickstart
