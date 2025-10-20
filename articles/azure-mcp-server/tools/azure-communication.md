@@ -51,13 +51,13 @@ Sends SMS messages to one or more recipients using Azure Communication Services.
 
 Example prompts include:
 
-- **Simple SMS**: "Send an SMS message to '+12345550123' saying 'Hello' from '+12345550456' using connection string 'endpoint=https://myservice.communication.azure.com/;accesskey=abc123...'"
-- **Specify sender and recipient**: "Send SMS to '+12345550789' from '+12345550456' with message 'Test message' using connection string 'endpoint=https://myservice.communication.azure.com/;accesskey=def456...'"
-- **Multiple recipients**: "Send SMS to multiple recipients: '+12345550123', '+12345550789' with message 'Group announcement' from '+12345550456' using connection string 'endpoint=https://myservice.communication.azure.com/;accesskey=ghi789...'"
+- **Simple SMS**: "Send an SMS message to '+12345550123' saying 'Hello' from '+12345550456' using endpoint 'https://myservice.communication.azure.com'"
+- **Specify sender and recipient**: "Send SMS to '+12345550789' from '+12345550456' with message 'Test message' using endpoint 'https://myservice.communication.azure.com'"
+- **Multiple recipients**: "Send SMS to multiple recipients: '+12345550123', '+12345550789' with message 'Group announcement' from '+12345550456' using endpoint 'https://myservice.communication.azure.com'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Connection string** |  Required | The Communication Services connection string (for example, `endpoint=https://myservice.communication.azure.com/;accesskey=...`). Used for authentication. |
+| **Endpoint** |  Required | The Communication Services URI endpoint (for example, `https://myservice.communication.azure.com`). Used for credential authentication. |
 | **From** |  Required | The SMS-enabled phone number associated with your Communication Services resource (in E.164 format, for example, `+14255550123`). Can also be a short code or alphanumeric sender ID. |
 | **To** |  Required | The recipient phone numbers in `E.164` international standard format (for example, `+14255550123`). Multiple numbers can be provided. |
 | **Message** |  Required | The SMS message content to send to the recipients. |
