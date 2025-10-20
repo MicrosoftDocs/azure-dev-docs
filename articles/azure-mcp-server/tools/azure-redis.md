@@ -29,9 +29,11 @@ Lists all Redis resources in a subscription. Returns details of all Azure Manage
 
 Example prompts include:
 
-- **List clusters**: "Show me all Redis clusters in my subscription"
-- **Find clusters**: "What Redis Enterprise clusters do I have?"
-- **Query clusters**: "List all my Redis clusters"
+- `List all Redis resources in my subscription`
+- `Show me my Redis caches`
+- `Show me the Redis resources in my subscription`
+- `Get Redis clusters`
+- `What Redis caches do I have?`
 
 ## Related content
 
