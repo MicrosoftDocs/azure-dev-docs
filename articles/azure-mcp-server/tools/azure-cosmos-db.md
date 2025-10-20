@@ -1,10 +1,10 @@
 ---
 title: Azure Cosmos DB Tools 
-description: Learn how to use the Azure MCP Server with Cosmos DB.
+description: Learn how to use the Azure MCP Server with Azure Confidential Ledger Services to manage tamper-proof ledger entries using natural language prompts.
 keywords: azure mcp server, azmcp, cosmos db
 author: diberry
 ms.author: diberry
-ms.date: 05/14/2025
+ms.date: 10/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -13,7 +13,7 @@ ms.custom: build-2025
 --- 
 # Azure Cosmos DB tools for the Azure MCP Server
 
-The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers with natural language prompts. You can query and manage your NoSQL databases using simple conversational commands.
+The Azure MCP Server allows you to manage Azure resources, including Cosmos DB accounts, databases, and containers with natural language prompts. Query and manage your NoSQL databases using simple conversational commands.
 
 [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale.
 

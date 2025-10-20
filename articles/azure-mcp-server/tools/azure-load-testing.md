@@ -1,6 +1,6 @@
 ---
 title: Azure Load Testing Tools - Azure MCP Server
-description: Learn how to use the Azure MCP Server with Azure Load Testing to create, run, and analyze load tests for your applications.
+description: "Learn how to use Azure MCP Server with Azure Load Testing to create, run, and analyze performance tests. Get started with load testing tools and natural language commands."
 keywords: azure mcp server, azmcp, azure load testing, performance testing, stress testing, load tests
 ai-usage: ai-assisted
 content_well_notification: 
@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 7/22/2025
+ms.date: 10/15/2025
 ---
 
 # Azure Load Testing tools for the Azure MCP Server
@@ -20,9 +20,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure Load Testi
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Test
-
-### Create test
+## Test: Create test
 
 <!--
 azmcp loadtesting test create --subscription
@@ -49,15 +47,13 @@ Example prompts include:
 | **Duration** | Required | The total duration of the test in seconds. |
 | **Ramp-up time** | Required | The time period over which to gradually increase load to the specified number of virtual users. |
 
-
-
-### Get test details
+## Test: Get test details
 
 <!--
 azmcp loadtesting test get --subscription
 -->
 
-Retrieves details about a specific load test in Azure Load Testing. Use this command to view the configuration and properties of an existing test.
+Gets details about a specific load test in Azure Load Testing. Use this command to view the configuration and properties of an existing test.
 
 
 Example prompts include:
@@ -72,17 +68,15 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of the test resource. |
-| **Test ID** | Required | The unique identifier of the test to retrieve. |
+| **Test ID** | Required | The unique identifier of the test. |
 
-## Test resources
-
-### List test resources
+## Test resources: List test resources
 
 <!--
 azmcp loadtesting testresource list --subscription
 -->
 
-Lists all test resources in the specified Azure subscription. Use this command to inventory and manage your load testing resources.
+Lists all test resources in the specified Azure subscription. Use this command to track and manage your load testing resources.
     
 Example prompts include:
 
@@ -96,13 +90,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of a specific test resource to filter by. |
 
-### Create test resource
+## Test resources: Create test resource
 
 <!--
 azmcp loadtesting testresource create --subscription
 -->
 
-Creates a test resource in Azure Load Testing. Use this command to provision resources needed for running load tests.
+Creates a test resource in Azure Load Testing. Use this command to set up resources needed for running load tests.
 
 Example prompts include:
 
@@ -115,15 +109,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | A name for the new test resource. |
 
-## Test runs
-
-### Create a test run
+## Test runs: Create a test run
 
 <!--
 azmcp loadtesting testrun create --subscription
 -->
 
-Creates a new test run for an existing load test in Azure Load Testing. Use this command to execute the defined load test and generate performance metrics.
+Creates a new test run for an existing load test in Azure Load Testing. Use this command to run the defined load test and generate performance metrics.
 
 Example prompts include:
 
@@ -141,13 +133,13 @@ Example prompts include:
 | **Description** | Required | A description of the test run and its purpose. |
 | **Old testrun ID** | Required | The ID of a previous test run to compare results with. |
 
-### Get test run details
+## Test runs: Get test run details
 
 <!--
 azmcp loadtesting testrun get --subscription
 -->
 
-Gets details of a specific test run in Azure Load Testing. Use this command to view the results and metrics of a completed or running test.
+Gets details about a specific test run in Azure Load Testing. Use this command to view the results and metrics of a completed or running test.
 
 Example prompts include:
 
@@ -158,9 +150,9 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of the test resource used for the test run. |
-| **Testrun ID** | Required | The ID of the test run to retrieve. |
+| **Testrun ID** | Required | The ID of the test run. |
 
-### List test runs
+## Test runs: List test runs
 
 <!--
 azmcp loadtesting testrun list --subscription
@@ -182,7 +174,7 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource used for the test runs. |
 | **Test ID** | Required | The ID of a specific test to filter test runs by. |
 
-### Update test run
+## Test runs: Update test run
 
 <!--
 azmcp loadtesting testrun update --subscription

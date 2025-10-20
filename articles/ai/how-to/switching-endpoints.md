@@ -1,7 +1,7 @@
 ---
 title: "How to switch between OpenAI and Azure OpenAI endpoints"
 description: "Learn how to switch between OpenAI and Azure OpenAI endpoints in your application."
-ms.date: 10/07/2025
+ms.date: 10/16/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 content_well_notification: 
@@ -23,7 +23,7 @@ While OpenAI and Azure OpenAI rely on a [common Python client library](https://g
 
 ## Authentication
 
-We recommend using Microsoft Entra ID or Azure Key Vault. You can use environment variables for testing outside of your production environment.
+We recommend keyless authentication using Microsoft Entra ID. If that's not possible, use an API key and store it in Azure Key Vault. You can use an environment variable for testing outside of your Azure environments.
 
 ### API key authentication
 
@@ -38,7 +38,6 @@ from openai import OpenAI
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
-
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
@@ -49,63 +48,59 @@ from openai import OpenAI
     
 client = OpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/"
+    base_url="https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/"
 )
 ```
 
 ---
 
-### Microsoft Entra ID authentication
+### Microsoft Entra authentication
 
-Use the following steps to configure Microsoft Entra ID authentication with `DefaultAzureCredential`:
+Microsoft Entra authentication is only supported with Azure OpenAI resources. Complete the following steps:
 
-1. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to the following values depending on your environment:
+1. Install the Azure Identity client library:
 
-    - In production: `ManagedIdentityCredential`
-    - In local development: `dev`
+    ```
+    pip install azure-identity
+    ```
 
-    For more information, see [Exclude a credential type category](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+1. Configure the OpenAI client object as follows:
 
-    > [!IMPORTANT]
-    > For this sample, set `AZURE_TOKEN_CREDENTIALS` to `dev`. Using `require_envvar=True` in the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
+    ```python
+    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+    from openai import OpenAI
+    
+    credential = DefaultAzureCredential()
+    token_provider = get_bearer_token_provider(
+        credential,
+        "https://cognitiveservices.azure.com/.default"
+    )
+    
+    client = OpenAI(
+        base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/", 
+        api_key = token_provider,
+    )
+    ```
 
-2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+    > [!TIP]
+    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
 
-> [!NOTE]
-> Microsoft Entra authentication is only supported in the Azure OpenAI library.
+1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
-```python
-from azure.identity import DefaultAzureCredential, get_bearer_token_provider
-from openai import OpenAI
-
-credential = DefaultAzureCredential(require_envvar=True)
-
-token_provider = get_bearer_token_provider(
-    credential, "https://cognitiveservices.azure.com/.default"
-)
-
-client = OpenAI(
-    base_url = "https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/", 
-    api_key = token_provider,
-)
-```
+    When running in Azure, assign roles to the managed identity used by the Azure host resource. When running in the local development environment, assign roles to the user running the app.
 
 :::zone-end
 :::zone pivot="dotnet"
 
 #### [OpenAI](#tab/openai)
 
-> [!NOTE]
-> Use `ApiKeyCredential` for API key authentication. For more information, see the [ApiKeyCredential](/dotnet/api/system.clientmodel.apikeycredential?view=azure-dotnet&preserve-view=true) reference.
-
 ```csharp
 using OpenAI;
 using System;
 using System.ClientModel;
 
-string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-OpenAIClient openAIClient = new(new ApiKeyCredential(apiKey));
-
+string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+OpenAIClient client = new(new ApiKeyCredential(apiKey));
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
@@ -115,74 +110,67 @@ using OpenAI;
 using System;
 using System.ClientModel;
 
+// code omitted for brevity
+
 OpenAIClientOptions clientOptions = new()
 {
-    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
+    Endpoint = new Uri($"{resourceEndpoint}/openai/v1/")
 };
 
 string apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-
-OpenAIClient client = new(
-    credential: new ApiKeyCredential(apiKey),
-    options: clientOptions);
-
+OpenAIClient client = new(new ApiKeyCredential(apiKey), clientOptions);
 ```
 
 ---
 
-### Microsoft Entra ID authentication
+### Microsoft Entra authentication
 
-Use the following steps to configure Microsoft Entra ID authentication with `DefaultAzureCredential`:
+Microsoft Entra authentication is only supported with Azure OpenAI resources. Complete the following steps:
 
-1. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to the following values depending on your environment:
+1. Install the Azure Identity client library:
 
-    - In production: `ManagedIdentityCredential`
-    - In local development: `dev`
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
 
-    For more information, see [Exclude a credential type category](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#exclude-a-credential-type-category).
+1. Configure the `OpenAIClient` object as follows:
 
-    > [!IMPORTANT]
-    > For this sample, set environment variable `AZURE_TOKEN_CREDENTIALS` to `dev`. Passing `DefaultAzureCredential.DefaultEnvironmentVariableName` to the `DefaultAzureCredential` constructor throws an exception if the environment variable isn't set.
+    ```csharp
+    using Azure.Identity;
+    using OpenAI;
+    using System;
+    using System.ClientModel.Primitives;
+    
+    // code omitted for brevity
 
-2. Set the appropriate Azure Role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
+    DefaultAzureCredential credential = new();
+    BearerTokenPolicy tokenPolicy = new(credential, "https://cognitiveservices.azure.com/.default");
+    
+    OpenAIClientOptions clientOptions = new()
+    {
+        Endpoint = new Uri($"{resourceEndpoint}/openai/v1/")
+    };
+    
+    OpenAIClient client = new(tokenPolicy, clientOptions);
+    ```
 
-> [!NOTE]
-> Microsoft Entra authentication is only supported in the Azure OpenAI library.
+    > [!TIP]
+    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#how-to-customize-defaultazurecredential).
 
-```csharp
-using Azure.Identity;
-using OpenAI;
-using System;
-using System.ClientModel.Primitives;
+1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
-DefaultAzureCredential credential = new(DefaultAzureCredential.DefaultEnvironmentVariableName);
-
-BearerTokenPolicy tokenPolicy = new(
-    tokenProvider: credential,
-    scope: "https://cognitiveservices.azure.com/.default");
-
-OpenAIClientOptions clientOptions = new()
-{
-    Endpoint = new Uri("https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1/")
-};
-
-
-OpenAIClient client = new(
-    authenticationPolicy: tokenPolicy,
-    options: clientOptions);
-
-```
+    When running in Azure, assign roles to the managed identity used by the Azure host resource. When running in the local development environment, assign roles to the user running the app.
 
 :::zone-end
 
-## Keyword argument for model
+## Specify the model
+
+:::zone pivot="python"
 
 OpenAI uses the `model` keyword argument to specify what model to use. Azure OpenAI has the concept of unique model [deployments](/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). When you use Azure OpenAI, `model` should refer to the underlying deployment name you chose when you deployed the model.
 
 > [!IMPORTANT]
 > Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. Choose any naming convention for deployment names that works best for you.
-
-:::zone pivot="python"
 
 #### [OpenAI](#tab/openai)
 
@@ -227,52 +215,35 @@ embedding = client.embeddings.create(
 :::zone-end
 :::zone pivot="dotnet"
 
+OpenAI uses the `model` parameter to specify what model to use. Azure OpenAI has the concept of unique model [deployments](/azure/ai-foundry/openai/how-to/create-resource?pivots=web-portal#deploy-a-model). When you use Azure OpenAI, `model` should refer to the underlying deployment name you chose when you deployed the model.
+
+> [!IMPORTANT]
+> Azure OpenAI and OpenAI handle model names differently in API calls. OpenAI only needs the model name. Azure OpenAI always needs the deployment name, even when you use the model parameter. You must use the deployment name instead of the model name when you call Azure OpenAI APIs. Our documentation often shows deployment names that match model names to show which model works with each API endpoint. Choose any naming convention for deployment names that works best for you.
+
 #### [OpenAI](#tab/openai)
 
 ```csharp
-var response = client.GetOpenAIResponseClient(
-    model: "gpt-4.1-nano" 
-).CreateResponse(
-    new ResponseItem[] { "This is a test." }
-);
+string modelName = "gpt-4.1-nano";
+OpenAIResponseClient response = client.GetOpenAIResponseClient(modelName);
 
-var chatCompletion = client.GetChatClient(
-    model: "gpt-4o"
-).CompleteChat(
-    messages: new ChatMessage[] { 
-        new SystemChatMessage("You are a helpful assistant.") 
-    }
-);
+modelName = "gpt-4o";
+ChatClient chatCompletion = client.GetChatClient(modelName);
 
-var embedding = client.GetEmbeddingClient(
-    model: "text-embedding-3-large"
-).GenerateEmbedding(
-    input: new string[] { "<input>" }
-);
+modelName = "text-embedding-3-large";
+EmbeddingClient embedding = client.GetEmbeddingClient(modelName);
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-var response = client.GetOpenAIResponseClient(
-    model: "gpt-4.1-nano" // Replace with your deployment name
-).CreateResponse(
-    new ResponseItem[] { "This is a test." }
-);
+string deploymentName = "my-gpt-4.1-nano-deployment";
+OpenAIResponseClient response = client.GetOpenAIResponseClient(deploymentName);
 
-var chatCompletion = client.GetChatClient(
-    model: "gpt-4o" // Replace with your deployment name
-).CompleteChat(
-    messages: new ChatMessage[] { 
-        new SystemChatMessage("You are a helpful assistant.") 
-    }
-);
+deploymentName = "my-gpt-4o-deployment";
+ChatClient chatCompletion = client.GetChatClient(deploymentName);
 
-var embedding = client.GetEmbeddingClient(
-    model: "text-embedding-3-large" // Replace with your deployment name
-).GenerateEmbedding(
-    input: new string[] { "<input>" }
-);
+deploymentName = "my-text-embedding-3-large-deployment";
+EmbeddingClient embedding = client.GetEmbeddingClient(deploymentName);
 ```
 
 ---
@@ -294,8 +265,6 @@ embedding = client.embeddings.create(
     input=inputs,
     model="text-embedding-3-large"
 )
-
-
 ```
 
 #### [Azure OpenAI](#tab/azure-openai)
@@ -305,10 +274,9 @@ inputs = ["A", "B", "C"] #max array size=2048
 
 embedding = client.embeddings.create(
     input=inputs,
-    model="text-embedding-3-large" # This must match the custom deployment name you chose for your model.
+    model="my-text-embedding-3-large-deployment" # This must match the custom deployment name you chose for your model.
     # engine="text-embedding-ada-002"
 )
-
 ```
 
 ---
@@ -319,9 +287,9 @@ embedding = client.embeddings.create(
 #### [OpenAI](#tab/openai)
 
 ```csharp
-var inputs = new string[] { "A", "B", "C" };
+string[] inputs = [ "A", "B", "C" ];
 
-var embedding = client.GetEmbeddingClient(
+EmbeddingClient embedding = client.GetEmbeddingClient(
     model: "text-embedding-3-large"
 ).GenerateEmbedding(
     input: inputs
@@ -331,10 +299,10 @@ var embedding = client.GetEmbeddingClient(
 #### [Azure OpenAI](#tab/azure-openai)
 
 ```csharp
-var inputs = new string[] { "A", "B", "C" }; //max array size=2048
+string[] inputs = [ "A", "B", "C" ]; //max array size=2048
 
-var embedding = client.GetEmbeddingClient(
-    model: "text-embedding-3-large"// This must match the custom deployment name you chose for your model.
+EmbeddingClient embedding = client.GetEmbeddingClient(
+    model: "my-text-embedding-3-large-deployment" // This must match the custom deployment name you chose for your model.
     // engine:"text-embedding-ada-002"
 ).GenerateEmbedding(
     input: inputs
