@@ -25,7 +25,9 @@ The following `azd` command hooks are available:
 
 * `prerestore` and `postrestore`: Run before and after package dependencies are restored.
 * `preprovision` and `postprovision`: Run before and after Azure resources are created.
+* `prepackage` and `postpackage`: Run before and after the package is created.
 * `predeploy` and `postdeploy`: Run before and after the application code is deployed to Azure.
+* `prepublish` and `postpublish`: Run before and after the application is published.
 * `preup` and `postup`: Run before and after the combined deployment pipeline. `Up` is a shorthand command that runs `restore`, `provision`, and `deploy` sequentially.
 * `predown` and `postdown`: Run before and after the resources are removed.
 
@@ -35,6 +37,7 @@ The following service lifecycle event hooks are available:
 * `prebuild` and `postbuild`: Run before and after the service source code or container is built.
 * `prepackage` and `postpackage`: Run before and after the app is packaged for deployment.
 * `predeploy` and `postdeploy`: Run before and after the service code is deployed to Azure.
+* `prepublish` and `postpublish`: Run before and after the service is published.
 
 ## Hook configuration
 
