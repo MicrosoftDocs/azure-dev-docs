@@ -381,7 +381,7 @@
 | Resource Management - Storage | npm [19.0.0](https://www.npmjs.com/package/@azure/arm-storage/v/19.0.0) | [docs](/javascript/api/overview/azure/arm-storage-readme) | GitHub [19.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage) |
 | Resource Management - Storage Actions | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-storageactions/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-storageactions-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storageactions_1.0.0/sdk/storageactions/arm-storageactions/) |
 | Resource Management - Storage Cache | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-storagecache/v/8.1.0) | [docs](/javascript/api/overview/azure/arm-storagecache-readme) | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagecache/arm-storagecache) |
-| Resource Management - Storage Mover | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-storagemover/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-storagemover-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_2.1.0/sdk/storagemover/arm-storagemover/) |
+| Resource Management - Storage Mover | npm [3.0.1](https://www.npmjs.com/package/@azure/arm-storagemover/v/3.0.1) | [docs](/javascript/api/overview/azure/arm-storagemover-readme) | GitHub [3.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagemover_3.0.1/sdk/storagemover/arm-storagemover/) |
 | Resource Management - Storage Sync | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-storagesync/v/9.1.0) | [docs](/javascript/api/overview/azure/arm-storagesync-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storagesync/arm-storagesync) |
 | Resource Management - Storagediscovery | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-storagediscovery/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-storagediscovery-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storagediscovery_1.0.0/sdk/storagediscovery/arm-storagediscovery/) |
 | Resource Management - Stream Analytics | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-streamanalytics/v/4.1.0)<br>npm [5.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-streamanalytics/v/5.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-streamanalytics-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics) |
@@ -453,11 +453,11 @@
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.5](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.5) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp/v/0.9.3) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.3) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.3) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.3) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.3) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp/v/0.9.4) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.4) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.4) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.4) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.4) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -472,8 +472,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5460800) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5460800) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5460800) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.3) |  |  |
-| Unknown Display Name | npm [0.9.3](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.3) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.4) |  |  |
+| Unknown Display Name | npm [0.9.4](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.4) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |

@@ -1,7 +1,7 @@
 ---
 title: Access Azure services using Azure SDK for Rust crates
 description: Learn how to access Azure services using Azure SDK for Rust crates. Build secure, scalable Rust apps with Azure—get started today.
-ms.date: 09/02/2025
+ms.date: 10/20/2025
 ms.topic: overview
 ms.service: azure-rust
 ms.custom: devx-track-rust
@@ -30,7 +30,7 @@ Azure SDK for Rust crates enable Rust applications to access Azure services. The
 
 ## Rust guidance
 
-The [Azure SDK design guidelines for Rust](https://azure.github.io/azure-sdk/rust_introduction.html) outline the core design principles and patterns that all Azure SDK crates follow. These guidelines ensure that SDKs are consistent, intuitive, and idiomatic for Rust, making it easier for developers to adopt and use Azure services. By adhering to these standards, the Azure SDK crates provides a familiar and predictable experience, with clear patterns for authentication, error handling, and client configuration that align with the broader Azure SDK ecosystem.
+The [Azure SDK design guidelines for Rust](https://azure.github.io/azure-sdk/rust_introduction.html) outline the core design principles and patterns that all Azure SDK crates follow. These guidelines ensure that SDKs are consistent, intuitive, and idiomatic for Rust, making it easier for developers to adopt and use Azure services. By adhering to these standards, the Azure SDK crates provide a familiar and predictable experience, with clear patterns for authentication, error handling, and client configuration that align with the broader Azure SDK ecosystem.
 
 ## Differences between crates and REST APIs
 
@@ -47,7 +47,7 @@ The Azure SDK crates are currently in **beta**. While the APIs are stabilizing a
 
 ## Azure SDK for Rust crates
 
-[!INCLUDE [crates](../includes/crates.md)]
+Use the [index of Azure SDK for Rust crates](../azure-sdk-library-package-index.md) to find the available crates, their documentation, and source code.
 
 ## Next steps
 
@@ -63,6 +63,6 @@ The Azure SDK crates are currently in **beta**. While the APIs are stabilizing a
 [Ref doc - core - ClientOptions]:https://docs.rs/azure_core/latest/azure_core/http/struct.ClientOptions.html
 [Ref doc - core - Error]: https://docs.rs/azure_core/latest/azure_core/struct.Error.html
 [Ref doc - core - Response]: https://docs.rs/azure_core/latest/azure_core/http/struct.Response.html
-[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/type.Pager.html
+[Ref doc - core - Pager]: https://docs.rs/azure_core/latest/azure_core/http/pager/index.html
 [Ref doc - core - TokenCredential]: https://docs.rs/azure_core/latest/azure_core/credentials/trait.TokenCredential.html
 [Ref doc - core - Poller]: https://docs.rs/azure_core/latest/azure_core/http/poller/struct.Poller.html
