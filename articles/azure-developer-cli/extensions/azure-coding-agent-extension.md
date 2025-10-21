@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Enable Copilot Coding Agent Azure access with the azd extension
+title: Quickstart - Enable Copilot Coding Agent Azure access with the azd extension
 description: Install and use the Azure Developer CLI coding agent extension to configure a GitHub Copilot Coding Agent with Azure managed identity access.
 author: alexwolfmsft
 ms.author: alexwolf
@@ -110,14 +110,14 @@ Assign a new role (example: `Contributor`) at the resource group scope:
 az role assignment create --assignee <principal-id-or-client-id> --role Contributor --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>
 ```
 
-See built-in roles: <https://learn.microsoft.com/azure/role-based-access-control/built-in-roles>
+[See built-in roles](/azure/role-based-access-control/built-in-roles)
 
 ### No git remotes configured
 
 Add a remote so federated credentials can be generated:
 
 ```azdeveloper
-git remote add origin <https://github.com/ORG/REPO.git>
+git remote add origin <https://github.com/<your-org>/<your-repo>.git>
 git fetch origin
 ```
 
@@ -146,12 +146,12 @@ All internal commands and their output print to the console.
 - Expand identity permissions (only as needed) using role assignments.
 - Integrate additional automation by extending the workflow in `.github/workflows/`.
 - Explore other extension capabilities: [Extensions overview](overview.md).
-- Review Azure RBAC concepts: <https://learn.microsoft.com/azure/role-based-access-control/role-assignments-cli>
+- [Review Azure RBAC concepts](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 ## Contributing
 
-To contribute to Azure Developer CLI resources, see the contributing guide: <https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md>. Pull requests may require signing a Contributor License Agreement.
+To contribute to Azure Developer CLI resources, see [the contributing guide](https://github.com/Azure/azure-dev/blob/main/cli/azd/CONTRIBUTING.md). Pull requests may require signing a Contributor License Agreement.
 
 ## Code of conduct
 
-This project follows the Microsoft Open Source Code of Conduct: <https://opensource.microsoft.com/codeofconduct/>.
+This project follows the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
