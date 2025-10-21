@@ -10,7 +10,7 @@ ms.custom: devx-track-azdevcli
 ai-usage: ai-generated
 ---
 
-# Enable GitHub Copilot Coding Agent Azure access with the azd extension
+# Connect GitHub Copilot coding agent to Azure MCP Server using azd extensions
 
 Use the Azure Developer CLI (`azd`) coding agent extension (`azure.coding-agent`) to give GitHub Copilot coding agent secure and scoped Azure access with a managed identity. The extension creates the managed identity, configures the federated credential, and sets up the GitHub Actions workflow in your repository.
 
