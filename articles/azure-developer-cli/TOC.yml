@@ -59,6 +59,10 @@
         href: extensions/overview.md
       - name: Quickstart - Use the demo extension
         href: extensions/quickstart-ai-extension.md
+      - name: Sample extensions
+        items:
+        - name: Copilot coding agent extension
+          href: extensions/use-copilot-coding-agent.md
   - name: Deployment and operations
     items:
       - name: CI/CD

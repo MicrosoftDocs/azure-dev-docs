@@ -12,30 +12,30 @@ ai-usage: ai-generated
 
 # Enable GitHub Copilot Coding Agent Azure access with the azd extension
 
-Use the Azure Developer CLI (`azd`) coding agent extension (`azure.coding-agent`) to give GitHub Copilot coding agent secure, scoped Azure access with a managed identity. The extension creates the managed identity, configures the federated credential, and sets up the workflow in your repository.
+Use the Azure Developer CLI (`azd`) coding agent extension (`azure.coding-agent`) to give GitHub Copilot coding agent secure, scoped Azure access with a managed identity. The extension creates the managed identity, configures the federated credential, and sets up the GitHub Actions workflow in your repository.
 
 See [Extensions overview](overview.md) to learn how extensions add capabilities to `azd`.
 
 ## Prerequisites
 
-1. Install Azure Developer CLI (`azd`). See [installation instructions](https://github.com/Azure/azure-dev/blob/main/README.md#installupgrade-azure-developer-cli).
-1. Azure subscription that lets you create resource groups and managed identities.
-1. Local clone of the GitHub repository you enable for Copilot Coding Agent.
-1. Repository permissions to:
+- Install Azure Developer CLI (`azd`). See [installation instructions](https://github.com/Azure/azure-dev/blob/main/README.md#installupgrade-azure-developer-cli).
+- Azure subscription that lets you create resource groups and managed identities.
+- Local clone of the GitHub repository you enable for Copilot Coding Agent.
+- Repository permissions to:
    - Update the `copilot` GitHub environment.
    - Configure Copilot Coding Agent settings.
    - Push changes to the `.github/workflows` folder.
-1. At least one configured Git remote for the repository (required for federated credentials).
+- At least one configured Git remote for the repository (required for federated credentials).
 
 ## Enable extension support
 
-`azd` extensions are in alpha. Enable them manually.
+`azd` extensions are in alpha, so you must enable them manually.
 
-```azurecli
+```azdeveloper
 azd config set alpha.extensions on
 ```
 
-## Install or upgrade the coding agent extension
+## Install or upgrade the Copilot coding agent extension
 
 1. Install for the first time
 
@@ -57,7 +57,11 @@ azd config set alpha.extensions on
 
     You should see `azure.coding-agent` in the list.
 
-## Use the extension to configure the Copilot Coding Agent for Azure access
+## Use the Copilot coding agent extension
+
+The Copilot coding agent extension automates configuring Azure access via a managed identity for the Copilot coding agent. You also need to perform a few manual steps to complete the setup.
+
+### Enable Azure access
 
 Change to the local repository directory, and then run the configuration command:
 
@@ -87,7 +91,7 @@ Follow any on-screen prompts. If additional manual steps are required (for examp
 
 1. In GitHub, open the **Settings** > **Environments** > **copilot** environment, and confirm the federated credential entry referencing the managed identity (subject issuer should reflect GitHub).
 
-## Configure Azure MCP Server for the Copilot coding agent
+### Configure Azure MCP Server for the Copilot coding agent
 
 1. The `azd coding agent` extension creates a pull request for a branch with the new GitHub workflow file at `origin/azd-enable-copilot-coding-agent-with-azure`. If you want to use the Azure MCP Server connection in your main branch, merge this PR.
 
@@ -120,7 +124,7 @@ Follow any on-screen prompts. If additional manual steps are required (for examp
 1. Select **Copilot -> Coding agent** on the left navigation.
 1. Paste the JSON snippet from the PR into the **MCP configuration** box and select **Save MCP configuration**.
 
-## Test the Copilot Coding Agent
+## Test the Copilot coding agent extension
 
 After configuration is complete and the workflow is merged:
 
