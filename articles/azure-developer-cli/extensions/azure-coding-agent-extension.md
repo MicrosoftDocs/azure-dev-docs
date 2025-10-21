@@ -27,7 +27,9 @@ Use the Azure Developer CLI (`azd`) coding agent extension (`azure.coding-agent`
    - Push changes to the `.github/workflows` folder.
 1. At least one configured git remote for the repository (required for federated credentials).
 
-## 1. Enable extension support (if not already enabled)
+## 1. Enable extension support
+
+`azd` extensions are currently in alpha and must be enabled manually:
 
 ```azdeveloper
 azd config set alpha.extensions on
