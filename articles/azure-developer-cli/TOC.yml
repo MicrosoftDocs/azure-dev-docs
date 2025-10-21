@@ -62,7 +62,7 @@
       - name: Sample extensions
         items:
         - name: Copilot coding agent extension
-          href: extensions/use-copilot-coding-agent.md
+          href: extensions/copilot-coding-agent-extension.md
   - name: Deployment and operations
     items:
       - name: CI/CD

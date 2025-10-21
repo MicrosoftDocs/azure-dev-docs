@@ -63,27 +63,26 @@ The Copilot coding agent extension automates configuring Azure access via a mana
 
 ### Enable Azure access
 
-Change to the local repository directory, and then run the configuration command:
+1. Inside the root of your local repository directory, run the following command:
 
-```azdeveloper
-cd <your-local-repo-folder>
-azd coding-agent config
-```
+    ```azdeveloper
+    azd coding-agent config
+    ```
 
-During configuration, the extension:
+1. Follow the on-screen prompts to complete the extension workflow.
 
-- Creates (or reuses) a resource group.
-- Creates an Azure managed identity.
-- Assigns the Reader role to that identity scoped to the resource group.
-- Establishes federated credentials linking the GitHub repository to the managed identity.
-- Adds (or updates) a `copilot-setup-steps.yml` workflow and related assets.
-- Guides you to finalize GitHub environment settings for the `copilot` environment.
+    During configuration, the extension:
 
-Follow any on-screen prompts. If additional manual steps are required (for example approving a pull request or setting a repository secret), complete them before proceeding.
+    - Creates (or reuses) a resource group.
+    - Creates an Azure managed identity.
+    - Assigns the Reader role to that identity scoped to the resource group.
+    - Establishes federated credentials linking the GitHub repository to the managed identity.
+    - Adds (or updates) a `copilot-setup-steps.yml` workflow and related assets.
+    - Guides you to finalize GitHub environment settings for the `copilot` environment.
 
 ### Verify setup (optional)
 
-1. List the managed identity in the resource group (optional):
+1. List the managed identity in the created (or updated) resource group:
 
     ```azdeveloper
     az identity list --resource-group <resource-group-name>
@@ -124,17 +123,18 @@ Follow any on-screen prompts. If additional manual steps are required (for examp
 1. Select **Copilot -> Coding agent** on the left navigation.
 1. Paste the JSON snippet from the PR into the **MCP configuration** box and select **Save MCP configuration**.
 
-## Test the Copilot coding agent extension
+    :::image type="content" source="../media/extensions/configure-azure-mcp-server.png" alt-text="A screenshot showing how to configure Azure MCP Server for the Copilot coding agent.":::
 
-After configuration is complete and the workflow is merged:
+## Test the Copilot coding agent extension
 
 1. Navigate to your repository in GitHub.
 1. Select the **Open agents panels** icon on the top right navigation bar.
-1. In the flyout panel, make sure the correct repository is selected, and choose the branch that you used for the `azd` command.
+1. In the flyout panel, select the repository and branch that you used for the `azd` command. If you merged the generated pull request into `main`, select `main`.
 1. Enter a prompt that specifically instructs the Copilot coding agent to use the Azure MCP Server you configured, such as:
 
     ```output
-    Use the Azure MCP Server to list the resource groups in my subscription. Do not traverse or analyze the repository at all. Use only the Azure MCP Server.
+    Use the Azure MCP Server to list the resource groups in my subscription.
+    Do not traverse or analyze the repository at all. Use only the Azure MCP Server.
     ```
 
     Press Enter to run the prompt and instruct Copilot coding agent to create and run a new task.
@@ -143,29 +143,31 @@ After configuration is complete and the workflow is merged:
 
     :::image type="content" source="../media/extensions/create-copilot-coding-agent-task.png" alt-text="A screenshot showing how to create a new task for Copilot coding agent.":::
 
-1. Scan through the output from Copilot coding agent to see your changes at work. You should see Copilot start the Azure MCP Server and call various tools to gather information about your Azure resources.
+1. Scan through the output to see Copilot coding agent:
 
-    :::image type="content" source="../media/extensions/start-azure-mcp-server.png" alt-text="A screenshot showing Azure MCP Server starting.":::
+    - Start the Azure MCP Server:
 
-    :::image type="content" source="../media/extensions/call-resource-group-tool.png" alt-text="A screenshot showing the resource group tool being called.":::
+        :::image type="content" source="../media/extensions/start-azure-mcp-server.png" alt-text="A screenshot showing Azure MCP Server starting.":::
 
-1. When the task completes, you should see your resource group listed in the final output.
+    - Call various tools to gather information about your Azure resources:
 
-    :::image type="content" source="../media/extensions/resource-groups-found.png" alt-text="A screenshot showing the discovered resource groups.":::
+        :::image type="content" source="../media/extensions/call-resource-group-tool.png" alt-text="A screenshot showing the resource group tool being called.":::
+
+    - Display the resource group in the final output:
+
+        :::image type="content" source="../media/extensions/resource-groups-found.png" alt-text="A screenshot showing the discovered resource groups.":::
 
 ### Configure permissions on the managed identity
 
 The `azd coding agent` extension creates an Azure managed identity that the Azure MCP Server uses to access your resources. This setup enables you to assign different roles to the managed identity in order to control the capabilities and permissions of Azure MCP Server.
 
-By default, the extension assigns only the `Reader` role to the resource group scope. Assign additional roles or widen the scope if the agent needs more capabilities.
+By default, the extension assigns only the `Reader` role to the resource group scope. Assign additional roles or widen the scope if the agent needs more capabilities. [See built-in roles](/azure/role-based-access-control/built-in-roles).
 
 For example, to assign the `Contributor` role at the resource group scope:
 
 ```azdeveloper
 az role assignment create --assignee <principal-id-or-client-id> --role Contributor --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>
 ```
-
-[See built-in roles](/azure/role-based-access-control/built-in-roles)
 
 ## Troubleshooting
 
@@ -190,7 +192,7 @@ azd auth login
 
 Add flags such as `--tenant-id <tenant-id>` or `--use-device-code` as needed.
 
-### Need more diagnostic output
+### Improve diagnostic output
 
 Use debug mode:
 
