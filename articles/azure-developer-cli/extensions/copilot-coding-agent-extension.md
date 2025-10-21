@@ -41,7 +41,7 @@ See [Extensions overview](overview.md) to learn how extensions add capabilities 
     azd extension upgrade azure.coding-agent
     ```
 
-1. Verify it is installed:
+1. Verify it's installed:
 
     ```azdeveloper
     azd extension list --installed
@@ -84,9 +84,9 @@ The Copilot coding agent extension automates configuring Azure access via a mana
 
 ### Configure Azure MCP Server for the Copilot coding agent
 
-1. The `azd coding agent` extension creates a pull request for a branch with the new GitHub workflow file at `origin/azd-enable-copilot-coding-agent-with-azure`. If you want to use the Azure MCP Server connection in your main branch, merge this PR.
+1. The `azd coding agent` extension creates a pull request for a branch with the new GitHub workflow file at `origin/azd-enable-copilot-coding-agent-with-azure`. If you want to use the Azure MCP Server connection in your `main` branch, merge this PR.
 
-    The pull request and the output logs also include a JSON configuration snippet you can use to configure Azure MCP Server for the Copilot coding agent.
+    The pull request description and the extension output logs in the console both include a JSON configuration snippet you can use to configure Azure MCP Server for the Copilot coding agent:
 
     ```json
     {
@@ -108,9 +108,6 @@ The Copilot coding agent extension automates configuring Azure access via a mana
     }
     ```
 
-    > [!NOTE]
-    > You can also run Copilot coding agent tasks on a branch other than `main` by selecting that branch in the flyout panel.
-
 1. To configure the Azure MCP Server, go to the **Settings** page of your repository.
 1. Select **Copilot -> Coding agent** on the left navigation.
 1. Paste the JSON snippet from the PR into the **MCP configuration** box and select **Save MCP configuration**.
@@ -130,6 +127,9 @@ The Copilot coding agent extension automates configuring Azure access via a mana
     ```
 
     Press Enter to run the prompt and instruct Copilot coding agent to create and run a new task.
+
+    > [!NOTE]
+    > You can also run Copilot coding agent tasks on a branch other than `main` by selecting that branch in the flyout panel.
 
 1. Select the task that appears at the bottom of the panel to navigate to the task details page.
 
