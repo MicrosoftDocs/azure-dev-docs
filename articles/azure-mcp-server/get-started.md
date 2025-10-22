@@ -3,7 +3,7 @@ title: Get started with the Azure MCP Server
 description: Overview of the options for using the Azure MCP Server with tools and languages
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/12/2025
+ms.date: 10/20/2025
 ms.topic: get-started
 content_well_notification: 
   - AI-contribution
@@ -19,13 +19,20 @@ Azure MCP Server is designed to work across multiple tools, languages, framework
 
 You can also explore and contribute to the [Azure MCP Server on GitHub](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server).
 
+## Install with a package manager
+
+If you prefer to install Azure MCP Server directly using a package manager instead of through an IDE, you can install it using npm, pip, or other package managers. For detailed installation instructions, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
+
 ## Use a code editor
 
 Azure MCP Server works with AI-powered code editors that support the Model Context Protocol. Learn how to get started with the following code editors:
 
-- [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
-- [**Visual Studio**](get-started/tools/visual-studio.md)
+- [**Cline**](get-started/tools/cline.md)
 - [**Cursor**](get-started/tools/cursor.md)
+- [**IntelliJ**](get-started/tools/jet-brains.md)
+- [**Visual Studio**](get-started/tools/visual-studio.md)
+- [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
+- [**Windsurf**](get-started/tools/windsurf.md)
 
 ## Use languages & frameworks
 
