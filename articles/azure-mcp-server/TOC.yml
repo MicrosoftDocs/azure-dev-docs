@@ -36,20 +36,22 @@ items:
       items:
         - name: Overview
           href: tools/index.md
+        - name: Azure best practices
+          href: tools/azure-best-practices.md
         - name: Application Insights
           href: tools/application-insights.md
+        - name: Azure AI Foundry
+          href: tools/azure-foundry.md
         - name: Azure AI Search
           href: tools/ai-search.md
         - name: Azure AI Speech
           href: tools/ai-services-speech.md
-        - name: Azure App Service
-          href: tools/azure-app-service.md
         - name: Azure App Configuration
           href: tools/app-configuration.md
         - name: Azure App Lens
           href: tools/azure-app-lens.md
-        - name: Azure best practices
-          href: tools/azure-best-practices.md
+        - name: Azure App Service
+          href: tools/azure-app-service.md
         - name: Azure Bicep schema
           href: tools/azure-bicep-schema.md
         - name: Azure Cloud Architect
@@ -78,18 +80,16 @@ items:
           href: tools/azure-event-hubs.md
         - name: Azure Functions
           href: tools/azure-functions.md
-        - name: Azure AI Foundry
-          href: tools/azure-foundry.md
-        - name: Azure Managed Grafana
-          href: tools/azure-grafana.md
-        - name: Azure Managed Lustre
-          href: tools/azure-managed-lustre.md
         - name: Azure Key Vault
           href: tools/azure-key-vault.md
         - name: Azure Kubernetes Service
           href: tools/azure-kubernetes.md
         - name: Azure Load Testing
           href: tools/azure-load-testing.md
+        - name: Azure Managed Grafana
+          href: tools/azure-grafana.md
+        - name: Azure Managed Lustre
+          href: tools/azure-managed-lustre.md
         - name: Azure Marketplace
           href: tools/azure-marketplace.md
         - name: Azure MCP tool
@@ -104,8 +104,10 @@ items:
           href: tools/azure-compliance-quick-review.md
         - name: Azure Quotas
           href: tools/azure-quotas.md
+        - name: Azure RBAC
+          href: tools/azure-rbac.md
         - name: Azure Redis
-          href: tools/azure-cache-for-redis.md    
+          href: tools/azure-cache-for-redis.md
         - name: Azure Resource Health
           href: tools/azure-health-resource.md
         - name: Azure Service Bus
@@ -124,3 +126,13 @@ items:
           href: tools/subscription.md
         - name: Terraform best practices for Azure
           href: tools/azure-terraform-best-practices.md
+- name: Resources
+  items:
+    - name: Azure MCP Server GitHub repository
+      href: https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server
+    - name: Model Context Protocol documentation
+      href: https://modelcontextprotocol.io/
+    - name: Authentication guidance
+      href: overview.md
+    - name: Tool reference
+      href: tools/index.md

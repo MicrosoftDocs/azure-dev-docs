@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry in Azure SDK for Rust crates
-description: Learn how to implement OpenTelemetry in Rust applications using Azure crates for comprehensive observability.
-ms.date: 10/01/2025
+description: Learn how to implement OpenTelemetry in Rust applications using Azure SDK crates for comprehensive observability and monitoring. Configure telemetry, export to Azure Monitor, and troubleshoot Azure services effectively.
+ms.date: 10/16/2025
 ms.topic: how-to
 ms.custom: devx-track-rust
 ai-usage: ai-generated
@@ -20,11 +20,14 @@ Azure SDK for Rust crates use OpenTelemetry as the standard approach to observab
 
 - **Industry-standard telemetry**: Use OpenTelemetry formats compatible with monitoring platforms
 - **Distributed tracing**: Track requests across multiple services and Azure resources  
-- **Advanced exporters**: Send data to Azure Monitor, Jaeger, Prometheus, Grafana, and other observability platforms
+- **Advanced exporters**: Send data to Jaeger, Prometheus, Grafana, and other observability platforms
 - **Correlation across services**: Automatically propagate trace context between microservices
 - **Production monitoring**: Built for high-scale production environments with sampling and performance optimizations
 
-## How to log with OpenTelemetry
+> [!IMPORTANT]
+> Currently, Microsoft does not provide a direct Azure Monitor OpenTelemetry exporter for Rust applications. The [Azure Monitor OpenTelemetry Distro](/azure/azure-monitor/app/opentelemetry-overview) only supports .NET, Java, Node.js, and Python. For Rust applications, you need to export OpenTelemetry data to an intermediate system (such as Azure Storage, Event Hubs, or the OpenTelemetry Collector) and then import that data into Azure Monitor using supported ingestion methods.
+
+## Set up OpenTelemetry logging
 
 To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_core` package alone doesn't include OpenTelemetry support.
 
@@ -80,8 +83,12 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
     azure_identity = "*"
     opentelemetry = "0.31"
     opentelemetry_sdk = "0.31"
+    opentelemetry-otlp = "0.31"  # For exporting to OpenTelemetry Collector
     tokio = { version = "1.47.1", features = ["full"] }
     ```
+
+    > [!NOTE]
+    > The `opentelemetry-otlp` crate is included for exporting telemetry data to an OpenTelemetry Collector, which can then forward the data to Azure Monitor. Direct Azure Monitor export from Rust applications is not supported.
 
 1. Create your main application with OpenTelemetry configuration. See the [azure_core_opentelemetry](https://docs.rs/azure_core_opentelemetry/latest/azure_core_opentelemetry/) documentation for details.
 
@@ -97,7 +104,35 @@ To use OpenTelemetry, you need the `azure_core_opentelemetry` crate. The `azure_
 
 After you configure OpenTelemetry in your application and run it, you can add custom instrumentation and monitor the telemetry data.
 
-## Customize your telemetry
+## Export telemetry to Azure Monitor
+
+Since Rust doesn't have a direct Azure Monitor OpenTelemetry exporter, you need to implement an indirect approach to get your telemetry data into Azure Monitor. Here are the recommended methods:
+
+### Option 1: OpenTelemetry Collector (Recommended)
+
+The OpenTelemetry Collector acts as a middle layer that can receive telemetry from your Rust application and forward it to Azure Monitor:
+
+1. **Deploy the OpenTelemetry Collector** in your environment (as a sidecar, agent, or gateway)
+2. **Configure your Rust application** to export to the Collector using OTLP (OpenTelemetry Protocol)
+3. **Configure the Collector** with the [Azure Monitor exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) to forward data to Application Insights
+
+### Option 2: Azure Storage + Data Ingestion API
+
+For scenarios where you need more control over data processing:
+
+1. **Export telemetry to Azure Storage** (Blob Storage or Data Lake)
+2. **Process the data** using Azure Functions, Logic Apps, or custom applications
+3. **Ingest processed data** into Azure Monitor using the [Logs Ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview)
+
+### Option 3: Event Hubs Streaming
+
+For real-time telemetry processing:
+
+1. **Stream telemetry to Azure Event Hubs** from your Rust application
+2. **Process events** using Azure Stream Analytics, Azure Functions, or custom consumers
+3. **Forward processed telemetry** to Azure Monitor or Application Insights
+
+## Customize telemetry data
 
 OpenTelemetry provides a flexible framework for customizing telemetry data to suit your application's needs. Use these strategies to enhance your telemetry:
 
@@ -154,7 +189,13 @@ Pick the right telemetry for your question:
 
 ## View the telemetry data in Azure Monitor
 
-After setting up OpenTelemetry in your Rust application and running it, you can view the telemetry data in Azure Monitor through Application Insights.
+After setting up OpenTelemetry in your Rust application and configuring an intermediate export mechanism, you can view the telemetry data in Azure Monitor through Application Insights. Since Rust doesn't have direct Azure Monitor export capabilities, you'll need to implement one of these approaches:
+
+- **OpenTelemetry Collector**: Configure the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) to receive data from your Rust application and forward it to Azure Monitor
+- **Azure Storage integration**: Export telemetry to Azure Storage and use [Azure Monitor data ingestion APIs](/azure/azure-monitor/logs/logs-ingestion-api-overview) to import the data
+- **Event Hubs streaming**: Stream telemetry through Azure Event Hubs and process it for Azure Monitor ingestion
+
+Once your telemetry data reaches Azure Monitor through one of these methods, you can analyze it:
 
 1. **Navigate to Application Insights** in the Azure portal:
    ```bash
@@ -228,5 +269,5 @@ Key strategies for Rust applications:
 ## Resources and next steps
 
 - [Azure SDK for Rust guidelines](https://azure.github.io/azure-sdk/rust_introduction.html)
-- [OpenTelemetry Rust documentation](https://docs.rs/opentelemetry/)
+- [OpenTelemetry Rust documentation](https://docs.rs/opentelemetry/latest/opentelemetry/)
 - [Azure Monitor service](/azure/azure-monitor)
