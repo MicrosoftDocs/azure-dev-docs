@@ -109,7 +109,7 @@ items:
         - name: Azure RBAC
           href: tools/azure-rbac.md
         - name: Azure Redis
-          href: tools/azure-cache-for-redis.md
+          href: tools/azure-redis.md    
         - name: Azure Resource Health
           href: tools/azure-health-resource.md
         - name: Azure Service Bus

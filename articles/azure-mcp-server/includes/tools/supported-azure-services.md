@@ -47,7 +47,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | Manage Azure resource quotas and limits. |
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
-| [Azure Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
+| [Azure Redis](../../tools/azure-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | Check the health status of Azure resources. |
 | [Azure Service Bus](../../tools/azure-service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SignalR](../../tools/azure-signalr.md) | Manage Azure SignalR resources and runtimes. |
