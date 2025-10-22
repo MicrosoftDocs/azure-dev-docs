@@ -32,7 +32,7 @@ You can work in an iterative manner asking GitHub Copilot for Azure to update th
 - "@azure The SERVICE_URL value should be bing.com"
 - "@azure Add an environment variable STAGE=dev to my project"
 
-You can follow-up by asking more detailed questions based on GitHub Copilot for Azure's recommendations. Here are some example detailed questions to help you understand the types of prompts you can use.
+You can follow up by asking more detailed questions based on GitHub Copilot for Azure's recommendations. Here are some example detailed questions to help you understand the types of prompts you can use.
 
 - "@azure How can I create a highly available architecture in Azure?"
 - "@azure Explain the Azure Well-Architected Framework."
@@ -91,7 +91,7 @@ You can follow-up by asking more detailed questions based on GitHub Copilot for 
 
 - [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
+- Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
