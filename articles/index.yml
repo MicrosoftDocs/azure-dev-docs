@@ -105,24 +105,44 @@ productDirectory:
 
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-
-#additionalContent:
-additionalContent:
+conceptualContent:
   sections:
     - title: AI tools
       summary: Integrate AI capabilities into your applications.
       items:
+        # Card
         - title: Develop AI apps using Azure services
-          summary: Build applications with generative AI capabilities on Azure.
-          url: /azure/developer/ai/
+          links:
+          - url: ./ai/azure-ai-for-developers.md
+            itemType: overview
+            text: Overview of AI app development on Azure
+          footerLink:
+            url: /azure/developer/ai/
+            text: See more
         # Card
         - title: Azure MCP Server Preview
-          summary: Interact with Azure resources through natural language commands from AI agents and other clients.
-          url: /azure/developer/azure-mcp-server
+          links:
+          - url: ./azure-mcp-server/overview.md
+            itemType: overview
+            text: What is Azure MCP Server?
+          - url: ./azure-mcp-server/get-started.md
+            itemType: get-started
+            text: Get started with Azure MCP Server
+          footerLink:
+            url: /azure/developer/azure-mcp-server
+            text: See more
         # Card
         - title: GitHub Copilot for Azure
-          summary: Use AI to add cloud features and deploy your app to Azure.
-          url: /azure/developer/github-copilot-azure/
+          links:
+          - url: ./github-copilot-azure/introduction.md
+            itemType: overview
+            text: What is GitHub Copilot for Azure?
+          - url: ./github-copilot-azure/get-started.md
+            itemType: get-started
+            text: Get started with GitHub Copilot for Azure
+          footerLink:
+            url: /azure/developer/github-copilot-azure/
+            text: See more
 
 #tools:
 tools:
@@ -143,7 +163,7 @@ tools:
       url: /azure/developer/azure-developer-cli/
     # Card
     - title: Develop applications for Azure using Visual Studio
-      imageSrc: /media/logos/logo_visual_studio.svg
+      imageSrc: /media/logos/logo_visual-studio.svg
       url: https://learn.microsoft.com/visualstudio/azure/
     # Card
     - title: Visual Studio Code Azure extensions
@@ -151,7 +171,7 @@ tools:
       url: https://code.visualstudio.com/docs/azure/extensions
     # Card
     - title: DevOps and automation
-      imageSrc: /media/logos/logo_azure_devops-white.svg
+      imageSrc: /azure/media/index/devops.svg
       url: ./iac/index.yml
     # Card
     - title: Azure Toolkit for IntelliJ
