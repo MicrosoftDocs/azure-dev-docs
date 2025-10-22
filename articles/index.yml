@@ -47,39 +47,39 @@ productDirectory:
       imageSrc: /media/logos/logo_python.svg
       links:
         - text: Azure SDK for Python
-          url: /python/sdk/
+          url: ./python/sdk/azure-sdk-overview.md
         - text: Get started
-          url: /python/get-started/
+          url: ./python/get-started.md
         - text: Azure for Python developer center
-          url: /python/
+          url: ./python/index.yml
     - title: JavaScript
       summary: Learn to develop JavaScript apps using various Azure services.
       imageSrc: /media/logos/logo_js.svg
       links:
         - text: Azure SDK for JavaScript
-          url: /javascript/sdk/use-azure-sdk/
+          url: ./javascript/sdk/use-azure-sdk.md
         - text: Get started
-          url: /javascript/what-is-azure-for-javascript-development/
+          url: ./javascript/what-is-azure-for-javascript-development.md
         - text: Azure for JavaScript developer center
-          url: /javascript/
+          url: ../javascript/index.yml
     - title: Java
       summary: Learn how to get started developing apps for the cloud using Java.
       imageSrc: /media/logos/logo_java.svg
       links:
         - text: Azure SDK for Java
-          url: /java/sdk/
+          url: ./java/sdk/index.yaml
         - text: Get started
-          url: /java/get-started/overview/
+          url: ./java/sdk/overview.md
         - text: Azure for Java developer center
-          url: /java/
+          url: ./java/index.yml
     - title: Go
       summary: Simplify provisioning, managing, and using Azure resources with Go.
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
         - text: Azure SDK for Go
-          url: /go/overview/
+          url: ./go/overview.md
         - text: Get started
-          url: /go/key-azure-services-for-go/
+          url: ./go/key-azure-services-for-go.md
         - text: Azure for Go developer center
           url: ./go/index.yml
     - title: C++
@@ -87,9 +87,9 @@ productDirectory:
       imageSrc: /media/logos/logo_Cplusplus.svg
       links:
         - text: Azure SDK for C++
-          url: /cpp/sdk/overview/
+          url: ./cpp/sdk/overview.md
         - text: Get started
-          url: /cpp/sdk/install-and-integrate-the-sdk/
+          url: ./cpp/sdk/install-and-integrate-the-sdk.md
         - text: Azure for C++ developer center
           url: ./cpp/index.yml
     - title: Rust
@@ -97,9 +97,9 @@ productDirectory:
       imageSrc: ./intro/media/logo-rust.png
       links:
         - text: Azure SDK for Rust
-          url: /rust/sdk/overview/
+          url: ./rust/sdk/overview.md
         - text: Get started
-          url: /rust/what-is-azure-for-rust-developers
+          url: ./rust/what-is-azure-for-rust-developers.md
         - text: Azure for Rust developer center
           url: ./rust/index.yml
 
@@ -131,7 +131,7 @@ tools:
   items:
     # Card
     - title: Azure CLI
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
+      imageSrc: /media/logos/logo_CLIgeneric.svg
       url: /cli/azure/
     # Card
     - title: Azure PowerShell
@@ -155,11 +155,11 @@ tools:
       url: ./iac/index.yml
     # Card
     - title: Azure Toolkit for IntelliJ
-      imageSrc: ./java/toolkit-for-intellij/media/logo_toolkit_for_intellij.svg
+      imageSrc: /media/logos/logo_intellij.svg
       url: ./java/toolkit-for-intellij/index.yml
     # Card
     - title: Azure Toolkit for Eclipse
-      imageSrc: ./java/toolkit-for-eclipse/media/logo_toolkit_for_eclipse.svg
+      imageSrc: /media/logos/logo_eclipse.svg
       url: ./java/toolkit-for-eclipse/index.yml
     # Card
     - title: Maven plugins for Azure
