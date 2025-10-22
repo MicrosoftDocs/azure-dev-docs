@@ -423,13 +423,13 @@ The feature management library supports Azure App Configuration along with **app
 ```yaml
 feature-management:
   feature_flags:
-  - name: feature-t
+  - id: feature-t
     enabled: false
-  - name: feature-u
+  - id: feature-u
     conditions:
       client_filters:
       - name: Random
-  - name: feature-v
+  - id: feature-v
     conditions:
       client_filters:
       - name: TimeWindowFilter
@@ -437,7 +437,7 @@ feature-management:
           Start: "Wed, 01 May 2019 13:59:59 GMT"
           End: "Mon, 01 July 2019 00:00:00 GMT"
 
-  - name: feature-w
+  - id: feature-w
     evaluate: false
     conditions:
       client_filters:
