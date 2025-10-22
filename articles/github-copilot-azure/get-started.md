@@ -30,7 +30,7 @@ Get started with GitHub Copilot for Azure to streamline your development workflo
 ## Related content
 
 - [Understand what GitHub Copilot for Azure is and how it works](introduction.md).
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
+- Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
