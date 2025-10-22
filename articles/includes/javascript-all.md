@@ -441,7 +441,7 @@
 | TypeSpec Emitter Framework | npm [0.12.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.12.0) |  |  |
 | TypeSpec Events | npm [0.75.0](https://www.npmjs.com/package/@typespec/events/v/0.75.0) |  |  |
 | TypeSpec HTTP Client | npm [0.11.0](https://www.npmjs.com/package/@typespec/http-client/v/0.11.0) |  |  |
-| TypeSpec HTTP Client Java | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.4.3) |  |  |
+| TypeSpec HTTP Client Java | npm [0.5.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.5.0) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.10.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.10.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.19.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.19.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.27](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.27) |  |  |
@@ -453,11 +453,11 @@
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.5](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.5) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp/v/0.9.5) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.5) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.5) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.5) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.5) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp/v/0.9.6) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.6) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.6) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.6) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.6) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -472,8 +472,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5460800) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5460800) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5460800) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.5) |  |  |
-| Unknown Display Name | npm [0.9.5](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.5) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.6) |  |  |
+| Unknown Display Name | npm [0.9.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.6) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
