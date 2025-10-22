@@ -1882,15 +1882,22 @@
     {
       "source_path": "articles/azure-mcp-server/tools/azure-cache-for-redis.md",
       "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-redis"
+     },
+    {
+      "source_path": "articles/azure-mcp-server/tools/azure-communications.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-communication"
     },
     {
       "source_path": "articles/github-copilot-azure/quickstart-deploy-existing-app.md",
       "redirect_url": "/azure/developer/github-copilot-azure/quickstart-deploy-app-agent-mode"
     },
     {
+      "source_path": "articles/azure-mcp-server/tools/monitor.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-monitor"
+    },
+    {
       "source_path": "articles/azure-mcp-server/tools/cosmos-db.md",
       "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-cosmos-db"
-
     },
     {
       "source_path": "articles/github-copilot-azure/quickstart-build-deploy-applications.md",
