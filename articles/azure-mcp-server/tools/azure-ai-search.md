@@ -1,7 +1,7 @@
 ---
 title: Azure AI Search Tools
 description: Learn how to use Azure MCP Server tools to manage Azure AI Search resources, indexes, and queries with natural language prompts.
-keywords: azure mcp server, azmcp, ai search, cognitive search, azure search
+keywords: azure mcp server, azmcp, ai search, cognitive search, azure search, rag
 author: diberry
 ms.author: diberry
 ms.date: 10/16/2025
@@ -17,7 +17,7 @@ ms.custom: build-2025
 
 Use the Azure MCP Server to manage Azure AI Search resources, including search services, indexes, and [queries](/azure/search/query-simple-syntax) with natural language prompts. You don't need to remember specific command syntax.
 
-[Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) is a cloud search service that provides APIs and tools for building rich search experiences over private, heterogeneous content in web, mobile, and enterprise applications.
+[Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) is a cloud search service that provides APIs and tools for building applications and agents that follow the Retrieval Augmented Generation (RAG) pattern to connect AI models with external data, as well as for more traditional scenarios such as catalog and document search. It can play the role of a vector database or of a comprehensive retrieval system with vector and keyword retrieval, reranking, and most recently agentic retrieval support.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -25,7 +25,7 @@ Use the Azure MCP Server to manage Azure AI Search resources, including search s
 
 <!-- azmcp ai-search index get -->
 
-Use the Azure MCP Server to retrieve detailed information about AI Search [indexes](/azure/search/search-what-is-an-index). You can view the index schema, fields, analyzers, scoring profiles, and other index properties.
+Use the Azure MCP Server to retrieve detailed information about AI Search [indexes](/azure/search/search-what-is-an-index). You can view the index schema, fields, analyzers, scoring profiles, and other index properties. 
 
 Example prompts include:
 
@@ -36,7 +36,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Service** | Required | The name of the Azure AI Search service (for example, `my-search-service`). |
-| **Index** | Optional | The name of the search index within the Azure AI Search service. |
+| **Index** | Optional | The name of the search index within the Azure AI Search service. Will list all indexes if not specified. |
 
 ## Index: Query index
 
@@ -47,12 +47,12 @@ Use the Azure MCP Server to run [search queries](/azure/search/query-simple-synt
 Example prompts include:
 
 - **Simple query**: "Search for 'machine learning' in the 'documents' index of my 'my-search-service' service."
-- **Filter query**: "Find all products with category 'electronics' in my 'products' index in service 'retail-search-service'."
+- **Sampling query**: "Sample data talking about 'ML' or 'AI' or 'data science' in index 'documents' and tell me what they talk about."
 - **Text search**: "Search my 'content' index in 'my-search-service' for anything mentioning 'climate change'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the `AZURE_SUBSCRIPTION_ID` environment variable will be used instead. |
+| **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. |
 | **Service** | Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Index** | Required | The name of the search index within the Azure AI Search service. |
 | **Query** | Required | The search query to execute against the Azure AI Search index. |
@@ -75,7 +75,7 @@ Example prompts include:
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Knowledge base** |  Optional | The name of the knowledge base within the Azure AI Search service. |
 
-## Knowledge: Retrieve knowledge base
+## Knowledge: Retrieve from a knowledge base
 
 <!-- azmcp search knowledge base retrieve -->
 
@@ -126,7 +126,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. If not specified, the `AZURE_SUBSCRIPTION_ID` environment variable will be used instead. |
+| **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name.|
 
 ## Related content
 
