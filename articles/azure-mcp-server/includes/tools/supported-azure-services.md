@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 10/08/2025
+ ms.date: 10/17/2025
 ---
 
 ## Available tools
@@ -13,6 +13,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Tool |  Description |
 |------|--------------|
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
+| [Azure Application Insights](../../tools/application-insights.md) | List Application Insights resources. |
 | [Azure AI Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
@@ -40,7 +41,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | Manage Azure Managed Lustre file systems. |
 | [Azure Marketplace](../../tools/azure-marketplace.md) | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | Discover and manage available Azure MCP Server tools. |
-| [Azure Monitor](../../tools/monitor.md) | Query Azure Monitor logs and metrics. |
+| [Azure Monitor](../../tools/azure-monitor.md) | Query Azure Monitor logs and metrics. |
 | [Azure Native ISV](../../tools/azure-native-isv.md) | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | Manage Azure resource quotas and limits. |

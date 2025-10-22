@@ -38,6 +38,8 @@ items:
           href: tools/index.md
         - name: Azure best practices
           href: tools/azure-best-practices.md
+        - name: Application Insights
+          href: tools/application-insights.md
         - name: Azure AI Foundry
           href: tools/azure-foundry.md
         - name: Azure AI Search
@@ -93,7 +95,9 @@ items:
         - name: Azure MCP tool
           href: tools/azure-mcp-tool.md
         - name: Azure Monitor
-          href: tools/monitor.md
+          href: tools/azure-monitor.md
+        - name: Azure RBAC
+          href: tools/azure-rbac.md
         - name: Azure Native ISV
           href: tools/azure-native-isv.md
         - name: Azure Quick Review CLI
