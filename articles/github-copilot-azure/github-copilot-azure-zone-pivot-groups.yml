@@ -1,0 +1,13 @@
+# YamlMime:ZonePivotGroups
+groups:
+# Owner: rotabor
+- id: ide-options
+  title: IDE options
+  prompt: Choose an IDE
+  pivots:
+  - id: visual-studio-code 
+    title: Visual Studio Code
+  - id: visual-studio-2022
+    title: Visual Studio 2022
+  - id: visual-studio-2026
+    title: Visual Studio 2026
