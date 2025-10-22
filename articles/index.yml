@@ -102,6 +102,57 @@ productDirectory:
           url: ./rust/what-is-azure-for-rust-developers.md
         - text: Azure for Rust developer center
           url: ./rust/index.yml
+
+#tools:
+tools:
+  title: Developer tools
+  summary: Use your favorite development tools when working with Azure.
+  items:
+    # Card
+    - title: Azure CLI
+      imageSrc: /media/logos/logo_CLIgeneric.svg
+      url: /cli/azure/
+    # Card
+    - title: Azure PowerShell
+      imageSrc: /media/logos/logo-powershell.png
+      url: /powershell/azure/
+    # Card
+    - title: Develop applications for Azure using Visual Studio
+      imageSrc: /media/logos/logo_visual-studio.svg
+      url: https://learn.microsoft.com/visualstudio/azure/
+    # Card
+    - title: Visual Studio Code Azure extensions
+      imageSrc: /media/logos/logo_vs-code.svg
+      url: https://code.visualstudio.com/docs/azure/extensions
+    # Card
+    - title: Azure Developer CLI (azd)
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
+      url: /azure/developer/azure-developer-cli/
+    # Card
+    - title: DevOps and automation
+      imageSrc: /azure/media/index/devops.svg
+      url: ./iac/index.yml
+    # Card
+    - title: Azure Toolkit for IntelliJ
+      imageSrc: /media/logos/logo_intellij.svg
+      url: ./java/toolkit-for-intellij/index.yml
+    # Card
+    - title: Azure Toolkit for Eclipse
+      imageSrc: /media/logos/logo_eclipse.svg
+      url: ./java/toolkit-for-eclipse/index.yml
+    # Card
+    - title: Maven plugins for Azure
+      imageSrc: /media/logos/logo_maven.svg
+      url: https://github.com/Microsoft/azure-maven-plugins#readme
+    # Card
+    - title: TypeSpec
+      imageSrc: ./typespec/media/icon-for-hub/typespec-hub-icon.svg
+      url: /azure/developer/typespec/
+    # Card
+    - title: Dev Proxy
+      imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
+      url: /microsoft-cloud/dev/dev-proxy/overview
+
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 conceptualContent:
@@ -145,52 +196,3 @@ conceptualContent:
           footerLink:
             url: /azure/developer/github-copilot-azure/
             text: See more
-#tools:
-tools:
-  title: Developer tools
-  summary: Use your favorite development tools when working with Azure.
-  items:
-    # Card
-    - title: Azure CLI
-      imageSrc: /media/logos/logo_CLIgeneric.svg
-      url: /cli/azure/
-    # Card
-    - title: Azure PowerShell
-      imageSrc: /media/logos/logo-powershell.png
-      url: /powershell/azure/
-    # Card
-    - title: Azure Developer CLI (azd)
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
-      url: /azure/developer/azure-developer-cli/
-    # Card
-    - title: Develop applications for Azure using Visual Studio
-      imageSrc: /media/logos/logo_visual-studio.svg
-      url: https://learn.microsoft.com/visualstudio/azure/
-    # Card
-    - title: Visual Studio Code Azure extensions
-      imageSrc: /media/logos/logo_vs-code.svg
-      url: https://code.visualstudio.com/docs/azure/extensions
-    # Card
-    - title: DevOps and automation
-      imageSrc: /azure/media/index/devops.svg
-      url: ./iac/index.yml
-    # Card
-    - title: Azure Toolkit for IntelliJ
-      imageSrc: /media/logos/logo_intellij.svg
-      url: ./java/toolkit-for-intellij/index.yml
-    # Card
-    - title: Azure Toolkit for Eclipse
-      imageSrc: /media/logos/logo_eclipse.svg
-      url: ./java/toolkit-for-eclipse/index.yml
-    # Card
-    - title: Maven plugins for Azure
-      imageSrc: /media/logos/logo_maven.svg
-      url: https://github.com/Microsoft/azure-maven-plugins#readme
-    # Card
-    - title: TypeSpec
-      imageSrc: ./typespec/media/icon-for-hub/typespec-hub-icon.svg
-      url: /azure/developer/typespec/
-    # Card
-    - title: Dev Proxy
-      imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
-      url: /microsoft-cloud/dev/dev-proxy/overview
