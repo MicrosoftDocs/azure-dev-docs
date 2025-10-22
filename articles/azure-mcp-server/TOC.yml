@@ -54,6 +54,8 @@ items:
           href: tools/azure-app-service.md
         - name: Azure Bicep schema
           href: tools/azure-bicep-schema.md
+        - name: Azure CLI
+          href: tools/azure-cli.md
         - name: Azure Cloud Architect
           href: tools/azure-cloud-architect.md
         - name: Azure Communication Services

@@ -21,6 +21,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Lens](../../tools/azure-app-lens.md) | Diagnose and analyze application performance issues using Azure App Lens. |
 | [Azure App Service](../../tools/azure-app-service.md) | Manage database connections for Azure App Service instances. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
+| [Azure CLI](../../tools/azure-cli.md) | Find Azure CLI commands and get installation instructions for CLI tools. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Communication Services](../../tools/azure-communication.md) | Send SMS and email messages using Azure Communication Services. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
