@@ -30,8 +30,8 @@ Get detailed information about a specific product or offer from Azure Marketplac
 
 Example prompts include:
 
-- **Get product details**: "Show me information about product ID 'microsoft-ads.windows-data-science-vm'"
-- **Check specific plan**: "Get marketplace product details for product ID 'standard-data-science-vm'"
+- **Get product details**: "Show me information about product ID `microsoft-ads.windows-data-science-vm`"
+- **Check specific plan**: "Get marketplace product details for product ID `standard-data-science-vm`"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -52,8 +52,8 @@ Gets and lists all marketplace products (offers) available to a subscription in 
 Example prompts include:
 
 - **List all products**: "List all marketplace products available in my subscription"
-- **Search products**: "Find marketplace products related to 'database'"
-- **Filter by category**: "Show marketplace products in the 'Analytics' category"
+- **Search products**: "Find marketplace products related to `database`"
+- **Filter by category**: "Show marketplace products in the `Analytics` category"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
