@@ -1,10 +1,10 @@
 ---
 title: Azure Confidential Ledger Services Tools
-description: Learn how to use the Azure MCP Server with Azure Confidential Ledger Services.
+description: Learn how to use the Azure MCP Server with Azure Confidential Ledger Services to manage tamper-proof ledger entries using natural language prompts.
 keywords: azure mcp server, azmcp, confidential ledger services
 author: diberry
 ms.author: diberry
-ms.date: 10/08/2025
+ms.date: 10/22/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -20,7 +20,7 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Conf
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Entries: Append an entry to the ledger
+## Append an entry to the ledger
 
 <!-- `azmcp confidentialledger entries append` -->
 
@@ -43,6 +43,23 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Ledger** |  Required | The name of the Confidential Ledger instance (for example, `myledger` ). |
 | **Content** |  Required | The JSON or text payload to append as a tamper-proof ledger entry. |
+| **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
+
+## Get an entry from the ledger
+
+<!-- azmcp confidentialledger entries get -->
+
+Retrieves the Confidential Ledger entry and its recorded contents for the specified transaction ID, optionally scoped to a collection.
+
+Example prompts include:
+
+- **Retrieve specific transaction**: "Get entry from confidential ledger 'audit-ledger' with transaction ID '2.199'"
+- **Collection-specific retrieval**: "Get entry with transaction ID '3.275' from ledger 'compliance-ledger' in collection 'gdpr-logs'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Ledger** |  Required | The name of the Confidential Ledger instance (for example, `myledger`). |
+| **Transaction ID** |  Required | The Confidential Ledger transaction identifier (for example: `2.199`). |
 | **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
 
 ## Related content
