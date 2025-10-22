@@ -3,7 +3,7 @@
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run commands:
+%% 2. Run command:
 %%    mmdc -i default-azure-credential-environment-variable-production.md -o ../media/mermaidjs/default-azure-credential-environment-variable-production.svg
 
 %%{
@@ -12,7 +12,6 @@
     'themeVariables': {
       'tertiaryBorderColor': '#ffffff',
       'tertiaryColor': '#ffffff'
-
     }
   }
 }%%

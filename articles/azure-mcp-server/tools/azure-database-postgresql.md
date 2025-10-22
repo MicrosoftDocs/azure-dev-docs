@@ -1,10 +1,10 @@
 ---
 title: Azure Database for PostgreSQL Tools 
-description: Learn how to use the Azure MCP Server with Azure Database for PostgreSQL.
+description: Learn how to use the Azure MCP Server to manage Azure Database for PostgreSQL resources with natural language prompts. Query databases, list tables, and retrieve schemas easily.
 keywords: azure mcp server, azmcp, postgresql, database
 author: diberry
 ms.author: diberry
-ms.date: 07/01/2025
+ms.date: 10/15/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to manage Azure Database for PostgreSQL resources using natural language prompts. You can query databases, list tables, retrieve schemas, and more without remembering complex query syntax.
 
-[Azure Database for PostgreSQL](/azure/postgresql/) is a fully managed, intelligent, and scalable PostgreSQL database service in the cloud. It enables you to focus on application development, not database management.
+[Azure Database for PostgreSQL](/azure/postgresql/) is a fully managed, intelligent, and scalable PostgreSQL database service in the cloud. It lets you focus on application development, not database management.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -167,3 +167,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
