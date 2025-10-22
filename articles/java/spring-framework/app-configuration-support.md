@@ -4,7 +4,7 @@ description: This developer guide walks you through using Spring Cloud Azure App
 author: KarlErickson
 ms.author: karler
 ms.reviewer: mametcal
-ms.date: 08/25/2025
+ms.date: 10/22/2025
 ms.topic: tutorial
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.
@@ -206,15 +206,18 @@ In the second `label-filter`, the string `_local` is appended to the end of the 
 
 Using the configuration `spring.cloud.azure.appconfiguration.enabled`, you can disable loading for all configuration stores. With the `spring.cloud.azure.appconfiguration.stores[0].enabled` configuration, you can disable an individual store.
 
+> [!NOTE]
+> If you use health metrics, you will still see your stores listed, with the value `NOT LOADED`. If checking loaded Property Sources, you will still see them listed, but they will contain no values. This is due to the `spring.config.import` property being set. If `azureAppConfiguration` isn't set for `spring.config.import`, no values will be shown.
+
 ## Authentication
 
 The library supports all forms of identity supported by the [Azure Identity Library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). You can do authentication through configuration for connection strings and managed identity.
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
-### Connection string
+### Connection string (Not Recommended)
 
-Authentication through connection string is the simplest form to set up, though it isn't suggested. You can access a store's connection strings by using the following command:
+Authentication through connection string is the simplest form to set up, though it isn't recommended. You can access a store's connection strings by using the following command:
 
 ```azurecli
 az appconfig credential list --name <name-of-your-store>
@@ -230,9 +233,9 @@ You can use [Spring Cloud Azure configuration](configuration.md) to configure th
 spring.cloud.azure.appconfiguration.stores[0].endpoint= <URI-of-your-configuration-store>
 ```
 
-When only the endpoint is set, the client library uses the [ManagedIdentityCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#credential-classes) to authenticate using a system assigned identity.
+When only the endpoint is set, the client library uses the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) to authenticate.
 
-You need to assign the identity to read configurations. You can create this assignment by using the following command:
+You need to assign the identity used to read configurations. You can create this assignment by using the following command:
 
 ```azurecli
 az role assignment create \
@@ -533,7 +536,7 @@ public String oldEndpoint() {
 
 ### Built-in feature filters
 
-There are a few feature filters that come with the `spring-cloud-azure-feature-management` package. These feature filters aren't added automatically, but you can set them up in a `@Configuration`.
+There are a few feature filters that come with the `spring-cloud-azure-feature-management` package. These feature filters are added automatically.
 
 #### AlwaysOnFilter
 
@@ -754,11 +757,6 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 5m
 
 #### Automated
 
-When the refresh interval ends and the system attempts a refresh, it checks all triggers in the given store for changes. Any change to the key causes a refresh to trigger. Because the libraries integrate with the Spring refresh system, any refresh reloads all configurations from all stores. You can set the refresh interval to any interval longer than 1 second. The supported units for the refresh interval are `s`, `m`, `h`, and `d` for seconds, minutes, hours, and days respectively. The following example sets the refresh interval to 5 minutes:
-```
-
-#### Automated
-
 When you use the `spring-cloud-azure-appconfiguration-config-web` library, the application automatically checks for a refresh whenever a servlet request occurs, specifically `ServletRequestHandledEvent`. The most common way this event is sent is by requests to endpoints in a `@RestController`.
 
 #### Manual
@@ -767,7 +765,7 @@ In applications that use only `spring-cloud-azure-appconfiguration-config`, such
 
 Also, because the library uses Spring's configuration system, triggering a refresh causes a refresh of all of your configurations, not just a reload of the ones from your Azure App Configuration store.
 
-### Push-based refresh
+### Push-based refresh (Not Recommended)
 
 > [!NOTE]
 > This method is no longer recommended, but is currently still supported.
