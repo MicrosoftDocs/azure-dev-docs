@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/08/2025
+ms.date: 10/22/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -327,6 +327,23 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
+
+## Resources: Get Foundry resource
+
+Get detailed information about Azure AI Foundry resources, including endpoint URL, 
+location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
+returns details for that resource only. If no resource name is provided, lists all AI Foundry resources 
+in the subscription or resource group. 
+
+Example prompts include:
+
+- **Get specific resource**: "Show me details for the 'ai-foundry-prod' Azure AI Foundry resource including all deployed models"
+- **List all resources**: "What Azure AI Foundry resources do I have in my subscription?"
+- **Resource with configuration**: "Get the endpoint URL, location, and SKU information for my 'customer-ai-foundry' foundry resource"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource name** |  Optional | The name of the Azure OpenAI resource. |
 
 
 ## Related content
