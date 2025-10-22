@@ -32,7 +32,7 @@ You can work in an iterative manner asking GitHub Copilot for Azure to update th
 - "@azure The SERVICE_URL value should be bing.com"
 - "@azure Add an environment variable STAGE=dev to my project"
 
-You can follow-up by asking more detailed questions based on GitHub Copilot for Azure's recommendations. Here are some example detailed questions to help you understand the types of prompts you can use.
+You can follow up by asking more detailed questions based on GitHub Copilot for Azure's recommendations. Here are some example detailed questions to help you understand the types of prompts you can use.
 
 - "@azure How can I create a highly available architecture in Azure?"
 - "@azure Explain the Azure Well-Architected Framework."
