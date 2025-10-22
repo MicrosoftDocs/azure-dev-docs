@@ -4,7 +4,7 @@ description: This article describes the purpose and capabilities of the GitHub C
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 9/22/2025
+ms.date: 10/22/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -47,7 +47,7 @@ GitHub Copilot for Azure currently enables four primary scenarios:
 |Category|Explanation|Examples|
 |---|---|---|
 |Learn|Learn about Azure services and tools from the latest Microsoft Learn documentation.|<ul><li>"What Azure services should I use with my app?"</li><li>"What are the available types of Azure OpenAI models?"</li><li>"What is Azure AI Search and why should I use it?"</li><li>"How does pricing work for Azure SQL?"</li></ul>|
-|Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"Can you help me build a RAG application with Python t odeploy to Azure?"</li><li>"Use azd to undeploy my project in Azure."</li><li>"We're a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders on Azure."</li></ul>|
+|Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"Can you help me build a RAG application with Python to deploy to Azure?"</li><li>"Use azd to undeploy my project in Azure."</li><li>"We're a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders on Azure."</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"Can you help me deploy my application to Azure?"</li><li>"I need a CI/CD pipeline so I can get my app deployed to Azure."</li><li>"Use azd to undeploy my project from Azure."</li></ul>|
 |Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"What is using up my GPT-5 model quota on Azure?"</li><li>"Find out why my Kubernetes cluster is running slow on Azure."</li><li>"Why am I seeing 500 errors when opening my website on Azure?"</li></ul>|
 |Optimize|Answer questions about resources, including locations, settings, and resource health.|<ul><li>"How many Azure OpenAI deployments do I have?"</li><li>"Give me a count of Azure storage accounts in eastus by subscription, sorted from largest to smallest."</li></ul>|
@@ -65,7 +65,7 @@ Using copilots can increase developer productivity by answering questions, execu
 - Never save application secrets or credentials in source code.
 - Never submit application secrets or credentials in questions or in code when you ask questions.
 
-When you're working with any tool based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
+When you're working with any tool based on large language models use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -83,51 +83,49 @@ When working in agent mode, you can create longer prompts, however it's importan
 - **Iterate** - Iterate with the copilot until it understands what you are asking it to do. The copilot might require several iterations before it has everything it needs to be successful.
 - **Request** - "Create a step-by-step checklist plan that I can review before I authorize you to execute the plan." This not only forces the copilot to think ahead of its actions and explain its approach, it also follows these steps and provides a status.
 - **Review** - At some point, you might trust the copilot and not closely review its work. However, it's always best to make sure you review the plan and clarify what you want.
-- **Authorize** - "I've reviewed the plan and you're authorized to begin."
+- **Authorize** - "I reviewed the plan and you're authorized to begin."
 - **Validate** - Spend time checking the work to ensure that it accomplishes what you intended.
 
 ## Tool calling
 
 # [Visual Studio Code](#tab/vscode)
 
-GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server](../azure-mcp-server/overview.md).
+GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from proprietary tools to tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md).
 
-Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
+Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status, which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
 
 |Tool|Description and sample prompts|Migration Status|
 |---|---|---|
-|azure_list_activity_logs|Lists activity logs for a resource over a specified time.<br /><ul><li>“Show me the activity logs for my web app”</li><li>“What happened to my VM in the last 24 hours?”</li></ul>|Complete|
-|azure_diagnose_resource|Diagnoses app performance or failures using logs and telemetry.<br /><ul><li>“Why is my app slow?”</li><li>“Help me diagnose issues with my app”</li></ul>|Complete|
-|azure_get_auth_context|Retrieves current Azure authentication context (account, subscription, tenant).<br /><ul><li>“What Azure account am I signed in with?”</li><li>“Show me my current tenant”</li></ul>|N/A|
-|azure_set_auth_context|Updates Azure authentication context (sign in/out, switch tenant or subscription).<br /><ul><li>"Sign me into Azure”</li><li>“Change my subscription”</li></ul>|N/A|
-|azure_get_azure_verified_module|Fetches verified Bicep modules for a resource type.<br /><ul><li>“Get Bicep module for storage account”</li><li>“Find verified module for virtual machine”</li></ul>|Planned|
-|azure_generate_azure_cli_command|Generates Azure CLI commands based on user intent.<br /><ul><li>“Create a new resource group using Azure CLI”</li><li>“List all VMs in a resource group”</li></ul>|Complete|
-|azure_recommend_custom_modes|Captures Azure-related intent and suggests modes to enhance workflows.<br /><ul><li>“I want to build an Azure Function”</li><li>“Help me deploy to Azure”</li></ul>|N/A|
-|azure_get_dotnet_template_tags|Lists tags for filtering .NET templates	“What .NET template tags are available?”</li><li>“Show me template categories for Azure projects”</li></ul>|N/A|
-|azure_dotnet_templates_for_tag|Retrieves the list of .NET project templates matching a given tag for dotnet new commands.<br /><ul><li>“Show me Azure Function templates”, “Get web API templates”</li></ul>|N/A|
-|azure_query_azure_resource_graph|Queries Azure Resource Graph for resources, subscriptions, or resource groups.<br /><ul><li>“List all my virtual machines”</li><li>“Show me resources in my resource group”</li></ul>|Planned|
+|azure_list_activity_logs|Lists activity logs for a resource over a specified time.<br /><ul><li>"Show me the activity logs for my web app"</li><li>"What happened to my VM in the last 24 hours?"</li></ul>|Complete|
+|azure_diagnose_resource|Diagnoses app performance or failures using logs and telemetry.<br /><ul><li>"Why is my app slow?"</li><li>"Help me diagnose issues with my app"</li></ul>|Complete|
+|azure_get_auth_context|Retrieves current Azure authentication context (account, subscription, tenant).<br /><ul><li>"What Azure account am I signed in with?"</li><li>"Show me my current tenant"</li></ul>|N/A|
+|azure_set_auth_context|Updates Azure authentication context (sign in/out, switch tenant or subscription).<br /><ul><li>"Sign me into Azure"</li><li>"Change my subscription"</li></ul>|N/A|
+|azure_get_azure_verified_module|Fetches verified Bicep modules for a resource type.<br /><ul><li>"Get Bicep module for storage account"</li><li>"Find verified module for virtual machine"</li></ul>|Planned|
+|azure_generate_azure_cli_command|Generates Azure CLI commands based on user intent.<br /><ul><li>"Create a new resource group using Azure CLI"</li><li>"List all VMs in a resource group"</li></ul>|Complete|
+|azure_recommend_custom_modes|Captures Azure-related intent and suggests modes to enhance workflows.<br /><ul><li>"I want to build an Azure Function"</li><li>"Help me deploy to Azure"</li></ul>|N/A|
+|azure_get_dotnet_template_tags|Lists tags for filtering .NET templates	"What .NET template tags are available?"</li><li>"Show me template categories for Azure projects"</li></ul>|N/A|
+|azure_dotnet_templates_for_tag|Retrieves the list of .NET project templates matching a given tag for dotnet new commands.<br /><ul><li>"Show me Azure Function templates", "Get web API templates"</li></ul>|N/A|
+|azure_query_azure_resource_graph|Queries Azure Resource Graph for resources, subscriptions, or resource groups.<br /><ul><li>"List all my virtual machines"</li><li>"Show me resources in my resource group"</li></ul>|Planned|
 
 
 # [Visual Studio 2022](#tab/vs2022)
 
-See the the [Azure MCP Server](../azure-mcp-server/overview.md) documentation.
+GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations.
 
 # [Visual Studio 2026](#tab/vs2026)
 
-GitHub Copilot for Azure uses agentic tools behind the scenes to perform all operations. When first released for Visual Studio Code, the GitHub Copilot for Azure team created proprietary tools for use, however the current direction is to migrate away from prorietary tools to those supplied by the [Azure MCP Server](../azure-mcp-server/overview.md).
-
-Here's a list of all the tools currently supported by GitHub Copilot for Azure. Also listed is the migration status which applies solely to the Visual Studio Code version. The Visual Studio 2022 version uses Azure MCP Server tools by default.
+GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](../azure-mcp-server/overview.md) behind the scenes to perform all operations.
 
 |Tool|Description|Example Prompts|
 |---|---|---|
-|create_azure_devops_workflow|Generate an Azure DevOps Workflow for Azure Functions or ASP.NET projects. Creates directory structure and YAML for publishing.|<ul><li>“Create Azure DevOps workflow for my Blazor project”</li><li>“Create yaml file to publish to ADO”</li></ul>|
-|create_github_actions_workflow|Generate a GitHub Actions Workflow for Azure Functions or ASP.NET projects. Creates directory, YAML, and sets up secrets.|<ul><li>“Create GitHub Actions workflow for deployment”</li><li>“Publish with GitHub Actions to Azure”</li></ul>|
-|create_website_azure_publish_profile|Create a publish profile for Azure Web Apps or Azure Function Apps.|<ul><li>“Create publish profile for my Azure web app”</li><li>“Set up Azure publish profile for my Blazor project”</li></ul>|
-|generate_azure_cli_command|Generates Azure CLI (az) commands based on natural language intent. Always use this tool for CLI requests.|<ul><li>“Create a new resource group using the Azure CLI”</li><li>“How do I create an app service using azure cli?”</li></ul>|
-|publish_project_to_azure_website|Publish a project to an Azure Web site using an existing publish profile (.pubxml file).|<ul><li>“Publish my Blazor project to Azure using the existing profile”</li><li>“Deploy my project to Azure website”</li></ul>|
-|query_azure_resource_graph|Query Azure Resource Graph using natural language prompts; returns results as JSON.|<ul><li>“Find all virtual machines in my subscription”</li><li>“Show me all storage accounts in the West US region”</li></ul>|
-|select_website_for_azure_publish|Select an Azure Web site for publishing projects; guides through choosing or creating instances.|<ul><li>“Help me select an Azure web app for my Blazor project”</li><li>“I need to choose an Azure Function App for deployment”</li></ul>|
-|verify_azure_publish_compatibility|Verify if a project is compatible with Azure publish operations (ASP.NET Core, Blazor, Azure Function).|<ul><li>“Check if my project can be published to Azure”</li><li>“Verify Azure compatibility for my Blazor application”</li></ul>|
+|create_azure_devops_workflow|Generate an Azure DevOps Workflow for Azure Functions or ASP.NET projects. Creates directory structure and YAML for publishing.|<ul><li>"Create Azure DevOps workflow for my Blazor project"</li><li>"Create yaml file to publish to ADO"</li></ul>|
+|create_github_actions_workflow|Generate a GitHub Actions Workflow for Azure Functions or ASP.NET projects. Creates directory, YAML, and sets up secrets.|<ul><li>"Create GitHub Actions workflow for deployment"</li><li>"Publish with GitHub Actions to Azure"</li></ul>|
+|create_website_azure_publish_profile|Create a publish profile for Azure Web Apps or Azure Function Apps.|<ul><li>"Create publish profile for my Azure web app"</li><li>"Set up Azure publish profile for my Blazor project"</li></ul>|
+|generate_azure_cli_command|Generates Azure CLI (az) commands based on natural language intent. Always use this tool for CLI requests.|<ul><li>"Create a new resource group using the Azure CLI"</li><li>"How do I create an app service using Azure cli?"</li></ul>|
+|publish_project_to_azure_website|Publish a project to an Azure Web site using an existing publish profile (.pubxml file).|<ul><li>"Publish my Blazor project to Azure using the existing profile"</li><li>"Deploy my project to Azure website"</li></ul>|
+|query_azure_resource_graph|Query Azure Resource Graph using natural language prompts; returns results as JSON.|<ul><li>"Find all virtual machines in my subscription"</li><li>"Show me all storage accounts in the West US region"</li></ul>|
+|select_website_for_azure_publish|Select an Azure Web site for publishing projects; guides through choosing or creating instances.|<ul><li>"Help me select an Azure web app for my Blazor project"</li><li>"I need to choose an Azure Function App for deployment"</li></ul>|
+|verify_azure_publish_compatibility|Verify if a project is compatible with Azure publish operations (ASP.NET Core, Blazor, Azure Function).|<ul><li>"Check if my project can be published to Azure"</li><li>"Verify Azure compatibility for my Blazor application"</li></ul>|
 
 ---
 
