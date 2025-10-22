@@ -29,41 +29,79 @@ highlightedContent:
       itemType: overview
       url: /azure/developer/intro/passwordless-overview
 productDirectory:
-  title: Developer centers
+  title: Azure SDKs
   summary: Use your favorite programming languages to build applications on Azure.
   items:
-    - title: Develop AI apps using Azure services
-      summary: Build applications with generative AI capabilities on Azure.
-      imageSrc: ./intro/media/azure-openai.png
-      url: /azure/developer/ai/
-    - title: Python
-      summary: Build secure, scalable cloud applications with Python libraries that interact with Azure services.
-      imageSrc: /media/logos/logo_python.svg
-      url: ./python/index.yml
-    - title: JavaScript
-      summary: Learn to develop JavaScript apps using various Azure services.
-      imageSrc: /media/logos/logo_js.svg
-      url: ./javascript/index.yml
-    - title: Java
-      summary: Learn how to get started developing apps for the cloud using Java.
-      imageSrc: /media/logos/logo_java.svg
-      url: ./java/index.yml
     - title: .NET
       summary: Learn to develop .NET apps using various Azure services.
       imageSrc: /azure/media/index/net-logo.svg
-      url: /dotnet/azure/
+      links:
+        - text: Azure SDK for .NET
+          url: /dotnet/azure/sdk/
+        - text: Get started
+          url: /dotnet/azure/intro
+        - text: Azure for .NET developer center
+          url: /dotnet/azure/
+    - title: Python
+      summary: Build secure, scalable cloud applications with Python libraries that interact with Azure services.
+      imageSrc: /media/logos/logo_python.svg
+      links:
+        - text: Azure SDK for Python
+          url: /python/sdk/
+        - text: Get started
+          url: /python/get-started/
+        - text: Azure for Python developer center
+          url: /python/
+    - title: JavaScript
+      summary: Learn to develop JavaScript apps using various Azure services.
+      imageSrc: /media/logos/logo_js.svg
+      links:
+        - text: Azure SDK for JavaScript
+          url: /javascript/sdk/use-azure-sdk/
+        - text: Get started
+          url: /javascript/what-is-azure-for-javascript-development/
+        - text: Azure for JavaScript developer center
+          url: /javascript/
+    - title: Java
+      summary: Learn how to get started developing apps for the cloud using Java.
+      imageSrc: /media/logos/logo_java.svg
+      links:
+        - text: Azure SDK for Java
+          url: /java/sdk/
+        - text: Get started
+          url: /java/get-started/overview/
+        - text: Azure for Java developer center
+          url: /java/
     - title: Go
       summary: Simplify provisioning, managing, and using Azure resources with Go.
       imageSrc: /media/logos/logo_Go-lightblue.svg
-      url: ./go/index.yml
+      links:
+        - text: Azure SDK for Go
+          url: /go/overview/
+        - text: Get started
+          url: /go/key-azure-services-for-go/
+        - text: Azure for Go developer center
+          url: ./go/index.yml
     - title: C++
       summary: Learn how to enable your C++ applications to interact with Azure services.
       imageSrc: /media/logos/logo_Cplusplus.svg
-      url: ./cpp/index.yml
+      links:
+        - text: Azure SDK for C++
+          url: /cpp/sdk/overview/
+        - text: Get started
+          url: /cpp/sdk/install-and-integrate-the-sdk/
+        - text: Azure for C++ developer center
+          url: ./cpp/index.yml
     - title: Rust
       summary: Build, deploy, and manage high-performance applications using Rust libraries.
       imageSrc: ./intro/media/logo-rust.png
-      url: ./rust/index.yml
+      links:
+        - text: Azure SDK for Rust
+          url: /rust/sdk/overview/
+        - text: Get started
+          url: /rust/what-is-azure-for-rust-developers
+        - text: Azure for Rust developer center
+          url: ./rust/index.yml
 
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -74,6 +112,9 @@ additionalContent:
     - title: AI tools
       summary: Integrate AI capabilities into your applications.
       items:
+        - title: Develop AI apps using Azure services
+          summary: Build applications with generative AI capabilities on Azure.
+          url: /azure/developer/ai/
         # Card
         - title: Azure MCP Server Preview
           summary: Interact with Azure resources through natural language commands from AI agents and other clients.
@@ -82,53 +123,53 @@ additionalContent:
         - title: GitHub Copilot for Azure
           summary: Use AI to add cloud features and deploy your app to Azure.
           url: /azure/developer/github-copilot-azure/
-    - title: Developer tools
-      summary: Use your favorite development tools when working with Azure.
-      items:
-        # Card
-        - title: Develop applications for Azure using Visual Studio
-          summary: Learn to connect apps to Azure services and deploy them to Azure.
-          url: https://learn.microsoft.com/visualstudio/azure/
-        # Card
-        - title: Visual Studio Code Azure Extensions
-          summary: Use Azure directly from Visual Studio Code through extensions.
-          url: https://code.visualstudio.com/docs/azure/extensions
-        # Card
-        - title: DevOps and Automation
-          summary: Automate deployment with Infrastructure as Code (IaC).
-          url: ./iac/index.yml
-        # Card
-        - title: Azure Toolkit for IntelliJ
-          summary: Create, develop, test, and deploy Azure applications from within the IntelliJ IDE.
-          url: ./java/toolkit-for-intellij/index.yml
-        # Card
-        - title: Azure Toolkit for Eclipse
-          summary: Create, develop, test, and deploy Azure applications from within the Eclipse IDE.
-          url: ./java/toolkit-for-eclipse/index.yml
-        # Card
-        - title: Maven plugins for Azure
-          summary: Use Maven to automate building and managing Java projects and other languages.
-          url: https://github.com/Microsoft/azure-maven-plugins#readme
-        # Card
-        - title: TypeSpec
-          summary: Design APIs in an extensible and easy-to-understand language.
-          url: /azure/developer/typespec/
-        # Card
-        - title: Dev Proxy
-          summary: Dev Proxy is an API simulator that helps you test your application.
-          url: /microsoft-cloud/dev/dev-proxy/overview
-    - title: Command line tools
-      summary: Use command line tools to manage Azure resources, automate deployment, and test applications.
-      items:
-        # Card
-        - title: Azure CLI
-          summary: Cross-platform command-line tool for managing Azure resources with interactive commands or scripts.
-          url: /cli/azure/
-        # Card
-        - title: Azure PowerShell
-          summary: Collection of modules for managing Azure resources from PowerShell.
-          url: /powershell/azure/
-        # Card
-        - title: Azure Developer CLI (azd)
-          summary: Use consistent commands for key stages in your workflow including code, build, deploy, and monitor across terminal, IDE, and GitHub Actions pipeline.
-          url: /azure/developer/azure-developer-cli/
+
+#tools:
+tools:
+  title: Developer tools
+  summary: Use your favorite development tools when working with Azure.
+  items:
+    # Card
+    - title: Azure CLI
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
+      url: /cli/azure/
+    # Card
+    - title: Azure PowerShell
+      imageSrc: /media/logos/logo-powershell.png
+      url: /powershell/azure/
+    # Card
+    - title: Azure Developer CLI (azd)
+      imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
+      url: /azure/developer/azure-developer-cli/
+    # Card
+    - title: Develop applications for Azure using Visual Studio
+      imageSrc: /media/logos/logo_visual_studio.svg
+      url: https://learn.microsoft.com/visualstudio/azure/
+    # Card
+    - title: Visual Studio Code Azure extensions
+      imageSrc: /media/logos/logo_vs-code.svg
+      url: https://code.visualstudio.com/docs/azure/extensions
+    # Card
+    - title: DevOps and automation
+      imageSrc: /media/logos/logo_azure_devops-white.svg
+      url: ./iac/index.yml
+    # Card
+    - title: Azure Toolkit for IntelliJ
+      imageSrc: ./java/toolkit-for-intellij/media/logo_toolkit_for_intellij.svg
+      url: ./java/toolkit-for-intellij/index.yml
+    # Card
+    - title: Azure Toolkit for Eclipse
+      imageSrc: ./java/toolkit-for-eclipse/media/logo_toolkit_for_eclipse.svg
+      url: ./java/toolkit-for-eclipse/index.yml
+    # Card
+    - title: Maven plugins for Azure
+      imageSrc: /media/logos/logo_maven.svg
+      url: https://github.com/Microsoft/azure-maven-plugins#readme
+    # Card
+    - title: TypeSpec
+      imageSrc: ./typespec/media/icon-for-hub/typespec-hub-icon.svg
+      url: /azure/developer/typespec/
+    # Card
+    - title: Dev Proxy
+      imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
+      url: /microsoft-cloud/dev/dev-proxy/overview
