@@ -19,7 +19,6 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Lens](../../tools/azure-app-lens.md) | Diagnose and analyze application performance issues using Azure App Lens. |
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
-| [Azure Redis](../../tools/azure-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Communication Services](../../tools/azure-communications.md) | Send SMS messages using Azure Communication Services. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
@@ -46,6 +45,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | Manage Azure resource quotas and limits. |
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
+| [Azure Redis](../../tools/azure-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | Check the health status of Azure resources. |
 | [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SignalR](../../tools/azure-signalr.md) | Manage Azure SignalR resources and runtimes. |
