@@ -21,7 +21,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Bicep schema](../../tools/azure-bicep-schema.md) | Retrieve Bicep schemas for Azure resources to use in Infrastructure as Code templates. |
 | [Azure Redis](../../tools/azure-cache-for-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
-| [Azure Communication Services](../../tools/azure-communication.md) | Send SMS messages using Azure Communication Services. |
+| [Azure Communication Services](../../tools/azure-communication.md) | Send SMS and email messages using Azure Communication Services. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
 | [Azure Container Registry](../../tools/azure-container-registry.md) | List Azure Container Registry instances. |
 | [Azure Cosmos DB](../../tools/cosmos-db.md) | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
