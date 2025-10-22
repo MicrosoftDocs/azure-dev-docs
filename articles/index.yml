@@ -37,7 +37,7 @@ productDirectory:
       imageSrc: /azure/media/index/net-logo.svg
       links:
         - text: Azure SDK for .NET
-          url: /dotnet/azure/sdk/
+          url: /dotnet/azure/sdk/azure-sdk-for-dotnet/
         - text: Get started
           url: /dotnet/azure/intro
         - text: Azure for .NET developer center
