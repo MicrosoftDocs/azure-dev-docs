@@ -61,13 +61,13 @@ productDirectory:
         - text: Get started
           url: ./javascript/what-is-azure-for-javascript-development.md
         - text: Azure for JavaScript developer center
-          url: ../javascript/index.yml
+          url: ./javascript/index.yml
     - title: Java
       summary: Learn how to get started developing apps for the cloud using Java.
       imageSrc: /media/logos/logo_java.svg
       links:
         - text: Azure SDK for Java
-          url: ./java/sdk/index.yaml
+          url: ./java/sdk/index.yml
         - text: Get started
           url: ./java/sdk/overview.md
         - text: Azure for Java developer center
@@ -102,7 +102,6 @@ productDirectory:
           url: ./rust/what-is-azure-for-rust-developers.md
         - text: Azure for Rust developer center
           url: ./rust/index.yml
-
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 conceptualContent:
@@ -112,6 +111,7 @@ conceptualContent:
       items:
         # Card
         - title: Develop AI apps using Azure services
+          summary: Build applications with generative AI capabilities on Azure.
           links:
           - url: ./ai/azure-ai-for-developers.md
             itemType: overview
@@ -121,6 +121,7 @@ conceptualContent:
             text: See more
         # Card
         - title: Azure MCP Server Preview
+          summary: Interact with Azure resources through natural language commands from AI agents and other clients.
           links:
           - url: ./azure-mcp-server/overview.md
             itemType: overview
@@ -133,6 +134,7 @@ conceptualContent:
             text: See more
         # Card
         - title: GitHub Copilot for Azure
+          summary: Use AI to add cloud features and deploy your app to Azure.
           links:
           - url: ./github-copilot-azure/introduction.md
             itemType: overview
@@ -143,7 +145,6 @@ conceptualContent:
           footerLink:
             url: /azure/developer/github-copilot-azure/
             text: See more
-
 #tools:
 tools:
   title: Developer tools
