@@ -1,5 +1,5 @@
 ---
-title: Connect GitHub Copilot coding agent to Azure MCP Server
+title: Connect GitHub Copilot coding agent to the Azure MCP Server
 description: Learn how to use the Azure MCP Server with the GitHub Copilot coding agent.
 keywords: azure mcp server, azmcp
 author: rotabor
@@ -20,12 +20,12 @@ In your GitHub repository, assigning GitHub issues to the GitHub Copilot coding 
 
 - A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
 
-- An existing local clone of a GitHub repository. Since this article describes how to set up the connection between GitHub Copilot coding agent to Azure MCP Server, the GitHub repository should include deployment scripts to Azure, like Bicep or Terraform templates.
+- An existing local clone of a GitHub repository. Since this article describes how to set up the connection between GitHub Copilot coding agent to the Azure MCP Server, the GitHub repository should include deployment scripts to Azure, like Bicep or Terraform templates.
 
 
-## Configure the GitHub repository to use Azure MCP Server
+## Configure the GitHub repository to use the Azure MCP Server
 
-The `azd` coding-agent extension simplifies the steps required to securely set up the connection between GCCA and Azure MCP Server for your Azure subscription. First, it creates an account in your Azure subscription and assigns it a role with necessary permissions. Second, it provides a JSON snippet required to introduce Azure MCP Server to the GCCA.
+The `azd` coding-agent extension simplifies the steps required to securely set up the connection between the GitHub Copilot coding agent and the Azure MCP Server for your Azure subscription. First, it creates an account in your Azure subscription and assigns it a role with necessary permissions. Second, it provides a JSON snippet required to introduce the Azure MCP Server to the GitHub Copilot coding agent.
 
 1. If you don't already have `azd` installed, [follow the instructions](../../azure-developer-cli/install-azd.md) to install it.
 
@@ -85,14 +85,14 @@ The `azd` coding-agent extension simplifies the steps required to securely set u
 
 ## Create an Issue in GitHub to initiate GitHub Copilot coding agent
 
-At this point, you successfully set up GitHub Copilot coding agent to use Azure MCP Server for any GitHub Issues you assign to GitHub Copilot coding agent that require an understanding of Azure deployments and resources. 
+At this point, you successfully set up GitHub Copilot coding agent to use the Azure MCP Server for any GitHub Issues you assign to GitHub Copilot coding agent that require an understanding of Azure deployments and resources. 
 
 For example, suppose you want to increase the memory allocated to PostgreSQL when deployed to Azure Database for PostgreSQL. You would create an issue to modify your Bicep template to use the next tier of storage available and assign it to GitHub Copilot.
 
 > [!NOTE]
 > The User Managed Identity role is set to "Reader" by default, so the changes you request should be to modify deployment scripts like Bicep or Terraform templates. Asking to directly modify existing resources in your Azure subscription isn't authorized due to the permissions of the "Reader" role.
 
-1. In GitHub, in the repository containing your Azure-based project where you enabled Azure MCP Server, go to Issues.
+1. In GitHub, in the repository containing your Azure-based project where you enabled the Azure MCP Server, go to Issues.
 
 1. Select the "New Issue" button. Describe the change you want GitHub Copilot coding agent to make in the title and description fields. Select the "Create" button.
 
