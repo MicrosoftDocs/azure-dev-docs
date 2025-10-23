@@ -10,7 +10,7 @@ ms.topic: how-to
 ---
 # Connect GitHub Copilot coding agent to the Azure MCP Server
 
-This article shows you how to set up and connect the GitHub Copilot coding agent to the Azure MCP Server.
+This article shows you how to set up and connect the GitHub Copilot coding agent to the Azure MCP Server so that the coding agent can understand your Azure-specific files and Azure resources to make edits to your code files.
 
 In your GitHub repository, assigning GitHub issues to the GitHub Copilot coding agent creates a pull request with the changes to your code. If the requested changes require access to your Azure resources, the GitHub Copilot coding agent needs to use the Azure MCP Server. Before the GitHub Copilot coding agent can use the Azure MCP Server to make changes to your Azure-based project agentically, you need to configure the GitHub Copilot coding agent and give it the proper permissions in Azure. You could manually configure everything, however many steps are automated using `azd`, the Azure Developer CLI, and the `coding-agent` extension.
 
