@@ -43,7 +43,7 @@ items:
         - name: Azure AI Foundry
           href: tools/azure-foundry.md
         - name: Azure AI Search
-          href: tools/ai-search.md
+          href: tools/azure-ai-search.md
         - name: Azure AI Speech
           href: tools/ai-services-speech.md
         - name: Azure App Configuration

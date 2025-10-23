@@ -4,7 +4,7 @@ description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 10/16/2025
+ms.date: 10/22/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,6 +19,116 @@ The Azure MCP Server allows you to manage Azure Monitor resources using natural 
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+## Activity Log: List activity log
+
+List activity logs for the specified Azure resource over the given prior number of hours.
+
+Example prompts include:
+
+- **Recent critical events**: "Show activity logs for my 'web-app-prod' resource for the last 4 hours with Critical and Error events only"
+- **Storage account activity**: "Get activity logs for 'mystorageaccount' resource of type 'Microsoft.Storage/storageAccounts' from the last 24 hours, limit to top 50 entries"
+- **VM monitoring**: "List all activity logs for my 'production-vm01' virtual machine from the past 12 hours"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource name** |  Required | The name of the Azure resource to retrieve activity logs for. |
+| **Resource type** |  Optional | The type of the Azure resource (for example, 'Microsoft.Storage/storageAccounts'). Only provide this if needed to disambiguate between multiple resources with the same name. |
+| **Hours** |  Optional | The number of hours prior to now to retrieve activity logs for. |
+| **Event level** |  Optional | The level of activity logs to retrieve. Valid levels are: Critical, Error, Informational, Verbose, Warning. If not provided, returns all levels. |
+| **Top** |  Optional | The maximum number of activity logs to retrieve. |
+
+## Web Tests: Create web tests
+
+Create a new standard web test in Azure Monitor. Ping/Multistep web tests are deprecated and aren't supported.
+
+Example prompts include:
+
+- **Basic web test**: "Create web test 'api-health-check' for Application Insights '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/components/myapp-insights' in East US location, testing URL 'https://api.mycompany.com/health' from locations 'us-east-2-azr,us-west-2-azr'"
+- **Custom frequency test**: "Create web test 'homepage-monitor' for Application Insights '/subscriptions/xyz789/resourceGroups/prod/providers/Microsoft.Insights/components/web-insights' in West Europe, testing 'https://www.mysite.com' from 'eu-west-1-azr,eu-north-1-azr' locations with frequency 300 seconds and timeout 60 seconds"
+- **POST request test**: "Create web test 'login-endpoint' for Application Insights '/subscriptions/def456/resourceGroups/test/providers/Microsoft.Insights/components/test-insights' in Central US, testing 'https://api.myapp.com/login' from 'us-central-azr,us-south-central-azr' with HTTP verb 'post', request body '{\"username\":\"test\"}', and headers 'Content-Type=application/json'"
+- **SSL monitoring test**: "Create web test 'secure-api-check' for Application Insights '/subscriptions/ghi789/resourceGroups/security/providers/Microsoft.Insights/components/security-insights' in Australia East, testing 'https://secure.myservice.com/api' from 'au-east-azr,au-southeast-azr' with SSL check enabled, SSL lifetime check 30 days, and expected status code 200"
+- **Comprehensive test**: "Create web test 'ecommerce-checkout' for Application Insights '/subscriptions/jkl012/resourceGroups/ecommerce/providers/Microsoft.Insights/components/shop-insights' in North Europe, testing 'https://shop.mystore.com/checkout' from 'eu-north-1-azr,eu-west-1-azr,eu-central-1-azr' with description 'Monitor checkout process', frequency 900 seconds, follow redirects enabled, parse requests enabled, retry enabled, and timeout 120 seconds"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
+| **Appinsights component** |  Required | The resource ID of the Application Insights component to associate with the web test. |
+| **Location** |  Required | The location where the web test resource is created. This should be the same as the AppInsights component location. |
+| **Webtest locations** |  Required | List of locations to run the test from (comma-separated values). Location refers to the geo-location population tag specific to Availability Tests. |
+| **Request URL** |  Required | The absolute URL to test. |
+| **Webtest** |  Optional | The name of the test in web test resource. |
+| **Description** |  Optional | The description of the web test. |
+| **Enabled** |  Optional | Whether the web test is enabled. |
+| **Expected status code** |  Optional | Expected HTTP status code. |
+| **Follow redirects** |  Optional | Whether to follow redirects. |
+| **Frequency** |  Optional | Test frequency in seconds. Supported values `300`, `600`, `900` seconds. |
+| **Headers** |  Optional | HTTP headers to include in the request. Comma-separated KEY=VALUE. |
+| **HTTP verb** |  Optional | HTTP method (examples are: `get`, `post`). |
+| **Ignore status code** |  Optional | Whether to ignore the status code validation. |
+| **Parse requests** |  Optional | Whether to parse dependent requests. |
+| **Request body** |  Optional | The body of the request. |
+| **Retry enabled** |  Optional | Whether retries are enabled. |
+| **SSL check** |  Optional | Whether to check SSL certificates. |
+| **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
+| **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: `30`, `60`, `90`, `120` seconds. |
+
+## Web Tests: Get web tests
+
+Get details for a specific web test in the provided resource group based on webtest resource name.
+
+Example prompts include:
+
+- **Get test details**: "Get details for web test 'api-health-check'"
+- **View test configuration**: "Show me the configuration of web test 'homepage-monitor'"
+- **Check test status**: "Get information about web test 'login-endpoint'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
+
+
+## Web Tests: List web tests
+
+List all web tests in a specified subscription and optionally, a resource group.
+
+Example prompts include:
+
+- **List all tests**: "List all web tests in my subscription"
+- **View tests by resource group**: "Show web tests in the 'monitoring' resource group"
+- **Get test inventory**: "What web tests do I have configured?"
+
+## Web Tests: Update web tests
+
+Update an existing standard web test in Azure Monitor. Ping/Multistep web tests are deprecated and aren't supported.
+
+Example prompts include:
+
+- **Update test frequency**: "Update web test 'api-health-check' to run every 300 seconds"
+- **Change test URL**: "Update web test 'homepage-monitor' to test URL 'https://www.newsite.com' with timeout 90 seconds"
+- **Modify test configuration**: "Update web test 'login-endpoint' with new headers 'Authorization=Bearer token123' and expected status code 201"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
+| **Appinsights component** |  Optional | The resource ID of the Application Insights component to associate with the web test. |
+| **Location** |  Optional | The location where the web test resource is created. This should be the same as the AppInsights component location. |
+| **Webtest locations** |  Optional | List of locations to run the test from (comma-separated values). Location refers to the geo-location population tag specific to Availability Tests. |
+| **Request URL** |  Optional | The absolute URL to test. |
+| **Webtest** |  Optional | The name of the test in web test resource. |
+| **Description** |  Optional | The description of the web test. |
+| **Enabled** |  Optional | Whether the web test is enabled. |
+| **Expected status code** |  Optional | Expected HTTP status code. |
+| **Follow redirects** |  Optional | Whether to follow redirects. |
+| **Frequency** |  Optional | Test frequency in seconds. Supported values 300, 600, 900 seconds. |
+| **Headers** |  Optional | HTTP headers to include in the request. Comma-separated KEY=VALUE. |
+| **HTTP verb** |  Optional | HTTP method (get, post, etc.). |
+| **Ignore status code** |  Optional | Whether to ignore the status code validation. |
+| **Parse requests** |  Optional | Whether to parse dependent requests. |
+| **Request body** |  Optional | The body of the request. |
+| **Retry enabled** |  Optional | Whether retries are enabled. |
+| **SSL check** |  Optional | Whether to check SSL certificates. |
+| **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
+| **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: 30, 60, 90, 120 seconds. |
 
 ## Log Analytics: List workspaces
 
