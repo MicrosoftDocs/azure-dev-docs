@@ -14,6 +14,9 @@ Assign GitHub issues to the GitHub Copilot Coding Agent (GCCA) and it will creat
 
 ## Prerequisites
 
+- An Azure account and access to an Azure subscription. For details on how to set them up, see the [pricing page for Azure accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account).
+
+- A GitHub account and a GitHub Copilot subscription. For details on how to set them up, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
 
 - An existing local clone of a GitHub repository. Since this article describes how to set up the connection between GitHub Copilot Coding Agent to Azure MCP Server, it is assumed that the GitHub repository 
 
@@ -30,50 +33,50 @@ The `azd` coding-agent extension simplifies the steps required to securely set u
 
 1. During installation, you will be asked to select your:
  
-- Azure subscription
-- Which GitHub repository will use the Copilot Coding agent
-- Whether you want to create a new or existing User Managed Identity
-- A location
-- A resource group
-- The GitHub repository where a new branch will be created containing the generated GitHub Actions workflow setup file
+   - Azure subscription
+   - Which GitHub repository will use the Copilot Coding agent
+   - Whether you want to create a new or existing User Managed Identity
+   - An Azure location
+   - An Azure resource group
+   - The GitHub repository where a new branch will be created containing the generated GitHub Actions workflow setup file
 
-When selecting the location and resource group, you may want to use the same target location and resource group as the Azure resources in the application.
+   When selecting the location and resource group, you may want to use the same target location and resource group as the Azure resources in the application.
 
 1. After a few moments, the `azd` coding agent extension creates (or uses the existing) User Managed Identity and assigns it a role, stores identity values in the copilot environment, and creates and pushes a branch containing the generated GitHub Actions workflow setup file.
 
 1. You will see a message in the console:
 
-```console
-(!)
-(!) NOTE: Some tasks must still be completed, manually:
-(!)
-```
+   ```console
+   (!)
+   (!) NOTE: Some tasks must still be completed, manually:
+   (!)
+   ```
 
-Usually there are three tasks:
+   Usually there are three tasks:
 
-- Merge the branch containing the generated GitHub Actions workflow setup file
-- Configure Copilot coding agent's managed identity roles in the Azure portal - By default, the "Reader" role is assigned, however you may want to give it other permissions based on what you want the Coding Agent to do autonomously.
-- Visit the link to set up the MCP Configuration. To navigate there manually, in GitHub go to Settings > Copilot > Coding Agent > MCP Configuration and paste in the JSON snippet provided. It will resemble:
+   - Merge the branch containing the generated GitHub Actions workflow setup file
+   - Configure Copilot coding agent's managed identity roles in the Azure portal - By default, the "Reader" role is assigned, however you may want to give it other permissions based on what you want the Coding Agent to do autonomously.
+   - Visit the link to set up the MCP Configuration. To navigate there manually, in GitHub go to Settings > Copilot > Coding Agent > MCP Configuration and paste in the JSON snippet provided. It will resemble:
 
-```json
-{
-    "mcpServers": {
-        "Azure": {
-            "type": "local",
-            "command": "npx",
-            "args": [
-                "-y",
-                "@azure/mcp@latest",
-                "server",
-                "start"
-            ],
-            "tools": [
-                "*"
-            ]
-        }
-    }
-}
-```
+   ```json
+   {
+       "mcpServers": {
+           "Azure": {
+               "type": "local",
+               "command": "npx",
+               "args": [
+                   "-y",
+                   "@azure/mcp@latest",
+                   "server",
+                   "start"
+               ],
+               "tools": [
+                   "*"
+               ]
+           }
+       }
+   }
+   ```
 
 1. Finally, you can allow the `azd` coding agent extension to open the browser so you can create the pull request to merge the branch containing the generated GitHub Actions workflow setup file.
 
@@ -91,18 +94,18 @@ For example, suppose you want to increase the memory allocated to PostgreSQL whe
 
 1. Select the "New Issue" button. Describe the change you want GitHub Copilot Coding Agent to make in the title and description fields. Select the "Create" button.
 
-From the example earlier, you might use the following.
+   From the example earlier, you might use the following.
 
-```text
-Title: Increase database storage
+   ```text
+   Title: Increase database storage
  
-Currently, when deploying to Azure via Bicep, we're creating a PostgreSQL database with 32gb of storage. I need the next tier higher -- whatever that is.
-```
+   Currently, when deploying to Azure via Bicep, we're creating a PostgreSQL database with 32gb of storage. I need the next tier higher -- whatever that is.
+   ```
 
-This issue makes a simple, clear request even if the user doesn't know exactly what they're asking for. This allows the Azure MCP Server to do research about available storage tiers for Azure Database fo PostgreSQL Flexible Server and the setting in the Bicep template required to make that change.
+   This issue makes a simple, clear request even if the user doesn't know exactly what they're asking for. This allows the Azure MCP Server to do research about available storage tiers for Azure Database fo PostgreSQL Flexible Server and the setting in the Bicep template required to make that change.
 
-> [!Important]
-> Make sure to use the word "Azure" in your prompt to ensure that GitHub Copilot requests tools from the Azure MCP Server.
+   > [!Important]
+   > Make sure to use the word "Azure" in your prompt to ensure that GitHub Copilot requests tools from the Azure MCP Server.
 
 1. Select the "Assign to Copilot" button under **Assignees**. This will open a dialog "Assign Copilot to issue" that allows you to modify the target repository, the base branch, and add an optional prompt. Select the "Assign" button.
 
