@@ -4,7 +4,7 @@ description: This developer guide walks you through using Spring Cloud Azure App
 author: KarlErickson
 ms.author: karler
 ms.reviewer: mametcal
-ms.date: 10/22/2025
+ms.date: 10/23/2025
 ms.topic: tutorial
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.
@@ -207,7 +207,7 @@ In the second `label-filter`, the string `_local` is appended to the end of the 
 Using the configuration `spring.cloud.azure.appconfiguration.enabled`, you can disable loading for all configuration stores. With the `spring.cloud.azure.appconfiguration.stores[0].enabled` configuration, you can disable an individual store.
 
 > [!NOTE]
-> If you use health metrics, you will still see your stores listed, with the value `NOT LOADED`. If checking loaded Property Sources, you will still see them listed, but they will contain no values. This is due to the `spring.config.import` property being set. If `azureAppConfiguration` isn't set for `spring.config.import`, no values will be shown.
+> If you use health metrics, you still see your stores listed, but with the value `NOT LOADED`. When you check loaded property sources, you still see them listed, but they contain no values. This behavior is due to the `spring.config.import` property being set. If `azureAppConfiguration` isn't set for `spring.config.import`, no values are shown.
 
 ## Authentication
 
@@ -215,7 +215,7 @@ The library supports all forms of identity supported by the [Azure Identity Libr
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
-### Connection string (Not Recommended)
+### Connection string (not recommended)
 
 Authentication through connection string is the simplest form to set up, though it isn't recommended. You can access a store's connection strings by using the following command:
 
@@ -765,7 +765,7 @@ In applications that use only `spring-cloud-azure-appconfiguration-config`, such
 
 Also, because the library uses Spring's configuration system, triggering a refresh causes a refresh of all of your configurations, not just a reload of the ones from your Azure App Configuration store.
 
-### Push-based refresh (Not Recommended)
+### Push-based refresh (not recommended)
 
 > [!NOTE]
 > This method is no longer recommended, but is currently still supported.
