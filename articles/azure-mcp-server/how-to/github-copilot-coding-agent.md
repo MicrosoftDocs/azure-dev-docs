@@ -121,3 +121,6 @@ For example, suppose you want to increase the memory allocated to PostgreSQL whe
 
 1. When you approve the changes and merge the pull request, GitHub Copilot resolves the original issue you created.
 
+## Related content
+
+- [GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
