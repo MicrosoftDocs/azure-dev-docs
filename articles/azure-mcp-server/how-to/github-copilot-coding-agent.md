@@ -31,7 +31,7 @@ The `azd` coding-agent extension simplifies the steps required to securely set u
 
 1. In the terminal, navigate into the local clone of the repository you want to work with.
 
-1. Install the azd coding agent extension with the command: `azd coding-agent config`. 
+1. Invoke the azd coding agent extension with the command: `azd coding-agent config`. 
 
 1. During installation, you are asked to select your:
  
