@@ -211,7 +211,7 @@ All internal commands and their output print to the console.
 - Expand identity permissions (only as needed) using role assignments
 - Integrate additional automation by extending the workflow in `.github/workflows/`
 - Explore other extension capabilities: [Extensions overview](overview.md)
-- [Review Azure RBAC concepts](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+- [Review Azure RBAC concepts](/azure/role-based-access-control/role-assignments-cli)
 
 ## Contributing
 
