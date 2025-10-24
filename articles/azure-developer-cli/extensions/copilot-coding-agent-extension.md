@@ -174,6 +174,18 @@ git remote add origin <https://github.com/<your-org>/<your-repo>.git>
 git fetch origin
 ```
 
+### Must have admin rights to Repository
+
+Configuring a GitHub repository for the coding agent **requires** admin rights. Without these rights, you won't be able to update the Copilot environment to use managed identity credentials, or update the MCP configuration for the repository.
+
+If you see this error, you'll need to elevate your rights.
+
+```output
+(!) An error occurred, see the readme for troubleshooting and prerequisites:
+    https://github.com/Azure/azure-dev/blob/main/cli/azd/extensions/azure.coding-agent/README.md
+Error: failed to create GitHub environment copilot in repository owner/repository: exit code: 1, stdout: {"message":"Must have admin rights to Repository.","documentation_url":"https://docs.github.com/rest/deployments/environments#create-or-update-an-environment","status":"403"}, stderr: gh: Must have admin rights to Repository. (HTTP 403)
+```
+
 ### Refresh token expired
 
 Sign-in again:
