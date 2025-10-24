@@ -64,4 +64,5 @@ After you modernize on Azure, applications can integrate with Azure AI capabilit
 - **AKS Automatic**: Simplified Kubernetes experience with automated cluster management
 
 ## Privacy statement
-App modernization for Java uses GitHub Copilot just like how you modify code with GitHub Copilot, which does not retain code snippets beyond the immediate session. We do not collect, transmit or store your custom tasks either. Please review the [Microsoft Privacy](https://www.microsoft.com/en-us/privacy/privacystatement) Statement if necessary.
+
+App modernization for Java uses GitHub Copilot the same way you use GitHub Copilot to modify code. This process doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either. For more information, see the [Microsoft privacy statement](https://www.microsoft.com/en-us/privacy/privacystatement).
