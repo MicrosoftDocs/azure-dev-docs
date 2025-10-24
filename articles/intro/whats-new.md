@@ -74,7 +74,10 @@ Updated articles:
 - [Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity](../javascript/sdk/authentication/system-assigned-managed-identity.md)
 - [Authenticate Azure-hosted JavaScript apps to Azure resources using a user-assigned managed identity](../javascript/sdk/authentication/user-assigned-managed-identity.md)
 - [Authenticate Node.js apps to Azure services during local development using developer accounts](../javascript/sdk/authentication/local-development-environment-developer-account.md)
-  
+
+### Azure for .NET
+- [Quickstart: Vector search with .NET in Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/quickstart-dotnet-vector-search
+
 ### Azure for Rust
 
 New articles:
