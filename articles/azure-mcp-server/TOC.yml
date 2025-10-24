@@ -126,7 +126,7 @@ items:
       expanded: true
       items:
         - name: Connect GitHub Copilot coding agent to Azure MCP Server
-          href: how-to/connect-github-copilot.md
+          href: how-to/github-copilot-coding-agent.md
 - name: Resources
   items:
     - name: Azure MCP Server GitHub repository
