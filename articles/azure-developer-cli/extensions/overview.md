@@ -13,15 +13,8 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 Azure Developer CLI (`azd`) extensions are modular components that extend the functionality of the Azure Developer CLI. They allow you to add new capabilities, automate workflows, and integrate with other services directly from the CLI. Extensions help you tailor `azd` to evolving team needs and Azure scenarios.
 
-## Enable extensions
-
-Extensions are currently an alpha feature. To enable extension support, run the following command in your terminal:
-
-```azdeveloper
-azd config set alpha.extensions on
-```
-
-This command enables extension management and usage in your `azd` environment.
+> [!NOTE]
+> `azd` extensions are currently in beta.
 
 ## Manage extension sources
 
