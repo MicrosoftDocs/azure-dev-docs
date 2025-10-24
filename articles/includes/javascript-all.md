@@ -50,7 +50,7 @@
 | Core - Client - Tracing | npm [1.3.1](https://www.npmjs.com/package/@azure/core-tracing/v/1.3.1) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.3.1/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.5.0](https://www.npmjs.com/package/@azure/core-xml/v/1.5.0) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.5.0/sdk/core/core-xml/) |
 | Core - Paging | npm [1.6.2](https://www.npmjs.com/package/@azure/core-paging/v/1.6.2) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.6.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.2/sdk/core/core-paging/) |
-| Cosmos DB | npm [4.6.0](https://www.npmjs.com/package/@azure/cosmos/v/4.6.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.6.0/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [4.7.0](https://www.npmjs.com/package/@azure/cosmos/v/4.7.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.7.0/sdk/cosmosdb/cosmos/) |
 | Create Playwright | npm [1.0.0](https://www.npmjs.com/package/@azure/create-playwright/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/create-playwright_1.0.0/sdk/loadtesting/create-playwright/) |
 | Defender EASM | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/defender-easm/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.2/sdk/easm/defender-easm-rest/) |
 | Dev Center | npm [1.0.1](https://www.npmjs.com/package/@azure-rest/developer-devcenter/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.1/sdk/devcenter/developer-devcenter-rest/) |
@@ -453,11 +453,11 @@
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.5](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.5) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp/v/0.9.7) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.7) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.7) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.7) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.7) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp/v/0.9.8) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/0.9.8) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/0.9.8) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/0.9.8) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/0.9.8) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -472,8 +472,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5460800) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5460800) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5460800](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5460800) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.7) |  |  |
-| Unknown Display Name | npm [0.9.7](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.7) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/0.9.8) |  |  |
+| Unknown Display Name | npm [0.9.8](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/0.9.8) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/mcp-server-typespec/v/0.0.0-104) |  |  |
 | Unknown Display Name | npm [0.0.0-104](https://www.npmjs.com/package/typespec-mcp/v/0.0.0-104) |  |  |
@@ -557,7 +557,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20251022.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20251022.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20251023.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20251023.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
