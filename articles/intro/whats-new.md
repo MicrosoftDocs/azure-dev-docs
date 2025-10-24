@@ -76,6 +76,9 @@ Updated articles:
 - [Authenticate Node.js apps to Azure services during local development using developer accounts](../javascript/sdk/authentication/local-development-environment-developer-account.md)
 
 ### Azure for .NET
+
+New articles:
+
 - [Quickstart: Vector search with .NET in Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/quickstart-dotnet-vector-search
 
 ### Azure for Rust
