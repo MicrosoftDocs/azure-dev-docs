@@ -62,3 +62,7 @@ After you modernize on Azure, applications can integrate with Azure AI capabilit
 - **Azure Container Apps**: Serverless container platform for microservices and containerized applications
 - **Azure Kubernetes Service**: Managed Kubernetes service for orchestrating containerized workloads
 - **AKS Automatic**: Simplified Kubernetes experience with automated cluster management
+
+## Privacy statement
+
+App modernization for Java uses GitHub Copilot the same way you use GitHub Copilot to modify code. This process doesn't retain code snippets beyond the immediate session. We don't collect, transmit, or store your custom tasks either. For more information, see the [Microsoft privacy statement](https://www.microsoft.com/en-us/privacy/privacystatement).
