@@ -3,7 +3,7 @@ author: diberry
 ms.service: azure
 ms.topic: include
 ms.author: diberry
-ms.date: 09/23/2025
+ms.date: 10/27/2025
 ---
 
 Tools that handle sensitive data, such as secrets, require user consent before execution through a security mechanism called **elicitation**. When you use tools that access sensitive information, the MCP client prompts you to confirm the operation before proceeding.
