@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/16/2025
+ms.date: 10/27/2025
 ---
 
 # Azure SQL tools for the Azure MCP Server
