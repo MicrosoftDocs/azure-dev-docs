@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Managed Grafana to
 keywords: azure mcp server, azmcp, azure managed grafana, monitoring, dashboards, visualization
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 07/22/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
