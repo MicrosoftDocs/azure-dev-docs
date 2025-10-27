@@ -36,7 +36,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The ID of the agent to interact with. |
 | **Query** |  Required | The query sent to the agent. |
-| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+| **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service. |
 
 ## Agents: Evaluate an agent
 
@@ -59,7 +59,7 @@ Example prompts include:
 | **Evaluator** |  Required | The name of the evaluator to use (`intent_resolution`, `tool_call_accuracy`, `task_adherence`). |
 | **Response** |  Optional | The response from the agent. |
 | **Tool Definitions** |  Optional | Optional tool definitions made by the agent in JSON format. |
-| **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
+| **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
 ## Agents: List agents
@@ -67,7 +67,7 @@ Example prompts include:
 <!-- `azmcp foundry agents list` -->
 
 
-List all Azure AI Agents available in the configured project.
+List all Azure AI Agents in an Azure AI Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
 
 Example prompts include:
 
@@ -79,7 +79,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
 
 
 ## Agents: Query and execute an agent
@@ -100,12 +100,12 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent ID** |  Required | The ID of the agent to interact with. |
 | **Query** |  Required | The query sent to the agent. |
-| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Evaluators** |  Optional | The list of evaluators to use for evaluation, separated by commas. If not specified, all evaluators are used. |
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
-## Knowledge: List indexes
+## Knowledge: List knowledge indexes
 
 Get a list of knowledge indexes from Azure AI Foundry:
 
@@ -123,7 +123,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
     
 
 ## Knowledge: Get index schema
@@ -138,7 +138,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Endpoint** |  Required | The endpoint URL for the Azure AI service. |
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Index** |  Required | The name of the knowledge index. |
 
 
@@ -146,7 +146,7 @@ Example prompts include:
 
 <!-- azmcp foundry models list -->
 
-List all available AI models in Azure AI Foundry.
+List all available Azure OpenAI models and deployments in an AI Foundry resource. This tool retrieves information about Azure OpenAI models deployed in your AI Foundry resource including model names, versions, capabilities, and deployment status.
 
 Example prompts include:
 
@@ -196,7 +196,7 @@ Example prompts include:
 
 <!-- azmcp foundry models deployments list -->
 
-List all model deployments associated with a specific Azure AI Foundry endpoint. Use this command to monitor and manage your active model deployments. In the following example prompts, replace `https://my-example-resource.openai.azure.com` with your actual Azure AI Foundry endpoint URL.
+List model deployments in an Azure AI Foundry (Cognitive Services) project. Shows currently deployed AI models at the project level.
 
 Example prompts include:
 
@@ -208,16 +208,14 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Endpoint** | Required | The endpoint URL for the Azure AI service. |
+| **Endpoint** | Required |The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 
 
 ## OpenAI: Create chat completions
 
 <!-- `azmcp foundry openai chat-completions-create` -->
 
-Create interactive chat completions using Azure OpenAI chat models. This tool processes conversational 
-inputs with message history and system instructions to generate contextual responses. Returns chat 
-response as JSON.
+ Create chat completions using Azure OpenAI in AI Foundry. Send messages to Azure OpenAI chat models deployed in your AI Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
 
 Example prompts include:
 
@@ -252,8 +250,7 @@ Example prompts include:
 
 <!-- `azmcp foundry openai embeddings-create` -->
 
-Generate vector embeddings for text using Azure OpenAI embedding models. This tool converts text into 
-high-dimensional vector representations for similarity search and machine learning applications. 
+Create embeddings using Azure OpenAI in AI Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your AI Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
 
 Example prompts include:
 
@@ -278,11 +275,11 @@ Example prompts include:
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
 | **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
 
-## OpenAI: Create text completions
+## OpenAI: Create completions
 
 <!-- `azmcp foundry openai create-completion` -->
 
-Generate text completions using deployed Azure OpenAI models in AI Foundry. 
+ Create text completions using Azure OpenAI in AI Foundry. Send a prompt or question to Azure OpenAI models deployed in your AI Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
 
 Example prompts include:
 

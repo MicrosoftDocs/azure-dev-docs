@@ -1,5 +1,5 @@
 ---
-title: What is the Azure MCP Server (Preview)?
+title: What is the Azure MCP Server?
 description: Overview of the features and capabilities of the Azure MCP Server that helps developers be more productive when building and deploying apps to Azure
 ms.date: 05/14/2025
 ms.topic: overview 
@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 ms.custom: build-2025
 ---
 
-# What is the Azure MCP Server (Preview)?
+# What is the Azure MCP Server?
 
 The Azure MCP Server enables AI agents and other types of clients to interact with Azure resources through natural language commands. It implements the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) to provide these key features:
 
