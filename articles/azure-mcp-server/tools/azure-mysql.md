@@ -4,7 +4,7 @@ description: Learn how to manage Azure Database for MySQL with Azure MCP Server 
 keywords: azure mcp server, azmcp, mysql
 author: diberry
 ms.author: diberry
-ms.date: 08/26/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
