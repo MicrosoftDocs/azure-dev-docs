@@ -4,7 +4,7 @@ description: Learn to use Azure MCP Server tools to manage Event Hubs resources 
 keywords: azure mcp server, azmcp, event hubs, azure services
 author: diberry
 ms.author: diberry
-ms.date: 10/15/2025
+ms.date: 10/27/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -112,6 +112,32 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
+
+## Event Hub: Create or update Event Hub
+
+Create or update an Event Hub within an Azure Event Hubs namespace. This command:
+- Creates a new Event Hub if it doesn't exist
+- Updates an existing Event Hub's configuration
+
+You can configure these properties:
+- Partition count (number of partitions for parallel processing)
+- Message retention time (how long messages are retained, in hours)
+
+Some properties like partition count can't be changed after creation. This is a potentially long-running operation that waits for completion.
+
+Example prompts include:
+
+- **Create new Event Hub**: "Create a new event hub 'orders-hub' in my namespace 'production-eventhubs' and resource group 'prod-resources'"
+- **Update existing Event Hub**: "Update my event hub 'telemetry-events' in my namespace 'monitoring-hubs' and resource group 'monitoring-resources'"
+- **Create with configuration**: "Create event hub 'user-activity' in namespace 'analytics-hubs' with 4 partitions and 24 hours message retention"
+
+| Parameter | Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Namespace** | Required | The name of the Event Hubs namespace. Must be used with the resource group parameter. |
+| **Event hub** | Required | The name of the Event Hub within the namespace. |
+| **Partition count** | Optional | The number of partitions for the Event Hub. Must be between `1` and `32` (or higher based on namespace tier). |
+| **Message retention in hours** | Optional | The message retention time in hours. Minimum is `1` hour, maximum depends on the namespace tier. |
+| **Status** | Optional | The status of the Event Hub (such as `Active`, `Disabled`). Status might be read-only in some operations. |
 
 ## Namespace: Delete namespace
 
