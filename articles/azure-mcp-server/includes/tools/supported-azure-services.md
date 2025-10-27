@@ -15,7 +15,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure best practices](../../tools/azure-best-practices.md) | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Azure Application Insights](../../tools/application-insights.md) | List Application Insights resources. |
 | [Azure AI Foundry](../../tools/azure-foundry.md) | Work with Azure AI Foundry models, deployments, and endpoints. |
-| [Azure AI Search](../../tools/ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
+| [Azure AI Search](../../tools/azure-ai-search.md) | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | Manage Azure AI Speech resources such as speech-to-text services. |
 | [Azure App Configuration](../../tools/app-configuration.md) | Manage centralized application settings and feature flags. |
 | [Azure App Lens](../../tools/azure-app-lens.md) | Diagnose and analyze application performance issues using Azure App Lens. |
@@ -49,10 +49,10 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure RBAC](../../tools/azure-rbac.md) | View and manage Azure role-based access control assignments. |
 | [Azure Redis](../../tools/azure-redis.md) | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | Check the health status of Azure resources. |
-| [Azure Service Bus](../../tools/azure-service-bus.md) | Work with Azure Service Bus messaging services. |
+| [Azure Service Bus](../../tools/service-bus.md) | Work with Azure Service Bus messaging services. |
 | [Azure SignalR](../../tools/azure-signalr.md) | Manage Azure SignalR resources and runtimes. |
 | [Azure SQL](../../tools/azure-sql.md) | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
-| [Azure Storage](../../tools/azure-storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
+| [Azure Storage](../../tools/storage.md) | List Azure Storage accounts, containers, blobs, and tables. |
 | [Azure Virtual Desktop](../../tools/azure-virtual-desktop.md) | Manage Azure Virtual Desktop host pools, session hosts, and user sessions. |
 | [Resource Groups](../../tools/resource-group.md) | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | List Azure subscriptions. |
