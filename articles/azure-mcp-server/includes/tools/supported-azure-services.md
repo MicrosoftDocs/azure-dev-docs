@@ -31,7 +31,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Database for MySQL](../../tools/azure-mysql.md) | Manage Azure Database for MySQL servers, databases, and tables. |
 | [Azure Database for PostgreSQL](../../tools/azure-database-postgresql.md) | Manage Azure Database for PostgreSQL servers, databases, and tables. |
 | [Azure Deploy](../../tools/azure-deploy.md) | Deploy and manage Azure resources using templates and scripts. |
-| [Azure Developer CLI](../../tools/azure-cli.md) | Execute Azure Developer CLI commands for application development and deployment. |
+| [Azure Developer CLI](../../tools/azure-cli.md) | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Event Grid](../../tools/azure-event-grid.md) | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Event Hubs](../../tools/azure-event-hubs.md) | Manage Azure Event Hubs namespaces and event hubs. |
 | [Azure Functions](../../tools/azure-functions.md) | List Azure Functions. |
