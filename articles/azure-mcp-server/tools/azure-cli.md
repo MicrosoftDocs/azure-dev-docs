@@ -4,7 +4,7 @@ description: Learn how to use Azure CLI tools with the Azure MCP Server to gener
 keywords: azure mcp server, azmcp, azure cli extension
 author: diberry
 ms.author: diberry
-ms.date: 10/15/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -36,7 +36,7 @@ The Azure MCP Server generates Azure CLI commands to accomplish specific goals.
 
 ## Get CLI installation instructions
 
-The Azure MCP Server provides installation instructions for CLI tools including Azure CLI (az), Azure Developer CLI (azd), and Azure Functions Core Tools CLI (func). It incorporates knowledge of the CLI tool beyond what the LLM knows. Use this tool to get installation instructions if you attempt to use the CLI tool but it's not installed.
+The Azure MCP Server provides installation instructions for CLI tools including Azure CLI (`az`), Azure Developer CLI (`azd`), and Azure Functions Core Tools CLI (`func`). It incorporates knowledge of the CLI tool beyond what the LLM knows. Use this tool to get installation instructions if you attempt to use the CLI tool but it's not installed.
 
 **Example prompts** include:
 
@@ -52,3 +52,4 @@ The Azure MCP Server provides installation instructions for CLI tools including 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure CLI reference documentation](/cli/azure/reference-index)
+- [Azure Developer CLI reference documentation](/azure/developer/azure-developer-cli)
