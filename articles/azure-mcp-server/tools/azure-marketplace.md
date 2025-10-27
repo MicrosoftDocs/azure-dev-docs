@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Marketplace to dis
 keywords: azure mcp server, azmcp, marketplace, products, offers, solutions
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/15/2025
+ms.date: 10/27/2025
 author: diberry
 ms.author: diberry
 content_well_notification: 

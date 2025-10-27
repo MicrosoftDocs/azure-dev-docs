@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/22/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

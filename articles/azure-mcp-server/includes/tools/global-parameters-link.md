@@ -1,1 +1,0 @@
-Learn about [Global parameters common to all Azure MCP server tools](../../tools/index.md#tool-parameters).

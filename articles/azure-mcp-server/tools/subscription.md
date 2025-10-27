@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Subscriptions.
 keywords: azure mcp server, azmcp, subscription
 author: diberry
 ms.author: diberry
-ms.date: 05/20/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Speech.
 keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, cognitive services, azure services
 author: diberry
 ms.author: diberry
-ms.date: 10/01/2025
+ms.date: 10/27/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted

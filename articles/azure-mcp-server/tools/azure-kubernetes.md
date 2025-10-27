@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/08/2025
+ms.date: 10/27/2025
 ---
 # Azure Kubernetes Service tools for the Azure MCP Server
 
