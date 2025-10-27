@@ -141,3 +141,5 @@ items:
       href: overview.md
     - name: Tool reference
       href: tools/index.md
+    - name: Troubleshooting
+      href: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/TROUBLESHOOTING.md
