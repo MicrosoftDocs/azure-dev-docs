@@ -4,7 +4,7 @@ description: "Learn how to use Azure MCP Server tools to manage Azure App Config
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
-ms.date: 10/08/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
