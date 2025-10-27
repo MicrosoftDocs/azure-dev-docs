@@ -36,7 +36,7 @@ The most common scenario for using the Azure MCP Server is to connect to it from
 In more advanced scenarios, some developers may create their own MCP servers to offer custom tools, resources, and prompts for specific tasks that involve Azure resources. If you're building an MCP server that needs to connect with Azure, you can use the Azure MCP Server tools from your MCP server.
 
 
-[!INCLUDE [security-developer-environment](../../includes/security-local-development.md)]
+[!INCLUDE [security-developer-environment](./includes/security-local-development.md)]
 
 ## Related content
 
