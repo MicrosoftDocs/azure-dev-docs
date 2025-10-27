@@ -39,6 +39,7 @@ New articles:
 - [Azure Event Grid tools for the Azure MCP Server](../azure-mcp-server/tools/azure-event-grid.md)
 
 Updated articles:
+
 - [Get started with the Azure MCP Server in Cursor](../azure-mcp-server/get-started/tools/cursor.md)
 - [Get started with the Azure MCP Server in IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
 - [Get started with the Azure MCP Server in Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
@@ -57,11 +58,12 @@ Updated articles:
 - [Azure MCP Tool tools for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
 - [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
+
 ### Azure for Java
 
 Updated articles:
 
-- Update for Spring Cloud Azure 6.0.0:
+- Updates for Spring Cloud Azure 6.0.0:
   - [Spring Boot Starter for Microsoft Entra developer's guide](../java/spring-framework/spring-boot-starter-for-entra-developer-guide.md)
   - [Spring Cloud Azure Redis support](../java/spring-framework/redis-support.md)
   - [Spring Cloud Azure support for Spring Cloud Stream](../java/spring-framework/spring-cloud-stream-support.md)
