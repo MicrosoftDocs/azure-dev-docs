@@ -83,7 +83,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     ```
 
     > [!TIP]
-    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
+    > `DefaultAzureCredential` can be optimized for the environment in which your app runs. For more information, see [How to customize DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
@@ -155,7 +155,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     ```
 
     > [!TIP]
-    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#how-to-customize-defaultazurecredential).
+    > `DefaultAzureCredential` can be optimized for the environment in which your app runs. For more information, see [How to customize DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
@@ -231,7 +231,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     ```
 
     > [!TIP]
-    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/azure/developer/javascript/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
+    > `DefaultAzureCredential` can be optimized for the environment in which your app runs. For more information, see [How to customize DefaultAzureCredential](/azure/developer/javascript/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
@@ -311,7 +311,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     ```
 
     > [!TIP]
-    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
+    > `DefaultAzureCredential` can be optimized for the environment in which your app runs. For more information, see [How to customize DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
@@ -373,7 +373,7 @@ Microsoft Entra authentication is only supported with Azure OpenAI resources. Co
     ```
 
     > [!TIP]
-    > `DefaultAzureCredential` can be optimized for the environment in which your app will run. For more information, see [How to customize DefaultAzureCredential](/azure/developer/go/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
+    > `DefaultAzureCredential` can be optimized for the environment in which your app runs. For more information, see [How to customize DefaultAzureCredential](/azure/developer/go/sdk/authentication/credential-chains#how-to-customize-defaultazurecredential).
 
 1. Assign the appropriate Azure role-based access control (RBAC) permissions. For more information, see [Azure role-based access control (RBAC)](/azure/ai-foundry/openai/how-to/role-based-access-control).
 
