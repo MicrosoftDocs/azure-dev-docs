@@ -15,7 +15,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure MCP Server (Preview)?
+          - text: What is Azure MCP Server?
             url: overview.md
       - linkListType: how-to-guide
         links:

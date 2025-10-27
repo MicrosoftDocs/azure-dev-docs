@@ -1,5 +1,5 @@
 items:
-- name: Azure MCP Server (Preview)
+- name: Azure MCP Server
   href: index.yml
   items:
     - name: Overview
