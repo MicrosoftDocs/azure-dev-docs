@@ -1,7 +1,7 @@
 ---
 title: "How to switch between OpenAI and Azure OpenAI endpoints"
 description: "Learn how to switch between OpenAI and Azure OpenAI endpoints in your application."
-ms.date: 10/24/2025
+ms.date: 10/27/2025
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 content_well_notification: 
