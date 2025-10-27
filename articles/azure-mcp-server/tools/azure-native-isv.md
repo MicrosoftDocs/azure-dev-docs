@@ -4,7 +4,7 @@ description: Learn how to use Azure MCP Server with Azure Native ISV partner sol
 keywords: azure mcp server, azmcp, native isv, datadog, partner solutions, monitoring
 author: diberry
 ms.author: diberry
-ms.date: 07/01/2025
+ms.date: 10/27/2025
 ms.topic: reference
 ms.service: azure
 ai-usage: ai-assisted
