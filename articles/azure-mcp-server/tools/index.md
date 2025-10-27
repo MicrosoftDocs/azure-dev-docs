@@ -21,6 +21,11 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 - "Query my log analytics workspace for errors in the last hour"
 - "Show me all my Cosmos DB databases"
 
+## Developer credentials and security
+
+[!INCLUDE [security-developer-environment](../../includes/security-local-development.md)]
+
+
 [!INCLUDE [server start options](../includes/tools/server-start-options.md)]
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
