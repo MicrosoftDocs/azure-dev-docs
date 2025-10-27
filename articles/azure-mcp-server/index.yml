@@ -15,7 +15,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure MCP Server (Preview)?
+          - text: What is Azure MCP Server?
             url: overview.md
       - linkListType: how-to-guide
         links:
@@ -23,6 +23,8 @@ landingContent:
             url: get-started.md#use-a-code-editor
           - text: Install with a package manager
             url: get-started.md#install-with-a-package-manager
+          - text: Connect GitHub Copilot coding agent to the Azure MCP Server
+            url: how-to/github-copilot-coding-agent.md
       - linkListType: quickstart
         links:
           - text: Connect from Cline

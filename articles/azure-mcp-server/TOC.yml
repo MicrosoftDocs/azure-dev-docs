@@ -1,5 +1,5 @@
 items:
-- name: Azure MCP Server (Preview)
+- name: Azure MCP Server
   href: index.yml
   items:
     - name: Overview
@@ -38,10 +38,12 @@ items:
           href: tools/index.md
         - name: Azure best practices
           href: tools/azure-best-practices.md
+        - name: Application Insights
+          href: tools/application-insights.md
         - name: Azure AI Foundry
           href: tools/azure-foundry.md
         - name: Azure AI Search
-          href: tools/ai-search.md
+          href: tools/azure-ai-search.md
         - name: Azure AI Speech
           href: tools/ai-services-speech.md
         - name: Azure App Configuration
@@ -52,10 +54,12 @@ items:
           href: tools/azure-app-service.md
         - name: Azure Bicep schema
           href: tools/azure-bicep-schema.md
+        - name: Azure CLI
+          href: tools/azure-cli.md
         - name: Azure Cloud Architect
           href: tools/azure-cloud-architect.md
         - name: Azure Communication Services
-          href: tools/azure-communications.md
+          href: tools/azure-communication.md
         - name: Azure Confidential Ledger
           href: tools/azure-confidential-ledger.md
         - name: Azure Container Registry
@@ -93,7 +97,7 @@ items:
         - name: Azure MCP tool
           href: tools/azure-mcp-tool.md
         - name: Azure Monitor
-          href: tools/monitor.md
+          href: tools/azure-monitor.md
         - name: Azure Native ISV
           href: tools/azure-native-isv.md
         - name: Azure Quick Review CLI
@@ -103,7 +107,7 @@ items:
         - name: Azure RBAC
           href: tools/azure-rbac.md
         - name: Azure Redis
-          href: tools/azure-cache-for-redis.md
+          href: tools/azure-redis.md    
         - name: Azure Resource Health
           href: tools/azure-health-resource.md
         - name: Azure Service Bus
@@ -122,6 +126,11 @@ items:
           href: tools/subscription.md
         - name: Terraform best practices for Azure
           href: tools/azure-terraform-best-practices.md
+    - name: How-to guides
+      expanded: true
+      items:
+        - name: Connect GitHub Copilot coding agent to Azure MCP Server
+          href: how-to/github-copilot-coding-agent.md
 - name: Resources
   items:
     - name: Azure MCP Server GitHub repository
