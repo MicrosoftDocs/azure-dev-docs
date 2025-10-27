@@ -31,6 +31,11 @@ items:
             href: get-started/languages/python.md
           - name: .NET
             href: get-started/languages/dotnet.md
+    - name: How to
+      expanded: true
+      items:
+        - name: Connect GitHub Copilot coding agent to Azure MCP Server
+          href: how-to/github-copilot-coding-agent.md
     - name: Tools
       expanded: true
       items:
@@ -126,11 +131,6 @@ items:
           href: tools/subscription.md
         - name: Terraform best practices for Azure
           href: tools/azure-terraform-best-practices.md
-    - name: How-to guides
-      expanded: true
-      items:
-        - name: Connect GitHub Copilot coding agent to Azure MCP Server
-          href: how-to/github-copilot-coding-agent.md
 - name: Resources
   items:
     - name: Azure MCP Server GitHub repository
