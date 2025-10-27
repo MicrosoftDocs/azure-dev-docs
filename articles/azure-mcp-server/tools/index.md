@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server tools for consuming servers.
 keywords: azure mcp server, azmcp
 author: diberry
 ms.author: diberry
-ms.date: 10/01/2025
+ms.date: 10/27/2025
 ms.topic: overview
 content_well_notification: 
   - AI-contribution

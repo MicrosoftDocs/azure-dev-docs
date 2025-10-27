@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server to manage your function app r
 keywords: azure mcp server, azmcp, function apps
 author: diberry
 ms.author: diberry
-ms.date: 09/23/2025
+ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
