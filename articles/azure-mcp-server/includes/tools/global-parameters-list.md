@@ -8,7 +8,7 @@ ms.date: 10/27/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: include
 ms.custom: build-2025
 --- 
 ## Tool parameters
