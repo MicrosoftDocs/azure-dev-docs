@@ -42,6 +42,7 @@ The Azure MCP Server provides installation instructions for CLI tools including 
 
 - **Azure CLI installation**: "How do I install the `az` CLI?"
 - **Azure Developer CLI installation**: "Show me how to install `azd`"
+- **Azure Functions Core tools**: "What is Azure Functions Core tools and how to install it"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
