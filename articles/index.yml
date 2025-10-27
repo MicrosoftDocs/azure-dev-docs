@@ -125,7 +125,7 @@ conceptualContent:
           text: What is Azure MCP Server?
         - url: ./azure-mcp-server/get-started.md
           itemType: get-started
-          text: Get started with Azure MCP Server
+          text: Get started
       footerLink:
         url: /azure/developer/azure-mcp-server
         text: See more
@@ -138,7 +138,7 @@ conceptualContent:
           text: What is GitHub Copilot for Azure?
         - url: ./github-copilot-azure/get-started.md
           itemType: get-started
-          text: Get started with GitHub Copilot for Azure
+          text: Get started
       footerLink:
         url: /azure/developer/github-copilot-azure/
         text: See more
