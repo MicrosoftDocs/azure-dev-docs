@@ -76,7 +76,7 @@ landingContent:
           - text: Azure Cosmos DB
             url: tools/azure-cosmos-db.md
           - text: Azure Developer CLI
-            url: tools/azure-developer-cli.md
+            url: tools/azure-cli.md
           - text: Azure Key Vault
             url: tools/azure-key-vault.md
           - text: Azure Monitor
