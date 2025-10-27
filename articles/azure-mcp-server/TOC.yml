@@ -31,7 +31,7 @@ items:
             href: get-started/languages/python.md
           - name: .NET
             href: get-started/languages/dotnet.md
-    - name: How-to guides
+    - name: How to
       expanded: true
       items:
         - name: Connect GitHub Copilot coding agent to Azure MCP Server
