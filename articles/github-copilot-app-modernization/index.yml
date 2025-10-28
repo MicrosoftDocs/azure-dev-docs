@@ -36,6 +36,8 @@ landingContent:
             url: /java/upgrade/quickstart-unit-tests?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
+          - text: Configure settings for IntelliJ
+            url: /java/upgrade/configure-settings-intellij?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Customize the upgrade plan
             url: /java/upgrade/customize-upgrade-plan?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Upgrade a framework or third-party dependency
