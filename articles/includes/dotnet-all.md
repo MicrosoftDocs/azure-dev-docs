@@ -416,13 +416,13 @@
 | Speech Extension Telemetry | NuGet [1.46.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.Telemetry/1.46.0) |  |  |
 | System Net Client Model | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/System.Net.ClientModel/1.0.0-beta.1) |  |  |
 | Unknown Display Name | NuGet [0.13.0](https://www.nuget.org/packages/Azure.Iot.Operations.Connector/0.13.0) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp/0.9.9) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/0.9.9) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp.linux-x64/0.9.9) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/0.9.9) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp.osx-x64/0.9.9) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp.win-arm64/0.9.9) |  |  |
-| Unknown Display Name | NuGet [0.9.9](https://www.nuget.org/packages/Azure.Mcp.win-x64/0.9.9) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp/1.0.0) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/1.0.0) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-x64/1.0.0) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/1.0.0) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-x64/1.0.0) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-arm64/1.0.0) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-x64/1.0.0) |  |  |
 | Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Monitor.Query.Logs/1.0.0) |  |  |
 | Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Monitor.Query.Metrics/1.0.0) |  |  |
 | Unknown Display Name | NuGet [0.1.4-preview.2](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Aot/0.1.4-preview.2) |  |  |
@@ -534,8 +534,8 @@
 | Functions extension for Azure SQL and SQL Server | NuGet [3.1.527](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/3.1.527) |  |  |
 | Functions extension for Cosmos DB | NuGet [4.11.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.11.0) |  | GitHub [4.11.0](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/cosmos-v3.0.7/src/WebJobs.Extensions.CosmosDB) |
 | Functions extension for DocumentDB | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.3.0) |  | GitHub [1.3.0](https://github.com/Azure/azure-webjobs-sdk-extensions) |
-| Functions extension for Durable Task Framework | NuGet [3.5.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.5.0) | [docs](/dotnet/api/overview/azure/functions) | GitHub [3.5.0](https://github.com/Azure/azure-functions-durable-extension/tree/v2.2.2/src/WebJobs.Extensions.DurableTask) |
-| Functions extension for Durable Task Framework - isolated worker | NuGet [1.8.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.8.0) |  |  |
+| Functions extension for Durable Task Framework | NuGet [3.6.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.6.0) | [docs](/dotnet/api/overview/azure/functions) | GitHub [3.6.0](https://github.com/Azure/azure-functions-durable-extension/tree/v2.2.2/src/WebJobs.Extensions.DurableTask) |
+| Functions extension for Durable Task Framework - isolated worker | NuGet [1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0) |  |  |
 | Functions extension for HTTP | NuGet [3.2.1](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http/3.2.1) |  | GitHub [3.2.1](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v3.0.2/src/WebJobs.Extensions.Http) |
 | Functions extension for IoT Edge | NuGet [1.0.7](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EdgeHub/1.0.7) |  | GitHub [1.0.7](https://github.com/Azure/iotedge/tree/1.0.7/edge-hub) |
 | Functions extension for Kafka | NuGet [4.2.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka/4.2.0) |  | GitHub [4.2.0](https://github.com/Azure/azure-functions-kafka-extension/tree/3.0.0/src/Microsoft.Azure.WebJobs.Extensions.Kafka) |

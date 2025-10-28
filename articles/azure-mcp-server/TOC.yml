@@ -80,7 +80,7 @@ items:
         - name: Azure Deploy
           href: tools/azure-deploy.md
         - name: Azure Developer CLI
-          href: tools/azure-developer-cli.md
+          href: tools/azure-cli.md
         - name: Azure Event Grid
           href: tools/azure-event-grid.md
         - name: Azure Event Hubs

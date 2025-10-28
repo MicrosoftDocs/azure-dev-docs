@@ -161,3 +161,9 @@ sections:
 
       - question: How can I view more details about the code changes made by the agent?
         answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
+
+      - question: How can I trust MCP tools and enable automatic approval in IntelliJ IDEA?
+        answer: In IntelliJ IDEA settings, select the **Tools** > **GitHub Copilot** configuration window, and then select **Auto-approve** and **Trust MCP Tool Annotations**.
+
+      - question: Can I use the GitHub Copilot app modernization feature in IntelliJ IDEA on a Linux platform?
+        answer: We currently only support Windows and macOS platforms.
