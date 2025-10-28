@@ -10,7 +10,10 @@ ms.collection: ce-skilling-ai-copilot
 
 # Example prompts for optimizing your application with GitHub Copilot for Azure
 
-If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure to help you optimize the performance of your Azure resources. Use [best practices](introduction.md#best-practices) to achieve the best results.
+If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure to help you optimize the performance of your Azure resources. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
+
+- Use "Agent" mode for the best experience. Avoid "ask" mode.
+- Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
 ## Example prompts to optimize your app
 
@@ -18,8 +21,8 @@ If you want to use GitHub Copilot for Azure for help with optimizing your applic
 
 |Service|Optimize prompt examples|
 |---|---|
-|Azure App Service|<ul><li>"@azure Are any app code optimizations available?"</li><li>"@azure Show me how to optimize CPU usage for Azure App Service."</li><li>"@azure How do I optimize code for Azure App Service?"</li><li>"@azure What are the best practices for security in Azure?"</li></ul>|
-|Azure SQL|<ul><li>"@azure How can I optimize my Azure SQL database for better performance?"</li></ul>|
+|Azure App Service|<ul><li>"Are any app code optimizations available in Azure?"</li><li>"Show me how to optimize CPU usage for my Azure App Service."</li><li>"How do I optimize code for Azure App Service?"</li><li>"What are the best practices for security in Azure?"</li></ul>|
+|Azure SQL|<ul><li>"How can I optimize my Azure SQL database for better performance?"</li></ul>|
 
 ## Prompts to evaluate AI models
 

@@ -30,7 +30,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 1. In the chat text area at the bottom of the chat pane, enter the following prompt:
 
    ```prompt
-   @azure Do I have any resources currently running?
+   Do I have any Azure resources currently running?
    ```
 
    :::image type="content" source="../media/get-started/ask-mode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
