@@ -58,9 +58,9 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-First, while GitHub Copilot for Azure will work in "Ask" mode, you should use "Agent" mode.
+First, use "Agent" mode for the best experience. Avoid "ask" mode.
 
-Second, as mentioned earlier, make sure the word "Azure" is somewhere in the prompt so that the LLM calls the appropriate tool from Azure MCP Server.
+Second, include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
 Third, using copilots can increase developer productivity by answering questions, executing tasks, and generating code. However, remember these vital rules:
 
