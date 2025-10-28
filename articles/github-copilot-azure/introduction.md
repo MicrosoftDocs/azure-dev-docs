@@ -35,10 +35,9 @@ You can use GitHub Copilot for Azure in the following supported development envi
 
 |Supported Client|Description|Feature Stage|Download Link|
 |---|---|---|---|
-|Visual Studio Code|Surfaces GitHub Copilot for Azure via the GitHub Copilot user interface for both Ask and Agent modes. It also surfaces the Azure MCP Server tools. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
-|Visual Studio 2022|Also Surfaces the GitHub Copilot for Azure via the GitHub Copilot user interface, and Azure MCP Server tools, but only provides access to Ask and Agent mode.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
-|Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface. Available in both Ask and Agent mode.|Public preview|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
-
+|Visual Studio Code|Surfaces GitHub Copilot for Azure via the GitHub Copilot user interface. It also surfaces the Azure MCP Server tools. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
+|Visual Studio 2022|Also Surfaces the GitHub Copilot for Azure via the GitHub Copilot user interface, and Azure MCP Server tools.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
+|Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface.|Public preview|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
 
 ## Primary scenarios
 
@@ -59,7 +58,11 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-Using copilots can increase developer productivity by answering questions, executing tasks, and generating code. However, remember these vital rules:
+First, while GitHub Copilot for Azure will work in "Ask" mode, you should use "Agent" mode.
+
+Second, as mentioned earlier, make sure the word "Azure" is somewhere in the prompt so that the LLM calls the appropriate tool from Azure MCP Server.
+
+Third, using copilots can increase developer productivity by answering questions, executing tasks, and generating code. However, remember these vital rules:
 
 - Review all AI-generated responses. Validate their correctness, applicability, potential outcomes (such as costs and security) before taking action based on those responses.
 - Never save application secrets or credentials in source code.
