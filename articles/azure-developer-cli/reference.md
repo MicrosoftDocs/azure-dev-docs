@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/09/2025
+ms.date: 10/28/2025
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -1452,22 +1452,15 @@ This command creates consent rules that allow MCP tools to execute
 without prompting for permission. You can specify different permission
 levels and scopes for the rules.
 
+Examples:
+  # Grant always permission to all tools globally
+  azd mcp consent grant --global --permission always
+
+  # Grant project permission to a specific tool with read-only scope
+  azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
+
 ```azdeveloper
 azd mcp consent grant [flags]
-```
-
-Examples:
-
-Grant always permission to all tools globally:
-
-```azdeveloper
-azd mcp consent grant --global --permission always
-```
-
-Grant project permission to a specific tool with read-only scope:
-
-```azdeveloper
-azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
 ```
 
 ### Options
