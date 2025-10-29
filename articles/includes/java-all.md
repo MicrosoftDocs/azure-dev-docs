@@ -510,9 +510,9 @@
 | Unknown Display Name | Maven [2.0.0](https://central.sonatype.com/artifact/com.microsoft.azure/web/2.0.0) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://central.sonatype.com/artifact/com.microsoft.azure/adal4j/1.6.7) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://central.sonatype.com/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0) |  |  |
-| Application Insights - Agent | Maven [3.7.5](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-agent/3.7.5) |  |  |
+| Application Insights - Agent | Maven [3.7.6](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-agent/3.7.6) |  |  |
 | Application Insights - Collectd | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.4)<br>Maven [2.6.3-BETA-HEYA-TEST](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.3-BETA-HEYA-TEST) |  |  |
-| Application Insights - Core | Maven [3.7.5](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-core/3.7.5) |  |  |
+| Application Insights - Core | Maven [3.7.6](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-core/3.7.6) |  |  |
 | Application Insights - Logging Log4j1_2 | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-logging-log4j1_2/2.6.4) |  |  |
 | Application Insights - Logging Log4j2 | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-logging-log4j2/2.6.4) |  |  |
 | Application Insights - Logging Logback | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-logging-logback/2.6.4) |  |  |
@@ -521,7 +521,7 @@
 | Application Insights - Profiler Telemetrymodule | Maven [0.2.1](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-profiler-telemetrymodule/0.2.1) |  |  |
 | Application Insights - Profiler Uploader | Maven [0.2.0](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-profiler-uploader/0.2.0) |  |  |
 | Application Insights - Spring Boot Starter | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.4)<br>Maven [2.6.3-BETA-HEYA-TEST](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.3-BETA-HEYA-TEST) |  |  |
-| Application Insights - Web | Maven [3.7.5](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-web/3.7.5) |  |  |
+| Application Insights - Web | Maven [3.7.6](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-web/3.7.6) |  |  |
 | Application Insights - Web Auto | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.4)<br>Maven [2.6.3-BETA-HEYA-TEST](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.3-BETA-HEYA-TEST) |  |  |
 | AutoRest Build Tools | Maven [1.7.14](https://central.sonatype.com/artifact/com.microsoft.azure/autorest-build-tools/1.7.14) |  |  |
 | AutoRest Client Runtime for Java | Maven [2.1.1](https://central.sonatype.com/artifact/com.microsoft.azure.v2/autorest-clientruntime-for-java/2.1.1) |  |  |
@@ -619,7 +619,7 @@
 | Websocket Transport Layer | Maven [0.1.3](https://central.sonatype.com/artifact/com.microsoft.azure.sdk.iot.deps/websocket-transport-layer/0.1.3) |  |  |
 | Annotations | Maven [1.10.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-annotations/1.10.0) |  |  |
 | Apache Spark Archetype | Maven [0.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/apache-spark-archetype/0.1.0) |  |  |
-| applicationinsights-runtime-attach | Maven [3.7.5](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.7.5) |  |  |
+| applicationinsights-runtime-attach | Maven [3.7.6](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.7.6) |  |  |
 | azure-cosmos-cassandra-driver-3 | Maven [1.0.3](https://central.sonatype.com/artifact/com.azure/azure-cosmos-cassandra-driver-3/1.0.3) |  |  |
 | azure-cosmos-cassandra-driver-3 | Maven [0.14.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-cosmos-cassandra-driver-3/0.14.0) |  |  |
 | azure-cosmos-cassandra-driver-3-extensions | Maven [1.0.3](https://central.sonatype.com/artifact/com.azure/azure-cosmos-cassandra-driver-3-extensions/1.0.3) |  |  |
