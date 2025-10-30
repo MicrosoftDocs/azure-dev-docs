@@ -170,6 +170,8 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 ## Other
 
+| Product, tool, or service | Namespace | Description |
+|------|------|--------------|
 | [Azure Marketplace](../../tools/azure-marketplace.md) | `marketplace` | Discover Azure Marketplace products and offers. |
 | [Azure MCP tool](../../tools/azure-mcp-tool.md) | - | Discover and manage available Azure MCP Server tools. |
 
