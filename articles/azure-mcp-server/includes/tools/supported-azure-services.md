@@ -126,6 +126,14 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Resource Groups](../../tools/resource-group.md) | `group` | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | `subscription` | List Azure subscriptions. |
 
+## Messaging
+
+| Product, tool, or service | Namespace | Description |
+|------|------|--------------|
+| [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
+| [Azure Event Hubs](../../tools/azure-event-hubs.md) | `eventhubs` | Manage Azure Event Hubs namespaces and event hubs. |
+| [Azure Service Bus](../../tools/service-bus.md) | `servicebus` | Work with Azure Service Bus messaging services. |
+
 ### Mobile
 
 | Product, tool, or service | Namespace | Description |
