@@ -16,7 +16,7 @@ If you're unfamiliar with Azure or you just want the tooling and AI to do most o
 
 If you want to use GitHub Copilot for Azure for help with troubleshooting your application, you can start with an open-ended question or request. Then, add details for better results. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
 
-- Use "Agent" mode for the best experience. Avoid "ask" mode.
+- Use "Agent" mode for the best experience. Avoid "Ask" mode.
 - Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
 ### Open-ended prompts
@@ -53,7 +53,7 @@ If you want to use GitHub Copilot for Azure for help with troubleshooting your a
 |Service or technology|Troubleshoot prompt examples|
 |---|---|
 |Azure Container Apps|<ul><li>"My Azure container app won't start."</li><li>"My users are reporting errors with my Azure container app."</li><li>"Can you look at my Azure container app 'energy-api-1' logs for any 404 errors?"</li><li>"Have my Azure container app's system console logs contained any warnings recently?"</li></ul>|
-|Azure Kubernetes Service (AKS)|<ul><li>"Help me troubleshoot my Azure AKS cluster."</li><li>"How do I troubleshoot Azure Kubernetes Service (AKS)?"</li><li>"How can I get the logs of a specific pod in Azure?"</li><li>"Do my Azure kube-apiserver logs show the last time a restart occurred?"</li><li>"My Azure AKS cluster 'assistant-orchestrator' is having performance problems."</li><li>"Find out why my Azure Kubernetes cluster 'store-service-prod' is running slow."</li><li>"I'd like to investigate performance problems with my Azure Kubernetes cluster."</li></ul>|
+|Azure Kubernetes Service (AKS)|<ul><li>"Help me troubleshoot my AKS cluster."</li><li>"How do I troubleshoot Azure Kubernetes Service (AKS)?"</li><li>"How can I get the logs of a specific pod in Azure?"</li><li>"Do my Azure kube-apiserver logs show the last time a restart occurred?"</li><li>"My AKS cluster 'assistant-orchestrator' is having performance problems."</li><li>"Find out why my Azure Kubernetes cluster 'store-service-prod' is running slow."</li><li>"I'd like to investigate performance problems with my Azure Kubernetes cluster."</li></ul>|
 |Azure App Service|<ul><li>"How can I improve my Azure web app's performance?"</li><li>"How do I improve my app's CPU usage in Azure?"</li><li>"How can I improve the performance of my Azure web app?"</li><li>"Diagnose high CPU usage in Azure App Service."</li><li>"Show me how to detect slow performance issues in my Azure App Service web app."</li><li>"Investigate high CPU usage for Azure App Service."</li><li>"What's causing latency in my Azure web app?"</li><li>"Can you help me diagnose high CPU usage in Azure App Service?"</li><li>"Why am I seeing high memory usage in my Azure App Service?"</li><li>"Help me analyze my Azure web app downtime."</li><li>"Help me diagnose slow performance in my Azure web app."</li><li>"Help me collect a memory dump from Azure App Service."</li><li>"My Azure App Service container won't start."</li><li>"Is there anything wrong with my Azure bakery-api web app?"</li><li>"Look into whether my Azure web app is having any downtime."</li><li>"Troubleshoot why my Azure web app is not responding."</li></ul>|
 |Azure Developer CLI (`azd`)|<ul><li>"I'm getting this Azure Developer CLI error. What does it mean?"</li></ul>|
 |Azure SDK|<ul><li>"The npm Azure Resource Manager SDK is failing to install. What should I do?"</li></ul>|

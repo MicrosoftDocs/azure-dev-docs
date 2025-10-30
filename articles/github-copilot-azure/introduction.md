@@ -58,7 +58,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-First, use "Agent" mode for the best experience. Avoid "ask" mode.
+First, use "Agent" mode for the best experience. Avoid "Ask" mode.
 
 Second, include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
