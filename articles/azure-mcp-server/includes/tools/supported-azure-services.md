@@ -10,14 +10,14 @@
 
 Azure MCP Server provides the following tools for Azure services and Azure-related functionality.
 
-## Best practices
+### Best practices
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure best practices](../../tools/azure-best-practices.md) | `get_bestpractices` | Get guidance on Azure Functions development, deployment, and Azure SDK usage. |
 | [Terraform best practices for Azure](../../tools/azure-terraform-best-practices.md) | `azureterraformbestpractices` | Get guidance on implementing Terraform for Azure resources. |
 
-## AI and Machine Learning
+### AI and Machine Learning
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -25,7 +25,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure AI Speech](../../tools/ai-services-speech.md) | `speech` | Manage Azure AI Speech resources such as speech-to-text services. |
 
-## Analytics
+### Analytics
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -35,7 +35,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 
 
-## Compute
+### Compute
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -43,7 +43,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
 
-## Containers
+### Containers
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -51,7 +51,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
 
-## Databases
+### Databases
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -61,7 +61,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Redis](../../tools/azure-redis.md) | `redis` | Manage Azure Redis instances, Redis clusters, and access policies. |
 | [Azure SQL](../../tools/azure-sql.md) | `sql` | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
 
-## Developer tools
+### Developer tools
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -71,7 +71,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Developer CLI](../../tools/azure-cli.md) | `extension` | Get installation instructions for Azure Developer CLI (azd), learn usage for deployment scenarios, and access azd MCP tools when azd is installed locally |
 | [Azure Load Testing](../../tools/azure-load-testing.md) | `loadtesting` | Create, run, and see load testing. |
 
-## DevOps
+### DevOps
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -83,20 +83,20 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
 
 
-## Hybrid and multi-cloud
+### Hybrid and multi-cloud
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure Database for PostgreSQL](../../tools/azure-database-postgresql.md) | `postgres` | Manage Azure Database for PostgreSQL servers, databases, and tables. |
 | [Azure SQL](../../tools/azure-sql.md) | `sql` | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
 
-## Identity
+### Identity
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure RBAC](../../tools/azure-rbac.md) | `role` | View and manage Azure role-based access control assignments. |
 
-## Integration
+### Integration
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -104,7 +104,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Native ISV](../../tools/azure-native-isv.md) | `datadog` | Work with Azure Native ISV services, including Datadog integration for monitoring and observability. |
 | [Azure Service Bus](../../tools/service-bus.md) | `servicebus` | Work with Azure Service Bus messaging services. |
 
-## Internet of Things (IoT)
+### Internet of Things (IoT)
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -112,7 +112,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Event Grid](../../tools/azure-event-grid.md) | `eventgrid` | Manage Azure Event Grid resources, including topics and subscriptions. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 
-## Management and governance
+### Management and governance
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -126,7 +126,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Resource Groups](../../tools/resource-group.md) | `group` | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | `subscription` | List Azure subscriptions. |
 
-## Mobile
+### Mobile
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -135,7 +135,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
 | [Azure Communication Services](../../tools/azure-communication.md) | `communication` | Send SMS and email messages using Azure Communication Services. |
 
-## Security
+### Security
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -143,7 +143,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
 | [Azure Key Vault](../../tools/azure-key-vault.md) | `keyvault` | List and create keys, secrets, certificates in Azure Key Vault. |
 
-## Storage
+### Storage
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -151,13 +151,13 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems. |
 
-## Virtual desktop infrastructure (VDI)
+### Virtual desktop infrastructure (VDI)
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure Virtual Desktop](../../tools/azure-virtual-desktop.md) | `virtualdesktop` | Manage Azure Virtual Desktop host pools, session hosts, and user sessions. |
 
-## Web
+### Web
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
@@ -168,7 +168,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure SignalR](../../tools/azure-signalr.md) | `signalr` | Manage Azure SignalR resources and runtimes. |
 
-## Other
+### Other
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
