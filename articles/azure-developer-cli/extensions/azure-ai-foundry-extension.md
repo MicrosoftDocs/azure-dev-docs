@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Use the Azure AI Foundry azd agent extension
+title: Use the Azure AI Foundry azd agent extension
 description: Learn what the Azure AI Foundry azd agent extension is, why to use it, who it is for, and how to scaffold, provision, and deploy an agent end to end.
 author: alexwolfmsft
 ms.author: alexwolf
@@ -10,7 +10,7 @@ ms.custom: devx-track-azdevcli, devx-track-ai
 ai-usage: ai-generated
 ---
 
-# Tutorial: Use the Azure AI Foundry azd agent extension
+# Use the azd AI extension to deploy an Agent to Azure AI Foundry
 
 This tutorial shows how to use the Azure Developer CLI (`azd`) AI agent extension (`azd ai agent`) to scaffold, configure, provision, and deploy an Azure AI Foundry agent. You start from an empty folder, generate the project structure, provision model deployments and an AI project, and deploy a working agent.
 
