@@ -4,8 +4,11 @@ description: Overview article introducing the resources available in this conten
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 04/28/2025
+ms.date: 10/31/2025
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Overview of AI app development
@@ -20,6 +23,13 @@ Generative AI opens many new possibilities for applications. As a developer, it'
 * [Important concepts and considerations for developers building generative AI solutions](./gen-ai-concepts-considerations-developers.md)
 * [Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning](./augment-llm-rag-fine-tuning.md)
 * [Building advanced Retrieval-Augmented Generation systems](./advanced-retrieval-augmented-generation.md)
+
+## AI app design
+
+Designing AI applications involves understanding user needs, selecting appropriate AI models, and integrating them effectively into your app architecture. The following resources provide guidance on best practices for designing AI-powered applications.
+
+* [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+* [Design your AI app to support foundation model life cycles](/azure/architecture/ai-ml/guide/manage-foundation-models-lifecycle?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 
 ## AI app templates
 
@@ -54,6 +64,24 @@ One of the most popular templates is the chat with your data sample using Azure 
 * [Video (JavaScript frontend and Python backend)](https://aka.ms/azai/js.py/video)
 
 ---
+
+## Agents and Model Context Protocol(MCP)
+
+For developers interested in building more advanced AI applications, including agents that can interact with various services and APIs, we provide comprehensive resources and templates.
+
+* [Build Agents using Model Context Protocol on Azure](./build-agents-using-mcp-on-azure.md) - Learn how to build intelligent agents that can perform complex tasks by using the Model Context Protocol (MCP) on Azure.
+* [Build a TypeScript MCP server using Azure Container Apps servers](./build-mcp-server-ts.md) - A step-by-step guide to creating a TypeScript-based MCP server hosted on Azure Container Apps
+* [Create OpenAI-powered agents using MCP](./build-openai-mcp-server-dotnet.md) - A tutorial on building OpenAI-powered agents using MCP with .NET.
+
+## Authentication and security
+
+Building AI applications requires strong authentication and security to protect data and meet regulations. The following articles explain how to secure your AI apps on Azure.
+
+* [Security planning for LLM-based applications](/ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+
+* [Use Azure OpenAI without keys](./keyless-connections.md) 
+
+* [Use Azure AI Search without keys](/azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 
 ## More resources by language
 
