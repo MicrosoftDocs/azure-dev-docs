@@ -427,7 +427,7 @@ The `response_stream()` function prepares the message array that is sent to the 
 ```
 
 > [!NOTE]
-> For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings in image processing: Low, High, Auto](/azure/ai-services/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings-in-image-processing-low-high-auto) section in the "Use GPT-4 Turbo with Vision" Microsoft Learn article.
+> For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings](/azure/ai-foundry/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings) section in the "Use vision-enabled chat models" Microsoft Learn article.
 
 Next, `bp.openai_client.chat.completions` gets chat completions via an Azure OpenAI API call and streams the response.
 
