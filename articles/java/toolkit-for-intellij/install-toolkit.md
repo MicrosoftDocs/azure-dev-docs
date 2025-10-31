@@ -6,7 +6,8 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: install-set-up-deploy
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
+ai-usage: ai-assisted
 ---
 
 # Install the Azure Toolkit for IntelliJ
@@ -19,6 +20,7 @@ There are two options for installing the toolkit. You can install from the Marke
 
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community edition
 - A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
+- (Optional) [GitHub Copilot for IntelliJ](https://plugins.jetbrains.com/plugin/17718-github-copilot) version 1.5.50 or later, if you want to use the Azure MCP Server features.
 
 ## Install Azure Toolkit for IntelliJ from the Marketplace
 
@@ -53,6 +55,17 @@ Use the following steps to manually install new releases as they become availabl
 1. Select the plugin archive file and then select **OK**.
 
 1. Select **OK** to apply the changes and restart your IDE if prompted.
+
+## Azure MCP Server installation
+
+The Azure Toolkit for IntelliJ supports [the Azure MCP Server](/azure/developer/azure-mcp-server/overview), which provides AI-powered tools for working with Azure resources. The following installation requirements apply:
+
+- The Azure MCP Server is automatically installed with the plugin when GitHub Copilot for IntelliJ (version 1.5.50 or later) is already installed.
+- If GitHub Copilot isn't installed, the Azure MCP Server isn't installed automatically when you install the plugin.
+- To use the Azure MCP Server features, install [GitHub Copilot for IntelliJ](https://plugins.jetbrains.com/plugin/17718-github-copilot) version 1.5.50 or later before or after installing the Azure Toolkit for IntelliJ.
+
+> [!NOTE]
+> GitHub Copilot for Azure isn't available for IntelliJ. However, the Azure MCP Server provides Azure-specific AI capabilities within GitHub Copilot for IntelliJ.
 
 ## Next steps
 
