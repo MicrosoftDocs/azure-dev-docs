@@ -83,7 +83,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Workbooks](../../tools/azure-monitor.md) | `workbooks` | Create, manage, and update Azure Workbooks for data visualization and reporting. |
 
 
-### Hybrid and multi-cloud
+### Hybrid and multicloud
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
