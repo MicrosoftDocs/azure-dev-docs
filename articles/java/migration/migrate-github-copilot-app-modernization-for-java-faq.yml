@@ -136,7 +136,7 @@ sections:
 
             :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button and the drop-down menu with Allow options." lightbox="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png":::
           
-          - For Intellij IDEA, you can select the **Continue** button, or update your settings, select the **Tools** > **GitHub Copilot** configuration window, and then select **Auto-approve**. We also recommend enabling **Trust MCP Tool Annotations** and increasing **Max Requests** to `99` .
+          - For Intellij IDEA, you can select the **Continue** button, or update your settings, select the **Tools** > **GitHub Copilot** configuration window, and then select **Auto-approve**. We also recommend enabling **Trust MCP Tool Annotations** and increasing **Max Requests** to `99`.
             
             :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/intellij-allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button in Intellij IDEA." lightbox="media/migrate-github-copilot-app-modernization-for-java/intellij-allow-mcp-tool.png":::
 
