@@ -69,7 +69,7 @@ One of the most popular templates is the chat with your data sample using Azure 
 
 For developers interested in building more advanced AI applications, including agents that can interact with various services and APIs, we provide comprehensive resources and templates.
 
-* [Build Agents using Model Context Protocol on Azure](./build-agents-using-mcp-on-azure.md) - Learn how to build intelligent agents that can perform complex tasks by using the Model Context Protocol (MCP) on Azure.
+* [Build Agents using Model Context Protocol on Azure](./intro-agents-mcp.md) - Learn how to build intelligent agents that can perform complex tasks by using the Model Context Protocol (MCP) on Azure.
 * [Build a TypeScript MCP server using Azure Container Apps servers](./build-mcp-server-ts.md) - A step-by-step guide to creating a TypeScript-based MCP server hosted on Azure Container Apps
 * [Create OpenAI-powered agents using MCP](./build-openai-mcp-server-dotnet.md) - A tutorial on building OpenAI-powered agents using MCP with .NET.
 
