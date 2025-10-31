@@ -6,6 +6,9 @@ ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 ms.collection: ce-skilling-ai-copilot
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 # CustomerIntent: As a developer new to Azure OpenAI, I want to learn how to use Azure OpenAI multimodal models to add uploaded images to the chat stream from a simple example.
 ---
 # Get started with multimodal vision chat apps using Azure OpenAI
@@ -180,7 +183,7 @@ The sample repository contains all the code and configuration files for the chat
 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-vision/screenshot_chatspeech.png" lightbox="./media/get-started-app-chat-vision/screenshot_chatspeech.png" alt-text="Screenshot showing an uploaded image, a question about the image, the AI's response, and the text box.":::
+    :::image type="content" source="./media/get-started-app-chat-vision/chat-speech.png" lightbox="./media/get-started-app-chat-vision/chat-speech.png" alt-text="Screenshot showing an uploaded image, a question about the image, the AI's response, and the text box.":::
 
 1. In the browser, upload an image by clicking on **Choose File** and selecting an image.
 1. Ask a question about the uploaded image such as "What is the image about?".
