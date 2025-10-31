@@ -25,6 +25,8 @@ In this article, you learn how to complete the following tasks:
 - [Eclipse](https://www.eclipse.org/downloads/) - The AI-powered code editor
 - GitHub Copilot plugin installed
 
+[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
+
 ## Install the Azure MCP Server
 
 To install and configure Azure MCP Server in Eclipse:
@@ -43,10 +45,9 @@ To install and configure Azure MCP Server in Eclipse:
 
 ## Verify and test the Azure MCP Server
 
-After you install Azure Toolkit, you can use Azure MCP Server from the Copilot chat window.
+After you install Azure Toolkit, approve the Azure MCP Server registration with Copilot.
 
-1. Open the Copilot chat window.
-1. Select the **Tools** icon and then choose **New MCP server found - approval needed**.
+1. In the Copilot chat pane, select the **Tools** icon and then choose **New MCP server found - approval needed**.
 
     :::image type="content" source="../../media/eclipse-tools-icon.png" alt-text="A screenshot showing the Eclipse tools icon.":::
 
@@ -57,7 +58,7 @@ After you install Azure Toolkit, you can use Azure MCP Server from the Copilot c
 1. In the Copilot chat pane, select the **Tools** icon again to open the preferences window.
 1. Verify the Azure MCP Server for Eclipse displays in the **MCP Tools** section.
 
-[!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
+    :::image type="content" source="../../media/eclipse-tools.png" alt-text="A screenshot showing the Azure MCP Server tools.":::
 
 ## Use prompts to test the Azure MCP Server
 
