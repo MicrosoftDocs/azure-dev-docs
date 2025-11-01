@@ -65,7 +65,7 @@ One of the most popular templates is the chat with your data sample using Azure 
 
 ---
 
-## Agents and Model Context Protocol(MCP)
+## Agents and Model Context Protocol (MCP)
 
 For developers interested in building more advanced AI applications, including agents that can interact with various services and APIs, we provide comprehensive resources and templates.
 
