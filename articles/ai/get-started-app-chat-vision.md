@@ -307,8 +307,10 @@ In the `src\quartapp\chat.py` file, the backend code for image handling starts a
 
 #### Authentication configuration
 
-The `configure_openai()` function sets up the OpenAI client before the app starts serving requests. It uses Quart's `@bp.before_app_serving` decorator to configure authentication based on environment variables. This flexible system lets developers work in different contexts without changing code:
+The `configure_openai()` function sets up the OpenAI client before the app starts serving requests. It uses Quart's `@bp.before_app_serving` decorator to configure authentication based on environment variables. This flexible system lets developers work in different contexts without changing code.
+
 ##### Authentication modes explained
+
 - **Local development** (`OPENAI_HOST=local`): Connects to a local OpenAI-compatible API service (like Ollama or LocalAI) without authentication. Use this mode for testing without internet or API costs.
 - **GitHub Models** (`OPENAI_HOST=github`): Uses GitHub's AI model marketplace with a `GITHUB_TOKEN` for authentication. When using GitHub models, prefix the model name with `openai/` (for example, `openai/gpt-4o`). This mode lets developers try models before provisioning Azure resources.
 - **Azure OpenAI with API key** (`AZURE_OPENAI_KEY_FOR_CHATVISION` environment variable): Uses an API key for authentication. Avoid this mode in production because API keys require manual rotation and pose security risks if exposed. Use it for local testing inside a Docker container without Azure CLI credentials.
