@@ -305,23 +305,17 @@ In the `src\quartapp\chat.py` file, the backend code for image handling starts a
 > [!NOTE]
 > For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](get-started-securing-your-ai-app.md) Microsoft Learn article.
 
-#### Authentication Configuration
+#### Authentication configuration
 
 The `configure_openai()` function sets up the OpenAI client before the app starts serving requests. It uses Quart's `@bp.before_app_serving` decorator to configure authentication based on environment variables. This flexible system lets developers work in different contexts without changing code:
+##### Authentication modes explained
+- **Local development** (`OPENAI_HOST=local`): Connects to a local OpenAI-compatible API service (like Ollama or LocalAI) without authentication. Use this mode for testing without internet or API costs.
+- **GitHub Models** (`OPENAI_HOST=github`): Uses GitHub's AI model marketplace with a `GITHUB_TOKEN` for authentication. When using GitHub models, prefix the model name with `openai/` (for example, `openai/gpt-4o`). This mode lets developers try models before provisioning Azure resources.
+- **Azure OpenAI with API key** (`AZURE_OPENAI_KEY_FOR_CHATVISION` environment variable): Uses an API key for authentication. Avoid this mode in production because API keys require manual rotation and pose security risks if exposed. Use it for local testing inside a Docker container without Azure CLI credentials.
+- **Production with Managed Identity** (`RUNNING_IN_PRODUCTION=true`): Uses `ManagedIdentityCredential` to authenticate with Azure OpenAI through the container app's managed identity. This method is recommended for production because it removes the need to manage secrets. Azure Container Apps automatically provide the managed identity and grant permissions during deployment via Bicep.
+- **Development with Azure CLI** (default mode): Uses `AzureDeveloperCliCredential` to authenticate with Azure OpenAI using locally signed-in Azure CLI credentials. This mode simplifies local development without managing API keys.
 
-**Authentication Modes Explained:**
-
-1. **Local development** (`OPENAI_HOST=local`): Connects to a local OpenAI-compatible API service (like Ollama or LocalAI) without authentication. Use this mode for testing without internet or API costs.
-
-1. **GitHub Models** (`OPENAI_HOST=github`): Uses GitHub's AI model marketplace with a `GITHUB_TOKEN` for authentication. When using GitHub models, prefix the model name with `openai/` (for example, `openai/gpt-4o`). This mode lets developers try models before provisioning Azure resources.
-
-1. **Azure OpenAI with API key** (`AZURE_OPENAI_KEY_FOR_CHATVISION` environment variable): Uses an API key for authentication. Avoid this mode in production because API keys require manual rotation and pose security risks if exposed. Use it for local testing inside a Docker container without Azure CLI credentials.
-
-1. **Production with Managed Identity** (`RUNNING_IN_PRODUCTION=true`): Uses `ManagedIdentityCredential` to authenticate with Azure OpenAI through the container app's managed identity. This method is recommended for production because it removes the need to manage secrets. Azure Container Apps automatically provide the managed identity and grant permissions during deployment via Bicep.
-
-1. **Development with Azure CLI** (default mode): Uses `AzureDeveloperCliCredential` to authenticate with Azure OpenAI using locally signed-in Azure CLI credentials. This mode simplifies local development without managing API keys.
-
-**Key Implementation Details:**
+##### Key implementation details
 
 - The `get_bearer_token_provider()` function refreshes Azure credentials and uses them as bearer tokens.
 - The Azure OpenAI endpoint path includes `/openai/v1/` to match the OpenAI client library's requirements.
@@ -397,7 +391,7 @@ async def chat_handler():
     # file_name = request_json["context"]["file_name"]
 ```
 
-### Building the Message Array for Vision Requests
+### Building the message array for vision requests
 
 The `response_stream()` function prepares the message array that is sent to the Azure OpenAI API. The `@stream_with_context` decorator keeps the request context while streaming the response.
 
@@ -456,7 +450,7 @@ Finally, the response is streamed back to the client, with error handling for an
     return Response(response_stream())
 ```
 
-#### Frontend Libraries and Features
+#### Frontend libraries and features
 
 The frontend uses modern browser APIs and libraries to create an interactive chat experience. Developers can customize the interface or add features by understanding these components:
 
