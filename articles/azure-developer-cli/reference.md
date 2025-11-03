@@ -1453,10 +1453,14 @@ without prompting for permission. You can specify different permission
 levels and scopes for the rules.
 
 Examples:
-  # Grant always permission to all tools globally
+  Grant always permission to all tools globally
+  
+  ```azdeveloper
   azd mcp consent grant --global --permission always
 
-  # Grant project permission to a specific tool with read-only scope
+  Grant project permission to a specific tool with read-only scope
+  
+  ```azdeveloper
   azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
 
 ```azdeveloper
