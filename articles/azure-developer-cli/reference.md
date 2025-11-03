@@ -1458,10 +1458,10 @@ Grant always permission to all tools globally:
 ```azdeveloper
 azd mcp consent grant --global --permission always
 
-  Grant project permission to a specific tool with read-only scope
+Grant project permission to a specific tool with read-only scope:
   
-  ```azdeveloper
-  azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
+```azdeveloper
+azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
 
 ```azdeveloper
 azd mcp consent grant [flags]
