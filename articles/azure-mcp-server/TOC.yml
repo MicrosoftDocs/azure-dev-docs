@@ -16,6 +16,8 @@ items:
             href: get-started/tools/visual-studio-code.md
           - name: Visual Studio
             href: get-started/tools/visual-studio.md
+          - name: Eclipse
+            href: get-started/tools/eclipse.md
           - name: Cursor
             href: get-started/tools/cursor.md
           - name: Windsurf
