@@ -43,6 +43,8 @@ To install and configure Azure MCP Server in Eclipse:
 1. On the **Confirm Selected Features** window, verify that **Azure MCP Server for Eclipse** is checked.
 1. Select **Confirm** and wait for the plugin to install. The Eclipse IDE restarts after the installation finishes.
 
+    :::image type="content" source="../../media/eclipse-confirm-features.png" alt-text="A screenshot showing how to confirm the Eclipse extension features.":::
+
 ## Verify and test the Azure MCP Server
 
 After you install Azure Toolkit, approve the Azure MCP Server registration with Copilot.
@@ -58,7 +60,7 @@ After you install Azure Toolkit, approve the Azure MCP Server registration with 
 1. In the Copilot chat pane, select the **Tools** icon again to open the preferences window.
 1. Verify the Azure MCP Server for Eclipse displays in the **MCP Tools** section.
 
-    :::image type="content" source="../../media/eclipse-tools.png" alt-text="A screenshot showing the Azure MCP Server tools.":::
+    :::image type="content" source="../../media/eclipse-mcp-tools.png" alt-text="A screenshot showing the Azure MCP Server tools.":::
 
 ## Use prompts to test the Azure MCP Server
 
