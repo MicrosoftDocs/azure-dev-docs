@@ -1,17 +1,25 @@
 ---
-title: Clone GitHub repository with Visual Studio Code
-description: Clone a public repository or initialize a new repository from GitHub to your local computer with Visual Studio Code. 
+title: GitHub repositories in Visual Studio Code for JavaScript
+description: Open, initialize, branch, commit, and push GitHub repositories for JavaScript in VS Code. Step-by-step guide with activity bar, command palette, and terminal methods.
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 11/03/2025
 ms.custom: devx-track-js
 
-# customer intent: As a developer, I want to know how to use GitHub repositories from Visual Studio Code, so that I can develop applications. 
+# customer intent: As a JavaScript developer, I want to know how to work with GitHub repositories from Visual Studio Code, so that I can develop and manage my JavaScript applications effectively.
 
 ---
 
-# Clone and use a GitHub repository in Visual Studio Code
+# Manage GitHub repositories for JavaScript development in Visual Studio Code
 
-Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
+Visual Studio Code provides comprehensive Git and GitHub integration for JavaScript developers. This guide shows you how to manage GitHub repositories directly from your development environment, streamlining your workflow from code creation to deployment.
+
+You'll learn to open existing repositories, initialize new projects, create feature branches, commit changes, and push to GitHub—all without leaving VS Code. The guide covers multiple approaches for each task, including the activity bar, command palette, status bar, and integrated terminal, so you can choose the methods that work best for your development style.
+
+## Prerequisites
+
+- [Git](https://git-scm.com/downloads) installed on your local machine
+- [Visual Studio Code](https://code.visualstudio.com/) installed
+- A [GitHub account](https://github.com/)
 
 ## Open your remote repository
 
@@ -153,19 +161,19 @@ Create a new branch to capture changes and isolate from the main or default bran
 
 1. Enter a new branch name. The branch name is visible in the status bar.
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="The branch name is visible in the status bar.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="Screenshot of the branch name visible in the status bar.":::
 
 ### [Command palette](#tab/command-palette)
 
 1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
 1. Search for `git branch` and select `Git: Create Branch`.
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Screenshot of a search for `git branch` and select `Git: Create Branch`.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-cli-branch-list.png" alt-text="Screenshot of a search for git branch and select Git Create Branch.":::
 
 1. Enter a new branch name, such as `test`.
 1. The branch name is visible in the status bar.
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="Screenshot showing the branch name is visible in the status bar.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/git-branch-status-bar-visual-studio-code.png" alt-text="Screenshot showing the branch name visible in the status bar.":::
 
 ### [Integrated terminal](#tab/integrated-terminal)
 
@@ -188,7 +196,7 @@ Once you make changes to files on your branch, commit the changes.
 1. Select source control from the activity bar.
 1. Enter your commit message, then select **Commit**.
 
-    ![Adding the yarn.lock file to Git](../../media/how-to-clone-github-repo/visual-studio-code-commit-change.png)
+    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-commit-change.png" alt-text="Screenshot of adding the yarn.lock file to Git.":::
 
 ### [Status bar](#tab/status-bar)
 
@@ -223,7 +231,7 @@ This action isn't available from this feature. Select a different tab.
 
 1. On the Visual Studio Code status bar, select the push icon to the right of the branch name.
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-status-bar-push-commits.png" alt-text="Visual Studio Code status bar, with the push icon highlighted.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-status-bar-push-commits.png" alt-text="Screenshot of Visual Studio Code status bar with the push icon highlighted.":::
 
 1. Select the remote name from the pop-up box. If you have just one remote, you won't be asked to select the remote name.
 
@@ -252,7 +260,7 @@ You can view the Git commands output when you use the Source control extension. 
 1. Select the Source Control icon from the activity bar.
 1. Select the ellipsis (...) then select **Show Git Output**.
 
-    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-show-git-output.png" alt-text="Visual Studio Code source control, with the Show Git Output selection highlighted.":::
+    :::image type="content" source="../../media/how-to-clone-github-repo/visual-studio-code-show-git-output.png" alt-text="Screenshot of Visual Studio Code source control with the Show Git Output selection highlighted.":::
 
 ## Visual Studio Code tools to work with Git and GitHub
 
@@ -262,7 +270,7 @@ Working in Visual Studio Code with a repository uses separate tools.
 |--|--|--|
 || [Git commands](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in command palette|<kbd>F1</kbd>|
 |:::image type="icon" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png":::|Source control extension|Activity bar|
-|:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
+|:::image type="icon" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
 ||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette, <kbd>F1</kbd>, or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
 
 
