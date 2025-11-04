@@ -41,7 +41,7 @@ If you want to use GitHub Copilot for Azure for help with troubleshooting your a
 
 ### Prompts about specific errors
 
-- "Is there any 501 error in my Azure app logs?"
+- "Are there any 501 errors in my Azure app logs?"
 - "Why am I seeing a 500 error when opening my Azure website?"
 - "I'm getting an xxx error code in Azure — what could be the reasons?"
 - "Show me all the 4xx errors in my Azure logs from the last 6 hours."
