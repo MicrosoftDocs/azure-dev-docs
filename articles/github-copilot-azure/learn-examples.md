@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 If you're unfamiliar with Azure and how you can use it for your application, you can ask GitHub Copilot for Azure to help you. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
 
-- Use "Agent" mode for the best experience. Avoid "ask" mode.
+- Use "Agent" mode for the best experience. Avoid "Ask" mode.
 - Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
 ## Example prompts to learn about Azure
@@ -78,7 +78,7 @@ You can follow up by asking more detailed questions based on GitHub Copilot for 
 |Azure Developer CLI (`azd`)|<ul><li>"Do you have example deployment models for Azure, such as SaaS or PaaS?"</li><li>"What is the best Azure infrastructure for my application?"</li><li>"How do I set up my Azure environment?"</li><li>"What are Azure Resource Manager templates and how do I use them?"</li><li>"How do I manage environments with the Azure Developer CLI?"</li><li>"What is the Azure Developer CLI?"</li><li>"What is the difference between Azure Bicep and ARM templates?"</li><li>"How do I ensure my Azure environments follow best security patterns?"</li><li>"How do I deploy using my CI/CD pipeline in Azure?"</li></ul>|
 |Azure Functions|<ul><li>"How do I create a new Azure Function?"</li><li>"What is the difference between Azure Functions and Azure Logic Apps?"</li><li>"Create a guide for integrating Azure Logic Apps with Azure Functions."</li><li>"I want to create an Azure Function in Node.js."</li></ul>|
 |Azure Key Vault|<ul><li>"Explain how and why I should use Azure Key Vault."</li></ul>|
-|Azure Kubernetes Service (AKS)|<ul><li>"How do I get the status of all nodes in my Azure AKS cluster?"</li><li>"What's the command to set a context for my Azure AKS cluster?"</li></ul>|
+|Azure Kubernetes Service (AKS)|<ul><li>"How do I get the status of all nodes in my AKS cluster?"</li><li>"What's the command to set a context for my AKS cluster?"</li></ul>|
 |Azure Machine Learning|<ul><li>"Generate a PowerShell script to create a new Azure Machine Learning workspace."</li><li>"What is the difference between Azure AI services and Azure Machine Learning?"</li></ul>|
 |Azure Monitor|<ul><li>"Create a guide for using Azure Logic Apps to automate responses to Azure Monitor alerts."</li></ul>|
 |Azure Virtual Network|<ul><li>"How do I balance inbound network traffic to my Azure application?"</li></ul>|
@@ -97,5 +97,4 @@ You can follow up by asking more detailed questions based on GitHub Copilot for 
 - Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

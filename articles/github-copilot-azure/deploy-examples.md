@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure to help you deploy your application. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
 
-- Use "Agent" mode for the best experience. Avoid "ask" mode.
+- Use "Agent" mode for the best experience. Avoid "Ask" mode.
 - Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
 ## Example prompts for deploying an app
@@ -29,7 +29,7 @@ Then, add more detail for better results. Here are some example prompts:
 
 |Service or technology|Deploy prompt examples|
 |---|---|
-|Azure Kubernetes Service (AKS)|<ul><li>"Can you help me create a new deployment in my Azure AKS cluster?"</li><li>"What is the Azure command to scale a deployment to 5 replicas?"</li><li>"Can you provide the Azure command to expose a deployment as a service?"</li></ul>|
+|Azure Kubernetes Service (AKS)|<ul><li>"Can you help me create a new deployment in my AKS cluster?"</li><li>"What is the Azure command to scale a deployment to 5 replicas?"</li><li>"Can you provide the Azure command to expose a deployment as a service?"</li></ul>|
 |Azure App Service|<ul><li>"How many Azure web app plans using the free tier do I have deployed, grouped by region in my <placeholder> subscription?"</li><li>"How many Azure web apps do I have deployed in eastus?"</li></ul>|
 |Azure Container Apps|<ul><li>"How can I deploy my container app to Azure?"</li></ul>|
 |Azure Developer CLI (`azd`)|<ul><li>"Use azd to deploy my Azure project."</li><li>"I want to use azd to create a deployment pipeline for my Azure application."</li><li>"Initialize my project with the Azure Developer CLI."</li><li>"Please start an azd deployment pipeline in Azure."</li></ul>|
@@ -62,9 +62,9 @@ Users can quickly set up an AKS cluster using simple, natural language prompts. 
 You can create an AKS cluster using the following prompts:
 
 - "Can you help me create a Kubernetes cluster in Azure?"
-- "Can you set up an Azure AKS cluster for me?"
-- "I have a containerized application—can you help me create an Azure AKS cluster to host it?"
-- "Create an Azure AKS cluster."
+- "Can you set up an AKS cluster for me?"
+- "I have a containerized application—can you help me create an AKS cluster to host it?"
+- "Create an AKS cluster."
 - "Help me create a Kubernetes cluster in Azure to host my application."
 
 
@@ -75,10 +75,10 @@ Users can deploy their application manifests to an AKS cluster directly from the
 To deploy a manifest file to an AKS cluster, you can use these prompts:
 
 - "Help me deploy my manifest file to Azure."
-- "Can you deploy my manifest to my Azure AKS cluster?"
+- "Can you deploy my manifest to my AKS cluster?"
 - "Can you deploy my manifest to my Azure Kubernetes cluster?"
-- "Deploy my application manifest to an Azure AKS cluster."
-- "Deploy the manifest for my Azure AKS cluster."
+- "Deploy my application manifest to an AKS cluster."
+- "Deploy the manifest for my AKS cluster."
 
 ### **Generate Kubectl Command**
 
@@ -86,10 +86,10 @@ Users can generate various Kubectl commands to manage their AKS clusters without
 
 You can generate various Kubectl commands for your AKS cluster using these prompts:
 
-- "List all services for my Azure AKS cluster."
-- "Show the kubectl command to get deployments with at least 2 replicas in my Azure AKS cluster."
-- "Get all services in my Azure AKS cluster with external IPs."
-- "What is the kubectl command to get pod info for my Azure AKS cluster?"
+- "List all services for my AKS cluster."
+- "Show the kubectl command to get deployments with at least 2 replicas in my AKS cluster."
+- "Get all services in my AKS cluster with external IPs."
+- "What is the kubectl command to get pod info for my AKS cluster?"
 - "Get the kubectl command for listing all API resources in Azure."
 
 ## Example prompts for undeploying an app
@@ -114,5 +114,4 @@ Example prompts:
 - Follow the [quickstart](quickstart-deploy-app-agent-mode.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
-- See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

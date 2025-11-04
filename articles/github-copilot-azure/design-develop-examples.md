@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure to help you design and develop web and API applications to be deployed to your Azure account. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
 
-- Use "Agent" mode for the best experience. Avoid "ask" mode.
+- Use "Agent" mode for the best experience. Avoid "Ask" mode.
 - Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
 
 

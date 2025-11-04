@@ -139,5 +139,4 @@ GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
