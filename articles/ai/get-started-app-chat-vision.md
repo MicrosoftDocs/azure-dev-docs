@@ -1,11 +1,14 @@
 ---
 title: "Get started with multimodal chat apps using Azure OpenAI"
 description: "Learn how to effectively use Azure OpenAI multimodal models to generate responses to user messages and uploaded images. Easily deploy with Azure Developer CLI."
-ms.date: 04/15/2025
+ms.date: 10/31/2025
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 ms.collection: ce-skilling-ai-copilot
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 # CustomerIntent: As a developer new to Azure OpenAI, I want to learn how to use Azure OpenAI multimodal models to add uploaded images to the chat stream from a simple example.
 ---
 # Get started with multimodal vision chat apps using Azure OpenAI
@@ -28,7 +31,7 @@ Once you complete this article, you can start modifying the new project with you
 A simple architecture of the chat app is shown in the following diagram:
 :::image type="content" source="./media/get-started-app-chat-vision/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
+The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI in production, instead of an API key. During development, the app supports multiple authentication methods including Azure Developer CLI credentials, API keys, and GitHub models for testing without Azure resources.
 
 The application architecture relies on the following services and components:
 
@@ -85,7 +88,7 @@ Use the following instructions to deploy a preconfigured development environment
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-vision-quickstart`](https://github.com/Azure-Samples/openai-chat-vision-quickstart) GitHub repository.
 
@@ -155,7 +158,7 @@ The sample repository contains all the code and configuration files for the chat
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs. These resources may accrue costs even if you interrupt the command before it is fully executed.
+> To keep costs low, this sample uses basic or consumption pricing tiers for most resources. Adjust the tier as needed, and delete resources when you're done to avoid charges.
 
 1. Run the following Azure Developer CLI command for Azure resource provisioning and source code deployment:
 
@@ -180,7 +183,7 @@ The sample repository contains all the code and configuration files for the chat
 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-vision/screenshot-chat-image.png" lightbox="./media/get-started-app-chat-vision/screenshot-chat-image.png" alt-text="Screenshot of chat app in browser with a question about an uploaded image in chat along with the response and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-vision/chat-speech.png" lightbox="./media/get-started-app-chat-vision/chat-speech.png" alt-text="Screenshot showing an uploaded image, a question about the image, the AI's response, and the text box.":::
 
 1. In the browser, upload an image by clicking on **Choose File** and selecting an image.
 1. Ask a question about the uploaded image such as "What is the image about?".
@@ -206,25 +209,93 @@ In the sample, the following frontend code snippet in the `script`tag of the `sr
     });
 ```
 
-The `toBase64` function is called by a listener on the form's `submit` event. When the `submit` event fires, the listener checks for an image file, and handles it if present by Base64 encoding the image using the `toBase64` function. The new image data url, `fileData`, is then appended to the message.
+The `toBase64` function is called by a listener on the form's `submit` event.
+
+The `submit` event listener handles the complete chat interaction flow. When the user submits a message, the following flow occurs:
+
+1. Hides the "no-messages-heading" element to show the conversation started
+1. Gets and Base64 encodes the uploaded image file (if present)
+1. Creates and displays the user's message in the chat, including the uploaded image
+1. Prepares an assistant message container with a "Typing..." indicator
+1. Adds the user's message to the message history array
+1. Calls the AI Chat Protocol Client's `getStreamedCompletion()` method with the message history and context (including the Base64 encoded image and filename)
+1. Processes the streamed response chunks and converts Markdown to HTML using Showdown.js
+1. Handles any errors during streaming
+1. Adds a speech output button after receiving the complete response so users can hear the response
+1. Clears the input field and returns focus for the next message
 
 ```javascript
-    form.addEventListener("submit", async function(e) {
-        e.preventDefault();
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-        const file = document.getElementById("file").files[0];
-        const fileData = file ? await toBase64(file) : null;
+    // Hide the no-messages-heading when a message is added
+    document.getElementById("no-messages-heading").style.display = "none";
 
-        const message = messageInput.value;
+    const file = document.getElementById("file").files[0];
+    const fileData = file ? await toBase64(file) : null;
 
-        const userTemplateClone = userTemplate.content.cloneNode(true);
-        userTemplateClone.querySelector(".message-content").innerText = message;
-        if (file) {
-            const img = document.createElement("img");
-            img.src = fileData;
-            userTemplateClone.querySelector(".message-file").appendChild(img);
+    const message = messageInput.value;
+
+    const userTemplateClone = userTemplate.content.cloneNode(true);
+    userTemplateClone.querySelector(".message-content").innerText = message;
+    if (file) {
+        const img = document.createElement("img");
+        img.src = fileData;
+        userTemplateClone.querySelector(".message-file").appendChild(img);
+    }
+    targetContainer.appendChild(userTemplateClone);
+
+    const assistantTemplateClone = assistantTemplate.content.cloneNode(true);
+    let messageDiv = assistantTemplateClone.querySelector(".message-content");
+    targetContainer.appendChild(assistantTemplateClone);
+
+    messages.push({
+        "role": "user",
+        "content": message
+    });
+
+    try {
+        messageDiv.scrollIntoView();
+        const result = await client.getStreamedCompletion(messages, {
+            context: {
+                file: fileData,
+                file_name: file ? file.name : null
+            }
+        });
+
+        let answer = "";
+        for await (const response of result) {
+            if (!response.delta) {
+                continue;
+            }
+            if (response.delta.content) {
+                // Clear out the DIV if its the first answer chunk we've received
+                if (answer == "") {
+                    messageDiv.innerHTML = "";
+                }
+                answer += response.delta.content;
+                messageDiv.innerHTML = converter.makeHtml(answer);
+                messageDiv.scrollIntoView();
+            }
+            if (response.error) {
+                messageDiv.innerHTML = "Error: " + response.error;
+            }
         }
-        targetContainer.appendChild(userTemplateClone);
+        messages.push({
+            "role": "assistant",
+            "content": answer
+        });
+
+        messageInput.value = "";
+
+        const speechOutput = document.createElement("speech-output-button");
+        speechOutput.setAttribute("text", answer);
+        messageDiv.appendChild(speechOutput);
+        messageInput.focus();
+    } catch (error) {
+        messageDiv.innerHTML = "Error: " + error;
+    }
+});
 ```
 
 ### Handling the image with the backend
@@ -234,22 +305,105 @@ In the `src\quartapp\chat.py` file, the backend code for image handling starts a
 > [!NOTE]
 > For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](get-started-securing-your-ai-app.md) Microsoft Learn article.
 
+#### Authentication configuration
+
+The `configure_openai()` function sets up the OpenAI client before the app starts serving requests. It uses Quart's `@bp.before_app_serving` decorator to configure authentication based on environment variables. This flexible system lets developers work in different contexts without changing code.
+
+##### Authentication modes explained
+
+- **Local development** (`OPENAI_HOST=local`): Connects to a local OpenAI-compatible API service (like Ollama or LocalAI) without authentication. Use this mode for testing without internet or API costs.
+- **GitHub Models** (`OPENAI_HOST=github`): Uses GitHub's AI model marketplace with a `GITHUB_TOKEN` for authentication. When using GitHub models, prefix the model name with `openai/` (for example, `openai/gpt-4o`). This mode lets developers try models before provisioning Azure resources.
+- **Azure OpenAI with API key** (`AZURE_OPENAI_KEY_FOR_CHATVISION` environment variable): Uses an API key for authentication. Avoid this mode in production because API keys require manual rotation and pose security risks if exposed. Use it for local testing inside a Docker container without Azure CLI credentials.
+- **Production with Managed Identity** (`RUNNING_IN_PRODUCTION=true`): Uses `ManagedIdentityCredential` to authenticate with Azure OpenAI through the container app's managed identity. This method is recommended for production because it removes the need to manage secrets. Azure Container Apps automatically provide the managed identity and grant permissions during deployment via Bicep.
+- **Development with Azure CLI** (default mode): Uses `AzureDeveloperCliCredential` to authenticate with Azure OpenAI using locally signed-in Azure CLI credentials. This mode simplifies local development without managing API keys.
+
+##### Key implementation details
+
+- The `get_bearer_token_provider()` function refreshes Azure credentials and uses them as bearer tokens.
+- The Azure OpenAI endpoint path includes `/openai/v1/` to match the OpenAI client library's requirements.
+- Logging shows which authentication mode is active.
+- The function is async to support Azure credential operations.
+
+Here's the complete authentication setup code from `chat.py`:
+
+```python
+@bp.before_app_serving
+async def configure_openai():
+    bp.model_name = os.getenv("OPENAI_MODEL", "gpt-4o")
+    openai_host = os.getenv("OPENAI_HOST", "github")
+
+    if openai_host == "local":
+        bp.openai_client = AsyncOpenAI(api_key="no-key-required", base_url=os.getenv("LOCAL_OPENAI_ENDPOINT"))
+        current_app.logger.info("Using local OpenAI-compatible API service with no key")
+    elif openai_host == "github":
+        bp.model_name = f"openai/{bp.model_name}"
+        bp.openai_client = AsyncOpenAI(
+            api_key=os.environ["GITHUB_TOKEN"],
+            base_url="https://models.github.ai/inference",
+        )
+        current_app.logger.info("Using GitHub models with GITHUB_TOKEN as key")
+    elif os.getenv("AZURE_OPENAI_KEY_FOR_CHATVISION"):
+        bp.openai_client = AsyncOpenAI(
+            base_url=os.environ["AZURE_OPENAI_ENDPOINT"],
+            api_key=os.getenv("AZURE_OPENAI_KEY_FOR_CHATVISION"),
+        )
+        current_app.logger.info("Using Azure OpenAI with key")
+    elif os.getenv("RUNNING_IN_PRODUCTION"):
+        client_id = os.environ["AZURE_CLIENT_ID"]
+        azure_credential = ManagedIdentityCredential(client_id=client_id)
+        token_provider = get_bearer_token_provider(azure_credential, "https://cognitiveservices.azure.com/.default")
+        bp.openai_client = AsyncOpenAI(
+            base_url=os.environ["AZURE_OPENAI_ENDPOINT"] + "/openai/v1/",
+            api_key=token_provider,
+        )
+        current_app.logger.info("Using Azure OpenAI with managed identity credential for client ID %s", client_id)
+    else:
+        tenant_id = os.environ["AZURE_TENANT_ID"]
+        azure_credential = AzureDeveloperCliCredential(tenant_id=tenant_id)
+        token_provider = get_bearer_token_provider(azure_credential, "https://cognitiveservices.azure.com/.default")
+        bp.openai_client = AsyncOpenAI(
+            base_url=os.environ["AZURE_OPENAI_ENDPOINT"] + "/openai/v1/",
+            api_key=token_provider,
+        )
+        current_app.logger.info("Using Azure OpenAI with az CLI credential for tenant ID: %s", tenant_id)
+```
+
 #### Chat handler function
 
-The `chat_handler()` function waits for incoming request JSON data from the `chat/stream` endpoint then processes it. The messages are then extracted from the JSON data. Finally, the base64 encoded image is retrieved from the JSON data.
+The `chat_handler()` function processes chat requests sent to the `/chat/stream` endpoint. It receives a POST request with a JSON payload that follows the Microsoft AI Chat Protocol.
+
+The JSON payload includes:
+- **messages**: A list of conversation history. Each message has a `role` ("user" or "assistant") and `content` (the message text).
+- **context**: Extra data for processing, including:
+  - **file**: Base64-encoded image data (for example, `data:image/png;base64,...`).
+  - **file_name**: The uploaded image's original filename (useful for logging or identifying the image type).
+- **temperature** (optional): A float that controls response randomness (default is 0.5).
+
+The handler extracts the message history and image data. If no image is uploaded, the image value is `null`, and the code handles this case.
 
 ```python
 @bp.post("/chat/stream")
 async def chat_handler():
     request_json = await request.get_json()
     request_messages = request_json["messages"]
-    # get the base64 encoded image from the request
+    # Get the base64 encoded image from the request context
+    # This will be None if no image was uploaded
     image = request_json["context"]["file"]
+    # The context also includes the filename for reference
+    # file_name = request_json["context"]["file_name"]
 ```
 
-#### Response stream using the OpenAI Client and model
+### Building the message array for vision requests
 
-The `response_stream` inside the `chat_handler` function handles the chat completion call in the route. The following code snippet begins by preprocessing the user content messages. If an image is present, the image URL is appended to the user content, with the 
+The `response_stream()` function prepares the message array that is sent to the Azure OpenAI API. The `@stream_with_context` decorator keeps the request context while streaming the response.
+
+#### Message preparation logic
+
+1. **Start with conversation history**: The function begins with `all_messages`, which includes a system message and all previous messages except the most recent one (`request_messages[0:-1]`).
+1. **Handle the current user message based on image presence**:
+   - **With image**: Format the user's message as a multi-part content array with text and image_url objects. The `image_url` object contains the Base64-encoded image data and a `detail` parameter.
+   - **Without image**: Append the user's message as plain text.
+1. **The `detail` parameter**: Set to "auto" to let the model choose between "low" and "high" detail based on the image size. Low detail is faster and cheaper, while high detail provides more accurate analysis for complex images.
 
 ```python
     @stream_with_context
@@ -269,7 +423,7 @@ The `response_stream` inside the `chat_handler` function handles the chat comple
 ```
 
 > [!NOTE]
-> For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings in image processing: Low, High, Auto](/azure/ai-services/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings-in-image-processing-low-high-auto) section in the "Use GPT-4 Turbo with Vision" Microsoft Learn article.
+> For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings](/azure/ai-foundry/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings) section in the "Use vision-enabled chat models" Microsoft Learn article.
 
 Next, `bp.openai_client.chat.completions` gets chat completions via an Azure OpenAI API call and streams the response.
 
@@ -296,8 +450,42 @@ Finally, the response is streamed back to the client, with error handling for an
             yield json.dumps({"error": str(e)}, ensure_ascii=False) + "\n"
 
     return Response(response_stream())
-
 ```
+
+#### Frontend libraries and features
+
+The frontend uses modern browser APIs and libraries to create an interactive chat experience. Developers can customize the interface or add features by understanding these components:
+
+1. **Speech Input/Output**: Custom web components use the browser's Speech APIs:
+
+   - **`<speech-input-button>`**: Converts speech to text using the Web Speech API's `SpeechRecognition`. It provides a microphone button that listens for voice input and emits a `speech-input-result` event with the transcribed text.
+   
+   - **`<speech-output-button>`**: Reads text aloud using the `SpeechSynthesis` API. It appears after each assistant response with a speaker icon, letting users hear the response.
+
+   **Why use browser APIs instead of Azure Speech Services?**
+   - No cost - runs entirely in the browser
+   - Instant response - no network latency
+   - Privacy - voice data stays on the user's device
+   - No need for extra Azure resources
+
+   These components are in `src/quartapp/static/speech-input.js` and `speech-output.js`.
+
+1. **Image Preview**: Displays the uploaded image in the chat before analysis submission for confirmation. The preview updates automatically when a file is selected.
+
+   ```javascript
+   fileInput.addEventListener("change", async function() {
+       const file = fileInput.files[0];
+       if (file) {
+           const fileData = await toBase64(file);
+           imagePreview.src = fileData;
+           imagePreview.style.display = "block";
+       }
+   });
+   ```
+
+1. **Bootstrap 5 and Bootstrap Icons**: Provides responsive UI components and icons. The app uses the Cosmo theme from Bootswatch for a modern look.
+
+1. **Template-based Message Rendering**: Uses HTML `<template>` elements for reusable message layouts, ensuring consistent styling and structure.
 
 ## Other sample resources to explore
 
@@ -307,6 +495,11 @@ In addition to the chat app sample, there are other resources in the repo to exp
 |--|--|
 |chat_pdf_images.ipynb|This notebook demonstrates how to convert PDF pages to images and send them to a vision model for inference.|
 |chat_vision.ipynb|This notebook is provided for manual experimentation with the vision model used in the app.|
+
+**Localized Content**: Spanish versions of the notebooks are in the `notebooks/Spanish/` directory, offering the same hands-on learning for Spanish-speaking developers. Both English and Spanish notebooks show:
+- How to call vision models directly for experimentation
+- How to convert PDF pages to images for analysis
+- How to adjust parameters and test prompts
 
 ## Clean up resources
 
@@ -344,7 +537,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 :::image type="content" source="./media/get-started-app-chat-vision/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-vision/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. Free up space on your local machine by deleting the container instance, image, and volumes from Docker.
 
 ---
 
