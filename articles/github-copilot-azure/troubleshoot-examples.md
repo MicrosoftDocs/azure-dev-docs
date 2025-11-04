@@ -71,4 +71,3 @@ If you want to use GitHub Copilot for Azure for help with troubleshooting your a
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [optimizing your applications in Azure](optimize-examples.md).

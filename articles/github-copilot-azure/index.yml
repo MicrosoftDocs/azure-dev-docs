@@ -38,5 +38,3 @@ landingContent:
             url: deploy-examples.md
           - text: Troubleshoot your app
             url: troubleshoot-examples.md
-          - text: Optimize your app
-            url: optimize-examples.md

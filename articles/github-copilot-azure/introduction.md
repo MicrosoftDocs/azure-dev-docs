@@ -49,7 +49,7 @@ GitHub Copilot for Azure currently enables four primary scenarios:
 |Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"Can you help me build a RAG application with Python to deploy to Azure?"</li><li>"Use azd to undeploy my project in Azure."</li><li>"We're a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders on Azure."</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"Can you help me deploy my application to Azure?"</li><li>"I need a CI/CD pipeline so I can get my app deployed to Azure."</li><li>"Use azd to undeploy my project from Azure."</li></ul>|
 |Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"What is using up my GPT-5 model quota on Azure?"</li><li>"Find out why my Kubernetes cluster is running slow on Azure."</li><li>"Why am I seeing 500 errors when opening my website on Azure?"</li></ul>|
-|Optimize|Answer questions about resources, including locations, settings, and resource health.|<ul><li>"How many Azure OpenAI deployments do I have?"</li><li>"Give me a count of Azure storage accounts in eastus by subscription, sorted from largest to smallest."</li></ul>|
+
 
 > [!Note]
 > Make sure the word "Azure" is somewhere in the prompt so that the LLM calls the appropriate tool from Azure MCP Server.
