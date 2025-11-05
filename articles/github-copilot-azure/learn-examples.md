@@ -10,10 +10,12 @@ ms.collection: ce-skilling-ai-copilot
 
 # Example prompts for learning about Azure and your application with GitHub Copilot for Azure
 
-If you're unfamiliar with Azure and how you can use it for your application, you can ask GitHub Copilot for Azure to help you. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
+If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure and Azure MCP Server to help you deploy your application. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
 
 - Use "Agent" mode for the best experience. Avoid "Ask" mode.
 - Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
+- If using Visual Studio Code, make sure you use "Configure Tools ..." and include both "Azure MCP" and "GitHub Copilot for Azure". [See the Tool calling section's Visual Studio Code tab](introduction.md#tool-calling) for more details.
+
 
 ## Example prompts to learn about Azure
 
