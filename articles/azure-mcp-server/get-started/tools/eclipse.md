@@ -31,7 +31,7 @@ This article covers:
 
 Install and configure Azure MCP Server in Eclipse:
 
-1. Go to **Help > Install New Software...**.
+1. Go to **Help > Eclipse Marketplace**.
 1. Search for **Azure Toolkit** in the **Eclipse Marketplace** window.
 1. In the search results, select **Install** for Azure Toolkit.
 
