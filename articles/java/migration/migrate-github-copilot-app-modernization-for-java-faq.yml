@@ -130,9 +130,15 @@ sections:
 
       - question: Why does GitHub Copilot app modernization frequently prompt me to select **Continue**?
         answer: |
-          To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation. As a workaround, you can select the dropdown arrow next to the **Continue** button and then select **Always Allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `128` to reduce the number of steps that require confirmation to continue.
+          To ensure safer operations, the GitHub Copilot agent repeatedly asks for user confirmation, you can use the following configuration as a workaround.
+          
+          - For Visual Studio Code, you can select the dropdown arrow next to the **Continue** button and then select **Always Allow**, or update your Visual Studio Code setting `chat.tools.autoApprove` to `true` to automatically approve all tools. We also recommend configuring `chat.agent.maxRequests` to `128` to reduce the number of steps that require confirmation to continue.
 
-          :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button and the drop-down menu with Allow options." lightbox="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png":::
+            :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button and the drop-down menu with Allow options." lightbox="media/migrate-github-copilot-app-modernization-for-java/allow-mcp-tool.png":::
+          
+          - For Intellij IDEA, you can select the **Continue** button, or update your settings, select the **Tools** > **GitHub Copilot** configuration window, and then select **Auto-approve**. We also recommend enabling **Trust MCP Tool Annotations** and increasing **Max Requests** to `99`.
+            
+            :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/intellij-allow-mcp-tool.png" alt-text="Screenshot of the GitHub Copilot chat pane that shows the Continue button in Intellij IDEA." lightbox="media/migrate-github-copilot-app-modernization-for-java/intellij-allow-mcp-tool.png":::
 
       - question: What network configurations are required to use GitHub Copilot app modernization in Visual Studio Code?
         answer: To ensure that the extension works correctly within Visual Studio Code, network connectivity must be stable and allow access to GitHub Copilot services. In restricted environments, you might need to configure proxy or firewall rules accordingly. If you encounter errors like "Language Model Unavailable" in the chat window, see the official troubleshooting guide [Managing GitHub Copilot access to your enterprise's network](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/manage-network-access).
@@ -161,3 +167,6 @@ sections:
 
       - question: How can I view more details about the code changes made by the agent?
         answer: The agent always includes explanations for its code changes in the chat window. However, these details might be collapsed in the UI. You can expand the response in the chat to see the full rationale and step-by-step reasoning.
+
+      - question: Can I use the GitHub Copilot app modernization feature in IntelliJ IDEA on a Linux platform?
+        answer: We currently only support Windows and macOS platforms.

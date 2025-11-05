@@ -15,6 +15,10 @@ metadata:
 landingContent:
   - title: Get started guides
     linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure Toolkit for IntelliJ
+            url: overview.md
       - linkListType: quickstart
         links:
           - text: Create a Hello World web app for Azure App Service

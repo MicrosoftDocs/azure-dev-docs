@@ -16,6 +16,8 @@ items:
             href: get-started/tools/visual-studio-code.md
           - name: Visual Studio
             href: get-started/tools/visual-studio.md
+          - name: Eclipse
+            href: get-started/tools/eclipse.md
           - name: Cursor
             href: get-started/tools/cursor.md
           - name: Windsurf
@@ -80,7 +82,7 @@ items:
         - name: Azure Deploy
           href: tools/azure-deploy.md
         - name: Azure Developer CLI
-          href: tools/azure-developer-cli.md
+          href: tools/azure-cli.md
         - name: Azure Event Grid
           href: tools/azure-event-grid.md
         - name: Azure Event Hubs

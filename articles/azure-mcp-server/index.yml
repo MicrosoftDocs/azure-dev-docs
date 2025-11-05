@@ -20,7 +20,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Install in an IDE
-            url: get-started.md#use-a-code-editor
+            url: get-started.md#connect-using-code-editors-and-tools
           - text: Install with a package manager
             url: get-started.md#install-with-a-package-manager
           - text: Connect GitHub Copilot coding agent to the Azure MCP Server
@@ -76,7 +76,7 @@ landingContent:
           - text: Azure Cosmos DB
             url: tools/azure-cosmos-db.md
           - text: Azure Developer CLI
-            url: tools/azure-developer-cli.md
+            url: tools/azure-cli.md
           - text: Azure Key Vault
             url: tools/azure-key-vault.md
           - text: Azure Monitor

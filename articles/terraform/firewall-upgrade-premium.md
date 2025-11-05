@@ -6,8 +6,8 @@ ms.topic: how-to
 service: firewall
 ms.service: azure-firewall
 ms.date: 10/26/2023
-author: vhorne
-ms.author: victorh
+author: TomArcherMsft
+ms.author: tarcher
 ms.custom:
   - devx-track-terraform
   - sfi-image-nochange
