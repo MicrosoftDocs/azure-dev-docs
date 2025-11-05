@@ -12,7 +12,7 @@
 | AI Agents | npm [1.1.0](https://www.npmjs.com/package/@azure/ai-agents/v/1.1.0) | [docs](/javascript/api/overview/azure/ai-agents-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-agents_1.1.0/sdk/ai/ai-agents/) |
 | AI Model Inference | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.6) |  | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.6/sdk/ai/ai-inference-rest/) |
 | AI Projects | npm [1.0.1](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.1) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.1/sdk/ai/ai-projects/) |
-| App Configuration | npm [1.9.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.9.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.0/sdk/appconfiguration/app-configuration/) |
+| App Configuration | npm [1.9.2](https://www.npmjs.com/package/@azure/app-configuration/v/1.9.2) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.9.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.9.2/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.16](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.16) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.16](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.16/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Search | npm [12.2.0](https://www.npmjs.com/package/@azure/search-documents/v/12.2.0) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0/sdk/search/search-documents/) |
@@ -411,7 +411,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.22.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.61.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.61.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.61.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.61.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.29.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.29.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.29.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.29.1) |  |  |
 | @azure-tools/typespec-go | npm [0.8.3](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.3) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.11.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -445,7 +445,7 @@
 | TypeSpec HTTP Client JavaScript | npm [0.10.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.10.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.20.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.20.2) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.27](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.27) |  |  |
-| TypeSpec Rust | npm [0.25.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.25.0) |  |  |
+| TypeSpec Rust | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.26.0) |  |  |
 | TypeSpec SSE | npm [0.75.0](https://www.npmjs.com/package/@typespec/sse/v/0.75.0) |  |  |
 | TypeSpec Streams | npm [0.75.0](https://www.npmjs.com/package/@typespec/streams/v/0.75.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
@@ -453,6 +453,7 @@
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.5](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.5) |  |  |
+| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/functions-extensions-base/v/0.2.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure/mcp/v/1.0.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.1) |  |  |
