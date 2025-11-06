@@ -90,7 +90,7 @@ Connect-AzAccount -UseDeviceAuthentication
 
 ---
 
-## Authenticate to azure services from your app
+## Authenticate to Azure services from your app
 
 The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) when working with service principals locally and in production.
 
