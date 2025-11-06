@@ -54,4 +54,4 @@ Use the following steps to start your containerization process:
 
 ## Additional resources
 
-- [Containerization Assist](https://aka.ms/aks/containerization-assist)
+- We leverage certain tools in Containerization Assist. [Learn more](https://aka.ms/aks/containerization-assist)
