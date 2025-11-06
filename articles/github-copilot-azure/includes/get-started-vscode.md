@@ -135,7 +135,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 
    The contents of the reply may vary and can change over time as new capabilities and tools are added.
 
-1. The last entry, `Azure Developer CLI tools`, could be employed with the following prompt: 
+1. To test out prompts about Azure-specific tooling, try the following prompt: 
 
    ```
    What is the az command to list all my storage accounts ordered by location?
@@ -181,7 +181,7 @@ You might want to disable or re-enable certain tools available by GitHub Copilot
 
 1. Select the tool icon in the chat pane.
 
-   :::image type="content" source="../media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the tool icon.":::
+   :::image type="content" source="../media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the Configure Tools icon.":::
 
 1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
 
