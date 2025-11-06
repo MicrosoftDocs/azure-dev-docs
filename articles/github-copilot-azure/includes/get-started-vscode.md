@@ -216,12 +216,12 @@ You can also set the default tenant in the extension settings:
 
 GitHub Copilot for Azure has two ways to create or modify custom instructions: the instructions file and prompt files.
 
-The **Instructions** file contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilt for Azure tools and Azure MCP Server tools. The guidance in this file are intended to be global in nature, meaning, they are intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. Your changes could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Coplit for Azure.
+The **instructions** file (also refered to as "Azure Copilot Guidelines") contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilt for Azure tools and Azure MCP Server tools. The guidance in this file are intended to be global in nature, meaning, they are intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. Your changes could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Coplit for Azure.
 
 > [!Important]
 > You should not modify this file. If you choose to modify the file, first make a backup.
 
-**Prompt files** are the correct extensibility point for writing your long-form custom prompts. They work in a similar manner to the instructions file, automatically adding your custom instructions to the prompt's context window. You typically use a prompt file in a few scenarios:
+**Prompt files** are the correct extensibility point for writing your long-form custom prompts. They work in a similar manner to the instructions file, automatically adding your custom instructions to the prompt's context window. Use a prompt file when:
 
 - You want GitHub Copilot for Azure to use the same instructions across all your projects. Your organization may have a unique naming convention, or you want to always choose a specific location or resource group. You can specify that type of multi-session, multi-project information in a **User Data** location.
 - You want GitHub Copilot for Azure to use custom instructions for your project each time you work on that project. You add the project-specific instructions in a **.github\prompts** location.
@@ -229,9 +229,9 @@ The **Instructions** file contains high-level guidance for GitHub Copilot that i
 > [!Note]
 > An alternative to the prompt files you create via Visual Studio Code's command palette, you could create a markdown file anywhere in your project and ask GitHub Copilot to read that file and take action based on the instructions. For example, you could create a project requirements documents (PRD) to describe the requirements for an entire project then ask GitHub Copilot: "Do not write any code until I authorize you to. First, read the `prd.md` file and ask me any clarifying questions you may need answers. Once I have answered all of your questions, please provide a step-by-step plan of how you'll implement my requirements. Once I have a chance to review your plan I will then authorize you to start. Do you have any questions?"
 
-### Configure the instructions file
+### View the instructions file
 
-1. Select `Ctrl` + `shift` + `p` to open the command palette.
+1. Select `ctrl` + `shift` + `p` to open the command palette.
 
 1. Type `Chat: Configure Instructions` and select the entry.
 
@@ -239,14 +239,16 @@ The **Instructions** file contains high-level guidance for GitHub Copilot that i
 
 1. In the next step, select `AzureCopilotGuidelines` .
 
-   :::image type="content" source="../media/get-started/configure-instructions-file.png" alt-text="Screenshot of the GitHub Copilot for Azure instructions file.":::
+   :::image type="content" source="../media/get-started/configure-instructions-azure-copilot-guidelines.png" alt-text="Screenshot of the option to select Azure Copilot Guidelines.":::
 
 1. A new tab opens containing the instructions file.
 
-> [!Important]
-> Make a backup of the instructions file before modifying it.
+   :::image type="content" source="../media/get-started/configure-instructions-file.png" alt-text="Screenshot of the GitHub Copilot for Azure instructions file.":::
 
-### Configure prompt files
+   > [!Important]
+   > You should not modify this file. If you choose to modify the file, first make a backup.
+
+### Create prompt files
 
 1. Select `Ctrl` + `shift` + `p` to open the command palette.
 
