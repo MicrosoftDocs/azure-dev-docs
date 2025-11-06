@@ -188,28 +188,7 @@ You might want to disable or re-enable certain tools available by GitHub Copilot
    :::image type="content" source="../media/get-started/tool-list.png" alt-text="Screenshot of the list of tools in Visual Studio Code.":::
 
 
-### Best practices for working in agent mode
-
-To get better agentic results, consider the following best practices.
-
-- **When prompted, add the `copilot-instructions.md` file to your workspace.** 
-
-   :::image type="content" source="../media/get-started/copilot-instructions.png" alt-text="Screenshot of the Visual Studio Code notification to add the copilot instructions file to the workspace.":::
-
-- **Keep your prompts as granular as possible.** Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a few prompts each with a smaller scope of responsibility.
-
-- **Allow GitHub Copilot to do work (instead of doing it yourself).**  Occasionally, GitHub Copilot asks for permission to perform a task with a "Continue" button. While it's possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
-
-- **Allow GitHub Copilot to repeat itself.** Occasionally, GitHub Copilot asks for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
-
-- **Express your preferences.** If GitHub Copilot wants to perform an action but you would prefer it to take a *different* action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
-
-   ```
-   Instead of naming the folder `.azure`, please name it `infra`
-   ```
-
-
-## Optional: Set your default tenant
+## Set your default tenant
 
 If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, You can set a default tenant using the following prompt:
 
@@ -232,3 +211,57 @@ You can also set the default tenant in the extension settings:
 3. On the **Settings** tab, set the Azure Resource Graph tenant to your Microsoft Entra tenant ID. You can find your Microsoft Entra tenant ID in the Azure portal.
 
    :::image type="content" source="../media/get-started/arg-tenant.png" alt-text="Screenshot that shows the Settings tab with an option to set the Azure Resource Graph tenant.":::
+
+## Customize instructions
+
+GitHub Copilot for Azure has two ways to create or modify custom instructions: the instructions file and prompt files.
+
+The **Instructions** file contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilt for Azure tools and Azure MCP Server tools. The guidance in this file are intended to be global in nature, meaning, they are intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. Your changes could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Coplit for Azure.
+
+> [!Important]
+> You should not modify this file. If you choose to modify the file, first make a backup.
+
+**Prompt files** are the correct extensibility point for writing your long-form custom prompts. They work in a similar manner to the instructions file, automatically adding your custom instructions to the prompt's context window. You typically use a prompt file in a few scenarios:
+
+- You want GitHub Copilot for Azure to use the same instructions across all your projects. Your organization may have a unique naming convention, or you want to always choose a specific location or resource group. You can specify that type of multi-session, multi-project information in a **User Data** location.
+- You want GitHub Copilot for Azure to use custom instructions for your project each time you work on that project. You add the project-specific instructions in a **.github\prompts** location.
+
+> [!Note]
+> An alternative to the prompt files you create via Visual Studio Code's command palette, you could create a markdown file anywhere in your project and ask GitHub Copilot to read that file and take action based on the instructions. For example, you could create a project requirements documents (PRD) to describe the requirements for an entire project then ask GitHub Copilot: "Do not write any code until I authorize you to. First, read the `prd.md` file and ask me any clarifying questions you may need answers. Once I have answered all of your questions, please provide a step-by-step plan of how you'll implement my requirements. Once I have a chance to review your plan I will then authorize you to start. Do you have any questions?"
+
+### Configure the instructions file
+
+1. Select `Ctrl` + `shift` + `p` to open the command palette.
+
+1. Type `Chat: Configure Instructions` and select the entry.
+
+   :::image type="content" source="../media/get-started/configure-instructions-option.png" alt-text="Screenshot of typing in the Visual Studio Code command palette.":::
+
+1. In the next step, select `AzureCopilotGuidelines` .
+
+   :::image type="content" source="../media/get-started/configure-instructions-file.png" alt-text="Screenshot of the GitHub Copilot for Azure instructions file.":::
+
+1. A new tab opens containing the instructions file.
+
+> [!Important]
+> Make a backup of the instructions file before modifying it.
+
+### Configure prompt files
+
+1. Select `Ctrl` + `shift` + `p` to open the command palette.
+
+1. Type `Chat: Configure Prompt Files` and select the entry.
+
+1. Select "+ New prompt file".
+
+1. In the next menu, choose "User data" if you want to create a prompt file that will be used across all projects. Choose ".github\prompts" to create a prompt file that will be used in your current project.
+
+1. The the next menu, enter a name for the prompt file.
+
+1. A tab containing the new unsaved file will appear in the main area.
+
+   :::image type="content" source="../media/get-started/prompt-file.png" alt-text="Screenshot of a newly created prompt file in Visual Studio Code.":::
+
+   If you created a **User data** prompt file, the file path will be: `c:\Users\<username>\AppData\Roaming\Code\User\prompts`
+
+   If you created a **.github\prompts** prompt file, the file path will be: `<project-root>\.github\prompts`. project requirements documents (PRD) to describe the requirements for an entire project. If you have a `.gitignore` file that excludes the `\.github` sub-directory, it will not be under source control.
