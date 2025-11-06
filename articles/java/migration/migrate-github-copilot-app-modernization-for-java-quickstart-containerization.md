@@ -51,3 +51,7 @@ Use the following steps to start your containerization process:
 > We recommend using Claude Sonnet 4 or later models for the best results.
 >
 > It might take Copilot a few iterations to correct containerization errors.
+
+## Additional resources
+
+- [Containerization Assist](https://aka.ms/aks/containerization-assist)
