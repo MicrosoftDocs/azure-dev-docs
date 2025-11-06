@@ -38,8 +38,8 @@ productDirectory:
       links:
         - text: Azure SDK for .NET
           url: /dotnet/azure/sdk/azure-sdk-for-dotnet/
-        - text: Get started
-          url: /dotnet/azure/intro
+        - text: Package index
+          url: /dotnet/azure/sdk/packages/
         - text: Azure for .NET developer center
           url: /dotnet/azure/
     - title: Python
@@ -48,8 +48,8 @@ productDirectory:
       links:
         - text: Azure SDK for Python
           url: ./python/sdk/azure-sdk-overview.md
-        - text: Get started
-          url: ./python/get-started.md
+        - text: Package index
+          url: ./python/sdk/azure-sdk-library-package-index.md
         - text: Azure for Python developer center
           url: ./python/index.yml
     - title: JavaScript
@@ -58,8 +58,8 @@ productDirectory:
       links:
         - text: Azure SDK for JavaScript
           url: ./javascript/sdk/use-azure-sdk.md
-        - text: Get started
-          url: ./javascript/what-is-azure-for-javascript-development.md
+        - text: Package index
+          url: ./javascript/azure-sdk-library-package-index.md
         - text: Azure for JavaScript developer center
           url: ./javascript/index.yml
     - title: Java
@@ -68,8 +68,8 @@ productDirectory:
       links:
         - text: Azure SDK for Java
           url: ./java/sdk/index.yml
-        - text: Get started
-          url: ./java/sdk/overview.md
+        - text: Libraries, drivers, and Spring modules list
+          url: ./java/sdk/libraries-drivers-modules.md
         - text: Azure for Java developer center
           url: ./java/index.yml
     - title: Go
@@ -78,8 +78,8 @@ productDirectory:
       links:
         - text: Azure SDK for Go
           url: ./go/overview.md
-        - text: Get started
-          url: ./go/key-azure-services-for-go.md
+        - text: Package index
+          url: ./go/azure-sdk-library-package-index.md
         - text: Azure for Go developer center
           url: ./go/index.yml
     - title: C++
@@ -88,7 +88,7 @@ productDirectory:
       links:
         - text: Azure SDK for C++
           url: ./cpp/sdk/overview.md
-        - text: Get started
+        - text: Install and integrate libraries
           url: ./cpp/sdk/install-and-integrate-the-sdk.md
         - text: Azure for C++ developer center
           url: ./cpp/index.yml
@@ -98,13 +98,13 @@ productDirectory:
       links:
         - text: Azure SDK for Rust
           url: ./rust/sdk/overview.md
-        - text: Get started
-          url: ./rust/what-is-azure-for-rust-developers.md
+        - text: Rust crates index
+          url: ./rust/azure-sdk-library-package-index.md
         - text: Azure for Rust developer center
           url: ./rust/index.yml
 conceptualContent:
-  title: AI tools
-  summary: Integrate AI capabilities into your applications.
+  title: AI apps and AI developer tools
+  summary: Integrate AI capabilities into your applications. Use AI-powered tools to enhance your development workflow.
   items:
     # Card
     - title: Develop AI apps using Azure services
