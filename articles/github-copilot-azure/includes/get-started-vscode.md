@@ -227,7 +227,7 @@ The **instructions** file (also refered to as "Azure Copilot Guidelines") contai
 - You want GitHub Copilot for Azure to use custom instructions for your project each time you work on that project. You add the project-specific instructions in a **.github\prompts** location.
 
 > [!Note]
-> An alternative to the prompt files you create via Visual Studio Code's command palette, you could create a markdown file anywhere in your project and ask GitHub Copilot to read that file and take action based on the instructions. For example, you could create a project requirements documents (PRD) to describe the requirements for an entire project then ask GitHub Copilot: "Do not write any code until I authorize you to. First, read the `prd.md` file and ask me any clarifying questions you may need answers. Once I have answered all of your questions, please provide a step-by-step plan of how you'll implement my requirements. Once I have a chance to review your plan I will then authorize you to start. Do you have any questions?"
+> An alternative to the prompt files you create via Visual Studio Code's command palette, you could create a markdown file anywhere in your project then ask GitHub Copilot to read that file and execute the instructions.
 
 ### View the instructions file
 
