@@ -70,7 +70,7 @@ Use the following steps to apply your own task:
    - Run validations: Build, Tests, CVE, Consistency, and Completeness
    - Generate a **summary.md** file
 
-1. If the agent is interrupted or stopped for waiting your confirmation during the execution, input "continue" to go ahead.
+1. If the agent is stopped while waiting for your confirmation or interrupted during execution , please enter "Continue" to go ahead.
 
 1. After all steps finished, review the code changes and click **Keep** to confirm in chat window.
 
