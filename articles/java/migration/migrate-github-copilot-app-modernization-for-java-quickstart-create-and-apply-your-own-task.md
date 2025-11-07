@@ -39,7 +39,7 @@ Use the following steps to create your own task:
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-task-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-task-from-source-control.png" alt-text="Screenshot of Visual Studio Code that shows the button for Create a Custom Task.":::
 
-1. A 'task.md' file opens, In the **Task Name** field, enter: "Custom task migrate rabbitmq". In the **Task Prompt** field, enter: "You are a Spring Boot developer assistant, follow the commit to migrate from rabbitmq to servicebus."
+1. A 'task.md' file opens, in the **Task Name** field, enter: "Custom task migrate rabbitmq", in the **Task Prompt** field, enter: "You are a Spring Boot developer assistant, follow the commit to migrate from rabbitmq to servicebus."
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" alt-text="Screenshot of Visual Studio Code that shows the Create a new task option.":::
 
@@ -67,7 +67,7 @@ Use the following steps to apply your own task:
    - Create **plan.md** and **progress.md**
    - Check the version control status and checkout a new migration branch
    - Perform code migration
-   - Run validations: Build, Tests, CVE scan, Consistency, and Completeness
+   - Run validations: Build, Tests, CVE, Consistency, and Completeness
    - Generate a **summary.md** file
 
 1. If the agent is interrupted or stopped for waiting your confirmation during the execution, input "continue" to go ahead.
