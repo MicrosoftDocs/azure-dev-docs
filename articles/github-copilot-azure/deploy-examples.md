@@ -31,7 +31,7 @@ Then, add more detail for better results. Here are some example prompts:
 |Service or technology|Deploy prompt examples|
 |---|---|
 |Azure Kubernetes Service (AKS)|<ul><li>"Can you help me create a new deployment in my AKS cluster?"</li><li>"What is the Azure command to scale a deployment to 5 replicas?"</li><li>"Can you provide the Azure command to expose a deployment as a service?"</li></ul>|
-|Azure App Service|<ul><li>"How many Azure web app plans using the free tier do I have deployed, grouped by region in my <placeholder> subscription?"</li><li>"How many Azure web apps do I have deployed in eastus?"</li></ul>|
+|Azure App Service|<ul><li>"How many Azure web app plans using the free tier do I have deployed, grouped by region in my <your-subscription-id> subscription?"</li><li>"How many Azure web apps do I have deployed in eastus?"</li></ul>|
 |Azure Container Apps|<ul><li>"How can I deploy my container app to Azure?"</li></ul>|
 |Azure Developer CLI (`azd`)|<ul><li>"Use azd to deploy my Azure project."</li><li>"I want to use azd to create a deployment pipeline for my Azure application."</li><li>"Initialize my project with the Azure Developer CLI."</li><li>"Please start an azd deployment pipeline in Azure."</li></ul>|
 |Azure DevOps|<ul><li>"Create a deployment pipeline for my Azure project."</li><li>"I don't want to deploy my app from my local machine — can you set up a remote Azure solution instead?"</li><li>"I need a CI/CD pipeline so I can deploy my app to Azure."</li><li>"I need help setting up a pipeline to deploy my app to Azure."</li><li>"Please help me create an automated Azure deployment pipeline for my app."</li><li>"This project is ready for automated deployment — set it up in Azure."</li></ul>|
