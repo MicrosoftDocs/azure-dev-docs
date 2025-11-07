@@ -214,7 +214,7 @@ You can also set the default tenant in the extension settings:
 
 ## View the GitHub Copilot for Azure instructions file
 
-The **instructions** file (also refered to as "Azure Copilot Guidelines") contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilt for Azure tools and Azure MCP Server tools. The guidance in this file are intended to be global in nature, meaning, they are intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. You should not modify this file because it could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Coplit for Azure.
+The **instructions** file (also referred to as "Azure Copilot Guidelines") contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilot for Azure tools and Azure MCP Server tools. The guidance in this file is intended to be global in nature, meaning, it's intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. You should not modify this file because it could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Copilot for Azure.
 
 Viewing the "Azure Copilot Guidelines" can provide an insight into how the GitHub Copilot for Azure tools and the Azure MCP Server tools are introduced to GitHub Copilot helping you develop a deeper understanding of how it all works.
 
