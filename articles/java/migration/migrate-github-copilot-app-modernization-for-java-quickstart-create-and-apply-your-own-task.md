@@ -33,57 +33,54 @@ Use the following steps to create your own task:
 
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository.
 
-1. In Visual Studio Code, open the **rabbitmq-sender** project folder in the samples' repository. Then, check out the project to the **source** branch.
+1. In Visual Studio Code, open the `rabbitmq-sender` project folder from the cloned repository. Then, switch to the **source** branch.
 
-1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane, hover the mouse over the **TASKS** section, and then select **Create a Custom Task**.
+1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane, hover over the **TASKS** section and select **Create a Custom Task**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/create-task-from-source-control.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/create-task-from-source-control.png" alt-text="Screenshot of Visual Studio Code that shows the button for Create Custom Task.":::
 
-1. In the pop-up dialog box, select **Create new task**.
+1. A 'task.md' file will open, In the **Task Name** field, enter: "Custom task migrate rabbitmq". In the **Task Prompt** field, enter: "You are a Spring Boot developer assistant, follow the commit to migrate from rabbitmq to servicebus."
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/select-create-custom-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/select-create-custom-task.png" alt-text="Screenshot of Visual Studio Code that shows the Create new task option.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" alt-text="Screenshot of Visual Studio Code that shows the Create new task option.":::
 
-1. Type **migrate rabbitmq to service bus** to search for the commit that migrates RabbitMQ. Select the corresponding commit and then select **OK**.
+1. Click **Add References**, then select **Git commits** in the pop-up dialog box. 
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/add-references.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/add-references.png" alt-text="Screenshot of Visual Studio Code that shows the add references option.":::
+
+1. Search for the commit that migrates RabbitMQ by typing **migrate rabbitmq to service bus**. Select the corresponding commit and click **OK**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/commit-for-custom-task.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select commits you want to save.":::
 
-1. Select any uncommitted changes from **Working tree** if they exist, or you can just skip the choice and select **OK** here.
+1. Click the “Save” button. Your custom task for migrating `rabbitmq` will now appear under **TASKS - My Tasks** section.
 
-    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/select-uncommitted-changes.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/select-uncommitted-changes.png" alt-text="Screenshot of the Visual Studio Code dialog box with the heading Select uncommitted changes.":::
-
-1. If you want to import the commits from a file, choose **Select Files** in the next pop-up dialog box. This option enables you to select files that contain the commit history you want to use for the custom task and the file you selected is processed locally. Select **Skip file selection** to continue.
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/import-diff-from-file.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/import-diff-from-file.png" alt-text="Screenshot of Visual Studio Code that shows the Describe changes using local files dialog box.":::
-
-1. A default task name is generated. Rename it **custom task migrate rabbitmq** and press <kbd>Enter</kbd> to confirm.
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/enter-task-name.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/enter-task-name.png" alt-text="Screenshot of Visual Studio Code that shows the Enter task name dialog box.":::
-
-1. A default task description is generated. Press <kbd>Enter</kbd> to confirm.
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/describe-task-details.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/describe-task-details.png" alt-text="Screenshot of Visual Studio Code that shows the Describe task details dialog box.":::
-
-1. Now, your own task for migrating `rabbitmq` is generated and shows in the **TASKS - My Tasks** section of the **GitHub Copilot app modernization** pane.
-
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/custom-task-rabbitmq.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/custom-task-rabbitmq.png" alt-text="Screenshot of Visual Studio Code that shows the Tasks section with the rabbitmq task showing.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/save-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/save-task.png" alt-text="Screenshot of Visual Studio Code that shows the Tasks section with the rabbitmq task showing.":::
 
 ## Apply your own task
 
 Use the following steps to apply your own task:
 
-1. Find your own task in the **TASKS - My Tasks** section of **GitHub Copilot app modernization** pane. Run this task by selecting **Run Task**.
+1. Click the **Run** button at the bottom of the file. Or find your own task in the **TASKS - My Tasks** section of **GitHub Copilot app modernization** pane and run the task by selecting **Run Task**.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-task.png" alt-text="Screenshot of Visual Studio Code that shows the Tasks section with the Run task button highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/run-custom-task.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/run-custom-task.png" alt-text="Screenshot of Visual Studio Code that shows the Tasks section with the Run task button highlighted.":::
 
-1. The Copilot chat window with Agent Mode opens automatically and proceeds to run various tools in the Copilot Chat window. It creates **plan.md** and **progress.md** for you to review and change. Manually input **continue** to confirm and proceed with the plan.
+1. The Copilot chat window will open in Agent Mode and automatically execute the following steps:
+   - Create **plan.md** and **progress.md**
+   - Check the version control status and checkout a new migration branch
+   - Perform code migration
+   - Run validations: Build, Tests, CVE scan, Consistency, and Completeness
+   - Generate a **summary.md** file
 
-1. During the code changes, repeatedly select **Allow** to let the agent run Git commands - for example, to check the version control system status or checkout a new branch for migration.
+1. If the agent is interrupted or stopped for waiting your confirmation during the execution, just input "continue" to go ahead.
 
-1. Repeatedly input **Continue** to confirm the use of tools and wait for the code changes to finish.
+1. After all steps finished, review the code changes and click **Keep** to confirm in chat window.
 
-1. After code changes finish, repeatedly input **Continue** to proceed with the validation and fix iteration loop.
+## Update/Delete your own task
 
-1. After all validation finishes, review the code changes and confirm them by selecting **Keep**.
+1. Locate the 'Custom task migrate rabbitmq' in the **TASKS - My Tasks** section and right-click to open the context menu and choose:
+   - **Edit** to update the task
+   - **Delete** to remove the task
+
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/edit-delete.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/edit-delete.png" alt-text="Screenshot of Visual Studio Code that shows edit or delete custom task.":::
 
 ## See also
 
