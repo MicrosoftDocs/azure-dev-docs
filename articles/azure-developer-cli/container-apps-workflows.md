@@ -1,46 +1,90 @@
 ---
-title: Azure Container Apps Deployment Strategies using the Azure Developer CLI
-description: Learn about Azure Container Apps deployment strategies using the Azure Developer CLI.
+title: Deploying to Azure Container Apps
+description: Learn how to deploy container apps using either image-based or revision-based deployment strategies with Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/15/2025
+ms.date: 11/07/2025
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-`azd`evcli
 ---
 
-# Azure Container Apps deployment strategies using the Azure Developer CLI
+# Deploying to Azure Container Apps
 
-The Azure Developer CLI (`azd`) provides multiple strategies to provision and deploy applications to [Azure Container Apps](/azure/container-apps/overview). This document outlines these strategies, including when to use them and how they work.
+This document describes the two supported deployment strategies for container apps when using `azd`:
 
-## Container app upsert strategy
+- **Image-based strategy** — separates container app configuration updates from image deployments.
+- **Revision-based strategy** — unifies both into a single deployment and supports advanced rollout patterns.
 
-The `container-app-upsert` strategy is a Bicep-based approach for creating or updating Azure Container Apps. It's a flexible option that works well for many types of container applications.
+---
 
-### How it works
+## Image-Based Deployment Strategy
 
-The `container-app-upsert` strategy:
+### Overview
 
-1. Uses a Bicep module (`container-app-upsert.bicep`) that detects whether a Container App already exists.
-2. If the Container App exists, it updates the existing app while preserving its current container image if no new image is specified.
-3. If the Container App doesn't exist, it creates a new one with the specified parameters.
+In this strategy, the container app **configuration** is created and updated during `azd provision`, while the **container image** is updated during `azd deploy`.
 
-This approach is commonly used in `azd` templates, such as the Todo application templates (nodejs-mongo-aca, python-mongo-aca, etc.).
+- The container app definition (resources, environment variables, health probes, etc.) resides in a **Bicep module** applied during provisioning.  
+- Only the container image reference (`containers[0].image`) changes during deployment.
 
-### When to use it
+### Revision Behavior
 
-Use the `container-app-upsert` strategy when:
+Each change to the app configuration or image triggers a new revision:
 
-- You want the ability to incrementally update your Container App without replacing it entirely.
-- You need to preserve certain settings during updates.
-- You're working with standard container applications that aren't based on the .NET Aspire framework.
-- You want a pattern that supports composability across multiple services.
+| Step | Command | Applies changes to | Notes |
+|------|----------|--------------------|-------|
+| 1 | `azd provision` | Environment variables, resources, mounts, probes, load balancers | Creates a new revision |
+| 2 | `azd deploy` | Container image | Creates another revision |
 
-### Example
+Each revision allocates additional replicas in the Container Apps environment, which may temporarily increase resource usage and cost.
 
-Here's how to use the `container-app-upsert` strategy in your Bicep files:
+> [!NOTE]
+> Advanced rollout patterns (e.g., blue-green or canary) are **not supported** in this strategy.
+
+---
+
+### Enabling Image-Based Strategy
+
+To ensure that `azd provision` correctly updates an existing container app without overwriting the latest deployed image, you must perform an **upsert** operation.  
+This pattern is implemented by the **AVM [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert)** module.
+
+---
+
+#### Step 1 — Configure the `SERVICE_{NAME}_RESOURCE_EXISTS` variable
+
+In your `main.parameters.json`, define a parameter that references the azd-provided variable `SERVICE_{NAME}_RESOURCE_EXISTS`.  
+This variable is automatically set by `azd` at provision time to indicate whether the resource already exists.
+
+```jsonc
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "${AZURE_ENV_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    // ... other parameters
+    "apiExists": {
+      "value": "${SERVICE_API_RESOURCE_EXISTS}"
+    }
+  }
+}
+```
+
+---
+
+#### Step 2 — Reference the `exists` parameter in your Bicep module
+
+In your Bicep file, reference the `exists` parameter to control whether the container app should be created or updated.  
+The [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert) module encapsulates this logic internally.
 
 ```bicep
+@description('Indicates whether the container app resource already exists.')
+param apiExists bool
+
 module api 'br/public:avm/ptn/azd/container-app-upsert:0.1.2' = {
   name: 'api'
   params: {
@@ -61,74 +105,217 @@ module api 'br/public:avm/ptn/azd/container-app-upsert:0.1.2' = {
 }
 ```
 
-In this example:
+This allows `azd provision` to **upsert** (update if exists, create if not) the container app resource safely without requiring manual checks.
 
-- The `exists` parameter determines whether to update an existing app or create a new one.
-- The `imageName` uses the `!empty()` function to conditionally specify a new image or keep the existing one.
-- Application settings are provided via the `env` parameter.
+> [!TIP]
+> Keep the `apiVersion` in `azure.yaml` aligned with the Bicep module’s `apiVersion` for `Microsoft.App/containerApps` to avoid mismatches.
 
-## Delay deployment strategy with .NET Aspire
+---
 
-The `delay-deployment` strategy is specifically designed for .NET Aspire applications. It postpones full container app creation until deployment time, allowing for more flexibility with .NET Aspire's orchestration model.
+## Revision-Based Deployment Strategy
 
-### How it works
+### Overview
 
-The `delay-deployment` strategy:
+In this strategy, both the container app **definition** and **image** are deployed together during `azd deploy`.
 
-1. Delays full provisioning of container resources until deployment time.
-2. Uses the .NET Aspire manifest to define container apps and their configurations.
-3. Supports two deployment approaches based on the manifest:
-   - Bicep-based deployment (when the manifest includes a deployment configuration).
-   - YAML-based deployment (direct Container Apps YAML deployment).
-4. Handles special features like service binding and configuration sharing across Aspire components.
+- The container app configuration resides in a **dedicated Bicep module** applied during deployment.  
+- Changes to environment variables, images, resources, or load-balancing settings are rolled out as a **single revision**.
 
-When using .NET Aspire with `azd`, the Aspire project generates a manifest that `azd` uses during deployment. This approach allows for better integration with .NET Aspire's application model.
+> [!TIP]
+> This strategy supports blue-green, canary, and other advanced rollout patterns.
 
-### When to use it
+---
 
-Use the `delay-deployment` strategy when:
+### Configuration
 
-- Working with .NET Aspire applications.
-- Your application has complex service relationships defined in the Aspire manifest.
-- You need integration with .NET Aspire's resource binding model.
-- You want to leverage .NET Aspire's application hosting capabilities.
+#### Step 1 — Define the container app deployment
 
-### Example
+Create an infra file for your service, e.g. `infra/api.bicep`.  
+You can define your container app either by using the **AVM-based module** or by defining the **resource directly**.
 
-For .NET Aspire applications, `azd` automatically uses the delay-deployment strategy when you specify `"containerapp-dotnet"` as the host type. Typically, this is handled automatically when importing a .NET Aspire project.
+::: zone pivot="avm-module"
 
-When working with a .NET Aspire application:
+##### Option 1: AVM-based module
 
-1. Initialize your `azd` project with a .NET Aspire application:
+```bicep
+@description('Unique environment name used for resource naming.')
+param environmentName string
 
-    ```bash
-    # This is typically done automatically by `azd` init for .NET Aspire projects
-    azd init
-    ```
+@description('Primary location for all resources.')
+param location string
 
-1. During provisioning, `azd` sets up the necessary Azure resources but delays full Container App configuration.
+param containerRegistryName string
+param containerAppsEnvironmentName string
+param imageName string
+param identityId string
 
-1. During deployment, `azd` will:
+resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' existing = {
+  name: containerRegistryName
+}
 
-    - Build and publish the container images.
-    - Apply the .NET Aspire manifest with proper configuration.
-    - Configure service bindings between components.
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
+  name: containerAppsEnvironmentName
+}
 
-The delay-deployment strategy is primarily managed internally by `azd` based on the .NET Aspire application structure.
+module api 'br/public:avm/res/app/container-app:0.8.0' = {
+  name: 'api'
+  params: {
+    name: 'api'
+    ingressTargetPort: 80
+    scaleMinReplicas: 1
+    scaleMaxReplicas: 10
+    containers: [
+      {
+        name: 'main'
+        image: imageName
+        resources: {
+          cpu: json('0.5')
+          memory: '1.0Gi'
+        }
+      }
+    ]
+    managedIdentities: {
+      systemAssigned: false
+      userAssignedResourceIds: [identityId]
+    }
+    registries: [
+      {
+        server: containerRegistry.properties.loginServer
+        identity: identityId
+      }
+    ]
+    environmentResourceId: containerAppsEnvironment.id
+    location: location
+    tags: {
+      'azd-env-name': environmentName
+      'azd-service-name': 'api'
+    }
+  }
+}
+```
 
-## Choosing the right strategy
+::: zone-end
 
-| Feature                | container-app-upsert         | delay-deployment (.NET Aspire) |
-|------------------------|------------------------------|-------------------------------|
-| Application type       | Any containerized application| .NET Aspire applications      |
-| Configuration source   | Bicep parameters             | .NET Aspire manifest          |
-| Deployment timing      | All configuration during provisioning | Container App specifics during deployment |
-| Service binding        | Manual configuration         | Integrated with Aspire binding model |
-| Best for               | General container applications | .NET microservices orchestrated with Aspire |
+::: zone pivot="bicep-resource"
+
+##### Option 2: Direct Bicep resource
+
+If you prefer not to depend on the AVM module, you can define the container app resource directly.
+
+```bicep
+@description('Unique environment name used for resource naming.')
+param environmentName string
+
+@description('Primary location for all resources.')
+param location string
+
+param containerRegistryName string
+param containerAppsEnvironmentName string
+param imageName string
+param identityId string
+
+resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' existing = {
+  name: containerRegistryName
+}
+
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' existing = {
+  name: containerAppsEnvironmentName
+}
+
+resource api 'Microsoft.App/containerApps@2025-02-02-preview' = {
+  name: 'api'
+  location: location
+  tags: {
+    'azd-env-name': environmentName
+    'azd-service-name': 'api'
+  }
+  properties: {
+    environmentId: containerAppsEnvironment.id
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 8080
+        transport: 'http'
+      }
+      registries: [
+        {
+          server: containerRegistry.properties.loginServer
+          identity: identityId
+        }
+      ]
+      activeRevisionsMode: 'Single'
+    }
+    template: {
+      containers: [
+        {
+          image: imageName
+          name: 'main'
+          resources: {
+            cpu: json('0.5')
+            memory: '1.0Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 10
+      }
+    }
+  }
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${identityId}': {}
+    }
+  }
+}
+```
+
+::: zone-end
+
+---
+
+#### Step 2 — Provide parameters at deploy time
+
+Create a parameters file (e.g. `api.parameters.json`):
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": { "value": "${AZURE_ENV_NAME}" },
+    "location": { "value": "${AZURE_LOCATION}" },
+    "containerRegistryName": { "value": "${AZURE_CONTAINER_REGISTRY_NAME}" },
+    "containerAppsEnvironmentName": { "value": "${AZURE_CONTAINER_ENVIRONMENT_NAME}" },
+    "imageName": { "value": "${SERVICE_API_IMAGE_NAME}" },
+    "identityId": { "value": "${SERVICE_API_IDENTITY_ID}" }
+  }
+}
+```
+
+> [!NOTE]
+> `SERVICE_API_IMAGE_NAME` is dynamically set during deploy and not part of the provision outputs.
+
+Pass any additional outputs from `azd provision` as parameters to `azd deploy` if your container app references other provisioned resources.
+
+When you run `azd deploy`, the container app revision is applied using the resource definition defined above.
+
+---
+
+### Comparison Summary
+
+| Aspect | Image-Based | Revision-Based |
+|--------|--------------|----------------|
+| Update command | `azd provision` + `azd deploy` | `azd deploy` only |
+| Rollout type | Two revisions | Single revision |
+| Rollout control | Managed by `azd` | Configurable (blue-green, canary) |
+| Use case | Simple environments | Advanced deployments |
+| Container app definition location | Provision-time Bicep | Deploy-time Bicep |
 
 ## Additional resources
 
 - [Azure Container Apps Overview](/azure/container-apps/overview)
 - [Azure Container Apps Bicep Reference](/azure/templates/microsoft.app/containerapps)
 - [.NET Aspire Overview](/dotnet/aspire/get-started/aspire-overview)
-- [Todo Application Templates](https://github.com/Azure-Samples/todo-nodejs-mongo) (using container-app-upsert)
+- [Todo Application Templates](https://github.com/Azure-Samples/todo-nodejs-mongo-aca) (using image-based)
