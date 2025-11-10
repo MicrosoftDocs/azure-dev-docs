@@ -15,7 +15,7 @@ In this tutorial, you deploy a **[Django](https://www.djangoproject.com/)** web 
 
 In this tutorial, you create a user-assigned managed identity and assign it to the App Service so that it can access the database and storage account resources. For an example of using a system-assigned managed identity, see [Create and deploy a Flask Python web app to Azure with system-assigned managed identity](./tutorial-python-managed-identity-cli.md). User-assigned managed identities are recommended because they can be used by multiple resources, and their life cycles are decoupled from the resource life cycles with which they're associated. For more information about best practices for using managed identities, see [Managed identity best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
-This tutorial shows you how to deploy the Python web app and create Azure resources using the [Azure CLI](/cli/azure/what-is-azure-cli). The commands in this tutorial are written to be run in a Bash shell. You can run the tutorial commands in any Bash environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). With some modification -- for example, setting and using environment variables -- you can run these commands in other environments like Windows command shell.
+This tutorial shows you how to deploy the Python web app and create Azure resources using the [Azure CLI](/cli/azure/what-is-azure-cli). While the commands in this tutorial use the Bash shell, you can run the tutorial commands in any Bash environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). With some modification you can run these commands in other environments like Windows command shell (ex. modifying syntax to set and use environment variables).
 
 ## Get the sample app
 
@@ -149,7 +149,7 @@ To learn more about authenticating your apps with Azure services, see [Authentic
 
 ## Create an Azure App Service and deploy the code
 
-Run these commands in the root folder of the sample app to create an App Service and deploy the code to it.
+To create an App Service and deploy the code, run these commands in the root folder of the sample app.
 
 1. Create an app service using the [az webapp up](/cli/azure/webapp#az-webapp-up) command.
 
@@ -206,13 +206,13 @@ In this section, you create a storage account and container that permits public 
     ```
 
     > [!NOTE]
-    > If the command fails, for example, if you get an error indicating that the request may be blocked by network rules of the storage account, enter the following command to make sure that your Azure user account is assigned an Azure role with permission to create a container.
+    > It's possible that the command fails. For example, you might get an error indicating that network rules are blocking the request to create the storage account. If the command fails, enter the following command to make sure to assign an Azure role with the permission to create containers to your Azure user account.
     >
     > ```azurecli
     > az role assignment create --role "Storage Blob Data Contributor" --assignee $ACCOUNT_EMAIL --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
     > ```
     >
-    > For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Note that several Azure roles permit you to create containers in a storage account, including "Owner", "Contributor", "Storage Blob Data Owner", and "Storage Blob Data Contributor".
+    > For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Several Azure roles permit you to create containers in a storage account, including **Owner**, **Contributor**, **Storage Blob Data Owner**, and **Storage Blob Data Contributor**.
 
 ## Create a user-assigned managed identity
 
@@ -261,7 +261,7 @@ The sample app uses environment variables (app settings) to define connection in
 
 The sample app code uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the `AZURE_CLIENT_ID` environment variable, which you set as an app setting.
 
-If the `AZURE_CLIENT_ID` environment variable doesn't exist, the system-assigned managed identity is used if it's configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
+If the `AZURE_CLIENT_ID` environment variable doesn't exist, the system-assigned managed identity is used if configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
 ## Create roles for the managed identity
 
@@ -291,7 +291,7 @@ In this section, you create role assignments for the managed identity to enable 
       --querytext "select * from pgaadauth_create_principal('"$UA_NAME"', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
-    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you've allowed access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
+    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you allow access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
 
 ## Test the Python web app in Azure
 
