@@ -14,6 +14,7 @@ ms.subservice: migration-copilot
 # Migrate from Oracle to PostgreSQL
 
 In aspect of app code change relating to DB migration scenarios, GitHub Copilot app modernization has already provided a list of predefined tasks to support you on homogeneous migration: from PostgreSQL, SQL Server, MySQL, Cassandra, MongoDB, etc. to corresponding Azure Database offering, as well as on heterogeneous migration: from Oracle to Azure PostgreSQL. The tasks mainly help you prepare your codebase for Managed Identity authentication to the Azure databases. 
+
 Another important factor to consider during database migration is SQL dialect conversion, which encompasses both static and dynamic SQL present in application code. For homogeneous migrations, SQL conversion is typically unnecessary since the database type remains the same. However, in heterogeneous migrations—such as transitioning from Oracle to PostgreSQL—the process of converting SQL can be complex and requires considerable effort. We aim to invest resources in this area to better support you customers and streamline your migration experience.
 We are now offering two significant advancements for Oracle to PostgreSQL migration scenario jointly with Azure PostgreSQL team:
 1.	AI-Powered Database Migration tooling: a brand-new PostgreSQL tooling powered by AI that can efficiently manage the database migration process from Oracle to PostgreSQL, thereby reducing manual intervention and minimizing the risk of errors.
