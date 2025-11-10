@@ -206,7 +206,7 @@ To enhance security, storage accounts are created with anonymous access to blob 
     ```
 
     > [!NOTE]
-    > For brevity, this command uses the storage account key to authorize with the storage account. For most scenarios, Microsoft's recommended approach is to use Microsoft Entra ID and Azure (RBAC) roles. For a quick set of instructions, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Several Azure roles permit you to create containers in a storage account, including "Owner", "Contributor", "Storage Blob Data Owner", and "Storage Blob Data Contributor".
+    > For brevity, this command uses the storage account key to authorize with the storage account. For most scenarios, Microsoft's recommended approach is to use Microsoft Entra ID and Azure role-based access control (Azure RBAC) roles. For a quick set of instructions, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Several Azure roles permit you to create containers in a storage account, including **Owner**, **Contributor**, **Storage Blob Data Owner**, and **Storage Blob Data Contributor**.
 
 To learn more about anonymous read access to blob data, see [Configure anonymous read access for containers and blobs](/azure/storage/blobs/anonymous-read-access-configure).
 
