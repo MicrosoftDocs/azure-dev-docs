@@ -22,7 +22,7 @@ items:
           - name: Configure settings for IntelliJ
             href: /java/upgrade/configure-settings-intellij?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Estate tool integration
-            href: /java/migration/migrate-github-copilot-app-modernization-for-java-estate-tool-integration.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            href: ../java/migration/migrate-github-copilot-app-modernization-for-java-estate-tool-integration.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Upgrade Java projects
             expanded: true
             items:
