@@ -10,11 +10,11 @@ ms.custom: devx-track-azdevcli, devx-track-ai
 ai-usage: ai-generated
 ---
 
-# Use the azd AI extension to deploy an Agent to Azure AI Foundry
+# Deploy an Agent to Azure AI Foundry with the azd AI agent extension
 
-This tutorial shows how to use the Azure Developer CLI (`azd`) AI agent extension (`azd ai agent`) to scaffold, configure, provision, and deploy an Azure AI Foundry agent. You start from an empty folder, generate the project structure, provision model deployments and an AI project, and deploy a working agent.
+This tutorial shows how to scaffold, configure, provision, and deploy an Azure AI Foundry agent with the Azure Developer CLI (`azd`) AI agent extension (`azd ai agent`). You start from an empty folder, generate the project structure, provision model deployments and an AI project, and deploy a working agent.
 
-The `azd ai agent` extension adds agent-centric workflows to the Azure Developer CLI. It integrates Azure AI Foundry projects, model deployments, and connections with existing `azd` lifecycle features, such as `azd init` and `azd up`. :
+The `azd ai agent` extension adds agent-centric workflows to the Azure Developer CLI. It integrates Azure AI Foundry projects, model deployments, and connections with existing `azd` lifecycle features, such as `azd init` and `azd up`.
 
 ## Use cases and roles
 
