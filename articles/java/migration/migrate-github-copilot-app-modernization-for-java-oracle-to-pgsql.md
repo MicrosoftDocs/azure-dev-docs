@@ -1,7 +1,7 @@
 ---
-title: GitHub Copilot App Modernization for Java Developers
+title: Migrate from Oracle to PostgreSQL
 titleSuffix: Azure
-description: Provides an overview of GitHub Copilot app modernization for Java developers.
+description: Provides instructions to guide customers to migrate from Oracle to PostgreSQL database.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
@@ -11,50 +11,20 @@ ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# GitHub Copilot app modernization for Java developers
+# Migrate from Oracle to PostgreSQL
 
-This article describes GitHub Copilot app modernization, which is an AI assistant that delivers end-to-end support for application modernization.
+In aspect of app code change relating to DB migration scenarios, GitHub Copilot app modernization has already provided a list of predefined tasks to support you on homogeneous migration: from PostgreSQL, SQL Server, MySQL, Cassandra, MongoDB, etc. to corresponding Azure Database offering, as well as on heterogeneous migration: from Oracle to Azure PostgreSQL. The tasks mainly help you prepare your codebase for Managed Identity authentication to the Azure databases. 
+Another important factor to consider during database migration is SQL dialect conversion, which encompasses both static and dynamic SQL present in application code. For homogeneous migrations, SQL conversion is typically unnecessary since the database type remains the same. However, in heterogeneous migrations—such as transitioning from Oracle to PostgreSQL—the process of converting SQL can be complex and requires considerable effort. We aim to invest resources in this area to better support you customers and streamline your migration experience.
+We are now offering two significant advancements for Oracle to PostgreSQL migration scenario jointly with Azure PostgreSQL team:
+1.	AI-Powered Database Migration tooling: a brand-new PostgreSQL tooling powered by AI that can efficiently manage the database migration process from Oracle to PostgreSQL, thereby reducing manual intervention and minimizing the risk of errors.
+2.	Smart SQL Conversion in app code: To support necessary application code changes, we offer built-in SQL conversion functionality in GitHub Copilot app modernization, seamlessly integrated as part of a unified task workflow.
+## DB Migration with AI-Powered Database Migration tooling
+To understand how to install and use the AI-Powered Database Migration tooling for DB migration, you may directly refer to this official Azure PostgreSQL document. 
+## DB related app code change with Smart SQL Conversion
+GitHub Copilot app modernization now provides a dedicated migration task designed to address both the database client update (use Managed Identity authentication) and SQL conversion required for the Oracle to PostgreSQL migration scenario. A key feature is the ability to leverage coding notes, which detail schema changes for the database migration. By incorporating these notes during the migration task, GitHub Copilot app modernization can generate high quality SQL conversions tailored to the specific changes in your schema.
+Step-by-Step guidance as below:
+1.	Run Application Assessment: follow Quickstart: Assess and Migrate a Java Project Using GitHub Copilot app modernization - Azure | Microsoft Learn to get an assessment report for your application. 
+2.	Review Assessment Report: After the assessment completes, review the generated report. If your application uses Oracle, then an Oracle-related issue “Database Migration (Oracle)” should be revealed in the report and accordingly “Migrate from Oracle DB to PostgreSQL” will be the default solution there.
+3.	Make sure the coding notes is placed properly in your app code folder. You may refer to this PostgreSQL official doc to understand more about what is coding notes and where to get it to facilitate the consumption on GHCP App modernization side. 
+4.	Execute Migration Task: Next, click "Run Task" to execute the migration. If coding notes have been properly placed, App Mod will reference these notes to produce a high quality SQL conversion as well as the database client update (use Managed Identity authentication). Otherwise, the conversion will apply general Oracle-to-PostgreSQL syntax adjustments to propose changes.
 
-Enterprises often deal with technical debt throughout their development cycles, and upgrading Java runtimes, frameworks, and dependencies is a common but resource-intensive task. At the same time, many organizations aim to migrate and modernize their application estate to the cloud, which involves:
-
-- Assessing the current state of code, configuration, and dependencies
-- Planning Azure resources
-- Remediating issues to enable successful migration
-
-Built on **GitHub Copilot agent mode**, GitHub Copilot app modernization offers predefined tasks for common upgrade and migration scenarios while incorporating industry best practices for running applications on Azure. At the same time, it enables teams to infuse their own coding standards, organizational policies, and existing practices into the modernization process.
-
-## Key capabilities at a glance
-
-- **Application assessment and planning**: Analyzes code, configuration, and dependencies. Helps you visualize every task in the modernization process, from assessment to deployment.
-- **Code transformations**: Suggests and applies code remediation for upgrade and migration scenarios.
-- **Build, patching, and tests**: Verifies that the project builds successfully after remediation, and applies fixes when needed. Performs Common Vulnerabilities and Exposures (CVE) checks to reduce exposure to security vulnerabilities. Migrates existing and generates new unit tests to validate modernization outcomes and improve test coverage.
-- **Containerization and deployment**: Generates Dockerfiles for app containerization and other artifacts to automate deployment to Azure.
-
-GitHub Copilot app modernization integrates GitHub Copilot's AI-powered capabilities with open-source tools like `OpenRewrite` to automate complex upgrade steps. It supports both Maven and Gradle projects and targets upgrades between Java versions 8, 11, 17, and 21. The tool has a particular focus on modernizing applications that use the Spring Boot framework. The upgrade process keeps you in control and ensures transparency by displaying all logs and outputs.
-
-Start your migration journey with **App Assessments** to get an overview of cloud readiness migration issues, including:
-
-- Instructions for setting up Azure resources
-- Recommendations on following best practices
-- Recommendations for changing your application code
-
-In scenarios where code changes are required, GitHub Copilot app modernization guides you through the remediation step. At this stage, you can use predefined tasks for common issues, such as:
-
-- Switching from password-based authentication to managed identities
-- Moving from Amazon Web Services (AWS) S3 to Azure Blob Storage
-
-To learn more about predefined tasks available in GitHub Copilot app modernization today, see [Predefined tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
-
-When it comes to development, enterprises often have strict processes and controls, which is where customer-defined tasks come in. For more information, see [Quickstart: create and apply your own tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)
-
-Customer-defined tasks are automatically generated by analyzing code commits from previously migrated applications. These tasks serve as remediation guides for similar issues in other apps, enabling Copilot to apply proven patterns across multiple codebases. With each successful migration, the knowledge base expands, accelerating future remediations and reducing manual effort
-
-GitHub Copilot app modernization also includes specialized agents to:
-
-- Verify your app builds successfully
-- Reduce technical debt by addressing CVEs
-- Validate behavioral integrity with unit tests
-
-For more information, see [GitHub Copilot app modernization Java utilities](/java/upgrade/tools).
-
-Modernization isn't just about upgrading code, it's about preparing your applications for the cloud. Whether you're targeting Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), or AKS Automatic, Copilot helps you get there faster and with confidence.
