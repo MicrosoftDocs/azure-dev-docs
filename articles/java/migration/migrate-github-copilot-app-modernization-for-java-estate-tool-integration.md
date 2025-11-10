@@ -29,6 +29,7 @@ The integration between estate tools and GitHub Copilot App Modernization follow
 3.	Architect Review and Developer Assignment: Architects review the generated application assessment reports to determine modernization priorities and application migration waves. Developers are then assigned applications for code remediation and modernization, leveraging the AI-driven capabilities of GitHub Copilot App Modernization to accelerate the process.
    
 To understand the detailed integration flow and best practices, refer to the following documentation:
-1. [Azure Migrate Documentation](https://aka.ms/azure-migrate-doc)
-1. [Dr.Migrate Documentation](https://aka.ms/dr-migrate-doc)
+- [Azure Migrate Documentation](https://aka.ms/azure-migrate-doc)
+- [Dr.Migrate Documentation](https://aka.ms/dr-migrate-doc)
+
 By leveraging the integration between estate tools and GitHub Copilot App Modernization, organizations can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.
