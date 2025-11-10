@@ -1,5 +1,5 @@
 ---
-title: 'Overview: Authenticate Python apps to Azure using the Azure SDK'
+title: Overview: Authenticate Python apps to Azure using the Azure SDK
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for Python in both server environments and in local development.
 ms.date: 11/10/2025
 ms.topic: overview
@@ -12,7 +12,7 @@ When an app needs to access an Azure resource like Azure Storage, Azure Key Vaul
 
 ## Recommended app authentication approach
 
-Use token-based authentication rather than connection strings for your apps when they authenticate to Azure resources. The [Azure Identity client library for Python](/python/api/overview/azure/identity-readme) provides classes that support token-based authentication and allow apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
+Use token-based authentication rather than connection strings for your apps when they authenticate to Azure resources. The [Azure Identity client library for Python](/python/api/overview/azure/identity-readme) includes classes for token-based authentication that let apps authenticate to Azure resources in any environment—local, in Azure, or on-premises.
 
 The specific type of token-based authentication an app uses to authenticate to Azure resources depends on where the app is being run. The types of token-based authentication are shown in the following diagram.
 
@@ -37,7 +37,7 @@ Use token-based authentication instead of using connection strings when you buil
 - The token-based authentication methods described in this article allow you to establish the specific permissions needed by the app on the Azure resource. This practice follows the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). In contrast, a connection string grants full rights to the Azure resource.
 - Anyone or any app with a connection string can connect to an Azure resource, but token-based authentication methods scope access to the resource to only the apps intended to access the resource.
 - With a managed identity, there's no application secret to store. The app is more secure because there's no connection string or application secret that can be compromised.
-- The [azure-identity](https://pypi.org/project/azure-identity/) package acquires and manages Microsoft Entra tokens for you. This makes using token-based authentication as easy to use as a connection string.
+- The `[azure-identity](https://pypi.org/project/azure-identity/)` package acquires and manages Microsoft Entra tokens for you. This makes using token-based authentication as easy to use as a connection string.
 
 Limit the use of connection strings to initial proof-of-concept apps or development prototypes that don't access production or sensitive data. Otherwise, the token-based authentication classes available in the Azure Identity client library are always preferred when they're authenticating to Azure resources.
 
