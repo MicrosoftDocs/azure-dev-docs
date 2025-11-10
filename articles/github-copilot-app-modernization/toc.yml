@@ -21,6 +21,8 @@ items:
             href: /java/upgrade/tools?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Configure settings for IntelliJ
             href: /java/upgrade/configure-settings-intellij?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - name: Estate tool integration
+            href: /java/migration/migrate-github-copilot-app-modernization-for-java-estate-tool-integration.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Upgrade Java projects
             expanded: true
             items:
@@ -49,6 +51,8 @@ items:
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migration sample
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            - name: Migrate from Oracle to PostgreSQL
+              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-pgsql.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - name: .NET
         expanded: true
         items:
