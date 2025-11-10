@@ -54,7 +54,7 @@ The Azure Identity library supports brokered authentication using [InteractiveBr
 > [!TIP]
 > View the [complete sample app code](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/identity/credentials/src/broker.ts) in the Azure SDK for JavaScript GitHub repository.
 
-In the preceding example, property  `useDefaultBrokerAccount` is set to `true`, which opts into a silent, brokered authentication flow with the default system account. In this way, the user doesn't have to repeatedly select the same account. If silent, brokered authentication fails, or `useDefaultBrokerAccount` is set to `false`, `InteractiveBrowserCredential` falls back to interactive, brokered authentication.
+In the preceding example, property `useDefaultBrokerAccount` is set to `true`, which opts into a silent, brokered authentication flow with the default system account. In this way, the user doesn't have to repeatedly select the same account. If silent, brokered authentication fails, or `useDefaultBrokerAccount` is set to `false`, `InteractiveBrowserCredential` falls back to interactive, brokered authentication.
 
 :::zone target="docs" pivot="os-windows"
 
