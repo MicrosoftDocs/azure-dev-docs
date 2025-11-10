@@ -106,10 +106,12 @@
         href: sdk/authentication/overview.md
       - name: Local development apps
         items: 
-        - name: With service principals
+        - name: Use service principals
           href: sdk/authentication/local-development-environment-service-principal.md
-        - name: With developer account
-          href: sdk/authentication/local-development-environment-developer-account.md            
+        - name: Use developer account
+          href: sdk/authentication/local-development-environment-developer-account.md
+        - name: Use a broker
+          href: sdk/authentication/local-development-broker.md
       - name: Auth for Azure-hosted apps
         items: 
         - name: Use a system-assigned managed identity
