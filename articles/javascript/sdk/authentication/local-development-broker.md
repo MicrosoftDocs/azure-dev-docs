@@ -11,7 +11,7 @@ zone_pivot_group_filename: developer/pivots.yml
 zone_pivot_groups: pivot-os-windows-linux
 ---
 
-# Authenticate Javascript apps to Azure services during local development using brokered authentication
+# Authenticate JavaScript apps to Azure services during local development using brokered authentication
 
 [!INCLUDE [broker-intro](../../../includes/authentication/includes/broker-intro.md)]
 
@@ -39,12 +39,6 @@ The Azure Identity library supports brokered authentication using [InteractiveBr
 
    ```bash
    npm install @azure/identity @azure/identity-broker
-   ```
-
-1. Install the [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) package:
-
-   ```bash
-   npm install @azure/keyvault-secrets
    ```
 
 1. Create an instance of [InteractiveBrowserCredential](/javascript/api/@azure/identity/interactivebrowsercredential) using broker options and register the native broker plugin:
