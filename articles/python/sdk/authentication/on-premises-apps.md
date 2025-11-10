@@ -1,7 +1,7 @@
 ---
 title: Authenticate to Azure resources from Python apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications. 
-ms.date: 06/02/2025
+ms.date: 11/10/2025
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -12,7 +12,7 @@ Apps hosted outside of Azure (for example on-premises or at a third-party data c
 
 A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
-## 1 - Register the application in Azure
+## Register the application in Azure
 
 An app can be registered with Azure using either the Azure portal or the Azure CLI.
 
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 
 ---
 
-## 2 - Assign roles to the application service principal
+## Assign roles to the application service principal
 
 Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
 
@@ -111,7 +111,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## 3 - Configure environment variables for application
+## Configure environment variables for application
 
 You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Python app to make the application service principal credentials available to your app at runtime. The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) object looks for the service principal information in these environment variables.
 
@@ -141,7 +141,7 @@ AZURE_TENANT_ID=<value>
 AZURE_CLIENT_SECRET=<value>
 ```
 
-## 4 - Implement DefaultAzureCredential in application
+## Implement DefaultAzureCredential in application
 
 To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package.
 
