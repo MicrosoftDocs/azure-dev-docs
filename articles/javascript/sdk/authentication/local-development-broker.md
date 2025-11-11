@@ -43,7 +43,7 @@ The Azure Identity library supports brokered authentication using [InteractiveBr
 
 1. Create an instance of [InteractiveBrowserCredential](/javascript/api/@azure/identity/interactivebrowsercredential) using broker options and register the native broker plugin:
 
-    :::code language="typescript" source="~/../azure-sdk-for-js-docs/samples/identity/credentials/src/broker.ts":::
+    :::code language="typescript" source="~/../azure-sdk-for-js-docs/samples/identity/credentials/src/broker.ts" id="BROKER":::
 
 > [!TIP]
 > View the [complete sample app code](https://github.com/Azure-Samples/azure-sdk-for-js-docs/blob/main/samples/identity/credentials/src/broker.ts) in the Azure SDK for JavaScript GitHub repository.
