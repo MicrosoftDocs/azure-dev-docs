@@ -22,9 +22,4 @@ This article provides an overview of how Java developers can modernize their app
 - Ensure you have GitHub Copilot Pro, Pro+, Business, or Enterprise plan
 
 ## Getting Started
-1. Open your IDE or terminal with Copilot Coding Agent enabled.  
-2. Connect the agent to your project repository.  
-3. Configure MCP (Managed Copilot Package) if you want advanced modernization features.  
-4. Initiate a modernization session, for example:  
-   ```text
-   Modernize this Java web application to Spring Boot 3 and deploy to Azure App Service
+1. 
