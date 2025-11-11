@@ -44,7 +44,7 @@ The extension will prompt you in the chat window to start the migration process:
 
 :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot showing the chat window with the migration task being invoked through the appmod-run-task tool.":::
 
-GitHub Copilot app modernization then guides you through completing the migration in the chat window.
+The extension then guides you through completing the migration in the chat window.
 
 For hybrid projects with both Python and other languages, open the folder that contains the Python code to make automatic detection work. For best results, use Claude Sonnet 4 or later.
 
