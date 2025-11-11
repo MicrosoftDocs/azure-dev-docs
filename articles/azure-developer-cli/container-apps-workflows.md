@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 
-# Deploy to Azure Container Apps
+# Deploy to Azure Container Apps using the Azure Developer CLI
 
 The Azure Developer CLI (`azd`) supports two deployment strategies for Azure Container Apps:
 
@@ -39,14 +39,11 @@ Each revision allocates additional replicas in the Container Apps environment, w
 > [!NOTE]
 > Advanced rollout patterns, such as blue-green or canary, aren't supported in this strategy.
 
----
+### Configure image-based deployments
 
-### Enable image-based strategy
+To ensure that `azd provision` updates an existing container app without overwriting the latest deployed image, perform an **upsert** operation. This pattern is implemented by the **AVM [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert)** module and consists of two steps:
 
-To ensure that `azd provision` updates an existing container app without overwriting the latest deployed image, perform an **upsert** operation.  
-This pattern is implemented by the **AVM [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert)** module and consists of two steps:
-
-1. In your `main.parameters.json`, define a parameter that references the azd-provided variable `SERVICE_{NAME}_RESOURCE_EXISTS`. This variable gets automatically set by `azd` at provision time to indicate whether the resource already exists.
+1. In your `main.parameters.json`, define a parameter that references the azd-provided variable `SERVICE_{NAME}_RESOURCE_EXISTS`. This variable gets set automatically by `azd` at provision time to indicate whether the resource already exists.
 
     ```jsonc
     {
@@ -105,10 +102,10 @@ In this strategy, both the container app **definition** and **image** are deploy
 - The container app configuration resides in a **dedicated Bicep module** applied during deployment.
 - Changes to environment variables, images, resources, and load-balancing settings are rolled out as a **single revision**.
 
-> [!TIP]
-> This strategy supports blue-green, canary, and other advanced rollout patterns.
+    > [!TIP]
+    > This strategy supports blue-green, canary, and other advanced rollout patterns.
 
-### Configuration
+### Configure revision-based deployments
 
 1. Define the container app deployment by creating an infra file for your service, such as `infra/api.bicep`. You can define your container app by using the **AVM-based module** or by defining the **resource directly**:
 
@@ -248,27 +245,28 @@ In this strategy, both the container app **definition** and **image** are deploy
 
 2. Provide parameters at deploy time by creating a parameters file (e.g. `api.parameters.json`):
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "environmentName": { "value": "${AZURE_ENV_NAME}" },
-    "location": { "value": "${AZURE_LOCATION}" },
-    "containerRegistryName": { "value": "${AZURE_CONTAINER_REGISTRY_NAME}" },
-    "containerAppsEnvironmentName": { "value": "${AZURE_CONTAINER_ENVIRONMENT_NAME}" },
-    "imageName": { "value": "${SERVICE_API_IMAGE_NAME}" },
-    "identityId": { "value": "${SERVICE_API_IDENTITY_ID}" }
-  }
-}
-```
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "environmentName": { "value": "${AZURE_ENV_NAME}" },
+        "location": { "value": "${AZURE_LOCATION}" },
+        "containerRegistryName": { "value": "${AZURE_CONTAINER_REGISTRY_NAME}" },
+        "containerAppsEnvironmentName": { "value": "${AZURE_CONTAINER_ENVIRONMENT_NAME}" },
+        "imageName": { "value": "${SERVICE_API_IMAGE_NAME}" },
+        "identityId": { "value": "${SERVICE_API_IDENTITY_ID}" }
+      }
+    }
+    ```
 
-> [!NOTE]
-> `SERVICE_API_IMAGE_NAME` is dynamically set during deploy and isn't part of the provision outputs.
+    > [!NOTE]
+    > `SERVICE_API_IMAGE_NAME` is dynamically set during deploy and isn't part of the provision outputs.
 
-Pass any additional outputs from `azd provision` as parameters to `azd deploy` if your container app references other provisioned resources.
+    When you run `azd deploy`, the container app revision is applied using the resource definition above.
 
-When you run `azd deploy`, the container app revision is applied using the resource definition above.
+    > [!TIP]
+    > Pass any additional outputs from `azd provision` as parameters to `azd deploy` if your container app references other provisioned resources.
 
 ### Comparison summary
 
