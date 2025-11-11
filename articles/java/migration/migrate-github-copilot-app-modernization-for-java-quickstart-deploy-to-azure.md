@@ -29,7 +29,7 @@ Use the following steps to start your deployment process:
 
 1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane.
 
-1. In the **Tasks** section, open **Common Tasks**, then open **Deployment Tasks** and select **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**.
+1. In the **Tasks** section, open **Java**, then open **Deployment Tasks** and select **Deploy to Existing Azure Infrastructure** or **Provision Infrastructure and Deploy to Azure**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-deploy-to-azure.png" alt-text="Screenshot of Visual Studio Code that shows the Provision Infrastructure and Deploy to Azure task with the Run Task button highlighted.":::
 
