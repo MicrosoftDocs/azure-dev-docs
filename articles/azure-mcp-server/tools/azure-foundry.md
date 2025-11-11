@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/07/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -36,12 +36,35 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Agent** |  Required | The ID of the agent to interact with. |
 | **Query** |  Required | The query sent to the agent. |
-| **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service. |
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#9989; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+
+## Agents: Create a new agent
+
+<!-- azmcp foundry agents create -->
+
+Creates an AI Foundry Agent that processes messages according to a given system instruction using an existing AI Foundry model deployment.
+
+Example prompts include:
+
+- **Create customer support agent**: "Create an agent named 'customer-support-bot' using deployment 'gpt-4' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' with system instruction 'You are a helpful customer support agent who assists with product inquiries and troubleshooting'"
+- **Create sales assistant**: "Set up an agent called 'sales-assistant' with model deployment 'gpt-35-turbo' at 'https://my-example-resource.services.ai.azure.com/api/projects/sales' that follows the instruction 'You are a sales assistant who helps customers find products and provides pricing information'"
+- **Create HR chatbot**: "Build an agent named 'hr-onboarding-bot' using deployment 'gpt-4-turbo' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept' with instruction 'You are an HR specialist who guides new employees through the onboarding process and answers policy questions'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Model deployment** |  Required | Name of the model deployment. |
+| **Agent name** |  Required | A human-readable name of the Agent. |
+| **System instruction** |  Required | System instruction for the agent to follow when process messages. |
+
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
 
 ## Agents: Evaluate an agent
 
 
-<!-- `azmcp foundry agents evaluate` -->
+<!-- azmcp foundry agents evaluate -->
 
 Run agent evaluation on agent data. Requires JSON strings for query, response, and tool definitions.
 
@@ -62,9 +85,29 @@ Example prompts include:
 | **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+
+## Agents: Get agent sample for language SDK
+
+<!-- azmcp foundry agents get-sdk-sample -->
+
+Get code samples to interact with a Foundry Agent using AI Foundry SDK and programming language of your choice.
+
+Example prompts include: 
+
+- **Get Python sample**: "Show me a Python code sample for interacting with a Foundry Agent"
+- **Get C# sample**: "Generate a csharp code example to work with my AI Foundry agent"
+- **Get TypeScript sample**: "Provide a typescript sample code for connecting to and using a Foundry Agent"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Programming language** |  Required | The programming language of the sdk for interacting with a Foundry Agent. Supported values are `csharp`, `python` and `typescript`. |
+
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+
 ## Agents: List agents
 
-<!-- `azmcp foundry agents list` -->
+<!-- azmcp foundry agents list -->
 
 
 List all Azure AI Agents in an Azure AI Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
@@ -81,10 +124,11 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
 
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## Agents: Query and execute an agent
 
-<!-- `azmcp foundry agents query-and-evaluate` -->
+<!-- azmcp foundry agents query-and-evaluate -->
 
 Query an agent and evaluate its response in a single operation. This command returns both the agent response and evaluation results.
 
@@ -105,7 +149,11 @@ Example prompts include:
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#9989; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+
 ## Knowledge: List knowledge indexes
+
+<!-- foundry knowledge index list -->
 
 Get a list of knowledge indexes from Azure AI Foundry:
 
@@ -124,9 +172,12 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
-    
+
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## Knowledge: Get index schema
+
+<!-- foundry knowledge index schema -->
 
 Get the detailed schema configuration of a specific knowledge index from Azure AI Foundry.
 
@@ -141,6 +192,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Index** |  Required | The name of the knowledge index. |
 
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## Models: List available models
 
@@ -163,6 +215,8 @@ Example prompts include:
 | **Publisher** | Optional | A filter to specify the publisher of the models to retrieve. |
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |
+
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## Models: Deploy a model
 
@@ -192,6 +246,9 @@ Example prompts include:
 | **SKU** | Optional | The SKU name for the deployment. |
 | **SKU capacity** | Optional | The SKU capacity for the deployment. |
 
+
+Destructive: &#9989; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+
 ## Models: List model deployments
 
 <!-- azmcp foundry models deployments list -->
@@ -210,10 +267,11 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Endpoint** | Required |The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## OpenAI: Create chat completions
 
-<!-- `azmcp foundry openai chat-completions-create` -->
+<!-- azmcp foundry openai chat-completions-create -->
 
  Create chat completions using Azure OpenAI in AI Foundry. Send messages to Azure OpenAI chat models deployed in your AI Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
 
@@ -246,6 +304,8 @@ Example prompts include:
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
 | **Authentication type** |  Optional | The type of authentication to use. Options are `key` (default) or `aad`. |
 
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+
 ## OpenAI: Create embeddings
 
 <!-- `azmcp foundry openai embeddings-create` -->
@@ -275,9 +335,11 @@ Example prompts include:
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
 | **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
 
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;    
+
 ## OpenAI: Create completions
 
-<!-- `azmcp foundry openai create-completion` -->
+<!-- azmcp foundry openai create-completion -->
 
  Create text completions using Azure OpenAI in AI Foundry. Send a prompt or question to Azure OpenAI models deployed in your AI Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
 
@@ -298,6 +360,7 @@ Example prompts include:
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
 
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## OpenAI: List models and deployments
 
@@ -319,13 +382,15 @@ Example prompts include:
 - **Model versions**: "Show me all model versions available in my 'ai-services-main' resource"
 - **Resource audit**: "I need to audit all OpenAI models and deployments in resource 'enterprise-ai'"
 
-
-
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+
 ## Resources: Get Foundry resource
+
+<!-- azmcp foundry resource get -->
 
 Get detailed information about Azure AI Foundry resources, including endpoint URL, 
 location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
@@ -342,6 +407,63 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Optional | The name of the Azure OpenAI resource. |
 
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+
+## Threads: Create a new thread
+
+<!-- azmcp foundry threads create -->
+
+Creates an AI Foundry agent thread that holds the messages between the Agent and the user.
+
+Example prompts include:
+
+- **Create support thread**: "Create a new thread at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' with user message 'I need help with my account login'"
+- **Start conversation thread**: "Create a thread at 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service' with message 'What are your business hours?'"
+- **Initialize chat thread**: "Start a new thread at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot' with the user message 'I'm interested in purchasing your premium plan'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **User message** |  Required | The user message to add to the thread. |
+
+Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+
+## Threads: Get thread messages
+
+<!-- azmcpfoundry threads get-messages -->
+
+Get messages in an AI Foundry agent thread.
+
+Example prompts include:
+
+- **Retrieve conversation history**: "Get all messages from thread 'thread_abc123xyz' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project'"
+- **View thread messages**: "Show me the messages in thread 'thread_456def789' from endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service'"
+- **Check thread content**: "Retrieve messages for thread ID 'thread_xyz789abc' at 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Thread ID** |  Required | The Foundry Agent Thread ID. |
+
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+
+## Threads: List all threads
+
+<!-- azmcp foundry threads list -->
+
+List AI Foundry agent threads.
+
+Example prompts include:
+
+- **List all threads**: "Show me all agent threads at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project'"
+- **View project threads**: "List all threads from 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service'"
+- **Get thread inventory**: "Retrieve all agent threads at 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+
+Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
 
 ## Related content
 
