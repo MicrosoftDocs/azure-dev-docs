@@ -36,7 +36,7 @@ GitHub Copilot app modernization can help you [migrate your .NET application to 
 ### Migrating to Agent Framework
 GitHub Copilot app modernization can help you migrate your Semantic Kernel or AutoGen application to Agent Framework, if it is written in Python.
 
-With GitHub Copilot app modernization installed and enabled, open your Python project and either select the **Convert to Agent Framework** button when detected automatically, or manually navigate to **Tasks** > **Python** > **Agent Framework Migration** > **Migrate AutoGen to Agent Framework** or **Migrate Semantic Kernel to Agent Framework**.
+With GitHub Copilot app modernization installed and enabled, open your Python project, select app modernization extension to open its sidebar, and either select the **Convert to Agent Framework** button when detected automatically, or manually navigate to **Tasks** > **Python** > **Agent Framework Migration** > **Migrate AutoGen to Agent Framework** or **Migrate Semantic Kernel to Agent Framework**.
 
 :::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot showing the entry points for converting to Agent Framework button in VS Code.":::
 
