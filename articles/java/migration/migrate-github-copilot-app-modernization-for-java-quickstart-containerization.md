@@ -31,7 +31,7 @@ Use the following steps to start your containerization process:
 
 1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane.
 
-1. In the **Tasks** section, open **Common Tasks**, then open **Containerize Tasks** and select **Containerize Application**.
+1. In the **Tasks** section, open **Java**, then open **Containerize Tasks** and select **Containerize Application**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
