@@ -65,6 +65,7 @@ sections:
           - JDK 11
           - JDK 17
           - JDK 21
+          - JDK 25
 
           The minimum required JDK version for a project is JDK 8, and you can upgrade the project to use any version up to JDK 21.
 
