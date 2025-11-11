@@ -11,6 +11,10 @@ items:
             href: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: FAQ
             href: ../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - name: Copilot CLI
+            href: ../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+          - name: Coding Agent
+            href: ../java/migration/github-copilot-app-modernization-for-java-coding-agent.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Java utilities
             href: /java/upgrade/tools?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Configure settings for IntelliJ
