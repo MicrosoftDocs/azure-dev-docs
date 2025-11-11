@@ -1,7 +1,7 @@
 ---
 title: Additional methods to authenticate to Azure resources from Python apps
 description: This article describes additional, less common methods you can use to authenticate your Python app to Azure resources. 
-ms.date: 03/25/2025
+ms.date: 11/11/2025
 ms.topic: how-to
 ms.custom: devx-track-python, passwordless-python
 ---
