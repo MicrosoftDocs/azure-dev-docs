@@ -9,20 +9,20 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 
-# Deploying to Azure Container Apps
+# Deploy to Azure Container Apps
 
-The Azure Developer CLI (`azd`) provides two deployment strategies for Azure Container Apps:
+The Azure Developer CLI (`azd`) supports two deployment strategies for Azure Container Apps:
 
-- **Image-based strategy**: Separates container app configuration updates from image deployments.
-- **Revision-based strategy**: Unifies both into a single deployment and supports advanced rollout patterns.
+- **Image-based strategy**. Separates container app configuration updates from image deployments.
+- **Revision-based strategy**. Combines both into a single deployment and supports advanced rollout patterns.
 
-Both of these strategies are explained in the following sections.
+The following sections explain both strategies.
 
 ## Image-based deployment strategy
 
-In this strategy, the container app **configuration** gets created and updated during `azd provision`, while the **container image** gets updated during `azd deploy`.
+In this strategy, the container app **configuration** is created and updated during `azd provision`, while the **container image** is updated during `azd deploy`.
 
-- The container app definition (resources, environment variables, health probes, and so on) resides in a **Bicep module** applied during provisioning.  
+- The container app definition (resources, environment variables, health probes, and so on) resides in a **Bicep module** applied during provisioning.
 - Only the container image reference (`containers[0].image`) changes during deployment.
 
 ### Revision behavior
@@ -37,13 +37,13 @@ Each change to the app configuration or image triggers a new revision:
 Each revision allocates additional replicas in the Container Apps environment, which might temporarily increase resource usage and cost.
 
 > [!NOTE]
-> Advanced rollout patterns (for example, blue-green or canary) aren't supported in this strategy.
+> Advanced rollout patterns, such as blue-green or canary, aren't supported in this strategy.
 
 ---
 
 ### Enable image-based strategy
 
-To ensure that `azd provision` correctly updates an existing container app without overwriting the latest deployed image, perform an **upsert** operation.  
+To ensure that `azd provision` updates an existing container app without overwriting the latest deployed image, perform an **upsert** operation.  
 This pattern is implemented by the **AVM [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert)** module and consists of two steps:
 
 1. In your `main.parameters.json`, define a parameter that references the azd-provided variable `SERVICE_{NAME}_RESOURCE_EXISTS`. This variable gets automatically set by `azd` at provision time to indicate whether the resource already exists.
@@ -93,16 +93,16 @@ This pattern is implemented by the **AVM [`container-app-upsert`](https://github
     }
     ```
 
-    This approach allows `azd provision` to **upsert** (update if exists, create if not) the container app resource safely without requiring manual checks.
+    This approach allows `azd provision` to **upsert** (update if exists, create if not) the container app resource safely without manual checks.
 
     > [!TIP]
     > Keep the `apiVersion` in `azure.yaml` aligned with the Bicep module's `apiVersion` for `Microsoft.App/containerApps` to avoid mismatches.
 
-## Revision-Based deployment strategy
+## Revision-based deployment strategy
 
 In this strategy, both the container app **definition** and **image** are deployed together during `azd deploy`.
 
-- The container app configuration resides in a **dedicated Bicep module** applied during deployment.  
+- The container app configuration resides in a **dedicated Bicep module** applied during deployment.
 - Changes to environment variables, images, resources, and load-balancing settings are rolled out as a **single revision**.
 
 > [!TIP]
@@ -110,7 +110,7 @@ In this strategy, both the container app **definition** and **image** are deploy
 
 ### Configuration
 
-1. Define the container app deployment by creating an infra file for your service, e.g. `infra/api.bicep`. You can define your container app either by using the **AVM-based module** or by defining the **resource directly**:
+1. Define the container app deployment by creating an infra file for your service, such as `infra/api.bicep`. You can define your container app by using the **AVM-based module** or by defining the **resource directly**:
 
     ### [AVM module](#tab/avm-module)
 
@@ -173,7 +173,7 @@ In this strategy, both the container app **definition** and **image** are deploy
 
     ### [Direct bicep resource](#tab/bicep-resource)
 
-    If you prefer not to depend on the AVM module, you can define the container app resource directly.
+    If you prefer not to use the AVM module, you can define the container app resource directly.
 
     ```bicep
     @description('Unique environment name used for resource naming.')
@@ -268,12 +268,12 @@ In this strategy, both the container app **definition** and **image** are deploy
 
 Pass any additional outputs from `azd provision` as parameters to `azd deploy` if your container app references other provisioned resources.
 
-When you run `azd deploy`, the container app revision is applied using the resource definition defined above.
+When you run `azd deploy`, the container app revision is applied using the resource definition above.
 
-### Comparison Summary
+### Comparison summary
 
-| Aspect | Image-Based | Revision-Based |
-|--------|--------------|----------------|
+| Aspect | Image-based | Revision-based |
+|--------|-------------|---------------|
 | Update command | `azd provision` + `azd deploy` | `azd deploy` only |
 | Rollout type | Two revisions | Single revision |
 | Rollout control | Managed by `azd` | Configurable (blue-green, canary) |
@@ -282,7 +282,7 @@ When you run `azd deploy`, the container app revision is applied using the resou
 
 ## Additional resources
 
-- [Azure Container Apps Overview](/azure/container-apps/overview)
-- [Azure Container Apps Bicep Reference](/azure/templates/microsoft.app/containerapps)
-- [.NET Aspire Overview](/dotnet/aspire/get-started/aspire-overview)
-- [Todo application templates](https://github.com/Azure-Samples/todo-nodejs-mongo-aca) (using image-based)
+- [Azure Container Apps overview](/azure/container-apps/overview)
+- [Azure Container Apps Bicep reference](/azure/templates/microsoft.app/containerapps)
+- [.NET Aspire overview](/dotnet/aspire/get-started/aspire-overview)
+- [Todo application templates](https://github.com/Azure-Samples/todo-nodejs-mongo-aca) (uses image-based)
