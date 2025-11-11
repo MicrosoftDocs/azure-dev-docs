@@ -1,6 +1,8 @@
 ---
 title: Languages and Frameworks Supported by GitHub Copilot app modernization
 description: Introduces the support scope of GitHub Copilot app modernization for languages and frameworks.
+ms.topic: reference
+ms.date: 11/11/2025
 ---
 
 # Languages and Frameworks Supported by GitHub Copilot app modernization
