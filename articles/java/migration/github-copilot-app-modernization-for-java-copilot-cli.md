@@ -21,6 +21,11 @@ This article provides an overview of how Java developers can modernize their app
 - Run modernization tasks directly from the terminal — no need to switch to an IDE  
 - Supports both interactive (human-in-the-loop) and batch workflows
 
+## Supported Scenarios
+- [Upgrade your Java application](/java/upgrade/quickstart-upgrade)
+- [Migrate Java application to Azure](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
+- [Deploy Java application to Azure](migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md)
+
 ## Prerequisites
 - [**Copilot CLI**](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)
 - Ensure you have GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business and GitHub Copilot Enterprise plans
