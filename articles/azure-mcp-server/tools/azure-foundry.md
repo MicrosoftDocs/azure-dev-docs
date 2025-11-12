@@ -237,13 +237,12 @@ Example prompts include:
 | **Model** | Required | The name of the model to deploy. |
 | **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
 | **Azure AI services** | Required | The name of the Azure AI services account to deploy to. |
-| **Resource group** | Required | The name of the Azure resource group where the model will be deployed. |
 | **Model version** | Optional | The version of the model to deploy. |
 | **Model source** | Optional | The source of the model. |
-| **Scale type** | Optional | The scale type for the deployment. |
-| **Scale capacity** | Optional | The scale capacity for the deployment. |
 | **SKU** | Optional | The SKU name for the deployment. |
 | **SKU capacity** | Optional | The SKU capacity for the deployment. |
+| **Scale type** | Optional | The scale type for the deployment. |
+| **Scale capacity** | Optional | The scale capacity for the deployment. |
 
 
 [!INCLUDE [foundry models deploy](../includes/tools/annotations/azure-ai-foundry-models-deploy-annotations.md)]
