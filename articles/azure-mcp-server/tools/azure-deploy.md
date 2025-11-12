@@ -18,6 +18,8 @@ Azure MCP Server simplifies Azure resource deployment by providing a unified exp
 
 ## App: Get logs
 
+<!-- deploy app logs get -->
+
 This tool fetches logs from the [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace for Container Apps, App Services, and Function Apps deployed by using [Azure Developer CLI](/azure/developer/azure-developer-cli). Use it after a successful `azd up` to check app status or troubleshoot errors in deployed applications.
 
 Example prompts include:
@@ -34,7 +36,11 @@ Example prompts include:
 | **AZD environment** | Required | The name of the environment created by AZD in the AZURE_ENV_NAME variable during `azd init` or `azd up`. |
 | **Limit** | Optional | The maximum row number of logs to retrieve. Use this to get a specific number of logs or to avoid the retrieved logs from reaching token limit. Default is 200. |
 
+[!INCLUDE [deploy app logs get](../includes/tools/annotations/azure-deploy-app-logs-get-annotations.md)]
+
 ## Architecture: Generate mermaid diagram
+
+<!-- deploy architecture diagram generate -->
 
 Generate a [Mermaid](https://mermaid.js.org/) architecture diagram for the application topology. 
 
@@ -50,8 +56,11 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Raw input** | Required | The raw input to process. |
 
+[!INCLUDE [deploy architecture diagram generate](../includes/tools/annotations/azure-deploy-architecture-diagram-generate-annotations.md)]
 
 ## Infrastructure as Code: Get guidance
+
+<!-- deploy pipeline guidance get -->
 
 This tool offers guidance for creating [Bicep](/azure/azure-resource-manager/bicep/) or Terraform files to deploy applications on Azure. The guidelines outline rules to improve the quality of Infrastructure as Code files, ensuring they are compatible with the AZD tool and adhere to best practices.
 
@@ -69,7 +78,11 @@ Example prompts include:
 | **Infrastructure as code file type** | Optional | The Infrastructure as Code type. Valid values: `bicep`, `terraform`. Leave empty if deployment tool is the Azure CLI. |
 | **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. Use a comma-separated list. Supported values are: `appservice`, `containerapp`, `function`, `aks`. Leave empty if you don't use these services. |
 
+[!INCLUDE [deploy pipeline guidance get](../includes/tools/annotations/azure-deploy-pipeline-guidance-get-annotations.md)]
+
 ## Pipeline: Get guidance
+
+<!-- deploy pipeline guidance get -->
 
 Get guidance to create a CI/CD pipeline that provisions Azure resources and builds and deploys applications to Azure. Use this tool before creating a GitHub Actions workflow file for deployment on Azure. Ensure infrastructure files are ready and the application is ready to be containerized.
 
@@ -88,12 +101,13 @@ Example prompts include:
 | **Repository** | Optional | The name of the current GitHub repository. |
 | **GitHub environment** | Optional | The name of the environment to which the deployment pipeline will be deployed. |
 
+[!INCLUDE [deploy pipeline guidance get](../includes/tools/annotations/azure-deploy-pipeline-guidance-get-annotations.md)]
 
 ## Plan: Create deployment plan
 
 Generates a deployment plan to build the infrastructure and deploy the application on Azure. The agent reads the output and creates a deployment plan in `.azure/plan.copilotmd` for execution steps, with recommended Azure services based on the information detected from the project. 
 
-<!-- `azmcp deploy plan get` -->
+<!-- deploy plan get -->
 
 Example prompts include:
 
@@ -111,6 +125,7 @@ Example prompts include:
 | **Provisioning tool** |  Required | The tool to use for provisioning Azure resources. Valid values: `AZD`, `AzCli`. Use AzCli if TargetAppService is `AKS`. |
 | **Azd IaC options** |  Optional | The Infrastructure as Code option for AZD. Valid values: `bicep`, `terraform`. Leave empty if Deployment tool is `AzCli`. |
 
+[!INCLUDE [deploy plan get](../includes/tools/annotations/azure-deploy-plan-get-annotations.md)]
 
 ## Related content
 

@@ -31,6 +31,8 @@ Don't provide both parameters (host pool name and host pool resource ID) togethe
 
 ## Host pools: List host pools
 
+<!-- virtualdesktop hostpool list -->
+
 The Azure MCP Server can list all host pools in a subscription or resource group. This feature provides an overview of your virtual desktop infrastructure and helps you manage your desktop deployment.
 
 Example prompts include:
@@ -41,7 +43,11 @@ Example prompts include:
 - **Query host pools**: "Show available host pools in my environment."
 - **Check infrastructure**: "Get all Azure Virtual Desktop host pools."
 
+[!INCLUDE [virtualdesktop hostpool list](../includes/tools/annotations/azure-virtual-desktop-hostpool-list-annotations.md)]
+
 ## Host pools: List session hosts in a host pool
+
+<!-- virtualdesktop hostpool host list -->
 
 The Azure MCP Server can list all session hosts in a host pool. This functionality helps you monitor your virtual machines and understand the capacity and status of your virtual desktop environment.
 
@@ -58,7 +64,11 @@ Example prompts include:
 | **Host pool** | [Conditionally](#conditional-parameters) required | The name of the Azure Virtual Desktop host pool. This is the unique name you choose for your host pool. |
 | **Host pool resource ID** | [Conditionally](#conditional-parameters) required | The Azure resource ID of the host pool. When you provide this ID, the server uses it instead of searching by name. |
 
+[!INCLUDE [virtualdesktop hostpool host list](../includes/tools/annotations/azure-virtual-desktop-hostpool-host-list-annotations.md)]
+
 ## Host pools: List user sessions
+
+<!-- virtualdesktop hostpool host user-list -->
 
 The Azure MCP Server can list all user sessions on a specific session host in a host pool. This capability helps you monitor active users, troubleshoot connection issues, and manage user workloads.
 
@@ -75,6 +85,8 @@ Example prompts include:
 | **Host pool** | [Conditionally](#conditional-parameters) required | The name of the Azure Virtual Desktop host pool. This is the unique name you choose for your host pool. |
 | **Host pool resource ID** | [Conditionally](#conditional-parameters) required | The Azure resource ID of the host pool. When you provide this ID, the server uses it instead of searching by name. |
 | **Session host** | Required | The name of the session host. This name is the computer name of the virtual machine in the host pool. |
+
+[!INCLUDE [virtualdesktop hostpool host user-list](../includes/tools/annotations/azure-virtual-desktop-hostpool-host-user-list-annotations.md)]
 
 ## Related content
 

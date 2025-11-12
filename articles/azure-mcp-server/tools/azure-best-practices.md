@@ -37,6 +37,8 @@ Example prompts include:
 | **Resource** | Required | The type of Azure resource to get best practices for. Options include: 'general' (general Azure best practices), 'azurefunctions' (Azure Functions specific best practices), or 'static-web-app' (Azure Static Web Apps specific best practices). |
 | **Action** | Required | The action to perform. Options include: 'all' (best practices for both code generation and deployment, only for static-web-app), 'code-generation' (best practices for code generation, for general and azurefunctions), or 'deployment' (best practices for deployment, for general and azurefunctions). |
 
+[!INCLUDE [get bestpractices get](../includes/tools/annotations/azure-get-bestpractices-get-annotations.md)]
+
 ## Related resources
 
 - [Azure Functions documentation](/azure/azure-functions/)

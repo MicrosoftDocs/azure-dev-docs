@@ -18,7 +18,9 @@ The Azure MCP Server enables you to manage Azure resources, including function a
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service that enables you to integrate code execution into your Azure services with less code and by using popular development tools. Instead of worrying about deploying and maintaining servers, you can spend time developing your applications.
 
-## Get
+## Get 
+
+<!-- functionapp get -->
 
 Get the Azure function app details.
 
@@ -34,6 +36,8 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Function app** |  Required | The name of the function app. |
+
+[!INCLUDE [functionapp get](../includes/tools/annotations/azure-functions-get-annotations.md)]
 
 ## Related content
 

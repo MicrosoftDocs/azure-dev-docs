@@ -44,6 +44,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Name** | Required | The name of the AKS cluster to get details for. |
 
+[!INCLUDE [aks cluster get](../includes/tools/annotations/azure-kubernetes-service-cluster-get-annotations.md)]
+
 ## Node pool: Get details for a specific node pool
 
 <!-- azmcp aks nodepool get -->
@@ -69,6 +71,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Cluster** |  Required | AKS cluster name. |
 | **Node pool** |  Required | AKS node pool (agent pool) name. |
+
+[!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-nodepool-get-annotations.md)]
 
 ## Related content
 

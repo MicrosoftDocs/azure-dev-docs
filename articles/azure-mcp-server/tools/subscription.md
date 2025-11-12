@@ -21,12 +21,16 @@ The Azure MCP Server allows you to manage Azure resources, including subscriptio
 
 ## List subscriptions
 
+<!-- subscription list -->
+
 The Azure MCP Server can list all subscriptions.
 
 Example prompts include:
 
 - **List subscriptions**: "Show me all of my subscriptions."
 - **Find subscriptions**: "List all subscriptions starting with `northeast`."
+
+[!INCLUDE [subscription list](../includes/tools/annotations/azure-subscription-list-annotations.md)]
 
 ## Related content
 

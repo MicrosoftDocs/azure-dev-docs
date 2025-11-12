@@ -47,6 +47,8 @@ Example prompts include:
 | **Duration** | Required | The total duration of the test in seconds. |
 | **Ramp-up time** | Required | The time period over which to gradually increase load to the specified number of virtual users. |
 
+[!INCLUDE [loadtesting test create](../includes/tools/annotations/azure-load-testing-test-create-annotations.md)]
+
 ## Test: Get test details
 
 <!--
@@ -70,6 +72,8 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource. |
 | **Test ID** | Required | The unique identifier of the test. |
 
+[!INCLUDE [loadtesting test get](../includes/tools/annotations/azure-load-testing-test-get-annotations.md)]
+
 ## Test resources: List test resources
 
 <!--
@@ -90,6 +94,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of a specific test resource to filter by. |
 
+[!INCLUDE [loadtesting testresource list](../includes/tools/annotations/azure-load-testing-testresource-list-annotations.md)]
+
 ## Test resources: Create test resource
 
 <!--
@@ -108,6 +114,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Test resource** | Required | A name for the new test resource. |
+
+[!INCLUDE [loadtesting testresource create](../includes/tools/annotations/azure-load-testing-testresource-create-annotations.md)]
 
 ## Test runs: Create a test run
 
@@ -133,6 +141,8 @@ Example prompts include:
 | **Description** | Required | A description of the test run and its purpose. |
 | **Old testrun ID** | Required | The ID of a previous test run to compare results with. |
 
+[!INCLUDE [loadtesting testrun create](../includes/tools/annotations/azure-load-testing-testrun-create-annotations.md)]
+
 ## Test runs: Get test run details
 
 <!--
@@ -151,6 +161,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of the test resource used for the test run. |
 | **Testrun ID** | Required | The ID of the test run. |
+
+[!INCLUDE [loadtesting testrun get](../includes/tools/annotations/azure-load-testing-testrun-get-annotations.md)]
 
 ## Test runs: List test runs
 
@@ -173,6 +185,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of the test resource used for the test runs. |
 | **Test ID** | Required | The ID of a specific test to filter test runs by. |
+
+[!INCLUDE [loadtesting testrun list](../includes/tools/annotations/azure-load-testing-testrun-list-annotations.md)]
 
 ## Test runs: Update test run
 
@@ -197,6 +211,8 @@ Example prompts include:
 | **Testrun ID** | Required | The ID of the test run to update. |
 | **Display** | Required | A new display name for the test run. |
 | **Description** | Required | A new description for the test run. |
+
+[!INCLUDE [loadtesting testrun update](../includes/tools/annotations/azure-load-testing-testrun-update-annotations.md)]
 
 ## Related content
 

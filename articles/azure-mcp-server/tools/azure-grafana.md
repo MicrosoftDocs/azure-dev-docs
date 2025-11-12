@@ -32,6 +32,8 @@ Example prompts include:
 - **Check workspace status**: "Are there any Grafana workspaces in my dev subscription?"
 - **Dashboard inventory**: "I need to see all Grafana workspace resources in my account"
 
+[!INCLUDE [grafana list](../includes/tools/annotations/azure-managed-grafana-list-annotations.md)]
+
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)

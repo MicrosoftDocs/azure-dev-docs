@@ -25,6 +25,8 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Nativ
 
 ## Datadog monitored resources
 
+<!-- datadog monitoredresources list -->
+
 The Azure MCP Server can list monitored resources in Datadog. [Datadog](/azure/partner-solutions/datadog/overview) is a monitoring and analytics platform for large-scale applications that encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring.
 
 Datadog's Azure Native Integration allows you to manage Datadog directly in the Azure console as an integrated service. This streamlined workflow covers everything from procurement to configuration, making it easy to start monitoring the health and performance of your applications across Azure, hybrid, or multicloud environments.
@@ -40,6 +42,8 @@ Example prompts include:
 | Parameter | Required | Description |
 | --- | --- | --- |
 | **Datadog resource** | Required | The name of the Datadog resource in Azure. |
+
+[!INCLUDE [datadog monitoredresources list](../includes/tools/annotations/azure-datadog-monitoredresources-list-annotations.md)]
 
 ## Related content
 

@@ -21,6 +21,8 @@ The Azure MCP Server allows you to manage Azure Database for PostgreSQL resource
 
 ## Database: List databases
 
+<!-- postgres database list -->
+
 The Azure MCP Server can list all databases in a PostgreSQL server.
 
 Example prompts include:
@@ -36,7 +38,11 @@ Example prompts include:
 | **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
+[!INCLUDE [postgres database list](../includes/tools/annotations/azure-database-for-postgresql-database-list-annotations.md)]
+
 ## Database: Execute database query
+
+<!-- postgres database query -->
 
 The Azure MCP Server can execute a query on a PostgreSQL database.
 
@@ -55,7 +61,11 @@ Example prompts include:
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
 
+[!INCLUDE [postgres database query](../includes/tools/annotations/azure-database-for-postgresql-database-query-annotations.md)]
+
 ## Table: List tables
+
+<!-- postgres table list -->
 
 The Azure MCP Server can list all tables in a PostgreSQL database.
 
@@ -73,7 +83,11 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 
+[!INCLUDE [postgres table list](../includes/tools/annotations/azure-database-for-postgresql-table-list-annotations.md)]
+
 ## Table: Get table schema
+
+<!-- postgres table schema get -->
 
 The Azure MCP Server can get the schema of a specific table in a PostgreSQL database.
 
@@ -92,7 +106,11 @@ Example prompts include:
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
 
+[!INCLUDE [postgres table schema get](../includes/tools/annotations/azure-database-for-postgresql-table-schema-get-annotations.md)]
+
 ## Server: List servers
+
+<!-- postgres server list -->
 
 The Azure MCP Server can list all PostgreSQL servers in a subscription and resource group.
 
@@ -108,7 +126,11 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **User** | Required | The user name to access PostgreSQL server. |
 
+[!INCLUDE [postgres server list](../includes/tools/annotations/azure-database-for-postgresql-server-list-annotations.md)]
+
 ## Server: Get server configuration
+
+<!-- postgres server config get -->
 
 The Azure MCP Server can retrieve the configuration of a PostgreSQL server.
 
@@ -125,7 +147,11 @@ Example prompts include:
 | **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
+[!INCLUDE [postgres server config get](../includes/tools/annotations/azure-database-for-postgresql-server-config-get-annotations.md)]
+
 ## Server: Get server parameter
+
+<!-- postgres server param get -->
 
 The Azure MCP Server can retrieve a specific parameter of a PostgreSQL server.
 
@@ -143,7 +169,11 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Param** | Required | The PostgreSQL parameter to be accessed. |
 
+[!INCLUDE [postgres server param get](../includes/tools/annotations/azure-database-for-postgresql-server-param-get-annotations.md)]
+
 ## Server: Set server parameter
+
+<!-- postgres server param set -->
 
 The Azure MCP Server can set or update a specific parameter on a PostgreSQL server. This allows you to configure server settings, optimize performance, and adjust database behavior according to your application requirements.
 
@@ -162,6 +192,7 @@ Example prompts include:
 | **Param** | Required | The PostgreSQL parameter to be set. |
 | **Value** | Required | The value to set for the parameter. |
 
+[!INCLUDE [postgres server param set](../includes/tools/annotations/azure-database-for-postgresql-server-param-set-annotations.md)]
 
 ## Related content
 

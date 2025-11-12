@@ -21,6 +21,8 @@ The Azure MCP Server lets you manage Azure Event Hubs resources with natural lan
 
 ## Event Hub: Delete consumer group
 
+<!-- eventhubs eventhub consumergroup delete -->
+
 Delete a consumer group from the specified Event Hub.
 
 Example prompts include: 
@@ -36,7 +38,11 @@ Example prompts include:
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 
+[!INCLUDE [eventhubs eventhub consumergroup delete](../includes/tools/annotations/azure-event-hubs-eventhub-consumergroup-delete-annotations.md)]
+
 ## Event Hub: Get consumer group
+
+<!-- eventhubs eventhub consumergroup get -->
 
 Get consumer groups from Azure Event Hubs. This tool can:
 
@@ -57,7 +63,11 @@ Example prompts include:
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Optional | The name of the consumer group within the Event Hub. |
 
+[!INCLUDE [eventhubs eventhub consumergroup get](../includes/tools/annotations/azure-event-hubs-eventhub-consumergroup-get-annotations.md)]
+
 ## Event Hub: Create or update consumer group
+
+<!-- eventhubs eventhub consumergroup update -->
 
 Create or update a consumer group within the specified Event Hub. The tool creates a new consumer group or updates an existing one.
 
@@ -75,7 +85,11 @@ Example prompts include:
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 | **User metadata** |  Optional | User metadata for the consumer group. |
 
+[!INCLUDE [eventhubs eventhub consumergroup update](../includes/tools/annotations/azure-event-hubs-eventhub-consumergroup-update-annotations.md)]
+
 ## Event Hub: Delete Event Hub    
+
+<!-- eventhubs eventhub delete -->
 
 Delete an event hub from an Azure Event Hubs namespace. This action permanently deletes all messages and consumer groups in the Event Hub.
 
@@ -89,6 +103,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
+
+[!INCLUDE [eventhubs eventhub delete](../includes/tools/annotations/azure-event-hubs-eventhub-delete-annotations.md)]
 
 ## Event Hub: Get Event Hub
 
@@ -113,7 +129,11 @@ Example prompts include:
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
 
+[!INCLUDE [eventhubs eventhub get](../includes/tools/annotations/azure-event-hubs-eventhub-get-annotations.md)]
+
 ## Event Hub: Create or update Event Hub
+
+<!-- eventhubs eventhub update -->
 
 Create or update an Event Hub within an Azure Event Hubs namespace. This command:
 - Creates a new Event Hub if it doesn't exist
@@ -139,7 +159,11 @@ Example prompts include:
 | **Message retention in hours** | Optional | The message retention time in hours. Minimum is `1` hour, maximum depends on the namespace tier. |
 | **Status** | Optional | The status of the Event Hub (such as `Active`, `Disabled`). Status might be read-only in some operations. |
 
+[!INCLUDE [eventhubs eventhub update](../includes/tools/annotations/azure-event-hubs-eventhub-update-annotations.md)]
+
 ## Namespace: Delete namespace
+
+<!-- eventhubs namespace delete -->
 
 Delete an Event Hubs namespace. This operation is irreversible and permanently deletes all event hubs, consumer groups, and configurations within the namespace.
 
@@ -153,8 +177,11 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 
+[!INCLUDE [eventhubs namespace delete](../includes/tools/annotations/azure-event-hubs-namespace-delete-annotations.md)]
 
 ## Namespace: Get namespace
+
+<!-- eventhubs namespace get -->
 
 Get Event Hubs namespaces from Azure. The behavior depends on which parameters you provide. When you retrieve a single namespace, the tool returns detailed information including SKU, settings, and metadata. When you list namespaces, the tool returns the same detailed information for all namespaces in the specified scope.
 
@@ -169,7 +196,11 @@ Example prompts include:
 | **Resource group** | Optional | The name of the Azure resource group. When omitted, the system lists all namespaces in the subscription. When provided without namespace, the system lists all namespaces in the resource group. Required when getting a specific namespace. |
 | **Namespace** | Optional | The name of the Event Hubs namespace to retrieve. When provided, returns detailed information for the specific namespace (requires resource group). When omitted, returns a list of namespaces. |
 
+[!INCLUDE [eventhubs namespace get](../includes/tools/annotations/azure-event-hubs-namespace-get-annotations.md)]
+
 ## Namespace: Create or update namespace
+
+<!-- eventhubs namespace update -->
 
 Create or update a namespace within the specified resource group. This tool creates a new namespace or updates an existing one. The tool might modify existing configurations and is considered destructive. This tool might take a long time.
 
@@ -202,6 +233,8 @@ Example prompts include:
 | **Kafka enabled** |  Optional | Enable or disable Kafka for the namespace. |
 | **Zone redundant** |  Optional | Enable or disable zone redundancy for the namespace. |
 | **Tags** |  Optional | Tags for the namespace in JSON format (for example, `{"key1":"value1","key2":"value2"}`). |
+
+[!INCLUDE [eventhubs namespace update](../includes/tools/annotations/azure-event-hubs-namespace-update-annotations.md)]
 
 ## Related content
 

@@ -23,6 +23,8 @@ Azure MCP Server enables you to manage Azure Database for MySQL servers, databas
 
 ## Database: list all databases
 
+<!-- mysql database list -->
+
 List all databases available on the specified Azure Database for MySQL Flexible Server instance. This command provides visibility into the database structure and helps you identify databases for connection and querying operations.
 
 - **List databases**: "List all databases on server 'my-mysql-server'."
@@ -36,7 +38,11 @@ List all databases available on the specified Azure Database for MySQL Flexible 
 | **User** |  Required | The user name to access the MySQL server. |
 | **Server** |  Required | The MySQL server to be accessed. |
 
+[!INCLUDE [mysql database list](../includes/tools/annotations/azure-database-for-mysql-database-list-annotations.md)]
+
 ## Database: query
+
+<!-- mysql database query -->
 
 Execute a safe, read-only SQL SELECT query against a database on an Azure Database for MySQL Flexible Server. Use this tool to explore or retrieve table data without modifying it.
 
@@ -76,7 +82,11 @@ Example prompts include:
 | **Database** |  Required | The MySQL database to be accessed. |
 | **Query** |  Required | The SQL query to execute against a MySQL database. |
 
+[!INCLUDE [mysql database query](../includes/tools/annotations/azure-database-for-mysql-database-query-annotations.md)]
+
 ## Server: config get
+
+<!-- mysql server config get -->
 
 Retrieves comprehensive configuration details for the specified Azure Database for MySQL Flexible Server instance. This command provides insights into server settings, performance parameters, security configurations, and operational characteristics essential for database administration and optimization. It returns configuration data in JSON format, including `ServerName`, `Location`, `Version`, `SKU`, `StorageSizeGB`, `BackupRetentionDays`, and `GeoRedundantBackup` properties.
 
@@ -94,7 +104,11 @@ Example prompts include:
 | **User** |  Required | The user name to access the MySQL server. |
 | **Server** |  Required | The MySQL server to be accessed. |
 
+[!INCLUDE [mysql server config get](../includes/tools/annotations/azure-database-for-mysql-server-config-get-annotations.md)]
+
 ## Server: list all instances in resource group
+
+<!-- mysql server list -->
 
 List all Azure Database for MySQL Flexible Server instances within the specified resource group. This command provides an inventory of available MySQL server resources, including their names and current status, so you can efficiently manage servers and plan resources.
 
@@ -110,7 +124,11 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **User** |  Required | The user name to access the MySQL server. |
 
+[!INCLUDE [mysql server list](../includes/tools/annotations/azure-database-for-mysql-server-list-annotations.md)]
+
 ## Server: get parameter
+
+<!-- mysql server param get -->
 
 Retrieve the current value of a single server configuration parameter on an Azure Database for MySQL Flexible Server. Use this server command to inspect a setting, such as `max_connections`, `wait_timeout`, or `slow_query_log`, before changing it.
 
@@ -128,8 +146,11 @@ Example prompts include:
 | **Server** |  Required | The MySQL server to be accessed. |
 | **Parameter** |  Required | The MySQL parameter to be accessed. |
 
+[!INCLUDE [mysql server param get](../includes/tools/annotations/azure-database-for-mysql-server-param-get-annotations.md)]
 
 ## Server: set parameter
+
+<!-- mysql server param set -->
 
 Sets or updates a MySQL server configuration parameter to a new value. Use this command to optimize performance, security, or operational behavior. This command enables fine-tuned configuration management with validation to ensure parameter changes are compatible with the server's current state and constraints.
 
@@ -148,8 +169,11 @@ Example prompts include:
 | **Parameter** |  Required | The MySQL parameter to be accessed. |
 | **Value** |  Required | The value to set for the MySQL parameter. |
 
+[!INCLUDE [mysql server param set](../includes/tools/annotations/azure-database-for-mysql-server-param-set-annotations.md)]
 
 ## Table: list all tables in database
+
+<!-- mysql table list -->
 
 Enumerate all tables within a specified database on an Azure Database for MySQL Flexible Server instance. This command provides a complete inventory of table objects, facilitating database exploration, schema analysis, and data architecture understanding for development tasks.
 
@@ -167,7 +191,11 @@ Example prompts include:
 | **Server** |  Required | The MySQL server to be accessed. |
 | **Database** |  Required | The MySQL database to be accessed. |
 
+[!INCLUDE [mysql table list](../includes/tools/annotations/azure-database-for-mysql-table-list-annotations.md)]
+
 ## Table: get table schema 
+
+<!-- mysql table schema get -->
 
 Retrieve detailed schema information for a specific table within an Azure Database for MySQL Flexible Server database. This command provides comprehensive metadata including column definitions, data types, constraints, indexes, and relationships. This information is essential for understanding table structure and supporting application development.
 
@@ -186,3 +214,9 @@ Example prompts include:
 | **Database** |  Required | The MySQL database to be accessed. |
 | **Table** |  Required | The MySQL table to be accessed. |
 
+[!INCLUDE [mysql table schema get](../includes/tools/annotations/azure-database-for-mysql-table-schema-get-annotations.md)]
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)

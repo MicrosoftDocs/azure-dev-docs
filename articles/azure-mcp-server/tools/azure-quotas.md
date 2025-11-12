@@ -21,6 +21,8 @@ Azure MCP Server helps you manage Azure quotas efficiently by using natural lang
 
 ## Region: Availability list
 
+<!-- quota region availability list -->
+
 Given a list of Azure resource types, this tool returns a list of regions where the resource types are available. Always get the user's subscription ID before calling this tool.
 
 Example prompts include:
@@ -38,8 +40,11 @@ Example prompts include:
 | **Cognitive service model version** | Optional | Model version for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
 | **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
 
+[!INCLUDE [quota region availability list](../includes/tools/annotations/azure-quota-region-availability-list-annotations.md)]
 
 ## Usage: Check usage and quotas
+
+<!-- quota usage check -->
 
 This tool checks the usage and quota information for Azure resources in a region.
 
@@ -56,6 +61,7 @@ Example prompts include:
 | **Region for deployment** | Required | The Azure region where you want to check the usage and quota. For example: `eastus`, `westus`. |
 | **Resource types to deploy** | Required | The Azure resource types that you want to check the usage and quota for (comma-separated). For example: `Microsoft.App/containerApps`, `Microsoft.Web/sites`, `Microsoft.CognitiveServices/accounts`. |
 
+[!INCLUDE [quota usage check](../includes/tools/annotations/azure-quota-usage-check-annotations.md)]
 
 ## Related content
 

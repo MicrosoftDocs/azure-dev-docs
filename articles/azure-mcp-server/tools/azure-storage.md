@@ -22,6 +22,8 @@ The Azure MCP Server lets you manage Azure Storage resources, including storage 
 
 ## Account: Create
 
+<!-- storage account create -->
+
 Create a new Azure Storage account.
 
 Example prompts include:
@@ -43,7 +45,11 @@ Example prompts include:
 | **Allow public access to blobs** | Optional | Whether to allow public access to blobs in the storage account. |
 | **Enable hierarchical namespace (Data Lake)** | Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 
+[!INCLUDE [storage account create](../includes/tools/annotations/azure-storage-account-create-annotations.md)]
+
 ## Account: Get details
+
+<!-- storage account get -->
 
 Get detailed information about a specific Azure Storage account. This functionality retrieves comprehensive metadata for the specified storage account including name, location, SKU, access settings, and configuration details. 
 
@@ -55,13 +61,15 @@ Example prompts include:
 - **Check account properties**: "Check the properties of 'securestore' storage account."
 - **Account metadata**: "Show metadata for my storage account 'datalakeacct'."
 
-
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 
+[!INCLUDE [storage account get](../includes/tools/annotations/azure-storage-account-get-annotations.md)]
 
 ## Container: Create container
+
+<!-- storage blob container create -->
 
 Create a blob container with optional blob public access.
 
@@ -74,16 +82,18 @@ Example prompts include:
 - **Create private container (simple)**: "Create a private blob container called 'images' in storage account 'mystorageaccount'."
 - **Create private container (explicit access)**: "Create a blob container named 'logs' in storage account 'mydata' with access level 'private'."
 
-
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, 'mystorageaccount'). |
 | **Container** |  Required | The name of the container to access within the storage account. |
 | **Access level** | Optional | The [access tier](/azure/storage/blobs/access-tiers-overview). Default: `private`. Valid values: `private`, `blob` (allows public read access to blobs), `container` (allows public read access to both blobs and container metadata).  |
 
+[!INCLUDE [storage blob container create](../includes/tools/annotations/azure-storage-blob-container-create-annotations.md)]
 
 
 ## Container: Get container details
+
+<!-- storage blob container get -->
 
 The Azure MCP Server shows detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
 
@@ -99,7 +109,11 @@ Example prompts include:
 | **Account** | Required | The name of the Azure Storage account. |
 | **Container** | Required | The name of the container to access. |
 
+[!INCLUDE [storage blob container get](../includes/tools/annotations/azure-storage-blob-container-get-annotations.md)]
+
 ## Blob: Get blob details
+
+<!-- storage blob get -->
 
 Get blob properties, metadata, and general information. 
 
@@ -115,7 +129,11 @@ Example prompts include:
 | **Container** | Required | The name of the container to access within the storage account. |
 | **Blob** | Required | The name of the blob to access within the container. This name includes the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
 
+[!INCLUDE [storage blob get](../includes/tools/annotations/azure-storage-blob-get-annotations.md)]
+
 ## Blob: Upload
+
+<!-- storage blob upload -->
 
 Uploads a local file to a blob in Azure Storage with the option to overwrite if the blob if it already exists. 
 
@@ -134,6 +152,8 @@ Example prompts include:
 | **Blob** | Required | The name of the blob to access within the container. This should be the full path within the container (for example, `file.txt` or `folder/file.txt`). |
 | **Local file path** | Required | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
 | **Overwrite**  | Optional | Whether to overwrite content if it already exists. Defaults to false. |
+
+[!INCLUDE [storage blob upload](../includes/tools/annotations/azure-storage-blob-upload-annotations.md)]
 
 ## Related content
 

@@ -37,3 +37,10 @@ Example prompts include:
 | **Next question needed** |  Optional | Whether another question is needed |
 | **Confidence score** |  Optional | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this reaches 0.7 or higher, set `nextQuestionNeeded` to false. |
 | **State** |  Optional | The complete architecture state from the previous request. |
+
+[!INCLUDE [cloudarchitect design](../includes/tools/annotations/azure-cloud-architect-design-annotations.md)]
+
+## Related content
+
+- [What are the Azure MCP Server tools?](index.md)
+- [Get started using Azure MCP Server](../get-started.md)

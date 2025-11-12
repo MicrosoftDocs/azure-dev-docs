@@ -49,6 +49,8 @@ Example prompts include:
 | **Database** |  Required | The name of the database to connect to (for example, mydb). |
 | **Connection string** |  Optional | The connection string for the database. If not provided, a default is generated. |
 
+[!INCLUDE [appservice database add](../includes/tools/annotations/azure-app-service-database-add-annotations.md)]
+
 ## Related resources
 
 - [What are the Azure MCP Server tools?](index.md)

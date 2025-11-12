@@ -21,6 +21,8 @@ The Azure MCP Server allows you to execute Azure Quick Review (azqr) commands us
 
 ## Generate compliance report
 
+<!-- extension azqr -->
+
 The Azure MCP Server can execute Azure Quick Review CLI commands to generate compliance and security reports for Azure resources. This helps identify non-compliant configurations and areas for improvement in your Azure environment.
 
 **Example prompts** include:
@@ -30,6 +32,8 @@ The Azure MCP Server can execute Azure Quick Review CLI commands to generate com
 - **Quick review**: "Check my subscription for compliance issues"
 - **Security scan**: "scan resources in dev-rg for security problems"
 - **Generate report**: "Create compliance report for subscription abc123 and resource group web-apps"
+
+[!INCLUDE [extension azqr](../includes/tools/annotations/azure-extension-azqr-annotations.md)]
 
 ## Related content
 

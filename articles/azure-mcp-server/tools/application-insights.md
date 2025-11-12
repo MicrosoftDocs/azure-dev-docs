@@ -29,6 +29,7 @@ Example prompts include:
 - **Show recommendations for all resources**: "Show me code optimization recommendations for all Application Insights resources in my subscription."
 - **List profiler recommendations by group**: "List profiler recommendations for Application Insights in resource group 'devops-group'."
 
+[!INCLUDE [applicationinsights recommendation list](../includes/tools/annotations/azure-application-insights-recommendation-list-annotations.md)]
 
 ## Related content
 

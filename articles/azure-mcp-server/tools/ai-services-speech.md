@@ -47,6 +47,8 @@ Example prompts include:
 | **Format** |  Optional | Output format: `simple` or `detailed`. Default is `simple`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
 
+ [!INCLUDE [speech stt recognize](../includes/tools/annotations/azure-ai-services-speech-stt-recognize-annotations.md)]
+
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
