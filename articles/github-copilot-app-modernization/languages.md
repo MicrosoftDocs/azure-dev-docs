@@ -34,15 +34,15 @@ GitHub Copilot app modernization can help you [migrate your .NET application to 
 
 ## Python
 ### Migrating to Agent Framework
-GitHub Copilot app modernization can help you migrate your Semantic Kernel or AutoGen application to Agent Framework, if it is written in Python.
+GitHub Copilot app modernization can help you migrate your Semantic Kernel or AutoGen application to Agent Framework, if it's written in Python.
 
 To migrate to Agent Framework:
 
-1. Make sure GitHub Copilot app modernization is installed and enabled in VS Code. For best results, select Claude Sonnet 4 or later as your model.
+1. Make sure GitHub Copilot app modernization is installed and enabled in Visual Studio Code (VS Code). For best results, select Claude Sonnet 4 or later as your model.
 
 1. Open your Python project that uses Semantic Kernel or AutoGen in VS Code.
 
-1. Select the app modernization extension to open its sidebar.
+1. To open the sidebar, select the app modernization extension.
 
 1. Start the migration using one of these methods:
    - Select the **Convert to Agent Framework** button when detected automatically.
@@ -57,7 +57,7 @@ To migrate to Agent Framework:
 
    :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot showing the chat window with the migration task being invoked through the appmod-run-task tool.":::
 
-1. Follow the guidance in the chat window to complete the migration. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps: resolving Python syntax and import issues, and installing linters (if not already installed) to resolve lint issues per project configuration.
+1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps: resolving Python syntax and import issues, installing linters (if not already installed) to resolve lint issues per project configuration.
 
    :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot showing Python-specific workflow steps including environment setup, syntax checking, and lint checking.":::
    
