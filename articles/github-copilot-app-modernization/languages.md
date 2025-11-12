@@ -67,6 +67,10 @@ To migrate to Agent Framework:
    
    :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot showing the Run Python Tests step in the migration workflow.":::
 
+1. Review the migration summary, which includes the files migrated, validation results, and more.
+
+   :::image type="content" source="media/languages/migrate-to-agent-framework-summary.png" alt-text="Screenshot showing the migration summary with migrated files and validation results.":::
+
 ## Language-agnostic
 ### Containerization
 Regardless of language, GitHub Copilot app modernization can help you containerize your application by creating a Dockerfiles and building container images.
