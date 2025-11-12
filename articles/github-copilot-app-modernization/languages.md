@@ -65,7 +65,7 @@ To migrate to Agent Framework:
 
    :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot showing the environment setup, syntax checking, and lint checking in the migration workflow.":::
    
-   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-runtest.png" alt-text="Screenshot showing the Run Python Tests step in the migration workflow.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot showing the Run Python Tests step in the migration workflow.":::
 
 ## Language-agnostic
 ### Containerization
