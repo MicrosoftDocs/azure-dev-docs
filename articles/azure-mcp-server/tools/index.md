@@ -30,6 +30,8 @@ The Azure Model Context Protocol (MCP) Server exposes many tools you can use fro
 
 [!INCLUDE [global-params](../includes/tools/global-parameters-list.md)]
 
+[!INCLUDE [tool-annotations-hints](../includes/tools/tool-annotation-hints.md)]
+
 ## User confirmation for sensitive data
 
 [!INCLUDE [user-consent](../includes/tools/user-consent.md)]
