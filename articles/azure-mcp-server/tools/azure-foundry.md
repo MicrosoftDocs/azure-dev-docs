@@ -428,7 +428,7 @@ Example prompts include:
 
 ## Threads: Get thread messages
 
-<!-- azmcpfoundry threads get-messages -->
+<!-- azmcp foundry threads get-messages -->
 
 Get messages in an AI Foundry agent thread.
 

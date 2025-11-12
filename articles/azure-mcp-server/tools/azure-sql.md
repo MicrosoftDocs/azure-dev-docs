@@ -50,9 +50,9 @@ Example prompts include:
 
 ## Database: Delete database
 
-Delete a SQL database.
-
 <!-- `azmcp sql db delete` -->
+
+Delete a SQL database.
 
 Example prompts include:
 

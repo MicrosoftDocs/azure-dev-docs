@@ -27,6 +27,8 @@ Azure MCP Server enables you to manage Azure Database for MySQL servers, databas
 
 List all databases available on the specified Azure Database for MySQL Flexible Server instance. This command provides visibility into the database structure and helps you identify databases for connection and querying operations.
 
+Example prompts include:
+
 - **List databases**: "List all databases on server 'my-mysql-server'."
 - **Show databases**: "Show all databases on MySQL server 'my-mysql-server'."
 - **Filter by name**: "List databases on 'my-mysql-server' that start with 'test'."

@@ -20,6 +20,8 @@ The Azure MCP Server lets you manage Azure resources, including Azure Cloud Arch
 
 ## Design
 
+<!-- cloudarchitect design -->
+
 This operation gathers requirements through guided questions and recommends optimal solutions.
 
 Example prompts include:
