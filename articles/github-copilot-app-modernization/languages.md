@@ -57,11 +57,15 @@ To migrate to Agent Framework:
 
    :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot showing the chat window with the migration task being invoked through the appmod-run-task tool.":::
 
-1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps: resolving Python syntax and import issues, installing linters (if not already installed) to resolve lint issues per project configuration.
-
-   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot showing Python-specific workflow steps including environment setup, syntax checking, and lint checking.":::
+1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps:
    
-   The workflow also installs test runners (if not already installed) and runs tests to verify the migration quality.
+   - **Check Python Syntax Issues**: Resolve Python syntax and import issues.
+   - **Check Python Lint Issues**: Install linters (if not already installed) and resolve lint issues per project configuration.
+   - **Run Python Tests**: Install test runners (if not already installed) and run tests to verify the migration quality.
+
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot showing the environment setup, syntax checking, and lint checking in the migration workflow.":::
+   
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-runtest.png" alt-text="Screenshot showing the Run Python Tests step in the migration workflow.":::
 
 ## Language-agnostic
 ### Containerization
