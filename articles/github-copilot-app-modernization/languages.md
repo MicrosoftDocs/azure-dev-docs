@@ -53,7 +53,8 @@ To migrate to Agent Framework:
    > [!TIP]
    > If you have a hybrid project with both Java and Python, use the manual navigation method through the **Tasks** list to select the Python migration option.
 
-1. The extension prompts you in the chat window to start the migration process.
+1. The extension starts the migration process in the Copilot Agent chat window.
+
 
    :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot showing the chat window with the migration task being invoked through the appmod-run-task tool.":::
 
