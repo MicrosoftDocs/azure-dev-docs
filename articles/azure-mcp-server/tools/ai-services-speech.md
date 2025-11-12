@@ -47,7 +47,7 @@ Example prompts include:
 | **Format** |  Optional | Output format: `simple` or `detailed`. Default is `simple`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
 
-[!INCLUDE [speech tts synthesize](../includes/tools/annotations/azure-ai-services-speech-operation-text-speech-synthesize-annotations.md)]
+[!INCLUDE [speech stt recognize](../includes/tools/annotations/azure-ai-services-speech-operation-speech-text-recognize-annotations.md)]
 
 ## Related content
 
