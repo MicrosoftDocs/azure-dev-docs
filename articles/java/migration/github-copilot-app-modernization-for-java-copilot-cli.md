@@ -27,9 +27,9 @@ This article provides an overview of how Java developers can modernize their app
 - Supports both interactive (human-in-the-loop) and batch workflows
 
 ## Supported Scenarios
-- [Upgrade your Java application](/java/upgrade/quickstart-upgrade)
-- [Migrate your Java application to Azure](migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-- [Deploy your Java application to Azure](migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md)
+- **Upgrade your Java application** – for example: `Upgrade to the latest Java version`.  
+- **Migrate your Java application to Azure** – using predefined tasks listed in [Migration Tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).  
+- **Deploy your Java application to Azure** – for example: `Deploy this application to Azure`.  
 
 ## Prerequisites
 - [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)
@@ -98,11 +98,16 @@ To migrate your Java application to Azure, describe your migration scenario in C
 For details on predefined migration tasks, see [migration tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list)
 For example:
 ```
-Migrate this application from RabbitMQ to Azure Service Bus
+Migrate this application from S3 to Azure Blob Storage
 ```
+Then the migration task will be executed and showing progress in Copilot CLI
+:::image type="content" source="./media/copilot-cli/migrate-details.png" lightbox="./media/copilot-cli/migrate-details.png" alt-text="Screenshot of executing tasks in Java migrate scenarios":::
+
+The project has been successfully migrated to Azure Blob Storage, with below summary
+:::image type="content" source="./media/copilot-cli/migrate-summary.png" lightbox="./media/copilot-cli/migrate-summary.png" alt-text="Screenshot of Java migrate summary in Copilot CLI":::
 
 ### Deploy your Java Application to Azure
-After upgrading or migrating your application, you can deploy it directly from Copilot CLI.
+After upgrading or migrating your application, you can deploy it directly from Copilot CLI by following prompt examples:
 ```
 Deploy this application to Azure
 ```
