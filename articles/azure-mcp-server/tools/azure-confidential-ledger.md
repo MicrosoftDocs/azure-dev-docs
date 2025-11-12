@@ -22,7 +22,7 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Conf
 
 ## Append an entry to the ledger
 
-<!-- azmcp confidentialledger entries append -->
+<!-- confidentialledger entries append -->
 
 Appends an immutable (tamper-proof) entry to a Confidential Ledger instance and returns the transaction identifier.
 
@@ -49,7 +49,7 @@ Example prompts include:
 
 ## Get an entry from the ledger
 
-<!-- azmcp confidentialledger entries get -->
+<!-- confidentialledger entries get -->
 
 Retrieves the Confidential Ledger entry and its recorded contents for the specified transaction ID, optionally scoped to a collection.
 

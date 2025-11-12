@@ -21,7 +21,7 @@ The Azure MCP Server allows you to manage Azure Event Grid resources using natur
 
 ## Events: Publish
 
-<!-- `azmcp eventgrid events publish` -->
+<!-- eventgrid events publish` -->
 
 Publish custom events to Event Grid topics for event-driven architectures. This tool sends structured event data to 
 Event Grid topics with schema validation and delivery guarantees for downstream subscribers. Returns publish operation 
@@ -43,7 +43,7 @@ Example prompts include:
 
 ## Subscription: List
 
-<!-- `azmcp eventgrid subscription list` -->
+<!-- eventgrid subscription list` -->
 
 List Event Grid subscriptions with filtering and endpoint configuration. This tool shows all active 
 subscriptions including webhook endpoints, event filters, and delivery retry policies. 
@@ -67,7 +67,7 @@ Example prompts include:
 
 ## Topic: List
 
-<!-- `azmcp eventgrid topic list` -->
+<!-- eventgrid topic list` -->
 
 
 List all Event Grid topics in an Event Grid subscription with configuration and status information. This tool retrieves

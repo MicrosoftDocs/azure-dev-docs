@@ -20,7 +20,7 @@ Azure best practices tools offer recommendations for Azure service implementatio
 
 ## Get best practices
 
-<!-- azmcp bestpractices get -->
+<!-- bestpractices get -->
 
 Returns best practices for secure, production-grade Azure SDK usage. Use this tool to get guidance on implementing Azure services in your applications.
 

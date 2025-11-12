@@ -22,7 +22,7 @@ The Azure MCP Server lets you manage Azure SQL Database resources by using natur
 
 ## Database: Create database
 
-<!-- `azmcp sql db create` -->
+<!-- sql db create` -->
 
 Create a new database on an existing Azure SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings.
 
@@ -50,7 +50,7 @@ Example prompts include:
 
 ## Database: Delete database
 
-<!-- `azmcp sql db delete` -->
+<!-- sql db delete` -->
 
 Delete a SQL database.
 
@@ -70,7 +70,7 @@ Example prompts include:
 
 ## Database: List databases
 
-<!-- `azmcp sql db list` -->
+<!-- sql db list` -->
 
 Lists all databases in your cloud resource with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status, compare database configurations, or find databases for management operations.
 
@@ -88,7 +88,7 @@ Example prompts include:
 
 ## Database: Rename database
 
-<!-- `azmcp sql db rename` -->
+<!-- sql db rename` -->
 
 Rename an existing database to a new name within the same Azure SQL server.
 
@@ -107,9 +107,7 @@ Example prompts include:
 
 ## Database: Show database details
 
-<!-- 
-azmcp sql db show --subscription
--->
+<!-- sql db show -->
 
 Retrieves detailed information about a specific database. Use this command to check the configuration, performance tier, size, and other characteristics of your database.
 
@@ -128,7 +126,7 @@ Example prompts include:
 
 ## Database: Update database
 
-<!-- `azmcp sql db update` -->
+<!-- sql db update` -->
 
 Update configuration settings for an existing Azure SQL Database. 
 
@@ -155,9 +153,7 @@ Example prompts include:
 
 ## Server authentication: List Microsoft Entra administrators
 
-<!-- 
-azmcp sql server entra-admin list --subscription
--->
+<!-- sql server entra-admin list -->
 
 Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your resource.
 
@@ -176,7 +172,7 @@ Example prompts include:
 
 ## Server: Create server
 
-<!-- `azmcp sql server create` -->
+<!-- sql server create` -->
 
 Creates a new Azure SQL server in the specified resource group and location.
 
@@ -199,7 +195,7 @@ Example prompts include:
 
 ## Server: Delete server
 
-<!-- `azmcp sql server delete` -->
+<!-- sql server delete` -->
 
 Deletes an Azure SQL server and all of its databases from the specified resource group.
 
@@ -218,7 +214,7 @@ Example prompts include:
 
 ## Server: List servers
 
-<!-- `azmcp sql server list` -->
+<!-- sql server list` -->
 
 Lists Azure SQL servers within a resource group. 
 
@@ -236,7 +232,7 @@ Example prompts include:
 
 ## Server: Show server details
 
-<!-- `azmcp sql server show` -->
+<!-- sql server show` -->
 
 Retrieves detailed information about an Azure SQL server including its configuration,
 status, and properties such as the fully qualified domain name, version,
@@ -257,9 +253,7 @@ Example prompts include:
 
 ## Server firewall: List rules
 
-<!-- 
-azmcp sql firewall-rule list --subscription
--->
+<!-- sql firewall-rule list -->
 
 Lists all firewall rules for a specific resource. Use this command to manage and review the network access settings for your resource.
 
@@ -277,7 +271,7 @@ Example prompts include:
 
 ## Server firewall: Create rule
 
-<!-- `azmcp sql server firewall-rule create` -->
+<!-- sql server firewall-rule create` -->
 
 Creates a firewall rule for a resource. Firewall rules control which IP addresses 
 are allowed to connect to the resource. You can specify either a single IP address 
@@ -301,7 +295,7 @@ Example prompts include:
 
 ## Server firewall: Delete rule
 
-<!-- `azmcp sql server firewall-rule delete` -->
+<!-- sql server firewall-rule delete` -->
 
 Deletes a firewall rule from a resource. This operation removes the specified firewall rule, potentially restricting access for the IP addresses that were previously allowed by this rule. If the rule doesn't exist, no error is returned.
 
@@ -320,9 +314,7 @@ Example prompts include:
 
 ## Elastic pools: List elastic pools
 
-<!-- 
-azmcp sql elastic-pool list --subscription
--->
+<!-- sql elastic-pool list -->
 
 Lists all elastic pools for a specific resource. Elastic pools are a resource allocation solution that lets you manage and scale multiple databases with varying resource demands.
 

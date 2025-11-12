@@ -22,9 +22,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure Load Testi
 
 ## Test: Create test
 
-<!--
-azmcp loadtesting test create --subscription
--->
+<!-- loadtesting test create -->
 
 Creates a new load test in Azure Load Testing. Use this command to define and configure a load test for your application.
 
@@ -51,9 +49,7 @@ Example prompts include:
 
 ## Test: Get test details
 
-<!--
-azmcp loadtesting test get --subscription
--->
+<!-- loadtesting test get -->
 
 Gets details about a specific load test in Azure Load Testing. Use this command to view the configuration and properties of an existing test.
 
@@ -76,9 +72,7 @@ Example prompts include:
 
 ## Test resources: List test resources
 
-<!--
-azmcp loadtesting testresource list --subscription
--->
+<!-- loadtesting testresource list -->
 
 Lists all test resources in the specified Azure subscription. Use this command to track and manage your load testing resources.
     
@@ -98,9 +92,7 @@ Example prompts include:
 
 ## Test resources: Create test resource
 
-<!--
-azmcp loadtesting testresource create --subscription
--->
+<!-- loadtesting testresource create -->
 
 Creates a test resource in Azure Load Testing. Use this command to set up resources needed for running load tests.
 
@@ -119,9 +111,7 @@ Example prompts include:
 
 ## Test runs: Create a test run
 
-<!--
-azmcp loadtesting testrun create --subscription
--->
+<!--  loadtesting testrun create -->
 
 Creates a new test run for an existing load test in Azure Load Testing. Use this command to run the defined load test and generate performance metrics.
 
@@ -145,9 +135,7 @@ Example prompts include:
 
 ## Test runs: Get test run details
 
-<!--
-azmcp loadtesting testrun get --subscription
--->
+<!-- loadtesting testrun get -->
 
 Gets details about a specific test run in Azure Load Testing. Use this command to view the results and metrics of a completed or running test.
 
@@ -166,9 +154,7 @@ Example prompts include:
 
 ## Test runs: List test runs
 
-<!--
-azmcp loadtesting testrun list --subscription
--->
+<!-- loadtesting testrun list -->
 
 Lists all test runs for a specific load test in Azure Load Testing. Use this command to track the history and performance of your load tests.
 
@@ -190,9 +176,7 @@ Example prompts include:
 
 ## Test runs: Update test run
 
-<!--
-azmcp loadtesting testrun update --subscription
--->
+<!-- loadtesting testrun update -->
 
 Updates an existing test run in Azure Load Testing. Use this command to modify a running or scheduled test run, such as stopping or adjusting test parameters.
 

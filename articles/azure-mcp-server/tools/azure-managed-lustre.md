@@ -98,7 +98,7 @@ Example prompts include:
 
 ## File system: Get SKU
 
-<!-- `azmcp azuremanagedlustre filesystem sku get` -->
+<!-- azuremanagedlustre filesystem sku get` -->
 
 Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets, and zonal support. 
 

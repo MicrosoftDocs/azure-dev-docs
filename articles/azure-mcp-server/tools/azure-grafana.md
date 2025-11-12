@@ -20,7 +20,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Manag
 
 ## List Grafana workspaces
 
-<!-- azmcp grafana list -->
+<!-- grafana list -->
 
 Lists all Azure Managed Grafana workspaces in your subscription. This command helps you view and manage your Grafana workspace resources across your Azure environment.
 

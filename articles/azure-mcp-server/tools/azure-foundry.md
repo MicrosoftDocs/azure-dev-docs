@@ -22,7 +22,7 @@ When connecting to your Azure AI Foundry resource, the Azure MCP Server requires
 
 ## Agents: Connect and run
 
-<!-- `azmcp foundry agents connect` -->
+<!-- foundry agents connect` -->
 
 Connect to a specific Azure AI Agent and run a query. This command returns the agent's response along with thread and run IDs for potential evaluation.
 
@@ -42,7 +42,7 @@ Example prompts include:
 
 ## Agents: Create a new agent
 
-<!-- azmcp foundry agents create -->
+<!-- foundry agents create -->
 
 Creates an AI Foundry Agent that processes messages according to a given system instruction using an existing AI Foundry model deployment.
 
@@ -63,7 +63,7 @@ Example prompts include:
 
 ## Agents: Evaluate an agent
 
-<!-- azmcp foundry agents evaluate -->
+<!-- foundry agents evaluate -->
 
 Run agent evaluation on agent data. Requires JSON strings for query, response, and tool definitions.
 
@@ -88,7 +88,7 @@ Example prompts include:
 
 ## Agents: Get agent sample for language SDK
 
-<!-- azmcp foundry agents get-sdk-sample -->
+<!-- foundry agents get-sdk-sample -->
 
 Get code samples to interact with a Foundry Agent using AI Foundry SDK and programming language of your choice.
 
@@ -106,7 +106,7 @@ Example prompts include:
 
 ## Agents: List agents
 
-<!-- azmcp foundry agents list -->
+<!-- foundry agents list -->
 
 
 List all Azure AI Agents in an Azure AI Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
@@ -127,7 +127,7 @@ Example prompts include:
 
 ## Agents: Query and execute an agent
 
-<!-- azmcp foundry agents query-and-evaluate -->
+<!-- foundry agents query-and-evaluate -->
 
 Query an agent and evaluate its response in a single operation. This command returns both the agent response and evaluation results.
 
@@ -195,7 +195,7 @@ Example prompts include:
 
 ## Models: List available models
 
-<!-- azmcp foundry models list -->
+<!-- foundry models list -->
 
 List all available Azure OpenAI models and deployments in an AI Foundry resource. This tool retrieves information about Azure OpenAI models deployed in your AI Foundry resource including model names, versions, capabilities, and deployment status.
 
@@ -219,7 +219,7 @@ Example prompts include:
 
 ## Models: Deploy a model
 
-<!-- azmcp foundry models deploy -->
+<!-- foundry models deploy -->
 
 Deploy an AI model to your Azure environment. Use this command to deploy selected models from Azure AI Foundry and make them available for use in your applications.
 
@@ -249,7 +249,7 @@ Example prompts include:
 
 ## Models: List model deployments
 
-<!-- azmcp foundry models deployments list -->
+<!-- foundry models deployments list -->
 
 List model deployments in an Azure AI Foundry (Cognitive Services) project. Shows currently deployed AI models at the project level.
 
@@ -269,7 +269,7 @@ Example prompts include:
 
 ## OpenAI: Create chat completions
 
-<!-- azmcp foundry openai chat-completions-create -->
+<!-- foundry openai chat-completions-create -->
 
  Create chat completions using Azure OpenAI in AI Foundry. Send messages to Azure OpenAI chat models deployed in your AI Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
 
@@ -306,7 +306,7 @@ Example prompts include:
 
 ## OpenAI: Create embeddings
 
-<!-- `azmcp foundry openai embeddings-create` -->
+<!-- foundry openai embeddings-create` -->
 
 Create embeddings using Azure OpenAI in AI Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your AI Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
 
@@ -337,7 +337,7 @@ Example prompts include:
 
 ## OpenAI: Create completions
 
-<!-- azmcp foundry openai create-completion -->
+<!-- foundry openai create-completion -->
 
  Create text completions using Azure OpenAI in AI Foundry. Send a prompt or question to Azure OpenAI models deployed in your AI Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
 
@@ -362,7 +362,7 @@ Example prompts include:
 
 ## OpenAI: List models and deployments
 
-<!-- `azmcp foundry openai models-list` -->
+<!-- foundry openai models-list` -->
 
 List all available OpenAI models and deployments in an Azure resource. This tool retrieves information about 
 deployed models including model names, versions, capabilities, and deployment status. 
@@ -388,7 +388,7 @@ Example prompts include:
 
 ## Resources: Get Foundry resource
 
-<!-- azmcp foundry resource get -->
+<!-- foundry resource get -->
 
 Get detailed information about Azure AI Foundry resources, including endpoint URL, 
 location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
@@ -409,7 +409,7 @@ Example prompts include:
 
 ## Threads: Create a new thread
 
-<!-- azmcp foundry threads create -->
+<!-- foundry threads create -->
 
 Creates an AI Foundry agent thread that holds the messages between the Agent and the user.
 
@@ -428,7 +428,7 @@ Example prompts include:
 
 ## Threads: Get thread messages
 
-<!-- azmcp foundry threads get-messages -->
+<!-- foundry threads get-messages -->
 
 Get messages in an AI Foundry agent thread.
 
@@ -447,7 +447,7 @@ Example prompts include:
 
 ## Threads: List all threads
 
-<!-- azmcp foundry threads list -->
+<!-- foundry threads list -->
 
 List AI Foundry agent threads.
 

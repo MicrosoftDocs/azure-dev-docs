@@ -20,7 +20,7 @@ Terraform best practices for Azure helps you implement secure, scalable, and mai
 
 ## Get best practices
 
-<!-- azmcp azureterraformbestpractices get -->
+<!-- azureterraformbestpractices get -->
 
 Returns best practices for implementing Terraform with Azure. Use this tool to get guidance on creating secure, scalable, and maintainable infrastructure as code for Azure resources.
 

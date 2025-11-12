@@ -108,7 +108,7 @@ Example prompts include:
 
 ## Event Hub: Get Event Hub
 
-<!-- `azmcp eventhubs eventhub get` -->
+<!-- eventhubs eventhub get` -->
 
 Get event hubs from an Azure namespace. This tool:
 

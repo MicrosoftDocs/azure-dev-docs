@@ -20,7 +20,7 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Bice
 
 ## Get Bicep Resource Schema
 
-<!-- azmcp bicepschema get -->
+<!-- bicepschema get -->
 
 Gets the Bicep schema for the most recent apiVersion of an Azure resource. This operation helps you ensure your Bicep templates use the correct properties and values when defining Azure resources.
 

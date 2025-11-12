@@ -19,7 +19,7 @@ The Azure MCP Server enables you to monitor resource health and availability by 
 
 ## Availability status: Get
 
-<!-- `azmcp resourcehealth availability-status get` -->
+<!-- resourcehealth availability-status get` -->
 
 Get the current availability status of an Azure resource to diagnose health issues. Provides detailed information about resource availability state, potential issues, and timestamps. 
 
@@ -39,7 +39,7 @@ Example prompts include:
 
 ## Availability status: List
 
-<!-- `azmcp resourcehealth availability-status list` -->
+<!-- resourcehealth availability-status list` -->
 
 List availability statuses for all resources in a subscription or resource group. Provides health status information for multiple Azure resources at once, including availability state, summaries, and timestamps. This information is useful for getting an overview of resource health across your infrastructure. You can filter results by resource group to narrow the scope.
 
@@ -54,7 +54,7 @@ Example prompts include:
 
 ## Service health events: List events
 
-<!-- `azmcp resourcehealth service-health-events list` -->
+<!-- resourcehealth service-health-events list` -->
 
 List Azure service health events for a subscription to identify ongoing or past service issues. Provides comprehensive information about service incidents, planned maintenance, advisories, and security events. Supports filtering by event type, status, tracking ID, and custom OData filters.
 Equivalent to Azure Service Health API for service events.
