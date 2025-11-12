@@ -72,7 +72,7 @@ Example prompts include:
 | **Cluster** |  Required | AKS cluster name. |
 | **Node pool** |  Required | AKS node pool (agent pool) name. |
 
-[!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-nodepool-get-annotations.md)]
+[!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-node-pool-get-annotations.md)]
 
 ## Related content
 

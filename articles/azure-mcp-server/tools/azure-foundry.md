@@ -148,7 +148,7 @@ Example prompts include:
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
-[!INCLUDE [foundry agents query-and-evaluate](../includes/tools/annotations/azure-ai-foundry-agents-query-and-evaluate-annotations.md)]
+[!INCLUDE [foundry agents query-and-evaluate](../includes/tools/annotations/azure-ai-foundry-agents-query-evaluate-annotations.md)]
 
 ## Knowledge: List knowledge indexes
 

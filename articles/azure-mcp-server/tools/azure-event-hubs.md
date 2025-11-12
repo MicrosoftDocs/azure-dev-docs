@@ -38,7 +38,7 @@ Example prompts include:
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 
-[!INCLUDE [eventhubs eventhub consumergroup delete](../includes/tools/annotations/azure-event-hubs-eventhub-consumergroup-delete-annotations.md)]
+[!INCLUDE [eventhubs eventhub consumergroup delete](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-delete-annotations.md)]
 
 ## Event Hub: Get consumer group
 
@@ -63,7 +63,7 @@ Example prompts include:
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Optional | The name of the consumer group within the Event Hub. |
 
-[!INCLUDE [eventhubs eventhub consumergroup get](../includes/tools/annotations/azure-event-hubs-eventhub-consumergroup-get-annotations.md)]
+[!INCLUDE [eventhubs eventhub consumergroup get](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-get-annotations.md)]
 
 ## Event Hub: Create or update consumer group
 
@@ -85,7 +85,7 @@ Example prompts include:
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 | **User metadata** |  Optional | User metadata for the consumer group. |
 
-[!INCLUDE [eventhubs eventhub consumergroup update](../includes/tools/annotations/azure-event-hubs-eventhub-consumergroup-update-annotations.md)]
+[!INCLUDE [eventhubs eventhub consumergroup update](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-update-annotations.md)]
 
 ## Event Hub: Delete Event Hub    
 
@@ -104,7 +104,7 @@ Example prompts include:
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 
-[!INCLUDE [eventhubs eventhub delete](../includes/tools/annotations/azure-event-hubs-eventhub-delete-annotations.md)]
+[!INCLUDE [eventhubs eventhub delete](../includes/tools/annotations/azure-event-hubs-event-hub-delete-annotations.md)]
 
 ## Event Hub: Get Event Hub
 
@@ -129,7 +129,7 @@ Example prompts include:
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
 
-[!INCLUDE [eventhubs eventhub get](../includes/tools/annotations/azure-event-hubs-eventhub-get-annotations.md)]
+[!INCLUDE [eventhubs eventhub get](../includes/tools/annotations/azure-event-hubs-event-hub-get-annotations.md)]
 
 ## Event Hub: Create or update Event Hub
 
@@ -159,7 +159,7 @@ Example prompts include:
 | **Message retention in hours** | Optional | The message retention time in hours. Minimum is `1` hour, maximum depends on the namespace tier. |
 | **Status** | Optional | The status of the Event Hub (such as `Active`, `Disabled`). Status might be read-only in some operations. |
 
-[!INCLUDE [eventhubs eventhub update](../includes/tools/annotations/azure-event-hubs-eventhub-update-annotations.md)]
+[!INCLUDE [eventhubs eventhub update](../includes/tools/annotations/azure-event-hubs-event-hub-update-annotations.md)]
 
 ## Namespace: Delete namespace
 

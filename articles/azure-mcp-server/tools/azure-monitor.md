@@ -39,7 +39,7 @@ Example prompts include:
 | **Event level** |  Optional | The level of activity logs to retrieve. Valid levels are: Critical, Error, Informational, Verbose, Warning. If not provided, returns all levels. |
 | **Top** |  Optional | The maximum number of activity logs to retrieve. |
 
-[!INCLUDE [monitor activitylog list](../includes/tools/annotations/azure-monitor-activitylog-list-annotations.md)]
+[!INCLUDE [monitor activitylog list](../includes/tools/annotations/azure-monitor-activity-log-list-annotations.md)]
 
 ## Web Tests: Create web tests
 
@@ -78,7 +78,7 @@ Example prompts include:
 | **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
 | **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: `30`, `60`, `90`, `120` seconds. |
 
-[!INCLUDE [monitor webtests create](../includes/tools/annotations/azure-monitor-webtests-create-annotations.md)]
+[!INCLUDE [monitor webtests create](../includes/tools/annotations/azure-monitor-web-tests-create-annotations.md)]
 
 ## Web Tests: Get web tests
 
@@ -96,7 +96,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
 
-[!INCLUDE [monitor webtests get](../includes/tools/annotations/azure-monitor-webtests-get-annotations.md)]
+[!INCLUDE [monitor webtests get](../includes/tools/annotations/azure-monitor-web-tests-get-annotations.md)]
 
 ## Web Tests: List web tests
 
@@ -110,7 +110,7 @@ Example prompts include:
 - **View tests by resource group**: "Show web tests in the 'monitoring' resource group"
 - **Get test inventory**: "What web tests do I have configured?"
 
-[!INCLUDE [monitor webtests list](../includes/tools/annotations/azure-monitor-webtests-list-annotations.md)]
+[!INCLUDE [monitor webtests list](../includes/tools/annotations/azure-monitor-web-tests-list-annotations.md)]
 
 ## Web Tests: Update web tests
 
@@ -147,7 +147,7 @@ Example prompts include:
 | **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
 | **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: 30, 60, 90, 120 seconds. |
 
-[!INCLUDE [monitor webtests update](../includes/tools/annotations/azure-monitor-webtests-update-annotations.md)]
+[!INCLUDE [monitor webtests update](../includes/tools/annotations/azure-monitor-web-tests-update-annotations.md)]
 
 ## Log Analytics: List workspaces
 
@@ -260,7 +260,7 @@ Example prompts include:
 | **Model** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
 
-[!INCLUDE [monitor healthmodels entity get](../includes/tools/annotations/azure-monitor-healthmodels-entity-get-annotations.md)]
+[!INCLUDE [monitor healthmodels entity get](../includes/tools/annotations/azure-monitor-health-models-entity-get-annotations.md)]
 
 ## Metrics: Query metrics
 
