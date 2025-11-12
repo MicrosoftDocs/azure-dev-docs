@@ -50,6 +50,7 @@ This article provides an overview of how Java developers can modernize their app
       ]
     }
     //TODO: java migration
+    //TODO: java deployment
   }
 }
 ```
@@ -73,6 +74,12 @@ For details on predefined migration tasks, see [migration tasks](migrate-github-
 For example:
 ```
 Migrate this application from S3 to Azure Blob Storage
+```
+
+### Deploy your Java Application to Azure
+After upgrading or migrating your application, you can deploy it directly from Copilot CLI by following prompt examples:
+```
+Deploy this application to Azure
 ```
 
 ## Provide Feedback
