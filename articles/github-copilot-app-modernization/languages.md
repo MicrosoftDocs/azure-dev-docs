@@ -36,17 +36,32 @@ GitHub Copilot app modernization can help you [migrate your .NET application to 
 ### Migrating to Agent Framework
 GitHub Copilot app modernization can help you migrate your Semantic Kernel or AutoGen application to Agent Framework, if it is written in Python.
 
-With GitHub Copilot app modernization installed and enabled, open your Python project, select app modernization extension to open its sidebar, and either select the **Convert to Agent Framework** button when detected automatically, or manually navigate to **Tasks** > **Python** > **Agent Framework Migration** > **Migrate AutoGen to Agent Framework** or **Migrate Semantic Kernel to Agent Framework**.
+To migrate to Agent Framework:
 
-:::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot showing the entry points for converting to Agent Framework button in VS Code.":::
+1. Make sure GitHub Copilot app modernization is installed and enabled in VS Code. For best results, select Claude Sonnet 4 or later as your model.
 
-The extension will prompt you in the chat window to start the migration process:
+1. Open your Python project that uses Semantic Kernel or AutoGen in VS Code.
 
-:::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot showing the chat window with the migration task being invoked through the appmod-run-task tool.":::
+1. Select the app modernization extension to open its sidebar.
 
-The extension then guides you through completing the migration in the chat window.
+1. Start the migration using one of these methods:
+   - Select the **Convert to Agent Framework** button when detected automatically.
+   - Manually navigate to **Tasks** > **Python** > **Agent Framework Migration** > **Migrate AutoGen to Agent Framework** or **Migrate Semantic Kernel to Agent Framework**.
 
-For hybrid projects with both Python and other languages, open the folder that contains the Python code to make automatic detection work. For best results, use Claude Sonnet 4 or later.
+   :::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot showing the entry points for converting to Agent Framework button in VS Code.":::
+
+   > [!TIP]
+   > If you have a hybrid project with both Java and Python, use the manual navigation method through the **Tasks** list to select the Python migration option.
+
+1. The extension prompts you in the chat window to start the migration process.
+
+   :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot showing the chat window with the migration task being invoked through the appmod-run-task tool.":::
+
+1. Follow the guidance in the chat window to complete the migration. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps: resolving Python syntax and import issues, and installing linters (if not already installed) to resolve lint issues per project configuration.
+
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot showing Python-specific workflow steps including environment setup, syntax checking, and lint checking.":::
+   
+   The workflow also installs test runners (if not already installed) and runs tests to verify the migration quality.
 
 ## Language-agnostic
 ### Containerization
