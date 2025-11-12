@@ -1,18 +1,18 @@
 ---
 title: Authenticate to Azure resources from Python apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications. 
-ms.date: 06/02/2025
+ms.date: 11/10/2025
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
 # Authenticate to Azure resources from Python apps hosted on-premises
 
-Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When an application service principal is created, a client ID and client secret will be generated for your app. The client ID, client secret, and your tenant ID are then stored in environment variables so they can be used by the Azure SDK for Python to authenticate your app to Azure at runtime.
+Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. Creating a new application service principal generates a client ID and client secret for your app. You store the client ID, client secret, and your tenant ID in environment variables to be used by the Azure SDK for Python to authenticate your app to Azure at runtime.
 
-A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+A different app registration should be created for each environment the app is hosted in. Creating a different app registration allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
-## 1 - Register the application in Azure
+## Register the application in Azure
 
 An app can be registered with Azure using either the Azure portal or the Azure CLI.
 
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 
 ---
 
-## 2 - Assign roles to the application service principal
+## Assign roles to the application service principal
 
 Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
 
@@ -111,11 +111,11 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## 3 - Configure environment variables for application
+## Configure environment variables for application
 
 You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Python app to make the application service principal credentials available to your app at runtime. The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) object looks for the service principal information in these environment variables.
 
-When using [Gunicorn](https://gunicorn.org/) to run Python web apps in a UNIX server environment, environment variables for an app can be specified by using the `EnvironmentFile` directive in the `gunicorn.server` file as shown below.
+When using [Gunicorn](https://gunicorn.org/) to run Python web apps in a UNIX server environment, environment variables for an app can be specified by using the `EnvironmentFile` directive in the `gunicorn.server`. See the following example.
 
 ```gunicorn.server
 [Unit]
@@ -133,7 +133,7 @@ ExecStart=/path/to/python-app/py-env/gunicorn --config config.py wsgi:app
 WantedBy=multi-user.target
 ```
 
-The file specified in the `EnvironmentFile` directive should contain a list of environment variables with their values as shown below.
+The file specified in the `EnvironmentFile` directive should contain a list of environment variables with their values as follows.
 
 ```bash
 AZURE_CLIENT_ID=<value>
@@ -141,7 +141,7 @@ AZURE_TENANT_ID=<value>
 AZURE_CLIENT_SECRET=<value>
 ```
 
-## 4 - Implement DefaultAzureCredential in application
+## Implement DefaultAzureCredential in application
 
 To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package.
 
@@ -151,13 +151,13 @@ Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) p
 pip install azure-identity
 ```
 
-Next, for any Python code that creates an Azure SDK client object in your app, you'll want to:
+Next, for any Python code that creates an Azure SDK client object in your app, you should:
 
 1. Import the `DefaultAzureCredential` class from the `azure.identity` module.
 1. Create a `DefaultAzureCredential` object.
 1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
 
-An example of this is shown in the following code segment.
+An example of this approach is shown in the following code segment.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -171,4 +171,4 @@ blob_service_client = BlobServiceClient(
         credential=token_credential)
 ```
 
-When the above code instantiates the `DefaultAzureCredential` object, `DefaultAzureCredential` reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure with.
+From this example, when the code instantiates the `DefaultAzureCredential` object, `DefaultAzureCredential` reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure with.
