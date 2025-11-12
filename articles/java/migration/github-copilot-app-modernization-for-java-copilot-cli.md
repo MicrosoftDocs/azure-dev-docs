@@ -113,7 +113,7 @@ Deploy this application to Azure
 ```
 
 The deployment task will be executed with showing progress in Copilot CLI:
-:::image type="content" source="./media/copilot-cli/deploy-details.png" lightbox="./media/copilot-cli/deploy-details.png" alt-text="Screenshot of Java deploy summary in Copilot CLI":::
+:::image type="content" source="./media/copilot-cli/deploy-details.png" lightbox="./media/copilot-cli/deploy-details.png" alt-text="Screenshot of Java deploy details in Copilot CLI":::
 
 The project has been successfully deployed, with below summary:
 :::image type="content" source="./media/copilot-cli/deploy-summary.png" lightbox="./media/copilot-cli/deploy-summary.png" alt-text="Screenshot of Java deploy summary in Copilot CLI":::
