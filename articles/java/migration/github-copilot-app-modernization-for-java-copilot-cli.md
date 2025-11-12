@@ -87,10 +87,10 @@ To upgrade your Java application to a newer runtime or framework version, run th
 Upgrade this project to JDK 21 and Spring Boot 3.2
 ```
 The modernization task will then execute, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities as below:
-   :::image type="content" source="./media/copilot-cli/upgrade-details.png"" lightbox="./media/copilot-cli/upgrade-details.png" alt-text="Screenshot of executing tasks in Java upgrade scenarios":::
+:::image type="content" source="./media/copilot-cli/upgrade-details.png"" lightbox="./media/copilot-cli/upgrade-details.png" alt-text="Screenshot of executing tasks in Java upgrade scenarios":::
 
 The project has been successfully upgraded to JDK 21 and Spring Boot 3.2, with below summary:
-   :::image type="content" source="./media/copilot-cli/upgrade-summary.png"" lightbox="./media/copilot-cli/upgrade-summary.png" alt-text="Screenshot of Java upgrade summary in Copilot CLI":::
+:::image type="content" source="./media/copilot-cli/upgrade-summary.png"" lightbox="./media/copilot-cli/upgrade-summary.png" alt-text="Screenshot of Java upgrade summary in Copilot CLI":::
 
 ### Migrate your Java Application to Azure
 To migrate your Java application to Azure, describe your migration scenario in Copilot CLI.
@@ -98,6 +98,7 @@ For details on predefined migration tasks, see [migration tasks](migrate-github-
 For example:
 ```
 Migrate this application from RabbitMQ to Azure Service Bus
+```
 
 ### Deploy your Java Application to Azure
 After upgrading or migrating your application, you can deploy it directly from Copilot CLI.
