@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Speech.
 keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, cognitive services, azure services
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/12/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -46,6 +46,28 @@ Example prompts include:
 | **Phrases** |  Optional | Phrase hints to improve recognition accuracy. Can be specified multiple times or as comma-separated values. |
 | **Format** |  Optional | Output format: `simple` or `detailed`. Default is `simple`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
+
+## Text-to-Speech: Synthesize
+
+<!-- speech tts synthesize -->
+
+Convert text to speech using Azure AI Services Speech. This command takes text input and generates an audio file using advanced neural text-to-speech capabilities.
+
+Example prompts include:
+
+- **Basic synthesis**: "Convert the text 'Hello, welcome to Azure AI Services' to speech using endpoint https://myservice.cognitiveservices.azure.com/ and save to output.wav"
+- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my cognitive services endpoint at https://eastus.api.cognitive.microsoft.com/ with voice en-US-AriaNeural"
+- **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Endpoint** |  Required | The Azure AI Services endpoint URL (for example, `https://your-service.cognitiveservices.azure.com/`). |
+| **Text** |  Required | The text to convert to speech. |
+| **Output file path** |  Required | Path where the synthesized audio file will be saved. |
+| **Language** |  Optional | The language for speech recognition (for example, `en-US`, `es-ES`). Default is `en-US`. |
+| **Voice** |  Optional | The voice to use for speech synthesis (for example, `en-US-JennyNeural`). If not specified, the default voice for the language will be used. |
+| **Format** |  Optional | Output format: `simple` or `detailed`. |
+| **Endpoint ID** |  Optional | The endpoint ID of a custom voice model for speech synthesis. |
 
 ## Related content
 
