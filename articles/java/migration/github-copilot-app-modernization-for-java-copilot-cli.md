@@ -48,7 +48,7 @@ Choose one of the options:
 - Yes, proceed: Copilot can work with the files in this location for this session only.
 - Yes, and remember this folder for future sessions: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Only choose this option if you are sure that it will always be safe for Copilot to work with files in this location.
 - No, exit (Esc): End your Copilot CLI session.
-3. You can add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below
+3. You can add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below, here is an example of adding java upgrade MCP:
 ```
 /mcp add java-upgrade
 ```
@@ -103,7 +103,7 @@ Migrate this application from S3 to Azure Blob Storage
 Then the migration task will be executed and showing progress in Copilot CLI
 :::image type="content" source="./media/copilot-cli/migrate-details.png" lightbox="./media/copilot-cli/migrate-details.png" alt-text="Screenshot of executing tasks in Java migrate scenarios":::
 
-The project has been successfully migrated to Azure Blob Storage, with below summary
+The project has been successfully migrated to Azure Blob Storage, with below summary:
 :::image type="content" source="./media/copilot-cli/migrate-summary.png" lightbox="./media/copilot-cli/migrate-summary.png" alt-text="Screenshot of Java migrate summary in Copilot CLI":::
 
 ### Deploy your Java Application to Azure
@@ -111,6 +111,12 @@ After upgrading or migrating your application, you can deploy it directly from C
 ```
 Deploy this application to Azure
 ```
+
+The deployment task will be executed with showing progress in Copilot CLI:
+:::image type="content" source="./media/copilot-cli/deploy-details.png" lightbox="./media/copilot-cli/deploy-details.png" alt-text="Screenshot of Java deploy summary in Copilot CLI":::
+
+The project has been successfully deployed, with below summary:
+:::image type="content" source="./media/copilot-cli/deploy-summary.png" lightbox="./media/copilot-cli/deploy-summary.png" alt-text="Screenshot of Java deploy summary in Copilot CLI":::
 
 ## Provide Feedback
 If you have any feedback about GitHub Copilot CLI, please let us know your [feedback](https://aka.ms/ghcp-appmod/feedback).
