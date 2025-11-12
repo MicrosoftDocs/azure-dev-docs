@@ -78,7 +78,7 @@ Example prompts include:
 | **Infrastructure as code file type** | Optional | The Infrastructure as Code type. Valid values: `bicep`, `terraform`. Leave empty if deployment tool is the Azure CLI. |
 | **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. Use a comma-separated list. Supported values are: `appservice`, `containerapp`, `function`, `aks`. Leave empty if you don't use these services. |
 
-[!INCLUDE [deploy iac rules get](../includes/tools/annotations/azure-deploy-iac-rules-get-annotations.md)]
+[!INCLUDE [deploy iac rules get](../includes/tools/annotations/azure-deploy-infrastructure-as-code-rules-get-annotations.md)]
 
 ## Pipeline: Get guidance
 
