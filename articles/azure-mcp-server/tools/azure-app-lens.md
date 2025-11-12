@@ -20,7 +20,7 @@ The Azure MCP Server helps you manage Azure resources, including Azure App Lens,
 
 ## Resource: Diagnose
 
-<!-- applens resource diagnose` -->
+<!-- applens resource diagnose -->
 
 Diagnose Azure resource performance issues, slowness, failures, and availability problems. This tool returns a list of insights and solutions to the user question.
 

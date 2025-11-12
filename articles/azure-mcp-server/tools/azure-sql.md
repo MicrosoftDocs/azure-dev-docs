@@ -22,7 +22,7 @@ The Azure MCP Server lets you manage Azure SQL Database resources by using natur
 
 ## Database: Create database
 
-<!-- sql db create` -->
+<!-- sql db create -->
 
 Create a new database on an existing Azure SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings.
 
@@ -50,7 +50,7 @@ Example prompts include:
 
 ## Database: Delete database
 
-<!-- sql db delete` -->
+<!-- sql db delete -->
 
 Delete a SQL database.
 
@@ -70,7 +70,7 @@ Example prompts include:
 
 ## Database: List databases
 
-<!-- sql db list` -->
+<!-- sql db list -->
 
 Lists all databases in your cloud resource with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status, compare database configurations, or find databases for management operations.
 
@@ -88,7 +88,7 @@ Example prompts include:
 
 ## Database: Rename database
 
-<!-- sql db rename` -->
+<!-- sql db rename -->
 
 Rename an existing database to a new name within the same Azure SQL server.
 
@@ -126,7 +126,7 @@ Example prompts include:
 
 ## Database: Update database
 
-<!-- sql db update` -->
+<!-- sql db update -->
 
 Update configuration settings for an existing Azure SQL Database. 
 
@@ -172,7 +172,7 @@ Example prompts include:
 
 ## Server: Create server
 
-<!-- sql server create` -->
+<!-- sql server create -->
 
 Creates a new Azure SQL server in the specified resource group and location.
 
@@ -195,7 +195,7 @@ Example prompts include:
 
 ## Server: Delete server
 
-<!-- sql server delete` -->
+<!-- sql server delete -->
 
 Deletes an Azure SQL server and all of its databases from the specified resource group.
 
@@ -214,7 +214,7 @@ Example prompts include:
 
 ## Server: List servers
 
-<!-- sql server list` -->
+<!-- sql server list -->
 
 Lists Azure SQL servers within a resource group. 
 
@@ -232,7 +232,7 @@ Example prompts include:
 
 ## Server: Show server details
 
-<!-- sql server show` -->
+<!-- sql server show -->
 
 Retrieves detailed information about an Azure SQL server including its configuration,
 status, and properties such as the fully qualified domain name, version,
@@ -271,7 +271,7 @@ Example prompts include:
 
 ## Server firewall: Create rule
 
-<!-- sql server firewall-rule create` -->
+<!-- sql server firewall-rule create -->
 
 Creates a firewall rule for a resource. Firewall rules control which IP addresses 
 are allowed to connect to the resource. You can specify either a single IP address 
@@ -295,7 +295,7 @@ Example prompts include:
 
 ## Server firewall: Delete rule
 
-<!-- sql server firewall-rule delete` -->
+<!-- sql server firewall-rule delete -->
 
 Deletes a firewall rule from a resource. This operation removes the specified firewall rule, potentially restricting access for the IP addresses that were previously allowed by this rule. If the rule doesn't exist, no error is returned.
 

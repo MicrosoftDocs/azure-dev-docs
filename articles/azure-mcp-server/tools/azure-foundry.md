@@ -22,7 +22,7 @@ When connecting to your Azure AI Foundry resource, the Azure MCP Server requires
 
 ## Agents: Connect and run
 
-<!-- foundry agents connect` -->
+<!-- foundry agents connect -->
 
 Connect to a specific Azure AI Agent and run a query. This command returns the agent's response along with thread and run IDs for potential evaluation.
 
@@ -306,7 +306,7 @@ Example prompts include:
 
 ## OpenAI: Create embeddings
 
-<!-- foundry openai embeddings-create` -->
+<!-- foundry openai embeddings-create -->
 
 Create embeddings using Azure OpenAI in AI Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your AI Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
 
@@ -362,7 +362,7 @@ Example prompts include:
 
 ## OpenAI: List models and deployments
 
-<!-- foundry openai models-list` -->
+<!-- foundry openai models-list -->
 
 List all available OpenAI models and deployments in an Azure resource. This tool retrieves information about 
 deployed models including model names, versions, capabilities, and deployment status. 
