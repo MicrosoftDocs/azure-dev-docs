@@ -43,11 +43,11 @@ This article provides an overview of how Java developers can modernize their app
 ```
 copilot
 ```
-   Copilot will ask you to confirm that you trust the files in this folder. Refer to [Using Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#trusted-directories)
-   Choose one of the options:
-    1. Yes, proceed: Copilot can work with the files in this location for this session only.
-    2. Yes, and remember this folder for future sessions: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Only choose this option if you are sure that it will always be safe for Copilot to work with files in this location.
-    3. No, exit (Esc): End your Copilot CLI session.
+Copilot will ask you to confirm that you trust the files in this folder. Refer to [Using Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#trusted-directories)
+Choose one of the options:
+- Yes, proceed: Copilot can work with the files in this location for this session only.
+- Yes, and remember this folder for future sessions: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Only choose this option if you are sure that it will always be safe for Copilot to work with files in this location.
+- No, exit (Esc): End your Copilot CLI session.
 3. You can add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below
 ```
 /mcp add java-upgrade
