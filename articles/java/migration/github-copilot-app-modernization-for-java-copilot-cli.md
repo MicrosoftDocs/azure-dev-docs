@@ -107,7 +107,7 @@ After upgrading or migrating your application, you can deploy it directly from C
 Deploy this application to Azure
 ```
 
-## Feedback
+## Provide Feedback
 If you have any feedback about GitHub Copilot CLI, please let us know your [feedback](https://aka.ms/ghcp-appmod/feedback).
 
 ## Reference
