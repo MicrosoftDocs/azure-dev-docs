@@ -32,7 +32,7 @@ Example prompts include:
 - **Check workspace status**: "Are there any Grafana workspaces in my dev subscription?"
 - **Dashboard inventory**: "I need to see all Grafana workspace resources in my account"
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [grafana list](../includes/tools/annotations/azure-managed-grafana-list-annotations.md)]
 

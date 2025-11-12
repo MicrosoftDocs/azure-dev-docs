@@ -45,7 +45,7 @@ Example prompts include:
 | **Content** |  Required | The JSON or text payload to append as a tamper-proof ledger entry. |
 | **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [confidentialledger entries append](../includes/tools/annotations/azure-confidential-ledger-entries-append-annotations.md)]
 
@@ -66,7 +66,7 @@ Example prompts include:
 | **Transaction ID** |  Required | The Confidential Ledger transaction identifier (for example: `2.199`). |
 | **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [confidentialledger entries get](../includes/tools/annotations/azure-confidential-ledger-entries-get-annotations.md)]
 

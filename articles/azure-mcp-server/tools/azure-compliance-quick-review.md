@@ -33,7 +33,7 @@ The Azure MCP Server can execute Azure Quick Review CLI commands to generate com
 - **Security scan**: "scan resources in dev-rg for security problems"
 - **Generate report**: "Create compliance report for subscription abc123 and resource group web-apps"
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [extension azqr](../includes/tools/annotations/azure-extension-compliance-review-annotations.md)]
 

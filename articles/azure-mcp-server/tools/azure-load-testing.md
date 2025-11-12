@@ -45,7 +45,7 @@ Example prompts include:
 | **Duration** | Required | The total duration of the test in seconds. |
 | **Ramp-up time** | Required | The time period over which to gradually increase load to the specified number of virtual users. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting test create](../includes/tools/annotations/azure-load-testing-test-create-annotations.md)]
 
@@ -70,7 +70,7 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource. |
 | **Test ID** | Required | The unique identifier of the test. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting test get](../includes/tools/annotations/azure-load-testing-test-get-annotations.md)]
 
@@ -92,7 +92,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of a specific test resource to filter by. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting testresource list](../includes/tools/annotations/azure-load-testing-test-resource-list-annotations.md)]
 
@@ -112,7 +112,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | A name for the new test resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting testresource create](../includes/tools/annotations/azure-load-testing-test-resource-create-annotations.md)]
 
@@ -137,7 +137,7 @@ Example prompts include:
 | **Description** | Required | A description of the test run and its purpose. |
 | **Old testrun ID** | Required | The ID of a previous test run to compare results with. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting testrun create](../includes/tools/annotations/azure-load-testing-test-run-create-annotations.md)]
 
@@ -158,7 +158,7 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource used for the test run. |
 | **Testrun ID** | Required | The ID of the test run. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting testrun get](../includes/tools/annotations/azure-load-testing-test-run-get-annotations.md)]
 
@@ -182,7 +182,7 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource used for the test runs. |
 | **Test ID** | Required | The ID of a specific test to filter test runs by. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting testrun list](../includes/tools/annotations/azure-load-testing-test-run-list-annotations.md)]
 
@@ -208,7 +208,7 @@ Example prompts include:
 | **Display** | Required | A new display name for the test run. |
 | **Description** | Required | A new description for the test run. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [loadtesting testrun update](../includes/tools/annotations/azure-load-testing-test-run-update-annotations.md)]
 

@@ -39,7 +39,7 @@ Example prompts include:
 | **Data** |  Required | The event data as JSON string to publish to the Event Grid topic. |
 | **Schema** |  Optional | The event schema type (`CloudEvents`, `EventGrid`, or `Custom`). Defaults to `EventGrid`. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventgrid events publish](../includes/tools/annotations/azure-event-grid-events-publish-annotations.md)]
 
@@ -65,7 +65,7 @@ Example prompts include:
 | **Topic** |  Optional | The name of the Event Grid topic. |
 | **Region** |  Optional | The Azure region to filter resources by (for example, `eastus`, `westus2`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventgrid subscription list](../includes/tools/annotations/azure-event-grid-subscription-list-annotations.md)]
 
@@ -85,7 +85,7 @@ Example prompts include:
 - **Topic inventory**: "I need a list of all my Event Grid resources"
 - **Find endpoints**: "Show me the endpoints for all my Event Grid topics"
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventgrid topic list](../includes/tools/annotations/azure-event-grid-topic-list-annotations.md)]
 

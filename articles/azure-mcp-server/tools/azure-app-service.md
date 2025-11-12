@@ -49,7 +49,7 @@ Example prompts include:
 | **Database** |  Required | The name of the database to connect to (for example, mydb). |
 | **Connection string** |  Optional | The connection string for the database. If not provided, a default is generated. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [appservice database add](../includes/tools/annotations/azure-app-service-database-add-annotations.md)]
 

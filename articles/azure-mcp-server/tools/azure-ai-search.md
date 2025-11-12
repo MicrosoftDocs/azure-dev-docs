@@ -38,7 +38,7 @@ Example prompts include:
 | **Service** | Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Index** | Optional | The name of the search index within the Azure AI Search service. Will list all indexes if not specified. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [search index get](../includes/tools/annotations/azure-ai-search-index-get-annotations.md)]
 
@@ -61,7 +61,7 @@ Example prompts include:
 | **Index** | Required | The name of the search index within the Azure AI Search service. |
 | **Query** | Required | The search query to execute against the Azure AI Search index. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [search index query](../includes/tools/annotations/azure-ai-search-index-query-annotations.md)]
 
@@ -83,7 +83,7 @@ Example prompts include:
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Knowledge base** |  Optional | The name of the knowledge base within the Azure AI Search service. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [search knowledge base get](../includes/tools/annotations/azure-ai-search-knowledge-base-get-annotations.md)]
 
@@ -106,7 +106,7 @@ Example prompts include:
 | **Query** |  Optional | Natural language query for retrieval when a conversational message history isn't provided. |
 | **Messages** |  Optional | Conversation history messages passed to the knowledge base. Able to specify multiple messages entries. Each entry formatted as `role:content`, where role is `user` or `assistant` (for example, `user:How many docs?`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [search knowledge base retrieve](../includes/tools/annotations/azure-ai-search-knowledge-base-retrieve-annotations.md)]
 
@@ -127,7 +127,7 @@ Example prompts include:
 | **Service** |  Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Knowledge source** |  Optional | The name of the knowledge source within the Azure AI Search service. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [search knowledge source get](../includes/tools/annotations/azure-ai-search-knowledge-source-get-annotations.md)]
 
@@ -147,7 +147,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name.|
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [search service list](../includes/tools/annotations/azure-ai-search-service-list-annotations.md)]
 

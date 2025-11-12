@@ -33,7 +33,7 @@ Example prompts include:
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [group list](../includes/tools/annotations/azure-resource-group-list-annotations.md)]
 

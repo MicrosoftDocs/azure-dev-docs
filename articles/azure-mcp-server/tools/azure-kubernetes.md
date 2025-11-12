@@ -44,7 +44,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Name** | Required | The name of the AKS cluster to get details for. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [aks cluster get](../includes/tools/annotations/azure-kubernetes-service-cluster-get-annotations.md)]
 
@@ -74,7 +74,7 @@ Example prompts include:
 | **Cluster** |  Required | AKS cluster name. |
 | **Node pool** |  Required | AKS node pool (agent pool) name. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-node-pool-get-annotations.md)]
 

@@ -38,7 +38,7 @@ Example prompts include:
 | **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres database list](../includes/tools/annotations/azure-database-for-postgresql-database-list-annotations.md)]
 
@@ -63,7 +63,7 @@ Example prompts include:
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Query** | Required | Query to be executed against a PostgreSQL database. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres database query](../includes/tools/annotations/azure-database-for-postgresql-database-query-annotations.md)]
 
@@ -87,7 +87,7 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Database** | Required | The PostgreSQL database to be accessed. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres table list](../includes/tools/annotations/azure-database-for-postgresql-table-list-annotations.md)]
 
@@ -112,7 +112,7 @@ Example prompts include:
 | **Database** | Required | The PostgreSQL database to be accessed. |
 | **Table** | Required | The PostgreSQL table to be accessed. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres table schema get](../includes/tools/annotations/azure-database-for-postgresql-table-schema-get-annotations.md)]
 
@@ -134,7 +134,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **User** | Required | The user name to access PostgreSQL server. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres server list](../includes/tools/annotations/azure-database-for-postgresql-server-list-annotations.md)]
 
@@ -157,7 +157,7 @@ Example prompts include:
 | **User** | Required | The user name to access PostgreSQL server. |
 | **Server** | Required | The PostgreSQL server to be accessed. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres server config get](../includes/tools/annotations/azure-database-for-postgresql-server-config-get-annotations.md)]
 
@@ -181,7 +181,7 @@ Example prompts include:
 | **Server** | Required | The PostgreSQL server to be accessed. |
 | **Param** | Required | The PostgreSQL parameter to be accessed. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres server param get](../includes/tools/annotations/azure-database-for-postgresql-server-param-get-annotations.md)]
 
@@ -206,7 +206,7 @@ Example prompts include:
 | **Param** | Required | The PostgreSQL parameter to be set. |
 | **Value** | Required | The value to set for the parameter. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [postgres server param set](../includes/tools/annotations/azure-database-for-postgresql-server-param-set-annotations.md)]
 

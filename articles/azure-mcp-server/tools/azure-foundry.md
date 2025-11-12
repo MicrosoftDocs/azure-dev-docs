@@ -38,7 +38,7 @@ Example prompts include:
 | **Query** |  Required | The query sent to the agent. |
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry agents connect](../includes/tools/annotations/azure-ai-foundry-agents-connect-annotations.md)]
 
@@ -61,7 +61,7 @@ Example prompts include:
 | **Agent name** |  Required | A human-readable name of the Agent. |
 | **System instruction** |  Required | System instruction for the agent to follow when process messages. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry agents create](../includes/tools/annotations/azure-ai-foundry-agents-create-annotations.md)]
 
@@ -88,7 +88,7 @@ Example prompts include:
 | **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry agents evaluate](../includes/tools/annotations/azure-ai-foundry-agents-evaluate-annotations.md)]
 
@@ -108,7 +108,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Programming language** |  Required | The programming language of the sdk for interacting with a Foundry Agent. Supported values are `csharp`, `python` and `typescript`. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry agents get-sdk-sample](../includes/tools/annotations/azure-ai-foundry-agents-get-sdk-sample-annotations.md)]
 
@@ -131,7 +131,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry agents list](../includes/tools/annotations/azure-ai-foundry-agents-list-annotations.md)]
 
@@ -158,7 +158,7 @@ Example prompts include:
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry agents query-and-evaluate](../includes/tools/annotations/azure-ai-foundry-agents-query-evaluate-annotations.md)]
 
@@ -184,7 +184,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry knowledge index list](../includes/tools/annotations/azure-ai-foundry-knowledge-index-list-annotations.md)]
 
@@ -205,7 +205,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Index** |  Required | The name of the knowledge index. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry knowledge index schema](../includes/tools/annotations/azure-ai-foundry-knowledge-index-schema-annotations.md)]
 
@@ -231,7 +231,7 @@ Example prompts include:
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry models list](../includes/tools/annotations/azure-ai-foundry-models-list-annotations.md)]
 
@@ -262,7 +262,7 @@ Example prompts include:
 | **Scale type** | Optional | The scale type for the deployment. |
 | **Scale capacity** | Optional | The scale capacity for the deployment. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry models deploy](../includes/tools/annotations/azure-ai-foundry-models-deploy-annotations.md)]
 
@@ -284,7 +284,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Endpoint** | Required |The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry models deployments list](../includes/tools/annotations/azure-ai-foundry-models-deployments-list-annotations.md)]
 
@@ -323,7 +323,7 @@ Example prompts include:
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
 | **Authentication type** |  Optional | The type of authentication to use. Options are `key` (default) or `aad`. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry openai chat-completions-create](../includes/tools/annotations/azure-ai-foundry-openai-chat-completions-create-annotations.md)]
 
@@ -356,7 +356,7 @@ Example prompts include:
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
 | **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry openai embeddings-create](../includes/tools/annotations/azure-ai-foundry-openai-embeddings-create-annotations.md)]
 
@@ -383,7 +383,7 @@ Example prompts include:
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry openai create-completion](../includes/tools/annotations/azure-ai-foundry-openai-create-completion-annotations.md)]
 
@@ -411,7 +411,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry openai models-list](../includes/tools/annotations/azure-ai-foundry-openai-models-list-annotations.md)]
 
@@ -434,7 +434,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Optional | The name of the Azure OpenAI resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry resource get](../includes/tools/annotations/azure-ai-foundry-resource-get-annotations.md)]
 
@@ -455,7 +455,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **User message** |  Required | The user message to add to the thread. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry threads create](../includes/tools/annotations/azure-ai-foundry-threads-create-annotations.md)]
 
@@ -476,7 +476,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Thread ID** |  Required | The Foundry Agent Thread ID. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry threads get-messages](../includes/tools/annotations/azure-ai-foundry-threads-get-messages-annotations.md)]
 
@@ -496,7 +496,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [foundry threads list](../includes/tools/annotations/azure-ai-foundry-threads-list-annotations.md)]
 

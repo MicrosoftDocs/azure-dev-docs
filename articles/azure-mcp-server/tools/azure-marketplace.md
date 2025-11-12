@@ -43,7 +43,7 @@ Example prompts include:
 | **Include service instruction templates** | Optional | Whether to include service instruction templates in the response for deployment guidance. |
 | **Pricing audience** | Optional | The target audience for pricing information (for example, `public`, `private`, `government`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [marketplace product get](../includes/tools/annotations/azure-marketplace-product-get-annotations.md)]
 
@@ -69,7 +69,7 @@ Example prompts include:
 | **Next cursor** |  Optional | Pagination cursor to retrieve the next page of results. Use the NextPageLink value from a previous response. |
 | **Expand** |  Optional | OData expand expression to include related data in the response (for example, `plans` to include plan details). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [marketplace product list](../includes/tools/annotations/azure-marketplace-product-list-annotations.md)]
 

@@ -45,7 +45,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Signalr** |  Optional | The name of the SignalR runtime. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [signalr runtime get](../includes/tools/annotations/azure-signalr-service-run-time-get-annotations.md)]
 

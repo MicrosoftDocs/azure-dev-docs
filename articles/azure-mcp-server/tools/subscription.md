@@ -30,7 +30,7 @@ Example prompts include:
 - **List subscriptions**: "Show me all of my subscriptions."
 - **Find subscriptions**: "List all subscriptions starting with `northeast`."
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [subscription list](../includes/tools/annotations/azure-subscription-list-annotations.md)]
 

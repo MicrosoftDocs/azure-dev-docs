@@ -38,7 +38,7 @@ Example prompts include:
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs eventhub consumergroup delete](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-delete-annotations.md)]
 
@@ -65,7 +65,7 @@ Example prompts include:
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Optional | The name of the consumer group within the Event Hub. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs eventhub consumergroup get](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-get-annotations.md)]
 
@@ -89,7 +89,7 @@ Example prompts include:
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
 | **User metadata** |  Optional | User metadata for the consumer group. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs eventhub consumergroup update](../includes/tools/annotations/azure-event-hubs-event-hub-consumer-group-update-annotations.md)]
 
@@ -110,7 +110,7 @@ Example prompts include:
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs eventhub delete](../includes/tools/annotations/azure-event-hubs-event-hub-delete-annotations.md)]
 
@@ -136,7 +136,7 @@ Example prompts include:
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs eventhub get](../includes/tools/annotations/azure-event-hubs-event-hub-get-annotations.md)]
 
@@ -168,7 +168,7 @@ Example prompts include:
 | **Message retention in hours** | Optional | The message retention time in hours. Minimum is `1` hour, maximum depends on the namespace tier. |
 | **Status** | Optional | The status of the Event Hub (such as `Active`, `Disabled`). Status might be read-only in some operations. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs eventhub update](../includes/tools/annotations/azure-event-hubs-event-hub-update-annotations.md)]
 
@@ -188,7 +188,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs namespace delete](../includes/tools/annotations/azure-event-hubs-namespace-delete-annotations.md)]
 
@@ -209,7 +209,7 @@ Example prompts include:
 | **Resource group** | Optional | The name of the Azure resource group. When omitted, the system lists all namespaces in the subscription. When provided without namespace, the system lists all namespaces in the resource group. Required when getting a specific namespace. |
 | **Namespace** | Optional | The name of the Event Hubs namespace to retrieve. When provided, returns detailed information for the specific namespace (requires resource group). When omitted, returns a list of namespaces. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs namespace get](../includes/tools/annotations/azure-event-hubs-namespace-get-annotations.md)]
 
@@ -249,7 +249,7 @@ Example prompts include:
 | **Zone redundant** |  Optional | Enable or disable zone redundancy for the namespace. |
 | **Tags** |  Optional | Tags for the namespace in JSON format (for example, `{"key1":"value1","key2":"value2"}`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [eventhubs namespace update](../includes/tools/annotations/azure-event-hubs-namespace-update-annotations.md)]
 

@@ -46,7 +46,7 @@ Example prompts include:
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
 | **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql db create](../includes/tools/annotations/azure-sql-database-db-create-annotations.md)]
 
@@ -68,7 +68,7 @@ Example prompts include:
 | **Server** |  Required | The Azure SQL Server name. |
 | **Database** |  Required | The Azure SQL Database name. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql db delete](../includes/tools/annotations/azure-sql-database-db-delete-annotations.md)]
 
@@ -88,7 +88,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Server** |  Required |The name of the resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql db list](../includes/tools/annotations/azure-sql-database-db-list-annotations.md)]
 
@@ -109,7 +109,7 @@ Example prompts include:
 | **Database** |  Required | The Azure SQL Database name. |
 | **New database name** |  Required | The new name for the Azure SQL Database. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql db rename](../includes/tools/annotations/azure-sql-database-db-rename-annotations.md)]
 
@@ -130,7 +130,7 @@ Example prompts include:
 | **Server** | Required | The name of the resource. |
 | **Database** | Required | The name of the database on the resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql db show](../includes/tools/annotations/azure-sql-database-db-show-annotations.md)]
 
@@ -159,7 +159,7 @@ Example prompts include:
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
 | **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql db update](../includes/tools/annotations/azure-sql-database-db-update-annotations.md)]
 
@@ -180,7 +180,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the Azure SQL Server resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server entra-admin list](../includes/tools/annotations/azure-sql-database-server-entra-admin-list-annotations.md)]
 
@@ -205,7 +205,7 @@ Example prompts include:
 | **Version** |  Optional | The version of SQL Server to create (for example, `12.0`). |
 | **Public network access** |  Optional | Whether public network access is enabled for the SQL server (`Enabled` or `Disabled`). |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server create](../includes/tools/annotations/azure-sql-database-server-create-annotations.md)]
 
@@ -226,7 +226,7 @@ Example prompts include:
 | **Server** |  Required | The name of the Azure SQL Server resource. |
 | **Force** |  Optional | Force delete the server without confirmation prompts. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server delete](../includes/tools/annotations/azure-sql-database-server-delete-annotations.md)]
 
@@ -246,7 +246,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Resource group** | Optional | The resource group to filter servers by. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server list](../includes/tools/annotations/azure-sql-database-server-list-annotations.md)]
 
@@ -269,7 +269,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Server** |  Required | The name of the Azure SQL Server resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server show](../includes/tools/annotations/azure-sql-database-server-show-annotations.md)]
 
@@ -289,7 +289,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the Azure SQL Server resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server firewall-rule list](../includes/tools/annotations/azure-sql-database-server-firewall-rule-list-annotations.md)]
 
@@ -315,7 +315,7 @@ Example prompts include:
 | **Start ip address** |  Required | The start IP address of the firewall rule range. |
 | **End ip address** |  Required | The end IP address of the firewall rule range. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server firewall-rule create](../includes/tools/annotations/azure-sql-database-server-firewall-rule-create-annotations.md)]
 
@@ -336,7 +336,7 @@ Example prompts include:
 | **Server** |  Required | The name of the Azure SQL Server resource. |
 | **Firewall rule** |  Required | The name of the firewall rule. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql server firewall-rule delete](../includes/tools/annotations/azure-sql-database-server-firewall-rule-delete-annotations.md)]
 
@@ -356,7 +356,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the Azure SQL Server resource. |
 
-[Tool annotation hints](index.md#tool-annotation-hints):
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [sql elastic-pool list](../includes/tools/annotations/azure-sql-database-elastic-pool-list-annotations.md)]
 
