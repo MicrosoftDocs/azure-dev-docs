@@ -22,7 +22,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure SignalR re
 
 ## Runtime: Get or list runtime information
 
-<!-- `azmcp signalr runtime get` -->
+<!-- signalr runtime get -->
 
 Gets or lists details of an Azure SignalR runtimes. If a specific SignalR name is used, the details of that
 SignalR runtime will be retrieved. Otherwise, all SignalR runtimes in the specified subscription or resource
@@ -44,6 +44,10 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Signalr** |  Optional | The name of the SignalR runtime. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [signalr runtime get](../includes/tools/annotations/azure-signalr-service-run-time-get-annotations.md)]
 
 ## Related content
 

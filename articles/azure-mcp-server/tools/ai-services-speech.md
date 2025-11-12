@@ -20,7 +20,7 @@ Use the Azure MCP Server to manage Azure AI Speech functionalities such as speec
 
 ## Speech-to-Text: Recognize
 
-<!-- `azmcp speech stt recognize` -->
+<!-- speech stt recognize -->
 
 
 Recognize speech from an audio file using [Azure AI Services Speech](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
@@ -46,6 +46,10 @@ Example prompts include:
 | **Phrases** |  Optional | Phrase hints to improve recognition accuracy. Can be specified multiple times or as comma-separated values. |
 | **Format** |  Optional | Output format: `simple` or `detailed`. Default is `simple`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [speech stt recognize](../includes/tools/annotations/azure-ai-services-speech-operation-speech-text-recognize-annotations.md)]
 
 ## Related content
 

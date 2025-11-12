@@ -22,7 +22,7 @@ The Azure MCP Server lets you manage Azure SQL Database resources by using natur
 
 ## Database: Create database
 
-<!-- `azmcp sql db create` -->
+<!-- sql db create -->
 
 Create a new database on an existing Azure SQL Server. This command creates a database with configurable performance tiers, size limits, and other settings.
 
@@ -46,12 +46,15 @@ Example prompts include:
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
 | **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql db create](../includes/tools/annotations/azure-sql-database-db-create-annotations.md)]
 
 ## Database: Delete database
 
-Delete a SQL database.
+<!-- sql db delete -->
 
-<!-- `azmcp sql db delete` -->
+Delete a SQL database.
 
 Example prompts include:
 
@@ -65,9 +68,13 @@ Example prompts include:
 | **Server** |  Required | The Azure SQL Server name. |
 | **Database** |  Required | The Azure SQL Database name. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql db delete](../includes/tools/annotations/azure-sql-database-db-delete-annotations.md)]
+
 ## Database: List databases
 
-<!-- `azmcp sql db list` -->
+<!-- sql db list -->
 
 Lists all databases in your cloud resource with their configuration, status, SKU, and performance details. Use when you need to: view database inventory, check database status, compare database configurations, or find databases for management operations.
 
@@ -81,10 +88,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Server** |  Required |The name of the resource. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql db list](../includes/tools/annotations/azure-sql-database-db-list-annotations.md)]
 
 ## Database: Rename database
 
-<!-- `azmcp sql db rename` -->
+<!-- sql db rename -->
 
 Rename an existing database to a new name within the same Azure SQL server.
 
@@ -99,12 +109,13 @@ Example prompts include:
 | **Database** |  Required | The Azure SQL Database name. |
 | **New database name** |  Required | The new name for the Azure SQL Database. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql db rename](../includes/tools/annotations/azure-sql-database-db-rename-annotations.md)]
 
 ## Database: Show database details
 
-<!-- 
-azmcp sql db show --subscription
--->
+<!-- sql db show -->
 
 Retrieves detailed information about a specific database. Use this command to check the configuration, performance tier, size, and other characteristics of your database.
 
@@ -119,9 +130,13 @@ Example prompts include:
 | **Server** | Required | The name of the resource. |
 | **Database** | Required | The name of the database on the resource. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql db show](../includes/tools/annotations/azure-sql-database-db-show-annotations.md)]
+
 ## Database: Update database
 
-<!-- `azmcp sql db update` -->
+<!-- sql db update -->
 
 Update configuration settings for an existing Azure SQL Database. 
 
@@ -144,12 +159,13 @@ Example prompts include:
 | **Zone redundant** |  Optional | Whether the database should be zone redundant. |
 | **Read scale** |  Optional | Read scale option for the database (`Enabled` or `Disabled`). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql db update](../includes/tools/annotations/azure-sql-database-db-update-annotations.md)]
 
 ## Server authentication: List Microsoft Entra administrators
 
-<!-- 
-azmcp sql server entra-admin list --subscription
--->
+<!-- sql server entra-admin list -->
 
 Lists Microsoft Entra ID administrators configured for an Azure SQL server. Use this command to manage and audit identity-based access to your resource.
 
@@ -164,9 +180,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the Azure SQL Server resource. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql server entra-admin list](../includes/tools/annotations/azure-sql-database-server-entra-admin-list-annotations.md)]
+
 ## Server: Create server
 
-<!-- `azmcp sql server create` -->
+<!-- sql server create -->
 
 Creates a new Azure SQL server in the specified resource group and location.
 
@@ -185,10 +205,13 @@ Example prompts include:
 | **Version** |  Optional | The version of SQL Server to create (for example, `12.0`). |
 | **Public network access** |  Optional | Whether public network access is enabled for the SQL server (`Enabled` or `Disabled`). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql server create](../includes/tools/annotations/azure-sql-database-server-create-annotations.md)]
 
 ## Server: Delete server
 
-<!-- `azmcp sql server delete` -->
+<!-- sql server delete -->
 
 Deletes an Azure SQL server and all of its databases from the specified resource group.
 
@@ -203,9 +226,13 @@ Example prompts include:
 | **Server** |  Required | The name of the Azure SQL Server resource. |
 | **Force** |  Optional | Force delete the server without confirmation prompts. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql server delete](../includes/tools/annotations/azure-sql-database-server-delete-annotations.md)]
+
 ## Server: List servers
 
-<!-- `azmcp sql server list` -->
+<!-- sql server list -->
 
 Lists Azure SQL servers within a resource group. 
 
@@ -219,11 +246,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Resource group** | Optional | The resource group to filter servers by. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
+[!INCLUDE [sql server list](../includes/tools/annotations/azure-sql-database-server-list-annotations.md)]
 
 ## Server: Show server details
 
-<!-- `azmcp sql server show` -->
+<!-- sql server show -->
 
 Retrieves detailed information about an Azure SQL server including its configuration,
 status, and properties such as the fully qualified domain name, version,
@@ -240,13 +269,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Server** |  Required | The name of the Azure SQL Server resource. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
+[!INCLUDE [sql server show](../includes/tools/annotations/azure-sql-database-server-show-annotations.md)]
 
 ## Server firewall: List rules
 
-<!-- 
-azmcp sql firewall-rule list --subscription
--->
+<!-- sql firewall-rule list -->
 
 Lists all firewall rules for a specific resource. Use this command to manage and review the network access settings for your resource.
 
@@ -260,10 +289,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the Azure SQL Server resource. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql server firewall-rule list](../includes/tools/annotations/azure-sql-database-server-firewall-rule-list-annotations.md)]
 
 ## Server firewall: Create rule
 
-<!-- `azmcp sql server firewall-rule create` -->
+<!-- sql server firewall-rule create -->
 
 Creates a firewall rule for a resource. Firewall rules control which IP addresses 
 are allowed to connect to the resource. You can specify either a single IP address 
@@ -283,11 +315,13 @@ Example prompts include:
 | **Start ip address** |  Required | The start IP address of the firewall rule range. |
 | **End ip address** |  Required | The end IP address of the firewall rule range. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
+[!INCLUDE [sql server firewall-rule create](../includes/tools/annotations/azure-sql-database-server-firewall-rule-create-annotations.md)]
 
 ## Server firewall: Delete rule
 
-<!-- `azmcp sql server firewall-rule delete` -->
+<!-- sql server firewall-rule delete -->
 
 Deletes a firewall rule from a resource. This operation removes the specified firewall rule, potentially restricting access for the IP addresses that were previously allowed by this rule. If the rule doesn't exist, no error is returned.
 
@@ -302,11 +336,13 @@ Example prompts include:
 | **Server** |  Required | The name of the Azure SQL Server resource. |
 | **Firewall rule** |  Required | The name of the firewall rule. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql server firewall-rule delete](../includes/tools/annotations/azure-sql-database-server-firewall-rule-delete-annotations.md)]
+
 ## Elastic pools: List elastic pools
 
-<!-- 
-azmcp sql elastic-pool list --subscription
--->
+<!-- sql elastic-pool list -->
 
 Lists all elastic pools for a specific resource. Elastic pools are a resource allocation solution that lets you manage and scale multiple databases with varying resource demands.
 
@@ -319,6 +355,10 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Server** | Required | The name of the Azure SQL Server resource. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [sql elastic-pool list](../includes/tools/annotations/azure-sql-database-elastic-pool-list-annotations.md)]
 
 ## Related content
 

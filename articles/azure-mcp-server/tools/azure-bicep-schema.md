@@ -20,7 +20,7 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Bice
 
 ## Get Bicep Resource Schema
 
-<!-- azmcp bicepschema get -->
+<!-- bicepschema get -->
 
 Gets the Bicep schema for the most recent apiVersion of an Azure resource. This operation helps you ensure your Bicep templates use the correct properties and values when defining Azure resources.
 
@@ -35,6 +35,10 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Resource type** | Required | The Azure resource type in format `{ResourceProvider}/{ResourceType}` (such as `Microsoft.Storage/storageAccounts`, `Microsoft.Compute/virtualMachines`) |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [bicepschema get](../includes/tools/annotations/azure-bicep-schema-get-annotations.md)]
 
 ## Related content
 

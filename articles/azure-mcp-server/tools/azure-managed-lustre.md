@@ -22,6 +22,8 @@ Azure MCP Server enables you to manage Azure resources, including Azure Managed 
 
 ## File system: Create a file system
 
+<!-- managedlustre fs create -->
+
 Create an Azure Managed Lustre (AMLFS) file system using the specified network, capacity, maintenance window, and availability zone.
 
 Example prompts include:
@@ -53,7 +55,13 @@ Example prompts include:
 | **Source vault** |  Optional | Full Key Vault resource ID. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.KeyVault/vaults/{vaultName}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.KeyVault/vaults/kv-amlfs-001`. |
 | **User assigned identity ID** |  Optional | User-assigned managed identity resource ID (full resource ID) to use for Key Vault access when custom encryption is enabled. The identity must have RBAC role to access the encryption key. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{name}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1`. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [managedlustre fs create](../includes/tools/annotations/azure-managed-lustre-file-system-create-annotations.md)]
+
 ## File system: List file systems
+
+<!-- managedlustre fs list -->
 
 Get an inventory of Azure Managed Lustre file systems and check their properties.
 
@@ -65,7 +73,13 @@ Example prompts include:
 - **Filter by resource group**: "List Azure Managed Lustre file systems in resource group 'bigdata-rg'."
 - **Filter by size**: "Show file systems larger than 100 TiB."
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [managedlustre fs list](../includes/tools/annotations/azure-managed-lustre-file-system-list-annotations.md)]
+
 ## File system: Calculate required subnet size
+
+<!-- managedlustre fs subnetsize ask -->
 
 Calculates the required subnet size for an Azure Managed Lustre file system, given a SKU and size. Use this calculation to plan network deployment for AMLFS.
 
@@ -84,9 +98,13 @@ Example prompts include:
 | **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size in tebibytes (TiB). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [managedlustre fs subnetsize ask](../includes/tools/annotations/azure-managed-lustre-file-system-subnet-size-ask-annotations.md)]
+
 ## File system: Get SKU
 
-<!-- `azmcp azuremanagedlustre filesystem sku get` -->
+<!-- azuremanagedlustre filesystem sku get -->
 
 Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets, and zonal support. 
 
@@ -99,7 +117,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Location** |  Optional | Azure region. Examples: `uaenorth`, `swedencentral`, `eastus`. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [managedlustre fs sku get](../includes/tools/annotations/azure-managed-lustre-file-system-sku-get-annotations.md)]
+
 ## File system: Update a file system
+
+<!-- managedlustre fs update -->
 
 Update maintenance window and/or root squash settings of an existing Azure Managed Lustre (AMLFS) file system. Provide either maintenance day and time or root squash fields (`no-squash-nid-list`, `squash-uid`, `squash-gid`). Root squash fields must be provided if root squash isn't None. If updating the maintenance window, both maintenance day and maintenance time should be provided.
 
@@ -125,8 +149,13 @@ Example prompts include:
 | **Squash GID** |  Optional | Numeric GID to squash root to. Required in case root squash mode isn't `None`. Example: `1000`. |
 | **Root squash mode** |  Optional | Root squash mode. Allowed values: `All`, `RootOnly`, `None`. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [managedlustre fs update](../includes/tools/annotations/azure-managed-lustre-file-system-update-annotations.md)]
 
 ## File system: Validate subnet size
+
+<!-- managedlustre fs subnetsize validate -->
 
 Validates that the provided subnet can host an Azure Managed Lustre filesystem for the given SKU and size.
 
@@ -143,6 +172,10 @@ Example prompts include:
 | **Size** |  Required | The AMLFS size in TiB as an integer (no unit). Examples: `4`, `12`, `128`. |
 | **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
 | **Location** |  Required | Azure region/region short name (use Azure location token, lowercase). Examples: `uaenorth`, `swedencentral`, `eastus`. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [managedlustre fs subnetsize validate](../includes/tools/annotations/azure-managed-lustre-file-system-subnet-size-validate-annotations.md)]
 
 ## Related content
 

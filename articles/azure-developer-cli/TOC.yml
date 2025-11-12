@@ -115,7 +115,7 @@
           href: manage-environment-variables.md
         - name: Environment variables FAQ
           href: environment-variables-faq.md
-      - name: Azure Container Apps workflows and strategies
+      - name: Deploy to Azure Container Apps
         href: container-apps-workflows.md
       - name: Use Terraform for infrastructure as code
         href: use-terraform-for-azd.md
