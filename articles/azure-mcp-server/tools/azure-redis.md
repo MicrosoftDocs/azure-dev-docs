@@ -23,7 +23,7 @@ The Azure Redis tools support both [Azure Managed Redis](/azure/redis/overview) 
 
 ## List Redis resources
 
-<!-- `azmcp redis list` -->
+<!-- redis list -->
 
 Lists all Redis resources in a subscription. Returns details of all Azure Managed Redis, Azure Cache for Redis, and Azure Redis Enterprise resources. Use this command to explore and view which Redis resources are available in your subscription.
 
@@ -34,6 +34,10 @@ Example prompts include:
 - `Show me the Redis resources in my subscription`
 - `Get Redis clusters`
 - `What Redis caches do I have?`
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [redis list](../includes/tools/annotations/azure-managed-redis-list-annotations.md)]
 
 ## Related content
 

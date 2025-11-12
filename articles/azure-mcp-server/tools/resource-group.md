@@ -21,6 +21,8 @@ The Azure MCP Server allows you to manage Azure resource groups, providing found
 
 ## List resource groups
 
+<!-- group list -->
+
 The Azure MCP Server can list all resource groups in a subscription. This helps you see your organizational structure at a glance.
 
 Example prompts include:
@@ -30,6 +32,10 @@ Example prompts include:
 - **Find groups**: "List all my resource groups"
 - **Query groups**: "Show my resource group organization"
 - **Check groups**: "Resource groups in subscription abc123"
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [group list](../includes/tools/annotations/azure-resource-group-list-annotations.md)]
 
 ## Related content
 
