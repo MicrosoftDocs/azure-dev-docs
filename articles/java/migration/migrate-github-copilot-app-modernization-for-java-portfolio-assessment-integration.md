@@ -34,4 +34,4 @@ To understand the detailed integration flow and best practices, refer to the fol
 - [Azure Migrate Documentation](https://aka.ms/azure-migrate-doc)
 - [Dr.Migrate Documentation](https://aka.ms/dr-migrate-doc)
 
-By leveraging the integration between estate tools and GitHub Copilot App Modernization, organizations can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.
+By leveraging the integration between Portfolio Assessment tools and GitHub Copilot App Modernization, organizations can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.
