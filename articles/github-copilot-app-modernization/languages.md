@@ -33,10 +33,10 @@ GitHub Copilot app modernization can help you [migrate your .NET application to 
 [Common scenarios](/dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) are supported with AI-assisted code changes out-of-box, and code changes will be validated with compilation and CVE fixes.
 
 ## Python
-### Migrating to Agent Framework
-GitHub Copilot app modernization can help you migrate your Semantic Kernel or AutoGen application to Agent Framework, if it's written in Python.
+### Migrating to Microsoft Agent Framework
+GitHub Copilot app modernization can help you migrate your Python application from Semantic Kernel or AutoGen to Microsoft Agent Framework.
 
-To migrate to Agent Framework:
+To migrate to Microsoft Agent Framework:
 
 1. Make sure GitHub Copilot app modernization is installed and enabled in Visual Studio Code (VS Code). For best results, select Claude Sonnet 4 or later as your model.
 
