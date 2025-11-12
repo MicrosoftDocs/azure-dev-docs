@@ -60,7 +60,7 @@ Example prompts include:
 
 ## Infrastructure as Code: Get guidance
 
-<!-- deploy pipeline guidance get -->
+<!-- deploy iac rules get -->
 
 This tool offers guidance for creating [Bicep](/azure/azure-resource-manager/bicep/) or Terraform files to deploy applications on Azure. The guidelines outline rules to improve the quality of Infrastructure as Code files, ensuring they are compatible with the AZD tool and adhere to best practices.
 
@@ -78,7 +78,7 @@ Example prompts include:
 | **Infrastructure as code file type** | Optional | The Infrastructure as Code type. Valid values: `bicep`, `terraform`. Leave empty if deployment tool is the Azure CLI. |
 | **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. Use a comma-separated list. Supported values are: `appservice`, `containerapp`, `function`, `aks`. Leave empty if you don't use these services. |
 
-[!INCLUDE [deploy pipeline guidance get](../includes/tools/annotations/azure-deploy-pipeline-guidance-get-annotations.md)]
+[!INCLUDE [deploy iac rules get](../includes/tools/annotations/azure-deploy-iac-rules-get-annotations.md)]
 
 ## Pipeline: Get guidance
 
