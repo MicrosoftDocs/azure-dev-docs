@@ -32,6 +32,8 @@ Example prompts include:
 - **State management**: "What are the recommended patterns for managing state files in Azure Terraform projects?"
 - **Secure infrastructure**: "I need help implementing secure Azure infrastructure using Terraform"
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [azureterraformbestpractices get](../includes/tools/annotations/azure-terraform-best-practices-get-annotations.md)]
 
 ## Related resources

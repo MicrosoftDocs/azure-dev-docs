@@ -45,6 +45,8 @@ Example prompts include:
 | **Allow public access to blobs** | Optional | Whether to allow public access to blobs in the storage account. |
 | **Enable hierarchical namespace (Data Lake)** | Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [storage account create](../includes/tools/annotations/azure-storage-account-create-annotations.md)]
 
 ## Account: Get details
@@ -64,6 +66,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [storage account get](../includes/tools/annotations/azure-storage-account-get-annotations.md)]
 
@@ -88,6 +92,8 @@ Example prompts include:
 | **Container** |  Required | The name of the container to access within the storage account. |
 | **Access level** | Optional | The [access tier](/azure/storage/blobs/access-tiers-overview). Default: `private`. Valid values: `private`, `blob` (allows public read access to blobs), `container` (allows public read access to both blobs and container metadata).  |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [storage blob container create](../includes/tools/annotations/azure-storage-blob-container-create-annotations.md)]
 
 
@@ -109,6 +115,8 @@ Example prompts include:
 | **Account** | Required | The name of the Azure Storage account. |
 | **Container** | Required | The name of the container to access. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [storage blob container get](../includes/tools/annotations/azure-storage-blob-container-get-annotations.md)]
 
 ## Blob: Get blob details
@@ -128,6 +136,8 @@ Example prompts include:
 | **Account** | Required | The name of the Azure Storage account. This name is unique across Azure (for example, 'mystorageaccount'). |
 | **Container** | Required | The name of the container to access within the storage account. |
 | **Blob** | Required | The name of the blob to access within the container. This name includes the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [storage blob get](../includes/tools/annotations/azure-storage-blob-get-annotations.md)]
 
@@ -152,6 +162,8 @@ Example prompts include:
 | **Blob** | Required | The name of the blob to access within the container. This should be the full path within the container (for example, `file.txt` or `folder/file.txt`). |
 | **Local file path** | Required | The local file path to read content from or to write content to. This should be the full path to the file on your local system. |
 | **Overwrite**  | Optional | Whether to overwrite content if it already exists. Defaults to false. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [storage blob upload](../includes/tools/annotations/azure-storage-blob-upload-annotations.md)]
 

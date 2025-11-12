@@ -43,6 +43,8 @@ Example prompts include:
 | --- | --- | --- |
 | **Datadog resource** | Required | The name of the Datadog resource in Azure. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [datadog monitoredresources list](../includes/tools/annotations/azure-datadog-monitored-resources-list-annotations.md)]
 
 ## Related content

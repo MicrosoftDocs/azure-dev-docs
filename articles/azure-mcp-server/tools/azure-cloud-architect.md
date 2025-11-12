@@ -40,6 +40,8 @@ Example prompts include:
 | **Confidence score** |  Optional | A value between 0.0 and 1.0 representing confidence in understanding requirements. When this reaches 0.7 or higher, set `nextQuestionNeeded` to false. |
 | **State** |  Optional | The complete architecture state from the previous request. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [cloudarchitect design](../includes/tools/annotations/azure-cloud-architect-design-annotations.md)]
 
 ## Related content

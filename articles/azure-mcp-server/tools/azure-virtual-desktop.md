@@ -43,6 +43,8 @@ Example prompts include:
 - **Query host pools**: "Show available host pools in my environment."
 - **Check infrastructure**: "Get all Azure Virtual Desktop host pools."
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [virtualdesktop hostpool list](../includes/tools/annotations/azure-virtual-desktop-host-pool-list-annotations.md)]
 
 ## Host pools: List session hosts in a host pool
@@ -63,6 +65,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Host pool** | [Conditionally](#conditional-parameters) required | The name of the Azure Virtual Desktop host pool. This is the unique name you choose for your host pool. |
 | **Host pool resource ID** | [Conditionally](#conditional-parameters) required | The Azure resource ID of the host pool. When you provide this ID, the server uses it instead of searching by name. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [virtualdesktop hostpool host list](../includes/tools/annotations/azure-virtual-desktop-host-pool-host-list-annotations.md)]
 
@@ -85,6 +89,8 @@ Example prompts include:
 | **Host pool** | [Conditionally](#conditional-parameters) required | The name of the Azure Virtual Desktop host pool. This is the unique name you choose for your host pool. |
 | **Host pool resource ID** | [Conditionally](#conditional-parameters) required | The Azure resource ID of the host pool. When you provide this ID, the server uses it instead of searching by name. |
 | **Session host** | Required | The name of the session host. This name is the computer name of the virtual machine in the host pool. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [virtualdesktop hostpool host user-list](../includes/tools/annotations/azure-virtual-desktop-host-pool-host-user-list-annotations.md)]
 

@@ -40,6 +40,8 @@ Example prompts include:
 | **Cognitive service model version** | Optional | Model version for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
 | **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [quota region availability list](../includes/tools/annotations/azure-quota-region-availability-list-annotations.md)]
 
 ## Usage: Check usage and quotas
@@ -60,6 +62,8 @@ Example prompts include:
 |-----------------------------|----------------------|-------------|
 | **Region for deployment** | Required | The Azure region where you want to check the usage and quota. For example: `eastus`, `westus`. |
 | **Resource types to deploy** | Required | The Azure resource types that you want to check the usage and quota for (comma-separated). For example: `Microsoft.App/containerApps`, `Microsoft.Web/sites`, `Microsoft.CognitiveServices/accounts`. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [quota usage check](../includes/tools/annotations/azure-quota-usage-check-annotations.md)]
 

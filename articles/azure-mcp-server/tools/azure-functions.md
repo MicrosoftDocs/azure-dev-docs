@@ -37,6 +37,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Function app** |  Required | The name of the function app. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [functionapp get](../includes/tools/annotations/azure-functions-get-annotations.md)]
 
 ## Related content

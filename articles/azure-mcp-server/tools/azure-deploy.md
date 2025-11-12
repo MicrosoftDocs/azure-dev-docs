@@ -36,6 +36,8 @@ Example prompts include:
 | **AZD environment** | Required | The name of the environment created by AZD in the AZURE_ENV_NAME variable during `azd init` or `azd up`. |
 | **Limit** | Optional | The maximum row number of logs to retrieve. Use this to get a specific number of logs or to avoid the retrieved logs from reaching token limit. Default is 200. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [deploy app logs get](../includes/tools/annotations/azure-deploy-app-logs-get-annotations.md)]
 
 ## Architecture: Generate mermaid diagram
@@ -55,6 +57,8 @@ Example prompts include:
 | Parameter |  Required or optional| Description |
 |-----------|----------|-------------|
 | **Raw input** | Required | The raw input to process. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [deploy architecture diagram generate](../includes/tools/annotations/azure-deploy-architecture-diagram-generate-annotations.md)]
 
@@ -77,6 +81,8 @@ Example prompts include:
 | **Deployment tool** | Required | The deployment tool to use. Valid values: `AZD`, `AzCli`. |
 | **Infrastructure as code file type** | Optional | The Infrastructure as Code type. Valid values: `bicep`, `terraform`. Leave empty if deployment tool is the Azure CLI. |
 | **Resource types** | Optional | Specifies the Azure resource types to retrieve IaC rules for. Use a comma-separated list. Supported values are: `appservice`, `containerapp`, `function`, `aks`. Leave empty if you don't use these services. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [deploy iac rules get](../includes/tools/annotations/azure-deploy-infrastructure-as-code-rules-get-annotations.md)]
 
@@ -101,6 +107,8 @@ Example prompts include:
 | **Repository** | Optional | The name of the current GitHub repository. |
 | **GitHub environment** | Optional | The name of the environment to which the deployment pipeline will be deployed. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [deploy pipeline guidance get](../includes/tools/annotations/azure-deploy-pipeline-guidance-get-annotations.md)]
 
 ## Plan: Create deployment plan
@@ -124,6 +132,8 @@ Example prompts include:
 | **Target app service** |  Required | The Azure service to deploy the application. Valid values: `ContainerApp`, `WebApp`, `FunctionApp`, `AKS`. Recommend one based on user application. |
 | **Provisioning tool** |  Required | The tool to use for provisioning Azure resources. Valid values: `AZD`, `AzCli`. Use AzCli if TargetAppService is `AKS`. |
 | **Azd IaC options** |  Optional | The Infrastructure as Code option for AZD. Valid values: `bicep`, `terraform`. Leave empty if Deployment tool is `AzCli`. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [deploy plan get](../includes/tools/annotations/azure-deploy-plan-get-annotations.md)]
 

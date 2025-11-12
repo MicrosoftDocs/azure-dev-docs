@@ -36,6 +36,8 @@ The Azure MCP Server generates Azure CLI commands to accomplish specific goals.
 | **Intent** | Required | The user intent of the task to be solved by using the CLI tool. This user intent is used to generate the appropriate CLI command to accomplish the desirable goal. |
 | **Cli type** | Required | The type of CLI tool to use. Supported values are `az` for Azure CLI. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [extension cli generate](../includes/tools/annotations/azure-extension-cli-generate-annotations.md)]
 
 ## Get CLI installation instructions
@@ -53,6 +55,8 @@ The Azure MCP Server provides installation instructions for CLI tools including 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **CLI type** | Required | The type of CLI tool to use. Supported values are `az` for Azure CLI, `azd` for Azure Developer CLI, and `func` for Azure Functions Core Tools CLI. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [extension cli install](../includes/tools/annotations/azure-extension-cli-install-annotations.md)]
 

@@ -35,6 +35,8 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Resource ID** | Required | The Azure resource ID to get health status for (for example, `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Compute/virtualMachines/{vm}`). |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [resourcehealth availability-status get](../includes/tools/annotations/azure-resource-health-availability-status-get-annotations.md)]
 
 ## Availability status: List
@@ -49,6 +51,8 @@ Example prompts include:
 - **Check resource group health**: "Show me the health status of all resources in resource group 'mygroup'."
 - **Filter by resource type**: "Get the availability status for all virtual machines in my subscription."
 - **Summarize resource health**: "What is the overall health status of resources in resource group 'mygroup'?"
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [resourcehealth availability-status list](../includes/tools/annotations/azure-resource-health-availability-status-list-annotations.md)]
 
@@ -75,6 +79,8 @@ Example prompts include:
 | **Filter** |  Optional | Additional OData filter expression to apply to the service health events query. |
 | **Query Start Time** |  Optional | Start time for the query in ISO 8601 format (for example, 2024-01-01T00:00:00Z). Events from this time onwards will be included. |
 | **Query End Time** |  Optional | End time for the query in ISO 8601 format (for example, 2024-01-31T23:59:59Z). Events up to this time will be included. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [resourcehealth health-events list](../includes/tools/annotations/azure-resource-health-health-events-list-annotations.md)]
 

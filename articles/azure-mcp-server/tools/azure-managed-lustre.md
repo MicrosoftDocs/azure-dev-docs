@@ -55,7 +55,9 @@ Example prompts include:
 | **Source vault** |  Optional | Full Key Vault resource ID. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.KeyVault/vaults/{vaultName}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.KeyVault/vaults/kv-amlfs-001`. |
 | **User assigned identity ID** |  Optional | User-assigned managed identity resource ID (full resource ID) to use for Key Vault access when custom encryption is enabled. The identity must have RBAC role to access the encryption key. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{name}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1`. |
 
- [!INCLUDE [managedlustre fs create](../includes/tools/annotations/azure-managed-lustre-file-system-create-annotations.md)]
+[Tool annotation hints](index.md#tool-annotation-hints):
+
+[!INCLUDE [managedlustre fs create](../includes/tools/annotations/azure-managed-lustre-file-system-create-annotations.md)]
 
 ## File system: List file systems
 
@@ -70,6 +72,8 @@ Example prompts include:
 - **Check file system status**: "What is the status of my file system 'my-lustre-fs'?"
 - **Filter by resource group**: "List Azure Managed Lustre file systems in resource group 'bigdata-rg'."
 - **Filter by size**: "Show file systems larger than 100 TiB."
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [managedlustre fs list](../includes/tools/annotations/azure-managed-lustre-file-system-list-annotations.md)]
 
@@ -94,6 +98,8 @@ Example prompts include:
 | **SKU** |  Required | The AMLFS SKU. Allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size in tebibytes (TiB). |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [managedlustre fs subnetsize ask](../includes/tools/annotations/azure-managed-lustre-file-system-subnet-size-ask-annotations.md)]
 
 ## File system: Get SKU
@@ -110,6 +116,8 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Location** |  Optional | Azure region. Examples: `uaenorth`, `swedencentral`, `eastus`. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [managedlustre fs sku get](../includes/tools/annotations/azure-managed-lustre-file-system-sku-get-annotations.md)]
 
@@ -141,6 +149,8 @@ Example prompts include:
 | **Squash GID** |  Optional | Numeric GID to squash root to. Required in case root squash mode isn't `None`. Example: `1000`. |
 | **Root squash mode** |  Optional | Root squash mode. Allowed values: `All`, `RootOnly`, `None`. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [managedlustre fs update](../includes/tools/annotations/azure-managed-lustre-file-system-update-annotations.md)]
 
 ## File system: Validate subnet size
@@ -162,6 +172,8 @@ Example prompts include:
 | **Size** |  Required | The AMLFS size in TiB as an integer (no unit). Examples: `4`, `12`, `128`. |
 | **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
 | **Location** |  Required | Azure region/region short name (use Azure location token, lowercase). Examples: `uaenorth`, `swedencentral`, `eastus`. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [managedlustre fs subnetsize validate](../includes/tools/annotations/azure-managed-lustre-file-system-subnet-size-validate-annotations.md)]
 

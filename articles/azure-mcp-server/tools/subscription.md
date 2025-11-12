@@ -30,6 +30,8 @@ Example prompts include:
 - **List subscriptions**: "Show me all of my subscriptions."
 - **Find subscriptions**: "List all subscriptions starting with `northeast`."
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [subscription list](../includes/tools/annotations/azure-subscription-list-annotations.md)]
 
 ## Related content

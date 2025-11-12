@@ -36,6 +36,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Resource type** | Required | The Azure resource type in format `{ResourceProvider}/{ResourceType}` (such as `Microsoft.Storage/storageAccounts`, `Microsoft.Compute/virtualMachines`) |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [bicepschema get](../includes/tools/annotations/azure-bicep-schema-get-annotations.md)]
 
 ## Related content

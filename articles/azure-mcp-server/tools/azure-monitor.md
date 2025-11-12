@@ -39,6 +39,8 @@ Example prompts include:
 | **Event level** |  Optional | The level of activity logs to retrieve. Valid levels are: Critical, Error, Informational, Verbose, Warning. If not provided, returns all levels. |
 | **Top** |  Optional | The maximum number of activity logs to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor activitylog list](../includes/tools/annotations/azure-monitor-activity-log-list-annotations.md)]
 
 ## Web Tests: Create web tests
@@ -78,6 +80,8 @@ Example prompts include:
 | **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
 | **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: `30`, `60`, `90`, `120` seconds. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor webtests create](../includes/tools/annotations/azure-monitor-web-tests-create-annotations.md)]
 
 ## Web Tests: Get web tests
@@ -96,6 +100,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor webtests get](../includes/tools/annotations/azure-monitor-web-tests-get-annotations.md)]
 
 ## Web Tests: List web tests
@@ -109,6 +115,8 @@ Example prompts include:
 - **List all tests**: "List all web tests in my subscription"
 - **View tests by resource group**: "Show web tests in the 'monitoring' resource group"
 - **Get test inventory**: "What web tests do I have configured?"
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [monitor webtests list](../includes/tools/annotations/azure-monitor-web-tests-list-annotations.md)]
 
@@ -147,6 +155,8 @@ Example prompts include:
 | **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
 | **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: 30, 60, 90, 120 seconds. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor webtests update](../includes/tools/annotations/azure-monitor-web-tests-update-annotations.md)]
 
 ## Log Analytics: List workspaces
@@ -160,6 +170,8 @@ Example prompts include:
 - **List workspaces**: "Show me all Log Analytics workspaces in my subscription."
 - **View workspaces**: "What workspaces do I have?"
 - **Find workspaces**: "List monitoring workspaces."
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [monitor workspace list](../includes/tools/annotations/azure-monitor-workspace-list-annotations.md)]
 
@@ -179,6 +191,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workspace** | Required | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor table type list](../includes/tools/annotations/azure-monitor-table-type-list-annotations.md)]
 
 ## Log Analytics: List tables
@@ -196,6 +210,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [monitor table list](../includes/tools/annotations/azure-monitor-table-list-annotations.md)]
 
@@ -219,6 +235,8 @@ Example prompts include:
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor workspace log query](../includes/tools/annotations/azure-monitor-workspace-log-query-annotations.md)]
 
 ## Log Analytics: Query resource logs
@@ -241,6 +259,8 @@ Example prompts include:
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor resource log query](../includes/tools/annotations/azure-monitor-resource-log-query-annotations.md)]
 
 ## Health: Get entity health
@@ -259,6 +279,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Model** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [monitor healthmodels entity get](../includes/tools/annotations/azure-monitor-health-models-entity-get-annotations.md)]
 
@@ -287,6 +309,8 @@ Example prompts include:
 | **Filter** | Optional | Filter for the metrics query. |
 | **Max buckets** | Optional | Maximum number of buckets. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor metrics query](../includes/tools/annotations/azure-monitor-metrics-query-annotations.md)]
 
 ## Metrics: List metric definitions
@@ -309,6 +333,8 @@ Example prompts include:
 | **Search string** | Optional | Search string to filter metrics. |
 | **Limit** | Optional | Maximum number of results to return. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [monitor metrics definitions](../includes/tools/annotations/azure-monitor-metrics-definitions-annotations.md)]
 
 ## Workbooks: List workbooks
@@ -330,6 +356,8 @@ Example prompts include:
 | **Kind** | Optional | The kind of workbook (such as `shared`, `user`). |
 | **Source ID** | Optional | The source resource ID to filter workbooks by. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [workbooks list](../includes/tools/annotations/azure-workbooks-list-annotations.md)]
 
 ## Workbooks: Show workbook details
@@ -347,6 +375,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to retrieve. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [workbooks show](../includes/tools/annotations/azure-workbooks-show-annotations.md)]
 
@@ -367,6 +397,8 @@ Example prompts include:
 | **Display** | Required | The display name for the new workbook. |
 | **Serialized content** | Required | The JSON content defining the workbook structure and queries. |
 | **Source ID** | Optional | The source resource ID to associate with the workbook. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [workbooks create](../includes/tools/annotations/azure-workbooks-create-annotations.md)]
 
@@ -389,6 +421,8 @@ Example prompts include:
 | **Display** | Optional | The new display name for the workbook. |
 | **Serialized content** | Optional | The updated JSON content for the workbook. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [workbooks update](../includes/tools/annotations/azure-workbooks-update-annotations.md)]
 
 ## Workbooks: Delete workbooks
@@ -406,6 +440,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to delete. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [workbooks delete](../includes/tools/annotations/azure-workbooks-delete-annotations.md)]
 

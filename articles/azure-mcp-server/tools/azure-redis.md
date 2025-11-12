@@ -35,6 +35,8 @@ Example prompts include:
 - `Get Redis clusters`
 - `What Redis caches do I have?`
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [redis list](../includes/tools/annotations/azure-managed-redis-list-annotations.md)]
 
 ## Related content

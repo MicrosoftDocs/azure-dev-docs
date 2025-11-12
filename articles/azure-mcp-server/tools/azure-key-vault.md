@@ -35,6 +35,8 @@ Example prompts include:
 - **Show managed HSM settings**: "Show me the account settings for managed HSM keyvault 'contoso-hsm'"
 - **Query specific setting**: "What's the value of the 'purgeProtection' setting in my key vault with name 'mykeyvault'"
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault admin settings get](../includes/tools/annotations/azure-key-vault-admin-settings-get-annotations.md)]
 
 ## Keys: Create key
@@ -57,6 +59,8 @@ Example prompts include:
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault key create](../includes/tools/annotations/azure-key-vault-key-create-annotations.md)]
 
 ## Keys: Get key
@@ -78,6 +82,8 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault key get](../includes/tools/annotations/azure-key-vault-key-get-annotations.md)]
 
 ## Keys: List keys
@@ -98,6 +104,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 | **Include managed** | Required | Whether or not to include managed keys in results. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [keyvault key list](../includes/tools/annotations/azure-key-vault-key-list-annotations.md)]
 
@@ -121,6 +129,8 @@ Example prompts include:
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault secret create](../includes/tools/annotations/azure-key-vault-secret-create-annotations.md)]
 
 ## Secrets: Get secret
@@ -142,6 +152,8 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the secret to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault secret get](../includes/tools/annotations/azure-key-vault-secret-get-annotations.md)]
 
 ## Secrets: List secrets
@@ -161,6 +173,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [keyvault secret list](../includes/tools/annotations/azure-key-vault-secret-list-annotations.md)]
 
@@ -183,6 +197,8 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the certificate to create. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault certificate create](../includes/tools/annotations/azure-key-vault-certificate-create-annotations.md)]
 
 ## Certificates: Get certificate
@@ -203,6 +219,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the certificate to retrieve. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [keyvault certificate get](../includes/tools/annotations/azure-key-vault-certificate-get-annotations.md)]
 
@@ -228,6 +246,8 @@ Example prompts include:
 | **Certificate data or path** | Required | Either the path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with `-----BEGIN`. |
 | **Password** |  Optional | Password for a protected PFX being imported. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [keyvault certificate import](../includes/tools/annotations/azure-key-vault-certificate-import-annotations.md)]
 
 ## Certificates: List certificates
@@ -247,6 +267,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [keyvault certificate list](../includes/tools/annotations/azure-key-vault-certificate-list-annotations.md)]
 

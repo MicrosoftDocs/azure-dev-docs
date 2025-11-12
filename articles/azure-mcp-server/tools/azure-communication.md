@@ -47,6 +47,8 @@ Example prompts include:
 | **Is html** |  Optional | Flag indicating whether the message content is HTML. |
 | **Reply to** |  Optional | Reply-to email addresses. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [communication email send](../includes/tools/annotations/azure-communication-services-email-send-annotations.md)]
 
 ## SMS: Send SMS message
@@ -69,6 +71,8 @@ Example prompts include:
 | **Message** |  Required | The SMS message content to send to the recipients. |
 | **Enable delivery report** |  Optional | Whether to enable delivery reporting for the SMS message. When enabled, events are emitted when delivery is successful. |
 | **Tag** |  Optional | Optional custom tag to apply to the SMS message for tracking purposes. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [communication sms send](../includes/tools/annotations/azure-communication-services-sms-send-annotations.md)]
 

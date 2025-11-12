@@ -37,6 +37,8 @@ Example prompts include:
 - **Query registries**: "Can you list all my Azure Container Registries?"
 - **Check registries**: "Container registries in subscription abc123"
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [acr registry list](../includes/tools/annotations/azure-container-registry-registry-list-annotations.md)]
 
 ## Registry: List repositories in registry
@@ -57,6 +59,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Registry** | Optional | The name of the Azure Container Registry. This name is unique for your container registry. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [acr registry repository list](../includes/tools/annotations/azure-container-registry-registry-repository-list-annotations.md)]
 

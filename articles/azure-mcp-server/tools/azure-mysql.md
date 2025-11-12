@@ -40,6 +40,8 @@ Example prompts include:
 | **User** |  Required | The user name to access the MySQL server. |
 | **Server** |  Required | The MySQL server to be accessed. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [mysql database list](../includes/tools/annotations/azure-database-for-mysql-database-list-annotations.md)]
 
 ## Database: query
@@ -84,6 +86,8 @@ Example prompts include:
 | **Database** |  Required | The MySQL database to be accessed. |
 | **Query** |  Required | The SQL query to execute against a MySQL database. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [mysql database query](../includes/tools/annotations/azure-database-for-mysql-database-query-annotations.md)]
 
 ## Server: config get
@@ -106,6 +110,8 @@ Example prompts include:
 | **User** |  Required | The user name to access the MySQL server. |
 | **Server** |  Required | The MySQL server to be accessed. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [mysql server config get](../includes/tools/annotations/azure-database-for-mysql-server-config-get-annotations.md)]
 
 ## Server: list all instances in resource group
@@ -125,6 +131,8 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **User** |  Required | The user name to access the MySQL server. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [mysql server list](../includes/tools/annotations/azure-database-for-mysql-server-list-annotations.md)]
 
@@ -147,6 +155,8 @@ Example prompts include:
 | **User** |  Required | The user name to access the MySQL server. |
 | **Server** |  Required | The MySQL server to be accessed. |
 | **Parameter** |  Required | The MySQL parameter to be accessed. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [mysql server param get](../includes/tools/annotations/azure-database-for-mysql-server-param-get-annotations.md)]
 
@@ -171,6 +181,8 @@ Example prompts include:
 | **Parameter** |  Required | The MySQL parameter to be accessed. |
 | **Value** |  Required | The value to set for the MySQL parameter. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [mysql server param set](../includes/tools/annotations/azure-database-for-mysql-server-param-set-annotations.md)]
 
 ## Table: list all tables in database
@@ -192,6 +204,8 @@ Example prompts include:
 | **User** |  Required | The user name to access the MySQL server. |
 | **Server** |  Required | The MySQL server to be accessed. |
 | **Database** |  Required | The MySQL database to be accessed. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [mysql table list](../includes/tools/annotations/azure-database-for-mysql-table-list-annotations.md)]
 
@@ -215,6 +229,8 @@ Example prompts include:
 | **Server** |  Required | The MySQL server to be accessed. |
 | **Database** |  Required | The MySQL database to be accessed. |
 | **Table** |  Required | The MySQL table to be accessed. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [mysql table schema get](../includes/tools/annotations/azure-database-for-mysql-table-schema-get-annotations.md)]
 

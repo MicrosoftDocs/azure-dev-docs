@@ -43,6 +43,8 @@ Example prompts include:
 - **Query clusters**: "Show my Azure Data Explorer cluster organization."
 - **Find clusters**: "Get all ADX clusters in my Azure subscription."
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [kusto cluster list](../includes/tools/annotations/azure-data-explorer-cluster-list-annotations.md)]
 
 ## Cluster: Get cluster details
@@ -62,6 +64,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Cluster** | Required | The name of the Azure Data Explorer cluster. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [kusto cluster get](../includes/tools/annotations/azure-data-explorer-cluster-get-annotations.md)]
 
@@ -83,6 +87,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [kusto database list](../includes/tools/annotations/azure-data-explorer-database-list-annotations.md)]
 
@@ -106,6 +112,8 @@ Example prompts include:
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 | **Database** | Required | The name of the Azure Data Explorer database. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [kusto table list](../includes/tools/annotations/azure-data-explorer-table-list-annotations.md)]
 
 ## Table: Get table schema
@@ -128,6 +136,8 @@ Example prompts include:
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 | **Database** | Required | The name of the Azure Data Explorer database. |
 | **Table** | Required | The name of the table. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [kusto table schema](../includes/tools/annotations/azure-data-explorer-table-schema-annotations.md)]
 
@@ -153,6 +163,8 @@ Example prompts include:
 | **Table** | Required | The name of the table to sample data from. |
 | **Limit** | Optional | The maximum number of rows to return in the sample. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [kusto sample](../includes/tools/annotations/azure-data-explorer-sample-annotations.md)]
 
 ## Query
@@ -175,6 +187,8 @@ Example prompts include:
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 | **Database** | Required | The name of the Azure Data Explorer database. |
 | **Query** | Required | The KQL query to execute. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [kusto query](../includes/tools/annotations/azure-data-explorer-query-annotations.md)]
 

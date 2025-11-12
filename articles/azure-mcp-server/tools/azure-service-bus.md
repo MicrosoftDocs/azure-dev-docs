@@ -37,6 +37,8 @@ Example prompts include:
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Queue name** | Required | The queue name. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [servicebus queue details](../includes/tools/annotations/azure-service-bus-queue-details-annotations.md)]
 
 ## Get topic runtime details
@@ -57,6 +59,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Topic name** | Required | The name of the topic. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [servicebus topic details](../includes/tools/annotations/azure-service-bus-topic-details-annotations.md)]
 
@@ -79,6 +83,8 @@ Example prompts include:
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Topic name** | Required | The name of the topic containing the subscription. |
 | **Topic subscription name** | Required | The name of the topic subscription. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [servicebus topic subscription details](../includes/tools/annotations/azure-service-bus-topic-subscription-details-annotations.md)]
 

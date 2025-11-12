@@ -38,6 +38,8 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Scope** | Required | The scope to list role assignments for. Can be a subscription, resource group, or resource. |
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [role assignment list](../includes/tools/annotations/azure-role-based-access-control-assignment-list-annotations.md)]
 
 ## Related content

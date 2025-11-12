@@ -36,7 +36,9 @@ Example prompts include:
 | **Resource** |  Required | The name of the resource to investigate or diagnose. |
 | **Resource Type** |  Required | Resource type.  |
 
- [!INCLUDE [applens resource diagnose](../includes/tools/annotations/azure-app-lens-resource-diagnose-annotations.md)]
+[Tool annotation hints](index.md#tool-annotation-hints):
+
+[!INCLUDE [applens resource diagnose](../includes/tools/annotations/azure-app-lens-resource-diagnose-annotations.md)]
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)

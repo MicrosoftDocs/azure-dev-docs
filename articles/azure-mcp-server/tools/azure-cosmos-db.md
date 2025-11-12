@@ -33,6 +33,8 @@ Example prompts include:
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
+[Tool annotation hints](index.md#tool-annotation-hints):
+
 [!INCLUDE [cosmos account list](../includes/tools/annotations/azure-cosmos-db-account-list-annotations.md)]
 
 ## Database: List
@@ -52,6 +54,8 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Account name** | Required | The name of the Cosmos DB account. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [cosmos database list](../includes/tools/annotations/azure-cosmos-db-database-list-annotations.md)]
 
@@ -73,6 +77,8 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Account name** | Required | The name of the Cosmos DB account. |
 | **Database name** | Required | The name of the database. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [cosmos database container list](../includes/tools/annotations/azure-cosmos-db-database-container-list-annotations.md)]
 
@@ -96,6 +102,8 @@ Example prompts include:
 | **Database name** | Required | The name of the database. |
 | **Container name** | Required | The name of the container. |
 | **Query** | Optional | SQL query to execute against the container. |
+
+[Tool annotation hints](index.md#tool-annotation-hints):
 
 [!INCLUDE [cosmos database container item query](../includes/tools/annotations/azure-cosmos-db-database-container-item-query-annotations.md)]
 
