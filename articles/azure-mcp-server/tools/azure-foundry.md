@@ -38,7 +38,7 @@ Example prompts include:
 | **Query** |  Required | The query sent to the agent. |
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#9989; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry agents connect](../includes/tools/annotations/azure-ai-foundry-agents-connect-annotations.md)]
 
 ## Agents: Create a new agent
 
@@ -59,10 +59,9 @@ Example prompts include:
 | **Agent name** |  Required | A human-readable name of the Agent. |
 | **System instruction** |  Required | System instruction for the agent to follow when process messages. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry agents create](../includes/tools/annotations/azure-ai-foundry-agents-create-annotations.md)]
 
 ## Agents: Evaluate an agent
-
 
 <!-- azmcp foundry agents evaluate -->
 
@@ -85,7 +84,7 @@ Example prompts include:
 | **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry agents evaluate](../includes/tools/annotations/azure-ai-foundry-agents-evaluate-annotations.md)]
 
 ## Agents: Get agent sample for language SDK
 
@@ -103,7 +102,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Programming language** |  Required | The programming language of the sdk for interacting with a Foundry Agent. Supported values are `csharp`, `python` and `typescript`. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry agents get-sdk-sample](../includes/tools/annotations/azure-ai-foundry-agents-get-sdk-sample-annotations.md)]
 
 ## Agents: List agents
 
@@ -124,7 +123,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry agents list](../includes/tools/annotations/azure-ai-foundry-agents-list-annotations.md)]
 
 ## Agents: Query and execute an agent
 
@@ -149,7 +148,7 @@ Example prompts include:
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#9989; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry agents query-and-evaluate](../includes/tools/annotations/azure-ai-foundry-agents-query-and-evaluate-annotations.md)]
 
 ## Knowledge: List knowledge indexes
 
@@ -173,7 +172,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry knowledge index list](../includes/tools/annotations/azure-ai-foundry-knowledge-index-list-annotations.md)]
 
 ## Knowledge: Get index schema
 
@@ -192,7 +191,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Index** |  Required | The name of the knowledge index. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry knowledge index schema](../includes/tools/annotations/azure-ai-foundry-knowledge-index-schema-annotations.md)]
 
 ## Models: List available models
 
@@ -216,7 +215,7 @@ Example prompts include:
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry models list](../includes/tools/annotations/azure-ai-foundry-models-list-annotations.md)]
 
 ## Models: Deploy a model
 
@@ -247,7 +246,7 @@ Example prompts include:
 | **SKU capacity** | Optional | The SKU capacity for the deployment. |
 
 
-Destructive: &#9989; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry models deploy](../includes/tools/annotations/azure-ai-foundry-models-deploy-annotations.md)]
 
 ## Models: List model deployments
 
@@ -267,7 +266,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Endpoint** | Required |The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry models deployments list](../includes/tools/annotations/azure-ai-foundry-models-deployments-list-annotations.md)]
 
 ## OpenAI: Create chat completions
 
@@ -304,7 +303,7 @@ Example prompts include:
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
 | **Authentication type** |  Optional | The type of authentication to use. Options are `key` (default) or `aad`. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry openai chat-completions-create](../includes/tools/annotations/azure-ai-foundry-openai-chat-completions-create-annotations.md)]
 
 ## OpenAI: Create embeddings
 
@@ -335,7 +334,7 @@ Example prompts include:
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
 | **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;    
+[!INCLUDE [foundry openai embeddings-create](../includes/tools/annotations/azure-ai-foundry-openai-embeddings-create-annotations.md)]
 
 ## OpenAI: Create completions
 
@@ -360,7 +359,7 @@ Example prompts include:
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry openai create-completion](../includes/tools/annotations/azure-ai-foundry-openai-create-completion-annotations.md)]
 
 ## OpenAI: List models and deployments
 
@@ -386,7 +385,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry openai models-list](../includes/tools/annotations/azure-ai-foundry-openai-models-list-annotations.md)]
 
 ## Resources: Get Foundry resource
 
@@ -407,7 +406,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Optional | The name of the Azure OpenAI resource. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry resource get](../includes/tools/annotations/azure-ai-foundry-resource-get-annotations.md)]
 
 ## Threads: Create a new thread
 
@@ -426,7 +425,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **User message** |  Required | The user message to add to the thread. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry threads create](../includes/tools/annotations/azure-ai-foundry-threads-create-annotations.md)]
 
 ## Threads: Get thread messages
 
@@ -445,7 +444,7 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Thread ID** |  Required | The Foundry Agent Thread ID. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry threads get-messages](../includes/tools/annotations/azure-ai-foundry-threads-get-messages-annotations.md)]
 
 ## Threads: List all threads
 
@@ -463,7 +462,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry threads list](../includes/tools/annotations/azure-ai-foundry-threads-list-annotations.md)]
 
 ## Related content
 
