@@ -17,8 +17,6 @@ The Azure MCP Server allows you to list Application Insights resources using nat
 
 [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management (APM) service for developers and DevOps professionals. It provides insights into the performance and usage of your applications, helping you to detect and diagnose issues, understand user behavior, and improve application performance.
 
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## List recommendations
