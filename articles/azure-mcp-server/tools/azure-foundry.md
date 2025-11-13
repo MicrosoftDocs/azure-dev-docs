@@ -22,7 +22,7 @@ When connecting to your Azure AI Foundry resource, the Azure MCP Server requires
 
 ## Agents: Connect and run
 
-<!-- `azmcp foundry agents connect` -->
+<!-- foundry agents connect -->
 
 Connect to a specific Azure AI Agent and run a query. This command returns the agent's response along with thread and run IDs for potential evaluation.
 
@@ -38,11 +38,13 @@ Example prompts include:
 | **Query** |  Required | The query sent to the agent. |
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#9989; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry agents connect](../includes/tools/annotations/azure-ai-foundry-agents-connect-annotations.md)]
 
 ## Agents: Create a new agent
 
-<!-- azmcp foundry agents create -->
+<!-- foundry agents create -->
 
 Creates an AI Foundry Agent that processes messages according to a given system instruction using an existing AI Foundry model deployment.
 
@@ -59,12 +61,13 @@ Example prompts include:
 | **Agent name** |  Required | A human-readable name of the Agent. |
 | **System instruction** |  Required | System instruction for the agent to follow when process messages. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry agents create](../includes/tools/annotations/azure-ai-foundry-agents-create-annotations.md)]
 
 ## Agents: Evaluate an agent
 
-
-<!-- azmcp foundry agents evaluate -->
+<!-- foundry agents evaluate -->
 
 Run agent evaluation on agent data. Requires JSON strings for query, response, and tool definitions.
 
@@ -85,11 +88,13 @@ Example prompts include:
 | **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry agents evaluate](../includes/tools/annotations/azure-ai-foundry-agents-evaluate-annotations.md)]
 
 ## Agents: Get agent sample for language SDK
 
-<!-- azmcp foundry agents get-sdk-sample -->
+<!-- foundry agents get-sdk-sample -->
 
 Get code samples to interact with a Foundry Agent using AI Foundry SDK and programming language of your choice.
 
@@ -103,11 +108,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Programming language** |  Required | The programming language of the sdk for interacting with a Foundry Agent. Supported values are `csharp`, `python` and `typescript`. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry agents get-sdk-sample](../includes/tools/annotations/azure-ai-foundry-agents-get-sdk-sample-annotations.md)]
 
 ## Agents: List agents
 
-<!-- azmcp foundry agents list -->
+<!-- foundry agents list -->
 
 
 List all Azure AI Agents in an Azure AI Foundry project. Shows agents that can be used for AI workflows, evaluations, and interactive tasks. 
@@ -124,11 +131,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`.|
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry agents list](../includes/tools/annotations/azure-ai-foundry-agents-list-annotations.md)]
 
 ## Agents: Query and execute an agent
 
-<!-- azmcp foundry agents query-and-evaluate -->
+<!-- foundry agents query-and-evaluate -->
 
 Query an agent and evaluate its response in a single operation. This command returns both the agent response and evaluation results.
 
@@ -149,7 +158,9 @@ Example prompts include:
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#9989; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry agents query-and-evaluate](../includes/tools/annotations/azure-ai-foundry-agents-query-evaluate-annotations.md)]
 
 ## Knowledge: List knowledge indexes
 
@@ -173,7 +184,9 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`|
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry knowledge index list](../includes/tools/annotations/azure-ai-foundry-knowledge-index-list-annotations.md)]
 
 ## Knowledge: Get index schema
 
@@ -192,11 +205,13 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 | **Index** |  Required | The name of the knowledge index. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry knowledge index schema](../includes/tools/annotations/azure-ai-foundry-knowledge-index-schema-annotations.md)]
 
 ## Models: List available models
 
-<!-- azmcp foundry models list -->
+<!-- foundry models list -->
 
 List all available Azure OpenAI models and deployments in an AI Foundry resource. This tool retrieves information about Azure OpenAI models deployed in your AI Foundry resource including model names, versions, capabilities, and deployment status.
 
@@ -216,11 +231,13 @@ Example prompts include:
 | **License** | Optional | A filter to specify the license type of the models to retrieve. |
 | **Model** | Optional | The name of the model to search for. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry models list](../includes/tools/annotations/azure-ai-foundry-models-list-annotations.md)]
 
 ## Models: Deploy a model
 
-<!-- azmcp foundry models deploy -->
+<!-- foundry models deploy -->
 
 Deploy an AI model to your Azure environment. Use this command to deploy selected models from Azure AI Foundry and make them available for use in your applications.
 
@@ -238,20 +255,20 @@ Example prompts include:
 | **Model** | Required | The name of the model to deploy. |
 | **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
 | **Azure AI services** | Required | The name of the Azure AI services account to deploy to. |
-| **Resource group** | Required | The name of the Azure resource group where the model will be deployed. |
 | **Model version** | Optional | The version of the model to deploy. |
 | **Model source** | Optional | The source of the model. |
-| **Scale type** | Optional | The scale type for the deployment. |
-| **Scale capacity** | Optional | The scale capacity for the deployment. |
 | **SKU** | Optional | The SKU name for the deployment. |
 | **SKU capacity** | Optional | The SKU capacity for the deployment. |
+| **Scale type** | Optional | The scale type for the deployment. |
+| **Scale capacity** | Optional | The scale capacity for the deployment. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-Destructive: &#9989; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[!INCLUDE [foundry models deploy](../includes/tools/annotations/azure-ai-foundry-models-deploy-annotations.md)]
 
 ## Models: List model deployments
 
-<!-- azmcp foundry models deployments list -->
+<!-- foundry models deployments list -->
 
 List model deployments in an Azure AI Foundry (Cognitive Services) project. Shows currently deployed AI models at the project level.
 
@@ -267,11 +284,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Endpoint** | Required |The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry models deployments list](../includes/tools/annotations/azure-ai-foundry-models-deployments-list-annotations.md)]
 
 ## OpenAI: Create chat completions
 
-<!-- azmcp foundry openai chat-completions-create -->
+<!-- foundry openai chat-completions-create -->
 
  Create chat completions using Azure OpenAI in AI Foundry. Send messages to Azure OpenAI chat models deployed in your AI Foundry resource and receive AI-generated conversational responses. Supports multi-turn conversations with message history, system instructions, and response customization.
 
@@ -304,11 +323,13 @@ Example prompts include:
 | **User** |  Optional | Optional user identifier for tracking and abuse monitoring. |
 | **Authentication type** |  Optional | The type of authentication to use. Options are `key` (default) or `aad`. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry openai chat-completions-create](../includes/tools/annotations/azure-ai-foundry-openai-chat-completions-create-annotations.md)]
 
 ## OpenAI: Create embeddings
 
-<!-- `azmcp foundry openai embeddings-create` -->
+<!-- foundry openai embeddings-create -->
 
 Create embeddings using Azure OpenAI in AI Foundry. Generate vector embeddings from text using Azure OpenAI deployments in your AI Foundry resource for semantic search, similarity comparisons, clustering, or machine learning.
 
@@ -335,11 +356,13 @@ Example prompts include:
 | **Encoding format** |  Optional | The format to return embeddings in (`float` or `base64`). |
 | **Dimensions** |  Optional | The number of dimensions for the embedding output. Only supported in some models. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;    
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry openai embeddings-create](../includes/tools/annotations/azure-ai-foundry-openai-embeddings-create-annotations.md)]
 
 ## OpenAI: Create completions
 
-<!-- azmcp foundry openai create-completion -->
+<!-- foundry openai create-completion -->
 
  Create text completions using Azure OpenAI in AI Foundry. Send a prompt or question to Azure OpenAI models deployed in your AI Foundry resource and receive generated text answers. Use this when you need to create completions, get AI-generated content, generate answers to questions, or produce text completions from Azure OpenAI based on any input prompt. Supports customization with temperature and max tokens. 
 
@@ -360,11 +383,13 @@ Example prompts include:
 | **Max tokens** |  Optional | The maximum number of tokens to generate in the completion. |
 | **Temperature** |  Optional | Controls randomness in the output. Lower values make it more deterministic. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry openai create-completion](../includes/tools/annotations/azure-ai-foundry-openai-create-completion-annotations.md)]
 
 ## OpenAI: List models and deployments
 
-<!-- `azmcp foundry openai models-list` -->
+<!-- foundry openai models-list -->
 
 List all available OpenAI models and deployments in an Azure resource. This tool retrieves information about 
 deployed models including model names, versions, capabilities, and deployment status. 
@@ -386,11 +411,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry openai models-list](../includes/tools/annotations/azure-ai-foundry-openai-models-list-annotations.md)]
 
 ## Resources: Get Foundry resource
 
-<!-- azmcp foundry resource get -->
+<!-- foundry resource get -->
 
 Get detailed information about Azure AI Foundry resources, including endpoint URL, 
 location, SKU, and all deployed models with their configuration. If a specific resource name is provided, 
@@ -407,11 +434,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Optional | The name of the Azure OpenAI resource. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry resource get](../includes/tools/annotations/azure-ai-foundry-resource-get-annotations.md)]
 
 ## Threads: Create a new thread
 
-<!-- azmcp foundry threads create -->
+<!-- foundry threads create -->
 
 Creates an AI Foundry agent thread that holds the messages between the Agent and the user.
 
@@ -426,11 +455,13 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **User message** |  Required | The user message to add to the thread. |
 
-Destructive: &#10060; | Idempotent: &#10060; | Open World: &#10060; | Read Only: &#10060; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry threads create](../includes/tools/annotations/azure-ai-foundry-threads-create-annotations.md)]
 
 ## Threads: Get thread messages
 
-<!-- azmcpfoundry threads get-messages -->
+<!-- foundry threads get-messages -->
 
 Get messages in an AI Foundry agent thread.
 
@@ -445,11 +476,13 @@ Example prompts include:
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 | **Thread ID** |  Required | The Foundry Agent Thread ID. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry threads get-messages](../includes/tools/annotations/azure-ai-foundry-threads-get-messages-annotations.md)]
 
 ## Threads: List all threads
 
-<!-- azmcp foundry threads list -->
+<!-- foundry threads list -->
 
 List AI Foundry agent threads.
 
@@ -463,7 +496,9 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
 
-Destructive: &#10060; | Idempotent: &#9989; | Open World: &#10060; | Read Only: &#9989; | Secret: &#10060; | Local Required: &#10060;
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [foundry threads list](../includes/tools/annotations/azure-ai-foundry-threads-list-annotations.md)]
 
 ## Related content
 
