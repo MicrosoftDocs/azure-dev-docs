@@ -40,11 +40,9 @@ During local development, environment variables are set with the application ser
 
 ## Set the app environment variables
 
-The [`DefaultAzureCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_default_azure_credential.html) object will look for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to create a `.env` file or use system environment variables to store these credentials locally during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
+The [`DefaultAzureCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_default_azure_credential.html) object looks for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to create a `.env` file or use system environment variables to store these credentials locally during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
 
-The `.env` file is never checked into source control since it contains the application secret key for Azure. Make sure to add `.env` to your [.gitignore](https://github.com/github/gitignore/blob/main/C%2B%2B.gitignore) file to exclude it from check-in.
-
-Create a `.env` file in your application root directory or set system environment variables. Set the environment variable values with values obtained from the app registration process as follows:
+Set the environment variable values with values obtained from the app registration process as follows:
 
 - `AZURE_CLIENT_ID` &rarr; The app ID value.
 - `AZURE_TENANT_ID` &rarr; The tenant ID value.
@@ -72,93 +70,67 @@ For C++ applications, you can set these environment variables in several ways:
   export AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
   ```
 
-- **Loading from a `.env` file in your C++ code** (optional):
-  ```cpp
-  #include <cstdlib>
-  #include <fstream>
-  #include <string>
-  #include <iostream>
-  
-  void loadEnvironmentFromFile(const std::string& filename) {
-      std::ifstream file(filename);
-      std::string line;
-      
-      while (std::getline(file, line)) {
-          auto pos = line.find('=');
-          if (pos != std::string::npos) {
-              std::string key = line.substr(0, pos);
-              std::string value = line.substr(pos + 1);
-              
-              // Set environment variable
-              #ifdef _WIN32
-                  _putenv((key + "=" + value).c_str());
-              #else
-                  setenv(key.c_str(), value.c_str(), 1);
-              #endif
-          }
-      }
-  }
-  ```
+- **Loading from a `.env` file in your C++ code** (optional).
 
 ## Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the Azure Identity library for C++. In this scenario, `DefaultAzureCredential` will detect the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` are set and read those variables to get the application service principal information to connect to Azure with.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the Azure Identity library for C++. In this scenario, `DefaultAzureCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
 
-First, add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
+1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
-```bash
-vcpkg add port azure-identity-cpp
-```
+    ```bash
+    vcpkg add port azure-identity-cpp
+    ```
 
-Then, add the following in your CMake file:
+1. Add the following in your CMake file:
 
-```cmake
-find_package(azure-identity-cpp CONFIG REQUIRED)
-target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
-```
+    ```cmake
+    find_package(azure-identity-cpp CONFIG REQUIRED)
+    target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
+    ```
 
-Next, for any C++ code that creates an Azure SDK client object in your app, you'll want to:
+1. For any C++ code that creates an Azure SDK client object in your app:
 
-1. Include the `azure/identity.hpp` header.
-1. Create an instance of `DefaultAzureCredential`.
-1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
+    1. Include the `azure/identity.hpp` header.
+    1. Create an instance of `DefaultAzureCredential`.
+    1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
 
-An example of this is shown in the following code segment.
+    An example is shown in the following code segment:
 
-```cpp
-#include <azure/identity.hpp>
-#include <azure/storage/blobs.hpp>
-#include <iostream>
-#include <memory>
+    ```cpp
+    #include <azure/identity.hpp>
+    #include <azure/storage/blobs.hpp>
+    #include <iostream>
+    #include <memory>
 
-int main() {
-    try {
-        // Create a credential - this will automatically read the environment variables
-        // AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_CLIENT_SECRET
-        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+    int main() {
+        try {
+            // Create a credential - this will automatically read the environment variables
+            // AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_CLIENT_SECRET
+            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+            
+            // Create a client for the specified storage account
+            std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
+            Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
+            
+            // Get a reference to a container
+            std::string containerName = "sample-container";
+            auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            
+            // Get a reference to a blob
+            std::string blobName = "sample-blob";
+            auto blobClient = containerClient.GetBlobClient(blobName);
+            
+            // TODO: perform some action with the blob client
+            // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
+            
+            std::cout << "Successfully authenticated and created Azure clients." << std::endl;
+            
+        } catch (const std::exception& ex) {
+            std::cout << "Exception: " << ex.what() << std::endl;
+            return 1;
+        }
         
-        // Create a client for the specified storage account
-        std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
-        Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
-        
-        // Get a reference to a container
-        std::string containerName = "sample-container";
-        auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-        
-        // Get a reference to a blob
-        std::string blobName = "sample-blob";
-        auto blobClient = containerClient.GetBlobClient(blobName);
-        
-        // TODO: perform some action with the blob client
-        // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
-        
-        std::cout << "Successfully authenticated and created Azure clients." << std::endl;
-        
-    } catch (const std::exception& ex) {
-        std::cout << "Exception: " << ex.what() << std::endl;
-        return 1;
+        return 0;
     }
-    
-    return 0;
-}
-```
+    ```
