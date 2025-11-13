@@ -152,7 +152,7 @@ You see the agent's response in the chat window.
 
 ## Advanced configuration
 
-You can customize your deployments to meet advanced requirements beyond the default workflow.
+You can customize your projects to meet advanced requirements beyond the default workflow.
 
 ### Customize model deployments
 
@@ -179,7 +179,7 @@ resources:
 
 Run `azd up` to deploy the new model and update your project.
 
-This configuration deploys multiple models so your agent can use a larger model for complex reasoning and a smaller one for simple queries.
+This sample configuration deploys multiple models so your agent can use a larger model for complex reasoning and a smaller one for simple queries.
 
 ### Manage environment variables
 
@@ -198,7 +198,7 @@ These variables are stored in `.azure/<environment-name>/.env`. Customize them f
 
 ## Sample use cases and scenarios
 
-Use `azd` to accelerate agent scenarios.
+Use `azd` and the AI agent extension to accelerate various agent scenarios with Microsoft Foundry.
 
 ### Build conversational assistants
 
@@ -236,7 +236,7 @@ Drive consistency across teams.
 
 - **Explore sample agents**: Browse the [Agent Framework repository](https://github.com/microsoft/agent-framework) for [.NET agents](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples) and [Python agents](https://github.com/microsoft/agent-framework/tree/main/python/samples) and deploy them with `azd ai agent init`.
 - **Join the community**: Share experiences and ask questions in the [Azure Developer CLI GitHub discussions](https://github.com/Azure/azure-dev/discussions).
-- **Report issues and suggest features**: Give feedback. File issues or feature suggestions in the [Azure/azure-dev repository](https://github.com/Azure/azure-dev/issues) and tag them with `ai-agent`.
+- **Report issues and suggest features**: Give feedback and issues or feature suggestions in the [Azure/azure-dev repository](https://github.com/Azure/azure-dev/issues) and tag them with `ai-agent`.
 - **Review documentation**: Visit the [Microsoft Foundry documentation](/azure/ai-foundry/) for comprehensive guides on agent development.
 
 ## Additional resources
