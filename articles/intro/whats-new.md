@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 10/13/2025
+ms.date: 11/13/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
@@ -10,6 +10,108 @@ ms.topic: article
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for October 2025
+
+### AI apps using Azure services
+
+New articles:
+
+- [How to switch between OpenAI and Azure OpenAI endpoints](../ai/how-to/switching-endpoints.md)
+
+Updated articles:
+
+- [Get started with multimodal vision chat apps using Azure OpenAI](../ai/get-started-app-chat-vision.md) - Update "Get started with multimodal vision chat apps using Azure OpenAI" with code changes
+- [How to switch between OpenAI and Azure OpenAI endpoints](../ai/how-to/switching-endpoints.md)
+  - Add JS, Java, and Go to "How to switch between OpenAI and Azure OpenAI endpoints"
+  - Add "How to switch between endpoints" for OpenAI dev days support
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Connect GitHub Copilot coding agent with Azure MCP Server using azd extensions](../azure-developer-cli/extensions/copilot-coding-agent-extension.md)
+
+Updated articles:
+
+- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.20.0
+
+### Azure MCP Server
+
+New articles:
+
+- [Application Insights tools for the Azure MCP Server](../azure-mcp-server/tools/application-insights.md)
+- [Azure AI Search tools for the Azure MCP Server](../azure-mcp-server/tools/azure-ai-search.md)
+- [Azure AI Speech tools for the Azure MCP Server](../azure-mcp-server/tools/ai-services-speech.md)
+- [Azure CLI tools for the Azure MCP Server](../azure-mcp-server/tools/azure-cli.md)
+- [Azure Communication Services tools for the Azure MCP Server](../azure-mcp-server/tools/azure-communication.md)
+- [Azure Confidential Ledger tools for the Azure MCP Server](../azure-mcp-server/tools/azure-confidential-ledger.md)
+- [Azure Event Hubs tools for the Azure MCP Server](../azure-mcp-server/tools/azure-event-hubs.md)
+- [Azure Redis tools for Azure MCP Server](../azure-mcp-server/tools/azure-redis.md)
+- [Azure SignalR tools for the Azure MCP Server](../azure-mcp-server/tools/azure-signalr.md)
+- [Connect GitHub Copilot coding agent to the Azure MCP Server](../azure-mcp-server/how-to/github-copilot-coding-agent.md)
+- [Azure Communication Services tools for the Azure MCP Server](../azure-mcp-server/tools/azure-communication.md)
+
+Updated articles:
+
+- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - Azure MCP 0.8.4 and 0.8.5
+- [Azure Event Hubs tools for the Azure MCP Server](../azure-mcp-server/tools/azure-event-hubs.md)
+  - MCP update - Event hubs
+  - MCP 0.8.3
+- [Azure Managed Lustre tools for Azure MCP Server](../azure-mcp-server/tools/azure-managed-lustre.md) - Azure MCP 0.8.4 and 0.8.5
+- [Azure MCP Server documentation](../azure-mcp-server/index.yml) - MCP updates - landing page
+- [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/azure-monitor.md)
+  - MCP - Azure monitor - missing tools
+  - MCP update - Monitor & App Insights
+- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md) - MCP update - Azure SQL
+- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md) - Add NuGet option
+
+### GitHub Copilot for Azure
+
+New articles:
+
+- [Visual Studio Code](../github-copilot-azure/github-copilot-azure-zone-pivot-groups.yml)
+
+Updated articles:
+
+- [What is GitHub Copilot for Azure?](../github-copilot-azure/introduction.md) - Add tools to GHCPA Introduction
+
+### Azure for Go
+
+New articles:
+
+- [Authenticate Azure-hosted Go apps to Azure resources using a system-assigned managed identity](../go/sdk/authentication/system-assigned-managed-identity.md)
+- [Authenticate Azure-hosted Go apps to Azure resources using a user-assigned managed identity](../go/sdk/authentication/user-assigned-managed-identity.md)
+
+Updated articles:
+
+- [Authenticate Go apps to Azure services during local development using developer accounts](../go/sdk/authentication/local-development-dev-accounts.md) - Update Go SDK authentication guidance
+- [Authenticate Go apps to Azure services using the Azure Identity library](../go/sdk/authentication/authentication-overview.md) - Update Go SDK authentication guidance
+
+### Azure for Java
+
+New articles:
+
+- [What is Azure Toolkit for IntelliJ?](../java/toolkit-for-intellij/overview.md)
+
+### Azure for JavaScript
+
+Updated articles:
+
+- [Credential chains in the Azure Identity library for JavaScript](../javascript/sdk/authentication/credential-chains.md) - JS SDK Auth chains
+
+### Azure for Rust
+
+New articles:
+
+- [Azure SDK for Rust crates](../rust/azure-sdk-library-package-index.md)
+- [OpenTelemetry in Azure SDK for Rust crates](../rust/sdk/logging.md)
+
+Updated articles:
+
+- [OpenTelemetry in Azure SDK for Rust crates](../rust/sdk/logging.md)
+  - Rust - new crates from SDK team
+  - Rust - logging and telemetry
 
 ## What's new for September 2025
 
@@ -191,90 +293,3 @@ New articles:
 Updated articles:
 
 - [Credential chains in the Azure Identity library for .NET](/dotnet/azure/sdk/authentication/credential-chains)
-
-## What's new for July 2025
-
-### AI apps using Azure services
-
-New article:
-
-- [Build a TypeScript MCP server using Azure Container Apps](../ai/build-mcp-server-ts.md)
-
-### Azure Developer CLI (azd)
-
-New articles:
-
-- [Azure Container Apps deployment strategies using the Azure Developer CLI](../azure-developer-cli/container-apps-workflows.md)
-- [Remote builds support with Azure Container Registry](../azure-developer-cli/remote-builds.md)
-
-### Azure MCP Server
-
-New articles:
-
-- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md)
-- [Azure best practices tools](../azure-mcp-server/tools/azure-best-practices.md)
-- [Azure Bicep Schema tools for the Azure MCP Server](../azure-mcp-server/tools/azure-bicep-schema.md)
-- [Azure Redis tools for Azure MCP Server](../azure-mcp-server/tools/azure-redis.md)
-- [Azure Developer CLI extension tools for the Azure MCP Server](../azure-mcp-server/tools/azure-developer-cli.md)
-- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-kubernetes.md)
-- [Azure Load Testing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md)
-- [Azure Managed Grafana tools for the Azure MCP Server](../azure-mcp-server/tools/azure-grafana.md)
-- [Azure MCP tools management for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
-- [Azure Native ISV tools for Azure MCP Server](../azure-mcp-server/tools/azure-native-isv.md)
-- [Azure Quick Review CLI tools for the Azure MCP Server](../azure-mcp-server/tools/azure-compliance-quick-review.md)
-- [Azure RBAC tools for the Azure MCP Server](../azure-mcp-server/tools/azure-rbac.md)
-- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
-- [Terraform best practices for Azure tools](../azure-mcp-server/tools/azure-terraform-best-practices.md)
-
-### Azure for Java
-
-New article:
-
-- [Configure passwordless database connections for Java apps on Red Hat JBoss EAP](../java/ee/how-to-configure-passwordless-datasource-eap.md)
-
-### Azure for JavaScript
-
-Updated article:
-
-- [What is Azure for JavaScript developers](../javascript/what-is-azure-for-javascript-development.md) 
-
-### Azure for Python
-
-New article:
-
-- [Authorization in the Azure SDK libraries for Python](../python/sdk/authorization/overview.md)
-
-### Azure for .NET
-
-New articles:
-
-- [GitHub Copilot app modernization for .NET (Preview) overview](/dotnet/core/porting/github-copilot-app-modernization-overview)
-- [Frequently Asked Questions for GitHub Copilot app modernization for .NET (Preview)](/dotnet/core/porting/github-copilot-app-modernization-faq)
-- [Predefined tasks for GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/predefined-tasks)
-- [Quickstart: Assess and migrate a .NET Project with GitHub Copilot app modernization for .NET (Preview)](/dotnet/azure/migration/appmod/quickstart)
-- [Contoso University migration sample](/dotnet/azure/migration/appmod/sample)
-
-### GitHub Copilot app modernization
-
-New articles:
-
-- [GitHub Copilot app modernization documentation](../github-copilot-app-modernization/index.yml)
-- [Analyze applications and migrate to Azure by using GitHub Copilot app modernization](../github-copilot-app-modernization/overview.md)
-
-### Terraform on Azure
-
-New article:
-
-- [Generate Terraform on Azure configurations using Copilot](../terraform/terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md)
-
-Updated article:
-
-- [Generate Terraform on Azure configurations using Copilot](../terraform/terraform-handler-for-azure-copilot/generate-terraform-configuration-using-copilot.md)
-  - Copilot article changes to images, prompts, and verbiage
-  - Terraform handler for Azure Copilot
-
-### TypeSpec
-
-New article:
-
-- [Quickstart: Create a new API project with TypeSpec and TypeScript](../typespec/quickstart-scaffold-typescript.md)
