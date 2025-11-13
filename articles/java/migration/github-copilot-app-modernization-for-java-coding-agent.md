@@ -57,7 +57,7 @@ This article provides an overview of how Java developers can modernize their app
 :::image type="content" source="./media/coding-agent/mcp.png" lightbox="./media/copilot-cli/upgrade-details.png" alt-text="Screenshot of MCP configuration in coding agent":::
 4. (Optional) If environment variables are required, set them under Environment → Copilot in the settings. These environment variables will be initialized automatically the first time a user invokes an agentic task in this repository.
 5. Open the Agents panel in the top-right corner and enter your prompt. After the prompt is entered, Copilot will start a new session and open a new Pull Request, which will appear in the list below the prompt box. Copilot will work on the task and then add you as a reviewer when it has finished, triggering a notification.
-:::image type="content" source="./media/coding-agent/agentpanel.png" lightbox="./media/copilot-cli/upgrade-details.png" alt-text="Screenshot of agent panel and a list of previous Java upgrade sessions":::
+:::image type="content" source="./media/coding-agent/agent-panel.png" lightbox="./media/copilot-cli/agent-panel.png" alt-text="Screenshot of agent panel and a list of previous Java upgrade sessions":::
 
 Sample prompts can be found in the next section.
 
@@ -66,18 +66,39 @@ To upgrade your Java application to a newer runtime or framework version, run th
 ```
 Upgrade this project to JDK 21 and Spring Boot 3.5
 ```
-Coding agent will then execute, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities.
+
+Here's an example:
+Describe what you’d like to achieve in plain language:
+:::image type="content" source="./media/coding-agent/upgrade-input.png" lightbox="./media/coding-agent/upgrade-input.png" alt-text="Screenshot of Java upgrade task input in Coding Agent":::
+
+Coding agent will then execute, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities:
+:::image type="content" source="./media/coding-agent/upgrade-progress.png" lightbox="./media/coding-agent/upgrade-progress.png" alt-text="Screenshot of Java upgrade progress in Coding Agent":::
+
+You will get a concise summary highlights at the end:
+:::image type="content" source="./media/coding-agent/upgrade-completion.png" lightbox="./media/coding-agent/upgrade-completion.png" alt-text="Screenshot of Java upgrade completion in Coding Agent":::
 
 ### Migrate your Java Application to Azure
 To migrate your Java application to Azure, describe your migration scenario for Coding Agent.
 For details on predefined migration tasks, see [migration tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list)
 For example:
 ```
-Migrate this application from S3 to Azure Blob Storage
+Run migration task for scenario Migrate Cassandra integration to Azure SDK using Managed Identity
 ```
+Here's an example:
+Start by describing your migration task in plain language:
+:::image type="content" source="./media/coding-agent/migrate-input.png" lightbox="./media/coding-agent/migrate-input.png" alt-text="Screenshot of Java migrate task input in Coding Agent":::
+
+Once the prompt is submitted, the migration task will be automatically created.
+:::image type="content" source="./media/coding-agent/migrate-create-task.png" lightbox="./media/coding-agent/migrate-create-task.png" alt-text="Screenshot of Java migrate create task in Coding Agent":::
+
+After the migration starts, you can monitor the progress:
+:::image type="content" source="./media/coding-agent/migrate-progress.png" lightbox="./media/coding-agent/migrate-progress.png" alt-text="Screenshot of Java migrate progress in Coding Agent":::
+
+Finally, you can review the migration summary for insights — ensuring your app is fully modernized and cloud-ready.
+:::image type="content" source="./media/coding-agent/migrate-completion.png" lightbox="./media/coding-agent/migrate-completion.png" alt-text="Screenshot of Java migrate completion in Coding Agent":::
 
 ### Deploy your Java Application to Azure
-After upgrading or migrating your application, you can deploy it directly from Copilot CLI by following prompt examples:
+After upgrading or migrating your application, you can deploy it directly from Coding Agent by following prompt examples:
 ```
 Deploy this application to Azure
 ```
