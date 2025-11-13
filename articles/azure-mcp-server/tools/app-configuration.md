@@ -17,8 +17,6 @@ The Azure MCP Server allows you to manage Azure resources, including App Configu
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their access in one place.
 
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Account: List stores
