@@ -54,7 +54,7 @@ This article provides an overview of how Java developers can modernize their app
   }
 }
 ```
-:::image type="content" source="./media/coding-agent/mcp.png" lightbox="./media/coding-agent/upgrade-details.png" alt-text="Screenshot of MCP configuration in coding agent":::
+:::image type="content" source="./media/coding-agent/mcp.png" lightbox="./media/coding-agent/mcp.png" alt-text="Screenshot of MCP configuration in coding agent":::
 4. (Optional) If environment variables are required, set them under Environment → Copilot in the settings. These environment variables will be initialized automatically the first time a user invokes an agentic task in this repository.
 5. Open the Agents panel in the top-right corner and enter your prompt. After the prompt is entered, Copilot will start a new session and open a new Pull Request, which will appear in the list below the prompt box. Copilot will work on the task and then add you as a reviewer when it has finished, triggering a notification.
 :::image type="content" source="./media/coding-agent/agent-panel.png" lightbox="./media/coding-agent/agent-panel.png" alt-text="Screenshot of agent panel and a list of previous Java upgrade sessions":::
