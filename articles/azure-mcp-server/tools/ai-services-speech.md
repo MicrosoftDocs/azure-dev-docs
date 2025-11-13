@@ -44,7 +44,7 @@ Example prompts include:
 | **File** |  Required | Path to the local audio file to recognize. |
 | **Language** |  Optional | The language for speech recognition (for example, `en-US`, `es-ES`). Default is `en-US`. |
 | **Phrases** |  Optional | Phrase hints to improve recognition accuracy. Can be specified multiple times or as comma-separated values. |
-| **Format** |  Optional | Output format: `simple` or `detailed`. Default is `simple`. |
+| **Format** |  Optional | Output format: `simple` or `detailed`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
 
 ## Text-to-Speech: Synthesize
