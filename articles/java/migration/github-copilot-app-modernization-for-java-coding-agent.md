@@ -88,9 +88,6 @@ Here's an example:
 Start by describing your migration task in plain language:
 :::image type="content" source="./media/coding-agent/migrate-input.png" lightbox="./media/coding-agent/migrate-input.png" alt-text="Screenshot of Java migrate task input in Coding Agent":::
 
-Once the prompt is submitted, the migration task will be automatically created.
-:::image type="content" source="./media/coding-agent/migrate-create-task.png" lightbox="./media/coding-agent/migrate-create-task.png" alt-text="Screenshot of Java migrate create task in Coding Agent":::
-
 After the migration starts, you can monitor the progress:
 :::image type="content" source="./media/coding-agent/migrate-progress.png" lightbox="./media/coding-agent/migrate-progress.png" alt-text="Screenshot of Java migrate progress in Coding Agent":::
 
@@ -102,6 +99,8 @@ After upgrading or migrating your application, you can deploy it directly from C
 ```
 Deploy this application to Azure
 ```
+
+You can follow the same steps as upgrade or migration for deployment — the overall process remains consistent.
 
 ## Provide Feedback
 If you have any feedback about GitHub Copilot agent, please let us know your [feedback](https://aka.ms/ghcp-appmod/feedback).
