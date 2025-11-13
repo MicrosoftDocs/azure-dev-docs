@@ -57,18 +57,18 @@ The starter template provides the project structure, but you need to add a speci
 
 Use your own agent definition or one from the catalog.
 
-1. Run the following command. Replace the placeholder text *`<agent-definition-url>`* with your agent definition URL:
+Run the `azd ai agent init` command, with your own `<agent-definition-url>` value:
 
-    ```bash
-    azd ai agent init -m <agent-definition-url>
-    ```
+```bash
+azd ai agent init -m <agent-definition-url>
+```
 
-    The `azd ai agent init` command:
+The `azd ai agent init` command:
 
-    - Downloads the agent definition YAML file into your project's `src/` directory
-    - Analyzes the agent definition to understand its requirements
-    - Updates `azure.yaml` with the corresponding services and configurations
-    - Maps agent parameters to environment variables
+- Downloads the agent definition YAML file into your project's `src/` directory
+- Analyzes the agent definition to understand its requirements
+- Updates `azure.yaml` with the corresponding services and configurations
+- Maps agent parameters to environment variables
 
 ### Review the project structure
 
@@ -113,18 +113,18 @@ This declarative configuration defines your agent service and the Azure AI resou
 
 ### Provision and deploy the agent
 
-1. Run `azd up` to deploy the resources and agent:
+Run `azd up` to deploy the resources and agent:
 
-    ```bash
-    azd up
-    ```
+```bash
+azd up
+```
 
-    The `azd up` command orchestrates the deployment workflow, from infrastructure to a live agent endpoint:
+The `azd up` command orchestrates the deployment workflow, from infrastructure to a live agent endpoint:
 
-    1. Provision infrastructure: Create the Microsoft Foundry account, project, and Azure resources defined in the Bicep files.
-    1. **Deploys models**: Provisions the model deployments specified in `azure.yaml` (for example, GPT-4o-mini with the configured capacity).
-    1. Build and push the container: If the agent has custom code, `azd` packages it into a container image and pushes it to the Azure Container Registry.
-    1. Publish the agent: Create an Agent Application in Microsoft Foundry and deploy the agent as a live, callable service.
+- Provision infrastructure: Create the Microsoft Foundry account, project, and Azure resources defined in the Bicep files.
+- **Deploys models**: Provisions the model deployments specified in `azure.yaml` (for example, GPT-4o-mini with the configured capacity).
+- Build and push the container: If the agent has custom code, `azd` packages it into a container image and pushes it to the Azure Container Registry.
+- Publish the agent: Create an Agent Application in Microsoft Foundry and deploy the agent as a live, callable service.
 
 When `azd up` finishes, the output shows the Microsoft Foundry project endpoint, resource group and project names, and agent application details.
 
