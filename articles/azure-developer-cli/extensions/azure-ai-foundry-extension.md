@@ -12,25 +12,29 @@ ai-usage: ai-generated
 
 # Deploy an agent to Microsoft Foundry with the azd AI agent extension
 
-In this article, you learn to provision and deploy an agent to Microsoft Foundry using the Azure Developer CLI (`azd`) AI extension. The `azd` AI agent extension lets you scaffold, configure, and deploy Microsoft Foundry agents from your terminal or local editor. It combines Foundry capabilities (multi-model reasoning, evaluations) with `azd` lifecycle commands (`azd init`, `azd up`) for a consistent local-to-cloud workflow.
+Use the Azure Developer CLI (`azd`) AI agent extension to set up and deploy an agent in Microsoft Foundry. The extension lets you scaffold, set up, and deploy agents from your terminal or editor, combining Foundry capabilities (multimodel reasoning and evaluations) with `azd` lifecycle commands (`azd init`, `azd up`) for a consistent local to cloud workflow.
 
 ## Key features
 
-- **Project scaffolding**: Initialize complete agent projects (infrastructure-as-code templates, agent definitions, configuration) to start iterating immediately.
-- **Declarative configuration**: Define services, resources, and model deployments in a single version controlled `azure.yaml` for repeatable environments.
-- **Unified provisioning and deployment**: Run `azd up` to build containers (when needed), push images, create resources, deploy models, and publish the agent in one step.
-- **Agent definition management**: Import agent definitions from catalogs, GitHub, or local paths. The CLI analyzes them and maps required parameters to environment variables.
-- **Secure by default**: Automatically set up managed identities and recommended baseline security without manual credential handling.
-- **Scalable model provisioning**: Specify model names, versions, and capacity. `azd` deploys them consistently across environments.
+- **Project scaffolding**: Set up full agent projects (infrastructure as code templates, agent definitions, configuration) to start iterating immediately.
+- **Declarative configuration**: Define services, resources, and model deployments in one version-controlled `azure.yaml` for consistent environments.
+- **Unified provisioning and deployment**: Run `azd up` to build containers, push images, create resources, deploy models, and publish the agent in one step.
+- **Agent definition management**: Import agent definitions from catalogs, GitHub, or local paths; the CLI maps required parameters to environment variables.
+- **Secure by default**: Set up managed identities and baseline security automatically without handling credentials manually.
+- **Scalable model provisioning**: Specify model names, versions, and capacity; `azd` deploys them consistently across environments.
 
 ## Prerequisites
 
-- [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/install-azd) (version 1.21.0 or later) installed and authenticated (`azd auth login`). The `azd ai agent` extension is built in.
-- An Azure subscription with permissions to create resource groups and Microsoft Foundry resources
+- Install and authenticate [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/install-azd) version 1.21.0 or later (`azd auth login`). The `azd ai agent` extension is built in.
+- Use an Azure subscription with permission to create resource groups and Microsoft Foundry resources.
   - Sign up for a free account at [azure.com/free](https://azure.com/free) if you don't have one.
-- Azure CLI (`az`) installed for some operations
+- Install Azure CLI (`az`) for required operations.
 
-## Initialize the Foundry configuration template
+## Set up and deploy an agent
+
+Complete the following sections to provision and deploy an agent to Microsoft Foundry using the `azd` AI agent extension.
+
+### Initialize Foundry template
 
 Initialize a new project with the `azd-ai-starter-basic` template. In an empty folder, run:
 
@@ -38,7 +42,7 @@ Initialize a new project with the `azd-ai-starter-basic` template. In an empty f
 azd init -t Azure-Samples/azd-ai-starter-basic
 ```
 
-When prompted, provide an environment name for your agent project (for example, "my-analytics-agent").
+When prompted, enter an environment name for the agent project (for example, "my-analytics-agent").
 
 The `azd init` process:
 
@@ -47,11 +51,11 @@ The `azd init` process:
 - Generates an `azure.yaml` configuration file
 - Sets up `.azure/<env>/.env` for environment-specific variables
 
-## Initialize your agent definition
+### Initialize the agent definition
 
 The starter template provides the project structure, but you need to add a specific agent definition. Agent definitions describe your agent's behavior, tools, and capabilities. Find example definitions in the [Agent Framework repository](https://github.com/microsoft/agent-framework).
 
-Use your own agent definition, or an existing definition from the catalog. In the following command, replace the placeholder text *`<agent-definition-url>`* with your agent definition URL:
+Use your own agent definition or one from the catalog. In the following command, replace the placeholder text *`<agent-definition-url>`* with your agent definition URL:
 
 ```bash
 azd ai agent init -m <agent-definition-url>
@@ -64,7 +68,7 @@ The preceding command:
 - Updates `azure.yaml` with the corresponding services and configurations
 - Maps agent parameters to environment variables
 
-## Review the project structure
+### Review the project structure
 
 The initialized template includes these key files:
 
@@ -75,11 +79,9 @@ The initialized template includes these key files:
 └── azure.yaml              # Project configuration
 ```
 
-Open the `azure.yaml` to see how your agent project is configured:
+Open `azure.yaml` to see how the agent project is set up:
 
 ```yaml
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
-
 requiredVersions:
     extensions:
         azure.ai.agents: '>=0.0.3'
@@ -107,125 +109,52 @@ infra:
 
 This declarative configuration defines your agent service and the Azure AI resources it needs, including model deployments.
 
-## Provision and deploy the your agent
+### Provision and deploy the agent
 
-Once your project is configured, deploy everything to Azure with one familiar command:
+After configuration, run `azd up` to deploy the resources and agent:
 
 ```bash
 azd up
 ```
 
-This single command orchestrates your entire deployment workflow, from infrastructure to a live agent endpoint:
+This command orchestrates the deployment workflow, from infrastructure to a live agent endpoint:
 
-1. **Provisions infrastructure**: Creates your Microsoft Foundry account, project, and all necessary Azure resources defined in your Bicep files.
+1. Provision infrastructure: Create the Microsoft Foundry account, project, and Azure resources defined in the Bicep files.
 1. **Deploys models**: Provisions the model deployments specified in `azure.yaml` (for example, GPT-4o-mini with the configured capacity).
-1. **Builds and pushes container**: If your agent has custom code, `azd` packages it into a container image and pushes it to your Azure Container Registry.
-1. **Publishes agent**: Creates an Agent Application in Microsoft Foundry and deploys your agent as a live, callable service.
+1. Build and push the container: If the agent has custom code, `azd` packages it into a container image and pushes it to the Azure Container Registry.
+1. Publish the agent: Create an Agent Application in Microsoft Foundry and deploy the agent as a live, callable service.
 
-For a new project, the provisioning and deployment process typically take several minutes to complete. When `azd up` finishes, you see output that includes the Microsoft Foundry project endpoint, resource group and project names, and agent application details.
+When `azd up` finishes, the output shows the Microsoft Foundry project endpoint, resource group and project names, and agent application details.
 
-## Test the agent in Microsoft Foundry
+> [!NOTE]
+> For a new project, the provisioning and deployment process typically takes several minutes to complete.
 
-1. Open the [Microsoft Foundry portal](https://ai.azure.com).
-1. Go to the project provisioned by `azd` (the project name is displayed in the `azd up` output).
-1. Open the **Agents** section to see your deployed agent.
-1. Launch the agent in the playground, and send a test query, for example, "Summarize your capabilities".
+#### Identity and security
 
-You see a response from the agent in the chat window.
-
-## How it works
-
-This section explains how `azd` turns a local agent project into a secure, running service in Microsoft Foundry. At a high level, azd scaffolds your project, sets up resources and models, builds and publishes containers, and configures identity before deploying the agent application.
-
-### Project scaffolding and configuration
-
-When you run `azd init` with a Microsoft Foundry template, `azd` sets up a complete, well-structured project. The template includes:
-
-- **Bicep infrastructure files** in the `infra/` directory that define all the necessary Microsoft Foundry resources, model deployments, and networking.
-- **An `azure.yaml` file** that provides a declarative map of your services, resources, and dependencies.
-- **Environment configurations** in `.azure/<env>/.env` that store subscription IDs, resource names, and endpoints.
-
-Next, when you run `azd ai agent init`, the CLI:
-
-- Gets the agent definition from the URL or local path you provide.
-- Reads the YAML to understand the agent's requirements (models, tools, connections).
-- Updates `azure.yaml` to include the agent as a service.
-- Creates or updates environment variables for the agent runtime.
-
-### Resource setup
-
-The `azd up` command triggers all infrastructure setup through Azure Resource Manager. Based on your `azure.yaml` and Bicep files, `azd`:
-
-- Compiles your Bicep templates into ARM templates.
-- Creates a resource group in your Azure region.
-- Sets up the Microsoft Foundry account and project.
-- Deploys the specified models to the project with your configured SKUs and capacity.
-
-For example, if your `azure.yaml` specifies `gpt-4o-mini` with version `2024-07-18`, `azd` creates that exact model deployment in your Foundry project. This declarative approach ensures consistency between environments, so your development, staging, and production deployments use identical configurations.
-
-### Container build and publishing
-
-For agents with custom code (for custom tools, integrations, or business logic), `azd` handles the complete containerization workflow:
-
-1. **Build**: Packages your agent code into a Docker container image using the configuration from your project.
-1. **Push**: Authenticates to Azure Container Registry and pushes the image with a unique tag.
-1. **Deploy**: Creates an Agent Application in Microsoft Foundry and a deployment that runs your container.
-
-`azd` deploys your agent to Azure Container Apps, which provides automatic scaling, managed compute, and integrated monitoring. The Agent Application is the stable, versioned interface for your agent, with a unique name and endpoint.
-
-### Identity and security
-
-Finally, `azd` automatically configures secure access patterns so you don't have to manage credentials manually:
+`azd` automatically configures secure access patterns so you don't have to manage credentials manually:
 
 - **Managed identity**: Your agent uses the Foundry project's system-assigned managed identity to authenticate with other Azure resources.
-- **Role assignments**: azd grants required permissions automatically (for example, giving your agent access to Azure AI services, storage, or databases).
-- **Endpoint security**: Agent endpoints use Azure AD authentication by default, so only authorized users or applications can call your agent.
+- **Role assignments**: `azd` grants required permissions automatically (for example, giving your agent access to Azure AI services, storage, or databases).
+- **Endpoint security**: Agent endpoints use Microsoft Entra ID (Azure AD) authentication by default, so only authorized users or applications can call your agent.
 
 These security configurations follow Azure best practices and work out of the box, so you start with a secure foundation.
 
-## Sample use cases and scenarios
+### Test the agent in Microsoft Foundry
 
-Use `azd` to accelerate common agent scenarios.
+1. Open the [Microsoft Foundry portal](https://ai.azure.com).
+1. Go to the project set up by `azd` (the project name appears in the `azd up` output).
+1. Open the **Agents** section to see your deployed agent.
+1. Launch the agent in the playground and send a test query such as "Summarize your capabilities."
 
-### Build conversational assistants
-
-Create agents that answer questions with context and connect to internal data.
-
-- Deploy variants for A/B testing.
-- Add Azure AI Search for retrieval augmented responses.
-- Integrate business APIs through custom tools.
-
-### Build data and insights agents
-
-Deliver analytical summaries, calculations, and visualizations.
-
-- Connect to Azure SQL Database or Cosmos DB.
-- Use code interpreter style tools for computation.
-- Mix larger reasoning models with smaller cost-efficient models.
-
-### Orchestrate multiple agents
-
-Coordinate specialists for complex workflows.
-
-- Add a coordinator agent to route requests.
-- Define relationships declaratively in `azure.yaml`.
-- Scale agents independently based on load.
-
-### Standardize enterprise deployment
-
-Drive consistency across teams.
-
-- Publish reusable blueprints and templates.
-- Apply uniform security, compliance, and monitoring.
-- Automate provisioning and deployment in CI/CD with `azd provision` and `azd deploy`.
+You see the agent's response in the chat window.
 
 ## Advanced configuration
 
-Once you're comfortable with the basic workflow, you can customize your deployments to meet more advanced requirements.
+Once you're comfortable with the basic workflow, customize your deployments to meet advanced requirements.
 
 ### Customize model deployments
 
-The `azure.yaml` file gives you full control over which models get deployed. To add or change a model, simply edit the file:
+The `azure.yaml` file gives you control over which models you deploy. To add or change a model, edit the file:
 
 ```yaml
 resources:
@@ -245,13 +174,14 @@ resources:
                   name: GlobalStandard
                   capacity: 10
 ```
- Run `azd up` again to automatically deploy the new model and update your project.
 
-This configuration provisions multiple models, enabling your agent to use different models for different tasks (for example, a larger model for complex reasoning and a smaller one for simple queries).
+Run `azd up` to deploy the new model and update your project.
+
+This configuration deploys multiple models so your agent can use a larger model for complex reasoning and a smaller one for simple queries.
 
 ### Manage environment variables
 
-Key environment variables `azd` sets or uses:
+Environment variables that `azd` sets or uses:
 
 | Variable | Purpose |
 |----------|---------|
@@ -262,23 +192,59 @@ Key environment variables `azd` sets or uses:
 | `AZURE_AI_PROJECT_NAME` | Project hosting the agent. |
 | `AZURE_AI_FOUNDRY_PROJECT_ENDPOINT` | Endpoint for agent management and runtime calls. |
 
-These variables are stored in `.azure/<environment-name>/.env` and can be customized for each of your environments (for example, dev, test, and prod).
+These variables are stored in `.azure/<environment-name>/.env`. Customize them for each environment (dev, test, and prod).
 
 ### Add connections for retrieval-augmented generation
 
-To integrate Azure AI Search or other data sources for Retrieval-Augmented Generation (RAG), the process is just as simple:
+To integrate Azure AI Search or other data sources for retrieval augmented generation (RAG):
 
 1. Add the connection resource to your `azure.yaml`.
 1. Update your agent definition to reference the connection.
 1. Run `azd up` to provision the connection and redeploy your agent.
 
-The `azd` commands handle all the underlying wiring between your agent and the connected services, so you can focus on building great RAG experiences.
+The `azd` commands configure the connection between your agent and the services so you can focus on building RAG experiences.
 
-### Explore the ecosystem
+## Sample use cases and scenarios
 
-- **Explore sample agents**: Check out the [Agent Framework repository](https://github.com/microsoft/agent-framework) for [.NET agents](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples) and [Python agents](https://github.com/microsoft/agent-framework/tree/main/python/samples) you can deploy with `azd ai agent init`.
-- **Join the community**: Share your experiences and ask questions in the [Azure Developer CLI GitHub discussions](https://github.com/Azure/azure-dev/discussions).
-- **Report issues and suggest features**: We're eager for your feedback! File issues or suggestions in the [Azure/azure-dev repository](https://github.com/Azure/azure-dev/issues) (tag them with `ai-agent`).
+Use `azd` to accelerate agent scenarios.
+
+### Build conversational assistants
+
+Create agents that answer questions with context and connect to internal data.
+
+- Deploy variants for A/B testing
+- Add Azure AI Search for retrieval-augmented responses
+- Integrate business APIs through custom tools
+
+### Build data and insights agents
+
+Deliver summaries, calculations, and visualizations.
+
+- Connect to Azure SQL Database or Cosmos DB.
+- Use code interpreter tools for computation
+- Mix larger reasoning models with smaller cost efficient models
+
+### Orchestrate multiple agents
+
+Coordinate specialists for complex workflows.
+
+- Add a coordinator agent to route requests.
+- Define relationships declaratively in `azure.yaml`.
+- Scale agents independently based on load.
+
+### Standardize enterprise deployment
+
+Drive consistency across teams.
+
+- Publish reusable blueprints and templates
+- Apply consistent security, compliance, and monitoring
+- Automate provisioning and deployment in CI/CD with `azd provision` and `azd deploy`.
+
+## Explore the ecosystem
+
+- **Explore sample agents**: Browse the [Agent Framework repository](https://github.com/microsoft/agent-framework) for [.NET agents](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples) and [Python agents](https://github.com/microsoft/agent-framework/tree/main/python/samples) and deploy them with `azd ai agent init`.
+- **Join the community**: Share experiences and ask questions in the [Azure Developer CLI GitHub discussions](https://github.com/Azure/azure-dev/discussions).
+- **Report issues and suggest features**: Give feedback. File issues or feature suggestions in the [Azure/azure-dev repository](https://github.com/Azure/azure-dev/issues) and tag them with `ai-agent`.
 - **Review documentation**: Visit the [Microsoft Foundry documentation](/azure/ai-foundry/) for comprehensive guides on agent development.
 
 ## Additional resources
@@ -289,5 +255,3 @@ The `azd` commands handle all the underlying wiring between your agent and the c
 - [Agent Framework repository (samples and tools)](https://github.com/microsoft/agent-framework)
 - [Azure Developer CLI GitHub repository](https://github.com/Azure/azure-dev)
 - [AI Foundry starter template](https://github.com/Azure-Samples/ai-foundry-starter-basic)
-
-Happy building!
