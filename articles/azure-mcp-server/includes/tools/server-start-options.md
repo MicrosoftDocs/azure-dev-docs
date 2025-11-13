@@ -18,5 +18,5 @@ The `azmcp` server supports the following options for server start parameters:
 | **Mode** | Optional | Server mode: `namespace` (default), `consolidated`, `all`, or `single`. |
 | **Namespace** | Optional | The Azure service namespaces to expose on the MCP server (for example, `storage`, `keyvault`, `cosmos`). |
 | **Read only** | Optional | Whether the MCP server should be read-only. If true, no write operations are allowed. |
-| **Tool**| Optional |	Expose specific tools by name (for example, `azmcp_storage_account_get`). It automatically switches to `all` mode. It can't be used together with the namespace option. |
+| **Tool**| Optional |	Expose specific tools by name (for example, `azmcp_storage_account_get`). It automatically switches to `all` mode. |
 | **Transport** | Optional | Transport mechanism to use for Azure MCP Server. |
