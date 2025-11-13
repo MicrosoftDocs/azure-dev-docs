@@ -33,7 +33,7 @@ zone_pivot_groups: pivot-os-windows-linux
 
 ## Implement the code
 
-The Azure Identity library supports brokered authentication using [InteractiveBrowserCredential](/javascript/api/@azure/identity/interactivebrowsercredential). For example, to use `InteractiveBrowserCredential` in an Node.js console app to authenticate to Azure Key Vault with the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient), follow these steps:
+The Azure Identity library supports brokered authentication using [InteractiveBrowserCredential](/javascript/api/@azure/identity/interactivebrowsercredential). For example, to use `InteractiveBrowserCredential` in a Node.js console app to authenticate to Azure Key Vault with the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient), follow these steps:
 
 1. Install the [@azure/identity](https://www.npmjs.com/package/@azure/identity) and [@azure/identity-broker](https://www.npmjs.com/package/@azure/identity-broker) packages:
 
