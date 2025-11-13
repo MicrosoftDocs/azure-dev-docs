@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.topic: reference
 --- 
 
-## Azure AI best practices tools for the Azure MCP Server
+# Azure AI best practices tools for the Azure MCP Server
 
 The Azure MCP Server allows you to get best practices for AI applications using natural language prompts.
 
