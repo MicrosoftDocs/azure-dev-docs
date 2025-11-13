@@ -50,26 +50,23 @@ Choose one of the options:
 - No, exit (Esc): End your Copilot CLI session.
 3. You can add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below, here is an example of adding java upgrade MCP:
 ```
-/mcp add java-upgrade
+/mcp add app-modernization
 ```
 Or by manually updating the `~/.config/mcp-config.json` file with the following info. Refer to [Add an MCP server](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server)
 ```
 {
   "mcpServers": {
-    // Modernizing for Java upgrade tasks
-    "java-upgrade": {
+    "app-modernization": {
       "type": "local",
+      "command": "npx",
       "tools": [
         "*"
       ],
-      "command": "npx",
       "args": [
         "-y",
-        "vscode-java-upgrade" // TODO: update to actual package name
+        "@microsoft/github-copilot-app-modernization-mcp-server"
       ]
     }
-    //TODO: java migration
-    //TODO: java deployment
   }
 }
 ```
