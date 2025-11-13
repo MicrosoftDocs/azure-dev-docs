@@ -4,7 +4,7 @@ ms.reviewer: diberry
 ms.author: diberry
 author: diberry
 description: Learn how to authenticate your app to Azure services when using the Azure SDK for JavaScript during local development using brokered authentication.
-ms.date: 11/04/2025
+ms.date: 11/13/2025
 ms.topic: how-to
 ms.custom: devx-track-js
 zone_pivot_group_filename: developer/pivots.yml
