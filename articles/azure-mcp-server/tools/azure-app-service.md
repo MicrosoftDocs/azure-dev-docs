@@ -23,7 +23,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure App Servic
 
 ## Database: Add connection
 
-<!-- `azmcp appservice database add` -->
+<!-- appservice database add -->
 
 Add a [database connection](/azure/app-service/tutorial-connect-overview) to an App Service. This command configures database connection
 settings for the specified App Service, allowing it to connect to a database server.
@@ -48,6 +48,10 @@ Example prompts include:
 | **Database server** |  Required | The server name or endpoint for the database (for example, myserver.database.windows.net). |
 | **Database** |  Required | The name of the database to connect to (for example, mydb). |
 | **Connection string** |  Optional | The connection string for the database. If not provided, a default is generated. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [appservice database add](../includes/tools/annotations/azure-app-service-database-add-annotations.md)]
 
 ## Related resources
 
