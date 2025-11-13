@@ -37,20 +37,17 @@ This article provides an overview of how Java developers can modernize their app
 ```
 {
   "mcpServers": {
-    // Modernizing for Java upgrade tasks
-    "java-upgrade": {
+    "app-modernization": {
       "type": "local",
+      "command": "npx",
       "tools": [
         "*"
       ],
-      "command": "npx",
       "args": [
         "-y",
-        "vscode-java-upgrade" // TODO: update to actual package name
+        "@microsoft/github-copilot-app-modernization-mcp-server"
       ]
     }
-    //TODO: java migration
-    //TODO: java deployment
   }
 }
 ```
