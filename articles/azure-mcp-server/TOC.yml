@@ -43,8 +43,14 @@ items:
       items:
         - name: Overview
           href: tools/index.md
-        - name: Azure best practices
-          href: tools/azure-best-practices.md
+        - name: Best practices
+          items: 
+          - name: Azure best practices
+            href: tools/azure-best-practices.md
+          - name: AI best practices
+            href: tools/azure-ai-best-practices.md
+          - name: Terraform best practices for Azure
+            href: tools/azure-terraform-best-practices.md
         - name: Application Insights
           href: tools/application-insights.md
         - name: Azure AI Foundry
@@ -118,21 +124,20 @@ items:
         - name: Azure Resource Health
           href: tools/azure-health-resource.md
         - name: Azure Service Bus
-          href: tools/service-bus.md
+          href: tools/azure-service-bus.md
         - name: Azure SignalR
           href: tools/azure-signalr.md
         - name: Azure SQL
           href: tools/azure-sql.md
         - name: Azure Storage
-          href: tools/storage.md
+          href: tools/azure-storage.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription
           href: tools/subscription.md
-        - name: Terraform best practices for Azure
-          href: tools/azure-terraform-best-practices.md
+
 - name: Resources
   items:
     - name: Azure MCP Server GitHub repository
