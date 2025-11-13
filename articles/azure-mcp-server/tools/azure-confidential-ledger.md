@@ -22,7 +22,7 @@ The Azure MCP Server enables you to manage Azure resources, including Azure Conf
 
 ## Append an entry to the ledger
 
-<!-- `azmcp confidentialledger entries append` -->
+<!-- confidentialledger entries append -->
 
 Appends an immutable (tamper-proof) entry to a Confidential Ledger instance and returns the transaction identifier.
 
@@ -45,9 +45,13 @@ Example prompts include:
 | **Content** |  Required | The JSON or text payload to append as a tamper-proof ledger entry. |
 | **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [confidentialledger entries append](../includes/tools/annotations/azure-confidential-ledger-entries-append-annotations.md)]
+
 ## Get an entry from the ledger
 
-<!-- azmcp confidentialledger entries get -->
+<!-- confidentialledger entries get -->
 
 Retrieves the Confidential Ledger entry and its recorded contents for the specified transaction ID, optionally scoped to a collection.
 
@@ -61,6 +65,10 @@ Example prompts include:
 | **Ledger** |  Required | The name of the Confidential Ledger instance (for example, `myledger`). |
 | **Transaction ID** |  Required | The Confidential Ledger transaction identifier (for example: `2.199`). |
 | **Collection ID** |  Optional | Optional ledger collection identifier. If omitted the default collection is used. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [confidentialledger entries get](../includes/tools/annotations/azure-confidential-ledger-entries-get-annotations.md)]
 
 ## Related content
 

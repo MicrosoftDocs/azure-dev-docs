@@ -21,6 +21,8 @@ The Azure MCP Server allows you to manage Azure resources, including Cosmos DB a
 
 ## Account: List
 
+<!-- cosmos account list -->
+
 The Azure MCP Server can list all Cosmos DB accounts in a subscription. This provides a quick overview of your Cosmos DB resources.
 
 Example prompts include:
@@ -31,7 +33,13 @@ Example prompts include:
 - **Query accounts**: "Show me all my Cosmos DB accounts"
 - **Check accounts**: "Cosmos DB accounts in subscription abc123"
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [cosmos account list](../includes/tools/annotations/azure-cosmos-db-account-list-annotations.md)]
+
 ## Database: List
+
+<!-- cosmos database list -->
 
 The Azure MCP Server can list all databases in a Cosmos DB account. This helps you view your database resources in a specific account.
 
@@ -47,7 +55,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Account name** | Required | The name of the Cosmos DB account. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [cosmos database list](../includes/tools/annotations/azure-cosmos-db-database-list-annotations.md)]
+
 ## Database: List containers
+
+<!-- cosmos database container list -->
 
 The Azure MCP Server can list all containers in a Cosmos DB database. This helps you manage your data organization within a database.
 
@@ -64,7 +78,13 @@ Example prompts include:
 | **Account name** | Required | The name of the Cosmos DB account. |
 | **Database name** | Required | The name of the database. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [cosmos database container list](../includes/tools/annotations/azure-cosmos-db-database-container-list-annotations.md)]
+
 ## Database: Query container items
+
+<!-- cosmos database container item query -->
 
 The Azure MCP Server can execute SQL queries against items in a Cosmos DB container. This powerful feature allows you to retrieve specific data based on query conditions.
 
@@ -82,6 +102,10 @@ Example prompts include:
 | **Database name** | Required | The name of the database. |
 | **Container name** | Required | The name of the container. |
 | **Query** | Optional | SQL query to execute against the container. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [cosmos database container item query](../includes/tools/annotations/azure-cosmos-db-database-container-item-query-annotations.md)]
 
 ## Related content
 

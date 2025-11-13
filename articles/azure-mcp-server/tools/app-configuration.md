@@ -17,9 +17,13 @@ The Azure MCP Server allows you to manage Azure resources, including App Configu
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their access in one place.
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
 ## Account: List stores
+
+<!-- appconfig account list -->
 
 The Azure MCP Server can list App Configuration stores in a subscription. This is useful for quickly checking the status of your App Configuration resources.
 
@@ -31,8 +35,13 @@ Example prompts include:
 - **Query stores**: "Can you show me all my App Config stores?"
 - **Check stores**: "App Configuration stores in subscription abc123"
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [appconfig account list](../includes/tools/annotations/azure-app-configuration-account-list-annotations.md)]
 
 ## Key-value: Delete setting
+
+<!-- appconfig kv delete -->
 
 The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configuration/concept-key-value) from an App Configuration store.
 
@@ -51,7 +60,13 @@ Example prompts include:
 | **Label** |  Optional | The label to apply to the configuration key. Labels are used to group and organize settings. |
 | **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [appconfig kv delete](../includes/tools/annotations/azure-app-configuration-key-value-delete-annotations.md)]
+
 ## Key-value: Get key-values
+
+<!-- appconfig kv get -->
 
 Gets key-values in an App Configuration store. This command can provide one of the following actions:
 
@@ -81,8 +96,13 @@ Example prompts include:
 | **Key filter** |  Optional | Specifies the key filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a key of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `App*`). If omitted all keys is retrieved. |
 | **Label filter** |  Optional | Specifies the label filter, if any, to be used when retrieving key-values. The filter can be an exact match, for example a filter of `foo` would get all key-values with a label of `foo`, or the filter can include a `*` character at the end of the string for wildcard searches (for example, `Prod*`). This filter is case-sensitive. If omitted, all labels is retrieved. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [appconfig kv get](../includes/tools/annotations/azure-app-configuration-key-value-get-annotations.md)]
 
 ## Key-value: Set lock on key-value
+
+<!-- appconfig kv lock set -->
 
 Sets the lock state of a key-value in an App Configuration store. This command can lock and unlock key-values.
 
@@ -101,7 +121,13 @@ Example prompts include:
 | **Content type** |  Optional | The content type of the configuration value. This is used to indicate how the value should be interpreted or parsed. |
 | **Lock** |  Optional | Whether a key-value is locked (set to `read-only`) or unlocked (`read-only` removed). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [appconfig kv lock set](../includes/tools/annotations/azure-app-configuration-key-value-lock-set-annotations.md)]
+
 ## Key-value: Set key-value setting
+
+<!-- appconfig kv set -->
 
 Set or update a [key-value setting](/azure/azure-app-configuration/concept-key-value) in an App Configuration store. 
 
@@ -121,6 +147,10 @@ Example prompts include:
 | **Label**        | Optional | The label of the setting to set.                                            |
 | **Tags** | Optional | The tags to associate with the configuration key. Tags should be in the format `key=value`. You can specify multiple tags. |
 | **Content type** | Optional | The content type of the configuration value. This value indicates how the value should be interpreted or parsed. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [appconfig kv set](../includes/tools/annotations/azure-app-configuration-key-value-set-annotations.md)]
 
 ## Related content
 

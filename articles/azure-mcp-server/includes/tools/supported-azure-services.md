@@ -126,7 +126,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Resource Groups](../../tools/resource-group.md) | `group` | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | `subscription` | List Azure subscriptions. |
 
-## Messaging
+### Messaging
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|

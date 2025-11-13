@@ -21,6 +21,8 @@ The Azure MCP Server allows you to manage Azure Monitor resources using natural 
 
 ## Activity Log: List activity log
 
+<!-- monitor activitylog list -->
+
 List activity logs for the specified Azure resource over the given prior number of hours.
 
 Example prompts include:
@@ -37,7 +39,13 @@ Example prompts include:
 | **Event level** |  Optional | The level of activity logs to retrieve. Valid levels are: Critical, Error, Informational, Verbose, Warning. If not provided, returns all levels. |
 | **Top** |  Optional | The maximum number of activity logs to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor activitylog list](../includes/tools/annotations/azure-monitor-activity-log-list-annotations.md)]
+
 ## Web Tests: Create web tests
+
+<!-- monitor webtests create -->
 
 Create a new standard web test in Azure Monitor. Ping/Multistep web tests are deprecated and aren't supported.
 
@@ -72,7 +80,13 @@ Example prompts include:
 | **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
 | **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: `30`, `60`, `90`, `120` seconds. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor webtests create](../includes/tools/annotations/azure-monitor-web-tests-create-annotations.md)]
+
 ## Web Tests: Get web tests
+
+<!-- monitor webtests get -->
 
 Get details for a specific web test in the provided resource group based on webtest resource name.
 
@@ -86,8 +100,13 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor webtests get](../includes/tools/annotations/azure-monitor-web-tests-get-annotations.md)]
 
 ## Web Tests: List web tests
+
+<!-- monitor webtests list -->
 
 List all web tests in a specified subscription and optionally, a resource group.
 
@@ -97,7 +116,13 @@ Example prompts include:
 - **View tests by resource group**: "Show web tests in the 'monitoring' resource group"
 - **Get test inventory**: "What web tests do I have configured?"
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor webtests list](../includes/tools/annotations/azure-monitor-web-tests-list-annotations.md)]
+
 ## Web Tests: Update web tests
+
+<!-- monitor webtests update -->
 
 Update an existing standard web test in Azure Monitor. Ping/Multistep web tests are deprecated and aren't supported.
 
@@ -130,7 +155,13 @@ Example prompts include:
 | **SSL lifetime check** |  Optional | Number of days to check SSL certificate lifetime. |
 | **Timeout** |  Optional | Request timeout in seconds (max 2 minutes). Supported values: 30, 60, 90, 120 seconds. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor webtests update](../includes/tools/annotations/azure-monitor-web-tests-update-annotations.md)]
+
 ## Log Analytics: List workspaces
+
+<!-- monitor workspace list -->
 
 The Azure MCP Server lists all Log Analytics workspaces in a subscription. This provides an overview of your monitoring resources.
 
@@ -140,7 +171,13 @@ Example prompts include:
 - **View workspaces**: "What workspaces do I have?"
 - **Find workspaces**: "List monitoring workspaces."
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor workspace list](../includes/tools/annotations/azure-monitor-workspace-list-annotations.md)]
+
 ## Log Analytics: List table types
+
+<!-- monitor table type list -->
 
 Lists available table types in a Log Analytics workspace. 
 
@@ -154,7 +191,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workspace** | Required | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor table type list](../includes/tools/annotations/azure-monitor-table-type-list-annotations.md)]
+
 ## Log Analytics: List tables
+
+<!-- monitor table list -->
 
 The Azure MCP Server lists all tables in a Log Analytics workspace. This helps you understand the data available for querying.
 
@@ -168,7 +211,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor table list](../includes/tools/annotations/azure-monitor-table-list-annotations.md)]
+
 ## Log Analytics: Query workspace logs
+
+<!-- monitor workspace log query -->
 
 The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Log Analytics workspace. This powerful feature allows you to analyze your operational data.
 
@@ -186,7 +235,13 @@ Example prompts include:
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor workspace log query](../includes/tools/annotations/azure-monitor-workspace-log-query-annotations.md)]
+
 ## Log Analytics: Query resource logs
+
+<!-- monitor resource log query -->
 
 Queries diagnostic and activity logs for a specific Azure resource in a Log Analytics workspace using Kusto Query Language (KQL). 
 
@@ -204,8 +259,13 @@ Example prompts include:
 | **Hours** | Optional | The number of hours to query back from now. |
 | **Limit** | Optional | The maximum number of results to return. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor resource log query](../includes/tools/annotations/azure-monitor-resource-log-query-annotations.md)]
 
 ## Health: Get entity health
+
+<!-- monitor healthmodels entity get -->
 
 The Azure MCP Server gets the health status of an entity using Azure Monitor health models. This provides comprehensive health information and monitoring status for Azure resources and applications.
 
@@ -220,7 +280,13 @@ Example prompts include:
 | **Model** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor healthmodels entity get](../includes/tools/annotations/azure-monitor-health-models-entity-get-annotations.md)]
+
 ## Metrics: Query metrics
+
+<!-- monitor metrics query -->
 
 The Azure MCP Server queries Azure Monitor metrics for resources. This allows you to retrieve performance metrics, usage statistics, and monitoring data for your Azure resources over specified time periods.
 
@@ -229,7 +295,6 @@ Example prompts include:
 - **Query VM metrics**: "Get CPU and memory for prod-vm01 from January 1 to January 2."
 - **Query storage metrics**: "Show transaction metrics for mystorageaccount in storage group."
 - **Query app metrics**: "Get response time for mywebapp last 24 hours."
-
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -244,7 +309,13 @@ Example prompts include:
 | **Filter** | Optional | Filter for the metrics query. |
 | **Max buckets** | Optional | Maximum number of buckets. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor metrics query](../includes/tools/annotations/azure-monitor-metrics-query-annotations.md)]
+
 ## Metrics: List metric definitions
+
+<!-- monitor metrics definitions -->
 
 The Azure MCP Server lists available metric definitions for a resource. This helps you discover what metrics are available for monitoring before querying specific metric data.
 
@@ -262,7 +333,13 @@ Example prompts include:
 | **Search string** | Optional | Search string to filter metrics. |
 | **Limit** | Optional | Maximum number of results to return. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [monitor metrics definitions](../includes/tools/annotations/azure-monitor-metrics-definitions-annotations.md)]
+
 ## Workbooks: List workbooks
+
+<!-- workbooks list -->
 
 The Azure MCP Server lists Azure Monitor workbooks in a resource group. This helps you discover and manage your monitoring dashboards and interactive reports.
 
@@ -279,7 +356,13 @@ Example prompts include:
 | **Kind** | Optional | The kind of workbook (such as `shared`, `user`). |
 | **Source ID** | Optional | The source resource ID to filter workbooks by. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [workbooks list](../includes/tools/annotations/azure-workbooks-list-annotations.md)]
+
 ## Workbooks: Show workbook details
+
+<!-- workbooks show -->
 
 The Azure MCP Server shows details of a specific Azure Monitor workbook by its resource ID. This provides comprehensive information about the workbook's configuration and content.
 
@@ -293,7 +376,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [workbooks show](../includes/tools/annotations/azure-workbooks-show-annotations.md)]
+
 ## Workbooks: Create workbook
+
+<!-- workbooks create -->
 
 The Azure MCP Server can create a new Azure Monitor workbook. This allows you to programmatically create monitoring dashboards and interactive reports.
 
@@ -309,7 +398,14 @@ Example prompts include:
 | **Serialized content** | Required | The JSON content defining the workbook structure and queries. |
 | **Source ID** | Optional | The source resource ID to associate with the workbook. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [workbooks create](../includes/tools/annotations/azure-workbooks-create-annotations.md)]
+
 ## Workbooks: Update workbook
+
+
+<!-- workbooks update -->
 
 The Azure MCP Server updates an existing Azure Monitor workbook. This allows you to modify workbook properties and content programmatically.
 
@@ -325,7 +421,13 @@ Example prompts include:
 | **Display** | Optional | The new display name for the workbook. |
 | **Serialized content** | Optional | The updated JSON content for the workbook. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [workbooks update](../includes/tools/annotations/azure-workbooks-update-annotations.md)]
+
 ## Workbooks: Delete workbooks
+
+<!-- workbooks delete -->
 
 The Azure MCP Server deletes an Azure Monitor workbook. This permanently removes the workbook and all its associated content.
 
@@ -339,6 +441,9 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Workbook ID** | Required | The full Azure resource ID of the workbook to delete. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [workbooks delete](../includes/tools/annotations/azure-workbooks-delete-annotations.md)]
 
 ## Related content
 
