@@ -15,8 +15,8 @@ ms.subservice: migration-copilot
 
 ## Overview
 
-This article provides an overview of how Java developers can modernize their applications using **GitHub Copilot app modernization** within the [**Copilot CLI**](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli), enabling them to modernize applications wherever they code. It delivers a seamless, end-to-end experience—from upgrade and migration to deployment — helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It’s currently in public preview — give it a try and let us know if any [feedback](https://aka.ms/ghcp-appmod/feedback).
-:::image type="content" source="./media/copilot-cli/entrance.png" lightbox="./media/copilot-cli/entrance.png" alt-text="Screenshot of app mod entrance in Copilot CLI":::
+This article provides an overview of how Java developers can modernize their applications using **GitHub Copilot app modernization** within the [**Copilot CLI**](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli), enabling them to modernize applications wherever they code. It delivers a seamless, end-to-end experience—from upgrade and migration to deployment — helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It's currently in public preview — give it a try and let us know if any [feedback](https://aka.ms/ghcp-appmod/feedback).
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/entrance.png" alt-text="Screenshot of app mod entrance in Copilot CLI":::
 
 >[!NOTE]
 >GitHub Copilot CLI is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business and GitHub Copilot Enterprise plans.
@@ -85,10 +85,10 @@ To upgrade your Java application to a newer runtime or framework version, run th
 Upgrade this project to JDK 21 and Spring Boot 3.2
 ```
 The modernization task will then execute, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities as below:
-:::image type="content" source="./media/copilot-cli/upgrade-details.png" lightbox="./media/copilot-cli/upgrade-details.png" alt-text="Screenshot of executing tasks in Java upgrade scenarios":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/upgrade-details.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/upgrade-details.png" alt-text="Screenshot of executing tasks in Java upgrade scenarios":::
 
 The project has been successfully upgraded to JDK 21 and Spring Boot 3.2, with below summary:
-:::image type="content" source="./media/copilot-cli/upgrade-summary.png" lightbox="./media/copilot-cli/upgrade-summary.png" alt-text="Screenshot of Java upgrade summary in Copilot CLI":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/upgrade-summary.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/upgrade-summary.png" alt-text="Screenshot of Java upgrade summary in Copilot CLI":::
 
 ### Migrate your Java Application to Azure
 To migrate your Java application to Azure, describe your migration scenario in Copilot CLI.
@@ -98,10 +98,10 @@ For example:
 Migrate this application from S3 to Azure Blob Storage
 ```
 Then the migration task will be executed and showing progress in Copilot CLI
-:::image type="content" source="./media/copilot-cli/migrate-details.png" lightbox="./media/copilot-cli/migrate-details.png" alt-text="Screenshot of executing tasks in Java migrate scenarios":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/migrate-details.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/migrate-details.png" alt-text="Screenshot of executing tasks in Java migrate scenarios":::
 
 The project has been successfully migrated to Azure Blob Storage, with below summary:
-:::image type="content" source="./media/copilot-cli/migrate-summary.png" lightbox="./media/copilot-cli/migrate-summary.png" alt-text="Screenshot of Java migrate summary in Copilot CLI":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/migrate-summary.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/migrate-summary.png" alt-text="Screenshot of Java migrate summary in Copilot CLI":::
 
 ### Deploy your Java Application to Azure
 After upgrading or migrating your application, you can deploy it directly from Copilot CLI by following prompt examples:
@@ -110,10 +110,10 @@ Deploy this application to Azure
 ```
 
 The deployment task will be executed with showing progress in Copilot CLI:
-:::image type="content" source="./media/copilot-cli/deploy-details.png" lightbox="./media/copilot-cli/deploy-details.png" alt-text="Screenshot of Java deploy details in Copilot CLI":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-details.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-details.png" alt-text="Screenshot of Java deploy details in Copilot CLI":::
 
 The project has been successfully deployed, with below summary:
-:::image type="content" source="./media/copilot-cli/deploy-summary.png" lightbox="./media/copilot-cli/deploy-summary.png" alt-text="Screenshot of Java deploy summary in Copilot CLI":::
+:::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-summary.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/deploy-summary.png" alt-text="Screenshot of Java deploy summary in Copilot CLI":::
 
 ## Provide Feedback
 If you have any feedback about GitHub Copilot CLI, please let us know your [feedback](https://aka.ms/ghcp-appmod/feedback).
