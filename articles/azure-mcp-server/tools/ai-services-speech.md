@@ -70,7 +70,7 @@ Example prompts include:
 | **Output file path** |  Required | Path where the synthesized audio file will be saved. |
 | **Language** |  Optional | The language for speech recognition (for example, `en-US`, `es-ES`). Default is `en-US`. |
 | **Voice** |  Optional | The voice to use for speech synthesis (for example, `en-US-JennyNeural`). If not specified, the default voice for the language will be used. |
-| **Format** |  Optional | Output format: `simple` or `detailed`. |
+| **Format** |  Optional | Output format: `Riff24Khz16BitMonoPcm`, `Audio16Khz32KBitRateMonoMp3`, `Audio24Khz96KBitRateMonoMp3`, `Ogg16Khz16BitMonoOpus`, `Raw16Khz16BitMonoPcm`. Default is `Riff24Khz16BitMonoPcm`. |
 | **Endpoint ID** |  Optional | The endpoint ID of a custom voice model for speech synthesis. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
