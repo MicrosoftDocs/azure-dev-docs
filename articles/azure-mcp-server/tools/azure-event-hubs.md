@@ -4,7 +4,7 @@ description: Learn to use Azure MCP Server tools to manage Event Hubs resources 
 keywords: azure mcp server, azmcp, event hubs, azure services
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -27,13 +27,14 @@ Delete a consumer group from the specified Event Hub.
 
 Example prompts include: 
 
-- **Delete specific consumer group**: "Delete consumer group 'analytics-group' from Event Hub 'orders-hub' in namespace 'eventhub-prod'"
-- **Remove consumer group**: "Remove the consumer group 'monitoring-consumers' from my Event Hub 'telemetry-events' in namespace 'prod-eventhubs'"
-- **Clean up consumer group**: "Delete the consumer group 'test-group' from Event Hub 'user-events' in the 'development-eventhubs' namespace"
+- **Delete specific consumer group**: "Delete consumer group 'analytics-group' from Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Remove consumer group**: "Remove the consumer group 'monitoring-consumers' from my Event Hub 'telemetry-events' in namespace 'prod-eventhubs' in resource group 'my-resource-group'"
+- **Clean up consumer group**: "Delete the consumer group 'test-group' from Event Hub 'user-events' in the 'development-eventhubs' namespace in resource group 'my-resource-group'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
@@ -55,12 +56,13 @@ The event hub and namespace parameters are required for both get and list. You o
 
 Example prompts include:
 
-- **List all consumer groups**: "List all consumer groups in Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'production-resources'"
-- **Get specific consumer group**: "Get details of consumer group 'analytics-group' from Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'production-resources'"
-- **Show consumer group info**: "Show me the consumer group 'monitoring-consumers' from Event Hub 'telemetry-events'"
+- **List all consumer groups**: "List all consumer groups in Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Get specific consumer group**: "Get details of consumer group 'analytics-group' from Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Show consumer group info**: "Show me the consumer group 'monitoring-consumers' from Event Hub 'telemetry-events' in namespace 'prod-eventhubs' in resource group 'my-resource-group'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Optional | The name of the consumer group within the Event Hub. |
@@ -77,13 +79,14 @@ Create or update a consumer group within the specified Event Hub. The tool creat
 
 Example prompts include:
 
-- **Create new consumer group**: "Create a new consumer group 'analytics-group' in Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'production-resources'"
-- **Update existing consumer group**: "Update the consumer group 'analytics-group' in Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'production-resources' with user metadata 'Updated for Q4 analytics'"
-- **Set up consumer group**: "Set up a consumer group 'monitoring-consumers' in Event Hub 'telemetry-events'"
+- **Create new consumer group**: "Create a new consumer group 'analytics-group' in Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Update existing consumer group**: "Update the consumer group 'analytics-group' in Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'my-resource-group' with user metadata 'Updated for Q4 analytics'"
+- **Set up consumer group**: "Set up a consumer group 'monitoring-consumers' in Event Hub 'telemetry-events' in namespace 'prod-eventhubs' in resource group 'my-resource-group'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 | **Consumer group** |  Required | The name of the consumer group within the Event Hub. |
@@ -101,12 +104,13 @@ Delete an event hub from an Azure Event Hubs namespace. This action permanently 
 
 Example prompts include:
 
-- **Delete specific Event Hub**: "Delete Event Hub 'orders-hub' from namespace 'eventhub-prod' in resource group 'production-resources'"
-- **Remove Event Hub**: "Remove the Event Hub 'telemetry-events' from my 'prod-eventhubs' namespace in resource group 'production-resources'"
-- **Clean up Event Hub**: "Delete the Event Hub 'test-events' from namespace 'dev-eventhubs'"
+- **Delete specific Event Hub**: "Delete Event Hub 'orders-hub' from namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Remove Event Hub**: "Remove the Event Hub 'telemetry-events' from my 'prod-eventhubs' namespace in resource group 'my-resource-group'"
+- **Clean up Event Hub**: "Delete the Event Hub 'test-events' from namespace 'dev-eventhubs' in resource group 'my-resource-group'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Required | The name of the Event Hub within the namespace. |
 
@@ -127,12 +131,13 @@ When you retrieve a single event hub or list multiple event hubs, the command re
 
 Example prompts include:
 
-- **List all Event Hubs**: "List all Event Hubs in my 'prod-eventhubs' namespace in resource group 'production-resources'"
-- **Get specific Event Hub**: "Get the details of my Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'production-resources'"
-- **Show Event Hub info**: "Show me the Event Hub 'telemetry-events' from namespace 'monitoring-hubs'"
+- **List all Event Hubs**: "List all Event Hubs in my 'prod-eventhubs' namespace in resource group 'my-resource-group'"
+- **Get specific Event Hub**: "Get the details of my Event Hub 'orders-hub' in namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Show Event Hub info**: "Show me the Event Hub 'telemetry-events' from namespace 'monitoring-hubs' in resource group 'my-resource-group'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Event hub** |  Optional | The name of the Event Hub within the namespace. |
 
@@ -156,12 +161,13 @@ Some properties like partition count can't be changed after creation. This is a 
 
 Example prompts include:
 
-- **Create new Event Hub**: "Create a new event hub 'orders-hub' in my namespace 'production-eventhubs' and resource group 'prod-resources'"
-- **Update existing Event Hub**: "Update my event hub 'telemetry-events' in my namespace 'monitoring-hubs' and resource group 'monitoring-resources'"
-- **Create with configuration**: "Create event hub 'user-activity' in namespace 'analytics-hubs' with 4 partitions and 24 hours message retention"
+- **Create new Event Hub**: "Create a new event hub 'orders-hub' in my namespace 'production-eventhubs' in resource group 'my-resource-group'"
+- **Update existing Event Hub**: "Update my event hub 'telemetry-events' in my namespace 'monitoring-hubs' in resource group 'my-resource-group'"
+- **Create with configuration**: "Create event hub 'user-activity' in namespace 'analytics-hubs' in resource group 'my-resource-group' with 4 partitions and 24 hours message retention"
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** | Required | The name of the Event Hubs namespace. Must be used with the resource group parameter. |
 | **Event hub** | Required | The name of the Event Hub within the namespace. |
 | **Partition count** | Optional | The number of partitions for the Event Hub. Must be between `1` and `32` (or higher based on namespace tier). |
@@ -180,12 +186,13 @@ Delete an Event Hubs namespace. This operation is irreversible and permanently d
 
 Example prompts include:
 
-- **Delete specific namespace**: "Delete event hub namespace 'eventhub-prod' in resource group 'production-resources'"
-- **Remove namespace**: "Remove the Event Hubs namespace 'test-eventhubs'"
-- **Clean up namespace**: "Delete the namespace 'dev-eventhubs' permanently"
+- **Delete specific namespace**: "Delete event hub namespace 'eventhub-prod' in resource group 'my-resource-group'"
+- **Remove namespace**: "Remove the Event Hubs namespace 'test-eventhubs' in resource group 'my-resource-group'"
+- **Clean up namespace**: "Delete the namespace 'dev-eventhubs' in resource group 'my-resource-group' permanently"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -201,8 +208,8 @@ Get Event Hubs namespaces from Azure. The behavior depends on which parameters y
 Example prompts include:
 
 - **List all namespaces**: "List all event hub namespaces in my subscription"
-- **Get specific namespace**: "Get the details of my namespace 'eventhub-prod' in my resource group 'production-resources'"
-- **Show namespace info**: "Show me the namespace 'monitoring-hubs' details"
+- **Get specific namespace**: "Get the details of my namespace 'eventhub-prod' in my resource group 'my-resource-group'"
+- **Show namespace info**: "Show me the namespace 'monitoring-hubs' in resource group 'my-resource-group' details"
 
 | Parameter | Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -231,13 +238,14 @@ Common update scenarios include:
 
 Example prompts include:
 
-- **Create new namespace**: "Create a new Event Hubs namespace 'production-events' in East US"
-- **Update namespace capacity**: "Update my namespace 'eventhub-prod' to increase capacity to 10 throughput units"
-- **Enable Kafka support**: "Enable Kafka on my Event Hubs namespace 'monitoring-hubs'"
+- **Create new namespace**: "Create a new Event Hubs namespace 'production-events' in resource group 'my-resource-group' in East US"
+- **Update namespace capacity**: "Update my namespace 'eventhub-prod' in resource group 'my-resource-group' to increase capacity to 10 throughput units"
+- **Enable Kafka support**: "Enable Kafka on my Event Hubs namespace 'monitoring-hubs' in resource group 'my-resource-group'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Namespace** |  Required | The name of the Event Hubs namespace. |
 | **Location** |  Optional | The Azure region where the namespace is located (for example, `eastus`, `westus2`). |
 | **SKU name** |  Optional | The SKU name for the namespace. Valid values: `Basic`, `Standard`, `Premium`. |
