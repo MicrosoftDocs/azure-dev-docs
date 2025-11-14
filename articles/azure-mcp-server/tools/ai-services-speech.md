@@ -60,7 +60,7 @@ Convert text to speech using Azure AI Services Speech. This command takes text i
 Example prompts include:
 
 - **Basic synthesis**: "Convert the text 'Hello, welcome to Azure AI Services' to speech using endpoint https://myservice.cognitiveservices.azure.com/ and save to output.wav"
-- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my cognitive services endpoint at https://eastus.api.cognitive.microsoft.com/ with voice en-US-AriaNeural"
+- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service 'https://myservice.cognitiveservices.azure.com/' and endpoint "guid-endpoint.
 - **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
 
 | Parameter |  Required or optional | Description |
