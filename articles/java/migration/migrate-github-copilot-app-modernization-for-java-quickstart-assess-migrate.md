@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 09/23/2025
+ms.date: 11/18/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---

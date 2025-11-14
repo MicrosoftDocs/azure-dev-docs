@@ -15,7 +15,7 @@ items:
             href: ../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Copilot CLI
             href: ../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - name: Coding Agent
+          - name: Coding agent
             href: ../java/migration/github-copilot-app-modernization-for-java-coding-agent.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Java utilities
             href: /java/upgrade/tools?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
@@ -39,7 +39,7 @@ items:
             items:
             - name: Predefined tasks
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: "Working with Assessment"
+            - name: Working with assessment
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: "Quickstart: Assess and migrate a Java project"
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
@@ -70,6 +70,8 @@ items:
             items:
             - name: Predefined tasks
               href: /dotnet/azure/migration/appmod/predefined-tasks?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            - name: Working with assessment
+              href: /dotnet/azure/migration/appmod/working-with-assessment?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: "Quickstart: Assess and migrate a .NET project"
               href: /dotnet/azure/migration/appmod/quickstart?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: "Quickstart: Containerize a .NET project"

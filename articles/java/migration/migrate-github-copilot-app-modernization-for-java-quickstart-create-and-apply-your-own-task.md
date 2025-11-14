@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 09/23/2025
+ms.date: 11/18/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
@@ -61,7 +61,7 @@ Use the following steps to create your own task:
 
 ### Using External links and Text Files
 
-1. Open the 'task.md' file by following the predefined steps in the GitHub Copilot App Modernization extension.
+1. Open the 'task.md' file by following the predefined steps in the GitHub Copilot app modernization extension.
 
 1. In a opened 'task.md' file, enter the following:
    - **Task Name**: Expose health endpoint via Spring Boot Actuator
