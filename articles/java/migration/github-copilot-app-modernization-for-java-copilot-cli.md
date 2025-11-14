@@ -1,7 +1,7 @@
 ---
-title: Modernizing Java Apps Using GitHub Copilot App Modernization in Copilot CLI
+title: Modernizing Java Apps Using GitHub Copilot app modernization in Copilot CLI
 titleSuffix: Azure
-description: Provides an overview of how Java developers can modernize applications using GitHub Copilot App Modernization in the Copilot CLI.
+description: Provides an overview of how Java developers can modernize applications using GitHub Copilot app modernization in the Copilot CLI.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: jessiehuang
@@ -11,18 +11,18 @@ ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# Modernizing Java Apps Using GitHub Copilot App Modernization in the Copilot CLI
+# Modernizing Java Apps Using GitHub Copilot app modernization in the Copilot CLI
 
 ## Overview
 
-This article provides an overview of how Java developers can modernize their applications using **GitHub Copilot App Modernization** within the [**Copilot CLI**](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli), enabling them to modernize applications wherever they code. It delivers a seamless, end-to-end experience—from upgrade and migration to deployment — helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It’s currently in public preview — give it a try and let us know if any [feedback](https://aka.ms/ghcp-appmod/feedback).
+This article provides an overview of how Java developers can modernize their applications using **GitHub Copilot app modernization** within the [**Copilot CLI**](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli), enabling them to modernize applications wherever they code. It delivers a seamless, end-to-end experience—from upgrade and migration to deployment — helping teams accelerate transformation, boost productivity, and confidently move their applications to modern platforms. It’s currently in public preview — give it a try and let us know if any [feedback](https://aka.ms/ghcp-appmod/feedback).
 :::image type="content" source="./media/copilot-cli/entrance.png" lightbox="./media/copilot-cli/entrance.png" alt-text="Screenshot of app mod entrance in Copilot CLI":::
 
 >[!NOTE]
 >GitHub Copilot CLI is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business and GitHub Copilot Enterprise plans.
 >If you receive Copilot from an organization, the Copilot CLI policy must be enabled in the organization's settings.
 
-## Why Use Copilot CLI with App Modernization
+## Why Use Copilot CLI with app modernization
 - Run modernization tasks directly from the terminal — no need to switch to an IDE  
 - Supports both interactive (human-in-the-loop) and batch workflows
 
@@ -75,7 +75,7 @@ You can run `/mcp show` to verify the MCP servers are correctly configured.
 /mcp show
 ```
 
-## Running App Modernization Tasks
+## Running app modernization Tasks
 User can trigger key modernization tasks directly from the Copilot CLI using natural language.  
 Typical scenarios include upgrading Java upgrade and framework, migrating workloads to Azure, containerizing applications, and deploying to Azure services.
 

@@ -1,7 +1,7 @@
 ---
-title: Modernizing Java Apps Using GitHub Copilot App Modernization in Coding Agent
+title: Modernizing Java Apps Using GitHub Copilot app modernization in Coding Agent
 titleSuffix: Azure
-description: Provides an overview of how Java developers can modernize applications using GitHub Copilot App Modernization in Copilot Coding Agent.
+description: Provides an overview of how Java developers can modernize applications using GitHub Copilot app modernization in Copilot Coding Agent.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xinrzhu
@@ -11,11 +11,11 @@ ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
-# Modernizing Java Apps Using GitHub Copilot App Modernization in Coding Agent
+# Modernizing Java Apps Using GitHub Copilot app modernization in Coding Agent
 
 ## Overview
 
-This article provides an overview of how Java developers can modernize their applications using **GitHub Copilot App Modernization** within the [**Copilot Coding Agent**](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent can work independently in the background to complete modernization tasks—just like a human developer. Developers can delegate tasks via issues or pull requests, and the agent executes them in the cloud, helping teams complete the entire modernization journey efficiently.  
+This article provides an overview of how Java developers can modernize their applications using **GitHub Copilot app modernization** within the [**Copilot Coding Agent**](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent). The agent can work independently in the background to complete modernization tasks—just like a human developer. Developers can delegate tasks via issues or pull requests, and the agent executes them in the cloud, helping teams complete the entire modernization journey efficiently.  
 
 >[!NOTE]
 >Copilot coding agent is available with the GitHub Copilot Pro, GitHub Copilot Pro+, GitHub Copilot Business and GitHub Copilot Enterprise plans. The agent is available in all repositories stored on GitHub, except repositories owned by managed user accounts and where it has been explicitly disabled.
