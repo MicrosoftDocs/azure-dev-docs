@@ -449,6 +449,7 @@
 | TypeSpec Streams | npm [0.76.0](https://www.npmjs.com/package/@typespec/streams/v/0.76.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.11.0) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/0.1.1) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.5](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.5) |  |  |
@@ -465,13 +466,13 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5539394) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5539394) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5539394) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5539394) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5539394) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5539394) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5539394](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5539394) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5565062) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5565062) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5565062) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5565062) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5565062) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5565062) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5565062](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5565062) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.0)<br>npm [2.0.0-beta.3](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.0)<br>npm [2.0.0-beta.3](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
