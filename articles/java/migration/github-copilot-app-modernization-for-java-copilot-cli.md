@@ -48,7 +48,7 @@ Choose one of the options:
 - Yes, proceed: Copilot can work with the files in this location for this session only.
 - Yes, and remember this folder for future sessions: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Only choose this option if you are sure that it will always be safe for Copilot to work with files in this location.
 - No, exit (Esc): End your Copilot CLI session.
-3. You can add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below, here is an example of adding java upgrade MCP:
+3. You can add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below, here is an example of adding app modernization MCP:
 ```
 /mcp add app-modernization
 ```
