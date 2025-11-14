@@ -4,7 +4,7 @@ description: Learn how to manage Azure Redis instances using the Azure MCP Serve
 keywords: azure mcp server, azmcp, managed redis, cache for redis, redis cache, redis cluster, redis enterprise
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ms.topic: reference
 ms.service: azure
 ai-usage: ai-assisted
