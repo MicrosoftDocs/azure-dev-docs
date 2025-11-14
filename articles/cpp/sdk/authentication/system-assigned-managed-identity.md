@@ -22,75 +22,72 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 [!INCLUDE [Language agnostic system assigned procedures](<../../../includes/authentication/system-assigned-managed-identity.md>)]
 
-
-
 ## Implement the code
 
-Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
+1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
-In a terminal of your choice, navigate to the application project directory and run the following commands:
+    In a terminal of your choice, navigate to the application project directory and run the following commands:
 
-```bash
-vcpkg add port azure-identity-cpp
-```
+    ```bash
+    vcpkg add port azure-identity-cpp
+    ```
 
-Then, add the following in your CMake file:
+1. Add the following in your CMake file:
 
-```cmake
-find_package(azure-identity-cpp CONFIG REQUIRED)
-target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
-```
+    ```cmake
+    find_package(azure-identity-cpp CONFIG REQUIRED)
+    target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
+    ```
 
-Azure services are accessed using specialized clients from the various Azure SDK client libraries. For any C++ code that instantiates an Azure SDK client in your app, you need to:
+1. Azure services are accessed using specialized clients from the various Azure SDK client libraries. For any C++ code that instantiates an Azure SDK client in your app, you need to:
 
-1. Include the `azure/identity.hpp` header.
-1. Create an instance of `DefaultAzureCredential`.
-1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
+    1. Include the `azure/identity.hpp` header.
+    1. Create an instance of `DefaultAzureCredential`.
+    1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
 
-An example of these steps is shown in the following code segment with an Azure Storage Blob client.
+    An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
-```cpp
-#include <azure/identity.hpp>
-#include <azure/storage/blobs.hpp>
-#include <iostream>
-#include <memory>
+    ```cpp
+    #include <azure/identity.hpp>
+    #include <azure/storage/blobs.hpp>
+    #include <iostream>
+    #include <memory>
 
-int main() {
-    try {
-        // Create a credential
-        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+    int main() {
+        try {
+            // Create a credential
+            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+            
+            // Create a client for the specified storage account
+            std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
+            Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
+            
+            // Get a reference to a container
+            std::string containerName = "sample-container";
+            auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            
+            // Get a reference to a blob
+            std::string blobName = "sample-blob";
+            auto blobClient = containerClient.GetBlobClient(blobName);
+            
+            // TODO: perform some action with the blob client
+            // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
+            
+            std::cout << "Successfully authenticated and created Azure clients." << std::endl;
+            
+        } catch (const std::exception& ex) {
+            std::cout << "Exception: " << ex.what() << std::endl;
+            return 1;
+        }
         
-        // Create a client for the specified storage account
-        std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
-        Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
-        
-        // Get a reference to a container
-        std::string containerName = "sample-container";
-        auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-        
-        // Get a reference to a blob
-        std::string blobName = "sample-blob";
-        auto blobClient = containerClient.GetBlobClient(blobName);
-        
-        // TODO: perform some action with the blob client
-        // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
-        
-        std::cout << "Successfully authenticated and created Azure clients." << std::endl;
-        
-    } catch (const std::exception& ex) {
-        std::cout << "Exception: " << ex.what() << std::endl;
-        return 1;
+        return 0;
     }
-    
-    return 0;
-}
-```
+    ```
 
 As discussed in the [Azure SDK for C++ authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code. When the preceding code is run on your workstation during local development, `DefaultAzureCredential` uses either an application service principal, as determined by environment settings, or developer tool credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
 
 > [!IMPORTANT]
 > `DefaultAzureCredential` simplifies authentication while developing applications that deploy to Azure by combining credentials used in Azure hosting environments and credentials used in local development. In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
-
 
 An alternative to `DefaultAzureCredential` is to use [`ManagedIdentityCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_managed_identity_credential.html). The steps for using `ManagedIdentityCredential` are the same as for using the `DefaultAzureCredential` type.
 
