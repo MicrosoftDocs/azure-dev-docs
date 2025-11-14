@@ -1,7 +1,7 @@
 ---
 title: Azure AI Speech Tools
 description: Learn how to use the Azure MCP Server with Azure AI Speech.
-keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, cognitive services, azure services
+keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, text to speech, cognitive services, azure services
 author: diberry
 ms.author: diberry
 ms.date: 11/12/2025
@@ -13,7 +13,7 @@ ms.custom: build-2025
 ---
 # Azure AI Speech tools for the Azure MCP Server
 
-Use the Azure MCP Server to manage Azure AI Speech functionalities such as speech-to-text (SST) with natural language prompts. You don't need to remember specific command syntax.
+Use the Azure MCP Server to manage Azure AI Speech functionalities such as speech-to-text (STT) and text-to-speech (TTS) with natural language prompts.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -29,11 +29,11 @@ Example prompts include:
 
 - **Basic conversion**: "Convert this audio file to text using Azure Speech Services"
 - **With language detection**: "Recognize speech from my audio file with language detection"
-- **With profanity filtering**: "Transcribe speech from audio file with profanity filtering"
+- **With profanity filtering**: "Transcribe speech from audio file with removed profanity filtering"
 - **Specify endpoint**: "Convert speech to text from audio file using my cognitive services endpoint"
 - **Spanish language**: "Transcribe the audio file in Spanish language"
 - **Detailed output**: "Convert speech to text with detailed output format from audio file"
-- **With phrase hints**: "Recognize speech with phrase hints for better accuracy"
+- **With phrase hints**: "Recognize speech with phrase hints 'Azure' for better accuracy"
 - **Multiple phrase hints**: "Transcribe audio using multiple phrase hints: 'Azure', 'cognitive services', 'machine learning'"
 - **Comma-separated hints**: "Convert speech to text with comma-separated phrase hints: 'Azure, cognitive services, API'"
 - **Raw profanity output**: "Transcribe audio with raw profanity output from file"
