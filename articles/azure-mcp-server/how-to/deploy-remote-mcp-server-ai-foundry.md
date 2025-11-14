@@ -6,23 +6,24 @@ author: rotabor
 ms.author: rotabor
 ms.date: 10/27/2025
 ms.topic: how-to
+ai-usage: ai-generated
 ---
 
-# Deploy the Azure MCP Server remotely to Azure Container Apps and connect to it using Microsoft Foundry
+## Azure MCP Server - ACA with Managed Identity
 
-This article shows you how to deploy the [Azure MCP Server(https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote MCP server accessible over HTTPS. This enables AI agents from [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) to securely invoke MCP tool calls that perform Azure operations on your behalf.
+This article shows you how to deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote MCP server accessible over HTTPS. This enables AI agents from [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) to securely invoke MCP tool calls that perform Azure operations on your behalf.
 
 ## Prerequisites
 
-- Azure subscription with **Owner** or **User Access Administrator** permissions
-- [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
-- The list of Azure MCP Server tool areas (namespaces) you wish to enable (see [azmcp-commands.md](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/docs/azmcp-commands.md)). The steps ahead use the `storage` namespace.
-- An [Azure Storage account](/azure/storage/common/storage-account-create)
-- A [Microsoft Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry)
+- Azure subscription with **Owner** or **User Access Administrator** permissions.
+- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
+- The list of Azure MCP Server tool areas (namespaces) you plan to enable (see [azmcp-commands.md](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/docs/azmcp-commands.md)). The steps ahead use the `storage` namespace.
+- An [Azure Storage account](/azure/storage/common/storage-account-create).
+- A [Microsoft Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry).
 
 ## Explore the Azure MCP Server template
 
-This article uses an [Azure Developer CLI template](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity) to automate deployment of the server on Azure Container Apps with storage tools enabled, using managed identity authentication for secure access to Azure Storage. The [Azure Developer CLI](`azd`)]() is an open-source tool that accelerates provisioning and deploying app resources on Azure. `azd` provides best practice, developer-friendly commands that map to key stages in your development workflow.
+This article uses an [Azure Developer CLI template](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity) to automate deployment of the server on Azure Container Apps with storage tools enabled, using managed identity authentication for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open-source tool that accelerates provisioning and deployment of app resources on Azure. `azd` provides developer-friendly commands that map to key stages in your development workflow.
 
 ## Deploy the Azure MCP Server
 
@@ -40,37 +41,25 @@ Complete the following steps to deploy the Azure MCP Server to Azure Container A
     cd "mcp/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity/"
     ```
 
-1. Run the `azd auth login` command to sign-in using your Azure account:
-
-    ```bash
-    azd auth login
-    ```
-
 1. Run the template using the `azd up` command:
 
     ```bash
     azd up
     ```
 
-1. When prompted, provide values for the following:
-
-    - **Environment Name**: A user friendly name for managing azd deployments.
-    - **Azure Subscription**: The Azure subscription in which to create the resources.
-    - **Resource Group**: The resource group in which to create the resources. You can create a new resource group on demand during this step.
-
-1. To configure the remote Azure MCP Server connections, `azd` prompts you for the following:
+    `azd` prompts you for the following:
 
     - **Storage Account Resource ID** - The Azure resource ID of the storage account the MCP server will access
     - **AI Foundry Project Resource ID** - The Azure resource ID of the AI Foundry project for agent integration
 
     `azd` provisions and applies the following resources and configurations:
 
-    - **Azure Container App** - Runs Azure MCP Server with storage namespace.
-    - **Microsoft Entra ID Role Assignments** - Grants the Azure Container App managed identity roles for outbound authentication to the storage account specified by the input storage resource ID:
-      - Reader: Read-only access to storage account properties
-      - Storage Blob Data Reader: Read-only access to blob data
-    - **Entra App Registration**: Created for incoming OAuth 2.0 authentication from clients (agents) with `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the input AI Foundry resource ID.
-    - **Application Insights** - Telemetry and monitoring
+- **Azure Container App** - Runs Azure MCP Server with storage namespace.
+- **Microsoft Entra ID role assignments** - Grants the Azure Container App managed identity roles for outbound authentication to the storage account specified by the storage resource ID input:
+  - Reader: Read-only access to storage account properties.
+  - Storage Blob Data Reader: Read-only access to blob data.
+- **Entra app registration** - Created for incoming OAuth 2.0 authentication from clients (for example, agents) with `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the AI Foundry resource ID input.
+- **Application Insights** - Telemetry and monitoring.
 
 ### Deployment outputs
 
@@ -82,7 +71,7 @@ azd env get-values
 
 Example output:
 
-```
+```text
 CONTAINER_APP_URL="https://azure-mcp-storage-server.wonderfulazmcp-a9561afd.eastus2.azurecontainerapps.io"
 ENTRA_APP_CLIENT_ID="c3248eaf-3bdd-4ca7-9483-4fcf213e4d4d"
 ENTRA_APP_IDENTIFIER_URI="api://c3248eaf-3bdd-4ca7-9483-4fcf213e4d4d"

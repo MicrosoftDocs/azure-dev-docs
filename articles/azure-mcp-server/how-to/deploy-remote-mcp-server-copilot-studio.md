@@ -6,23 +6,24 @@ author: rotabor
 ms.author: rotabor
 ms.date: 10/27/2025
 ms.topic: how-to
+ai-usage: ai-generated
 ---
 
-# Azure MCP Server - ACA with Managed Identity
+## Azure MCP Server - ACA with Managed Identity
 
-This article shows you how to deploy the [Azure MCP Server(https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote MCP server accessible over HTTPS. This enables AI agents from [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) to securely invoke MCP tool calls that perform Azure operations on your behalf.
+This article shows you how to deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote MCP server accessible over HTTPS. This enables AI agents from [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) to securely invoke MCP tool calls that perform Azure operations on your behalf.
 
 ## Prerequisites
 
-- Azure subscription with **Owner** or **User Access Administrator** permissions
-- [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
-- The list of Azure MCP Server tool areas (namespaces) you wish to enable (see [azmcp-commands.md](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/docs/azmcp-commands.md)). The steps ahead use the `storage` namespace.
-- An [Azure Storage account](/azure/storage/common/storage-account-create)
-- A [Microsoft Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry)
+- Azure subscription with **Owner** or **User Access Administrator** permissions.
+- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
+- The list of Azure MCP Server tool areas (namespaces) you plan to enable (see [azmcp-commands.md](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/docs/azmcp-commands.md)). The steps ahead use the `storage` namespace.
+- An [Azure Storage account](/azure/storage/common/storage-account-create).
+- A [Microsoft Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry).
 
 ## Explore the Azure MCP Server template
 
-This article uses an [Azure Developer CLI template](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity) to automate deployment of the server on Azure Container Apps with storage tools enabled, using managed identity authentication for secure access to Azure Storage. The [Azure Developer CLI](`azd`)]() is an open-source tool that accelerates provisioning and deploying app resources on Azure. `azd` provides best practice, developer-friendly commands that map to key stages in your development workflow.
+This article uses an [Azure Developer CLI template](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity) to automate deployment of the server on Azure Container Apps with storage tools enabled, using managed identity authentication for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open-source tool that accelerates provisioning and deployment of app resources on Azure. `azd` provides developer-friendly commands that map to key stages in your development workflow.
 
 ## Deploy the Azure MCP Server
 
@@ -53,12 +54,12 @@ Complete the following steps to deploy the Azure MCP Server to Azure Container A
 
     `azd` provisions and applies the following resources and configurations:
 
-    - **Azure Container App** - Runs Azure MCP Server with storage namespace.
-    - **Microsoft Entra ID Role Assignments** - Grants the Azure Container App managed identity roles for outbound authentication to the storage account specified by the input storage resource ID:
-      - Reader: Read-only access to storage account properties
-      - Storage Blob Data Reader: Read-only access to blob data
-    - **Entra App Registration**: Created for incoming OAuth 2.0 authentication from clients (agents) with `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the input AI Foundry resource ID.
-    - **Application Insights** - Telemetry and monitoring
+- **Azure Container App** - Runs Azure MCP Server with storage namespace.
+- **Microsoft Entra ID role assignments** - Grants the Azure Container App managed identity roles for outbound authentication to the storage account specified by the storage resource ID input:
+  - Reader: Read-only access to storage account properties.
+  - Storage Blob Data Reader: Read-only access to blob data.
+- **Entra app registration** - Created for incoming OAuth 2.0 authentication from clients (for example, agents) with `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the AI Foundry resource ID input.
+- **Application Insights** - Telemetry and monitoring.
 
 ### Deployment outputs
 
@@ -70,7 +71,7 @@ azd env get-values
 
 Example output:
 
-```
+```text
 CONTAINER_APP_URL="https://azure-mcp-storage-server.wonderfulazmcp-a9561afd.eastus2.azurecontainerapps.io"
 ENTRA_APP_CLIENT_ID="c3248eaf-3bdd-4ca7-9483-4fcf213e4d4d"
 ENTRA_APP_IDENTIFIER_URI="api://c3248eaf-3bdd-4ca7-9483-4fcf213e4d4d"
@@ -85,7 +86,7 @@ Copilot Studio Agent connect to MCP servers via a custom connector.
 
 ### Configure a custom connector
 
-Login to [Power Apps](https://make.powerapps.com) and select the environment to host the custom connector. Create a custom connector following the steps in the UI. Here we need to select the `Create from blank` option. To learn more about custom connector configuration, refer to [create custom connector from scratch](https://learn.microsoft.com/connectors/custom-connectors/define-blank).
+Sign in to [Power Apps](https://make.powerapps.com) and select the environment to host the custom connector. Create a custom connector following the steps in the UI. Select **Create from blank**. To learn more about custom connector configuration, see [create custom connector from scratch](/connectors/custom-connectors/define-blank).
 
 #### General
 
@@ -101,40 +102,40 @@ Skip the Security step for now and click the `Swagger editor` to enter the swagg
 
 - Set the path such that a POST method is exposed at the root with a custom `x-ms-agentic-protocol: mcp-streamable-1.0` property. This custom property is necessary for the custom connector to interact with this API using the MCP protocol. Refer to [custom connector swagger example](https://github.com/JasonYeMSFT/mcp/blob/0db606283e45c29008e9b7a3777008526caea96e/servers/Azure.Mcp.Server/azd-templates/aca-copilot-studio-managed-identity/custom-connector-swagger-example.yaml) as an example.
 
-![custom-connector-swagger-editor](../mediacustom-connector-swagger-editor.png)
+![custom-connector-swagger-editor](../media/custom-connector-swagger-editor.png)
 
 #### Security
 
 Go to the Security step.
 
-- Select `OAuth 2.0` as the Authentication type.
-- Select `Azure Active Directory` as the Identity Provider.
-- Set `Client ID` as the client ID of the client app registration provisioned before. You can get this from the ENTRA_APP_CLIENT_CLIENT_ID output value.
-- Choose `Use client secret` or `Use managed identity` as the `Secret options`.
-  - If you choose to use client secret, go to Azure Portal and create a client secret under the client app registration. Then copy the client secret value and paste it into the client secret field in the Security step.
-  - If you choose to use managed identity. Proceed with the rest of the steps until the custom connector is created.
-- Keep Authorization URL as `https://login.microsoftonline.com`.
-- Set `Tenant ID` to the tenant ID of the client app registration. You can get this from the AZURE_TENANT_ID output value.
-- Set `Resource URL` to the client ID of the server app registration. You can get this from the ENTRA_APP_SERVER_CLIENT_ID output value.
-- Set `Enable on-behalf-of login` to true.
-- Set `Scope` to `<server app registration client ID>/.default`.
+- Select **OAuth 2.0** as the authentication type.
+- Select **Azure Active Directory** as the identity provider.
+- Set **Client ID** to the client app registration client ID (from `ENTRA_APP_CLIENT_CLIENT_ID`).
+- Choose **Use client secret** or **Use managed identity** as the secret option.
+  - If you choose a client secret, go to Azure portal and create a client secret under the client app registration. Copy the secret value and paste it into the client secret field.
+  - If you choose managed identity, proceed with the remaining steps until the custom connector is created.
+- Keep **Authorization URL** as `https://login.microsoftonline.com`.
+- Set **Tenant ID** to the tenant ID of the client app registration (from `AZURE_TENANT_ID`).
+- Set **Resource URL** to the server app registration client ID (from `ENTRA_APP_SERVER_CLIENT_ID`).
+- Enable **On-behalf-of login**.
+- Set **Scope** to `<server app registration client ID>/.default`.
 
 ![custom-connector-security](../media/custom-connector-security.png)
 
 #### Create the connector
 
-- Click `Create connector` and wait for it to complete. After the custom connector is created, it will give you a Redirect URL, and optionally a Managed Identity if you chose to use managed identity as the secret options.
-- Go to Azure Portal and add a redirect URI under the Web platform in the client app registration.
-- If you chose to use managed identity as the secret options, create a Federated Credentials in the client app registration. In the creation UI, select `Other issuer` as the `Federated credential scenario`. Then copy paste the `issuer` and the `subject` of the Federated Credentials value from the custom connectors to corresponding fields in the credential creation UI. Give it a descriptive name and description, and then click `Add`.
+- Select **Create connector** and wait for it to complete. After the custom connector is created, it outputs a redirect URL and optionally a managed identity if you chose managed identity.
+- In Azure portal, add a redirect URI under the Web platform in the client app registration.
+- If you chose managed identity, create a federated credential in the client app registration. Select **Other issuer** as the federated credential scenario. Copy the `issuer` and `subject` values from the custom connector into the credential creation fields. Provide a descriptive name and description, then select **Add**.
 
 ![client-app-redirect-uri](../media/client-app-redirect-uri.png)
 ![client-app-client-credential](../media/client-app-client-credential.png)
 
 #### Test connection
 
-- Open the created custom connector, click `Edit` and go to the `Test` step.
-- Select any operation and click the `New connection` button in the UI.
-- A new window should pop up to have you sign in to your user account. Sign in to the user account you plan to use to access the MCP tools. You might see the dialog asking you give consent to grant the client app registration access or telling you that you need an admin to give consent. If you don't know what you should do, please refer to the [known issues](#known-issues) for more details.
+- Open the created custom connector, select **Edit**, and go to the **Test** step.
+- Select any operation and choose **New connection**.
+- Sign in with the user account you plan to use to access the MCP tools. You might see a dialog requesting consent or an admin approval prompt. If you are unsure, see [Known issues](#known-issues).
 
 If everything works fine, after signing into the user account, the UI should indicate a connection is created successfully. If you encounter any error message during the sign-in, please refer to the [known issues](#known-issues) section, troubleshoot with your tenant admin or let us know.
 
@@ -142,13 +143,13 @@ If everything works fine, after signing into the user account, the UI should ind
 
 ### Call Azure MCP tool in Copilot Studio test playground
 
-- Login to [Copilot Studio](https://copilotstudio.microsoft.com) and select the environment to host the Copilot Studio Agent. You may create a new Agent or use an existing one.
-- Click to view the details of the Agent and navigate to its `Tools` tab.
-- Click `Add a tool`.
-- Search for your custom connector name and select to add it.
-- After adding the custom connector, the Copilot Studio Agent will attempt to list the tools from the MCP server. If everything works fine, you should see the correct list of tools show up in the details under the added custom connector.
-- Click the `Test` button to start a test playground session.
-- You can prompt the agent to call the MCP tools, such as asking it to list storage accounts in the subscription.
+- Sign in to [Copilot Studio](https://copilotstudio.microsoft.com) and select the environment to host the Copilot Studio Agent. Create a new agent or use an existing one.
+- Open the agent details and select the **Tools** tab.
+- Select **Add a tool**.
+- Search for your custom connector name and add it.
+- After you add the custom connector, the Copilot Studio Agent attempts to list the tools from the MCP server. If successful, you see the available tool list under the connector.
+- Select **Test** to start a test playground session.
+- Prompt the agent to call the MCP tools (for example, ask it to list storage accounts in the subscription).
 
 ![copilot-studio-tools-tab](../media/copilot-studio-tools-tab.png)
 ![copilot-studio-call-tools](../media/copilot-studio-call-tools.png)
@@ -168,8 +169,8 @@ If you need to clean up the Power Platform resources, use the Power Platform UI 
 The `azd` template consists of the following Bicep modules:
 
 - **`main.bicep`** - Orchestrates the deployment of all resources.
-- **`aca-storage-managed-identity.bicep`** - Create a user-assigned managed identity
-- **`aca-storage-subscription-role.bicep`** - Assigns an Azure RBAC role to the user-assigned managed identity, which defaults to Subscription Reader.
+- **`aca-storage-managed-identity.bicep`** - Creates a user-assigned managed identity.
+- **`aca-storage-subscription-role.bicep`** - Assigns an Azure RBAC role to the user-assigned managed identity (defaults to Subscription Reader).
 - **`aca-infrastructure.bicep`** - Deploys Container App hosting the Azure MCP Server.
 - **`entra-app.bicep`** - Creates Entra App registrations.
 - **`application-insights.bicep`** - Deploys Application Insights for telemetry and monitoring (conditional deployment).
