@@ -28,16 +28,16 @@ Create a new Azure Storage account.
 
 Example prompts include:
 
-- **Create account**: "Create a storage account named 'mystorageaccount' in resource group 'my-resource-group' in location 'eastus'"
-- **New storage**: "Set up a new storage account called 'datastore2025' in resource group 'my-resource-group' in region 'westus2'"
-- **Specify SKU and kind**: "Create a storage account 'mydata' in resource group 'my-resource-group' in location 'eastus' with Standard_GRS"
-- **Secure storage**: "Create a storage account 'securestore' in resource group 'my-resource-group' in location 'centralus' with HTTPS only"
-- **Enable Data Lake**: "Set up a storage account 'datalakeacct' in resource group 'my-resource-group' in location 'westeurope' with hierarchical namespace enabled"
+- **Create account**: "Create a storage account named 'mystorageaccount' in resource group 'my-resource-group' in location 'eastus'."
+- **New storage**: "Set up a new storage account called 'datastore2025' in resource group 'my-resource-group' in region 'westus2'."
+- **Specify SKU and kind**: "Create a storage account 'mydata' in resource group 'my-resource-group' in location 'eastus' with Standard_GRS."
+- **Secure storage**: "Create a storage account 'securestore' in resource group 'my-resource-group' in location 'centralus' with HTTPS only."
+- **Enable Data Lake**: "Set up a storage account 'datalakeacct' in resource group 'my-resource-group' in location 'westeurope' with hierarchical namespace enabled."
 
 | Parameter | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Account** |  Required | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters and numbers only. |
+| **Account** |  Required | The name of the Azure Storage account to create. Must be globally unique, 3-24 characters, lowercase letters, and numbers only. |
 | **Location** |  Required | The Azure region where the storage account will be created (for example, `eastus`, `westus2`). |
 | **SKU** |  Optional | The storage account SKU. Valid values: `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_ZRS`, `Premium_LRS`, `Premium_ZRS`, `Standard_GZRS`, `Standard_RAGZRS`. |
 | **Access tier** |  Optional | The default access tier for blob storage. Valid values: `Hot`, `Cool`. |
@@ -51,7 +51,7 @@ Example prompts include:
 
 <!-- storage account get -->
 
-Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name is not provided, the command will return details for all accounts in a subscription.
+Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, the command will return details for all accounts in a subscription.
 
 Example prompts include:
 
@@ -77,12 +77,12 @@ Create a blob container with optional blob public access.
 
 Example prompts include:
 
-- **Create private container**: "Create a private container named 'mycontainer' in storage account 'mystorageaccount'"
-- **New private blob container**: "Make a new private blob container called 'images' in storage account 'mydata'"
-- **Add private container**: "Add a private container named 'archive' to storage account 'contosostore'"
-- **Set up private container**: "Set up a private blob container named 'logs' in storage account 'prodstore'"
-- **Create private container (simple)**: "Create a private blob container called 'images' in storage account 'mystorageaccount'"
-- **Create private container (explicit access)**: "Create a blob container named 'logs' in storage account 'mydata' with access level 'private'"
+- **Create private container**: "Create a private container named 'mycontainer' in storage account 'mystorageaccount'."
+- **New private blob container**: "Make a new private blob container called 'images' in storage account 'mydata'."
+- **Add private container**: "Add a private container named 'archive' to storage account 'contosostore'."
+- **Set up private container**: "Set up a private blob container named 'logs' in storage account 'prodstore'."
+- **Create private container (simple)**: "Create a private blob container called 'images' in storage account 'mystorageaccount'."
+- **Create private container (explicit access)**: "Create a blob container named 'logs' in storage account 'mydata' with access level 'private'."
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
@@ -103,9 +103,9 @@ Use this tool to list all blob containers in the storage account or show details
 Example prompts include:
 
 - **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
-- **Container info**: "Get properties of container 'images' in storage account 'media_files'"
+- **Container info**: "Get properties of container 'images' in storage account 'media_files'."
 - **Container properties**: "What are the settings for my 'backups' container?"
-- **Container status**: "Check access policy for 'user_data' container"
+- **Container status**: "Check access policy for 'user_data' container."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -146,11 +146,11 @@ Uploads a local file to a blob in Azure Storage with the option to overwrite if 
 
 Example prompts include:
 
-- **Upload file to blob**: "Upload local file 'report.pdf' to blob 'documents/report.pdf' in container 'documents' in storage account 'mystorageaccount'"
-- **Upload and overwrite blob**: "Upload local file 'data.csv' to blob 'archive/data.csv' in container 'archive' in storage account 'mydata', overwriting if it exists"
-- **Overwrite blob with file**: "Overwrite blob 'images/photo.jpg' in container 'images' in storage account 'mediafiles' with local file 'C:\\photos\\photo.jpg'"
-- **Upload file to container**: "Upload local file 'backup.zip' to blob 'backup.zip' in container 'backups' in storage account 'securestore'"
-- **Replace blob content**: "Replace the content of blob 'logs/app.log' in container 'logs' in storage account 'prodstore' with local file 'app.log'"
+- **Upload file to blob**: "Upload local file 'report.pdf' to blob 'documents/report.pdf' in container 'documents' in storage account 'mystorageaccount'."
+- **Upload and overwrite blob**: "Upload local file 'data.csv' to blob 'archive/data.csv' in container 'archive' in storage account 'mydata', overwriting if it exists."
+- **Overwrite blob with file**: "Overwrite blob 'images/photo.jpg' in container 'images' in storage account 'mediafiles' with local file 'C:\\photos\\photo.jpg'."
+- **Upload file to container**: "Upload local file 'backup.zip' to blob 'backup.zip' in container 'backups' in storage account 'securestore'."
+- **Replace blob content**: "Replace the content of blob 'logs/app.log' in container 'logs' in storage account 'prodstore' with local file 'app.log'."
 
 | Parameter |  Required or optional| Description |
 |-----------|----------|-------------|
