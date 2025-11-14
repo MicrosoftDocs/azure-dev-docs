@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server
@@ -28,13 +28,14 @@ Create an Azure Managed Lustre (AMLFS) file system using the specified network, 
 
 Example prompts include:
 
-- **Basic filesystem creation**: "Create Azure Managed Lustre filesystem 'amlfs-prod-001' in eastus with SKU 'AMLFS-Durable-Premium-125', size 128 TiB, in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001', zone 1, maintenance on Sunday at 02:00"
-- **Development environment**: "Create test filesystem 'dev-amlfs' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 32 TiB capacity in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
-- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p'"
-- **Budget-optimized setup**: "Create cost-effective filesystem 'budget-fs' in eastus2 with 'AMLFS-Durable-Premium-40', 48 TiB, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/budget-rg/providers/Microsoft.Network/virtualNetworks/budget-vnet/subnets/storage-subnet', zone 1, maintenance Sunday at 05:00"
+- **Basic filesystem creation**: "Create Azure Managed Lustre filesystem 'amlfs-prod-001' in resource group 'my-resource-group' in eastus with SKU 'AMLFS-Durable-Premium-125', size 128 TiB, in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001', zone 1, maintenance on Sunday at 02:00"
+- **Development environment**: "Create test filesystem 'dev-amlfs' in resource group 'my-resource-group' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 32 TiB capacity in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
+- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in resource group 'my-resource-group' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p'"
+- **Budget-optimized setup**: "Create cost-effective filesystem 'budget-fs' in resource group 'my-resource-group' in eastus2 with 'AMLFS-Durable-Premium-40', 48 TiB, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/budget-rg/providers/Microsoft.Network/virtualNetworks/budget-vnet/subnets/storage-subnet', zone 1, maintenance Sunday at 05:00"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
 | **Location** |  Required | Azure region/region short name (use Azure location token, lowercase). Examples: `uaenorth`, `swedencentral`, `eastus`. |
 | **SKU** |  Required | The AMLFS SKU. Exact allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
@@ -129,18 +130,19 @@ Update maintenance window and/or root squash settings of an existing Azure Manag
 
 Example prompts include:
 
-- **Basic maintenance window update**: "Update the maintenance window of the Azure Managed Lustre filesystem 'amlfs-prod-001' to Sunday at 02:00"
-- **Weekend maintenance schedule**: "Change maintenance window for filesystem 'hpc-lustre-fs' to Saturday at 23:00"
-- **Business hours maintenance**: "Update Azure Managed Lustre filesystem 'dev-amlfs' maintenance to Wednesday at 14:30"
-- **Off-peak scheduling**: "Set maintenance window for filesystem 'analytics-lustre' to Monday at 01:00"
-- **Root squash configuration**: "Update filesystem 'secure-amlfs' with root squash mode 'All' and squash UID 1000 and GID 1000 with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp'"
-- **Combined update**: "Update filesystem 'ml-amlfs' maintenance to Friday at 03:00 and set root squash mode to 'None'"
-- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' withno squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp', and squash GID 999"
-- **Development environment**: "Update filesystem 'test-lustre' maintenance window to Thursday at 12:00 for development testing"
-- **Regional maintenance**: "Set maintenance schedule for filesystem 'europe-amlfs' to Tuesday at 04:00 for minimal impact"
+- **Basic maintenance window update**: "Update the maintenance window of the Azure Managed Lustre filesystem 'amlfs-prod-001' in resource group 'my-resource-group' to Sunday at 02:00"
+- **Weekend maintenance schedule**: "Change maintenance window for filesystem 'hpc-lustre-fs' in resource group 'my-resource-group' to Saturday at 23:00"
+- **Business hours maintenance**: "Update Azure Managed Lustre filesystem 'dev-amlfs' in resource group 'my-resource-group' maintenance to Wednesday at 14:30"
+- **Off-peak scheduling**: "Set maintenance window for filesystem 'analytics-lustre' in resource group 'my-resource-group' to Monday at 01:00"
+- **Root squash configuration**: "Update filesystem 'secure-amlfs' in resource group 'my-resource-group' with root squash mode 'All' and squash UID 1000 and GID 1000 with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp'"
+- **Combined update**: "Update filesystem 'ml-amlfs' in resource group 'my-resource-group' maintenance to Friday at 03:00 and set root squash mode to 'None'"
+- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' in resource group 'my-resource-group' withno squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp', and squash GID 999"
+- **Development environment**: "Update filesystem 'test-lustre' in resource group 'my-resource-group' maintenance window to Thursday at 12:00 for development testing"
+- **Regional maintenance**: "Set maintenance schedule for filesystem 'europe-amlfs' in resource group 'my-resource-group' to Tuesday at 04:00 for minimal impact"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
 | **Maintenance day** |  Optional | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
 | **Maintenance time** |  Optional | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
