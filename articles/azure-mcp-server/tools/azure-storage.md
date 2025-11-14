@@ -51,7 +51,7 @@ Example prompts include:
 
 <!-- storage account get -->
 
-Get detailed information about a specific Azure Storage account. This functionality retrieves comprehensive metadata for the specified storage account including name, location, SKU, access settings, and configuration details. 
+Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name is not provided, the command will return details for all accounts in a subscription.
 
 Example prompts include:
 
@@ -63,7 +63,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
-| **Account** | Required | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
+| **Account** | Optional | The name of the Azure Storage account. This name is unique to Azure (for example, 'mystorageaccount'). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -98,7 +98,7 @@ Example prompts include:
 
 <!-- storage blob container get -->
 
-The Azure MCP Server shows detailed information about a specific container in a storage account. This information includes metadata, access policies, and other properties.
+Use this tool to list all blob containers in the storage account or show details for a specific Storage container. Displays container properties including access policies, lease status, and metadata. If no container specified, shows all containers in the storage account. 
 
 Example prompts include:
 
@@ -110,7 +110,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Account** | Required | The name of the Azure Storage account. |
-| **Container** | Required | The name of the container to access. |
+| **Container** | Optional | The name of the container to access. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -120,7 +120,7 @@ Example prompts include:
 
 <!-- storage blob get -->
 
-Get blob properties, metadata, and general information. 
+ Use this tool to list the blobs in a container or get details for a specific blob. Shows blob properties including metadata, size, last modification time, and content properties. If no blob specified, lists all blobs present in the container.  
 
 Example prompts include:
 
@@ -132,7 +132,7 @@ Example prompts include:
 |-----------------------------|----------------------|-------------|
 | **Account** | Required | The name of the Azure Storage account. This name is unique across Azure (for example, 'mystorageaccount'). |
 | **Container** | Required | The name of the container to access within the storage account. |
-| **Blob** | Required | The name of the blob to access within the container. This name includes the full path within the container (for example, 'file.txt' or 'folder/file.txt'). |
+| **Blob** | Optional | The name of the blob to access within the container. This name includes the full path within the container (for example, `file.txt` or `folder/file.txt`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
