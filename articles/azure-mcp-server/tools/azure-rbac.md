@@ -4,7 +4,7 @@ description: Learn how to use Azure MCP Server with Azure RBAC to manage role as
 keywords: azure mcp server, azmcp, rbac, role based access control
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ms.topic: reference
 ---
 
