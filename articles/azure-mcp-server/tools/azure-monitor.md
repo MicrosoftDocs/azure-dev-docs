@@ -4,7 +4,7 @@ description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -51,14 +51,15 @@ Create a new standard web test in Azure Monitor. Ping/Multistep web tests are de
 
 Example prompts include:
 
-- **Basic web test**: "Create web test 'api-health-check' for Application Insights '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/components/myapp-insights' in East US location, testing URL 'https://api.mycompany.com/health' from locations 'us-east-2-azr,us-west-2-azr'"
-- **Custom frequency test**: "Create web test 'homepage-monitor' for Application Insights '/subscriptions/xyz789/resourceGroups/prod/providers/Microsoft.Insights/components/web-insights' in West Europe, testing 'https://www.mysite.com' from 'eu-west-1-azr,eu-north-1-azr' locations with frequency 300 seconds and timeout 60 seconds"
-- **POST request test**: "Create web test 'login-endpoint' for Application Insights '/subscriptions/def456/resourceGroups/test/providers/Microsoft.Insights/components/test-insights' in Central US, testing 'https://api.myapp.com/login' from 'us-central-azr,us-south-central-azr' with HTTP verb 'post', request body '{\"username\":\"test\"}', and headers 'Content-Type=application/json'"
-- **SSL monitoring test**: "Create web test 'secure-api-check' for Application Insights '/subscriptions/ghi789/resourceGroups/security/providers/Microsoft.Insights/components/security-insights' in Australia East, testing 'https://secure.myservice.com/api' from 'au-east-azr,au-southeast-azr' with SSL check enabled, SSL lifetime check 30 days, and expected status code 200"
-- **Comprehensive test**: "Create web test 'ecommerce-checkout' for Application Insights '/subscriptions/jkl012/resourceGroups/ecommerce/providers/Microsoft.Insights/components/shop-insights' in North Europe, testing 'https://shop.mystore.com/checkout' from 'eu-north-1-azr,eu-west-1-azr,eu-central-1-azr' with description 'Monitor checkout process', frequency 900 seconds, follow redirects enabled, parse requests enabled, retry enabled, and timeout 120 seconds"
+- **Basic web test**: "Create web test 'api-health-check' in resource group 'my-resource-group' for Application Insights '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/components/myapp-insights' in East US location, testing URL 'https://api.mycompany.com/health' from locations 'us-east-2-azr,us-west-2-azr'"
+- **Custom frequency test**: "Create web test 'homepage-monitor' in resource group 'my-resource-group' for Application Insights '/subscriptions/xyz789/resourceGroups/prod/providers/Microsoft.Insights/components/web-insights' in West Europe, testing 'https://www.mysite.com' from 'eu-west-1-azr,eu-north-1-azr' locations with frequency 300 seconds and timeout 60 seconds"
+- **POST request test**: "Create web test 'login-endpoint' in resource group 'my-resource-group' for Application Insights '/subscriptions/def456/resourceGroups/test/providers/Microsoft.Insights/components/test-insights' in Central US, testing 'https://api.myapp.com/login' from 'us-central-azr,us-south-central-azr' with HTTP verb 'post', request body '{\"username\":\"test\"}', and headers 'Content-Type=application/json'"
+- **SSL monitoring test**: "Create web test 'secure-api-check' in resource group 'my-resource-group' for Application Insights '/subscriptions/ghi789/resourceGroups/security/providers/Microsoft.Insights/components/security-insights' in Australia East, testing 'https://secure.myservice.com/api' from 'au-east-azr,au-southeast-azr' with SSL check enabled, SSL lifetime check 30 days, and expected status code 200"
+- **Comprehensive test**: "Create web test 'ecommerce-checkout' in resource group 'my-resource-group' for Application Insights '/subscriptions/jkl012/resourceGroups/ecommerce/providers/Microsoft.Insights/components/shop-insights' in North Europe, testing 'https://shop.mystore.com/checkout' from 'eu-north-1-azr,eu-west-1-azr,eu-central-1-azr' with description 'Monitor checkout process', frequency 900 seconds, follow redirects enabled, parse requests enabled, retry enabled, and timeout 120 seconds"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
 | **Appinsights component** |  Required | The resource ID of the Application Insights component to associate with the web test. |
 | **Location** |  Required | The location where the web test resource is created. This should be the same as the AppInsights component location. |
@@ -92,12 +93,13 @@ Get details for a specific web test in the provided resource group based on webt
 
 Example prompts include:
 
-- **Get test details**: "Get details for web test 'api-health-check'"
-- **View test configuration**: "Show me the configuration of web test 'homepage-monitor'"
-- **Check test status**: "Get information about web test 'login-endpoint'"
+- **Get test details**: "Get details for web test 'api-health-check' in resource group 'my-resource-group'"
+- **View test configuration**: "Show me the configuration of web test 'homepage-monitor' in resource group 'my-resource-group'"
+- **Check test status**: "Get information about web test 'login-endpoint' in resource group 'my-resource-group'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -128,12 +130,13 @@ Update an existing standard web test in Azure Monitor. Ping/Multistep web tests 
 
 Example prompts include:
 
-- **Update test frequency**: "Update web test 'api-health-check' to run every 300 seconds"
-- **Change test URL**: "Update web test 'homepage-monitor' to test URL 'https://www.newsite.com' with timeout 90 seconds"
-- **Modify test configuration**: "Update web test 'login-endpoint' with new headers 'Authorization=Bearer token123' and expected status code 201"
+- **Update test frequency**: "Update web test 'api-health-check' in resource group 'my-resource-group' to run every 300 seconds"
+- **Change test URL**: "Update web test 'homepage-monitor' in resource group 'my-resource-group' to test URL 'https://www.newsite.com' with timeout 90 seconds"
+- **Modify test configuration**: "Update web test 'login-endpoint' in resource group 'my-resource-group' with new headers 'Authorization=Bearer token123' and expected status code 201"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Webtest resource** |  Required | The name of the Web Test resource to operate on. |
 | **Appinsights component** |  Optional | The resource ID of the Application Insights component to associate with the web test. |
 | **Location** |  Optional | The location where the web test resource is created. This should be the same as the AppInsights component location. |
@@ -183,12 +186,13 @@ Lists available table types in a Log Analytics workspace.
 
 Example prompts include:
 
-- **List table types**: "Show me table types in the centralmonitoring workspace."
-- **View available types**: "What table types are available in my Log Analytics workspace?"
-- **Find table categories**: "List table types for security-logs workspace."
+- **List table types**: "Show me table types in the centralmonitoring workspace in resource group 'my-resource-group'"
+- **View available types**: "What table types are available in my Log Analytics workspace in resource group 'my-resource-group'?"
+- **Find table categories**: "List table types for security-logs workspace in resource group 'my-resource-group'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. This can be either the unique identifier (GUID) or the display name of your workspace. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -203,12 +207,13 @@ The Azure MCP Server lists all tables in a Log Analytics workspace. This helps y
 
 Example prompts include:
 
-- **List tables**: "Show tables in centralmonitoring workspace."
-- **View tables**: "What tables are in workspace app-monitoring?"
-- **Find tables**: "List tables in security-logs workspace."
+- **List tables**: "Show tables in centralmonitoring workspace in resource group 'my-resource-group'"
+- **View tables**: "What tables are in workspace app-monitoring in resource group 'my-resource-group'?"
+- **Find tables**: "List tables in security-logs workspace in resource group 'my-resource-group'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -223,12 +228,13 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 
 Example prompts include:
 
-- **Simple query**: "Query errors from last hour."
-- **Filter query**: "Find failed login attempts in SecurityEvent table."
-- **Complex query**: "Show CPU usage trend for web servers last 24 hours."
+- **Simple query**: "Query errors from last hour in workspace 'my-workspace' in resource group 'my-resource-group'"
+- **Filter query**: "Find failed login attempts in SecurityEvent table in workspace 'security-workspace' in resource group 'my-resource-group'"
+- **Complex query**: "Show CPU usage trend for web servers last 24 hours in workspace 'monitoring-workspace' in resource group 'my-resource-group'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Workspace** | Required | The Log Analytics workspace ID or name. |
 | **Table** | Required | The name of the table to query. |
 | **Query** | Required | The KQL query to execute against the Log Analytics workspace. |
@@ -271,12 +277,13 @@ The Azure MCP Server gets the health status of an entity using Azure Monitor hea
 
 Example prompts include:
 
-- **Check entity health**: "Get health for app-prod-001 with webapp-health model."
-- **Monitor resource health**: "What's the health of web-app-prod using application-model?"
-- **Check system status**: "Get health info for sql-prod database entity."
+- **Check entity health**: "Get health for app-prod-001 with webapp-health model in resource group 'my-resource-group'"
+- **Monitor resource health**: "What's the health of web-app-prod using application-model in resource group 'my-resource-group'?"
+- **Check system status**: "Get health info for sql-prod database entity in resource group 'my-resource-group'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Model** | Required | The name of the health model. |
 | **Entity** | Required | The entity ID to get health for. |
 
@@ -345,9 +352,9 @@ The Azure MCP Server lists Azure Monitor workbooks in a resource group. This hel
 
 Example prompts include:
 
-- **List workbooks**: "Show workbooks in monitoring group."
-- **List by category**: "List workbooks in Insights category."
-- **List shared workbooks**: "Show shared workbooks in monitoring."
+- **List workbooks**: "Show workbooks in resource group 'my-resource-group'"
+- **List by category**: "List workbooks in Insights category in resource group 'my-resource-group'"
+- **List shared workbooks**: "Show shared workbooks in resource group 'my-resource-group'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
