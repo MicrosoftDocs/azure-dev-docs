@@ -1,0 +1,8 @@
+---
+ms.topic: include
+ms.date: 11/12/2025
+# [!INCLUDE [sql server delete](../includes/tools/annotations/azure-sql-database-server-delete-annotations.md)]
+# azmcp sql server delete
+---
+
+Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ❌

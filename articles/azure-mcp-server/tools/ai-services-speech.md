@@ -20,7 +20,7 @@ Use the Azure MCP Server to manage Azure AI Speech functionalities such as speec
 
 ## Speech-to-Text: Recognize
 
-<!-- `azmcp speech stt recognize` -->
+<!-- speech stt recognize -->
 
 
 Recognize speech from an audio file using [Azure AI Services Speech](/azure/ai-services/speech-service/speech-to-text). This command takes an audio file and converts it to text using advanced speech recognition capabilities. Supported audio formats include WAV, MP3, OPUS/OGG, FLAC, ALAW, MULAW, MP4, M4A, and AAC. Compressed formats require GStreamer to be installed on the system.
@@ -47,6 +47,10 @@ Example prompts include:
 | **Format** |  Optional | Output format: `simple` or `detailed`. |
 | **Profanity** |  Optional | Profanity filter: `masked`, `removed`, or `raw`. Default is `masked`. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [speech stt recognize](../includes/tools/annotations/azure-ai-services-speech-operation-speech-text-recognize-annotations.md)]
+
 ## Text-to-Speech: Synthesize
 
 <!-- speech tts synthesize -->
@@ -56,7 +60,7 @@ Convert text to speech using Azure AI Services Speech. This command takes text i
 Example prompts include:
 
 - **Basic synthesis**: "Convert the text 'Hello, welcome to Azure AI Services' to speech using endpoint https://myservice.cognitiveservices.azure.com/ and save to output.wav"
-- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my cognitive services endpoint at https://eastus.api.cognitive.microsoft.com/ with voice en-US-AriaNeural"
+- **With custom voice**: "Synthesize 'Thank you for using our service' to audio file greeting.mp3 using my custom voice my-custom-voice under service 'https://myservice.cognitiveservices.azure.com/' and endpoint "guid-endpoint.
 - **Different language**: "Generate Spanish speech for 'Bienvenido a Azure' and save to welcome-es.wav using my speech endpoint https://myresource.cognitiveservices.azure.com/ in es-ES language"
 
 | Parameter |  Required or optional | Description |
@@ -66,8 +70,12 @@ Example prompts include:
 | **Output file path** |  Required | Path where the synthesized audio file will be saved. |
 | **Language** |  Optional | The language for speech recognition (for example, `en-US`, `es-ES`). Default is `en-US`. |
 | **Voice** |  Optional | The voice to use for speech synthesis (for example, `en-US-JennyNeural`). If not specified, the default voice for the language will be used. |
-| **Format** |  Optional | Output format: `simple` or `detailed`. |
+| **Format** |  Optional | Output format: `Riff24Khz16BitMonoPcm`, `Audio16Khz32KBitRateMonoMp3`, `Audio24Khz96KBitRateMonoMp3`, `Ogg16Khz16BitMonoOpus`, `Raw16Khz16BitMonoPcm`. Default is `Riff24Khz16BitMonoPcm`. |
 | **Endpoint ID** |  Optional | The endpoint ID of a custom voice model for speech synthesis. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [speech stt recognize](../includes/tools/annotations/azure-ai-services-speech-operation-text-speech-synthesize-annotations.md)]
 
 ## Related content
 
