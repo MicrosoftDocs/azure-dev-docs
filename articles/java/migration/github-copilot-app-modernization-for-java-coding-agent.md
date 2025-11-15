@@ -58,9 +58,9 @@ Supported scenarios:
 
    :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/mcp.png" alt-text="Screenshot of MCP configuration in coding agent.":::
 
-1. (Optional) If environment variables are required, set them under Environment → Copilot in the settings. These environment variables will be initialized automatically the first time a user invokes an agentic task in this repository.
+1. (Optional) If environment variables are required, set them under **Environment** > **Copilot** in the settings. These environment variables are initialized automatically the first time a user invokes an agentic task in this repository.
 
-1. Open the Agents panel in the top-right corner and enter your prompt. After the prompt is entered, Copilot will start a new session and open a new Pull Request, which will appear in the list below the prompt box. Copilot will work on the task and then add you as a reviewer when it has finished, triggering a notification.
+1. Open the **Agents** panel in the top-right corner and enter your prompt. After the prompt is entered, Copilot starts a new session and opens a new pull request, which appears in the list below the prompt box. Copilot works on the task and then adds you as a reviewer when it's finished, triggering a notification.
 
    :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/agent-panel.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/agent-panel.png" alt-text="Screenshot of agent panel and a list of previous Java upgrade sessions.":::
 
@@ -68,7 +68,7 @@ You can find sample prompts in the next section.
 
 ### Upgrade your Java application
 
-To upgrade your Java application to a newer runtime or framework version, run the following example prompt This helps ensure your project stays aligned with the latest platform capabilities and security updates.
+To upgrade your Java application to a newer runtime or framework version, run the following example prompt. This prompt helps ensure that your project stays aligned with the latest platform capabilities and security updates.
 
 ```
 Upgrade this project to JDK 21 and Spring Boot 3.5
@@ -80,11 +80,11 @@ Describe what you'd like to achieve in plain language:
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-input.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-input.png" alt-text="Screenshot of Java upgrade task input in coding agent":::
 
-Coding agent will then execute, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities:
+The coding agent then executes, including generating the upgrade plan, performing code remediation, building the project, and checking for vulnerabilities:
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-progress.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-progress.png" alt-text="Screenshot of Java upgrade progress in coding agent":::
 
-You will get a concise summary highlights at the end:
+You get a concise summary highlights at the end:
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-completion.png" lightbox="./media/github-copilot-app-modernization-for-java-coding-agent/upgrade-completion.png" alt-text="Screenshot of Java upgrade completion in coding agent":::
 
@@ -124,7 +124,7 @@ You can follow the same steps as upgrade or migration for deployment — the ove
 
 ## Provide feedback
 
-If you have any feedback about GitHub Copilot agent, please let us know your [feedback](https://aka.ms/ghcp-appmod/feedback).
+If you have any feedback about GitHub Copilot agent, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml).
 
 ## Next step
 

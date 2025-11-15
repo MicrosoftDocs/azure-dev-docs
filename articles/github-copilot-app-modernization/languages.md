@@ -67,13 +67,13 @@ To migrate to Microsoft Agent Framework:
    :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot that shows the chat window with the migration task being invoked through the appmod-run-task tool.":::
 
 1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps:
-   
+
    - **Check Python Syntax Issues**: Resolve Python syntax and import issues.
    - **Check Python Lint Issues**: Install linters (if not already installed) and resolve lint issues per project configuration.
    - **Run Python Tests**: Install test runners (if not already installed) and run tests to verify the migration quality.
 
    :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot that shows the environment setup, syntax checking, and lint checking in the migration workflow.":::
-   
+
    :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot that shows the Run Python Tests step in the migration workflow.":::
 
 1. Review the migration summary, which includes the files migrated, validation results, and more.

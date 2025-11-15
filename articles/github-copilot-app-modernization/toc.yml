@@ -52,7 +52,7 @@ items:
             - name: Migration sample
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migrate from Oracle to PostgreSQL
-              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-pgsql.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - name: .NET
         expanded: true
         items:

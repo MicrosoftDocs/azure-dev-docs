@@ -75,13 +75,13 @@ landingContent:
   - title: Migrate WebLogic Server to Azure VMs
     linkLists:
       - linkListType: how-to-guide
-        links:         
+        links:
           - text: WebLogic Server to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
           - text: "Tutorial: WebLogic to Azure VMs manual guidance"
-            url: migrate-weblogic-to-azure-vm-manually.md          
+            url: migrate-weblogic-to-azure-vm-manually.md
           - text: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
             url: migrate-weblogic-to-vms-with-ha-dr.md
           - text: "Tutorial: WebLogic to Azure VMs with Elastic"

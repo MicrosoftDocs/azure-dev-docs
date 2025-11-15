@@ -17,7 +17,7 @@ In today's fast-evolving cloud landscape, modernizing legacy applications is a k
 
 ## What Is Portfolio Assessment?
 
-A Portfolio Assessment tool is a solution designed to discover, assess, and manage the entire portfolio of applications and workloads within an organization's IT environment. These tools help organizations evaluate their application landscape, identify migration candidates, and plan modernization strategies. 
+A Portfolio Assessment tool is a solution designed to discover, assess, and manage the entire portfolio of applications and workloads within an organization's IT environment. These tools help organizations evaluate their application landscape, identify migration candidates, and plan modernization strategies.
 
 ### Azure Migrate
 
@@ -29,7 +29,7 @@ Dr. Migrate is another widely adopted Portfolio Assessment tool that automates t
 
 ## Integration with GitHub Copilot app modernization
 
-We now offer seamless integration between Portfolio Assessment tools' portfolio assessment features and GitHub Copilot app modernization. This integration enables organizations to cover the complete application modernization journey—from discovery and assessment to code remediation—using AI-powered tools. 
+We now offer seamless integration between Portfolio Assessment tools' portfolio assessment features and GitHub Copilot app modernization. This integration enables organizations to cover the complete application modernization journey—from discovery and assessment to code remediation—using AI-powered tools.
 
 ### General integration flow
 

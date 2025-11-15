@@ -22,14 +22,14 @@ This article provides an overview of how Java developers can modernize their app
 
 ## Why use Copilot CLI with app modernization
 
-- Run modernization tasks directly from the terminal - no need to switch to an IDE  
+- Run modernization tasks directly from the terminal - no need to switch to an IDE
 - Supports both interactive (human-in-the-loop) and batch workflows
 
 ## Supported scenarios
 
-- **Upgrade your Java application** – for example: `Upgrade to the latest Java version`.  
-- **Migrate your Java application to Azure** – using predefined tasks listed in [Migration Tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).    
-- **Deploy your Java application to Azure** – for example: `Deploy this application to Azure`.    
+- **Upgrade your Java application** – for example: `Upgrade to the latest Java version`.
+- **Migrate your Java application to Azure** – using predefined tasks listed in [Migration Tasks](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md#task-list).
+- **Deploy your Java application to Azure** – for example: `Deploy this application to Azure`.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ This article provides an overview of how Java developers can modernize their app
 1. Choose one of the options:
 
    - Yes, proceed: Copilot can work with the files in this location for this session only.
-   - Yes, and remember this folder for future sessions: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Only choose this option if you are sure that it will always be safe for Copilot to work with files in this location.
+   - Yes, and remember this folder for future sessions: You trust the files in this folder for this and future sessions. You won't be asked again when you start Copilot CLI from this folder. Choose this option only if you're sure that it's always safe for Copilot to work with files in this location.
    - No, exit (Esc): End your Copilot CLI session.
 
 1. Add MCP servers by running `/mcp add` in Copilot CLI according to the configuration below. Here's an example of adding app modernization MCP:
@@ -90,7 +90,7 @@ This article provides an overview of how Java developers can modernize their app
 
 ## Run app modernization tasks
 
-You can trigger key modernization tasks directly from the Copilot CLI by using natural language.  
+You can trigger key modernization tasks directly from the Copilot CLI by using natural language.
 Typical scenarios include upgrading Java version and framework, migrating workloads to Azure, containerizing applications, and deploying to Azure services.
 
 ### Upgrade your Java Application
@@ -120,7 +120,7 @@ For example:
 Migrate this application from S3 to Azure Blob Storage
 ```
 
-Then the migration task will be executed and showing progress in Copilot CLI
+Then, the migration task is executed and shows progress in Copilot CLI:
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/migrate-details.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/migrate-details.png" alt-text="Screenshot of executing tasks in Java migrate scenarios":::
 
@@ -146,7 +146,7 @@ The project is successfully deployed, with the following summary:
 
 ## Provide feedback
 
-If you have any feedback about GitHub Copilot CLI, please let us know your [feedback](https://aka.ms/ghcp-appmod/feedback).
+If you have any feedback about GitHub Copilot CLI, [create an issue at the github-copilot-appmod repository](https://github.com/microsoft/github-copilot-appmod/issues/new?template=feedback-template.yml).
 
 ## Next step
 
