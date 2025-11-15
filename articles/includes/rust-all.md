@@ -58,7 +58,6 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_jobrouter/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_messages/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_phonenumbers/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_programmableconnectivity/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_rooms/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_shortcodes/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_communication_sms/0.0.1) |  |  |

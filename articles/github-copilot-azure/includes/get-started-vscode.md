@@ -30,108 +30,112 @@ By default, Copilot in Azure is available to all users in a tenant. However, Glo
 1. In the chat text area at the bottom of the chat pane, enter the following prompt:
 
    ```prompt
-   @azure Do I have any resources currently running?
+   Do I have any Azure resources currently running?
    ```
 
-   :::image type="content" source="../media/get-started/ask-mode.png" alt-text="Screenshot that shows the default ask mode state of the chat pane with an example prompt.":::
+   The answer to your question depends on what's currently running in Azure in your subscription.
 
-By default, GitHub Copilot uses **ask** mode. Ask mode provides answers to your prompts in the chat pane. **Agent** mode enables GitHub Copilot to take action in your workspace.
-
-In ask mode, the `@azure` part indicates that you want to include the Azure chat participant in the conversation. It scopes your prompt to a specific domain, namely, your Azure account.
-
-The answer to your question depends on what's currently running in Azure in your subscription.
-
-## Agent mode
-
-Beginning in Visual Studio Code version 1.99, GitHub Copilot introduced [agent mode](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode), an agentic experience that can perform tasks across your entire Visual Studio Code workspace, making edits, executing terminal commands, and so on.
-
-GitHub Copilot for Azure provides "tools" to GitHub copilot to enhance the agentic experience through deep integration with Azure.
-
-In agent mode, you don't need to instruct GitHub Copilot to use GitHub Copilot for Azure with the `@azure` prefix.
-
-### Enable agent mode
-
-You might need to enable agent mode.
-
-1. In Visual Studio Code, open **Settings** using the **Manage** icon (gear).
-
-   :::image type="content" source="../media/get-started/vscode-settings.png" alt-text="Screenshot that shows the Visual Studio Code settings menu by selecting the Manage button.":::
-
-
-1. In the Settings' Search bar, search for `chat.agent.enabled`.
-1. Check the box next to **Chat > Agent: Enabled**.
-
-   :::image type="content" source="../media/get-started/chat-agent-enabled.png" alt-text="Screenshot that shows the settings dialog with settings filtered to chat.agent.enabled.":::
-
-### Use agent mode
-
-There are three modes: ask (default), edit and agent. To use agent mode, you must select it in the chat pane.
-
-1. In the chat pane, in the chat prompt, select the mode dropdown and choose **Agent**.
-
-   :::image type="content" source="../media/get-started/mode-agent.png" alt-text="Screenshot that shows the pop-up menu in the Chat box with Agent selected.":::
-
-1. The chat pane confirms that you're currently in agent mode.
-
-   :::image type="content" source="../media/get-started/agent-mode-confirmation.png" alt-text="Screenshot that shows the chat pane confirming you're now in agent mode.":::
-
-1. To see agent mode working, use the following prompt:
+1. Next, use the following prompt:
 
    ```
    What are your tools?
    ```
 
-
    The completion response displays a list of GitHub Copilot for Azure specific tools available to GitHub Copilot. The response provides a good overview of the kinds of functionality now available to you:
 
-
    ```
-   I can assist you with various tasks using a range of tools. Here are the main tools I have available:
+   I'll ask the Azure development helper to recommend custom modes relevant to listing and explaining the GitHub Copilot for Azure tools in VS Code; expected outcome: a short set of recommended modes or tips to tailor the tools explanation.
+
+   Progress update: I queried the Azure development helper to get recommended custom modes for this topic. Next, I'll list and briefly explain the tools I have available (grouped and with example prompts and common uses) so you can copy/paste or use them directly in VS Code.
+
+   Tools I can use (concise overview)
+
+   1. Search & navigation
+
+      - Capabilities: semantic code/documentation search, file search with globs, text search (grep), list directory contents, read file contents, find usages/references.
+      - Example prompts:
+         - "Find all usages of MyService in this workspace."
+         - "Search for connectionString in **/*.config files."
+      - When to use: locating code, docs, or examples quickly inside your repo.
+
+   2. Code editing & analysis
+      - Capabilities: insert edits into files, create or modify files, suggest refactors, report code errors, find test files.
+      - Example prompts:
+         - "Add a function to validate input in src/utils.js."
+         - "Refactor this function to use async/await and update its tests."
+      - When to use: implementing features, fixing bugs, generating or updating code.
+
+   3. Terminal & Git operations
+
+      - Capabilities: run shell commands, read terminal output, show git diffs and changed files.
+      - Example prompts:
+         - "Run npm test and show me failing tests."
+         - "Stage and commit the changes with message 'fix: update README'."
+      - When to use: run builds/tests, inspect outputs, perform git workflows (if enabled).
+
+   4. Project creation & workspace setup
+
+      - Capabilities: create new workspaces, scaffold projects (templates), install VS Code extensions, create notebooks.
+      - Example prompts:
+         - "Generate a Node.js express app scaffold in a new folder."
+         - "Add recommended extensions for Python development."
+      - When to use: bootstrapping projects or adding project-level config.
+
+   5. Web & API tools
+
+      - Capabilities: fetch web pages, retrieve API docs (for example VS Code API references), gather remote content for research.
+      - Example prompts:
+         - "Fetch the Azure CLI docs for az storage account list."
+         - "Get the VS Code extension API docs for commands."
+      - When to use: look up official docs or examples during work.
+
+   6. Azure-specific tools
+
+      - Capabilities: Azure development best practices guidance, Microsoft Learn documentation lookup, query Azure Resource Graph (when authenticated), manage Azure auth context (change tenant, sign out), generate Azure CLI / Bicep / ARM snippets, Bicep schemas, and guidance for deploying models and services.
+      - Example prompts:
+         - "What are Azure best practices for deploying this function app?"
+         - "@azure /changeTenant — set my default tenant to <tenant-id>"
+         - "Generate a Bicep template for an App Service and a Storage Account."
+      - When to use: any task that touches Azure resources, deployment, or configuration.
+
+   7. Documentation & learning
+
+      - Capabilities: search and extract Microsoft Learn articles, provide code samples from official docs, show relevant how-to steps.
+      - Example prompts:
+         - "Show official docs for configuring Key Vault access policies."
+         - "Give me a short tutorial on using Azure App Configuration."
+      - When to use: learn or reference official Microsoft guidance.
+
+   How I present results
+
+   - Short answers or step-by-step instructions.
+   - Full edits (I can create or modify files if you allow the extension to act).
+   - Commands and code snippets you can paste into your terminal.
+   - Checks (like running tests or linters) when terminal access is allowed.
+
+   Example: Quick copy-paste prompts you can use in the VS Code chat
    
-   1. Search and Navigation
-     Semantic search for code or documentation
-     File search using glob patterns
-     Text search (grep)
-     List directory contents
-     Read file contents
-     List code usages/references
-   
-   2. Code Editing and Analysis
-     Insert edits into files
-     Get errors in code files
-     Test search (find test files)
-   
-   3. Terminal and Git Operations
-     Run commands in terminal
-     Get terminal output
-     Get Git diffs and changed files
-   
-   4. Project Creation
-     Create new workspaces
-     Get project setup information
-     Install VS Code extensions
-     Create new Jupyter Notebooks
-   
-   5. Web and API Tools
-     Fetch webpage content
-     Get VS Code API references
-   
-   6. Azure Tools
-     Azure development best practices
-     Microsoft Learn documentation
-     Azure resource management
-     Azure authentication tools
-     AI model deployment and management
-     Azure Bicep schemas
-     Service configuration and deployment
-     Azure Developer CLI tools
-   
-   Would you like me to explain any specific tool in more detail or help you with a particular task?
+   - "What are your tools?" — lists the tools (this reply).
+   - "Find all TODO comments in this repo and open a summary."
+   - "Generate an az CLI command to list storage accounts sorted by region."
+   - "@azure /changeTenant" — opens tenant selection (if you need to set a default).
+
+   Notes and privacy/permissions
+
+   - Some capabilities (like querying your Azure resources or running commands) require you to be signed in and to enable those tools in the extension (you can enable/disable specific tools in the chat pane tool list).
+   - I won't perform actions that need elevated permissions without verifying your explicit consent.
+
+   If you'd like, I can:
+
+   - Expand any tool section with more example prompts and exact commands.
+   - Show a short step-by-step for enabling/disabling tools in the chat pane.
+   - Generate a one-page cheatsheet you can paste into an internal docs file. Which would you like next?
    
    ```
 
+   The contents of the reply may vary and can change over time as new capabilities and tools are added.
 
-1. The last entry, `Azure Developer CLI tools`, could be employed with the following prompt: 
+1. To test out prompts about Azure-specific tooling, try the following prompt: 
 
    ```
    What is the az command to list all my storage accounts ordered by location?
@@ -141,23 +145,33 @@ There are three modes: ask (default), edit and agent. To use agent mode, you mus
 
    ```
 
-   I'll help you generate the Azure CLI command to list all your storage accounts ordered by location. Let me use the Azure CLI generator tool to get the correct syntax for this command.
+   I'll show the exact az CLI commands (sorted ascending/descending) plus a few useful output variants and a quick note about prerequisites.
 
-   To list all your storage accounts ordered by location in Azure, you can use the following Azure CLI command:
+   Commands
 
-   az storage account list --query "sort_by(@, &location)"
+   - Sorted by location (ascending), full JSON:
+      
+      az storage account list --query "sort_by(@, &location)" -o json
 
-   This command will:
+   - Sorted by location, show only name and location in a readable table:
 
-   1. Retrieve all storage accounts you have access to in your Azure subscription
-   2. Sort the results based on the location (Azure region) of each storage account
-   3. Display the full details of each storage account in the sorted order
+      az storage account list --query "sort_by(@, &location)[].[name,location]" -o table
 
-   If you'd prefer a more concise output focusing on specific fields, you could modify the query. For example, to show only the name and location in a table format:
+   - Sorted by location (descending):
 
-   az storage account list --query "sort_by(@, &location)[].[name,location]" -o table
+      az storage account list --query "reverse(sort_by(@, &location))" -o json
 
-   Make sure you're logged into the Azure CLI before running this command. If you're not logged in yet, you can do so with az login.
+   - Sorted by location and include resource group and SKU in table:
+
+      az storage account list --query "sort_by(@, &location)[].[name,resourceGroup,sku.name,location]" -o table
+
+   Notes
+
+   - Run az login first and ensure the correct subscription is selected (e.g., az account set -s "<subscription-id-or-name>").
+   - You need permission to list storage accounts in the chosen subscription.
+   - The query uses JMESPath (sort_by/reverse) to order results client-side.
+
+   Would you like a version that groups counts by region or that queries across all subscriptions?
 
    ```
 
@@ -167,35 +181,14 @@ You might want to disable or re-enable certain tools available by GitHub Copilot
 
 1. Select the tool icon in the chat pane.
 
-   :::image type="content" source="../media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the tool icon.":::
+   :::image type="content" source="../media/get-started/tool-icon.png" alt-text="Screenshot of chat pane with highlight around the Configure Tools icon.":::
 
 1. Use the checkbox next to the list of tools to enable / disable tools (or groups of tools).
 
    :::image type="content" source="../media/get-started/tool-list.png" alt-text="Screenshot of the list of tools in Visual Studio Code.":::
 
 
-### Best practices for working in agent mode
-
-To get better agentic results, consider the following best practices.
-
-- **When prompted, add the `copilot-instructions.md` file to your workspace.** 
-
-   :::image type="content" source="../media/get-started/copilot-instructions.png" alt-text="Screenshot of the Visual Studio Code notification to add the copilot instructions file to the workspace.":::
-
-- **Keep your prompts as granular as possible.** Instead of a prompt like `Generate a Python web application and deploy it to Azure`, you should break that up into a few prompts each with a smaller scope of responsibility.
-
-- **Allow GitHub Copilot to do work (instead of doing it yourself).**  Occasionally, GitHub Copilot asks for permission to perform a task with a "Continue" button. While it's possible for you to perform that task outside of the Chat window, you should allow GitHub Copilot to perform the task instead. This allows GitHub Copilot to retain the context of the current state of its larger plan.
-
-- **Allow GitHub Copilot to repeat itself.** Occasionally, GitHub Copilot asks for permission to perform a task repeatedly. It does this to better understand the state of the project files and what it should do next. You should allow GitHub Copilot to repeat tasks it needs to perform.
-
-- **Express your preferences.** If GitHub Copilot wants to perform an action but you would prefer it to take a *different* action, you can instruct it to do it your preferred way. For example, if it wants to create a folder to contain bicep files called `\.azure`, you could intervene and ask it to use a different folder with a prompt such as:
-
-   ```
-   Instead of naming the folder `.azure`, please name it `infra`
-   ```
-
-
-## Optional: Set your default tenant
+## Set your default tenant
 
 If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, You can set a default tenant using the following prompt:
 
@@ -218,3 +211,29 @@ You can also set the default tenant in the extension settings:
 3. On the **Settings** tab, set the Azure Resource Graph tenant to your Microsoft Entra tenant ID. You can find your Microsoft Entra tenant ID in the Azure portal.
 
    :::image type="content" source="../media/get-started/arg-tenant.png" alt-text="Screenshot that shows the Settings tab with an option to set the Azure Resource Graph tenant.":::
+
+## View the GitHub Copilot for Azure instructions file
+
+The **instructions** file (also referred to as "Azure Copilot Guidelines") contains high-level guidance for GitHub Copilot that is added to the context window when sending prompts to GitHub Copilot for Azure tools and Azure MCP Server tools. The guidance in this file is intended to be global in nature, meaning, it's intended for all interactions across GitHub Copilot for Azure across all projects. This file is located in a hidden folder location and is not intended to be modified. You should not modify this file because it could degrade or disable GitHub Copilot for Azure, and your changes might be overwritten with new updates to GitHub Copilot for Azure.
+
+Viewing the "Azure Copilot Guidelines" can provide an insight into how the GitHub Copilot for Azure tools and the Azure MCP Server tools are introduced to GitHub Copilot helping you develop a deeper understanding of how it all works.
+
+> [!Important]
+> You should not modify this file.
+
+1. Select `ctrl` + `shift` + `p` to open the command palette.
+
+1. Type `Chat: Configure Instructions` and select the entry.
+
+   :::image type="content" source="../media/get-started/configure-instructions-option.png" alt-text="Screenshot of typing in the Visual Studio Code command palette.":::
+
+1. In the next step, select `AzureCopilotGuidelines` .
+
+   :::image type="content" source="../media/get-started/configure-instructions-azure-copilot-guidelines.png" alt-text="Screenshot of the option to select Azure Copilot Guidelines.":::
+
+1. A new tab opens containing the instructions file.
+
+   :::image type="content" source="../media/get-started/configure-instructions-file.png" alt-text="Screenshot of the GitHub Copilot for Azure instructions file.":::
+
+   > [!Important]
+   > You should not modify this file.

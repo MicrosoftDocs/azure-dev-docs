@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -195,7 +195,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Required | The name of the certificate to create. |
+| **Certificate name** | Required | The name of the certificate to create. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -218,7 +218,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Required | The name of the certificate to retrieve. |
+| **Certificate name** | Required | The name of the certificate to retrieve. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -242,7 +242,7 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Vault** |  Required | The name of the Key Vault. |
-| **Certificate** | Required | The name of the certificate as it appears in Key Vault. |
+| **Certificate name** | Required | The name of the certificate as it appears in Key Vault. |
 | **Certificate data or path** | Required | Either the path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with `-----BEGIN`. |
 | **Password** |  Optional | Password for a protected PFX being imported. |
 

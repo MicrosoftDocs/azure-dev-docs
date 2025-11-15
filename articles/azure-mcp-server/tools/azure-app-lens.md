@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ---
 
 # Azure App Lens tools for the Azure MCP Server
@@ -26,12 +26,13 @@ Diagnose Azure resource performance issues, slowness, failures, and availability
 
 Example prompts include:
 
-- **Diagnose app issues**: "Please help me diagnose issues with my app 'mywebapp' using app lens for resource type 'WebApp'"
-- **Check app slowness**: "Use app lens to check why my app 'orders-api' is slow for resource type 'API'"
-- **Service health**: "What does app lens say is wrong with my service 'inventory-service' for resource type 'ServiceFabric'?"
+- **Diagnose app issues**: "Please help me diagnose issues with my app 'mywebapp' in resource group 'my-resource-group' using app lens for resource type 'WebApp'"
+- **Check app slowness**: "Use app lens to check why my app 'orders-api' in resource group 'my-resource-group' is slow for resource type 'API'"
+- **Service health**: "What does app lens say is wrong with my service 'inventory-service' in resource group 'my-resource-group' for resource type 'ServiceFabric'?"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Question** |  Required | User question. |
 | **Resource** |  Required | The name of the resource to investigate or diagnose. |
 | **Resource Type** |  Required | Resource type.  |
