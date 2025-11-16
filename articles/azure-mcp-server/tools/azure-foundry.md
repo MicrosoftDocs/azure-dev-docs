@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Foundry to mana
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 11/07/2025
+ms.date: 11/04/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -243,14 +243,15 @@ Deploy an AI model to your Azure environment. Use this command to deploy selecte
 
 Example prompts include:
 
-- **Deploy with required parameters**: "Deploy GPT-4 model in OpenAI format to my ai-services account in ai-projects resource group with subscription dev-subscription"
-- **Specify deployment name**: "Set up a deployment named text-embedding for the Ada embedding model in my AI services account with Standard SKU"
-- **Include model version**: "Deploy version 2 of Llama model from Meta to my Azure AI services account with scale capacity of 3"
-- **Deploy to specific resource group**: "Create a deployment named content-generation with GPT-4 model in my ai-central service in resource group ml-experiments"
-- **Configure scaling**: "Deploy Claude model to my Azure AI service with autoscaling enabled and maximum capacity of 5"
+- **Deploy with required parameters**: "Deploy GPT-4 model in OpenAI format to my ai-services account in resource group 'my-resource-group'"
+- **Specify deployment name**: "Set up a deployment named text-embedding for the Ada embedding model in my AI services account in resource group 'my-resource-group' with Standard SKU"
+- **Include model version**: "Deploy version 2 of Llama model from Meta to my Azure AI services account in resource group 'my-resource-group' with scale capacity of 3"
+- **Deploy to specific resource group**: "Create a deployment named content-generation with GPT-4 model in my ai-central service in resource group 'my-resource-group'"
+- **Configure scaling**: "Deploy Claude model to my Azure AI service in resource group 'my-resource-group' with autoscaling enabled and maximum capacity of 5"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Deployment** | Required | The name of the Azure AI Foundry model deployment. |
 | **Model** | Required | The name of the model to deploy. |
 | **Model format** | Required | The format of the model (for example, `OpenAI`, `Meta`, `Microsoft`). |
@@ -335,20 +336,21 @@ Create embeddings using Azure OpenAI in AI Foundry. Generate vector embeddings f
 
 Example prompts include:
 
-- **Basic text embedding**: "Generate embeddings for the text 'Azure OpenAI Service' using my 'text-embedding-ada-002' deployment"
-- **Create vector embeddings**: "Create vector embeddings for my text using Azure OpenAI with deployment 'text-embedding-3-large' on resource 'ai-services-prod'"
-- **Document embedding**: "Generate embeddings for 'Machine learning revolutionizes data analysis' using deployment 'ada-002' on resource 'embedding-service'"
-- **Multiple sentences**: "Create embeddings for the text 'Cloud computing provides scalable infrastructure. It enables global accessibility.' using my embedding deployment"
-- **With user tracking**: "Generate embeddings for 'Natural language processing applications' using deployment 'text-embedding-3-small' with user identifier 'analytics-team'"
-- **Specific dimensions**: "Create embeddings for 'Artificial intelligence transforms business operations' using deployment 'text-embedding-3-large' with 1536 dimensions on resource 'ai-central'"
-- **Base64 format**: "Generate embeddings for 'Deep learning neural networks' using deployment 'ada-002' with base64 encoding format on resource 'ml-services'"
-- **Research text**: "Create vector embeddings for 'Quantum computing demonstrates computational advantages in specific algorithms' using my text-embedding deployment"
-- **Product description**: "Generate embeddings for 'High-performance laptop with advanced graphics processing unit' using deployment 'text-embedding-3-small' on resource 'product-ai'"
-- **Technical documentation**: "Create embeddings for 'API authentication requires valid credentials and proper authorization headers' using deployment 'ada-002' with float encoding on resource 'docs-embedding'"
+- **Basic text embedding**: "Generate embeddings for the text 'Azure OpenAI Service' using my 'text-embedding-ada-002' deployment in resource group 'my-resource-group'"
+- **Create vector embeddings**: "Create vector embeddings for my text using Azure OpenAI with deployment 'text-embedding-3-large' on resource 'ai-services-prod' in resource group 'my-resource-group'"
+- **Document embedding**: "Generate embeddings for 'Machine learning revolutionizes data analysis' using deployment 'ada-002' on resource 'embedding-service' in resource group 'my-resource-group'"
+- **Multiple sentences**: "Create embeddings for the text 'Cloud computing provides scalable infrastructure. It enables global accessibility.' using my embedding deployment in resource group 'my-resource-group'"
+- **With user tracking**: "Generate embeddings for 'Natural language processing applications' using deployment 'text-embedding-3-small' with user identifier 'analytics-team' in resource group 'my-resource-group'"
+- **Specific dimensions**: "Create embeddings for 'Artificial intelligence transforms business operations' using deployment 'text-embedding-3-large' with 1536 dimensions on resource 'ai-central' in resource group 'my-resource-group'"
+- **Base64 format**: "Generate embeddings for 'Deep learning neural networks' using deployment 'ada-002' with base64 encoding format on resource 'ml-services' in resource group 'my-resource-group'"
+- **Research text**: "Create vector embeddings for 'Quantum computing demonstrates computational advantages in specific algorithms' using my text-embedding deployment in resource group 'my-resource-group'"
+- **Product description**: "Generate embeddings for 'High-performance laptop with advanced graphics processing unit' using deployment 'text-embedding-3-small' on resource 'product-ai' in resource group 'my-resource-group'"
+- **Technical documentation**: "Create embeddings for 'API authentication requires valid credentials and proper authorization headers' using deployment 'ada-002' with float encoding on resource 'docs-embedding' in resource group 'my-resource-group'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 | **Deployment** |  Required | The name of the Azure AI Foundry model deployment. |
 | **Input text** |  Required | The input text to generate embeddings for. |
@@ -368,11 +370,11 @@ Example prompts include:
 
 Example prompts include:
 
-- **Basic completion**: "Create a completion with the prompt 'What is Azure?' using my 'gpt-35-turbo' deployment"
-- **With temperature control**: "Generate text completion for 'Explain machine learning' using deployment 'text-davinci-003' with temperature 0.3"
-- **Limited tokens**: "Create a completion with prompt 'Write a summary' using my 'gpt-4' deployment with max 100 tokens"
-- **Creative writing**: "Generate completion for 'Tell me a story about AI' using deployment 'gpt-35-turbo' with temperature 0.8 and 200 max tokens"
-- **Technical explanation**: "Create completion with prompt 'How does cloud computing work?' using my OpenAI resource 'ai-services-east' and deployment 'gpt-4'"
+- **Basic completion**: "Create a completion with the prompt 'What is Azure?' using my 'gpt-35-turbo' deployment in resource group 'my-resource-group'"
+- **With temperature control**: "Generate text completion for 'Explain machine learning' using deployment 'text-davinci-003' with temperature 0.3 in resource group 'my-resource-group'"
+- **Limited tokens**: "Create a completion with prompt 'Write a summary' using my 'gpt-4' deployment with max 100 tokens in resource group 'my-resource-group'"
+- **Creative writing**: "Generate completion for 'Tell me a story about AI' using deployment 'gpt-35-turbo' with temperature 0.8 and 200 max tokens in resource group 'my-resource-group'"
+- **Technical explanation**: "Create completion with prompt 'How does cloud computing work?' using my OpenAI resource 'ai-services-east' and deployment 'gpt-4' in resource group 'my-resource-group'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -396,19 +398,20 @@ deployed models including model names, versions, capabilities, and deployment st
 
 Example prompts include:
 
-- **View all models**: "List all OpenAI models in my 'ai-services-prod' resource"
-- **Check deployments**: "Show me all deployed models and their status in resource 'openai-east'"
-- **Production inventory**: "What models are available in my 'production-openai' resource?"
-- **Development check**: "List all models and deployments in my 'dev-ai-services' resource"
-- **Model capabilities**: "Show me all available OpenAI models with their capabilities in resource 'ai-central'"
-- **Deployment status**: "What's the current status of all deployments in my 'openai-west' resource?"
-- **Regional models**: "List all models available in my 'europe-openai' resource"
-- **Service overview**: "Give me a complete overview of models and deployments in resource 'customer-ai'"
-- **Model versions**: "Show me all model versions available in my 'ai-services-main' resource"
-- **Resource audit**: "I need to audit all OpenAI models and deployments in resource 'enterprise-ai'"
+- **View all models**: "List all OpenAI models in my 'ai-services-prod' resource in resource group 'my-resource-group'"
+- **Check deployments**: "Show me all deployed models and their status in resource 'openai-east' in resource group 'my-resource-group'"
+- **Production inventory**: "What models are available in my 'production-openai' resource in resource group 'my-resource-group'?"
+- **Development check**: "List all models and deployments in my 'dev-ai-services' resource in resource group 'my-resource-group'"
+- **Model capabilities**: "Show me all available OpenAI models with their capabilities in resource 'ai-central' in resource group 'my-resource-group'"
+- **Deployment status**: "What's the current status of all deployments in my 'openai-west' resource in resource group 'my-resource-group'?"
+- **Regional models**: "List all models available in my 'europe-openai' resource in resource group 'my-resource-group'"
+- **Service overview**: "Give me a complete overview of models and deployments in resource 'customer-ai' in resource group 'my-resource-group'"
+- **Model versions**: "Show me all model versions available in my 'ai-services-main' resource in resource group 'my-resource-group'"
+- **Resource audit**: "I need to audit all OpenAI models and deployments in resource 'enterprise-ai' in resource group 'my-resource-group'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Resource name** |  Required | The name of the Azure OpenAI resource. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
