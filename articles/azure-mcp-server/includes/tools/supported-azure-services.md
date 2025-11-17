@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 10/27/2025
+ ms.date: 11/17/2025
 ---
 
 ## Available tools
@@ -58,7 +58,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Cosmos DB](../../tools/azure-cosmos-db.md) | `cosmos` | Work with Azure Cosmos DB accounts, databases, containers, and documents. |
 | [Azure Database for MySQL](../../tools/azure-mysql.md) | `mysql` | Manage Azure Database for MySQL servers, databases, and tables. |
 | [Azure Database for PostgreSQL](../../tools/azure-database-postgresql.md) | `postgres` | Manage Azure Database for PostgreSQL servers, databases, and tables. |
-| [Azure Redis](../../tools/azure-redis.md) | `redis` | Manage Azure Redis instances, Redis clusters, and access policies. |
+| [Azure Redis](../../tools/azure-redis.md) | `redis` | Create and list Azure Redis resources, including Managed Redis and Cache for Redis. |
 | [Azure SQL](../../tools/azure-sql.md) | `sql` | Work with Azure SQL Database servers, databases, firewall rules, and elastic pools. |
 
 ### Developer tools
