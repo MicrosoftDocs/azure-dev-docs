@@ -1,6 +1,6 @@
 ---
 title: Use Azure Core types in Rust applications  
-description: Learn how to use Azure Core types for HTTP clients, long-running operations, custom policies, and paginated results in Azure SDK for Rust applications. Customize behavior and implement your own clients.
+description: Learn how to use Azure Core types in Rust applications to customize HTTP clients, policies, and error handling. Discover how to implement your own clients and optimize Azure SDK usage.
 ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-rust
