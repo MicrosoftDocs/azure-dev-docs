@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ---
 # Azure Kubernetes Service tools for the Azure MCP Server
 
@@ -21,7 +21,7 @@ Use the Azure MCP Server to manage Azure resources, including Azure Kubernetes S
 
 ## Cluster: Get cluster details
 
-<!-- azmcp aks cluster get -->
+<!-- aks cluster get -->
 
 Get or list Azure Kubernetes Service (AKS) clusters. If a specific cluster name is provided, that cluster will
 be retrieved. Otherwise, all clusters are listed in the specified subscription. Returns detailed cluster
@@ -42,11 +42,15 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Name** | Required | The name of the AKS cluster to get details for. |
+| **Cluster name** | Required | The name of the AKS cluster to get details for. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [aks cluster get](../includes/tools/annotations/azure-kubernetes-service-cluster-get-annotations.md)]
 
 ## Node pool: Get details for a specific node pool
 
-<!-- azmcp aks nodepool get -->
+<!-- aks nodepool get -->
 
 Get or list Azure Kubernetes Service (AKS) node pools (agent pools) in a cluster. If a specific node pool name
 is provided, that node pool is retrieved. Otherwise, all node pools are listed in the specified cluster.
@@ -67,8 +71,12 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Cluster** |  Required | AKS cluster name. |
+| **Cluster name** |  Required | AKS cluster name. |
 | **Node pool** |  Required | AKS node pool (agent pool) name. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [aks nodepool get](../includes/tools/annotations/azure-kubernetes-service-node-pool-get-annotations.md)]
 
 ## Related content
 

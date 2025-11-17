@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Managed Grafana to
 keywords: azure mcp server, azmcp, azure managed grafana, monitoring, dashboards, visualization
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -20,7 +20,7 @@ The Azure MCP Server allows you to manage Azure resources, including Azure Manag
 
 ## List Grafana workspaces
 
-<!-- azmcp grafana list -->
+<!-- grafana list -->
 
 Lists all Azure Managed Grafana workspaces in your subscription. This command helps you view and manage your Grafana workspace resources across your Azure environment.
 
@@ -31,6 +31,10 @@ Example prompts include:
 - **Find visualization dashboards**: "List all my Azure Managed Grafana resources"
 - **Check workspace status**: "Are there any Grafana workspaces in my dev subscription?"
 - **Dashboard inventory**: "I need to see all Grafana workspace resources in my account"
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [grafana list](../includes/tools/annotations/azure-managed-grafana-list-annotations.md)]
 
 ## Related content
 

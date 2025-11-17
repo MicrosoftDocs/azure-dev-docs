@@ -4,12 +4,13 @@ description: "Learn how to use the Azure MCP Server with Azure Data Explorer. Qu
 keywords: azure mcp server, azmcp, kusto, azure data explorer, adx
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: reference
 ms.custom: build-2025
+#kusto
 --- 
 # Azure Data Explorer tools for the Azure MCP Server
 
@@ -30,6 +31,8 @@ Don't provide all three parameters (cluster URI, cluster name, and subscription)
 
 ## Cluster: List clusters
 
+<!-- kusto cluster list -->
+
 The Azure MCP Server lists all Azure Data Explorer clusters in a subscription.
 
 Example prompts include:
@@ -40,7 +43,13 @@ Example prompts include:
 - **Query clusters**: "Show my Azure Data Explorer cluster organization."
 - **Find clusters**: "Get all ADX clusters in my Azure subscription."
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [kusto cluster list](../includes/tools/annotations/azure-data-explorer-cluster-list-annotations.md)]
+
 ## Cluster: Get cluster details
+
+<!-- kusto cluster get -->
 
 The Azure MCP Server gets details for a specific Azure Data Explorer cluster.
 
@@ -56,9 +65,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Cluster** | Required | The name of the Azure Data Explorer cluster. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
+[!INCLUDE [kusto cluster get](../includes/tools/annotations/azure-data-explorer-cluster-get-annotations.md)]
 
 ## Database: List databases
+
+<!-- kusto database list -->
 
 The Azure MCP Server lists all databases in an Azure Data Explorer cluster.
 
@@ -75,9 +88,13 @@ Example prompts include:
 | **Cluster URI** | [Conditionally](#conditional-parameters) required | The URI of the Azure Data Explorer cluster. |
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
+[!INCLUDE [kusto database list](../includes/tools/annotations/azure-data-explorer-database-list-annotations.md)]
 
 ## Table: List tables
+
+<!-- kusto table list -->
 
 The Azure MCP Server lists all tables in a specific Azure Data Explorer database.
 
@@ -95,7 +112,13 @@ Example prompts include:
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 | **Database** | Required | The name of the Azure Data Explorer database. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [kusto table list](../includes/tools/annotations/azure-data-explorer-table-list-annotations.md)]
+
 ## Table: Get table schema
+
+<!-- kusto table schema -->
 
 The Azure MCP Server gets the schema of a specific table in an Azure Data Explorer database.
 
@@ -114,8 +137,13 @@ Example prompts include:
 | **Database** | Required | The name of the Azure Data Explorer database. |
 | **Table** | Required | The name of the table. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [kusto table schema](../includes/tools/annotations/azure-data-explorer-table-schema-annotations.md)]
 
 ## Sample data
+
+<!-- kusto sample -->
 
 The Azure MCP Server retrieves a sample of data from a specified Azure Data Explorer table.
 
@@ -135,8 +163,13 @@ Example prompts include:
 | **Table** | Required | The name of the table to sample data from. |
 | **Limit** | Optional | The maximum number of rows to return in the sample. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [kusto sample](../includes/tools/annotations/azure-data-explorer-sample-annotations.md)]
 
 ## Query
+
+<!-- kusto query -->
 
 The Azure MCP Server executes a KQL query against an Azure Data Explorer database.
 
@@ -154,6 +187,10 @@ Example prompts include:
 | **Cluster** | [Conditionally](#conditional-parameters) required | The name of the Azure Data Explorer cluster. |
 | **Database** | Required | The name of the Azure Data Explorer database. |
 | **Query** | Required | The KQL query to execute. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [kusto query](../includes/tools/annotations/azure-data-explorer-query-annotations.md)]
 
 ## Related content
 

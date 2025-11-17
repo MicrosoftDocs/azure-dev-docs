@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Health Resources.
 keywords: azure mcp server, azmcp, health resources
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -19,7 +19,7 @@ The Azure MCP Server enables you to monitor resource health and availability by 
 
 ## Availability status: Get
 
-<!-- `azmcp resourcehealth availability-status get` -->
+<!-- resourcehealth availability-status get -->
 
 Get the current availability status of an Azure resource to diagnose health issues. Provides detailed information about resource availability state, potential issues, and timestamps. 
 
@@ -35,10 +35,13 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Resource ID** | Required | The Azure resource ID to get health status for (for example, `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Compute/virtualMachines/{vm}`). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [resourcehealth availability-status get](../includes/tools/annotations/azure-resource-health-availability-status-get-annotations.md)]
 
 ## Availability status: List
 
-<!-- `azmcp resourcehealth availability-status list` -->
+<!-- resourcehealth availability-status list -->
 
 List availability statuses for all resources in a subscription or resource group. Provides health status information for multiple Azure resources at once, including availability state, summaries, and timestamps. This information is useful for getting an overview of resource health across your infrastructure. You can filter results by resource group to narrow the scope.
 
@@ -49,11 +52,13 @@ Example prompts include:
 - **Filter by resource type**: "Get the availability status for all virtual machines in my subscription."
 - **Summarize resource health**: "What is the overall health status of resources in resource group 'mygroup'?"
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
+[!INCLUDE [resourcehealth availability-status list](../includes/tools/annotations/azure-resource-health-availability-status-list-annotations.md)]
 
 ## Service health events: List events
 
-<!-- `azmcp resourcehealth service-health-events list` -->
+<!-- resourcehealth service-health-events list -->
 
 List Azure service health events for a subscription to identify ongoing or past service issues. Provides comprehensive information about service incidents, planned maintenance, advisories, and security events. Supports filtering by event type, status, tracking ID, and custom OData filters.
 Equivalent to Azure Service Health API for service events.
@@ -75,6 +80,9 @@ Example prompts include:
 | **Query Start Time** |  Optional | Start time for the query in ISO 8601 format (for example, 2024-01-01T00:00:00Z). Events from this time onwards will be included. |
 | **Query End Time** |  Optional | End time for the query in ISO 8601 format (for example, 2024-01-31T23:59:59Z). Events up to this time will be included. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [resourcehealth health-events list](../includes/tools/annotations/azure-resource-health-health-events-list-annotations.md)]
 
 ## Related content
 

@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ---
 
 # Azure Load Testing tools for the Azure MCP Server
@@ -22,9 +22,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure Load Testi
 
 ## Test: Create test
 
-<!--
-azmcp loadtesting test create --subscription
--->
+<!-- loadtesting test create -->
 
 Creates a new load test in Azure Load Testing. Use this command to define and configure a load test for your application.
 
@@ -47,11 +45,13 @@ Example prompts include:
 | **Duration** | Required | The total duration of the test in seconds. |
 | **Ramp-up time** | Required | The time period over which to gradually increase load to the specified number of virtual users. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting test create](../includes/tools/annotations/azure-load-testing-test-create-annotations.md)]
+
 ## Test: Get test details
 
-<!--
-azmcp loadtesting test get --subscription
--->
+<!-- loadtesting test get -->
 
 Gets details about a specific load test in Azure Load Testing. Use this command to view the configuration and properties of an existing test.
 
@@ -70,11 +70,13 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource. |
 | **Test ID** | Required | The unique identifier of the test. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting test get](../includes/tools/annotations/azure-load-testing-test-get-annotations.md)]
+
 ## Test resources: List test resources
 
-<!--
-azmcp loadtesting testresource list --subscription
--->
+<!-- loadtesting testresource list -->
 
 Lists all test resources in the specified Azure subscription. Use this command to track and manage your load testing resources.
     
@@ -90,11 +92,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Test resource** | Required | The name of a specific test resource to filter by. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting testresource list](../includes/tools/annotations/azure-load-testing-test-resource-list-annotations.md)]
+
 ## Test resources: Create test resource
 
-<!--
-azmcp loadtesting testresource create --subscription
--->
+<!-- loadtesting testresource create -->
 
 Creates a test resource in Azure Load Testing. Use this command to set up resources needed for running load tests.
 
@@ -104,16 +108,17 @@ Example prompts include:
 - **Provision resources**: "Set up a test resource for my performance testing in subscription 'test-sub'"
 - **Initialize resource**: "Create a test resource for my 'api-load-test' in resource group 'perf-resources'"
 
-
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Test resource** | Required | A name for the new test resource. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting testresource create](../includes/tools/annotations/azure-load-testing-test-resource-create-annotations.md)]
+
 ## Test runs: Create a test run
 
-<!--
-azmcp loadtesting testrun create --subscription
--->
+<!--  loadtesting testrun create -->
 
 Creates a new test run for an existing load test in Azure Load Testing. Use this command to run the defined load test and generate performance metrics.
 
@@ -122,7 +127,6 @@ Example prompts include:
 - **Run load test**: "Start a new test run for my 'api-stress-test' in resource group 'performance-rg'"
 - **Execute test**: "Run the load test named 'peak-traffic-simulation'"
 - **Initiate test run**: "Create a test run for my 'web-app-load-test' in subscription 'prod-sub'"
-
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -133,11 +137,13 @@ Example prompts include:
 | **Description** | Required | A description of the test run and its purpose. |
 | **Old testrun ID** | Required | The ID of a previous test run to compare results with. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting testrun create](../includes/tools/annotations/azure-load-testing-test-run-create-annotations.md)]
+
 ## Test runs: Get test run details
 
-<!--
-azmcp loadtesting testrun get --subscription
--->
+<!-- loadtesting testrun get -->
 
 Gets details about a specific test run in Azure Load Testing. Use this command to view the results and metrics of a completed or running test.
 
@@ -152,11 +158,13 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource used for the test run. |
 | **Testrun ID** | Required | The ID of the test run. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting testrun get](../includes/tools/annotations/azure-load-testing-test-run-get-annotations.md)]
+
 ## Test runs: List test runs
 
-<!--
-azmcp loadtesting testrun list --subscription
--->
+<!-- loadtesting testrun list -->
 
 Lists all test runs for a specific load test in Azure Load Testing. Use this command to track the history and performance of your load tests.
 
@@ -174,11 +182,13 @@ Example prompts include:
 | **Test resource** | Required | The name of the test resource used for the test runs. |
 | **Test ID** | Required | The ID of a specific test to filter test runs by. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting testrun list](../includes/tools/annotations/azure-load-testing-test-run-list-annotations.md)]
+
 ## Test runs: Update test run
 
-<!--
-azmcp loadtesting testrun update --subscription
--->
+<!-- loadtesting testrun update -->
 
 Updates an existing test run in Azure Load Testing. Use this command to modify a running or scheduled test run, such as stopping or adjusting test parameters.
 
@@ -197,6 +207,10 @@ Example prompts include:
 | **Testrun ID** | Required | The ID of the test run to update. |
 | **Display** | Required | A new display name for the test run. |
 | **Description** | Required | A new description for the test run. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [loadtesting testrun update](../includes/tools/annotations/azure-load-testing-test-run-update-annotations.md)]
 
 ## Related content
 

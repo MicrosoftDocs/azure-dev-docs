@@ -4,7 +4,7 @@ description: "Learn how to use Azure MCP Server with Azure Service Bus to manage
 keywords: azure mcp server, azmcp, service bus, queue, topic
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -21,6 +21,8 @@ The Azure MCP Server lets you to manage Azure Service Bus resources, including q
 
 ## Get queue runtime details
 
+<!-- servicebus queue details -->
+
 The Azure MCP Server can retrieve runtime details about a Service Bus queue, including its message count and status.
 
 Example prompts include:
@@ -35,7 +37,13 @@ Example prompts include:
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Queue name** | Required | The queue name. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [servicebus queue details](../includes/tools/annotations/azure-service-bus-queue-details-annotations.md)]
+
 ## Get topic runtime details
+
+<!-- servicebus topic details -->
 
 The Azure MCP Server can retrieve runtime details about a Service Bus topic, including its subscription count and status.
 
@@ -52,7 +60,13 @@ Example prompts include:
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Topic name** | Required | The name of the topic. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [servicebus topic details](../includes/tools/annotations/azure-service-bus-topic-details-annotations.md)]
+
 ## Get topic subscription runtime details
+
+<!-- servicebus topic subscription details -->
 
 The Azure MCP Server can retrieve runtime details about a subscription within a Service Bus topic, including message counts.
 
@@ -69,6 +83,10 @@ Example prompts include:
 | **Namespace** | Required | The fully qualified Service Bus namespace host name. |
 | **Topic name** | Required | The name of the topic containing the subscription. |
 | **Topic subscription name** | Required | The name of the topic subscription. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [servicebus topic subscription details](../includes/tools/annotations/azure-service-bus-topic-subscription-details-annotations.md)]
 
 ## Related content
 

@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -21,7 +21,7 @@ The Azure MCP Server lets you manage Azure Key Vault resources, including keys, 
 
 ## Administration: Get all managed HSM settings
 
-<!-- `azmcp keyvault admin get` -->
+<!-- keyvault admin settings get -->
 
 Retrieves all Key Vault Managed HSM account settings for a given vault. This includes settings such as purge protection and soft-delete retention days. This tool ONLY applies to Managed HSM vaults.
 
@@ -35,8 +35,13 @@ Example prompts include:
 - **Show managed HSM settings**: "Show me the account settings for managed HSM keyvault 'contoso-hsm'"
 - **Query specific setting**: "What's the value of the 'purgeProtection' setting in my key vault with name 'mykeyvault'"
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault admin settings get](../includes/tools/annotations/azure-key-vault-admin-settings-get-annotations.md)]
 
 ## Keys: Create key
+
+<!-- keyvault key create -->
 
 The Azure MCP Server can create a new key in an Azure Key Vault. This operation lets you add cryptographic keys for your applications.
 
@@ -54,8 +59,13 @@ Example prompts include:
 | **Key** | Required | The name of the key to create. |
 | **Key type** | Required | The type of key to create (RSA, EC). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault key create](../includes/tools/annotations/azure-key-vault-key-create-annotations.md)]
 
 ## Keys: Get key
+
+<!-- keyvault key get -->
 
 The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
 
@@ -72,7 +82,13 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault key get](../includes/tools/annotations/azure-key-vault-key-get-annotations.md)]
+
 ## Keys: List keys
+
+<!-- keyvault key list -->
 
 The Azure MCP Server can list all keys in an Azure Key Vault. This operation helps you manage your cryptographic keys and view your key inventory.
 
@@ -89,7 +105,13 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Include managed** | Required | Whether or not to include managed keys in results. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault key list](../includes/tools/annotations/azure-key-vault-key-list-annotations.md)]
+
 ## Secrets: Create secret
+
+<!-- keyvault secret create -->
 
 The Azure MCP Server can create a new secret in an Azure Key Vault. This operation lets you securely store sensitive information like passwords, API keys, and connection strings. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
 
@@ -107,7 +129,13 @@ Example prompts include:
 | **Name** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault secret create](../includes/tools/annotations/azure-key-vault-secret-create-annotations.md)]
+
 ## Secrets: Get secret
+
+<!-- keyvault secret get -->
 
 The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
 
@@ -124,7 +152,13 @@ Example prompts include:
 | **Vault** | Required | The name of the Key Vault. |
 | **Name** | Required | The name of the secret to retrieve. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault secret get](../includes/tools/annotations/azure-key-vault-secret-get-annotations.md)]
+
 ## Secrets: List secrets
+
+<!-- keyvault secret list -->
 
 The Azure MCP Server can list all secrets in an Azure Key Vault. This operation helps you manage your stored secrets and view your secret inventory. 
 
@@ -140,7 +174,13 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault secret list](../includes/tools/annotations/azure-key-vault-secret-list-annotations.md)]
+
 ## Certificates: Create certificate
+
+<!-- keyvault certificate create -->
 
 The Azure MCP Server can create a new certificate in an Azure Key Vault by using the default policy. With this operation, you can generate SSL/TLS certificates for your applications.
 
@@ -155,9 +195,15 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Required | The name of the certificate to create. |
+| **Certificate name** | Required | The name of the certificate to create. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault certificate create](../includes/tools/annotations/azure-key-vault-certificate-create-annotations.md)]
 
 ## Certificates: Get certificate
+
+<!-- keyvault certificate get -->
 
 The Azure MCP Server retrieves details of a specific certificate from an Azure Key Vault. With this information, you can view certificate properties, expiration dates, and metadata.
 
@@ -172,9 +218,15 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Required | The name of the certificate to retrieve. |
+| **Certificate name** | Required | The name of the certificate to retrieve. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault certificate get](../includes/tools/annotations/azure-key-vault-certificate-get-annotations.md)]
 
 ## Certificates: Import certificates
+
+<!-- keyvault certificate import -->
 
 Imports an existing certificate (PFX or PEM with private key) into an Azure Key Vault without generating
 a new certificate or key material. If the certificate is a password-protected PFX, provide a password.
@@ -190,11 +242,17 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
 | **Vault** |  Required | The name of the Key Vault. |
-| **Certificate** | Required | The name of the certificate as it appears in Key Vault. |
+| **Certificate name** | Required | The name of the certificate as it appears in Key Vault. |
 | **Certificate data or path** | Required | Either the path to a PFX or PEM file, a base64 encoded PFX, or raw PEM text beginning with `-----BEGIN`. |
 | **Password** |  Optional | Password for a protected PFX being imported. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault certificate import](../includes/tools/annotations/azure-key-vault-certificate-import-annotations.md)]
+
 ## Certificates: List certificates
+
+<!-- keyvault certificate list -->
 
 The Azure MCP Server lists all certificates in an Azure Key Vault. This operation helps you manage your certificates and track expiration dates.
 
@@ -209,6 +267,10 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [keyvault certificate list](../includes/tools/annotations/azure-key-vault-certificate-list-annotations.md)]
 
 ## Related content
 

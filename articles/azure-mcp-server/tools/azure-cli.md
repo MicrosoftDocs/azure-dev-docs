@@ -4,7 +4,7 @@ description: Learn how to use Azure CLI tools with the Azure MCP Server to gener
 keywords: azure mcp server, azmcp, azure cli extension
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -22,6 +22,8 @@ The Azure MCP Server provides comprehensive support for Azure CLI operations, in
 
 ## Generate Azure CLI commands
 
+<!-- extension cli generate -->
+
 The Azure MCP Server generates Azure CLI commands to accomplish specific goals. 
 
 **Example prompts** include:
@@ -34,7 +36,13 @@ The Azure MCP Server generates Azure CLI commands to accomplish specific goals.
 | **Intent** | Required | The user intent of the task to be solved by using the CLI tool. This user intent is used to generate the appropriate CLI command to accomplish the desirable goal. |
 | **Cli type** | Required | The type of CLI tool to use. Supported values are `az` for Azure CLI. |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [extension cli generate](../includes/tools/annotations/azure-extension-cli-generate-annotations.md)]
+
 ## Get CLI installation instructions
+
+<!-- extension cli install -->
 
 The Azure MCP Server provides installation instructions for CLI tools including Azure CLI (`az`), Azure Developer CLI (`azd`), and Azure Functions Core Tools CLI (`func`). It incorporates knowledge of the CLI tool beyond what the LLM knows. Use this tool to get installation instructions if you attempt to use the CLI tool but it's not installed.
 
@@ -47,6 +55,10 @@ The Azure MCP Server provides installation instructions for CLI tools including 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **CLI type** | Required | The type of CLI tool to use. Supported values are `az` for Azure CLI, `azd` for Azure Developer CLI, and `func` for Azure Functions Core Tools CLI. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [extension cli install](../includes/tools/annotations/azure-extension-cli-install-annotations.md)]
 
 ## Related content
 

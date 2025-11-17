@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Marketplace to dis
 keywords: azure mcp server, azmcp, marketplace, products, offers, solutions
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 author: diberry
 ms.author: diberry
 content_well_notification: 
@@ -22,9 +22,7 @@ The Azure MCP Server lets you manage Azure resources, including Azure Marketplac
 
 ## Get Marketplace product information
 
-<!--
-azmcp marketplace productget --product-id --include-stop-sold-plans --language --market --lookup-offer-in-tenant-level --plan-id --sku-id --include-service-instruction-templates --partner-tenant-id --pricing-audience
--->
+<!-- marketplace product get -->
 
 Get detailed information about a specific product or offer from Azure Marketplace. This operation helps you get comprehensive details about marketplace solutions, including pricing, plans, and availability information for evaluation and procurement decisions.
 
@@ -45,7 +43,13 @@ Example prompts include:
 | **Include service instruction templates** | Optional | Whether to include service instruction templates in the response for deployment guidance. |
 | **Pricing audience** | Optional | The target audience for pricing information (for example, `public`, `private`, `government`). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [marketplace product get](../includes/tools/annotations/azure-marketplace-product-get-annotations.md)]
+
 ## List Marketplace information
+
+<!-- marketplace product list -->
 
 Gets and lists all marketplace products (offers) available to a subscription in the Azure Marketplace. Use this tool to search, select, browse, or filter marketplace offers by product name, publisher, pricing, or metadata. Returns information for each product, including display name, publisher details, category, pricing data, and available plans.
 
@@ -65,6 +69,9 @@ Example prompts include:
 | **Next cursor** |  Optional | Pagination cursor to retrieve the next page of results. Use the NextPageLink value from a previous response. |
 | **Expand** |  Optional | OData expand expression to include related data in the response (for example, `plans` to include plan details). |
 
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [marketplace product list](../includes/tools/annotations/azure-marketplace-product-list-annotations.md)]
 
 ## Related content
 

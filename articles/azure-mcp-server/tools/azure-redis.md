@@ -4,7 +4,7 @@ description: Learn how to manage Azure Redis instances using the Azure MCP Serve
 keywords: azure mcp server, azmcp, managed redis, cache for redis, redis cache, redis cluster, redis enterprise
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/14/2025
 ms.topic: reference
 ms.service: azure
 ai-usage: ai-assisted
@@ -23,7 +23,7 @@ The Azure Redis tools support both [Azure Managed Redis](/azure/redis/overview) 
 
 ## List Redis resources
 
-<!-- `azmcp redis list` -->
+<!-- redis list -->
 
 Lists all Redis resources in a subscription. Returns details of all Azure Managed Redis, Azure Cache for Redis, and Azure Redis Enterprise resources. Use this command to explore and view which Redis resources are available in your subscription.
 
@@ -34,6 +34,10 @@ Example prompts include:
 - `Show me the Redis resources in my subscription`
 - `Get Redis clusters`
 - `What Redis caches do I have?`
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [redis list](../includes/tools/annotations/azure-managed-redis-list-annotations.md)]
 
 ## Related content
 

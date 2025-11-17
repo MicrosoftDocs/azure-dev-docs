@@ -23,7 +23,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 |------|------|--------------|
 | [Azure AI Foundry](../../tools/azure-foundry.md) | `foundry` | Work with Azure AI Foundry models, deployments, and endpoints. |
 | [Azure AI Search](../../tools/azure-ai-search.md) | `search` | Manage Azure AI Search resources, including search services, indexes, and queries. |
-| [Azure AI Speech](../../tools/ai-services-speech.md) | `speech` | Manage Azure AI Speech resources such as speech-to-text services. |
+| [Azure AI Speech](../../tools/ai-services-speech.md) | `speech` | Manage Azure AI Speech resources such as speech-to-text and text-to-speech services. |
 
 ### Analytics
 
@@ -126,7 +126,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Resource Groups](../../tools/resource-group.md) | `group` | List Azure resource groups. |
 | [Subscription](../../tools/subscription.md) | `subscription` | List Azure subscriptions. |
 
-## Messaging
+### Messaging
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|

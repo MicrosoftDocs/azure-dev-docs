@@ -1,7 +1,7 @@
 ---
 title: Additional methods to authenticate to Azure resources from Python apps
 description: This article describes additional, less common methods you can use to authenticate your Python app to Azure resources. 
-ms.date: 03/25/2025
+ms.date: 11/11/2025
 ms.topic: how-to
 ms.custom: devx-track-python, passwordless-python
 ---
@@ -14,7 +14,7 @@ This article lists additional methods that apps can use to authenticate to Azure
 
 This method interactively authenticates an application through [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) by collecting user credentials in the default system.
 
-Interactive browser authentication enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. For this reason, the use of interactive browser authentication is discouraged for anything but experimentation.
+Interactive browser authentication enables the application for all operations allowed by the interactive sign-in credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. For this reason, the use of interactive browser authentication is discouraged for anything but experimentation.
 
 ### Enable applications for interactive browser authentication
 
@@ -24,7 +24,7 @@ Perform the following steps to enable the application to authenticate through th
 1. Select the registration for your app, then select **Authentication**.
 1. Under **Advanced settings**, select **Yes** for **Allow public client flows**.
 1. Select **Save** to apply the changes.
-1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is usually enabled by default.
+1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is enabled by default.
 
     > [!IMPORTANT]
     > You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
@@ -41,13 +41,13 @@ For more exact control, such as setting redirect URIs, you can supply specific a
 
 ## Interactive brokered authentication
 
-This method interactively authenticates an application through [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) by collecting user credentials using the system authentication broker. This credential type is provided in the Azure Identity Broker plugin, [azure-identity-broker](https://pypi.org/project/azure-identity-broker/).
+This method interactively authenticates an application through [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) by collecting user credentials using the system authentication broker. This credential type is provided in the Azure Identity Broker plugin, [`azure-identity-broker`](https://pypi.org/project/azure-identity-broker/).
 
 A system authentication broker is an app running on a user’s machine that manages the authentication handshakes and token maintenance for all connected accounts. Currently, only the Windows authentication broker, Web Account Manager (WAM), is supported. Users on macOS and Linux will be authenticated through a browser.
 
 Personal Microsoft accounts and work or school accounts are supported. If a supported version of Windows is used, the default browser-based UI is replaced with a smoother authentication experience, similar to Windows built-in apps.
 
-Interactive brokered authentication enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions.
+Interactive brokered authentication enables the application for all operations allowed by the interactive sign-in credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions.
 
 ### Enable applications for interactive brokered authentication
 
@@ -72,7 +72,7 @@ Perform the following steps to enable the application to authenticate through th
 
 1. Back on the **Authentication** pane, under **Advanced settings**, select **Yes** for **Allow public client flows**.
 1. Select **Save** to apply the changes.
-1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is usually enabled by default.
+1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is enabled by default.
 
     > [!IMPORTANT]
     > You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
@@ -102,7 +102,7 @@ for container in client.list_containers():
 
 For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
 
-For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API permissions set for **user_impersonation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
+For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like **Storage Account Data Contributor**. If an app is specified, it must have API permissions set for **user_impersonation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
 
 The following screenshot shows the user sign-in experience:
 
@@ -147,4 +147,4 @@ This method interactively authenticates a user on devices with limited UI (typic
 
 For more information, see [Microsoft identity platform and the OAuth 2.0 device authorization grant flow](/azure/active-directory/develop/v2-oauth2-device-code).
 
-Device code authentication in a development environment enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. However, you can use this method with a specific client ID, rather than the default, for which you can assign specific permissions.
+Device code authentication in a development environment enables the application for all operations allowed by the interactive sign-in credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. However, you can use this method with a specific client ID, rather than the default, for which you can assign specific permissions.
