@@ -1,113 +1,55 @@
 ---
 title: Use Azure Core types in Rust applications  
-description: Learn how to use Azure Core types for HTTP clients, async runtimes, and type conventions in Azure SDK for Rust applications. Customize behavior and implement your own clients.
-ms.date: 10/27/2025
+description: Learn how to use Azure Core types for HTTP clients, long-running operations, custom policies, and paginated results in Azure SDK for Rust applications. Customize behavior and implement your own clients.
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-rust
 ms.custom: devx-track-rust
-ai-usage: ai-generated
+ai-usage: ai-assisted
 ---
 
 # Use Azure Core types in Rust applications
 
-The `azure_core` crate provides fundamental types, traits, and abstractions that form the foundation of all Azure SDK for Rust crates. Understanding these types helps you customize HTTP clients, async runtimes, and work with Azure service responses effectively. This article explains how to use Azure Core types for advanced scenarios in your Rust applications.
+The `azure_core` crate provides fundamental types, traits, and abstractions that form the foundation of all Azure SDK for Rust crates. This article demonstrates how to implement custom HTTP clients, create custom policies for request/response processing, and access detailed error information from Azure services.
 
 [Crates] | [API reference documentation] | [Source code]
-
-## Prerequisites
-
-- Rust 1.85 or later
-- Basic understanding of Rust async programming
-- Familiarity with HTTP concepts
-- [Azure SDK for Rust crates installed](./installation.md)
-
-## Key Azure Core types
-
-The `azure_core` crate provides several important types that you'll encounter when working with Azure services:
-
-### Response types
-
-- **`Response<T>`**: Wraps service responses with HTTP details
-- **`Result<T>`**: Standard Rust result type for error handling
-- **`Pager<T>`**: Handles paginated responses from Azure services
-- **`Poller<T>`**: Manages long-running operations
-
-### Client configuration
-
-- **`ClientOptions`**: Configures service clients
-- **`Transport`**: Abstracts HTTP client implementation
-- **`HttpClient`**: Trait for custom HTTP client implementations
-
-### Error handling
-
-- **`Error`**: Unified error type across Azure services
-- **`ErrorKind`**: Categorizes different error types
 
 ## HTTP requests
 
 This section covers how to customize HTTP client behavior and implement custom HTTP clients for Azure SDK operations.
 
-### Customize reqwest behavior
-
-Instead of implementing a completely new HTTP client, you can customize the default `reqwest::Client`. This approach is simpler and allows you to leverage reqwest's features while adjusting specific behaviors like timeouts, compression, or connection pooling. This is particularly useful when you need to tune performance or work around specific network constraints:
-
-:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" :::
-
 ### Implement a custom HTTP client
 
-You can replace the default HTTP client (reqwest) with your own implementation by implementing the `HttpClient` trait. This is useful when you need specific HTTP client features, want to avoid tokio dependencies, or need to integrate with existing HTTP infrastructure. This example shows how to use the `ureq` HTTP client, which is a synchronous client that can be useful in embedded or resource-constrained environments:
+You can replace the default HTTP client (reqwest) with your own implementation by implementing the `HttpClient` trait. This is useful when you need specific HTTP client features, want to avoid tokio dependencies, or need to integrate with existing HTTP infrastructure. This example shows how to use the `ureq` HTTP client, which is a synchronous client that can be useful in embedded or resource-constrained environments.
 
-TBD
+First, implement the `HttpClient` trait for your custom client:
 
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" range="16-47" :::
 
+Then, configure the client with your custom HTTP implementation:
 
-## Async operations
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_ureq_client.rs" range="49-73" :::
 
-This section covers how to customize the async runtime and handle asynchronous operations in Azure SDK for Rust applications.
+### Implement custom HTTP policies
 
-### Replace the async runtime
+You can customize request and response processing by implementing the `Policy` trait. Policies let you modify requests before they're sent or inspect responses before they're returned. This example shows how to create a policy that removes the request's User-Agent header:
 
-You can replace the default `tokio` runtime with a custom implementation. This is useful when your application uses a different async runtime like `async-std`, or when you need to customize task scheduling behavior for specific performance requirements. The Azure SDK abstracts runtime operations through the `AsyncRuntime` trait:
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="18-38":::
 
-TBD
+Add your custom policy to the client options object:
 
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="44-49":::
 
-## Custom types and models
+Then construct the client:
 
-This section covers type conventions, custom model implementations, and response handling patterns in Azure SDK for Rust.
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_remove_user_agent.rs" range="58-62":::
 
-### Understand type conventions
+## Service error details
 
-Azure SDK for Rust crates follow consistent naming conventions for types. These conventions help you understand what each type does and how to use it effectively. Understanding these patterns makes it easier to work with any Azure service:
+You can access detailed errors returned by the Azure service. The following example demonstrates deserializing a standard Azure error response to get more details such as the `error_code` and error details.
 
-#### Header types
+:::code language="rust" source="~/../azure-sdk-for-rust-permalink/sdk/core/azure_core/examples/core_error_response.rs" range="19-75" :::
 
-Types that end with `Headers` contain HTTP header properties. These types provide access to HTTP response headers returned by Azure services, which often contain important metadata about the operation:
-
-TBD
-
-#### Request types
-
-Types that end with `Request` represent operation parameters. These types bundle all the inputs needed for a specific Azure service operation, providing type safety and clear documentation of what data is required:
-TBD
-
-### Bring Your Own Model (BYOM)
-
-You can define custom types that work with Azure Core paging and other abstractions. This is particularly useful when you need to transform Azure service responses into domain-specific models or when working with custom APIs that follow Azure patterns:
-
-TBD
-
-### Handle responses with type safety
-
-Use `Response<T>` to access both the deserialized response and HTTP details. This type provides maximum flexibility by giving you access to both the parsed response data and the raw HTTP information, which is essential for debugging and advanced scenarios:
-
-TBD
-
-### Configure client options globally
-
-Use `ClientOptions` to configure behavior across all Azure service clients. This approach ensures consistent behavior across your entire application and makes it easy to adjust settings like retry policies and timeouts in one place:
-
-TBD
 
 ## Next steps
 
