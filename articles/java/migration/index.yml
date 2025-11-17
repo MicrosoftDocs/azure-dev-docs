@@ -34,7 +34,7 @@ landingContent:
         links:
           - text: Predefined tasks
             url: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
-          - text: Working with Assessment
+          - text: Working with assessment
             url: migrate-github-copilot-app-modernization-for-java-working-with-assessment.md
       - linkListType: quickstart
         links:

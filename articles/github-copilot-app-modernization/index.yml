@@ -48,7 +48,7 @@ landingContent:
         links:
           - text: Predefined tasks
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-predefined-tasks.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-          - text: Working with Assessment
+          - text: Working with assessment
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
       - linkListType: quickstart
         links:

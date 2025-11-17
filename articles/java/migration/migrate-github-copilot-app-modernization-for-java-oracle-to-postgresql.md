@@ -45,4 +45,4 @@ Step-by-Step guidance as below:
 
 1. Execute Migration Task: Next, select **Run Task** to execute the migration. If coding notes have been properly placed, app modernization references these notes to produce a higher quality SQL conversion as well as the database client update (use Managed Identity authentication). Otherwise, the conversion applies general Oracle-to-PostgreSQL syntax adjustments to propose changes.
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/oracle-postgresql-coding-notes.jpg" lightbox="./media/migrate-github-copilot-app-modernization-for-java/oracle-postgresql-coding-notes.jpg" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization task execution for Oracle to PostgreSQL.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/oracle-postgresql-coding-notes.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/oracle-postgresql-coding-notes.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization task execution for Oracle to PostgreSQL.":::

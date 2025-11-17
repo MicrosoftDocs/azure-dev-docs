@@ -15,7 +15,7 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-faq.yml
         - name: Predefined tasks
           href: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
-        - name: "Working with Assessment"
+        - name: Working with assessment
           href: migrate-github-copilot-app-modernization-for-java-working-with-assessment.md
         - name: "Quickstart: Assess and migrate a Java project"
           href: migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md
