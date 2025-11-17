@@ -1,6 +1,6 @@
 ---
-title: Generate Terraform on Azure configurations using Copilot
-description: Learn how to generate Terraform on Azure configurations using Copilot
+title: Generate Terraform on Azure configurations using Azure Copilot
+description: Learn how to generate Terraform on Azure configurations using Azure Copilot
 ms.date: 07/08/2025
 ms.topic: quickstart
 ms.author: jingweiwang
@@ -9,11 +9,11 @@ ms.collection: ce-skilling-ai-copilot
 #customer intent: As a Terraform user, I want to learn how to generate Terraform configurations using Azure Copilot.
 ---
 
-# Generate Terraform on Azure configurations using Copilot
+# Generate Terraform on Azure configurations using Azure Copilot
 
-Copilot can help you generate Terraform configurations that define your Azure infrastructure. Describe the infrastructure you want to deploy, and Copilot generates a Terraform configuration using the AzureRM provider. The configuration automatically includes both the main resources and any required dependencies to ensure the configuration is deployable. You can define the output by iteratively making subsequent prompts.
+Azure Copilot can help you generate Terraform configurations that define your Azure infrastructure. Describe the infrastructure you want to deploy, and Copilot generates a Terraform configuration using the AzureRM provider. The configuration automatically includes both the main resources and any required dependencies to ensure the configuration is deployable. You can define the output by iteratively making subsequent prompts.
 
-In this article, you learn how to use [Copilot in Azure](/azure/copilot/overview) from the Azure portal and [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) in Visual Studio Code. We also provide sample Terraform prompts for you to use as-is or edit as desired.
+In this article, you learn how to use [Azure Copilot](/azure/copilot/overview) in the Azure portal and [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) in Visual Studio Code. We also provide sample Terraform prompts for you to use as-is or edit as desired.
 
 > [!TIP]
 > For best results, keep your prompt to fewer than eight primary Terraform resource types. Copilot performs well with common configurations. Complex or large-scale architectures may produce incomplete or less accurate results.
@@ -21,7 +21,7 @@ In this article, you learn how to use [Copilot in Azure](/azure/copilot/overview
 > [!NOTE]
 > Copilot currently supports AzureRM provider resources extensively. Support for the AzAPI provider is evolving and may not be fully available yet. If the required resource type isn't supported, Copilot either falls back to a sample structure or explains the limitations.
 
-## Use Copilot in Azure from the Azure portal
+## Use Azure Copilot in the Azure portal
 
 1. Open the [Azure portal](https://ms.portal.azure.com).
 
@@ -40,7 +40,7 @@ In this article, you learn how to use [Copilot in Azure](/azure/copilot/overview
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-prompt.png" border="true" alt-text="Screenshot of an example Azure Copilot prompt.":::
 
-1. Once Copilot in Azure responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
+1. Once Azure Copilot responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
 
     :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" border="true" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal.":::
 
@@ -125,7 +125,7 @@ set the deployment name to "myOpenAIModel".
 ```
 
 > [!TIP]
-> For more example prompts, see [Generate Terraform and Bicep configurations using Microsoft Copilot in Azure](/azure/copilot/generate-terraform-bicep#terraform-sample-prompts).
+> For more example prompts, see [Generate Terraform and Bicep configurations using Azure Copilot](/azure/copilot/generate-terraform-bicep#terraform-sample-prompts).
 
 ## Next steps
 
