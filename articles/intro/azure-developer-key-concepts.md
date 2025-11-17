@@ -69,7 +69,7 @@ Whether you're publishing apps to Azure with continuous integration or provision
 - [Jenkins](../jenkins/index.yml)
 - [Terraform](../terraform/index.yml)
 - [Ansible](../ansible/index.yml)
-- [Chef](https://docs.chef.io/azure_portal)
+- [Chef](https://docs.chef.io)
 
 
 > [!div class="nextstepaction"]
