@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 11/14/2025
+ms.date: 11/17/2025
 ---
 
 # Azure Cloud Architect design tools for the Azure MCP Server

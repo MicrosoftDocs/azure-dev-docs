@@ -4,7 +4,7 @@ description: "Use Azure MCP Server with Application Insights to list resources a
 keywords: azure mcp server, azmcp, application insights, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 11/14/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

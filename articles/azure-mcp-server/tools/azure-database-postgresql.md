@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server to manage Azure Database for 
 keywords: azure mcp server, azmcp, postgresql, database
 author: diberry
 ms.author: diberry
-ms.date: 11/14/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

@@ -4,7 +4,7 @@ description: Learn how to use Azure MCP Server tools to manage Azure AI Search r
 keywords: azure mcp server, azmcp, ai search, cognitive search, azure search, rag
 author: diberry
 ms.author: diberry
-ms.date: 11/14/2025
+ms.date: 11/17/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
