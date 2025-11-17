@@ -1,5 +1,5 @@
 ---
-title: Use Azure Core types in Rust applications  
+title: Use azure-core crate for advanced scenarios in Rust
 description: Learn how to use Azure Core types in Rust applications to customize HTTP clients, policies, and error handling. Discover how to implement your own clients and optimize Azure SDK usage.
 ms.date: 11/17/2025
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.custom: devx-track-rust
 ai-usage: ai-assisted
 ---
 
-# Use Azure Core types in Rust applications
+# Use the `azure-core` crate for advanced scenarios in Rust applications
 
 The `azure_core` crate provides fundamental types, traits, and abstractions that form the foundation of all Azure SDK for Rust crates. This article demonstrates how to implement custom HTTP clients, create custom policies for request/response processing, and access detailed error information from Azure services.
 
