@@ -59,7 +59,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-sdk-for-rust-5c7ded236f81f87b568557312ce7bbd17dbd549c",
+      "path_to_root": "azure-sdk-for-rust-permalink",
       "url": "https://github.com/Azure/azure-sdk-for-rust",
       "branch": "5c7ded236f81f87b568557312ce7bbd17dbd549c",
       "branch_mapping": {}
