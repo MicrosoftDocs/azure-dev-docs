@@ -4,7 +4,7 @@ description: This article describes the purpose and capabilities of the GitHub C
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 10/22/2025
+ms.date: 11/17/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
