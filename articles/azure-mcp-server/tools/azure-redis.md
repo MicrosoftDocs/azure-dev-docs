@@ -1,6 +1,6 @@
 ---
 title: Azure Redis Tools for Azure MCP Server
-description: Learn how to create and list Azure Redis instances using the Azure MCP Server with natural language prompts. Discover tools for creating Redis resources and listing Redis caches.
+description: Learn how to manage Azure Redis instances using the Azure MCP Server with natural language prompts. Discover tools for creating and listing Redis resources.
 keywords: azure mcp server, azmcp, managed redis, cache for redis, redis cache, redis cluster, redis enterprise
 author: diberry
 ms.author: diberry
@@ -13,7 +13,7 @@ ms.custom: build-2025
 
 # Azure Redis tools for Azure MCP Server
 
-The Azure MCP Server lets you create and list Azure Redis instances using natural language prompts. You can create new Redis resources and list existing Redis resources without remembering complex syntax or commands.
+The Azure MCP Server lets you manage Azure Redis instances using natural language prompts. You can create new Redis resources and list existing Redis resources without remembering complex syntax or commands.
 
 [Azure Redis](/azure/redis) provides an in-memory data store based on the Redis software. Redis improves the performance and scalability of applications that use backend data stores heavily. Redis processes large volumes of application requests by keeping frequently accessed data in server memory, which you can write to and read from quickly.
 
@@ -29,7 +29,7 @@ Create a new Azure Managed Redis resource in Azure. Use this command to provisio
 
 Example prompts include:
 
-- **Create basic Redis cache**: "Create a Redis resource named 'my-cache' in location 'eastus'"
+- **Create Redis cache**: "Create a Redis resource named 'my-cache' in location 'eastus'"
 - **Create Redis with SKU**: "Create a Redis resource named 'production-redis' in location 'westus2' with SKU 'Balanced_B1'"
 - **Create Redis with modules**: "Create a Redis resource named 'app-cache' in location 'centralus' with modules RedisJSON and RedisBloom"
 
