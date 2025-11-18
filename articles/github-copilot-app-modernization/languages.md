@@ -7,19 +7,21 @@ ms.date: 11/18/2025
 
 # Languages and frameworks supported by GitHub Copilot app modernization
 
-GitHub Copilot app modernization currently supports the following scenarios for languages and frameworks.
+This article describes the languages and frameworks supported by GitHub Copilot app modernization.
 
 ## Java
 
-### Upgrading Java version
+The following sections describe the Java support.
+
+### Upgrade the Java version
 
 GitHub Copilot app modernization can help you [upgrade the Java version](/java/upgrade/quickstart-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your application and fix compilation issues and common vulnerabilities. You can [customize the upgrade plan](/java/upgrade/customize-upgrade-plan?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) to consider additional goals or guidelines during the Java version upgrade.
 
-### Upgrading Java framework version
+### Upgrade the Java framework version
 
 GitHub Copilot app modernization can help you [upgrade the framework version](/java/upgrade/framework-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your Java application, whether it's Spring, Spring Boot, or Java EE/Jakarta EE. The tool makes sure the JDK version is also upgraded to be compatible with the framework version, and verifies the changes with build fixes and CVE checks.
 
-### Migrating Java apps to Azure
+### Migrate Java apps to Azure
 
 GitHub Copilot app modernization can help you [migrate your Java application to Azure](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) by assessing its cloud readiness and updating the code for dependency services.
 
@@ -29,11 +31,13 @@ For Java EE / Jakarta EE applications, you need to first make sure your applicat
 
 ## .NET
 
-### Upgrading .NET version
+The following sections describe the .NET support.
+
+### Upgrade the .NET version
 
 GitHub Copilot app modernization can help you [upgrade the .NET version](/dotnet/core/porting/how-to-upgrade-with-github-copilot?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) of your application, from an older .NET version or from .NET Framework. You can customize the upgrade plan with your requirements and preferences. Code changes are validated with compilation and CVE fixes.
 
-### Migrating .NET apps to Azure
+### Migrate .NET apps to Azure
 
 GitHub Copilot app modernization can help you [migrate your .NET application to Azure](/dotnet/azure/migration/appmod/quickstart?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) by assessing its cloud readiness and updating the code for dependency services.
 
@@ -41,55 +45,60 @@ The tool supports [common scenarios](/dotnet/azure/migration/appmod/predefined-t
 
 ## Python
 
-### Migrating to Microsoft Agent Framework
+The following section describes the Python support.
+
+### Migrate to Microsoft Agent Framework
 
 GitHub Copilot app modernization can help you migrate your Python application from Semantic Kernel or AutoGen to Microsoft Agent Framework.
 
 To migrate to Microsoft Agent Framework:
 
-1. Make sure you install and enable GitHub Copilot app modernization in Visual Studio Code (VS Code). For best results, select Claude Sonnet 4 or later as your model.
+1. Make sure you install and enable GitHub Copilot app modernization in Visual Studio Code. For best results, select Claude Sonnet 4 or later as your model.
 
-1. Open your Python project that uses Semantic Kernel or AutoGen in VS Code.
+1. Open your Python project that uses Semantic Kernel or AutoGen in Visual Studio Code.
 
 1. Select the app modernization extension to open the sidebar.
 
 1. Start the migration process by using one of these methods:
+
    - Select the **Convert to Agent Framework** button when detected automatically.
    - Manually navigate to **Tasks** > **Python** > **Agent Framework Migration** > **Migrate AutoGen to Agent Framework** or **Migrate Semantic Kernel to Agent Framework**.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot that shows the entry points for converting to Agent Framework button in VS Code.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-quickstart.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization pane with the Convert to Agent Framework button highlighted.":::
 
    > [!TIP]
    > If you have a hybrid project with both Java and Python, use the manual navigation method through the **Tasks** list to select the Python migration option.
 
 1. The extension starts the migration process in the Copilot Agent chat window.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot that shows the chat window with the migration task being invoked through the appmod-run-task tool.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-run-task.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization chat pane with the migration task being invoked through the appmod-run-task tool.":::
 
-1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment (if not already set up) and installs project dependencies, then runs Python-specific validation steps:
+1. To complete the migration, follow the guidance in the chat window. After code migration, the workflow sets up a Python virtual environment if it isn't already set up, installs project dependencies, then runs the following Python-specific validation steps:
 
-   - **Check Python Syntax Issues**: Resolve Python syntax and import issues.
-   - **Check Python Lint Issues**: Install linters (if not already installed) and resolve lint issues per project configuration.
-   - **Run Python Tests**: Install test runners (if not already installed) and run tests to verify the migration quality.
+   - **Checks Python syntax issues**: Resolves Python syntax and import issues.
+   - **Checks Python lint issues**: Installs linters if they aren't already installed then resolves lint issues per project configuration.
+   - **Runs Python tests**: Installs test runners if they aren't already installed then runs tests to verify the migration quality.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot that shows the environment setup, syntax checking, and lint checking in the migration workflow.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization pane with the environment setup, syntax checking, and lint checking in the migration workflow.":::
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot that shows the Run Python Tests step in the migration workflow.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-workflow-run-test.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization pane with the Run Python Tests step in the migration workflow.":::
 
 1. Review the migration summary, which includes the files migrated, validation results, and more.
 
-   :::image type="content" source="media/languages/migrate-to-agent-framework-summary.png" alt-text="Screenshot that shows the migration summary with migrated files and validation results.":::
+   :::image type="content" source="media/languages/migrate-to-agent-framework-summary.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization pane with the migration summary including the migrated files and validation results.":::
 
 ## Language-agnostic
+
+The following sections describe the language-agnostic support.
 
 ### Containerization
 
 Regardless of language, GitHub Copilot app modernization can help you containerize your application by creating Dockerfiles and building container images.
 
-For more information, see [the Java example on VS Code](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) or [the .NET example on Visual Studio](/dotnet/azure/migration/appmod/containerization?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json). You can containerize any application with the **Containerization Tasks** options under the **Common Tasks** list in the app modernization extension sidebar in VS Code.
+For more information, see [the Java example on Visual Studio Code](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) or [the .NET example on Visual Studio](/dotnet/azure/migration/appmod/containerization?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json). You can containerize any application with the **Containerization Tasks** options under the **Common Tasks** list in the app modernization extension sidebar in Visual Studio Code.
 
-### Deploying to Azure
+### Deploy to Azure
 
 Regardless of language, GitHub Copilot app modernization can help you deploy your application on existing or new Azure resources.
 
-For more information, see [the Java example on VS Code](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) or [the .NET example on Visual Studio](/dotnet/azure/migration/appmod/deploy?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json). You can deploy any application with the **Deployment Tasks** options under the **Common Tasks** list in the app modernization extension sidebar in VS Code.
+For more information, see [the Java example on Visual Studio Code](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) or [the .NET example on Visual Studio](/dotnet/azure/migration/appmod/deploy?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json). You can deploy any application with the **Deployment Tasks** options under the **Common Tasks** list in the app modernization extension sidebar in Visual Studio Code.

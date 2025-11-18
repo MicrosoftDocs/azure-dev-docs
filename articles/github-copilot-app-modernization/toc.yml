@@ -4,7 +4,7 @@ items:
     items:
       - name: Overview
         href: overview.md
-      - name: "Languages and Frameworks Supported"
+      - name: Languages and frameworks supported
         href: languages.md
       - name: Java
         expanded: true

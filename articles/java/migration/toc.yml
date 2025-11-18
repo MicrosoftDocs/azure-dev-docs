@@ -27,6 +27,8 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md
         - name: "Sample: Asset Manager"
           href: migrate-github-copilot-app-modernization-for-java-sample.md
+        - name: Migrate from Oracle to PostgreSQL
+          href: migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md
     - name: Spring to Azure
       expanded: true
       items:

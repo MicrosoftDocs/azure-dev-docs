@@ -18,6 +18,8 @@ landingContent:
         links:
           - text: GitHub Copilot app modernization overview
             url: overview.md
+          - text: Languages and frameworks supported
+            url: languages.md
           - text: Java overview
             url: ../java/migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - text: Java FAQ

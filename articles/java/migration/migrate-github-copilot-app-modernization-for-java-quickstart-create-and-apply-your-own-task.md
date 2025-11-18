@@ -29,11 +29,11 @@ The following video demonstrates using GitHub Copilot app modernization to creat
 
 ## Create your own task
 
-We now support three ways to add references: text files, external links, and Git commits. You can use one or more methods at a time.
+We now support three ways to add references: Git commits, external links, and text files. You can use one or more methods at a time.
 
-### Using Git commits
+### Use Git commits
 
-Use the following steps to create your own task:
+The following steps provide an example of creating your own task by using Git commits as references:
 
 1. Clone the [Java migration copilot samples](https://github.com/Azure-Samples/java-migration-copilot-samples) repository.
 
@@ -61,7 +61,7 @@ Use the following steps to create your own task:
 
 ### Use external links and text files
 
-Use the following steps to use external links and text files to create your own task:
+The following steps show an example of creating your own task by using external links and text files as references:
 
 1. Open the `task.md` file by following the predefined steps in the GitHub Copilot app modernization extension.
 
@@ -119,22 +119,22 @@ Use the following steps to apply your own task:
 
 1. The Copilot chat window opens in Agent Mode and automatically executes the following steps:
 
-   - Create **plan.md** and **progress.md**
-   - Check the version control status and checkout a new migration branch
-   - Perform code migration
-   - Run validations: Build, Tests, CVE, Consistency, and Completeness
-   - Generate a **summary.md** file
+   - Creates **plan.md** and **progress.md**.
+   - Checks the version control status and checks out a new migration branch.
+   - Performs code migration.
+   - Runs validations: Build, Tests, CVE, Consistency, and Completeness.
+   - Generates a **summary.md** file.
 
 1. If the agent stops while waiting for your confirmation or is interrupted during execution, enter **Continue** to proceed.
 
 1. After all steps finished, review the code changes and then select **Keep** to confirm in chat window.
 
-## Update/Delete your own task
+## Update or delete your own task
 
-Locate the **Custom task migrate rabbitmq** in the **TASKS - My Tasks** section and right-click to open the context menu and choose:
+Locate the **Custom task migrate rabbitmq** in the **TASKS - My Tasks** section and then right-click to open the context menu and choose one of the following options:
 
-- **Edit** to update the task
-- **Delete** to remove the task
+- **Edit** to update the task.
+- **Delete** to remove the task.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/edit-delete.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/edit-delete.png" alt-text="Screenshot of Visual Studio Code that shows edit or delete custom task.":::
 
