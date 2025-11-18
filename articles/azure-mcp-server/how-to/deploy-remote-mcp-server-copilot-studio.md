@@ -11,7 +11,7 @@ ai-usage: ai-generated
 
 # Deploy a remote Azure MCP Server and connect to it using Copilot Studio
 
-Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) over HTTPS as a remote server. This setup lets AI agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) securely call MCP tools to perform Azure operations for you.
+Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) over HTTPS as a remote server. This setup lets AI agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely connect to and call MCP tools using the deployed Azure MCP Server to run Azure operations. This article focuses on the Copilot Studio connection scenario.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-
 
 ## Azure MCP Server template
 
-This article uses the [Azure MCP Server - ACA with Copilot Studio agent](https://github.com/Azure-Samples/azmcp-copilot-studio-aca-mi) `azd` template to deploy the server to Azure Container Apps. The template enables storage tools and a managed identity for secure access to Azure Storage. Azure Developer CLI (`azd`) simplifies provisioning and deploying Azure resources and offers concise commands for key development stages.
+This article uses the [Azure MCP Server - ACA with Copilot Studio agent](https://github.com/Azure-Samples/azmcp-copilot-studio-aca-mi) `azd` template to deploy the server to Azure Container Apps. The template enables storage tools and a managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that simplifies provisioning and deploying Azure resources and offers concise commands (`azd deploy`, `azd provision`) that map to key stages in your development workflow.
 
 ## Deploy the Azure MCP server
 
@@ -49,12 +49,12 @@ Deploy the Azure MCP server to Azure Container Apps:
     - **Subscription**: Select the subscription for the provisioned resources (listed below).
     - **Resource Group**: The resource group in which to create the resources. You can create a new resource group on demand during this step.
 
-    `azd` provisions the following resources and configurations:
+`azd` uses the template files to provision the following resources and configurations:
 
 - **Azure Container App**: Runs the Azure MCP Server and provides the storage namespace.
 - **User-assigned managed identity**: A managed identity with the **Subscription Reader** role assigned to the container app and used by the Azure MCP server to make tool calls.
 - **Entra app registration (Azure MCP Server)**: Provides OAuth 2.0 authentication for clients, like agents, with the `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the AI Foundry resource ID input.
-- **Entra App Registration (Client)**: For Power Apps custom connector to connect to the remote Azure MCP Server.
+- **Entra App Registration (Client)**: For the Power Apps custom connector to connect to the remote Azure MCP Server.
 - **Application Insights**: Provides telemetry and monitoring.
 
 ### Deployment output
@@ -77,7 +77,7 @@ ENTRA_APP_CLIENT_CLIENT_ID="<your-client-app-registration-client-id>"
 ENTRA_APP_SERVER_CLIENT_ID="<your-server-app-registration-client-id>"
 ```
 
-## Calling tools from Copilot Studio agent
+## Call tools from Copilot Studio agent
 
 The Copilot Studio agent connects to MCP servers by using a custom connector.
 
@@ -85,6 +85,7 @@ The Copilot Studio agent connects to MCP servers by using a custom connector.
 
 1. Sign in to [Power Apps](https://make.powerapps.com) and select the environment to host the custom connector.
 1. Create a new custom connector using the **Create from blank** option. To learn more about custom connector configuration, see [create custom connector from scratch](/connectors/custom-connectors/define-blank).
+1. Complete the following sections for each step of the connector creation workflow.
 
 #### General
 
@@ -96,16 +97,19 @@ On the **General** step:
 
 ![Screenshot of the custom connector General tab showing name, description, scheme set to HTTPS, and host field populated with a container app URL.](../media/custom-connector-general.png)
 
+#### Security
+
+Skip the Security step for now and proceed to the **Definition** step.
+
 #### Definition
 
-1. Skip the Security step for now and proceed to the **Definition** step.
 1. Toggle **Swagger editor** to enter the editor view.
 1. In the editor view:
 
     - Expose a POST method at the root path with a custom `x-ms-agentic-protocol: mcp-streamable-1.0` property. This property is required for the custom connector to interact with the API by using the MCP protocol.
 
-    > [!NOTE]
-    > See the [custom connector swagger example](https://github.com/JasonYeMSFT/mcp/blob/0db606283e45c29008e9b7a3777008526caea96e/servers/Azure.Mcp.Server/azd-templates/aca-copilot-studio-managed-identity/custom-connector-swagger-example.yaml) for reference template.
+      > [!NOTE]
+      > See the [custom connector swagger example](https://github.com/JasonYeMSFT/mcp/blob/0db606283e45c29008e9b7a3777008526caea96e/servers/Azure.Mcp.Server/azd-templates/aca-copilot-studio-managed-identity/custom-connector-swagger-example.yaml) for a reference template.
 
 ![Screenshot of Swagger editor with POST root method selected and custom x-ms-agentic-protocol property set to mcp-streamable-1.0 for MCP interaction.](../media/custom-connector-swagger-editor.png)
 
@@ -115,21 +119,22 @@ On the **Security** step:
 
 - Select **OAuth 2.0** as the authentication type.
 - Select **Azure Active Directory** as the identity provider.
-- Set **Client ID** to the client app registration client ID (from `ENTRA_APP_CLIENT_CLIENT_ID`).
+- Set **Client ID** to the `ENTRA_APP_CLIENT_CLIENT_ID` value from the `azd` output.
 - Choose **Use client secret** or **Use managed identity** as the secret option.
   - If you choose a client secret, create a client secret under the client app registration in the Azure portal. Copy the secret value and paste it into the client secret field.
   - If you choose managed identity, proceed with the remaining steps until the custom connector is created.
 - Keep **Authorization URL** as `https://login.microsoftonline.com`.
-- Set **Tenant ID** to the tenant ID of the client app registration (from `AZURE_TENANT_ID`).
-- Set **Resource URL** to the server app registration client ID (from `ENTRA_APP_SERVER_CLIENT_ID`).
+- Set **Tenant ID** to the `AZURE_TENANT_ID` value from the `azd` output.
+- Set **Resource URL** to the `ENTRA_APP_SERVER_CLIENT_ID` value from the `azd` output.
 - Enable **On-behalf-of login**.
 - Set **Scope** to `ENTRA_APP_SERVER_CLIENT_ID/.default`.
 
 ![Screenshot of Security step showing OAuth 2.0 with Azure Active Directory, client ID, secret option, tenant ID, resource URL, scope, and on-behalf-of login enabled.](../media/custom-connector-security.png)
 
-#### Create the connector
-
 1. Select **Create connector** and wait for completion. After creation, the UI shows a redirect URL and, if selected, a managed identity.
+
+### Configure the app registration
+
 1. In the Azure portal, add a redirect URI under the Web platform in the client app registration.
 
     ![Screenshot of Azure portal app registration showing Web platform redirect URI entry being added for the custom connector authentication flow.](../media/client-app-redirect-uri.png)
@@ -139,7 +144,7 @@ On the **Security** step:
     - Copy the `issuer` and `subject` values from the custom connector into the credential fields.
     - Provide a descriptive **Name** and **Description**, then select **Add**.
 
-![Screenshot of federated credential creation form showing issuer and subject values pasted from the custom connector plus name and description fields.](../media/client-app-client-credential.png)
+    ![Screenshot of federated credential creation form showing issuer and subject values pasted from the custom connector plus name and description fields.](../media/client-app-client-credential.png)
 
 #### Test connection
 

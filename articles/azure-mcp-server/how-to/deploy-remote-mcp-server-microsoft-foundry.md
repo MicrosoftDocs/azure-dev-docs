@@ -11,7 +11,7 @@ ai-usage: ai-generated
 
 # Deploy a remote Azure MCP Server and connect to it using Microsoft Foundry
 
-Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote server over HTTPS. Agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely call MCP tools to run Azure operations.
+Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote server over HTTPS. Agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely connect to and call MCP tools using the deployed Azure MCP Server to run Azure operations. This article focuses on the Microsoft Foundry connection scenario.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-
 
 ## Azure MCP Server template
 
-Use the [Azure MCP Server - ACA with Managed Identity](https://github.com/Azure-Samples/azmcp-foundry-aca-mi) `azd` template to deploy Azure MCP Server to Azure Container Apps with storage tools and a managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that simplifies provisioning and deploying Azure resources and offers concise commands for key stages in your development workflow.
+Use the [Azure MCP Server - ACA with Managed Identity](https://github.com/Azure-Samples/azmcp-foundry-aca-mi) `azd` template to deploy Azure MCP Server to Azure Container Apps with storage tools and a managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that simplifies provisioning and deploying Azure resources and offers concise commands (`azd deploy`, `azd provision`) that map to key stages in your development workflow.
 
 ## Deploy the Azure MCP server
 
@@ -49,7 +49,7 @@ Deploy the Azure MCP server to Azure Container Apps:
     - **Project Resource ID**: The Azure resource ID of the Microsoft Foundry project used for agent integration.
     - **Storage Account Resource ID**: The Azure resource ID of the storage account the MCP server accesses.
 
-`azd` provisions and applies the following resources and configurations:
+`azd` uses the template files to provision the following resources and configurations:
 
 - **Azure Container App**: Runs the Azure MCP server and provides the storage namespace.
 - **Microsoft Entra ID role assignments**: Assign roles to the Azure Container Apps managed identity for outbound authentication to the storage account you specify with the storage resource ID:
