@@ -124,6 +124,7 @@
 | Token Cache Persistence Plugin | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/) |
 | TypeSpec HTTP Runtime | npm [0.3.2](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.3.2) |  | GitHub [0.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.2/sdk/core/ts-http-runtime) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/onlineexperimentation/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/onlineexperimentation_1.0.0-beta.1/sdk/onlineexperimentation/onlineexperimentation-rest/) |
+| unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-voicelive/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.1/sdk/ai/ai-voicelive/) |
 | unknown | npm [12.1.1](https://www.npmjs.com/package/@azure/storage-common/v/12.1.1) | [docs](/javascript/api/overview/azure/storage-common-readme) | GitHub [12.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.1.1/sdk/storage/storage-common/) |
 | VS Code Authentication Plugin | npm [2.1.0](https://www.npmjs.com/package/@azure/identity-vscode/v/2.1.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.1.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.2.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.2.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.2.0/sdk/web-pubsub/web-pubsub/) |
@@ -599,7 +600,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.14.9](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.14.9) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.15.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.15.1) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
