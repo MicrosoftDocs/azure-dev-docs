@@ -25,8 +25,8 @@ In this article, you learn to use the Azure Developer CLI (`azd`) AI agent exten
 
 ## Prerequisites
 
-- The [Azure Developer CLI (`azd`) installed](/azure/developer/azure-developer-cli/install-azd) (version 1.21.0 or later).
-    - The `azd ai agent` extension is built-in.
+- The [Azure Developer CLI (`azd`) installed](/azure/developer/azure-developer-cli/install-azd) (version 1.21.3 or later) and authenticated `azd auth login`.
+    - The `azd ai agent` extension installed (`azd extension install azure.ai.agents`). If you don't have the extension installed, when you initialize the starter template or run `azd ai agent` the extension is installed automatically.
 - An [Azure subscription](https://azure.com/free) with permission to create resource groups and Microsoft Foundry resources.
 - The [Azure CLI installed](/cli/azure/install-azure-cli) for required operations.
 
@@ -91,7 +91,6 @@ Open `azure.yaml` to see how the agent project is set up:
 requiredVersions:
     extensions:
         azure.ai.agents: latest
-        azure.ai.agents: latest
 services:
     CalculatorAgent:
         project: src/CalculatorAgent
@@ -144,7 +143,7 @@ The `azd up` command orchestrates the deployment workflow, from infrastructure t
 - **Build and push the container**: If the agent has custom code, `azd` packages it into a container image and pushes it to the Azure Container Registry.
 - **Publish the agent**: Create an Agent Application in Microsoft Foundry and deploy the agent as a live, callable service.
 
-When `azd up` finishes, the output shows the Microsoft Foundry project endpoint, resource group and project names, and agent application details.
+When `azd up` finishes, the output shows the Microsoft Foundry project endpoint, resource group and project names, and agent application details. The output also provides a direct link to the agent playground in the Microsoft Foundry portal.
 
 > [!NOTE]
 > For a new project, the provisioning and deployment process typically takes several minutes to complete.
