@@ -43,6 +43,7 @@ New articles to help you get started using Azure MCP Server tools:
 - [Cline](../azure-mcp-server/get-started/tools/cline.md)
 - [IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
 - [Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
+- [Connect GitHub Copilot coding agent to the Azure MCP Server](../azure-mcp-server/how-to/github-copilot-coding-agent.md)
 
 Update articles to help you get started using Azure MCP server tools: 
 
