@@ -9,7 +9,7 @@ ms.topic: how-to
 ai-usage: ai-generated
 ---
 
-## Deploy a remote Azure MCP Server and connect to it using Copilot Studio
+## Deploy a remote Azure MCP Server and connect to it using Azure AI Foundry
 
 Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a remote MCP server over HTTPS. This setup lets AI agents in [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) securely invoke MCP tool calls to perform Azure operations for you.
 
@@ -23,23 +23,19 @@ Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-
 
 ## Azure MCP Server template
 
-Use the [Azure Developer CLI template](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity) to deploy the server to Azure Container Apps with storage tools enabled and managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that speeds up setting up and deploying app resources on Azure. `azd` offers concise commands that align with key stages in your development workflow.
+This article uses the [Azure MCP Server - ACA with Managed Identity](https://github.com/Azure-Samples/azmcp-foundry-aca-mi) `azd` template to deploy the server to Azure Container Apps with storage tools enabled and managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that speeds up setting up and deploying app resources on Azure. `azd` offers concise commands that align with key stages in your development workflow.
 
 ## Deploy the Azure MCP server
 
 Deploy the Azure MCP server to Azure Container Apps:
 
-1. Clone the [Microsoft MCP](https://github.com/microsoft/mcp) repository from GitHub.
+1. Clone and initialize the `azmcp-copilot-studio-aca-mi` template using the `azd init` command:
 
     ```bash
-    git clone https://github.com/microsoft/mcp
+    azd init -t azmcp-foundry-aca-mi
     ```
 
-1. Go to the directory that contains the `azd` template.
-
-    ```bash
-    cd "mcp/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity/"
-    ```
+    When prompted, provide an environment name for the template.
 
 1. Run the template with the `azd up` command.
 
@@ -49,10 +45,11 @@ Deploy the Azure MCP server to Azure Container Apps:
 
     `azd` prompts you for the following:
 
-    - **Storage Account Resource ID** - The Azure resource ID of the storage account the MCP server accesses.
-    - **AI Foundry Project Resource ID** - The Azure resource ID of the AI Foundry project used for agent integration.
+    - **Subscription**: Select the subscription to provision resources to (created resources are listed below).
+    - **AI Foundry Project Resource ID**: The Azure resource ID of the AI Foundry project used for agent integration.
+    - **Storage Account Resource ID**: The Azure resource ID of the storage account the MCP server accesses.
 
-    `azd` provisions and applies the following resources and configurations:
+`azd` provisions and applies the following resources and configurations:
 
 - **Azure Container App** - Runs Azure MCP server and provides the storage namespace.
 - **Microsoft Entra ID role assignments** - Grant the Azure Container App managed identity roles for outbound authentication to the storage account specified by the storage resource ID input:
@@ -63,30 +60,47 @@ Deploy the Azure MCP server to Azure Container Apps:
 
 ### Deployment output
 
-After deployment finishes, retrieve `azd` environment variables with the `azd env get-values` command:
+1. After deployment finishes, retrieve the environment variables for the `azd` project using the `azd env get-values` command:
 
-```bash
-azd env get-values
-```
+    ```bash
+    azd env get-values
+    ```
 
-Example output:
+    Example output:
 
-```text
-CONTAINER_APP_URL="https://azure-mcp-storage-server.wonderfulazmcp-a9561afd.eastus2.azurecontainerapps.io"
-ENTRA_APP_CLIENT_ID="c3248eaf-3bdd-4ca7-9483-4fcf213e4d4d"
-ENTRA_APP_IDENTIFIER_URI="api://c3248eaf-3bdd-4ca7-9483-4fcf213e4d4d"
-ENTRA_APP_OBJECT_ID="a89055df-ccfc-4aef-a7c6-9561bc4c5386"
-ENTRA_APP_ROLE_ID="3e60879b-a1bd-5faf-bb8c-cb55e3bfeeb8"
-ENTRA_APP_SERVICE_PRINCIPAL_ID="31b42369-583b-40b7-a535-ad343f75e463"
-```
+    ```text
+    CONTAINER_APP_URL="https://azure-mcp-storage-server.<your-app-name>.eastus2.azurecontainerapps.io"
+    ENTRA_APP_CLIENT_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ENTRA_APP_IDENTIFIER_URI="api://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ENTRA_APP_OBJECT_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ENTRA_APP_ROLE_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ENTRA_APP_SERVICE_PRINCIPAL_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ```
+
+1. Copy the `CONTAINER_APP_URL` and `ENTRA_APP_CLIENT_ID` values for use in the next section, or leave the terminal open for reference.
 
 ## Use the Azure MCP server from AI Foundry agent
 
-// TODO
+Once deployed, connect your AI Foundry agent to the Azure MCP Server running on Azure Container Apps. The agent authenticates using its managed identity to gain access to the configured Azure Storage tools.
 
-1. Get the Container App URL from the `azd` output and replace `<CONTAINER_APP_URL>` with your value.
-2. Get Entra App Client ID from `azd` output: `ENTRA_APP_CLIENT_ID`
-3. <TODO: Add one liner AI Foundry integration step later (reference to AIF documentation)>
+1. Navigate to your Foundry project: https://aka.ms/nextgen-canary.
+1. Select **Build → Create agent**.
+1. Select the **+ Add** button in the tools section.
+1. Choose the **Custom** tab.
+1. Choose **Model Context Protocol** as the tool and select **Create**.
+
+    :::image type="content" source="../media/azure-create-foundry-agent-mcp-tool.png" alt-text="A screenshot showing how to create an MCP connection.":::
+
+1. Configure the MCP connection
+
+    :::image type="content" source="../media/azure-add-azure-foundry-mcp-connection.png" alt-text="A screenshot showing how to configure an MCP connection.":::
+
+    - Enter the `CONTAINER_APP_URL` value as the **Remote MCP Server** endpoint.
+    - Select **Microsoft Entra → Project Managed Identity** as the **Authentication** method.
+    - Enter your `ENTRA_APP_CLIENT_ID` as the **Audience**.
+    - Click **Connect** to associate this connection to the agent.
+
+The agent is now ready to assist you with tasks. It can answer questions and leverage tools from the Azure MCP Server to perform Azure operations on your behalf.
 
 ## Clean up
 

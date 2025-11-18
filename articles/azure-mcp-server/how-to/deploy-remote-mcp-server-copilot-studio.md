@@ -15,30 +15,27 @@ Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-
 
 ## Prerequisites
 
-- Azure subscription with **Owner** or **User Access Administrator** permissions
-- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd)
+- License to use Power Platform features:
+  - Copilot Studio
+  - Power Apps
+- Azure subscription with **Owner** or **User Access Administrator** permissions.
+- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
 - Identify Azure MCP Server tool areas (namespaces) to enable (see [azmcp-commands.md](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/docs/azmcp-commands.md)). These steps use the `storage` namespace.
 - An [Azure Storage account](/azure/storage/common/storage-account-create).
-- [Microsoft Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry)
+- A [Microsoft Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry).
 
 ## Azure MCP Server template
 
-Use the [Azure Developer CLI template](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity) to deploy the server to Azure Container Apps with storage tools enabled and managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that speeds up setting up and deploying app resources on Azure. `azd` offers concise commands that align with key stages in your development workflow.
+This article uses the [Azure MCP Server - ACA with Copilot Studio agent](https://github.com/Azure-Samples/azmcp-copilot-studio-aca-mi) `azd` template to deploy the server to Azure Container Apps with storage tools enabled and managed identity for secure access to Azure Storage. The Azure Developer CLI (`azd`) is an open source tool that speeds up setting up and deploying app resources on Azure. `azd` offers concise commands that align with key stages in your development workflow.
 
 ## Deploy the Azure MCP server
 
 Deploy the Azure MCP server to Azure Container Apps:
 
-1. Clone the [Microsoft MCP](https://github.com/microsoft/mcp) repository from GitHub.
+1. Clone and initialize the `azmcp-copilot-studio-aca-mi` template using `azd`:
 
     ```bash
-    git clone https://github.com/microsoft/mcp
-    ```
-
-1. Go to the directory that contains the `azd` template.
-
-    ```bash
-    cd "mcp/servers/Azure.Mcp.Server/azd-templates/aca-aifoundry-managed-identity/"
+    azd init -t azmcp-copilot-studio-aca-mi
     ```
 
 1. Run the template with the `azd up` command.
