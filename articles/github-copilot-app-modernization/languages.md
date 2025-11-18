@@ -102,3 +102,7 @@ For more information, see [the Java example on Visual Studio Code](../java/migra
 Regardless of language, GitHub Copilot app modernization can help you deploy your application on existing or new Azure resources.
 
 For more information, see [the Java example on Visual Studio Code](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json) or [the .NET example on Visual Studio](/dotnet/azure/migration/appmod/deploy?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json). You can deploy any application with the **Deployment Tasks** options under the **Common Tasks** list in the app modernization extension sidebar in Visual Studio Code.
+
+## See also
+
+To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml).

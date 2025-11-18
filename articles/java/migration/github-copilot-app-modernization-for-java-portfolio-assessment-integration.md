@@ -49,3 +49,7 @@ To understand the detailed integration flow and best practices, see the followin
 - [Dr. Migrate documentation](https://aka.ms/dr-migrate-doc)
 
 Organizations that use the integration between portfolio assessment tools and GitHub Copilot app modernization can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.
+
+## See also
+
+To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml).
