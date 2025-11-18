@@ -45,7 +45,7 @@ The following steps provide an example of creating your own task by using Git co
 
 1. A `task.md` file opens. In the **Task Name** field, enter **Custom task migrate rabbitmq**. In the **Task Prompt** field, enter **You are a Spring Boot developer assistant, follow the commit to migrate from rabbitmq to servicebus.**
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" alt-text="Screenshot of Visual Studio Code that shows the task.md file with the Task Name and Task Prompt fields highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/type-name-and-prompt.png" alt-text="Screenshot of Visual Studio Code that shows the migrate rabbitmq task with the Task Name and Task Prompt fields highlighted.":::
 
 1. Select **Add References** and then select **Git commits** in the pop-up dialog box.
 
@@ -70,7 +70,7 @@ The following steps show an example of creating your own task by using external 
    - **Task Name**: **Expose health endpoint via Spring Boot Actuator**.
    - **Task Prompt**: **You are a Spring Boot developer assistant, follow the Spring Boot Actuator documentation to add basic health endpoints for Azure Container Apps deployment.**
 
-   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/type-external-link-name-and-prompt.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/type-external-link-name-and-prompt.png" alt-text="Screenshot of Visual Studio Code that shows the task.md file with the Task Name and Task Prompt fields highlighted.":::
+   :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/type-external-link-name-and-prompt.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/type-external-link-name-and-prompt.png" alt-text="Screenshot of Visual Studio Code that shows the expose health endpoint task with the Task Name and Task Prompt fields highlighted.":::
 
 1. Select **Add References**. In the pop-up window, select **External links**, then paste the following URL: `https://docs.spring.io/spring-boot/reference/actuator/endpoints.html` and press <kbd>Enter</kbd> to confirm.
 
