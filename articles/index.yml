@@ -38,8 +38,8 @@ productDirectory:
       links:
         - text: Azure SDK for .NET
           url: /dotnet/azure/sdk/azure-sdk-for-dotnet/
-        - text: Package index
-          url: /dotnet/azure/sdk/packages/
+        - text: Azure SDK for .NET API reference
+          url: /dotnet/api/overview/azure/
         - text: Azure for .NET developer center
           url: /dotnet/azure/
     - title: Python
@@ -48,8 +48,8 @@ productDirectory:
       links:
         - text: Azure SDK for Python
           url: ./python/sdk/azure-sdk-overview.md
-        - text: Package index
-          url: ./python/sdk/azure-sdk-library-package-index.md
+        - text: Azure SDK for JavaScript reference
+          url: /python/api/overview/azure/
         - text: Azure for Python developer center
           url: ./python/index.yml
     - title: JavaScript
@@ -58,8 +58,8 @@ productDirectory:
       links:
         - text: Azure SDK for JavaScript
           url: ./javascript/sdk/use-azure-sdk.md
-        - text: Package index
-          url: ./javascript/azure-sdk-library-package-index.md
+        - text: Azure SDK for Python API reference
+          url: /javascript/api/
         - text: Azure for JavaScript developer center
           url: ./javascript/index.yml
     - title: Java
@@ -78,8 +78,8 @@ productDirectory:
       links:
         - text: Azure SDK for Go
           url: ./go/overview.md
-        - text: Package index
-          url: ./go/azure-sdk-library-package-index.md
+        - text: Azure SDK for Go API reference
+          url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
         - text: Azure for Go developer center
           url: ./go/index.yml
     - title: C++
@@ -141,6 +141,22 @@ conceptualContent:
           text: Get started
       footerLink:
         url: /azure/developer/github-copilot-azure/
+        text: See more
+    # Card
+    - title: GitHub Copilot app modernization
+      summary: AI-powered agents that analyze and upgrade Java and .NET applications, and migrate them to Azure.
+      links:
+        - url: ./github-copilot-app-modernization/overview.md
+          itemType: overview
+          text: What is GitHub Copilot app modernization?
+        - url: ./java/migration/migrate-github-copilot-app-modernization-for-java.md
+          itemType: overview
+          text: GitHub Copilot for Java developers
+        - url: /dotnet/core/porting/github-copilot-app-modernization/overview/
+          itemType: overview
+          text: GitHub Copilot for .NET developers
+      footerLink:
+        url: /azure/developer/github-copilot-app-modernization/
         text: See more
 tools:
   title: Developer tools
