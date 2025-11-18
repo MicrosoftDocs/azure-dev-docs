@@ -95,7 +95,7 @@ The following examples describe some configurations:
     mode: source-only
   ```
 
-After running an assessment, the interactive dashboard opens automatically, providing comprehensive analysis results. After you configure multiple Azure service targets, you can easily switch between them to compare migration approaches and view service-specific recommendations.
+After the tool runs an assessment, the interactive dashboard opens automatically, providing comprehensive analysis results. After you configure multiple Azure service targets, you can easily switch between them to compare migration approaches and view service-specific recommendations.
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/list-azure-service-target-for-assessment-report.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/list-azure-service-target-for-assessment-report.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization assessment dashboard with Azure service target selection options.":::
 
@@ -107,7 +107,7 @@ The assessment report provide comprehensive analysis results to help you underst
 
 The assessment report consists of several key sections:
 
-- **Application Information**: Basic information about your application including Java version, frameworks, build tools, project structure and target Azure service.
+- **Application Information**: Basic information about your application including Java version, frameworks, build tools, project structure, and target Azure service.
 - **Issue Summary**: Overview of migration issues categorized by domain with criticality percentages.
 - **Detailed Analysis**: The detail report is organized into the following four subsections.
   - **Issues**: Provides a concise summary of all issues that require attention.

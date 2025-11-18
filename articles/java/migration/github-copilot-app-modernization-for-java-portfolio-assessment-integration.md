@@ -15,7 +15,7 @@ ms.subservice: migration-copilot
 
 This article introduces the integration support between portfolio assessment tools and GitHub Copilot app modernization, providing an end-to-end workflow for application modernization.
 
-In today's fast-evolving cloud landscape, modernizing legacy applications is a key priority for organizations seeking agility, scalability, and operational efficiency. portfolio assessment tools play a crucial role in assessing and managing large portfolios of applications, while modern AI-powered tools like GitHub Copilot app modernization streamline the process of application transformation.
+In today's fast-evolving cloud landscape, modernizing legacy applications is a key priority for organizations seeking agility, scalability, and operational efficiency. Portfolio assessment tools play a crucial role in assessing and managing large portfolios of applications, while modern AI-powered tools like GitHub Copilot app modernization streamline the process of application transformation.
 
 ## What Is portfolio assessment?
 
@@ -39,13 +39,13 @@ The integration between portfolio assessment tools and GitHub Copilot app modern
 
 1. Portfolio assessment: Using a portfolio assessment tool such as Azure Migrate or Dr. Migrate, organizations can scan their environment to detect all applications and identify candidates for migration and modernization.
 
-1. Application assessment: For each candidate application, an app assessment can be triggered directly from the portfolio assessment tool to be performed by GitHub Copilot app modernization. The resulting assessment report, detailing modernization opportunities and technical recommendations, is made available there as well for centralized review by architects.
+1. Application assessment: For each candidate application, you can trigger an app assessment directly from the portfolio assessment tool. GitHub Copilot app modernization then performs the assessment. The resulting assessment report - which details modernization opportunities and technical recommendations - is made available there as well for centralized review by architects.
 
-1. Architect review and developer assignment: Architects review the generated application assessment reports to determine modernization priorities and application migration waves. Developers are then assigned applications for code remediation and modernization, leveraging the AI-driven capabilities of GitHub Copilot app modernization to accelerate the process.
+1. Architect review and developer assignment: Architects review the generated application assessment reports to determine modernization priorities and application migration waves. Developers are then assigned applications for code remediation and modernization using the AI-driven capabilities of GitHub Copilot app modernization to accelerate the process.
 
 To understand the detailed integration flow and best practices, see the following articles:
 
 - [Azure Migrate documentation](https://aka.ms/azure-migrate-doc)
 - [Dr. Migrate documentation](https://aka.ms/dr-migrate-doc)
 
-By leveraging the integration between portfolio assessment tools and GitHub Copilot app modernization, organizations can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.
+Organizations that use the integration between portfolio assessment tools and GitHub Copilot app modernization can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.

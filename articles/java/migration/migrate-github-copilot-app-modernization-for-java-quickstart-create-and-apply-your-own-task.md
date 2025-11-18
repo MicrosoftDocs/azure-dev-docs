@@ -83,7 +83,7 @@ The following steps show an example of creating your own task by using external 
    management.endpoints.web.exposure.include=health
    ```
 
-1. Select **Add References** again, and this time select **Text Files**. Locate the file you just created and then select **Select File**.
+1. Select **Add References** again, and this time select **Text Files**. Locate the file you created and then select **Select File**.
 
 1. You should now see two references added: one external link and one text file. Select **Save** to finalize and create the task.
 
