@@ -4,7 +4,7 @@ description: Learn how to use Azure MCP Server with Azure Native ISV partner sol
 keywords: azure mcp server, azmcp, native isv, datadog, partner solutions, monitoring
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 ms.topic: reference
 ms.service: azure
 ai-usage: ai-assisted
@@ -33,15 +33,16 @@ Datadog's Azure Native Integration allows you to manage Datadog directly in the 
 
 Example prompts include:
 
-- **List monitored resources:** "Show me all resources being monitored by Datadog in my 'production-rg' resource group."
-- **Check monitoring status:** "What resources are being monitored by my 'main-datadog' Datadog instance?"
-- **View monitoring coverage:** "List all monitored resources for Datadog resource 'company-datadog' in resource group 'monitoring-rg'"
-- **Audit monitoring:** "Show me what's being monitored by Datadog in subscription 'abc123'"
-- **Inventory check:** "Get the list of resources monitored by our Datadog integration"
+- **List monitored resources:** "Show me all resources being monitored by Datadog resource 'my-datadog' in resource group 'my-resource-group'"
+- **Check monitoring status:** "What resources are being monitored by Datadog 'main-datadog' in resource group 'my-resource-group'?"
+- **View monitoring coverage:** "List all monitored resources for Datadog resource 'company-datadog' in resource group 'my-resource-group'"
+- **Audit monitoring:** "Show me what's being monitored by Datadog 'prod-datadog' in resource group 'my-resource-group'"
+- **Inventory check:** "Get the list of resources monitored by Datadog 'monitor-datadog' in resource group 'my-resource-group'"
 
 | Parameter | Required | Description |
 | --- | --- | --- |
 | **Datadog resource** | Required | The name of the Datadog resource in Azure. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
