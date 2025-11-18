@@ -55,12 +55,16 @@ Complete the following sections to provision and deploy an agent to Microsoft Fo
 
 The starter template provides the project structure, but you need to add a specific agent definition. Agent definitions describe your agent's behavior, tools, and capabilities. Find example definitions in the [Agent Framework repository](https://github.com/microsoft/agent-framework).
 
-Use your own agent definition or one from the catalog.
-
-Run the `azd ai agent init` command, with your own `<agent-definition-url>` value:
+Use your own agent definition or one from the catalog. Run the `azd ai agent init` command, with your own `<agent-definition-url>` value:
 
 ```bash
 azd ai agent init -m <agent-definition-url>
+```
+
+For example, use the following URL for a simple calculator agent:
+
+```bash
+azd ai agent init -m https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/microsoft/python/getting-started-agents/hosted-agents/calculator-agent/agent.yaml
 ```
 
 The `azd ai agent init` command:
@@ -86,11 +90,11 @@ Open `azure.yaml` to see how the agent project is set up:
 ```yaml
 requiredVersions:
     extensions:
-        azure.ai.agents: '>=0.0.3'
-name: ai-foundry-starter-basic
+        azure.ai.agents: latest
+        azure.ai.agents: latest
 services:
-    echo-agent:
-        project: src/echo-agent
+    CalculatorAgent:
+        project: src/CalculatorAgent
         host: azure.ai.agent
         language: docker
         docker:
@@ -103,6 +107,15 @@ services:
                 scale:
                     maxReplicas: 3
                     minReplicas: 1
+            deployments:
+                - model:
+                    format: OpenAI
+                    name: gpt-4o-mini
+                    version: "2024-07-18"
+                  name: gpt-4o-mini
+                  sku:
+                    capacity: 10
+                    name: GlobalStandard
 infra:
     provider: bicep
     path: ./infra
@@ -121,10 +134,15 @@ azd up
 
 The `azd up` command orchestrates the deployment workflow, from infrastructure to a live agent endpoint:
 
-- Provision infrastructure: Create the Microsoft Foundry account, project, and Azure resources defined in the Bicep files.
+- **Provision infrastructure**: Create the Microsoft Foundry account, project, and Azure resources defined in the Bicep files.
+      - Pre-provision hooks inspect the agents and their dependencies, models, and other resources, then populates environment variables so that Bicep knows what to provision, including:
+        - `AI_PROJECT_DEPLOYMENTS` (JSON): Specification of the models to deploy.
+        - `AI_PROJECT_CONNECTIONS` (JSON): Specification of the connections to create.
+        - `AI_PROJECT_DEPENDENT_RESOURCES` (JSON): Specification of the dependent resources.
+        - `ENABLE_HOSTED_AGENTS` (boolean): Whether hosted agents need to be provisioned (with an ACR and CapHost).
 - **Deploys models**: Provisions the model deployments specified in `azure.yaml` (for example, GPT-4o-mini with the configured capacity).
-- Build and push the container: If the agent has custom code, `azd` packages it into a container image and pushes it to the Azure Container Registry.
-- Publish the agent: Create an Agent Application in Microsoft Foundry and deploy the agent as a live, callable service.
+- **Build and push the container**: If the agent has custom code, `azd` packages it into a container image and pushes it to the Azure Container Registry.
+- **Publish the agent**: Create an Agent Application in Microsoft Foundry and deploy the agent as a live, callable service.
 
 When `azd up` finishes, the output shows the Microsoft Foundry project endpoint, resource group and project names, and agent application details.
 
@@ -144,7 +162,7 @@ These security configurations follow Azure best practices and work out of the bo
 ### Test the agent in Microsoft Foundry
 
 1. Open the [Microsoft Foundry portal](https://ai.azure.com).
-1. Go to the project set up by `azd` (the project name appears in the `azd up` output).
+1. Navigate to the project set up by `azd` (the project name appears in the `azd up` output).
 1. Open the **Agents** section to see your deployed agent.
 1. Launch the agent in the playground and send a test query such as "Summarize your capabilities."
 
@@ -159,22 +177,30 @@ You can customize your projects to meet advanced requirements beyond the default
 The `azure.yaml` file gives you control over which models you deploy. To add or change a model, edit the file:
 
 ```yaml
-resources:
-    foundry-project:
-        type: ai.project
-        models:
-            - name: gpt-4
-              version: "turbo-2024-04-09"
-              format: OpenAI
-              sku:
-                  name: Standard
-                  capacity: 20
-            - name: gpt-4o-mini
-              version: "2024-07-18"
-              format: OpenAI
-              sku:
-                  name: GlobalStandard
-                  capacity: 10
+services:
+    CalculatorAgent:
+        project: src/CalculatorAgent
+        host: azure.ai.agent
+        language: docker
+        docker:
+            remoteBuild: true
+        config:
+            container:
+                resources:
+                    cpu: "1"
+                    memory: 2Gi
+                scale:
+                    maxReplicas: 3
+                    minReplicas: 1
+            deployments:
+                - model:
+                    format: OpenAI
+                    name: gpt-4o-mini
+                    version: "2024-07-18"
+                  name: gpt-4o-mini
+                  sku:
+                    capacity: 10
+                    name: GlobalStandard
 ```
 
 Run `azd up` to deploy the new model and update your project.
