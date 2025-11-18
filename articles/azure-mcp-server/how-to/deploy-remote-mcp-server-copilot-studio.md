@@ -3,13 +3,13 @@ title: Deploy the Azure MCP Server as a remote MCP server and connect using Copi
 description: Learn how to deploy the Azure MCP Server as a remote MCP server and connect using Copilot Studio
 keywords: azure mcp server, azmcp
 author: alexwolfmsft
-ms.author: alexwolft
+ms.author: alexwolf
 ms.date: 11/14/2025
 ms.topic: how-to
 ai-usage: ai-generated
 ---
 
-## Deploy a remote Azure MCP Server and connect to it using Copilot Studio
+# Deploy a remote Azure MCP Server and connect to it using Copilot Studio
 
 Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) over HTTPS as a remote server. This setup lets AI agents in [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) securely call MCP tools to perform Azure operations for you.
 
