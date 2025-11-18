@@ -39,7 +39,7 @@ items:
         - name: Connect GitHub Copilot coding agent to Azure MCP Server
           href: how-to/github-copilot-coding-agent.md
         - name: Deploy a remote Azure MCP Server (Microsoft Foundry)
-          href: how-to/deploy-remote-mcp-server-ai-foundry.md
+          href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
         - name: Deploy a remote Azure MCP Server (Copilot Studio)
           href: how-to/deploy-remote-mcp-server-copilot-studio.md
     - name: Tools
