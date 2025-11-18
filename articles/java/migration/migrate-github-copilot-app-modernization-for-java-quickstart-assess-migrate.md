@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 09/23/2025
+ms.date: 11/18/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
@@ -102,6 +102,7 @@ To generate unit test cases, use the following steps:
 
 The agent generates unit tests and creates a **TestReport** to show test results before and after generation. For more information, see [Quickstart: generate unit tests with GitHub Copilot app modernization](/java/upgrade/quickstart-unit-tests).
 
-## Next step
+## Next steps
 
+[Working with assessment](migrate-github-copilot-app-modernization-for-java-working-with-assessment.md)
 [Quickstart: create and apply your own tasks](migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md)

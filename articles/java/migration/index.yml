@@ -9,7 +9,7 @@ metadata:
   keywords: migration strategies, migration strategy, java migration
   author: KarlErickson
   ms.author: karler
-  ms.date: 09/23/2025
+  ms.date: 11/18/2025
   ms.topic: landing-page
   ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java
 
@@ -34,6 +34,8 @@ landingContent:
         links:
           - text: Predefined tasks
             url: migrate-github-copilot-app-modernization-for-java-predefined-tasks.md
+          - text: Working with assessment
+            url: migrate-github-copilot-app-modernization-for-java-working-with-assessment.md
       - linkListType: quickstart
         links:
           - text: Assess and migrate a Java project
@@ -73,13 +75,13 @@ landingContent:
   - title: Migrate WebLogic Server to Azure VMs
     linkLists:
       - linkListType: how-to-guide
-        links:         
+        links:
           - text: WebLogic Server to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
           - text: "Tutorial: WebLogic to Azure VMs manual guidance"
-            url: migrate-weblogic-to-azure-vm-manually.md          
+            url: migrate-weblogic-to-azure-vm-manually.md
           - text: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
             url: migrate-weblogic-to-vms-with-ha-dr.md
           - text: "Tutorial: WebLogic to Azure VMs with Elastic"

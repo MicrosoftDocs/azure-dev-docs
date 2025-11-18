@@ -4,7 +4,7 @@ description: This article describes the purpose and capabilities of the GitHub C
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 10/22/2025
+ms.date: 11/17/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -37,7 +37,7 @@ You can use GitHub Copilot for Azure in the following supported development envi
 |---|---|---|---|
 |Visual Studio Code|Surfaces GitHub Copilot for Azure via the GitHub Copilot user interface. It also surfaces the Azure MCP Server tools. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
 |Visual Studio 2022|Also Surfaces the GitHub Copilot for Azure via the GitHub Copilot user interface, and Azure MCP Server tools.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
-|Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface.|Public preview|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
+|Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface.|General availability|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
 
 ## Primary scenarios
 

@@ -4,7 +4,7 @@ description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 11/14/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
