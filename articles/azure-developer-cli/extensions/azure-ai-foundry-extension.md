@@ -38,9 +38,8 @@ Complete the following sections to provision and deploy an agent to Microsoft Fo
 
 1. Initialize a new project with the `azd-ai-starter-basic` template. In an empty folder, run:
 
-    ```bash
+```bash
 azd init -t Azure-Samples/azd-ai-starter-basic -llocation northcentralus
-    ```
 
 1. When prompted, enter an environment name for the agent project (for example, "my-analytics-agent").
 
