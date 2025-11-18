@@ -92,9 +92,9 @@ On the **General** step:
 
 - Provide a descriptive **Name** and **Description** for the custom connector.
 - Set **Scheme** to `HTTPS`.
-- Set **Host** to the container app URL from the `CONTAINER_APP_URL` output value.
+- Set **Host** to the `CONTAINER_APP_URL` value from the `azd` output.
 
-    ![Screenshot of the custom connector General tab showing name, description, scheme set to HTTPS, and host field populated with a container app URL.](../media/custom-connector-general.png)
+![Screenshot of the custom connector General tab showing name, description, scheme set to HTTPS, and host field populated with a container app URL.](../media/custom-connector-general.png)
 
 #### Definition
 
@@ -102,9 +102,12 @@ On the **General** step:
 1. Toggle **Swagger editor** to enter the editor view.
 1. In the editor view:
 
-    - Expose a POST method at the root path with a custom `x-ms-agentic-protocol: mcp-streamable-1.0` property. This property is required for the custom connector to interact with the API by using the MCP protocol. See the [custom connector swagger example](https://github.com/JasonYeMSFT/mcp/blob/0db606283e45c29008e9b7a3777008526caea96e/servers/Azure.Mcp.Server/azd-templates/aca-copilot-studio-managed-identity/custom-connector-swagger-example.yaml) for reference.
+    - Expose a POST method at the root path with a custom `x-ms-agentic-protocol: mcp-streamable-1.0` property. This property is required for the custom connector to interact with the API by using the MCP protocol.
 
-    ![Screenshot of Swagger editor with POST root method selected and custom x-ms-agentic-protocol property set to mcp-streamable-1.0 for MCP interaction.](../media/custom-connector-swagger-editor.png)
+    > [!NOTE]
+    > See the [custom connector swagger example](https://github.com/JasonYeMSFT/mcp/blob/0db606283e45c29008e9b7a3777008526caea96e/servers/Azure.Mcp.Server/azd-templates/aca-copilot-studio-managed-identity/custom-connector-swagger-example.yaml) for reference template.
+
+![Screenshot of Swagger editor with POST root method selected and custom x-ms-agentic-protocol property set to mcp-streamable-1.0 for MCP interaction.](../media/custom-connector-swagger-editor.png)
 
 #### Security
 
@@ -120,7 +123,7 @@ On the **Security** step:
 - Set **Tenant ID** to the tenant ID of the client app registration (from `AZURE_TENANT_ID`).
 - Set **Resource URL** to the server app registration client ID (from `ENTRA_APP_SERVER_CLIENT_ID`).
 - Enable **On-behalf-of login**.
-- Set **Scope** to `<server app registration client ID>/.default`.
+- Set **Scope** to `ENTRA_APP_SERVER_CLIENT_ID/.default`.
 
 ![Screenshot of Security step showing OAuth 2.0 with Azure Active Directory, client ID, secret option, tenant ID, resource URL, scope, and on-behalf-of login enabled.](../media/custom-connector-security.png)
 
@@ -133,10 +136,10 @@ On the **Security** step:
 
 1. If you chose **Use managed identity** on the **Security** step, create a federated credential in the client app registration.
     - Select **Other issuer** as the scenario.
-    - Copy the `issuer` and `subject` values from the custom connector into the credential fields. 
+    - Copy the `issuer` and `subject` values from the custom connector into the credential fields.
     - Provide a descriptive **Name** and **Description**, then select **Add**.
 
-    ![Screenshot of federated credential creation form showing issuer and subject values pasted from the custom connector plus name and description fields.](../media/client-app-client-credential.png)
+![Screenshot of federated credential creation form showing issuer and subject values pasted from the custom connector plus name and description fields.](../media/client-app-client-credential.png)
 
 #### Test connection
 
