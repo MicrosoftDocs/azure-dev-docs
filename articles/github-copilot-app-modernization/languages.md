@@ -105,4 +105,4 @@ For more information, see [the Java example on Visual Studio Code](../java/migra
 
 ## See also
 
-To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml).
+To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](index.yml).
