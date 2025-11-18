@@ -40,9 +40,9 @@ Updated articles:
 
 New articles to help you get started using Azure MCP Server tools:
 
-- [Cline](./azure-mcp-server/get-started/tools/cline.md)
-- [IntelliJ](./azure-mcp-server/get-started/tools/jet-brains.md)
-- [Windsurf](./azure-mcp-server/get-started/tools/windsurf.md)
+- [Cline](../azure-mcp-server/get-started/tools/cline.md)
+- [IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
+- [Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
 
 Update articles to help you get started using Azure MCP server tools: 
 
@@ -50,28 +50,28 @@ Update articles to help you get started using Azure MCP server tools:
 
 Services with new, updated, or removed tools
 
-- [Azure AI Best practices](./azure-mcp-server/tools/azure-best-practices.md)
-- [Azure AI Search](./azure-mcp-server/tools/azure-ai-search.md)
-- [Azure AI Speech](./azure-mcp-server/tools/ai-services-speech.md)
-- [Azure App Configuration](./azure-mcp-server/tools/app-configuration.md)
-- [Azure App Lens](./azure-mcp-server/tools/azure-app-lens.md)
-- [Azure App Service](./azure-mcp-server/tools/azure-app-service.md)
-- [Azure CLI](./azure-mcp-server/tools/azure-cli.md)
-- [Azure Communication Services](./azure-mcp-server/tools/azure-communication.md)
-- [Azure Confidential Ledger](./azure-mcp-server/tools/azure-confidential-ledger.md)
-- [Azure Event Grid](./azure-mcp-server/tools/azure-event-grid.md)
-- [Azure Event Hubs](./azure-mcp-server/tools/azure-event-hubs.md)
-- [Azure Foundry](./azure-mcp-server/tools/azure-foundry.md)
-- [Azure Functions](./azure-mcp-server/tools/azure-functions.md)
-- [Azure Key Vault](./azure-mcp-server/tools/azure-key-vault.md)
-- [Azure Managed Lustre](./azure-mcp-server/tools/azure-managed-lustre.md)
-- [Marketplace](./azure-mcp-server/tools/azure-marketplace.md)
-- [Azure Monitor](./azure-mcp-server/tools/azure-monitor.md)
-- [Azure Managed Redis](./azure-mcp-server/tools/azure-redis.md)
-- [Azure Resource Health](./azure-mcp-server/tools/azure-health-resource.md)
-- [Azure SQL](./azure-mcp-server/tools/azure-sql.md)
-- [Azure Storage](./azure-mcp-server/tools/azure-storage.md)
-- [App Insights](./azure-mcp-server/tools/application-insights.md)
+- [Azure AI Best practices](../azure-mcp-server/tools/azure-best-practices.md)
+- [Azure AI Search](../azure-mcp-server/tools/azure-ai-search.md)
+- [Azure AI Speech](../azure-mcp-server/tools/ai-services-speech.md)
+- [Azure App Configuration](../azure-mcp-server/tools/app-configuration.md)
+- [Azure App Lens](../azure-mcp-server/tools/azure-app-lens.md)
+- [Azure App Service](../azure-mcp-server/tools/azure-app-service.md)
+- [Azure CLI](../azure-mcp-server/tools/azure-cli.md)
+- [Azure Communication Services](../azure-mcp-server/tools/azure-communication.md)
+- [Azure Confidential Ledger](../azure-mcp-server/tools/azure-confidential-ledger.md)
+- [Azure Event Grid](../azure-mcp-server/tools/azure-event-grid.md)
+- [Azure Event Hubs](../azure-mcp-server/tools/azure-event-hubs.md)
+- [Azure Foundry](../azure-mcp-server/tools/azure-foundry.md)
+- [Azure Functions](../azure-mcp-server/tools/azure-functions.md)
+- [Azure Key Vault](../azure-mcp-server/tools/azure-key-vault.md)
+- [Azure Managed Lustre](../azure-mcp-server/tools/azure-managed-lustre.md)
+- [Marketplace](../azure-mcp-server/tools/azure-marketplace.md)
+- [Azure Monitor](../azure-mcp-server/tools/azure-monitor.md)
+- [Azure Managed Redis](../azure-mcp-server/tools/azure-redis.md)
+- [Azure Resource Health](../azure-mcp-server/tools/azure-health-resource.md)
+- [Azure SQL](../azure-mcp-server/tools/azure-sql.md)
+- [Azure Storage](../azure-mcp-server/tools/azure-storage.md)
+- [App Insights](../azure-mcp-server/tools/application-insights.md)
 
 ### GitHub Copilot for Azure
 
