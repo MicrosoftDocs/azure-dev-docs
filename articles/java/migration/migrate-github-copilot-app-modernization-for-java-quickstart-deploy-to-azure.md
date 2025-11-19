@@ -52,3 +52,7 @@ Use the following steps to start your deployment process:
 > We recommend using Claude Sonnet 4 or later models for the best results.
 >
 > It might take Copilot a few iterations to correct deployment errors.
+
+## See also
+
+To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml).
