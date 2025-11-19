@@ -79,8 +79,8 @@ items:
             - name: "Quickstart: Deploy a .NET project"
               href: /dotnet/azure/migration/appmod/deploy?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Copilot CLI support
-              href: /dotnet/azure/migration/appmod/coding-agent-support?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: Coding agent support
               href: /dotnet/azure/migration/appmod/copilot-cli-support?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            - name: Coding agent support
+              href: /dotnet/azure/migration/appmod/coding-agent-support?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migration sample
               href: /dotnet/azure/migration/appmod/sample?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json

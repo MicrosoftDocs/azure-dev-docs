@@ -91,7 +91,7 @@ Use the following steps to get started with app modernization using Copilot CLI.
 
 You can trigger key modernization tasks directly from the Copilot CLI by using natural language. Typical scenarios include upgrading Java version and framework, migrating workloads to Azure, containerizing applications, and deploying to Azure services.
 
-### Upgrade your Java Application
+### Upgrade your Java application
 
 To upgrade your Java application to a newer runtime or framework version, run the following example prompt in Copilot CLI. This approach helps ensure your project stays aligned with the latest platform capabilities and security updates.
 
@@ -107,7 +107,7 @@ The project is successfully upgraded to JDK 21 and Spring Boot 3.2, and an upgra
 
 :::image type="content" source="./media/github-copilot-app-modernization-for-java-copilot-cli/upgrade-summary.png" lightbox="./media/github-copilot-app-modernization-for-java-copilot-cli/upgrade-summary.png" alt-text="Screenshot of GitHub Copilot CLI that shows the Java upgrade summary.":::
 
-### Migrate your Java Application to Azure
+### Migrate your Java application to Azure
 
 To migrate your Java application to Azure, describe your migration scenario in Copilot CLI, as shown in the following example prompt. For more information on predefined migration tasks, see [Predefined tasks for GitHub Copilot app modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
 

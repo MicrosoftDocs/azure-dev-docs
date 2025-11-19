@@ -59,3 +59,7 @@ Use the following steps to run the Oracle to PostgreSQL migration task in GitHub
 1. Next, select **Run Task** to execute the migration. If coding notes are properly placed, app modernization references these notes to produce a higher quality SQL conversion as well as the database client update using Managed Identity authentication. Otherwise, the conversion applies general Oracle-to-PostgreSQL syntax adjustments to propose changes.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/oracle-postgresql-coding-notes.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/oracle-postgresql-coding-notes.png" alt-text="Screenshot of Visual Studio Code that shows the GitHub Copilot app modernization task execution for Oracle to PostgreSQL.":::
+
+## See also
+
+To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml).

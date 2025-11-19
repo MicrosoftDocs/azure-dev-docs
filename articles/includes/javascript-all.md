@@ -124,7 +124,7 @@
 | Token Cache Persistence Plugin | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/) |
 | TypeSpec HTTP Runtime | npm [0.3.2](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.3.2) |  | GitHub [0.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.2/sdk/core/ts-http-runtime) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/onlineexperimentation/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/onlineexperimentation_1.0.0-beta.1/sdk/onlineexperimentation/onlineexperimentation-rest/) |
-| unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-voicelive/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.1/sdk/ai/ai-voicelive/) |
+| unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-voicelive/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-voicelive-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.1/sdk/ai/ai-voicelive/) |
 | unknown | npm [12.1.1](https://www.npmjs.com/package/@azure/storage-common/v/12.1.1) | [docs](/javascript/api/overview/azure/storage-common-readme) | GitHub [12.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.1.1/sdk/storage/storage-common/) |
 | VS Code Authentication Plugin | npm [2.1.0](https://www.npmjs.com/package/@azure/identity-vscode/v/2.1.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.1.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.2.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.2.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.2.0/sdk/web-pubsub/web-pubsub/) |
@@ -412,7 +412,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.62.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.62.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.62.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.62.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.30.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.30.0) |  |  |
-| @azure-tools/typespec-go | npm [0.8.4](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.4) |  |  |
+| @azure-tools/typespec-go | npm [0.8.5](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.5) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.11.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |

@@ -17,7 +17,7 @@ This article introduces the integration support between portfolio assessment too
 
 In today's fast-evolving cloud landscape, modernizing legacy applications is a key priority for organizations seeking agility, scalability, and operational efficiency. Portfolio assessment tools play a crucial role in assessing and managing large portfolios of applications, while modern AI-powered tools like GitHub Copilot app modernization streamline the process of application transformation.
 
-## What Is portfolio assessment?
+## What is portfolio assessment?
 
 A portfolio assessment tool is a solution designed to discover, assess, and manage the entire portfolio of applications and workloads within an organization's IT environment. These tools help organizations evaluate their application landscape, identify migration candidates, and plan modernization strategies.
 
@@ -49,3 +49,7 @@ To understand the detailed integration flow and best practices, see the followin
 - [Dr. Migrate documentation](https://aka.ms/dr-migrate-doc)
 
 Organizations that use the integration between portfolio assessment tools and GitHub Copilot app modernization can streamline their end-to-end application modernization journey, from discovery and assessment through to remediation and deployment.
+
+## See also
+
+To learn more about GitHub Copilot app modernization, see [GitHub Copilot app modernization documentation](../../github-copilot-app-modernization/index.yml).

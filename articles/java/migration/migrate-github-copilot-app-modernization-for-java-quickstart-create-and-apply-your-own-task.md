@@ -138,6 +138,6 @@ Locate the **Custom task migrate rabbitmq** in the **TASKS - My Tasks** section 
 
 :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/edit-delete.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/edit-delete.png" alt-text="Screenshot of Visual Studio Code that shows edit or delete custom task.":::
 
-## See also
+## Next step
 
 [Predefined tasks for GitHub Copilot app modernization](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md)
