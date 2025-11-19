@@ -127,4 +127,4 @@ When deployed to Azure, this same code can also authenticate your app to Azure r
 ## Related content
 
 - [Azure Identity client library for C++ README on GitHub](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
-- [Azure Identity client library reference on GitHub](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/)
+- [Azure Identity client library reference](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/1.13.2/index.html)
