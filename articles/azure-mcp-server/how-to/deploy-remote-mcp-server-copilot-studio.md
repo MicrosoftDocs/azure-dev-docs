@@ -133,9 +133,9 @@ On the **Security** step:
 - Enable **On-behalf-of login**.
 - Set **Scope** to `ENTRA_APP_SERVER_CLIENT_ID/.default`.
 
-![Screenshot of Security step showing OAuth 2.0 with Azure Active Directory, client ID, secret option, tenant ID, resource URL, scope, and on-behalf-of login enabled.](../media/custom-connector-security.png)
+Select **Create connector** and wait for completion. After creation, the UI shows a redirect URL and, if selected, a managed identity.
 
-1. Select **Create connector** and wait for completion. After creation, the UI shows a redirect URL and, if selected, a managed identity.
+![Screenshot of Security step showing OAuth 2.0 with Azure Active Directory, client ID, secret option, tenant ID, resource URL, scope, and on-behalf-of login enabled.](../media/custom-connector-security.png)
 
 ### Configure the app registration
 
