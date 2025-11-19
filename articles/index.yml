@@ -38,9 +38,9 @@ productDirectory:
       links:
         - text: Azure SDK for .NET
           url: /dotnet/azure/sdk/azure-sdk-for-dotnet/
-        - text: Azure SDK for .NET API reference
+        - text: API reference
           url: /dotnet/api/overview/azure/
-        - text: Azure for .NET developer center
+        - text: Developer center
           url: /dotnet/azure/
     - title: Python
       summary: Build secure, scalable cloud applications with Python libraries that interact with Azure services.
@@ -48,9 +48,9 @@ productDirectory:
       links:
         - text: Azure SDK for Python
           url: ./python/sdk/azure-sdk-overview.md
-        - text: Azure SDK for JavaScript reference
+        - text: API reference
           url: /python/api/overview/azure/
-        - text: Azure for Python developer center
+        - text: Developer center
           url: ./python/index.yml
     - title: JavaScript
       summary: Learn to develop JavaScript apps using various Azure services.
@@ -58,9 +58,9 @@ productDirectory:
       links:
         - text: Azure SDK for JavaScript
           url: ./javascript/sdk/use-azure-sdk.md
-        - text: Azure SDK for Python API reference
-          url: /javascript/api/
-        - text: Azure for JavaScript developer center
+        - text: API reference
+          url: /javascript/api/overview/azure/
+        - text: Developer center
           url: ./javascript/index.yml
     - title: Java
       summary: Learn how to get started developing apps for the cloud using Java.
@@ -68,9 +68,9 @@ productDirectory:
       links:
         - text: Azure SDK for Java
           url: ./java/sdk/index.yml
-        - text: Libraries, drivers, and Spring modules list
-          url: ./java/sdk/libraries-drivers-modules.md
-        - text: Azure for Java developer center
+        - text: API reference
+          url: /java/api/overview/azure/
+        - text: Developer center
           url: ./java/index.yml
     - title: Go
       summary: Simplify provisioning, managing, and using Azure resources with Go.
@@ -78,9 +78,9 @@ productDirectory:
       links:
         - text: Azure SDK for Go
           url: ./go/overview.md
-        - text: Azure SDK for Go API reference
+        - text: API reference
           url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
-        - text: Azure for Go developer center
+        - text: Developer center
           url: ./go/index.yml
     - title: C++
       summary: Learn how to enable your C++ applications to interact with Azure services.
@@ -88,9 +88,9 @@ productDirectory:
       links:
         - text: Azure SDK for C++
           url: ./cpp/sdk/overview.md
-        - text: Install and integrate libraries
-          url: ./cpp/sdk/install-and-integrate-the-sdk.md
-        - text: Azure for C++ developer center
+        - text: API reference
+          url: https://azure.github.io/azure-sdk-for-cpp/index.html
+        - text: Developer center
           url: ./cpp/index.yml
     - title: Rust
       summary: Build, deploy, and manage high-performance applications using Rust libraries.
@@ -100,7 +100,7 @@ productDirectory:
           url: ./rust/sdk/overview.md
         - text: Rust crates index
           url: ./rust/azure-sdk-library-package-index.md
-        - text: Azure for Rust developer center
+        - text: Developer center
           url: ./rust/index.yml
 conceptualContent:
   title: AI apps and AI developer tools
