@@ -84,7 +84,7 @@ Deploy the Azure MCP server to Azure Container Apps:
 
 After deployment, connect your AI Foundry agent to the Azure MCP Server running on Azure Container Apps. The agent authenticates using its managed identity to gain access to the configured Azure Storage tools.
 
-1. Go to your Foundry project at https://aka.ms/nextgen-canary.
+1. Go to your Foundry project at  https://ai.azure.com/nextgen.
 1. Select **Build → Create agent**.
 1. Select **+ Add** in the tools section.
 1. Select the **Custom** tab.
