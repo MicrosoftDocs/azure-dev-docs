@@ -149,12 +149,6 @@ conceptualContent:
         - url: ./github-copilot-app-modernization/overview.md
           itemType: overview
           text: What is GitHub Copilot app modernization?
-        - url: ./java/migration/migrate-github-copilot-app-modernization-for-java.md
-          itemType: overview
-          text: GitHub Copilot for Java developers
-        - url: /dotnet/core/porting/github-copilot-app-modernization/overview/
-          itemType: overview
-          text: GitHub Copilot for .NET developers
       footerLink:
         url: /azure/developer/github-copilot-app-modernization/
         text: See more
