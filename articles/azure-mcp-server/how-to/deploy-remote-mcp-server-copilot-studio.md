@@ -9,7 +9,7 @@ ms.topic: how-to
 ai-usage: ai-generated
 ---
 
-# Deploy a self-hosted remote Azure MCP and connect to it using Copilot Studio
+# Deploy a self-hosted remote Azure MCP Server and connect to it using Copilot Studio
 
 Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) over HTTPS as a self-hosted remote server. This setup lets AI agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely connect to and call MCP tools using the deployed Azure MCP Server to run Azure operations. This article focuses on the Copilot Studio connection scenario.
 

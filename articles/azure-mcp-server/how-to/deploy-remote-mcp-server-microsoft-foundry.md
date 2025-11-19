@@ -9,7 +9,7 @@ ms.topic: how-to
 ai-usage: ai-generated
 ---
 
-# Deploy a self-hosted remote Azure MCP and connect to it using Microsoft Foundry
+# Deploy a self-hosted remote Azure MCP Server and connect to it using Microsoft Foundry
 
 Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) as a self-hosted remote server over HTTPS. Agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely connect to and call MCP tools using the deployed Azure MCP Server to run Azure operations. This article focuses on the Microsoft Foundry connection scenario.
 
