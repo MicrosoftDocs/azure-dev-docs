@@ -42,6 +42,9 @@ Complete the following sections to provision and deploy an agent to Microsoft Fo
 azd init -t Azure-Samples/azd-ai-starter-basic --location northcentralus
 ```
 
+    > [!NOTE]
+    > Hosted agents is currently limited to the North Central US Azure region. Read more about [hosted agents regional availbility](/azure/ai-foundry/agents/concepts/hosted-agents?view=foundry#region-availability) in the Microsoft Foundry documentation.
+
 1. When prompted, enter an environment name for the agent project (for example, "my-analytics-agent").
 
     The `azd init` process:
