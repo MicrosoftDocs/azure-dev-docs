@@ -9,9 +9,9 @@ ms.topic: how-to
 ai-usage: ai-generated
 ---
 
-# Deploy a remote Azure MCP Server and connect to it using Copilot Studio
+# Deploy a self-hosted remote Azure MCP and connect to it using Copilot Studio
 
-Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) over HTTPS as a remote server. This setup lets AI agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely connect to and call MCP tools using the deployed Azure MCP Server to run Azure operations. This article focuses on the Copilot Studio connection scenario.
+Deploy the [Azure MCP Server](https://mcr.microsoft.com/product/azure-sdk/azure-mcp) over HTTPS as a self-hosted remote server. This setup lets AI agents in [Microsoft Foundry](https://azure.microsoft.com/products/ai-foundry) and [Microsoft Copilot Studio](https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio) can securely connect to and call MCP tools using the deployed Azure MCP Server to run Azure operations. This article focuses on the Copilot Studio connection scenario.
 
 ## Prerequisites
 
@@ -57,25 +57,29 @@ Deploy the Azure MCP server to Azure Container Apps:
 - **Entra App Registration (Client)**: For the Power Apps custom connector to connect to the remote Azure MCP Server.
 - **Application Insights**: Provides telemetry and monitoring.
 
-### Deployment output
+### Deployment output and configuration
 
-After deployment completes, retrieve `azd` environment variables with the `azd env get-values` command.
+1. After deployment completes, retrieve `azd` environment variables with the `azd env get-values` command.
 
-```bash
-azd env get-values
-```
+    ```bash
+    azd env get-values
+    ```
 
-Example output:
+    Example output:
 
-```text
-AZURE_RESOURCE_GROUP="<your-resource-group-name>"
-AZURE_SUBSCRIPTION_ID="<your-subscription-id>"
-AZURE_TENANT_ID="<your-tenant-id>"
-CONTAINER_APP_NAME="<your-container-app-name>"
-CONTAINER_APP_URL="https://azure-mcp-storage-server.<your-container-app-name>.westus3.azurecontainerapps.io"
-ENTRA_APP_CLIENT_CLIENT_ID="<your-client-app-registration-client-id>"
-ENTRA_APP_SERVER_CLIENT_ID="<your-server-app-registration-client-id>"
-```
+    ```text
+    AZURE_RESOURCE_GROUP="<your-resource-group-name>"
+    AZURE_SUBSCRIPTION_ID="<your-subscription-id>"
+    AZURE_TENANT_ID="<your-tenant-id>"
+    CONTAINER_APP_NAME="<your-container-app-name>"
+    CONTAINER_APP_URL="https://azure-mcp-storage-server.<your-container-app-name>.westus3.azurecontainerapps.io"
+    ENTRA_APP_CLIENT_CLIENT_ID="<your-client-app-registration-client-id>"
+    ENTRA_APP_SERVER_CLIENT_ID="<your-server-app-registration-client-id>"
+    ```
+
+1. You also need to add the created API scope as one of the permissions of the client app registration. Go to Azure Portal and search for the client app registration using the `ENTRA_APP_CLIENT_CLIENT_ID` output value.
+1. Go to the API permissions blade and select **Add a permission**.
+1. In the My APIs tab, select the **Server app registration** and add the `Mcp.Tools.ReadWrite` scope.
 
 ## Call tools from Copilot Studio agent
 
@@ -109,7 +113,7 @@ Skip the Security step for now and proceed to the **Definition** step.
     - Expose a POST method at the root path with a custom `x-ms-agentic-protocol: mcp-streamable-1.0` property. This property is required for the custom connector to interact with the API by using the MCP protocol.
 
       > [!NOTE]
-      > See the [custom connector swagger example](https://github.com/JasonYeMSFT/mcp/blob/0db606283e45c29008e9b7a3777008526caea96e/servers/Azure.Mcp.Server/azd-templates/aca-copilot-studio-managed-identity/custom-connector-swagger-example.yaml) for a reference template.
+      > See the [custom connector swagger example](https://github.com/Azure-Samples/azmcp-copilot-studio-aca-mi/blob/main/custom-connector-swagger-example.yaml) for a reference template.
 
 ![Screenshot of Swagger editor with POST root method selected and custom x-ms-agentic-protocol property set to mcp-streamable-1.0 for MCP interaction.](../media/custom-connector-swagger-editor.png)
 
@@ -176,6 +180,9 @@ Run the following command to delete the Azure resources this template created wh
 ```bash
 azd down
 ```
+
+> [!NOTE]
+> `azd` cannot delete the Entra app registrations created by this template. Delete the Entra app registrations by searching for the `ENTRA_APP_CLIENT_CLIENT_ID` and the `ENTRA_APP_SERVER_CLIENT_ID` values in the Azure Portal and then delete the corresponding app registrations.
 
 Delete the Copilot Studio agent, Power Apps custom connector, and connection to clean up Power Platform resources.
 
