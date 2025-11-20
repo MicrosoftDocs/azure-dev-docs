@@ -39,7 +39,7 @@ Sign-in to Azure using one of several developer tools that can be used to perfor
 
 ### Azure CLI
 
-Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [DefaultAzureCredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_default_azure_credential.html) or [AzureCLICredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_azure_cli_credential.html) can then use this account to authenticate app requests.
+Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) or [AzureCLICredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) can then use this account to authenticate app requests.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 

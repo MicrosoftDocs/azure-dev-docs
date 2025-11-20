@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.
 ---
 
-# Authenticate C++ apps to Azure services using the Azure Identity library
+# Use the Azure SDK for C++ to authenticate apps to Azure services
 
 Apps can use the Azure Identity library to authenticate to Microsoft Entra ID, which allows the apps to access Azure services and resources. This authentication requirement applies whether the app is deployed to Azure, hosted on-premises, or running locally on a developer workstation. The sections ahead describe the recommended approaches to authenticate an app to Microsoft Entra ID across different environments when using the Azure SDK client libraries.
 
@@ -24,6 +24,7 @@ Token-based authentication offers the following advantages over connection strin
 - Token-based authentication ensures only the specific apps intended to access the Azure resource are able to do so, whereas anyone or any app with a connection string can connect to an Azure resource.
 - Token-based authentication allows you to further limit Azure resource access to only the specific permissions needed by the app. This follows the [principle of least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege). In contrast, a connection string grants full rights to the Azure resource.
 - When using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for token-based authentication, Azure handles administrative functions for you, so you don't have to worry about tasks like securing or rotating secrets. This makes the app more secure because there's no connection string or application secret that can be compromised.
+- Connection strings are functionally equivalent to credentials and require special handling to prevent accidental leakage. They must be stored securely (for example, in Azure Key Vault) and never hardcoded in your application or committed to source control. The [Microsoft Secure Future Initiative (SFI)](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) prohibits the use of connection strings and similar long-lived secrets because they can be used to compromise your application if not carefully managed.
 - The Azure Identity library acquires and manages Microsoft Entra tokens for you.
 
 Use of connection strings should be limited to scenarios where token-based authentication isn't an option, initial proof-of-concept apps, or development prototypes that don't access production or sensitive data. When possible, use the credential types in the Azure Identity library to authenticate to Azure resources.
@@ -85,11 +86,11 @@ For apps hosted on-premises, you can use a service principal to authenticate to 
 
 ### DefaultAzureCredential
 
-The [DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) class provided by the Azure Identity client library allows apps to use different authentication methods depending on the environment in which they're run. In this way, apps can be promoted from local development to test environments to production without code changes.
+The [DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) class provided by the Azure Identity client library allows apps to use different authentication methods depending on the environment in which they're run. In this way, apps can be promoted from local development to test environments without code changes. This credential is intended to be used at the early stages of development, to allow the developer some time to work with the other aspects of the SDK, and later to replace this credential with the exact credential that is the best fit for the application. It is not intended to be used in a production environment.
 
 You configure the appropriate authentication method for each environment, and `DefaultAzureCredential` automatically detects and uses that authentication method. The use of `DefaultAzureCredential` is preferred over manually coding conditional logic or feature flags to use different authentication methods in different environments.
 
-`DefaultAzureCredential` is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the [TokenCredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_credentials_1_1_token_credential.html) protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained.
+`DefaultAzureCredential` is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the `TokenCredential` protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained.
 
 To use `DefaultAzureCredential` in a C++ app, add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
@@ -115,7 +116,6 @@ int main(){
   auto const keyVaultUrl = std::getenv("AZURE_KEYVAULT_URL");
   auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
 
-  
   Azure::Security::KeyVault::Secrets::SecretClient secretClient(keyVaultUrl, credential);
 }
 ```
@@ -127,4 +127,3 @@ When deployed to Azure, this same code can also authenticate your app to Azure r
 ## Related content
 
 - [Azure Identity client library for C++ README on GitHub](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
-- [Azure Identity client library reference](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/1.13.2/index.html)

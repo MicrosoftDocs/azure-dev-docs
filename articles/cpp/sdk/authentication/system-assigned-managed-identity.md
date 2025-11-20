@@ -89,7 +89,7 @@ As discussed in the [Azure SDK for C++ authentication overview](./overview.md) a
 > [!IMPORTANT]
 > `DefaultAzureCredential` simplifies authentication while developing applications that deploy to Azure by combining credentials used in Azure hosting environments and credentials used in local development. In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
 
-An alternative to `DefaultAzureCredential` is to use [`ManagedIdentityCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_managed_identity_credential.html). The steps for using `ManagedIdentityCredential` are the same as for using the `DefaultAzureCredential` type.
+An alternative to `DefaultAzureCredential` is to use [`ManagedIdentityCredential`](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity). The steps for using `ManagedIdentityCredential` are the same as for using the `DefaultAzureCredential` type.
 
 An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 

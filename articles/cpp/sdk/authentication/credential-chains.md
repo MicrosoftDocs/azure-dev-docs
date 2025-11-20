@@ -10,7 +10,7 @@ ms.custom: devx-track-cpp
 
 # Credential chains in the Azure Identity client library for C++
 
-The Azure Identity client library provides *credentials*&mdash;public types that derive from the Azure Core library's [TokenCredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_credentials_1_1_token_credential.html) abstract base class. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials*&mdash;public types that derive from the Azure Core library's [TokenCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) abstract base class. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
