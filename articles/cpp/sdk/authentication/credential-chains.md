@@ -5,7 +5,7 @@ ms.date: 10/03/2025
 ms.topic: conceptual
 ms.custom: devx-track-cpp
 
-#customer intent: As a developer, I want to use credential chains in my C++ application that uses Azure SDK, to combine different authentication methods, so that my app can authenticate in different environments, specifically in development environment and when deployed into production environment like the Azure cloud.
+#customer intent: As a developer using the Azure SDK for C++, I want to use credential chains to combine different authentication methods, so my app can authenticate seamlessly across different environments, from local development to production deployments in Azure.
 ---
 
 # Credential chains in the Azure Identity client library for C++

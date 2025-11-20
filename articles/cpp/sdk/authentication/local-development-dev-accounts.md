@@ -55,13 +55,13 @@ az login --use-device-code
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use `DefaultAzureCredential` when working with service principals locally and in production.
+The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use `DefaultAzureCredential` when working with service principals locally.
 
 ## Implement the code
 
-To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_default_azure_credential.html) class. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+[DefaultAzureCredential](https://azure.github.io/azure-sdk-for-cpp/identity.html) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. This credential is intended to be used at the early stages of development, to allow the developer some time to work with the other aspects of the SDK, and later to replace this credential with the exact credential that is the best fit for the application. It is not intended to be used in a production environment. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
 
-1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
+1. Add the [azure-identity-cpp](https://vcpkg.io/en/package/azure-identity-cpp) package to your application using [vcpkg](/vcpkg/).
 
     ```bash
     vcpkg add port azure-identity-cpp
@@ -90,7 +90,8 @@ To authenticate Azure SDK client objects to Azure, your application should use t
 
     int main() {
         try {
-            // Create a credential
+            // DefaultAzureCredential is intended for early stages of development.
+            // For production, replace with the exact credential that is the best fit for the application.
             auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
             
             // Create a client for the specified storage account

@@ -40,41 +40,45 @@ During local development, environment variables are set with the application ser
 
 ## Set the app environment variables
 
-The [`DefaultAzureCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-identity/latest/class_azure_1_1_identity_1_1_default_azure_credential.html) object looks for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to create a `.env` file or use system environment variables to store these credentials locally during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
+The [DefaultAzureCredential](https://azure.github.io/azure-sdk-for-cpp/identity.html) object looks for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to create a `.env` file or use system environment variables to store these credentials locally during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
 
 Set the environment variable values with values obtained from the app registration process as follows:
 
-- `AZURE_CLIENT_ID` &rarr; The app ID value.
-- `AZURE_TENANT_ID` &rarr; The tenant ID value.
-- `AZURE_CLIENT_SECRET` &rarr; The password/credential generated for the app.
+- `AZURE_CLIENT_ID`: The app ID value.
+- `AZURE_TENANT_ID`: The tenant ID value.
+- `AZURE_CLIENT_SECRET`: The password/credential generated for the app.
+
+For C++ applications, you can set these environment variables in several ways. You can load them from a `.env` file in your code, or you can set them in your system environment. Below are examples of how to set these environment variables in different shells.:
+
+# [Bash](#tab/bash)
 
 ```bash
-AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
-AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
-AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
+export AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
+export AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
+export AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
 ```
 
-For C++ applications, you can set these environment variables in several ways:
+# [Command prompt](#tab/cmd)
 
-- **Using system environment variables** (Windows Command Prompt):
-  ```cmd
-  set AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
-  set AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
-  set AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
-  ```
+```cmd
+set AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
+set AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
+set AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
+```
 
-- **Using system environment variables** (bash/PowerShell):
-  ```bash
-  export AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
-  export AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
-  export AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
-  ```
+# [PowerShell](#tab/powershell)
 
-- **Loading from a `.env` file in your C++ code** (optional).
+```powershell
+$env:AZURE_CLIENT_ID="00001111-aaaa-2222-bbbb-3333cccc4444"
+$env:AZURE_TENANT_ID="aaaabbbb-0000-cccc-1111-dddd2222eeee"
+$env:AZURE_CLIENT_SECRET="Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6"
+```
 
-## Implement DefaultAzureCredential in your application
+---
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the Azure Identity library for C++. In this scenario, `DefaultAzureCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
+## Use DefaultAzureCredential in your application
+
+To authenticate Azure SDK client objects to Azure, use the `DefaultAzureCredential` class from the Azure Identity library for C++. In this scenario, `DefaultAzureCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
 
 1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
