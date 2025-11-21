@@ -39,7 +39,7 @@ Sign-in to Azure using one of several developer tools that can be used to perfor
 
 ### Azure CLI
 
-Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) or [AzureCLICredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) can then use this account to authenticate app requests.
+Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) or [AzureCliCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) can then use this account to authenticate app requests.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 
@@ -59,7 +59,7 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
 
 ## Implement the code
 
-[DefaultAzureCredential](https://azure.github.io/azure-sdk-for-cpp/identity.html) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. This credential is intended to be used at the early stages of development, to allow the developer some time to work with the other aspects of the SDK, and later to replace this credential with the exact credential that is the best fit for the application. It is not intended to be used in a production environment. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. This credential is intended to be used at the early stages of development, to allow the developer some time to work with the other aspects of the library, and later to replace this credential with the exact credential that is the best fit for the application. It is not intended to be used in a production environment. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
 
 1. Add the [azure-identity-cpp](https://vcpkg.io/en/package/azure-identity-cpp) package to your application using [vcpkg](/vcpkg/).
 
