@@ -40,7 +40,7 @@ During local development, environment variables are set with the application ser
 
 ## Set the app environment variables
 
-The [DefaultAzureCredential](https://azure.github.io/azure-sdk-for-cpp/identity.html) object looks for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to create a `.env` file or use system environment variables to store these credentials locally during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
+The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) object looks for the service principal information in a set of environment variables at runtime. Since most developers work on multiple applications, it's recommended to create a `.env` file or use system environment variables to store these credentials locally during development. This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
 
 Set the environment variable values with values obtained from the app registration process as follows:
 

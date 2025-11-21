@@ -59,7 +59,7 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
 
 ## Implement the code
 
-[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. This credential is intended to be used at the early stages of development, to allow the developer some time to work with the other aspects of the library, and later to replace this credential with the exact credential that is the best fit for the application. It is not intended to be used in a production environment. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
 
 1. Add the [azure-identity-cpp](https://vcpkg.io/en/package/azure-identity-cpp) package to your application using [vcpkg](/vcpkg/).
 
@@ -90,8 +90,11 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
 
     int main() {
         try {
-            // DefaultAzureCredential is intended for early stages of development.
-            // For production, replace with the exact credential that is the best fit for the application.
+            // DefaultAzureCredential supports dev, test, and prod environments.
+            // See documentation for details on customizing the credential chain:
+            // https://learn.microsoft.com/azure/developer/cpp/sdk/authentication/credential-chains#defaultazurecredential-overview
+            // In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
+
             auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
             
             // Create a client for the specified storage account
