@@ -12,11 +12,6 @@ ms.collection: ce-skilling-ai-copilot
 
 In this quickstart, you learn how to use agent mode in GitHub Copilot for Azure to bring your existing application to Azure. It demonstrates how agent mode helps you define Azure infrastructure, deploy your application to Azure, and create a CI/CD pipeline.
 
-GitHub Copilot for Azure supports two modes:
-
-- **Ask mode** allows you to learn about your deployed Azure resources and about Azure in general using the latest information published to Microsoft Learn. It might provide instructions or even source code, but you take action or edit files yourself.
-- **Agent mode** allows you to command GitHub Copilot to take action in your project, including creating and editing files, executing commands in the terminal window, and so on.
-
 ## Prerequisites
 
 For complete setup instructions, see the [Get started](get-started.md) article. Make sure that you have the following items:
@@ -102,13 +97,13 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
 
 - Use Claude Sonnet 4  for better results.
 - Make sure the following GitHub Copilot for Azure tools are selected in the GitHub Copilot tools list:
-  - **@azure recommend service config**
-  - **@azure check pre-deploy**
-  - **@azure AZD Up (Deploy)**
-  - **@azure check app status for azd deployment**
-  - **@azure config deployment pipeline**
-  - **@azure check region availability**
-  - **@azure check quota availability**
+  - **Recommend Azure service configuration**
+  - **Check Azure pre-deploy settings**
+  - **Run AZD Up to deploy to Azure**
+  - **Check app status for Azure azd deployment**
+  - **Configure Azure deployment pipeline**
+  - **Check Azure region availability**
+  - **Check Azure quota availability**
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/azure-tools.png" alt-text="Screenshot of the selected GitHub Copilot for Azure tools.":::
 

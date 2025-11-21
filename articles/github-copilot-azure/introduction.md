@@ -4,7 +4,7 @@ description: This article describes the purpose and capabilities of the GitHub C
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: overview
-ms.date: 10/22/2025
+ms.date: 11/17/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -35,10 +35,9 @@ You can use GitHub Copilot for Azure in the following supported development envi
 
 |Supported Client|Description|Feature Stage|Download Link|
 |---|---|---|---|
-|Visual Studio Code|Surfaces GitHub Copilot for Azure via the GitHub Copilot user interface for both Ask and Agent modes. It also surfaces the Azure MCP Server tools. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
-|Visual Studio 2022|Also Surfaces the GitHub Copilot for Azure via the GitHub Copilot user interface, and Azure MCP Server tools, but only provides access to Ask and Agent mode.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
-|Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface. Available in both Ask and Agent mode.|Public preview|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
-
+|Visual Studio Code|Surfaces GitHub Copilot for Azure via the GitHub Copilot user interface. It also surfaces the Azure MCP Server tools. Provides IDE-specific tools and custom modes.|General availability|[Link](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)|
+|Visual Studio 2022|Also Surfaces the GitHub Copilot for Azure via the GitHub Copilot user interface, and Azure MCP Server tools.|Public preview|[Link](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022)|
+|Visual Studio 2026|Surfaces built-in GitHub Copilot for Azure and Azure MCP Server tools via GitHub Copilot user interface.|General availability|The tools are available upon installation of the [Azure and AI development workload](/dotnet/azure/configure-visual-studio#install-azure-workloads).|
 
 ## Primary scenarios
 
@@ -50,7 +49,7 @@ GitHub Copilot for Azure currently enables four primary scenarios:
 |Design and develop|Ask for guidance and help when building apps for the cloud.|<ul><li>"Can you help me build a RAG application with Python to deploy to Azure?"</li><li>"Use azd to undeploy my project in Azure."</li><li>"We're a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders on Azure."</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"Can you help me deploy my application to Azure?"</li><li>"I need a CI/CD pipeline so I can get my app deployed to Azure."</li><li>"Use azd to undeploy my project from Azure."</li></ul>|
 |Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"What is using up my GPT-5 model quota on Azure?"</li><li>"Find out why my Kubernetes cluster is running slow on Azure."</li><li>"Why am I seeing 500 errors when opening my website on Azure?"</li></ul>|
-|Optimize|Answer questions about resources, including locations, settings, and resource health.|<ul><li>"How many Azure OpenAI deployments do I have?"</li><li>"Give me a count of Azure storage accounts in eastus by subscription, sorted from largest to smallest."</li></ul>|
+
 
 > [!Note]
 > Make sure the word "Azure" is somewhere in the prompt so that the LLM calls the appropriate tool from Azure MCP Server.
@@ -59,7 +58,11 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## Best practices
 
-Using copilots can increase developer productivity by answering questions, executing tasks, and generating code. However, remember these vital rules:
+First, use "Agent" mode for the best experience. Avoid "Ask" mode.
+
+Second, include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
+
+Third, using copilots can increase developer productivity by answering questions, executing tasks, and generating code. However, remember these vital rules:
 
 - Review all AI-generated responses. Validate their correctness, applicability, potential outcomes (such as costs and security) before taking action based on those responses.
 - Never save application secrets or credentials in source code.
@@ -136,5 +139,4 @@ GitHub Copilot for Azure uses agentic tools supplied by the [Azure MCP Server](.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
-- See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

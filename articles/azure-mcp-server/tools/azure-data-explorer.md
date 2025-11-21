@@ -4,7 +4,7 @@ description: "Learn how to use the Azure MCP Server with Azure Data Explorer. Qu
 keywords: azure mcp server, azmcp, kusto, azure data explorer, adx
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

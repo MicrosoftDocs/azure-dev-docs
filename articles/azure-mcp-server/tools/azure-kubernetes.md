@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 ---
 # Azure Kubernetes Service tools for the Azure MCP Server
 
@@ -42,7 +42,7 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Name** | Required | The name of the AKS cluster to get details for. |
+| **Cluster name** | Required | The name of the AKS cluster to get details for. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -71,7 +71,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Cluster** |  Required | AKS cluster name. |
+| **Cluster name** |  Required | AKS cluster name. |
 | **Node pool** |  Required | AKS node pool (agent pool) name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):

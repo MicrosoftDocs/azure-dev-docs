@@ -6,14 +6,14 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: donji
 ms.topic: quickstart
-ms.date: 09/23/2025
+ms.date: 11/18/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
 ---
 
 # Quickstart: containerize your Java project using GitHub Copilot app modernization
 
-In this Quickstart, you containerize your Java project using GitHub Copilot app modernization.
+In this quickstart, you containerize your Java project using GitHub Copilot app modernization.
 
 To use container compute services like Azure Kubernetes Service and Azure Container Apps, developers need to containerize their project by creating Dockerfile and other related configuration files, and build container images. Our tools help you complete the containerization process.
 
@@ -31,7 +31,7 @@ Use the following steps to start your containerization process:
 
 1. In the **Activity** sidebar, open the **GitHub Copilot app modernization** extension pane.
 
-1. In the **Tasks** section, open **Migration Tasks** and select **Containerize Application**.
+1. In the **Tasks** section, open **Java**, then open **Containerize Tasks** and select **Containerize Application**.
 
    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java/java-containerize.png" alt-text="Screenshot of Visual Studio Code that shows the Containerize Application task with the Run Task button highlighted.":::
 
@@ -51,3 +51,7 @@ Use the following steps to start your containerization process:
 > We recommend using Claude Sonnet 4 or later models for the best results.
 >
 > It might take Copilot a few iterations to correct containerization errors.
+
+## See also
+
+GitHub Copilot app modernization uses certain tools in Containerization Assist. For more information, see the [containerization-assist](https://github.com/Azure/containerization-assist) repository on GitHub.

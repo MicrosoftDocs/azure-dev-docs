@@ -4,7 +4,7 @@ description: Learn how to use Azure CLI tools with the Azure MCP Server to gener
 keywords: azure mcp server, azmcp, azure cli extension
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

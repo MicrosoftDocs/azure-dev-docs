@@ -10,15 +10,18 @@ ms.collection: ce-skilling-ai-copilot
 
 # Example prompts for designing and developing your application with GitHub Copilot for Azure
 
-If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure to help you design and develop web and API applications to be deployed to your Azure account. Use [best practices](introduction.md#best-practices) to achieve the best results.
+If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure and Azure MCP Server to help you deploy your application. Use [best practices](introduction.md#best-practices) to achieve the best results. Most importantly:
 
+- Use "Agent" mode for the best experience. Avoid "Ask" mode.
+- Include the word "Azure" in the prompt to help Copilot understand that it needs to call tools from the Azure MCP Server.
+- If using Visual Studio Code, make sure you use "Configure Tools ..." and include both "Azure MCP" and "GitHub Copilot for Azure". [See the Tool calling section's Visual Studio Code tab](introduction.md#tool-calling) for more details.
 
 ## Example prompts to create an entire sample app
 
 If you want to use GitHub Copilot for Azure for help with building your application, you can start with an open-ended question or request. Then, add details like specific programming languages, frameworks, services and technologies for better results. Try the following example prompts.
 
-- "@azure Could you help me create and deploy a simple Flask website by using Python?"
-- "@azure Can you help me build a RAG application with Python?"
+- "Could you help me create and deploy a simple Flask website using Python on Azure?"
+- "Can you help me build a Python RAG application on Azure?"
 
 ## Prompts to design APIs
 
@@ -29,8 +32,8 @@ You can now leverage GitHub Copilot for Azure for a variety of API-related tasks
 
 Examples:
 
-- "@azure Generate OpenAPI spec: Accept purchase orders for specialized coffee bean purchases through an API"
-- "@azure Generate OpenAPI spec: We are a pizza company and want to create an online customized pizza delivery solution. Create an API to accept the pizza orders."
+- "Generate an OpenAPI spec for an Azure API that accepts purchase orders for specialized coffee beans."
+- "Generate an OpenAPI spec for an Azure API to handle customized pizza delivery orders for our pizza company."
 
 ## Related content
 

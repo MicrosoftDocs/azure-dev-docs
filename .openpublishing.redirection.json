@@ -1910,6 +1910,10 @@
     {
       "source_path": "articles/github-copilot-azure/quickstart-build-deploy-applications.md",
       "redirect_url": "/azure/developer/github-copilot-azure/quickstart-deploy-app-agent-mode"
+    },
+    {
+      "source_path": "articles/github-copilot-azure/optimize-examples.md",
+      "redirect_url": "/azure/developer/github-copilot-azure/introduction"
     }
   ]
 }

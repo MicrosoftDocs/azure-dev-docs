@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Health Resources.
 keywords: azure mcp server, azmcp, health resources
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

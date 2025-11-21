@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Event Grid.
 keywords: azure mcp server, azmcp, kusto, azure event grid
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
