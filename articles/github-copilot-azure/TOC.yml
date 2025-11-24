@@ -20,8 +20,6 @@ items:
       href: deploy-examples.md
     - name: Troubleshooting your app
       href: troubleshoot-examples.md
-    - name: Optimize your app
-      href: optimize-examples.md
     - name: Advanced scenarios
       expanded: true
       items: 

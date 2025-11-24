@@ -12,6 +12,6 @@
 | Key Vault - Keys | crate [0.9.0](https://crates.io/crates/azure_security_keyvault_keys/0.9.0) |  | GitHub [0.9.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_keys@0.9.0/sdk/keyvault/azure_security_keyvault_keys) |
 | Key Vault - Secrets | crate [0.9.0](https://crates.io/crates/azure_security_keyvault_secrets/0.9.0) |  | GitHub [0.9.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_security_keyvault_secrets@0.9.0/sdk/keyvault/azure_security_keyvault_secrets) |
 | Storage - Blobs | crate [0.7.0](https://crates.io/crates/azure_storage_blob/0.7.0) |  | GitHub [0.7.0](https://github.com/Azure/azure-sdk-for-rust/tree/azure_storage_blob@0.7.0/sdk/storage/azure_storage_blob) |
-| TypeSpec Client Core | crate [0.9.1](https://crates.io/crates/typespec_client_core/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.9.1/sdk/typespec/typespec_client_core) |
-| TypeSpec Core | crate [0.10.1](https://crates.io/crates/typespec/0.10.1) |  | GitHub [0.10.1](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.10.1/sdk/typespec) |
-| TypeSpec Core Macros | crate [0.9.1](https://crates.io/crates/typespec_macros/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.9.1/sdk/typespec/typespec_macros) |
+| TypeSpec Client Core | crate [0.9.1](https://crates.io/crates/typespec_client_core/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_client_core@0.9.1/sdk/core/typespec_client_core) |
+| TypeSpec Core | crate [0.10.1](https://crates.io/crates/typespec/0.10.1) |  | GitHub [0.10.1](https://github.com/Azure/azure-sdk-for-rust/tree/typespec@0.10.1/sdk/core/typespec) |
+| TypeSpec Core Macros | crate [0.9.1](https://crates.io/crates/typespec_macros/0.9.1) |  | GitHub [0.9.1](https://github.com/Azure/azure-sdk-for-rust/tree/typespec_macros@0.9.1/sdk/core/typespec_macros) |

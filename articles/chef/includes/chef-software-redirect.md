@@ -8,4 +8,4 @@ ms.date: 03/11/2021
 ms.author: tarcher
 ---
 
-Documentation for using Chef products on Azure is now located on the [Chef Software website](https://docs.chef.io/azure_portal/).
+Documentation for using Chef products on Azure is now located on the [Chef Software website](https://docs.chef.io/azure_chef_cli/).

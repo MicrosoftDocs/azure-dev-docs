@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with the Azure Quick Review C
 keywords: azure mcp server, azmcp, azure quick review, azqr, compliance
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

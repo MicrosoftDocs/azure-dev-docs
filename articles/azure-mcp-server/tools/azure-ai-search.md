@@ -4,7 +4,7 @@ description: Learn how to use Azure MCP Server tools to manage Azure AI Search r
 keywords: azure mcp server, azmcp, ai search, cognitive search, azure search, rag
 author: diberry
 ms.author: diberry
-ms.date: 10/27/2025
+ms.date: 11/17/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -56,7 +56,6 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
-| **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name. |
 | **Service** | Required | The name of the Azure AI Search service (for example, `my-search-service`). |
 | **Index** | Required | The name of the search index within the Azure AI Search service. |
 | **Query** | Required | The search query to execute against the Azure AI Search index. |
@@ -142,10 +141,6 @@ Example prompts include:
 - **List services**: "List all my AI Search services in my subscription."
 - **Show services**: "What AI Search services do I have?"
 - **Find services**: "I need to see my Azure AI Search resources"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Subscription** | Optional | Specifies the Azure subscription to use. Accepts either a subscription ID (GUID) or display name.|
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

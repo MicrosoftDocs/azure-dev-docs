@@ -25,7 +25,7 @@ Suppose you want an easy way to create a repeatable, automated process for creat
 Create a New Chat (Ctrl + L), then copy and paste the following prompt into GitHub Copilot's chat pane.
 
 ```
-@azure Show me a Bicep file that creates an Azure Storage account with a blob container and a file share.
+Show me a Bicep file that creates an Azure Storage account with a blob container and a file share.
 ```
 
 ### Example response
@@ -105,7 +105,7 @@ However, if you're new to Bicep files, you might need more information. Continue
 For example, you might ask where this Bicep file should be created in your VS Code workspace.
 
 ```
-@azure Where in my workspace should I create the Bicep file and what should I call it?
+Where in my workspace should I create the Azure Bicep file, and what should I call it?
 ```
 
 It might respond by suggesting a folder and file name for your new Bicep file. For example, `infra/storageAccount.bicep`.
@@ -113,7 +113,7 @@ It might respond by suggesting a folder and file name for your new Bicep file. F
 Finally, if you're unsure about how to deploy the Bicep file, you can create a prompt that asks for instructions.
 
 ```
-@azure How do I execute the Bicep file?
+How do I execute the Azure Bicep file?
 ```
 
 You might receive a response similar to the following.
@@ -140,7 +140,7 @@ This command will deploy the resources defined in your Bicep file to the specifi
 
 ```
 
-While following these instructions, if you get stuck or encounter a problem, continue asking GitHub Copilot questions creating prompts with the prefix `@azure` in the chat pane.
+While following these instructions, if you get stuck or encounter a problem, continue asking GitHub Copilot questions creating prompts including the word `azure` in the chat pane.
 
 
 ## Related content
