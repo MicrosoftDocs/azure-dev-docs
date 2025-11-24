@@ -17,5 +17,5 @@ groups:
     title: Windows 
   - id: os-linux
     title: Linux
-  - id: os-mac
+  - id: os-macos
     title: macOS
