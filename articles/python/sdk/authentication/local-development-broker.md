@@ -1,13 +1,14 @@
 ---
-title: Authenticate .NET apps to Azure using brokered authentication.
-description: Learn how to authenticate your app to Azure services when using the Azure SDK for .NET during local development using brokered authentication.
+title: Authenticate Python apps to Azure using brokered authentication.
+description: Learn how to authenticate your app to Azure services when using the Azure SDK for Python during local development using brokered authentication.
 ms.date: 11/24/2025
 ms.topic: how-to
 ms.custom: devx-track-python, passwordless-python
+zone_pivot_group_filename: developer/python/python-zone-pivot-groups.json
 zone_pivot_groups: operating-systems-set-one
 ---
 
-# Authenticate .NET apps to Azure services during local development using brokered authentication
+# Authenticate Python apps to Azure services during local development using brokered authentication
 
 [!INCLUDE [broker-intro](../../../includes/authentication/includes/broker-intro.md)]
 
