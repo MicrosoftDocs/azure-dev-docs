@@ -48,7 +48,7 @@ Set the environment variable values with values obtained from the app registrati
 - `AZURE_TENANT_ID`: The tenant ID value.
 - `AZURE_CLIENT_SECRET`: The password/credential generated for the app.
 
-For C++ applications, you can set these environment variables in several ways. You can load them from a `.env` file in your code, or you can set them in your system environment. Below are examples of how to set these environment variables in different shells.:
+For C++ applications, you can set these environment variables in several ways. You can load them from a `.env` file in your code, or you can set them in your system environment. Below are examples of how to set these environment variables in different shells:
 
 # [Bash](#tab/bash)
 

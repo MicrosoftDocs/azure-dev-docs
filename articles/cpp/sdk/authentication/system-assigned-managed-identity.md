@@ -26,7 +26,7 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
-    In a terminal of your choice, navigate to the application project directory and run the following commands:
+    In a terminal of your choice, navigate to the application project directory and run the following command:
 
     ```bash
     vcpkg add port azure-identity-cpp

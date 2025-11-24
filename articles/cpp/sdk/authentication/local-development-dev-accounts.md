@@ -55,7 +55,7 @@ az login --use-device-code
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use `DefaultAzureCredential` when working with service principals locally.
+The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use `DefaultAzureCredential` when working with user accounts locally.
 
 ## Implement the code
 
