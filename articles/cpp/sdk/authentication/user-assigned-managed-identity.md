@@ -47,6 +47,7 @@ Azure services are accessed using specialized clients from the various Azure SDK
 1. Create an instance of `DefaultAzureCredential`.
 1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
 1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned managed identity.
+1. Set the `AZURE_TOKEN_CREDENTIAL` environment variable to `ManagedIdentityCredential` to ensure that `DefaultAzureCredential` uses the managed identity credential. This practice makes authentication more predictable and easier to debug when deployed to Azure. For more information, see [Use a specific credential](credential-chains.md#use-a-specific-credential). 
 
 An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 

@@ -1,8 +1,8 @@
 ---
 title: Credential Chains in the Azure Identity Client Library for C++
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for C++.
-ms.date: 10/03/2025
-ms.topic: conceptual
+ms.date: 11/24/2025
+ms.topic: concept-article
 ms.custom: devx-track-cpp
 
 #customer intent: As a developer using the Azure SDK for C++, I want to use credential chains to combine different authentication methods, so my app can authenticate seamlessly across different environments, from local development to production deployments in Azure.
