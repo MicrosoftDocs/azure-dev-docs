@@ -46,7 +46,7 @@ Azure services are accessed using specialized clients from the various Azure SDK
 1. Include the `azure/identity.hpp` header.
 1. Create an instance of `DefaultAzureCredential`.
 1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
-1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned identity.
+1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned managed identity.
 
 An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
