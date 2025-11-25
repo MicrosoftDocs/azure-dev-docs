@@ -42,7 +42,7 @@ In this article, you learn how to use [Azure Copilot](/azure/copilot/overview) i
 
 1. Once Azure Copilot responds, you can select **Open Full View** to view the configuration code block in full-screen mode.
 
-    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" border="true" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal.":::
+    :::image type="content" source="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png" border="true" alt-text="Screenshot of the Azure Copilot full-screen mode in the Azure portal." lightbox="./media/generate-terraform-configuration-using-copilot/copilot-open-full-view.png":::
 
 1. Select the **Copy** icon to copy the new configuration to the clipboard.
 
