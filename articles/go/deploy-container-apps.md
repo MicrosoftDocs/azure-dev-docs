@@ -231,33 +231,33 @@ The `--registry-identity system` parameter configures the system-assigned **[man
     curl "https://$APP_FQDN"
     ```
 
-The command returns the HTML for the web app's home page similar to the following:
+    `The command returns the HTML for the web app's home page similar to the following:
 
-```html
-<!DOCTYPE html>
-<html>
+    ```html
+    <!DOCTYPE html>
+    <html>
 
-<head>
-    <title>Hello Azure - Go Quickstart</title>
-    <link rel="stylesheet" href="/assets/main.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-</head>
+    <head>
+        <title>Hello Azure - Go Quickstart</title>
+        <link rel="stylesheet" href="/assets/main.css">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    </head>
 
-<header>
-    <h1>Welcome to Azure</h1>
-</header>
+    <header>
+        <h1>Welcome to Azure</h1>
+    </header>
 
-<section>
-    <img src="/assets/images/azure-icon.svg">
-    <form method="post">
-        <label for="form-label">Could you please tell me your name?</label><br>
-        <input type="text" id="name" name="name" style="max-width: 256px;"><br>
-        <button type="submit">Say Hello</button>
-    </form>
-</section>
+    <section>
+        <img src="/assets/images/azure-icon.svg">
+        <form method="post">
+            <label for="form-label">Could you please tell me your name?</label><br>
+            <input type="text" id="name" name="name" style="max-width: 256px;"><br>
+            <button type="submit">Say Hello</button>
+        </form>
+    </section>
 
-</html>
-```
+    </html>
+    ```
 
 ## Clean up resources
 
