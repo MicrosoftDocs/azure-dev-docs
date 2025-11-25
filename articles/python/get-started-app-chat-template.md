@@ -68,7 +68,7 @@ To use this article, you need the following prerequisites:
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-* An Azure subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=ai-services&azure-portal=true) before you begin.
+* An Azure subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 
@@ -82,7 +82,7 @@ To use this article, you need the following prerequisites:
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-* An Azure subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=ai-services&azure-portal=true) before you begin.
+* An Azure subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Azure account permissions. Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions. Roles like [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) satisfy this requirement.
 
