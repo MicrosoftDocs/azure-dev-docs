@@ -109,13 +109,13 @@ Run the following commands to create an Azure Container Registry:
     az acr login --name $ACR_NAME
     ```
 
-> [!NOTE]
-> If you get an error similar to the following error when you run the `az acr login` command, make sure the Docker daemon is running on your system:
->
-> ```output
-> You may want to use 'az acr login -n $ACR_NAME --expose-token' to get an access token, which doesn't require Docker to be installed.
-> 2024-09-12 17:25:25.127779 An error occurred: DOCKER_COMMAND_ERROR
-> ```
+    > [!NOTE]
+    > If you get an error similar to the following error when you run the `az acr login` command, make sure the Docker daemon is running on your system:
+    >
+    > ```output
+    > You may want to use 'az acr login -n $ACR_NAME --expose-token' to get an access token, which doesn't require Docker to be installed.
+    > An error occurred: DOCKER_COMMAND_ERROR
+    > ```
 
 ### Build and push the Docker image
 
@@ -213,22 +213,50 @@ The `--registry-identity system` parameter configures the system-assigned **[man
 
 ## Verify the web app URL
 
-Run the [az containerapp show](/cli/azure/containerapp#az-containerapp-show) command to get the FQDN (Fully Qualified Domain Name) of the web application's ingress.
+1. Run the [az containerapp show](/cli/azure/containerapp#az-containerapp-show) command to get the FQDN (Fully Qualified Domain Name) of the web application's ingress.
 
-```azurecli
-APP_FQDN=$(az containerapp show \
-    --name $CONTAINER_APP_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query properties.configuration.ingress.fqdn \
-    --output tsv)
+    ```azurecli
+    APP_FQDN=$(az containerapp show \
+        --name $CONTAINER_APP_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --query properties.configuration.ingress.fqdn \
+        --output tsv)
 
-echo "App URL: https://$APP_FQDN"
-```
+    echo "App URL: https://$APP_FQDN"
+    ```
 
-Next, run the curl command against the FQDN and confirm the output reflects the HTML of the website. You can also open the URL in a web browser to interact with the web app.
+1. Run the curl command against the FQDN and confirm the output reflects the HTML of the website. You can also open the URL in a web browser to interact with the web app.
 
-```bash
-curl "https://$APP_FQDN"
+    ```bash
+    curl "https://$APP_FQDN"
+    ```
+
+The command returns the HTML for the web app's home page similar to the following:
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello Azure - Go Quickstart</title>
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+
+<header>
+    <h1>Welcome to Azure</h1>
+</header>
+
+<section>
+    <img src="/assets/images/azure-icon.svg">
+    <form method="post">
+        <label for="form-label">Could you please tell me your name?</label><br>
+        <input type="text" id="name" name="name" style="max-width: 256px;"><br>
+        <button type="submit">Say Hello</button>
+    </form>
+</section>
+
+</html>
 ```
 
 ## Clean up resources
