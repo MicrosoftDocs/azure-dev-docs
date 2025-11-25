@@ -307,7 +307,7 @@ This approach gives you fine-grained control over logging verbosity when working
 - [Azure JavaScript SDK logging][Azure JS SDK logging]
 - [Passwordless connections for Azure services]
 
-[Free Subscription]: https://azure.microsoft.com/free/
+[Free Subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn/
 [TypeScript]: https://www.typescriptlang.org/ 
 [Node.js website]: https://nodejs.org/
 [Azure CLI]: /cli/azure/install-azure-cli

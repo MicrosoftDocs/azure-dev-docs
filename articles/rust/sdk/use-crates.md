@@ -81,7 +81,7 @@ The code shown in this article is available on <https://github.com/azure-samples
 
 [Crate - identity]: https://crates.io/crates/azure_identity
 
-[Free Subscription]: https://azure.microsoft.com/free/
+[Free Subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn/
 
 [Azure Developer CLI]: /azure/developer/azure-developer-cli
 [Azure CLI]: /cli/azure/
