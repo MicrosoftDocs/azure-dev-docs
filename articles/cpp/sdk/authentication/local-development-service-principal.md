@@ -78,7 +78,7 @@ $env:AZURE_CLIENT_SECRET="<your-client-secret>"
 
 ---
 
-## Use ClientSecretCredential in your application
+## Authenticate to Azure services from your app
 
 To authenticate Azure SDK client objects to Azure, use the `ClientSecretCredential` class from the Azure Identity library for C++. In this scenario, `ClientSecretCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
 
