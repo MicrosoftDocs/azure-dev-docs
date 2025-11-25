@@ -1,7 +1,9 @@
 ---
 title: "Get started with chat private endpoints"
 description: "Secure the chat app with a virtual network."
-ms.date: 02/26/2025
+ms.date: 11/25/2025
+ms.author: johalexander
+author: ms-johnalex
 ms.update-cycle: 180-days
 ms.topic: get-started
 ms.subservice: intelligent-apps
@@ -73,9 +75,17 @@ To use this article, you need the following prerequisites.
 
 ---
 
+### Usage cost for sample resources
+
+Most resources used in this architecture fall under basic or consumption-based pricing tiers. This means you only pay for what you use, and charges are typically minimal during development or testing.
+
+Deploying with private networking adds extra cost to your deployment. Once you're done evaluating or deploying the app, you can delete all provisioned resources to avoid ongoing charges.
+
+For a detailed breakdown of expected costs, see the [Before you begin](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/docs/deploy_private.md#before-you-begin) in the GitHub repository for the sample.
+
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article.
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -149,6 +159,7 @@ This solution configures and deploys the infrastructure based on custom settings
 |--|----|
 |`AZURE_PUBLIC_NETWORK_ACCESS`|Controls the value of public network access on supported Azure resources. Valid values are `Enabled` or `Disabled`.|
 |`AZURE_USE_PRIVATE_ENDPOINT`|Controls deployment of private endpoints, which connect Azure resources to the virtual network. The `TRUE` value means that private endpoints are deployed for connectivity.|
+|`AZURE_USE_VPN_GATEWAY`|Controls deployment of a VPN gateway for the virtual network. If you don't use this and public access is disabled, you need a different way to connect to the virtual network. The `TRUE` value means that a VPN gateway is deployed for connectivity.|
 
 ## Deploy the chat app
 
@@ -184,13 +195,18 @@ The first deployment creates the resources and provides a publicly accessible en
 
 Change the deployment configuration to secure the chat app for private access.
 
+1. Run the following command to use a VPN gateway for accessing the virtual network:
+
+    ```console
+    azd env set AZURE_USE_VPN_GATEWAY true
+    ```
+
 1. Run the following command to turn off public access:
 
     ```console
     azd env set AZURE_PUBLIC_NETWORK_ACCESS Disabled
-    ```
 
-1. Run the following command to change the resource configuration. This command doesn't redeploy the application code because that code hasn't changed.
+1. Run the following command to change the resource configuration. This command doesn't redeploy the application code because only the infrastructure configuration changed.
 
     ```console
     azd provision
@@ -233,7 +249,7 @@ You aren't necessarily required to clean up your local environment, but you can 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. Free up space on your local machine by deleting the container instance, image, and volumes from Docker.
 
 ---
 
