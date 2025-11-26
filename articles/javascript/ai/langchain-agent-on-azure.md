@@ -31,7 +31,7 @@ NorthWind relies on two data sources: public HR documentation accessible to all 
 
 ## Prerequisites
 
-* An active Azure account. [Create an account for free](https://azure.microsoft.com/free) if you don't have one.
+* An active Azure account. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 * [Node.js LTS](https://nodejs.org/) installed on your system.
 * [TypeScript](https://www.typescriptlang.org/) for writing and compiling TypeScript code.
 * [LangChain.js](https://www.npmjs.com/package/langchain) library for building the agent.

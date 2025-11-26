@@ -4,7 +4,7 @@ description: Overview article introducing the resources available in this conten
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 10/31/2025
+ms.date: 11/25/2025
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
 content_well_notification: 
   - AI-contribution
@@ -17,7 +17,7 @@ This documentation is designed for experienced developers who are new to buildin
 
 ## Introduction to generative AI for developers
 
-Generative AI opens many new possibilities for applications. As a developer, it's important that you develop a mental model that maps how all the new terminology and technologies related to generative AI fit into what you already understand. The following series of articles show you how your current development experience applies to generative AI. 
+Generative AI opens many new possibilities for applications. As a developer, it's important that you develop a mental model that maps how  the new terminology and technologies related to generative AI fit into what you already understand. The following series of articles show you how your current development experience applies to generative AI.
 
 * [Introduction to developing generative AI apps for experienced developers](./introduction-build-generative-ai-solutions.md)
 * [Important concepts and considerations for developers building generative AI solutions](./gen-ai-concepts-considerations-developers.md)

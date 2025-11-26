@@ -11,14 +11,14 @@ metadata:
   description: Learn how you can build applications using Azure.
   author: PatAltimore
   ms.author: patricka
-  ms.date: 08/26/2025
+  ms.date: 09/30/2025
   ms.topic: landing-page
   ms.service: azure
   ms.subservice: developer
 
 landingContent:
   # Card
-  - title: Overview
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
@@ -42,7 +42,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Develop apps that use Azure AI services
-            url: ./azure-ai-for-developers.md
+            url: /azure/developer/ai/azure-ai-for-developers
           - text: Passwordless connections for Azure Services
             url: ./passwordless-overview.md
   # Card
@@ -60,3 +60,7 @@ landingContent:
             url: ../python/index.yml
           - text: Go on Azure
             url: ../go/index.yml
+          - text: C++ on Azure
+            url: ../cpp/index.yml
+          - text: Rust on Azure
+            url: ../rust/index.yml
