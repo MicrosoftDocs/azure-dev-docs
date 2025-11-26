@@ -7,6 +7,7 @@ ms.author: alexwolf
 ms.date: 08/11/2025
 ms.topic: get-started
 ms.custom: build-2025
+zone_pivot_groups: pivot-os-windows-linux
 ---
 
 # Get started with the Azure MCP Server using Visual Studio
@@ -26,6 +27,8 @@ In this article, you learn how to complete the following tasks:
 - [.NET 10](https://dotnet.microsoft.com/download) OR [Node.js](https://nodejs.org/) LTS installed
 
 ## Install the Azure MCP Server
+
+:::zone target="docs" pivot="visual-studio-2022"
 
 Visual Studio uses a file named `mcp.json` to check for MCP Server configurations, including configurations set up by other development environments. MCP server configurations are read from the following directories, in the following order:
 

@@ -8,3 +8,11 @@ groups:
     title: Windows
   - id: os-linux
     title: Linux
+- id: pivot-visual-studio
+  title: Visual Studio version
+  prompt: Choose a version
+  pivots:
+  - id: visual-studio-2022
+    title: Visual Studio 2022
+  - id: Visual-studio-2026
+    title: Visual Studio 2026
