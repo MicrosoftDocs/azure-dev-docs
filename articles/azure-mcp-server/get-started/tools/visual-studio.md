@@ -7,6 +7,7 @@ ms.author: alexwolf
 ms.date: 08/11/2025
 ms.topic: get-started
 ms.custom: build-2025
+zone_pivot_group_filename: developer/pivots.yml
 zone_pivot_groups: pivot-os-windows-linux
 ---
 
@@ -148,6 +149,19 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 1. Select the tools icon to view the available tools. Search for *Azure MCP Server* to filter the results.
 
 ---
+
+:::zone-end
+
+:::zone target="docs" pivot="visual-studio-2026"
+
+Azure MCP Server tools are included with Visual Studio 2026 Azure and AI development workload. To make them available:
+
+1. Open the Visual Studio Installer tool.
+1. Select **Modify** to view available workloads.
+1. On the **Workloads** tab, select **Azure and AI development**. Make sure **GitHub Copilot** is selected.
+1. Select **Install while downloading** to complete the installation process.
+
+:::zone-end
 
 :::image type="content" source="../../media/github-copilot-mcp-tools-visual-studio.png" alt-text="A screenshot showing how to configure Azure MCP Server in Visual Studio.":::
 
