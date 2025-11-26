@@ -8,7 +8,7 @@ ms.date: 08/11/2025
 ms.topic: get-started
 ms.custom: build-2025
 zone_pivot_group_filename: developer/pivots.yml
-zone_pivot_groups: pivot-os-windows-linux
+zone_pivot_groups: pivot-visual-studio
 ---
 
 # Get started with the Azure MCP Server using Visual Studio
