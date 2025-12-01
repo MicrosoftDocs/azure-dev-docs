@@ -168,7 +168,7 @@ Visual Studio 2026 includes Azure MCP Server tools with the Azure and AI develop
 
 1. Select **Install while downloading** to complete the installation process.
 
-:::image type="content" source="../../media/workload-install-copilot.png" alt-text="A screenshot showing how to install Copilot using Visual Studio workloads.":::
+:::image type="content" source="../../media/workload-install-copilot.png" alt-text="A screenshot showing how to install Copilot using Visual Studio workloads." lightbox="../../media/workload-install-copilot.png":::
 
 :::zone-end
 
