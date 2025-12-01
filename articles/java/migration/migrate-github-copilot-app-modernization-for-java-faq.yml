@@ -26,7 +26,7 @@ sections:
         answer: We currently have no plans to open source GitHub Copilot app modernization.
 
       - question: What GitHub Copilot license plan do I need to use GitHub Copilot app modernization?
-        answer: GitHub Copilot app modernization is available to Pro, Pro+, Business, or Enterprise plan.
+        answer: GitHub Copilot app modernization is available to any GitHub Copilot plan.
 
       - question: How is GitHub Copilot app modernization billed?
         answer: GitHub Copilot app modernization is a feature of GitHub Copilot, and shares the same [subscription billing model](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans) as GitHub Copilot. App modernization tasks consume premium requests, with each subscription plan offering a monthly allowance of premium requests. Exceeding the plan limit requires a plan upgrade or extra purchase of premium requests.
