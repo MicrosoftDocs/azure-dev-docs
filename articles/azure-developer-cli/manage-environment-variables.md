@@ -351,7 +351,7 @@ foreach ($line in (& azd env get-values)) {
 | `AZURE_RESOURCE_GROUP` | Name of the resource group | `rg-myapp-dev` | During provisioning |
 | `AZURE_PRINCIPAL_ID` | The running user/service principal ID | `00000000-0000-0000-0000-000000000000` | During provisioning |
 | `AZURE_PRINCIPAL_TYPE` | The type of a principal in the environment. | `1a2b3c` | During provisioning |
-| `AZURE_TENANT_ID` | The type of a principal in the environment. | `1a2b3c` | During provisioning |
+| `AZURE_TENANT_ID` | ID of the Azure tenant used. | `00000000-0000-0000-0000-000000000000` | During provisioning |
 
 ## Secrets and sensitive data considerations
 
