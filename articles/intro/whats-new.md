@@ -1,7 +1,7 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 11/13/2025
+ms.date: 12/01/2025
 author: KarlErickson
 ms.author: karler
 ms.topic: article
