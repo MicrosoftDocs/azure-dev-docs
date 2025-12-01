@@ -156,7 +156,7 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 
 :::zone target="docs" pivot="visual-studio-2026"
 
-Azure MCP Server tools are included with Visual Studio 2026 Azure and AI development workload. To make them available:
+Visual Studio 2026 includes Azure MCP Server tools with the Azure and AI development workload. To make them available:
 
 1. Open the Visual Studio Installer tool.
 1. Select **Modify** to view available workloads.
