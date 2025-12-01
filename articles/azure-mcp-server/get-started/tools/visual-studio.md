@@ -162,10 +162,9 @@ Azure MCP Server tools are included with Visual Studio 2026 Azure and AI develop
 1. Select **Modify** to view available workloads.
 1. On the **Workloads** tab, select **Azure and AI development**.
 1. On the **Installation details** panel, verify that **GitHub Copilot** is selected, which includes the following components:
-
-  - GitHub Copilot
-  - GitHub Copilot for Azure
-  - Azure MCP Server
+    - GitHub Copilot
+    - GitHub Copilot for Azure
+    - Azure MCP Server
 
 1. Select **Install while downloading** to complete the installation process.
 
