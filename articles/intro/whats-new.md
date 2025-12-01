@@ -11,6 +11,85 @@ ms.topic: article
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
 
+## What's new for November 2025
+
+### AI apps using Azure services
+
+Updated articles:
+
+- [Get started with multimodal vision chat apps using Azure OpenAI](../ai/get-started-app-chat-vision.md) - code changes
+
+### Azure Developer CLI (azd)
+
+New articles:
+
+- [Deploy an agent to Microsoft Foundry with the Azure Developer CLI AI agent extension](../azure-developer-cli/extensions/azure-ai-foundry-extension.md)
+
+Updated articles:
+
+- [Deploy to Azure Container Apps using the Azure Developer CLI](../azure-developer-cli/container-apps-workflows.md) - rewrite docs to reference new revision-based deployment
+
+### Azure for Go
+
+Updated articles:
+
+- [Deploy a Go web app to Azure Container Apps](../go/deploy-container-apps.md) - Improve quickstart using environment variables
+
+### Azure for Java
+
+New articles:
+
+- [Integrate portfolio assessment with GitHub Copilot app modernization](../java/migration/github-copilot-app-modernization-for-java-portfolio-assessment-integration.md)
+- [Migrate from Oracle to PostgreSQL by using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md)
+- [Modernize Java apps by using GitHub Copilot app modernization in coding agent](../java/migration/github-copilot-app-modernization-for-java-coding-agent.md)
+- [Modernize Java apps by using GitHub Copilot app modernization in the Copilot CLI](../java/migration/github-copilot-app-modernization-for-java-copilot-cli.md)
+- [Working with assessment: Comprehensive guide to application assessment with GitHub Copilot App Modernization for Java](../java/migration/migrate-github-copilot-app-modernization-for-java-working-with-assessment.md)
+
+Updated articles:
+
+- [Quickstart: create and apply your own tasks for GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-create-and-apply-your-own-task.md) - updates for Ignite
+
+### Azure for JavaScript
+
+New articles:
+
+- [Authenticate JavaScript apps to Azure services during local development using brokered authentication](../javascript/sdk/authentication/local-development-broker.md)
+
+### Azure for Rust
+
+New articles:
+
+- [Use the `azure-core` crate for advanced scenarios in Rust applications](../rust/sdk/azure-core-types.md)
+
+### Azure MCP Server
+
+New articles:
+
+- [Azure AI best practices tools for the Azure MCP Server](../azure-mcp-server/tools/azure-ai-best-practices.md)
+- [Deploy a self-hosted remote Azure MCP Server and connect to it using Copilot Studio](../azure-mcp-server/how-to/deploy-remote-mcp-server-copilot-studio.md)
+- [Deploy a self-hosted remote Azure MCP Server and connect to it using Microsoft Foundry](../azure-mcp-server/how-to/deploy-remote-mcp-server-microsoft-foundry.md)
+- [Get started with the Azure MCP Server in Eclipse](../azure-mcp-server/get-started/tools/eclipse.md)
+
+Updated articles:
+
+- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP update Foundry tools
+- [Azure Database for MySQL tools for Azure MCP Server](../azure-mcp-server/tools/azure-mysql.md) - MCP - mysql - required resource name parameter
+- [Azure Database for PostgreSQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-database-postgresql.md) - MCP -postgres - required params in example prompts
+- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md) - MCP - azure SQL - required resource group param
+
+### GitHub Copilot App Modernization
+
+New articles:
+
+- [Languages and frameworks supported by GitHub Copilot app modernization](../github-copilot-app-modernization/languages.md)
+
+### GitHub Copilot for Azure
+
+Updated articles:
+
+- [Example prompts for deploying your application with GitHub Copilot for Azure](../github-copilot-azure/deploy-examples.md) - Remove ask mode from all GHCPA articles
+- [Example prompts for learning about Azure and your application with GitHub Copilot for Azure](../github-copilot-azure/learn-examples.md) - Remove ask mode from all GHCPA articles
+
 ## What's new for October 2025
 
 ### AI apps using Azure services
@@ -219,79 +298,3 @@ Updated articles:
   - [GitHub Copilot app modernization](../github-copilot-app-modernization/overview.md)
   - [GitHub Copilot app modernization FAQ](../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml)
   - [Quickstart: assess and migrate a Java project using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
-
-## What's new for August 2025
-
-### Azure Developer CLI (azd)
-
-New articles:
-
-- [Azure Developer CLI environments overview](../azure-developer-cli/environments-overview.md)
-- [Work with Azure Developer CLI environments](../azure-developer-cli/work-with-environments.md)
-
-Updated articles:
-
-- [Customize your Azure Developer CLI workflows using command and event hooks](../azure-developer-cli/azd-extensibility.md) - Expand feature coverage
-- [Explore the Azure Developer CLI initialization workflows](../azure-developer-cli/azd-init-workflow.md) - Expand feature coverage
-- [Work with Azure Developer CLI environment variables](../azure-developer-cli/manage-environment-variables.md) - Environment variables refresh
-
-### Azure MCP Server
-
-New articles:
-
-- [Azure Cloud Architect design tools for the Azure MCP Server](../azure-mcp-server/tools/azure-cloud-architect.md)
-- [Azure Container Registry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-container-registry.md)
-- [Azure Database for MySQL tools for Azure MCP Server](../azure-mcp-server/tools/azure-mysql.md)
-- [Azure Deploy tools for the Azure MCP Server](../azure-mcp-server/tools/azure-deploy.md)
-- [Azure Functions tools for the Azure MCP Server](../azure-mcp-server/tools/azure-functions.md)
-- [Azure Health Resources tools for the Azure MCP Server](../azure-mcp-server/tools/azure-health-resource.md)
-- [Azure Managed Lustre tools for Azure MCP Server](../azure-mcp-server/tools/azure-managed-lustre.md)
-- [Azure Quotas for the Azure MCP Server](../azure-mcp-server/tools/azure-quotas.md)
-- [Azure Virtual Desktop tools for the Azure MCP Server](../azure-mcp-server/tools/azure-virtual-desktop.md)
-- [Get started with the Azure MCP Server in Cursor](../azure-mcp-server/get-started/tools/cursor.md)
-- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md)
-- [Marketplace tools for the Azure MCP Server](../azure-mcp-server/tools/azure-marketplace.md)
-
-Updated articles:
-
-- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/azure-storage.md) - MCP tool - Added new operations and parameters
-
-### GitHub Copilot for Azure
-
-New articles:
-
-- [Generate a Django and PostgreSQL app and deploy to Azure](../github-copilot-azure/generate-deploy-django-postgresql.md)
-
-### Azure for Java
-
-Updated Azure AI Search articles to include Java coverage:
-
-- [Quickstart: Generative search (RAG) using grounding data from Azure AI Search](/azure/search/search-get-started-rag?pivots=java)
-- [Quickstart: Semantic ranking](/azure/search/search-get-started-semantic?pivots=java)
-
-### Azure for JavaScript
-
-Updated articles:
-
-- [Configure logging in Azure SDK client libraries for JavaScript](../javascript/sdk/debug-client-libraries.md) - Update SDK debug client libraries
-- [Credential chains in the Azure Identity client library for JavaScript](../javascript/sdk/authentication/credential-chains.md) - Update JS credential chains doc for 4.11.0 release
-
-### Azure for Python
-
-New articles:
-
-- [Azure SDK Language Design Guidelines for Python](../python/sdk/fundamentals/language-design-guidelines.md)
-- [Handling errors produced by the Azure SDK for Python](../python/sdk/fundamentals/errors.md)
-- [Overview of Azure SDK for Python fundamentals](../python/sdk/fundamentals/overview.md)
-- [Understanding common response types in the Azure SDK for Python](../python/sdk/fundamentals/common-types-response.md)
-- [Understanding HTTP pipeline and retries in the Azure SDK for Python](../python/sdk/fundamentals/http-pipeline-retries.md)
-
-### Azure for .NET
-
-New articles:
-
-- [Authenticate .NET apps to Azure services during local development using brokered authentication](/dotnet/azure/sdk/authentication/local-development-broker)
-
-Updated articles:
-
-- [Credential chains in the Azure Identity library for .NET](/dotnet/azure/sdk/authentication/credential-chains)
