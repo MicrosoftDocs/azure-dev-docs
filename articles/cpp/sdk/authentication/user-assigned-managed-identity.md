@@ -31,9 +31,9 @@ The Azure Identity library provides various *credentials*&mdash;implementations 
 
 ## Implement the code
 
-Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
+1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
-1. In a terminal of your choice, navigate to the application project directory and run the following command:
+    In a terminal of your choice, navigate to the application project directory and run the following command:
 
     ```bash
     vcpkg add port azure-identity-cpp
@@ -46,57 +46,58 @@ Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/mai
     target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
     ```
 
-Azure services are accessed using specialized clients from the various Azure SDK client libraries. For any C++ code that instantiates an Azure SDK client in your app, you need to:
+1. Azure services are accessed using specialized clients from the various Azure SDK client libraries. For any C++ code that instantiates an Azure SDK client in your app, you need to:
 
-1. Include the `azure/identity.hpp` header.
-1. Create an instance of `DefaultAzureCredential`.
-1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
-1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned managed identity.
-1. Set the `AZURE_TOKEN_CREDENTIAL` environment variable to `ManagedIdentityCredential` to ensure that `DefaultAzureCredential` uses the managed identity credential. This practice makes authentication more predictable and easier to debug when deployed to Azure. For more information, see [Use a specific credential](credential-chains.md#use-a-specific-credential). 
+    1. Include the `azure/identity.hpp` header.
+    1. Create an instance of `DefaultAzureCredential`.
+    1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
+    1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned managed identity.
+    1. Set the `AZURE_TOKEN_CREDENTIAL` environment variable to `ManagedIdentityCredential` to ensure that `DefaultAzureCredential` uses the managed identity credential. This practice makes authentication more predictable and easier to debug when deployed to Azure. For more information, see [Use a specific credential](credential-chains.md#use-a-specific-credential). 
 
-An example of these steps is shown in the following code segment with an Azure Storage Blob client.
+    An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
-```cpp
-#include <azure/identity.hpp>
-#include <azure/storage/blobs.hpp>
-#include <iostream>
-#include <memory>
-#include <cstdlib>
+    ```cpp
+    #include <azure/identity.hpp>
+    #include <azure/storage/blobs.hpp>
+    #include <iostream>
+    #include <memory>
+    #include <cstdlib>
 
-int main() {
-    try {
-        // Set the AZURE_CLIENT_ID environment variable to your user-assigned managed identity client ID
-        // This can be done in your deployment environment or in code (shown below for demonstration)
-        // std::putenv("AZURE_CLIENT_ID=your-user-assigned-identity-client-id");
+    int main() {
+        try {
+            // Set the AZURE_CLIENT_ID environment variable to your user-assigned managed identity client ID
+            // This can be done in your deployment environment or in code (shown below for demonstration)
+            // std::putenv("AZURE_CLIENT_ID=your-user-assigned-identity-client-id");
+            
+            // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID environment variable
+            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+            
+            // Create a client for the specified storage account
+            std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
+            Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
+            
+            // Get a reference to a container
+            std::string containerName = "sample-container";
+            auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            
+            // Get a reference to a blob
+            std::string blobName = "sample-blob";
+            auto blobClient = containerClient.GetBlobClient(blobName);
+            
+            // TODO: perform some action with the blob client
+            // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
+            
+            std::cout << "Successfully authenticated using user-assigned managed identity." << std::endl;
+            
+        } catch (const std::exception& ex) {
+            std::cout << "Exception: " << ex.what() << std::endl;
+            return 1;
+        }
         
-        // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID environment variable
-        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
-        
-        // Create a client for the specified storage account
-        std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
-        Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
-        
-        // Get a reference to a container
-        std::string containerName = "sample-container";
-        auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-        
-        // Get a reference to a blob
-        std::string blobName = "sample-blob";
-        auto blobClient = containerClient.GetBlobClient(blobName);
-        
-        // TODO: perform some action with the blob client
-        // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
-        
-        std::cout << "Successfully authenticated using user-assigned managed identity." << std::endl;
-        
-    } catch (const std::exception& ex) {
-        std::cout << "Exception: " << ex.what() << std::endl;
-        return 1;
+        return 0;
     }
-    
-    return 0;
-}
-```
+    ```
+
 The preceding code behaves differently depending on the environment where it's running if the `AZURE_TOKEN_CREDENTIAL` environment variable isn't set to `ManagedIdentityCredential`:
 
 - On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Azure CLI, for a set of developer credentials.
