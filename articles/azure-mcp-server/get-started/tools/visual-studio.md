@@ -44,6 +44,9 @@ Visual Studio uses a file named `mcp.json` to check for MCP Server configuration
 
 Azure MCP Server is available as a NuGet package or as an NPM package. The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio.
 
+> [!NOTE]
+> Alternatively, you can use the [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022) extension to install Azure MCP
+
 ## [Solution install](#tab/manual)
 
 Complete the following steps to install Azure MCP Server for a specific directory:
