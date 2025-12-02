@@ -85,7 +85,7 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
         // Environment variable AZURE_TOKEN_CREDENTIALS=dev
         auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
         ```
-    - Use `AzureCliCredential` that uses the Azure CLI signed-in user to authenticate.
+    - Use `AzureCliCredential` to use the Azure CLI signed-in user to authenticate.
         
         ```cpp
         auto credential = std::make_shared<Azure::Identity::AzureCliCredential>();
