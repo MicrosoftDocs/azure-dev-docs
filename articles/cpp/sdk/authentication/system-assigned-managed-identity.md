@@ -117,11 +117,6 @@ int main() {
         // Create a system-assigned managed identity credential
         auto credential = std::make_shared<Azure::Identity::ManagedIdentityCredential>();
         
-        // When using User Assigned Managed Identity, specify the client ID
-        // Azure::Identity::ManagedIdentityCredentialOptions options;
-        // options.ClientId = "abcd1234-...";
-        // auto credential = std::make_shared<Azure::Identity::ManagedIdentityCredential>(options);
-        
         // Create a client for the specified storage account
         std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
         Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
