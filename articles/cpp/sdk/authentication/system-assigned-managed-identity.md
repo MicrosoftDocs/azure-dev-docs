@@ -137,7 +137,7 @@ int main() {
         // TODO: perform some action with the blob client
         // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
         
-        std::cout << "Successfully authenticated using managed identity." << std::endl;
+        std::cout << "Successfully authenticated using system-assigned managed identity." << std::endl;
         
     } catch (const std::exception& ex) {
         std::cout << "Exception: " << ex.what() << std::endl;
