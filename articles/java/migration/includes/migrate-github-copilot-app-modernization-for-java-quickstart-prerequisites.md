@@ -2,7 +2,7 @@
 ms.date: 10/28/2025
 ---
 
-- A GitHub account with [GitHub Copilot](https://github.com/features/copilot) enabled. A Pro, Pro+, Business, or Enterprise plan is required.
+- A GitHub account with an active [GitHub Copilot](https://github.com/features/copilot) subscription under any plan.
 - One of the following IDEs:
   - The latest version of [Visual Studio Code](https://code.visualstudio.com/). Must be version 1.101 or later.
     - [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). For setup instructions, see [Set up GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup). Be sure to sign in to your GitHub account within Visual Studio Code.

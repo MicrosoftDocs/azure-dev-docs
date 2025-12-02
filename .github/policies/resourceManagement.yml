@@ -171,20 +171,6 @@ configuration:
       - payloadType: Issues
       - isAction:
           action: Opened
-      - bodyContains:
-          pattern: /chef/
-          isRegex: False
-      then:
-      - addLabel:
-          label: chef
-      - assignTo:
-          users:
-          - 'TomArcherMsft '
-      description: 
-    - if:
-      - payloadType: Issues
-      - isAction:
-          action: Opened
       - titleContains:
           pattern: /jenkins/
           isRegex: False

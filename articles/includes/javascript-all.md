@@ -336,7 +336,7 @@
 | Resource Management - Portal | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-portal/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-portal-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portal_1.0.0-beta.5/sdk/portal/arm-portal/) |
 | Resource Management - Portalservicescopilot | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-portalservicescopilot/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-portalservicescopilot-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portalservicescopilot_1.0.0-beta.1/sdk/portalservices/arm-portalservicescopilot/) |
 | Resource Management - PostgreSQL | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-postgresql/v/6.1.0) | [docs](/javascript/api/overview/azure/arm-postgresql-readme) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql/arm-postgresql) |
-| Resource Management - Postgresql | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-postgresql-flexible/v/8.0.0)<br>npm [8.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-postgresql-flexible/v/8.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-postgresql-flexible-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.0.0/sdk/postgresql/arm-postgresql-flexible/)<br>GitHub [8.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.1.0-beta.1/sdk/postgresql/arm-postgresql-flexible/) |
+| Resource Management - Postgresql | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-postgresql-flexible/v/9.0.0) | [docs](/javascript/api/overview/azure/arm-postgresql-flexible-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_9.0.0/sdk/postgresql/arm-postgresql-flexible/) |
 | Resource Management - Power BI Dedicated | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-powerbidedicated/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-powerbidedicated-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated) |
 | Resource Management - Power BI Embedded | npm [2.0.2](https://www.npmjs.com/package/@azure/arm-powerbiembedded/v/2.0.2) | [docs](/javascript/api/overview/azure/arm-powerbiembedded-readme) | GitHub [2.0.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbiembedded/arm-powerbiembedded) |
 | Resource Management - Private DNS | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-privatedns/v/3.3.0) | [docs](/javascript/api/overview/azure/arm-privatedns-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns) |
@@ -471,13 +471,13 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5593115) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5593115) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5593115) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5593115) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5593115) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5593115) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5593115](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5593115) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5610751) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.6) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.6) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
@@ -604,7 +604,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.15.2](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.15.2) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.16.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.16.0) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |

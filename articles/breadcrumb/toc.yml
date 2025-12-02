@@ -13,9 +13,6 @@ items:
     - name: Ansible
       tocHref: /azure/developer/ansible
       topicHref: /azure/developer/ansible/index
-    - name: Chef
-      tocHref: /azure/developer/chef
-      topicHref: /azure/developer/chef/index
     - name: C++
       tocHref: /azure/developer/cpp
       topicHref: /azure/developer/cpp/index
