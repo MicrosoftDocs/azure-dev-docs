@@ -1,15 +1,15 @@
 ---
-title: Overview of Azure Export for Terraform
-description: Learn the benefits and uses of Azure Export for Terraform
+title: Overview of Azure Export for Terraform CLI
+description: Learn the benefits and uses of Azure Export for Terraform CLI
 ms.topic: overview
 ms.date: 05/10/2023
 ms.author: stema
 ms.custom: devx-track-terraform,devx-track-export-terraform
 ---
 
-# Overview of Azure Export for Terraform
+# Overview of Azure Export for Terraform CLI
 
-Azure Export for Terraform is a tool designed to help reduce friction in translation between Azure and Terraform concepts.
+Azure Export for Terraform (`aztfexport`) is CLI a tool designed to help reduce friction in translation between Azure and Terraform concepts. This tool complements the [portal Terraform export experience](get-started-export-resources-portal.md).
 
 ## Benefits
 
@@ -19,6 +19,13 @@ Azure Export for Terraform enables you to:
 - **Export user-specified sets of resources to Terraform HCL code and state with a single command**. Azure Export for Terraform enables you to specify a predetermined scope to export. The scope can be as granular as a single resource. You can also export a resource group and its nested resources. Finally, you can export an entire subscription.
 - **Inspect preexisting infrastructure with all exposed properties.** Whether learning a newly released resource or investigating an issue in production, Azure Export for Terraform supports a read-only export with the option to expose all configurable resource properties.
 - **Follow plan/apply workflow to integrate non-Terraform infrastructure into Terraform.** Export HCL code, inspect non-Terraform resources and easily integrate them into your production infrastructure and remote backends.
+
+## Comparison with portal export experience
+
+This CLI tool provides more features in comparison to the portal experience.
+
+- **Number of resources that can be exported**. In portal only up to 1000 resources can be exported, and the maximum exported configuration payload is 4 MB. Error wil be returned if the limit is exceeded.
+- **Supported resource types**. In portal, some resource types such as Key Vault cannot be exported, but they are supported in the CLI tool.
 
 ## Installation
 
