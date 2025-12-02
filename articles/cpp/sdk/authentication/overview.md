@@ -84,46 +84,6 @@ For apps hosted on-premises, you can use a service principal to authenticate to 
 > [!div class="nextstepaction"]
 > [Authenticate your on-prem app using a service principal](local-development-service-principal.md)
 
-### DefaultAzureCredential
-
-The [DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) class provided by the Azure Identity client library allows apps to use different authentication methods depending on the environment in which they're run. In this way, apps can be promoted from local development, test, and production environments without code changes.
-
-You configure the appropriate authentication method for each environment, and `DefaultAzureCredential` automatically detects and uses that authentication method. The use of `DefaultAzureCredential` is preferred over manually coding conditional logic or feature flags to use different authentication methods in different environments. For more information, see [How to customize DefaultAzureCredential](./credential-chains.md#how-to-customize-defaultazurecredential). In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
-
-`DefaultAzureCredential` is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the `TokenCredential` protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained.
-
-To use `DefaultAzureCredential` in a C++ app, add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
-
-```bash
-vcpkg add port azure-identity-cpp
-```
-
-Then, add the following in your CMake file:
-
-```cmake
-find_package(azure-identity-cpp CONFIG REQUIRED)
-target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
-```
-
-Azure services are accessed using specialized client classes from the various Azure SDK client libraries. The following code example shows how to instantiate a `DefaultAzureCredential` object and use it with an Azure SDK client class. In this case, it's a `SecretClient` object used to access Azure KeyVault Secrets.
-
-```cpp
-#include <azure/identity.hpp>
-#include <azure/keyvault/secrets.hpp>
-
-int main(){
-  
-  auto const keyVaultUrl = std::getenv("AZURE_KEYVAULT_URL");
-  auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
-
-  Azure::Security::KeyVault::Secrets::SecretClient secretClient(keyVaultUrl, credential);
-}
-```
-
-When the preceding code runs on your local development workstation, it looks in the environment variables for an application service principal or at locally installed developer tools, such as the Azure CLI, for a set of developer credentials. Either approach can be used to authenticate the app to Azure resources during local development.
-
-When deployed to Azure, this same code can also authenticate your app to Azure resources. `DefaultAzureCredential` can retrieve environment settings and managed identity configurations to authenticate to Azure services automatically.
-
 ## Related content
 
 - [Azure Identity client library for C++ README on GitHub](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
