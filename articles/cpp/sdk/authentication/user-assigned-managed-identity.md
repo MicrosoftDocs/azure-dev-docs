@@ -70,7 +70,8 @@ int main() {
         // std::putenv("AZURE_CLIENT_ID=your-user-assigned-identity-client-id");
         
         // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID environment variable
-        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+        // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID and AZURE_TOKEN_CREDENTIAL environment variables
+        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
         
         // Create a client for the specified storage account
         std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
