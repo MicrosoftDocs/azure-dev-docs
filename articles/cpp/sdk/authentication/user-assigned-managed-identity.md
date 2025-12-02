@@ -33,18 +33,18 @@ The Azure Identity library provides various *credentials*&mdash;implementations 
 
 Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 
-In a terminal of your choice, navigate to the application project directory and run the following command:
+1. In a terminal of your choice, navigate to the application project directory and run the following command:
 
-```bash
-vcpkg add port azure-identity-cpp
-```
+    ```bash
+    vcpkg add port azure-identity-cpp
+    ```
 
-Then, add the following in your CMake file:
+1. Add the following in your CMake file:
 
-```cmake
-find_package(azure-identity-cpp CONFIG REQUIRED)
-target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
-```
+    ```cmake
+    find_package(azure-identity-cpp CONFIG REQUIRED)
+    target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
+    ```
 
 Azure services are accessed using specialized clients from the various Azure SDK client libraries. For any C++ code that instantiates an Azure SDK client in your app, you need to:
 
