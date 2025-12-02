@@ -59,7 +59,7 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
 
 ### Implement the code
 
-[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool is used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
 
 1. Add the [azure-identity-cpp](https://vcpkg.io/en/package/azure-identity-cpp) package to your application using [vcpkg](/vcpkg/).
 
@@ -67,18 +67,31 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
     vcpkg add port azure-identity-cpp
     ```
 
-1. Add the following in your CMake file:
+1. Add the following lines in your CMake file:
 
     ```cmake
     find_package(azure-identity-cpp CONFIG REQUIRED)
     target_link_libraries(<your project name> PRIVATE Azure::azure-identity)
     ```
 
-1. For any C++ code that creates an Azure SDK client object in your app, you'll want to:
+1. For any C++ code that creates an Azure SDK client object in your app, you want to:
 
     1. Include the `azure/identity.hpp` header.
-    1. Create an instance of `DefaultAzureCredential`.
-    1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
+    1. Use `DefaultAzureCredential` or `AzureCliCredential` to create an instance of a credential. For example:
+
+    - Use `DefaultAzureCredential` for local development. Set the environment variable `AZURE_TOKEN_CREDENTIALS` to `dev` that indicates the app is running in a development environment. For more information, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+        
+        ```cpp
+        // Environment variable AZURE_TOKEN_CREDENTIALS=dev
+        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
+        ```
+    - Use `AzureCliCredential` that uses the Azure CLI signed-in user to authenticate.
+        
+        ```cpp
+        auto credential = std::make_shared<Azure::Identity::AzureCliCredential>();
+        ```
+
+    1. Pass the instance of `DefaultAzureCredential` or `AzureCliCredential` to the Azure SDK client constructor.
 
     An example of these steps is shown in the following code segment. The example creates an Azure Storage Blob client using `DefaultAzureCredential` to authenticate to Azure.
 
@@ -94,9 +107,13 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
             // See documentation for details on customizing the credential chain:
             // https://learn.microsoft.com/azure/developer/cpp/sdk/authentication/credential-chains#defaultazurecredential-overview
             // In production, it's better to use a specific credential type so authentication is more predictable and easier to debug.
+            // Here DefaultAzureCredential is used for local development and environment variable AZURE_TOKEN_CREDENTIALS=dev
 
-            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
             
+            // Or use AzureCliCredential
+            // auto credential = std::make_shared<Azure::Identity::AzureCliCredential>();
+
             // Create a client for the specified storage account
             std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
             Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
