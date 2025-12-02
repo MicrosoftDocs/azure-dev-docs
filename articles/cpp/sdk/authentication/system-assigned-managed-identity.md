@@ -64,7 +64,7 @@ The Azure Identity library provides various *credentials*&mdash;implementations 
     int main() {
         try {
             // Create a credential
-            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
+            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
             
             // Create a client for the specified storage account
             std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";

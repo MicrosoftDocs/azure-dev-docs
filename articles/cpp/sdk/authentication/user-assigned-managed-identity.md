@@ -63,41 +63,41 @@ The Azure Identity library provides various *credentials*&mdash;implementations 
     #include <memory>
     #include <cstdlib>
 
-    int main() {
-        try {
-            // Set the AZURE_CLIENT_ID environment variable to your user-assigned managed identity client ID
-            // This can be done in your deployment environment or in code (shown below for demonstration)
-            // std::putenv("AZURE_CLIENT_ID=your-user-assigned-identity-client-id");
-            
-            // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID environment variable
-            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>();
-            
-            // Create a client for the specified storage account
-            std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
-            Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
-            
-            // Get a reference to a container
-            std::string containerName = "sample-container";
-            auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-            
-            // Get a reference to a blob
-            std::string blobName = "sample-blob";
-            auto blobClient = containerClient.GetBlobClient(blobName);
-            
-            // TODO: perform some action with the blob client
-            // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
-            
-            std::cout << "Successfully authenticated using user-assigned managed identity." << std::endl;
-            
-        } catch (const std::exception& ex) {
-            std::cout << "Exception: " << ex.what() << std::endl;
-            return 1;
-        }
+int main() {
+    try {
+        // Set the AZURE_CLIENT_ID environment variable to your user-assigned managed identity client ID
+        // This can be done in your deployment environment or in code (shown below for demonstration)
+        // std::putenv("AZURE_CLIENT_ID=your-user-assigned-identity-client-id");
         
-        return 0;
+        // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID environment variable
+        // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID and AZURE_TOKEN_CREDENTIAL environment variables
+        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
+        
+        // Create a client for the specified storage account
+        std::string accountUrl = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/";
+        Azure::Storage::Blobs::BlobServiceClient blobServiceClient(accountUrl, credential);
+        
+        // Get a reference to a container
+        std::string containerName = "sample-container";
+        auto containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+        
+        // Get a reference to a blob
+        std::string blobName = "sample-blob";
+        auto blobClient = containerClient.GetBlobClient(blobName);
+        
+        // TODO: perform some action with the blob client
+        // auto downloadResult = blobClient.DownloadTo("path/to/local/file");
+        
+        std::cout << "Successfully authenticated using user-assigned managed identity." << std::endl;
+        
+    } catch (const std::exception& ex) {
+        std::cout << "Exception: " << ex.what() << std::endl;
+        return 1;
     }
-    ```
-
+    
+    return 0;
+}
+```
 The preceding code behaves differently depending on the environment where it's running if the `AZURE_TOKEN_CREDENTIAL` environment variable isn't set to `ManagedIdentityCredential`:
 
 - On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Azure CLI, for a set of developer credentials.
