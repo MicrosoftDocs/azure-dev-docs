@@ -113,7 +113,19 @@ This sample provides all the code you need to create secure Azure resources, bui
     - **Select an Azure Subscription**: select the subscription where the resources are created.
     - **Select a region**: such as `eastus2`.
 
-When the deployment is complete, the environment variables and resource information is in `.env` file in the root of the repository. You can view the resources in the [Azure portal](https://portal.azure.com).
+The deployment takes approximately 10-15 minutes. The Azure Developer CLI orchestrates the process using hooks defined in the `azure.yaml` file:
+
+**Provision phase** (`azd provision`):
+- Creates Azure resources defined in `infra/main.bicep`: Container Apps, OpenAI, AI Search, Container Registry, and managed identity
+- **Post-provision hook**: Checks if the Azure AI Search index `northwind` already exists
+  - If the index doesn't exist: runs `npm install` and `npm run load_data` to upload HR documents using LangChain.js PDF loader and embedding client
+  - If the index exists: skips data loading to avoid duplicates (you can manually reload by deleting the index or running `npm run load_data`)
+
+**Deploy phase** (`azd deploy`):
+- **Pre-deploy hook**: Builds the Docker image for the Fastify API server and pushes it to Azure Container Registry using `az acr build`
+- Deploys the containerized API server to Azure Container Apps
+
+When deployment completes, environment variables and resource information are saved to the `.env` file in the repository root. You can view the resources in the [Azure portal](https://portal.azure.com).
 
 The resources are created with both passwordless and key access for learning purposes. This introductory tutorial uses your local developer account for passwordless authentication. For production applications, use only passwordless authentication with managed identities. Learn more about [passwordless authentication](https://learn.microsoft.com/en-us/azure/developer/intro/passwordless-overview).
 
