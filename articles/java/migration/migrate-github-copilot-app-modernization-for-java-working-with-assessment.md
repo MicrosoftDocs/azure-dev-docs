@@ -73,7 +73,7 @@ The following examples describe some configurations:
       - azure-aks
     os:
       - linux
-    mode: source-only
+    mode: issue-only
   ```
 
 - Example two: you'd like to migrate your apps to App Service Linux and want to understand what are the issues to be fixed. Use the following configuration:
@@ -84,7 +84,7 @@ The following examples describe some configurations:
       - azure-appservice
     os:
       - linux
-    mode: source-only
+    mode: issue-only
   ```
 
 - Example three: you'd like to modernize your apps to JDK21 and want to understand what are the issues to be fixed. Use the following configuration:
@@ -93,7 +93,7 @@ The following examples describe some configurations:
   appcat:
   - capability:
       - openjdk21
-    mode: source-only
+    mode: issue-only
   ```
 
 After the tool runs an assessment, the interactive dashboard opens automatically, providing comprehensive analysis results. After you configure multiple Azure service targets, you can easily switch between them to compare migration approaches and view service-specific recommendations.
