@@ -55,11 +55,11 @@ By default, the assessment runs with Azure Kubernetes Service (AKS), Azure App S
 
 - `mode`: the analysis mode.
 
-  | Value         | Description                                                                            |
-  |---------------|----------------------------------------------------------------------------------------|
-  | `issue-only`  | analyze source code to only detect issues                                              | 
-  | `source-only` | analyze source code to detect both issues and used technologies                        |
-  | `full`        | analyze source code to detect both issues and used technologies, and list dependencies |
+  | Value         | Description                                                                             |
+  |---------------|-----------------------------------------------------------------------------------------|
+  | `issue-only`  | Analyze source code to only detect issues.                                              |
+  | `source-only` | Analyze source code to detect both issues and used technologies.                        |
+  | `full`        | Analyze source code to detect both issues and used technologies, and list dependencies. |
 
 ### Examples
 
