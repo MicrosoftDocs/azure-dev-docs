@@ -25,7 +25,7 @@ Azure Export for Terraform enables you to:
 This CLI tool provides more features in comparison to the portal experience.
 
 - **Number of resources that can be exported**. In portal only up to 1000 resources can be exported, and the maximum exported configuration payload is 4 MB. Error wil be returned if the limit is exceeded.
-- **Supported resource types**. In portal, some resource types such as Key Vault cannot be exported, but they are supported in the CLI tool.
+- **Supported resource types**. In portal, some resource types or properties within a resource type cannot be exported.
 
 ## Installation
 
