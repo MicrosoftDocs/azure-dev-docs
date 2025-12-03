@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform,devx-track-export-terraform
 
 # Overview of Azure Export for Terraform CLI
 
-Azure Export for Terraform (`aztfexport`) is CLI a tool designed to help reduce friction in translation between Azure and Terraform concepts. This tool complements the [portal Terraform export experience](get-started-export-resources-portal.md).
+Azure Export for Terraform (`aztfexport`) is a CLI tool designed to help reduce friction in translation between Azure and Terraform concepts. This tool complements the [portal Terraform export experience](get-started-export-resources-portal.md).
 
 ## Benefits
 
@@ -24,7 +24,7 @@ Azure Export for Terraform enables you to:
 
 This CLI tool provides more features in comparison to the portal experience.
 
-- **Number of resources that can be exported**. In portal only up to 1000 resources can be exported, and the maximum exported configuration payload is 4 MB. Error wil be returned if the limit is exceeded.
+- **Number of resources that can be exported**. In portal only up to 1,000 resources can be exported, and the maximum exported configuration payload is 4 MB. The tool returns an error if the limit is exceeded.
 - **Supported resource types**. In portal, some resource types or properties within a resource type cannot be exported.
 
 ## Installation
