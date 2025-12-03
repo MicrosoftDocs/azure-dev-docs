@@ -1,7 +1,8 @@
 ---
 title: Authenticate C++ apps to Azure services during local development using service principals
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for C++ during local development using dedicated application service principals.
-ms.date: 11/06/2025
+#customer intent: As a C++ developer, I want to use the Azure SDK for C++ with service principals so that I can authenticate my app during local development using dedicated application service principals.
+ms.date: 12/03/2025
 ms.topic: how-to
 ms.custom:
   - devx-track-cpp
@@ -80,7 +81,7 @@ $env:AZURE_CLIENT_SECRET="<your-client-secret>"
 
 ## Authenticate to Azure services from your app
 
-To authenticate Azure SDK client objects to Azure, use the `ClientSecretCredential` class from the Azure Identity library for C++. In this scenario, `ClientSecretCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
+The Azure Identity library provides various credentials—implementations of TokenCredential adapted to supporting different scenarios and Microsoft Entra authentication flows. Use the `ClientSecretCredential` class when working with service principals locally and in production. In this scenario, `ClientSecretCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
 
 1. Add the [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) package to your application using [vcpkg](/vcpkg/).
 

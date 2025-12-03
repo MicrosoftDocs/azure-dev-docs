@@ -1,7 +1,8 @@
 ---
 title: Authenticate C++ apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for C++ during local development using developer accounts.
-ms.date: 11/06/2025
+#customer intent: As a developer, I want to learn how to sign in to Azure using developer tools so that I can authenticate my app during development.
+ms.date: 12/03/2025
 ms.topic: how-to
 ms.custom: devx-track-cpp, devx-track-azurecli
 ai-usage: ai-assisted
@@ -59,7 +60,7 @@ The [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/
 
 ### Implement the code
 
-[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool is used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. In this scenario, `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI. If the developer is signed-in to Azure CLI, then the credentials used to sign into the tool is used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
 
 1. Add the [azure-identity-cpp](https://vcpkg.io/en/package/azure-identity-cpp) package to your application using [vcpkg](/vcpkg/).
 
