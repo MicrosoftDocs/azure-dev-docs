@@ -11,25 +11,28 @@ ms.custom: devx-track-ts, devx-track-ts-ai
 
 # Tutorial: Build a LangChain.js agent with Azure AI Search
 
-In this tutorial, you use LangChain.js to build a LangChain.js agent that enables the NorthWind company employees to ask human resources–related questions. By using the framework, you avoid boilerplate code typically required for LangChain.js agents and Azure service integration, allowing you to focus on your business needs.
+In this tutorial, you use LangChain.js to build a LangChain.js agent that enables the fictitious NorthWind company employees to ask human resources–related questions. By using the framework, you avoid boilerplate code typically required for agent orchestration and Azure service integration, allowing you to focus on your business needs.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Set up a LangChain.js agent
-> * Integrate Azure resources into your LangChain.js agent
+> * Clone the end to end sample 
+> * Deploy the API server with its LangChain.js agent and Azure resources using Azure Developer CLI
+> * Test the LangChain.js agent API server locally
+> * Understand how the LangChain.js agent integrates with Azure AI Search and Azure OpenAI
 > * Optionally test your LangChain.js agent in LangSmith Studio
 
-NorthWind relies on two data sources: public HR documentation accessible to all employees and a confidential HR database containing sensitive employee data. This tutorial focuses on building a LangChain.js agent that determines whether an employee’s question can be answered using the public HR documents. If so, the LangChain.js agent provides the answer directly.
+NorthWind relies on two data sources: 
+- HR documentation accessible to _all_ employees 
+- Confidential HR database containing sensitive employee data. 
+
+This tutorial focuses on building a LangChain.js agent that determines whether an employee’s question can be answered using the public HR documents. If so, the LangChain.js agent provides the answer directly.
 
 :::image type="content" source="./media/langchain-agent-on-azure/agent-workflow.png" alt-text="Diagram illustrating the LangChain.js agent workflow and its decision branch to use HR documentation for answering questions.":::
 
-
-> [!WARNING]
-> This article uses keys to access resources. In a production environment, the recommended best practice is to use Azure RBAC and managed identity. This approach eliminates the need to manage or rotate keys, enhancing security and simplifying access control.
-
-
 ## Prerequisites
+
+To use this sample locally, including building and running the LangChain.js agent, you need the following:
 
 * An active Azure account. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 * [Node.js LTS](https://nodejs.org/) installed on your system.
@@ -41,7 +44,7 @@ NorthWind relies on two data sources: public HR documentation accessible to all 
 
 ## Azure resources
 
-The following Azure resources are required. They are created for you in this article:
+The following Azure resources are required. They are created for you in this article using the Azure Developer CLI:
 
 * [Azure AI Search resource](/azure/search/search-what-is-azure-search): Ensure you have the resource endpoint, admin key (for document insertion), query key (for reading documents), and index name.
 * [Azure OpenAI resource](/azure/ai-services/openai/): You need the resource instance name, key, and two models with their API versions:
@@ -52,7 +55,7 @@ The following Azure resources are required. They are created for you in this art
 
 The LangChain.js framework provides a decision flow for building intelligent agents as a LangGraph. In this tutorial, you create a LangChain.js agent that integrates with Azure AI Search and Azure OpenAI to answer HR-related questions. The agent's architecture is designed to:
 
-* Determine if a question is relevant to HR documentation.
+* Determine if a question is relevant to general HR documentation available to all employees.
 * Retrieve relevant documents from Azure AI Search.
 * Use Azure OpenAI to generate an answer based on the retrieved documents and LLM model.
 
@@ -87,7 +90,7 @@ By using the framework, you avoid boilerplate code typically required for LangCh
 
 ## Clone the sample code repository
 
-In a new directory, clonet the sample code repository and change to the new directory:
+In a new directory, clone the sample code repository and change to the new directory:
 
 ```console
 git clone https://github.com/Azure-Samples/azure-typescript-langchainjs.git
@@ -98,23 +101,25 @@ This sample provides all the code you need to create secure Azure resources, bui
 
 ## Use Azure Developer CLI to create resources
 
-1. Sign in to Azure with the Azure Developer CLI then create the Azure resources. 
+1. Sign in to Azure with the Azure Developer CLI, create the Azure resources, and deploy the source code. 
 
     ```console
     azd auth login
     azd up
     ```
-    
+
 1. During the `azd up` command, answer the questions:
-    - New environment name: enter a unique environment name such as `langchain-agent`. This is used as part of the Azure resource group. 
-    - Select an Azure Subscription: select the subscription where the resources are created.
-    - Select a region such as `eastus2`.
+    - **New environment name**: enter a unique environment name such as `langchain-agent`. This is used as part of the Azure resource group.
+    - **Select an Azure Subscription**: select the subscription where the resources are created.
+    - **Select a region**: such as `eastus2`.
 
-When the deployment is complete, the necessary resource information is in `.env` file in the root of the repository. 
+When the deployment is complete, the environment variables and resource information is in `.env` file in the root of the repository. You can view the resources in the [Azure portal](https://portal.azure.com).
 
-The resources are created with both passwordless and key access. For this tutorial, the applicaiton uses your local developer account to insert your credentials into the local application runtime. Learn more about [passwordless authentication](https://learn.microsoft.com/en-us/azure/developer/intro/passwordless-overview).
+The resources are created with both passwordless and key access for learning purposes. This introductory tutorial uses your local developer account for passwordless authentication. For production applications, use only passwordless authentication with managed identities. Learn more about [passwordless authentication](https://learn.microsoft.com/en-us/azure/developer/intro/passwordless-overview).
 
-The article is meant for your local development environment; there isn't a corresponding production deployment of source code.
+## Use the sample code locally
+
+Now that the Azure resources are created, you can build and run the LangChain.js agent API server locally.
 
 ## Install dependencies
 
@@ -124,9 +129,10 @@ The article is meant for your local development environment; there isn't a corre
     npm install 
     ```
 
-    This command installs the dependencies defined in the two `package.json` file, including:
+    This command installs the dependencies defined in the two `package.json` files, including:
 
-    - [`./packages-v1/server-api`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/server-api/package.json):Fastify for the web server
+    - [`./packages-v1/server-api`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/server-api/package.json): 
+        - Fastify for the web server
     - [`./packages-v1/langgraph-agent`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/package.json): 
         - LangChain.js for building the agent
         - Azure SDK packages for integrating with Azure resources
@@ -142,14 +148,8 @@ The article is meant for your local development environment; there isn't a corre
 
 ## Run the LangChain.js agent locally
 
-1. Read the Human resources documentation, create embeddings, and insert them into the Azure AI Search vector store.
+The Azure Developer CLI created the required Azure resources and configured the environment variables in the `.env` file. This included a post provision hook to upload the data into the vector store. Now, you can run the Fastify API server that hosts the LangChain.js agent.
 
-    ```console
-    npm run load_data
-    ``` 
-
-    This may take several minutes. You can watch the terminal output to see the progress of document insertion including how many LangChain documents (chuncks) have been processed.
-    
 1. Start the Fastify API server.
 
     ```console
@@ -174,113 +174,141 @@ The article is meant for your local development environment; there isn't a corre
 
     You should receive a JSON response with the answer from the LangChain.js agent.
 
+    ```console
+    {
+      "answer": "Yes, the NorthWind Health Plus plan covers eye exams. According to the Employee Handbook, employees enrolled in the Health Plus plan are eligible for annual eye exams as part of their vision benefits."
+    }
+    ```
 
-## Understand the Azure integration with LangChain.js agent
+    Several example questions are available in the [`packages-v1/server-api/http`](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/server-api/http) directory. Open the files with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to test them quickly.
 
-This section explains how the LangChain.js agent integrates with Azure services. 
 
-### Understand LangChain.js agent project structure
+## Understand the application code
 
-The agent project is in the `packages-v1/langgraph-agent` directory. The following table summarizes the key directories and files:
+This section explains how the LangChain.js agent integrates with Azure services. The application is organized as an npm workspace with two main packages:
 
-| Path | Description | Role |
-|------|-------------|------|
-| [`src/graph.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/graph.ts) | LangGraph definition for the agent workflow. | Defines agent workflow |
-| [`src/index.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/index.ts) | Functions to call the LangChain.js agent from the API server. | API entry points |
-| [`src/azure/azure-credential.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts) | Creates the Azure credential using your developer login. | Auth integration |
-| [`src/azure/embeddings.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/azure/embeddings.ts) | Uses the embeddings client for Azure OpenAI. | Embeddings |
-| [`src/azure/llm.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/azure/llm.ts) | Uses the LLM client for Azure OpenAI. | Language model |
-| [`src/azure/vector_store.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/azure/vector_store.ts) | Integrates with Azure AI Search vector store. | Vector store |
-| [`src/langchain/prompt.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/langchain/prompt.ts) | Prompt used to generate answers from the LLM. | Prompt logic |
-| [`src/langchain/nodes.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/langchain/nodes.ts) | LangGraph nodes, route, and message management. | Node management |
-| [`src/langchain/node_requires_hr_documents.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/langchain/node_requires_hr_documents.ts) | Determines if the user's question is relevant to HR documents. | HR relevance check |
-| [`src/langchain/node_get_answer.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/langchain/node_get_answer.ts) | Gets the answer from the LLM using vector store documents. | Answer generation |
-| [`src/scripts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/scripts) | Scripts to load documents into the vector store. | Data ingestion |
+| File/Folder | Purpose |
+|-------------|---------|
+| **`packages-v1/langgraph-agent/`** | Core LangGraph agent implementation |
+| `└── src/azure/` | Azure service integrations |
+| `    ├── azure-credential.ts` | Centralized authentication with `DefaultAzureCredential` and token providers |
+| `    ├── embeddings.ts` | Azure OpenAI embeddings client, PDF loading, and batch processing with rate limiting |
+| `    ├── llm.ts` | Azure OpenAI chat completion client configuration (key-based and passwordless) |
+| `    └── vector_store.ts` | Azure AI Search vector store setup, document indexing, and similarity search |
+| `└── src/langchain/` | LangChain agent logic |
+| `    ├── node_get_answer.ts` | RAG implementation: retrieves documents and generates answers with OpenAI |
+| `    ├── node_requires_hr_documents.ts` | Logic to determine if HR documents are needed for a query |
+| `    ├── nodes.ts` | LangGraph node definitions and state management |
+| `    └── prompt.ts` | System prompts and conversation templates |
+| `└── src/scripts/` | Utility scripts |
+| `    └── load_vector_store.ts` | Data loading script that uploads PDFs to Azure AI Search |
+| `└── data/` | Source documents (PDFs) for the vector store |
+| **`packages-v1/server-api/`** | Fastify REST API server |
+| `└── src/server.ts` | HTTP server exposing `/answer` endpoint for querying the agent |
+| **`infra/`** | Infrastructure as Code |
+| `└── main.bicep` | Azure resources: Container Apps, OpenAI, AI Search, ACR, managed identity |
+| **Root Files** | |
+| `azure.yaml` | Azure Developer CLI configuration with deployment hooks |
+| `Dockerfile` | Multi-stage Docker build for containerized deployment |
+| `package.json` | Workspace configuration and build scripts |
 
-## Azure passwordless authentication
+**Key architectural decisions:**
+- **Monorepo structure**: npm workspaces allow shared dependencies and linked packages
+- **Separation of concerns**: Agent logic (`langgraph-agent`) is independent from API server (`server-api`)
+- **Centralized authentication**: Single `azure-credential.ts` file manages all Azure service auth
+- **Configuration-driven**: Environment variables control key-based vs passwordless authentication
 
-While the resources are created with both passwordless and key access, the application uses your local developer account to insert your credentials into the local application runtime. To use passwordless authentication, the [`DefaultAzureCredential`](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) credential from the [`@azure/identity`](https://www.npmjs.com/package/@azure/identity) npm package is used. This class automatically picks up your developer login credentials when running locally.
+### Authentication to Azure Services
 
-To update the credential, a token provider function may be necessary. 
+The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) from the [Azure Identity SDK](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
 
-The following code snippet from [`src/azure/azure-credential.ts`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts) shows how to create the credential:
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts":::
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" :::
-
-Because the credential is used, instead of a resource key, you don't need to manage or rotate keys, enhancing security and simplifying access control. 
+When using third-party SDKs like LangChain.js or the OpenAI SDK to access Azure OpenAI, you need a **token provider function** instead of passing a credential object directly. The [`getBearerTokenProvider`](https://learn.microsoft.com/javascript/api/@azure/identity/?view=azure-node-latest#@azure-identity-getbearertokenprovider) function from `@azure/identity` solves this by creating a token provider that automatically fetches and refreshes OAuth 2.0 bearer tokens for a specific Azure resource scope (for example, `"https://cognitiveservices.azure.com/.default"`). You configure the scope once during setup, and the token provider handles all token management automatically. This approach works with any `@azure/identity` credential type, including managed identity and Azure CLI credentials. While Azure SDKs accept `DefaultAzureCredential` directly, third-party SDKs like LangChain.js require this token provider pattern to bridge the authentication gap.
 
 ### Azure AI Search integration
 
-The Azure AI Search resource is created in the [`./infra/main.bicep`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/infra/main.bicep) file using Azure Verified Module `br/public:avm/res/search/search-service` for AI Search. The vector store index is created with fields suitable for storing document chunks and their embeddings. The resource is created with the required Role-Based Access Control (RBAC) roles for the application to read and write to the index. Learn more about [Azure AI Search RBAC roles](https://learn.microsoft.com/azure/search/search-security-rbac).
+The Azure AI Search resource stores document embeddings and enables semantic search for relevant content. The application uses LangChain's `AzureAISearchVectorStore` to manage the vector store without manually defining the index schema.
 
-To create a client for Azure AI Search, pass the credential object. 
+The vector store is created with configuration for both admin (write) and query (read) operations so that document loading and querying can use different configurations.
 
-```typescript
-import { DefaultAzureCredential } from "@azure/identity";
-import {
-  SearchClient,
-  SearchIndexClient
-} from "@azure/search-documents";
+The Azure Developer CLI deployment includes a post-provisioning hook that uploads the documents to the vector store with LangChain.js PDF loader and embedding client. 
 
-// Azure AI Search endpoint
-const AZURE_AISEARCH_ENDPOINT  = process.env.AZURE_AISEARCH_ENDPOINT ;
-const credential = new DefaultAzureCredential();
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" id="AI_SEARCH_LOAD_INDEX_FUNCTIONS":::
 
-// Azure AI Search index name: northwind
-const index = process.env.AZURE_AISEARCH_INDEX_NAME;
+When you query, the vector store converts the user's query into an embedding, searches for documents with similar vector representations, and returns the most relevant chunks. 
 
-// To manage indexes
-const indexClient = new SearchIndexClient(
-  AZURE_AISEARCH_ENDPOINT, 
-  credential
-);
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" id="AI_SEARCH_QUERY_FUNCTIONS":::
 
-// To query and manipulate documents
-const searchClient = new SearchClient(
-  AZURE_AISEARCH_ENDPOINT,
-  index, 
-  credential
-);
-```
+Because the vector store is built on top of LangChain.js, it abstracts away the complexity of directly interacting with the vector store. Once you learn the LangChain.js vector store interface, you can easily switch to other vector store implementations in the future.
 
 ### Azure OpenAI integration
 
-The Azure OpenAI resource is created in the [`./infra/main.bicep`](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/infra/main.bicep) file using Azure Verified Module `br/public:avm/res/cognitive-services/account` for Azure OpenAI. The resource is created with the required Role-Based Access Control (RBAC) roles for the application to access the models. Learn more about [Azure OpenAI RBAC roles](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry).
+The application uses Azure OpenAI for both embeddings and large language model (LLM) capabilities. The `AzureOpenAIEmbeddings` class from LangChain.js is used to generate embeddings for documents and queries. Once you create the embeddings client, LangChain.js uses it to create the embeddings.
 
-To create an embedding client for Azure OpenAI, return the credential from the token provider. 
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" id="AZURE_OPENAI_EMBEDDINGS_FUNCTION":::
+
+The application uses the `AzureChatOpenAI` class from LangChain.js `@langchain/openai` to interact with Azure OpenAI models. 
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/lmm.ts" id="AZURE_OPENAI_CHAT_FUNCTION":::
+
+### Uploading documents to index with rate limiting
+
+The application handles service rate limits by providing batching and retry logic.  
+
+**Three-level batching**:
+1. Files processed sequentially with 2-second delays
+2. Each PDF's chunks divided into batches of 10 documents  
+3. OpenAI client sends 5 chunks per API call
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/embeddings.ts" id="AZURE_OPENAI_EMBEDDINGS_UPLOAD_CONFIGURATION":::
+
+The batching strategy ensures that the application stays within Azure OpenAI service limits while efficiently uploading documents to the vector store.
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/embeddings.ts" id="AZURE_OPENAI_EMBEDDINGS_LOADING_FUNCTIONS":::
+
+## LangGraph agent workflow
+
+The agent uses LangGraph to define a decision workflow that determines whether a question can be answered using HR documents.
+
+**Graph structure**:
 
 ```typescript
-import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
-import { AzureOpenAIEmbeddings } from "@langchain/openai";
+const workflow = new StateGraph(StateAnnotation)
+  .addNode("requires_hr_documents", requiresHrDocuments)
+  .addNode("get_answer", getAnswer)
+  .addEdge(START, "requires_hr_documents")
+  .addConditionalEdges("requires_hr_documents", routeRequiresHrDocuments)
+  .addEdge("get_answer", END);
 
-// Token credential: for this article it is a Local developer credential
-const credential = new DefaultAzureCredential();
-
-// Scope specific for Azure OpenAI
-const scope = "https://cognitiveservices.azure.com/.default";
-
-// Token provider function
-const azureADTokenProvider = getBearerTokenProvider(credential, scope);
-
-// Azure resource name
-const embeddingEndpoint = process.env.AZURE_OPENAI_EMBEDDING_INSTANCE;
-
-// deployment name and model name are the same in this application
-const embeddingModel = process.env.AZURE_OPENAI_EMBEDDING_MODEL; 
-
-// Azure API version for the embedding model
-const apiVersion = process.env.AZURE_OPENAI_EMBEDDING_API_VERSION;
-
-const options = { azureADTokenProvider, deployment: embeddingModel, apiVersion, embeddingEndpoint }
-
-const client = new AzureOpenAI(options);
+export const graph = workflow.compile();
 ```
 
-## Azure versus other clients for Azure resources
+The workflow consists of the following steps:
 
-When integrating with Azure OpenAI using non-Azure SDK, such as LangChain.js or OpenAI, it's important to check those SDKs. Use the token provider function rather than the credential object directly if required.
+- **Start**: User submits a question.
+- **requires_hr_documents node**: LLM determines if the question is answerable from general HR documents.
+- **Conditional routing**: 
+   - If yes, then proceeds to `get_answer` node.
+   - If no, then returns message that question requires personal HR data.
+- **get_answer node**: Retrieves documents and generates answer.
+- **End**: Returns answer to user.
 
-The [`getBearerTokenProvider`](https://learn.microsoft.com/en-us/javascript/api/@azure/identity/?view=azure-node-latest#@azure-identity-getbearertokenprovider) function from @azure/identity is required when using the LangChain.js OpenAI library to access Azure OpenAI resources. This is because the LangChain-provided OpenAI client expects a token provider function, not a credential object, to fetch OAuth 2.0 bearer tokens for the resource scope (for example, "https://cognitiveservices.azure.com/.default"). By specifying the scope once when creating the provider, you ensure tokens are fetched for that scope automatically, without extra boilerplate.
+This relevance check is important because not all HR questions can be answered from general documents. Personal questions like "How much PTO do I have?" require access to employee databases that contain individual employee data. By checking relevance first, the agent avoids hallucinating answers for questions that need personal information it doesn't have access to.
+
+### Decide if the question requires HR documents
+
+The `requires_hr_documents` node uses an LLM to determine if the user's question can be answered using general HR documents. It uses a prompt template that instructs the model to respond with `YES` or `NO` based on the question's relevance. It returns the answer in a structured message which can be passed along the workflow. The next node uses this response to route the workflow to either the `END` or the `ANSWER_NODE`.
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/langchain/node_requires_hr_documents.ts":::
+
+### Get the required HR documents
+
+Once it is determined that the question requires HR documents, the workflow used `getAnswer` to retrieve the relevant documents from the vector store, add them to the _context_ of the prompt and pass the entire prompt to the LLM. 
+
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/langchain/node_get_answer.ts":::
+
+If no relevant documents are found, the agent returns a message indicating that it couldn't find an answer in the HR documents.
 
 ## Troubleshooting
 
