@@ -7,6 +7,8 @@ ms.author: alexwolf
 ms.date: 08/11/2025
 ms.topic: get-started
 ms.custom: build-2025
+zone_pivot_group_filename: developer/pivots.yml
+zone_pivot_groups: pivot-visual-studio
 ---
 
 # Get started with the Azure MCP Server using Visual Studio
@@ -27,6 +29,8 @@ In this article, you learn how to complete the following tasks:
 
 ## Install the Azure MCP Server
 
+:::zone target="docs" pivot="visual-studio-2022"
+
 Visual Studio uses a file named `mcp.json` to check for MCP Server configurations, including configurations set up by other development environments. MCP server configurations are read from the following directories, in the following order:
 
 1. `%USERPROFILE%\.mcp.json`: Serves as a global MCP server configuration for a specific user. Add an MCP server here to make it load for all Visual Studio solutions.
@@ -39,6 +43,9 @@ Visual Studio uses a file named `mcp.json` to check for MCP Server configuration
 > Some of these locations require .mcp.json while others require mcp.json.
 
 Azure MCP Server is available as a NuGet package or as an NPM package. The following options demonstrate two of the most common approaches to connect to Azure MCP Server from Visual Studio.
+
+> [!NOTE]
+> Alternatively, you can use the [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=github-copilot-azure.GitHubCopilotForAzure2022) extension to install Azure MCP
 
 ## [Solution install](#tab/manual)
 
@@ -147,6 +154,26 @@ Complete the following steps to globally add Azure MCP Server for all Visual Stu
 ---
 
 :::image type="content" source="../../media/github-copilot-mcp-tools-visual-studio.png" alt-text="A screenshot showing how to configure Azure MCP Server in Visual Studio.":::
+
+:::zone-end
+
+:::zone target="docs" pivot="visual-studio-2026"
+
+Visual Studio 2026 includes Azure MCP Server tools with the Azure and AI development workload. To make them available:
+
+1. Open the Visual Studio Installer tool.
+1. Select **Modify** to view available workloads.
+1. On the **Workloads** tab, select **Azure and AI development**.
+1. On the **Installation details** panel, verify that **GitHub Copilot** is selected, which includes the following components:
+    - GitHub Copilot
+    - GitHub Copilot for Azure
+    - Azure MCP Server
+
+1. Select **Install while downloading** to complete the installation process.
+
+:::image type="content" source="../../media/workload-install-copilot.png" alt-text="A screenshot showing how to install Copilot using Visual Studio workloads." lightbox="../../media/workload-install-copilot.png":::
+
+:::zone-end
 
 [!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 

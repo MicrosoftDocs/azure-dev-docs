@@ -1914,6 +1914,36 @@
     {
       "source_path": "articles/github-copilot-azure/optimize-examples.md",
       "redirect_url": "/azure/developer/github-copilot-azure/introduction"
+    },
+        {
+      "source_path": "articles/chef/client-install-from-azure-portal.md",
+      "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/habitat-overview.md",
+      "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/index.yml",
+      "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/inspec-overview.md",
+      "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/overview.md",
+      "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/chef/windows-vm-configure.md",
+      "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
     }
   ]
 }

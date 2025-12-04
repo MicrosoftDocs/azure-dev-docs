@@ -27,7 +27,7 @@ In this article, you protect these APIs by applying role-based access control (R
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli)
