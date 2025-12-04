@@ -80,17 +80,17 @@ The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overvie
     1. Include the `azure/identity.hpp` header.
     1. Use `DefaultAzureCredential` or `AzureCliCredential` to create an instance of a credential. For example:
 
-    - To use `DefaultAzureCredential`, set the environment variable `AZURE_TOKEN_CREDENTIALS` to `dev` that indicates the app is running in a development environment. For more information, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
-        
-        ```cpp
-        // Environment variable AZURE_TOKEN_CREDENTIALS=dev
-        auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
-        ```
-    - Or use `AzureCliCredential` to always use the Azure CLI signed-in user to authenticate.
-        
-        ```cpp
-        auto credential = std::make_shared<Azure::Identity::AzureCliCredential>();
-        ```
+        - To use `DefaultAzureCredential`, set the environment variable `AZURE_TOKEN_CREDENTIALS` to `dev` that indicates the app is running in a development environment. For more information, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+            
+            ```cpp
+            // Environment variable AZURE_TOKEN_CREDENTIALS=dev
+            auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
+            ```
+        - Or use `AzureCliCredential` to always use the Azure CLI signed-in user to authenticate.
+            
+            ```cpp
+            auto credential = std::make_shared<Azure::Identity::AzureCliCredential>();
+            ```
 
     1. Pass the instance of `DefaultAzureCredential` or `AzureCliCredential` to the Azure SDK client constructor.
 
