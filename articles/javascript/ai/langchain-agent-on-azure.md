@@ -11,16 +11,21 @@ ms.custom: devx-track-ts, devx-track-ts-ai
 
 # Tutorial: Build a LangChain.js agent with Azure AI Search
 
-In this tutorial, you use LangChain.js to build a LangChain.js agent that enables the fictitious NorthWind company employees to ask human resources–related questions. By using the framework, you avoid boilerplate code typically required for agent orchestration and Azure service integration, allowing you to focus on your business needs.
+This tutorial shows you how to build an intelligent agent using LangChain.js and Azure services. The agent helps employees at the fictitious NorthWind company find answers to human resources questions by searching through company documentation.
 
-In this tutorial, you:
+You'll create an agent that uses Azure AI Search to find relevant documents and Azure OpenAI to generate accurate answers. The LangChain.js framework handles the complexity of agent orchestration, letting you focus on your specific business requirements.
+
+What you'll learn:
 
 > [!div class="checklist"]
-> * Clone the end to end sample 
-> * Deploy the API server with its LangChain.js agent and Azure resources using Azure Developer CLI
-> * Test the LangChain.js agent API server locally
-> * Understand how the LangChain.js agent integrates with Azure AI Search and Azure OpenAI
-> * Optionally test your LangChain.js agent in LangSmith Studio
+> * How to deploy Azure resources using Azure Developer CLI
+> * How to build a LangChain.js agent that integrates with Azure services
+> * How to implement retrieval-augmented generation (RAG) for document search
+> * How to test and debug your agent locally and in Azure
+
+By the end of this tutorial, you'll have a working REST API that answers HR questions using your company's documentation.
+
+## Architecture overview
 
 NorthWind relies on two data sources: 
 - HR documentation accessible to _all_ employees 
@@ -37,7 +42,7 @@ To use this sample locally, including building and running the LangChain.js agen
 * An active Azure account. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 * [Node.js LTS](https://nodejs.org/) installed on your system.
 * [TypeScript](https://www.typescriptlang.org/) for writing and compiling TypeScript code.
-* [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd?tabs=windows%2Cmacos%2Clinux) installed and configured.
+* [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli) installed and configured.
 * [LangChain.js](https://www.npmjs.com/package/langchain) library for building the agent.
 * Optional: [LangSmith](https://www.langchain.com/langsmith) for monitoring AI usage. You need the project name, key, and endpoint.
 * Optional: [LangGraph Studio](https://studio.langchain.com) for debugging LangGraph chains and LangChain.js agents.
@@ -127,7 +132,7 @@ The deployment takes approximately 10-15 minutes. The Azure Developer CLI orches
 
 When deployment completes, environment variables and resource information are saved to the `.env` file in the repository root. You can view the resources in the [Azure portal](https://portal.azure.com).
 
-The resources are created with both passwordless and key access for learning purposes. This introductory tutorial uses your local developer account for passwordless authentication. For production applications, use only passwordless authentication with managed identities. Learn more about [passwordless authentication](https://learn.microsoft.com/azure/developer/intro/passwordless-overview).
+The resources are created with both passwordless and key access for learning purposes. This introductory tutorial uses your local developer account for passwordless authentication. For production applications, use only passwordless authentication with managed identities. Learn more about [passwordless authentication](/azure/developer/intro/passwordless-overview).
 
 ## Use the sample code locally
 
@@ -232,11 +237,11 @@ This section explains how the LangChain.js agent integrates with Azure services.
 
 ### Authentication to Azure Services
 
-The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) from the [Azure Identity SDK](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
+The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) from the [Azure Identity SDK](/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts":::
 
-When using third-party SDKs like LangChain.js or the OpenAI SDK to access Azure OpenAI, you need a **token provider function** instead of passing a credential object directly. The [`getBearerTokenProvider`](https://learn.microsoft.com/javascript/api/@azure/identity/?view=azure-node-latest#@azure-identity-getbearertokenprovider) function from `@azure/identity` solves this by creating a token provider that automatically fetches and refreshes OAuth 2.0 bearer tokens for a specific Azure resource scope (for example, `"https://cognitiveservices.azure.com/.default"`). You configure the scope once during setup, and the token provider handles all token management automatically. This approach works with any `@azure/identity` credential type, including managed identity and Azure CLI credentials. While Azure SDKs accept `DefaultAzureCredential` directly, third-party SDKs like LangChain.js require this token provider pattern to bridge the authentication gap.
+When using third-party SDKs like LangChain.js or the OpenAI SDK to access Azure OpenAI, you need a **token provider function** instead of passing a credential object directly. The [`getBearerTokenProvider`](/javascript/api/@azure/identity/#@azure-identity-getbearertokenprovider) function from `@azure/identity` solves this by creating a token provider that automatically fetches and refreshes OAuth 2.0 bearer tokens for a specific Azure resource scope (for example, `"https://cognitiveservices.azure.com/.default"`). You configure the scope once during setup, and the token provider handles all token management automatically. This approach works with any `@azure/identity` credential type, including managed identity and Azure CLI credentials. While Azure SDKs accept `DefaultAzureCredential` directly, third-party SDKs like LangChain.js require this token provider pattern to bridge the authentication gap.
 
 ### Azure AI Search integration
 
@@ -317,9 +322,6 @@ If no relevant documents are found, the agent returns a message indicating that 
 ## Troubleshooting
 
 For any issues with the procedure, create an issue on the [sample code repository](https://github.com/Azure-Samples/azure-typescript-langchainjs/issues)
-
-For any errors while running the agent, review the [troubleshooting information](https://github.com/Azure-Samples/azure-typescript-langchainjs/blob/main/Troubleshooting.md).
-
 
 ## Clean up resources
 
