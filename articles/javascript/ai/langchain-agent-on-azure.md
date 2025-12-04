@@ -99,7 +99,7 @@ cd azure-typescript-langchainjs
 
 This sample provides all the code you need to create secure Azure resources, build the LangChain.js agent with Azure AI Search and Azure OpenAI, and use the agent from a Node.js Fastify API server.
 
-## Use Azure Developer CLI to create resources
+## Use Azure Developer CLI to create resources and deploy code
 
 1. Sign in to Azure with the Azure Developer CLI, create the Azure resources, and deploy the source code. 
 
@@ -127,7 +127,7 @@ The deployment takes approximately 10-15 minutes. The Azure Developer CLI orches
 
 When deployment completes, environment variables and resource information are saved to the `.env` file in the repository root. You can view the resources in the [Azure portal](https://portal.azure.com).
 
-The resources are created with both passwordless and key access for learning purposes. This introductory tutorial uses your local developer account for passwordless authentication. For production applications, use only passwordless authentication with managed identities. Learn more about [passwordless authentication](https://learn.microsoft.com/en-us/azure/developer/intro/passwordless-overview).
+The resources are created with both passwordless and key access for learning purposes. This introductory tutorial uses your local developer account for passwordless authentication. For production applications, use only passwordless authentication with managed identities. Learn more about [passwordless authentication](https://learn.microsoft.com/azure/developer/intro/passwordless-overview).
 
 ## Use the sample code locally
 
@@ -246,11 +246,11 @@ The vector store is created with configuration for both admin (write) and query 
 
 The Azure Developer CLI deployment includes a post-provisioning hook that uploads the documents to the vector store with LangChain.js PDF loader and embedding client. 
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" id="AI_SEARCH_LOAD_INDEX_FUNCTIONS":::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/azure.yaml" range="11-56":::
 
 When you query, the vector store converts the user's query into an embedding, searches for documents with similar vector representations, and returns the most relevant chunks. 
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" id="AI_SEARCH_QUERY_FUNCTIONS":::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/vector_store.ts" id="AI_SEARCH_QUERY_FUNCTIONS":::
 
 Because the vector store is built on top of LangChain.js, it abstracts away the complexity of directly interacting with the vector store. Once you learn the LangChain.js vector store interface, you can easily switch to other vector store implementations in the future.
 
@@ -258,11 +258,11 @@ Because the vector store is built on top of LangChain.js, it abstracts away the 
 
 The application uses Azure OpenAI for both embeddings and large language model (LLM) capabilities. The `AzureOpenAIEmbeddings` class from LangChain.js is used to generate embeddings for documents and queries. Once you create the embeddings client, LangChain.js uses it to create the embeddings.
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts" id="AZURE_OPENAI_EMBEDDINGS_FUNCTION":::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/embeddings.ts" id="AZURE_OPENAI_EMBEDDINGS_FUNCTION":::
 
 The application uses the `AzureChatOpenAI` class from LangChain.js `@langchain/openai` to interact with Azure OpenAI models. 
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/lmm.ts" id="AZURE_OPENAI_CHAT_FUNCTION":::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/llm.ts" id="AZURE_OPENAI_CHAT_FUNCTION":::
 
 ### Uploading documents to index with rate limiting
 
@@ -285,16 +285,8 @@ The agent uses LangGraph to define a decision workflow that determines whether a
 
 **Graph structure**:
 
-```typescript
-const workflow = new StateGraph(StateAnnotation)
-  .addNode("requires_hr_documents", requiresHrDocuments)
-  .addNode("get_answer", getAnswer)
-  .addEdge(START, "requires_hr_documents")
-  .addConditionalEdges("requires_hr_documents", routeRequiresHrDocuments)
-  .addEdge("get_answer", END);
+:::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/graph.ts" :::
 
-export const graph = workflow.compile();
-```
 
 The workflow consists of the following steps:
 
