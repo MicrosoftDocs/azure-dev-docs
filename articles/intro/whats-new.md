@@ -31,9 +31,14 @@ Updated articles:
 
 ### Azure for Go
 
+New articles:
+
+- [Authenticate Azure-hosted Go apps to Azure resources using a system-assigned managed identity](../go/sdk/authentication/system-assigned-managed-identity.md)
+- [Authenticate Azure-hosted Go apps to Azure resources using a user-assigned managed identity](../go/sdk/authentication/user-assigned-managed-identity.md)
+
 Updated articles:
 
-- [Deploy a Go web app to Azure Container Apps](../go/deploy-container-apps.md) - Improve quickstart using environment variables
+- [Deploy a Go web app to Azure Container Apps](../go/deploy-container-apps.md) - Simplify steps by using environment variables
 
 ### Azure for Java
 
