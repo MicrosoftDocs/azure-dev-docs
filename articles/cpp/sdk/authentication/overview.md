@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 #customer intent: As a developer, I want a comprehensive and easy-to-use SDK for Azure services so that I can efficiently integrate cloud capabilities into my C++ applications.
 ---
 
-# Use the Azure SDK for C++ to authenticate apps to Azure services
+# Authenticate C++ apps to Azure services using the Azure Identity library
 
 Apps can use the Azure Identity library to authenticate to Microsoft Entra ID, which allows the apps to access Azure services and resources. This authentication requirement applies whether the app is deployed to Azure, hosted on-premises, or running locally on a developer workstation. The sections ahead describe the recommended approaches to authenticate an app to Microsoft Entra ID across different environments when using the Azure SDK client libraries.
 
