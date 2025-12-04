@@ -1,7 +1,8 @@
 ---
 title: Authenticate Go apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Go during local development using developer accounts.
-ms.date: 10/06/2025
+#customer intent: As a developer, I want to learn how to sign in to Azure using developer tools so that I can authenticate my app during development.
+ms.date: 12/03/2025
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli
 ---
@@ -98,17 +99,34 @@ The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/aziden
 
 To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) class. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
 
-First, add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
+The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool is used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
 
-```console
-go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-```
+1. Add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
-Next, for any Go code that creates an Azure SDK client object in your app, you'll want to:
+    ```console
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    ```
 
-1. Import the `azidentity` package.
-1. Create an instance of `DefaultAzureCredential` type.
-1. Pass the instance of `DefaultAzureCredential` type to the Azure SDK client constructor.
+1. For any Go code that creates an Azure SDK client object in your app, you want to:
+
+    1. Import the `azidentity` package.
+    1. Use `DefaultAzureCredential` or `AzureCliCredential` to create an instance of a credential. For example:
+
+     - To use `DefaultAzureCredential`, set the environment variable `AZURE_TOKEN_CREDENTIALS` to `dev` that indicates the app is running in a development environment. For more information, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+        
+        ```go
+        // Environment variable AZURE_TOKEN_CREDENTIALS=dev or a specific developer tool credential value
+        cred, err := azidentity.NewDefaultAzureCredential(nil)
+        ```
+    - Or use a specific credential such as `AzureCliCredential`, `AzureDeveloperCLICredential`, or `AzurePowerShellCredential` to authenticate using the signed-in user for a specific development tool.
+        
+        ```go
+        cred, err := azidentity.NewAzureCLICredential(nil)
+        // or cred, err := azidentity.NewAzureDeveloperCLICredential(nil)
+        // or cred, err := azidentity.NewAzurePowerShellCredential(nil)
+        ```
+
+    1. Pass the credential instance to the Azure SDK client constructor.
 
 An example of these steps is shown in the following code segment.
 
@@ -130,6 +148,9 @@ const (
 func main() {
 	// create a credential
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	// or cred, err := azidentity.NewAzureCLICredential(nil)
+	// or cred, err := azidentity.NewAzureDeveloperCLICredential(nil)
+	// or cred, err := azidentity.NewAzurePowerShellCredential(nil)
 	if err != nil {
 	  // TODO: handle error
 	}
