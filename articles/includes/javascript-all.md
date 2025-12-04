@@ -444,7 +444,7 @@
 | TypeSpec Emitter Framework | npm [0.13.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.13.0) |  |  |
 | TypeSpec Events | npm [0.76.0](https://www.npmjs.com/package/@typespec/events/v/0.76.0) |  |  |
 | TypeSpec HTTP Client | npm [0.12.0](https://www.npmjs.com/package/@typespec/http-client/v/0.12.0) |  |  |
-| TypeSpec HTTP Client Java | npm [0.5.1](https://www.npmjs.com/package/@typespec/http-client-java/v/0.5.1) |  |  |
+| TypeSpec HTTP Client Java | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-java/v/0.6.0) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.11.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.11.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.21.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.21.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.28](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.28) |  |  |
@@ -471,13 +471,13 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5610751) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5610751) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5610751) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5610751) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5610751) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5610751) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5610751](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5610751) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5629128) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5629128) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5629128) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5629128) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5629128) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5629128) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5629128](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5629128) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.6](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.6) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.6](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.6) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
@@ -565,7 +565,7 @@
 | @autorest/codemodel | npm [4.20.1](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.1) |  |  |
 | @autorest/common | npm [1.6.1](https://www.npmjs.com/package/@autorest/common/v/1.6.1) |  |  |
 | @autorest/configuration | npm [1.12.2](https://www.npmjs.com/package/@autorest/configuration/v/1.12.2) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20251023.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20251023.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20251203.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20251203.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.1](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.1) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |

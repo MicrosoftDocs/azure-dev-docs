@@ -1,16 +1,16 @@
 ---
 title: Credential Chains in the Azure Identity Client Library for C++
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for C++.
-ms.date: 10/03/2025
-ms.topic: conceptual
+ms.date: 11/24/2025
+ms.topic: concept-article
 ms.custom: devx-track-cpp
 
-#customer intent: As a developer, I want to use credential chains in my C++ application that uses Azure SDK, to combine differnt authentication methods, so that my app can authenticate in different environments, specifically in development environment and when deployed into production environment, i.e. into the Azure cloud.
+#customer intent: As a developer using the Azure SDK for C++, I want to use credential chains to combine different authentication methods, so my app can authenticate seamlessly across different environments, from local development to production deployments in Azure.
 ---
 
 # Credential chains in the Azure Identity client library for C++
 
-The Azure Identity client library provides *credentials*&mdash;public types that derive from the Azure Core library's [TokenCredential](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_credentials_1_1_token_credential.html) abstract base class. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials*&mdash;public types that derive from the Azure Core library's [TokenCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) abstract base class. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
