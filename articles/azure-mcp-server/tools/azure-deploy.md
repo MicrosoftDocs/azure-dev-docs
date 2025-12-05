@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 ---
 
 # Azure Deploy tools for the Azure MCP Server
@@ -24,11 +24,11 @@ This tool fetches logs from the [Log Analytics](/azure/azure-monitor/logs/log-an
 
 Example prompts include:
 
-- **Fetch app logs**: "Get logs for my app service in the 'production' environment."
-- **View deployment logs**: "Show me the latest deployment logs for my container app."
-- **Check function logs**: "Retrieve logs for my function app in workspace 'analytics'."
-- **Troubleshoot app**: "Show error logs for my web app deployed with azd."
-- **Get logs with limit**: "Get the last 50 logs for my app service."
+- **Fetch app logs**: "Get logs for my app service in workspace folder '/home/user/myapp' with AZD environment 'production'."
+- **View deployment logs**: "Show me the latest deployment logs for my container app in workspace folder '/home/user/myapp' with AZD environment 'dev'."
+- **Check function logs**: "Retrieve logs for my function app in workspace folder '/home/user/myapp' with AZD environment 'staging'."
+- **Troubleshoot app**: "Show error logs for my web app deployed with azd in workspace folder '/home/user/myapp' and environment 'production'."
+- **Get logs with limit**: "Get the last 50 logs for my app service in workspace folder '/home/user/myapp' with AZD environment 'prod' and limit 50."
 
 | Parameter | Required or optional| Description |
 |-----------|----------|-------------|
@@ -48,11 +48,11 @@ Generate a [Mermaid](https://mermaid.js.org/) architecture diagram for the appli
 
 Example prompts include:
 
-- **Generate architecture diagram**: "Create a Mermaid diagram for my Azure application."
-- **Show app topology**: "Visualize the architecture of my deployed services."
-- **Diagram resources**: "Generate a diagram for all resources in my workspace."
-- **App structure diagram**: "Show the structure of my container app and function app."
-- **Service relationship diagram**: "Create a diagram showing how my web app connects to the database."
+- **Generate architecture diagram**: "Create a Mermaid diagram for my Azure application with input 'web app connected to SQL database'."
+- **Show app topology**: "Visualize the architecture of my deployed services with input 'container app, function app, and cosmos db'."
+- **Diagram resources**: "Generate a diagram for all resources with input 'app service, storage account, and key vault'."
+- **App structure diagram**: "Show the structure with input 'container app processing queue messages and function app handling events'."
+- **Service relationship diagram**: "Create a diagram with input 'web app connects to database and redis cache'."
 
 | Parameter |  Required or optional| Description |
 |-----------|----------|-------------|
@@ -70,11 +70,11 @@ This tool offers guidance for creating [Bicep](/azure/azure-resource-manager/bic
 
 Example prompts include:
 
-- **IaC guidance for Bicep**: "Give me best practices for Bicep files for my web app."
-- **Terraform rules**: "What are the guidelines for writing Terraform for Azure Container Apps?"
-- **Resource-specific rules**: "Show me IaC rules for deploying appservice and aks."
-- **AZD compatibility**: "How do I make my Bicep files compatible with AZD?"
-- **IaC for multiple resources**: "Provide guidance for Bicep and Terraform for appservice, containerapp, and function."
+- **IaC guidance for Bicep**: "Give me best practices for Bicep files for my web app using deployment tool 'AZD' with IaC type 'bicep' and resource types 'appservice'."
+- **Terraform rules**: "What are the guidelines for writing Terraform for Azure Container Apps using deployment tool 'AZD' with IaC type 'terraform' and resource types 'containerapp'?"
+- **Resource-specific rules**: "Show me IaC rules for deploying appservice and aks using deployment tool 'AzCli'."
+- **AZD compatibility**: "How do I make my Bicep files compatible with deployment tool 'AZD' for IaC type 'bicep'?"
+- **IaC for multiple resources**: "Provide guidance using deployment tool 'AZD' with IaC type 'bicep' for resource types 'appservice,containerapp,function'."
 
 | Parameter | Required or optional| Description |
 |-----------|----------|-------------|
@@ -119,11 +119,11 @@ Generates a deployment plan to build the infrastructure and deploy the applicati
 
 Example prompts include:
 
-- **Generate deployment plan**: "Create a deployment plan for my Azure web app."
-- **Plan for multiple services**: "Generate a plan to deploy container app and function app."
-- **Deployment steps**: "Show me the steps to deploy my project to Azure using AZD."
-- **Service recommendation**: "Recommend Azure services for my application and generate a plan."
-- **Provisioning plan**: "Create a plan using Bicep for my appservice and aks resources."
+- **Generate deployment plan**: "Create a deployment plan for my Azure web app in workspace folder '/home/user/myapp' with project 'mywebapp' using target app service 'WebApp' and provisioning tool 'AZD' with IaC option 'bicep'."
+- **Plan for multiple services**: "Generate a plan to deploy container app in workspace folder '/home/user/myapp' with project 'mycontainerapp' using target app service 'ContainerApp' and provisioning tool 'AZD' with IaC option 'bicep'."
+- **Deployment steps**: "Show me the steps to deploy my project 'myproject' in workspace folder '/home/user/myapp' using target app service 'WebApp' and provisioning tool 'AZD' with IaC option 'bicep'."
+- **Service recommendation**: "Recommend Azure services and generate a plan for project 'myapp' in workspace folder '/home/user/myapp' using target app service 'ContainerApp' and provisioning tool 'AZD'."
+- **Provisioning plan**: "Create a plan for project 'myproject' in workspace folder '/home/user/myapp' using target app service 'AKS' and provisioning tool 'AzCli'."
 
 | Parameter |  Required or optional| Description |
 |-----------|----------|-------------|
