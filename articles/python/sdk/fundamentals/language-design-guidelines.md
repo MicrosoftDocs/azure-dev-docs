@@ -13,7 +13,7 @@ Azure SDK Design Guidelines are comprehensive standards that ensure consistency,
 The guidelines consist of two categories:
 
 - **General Guidelines**: Core principles that apply to all Azure SDKs regardless of programming language.
-- **Language-Specific Guidelines**: Implementation details optimized for each supported language, including [Python](https://azure.github.io/azure-sdk/python_design.html), [.NET](https://azure.github.io/azure-sdk/dotnet_introduction.html), [Java](https://azure.github.io/azure-sdk/java_introduction.html), [TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html), and many more (see the Table of Contents starting on the [General Guidelines: Introduction](https://azure.github.io/azure-sdk/general_introduction.html) page).
+- **Language-Specific Guidelines**: Implementation details optimized for each supported language, including [Python](https://azure.github.io/azure-sdk/python_design.html), [.NET](https://azure.github.io/azure-sdk/dotnet_introduction.html), [Java](https://azure.github.io/azure-sdk/java_introduction.html), [TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html), and many more. For more information, see the Table of Contents starting on the [General Guidelines: Introduction](https://azure.github.io/azure-sdk/general_introduction.html) page.
 
 These guidelines are developed openly on GitHub, which allows for community review and contribution.
 
@@ -24,10 +24,10 @@ All Azure SDKs follow these fundamental principles:
 |Principle|Description|
 |---|---|
 |Idiomatic usage|SDKs follow language-specific conventions and patterns.|
-|Consistency|Uniform behaviors across different Azure services.|
+|Consistency|Behaviors are uniform across different Azure services.|
 |Simplicity|Common tasks require minimal code.|
 |Progressive disclosure|Advanced features are available but don't complicate basic usage.|
-|Robustness|Built-in handling for errors, retries, and timeouts.|
+|Robustness|Handling is built in for errors, retries, and timeouts.|
 
 ## Python-specific guidelines
 
@@ -37,7 +37,7 @@ The rest of this document focuses on the [Python guidelines](https://azure.githu
 
 Azure SDKs for Python follow standard Python naming conventions:
 
-- **Methods** Use snake_case`.
+- **Methods**: Use `snake_case`.
 
   ```python
   list_containers()
@@ -90,7 +90,7 @@ Clients provide multiple instantiation methods:
 from azure.storage.blob import BlobServiceClient
 from azure.identity import DefaultAzureCredential
 
-# Note: do not use connection string if you can possibly avoid it!
+# Note: Do not use connection string if you can possibly avoid it!
 
 # Using account URL and credential
 credential = DefaultAzureCredential()
@@ -153,7 +153,7 @@ asyncio.run(list_blobs_async())
 
 ### Long-running operations
 
-Long-running operations use the` begin_` prefix and return poller objects:
+Long-running operations use the `begin_` prefix and return poller objects:
 
 ```python
 from azure.storage.blob import BlobServiceClient
