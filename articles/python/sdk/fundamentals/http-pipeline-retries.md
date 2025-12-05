@@ -1,21 +1,27 @@
 ---
-title: HTTP pipeline and retries in the Azure SDK libraries for Python
-description: Learn how requests and responses flow through the HTTP pipeline when using the Azure SDK for Python and how to create policies to modify the flow.
+title: HTTP Pipeline and Retries in the Azure SDK Libraries for Python
+description: Learn how requests and responses flow through the HTTP pipeline when you use the Azure SDK for Python and how to create policies to modify the flow.
 ms.date: 7/16/2025
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Understanding HTTP pipeline and retries in the Azure SDK for Python
+# Understand HTTP pipeline and retries in the Azure SDK for Python
 
-When you make a call to any Azure service using the Azure SDK for Python—whether it's Blob Storage, Key Vault, Cosmos DB, or any other HTTP based service—your request doesn't go directly to the Azure service. Instead, it flows through a sophisticated HTTP pipeline that handles critical cross-cutting concerns automatically.
+When you make a call to any Azure service by using the Azure SDK for Python, your request doesn't go directly to the Azure service. It doesn't matter whether it's Azure Blob Storage, Azure Key Vault, Azure Cosmos DB, or any other HTTP-based service. Instead, your request flows through a sophisticated HTTP pipeline that handles critical cross-cutting concerns automatically.
 
-Understanding how the HTTP pipeline works is essential for building robust, performant applications. The pipeline manages retries for transient failures, handles authentication, provides logging capabilities, and enables you to add custom behavior when needed. This knowledge helps you debug performance issues, optimize resiliency, and customize your application's interaction with Azure services.
+Understanding how the HTTP pipeline works is essential for building robust, performant applications. The pipeline:
+
+- Manages retries for transient failures.
+- Handles authentication.
+- Provides logging capabilities.
+- Enables you to add custom behavior when needed.
+
+This knowledge helps you debug performance issues, optimize resiliency, and customize your application's interaction with Azure services.
 
 ## What is the HTTP pipeline?
 
-The Azure SDK for Python uses an internal HTTP pipeline architecture to process all requests and responses. This pipeline consists of a series of policies that execute in sequence, each responsible for a specific aspect of the HTTP communication.
-Think of the pipeline as a chain of processing steps:
+The Azure SDK for Python uses an internal HTTP pipeline architecture to process all requests and responses. This pipeline consists of a series of policies that execute in sequence. Each policy is responsible for a specific aspect of the HTTP communication. Think of the pipeline as a chain of processing steps:
 
 ```ascii
 Client Request → Retry Policy → Authentication Policy → Logging Policy → HTTP Transport → Azure Service
@@ -25,26 +31,26 @@ Client Response ← Retry Policy ← Authentication Policy ← Logging Policy �
 
 Each policy in the pipeline can:
 
-- Modify the request before it's sent
-- Process the response after it's received
-- Perform actions like retrying failed requests
-- Add headers, log information, or implement custom logic
+- Modify the request before it's sent.
+- Process the response after it's received.
+- Perform actions like retrying failed requests.
+- Add headers, log information, or implement custom logic.
 
 ## Key policies in the pipeline
 
 The Azure SDK for Python includes several built-in policies that handle common scenarios:
 
-- **RetryPolicy**: Automatically retries requests that fail due to transient errors. This policy implements intelligent retry logic with exponential backoff to avoid overwhelming services during outages.
-- **BearerTokenCredentialPolicy**: Manages authentication by automatically acquiring and refreshing access tokens. This policy ensures your requests include valid authentication credentials without manual token management.
-- **NetworkTraceLoggingPolicy**: Captures detailed information about HTTP requests and responses for debugging purposes. This policy is invaluable when troubleshooting communication issues.
-- **HttpTransport**: The lowest layer of the pipeline that actually sends HTTP requests over the network. In the Azure SDK for Python, this is typically implemented using requests or aiohttp for asynchronous operations.
+- `RetryPolicy`: Automatically retries requests that fail because of transient errors. This policy implements intelligent retry logic with exponential backoff to avoid overwhelming services during outages.
+- `BearerTokenCredentialPolicy`: Manages authentication by automatically acquiring and refreshing access tokens. This policy ensures that your requests include valid authentication credentials without manual token management.
+- `NetworkTraceLoggingPolicy`: Captures detailed information about HTTP requests and responses for debugging purposes. This policy is invaluable when you troubleshoot communication issues.
+- `HttpTransport`: The lowest layer of the pipeline that actually sends HTTP requests over the network. In the Azure SDK for Python, this policy is typically implemented by using requests or aiohttp for asynchronous operations.
 
-### Additional policies
+### Other policies
 
-- **RedirectPolicy**: Handles HTTP redirects automatically
-- **DistributedTracingPolicy**: Integrates with distributed tracing systems for monitoring
-- **ProxyPolicy**: Routes requests through HTTP proxies when configured
-- **UserAgentPolicy**: Adds SDK version information to request headers
+- `RedirectPolicy`: Handles HTTP redirects automatically.
+- `DistributedTracingPolicy`: Integrates with distributed tracing systems for monitoring.
+- `ProxyPolicy`: Routes requests through HTTP proxies when configured.
+- `UserAgentPolicy`: Adds SDK version information to request headers.
 
 ## Retry behavior
 
@@ -54,22 +60,22 @@ The Azure SDK for Python implements intelligent retry logic to handle transient 
 
 The SDK retries requests for these HTTP status codes:
 
-- **408 Request Timeout**: The server timed out waiting for the request
-- **429 Too Many Requests**: Rate limiting is in effect
-- **500 Internal Server Error**: Temporary server issue
-- **502 Bad Gateway**: Temporary network issue
-- **503 Service Unavailable**: Service temporarily unavailable
-- **504 Gateway Timeout**: Gateway or proxy timeout
+- **408 Request Timeout**: The server timed out waiting for the request.
+- **429 Too Many Requests**: Rate limiting is in effect.
+- **500 Internal Server Error**: Temporary server issue.
+- **502 Bad Gateway**: Temporary network issue.
+- **503 Service Unavailable**: Service temporarily unavailable.
+- **504 Gateway Timeout**: Gateway or proxy timeout.
 
 ### Default retry configuration
 
 The default retry settings provide a good balance between resilience and performance:
 
-- Maximum retry attempts: 3
-- Retry mode: Exponential backoff
-- Base delay: 0.8 seconds
-- Maximum delay: 60 seconds
-- Maximum total retry time: 120 seconds
+- **Maximum retry attempts**: 3
+- **Retry mode**: Exponential backoff
+- **Base delay**: 0.8 seconds
+- **Maximum delay**: 60 seconds
+- **Maximum total retry time**: 120 seconds
 
 The exponential backoff calculation follows this pattern:
 
@@ -77,9 +83,9 @@ The exponential backoff calculation follows this pattern:
 delay = min(base_delay * (2 ** retry_attempt), max_delay)
 ```
 
-### Customizing retries
+### Customize retries
 
-You can customize retry behavior when creating SDK clients to match your application's specific requirements.
+You can customize retry behavior when you create SDK clients to match your application's specific requirements.
 
 ```python
 from azure.storage.blob import BlobServiceClient
@@ -101,7 +107,7 @@ client = BlobServiceClient(
 )
 ```
 
-### Disabling retries
+### Disable retries
 
 For scenarios where retries aren't appropriate:
 
@@ -118,7 +124,7 @@ client = BlobServiceClient(
 )
 ```
 
-## Diagnosing and debugging retry behavior
+## Diagnose and debug retry behavior
 
 Understanding when and why retries occur is crucial for troubleshooting performance issues.
 
@@ -144,7 +150,7 @@ azure_logger.setLevel(logging.DEBUG)
 # Now SDK operations will log retry attempts
 ```
 
-## Identifying retry patterns
+## Identify retry patterns
 
 Look for log entries like:
 
@@ -155,15 +161,15 @@ Waiting 0.8 seconds before retry
 
 ## Common retry pitfalls
 
-- **Retrying non-transient errors**: The SDK doesn't retry client errors (4xx) except for 408 and 429
-- **Ignoring retry latency**: Remember that retries add latency to failed operations
-- **Insufficient timeout**: Ensure your overall operation timeout accounts for retry delays
+- **Retrying non-transient errors**: The SDK doesn't retry client errors (4xx) except for 408 and 429.
+- **Ignoring retry latency**: Remember that retries add latency to failed operations.
+- **Providing insufficient timeout**: Ensure that your overall operation timeout accounts for retry delays.
 
-## Advanced: Adding custom policies
+## Advanced: Add custom policies
 
 You can extend the pipeline with custom policies for specialized scenarios.
 
-### Creating a custom policy
+### Create a custom policy
 
 ```python
 from azure.core.pipeline import PipelineRequest, PipelineResponse
@@ -186,7 +192,7 @@ class CustomTelemetryPolicy(HTTPPolicy):
         return response
 ```
 
-### Applying custom policies
+### Apply custom policies
 
 ```python
 from azure.storage.blob import BlobServiceClient
@@ -204,11 +210,11 @@ client = BlobServiceClient(
 
 Policies execute in a specific order:
 
-- Per-call policies (execute once per operation)
-- Retry policy
-- Per-retry policies (execute on each attempt)
-- Authentication policy
-- HTTP transport
+- Per-call policies (execute once per operation).
+- Retry policy.
+- Per-retry policies (execute on each attempt).
+- Authentication policy.
+- HTTP transport.
 
 ## Best practices
 
@@ -218,28 +224,28 @@ The default retry configuration works well for most scenarios. Only customize wh
 
 ### Customization guidelines
 
-When customizing retry behavior:
+When you customize retry behavior:
 
-- **Use exponential backoff**: Prevents overwhelming services during recovery
-- **Set reasonable limits**: Cap total retry time to prevent indefinite waiting
-- **Monitor retry metrics**: Track retry rates in production to identify issues
-- **Consider circuit breakers**: For high-volume scenarios, implement circuit breaker patterns
+- **Use exponential backoff**: Used to prevent overwhelming services during recovery.
+- **Set reasonable limits**: Cap total retry time to prevent indefinite waiting.
+- **Monitor retry metrics**: Track retry rates in production to identify issues.
+- **Consider circuit breakers**: Implement circuit breaker patterns for high-volume scenarios.
 
 ### What not to retry
 
 Avoid retrying these types of errors:
 
-- **Authentication failures (401, 403)**: Authentication errors require fixing credentials, not retrying
-- **Client errors (400, 404)**: Client errors indicate problems with the request itself
-- **Business logic errors**: Application-specific errors that don't resolve with retries
+- **Authentication failures (401, 403)**: Authentication errors require fixing credentials, not retrying.
+- **Client errors (400, 404)**: Client errors indicate problems with the request itself.
+- **Business logic errors**: Application-specific errors that don't resolve with retries.
 
 ## Operational excellence
 
-- **Log correlation IDs**: Include `x-ms-client-request-id` in logs for Azure support
-- **Set appropriate timeouts**: Balance between reliability and user experience
-- **Test retry behavior**: Verify your application handles retries gracefully
-- **Monitor performance**: Track P95/P99 latencies (percentile-based latency metrics) including retry overhead
+- **Log correlation IDs**: Include `x-ms-client-request-id` in logs for Azure support.
+- **Set appropriate timeouts**: Balance between reliability and user experience.
+- **Test retry behavior**: Verify your application handles retries gracefully.
+- **Monitor performance**: Track P95/P99 latencies (percentile-based latency metrics) including retry overhead.
 
-## Next steps
+## Related content
 
-- [Implementing resilient applications](/azure/well-architected/reliability/)
+- [Implement resilient applications](/azure/well-architected/reliability/)
