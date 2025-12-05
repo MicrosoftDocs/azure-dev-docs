@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Bicep Schema to re
 keywords: azure mcp server, azmcp, azure bicep, bicep schema, arm templates, infrastructure as code
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -27,7 +27,7 @@ Gets the Bicep schema for the most recent apiVersion of an Azure resource. This 
 Example prompts include:
 
 - **Get storage account schema**: "Get me the Bicep schema for Microsoft.Storage/storageAccounts"
-- **Find service properties**: "How can I use Bicep to create an Azure OpenAI service?"
+- **Find service properties**: "How can I use Bicep to create an Azure OpenAI service with resource type 'Microsoft.CognitiveServices/accounts'?"
 - **Check API version**: "What's the latest apiVersion for Microsoft.KeyVault/vaults?"
 - **Need schema help**: "I'm creating a Bicep template for Microsoft.Cognitive/accounts"
 - **Request schema guidance**: "Show me the properties for Microsoft.Web/sites"
