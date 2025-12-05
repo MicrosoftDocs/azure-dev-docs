@@ -4,7 +4,7 @@ description: "Use the Azure MCP Server with Azure Monitor to query Log Analytics
 keywords: azure mcp server, azmcp, azure monitor, log analytics
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -27,14 +27,14 @@ List activity logs for the specified Azure resource over the given prior number 
 
 Example prompts include:
 
-- **Recent critical events**: "Show activity logs for my 'web-app-prod' resource for the last 4 hours with Critical and Error events only"
-- **Storage account activity**: "Get activity logs for 'mystorageaccount' resource of type 'Microsoft.Storage/storageAccounts' from the last 24 hours, limit to top 50 entries"
-- **VM monitoring**: "List all activity logs for my 'production-vm01' virtual machine from the past 12 hours"
+- **Recent critical events**: "Show activity logs for resource 'web-app-prod' for the last 4 hours with Critical and Error events only"
+- **Storage account activity**: "Get activity logs for resource 'mystorageaccount' of type 'Microsoft.Storage/storageAccounts' from the last 24 hours, limit to top 50 entries"
+- **VM monitoring**: "List all activity logs for resource 'production-vm01' from the past 12 hours"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource name** |  Required | The name of the Azure resource to retrieve activity logs for. |
-| **Resource type** |  Optional | The type of the Azure resource (for example, 'Microsoft.Storage/storageAccounts'). Only provide this if needed to disambiguate between multiple resources with the same name. |
+| **Resource type** |  Optional | The type of the Azure resource (for example, `Microsoft.Storage/storageAccounts`). Only provide this if needed to disambiguate between multiple resources with the same name. |
 | **Hours** |  Optional | The number of hours prior to now to retrieve activity logs for. |
 | **Event level** |  Optional | The level of activity logs to retrieve. Valid levels are: Critical, Error, Informational, Verbose, Warning. If not provided, returns all levels. |
 | **Top** |  Optional | The maximum number of activity logs to retrieve. |
@@ -228,9 +228,9 @@ The Azure MCP Server can execute Kusto Query Language (KQL) queries against a Lo
 
 Example prompts include:
 
-- **Simple query**: "Query errors from last hour in workspace 'my-workspace' in resource group 'my-resource-group'"
-- **Filter query**: "Find failed login attempts in SecurityEvent table in workspace 'security-workspace' in resource group 'my-resource-group'"
-- **Complex query**: "Show CPU usage trend for web servers last 24 hours in workspace 'monitoring-workspace' in resource group 'my-resource-group'"
+- **Simple query**: "Query table 'AzureDiagnostics' with query 'AzureDiagnostics | where Level == "Error" | take 100' in workspace 'app-monitoring' in resource group 'monitoring-rg' for last 1 hour"
+- **Filter query**: "Query table 'SecurityEvent' with query 'SecurityEvent | where EventID == 4625 | project TimeGenerated, Account, Computer' in workspace 'security-workspace' in resource group 'security-rg'"
+- **Complex query**: "Query table 'Perf' with query 'Perf | where CounterName == "% Processor Time" and Computer contains "web" | summarize avg(CounterValue) by bin(TimeGenerated, 1h)' in workspace 'monitoring-workspace' in resource group 'prod-rg' for last 24 hours"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -253,9 +253,9 @@ Queries diagnostic and activity logs for a specific Azure resource in a Log Anal
 
 Example prompts include:
 
-- **Query recent logs**: "Show recent logs for resource /subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Web/sites/myapp."
-- **Find errors**: "Query errors for my web app resource in the last 4 hours."
-- **Resource diagnostics**: "Show diagnostic logs for storage account resource with limit 100."
+- **Query recent logs**: "Query table 'AppServiceConsoleLogs' with query 'recent' for resource '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Web/sites/myapp'"
+- **Find errors**: "Query table 'AppServiceHTTPLogs' with query 'errors' for resource '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Web/sites/mywebapp' in the last 4 hours"
+- **Resource diagnostics**: "Query table 'StorageBlobLogs' with query 'StorageBlobLogs | take 100' for resource '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Storage/storageAccounts/mystorage' with limit 100"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -277,9 +277,9 @@ The Azure MCP Server gets the health status of an entity using Azure Monitor hea
 
 Example prompts include:
 
-- **Check entity health**: "Get health for app-prod-001 with webapp-health model in resource group 'my-resource-group'"
-- **Monitor resource health**: "What's the health of web-app-prod using application-model in resource group 'my-resource-group'?"
-- **Check system status**: "Get health info for sql-prod database entity in resource group 'my-resource-group'"
+- **Check entity health**: "Get health for entity 'app-prod-001' with model 'webapp-health' in resource group 'prod-rg'"
+- **Monitor resource health**: "What's the health of entity 'web-app-prod' using model 'application-health' in resource group 'monitoring-rg'?"
+- **Check system status**: "Get health info for entity 'sql-prod-db' with model 'database-health' in resource group 'data-rg'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -299,9 +299,9 @@ The Azure MCP Server queries Azure Monitor metrics for resources. This allows yo
 
 Example prompts include:
 
-- **Query VM metrics**: "Get CPU and memory for prod-vm01 from January 1 to January 2."
-- **Query storage metrics**: "Show transaction metrics for mystorageaccount in storage group."
-- **Query app metrics**: "Get response time for mywebapp last 24 hours."
+- **Query VM metrics**: "Get metrics 'Percentage CPU,Available Memory Bytes' with namespace 'Microsoft.Compute/virtualMachines' for resource 'prod-vm01' from January 1 to January 2"
+- **Query storage metrics**: "Show metrics 'Transactions,Availability' with namespace 'Microsoft.Storage/storageAccounts' for resource 'mystorageaccount'"
+- **Query app metrics**: "Get metrics 'ResponseTime,Requests' with namespace 'Microsoft.Web/sites' for resource 'mywebapp' last 24 hours"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -375,9 +375,9 @@ The Azure MCP Server shows details of a specific Azure Monitor workbook by its r
 
 Example prompts include:
 
-- **Show workbook**: "Show workbook details for /subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/workbook-guid."
-- **Get workbook info**: "Get info about workbook /subscriptions/xyz/resourceGroups/rg/providers/Microsoft.Insights/workbooks/my-workbook."
-- **View workbook**: "Display workbook details for my performance workbook."
+- **Show workbook**: "Show workbook details for '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/12345678-1234-1234-1234-123456789abc'"
+- **Get workbook info**: "Get info about workbook '/subscriptions/xyz789/resourceGroups/prod-rg/providers/Microsoft.Insights/workbooks/87654321-4321-4321-4321-cba987654321'"
+- **View workbook**: "Display workbook details for '/subscriptions/def456/resourceGroups/analytics-rg/providers/Microsoft.Insights/workbooks/abcdef12-ab12-ab12-ab12-abcdefabcdef'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -395,9 +395,9 @@ The Azure MCP Server can create a new Azure Monitor workbook. This allows you to
 
 Example prompts include:
 
-- **Create workbook**: "Create workbook Performance Dashboard in monitoring group."
-- **Create with source**: "Create workbook App Insights Analysis linked to my Application Insights."
-- **Create monitoring workbook**: "Create new workbook Infrastructure Overview."
+- **Create workbook**: "Create workbook with display name 'Performance Dashboard' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}' in resource group 'monitoring-rg'"
+- **Create with source**: "Create workbook with display name 'App Insights Analysis' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}' linked to source '/subscriptions/abc123/resourceGroups/prod/providers/Microsoft.Insights/components/myappinsights'"
+- **Create monitoring workbook**: "Create new workbook with display name 'Infrastructure Overview' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"## Infrastructure Metrics\"}}]}'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -418,9 +418,9 @@ The Azure MCP Server updates an existing Azure Monitor workbook. This allows you
 
 Example prompts include:
 
-- **Update name**: "Update workbook /subscriptions/abc/resourceGroups/rg/providers/Microsoft.Insights/workbooks/wb1 name to Updated Dashboard."
-- **Update content**: "Update workbook content for /subscriptions/xyz/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/dashboard."
-- **Modify workbook**: "Change name and content for workbook /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/analytics."
+- **Update name**: "Update workbook '/subscriptions/abc123/resourceGroups/monitoring-rg/providers/Microsoft.Insights/workbooks/12345678-1234-1234-1234-123456789abc' with display name 'Updated Dashboard'"
+- **Update content**: "Update workbook '/subscriptions/xyz789/resourceGroups/prod-rg/providers/Microsoft.Insights/workbooks/87654321-4321-4321-4321-cba987654321' with serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}'"
+- **Modify workbook**: "Change display name to 'Analytics Dashboard' and serialized content '{\"version\":\"Notebook/1.0\",\"items\":[]}' for workbook '/subscriptions/def456/resourceGroups/analytics-rg/providers/Microsoft.Insights/workbooks/abcdef12-ab12-ab12-ab12-abcdefabcdef'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -440,9 +440,9 @@ The Azure MCP Server deletes an Azure Monitor workbook. This permanently removes
 
 Example prompts include:
 
-- **Delete workbook**: "Delete workbook /subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/old-dashboard."
-- **Remove workbook**: "Remove workbook /subscriptions/xyz/resourceGroups/rg/providers/Microsoft.Insights/workbooks/unused-workbook."
-- **Clean up**: "Remove workbook at /subscriptions/123/resourceGroups/prod/providers/Microsoft.Insights/workbooks/deprecated."
+- **Delete workbook**: "Delete workbook '/subscriptions/abc123/resourceGroups/monitoring/providers/Microsoft.Insights/workbooks/12345678-1234-1234-1234-123456789abc'"
+- **Remove workbook**: "Remove workbook '/subscriptions/xyz789/resourceGroups/prod-rg/providers/Microsoft.Insights/workbooks/87654321-4321-4321-4321-cba987654321'"
+- **Clean up**: "Remove workbook '/subscriptions/def456/resourceGroups/analytics-rg/providers/Microsoft.Insights/workbooks/abcdef12-ab12-ab12-ab12-abcdefabcdef'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
