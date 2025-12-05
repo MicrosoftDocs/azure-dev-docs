@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Cosmos DB to manag
 keywords: azure mcp server, azmcp, cosmos db
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -48,7 +48,7 @@ Example prompts include:
 - **List databases**: "Show me all databases in my 'mycosmosaccount' Cosmos DB account."
 - **View databases**: "What databases do I have in Cosmos DB account 'cosmosdb-prod'?"
 - **Find databases**: "List databases in my Cosmos account 'data-store-cosmos'"
-- **Query databases**: "Show all databases in my Cosmos DB account"
+- **Query databases**: "Show all databases in Cosmos DB account 'mycosmosaccount'"
 - **Check databases**: "What databases are available in my 'analytics-cosmos' account?"
 
 | Parameter | Required or optional | Description |
@@ -68,10 +68,10 @@ The Azure MCP Server can list all containers in a Cosmos DB database. This helps
 Example prompts include:
 
 - **List containers**: "Show me all containers in database 'products' in my 'mycosmosaccount' Cosmos DB account."
-- **View containers**: "What containers do I have in the 'users' database?"
+- **View containers**: "What containers do I have in the 'users' database in Cosmos DB account 'mycosmosaccount'?"
 - **Find containers**: "List all containers in database 'events' in my 'analytics-cosmos' account"
-- **Query containers**: "Show containers in database 'inventory'"
-- **Check containers**: "What containers are available in the 'orders' database in my Cosmos DB account?"
+- **Query containers**: "Show containers in database 'inventory' in Cosmos DB account 'mycosmosaccount'"
+- **Check containers**: "What containers are available in the 'orders' database in Cosmos DB account 'mycosmosaccount'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -90,11 +90,11 @@ The Azure MCP Server can execute SQL queries against items in a Cosmos DB contai
 
 Example prompts include:
 
-- **Simple query**: "Query all orders placed after January 1, 2025 from the 'orders' container in database 'sales'"
-- **Filter query**: "Find all products with price less than $50 in the 'products' container"
-- **Complex query**: "Query items where category is 'electronics' and stock is greater than 10"
-- **Join query**: "Show me orders with their related customer information"
-- **Aggregation query**: "Count how many orders we have by status in the 'orders' container"
+- **Simple query**: "Query all orders placed after January 1, 2025 from the 'orders' container in database 'sales' in Cosmos DB account 'mycosmosaccount'"
+- **Filter query**: "Find all products with price less than $50 in the 'products' container in database 'inventory' in Cosmos DB account 'mycosmosaccount'"
+- **Complex query**: "Query items where category is 'electronics' and stock is greater than 10 in container 'products' in database 'inventory' in Cosmos DB account 'mycosmosaccount'"
+- **Join query**: "Show me orders with their related customer information in container 'orders' in database 'sales' in Cosmos DB account 'mycosmosaccount'"
+- **Aggregation query**: "Count how many orders we have by status in the 'orders' container in database 'sales' in Cosmos DB account 'mycosmosaccount'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
