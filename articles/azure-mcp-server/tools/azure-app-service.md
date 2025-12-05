@@ -30,15 +30,15 @@ settings for the specified App Service, allowing it to connect to a database ser
 
 Example prompts include:
 
-- **Add database connection**: "Add a database connection to my app service 'webapp-prod' in resource group 'production-rg'"
-- **Configure SQL Server database**: "Configure a SQL Server database for app service 'webapp-prod'"
-- **Add MySQL database**: "Add a MySQL database to app service 'webapp-prod'"
-- **Add PostgreSQL database**: "Add a PostgreSQL database to app service 'webapp-prod'"
-- **Add CosmosDB database**: "Add a Cosmos database to app service 'webapp-prod'"
-- **Add specific database and server**: "Add database 'orders-db' on server 'orders-sql-server' to app service 'webapp-prod'"
-- **Set connection string**: "Set connection string for database 'orders-db' in app service 'webapp-prod'"
-- **Configure tenant for database**: "Configure tenant 'contoso' for database 'orders-db' in app service 'webapp-prod'"
-- **Add database with retry policy**: "Add database 'orders-db' with retry policy to app service 'webapp-prod'"
+- **Add database connection**: "Add database 'mydb' on server 'myserver.database.windows.net' with type 'SqlServer' to app service 'webapp-prod' in resource group 'production-rg'"
+- **Configure SQL Server database**: "Add database 'mydb' on server 'myserver.database.windows.net' with type 'SqlServer' to app service 'webapp-prod'"
+- **Add MySQL database**: "Add database 'mydb' on server 'myserver.mysql.database.azure.com' with type 'MySQL' to app service 'webapp-prod'"
+- **Add PostgreSQL database**: "Add database 'mydb' on server 'myserver.postgres.database.azure.com' with type 'PostgreSQL' to app service 'webapp-prod'"
+- **Add CosmosDB database**: "Add database 'mydb' on server 'myaccount.documents.azure.com' with type 'CosmosDB' to app service 'webapp-prod'"
+- **Add specific database and server**: "Add database 'orders-db' on server 'orders-sql-server.database.windows.net' with type 'SqlServer' to app service 'webapp-prod'"
+- **Set connection string**: "Add database 'orders-db' on server 'orders-sql-server.database.windows.net' with type 'SqlServer' to app service 'webapp-prod'"
+- **Configure tenant for database**: "Add database 'orders-db' on server 'orders-sql-server.database.windows.net' with type 'SqlServer' to app service 'webapp-prod'"
+- **Add database with retry policy**: "Add database 'orders-db' on server 'orders-sql-server.database.windows.net' with type 'SqlServer' to app service 'webapp-prod'"
 
 
 | Parameter |  Required or optional | Description |
