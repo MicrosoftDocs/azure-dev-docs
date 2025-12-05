@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Marketplace to dis
 keywords: azure mcp server, azmcp, marketplace, products, offers, solutions
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 author: diberry
 ms.author: diberry
 content_well_notification: 
@@ -28,8 +28,8 @@ Get detailed information about a specific product or offer from Azure Marketplac
 
 Example prompts include:
 
-- **Get product details**: "Show me information about product ID `microsoft-ads.windows-data-science-vm`"
-- **Check specific plan**: "Get marketplace product details for product ID `standard-data-science-vm`"
+- **Get product details**: "Show me information about product ID 'microsoft-ads.windows-data-science-vm'"
+- **Check specific plan**: "Get marketplace product details for product ID 'canonical.ubuntuserver' with plan ID 'standard-plan'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
