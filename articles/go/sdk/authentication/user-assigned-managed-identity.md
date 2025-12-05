@@ -3,7 +3,7 @@ title: Authenticate Azure-hosted Go apps to Azure resources using a user-assigne
 description: Learn how to authenticate Azure-hosted Go apps to other Azure services using a user-assigned managed identity.
 ms.topic: how-to
 ms.custom: devx-track-go, engagement-fy23, devx-track-azurecli
-ms.date: 10/02/2025
+ms.date: 12/04/2025
 ---
 
 # Authenticate Azure-hosted Go apps to Azure resources using a user-assigned managed identity
@@ -40,6 +40,8 @@ Azure services are accessed using specialized clients from the various Azure SDK
 1. Create an instance of `DefaultAzureCredential` type.
 1. Pass the instance of `DefaultAzureCredential` type to the Azure SDK client constructor.
 1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned identity
+1. Set the `AZURE_TOKEN_CREDENTIAL` environment variable to `ManagedIdentityCredential` to ensure that `DefaultAzureCredential` uses the managed identity credential. This practice makes authentication more predictable and easier to debug when deployed to Azure. For more information, see [Use a specific credential](credential-chains.md#use-a-specific-credential). 
+
 An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
 ```go
@@ -120,8 +122,3 @@ func main() {
 	// _, err = client.DownloadFile(context.TODO(), <containerName>, <blobName>, <target_file>, <DownloadFileOptions>)
 }
 ```
-
-The preceding code behaves differently depending on the environment where it's running:
-
-- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Azure CLI, for a set of developer credentials.
-- When deployed to Azure, `ManagedIdentityCredential` discovers your managed identity configurations to authenticate to other services automatically.

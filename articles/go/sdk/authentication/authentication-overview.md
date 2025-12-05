@@ -1,7 +1,7 @@
 ---
 title: Authenticate Go apps to Azure using the Azure Identity library
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for Go in both server environments and in local development.
-ms.date: 10/02/2025
+ms.date: 12/04/2025
 ms.topic: overview
 ms.custom: devx-track-go
 ---
@@ -21,6 +21,7 @@ Token-based authentication offers the following advantages over connection strin
 - Token-based authentication ensures only the specific apps intended to access the Azure resource are able to do so, whereas anyone or any app with a connection string can connect to an Azure resource.
 - Token-based authentication allows you to further limit Azure resource access to only the specific permissions needed by the app. This follows the [principle of least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege). In contrast, a connection string grants full rights to the Azure resource.
 - When using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for token-based authentication, Azure handles administrative functions for you, so you don't have to worry about tasks like securing or rotating secrets. This makes the app more secure because there's no connection string or application secret that can be compromised.
+- Connection strings are functionally equivalent to credentials and require special handling to prevent accidental leakage. They must be stored securely (for example, in Azure Key Vault) and never hardcoded in your application or committed to source control. The [Microsoft Secure Future Initiative (SFI)](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) prohibits the use of connection strings and similar long-lived secrets because they can be used to compromise your application if not carefully managed.
 - The Azure Identity library acquires and manages Microsoft Entra tokens for you.
 
 Use of connection strings should be limited to scenarios where token-based authentication isn't an option, initial proof-of-concept apps, or development prototypes that don't access production or sensitive data. When possible, use the credential types in the Azure Identity library to authenticate to Azure resources.
