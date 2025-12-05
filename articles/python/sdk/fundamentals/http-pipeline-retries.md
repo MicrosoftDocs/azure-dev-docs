@@ -161,9 +161,9 @@ Waiting 0.8 seconds before retry
 
 ## Common retry pitfalls
 
-- **Retrying non-transient errors**: The SDK doesn't retry client errors (4xx) except for 408 and 429.
-- **Ignoring retry latency**: Remember that retries add latency to failed operations.
-- **Providing insufficient timeout**: Ensure that your overall operation timeout accounts for retry delays.
+- **Retrying non-transient errors:** The SDK doesn't retry client errors (4xx) except for 408 and 429.
+- **Ignoring retry latency:** Remember that retries add latency to failed operations.
+- **Providing insufficient timeout:** Ensure that your overall operation timeout accounts for retry delays.
 
 ## Advanced: Add custom policies
 
@@ -226,25 +226,25 @@ The default retry configuration works well for most scenarios. Only customize wh
 
 When you customize retry behavior:
 
-- **Use exponential backoff**: Used to prevent overwhelming services during recovery.
-- **Set reasonable limits**: Cap total retry time to prevent indefinite waiting.
-- **Monitor retry metrics**: Track retry rates in production to identify issues.
-- **Consider circuit breakers**: Implement circuit breaker patterns for high-volume scenarios.
+- **Use exponential backoff:** Use to prevent overwhelming services during recovery.
+- **Set reasonable limits:** Cap total retry time to prevent indefinite waiting.
+- **Monitor retry metrics:** Track retry rates in production to identify issues.
+- **Consider circuit breakers:** Implement circuit breaker patterns for high-volume scenarios.
 
 ### What not to retry
 
 Avoid retrying these types of errors:
 
-- **Authentication failures (401, 403)**: Authentication errors require fixing credentials, not retrying.
-- **Client errors (400, 404)**: Client errors indicate problems with the request itself.
-- **Business logic errors**: Application-specific errors that don't resolve with retries.
+- **Authentication failures (401, 403):** Authentication errors require fixing credentials, not retrying.
+- **Client errors (400, 404):** Client errors indicate problems with the request itself.
+- **Business logic errors:** Application-specific errors that don't resolve with retries.
 
 ## Operational excellence
 
-- **Log correlation IDs**: Include `x-ms-client-request-id` in logs for Azure support.
-- **Set appropriate timeouts**: Balance between reliability and user experience.
-- **Test retry behavior**: Verify your application handles retries gracefully.
-- **Monitor performance**: Track P95/P99 latencies (percentile-based latency metrics) including retry overhead.
+- **Log correlation IDs:** Include `x-ms-client-request-id` in logs for Azure support.
+- **Set appropriate timeouts:** Balance between reliability and user experience.
+- **Test retry behavior:** Verify your application handles retries gracefully.
+- **Monitor performance:** Track P95/P99 latencies (percentile-based latency metrics) including retry overhead.
 
 ## Related content
 

@@ -284,7 +284,7 @@ Azure SDKs typically follow a three-level hierarchy:
 
 Method names follow predictable patterns:
 
-|Operation|Method Pattern|Example|
+|Operation|Method pattern|Example|
 |---|---|---|
 |Create|`create_<resource>`|`create_container()`|
 |Read|`get_<resource>`|`get_blob()`|
@@ -340,11 +340,11 @@ except ResourceNotFoundError as e:
 
 When you extend or contribute to Azure SDKs:
 
-- **Follow Python idioms**: Use Pythonic patterns and conventions.
-- **Maintain consistency**: Align with existing SDK patterns.
-- **Write comprehensive tests**: Include unit and integration tests.
-- **Document thoroughly**: Provide docstrings and examples.
-- **Review guidelines**: Consult the Azure SDK Contribution Guide.
+- **Follow Python idioms:** Use Pythonic patterns and conventions.
+- **Maintain consistency:** Align with existing SDK patterns.
+- **Write comprehensive tests:** Include unit and integration tests.
+- **Document thoroughly:** Provide docstrings and examples.
+- **Review guidelines:** Consult the Azure SDK Contribution Guide.
 
 Here's an example of implementing a custom client method that follows the Language Design Guidelines:
 

@@ -274,7 +274,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
 
 - **Prefer high-level abstractions.**
 - **Work with the SDK's resource models rather than raw responses whenever possible.**
-- **Avoid accessing any method prefixed with an underscore `_`:** By convention, those methods are private in Python. There are no guarantees about issues like breaking changes compared to public APIs:
+- **Avoid accessing any method prefixed with an underscore (_).** By convention, those methods are private in Python. There are no guarantees about issues like breaking changes compared to public APIs:
 
   ```python
   # Preferred: Work with typed objects
@@ -290,7 +290,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
       use_secret(data['value'])
   ```
 
-- **Handle pagination properly:** Always iterate over paged results instead of converting to a list:
+- **Handle pagination properly.** Always iterate over paged results instead of converting to a list:
 
   ```python
   # Good: Memory-efficient iteration
@@ -301,7 +301,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
   all_blobs = list(container_client.list_blobs())  # Could consume excessive memory
   ```
 
-- **Use poller.result() for long-running operations:** Always use the `result()` method to ensure that operations complete successfully:
+- **Use poller.result() for long-running operations.** Always use the `result()` method to ensure that operations complete successfully:
 
   ```python
   # Correct: Wait for operation completion
@@ -317,7 +317,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
   print("VM deleted successfully")  # Deletion might still be in progress!
   ```
 
-- **Access raw responses only when needed:** Use raw response access sparingly and only for specific requirements:
+- **Access raw responses only when needed.** Use raw response access sparingly and only for specific requirements:
 
   ```python
   # Good use case: Debugging or logging
