@@ -9,7 +9,7 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: reference
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 ---
 
 # Azure Quotas for the Azure MCP Server
@@ -35,10 +35,10 @@ Example prompts include:
 
 | Parameters | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Resource types to check** | Required | Comma-separated list of Azure resource types to check available regions for. For example: 'Microsoft.App/containerApps, Microsoft.Web/sites, Microsoft.CognitiveServices/accounts'. |
-| **Cognitive service model name** | Optional | Model name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
-| **Cognitive service model version** | Optional | Model version for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
-| **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
+| **Resource types to check** | Required | Comma-separated list of Azure resource types to check available regions for. For example: `Microsoft.App/containerApps`, `Microsoft.Web/sites`, `Microsoft.CognitiveServices/accounts`. |
+| **Cognitive service model name** | Optional | Model name for cognitive services. Only needed when `Microsoft.CognitiveServices` is included in resource types. |
+| **Cognitive service model version** | Optional | Model version for cognitive services. Only needed when `Microsoft.CognitiveServices` is included in resource types. |
+| **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when `Microsoft.CognitiveServices` is included in resource types. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
