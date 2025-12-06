@@ -117,7 +117,7 @@ conceptualContent:
         url: /azure/developer/ai/
         text: See more
     # Card
-    - title: Azure MCP Server Preview
+    - title: Azure MCP Server
       summary: Interact with Azure resources through natural language commands from AI agents and other clients.
       links:
         - url: ./azure-mcp-server/overview.md
