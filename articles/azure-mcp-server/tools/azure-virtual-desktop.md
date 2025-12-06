@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Virtual Desktop.
 keywords: azure mcp server, azmcp, azure virtual desktop, avd, host pools, session hosts
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/06/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -79,10 +79,10 @@ The Azure MCP Server can list all user sessions on a specific session host in a 
 Example prompts include:
 
 - **List user sessions**: "Show me all user sessions on session host 'vm-prod-001' in host pool 'production-pool'."
-- **View active users**: "What users are connected to session host 'desktop-vm-02'?"
-- **Find sessions**: "List all active sessions on host 'avd-host-001'."
-- **Monitor users**: "Show user sessions for session host in my host pool."
-- **Check connections**: "Get all user sessions on virtual machine 'session-host-03'."
+- **View active users**: "What users are connected to session host 'desktop-vm-02' in host pool 'dev-pool'?"
+- **Find sessions**: "List all active sessions on session host 'avd-host-001' in host pool 'test-pool'."
+- **Monitor users**: "Show user sessions for session host 'vm-host-05' in host pool 'production-pool'."
+- **Check connections**: "Get all user sessions on session host 'session-host-03' in host pool 'main-pool'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
