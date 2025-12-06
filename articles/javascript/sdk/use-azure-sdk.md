@@ -51,7 +51,7 @@ The Azure client libraries require credentials [to authenticate to the Azure pla
 
 Once you programmatically create a credential, pass the credential to your Azure client. The client may require additional information such as a subscription ID or service endpoint. These values are available in the Azure portal, for your resource.
 
-The following code example uses the DefaultAzureCredential and the [`@azure/arm-resources`](https://www.npmjs.com/package/@azure/arm-resources) client library to list resource groups which this credential has access to read.
+The following code example uses `DefaultAzureCredential` and the [`@azure/arm-resources`](https://www.npmjs.com/package/@azure/arm-resources) client library to list resource groups which this credential has access to read.
 
 :::code language="TypeScript" source="~/../azure-sdk-for-js-docs/samples/identity/resources/src/list-resources.ts" highlight="13,14" :::
 
