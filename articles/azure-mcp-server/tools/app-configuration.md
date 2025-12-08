@@ -47,7 +47,7 @@ Example prompts include:
 
 - **Delete a setting**: "Remove the 'AppName:TemporaryConfig' key from my 'myappconfigstore' App Configuration store."
 - **Delete a labeled setting**: "Delete the 'AppName:FeatureFlag' setting with label 'test' from App Configuration store 'myappconfigstore'"
-- **Remove configuration**: "Delete the key 'ConnectionString' from App Configuration store 'contoso-appconfig'"
+- **Remove configuration**: "Delete the key 'ProductionEndpointUrl' from App Configuration store 'contoso-appconfig'"
 - **Clean up settings**: "Delete the key 'TestSettings' with label 'deprecated' from App Configuration store 'myappconfigstore'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
