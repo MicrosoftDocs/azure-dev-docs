@@ -162,5 +162,5 @@ items:
           href: ../ai/build-openai-mcp-server-dotnet.md
         - name: Azure Functions MCP tool trigger
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
-        - name: Host Remote MCP Servers in Azure App Service
+        - name: Azure App Service remote MCP server
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
