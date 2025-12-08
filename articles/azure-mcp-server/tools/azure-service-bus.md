@@ -4,7 +4,7 @@ description: "Learn how to use Azure MCP Server with Azure Service Bus to manage
 keywords: azure mcp server, azmcp, service bus, queue, topic
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -29,8 +29,8 @@ Example prompts include:
 
 - **Details queue**: "Show me details about the 'orders' queue in my 'app-messaging' namespace."
 - **Queue info**: "What's the status of queue 'notifications' in namespace 'messaging-hub'?"
-- **Check queue**: "Get details for my 'user-events' queue"
-- **Queue status**: "Show me message count for the orders queue"
+- **Check queue**: "Get details for queue 'user-events' in namespace 'app-messaging'"
+- **Queue status**: "Show me message count for queue 'orders' in namespace 'retail-messaging'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -51,9 +51,9 @@ Example prompts include:
 
 - **Details topic**: "Show me runtime details about the 'product-events' topic in my 'retail-messaging' namespace."
 - **Topic info**: "What's the runtime status of topic 'system-updates' in namespace 'app-messaging'?"
-- **Check topic**: "Get details for my 'notifications' topic"
-- **Topic status**: "Show me subscription count for the events topic"
-- **View topic**: "Tell me about the broadcast-topic runtime in my service bus"
+- **Check topic**: "Get details for topic 'notifications' in namespace 'messaging-hub'"
+- **Topic status**: "Show me subscription count for topic 'events' in namespace 'app-messaging'"
+- **View topic**: "Tell me about topic 'broadcast-topic' in namespace 'retail-messaging'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -72,11 +72,11 @@ The Azure MCP Server can retrieve runtime details about a subscription within a 
 
 Example prompts include:
 
-- **Details subscription**: "Show me details about the 'mobile-app' subscription in topic 'notifications'."
-- **Subscription info**: "What's the status of subscription 'admin' in topic 'system-updates'?"
-- **Check subscription**: "Get message count for my 'premium-users' subscription in the 'offers' topic"
-- **Subscription status**: "Show me details for the email-service subscription"
-- **View subscription**: "Tell me about the analytics subscription in my events topic"
+- **Details subscription**: "Show me details about subscription 'mobile-app' in topic 'notifications' in namespace 'app-messaging'."
+- **Subscription info**: "What's the status of subscription 'admin' in topic 'system-updates' in namespace 'messaging-hub'?"
+- **Check subscription**: "Get message count for subscription 'premium-users' in topic 'offers' in namespace 'retail-messaging'"
+- **Subscription status**: "Show me details for subscription 'email-service' in topic 'notifications' in namespace 'app-messaging'"
+- **View subscription**: "Tell me about subscription 'analytics' in topic 'events' in namespace 'data-messaging'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
