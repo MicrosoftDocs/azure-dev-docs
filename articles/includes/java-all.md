@@ -499,7 +499,7 @@
 | Unknown Display Name | Maven [1.4.5](https://central.sonatype.com/artifact/com.azure/azure-ai-vision-face-ui/1.4.5) |  |  |
 | Unknown Display Name | Maven [2.0.0-beta.2](https://central.sonatype.com/artifact/com.azure.v2/azure-client-sdk-parent/2.0.0-beta.2) |  |  |
 | Unknown Display Name | Maven [1.0.0](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-opentelemetry/1.0.0) |  |  |
-| Unknown Display Name | Maven [1.0.1-beta.1](https://central.sonatype.com/artifact/com.azure.v2/azure-sdk-template/1.0.1-beta.1) |  |  |
+| Unknown Display Name | Maven [1.0.1-beta.5643965](https://central.sonatype.com/artifact/com.azure.v2/azure-sdk-template/1.0.1-beta.5643965) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.1](https://central.sonatype.com/artifact/com.azure.v2/azure-sdk-template-two/1.0.0-beta.1) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.3](https://central.sonatype.com/artifact/io.clientcore/clientcore-parent/1.0.0-beta.3) |  |  |
 | Unknown Display Name | Maven [2.0.0](https://central.sonatype.com/artifact/com.microsoft.azure/core/2.0.0) |  |  |
