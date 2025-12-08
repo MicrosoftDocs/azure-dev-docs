@@ -2,7 +2,7 @@
 title: Handle Errors Produced by the Azure SDK for Python
 description: Learn about the Azure SDK for Python's comprehensive error model designed to help developers build resilient applications.
 ms.date: 7/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python
 ---
 

@@ -2,7 +2,7 @@
 title: Azure SDK Language Design Guidelines for Python
 description: Learn about the Azure SDK Language Design Guidelines for Python and how they promote consistency which easy usability across the entire SDK surface.
 ms.date: 7/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python
 ---
 

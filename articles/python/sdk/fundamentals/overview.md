@@ -2,7 +2,7 @@
 title: Overview
 description: Introduces the core concepts that every developer should understand when working with the Azure SDK for Python, including design principles, error handling, retries, and response types.
 ms.date: 7/31/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python
 ---
 

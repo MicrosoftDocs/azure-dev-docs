@@ -2,7 +2,7 @@
 title: Understand Common Response Types in the Azure SDK for Python
 description: Learn about types of objects that you receive from SDK operations when you use the Azure SDK for Python.
 ms.date: 7/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

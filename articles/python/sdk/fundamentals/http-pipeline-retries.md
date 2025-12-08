@@ -2,7 +2,7 @@
 title: HTTP Pipeline and Retries in the Azure SDK Libraries for Python
 description: Learn how requests and responses flow through the HTTP pipeline when you use the Azure SDK for Python and how to create policies to modify the flow.
 ms.date: 7/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
