@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Azure SDK Language Design Guidelines for Python
 
-Azure SDK Design Guidelines are comprehensive standards that ensure consistency, predictability, and ease of use across all Azure SDKs. These guidelines help developers work efficiently with Azure services by providing familiar patterns and behaviors across different services and programming languages.
+Azure SDK Language Design Guidelines are comprehensive standards that ensure consistency, predictability, and ease of use across all Azure SDKs. These guidelines help developers work efficiently with Azure services by providing familiar patterns and behaviors across different services and programming languages.
 
 The guidelines consist of two categories:
 
