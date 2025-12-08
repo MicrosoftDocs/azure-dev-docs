@@ -160,12 +160,9 @@ Services with new, updated, or removed tools
 
 ### GitHub Copilot for Azure
 
-New articles:
-
-- Re-write of [almost every article](../github-copilot-azure/index.yml) to remove `https://github.com/Azure` and focus on "agent mode".
-
 Updated articles:
 
+- Rewrite of [almost every article](../github-copilot-azure/index.yml) to remove `https://github.com/Azure` and focus on "agent mode".
 - [What is GitHub Copilot for Azure?](../github-copilot-azure/introduction.md) - Add tools to GHCPA Introduction
 
 ### Azure for Go
