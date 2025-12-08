@@ -2,7 +2,7 @@
 title: Getting started materials for machine learning for Python apps on Azure
 description: Index of getting started materials in the Azure documentation for machine learning for Python apps.
 ms.date: 06/11/2025
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
