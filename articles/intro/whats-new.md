@@ -266,7 +266,7 @@ Updated articles:
 
 New articles:
 
-- [Quickstart: Vector search with .NET in Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/quickstart-dotnet-vector-search)
+- [Quickstart: Vector search with .NET in Azure Cosmos DB for MongoDB (vCore)](/azure/documentdb/quickstart-dotnet-vector-search)
 
 ### Azure for Rust
 
