@@ -42,14 +42,20 @@ items:
       items:
         - name: Build Agents using Model Context Protocol on Azure
           href: intro-agents-mcp.md
-        - name: Build a TypeScript MCP server using Azure Container Apps servers
-          href: build-mcp-server-ts.md
-        - name: Create OpenAI-powered agents using MCP
-          href: build-openai-mcp-server-dotnet.md
-        - name: Build AI agent tools using remote MCP with Azure Functions
-          href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
-        - name: Host Remote MCP Servers in Azure App Service
-          href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
+        - name: How-to guides
+          items:
+            - name: Azure Container Apps
+              items:
+                - name: Build a TypeScript MCP server
+                  href: build-mcp-server-ts.md
+                - name: Create OpenAI-powered agents using MCP
+                  href: build-openai-mcp-server-dotnet.md
+        - name: Resources
+          items:
+            - name: Azure Functions MCP tool trigger
+              href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
+            - name: Host Remote MCP Servers in Azure App Service
+              href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082
     - name: Discover and try new models
       items:
         - name: Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK
