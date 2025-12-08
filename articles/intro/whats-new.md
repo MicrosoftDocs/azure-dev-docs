@@ -162,7 +162,7 @@ Services with new, updated, or removed tools
 
 New articles:
 
-- [Visual Studio Code](../github-copilot-azure/github-copilot-azure-zone-pivot-groups.yml)
+- Re-write of [almost every article](../github-copilot-azure/index.yml) to remove `https://github.com/Azure` and focus on "agent mode".
 
 Updated articles:
 
