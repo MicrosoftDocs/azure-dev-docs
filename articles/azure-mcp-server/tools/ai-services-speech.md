@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure AI Speech.
 keywords: azure mcp server, azmcp, ai speech services, speech recognition, speech to text, text to speech, cognitive services, azure services
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -27,16 +27,16 @@ Recognize speech from an audio file using [Azure AI Services Speech](/azure/ai-s
 
 Example prompts include:
 
-- **Basic conversion**: "Convert this audio file to text using Azure Speech Services"
-- **With language detection**: "Recognize speech from my audio file with language detection"
-- **With profanity filtering**: "Transcribe speech from audio file with removed profanity filtering"
-- **Specify endpoint**: "Convert speech to text from audio file using my cognitive services endpoint"
-- **Spanish language**: "Transcribe the audio file in Spanish language"
-- **Detailed output**: "Convert speech to text with detailed output format from audio file"
-- **With phrase hints**: "Recognize speech with phrase hints 'Azure' for better accuracy"
-- **Multiple phrase hints**: "Transcribe audio using multiple phrase hints: 'Azure', 'cognitive services', 'machine learning'"
-- **Comma-separated hints**: "Convert speech to text with comma-separated phrase hints: 'Azure, cognitive services, API'"
-- **Raw profanity output**: "Transcribe audio with raw profanity output from file"
+- **Basic conversion**: "Convert the audio file ./meeting-recording.wav to text using endpoint https://myservice.cognitiveservices.azure.com/ with Azure Speech Services"
+- **With language detection**: "Recognize speech from file ./recording.mp3 using endpoint https://myservice.cognitiveservices.azure.com/ with language detection"
+- **With profanity filtering**: "Transcribe speech from file ./interview.wav using endpoint https://myservice.cognitiveservices.azure.com/ with profanity option removed"
+- **Specify endpoint**: "Convert speech to text from file ./audio.wav using endpoint https://myservice.cognitiveservices.azure.com/"
+- **Spanish language**: "Transcribe the audio file ./session.wav using endpoint https://myservice.cognitiveservices.azure.com/ in es-ES language"
+- **Detailed output**: "Convert speech to text from file ./audio.wav using endpoint https://myservice.cognitiveservices.azure.com/ with detailed output format"
+- **With phrase hints**: "Recognize speech from file ./notes.wav using endpoint https://myservice.cognitiveservices.azure.com/ with phrase hints 'Azure' for better accuracy"
+- **Multiple phrase hints**: "Transcribe file ./meeting.wav using endpoint https://myservice.cognitiveservices.azure.com/ with phrase hints: 'Azure', 'cognitive services', 'machine learning'"
+- **Comma-separated hints**: "Convert speech to text from file ./podcast.mp3 using endpoint https://myservice.cognitiveservices.azure.com/ with phrase hints: 'Azure, cognitive services, API'"
+- **Raw profanity output**: "Transcribe audio from file ./audio.wav using endpoint https://myservice.cognitiveservices.azure.com/ with profanity option raw"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|

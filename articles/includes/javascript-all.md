@@ -457,7 +457,7 @@
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.6](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.6) |  |  |
-| Unknown Display Name | npm [0.0.1-dev](https://www.npmjs.com/package/@azure/bicep-deploy-common/v/0.0.1-dev) |  |  |
+| Unknown Display Name | npm [0.0.2-dev](https://www.npmjs.com/package/@azure/bicep-deploy-common/v/0.0.2-dev) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/functions-extensions-base/v/0.2.0) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.6](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.6) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.6](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.6) |  |  |

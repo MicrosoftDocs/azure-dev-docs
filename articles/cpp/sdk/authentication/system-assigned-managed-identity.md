@@ -22,12 +22,7 @@ The following sections describe the steps to enable and use a system-assigned ma
 
 [!INCLUDE [Language agnostic system assigned procedures](<../../../includes/authentication/system-assigned-managed-identity.md>)]
 
-## Authenticate to Azure services from your app
-
-The Azure Identity library provides various *credentials*&mdash;implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. Since managed identity is unavailable when running locally, the steps ahead demonstrate which credential to use in which scenario:
-
-- **Local dev environment**: During **local development only**, use a class called [DefaultAzureCredential](../authentication/credential-chains.md#defaultazurecredential-overview) for an opinionated, preconfigured chain of credentials. `DefaultAzureCredential` discovers user credentials from your local tooling or IDE, such as the Azure CLI or Visual Studio. It also provides flexibility and convenience for retries, wait times for responses, and support for multiple authentication options. Visit the [Authenticate to Azure services during local development](../authentication/local-development-dev-accounts.md) article to learn more.
-- **Azure-hosted apps**: When your app is running in Azure, use [ManagedIdentityCredential](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity) to safely discover the managed identity configured for your app. Specifying this exact type of credential prevents other available credentials from being picked up unexpectedly.
+[!INCLUDE [Implement-managed-identity-concepts](../includes/implement-managed-identity-concepts.md)]
 
 ## Implement the code
 
@@ -91,11 +86,6 @@ The Azure Identity library provides various *credentials*&mdash;implementations 
         return 0;
     }
     ```
-
-The preceding code behaves differently depending on the environment where it's running if the `AZURE_TOKEN_CREDENTIAL` environment variable isn't set to `ManagedIdentityCredential`:
-
-- On your local development workstation, `DefaultAzureCredential` looks in the environment variables for an application service principal or at locally installed developer tools, such as Azure CLI, for a set of developer credentials.
-- When deployed to Azure, `ManagedIdentityCredential` discovers your managed identity configurations to authenticate to other services automatically.
 
 As discussed in the [Azure SDK for C++ authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. The benefit of this approach is that your app can use different authentication methods in different environments without implementing environment-specific code. When the preceding code is run on your workstation during local development, `DefaultAzureCredential` uses either an application service principal, as determined by environment settings, or developer tool credentials to authenticate with other Azure resources. Thus, the same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
 
