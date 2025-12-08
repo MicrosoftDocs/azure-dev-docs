@@ -158,7 +158,7 @@ items:
       items:
         - name: Build a TypeScript MCP server using Azure Container Apps
           href: ../ai/build-mcp-server-ts.md
-        - name: Create OpenAI-powered agents using MCP on Azure Container Apps
+        - name: Azure Container Apps MCP servers
           href: ../ai/build-openai-mcp-server-dotnet.md
         - name: Azure Functions MCP tool trigger
           href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
