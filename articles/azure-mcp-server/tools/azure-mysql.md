@@ -9,7 +9,9 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: reference
-ms.custom: build-2025
+ms.custom: 
+  - build-2025
+  - references_regions
 --- 
 
 # Azure Database for MySQL tools for Azure MCP Server
@@ -75,7 +77,7 @@ Execute a safe, read-only SQL SELECT query against a database on an Azure Databa
 Example prompts include:
 
 - **Run a query**: "Run query 'SELECT id, name FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50' on database 'salesdb' on server 'prod-mysql-server' in resource group 'sales-rg' with user 'appuser'"
-- **Count rows**: "Run query 'SELECT COUNT(*) FROM orders WHERE status = 'completed'' on database 'salesdb' on server 'prod-mysql-server' in resource group 'sales-rg' with user 'analyst'"
+- **Count rows**: "Run query SELECT COUNT(*) FROM orders WHERE status = 'completed' on database 'salesdb' on server 'prod-mysql-server' in resource group 'sales-rg' with user 'analyst'"
 - **Filtered query**: "Run query 'SELECT name FROM users WHERE created_at > '2025-01-01' ORDER BY created_at LIMIT 25' on database 'appdb' on server 'app-mysql-server' in resource group 'app-rg' with user 'developer'"
 - **Top products**: "Run query 'SELECT product_id, SUM(quantity) AS total FROM sales WHERE sale_date >= '2025-01-01' GROUP BY product_id ORDER BY total DESC LIMIT 10' on database 'analytics' on server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'analyst'"
 - **Distinct values**: "Run query 'SELECT DISTINCT category FROM products LIMIT 20' on database 'inventory' on server 'inventory-mysql-server' in resource group 'inventory-rg' with user 'readonly'"
