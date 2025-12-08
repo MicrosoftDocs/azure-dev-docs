@@ -156,7 +156,7 @@ items:
       href: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/TROUBLESHOOTING.md
     - name: Host MCP servers on Azure
       items:
-        - name: Build a TypeScript MCP server using Azure Container Apps
+        - name: Azure Container Apps and TypeScript custom MCP server
           href: ../ai/build-mcp-server-ts.md
         - name: Azure Container Apps MCP servers
           href: ../ai/build-openai-mcp-server-dotnet.md
