@@ -9,27 +9,27 @@ ms.custom: devx-track-go, devx-track-azurecli
 
 # Authenticate Go apps to Azure services during local development using developer accounts
 
-During local development, applications need to authenticate to Azure to use different Azure services. Authenticate locally using one of these approaches:
+During local development, applications need to authenticate to Azure to use different Azure services. Authenticate locally by using one of these approaches:
 
 - Use a developer account with one of the [developer tools supported by the Azure Identity library](#supported-developer-tools-for-authentication).
 - Use a [service principal](local-development-service-principal.md).
 
-This article explains how to authenticate using a developer account with tools supported by the Azure Identity library. In the sections ahead, you learn:
+This article explains how to authenticate by using a developer account with tools supported by the Azure Identity library. In the following sections, you learn:
 
 - How to use Microsoft Entra groups to efficiently manage permissions for multiple developer accounts.
 - How to assign roles to developer accounts to scope permissions.
-- How to sign-in to supported local development tools.
-- How to authenticate using a developer account from your app code.
+- How to sign in to supported local development tools.
+- How to authenticate by using a developer account from your app code.
 
 ## Supported developer tools for authentication
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from one of the following developer tools:
+For an app to authenticate to Azure during local development by using the developer's Azure credentials, the developer must be signed in to Azure from one of the following developer tools:
 
 - Azure CLI
 - Azure Developer CLI
 - Azure PowerShell
 
-The Azure Identity library can detect that the developer is signed-in from one of these tools. The library can then obtain the Microsoft Entra access token via the tool to authenticate the app to Azure as the signed-in user.
+The Azure Identity library can detect that the developer is signed in from one of these tools. The library can then obtain the Microsoft Entra access token via the tool to authenticate the app to Azure as the signed-in user.
 
 This approach takes advantage of the developer's existing Azure accounts to streamline the authentication process. However, a developer's account likely has more permissions than required by the app, therefore exceeding the permissions the app runs with in production. As an alternative, you can [create application service principals to use during local development](./local-development-service-principal.md), which can be scoped to have only the access needed by the app.
 
@@ -37,13 +37,13 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 [!INCLUDE [auth-assign-group-roles](../../../includes/authentication/includes/auth-assign-group-roles.md)]
 
-## Sign-in to Azure using developer tooling
+## Sign in to Azure by using developer tooling
 
-Next, sign-in to Azure using one of several developer tools that can be used to perform authentication in your development environment. The account you authenticate should also exist in the Microsoft Entra group you created and configured earlier.
+Next, sign in to Azure by using one of several developer tools that you can use to perform authentication in your development environment. The account you authenticate should also exist in the Microsoft Entra group you created and configured earlier.
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
+Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 
@@ -51,7 +51,7 @@ To authenticate with the Azure CLI, run the `az login` command. On a system with
 az login
 ```
 
-For systems without a default web browser, the `az login` command uses the device code authentication flow. The user can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
+For systems without a default web browser, the `az login` command uses the device code authentication flow. You can also force the Azure CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
 
 ```azurecli
 az login --use-device-code
@@ -59,7 +59,7 @@ az login --use-device-code
 
 ### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
 
-Developers can use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureDeveloperCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential) can then use this account to authenticate app requests.
+Developers can use [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureDeveloperCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureDeveloperCLICredential) can then use this account to authenticate app requests.
 
 To authenticate with the Azure Developer CLI, run the `azd auth login` command. On a system with a default web browser, the Azure Developer CLI launches the browser to authenticate the user.
 
@@ -67,7 +67,7 @@ To authenticate with the Azure Developer CLI, run the `azd auth login` command. 
 azd auth login
 ```
 
-For systems without a default web browser, the `azd auth login --use-device-code` uses the device code authentication flow. The user can also force the Azure Developer CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
+For systems without a default web browser, the `azd auth login --use-device-code` command uses the device code authentication flow. You can also force the Azure Developer CLI to use the device code flow rather than launching a browser by specifying the `--use-device-code` argument.
 
 ```azdeveloper
 azd auth login --use-device-code
@@ -75,15 +75,15 @@ azd auth login --use-device-code
 
 ### [Azure PowerShell](#tab/sign-in-azure-powershell)
 
-Developers can use [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to authenticate. Apps using [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzurePowerShellCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzurePowerShellCredential) can then use this account to authenticate app requests.
+Developers can use [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzurePowerShellCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzurePowerShellCredential) can use this account to authenticate app requests.
 
-To authenticate with Azure PowerShell, run the command `Connect-AzAccount`. On a system with a default web browser and version 5.0.0 or later of Azure PowerShell, it launches the browser to authenticate the user.
+To authenticate with Azure PowerShell, run the command `Connect-AzAccount`. On a system with a default web browser and version 5.0.0 or later of Azure PowerShell, the command launches the browser to authenticate the user.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-For systems without a default web browser, the `Connect-AzAccount` command uses the device code authentication flow. The user can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
+For systems without a default web browser, the `Connect-AzAccount` command uses the device code authentication flow. You can also force Azure PowerShell to use the device code flow rather than launching a browser by specifying the `UseDeviceAuthentication` argument.
 
 ```azurepowershell
 Connect-AzAccount -UseDeviceAuthentication
@@ -93,13 +93,13 @@ Connect-AzAccount -UseDeviceAuthentication
 
 ## Authenticate to Azure services from your app
 
-The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) when working with service principals locally and in production.
+The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package provides various *credentials* adapted to supporting different scenarios and Microsoft Entra authentication flows. The following steps demonstrate how to use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) when working with service principals locally and in production.
 
 ## Implement the code
 
-To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) class. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) class. In this scenario, `DefaultAzureCredential` sequentially checks if the developer signed in to Azure by using the Azure CLI or Azure developer CLI. If the developer signs in to Azure by using one of these tools, the app uses the credentials for authentication.
 
-The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. `DefaultAzureCredential` sequentially checks to see if the developer has signed-in to Azure using the Azure CLI or Azure developer CLI. If the developer is signed-in to Azure using one of these tools, then the credentials used to sign into the tool is used by the app to authenticate to Azure. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. `DefaultAzureCredential` sequentially checks if the developer signed in to Azure by using the Azure CLI or Azure developer CLI. If the developer signs in to Azure by using one of these tools, the app uses the credentials for authentication. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
 
 1. Add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
@@ -118,7 +118,7 @@ The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overvie
         // Environment variable AZURE_TOKEN_CREDENTIALS=dev or a specific developer tool credential value
         cred, err := azidentity.NewDefaultAzureCredential(nil)
         ```
-    - Or use a specific credential such as `AzureCliCredential`, `AzureDeveloperCLICredential`, or `AzurePowerShellCredential` to authenticate using the signed-in user for a specific development tool.
+    - Or use a specific credential such as `AzureCliCredential`, `AzureDeveloperCLICredential`, or `AzurePowerShellCredential` to authenticate by using the signed-in user for a specific development tool.
         
         ```go
         cred, err := azidentity.NewAzureCLICredential(nil)
