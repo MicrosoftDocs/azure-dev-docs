@@ -13,7 +13,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |Link|Description|
 |---|---|
 |[Azure OpenAI SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)|The GitHub source version of the Azure OpenAI SDK for Go.|
-|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai#go)| Link to the Azure OpenAI SDK library packages for Go on Azure SDK releases index. |
+|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai#go)| Azure SDK releases listing Azure OpenAI client library for Go.|
 |[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)|The Go package version of Azure OpenAI client module for Go.|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-go&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-package-GetChatCompletions)|A simple example demonstrating how to implement completions.|
