@@ -277,7 +277,7 @@ The vector store is created with configuration for both admin (write) and query 
 
 The Azure Developer CLI deployment includes a post-deployment hook that uploads the documents to the vector store with LangChain.js PDF loader and embedding client. This post-deployment hook is the last step of the `azd up` command after the Azure AI Search resource is created. The document loading script uses batching and retry logic to handle service rate limits. 
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/azure.yaml" range="130--183":::
+:::code language="typescript" source="~/../azure-typescript-langchainjs/azure.yaml" range="130-157":::
 
 Use the root `.env` file is created by the Azure Developer CLI, you can authenticate to the Azure AI Search resource and create the **AzureAISearchVectorStore** client:
 
