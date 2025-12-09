@@ -111,7 +111,7 @@ This sample provides the code you need to create secure Azure resources, build t
 
 Sign in to Azure with the Azure Developer CLI, create the Azure resources, and deploy the source code. Because the deployment process uses both Azure CLI and Azure Developer CLI, sign into Azure CLI, then configure the Azure Developer CLI to use your authentication from Azure CLI:
 
-```console
+```azdeveloper
 az login
 azd config set auth.useAzCliAuth true
 ```
@@ -180,39 +180,35 @@ Now that the Azure resources are created, you can run the LangChain.js agent loc
 
 ## Run the API server locally
 
-The Azure Developer CLI created the required Azure resources and configured the environment variables in the root `.env` file. This configuration included a post provision hook to upload the data into the vector store. Now, you can run the Fastify API server that hosts the LangChain.js agent.
+The Azure Developer CLI created the required Azure resources and configured the environment variables in the root `.env` file. This configuration included a post provision hook to upload the data into the vector store. Now, you can run the Fastify API server that hosts the LangChain.js agent. Start the Fastify API server.
 
-- Start the Fastify API server.
+```console
+npm run dev
+```
 
-    ```console
-    npm run dev
-    ```
-
-    The server starts and listens on port 3000. You can test the server by navigating to [`http://localhost:3000`] in your web browser. You should see a welcome message indicating that the server is running.
+The server starts and listens on port 3000. You can test the server by navigating to [`http://localhost:3000`] in your web browser. You should see a welcome message indicating that the server is running.
 
 ## Use the API to ask questions
 
-- Use the API to ask questions.
+You can use a tool like [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or `curl` to send a POST request to the `/ask` endpoint with a JSON body containing your question.
 
-    You can use a tool like [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or `curl` to send a POST request to the `/ask` endpoint with a JSON body containing your question.
+Rest client queries are available in the [`packages-v1/server-api/http`](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/server-api/http) directory.
 
-    Rest client queries are available in the [`packages-v1/server-api/http`](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/server-api/http) directory.
+Example using `curl`:
 
-    Example using `curl`:
+```console
+curl -X POST http://localhost:3000/answer -H "Content-Type: application/json" -d "{\"question\": \"Does the NorthWind Health Plus plan cover eye exams?\"}"
+```
 
-    ```console
-    curl -X POST http://localhost:3000/answer -H "Content-Type: application/json" -d "{\"question\": \"Does the NorthWind Health Plus plan cover eye exams?\"}"
-    ```
+You should receive a JSON response with the answer from the LangChain.js agent.
 
-    You should receive a JSON response with the answer from the LangChain.js agent.
+```console
+{
+  "answer": "Yes, the NorthWind Health Plus plan covers eye exams. According to the Employee Handbook, employees enrolled in the Health Plus plan are eligible for annual eye exams as part of their vision benefits."
+}
+```
 
-    ```console
-    {
-      "answer": "Yes, the NorthWind Health Plus plan covers eye exams. According to the Employee Handbook, employees enrolled in the Health Plus plan are eligible for annual eye exams as part of their vision benefits."
-    }
-    ```
-
-    Several example questions are available in the [`packages-v1/server-api/http`](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/server-api/http) directory. Open the files in [Visual Studio Code](https://code.visualstudio.com/) with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to test them quickly.
+Several example questions are available in the [`packages-v1/server-api/http`](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/server-api/http) directory. Open the files in [Visual Studio Code](https://code.visualstudio.com/) with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to test them quickly.
 
 
 ## Understand the application code
@@ -354,7 +350,7 @@ For any issues with the procedure, create an issue on the [sample code repositor
 
 You can delete the resource group, which holds the Azure AI Search resource and the Azure OpenAI resource or use the Azure Developer CLI to immediately delete all resources created by this tutorial.
 
-```console
+```azdeveloper
 azd down --purge
 ```
 
