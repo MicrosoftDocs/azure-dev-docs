@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Overview of Azure SDK for Python fundamentals
 
-The "Fundamentals of the Python SDK for Azure" section equips developers with the foundational concepts and core behaviors that underpin every client library in the Azure SDK for Python. These subjects are considered fundamentals because they establish the essential building blocks for effective, idiomatic, and resilient application development across all Azure services.
+The articles listed in the following table equip developers with the foundational concepts and core behaviors that underpin every client library in the Azure SDK for Python. These subjects are considered fundamentals because they establish the essential building blocks for effective, idiomatic, and resilient application development across all Azure services.
 
 Whether you work with HTTP retries, handle errors, understand SDK response types, or follow consistent language design guidelines, these articles provide the baseline knowledge required to confidently navigate and extend your use of the Azure SDK. Mastering these fundamentals ensures that you write functional code that's also maintainable, robust, and aligned with best practices across the Azure ecosystem.
 
