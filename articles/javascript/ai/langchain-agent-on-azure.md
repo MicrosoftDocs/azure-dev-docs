@@ -120,7 +120,7 @@ azd config set auth.useAzCliAuth true
 
 Begin the deployment process by running the `azd up` command:
 
-```console
+```azdeveloper
 azd up
 ```
 
