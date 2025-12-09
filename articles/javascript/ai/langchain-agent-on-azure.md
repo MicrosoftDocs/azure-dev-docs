@@ -105,9 +105,9 @@ git clone https://github.com/Azure-Samples/azure-typescript-langchainjs.git
 cd azure-typescript-langchainjs
 ```
 
-This sample provides all the code you need to create secure Azure resources, build the LangChain.js agent with Azure AI Search and Azure OpenAI, and use the agent from a Node.js Fastify API server.
+This sample provides the code you need to create secure Azure resources, build the LangChain.js agent with Azure AI Search and Azure OpenAI, and use the agent from a Node.js Fastify API server.
 
-## Authenticate to the Azure CLI and Azure Azure Developer CLI 
+## Authenticate to the Azure CLI and Azure Developer CLI 
 
 Sign in to Azure with the Azure Developer CLI, create the Azure resources, and deploy the source code. Because the deployment process uses both Azure CLI and Azure Developer CLI, sign into Azure CLI, then configure the Azure Developer CLI to use your authentication from Azure CLI:
 
@@ -125,7 +125,7 @@ azd up
 ```
 
 During the `azd up` command, answer the questions:
-- **New environment name**: enter a unique environment name such as `langchain-agent`. This is used as part of the Azure resource group.
+- **New environment name**: enter a unique environment name such as `langchain-agent`. This environment name is used as part of the Azure resource group.
 - **Select an Azure Subscription**: select the subscription where the resources are created.
 - **Select a region**: such as `eastus2`.
 
@@ -169,18 +169,18 @@ Now that the Azure resources are created, you can run the LangChain.js agent loc
         - LangChain.js for building the agent
         - Azure SDK client library [`@azure/search-documents`](https://www.npmjs.com/package/@azure/search-documents) for integrating with Azure AI Search resource. The reference documentation is [here](/javascript/api/@azure/search-documents/).
 
-1. Build the 2 packages: the API server and the AI agent.
+1. Build the two packages: the API server and the AI agent.
 
     ```console
     npm run build
     ```
 
-    This creates a link between the two packages so the API server can call the AI agent.
+    This command creates a link between the two packages so the API server can call the AI agent.
 
 
 ## Run the API server locally
 
-The Azure Developer CLI created the required Azure resources and configured the environment variables in the root `.env` file. This included a post provision hook to upload the data into the vector store. Now, you can run the Fastify API server that hosts the LangChain.js agent.
+The Azure Developer CLI created the required Azure resources and configured the environment variables in the root `.env` file. This configuration included a post provision hook to upload the data into the vector store. Now, you can run the Fastify API server that hosts the LangChain.js agent.
 
 1. Start the Fastify API server.
 
@@ -263,11 +263,11 @@ Project Root
 
 ### Authentication to Azure Services
 
-The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) from the [Azure Identity SDK](/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
+The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) from the [Azure Identity SDK](/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this authentication in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts":::
 
-When using third-party SDKs like LangChain.js or the OpenAI SDK to access Azure OpenAI, you need a **token provider function** instead of passing a credential object directly. The [`getBearerTokenProvider`](/javascript/api/@azure/identity/#@azure-identity-getbearertokenprovider) function from `@azure/identity` solves this by creating a token provider that automatically fetches and refreshes OAuth 2.0 bearer tokens for a specific Azure resource scope (for example, `"https://cognitiveservices.azure.com/.default"`). You configure the scope once during setup, and the token provider handles all token management automatically. This approach works with any `@azure/identity` credential type, including managed identity and Azure CLI credentials. While Azure SDKs accept `DefaultAzureCredential` directly, third-party SDKs like LangChain.js require this token provider pattern to bridge the authentication gap.
+When using third-party SDKs like LangChain.js or the OpenAI SDK to access Azure OpenAI, you need a **token provider function** instead of passing a credential object directly. The [`getBearerTokenProvider`](/javascript/api/@azure/identity/#@azure-identity-getbearertokenprovider) function from `@azure/identity` solves this problem by creating a token provider that automatically fetches and refreshes OAuth 2.0 bearer tokens for a specific Azure resource scope (for example, `"https://cognitiveservices.azure.com/.default"`). You configure the scope once during setup, and the token provider handles all token management automatically. This approach works with any `@azure/identity` credential type, including managed identity and Azure CLI credentials. While Azure SDKs accept `DefaultAzureCredential` directly, third-party SDKs like LangChain.js require this token provider pattern to bridge the authentication gap.
 
 ### Azure AI Search integration
 
@@ -275,11 +275,11 @@ The Azure AI Search resource stores document embeddings and enables semantic sea
 
 The vector store is created with configuration for both admin (write) and query (read) operations so that document loading and querying can use different configurations. This is important whether you are using keys or passwordless authentication with managed identities.
 
-The Azure Developer CLI deployment includes a post-deployment hook that uploads the documents to the vector store with LangChain.js PDF loader and embedding client. This is the last step of the `azd up` command after the Azure AI Search resource is created. The document loading script uses batching and retry logic to handle service rate limits. 
+The Azure Developer CLI deployment includes a post-deployment hook that uploads the documents to the vector store with LangChain.js PDF loader and embedding client. This post-deployment hook is the last step of the `azd up` command after the Azure AI Search resource is created. The document loading script uses batching and retry logic to handle service rate limits. 
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/azure.yaml" range="130--183":::
 
-Use the root `.env` file is created by the Azure Developer CLI, you can run authenticate to the Azure AI Search resource and create the **AzureAISearchVectorStore** client:
+Use the root `.env` file is created by the Azure Developer CLI, you can authenticate to the Azure AI Search resource and create the **AzureAISearchVectorStore** client:
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/vector_store.ts" id="AZURE_AI_SEARCH_AUTH":::
 
@@ -334,13 +334,13 @@ This relevance check is important because not all HR questions can be answered f
 
 ### Decide if the question requires HR documents
 
-The `requires_hr_documents` node uses an LLM to determine if the user's question can be answered using general HR documents. It uses a prompt template that instructs the model to respond with `YES` or `NO` based on the question's relevance. It returns the answer in a structured message which can be passed along the workflow. The next node uses this response to route the workflow to either the `END` or the `ANSWER_NODE`.
+The `requires_hr_documents` node uses an LLM to determine if the user's question can be answered using general HR documents. It uses a prompt template that instructs the model to respond with `YES` or `NO` based on the question's relevance. It returns the answer in a structured message, which can be passed along the workflow. The next node uses this response to route the workflow to either the `END` or the `ANSWER_NODE`.
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/langchain/node_requires_hr_documents.ts":::
 
 ### Get the required HR documents
 
-Once it is determined that the question requires HR documents, the workflow used `getAnswer` to retrieve the relevant documents from the vector store, add them to the _context_ of the prompt and pass the entire prompt to the LLM. 
+Once it is determined that the question requires HR documents, the workflow uses `getAnswer` to retrieve the relevant documents from the vector store, add them to the _context_ of the prompt and pass the entire prompt to the LLM. 
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/langchain/node_get_answer.ts":::
 
@@ -352,7 +352,7 @@ For any issues with the procedure, create an issue on the [sample code repositor
 
 ## Clean up resources
 
-You can delete the resource group which holds the Azure AI Search resource and the Azure OpenAI resource or use the Azure Developer CLI to immediately delete all resources created by this tutorial.
+You can delete the resource group, which holds the Azure AI Search resource and the Azure OpenAI resource or use the Azure Developer CLI to immediately delete all resources created by this tutorial.
 
 ```console
 azd down --purge
