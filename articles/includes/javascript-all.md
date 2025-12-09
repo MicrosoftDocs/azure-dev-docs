@@ -448,7 +448,7 @@
 | TypeSpec HTTP Client JavaScript | npm [0.11.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.11.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.21.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.21.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.28](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.28) |  |  |
-| TypeSpec Rust | npm [0.29.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.29.0) |  |  |
+| TypeSpec Rust | npm [0.30.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.30.0) |  |  |
 | TypeSpec SSE | npm [0.76.0](https://www.npmjs.com/package/@typespec/sse/v/0.76.0) |  |  |
 | TypeSpec Streams | npm [0.76.0](https://www.npmjs.com/package/@typespec/streams/v/0.76.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
