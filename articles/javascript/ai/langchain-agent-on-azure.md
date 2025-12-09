@@ -263,7 +263,7 @@ Project Root
 
 ### Authentication to Azure Services
 
-The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) from the [Azure Identity SDK](/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this authentication in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
+The application supports both key-based and passwordless authentication methods, controlled by the `SET_PASSWORDLESS` environment variable. The [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) API from the [Azure Identity library](/javascript/api/overview/azure/identity-readme) is used for passwordless authentication, allowing the application to run seamlessly in local development and Azure environments. You can see this authentication in the following [code snippet](https://github.com/Azure-Samples/azure-typescript-langchainjs/tree/main/packages-v1/langgraph-agent/src/azure/azure-credential.ts):
 
 :::code language="typescript" source="~/../azure-typescript-langchainjs/packages-v1/langgraph-agent/src/azure/azure-credential.ts":::
 
