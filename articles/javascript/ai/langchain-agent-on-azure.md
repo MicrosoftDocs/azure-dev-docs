@@ -182,7 +182,7 @@ Now that the Azure resources are created, you can run the LangChain.js agent loc
 
 The Azure Developer CLI created the required Azure resources and configured the environment variables in the root `.env` file. This configuration included a post provision hook to upload the data into the vector store. Now, you can run the Fastify API server that hosts the LangChain.js agent.
 
-1. Start the Fastify API server.
+- Start the Fastify API server.
 
     ```console
     npm run dev
@@ -192,7 +192,7 @@ The Azure Developer CLI created the required Azure resources and configured the 
 
 ## Use the API to ask questions
 
-1. Use the API to ask questions.
+- Use the API to ask questions.
 
     You can use a tool like [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or `curl` to send a POST request to the `/ask` endpoint with a JSON body containing your question.
 
