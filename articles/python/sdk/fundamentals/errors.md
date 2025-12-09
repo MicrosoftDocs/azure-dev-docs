@@ -1,26 +1,26 @@
 ---
-title: Handling errors produced by the Azure SDK for Python
-description: Learn the Azure SDK for Python's comprehensive error model designed to help developers build resilient applications.
+title: Handle Errors Produced by the Azure SDK for Python
+description: Learn about the Azure SDK for Python's comprehensive error model designed to help developers build resilient applications.
 ms.date: 7/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python
 ---
 
-# Handling errors produced by the Azure SDK for Python
+# Handle errors produced by the Azure SDK for Python
 
-Building reliable cloud applications requires more than just implementing features—it demands robust error handling strategies. When working with distributed systems and cloud services, your application must be prepared to handle various failure scenarios gracefully.
+Building reliable cloud applications requires more than just implementing features. It also demands robust error-handling strategies. When you work with distributed systems and cloud services, your application must be prepared to handle failure scenarios gracefully.
 
 The Azure SDK for Python provides a comprehensive error model designed to help developers build resilient applications. Understanding this error model is crucial for:
 
-- Improving application reliability by anticipating and handling common failure scenarios
-- Enhancing user experience through meaningful error messages and graceful degradation
-- Simplifying troubleshooting by capturing and logging relevant diagnostic information
+- Improving application reliability by anticipating and handling common failure scenarios.
+- Enhancing user experience through meaningful error messages and graceful degradation.
+- Simplifying troubleshooting by capturing and logging relevant diagnostic information.
 
 This article explores the Azure SDK for Python's error architecture and provides practical guidance for implementing effective error handling in your applications.
 
 ## How the Azure SDK for Python models errors
 
-The Azure SDK for Python uses a hierarchical exception model that provides both general and specific error handling capabilities. At the core of this model is AzureError, which serves as the base exception class for all Azure SDK-related errors.
+The Azure SDK for Python uses a hierarchical exception model that provides general and specific error-handling capabilities. At the core of this model is `AzureError`, which serves as the base exception class for all errors related to the Azure SDK.
 
 ### Exception hierarchy
 
@@ -40,13 +40,13 @@ AzureError
 
 |Error|Description|
 |---|---|
-|AzureError|The base exception class for all Azure SDK errors. Use this as a catch-all when you need to handle any Azure-related error.|
-|ClientAuthenticationError|Raised when authentication fails. Common causes include invalid credentials, expired tokens, and misconfigured authentication settings.|
-|ResourceNotFoundError|Raised when attempting to access a resource that doesn't exist. This typically corresponds to HTTP 404 responses.|
-|ResourceExistsError|Raised when attempting to create a resource that already exists. This helps prevent accidental overwrites.|
-|ServiceRequestError|Raised when the SDK can't send a request to the service. Common causes include network connectivity issues, DNS resolution failures, and invalid service endpoints.|
-|ServiceResponseError|Raised when the service returns an unexpected response that the SDK can't process.|
-|HttpResponseError|Raised for HTTP error responses (4xx and 5xx status codes). This exception provides access to the underlying HTTP response details.|
+|`AzureError`|The base exception class for all Azure SDK errors. Use this exception as a catchall when you need to handle any Azure-related error.|
+|`ClientAuthenticationError`|Raised when authentication fails. Common causes include invalid credentials, expired tokens, and misconfigured authentication settings.|
+|`ResourceNotFoundError`|Raised when attempting to access a resource that doesn't exist. This exception typically corresponds to HTTP 404 responses.|
+|`ResourceExistsError`|Raised when attempting to create a resource that already exists. This exception helps prevent accidental overwrites.|
+|`ServiceRequestError`|Raised when the SDK can't send a request to the service. Common causes include network connectivity issues, Domain Name System resolution failures, and invalid service endpoints.|
+|`ServiceResponseError`|Raised when the service returns an unexpected response that the SDK can't process.|
+|`HttpResponseError`|Raised for HTTP error responses (4xx and 5xx status codes). This exception provides access to the underlying HTTP response details.|
 
 ## Common error scenarios
 
@@ -74,7 +74,7 @@ except ClientAuthenticationError as e:
     # Don't retry - fix credentials first
 ```
 
-Authorization errors (typically HttpResponseError with 403 status) occur when you lack permissions:
+Authorization errors (typically `HttpResponseError` with `403` status) occur when you lack permissions:
 
 ```python
 from azure.core.exceptions import HttpResponseError
@@ -134,7 +134,7 @@ except HttpResponseError as e:
 
 ## Best practices for error handling
 
-- **Use specific exception handling** - Always catch specific exceptions before falling back to general ones:
+- **Use specific exception handling:** Always catch specific exceptions before falling back to general ones:
 
   ```python
   from azure.core.exceptions import (
@@ -164,7 +164,7 @@ except HttpResponseError as e:
       print(f"Azure operation failed: {e}")
   ```
 
-- **Implement appropriate retry strategies** - Some errors warrant retry attempts, while others don't.
+- **Implement appropriate retry strategies:** Some errors warrant retry attempts, while others don't.
 
   Don't retry on:
   
@@ -209,13 +209,13 @@ The Azure SDK includes built-in retry mechanisms that handle transient failures 
 
 Most Azure SDK clients include default retry policies that:
 
-- Retry on connection errors and specific HTTP status codes
-- Use exponential backoff with jitter
-- Limit the number of retry attempts
+- Retry on connection errors and specific HTTP status codes.
+- Use exponential backoff with jitter.
+- Limit the number of retry attempts.
 
 ### Customize retry policies
 
-If the default behavior doesn't suit your use case, you can customize the retry policy as in the following example:
+If the default behavior doesn't suit your use case, you can customize the retry policy:
 
 ```python
 from azure.storage.blob import BlobServiceClient
@@ -239,7 +239,7 @@ blob_service = BlobServiceClient(
 
 ### Avoid handling network and timeout errors with custom loops
 
-You should try to use built-in retries for network and timeout errors before implementing your own custom logic.
+Try to use built-in retries for network and timeout errors before you implement your own custom logic.
 
 ```python
 from azure.core.exceptions import ServiceRequestError
@@ -261,8 +261,7 @@ while retry_count < max_retries:
         time.sleep(2 ** retry_count)  # Exponential backoff
 ```
 
-
-### Implementing circuit breaker patterns
+### Implement circuit breaker patterns
 
 For critical operations, consider implementing circuit breaker patterns:
 
@@ -298,11 +297,11 @@ class CircuitBreaker:
             raise e
 ```
 
-### Understanding error messages and codes
+### Understand error messages and codes
 
 Azure services return structured error responses that provide valuable debugging information.
 
-- **Parsing error responses**
+- **Parse error responses**
 
   ```python
   from azure.core.exceptions import HttpResponseError
@@ -326,7 +325,7 @@ Azure services return structured error responses that provide valuable debugging
               print(f"Raw error: {e.response.text()}")
   ```
 
-- **Capturing diagnostic information** - Always capture key diagnostic information for troubleshooting:
+- **Capture diagnostic information:** Always capture key diagnostic information for troubleshooting:
 
   ```python
   import logging
@@ -351,7 +350,7 @@ Azure services return structured error responses that provide valuable debugging
       raise
   ```
 
-- **Logging and diagnostics** - Enable SDK-level logging for detailed troubleshooting:
+- **Logging and diagnostics:** Enable SDK-level logging for detailed troubleshooting:
 
   ```python
   import logging
@@ -370,7 +369,7 @@ Azure services return structured error responses that provide valuable debugging
 
   For more information about logging, see [Configure logging in the Azure libraries for Python](../azure-sdk-logging.md).
 
-- **Using network tracing** - For deep debugging, enable network-level tracing:
+- **Use network tracing:** For deep debugging, enable network-level tracing:
 
   > [!IMPORTANT]
   > HTTP logging can include sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
@@ -389,7 +388,7 @@ Azure services return structured error responses that provide valuable debugging
 
 ### Special considerations for async programming
 
-When using async clients, error handling requires special attention.
+When you use async clients, error handling requires special attention.
 
 - **Basic async error handling**
 
@@ -409,7 +408,7 @@ When using async clients, error handling requires special attention.
           raise
   ```
 
-- **Handling cancellations**
+- **Handle cancellations**
 
   ```python
   async def long_running_operation(client):
@@ -461,17 +460,17 @@ When using async clients, error handling requires special attention.
 
 ## Summary of best practices
 
-Effective error handling in Azure SDK for Python applications requires:
+Effective error handling in Azure SDK for Python applications requires you to:
 
-- **Anticipate failures**: Cloud applications must expect and handle partial failures gracefully.
-- **Use specific exception handling**: Catch specific exceptions like ResourceNotFoundError and ClientAuthenticationError before falling back to general AzureError handling.
-- **Implement smart retry logic**: Use built-in retry policies or customize them based on your needs. Remember that not all errors should trigger retries.
-- **Capture diagnostic information**: Always log request IDs, error codes, and timestamps for effective troubleshooting.
-- **Provide meaningful user feedback**: Transform technical errors into user-friendly messages while preserving technical details for support.
-- **Test error scenarios**: Include error handling in your test coverage to ensure your application behaves correctly under failure conditions.
+- **Anticipate failures:** Cloud applications must expect and handle partial failures gracefully.
+- **Use specific exception handling:** Catch specific exceptions like `ResourceNotFoundError` and `ClientAuthenticationError` before falling back to general `AzureError` handling.
+- **Implement smart retry logic:** Use built-in retry policies or customize them based on your needs. Remember that not all errors should trigger retries.
+- **Capture diagnostic information:** Always log request IDs, error codes, and time stamps for effective troubleshooting.
+- **Provide meaningful user feedback:** Transform technical errors into user-friendly messages while you preserve technical details for support.
+- **Test error scenarios:** Include error handling in your test coverage to ensure that your application behaves correctly under failure conditions.
 
-## Next steps
+## Related content
 
-- [Azure Core exceptions Module reference](/python/api/azure-core/azure.core.exceptions)
-- Learn about [troubleshooting authentication and authorization issues](../authentication/overview.md)
-- Explore [Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable?tabs=python) for comprehensive application monitoring
+- Review the [Azure Core exceptions Module reference](/python/api/azure-core/azure.core.exceptions).
+- Learn about [troubleshooting authentication and authorization issues](../authentication/overview.md).
+- Explore [Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable?tabs=python) for comprehensive application monitoring.
