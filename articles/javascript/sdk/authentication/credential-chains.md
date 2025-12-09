@@ -15,7 +15,7 @@ The Azure Identity library provides *credentials*&mdash;public classes that impl
 
 At runtime, a credential chain attempts to authenticate using the sequence's first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. The following sequence diagram illustrates this behavior:
 
-:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Diagram of a credential chain sequence showing authentication attempts progressing through multiple credentials until an access token is obtained.":::
+:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Diagram illustrating the credential chain authentication flow with sequential attempts across multiple credentials until successful token acquisition.":::
 
 ## Why use credential chains
 
@@ -51,7 +51,7 @@ There are two different approaches to credential chaining:
 
 [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg" alt-text="Diagram of a credential chain sequence showing authentication attempts progressing through multiple credentials until an access token is obtained." lightbox="../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg" alt-text="Diagram of DefaultAzureCredential authentication flow showing the complete sequence from Environment credential through Broker credential with all eight credential types." lightbox="../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
@@ -101,11 +101,11 @@ The following sections describe strategies for controlling which credentials are
 
 To exclude all `Developer tool` or `Deployed service` credentials, set environment variable `AZURE_TOKEN_CREDENTIALS` to `prod` or `dev`, respectively. When a value of `prod` is used, the underlying credential chain looks as follows:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram of a credential chain sequence showing authentication attempts progressing through multiple credentials until an access token is obtained.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-production.svg" alt-text="Diagram of DefaultAzureCredential chain with AZURE_TOKEN_CREDENTIALS set to 'prod', showing only deployed service credentials including Environment, Workload Identity, and Managed Identity.":::
 
 When a value of `dev` is used, the chain looks as follows:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="Diagram of DefaultAzureCredential chain with AZURE_TOKEN_CREDENTIALS set to 'dev', showing Developer tool credentials used for authentication.":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-environment-variable-development.svg" alt-text="Diagram of DefaultAzureCredential chain with AZURE_TOKEN_CREDENTIALS set to 'dev', showing only developer tool credentials including Visual Studio Code, Azure CLI, Azure PowerShell, Azure Developer CLI, and Broker.":::
 
 To ensure the environment variable is defined and set to a supported string, set the [requiredEnvVars](/javascript/api/@azure/identity/defaultazurecredentialoptions#@azure-identity-defaultazurecredentialoptions-requiredenvvars) property to `AZURE_TOKEN_CREDENTIALS`:
 
@@ -162,7 +162,7 @@ const blobServiceClient = new BlobServiceClient(
 
 The preceding code sample creates a tailored credential chain comprised of two development-time credentials. `AzureCliCredential` is attempted first, followed by `VisualStudioCodeCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/chained-token-credential-authentication-developer-flow.svg" alt-text="Diagram of a credential chain showing AzureCliCredential as the first attempt and VisualStudioCodeCredential as the fallback.":::
+:::image type="content" source="../media/mermaidjs/chained-token-credential-authentication-developer-flow.svg" alt-text="Diagram of ChainedTokenCredential configuration showing AzureCliCredential as the primary authentication method with VisualStudioCodeCredential as the secondary fallback option.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` from most to least used credential.
