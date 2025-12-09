@@ -51,7 +51,7 @@ There are two different approaches to credential chaining:
 
 [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg" alt-text="Diagram of DefaultAzureCredential authentication flow showing the complete sequence from Environment credential through Broker credential with all eight credential types." lightbox="../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-authentication-flow-inline.svg" alt-text="Diagram of DefaultAzureCredential authentication flow showing the complete sequence from EnvironmentCredential through BrokerCredential." lightbox="../media/mermaidjs/default-azure-credential-authentication-flow-expanded.png":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
