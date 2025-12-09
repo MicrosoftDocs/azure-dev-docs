@@ -257,7 +257,7 @@ Project Root
 
 
 **Key architectural decisions:**
-- **Monorepo structure**: [npm workspace](https://docs.npmjs.com/cli/v7/using-npm/workspace) allow shared dependencies and linked packages
+- **Monorepo structure**: [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) allow shared dependencies and linked packages
 - **Separation of concerns**: Agent logic (`langgraph-agent`) is independent from API server (`server-api`)
 - **Centralized authentication**: Files in `./langgraph-agent/src/azure` handle both key-based and passwordless auth and Azure service integration
 
