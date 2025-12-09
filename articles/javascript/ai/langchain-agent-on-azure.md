@@ -1,7 +1,7 @@
 ---
 title: Build a LangChain.js agent for Azure
 description: Create a LangChain.js agent with LangChain.js that queries HR documents using Azure AI Search and Azure OpenAI for intelligent document search and question answering.
-ms.date: 11/25/2025
+ms.date: 12/08/2025
 ms.author: diberry
 author: diberry
 ms.topic: tutorial
@@ -11,29 +11,29 @@ ms.custom: devx-track-ts, devx-track-ts-ai
 
 # Tutorial: Build a LangChain.js agent with Azure AI Search
 
-This tutorial shows you how to build an intelligent agent using LangChain.js and Azure services. The agent helps employees at the fictitious NorthWind company find answers to human resources questions by searching through company documentation.
+Build an intelligent HR assistant using LangChain.js and Azure services. This agent helps employees at the fictitious NorthWind company find answers to human resources questions by searching through company documentation.
 
-You'll create an agent that uses [Azure AI Search](/azure/search/) to find relevant documents and [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) to generate accurate answers. The LangChain.js framework handles the complexity of agent orchestration, letting you focus on your specific business requirements.
+You'll use [Azure AI Search](/azure/search/) to find relevant documents and [Azure OpenAI](/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure) to generate accurate answers. The LangChain.js framework handles the complexity of agent orchestration, letting you focus on your specific business requirements.
 
 What you'll learn:
 
 > [!div class="checklist"]
-> * How to deploy Azure resources using Azure Developer CLI
-> * How to build a LangChain.js agent that integrates with Azure services
-> * How to implement retrieval-augmented generation (RAG) for document search
-> * How to test and debug your agent locally and in Azure
+> * Deploy Azure resources using Azure Developer CLI
+> * Build a LangChain.js agent that integrates with Azure services
+> * Implement retrieval-augmented generation (RAG) for document search
+> * Test and debug your agent locally and in Azure
 
-By the end of this tutorial, you'll have a working REST API that answers HR questions using your company's documentation.
+By the end of this tutorial, you have a working REST API that answers HR questions using your company's documentation.
 
 ## Architecture overview
+
+:::image type="content" source="./media/langchain-agent-on-azure/agent-workflow.png" alt-text="Screenshot of diagram illustrating the LangChain.js agent workflow and its decision branch to use HR documentation for answering questions.":::
 
 NorthWind relies on two data sources: 
 - HR documentation accessible to _all_ employees 
 - Confidential HR database containing sensitive employee data. 
 
-This tutorial focuses on building a LangChain.js agent that determines whether an employee’s question can be answered using the public HR documents. If so, the LangChain.js agent provides the answer directly.
-
-:::image type="content" source="./media/langchain-agent-on-azure/agent-workflow.png" alt-text="Diagram illustrating the LangChain.js agent workflow and its decision branch to use HR documentation for answering questions.":::
+This tutorial focuses on building a LangChain.js agent that determines whether an employee's question can be answered using the public HR documents. If so, the LangChain.js agent provides the answer directly.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ If you run the sample code locally without a development container, you also nee
 
 ## Azure resources
 
-The following Azure resources are required. They are created for you in this article using the [Azure Developer CLI](/azure/developer/azure-developer-cli) and [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/) templates using [Azure Verified Modules(AVM)](https://azure.github.io/Azure-Verified-Modules/). The resources are created with both passwordless and key access for learning purposes. This tutorial uses your local developer account for passwordless authentication:
+The following Azure resources are required. They are created for you in this article using the [Azure Developer CLI](/azure/developer/azure-developer-cli) and [Bicep](/azure/azure-resource-manager/bicep/) templates using [Azure Verified Modules(AVM)](https://azure.github.io/Azure-Verified-Modules/). The resources are created with both passwordless and key access for learning purposes. This tutorial uses your local developer account for passwordless authentication:
 
 * [Azure AI Search resource](/azure/search/search-what-is-azure-search) for vector search.
 * [Azure OpenAI resource](/azure/ai-services/openai/) with the following models:
@@ -360,5 +360,5 @@ azd down --purge
 
 ## Related content
 
-* [Get started with Serverless AI Chat with RAG using LangChain.js](get-started-app-chat-template-langchainjs.md)
+* [Get started with Serverless AI Chat with RAG using LangChain.js](./get-started-app-chat-template-langchainjs.md)
 
