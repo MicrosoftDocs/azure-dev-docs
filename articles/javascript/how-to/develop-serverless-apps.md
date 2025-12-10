@@ -37,13 +37,16 @@ When you develop locally with a Static Web App and Azure Functions, the [Azure S
 The following common settings should be configured to keep your Azure Function secure:
 
 * **Authentication and authorization**:
-  * Use Microsoft Entra ID (formerly Azure Active Directory) for robust authentication. Configure your function app to require OAuth2 tokens for production workloads.
+  * Use [Microsoft Entra ID](../sdk/authentication/overview.md) (formerly Azure Active Directory) for robust authentication. Configure your function app to require OAuth2 tokens for production workloads.
   * Avoid using function keys for sensitive applications. Instead, integrate with Microsoft Entra ID or validate JWT tokens in your function code.
-  * Use managed identities to authenticate your function app with other Azure resources, ensuring each function gets only the access it needs.
+  * Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to authenticate your function app with other Azure resources, ensuring each function gets only the access it needs.
 * **Configuration settings**:
   * Application settings - create Application settings for settings that don't impact security.
-  * Secrets and keys - for any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli). Never embed secrets in code or configuration files.
-  * FTP state on Platform settings - by default, all are allowed. You should select **FTPS only** or disable FTP entirely to improve security.
+  * Secrets and keys - for any settings that impact security, use this tiered approach:
+    1. First, use [Microsoft Entra ID](../sdk/authentication/overview.md) for authentication where supported.
+    1. For integrations that don't support Entra ID, store secrets in [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli).
+    1. Never embed secrets in code or configuration files.
+  * For other platform security settings, see [Securing Azure Functions](/azure/azure-functions/security-concepts#platform-security).
 * **Network security**:
   * CORS - configure your client domains. Don't use `*`, indicating all domains.
   * Virtual network integration - use private endpoints or virtual network integration to limit network exposure and restrict inbound traffic from trusted sources.
@@ -68,8 +71,8 @@ For more information about choosing the right hosting plan, see [Azure Functions
 
 ## Prerequisites for developing Azure Functions
 
-* [Node.js 18 or later](https://nodejs.org/) - Azure Functions v4 programming model requires Node.js 18 or later for the latest features and security updates.
-* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Version 4.x or later for local development and debugging.
+* [Node.js LTS](https://nodejs.org/) - Use the latest Long Term Support (LTS) version for the best compatibility and security updates with Azure Functions.
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Use the current major version for local development and debugging.
 
 ## A simple JavaScript function for HTTP requests
 
@@ -139,7 +142,7 @@ This extension helps you create JavaScript and TypeScript functions with common 
 Serverless functions remove much of the server configuration and management so you can focus on just the code you need.
 
 * **Low-code functions**: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure services using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). The v4 programming model registers all triggers and bindings directly in your code, making configuration type-safe and intuitive.
-* **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use managed identities to securely authenticate your function with other Azure resources without managing credentials.
+* **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to securely authenticate your function with other Azure resources without managing credentials.
 
 ## Related content
 
