@@ -37,6 +37,8 @@ zone_pivot_groups: operating-systems-set-one
 
 ## Implement the code
 
+:::zone target="docs" pivot="os-windows"
+
 The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
 
 ```python
@@ -62,8 +64,6 @@ For more exact control, such as setting a timeout, you can supply specific argum
 
 For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like **Storage Account Data Contributor**. If an app is specified, it must have API permissions set for **user_impersonation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
 
-:::zone target="docs" pivot="os-windows"
-
 The following screenshot shows the alternative interactive, brokered authentication experience:
 
 :::image type="content" source="../../../includes/authentication/media/broker-web-account-manager-account-picker.png" alt-text="A screenshot that shows the Windows sign-in experience when using a broker-enabled InteractiveBrowserCredential instance to authenticate a user.":::
@@ -72,6 +72,30 @@ The following screenshot shows the alternative interactive, brokered authenticat
 
 :::zone target="docs" pivot="os-macos"
 
+The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
+
+```python
+from azure.identity.broker import InteractiveBrowserBrokerCredential
+from azure.storage.blob import BlobServiceClient
+import msal
+
+credential = InteractiveBrowserBrokerCredential(
+    parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
+)
+
+client = BlobServiceClient("https://<storage-account-name>.blob.core.windows.net/", credential=credential)
+
+# Prompt for credentials appears on first use of the client
+for container in client.list_containers():
+    print(container.name)
+```
+
+For more information about using MSAL Python with auth brokers on macOS, see [Using MSAL Python with an Authentication Broker on macOS](https://learn.microsoft.com/en-us/entra/msal/python/advanced/macos-broker).
+
+For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
+
+For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like **Storage Account Data Contributor**. If an app is specified, it must have API permissions set for **user_impersonation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
+
 The following screenshot shows the alternative interactive, brokered authentication experience:
 
 :::image type="content" source="../../../includes/authentication/media/broker-macos-account-picker.png" alt-text="A screenshot that shows the macOS sign-in experience when using a broker-enabled InteractiveBrowserCredential instance to authenticate a user.":::
@@ -79,6 +103,30 @@ The following screenshot shows the alternative interactive, brokered authenticat
 :::zone-end
 
 :::zone target="docs" pivot="os-linux"
+
+The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
+
+```python
+from azure.identity.broker import InteractiveBrowserBrokerCredential
+from azure.storage.blob import BlobServiceClient
+import msal
+
+credential = InteractiveBrowserBrokerCredential(
+    parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
+)
+
+client = BlobServiceClient("https://<storage-account-name>.blob.core.windows.net/", credential=credential)
+
+# Prompt for credentials appears on first use of the client
+for container in client.list_containers():
+    print(container.name)
+```
+
+Make sure you have the [Linux dependencies](/entra/msal/python/advanced/linux-broker-py?tabs=ubuntudep#linux-dependencies) installed on your Linux distribution before running this code example. Also, there are [separate instructions](/entra/msal/python/advanced/linux-broker-py-wsl?tabs=ubuntudep#linux-package-dependencies) for WSL depending on the distribution.
+
+For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
+
+For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like **Storage Account Data Contributor**. If an app is specified, it must have API permissions set for **user_impersonation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
 
 The following video shows the alternative interactive, brokered authentication experience:
 
