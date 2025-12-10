@@ -110,7 +110,7 @@ To authenticate Azure SDK client objects to Azure, your application should use t
 1. For any Go code that creates an Azure SDK client object in your app, you want to:
 
     1. Import the `azidentity` package.
-    1. Use `DefaultAzureCredential` or `AzureCliCredential` to create an instance of a credential. For example:
+    1. Use `DefaultAzureCredential` or `AzureCLICredential` to create an instance of a credential. For example:
 
      - To use `DefaultAzureCredential`, set the environment variable `AZURE_TOKEN_CREDENTIALS` to `dev` that indicates the app is running in a development environment. For more information, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
         
