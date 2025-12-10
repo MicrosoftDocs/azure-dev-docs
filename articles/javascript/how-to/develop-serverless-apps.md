@@ -2,8 +2,9 @@
 title: Introduction to Developing Serverless Node.js Apps with Azure Functions
 description: Learn how to develop serverless Node.js applications using Azure Functions. This guide introduces Azure's serverless technologies, enabling you to create scalable, on-demand HTTP endpoints with JavaScript and TypeScript.
 ms.topic: concept-article
-ms.date: 01/22/2025
+ms.date: 12/10/2025
 ms.custom: devx-track-js, engagement-fy23, devx-track-ts
+ai-usage: ai-assisted
 ---
 
 # Developing Serverless Node.js Apps with Azure Functions
@@ -29,24 +30,46 @@ When you develop a static front-end client application (such as Angular, React, 
 ### Proxy from client app to the API
 If you intend to deploy your API with your Static web app, you don't need to proxy your client application's API calls. The proxy is established for you when you deploy the Azure Functions app as a managed app.
 
-When you develop locally with a Static Web App and Azure Functions, the [Azure Static Web App CLI](https://github.com/Azure/static-web-apps-cli) provides the local proxy. 
+When you develop locally with a Static Web App and Azure Functions, the [Azure Static Web Apps CLI](https://azure.github.io/static-web-apps-cli/) provides the local proxy. 
 
 ## Common security settings you need to configure for your Azure Function
 
 The following common settings should be configured to keep your Azure Function secure:
 
-* Configuration settings
-  * Configuration settings - create Application settings for settings that don't impact security. 
-  * Secrets and keys - for any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli).
-  * FTP state on Platform settings - by default, all are allowed. You need to select **FTPS only** or disable FTP entirely to improve security. 
-* CORS - configure your client domains. Don't use `*`, indicating all domains. 
-* TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you're ready. 
-* Deployment Slots - create a deployment slot, such as `stage` or `preflight` and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot. 
+* **Authentication and authorization**:
+  * Use Microsoft Entra ID (formerly Azure Active Directory) for robust authentication. Configure your function app to require OAuth2 tokens for production workloads.
+  * Avoid using function keys for sensitive applications. Instead, integrate with Microsoft Entra ID or validate JWT tokens in your function code.
+  * Use managed identities to authenticate your function app with other Azure resources, ensuring each function gets only the access it needs.
+* **Configuration settings**:
+  * Application settings - create Application settings for settings that don't impact security.
+  * Secrets and keys - for any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli). Never embed secrets in code or configuration files.
+  * FTP state on Platform settings - by default, all are allowed. You should select **FTPS only** or disable FTP entirely to improve security.
+* **Network security**:
+  * CORS - configure your client domains. Don't use `*`, indicating all domains.
+  * Virtual network integration - use private endpoints or virtual network integration to limit network exposure and restrict inbound traffic from trusted sources.
+* **HTTPS and encryption**:
+  * TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you're ready.
+* **Deployment and monitoring**:
+  * Deployment Slots - create a deployment slot, such as `stage` or `preflight` and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot.
+  * Enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) for real-time telemetry, alerting, and anomaly detection to monitor your functions and audit logs for suspicious activity.
+
+For comprehensive security guidance, see [Securing Azure Functions](/azure/azure-functions/security-concepts). 
+
+## Hosting options for Azure Functions
+
+Azure Functions offers multiple hosting plans to meet your needs:
+
+* **Consumption plan**: Pay only for the time your functions run with automatic scaling.
+* **Flex Consumption plan**: Provides enhanced control with always-ready instances to reduce cold starts, virtual network integration, and configurable instance sizes (512 MB to 4 GB). This plan is recommended for new Linux-based workloads requiring enterprise security and performance features.
+* **Premium plan**: Provides enhanced performance with pre-warmed instances, virtual network connectivity, and longer execution durations.
+* **Dedicated (App Service) plan**: Run functions on dedicated virtual machines for predictable costs and full control over the runtime environment.
+
+For more information about choosing the right hosting plan, see [Azure Functions hosting options](/azure/azure-functions/functions-scale).
 
 ## Prerequisites for developing Azure Functions
 
-* [Node.js LTS](https://nodejs.org/)
-* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
+* [Node.js 18 or later](https://nodejs.org/) - Azure Functions v4 programming model requires Node.js 18 or later for the latest features and security updates.
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Version 4.0.5382 or later for local development and debugging.
 
 ## A simple JavaScript function for HTTP requests
 
@@ -113,10 +136,10 @@ This extension helps you create JavaScript and TypeScript functions with common 
 
 ## Integrate with other Azure services
 
-Serverless functions remove much of the server configuration and management so you can focus on just the code you need. 
+Serverless functions remove much of the server configuration and management so you can focus on just the code you need.
 
-* Low-code functions: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
-* High-code functions: For more control, use the Azure SDKs to coordinate and control other Azure services.
+* **Low-code functions**: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure services using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). The v4 programming model registers all triggers and bindings directly in your code, making configuration type-safe and intuitive.
+* **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use managed identities to securely authenticate your function with other Azure resources without managing credentials.
 
 ## Related content
 
