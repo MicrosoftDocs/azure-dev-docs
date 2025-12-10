@@ -17,7 +17,7 @@ You shouldn't use Current releases in production because the six month window ca
 
 ## Prerequisites
 
-All Azure SDKs and hosting services use [LTS versions of Node.js](https://nodejs.org/). As of December 2025, the actively supported LTS versions are Node.js 20 (maintenance LTS until April 2026), Node.js 22 (active LTS until April 2027), and Node.js 24 (active LTS until April 2028). Node.js 18 reached end-of-life on April 30, 2025, and should no longer be used for production applications. If your application code is running on an unsupported version of Node.js, you should update your application source code to run on a currently supported LTS runtime. 
+All Azure SDKs and hosting services use [LTS versions of Node.js](https://nodejs.org/). If your application code is running on an unsupported version of Node.js, you should update your application source code to run on a currently supported LTS runtime. 
 
 You should also know which hosting service you intend to deploy to and any Azure services your deployed application uses.
 
