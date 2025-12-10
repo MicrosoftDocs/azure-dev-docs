@@ -9,7 +9,7 @@ ms.topic: article
 
 This article provides the best learning resources for developers who are getting started building TypeSpec apps. These resources help you understand the fundamentals of TypeSpec, explore advanced features, and integrate TypeSpec into your development workflow.
 
-TypeSpec reached 1.0 general availability in May 2025, marking its maturity as a production-ready API-first development platform with stable core components and enhanced code generation capabilities.
+TypeSpec reached 1.0 general availability, marking its maturity as a production-ready API-first development platform with stable core components and enhanced code generation capabilities.
 
 ## Official documentation
 
@@ -32,16 +32,14 @@ The [Language Reference](https://typespec.io/docs/language-basics/overview/) pro
 
 ## TypeSpec for Microsoft 365 Copilot
 
-[TypeSpec for Microsoft 365 Copilot](/microsoft-365-copilot/extensibility/overview-typespec) is a domain-specific language released in November 2025 for building declarative agents and API plugins for Microsoft 365 Copilot. It provides type-safe development with automatic manifest generation, making it easier to create custom Copilot extensions.
+[TypeSpec for Microsoft 365 Copilot](/microsoft-365-copilot/extensibility/overview-typespec) is a domain-specific language for building declarative agents and API plugins for Microsoft 365 Copilot. It provides type-safe development with automatic manifest generation, making it easier to create custom Copilot extensions.
 
 ## Community and support
 
 Join the [TypeSpec Community](https://typespec.io/community) to connect with other developers, ask questions, and share your experiences. The community provides multiple channels for engagement:
 
-- **Discord** - Real-time discussions and direct engagement with the TypeSpec community.
-- **GitHub Discussions** - Post questions, share ideas, report bugs, and showcase projects in organized categories including Q&A, Language Suggestions, and Show-and-Tell.
-
-These channels are great places to get help and stay updated on the latest TypeSpec developments.
+- [Discord](https://typespec.io/community/) - Real-time discussions and direct engagement with the TypeSpec community.
+- [GitHub Discussions](https://github.com/microsoft/typespec/discussions) - Post questions, share ideas, report bugs, and showcase projects in organized categories including Q&A, Language Suggestions, and Show-and-Tell.
 
 ## Videos
 
