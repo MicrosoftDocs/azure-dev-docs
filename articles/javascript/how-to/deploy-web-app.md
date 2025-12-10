@@ -29,7 +29,6 @@ Azure offers various deployment methods to suit different needs. Here are some c
 |[Visual Studio Code Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)|Suitable for manual, testing, or infrequent deployments. Requires the relevant Azure extensions installed locally.|
 |[Azure CLI](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Useful for manual or occasional deployments. Requires the Azure CLI installed locally.|
 |[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)|Best for automated or continuous deployments triggered by changes in your GitHub repository.|
-|[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)|Ideal for enterprise teams using Azure DevOps for CI/CD workflows with advanced deployment strategies.|
 
 Other deployment methods exist, based on the specific service. For example, Azure app service supports a wide variety of deployment methods:
 * [From ZIP file](/azure/app-service/deploy-zip)
