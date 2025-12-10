@@ -218,7 +218,6 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_media/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_migrationdiscoverysap/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mixedreality/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mobilenetwork/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mongocluster/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_monitor/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mysql/0.0.1) |  |  |
