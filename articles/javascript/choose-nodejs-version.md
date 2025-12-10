@@ -38,7 +38,7 @@ For an explanation of issues related to using different versions across your env
 
 ## Azure SDKs
 
-The Azure SDKs require Node.js LTS versions as stated in the [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy). As of December 2025, the Azure SDK for JavaScript supports Node.js 20, 22, and 24 LTS versions. Support for Node.js 18.x ended on July 10, 2025. There can be a brief period when the LTS versions supported by the hosting environment and the SDKs don't match, as it takes time to verify new Node.js LTS versions. Because there are usually three versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
+The Azure SDKs require Node.js LTS versions as stated in the [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy). There can be a brief period when the LTS versions supported by the hosting environment and the SDKs don't match, as it takes time to verify new Node.js LTS versions. Because there are usually three versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
 
 ### Manage multiple versions of Node.js
 
