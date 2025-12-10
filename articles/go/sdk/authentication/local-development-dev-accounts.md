@@ -99,7 +99,7 @@ The [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/aziden
 
 To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) class. In this scenario, `DefaultAzureCredential` sequentially checks if the developer signed in to Azure by using the Azure CLI or Azure developer CLI. If the developer signs in to Azure by using one of these tools, the app uses the credentials for authentication.
 
-The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) class is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the `TokenCredential` class and is known as a *credential*. `DefaultAzureCredential` sequentially checks if the developer signed in to Azure by using the Azure CLI or Azure developer CLI. If the developer signs in to Azure by using one of these tools, the app uses the credentials for authentication. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
+[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) is an ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a type implementing the `TokenCredential` interface and is known as a *credential*. `DefaultAzureCredential` sequentially checks if the developer signed in to Azure by using the Azure CLI or Azure developer CLI. If the developer signs in to Azure by using one of these tools, the app uses the credentials for authentication. For more information about customizing the credential chain, see [How to customize DefaultAzureCredential](credential-chains.md#how-to-customize-defaultazurecredential).
 
 1. Add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
@@ -118,7 +118,7 @@ The [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overvie
         // Environment variable AZURE_TOKEN_CREDENTIALS=dev or a specific developer tool credential value
         cred, err := azidentity.NewDefaultAzureCredential(nil)
         ```
-    - Or use a specific credential such as `AzureCliCredential`, `AzureDeveloperCLICredential`, or `AzurePowerShellCredential` to authenticate by using the signed-in user for a specific development tool.
+    - Or use a specific credential such as `AzureCLICredential`, `AzureDeveloperCLICredential`, or `AzurePowerShellCredential` to authenticate by using the signed-in user for a specific development tool.
         
         ```go
         cred, err := azidentity.NewAzureCLICredential(nil)

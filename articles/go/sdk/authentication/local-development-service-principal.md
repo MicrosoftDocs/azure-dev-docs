@@ -144,7 +144,7 @@ The Azure Identity library provides different `TokenCredential` implementations 
     
     func main() {
     	// create a credential
-    	cred, err := azidentity.NewClientSecretCredential(os.Getenv("AZURE_TENANT_ID"), os.Getenv("AZURE_CLIENT_ID"), os.Getenv("AZURE_CLIENT_SECRET"), nil)
+    	cred, err := azidentity.NewEnvironmentCredential(nil)
     	if err != nil {
     	  // TODO: handle error
     	}
