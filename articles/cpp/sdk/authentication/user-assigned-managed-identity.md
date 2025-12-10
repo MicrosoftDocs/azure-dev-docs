@@ -47,7 +47,7 @@ The following sections describe the steps to enable and use a user-assigned mana
     1. Create an instance of `DefaultAzureCredential`.
     1. Pass the instance of `DefaultAzureCredential` to the Azure SDK client constructor.
     1. Set the environment variable `AZURE_CLIENT_ID` to the client ID of your user-assigned managed identity.
-    1. Set the `AZURE_TOKEN_CREDENTIAL` environment variable to `ManagedIdentityCredential` to ensure that `DefaultAzureCredential` uses the managed identity credential. This practice makes authentication more predictable and easier to debug when deployed to Azure. For more information, see [Use a specific credential](credential-chains.md#use-a-specific-credential). 
+    1. Set the `AZURE_TOKEN_CREDENTIALS` environment variable to `ManagedIdentityCredential` to ensure that `DefaultAzureCredential` uses the managed identity credential. This practice makes authentication more predictable and easier to debug when deployed to Azure. For more information, see [Use a specific credential](credential-chains.md#use-a-specific-credential). 
 
     An example of these steps is shown in the following code segment with an Azure Storage Blob client.
 
@@ -65,7 +65,7 @@ The following sections describe the steps to enable and use a user-assigned mana
             // std::putenv("AZURE_CLIENT_ID=your-user-assigned-identity-client-id");
             
             // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID environment variable
-            // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID and AZURE_TOKEN_CREDENTIAL environment variables
+            // Create a credential - DefaultAzureCredential will use the AZURE_CLIENT_ID and AZURE_TOKEN_CREDENTIALS environment variables
             auto credential = std::make_shared<Azure::Identity::DefaultAzureCredential>(true);
             
             // Create a client for the specified storage account
