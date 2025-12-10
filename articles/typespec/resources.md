@@ -15,6 +15,10 @@ TypeSpec reached 1.0 general availability, marking its maturity as a production-
 
 The [TypeSpec Documentation](https://typespec.io/docs) is the primary resource for learning about TypeSpec. It includes comprehensive guides, API references, and tutorials to help you get started using TypeSpec.
 
+## TypeSpec blog
+
+The [TypeSpec Blog](https://typespec.io/blog/) provides announcements, feature updates, and insights into TypeSpec development. Check the blog regularly to stay informed about new releases, best practices, and community highlights.
+
 ## Getting started guides
 
 TypeSpec offers comprehensive getting started guides for different development scenarios:
