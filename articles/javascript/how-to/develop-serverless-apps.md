@@ -60,15 +60,22 @@ For comprehensive security guidance, see [Securing Azure Functions](/azure/azure
 
 ## Hosting options for Azure Functions
 
-Azure Functions offers multiple hosting plans to meet your needs:
+You can host Azure Functions in different ways depending on your requirements:
+
+### Azure Functions resource hosting plans
+
+When you create an Azure Functions resource, you can choose from these hosting plans:
 
 * **Consumption plan**: Pay only for the time your functions run with automatic scaling.
 * **Flex Consumption plan**: Provides enhanced control with always-ready instances to reduce cold starts, virtual network integration, and configurable instance sizes (512 MB to 4 GB). This plan is recommended for new Linux-based workloads requiring enterprise security and performance features. Note that this plan uses execution-based billing similar to the Consumption plan but with additional costs for features like always-ready instances.
 * **Premium plan**: Provides enhanced performance with pre-warmed instances, virtual network connectivity, and longer execution durations.
 * **Dedicated (App Service) plan**: Run functions on dedicated virtual machines for predictable costs and full control over the runtime environment.
-* **Azure Container Apps**: Deploy Azure Functions as containerized workloads with full control over the container environment. This option is ideal when you need custom dependencies, long-running processes, or want to combine functions with other containerized microservices. See [Azure Container Apps hosting of Azure Functions](/azure/azure-functions/functions-container-apps-hosting) for more information.
 
 For more information about choosing the right hosting plan, see [Azure Functions hosting options](/azure/azure-functions/functions-scale).
+
+### Azure Container Apps resource
+
+Alternatively, you can deploy Azure Functions to an Azure Container Apps resource as containerized workloads. This option provides full control over the container environment and is ideal when you need custom dependencies, long-running processes, or want to combine functions with other containerized microservices. See [Azure Container Apps hosting of Azure Functions](/azure/azure-functions/functions-container-apps-hosting) for more information.
 
 ## Prerequisites for developing Azure Functions
 
