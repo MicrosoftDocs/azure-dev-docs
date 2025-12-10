@@ -1,0 +1,49 @@
+graph TB
+    User[User sends HTTP POST]
+    
+    subgraph Azure["Azure Infrastructure"]
+        subgraph ACA["Azure Container Apps"]
+            API[Fastify API Server<br/>LangGraph Agent]
+        end
+        
+        subgraph AOAI["Azure OpenAI Resource"]
+            Models[gpt-4o-mini LLM<br/>text-embedding-3-small]
+        end
+        
+        subgraph AIS["Azure AI Search Resource"]
+            VectorStore[northwind Index<br/>Vector Store]
+        end
+        
+        subgraph ACR["Azure Container Registry"]
+            Image[Docker Image]
+        end
+        
+        subgraph MI["Managed Identity"]
+            Auth[Passwordless Authentication]
+        end
+    end
+    
+    User -->|Question| API
+    API -->|Chat completion & embeddings| Models
+    API -->|Vector search| VectorStore
+    API -->|JSON Response| User
+    
+    Image -.->|Deploy container| ACA
+    Auth -.->|Authenticates| ACA
+    Auth -.->|Authenticates| AOAI
+    Auth -.->|Authenticates| AIS
+    Auth -.->|Authenticates| ACR
+    
+    DataLoad[HR Documents<br/>PDF files] -.->|azd up post-provision<br/>Load & embed| VectorStore
+    
+    
+    linkStyle 0 stroke:#0078d4,stroke-width:2px
+    linkStyle 1 stroke:#2e7d32,stroke-width:2px
+    linkStyle 2 stroke:#f57c00,stroke-width:2px
+    linkStyle 3 stroke:#0078d4,stroke-width:2px
+
+    style ACA fill:#005a9e ,color:#fff
+    style AOAI fill:#005a9e 
+    style AIS fill:#005a9e 
+    style ACR fill:#005a9e 
+    style MI fill:#ff8c00 

@@ -54,10 +54,15 @@ If you run the sample code locally without a development container, you also nee
 
 The following Azure resources are required. They are created for you in this article using the [Azure Developer CLI](/azure/developer/azure-developer-cli) and [Bicep](/azure/azure-resource-manager/bicep/) templates using [Azure Verified Modules(AVM)](https://azure.github.io/Azure-Verified-Modules/). The resources are created with both passwordless and key access for learning purposes. This tutorial uses your local developer account for passwordless authentication:
 
+* [Managed identity](/azure/developer/intro/passwordless-overview) for passwordless authentication to Azure services.
+* [Azure Container Registry](/azure/container-registry/) to store the Docker image for the Node.js Fastify API server.
+* [Azure Container App](/azure/container-apps/) to host the Node.js Fastify API server.
 * [Azure AI Search resource](/azure/search/search-what-is-azure-search) for vector search.
 * [Azure OpenAI resource](/azure/ai-services/openai/) with the following models:
   * An embeddings model like `text-embedding-3-small`.
   * A large language model (LLM) like `'gpt-4.1-mini`.
+
+:::image type="content" source="./media/langchain-agent-on-azure/azure-architecture-ai-rag-search-vector-store.png" lightbox="./media/langchain-agent-on-azure/azure-architecture-ai-rag-search-vector-store.png" alt-text="Azure architecture diagram showing RAG implementation with Container Apps, OpenAI, AI Search, Container Registry, and Managed Identity components with their connections.":::
 
 ## Agent architecture
 
@@ -273,7 +278,7 @@ The vector store is created with configuration for both admin (write) and query 
 
 The Azure Developer CLI deployment includes a post-deployment hook that uploads the documents to the vector store with LangChain.js PDF loader and embedding client. This post-deployment hook is the last step of the `azd up` command after the Azure AI Search resource is created. The document loading script uses batching and retry logic to handle service rate limits. 
 
-:::code language="typescript" source="~/../azure-typescript-langchainjs/azure.yaml" range="130-157":::
+:::code language="yaml" source="~/../azure-typescript-langchainjs/azure.yaml" range="130-157":::
 
 Use the root `.env` file is created by the Azure Developer CLI, you can authenticate to the Azure AI Search resource and create the **AzureAISearchVectorStore** client:
 
