@@ -141,7 +141,7 @@ module.exports = status
 
 ## Develop functions locally with Visual Studio Code and extensions
 
-Create your [first function](/azure/azure-functions/functions-create-first-function-vs-code) using Visual Studio Code. Visual Studio Code, simplifies many of the details with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+Create your [first function](/azure/azure-functions/functions-create-first-function-vs-code) using Visual Studio Code. Visual Studio Code simplifies many of the details with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
 This extension helps you create JavaScript and TypeScript functions with common templates. 
 
@@ -150,7 +150,7 @@ This extension helps you create JavaScript and TypeScript functions with common 
 Serverless functions remove much of the server configuration and management so you can focus on just the code you need.
 
 * **Low-code functions**: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure services using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). The v4 programming model registers all triggers and bindings directly in your code, making configuration type-safe and intuitive.
-* **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to securely authenticate your function with other Azure resources without managing credentials.
+* **High-code functions**: For more control, use the Azure SDKs to coordinate and control other Azure services. Use [managed identities](../sdk/authentication/system-assigned-managed-identity.md) to securely authenticate your functions with other Azure resources without managing credentials.
 
 ## Related content
 
