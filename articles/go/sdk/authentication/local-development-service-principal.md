@@ -110,7 +110,7 @@ $env:AZURE_CLIENT_SECRET="<your-client-secret>"
 
 ## Authenticate to Azure services from your app
 
-The Azure Identity library provides different `TokenCredential` implementations for various scenarios and Microsoft Entra authentication flows. Use the `NewEnvironmentCredential` class when working with service principals locally and in production. In this scenario, `NewEnvironmentCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
+The Azure Identity library provides different `TokenCredential` implementations for various scenarios and Microsoft Entra authentication flows. Use `EnvironmentCredential` when working with service principals locally and in production. In this scenario, `EnvironmentCredential` reads the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` to get the application service principal information to connect to Azure.
 
 1. Add the [`azidentity`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
@@ -121,8 +121,8 @@ The Azure Identity library provides different `TokenCredential` implementations 
 1. For any Go code that creates an Azure SDK client object in your app, you want to:
 
     1. Import the `azidentity` package.
-    1. Create an instance of `NewEnvironmentCredential` type.
-    1. Pass the instance of `NewEnvironmentCredential` type to the Azure SDK client constructor.
+    1. Create an `EnvironmentCredential` instance
+    1. Pass the instance to the Azure SDK client constructor.
 
     The following code segment shows an example:
 
