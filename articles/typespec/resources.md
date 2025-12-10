@@ -32,7 +32,7 @@ The [Language Reference](https://typespec.io/docs/language-basics/overview/) pro
 
 ## TypeSpec for Microsoft 365 Copilot
 
-[TypeSpec for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-typespec) is a domain-specific language released in November 2025 for building declarative agents and API plugins for Microsoft 365 Copilot. It provides type-safe development with automatic manifest generation, making it easier to create custom Copilot extensions.
+[TypeSpec for Microsoft 365 Copilot](/microsoft-365-copilot/extensibility/overview-typespec) is a domain-specific language released in November 2025 for building declarative agents and API plugins for Microsoft 365 Copilot. It provides type-safe development with automatic manifest generation, making it easier to create custom Copilot extensions.
 
 ## Community and support
 
