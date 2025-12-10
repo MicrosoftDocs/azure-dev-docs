@@ -90,7 +90,7 @@ for container in client.list_containers():
     print(container.name)
 ```
 
-For more information about using MSAL Python with auth brokers on macOS, see [Using MSAL Python with an Authentication Broker on macOS](https://learn.microsoft.com/en-us/entra/msal/python/advanced/macos-broker).
+For more information about using MSAL Python with auth brokers on macOS, see [Using MSAL Python with an Authentication Broker on macOS](/entra/msal/python/advanced/macos-broker).
 
 For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
 
