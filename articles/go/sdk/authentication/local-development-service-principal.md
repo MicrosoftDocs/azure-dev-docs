@@ -121,7 +121,7 @@ The Azure Identity library provides different `TokenCredential` implementations 
 1. For any Go code that creates an Azure SDK client object in your app, you want to:
 
     1. Import the `azidentity` package.
-    1. Create an `EnvironmentCredential` instance
+    1. Create an `EnvironmentCredential` instance.
     1. Pass the instance to the Azure SDK client constructor.
 
     The following code segment shows an example:
