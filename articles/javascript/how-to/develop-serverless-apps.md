@@ -60,7 +60,7 @@ For comprehensive security guidance, see [Securing Azure Functions](/azure/azure
 Azure Functions offers multiple hosting plans to meet your needs:
 
 * **Consumption plan**: Pay only for the time your functions run with automatic scaling.
-* **Flex Consumption plan**: Provides enhanced control with always-ready instances to reduce cold starts, virtual network integration, and configurable instance sizes (512 MB to 4 GB). This plan is recommended for new Linux-based workloads requiring enterprise security and performance features.
+* **Flex Consumption plan**: Provides enhanced control with always-ready instances to reduce cold starts, virtual network integration, and configurable instance sizes (512 MB to 4 GB). This plan is recommended for new Linux-based workloads requiring enterprise security and performance features. Note that this plan uses execution-based billing similar to the Consumption plan but with additional costs for features like always-ready instances.
 * **Premium plan**: Provides enhanced performance with pre-warmed instances, virtual network connectivity, and longer execution durations.
 * **Dedicated (App Service) plan**: Run functions on dedicated virtual machines for predictable costs and full control over the runtime environment.
 
@@ -69,7 +69,7 @@ For more information about choosing the right hosting plan, see [Azure Functions
 ## Prerequisites for developing Azure Functions
 
 * [Node.js 18 or later](https://nodejs.org/) - Azure Functions v4 programming model requires Node.js 18 or later for the latest features and security updates.
-* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Version 4.0.5382 or later for local development and debugging.
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) - Version 4.x or later for local development and debugging.
 
 ## A simple JavaScript function for HTTP requests
 
