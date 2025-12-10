@@ -72,7 +72,10 @@ The following screenshot shows the alternative interactive, brokered authenticat
 
 :::zone target="docs" pivot="os-macos"
 
-The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
+> [!Important]
+> macOS support exists in `azure-identity-broker` versions 1.3.0 and later.
+
+The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient).
 
 ```python
 from azure.identity.broker import InteractiveBrowserBrokerCredential
@@ -103,6 +106,9 @@ The following screenshot shows the alternative interactive, brokered authenticat
 :::zone-end
 
 :::zone target="docs" pivot="os-linux"
+
+> [!Important]
+> Linux support exists in `azure-identity-broker` versions 1.3.0 and later.
 
 The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
 
