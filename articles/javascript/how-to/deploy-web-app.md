@@ -2,7 +2,7 @@
 title: Deploy JavaScript apps on Azure
 description: Deploying your JavaScript applications to Azure allows you to use the power of cloud computing, ensuring scalability, reliability, and global reach. This guide walks you through various methods to deploy your JavaScript apps to Azure, from manual deployments to automated CI/CD pipelines.
 ms.topic: concept-article
-ms.date: 01/06/2025
+ms.date: 12/10/2025
 ms.custom:
   - vscode-azure-extension-update-completed
   - sfi-image-nochange
@@ -41,6 +41,19 @@ Other deployment methods exist, based on the specific service. For example, Azur
 You can redeploy to your App service using any of the provided methods even if you didn't use that method to originally deploy. You may have some configuration before redeploying if you're switching methods. 
 
 <a name="deploy-or-redeploy-to-app-service-with-visual-studio-code"></a>
+
+## Azure hosting services for JavaScript apps
+
+Azure provides multiple hosting services optimized for different JavaScript application scenarios:
+
+| Service | Best For | Key Features |
+|--|--|--|
+|[Azure Static Web Apps](/azure/static-web-apps/overview)|Modern web apps with static frontends (React, Vue, Angular) and optional serverless APIs|Free SSL, global CDN, staging environments on pull requests, integrated authentication|
+|[Azure App Service](/azure/app-service/overview)|Full-featured web applications and REST APIs|Built-in autoscaling, deployment slots, easy integration with Azure services|
+|[Azure Functions](/azure/azure-functions/functions-overview)|Event-driven serverless applications and microservices|Pay-per-execution pricing, automatic scaling, multiple triggers and bindings|
+|[Azure Container Apps](/azure/container-apps/overview)|Containerized applications and microservices|Kubernetes-powered serverless containers, Dapr integration, event-driven scaling|
+
+For more information on choosing the right hosting service, see [Hosting applications on Azure](/azure/developer/intro/hosting-apps-on-azure).
 
 ## Build steps
 
@@ -84,6 +97,30 @@ To deploy or redeploy your App service app with Visual Studio Code, complete the
 
     :::image type="content" source="../media/azure-app-service-vscode-extensions/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
 
+## Deploy to Azure Static Web Apps
+
+Azure Static Web Apps is ideal for modern web applications built with JavaScript frameworks. To deploy:
+
+1. Install the [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code.
+1. Build your application locally to ensure it works as expected.
+1. In Visual Studio Code, open the Azure explorer and find Azure Static Web Apps.
+1. Right-click on your subscription and select **Create Static Web App**.
+1. Follow the prompts to connect your GitHub repository. Azure automatically creates a GitHub Actions workflow.
+1. Push changes to your repository to trigger automatic deployments.
+
+For more details, see [Deploy your web app to Azure Static Web Apps](/azure/static-web-apps/deploy-web-framework).
+
+## Deploy to Azure Container Apps
+
+Azure Container Apps provides serverless container hosting for JavaScript applications. To deploy:
+
+1. Containerize your application using Docker. Create a Dockerfile in your project root.
+1. Build and test your container locally.
+1. Push your container image to [Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli).
+1. Use the [Azure Container Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps) or Azure CLI to create and deploy your container app.
+
+For a complete guide, see [JavaScript on Azure Container Apps overview](/azure/container-apps/javascript-overview).
+
 ## Connect to your Azure hosted environment
 
 * For **manual or occasional access** to your hosted environments, refer to how to [view files in your Azure hosted environment](#view-files-in-azure-hosted-environment).
@@ -113,3 +150,7 @@ View your HTTP endpoint from the service's Overview page on the Azure portal.
 
 * [Deployment tutorials using Visual Studio Code](https://code.visualstudio.com/docs/azure/deployment)
 * [Hosting apps on Azure](/azure/developer/intro/hosting-apps-on-azure)
+* [Azure Static Web Apps documentation](/azure/static-web-apps/)
+* [Azure Container Apps documentation](/azure/container-apps/)
+* [Azure App Service documentation](/azure/app-service/)
+* [Azure Functions documentation](/azure/azure-functions/)
