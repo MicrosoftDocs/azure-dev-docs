@@ -2,7 +2,7 @@
 title: Use correct version of Node.js for Azure
 description: Learn how to choose the right Node.js version for developing and deploying JavaScript applications on Azure. Understand the importance of aligning Node.js versions across local and hosting environments to ensure compatibility, stability, and optimal performance.
 ms.topic: concept-article #Don't change.
-ms.date: 01/07/2025
+ms.date: 12/10/2025
 #customer intent: As a JavaScript developer new to Azure, I want understand which version of Node.js to use for a hosting service or Azure sdk.
 ---
 # Choose the right Node.js Version for Azure
@@ -11,13 +11,13 @@ When developing JavaScript applications for Azure, it's crucial to align the ver
 
 ## Node.js versions
 
-Node.js follows a predictable release schedule that includes both Long Term Support (LTS) and Current releases. LTS versions are designated for long-term maintenance and stability, making them ideal for production environments. These versions receive critical bug fixes, security updates, and performance improvements for an extended period, typically 30 months. Node.js uses an even/odd numbering system to distinguish between LTS and Current releases: even-numbered versions (e.g., 18, 20) are LTS releases, while odd-numbered versions (e.g., 19, 21) are Current releases. Current releases include the latest features and improvements but are only supported for six months, after which they transition to an LTS release if they're even-numbered. 
+Node.js follows a predictable release schedule that includes both Long Term Support (LTS) and Current releases. LTS versions are designated for long-term maintenance and stability, making them ideal for production environments. These versions receive critical bug fixes, security updates, and performance improvements for an extended period, typically 30 months. Node.js uses an even/odd numbering system to distinguish between LTS and Current releases: even-numbered versions (e.g., 20, 22, 24) are LTS releases, while odd-numbered versions (e.g., 21, 23, 25) are Current releases. Current releases include the latest features and improvements but are only supported for six months, after which they transition to an LTS release if they're even-numbered. 
 
 You shouldn't use Current releases in production because the six month window can misalign with Azure hosting platform runtimes and SDKs. You will notice that the [development containers for Node.js](https://github.com/devcontainers/images/tree/main/src/javascript-node) do not offer odd-numbered/Current versions.
 
 ## Prerequisites
 
-All Azure SDKS and hosting services use [LTS versions of Node.js](https://nodejs.org/). If your application code has been running in a prior version of Node.js, no longer available for Long Term Support (LTS), you should update your application source code to run in an LTS runtime. 
+All Azure SDKs and hosting services use [LTS versions of Node.js](https://nodejs.org/). As of December 2025, the actively supported LTS versions are Node.js 20 (maintenance LTS until April 2026), Node.js 22 (active LTS until April 2027), and Node.js 24 (active LTS until April 2028). Node.js 18 reached end-of-life on April 30, 2025, and should no longer be used for production applications. If your application code is running on an unsupported version of Node.js, you should update your application source code to run on a currently supported LTS runtime. 
 
 You should also know which hosting service you intend to deploy to and any Azure services your deployed application uses.
 
@@ -38,7 +38,7 @@ For an explanation of issues related to using different versions across your env
 
 ## Azure SDKs
 
-The Azure SDKs require Node.js LTS versions as stated in the [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy). There can be a brief period when the LTS versions supported by the hosting environment and the SDKs don't match, as it takes time to verify new Node.js LTS versions. Because there are usually three versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
+The Azure SDKs require Node.js LTS versions as stated in the [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy). As of December 2025, the Azure SDK for JavaScript supports Node.js 20, 22, and 24 LTS versions. Support for Node.js 18.x ended on July 10, 2025. There can be a brief period when the LTS versions supported by the hosting environment and the SDKs don't match, as it takes time to verify new Node.js LTS versions. Because there are usually three versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
 
 ### Manage multiple versions of Node.js
 
