@@ -1,7 +1,7 @@
 ---  
 title: TypeSpec Resources  
 description: Discover the best learning resources for TypeSpec, including official documentation, an interactive playground, language reference, community support, and instructional videos.   
-ms.date: 02/12/2025  
+ms.date: 12/10/2025  
 ms.topic: article
 ---
 
@@ -9,13 +9,18 @@ ms.topic: article
 
 This article provides the best learning resources for developers who are getting started building TypeSpec apps. These resources help you understand the fundamentals of TypeSpec, explore advanced features, and integrate TypeSpec into your development workflow.
 
+TypeSpec reached 1.0 general availability in May 2025, marking its maturity as a production-ready API-first development platform with stable core components and enhanced code generation capabilities.
+
 ## Official documentation
 
 The [TypeSpec Documentation](https://typespec.io/docs) is the primary resource for learning about TypeSpec. It includes comprehensive guides, API references, and tutorials to help you get started using TypeSpec.
 
-## Getting started guide
+## Getting started guides
 
-The [Getting Started Guide for OpenAPI](https://typespec.io/docs/getting-started/typespec-for-openapi-dev/) guide is an introduction to TypeSpec using concepts that are familiar to developers that either build or use API definitions in OpenAPI v2 or v3.
+TypeSpec offers comprehensive getting started guides for different development scenarios:
+
+- [Getting Started with TypeSpec for REST APIs](https://typespec.io/docs/getting-started/getting-started-rest/01-setup-basic-syntax/) - A step-by-step tutorial covering setup, basic syntax, models, operations, and best practices.
+- [Getting Started Guide for OpenAPI](https://typespec.io/docs/getting-started/typespec-for-openapi-dev/) - An introduction to TypeSpec using concepts familiar to developers that build or use API definitions in OpenAPI v2 or v3.
 
 ## TypeSpec playground
 
@@ -23,18 +28,26 @@ The [TypeSpec Playground](https://typespec.io/playground) is an interactive web-
 
 ## Language reference
 
-The [language Reference](https://typespec.io/docs/language-basics/overview/) provides detailed information about TypeSpec's core concepts, functions, and modules. It's an essential resource for understanding the full capabilities of TypeSpec and how to use them effectively.
+The [Language Reference](https://typespec.io/docs/language-basics/overview/) provides detailed information about TypeSpec's core concepts, functions, and modules. It's an essential resource for understanding the full capabilities of TypeSpec and how to use them effectively.
 
-## Community and Support
+## TypeSpec for Microsoft 365 Copilot
 
-Join the [TypeSpec Community](https://typespec.io/community) to connect with other developers, ask questions, and share your experiences. The community forum and chat channels are great places to get help and stay updated on the latest TypeSpec developments.
+[TypeSpec for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-typespec) is a domain-specific language released in November 2025 for building declarative agents and API plugins for Microsoft 365 Copilot. It provides type-safe development with automatic manifest generation, making it easier to create custom Copilot extensions.
+
+## Community and support
+
+Join the [TypeSpec Community](https://typespec.io/community) to connect with other developers, ask questions, and share your experiences. The community provides multiple channels for engagement:
+
+- **Discord** - Real-time discussions and direct engagement with the TypeSpec community.
+- **GitHub Discussions** - Post questions, share ideas, report bugs, and showcase projects in organized categories including Q&A, Language Suggestions, and Show-and-Tell.
+
+These channels are great places to get help and stay updated on the latest TypeSpec developments.
 
 ## Videos
 
-Watch videos to see TypeSpec in action. These recordings cover various topics, including API design best practices, TypeSpec features, and real-world use cases.
+Watch videos to see TypeSpec in action. These recordings cover various topics, including API design best practices, TypeSpec features, and real-world use cases:
 
-- [APIs at scale with TypeSpec](https://youtu.be/yfCYrKaojDo)
-- [Schema-first API design using TypeSpec](https://www.youtube.com/watch?v=xDbC7Mhi9wM)
-- [TypeSpec 101](https://www.youtube.com/playlist?list=PLYWCCsom5Txglkl_I1XvwzrzM5G3SuVsR)
-- [Using TypeSpec for Open Finance Standards](https://www.youtube.com/watch?v=xDbC7Mhi9wM)
+- [APIs at scale with TypeSpec](https://youtu.be/yfCYrKaojDo) - Overview of TypeSpec's capabilities presented at the 2024 Austin API Summit by Microsoft, demonstrating how Microsoft uses TypeSpec at scale.
+- [TypeSpec 101](https://www.youtube.com/playlist?list=PLYWCCsom5Txglkl_I1XvwzrzM5G3SuVsR) - Comprehensive tutorial series covering setup, modeling, operations, responses, authentication, versioning, and best practices.
+- [Schema-first API design using TypeSpec](https://www.youtube.com/watch?v=xDbC7Mhi9wM) - Introduction to schema-first API design principles with TypeSpec.
 
