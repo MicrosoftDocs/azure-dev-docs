@@ -8,11 +8,11 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 #kusto
 --- 
-# Azure Data Explorer tools for the Azure MCP Server
+# Azure Data Explorer tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure Data Explorer resources using natural language prompts. You can list clusters, view databases, query data with natural language. You can also use specific KQL queries for targeted responses.
 
