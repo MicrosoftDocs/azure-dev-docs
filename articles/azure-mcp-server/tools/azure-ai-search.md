@@ -4,7 +4,7 @@ description: Learn how to use Azure MCP Server tools to manage Azure AI Search r
 keywords: azure mcp server, azmcp, ai search, cognitive search, azure search, rag
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -30,8 +30,8 @@ Use the Azure MCP Server to retrieve detailed information about AI Search [index
 Example prompts include:
 
 - **Get index details**: "Show me details of the 'products' index in my 'mysearchservice' service."
-- **View index schema**: "What fields are in the 'users' index?"
-- **Index structure**: "Describe the schema for 'documents' index in my search service."
+- **View index schema**: "What fields are in the 'users' index in service 'mysearchservice'?"
+- **Index structure**: "Describe the schema for 'documents' index in search service 'mysearchservice'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -72,8 +72,8 @@ Gets the details of Azure AI Search knowledge bases. Knowledge bases encapsulate
 
 Example prompts include:
 
-- **Get knowledge base details**: "Show me details of the 'support' knowledge base in my search service."
-- **View all knowledge bases**: "List all knowledge bases in my AI Search service."
+- **Get knowledge base details**: "Show me details of the 'support' knowledge base in search service 'mysearchservice'."
+- **View all knowledge bases**: "List all knowledge bases in AI Search service 'mysearchservice'."
 - **Knowledge base info**: "What knowledge bases are available in 'my-search-service'?"
 
 
@@ -117,8 +117,8 @@ Gets the details of Azure AI Search knowledge sources. A knowledge source can po
 
 Example prompts include:
 
-- **Get source details**: "Show me details of the 'documents' knowledge source in my search service."
-- **View all sources**: "List all knowledge sources in my AI Search service."
+- **Get source details**: "Show me details of the 'documents' knowledge source in search service 'mysearchservice'."
+- **View all sources**: "List all knowledge sources in AI Search service 'mysearchservice'."
 - **Source information**: "What knowledge sources are configured in 'my-search-service'?"
 
 | Parameter |  Required or optional | Description |
