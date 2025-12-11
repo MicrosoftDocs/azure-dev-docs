@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure Quick Review CLI tools for the Azure MCP Server
+# Azure Quick Review CLI tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to execute Azure Quick Review (azqr) commands using natural language prompts. This enables you to generate compliance and security reports for your Azure resources to identify non-compliant configurations and areas for improvement without needing to remember specific command syntax.
 

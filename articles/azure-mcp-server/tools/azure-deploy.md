@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
 ms.date: 12/05/2025
+ms.topic: concept-article
 ---
 
-# Azure Deploy tools for the Azure MCP Server
+# Azure Deploy tools for the Azure MCP Server overview
 
 Azure MCP Server simplifies Azure resource deployment by providing a unified experience for deploying applications and infrastructure. This article explains how to use Azure MCP Server to streamline your deployment process and improve efficiency.
 

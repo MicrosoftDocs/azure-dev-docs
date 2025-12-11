@@ -8,11 +8,11 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
 
-# Azure Storage tools for the Azure MCP Server
+# Azure Storage tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts. You don't need to remember specific command syntax.
 
@@ -167,3 +167,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Storage](/azure/storage/common/storage-introduction)
