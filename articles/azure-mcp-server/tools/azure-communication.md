@@ -8,11 +8,11 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
 
-# Azure Communication Services tools for the Azure MCP Server
+# Azure Communication Services tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure Communication Services using natural language prompts. Learn how to send emails and SMS messages without needing to remember complex command syntax, making communication automation more accessible and efficient.
 

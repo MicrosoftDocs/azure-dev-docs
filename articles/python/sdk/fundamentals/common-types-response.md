@@ -1,25 +1,25 @@
 ---
-title: Understanding common response types in the Azure SDK for Python
-description: Learn types of objects you receive from SDK operations when using the Azure SDK for Python.
+title: Understand Common Response Types in the Azure SDK for Python
+description: Learn about types of objects that you receive from SDK operations when you use the Azure SDK for Python.
 ms.date: 7/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Understanding common response types in the Azure SDK for Python
+# Understand common response types in the Azure SDK for Python
 
-The Azure SDK for Python abstracts calls to the underlying Azure service communication protocol, whether that protocol is HTTP or AMQP (which is used for messaging SDKs like ServiceBus, EventHubs, etc.). For example, if you use one of the libraries that utilizes HTTP, then the Azure SDK for Python is making HTTP requests and receiving HTTP responses under the hood. The SDK abstracts away this complexity, allowing you to work with intuitive Python objects instead of raw HTTP responses or JSON payloads.
+The Azure SDK for Python abstracts calls to the underlying Azure service communication protocol, whether that protocol is HTTP or AMQP (which is used for messaging SDKs like `ServiceBus` and `EventHubs`). For example, if you use one of the libraries that uses HTTP, the Azure SDK for Python makes HTTP requests and receives HTTP responses under the hood. The SDK abstracts away this complexity so that you can work with intuitive Python objects instead of raw HTTP responses or JSON payloads.
 
-Understanding the types of objects you receive from SDK operations is essential for writing effective Azure applications. This article explains the common response types you encounter and how they relate to the underlying HTTP communication.
+Understanding the types of objects that you receive from SDK operations is essential for writing effective Azure applications. This article explains the common response types that you encounter and how they relate to the underlying HTTP communication.
 
-> [!NOTE] 
-> This article only examines the HTTP scenario, not the AMQP scenario.
+> [!NOTE]
+> This article examines only the HTTP scenario, not the AMQP scenario.
 
 ## Deserialized Python objects
 
 The Azure SDK for Python prioritizes developer productivity by returning strongly typed Python objects from service operations. Instead of parsing JSON or handling HTTP status codes directly, you work with resource models that represent Azure resources as Python objects.
 
-For example, when you retrieve a blob from Azure Storage, you receive a BlobProperties object with attributes like name, size, and last_modified, rather than a raw JSON dictionary:
+For example, when you retrieve a blob from Azure Storage, you receive a `BlobProperties` object with attributes like `name`, `size`, and `last_modified` rather than a raw JSON dictionary:
 
 ```python
 from azure.storage.blob import BlobServiceClient
@@ -42,15 +42,15 @@ print(f"Last modified: {properties.last_modified}")
 
 Understanding the data flow helps you appreciate what the SDK does behind the scenes:
 
-- Your code calls an SDK method - You invoke a method like get_blob_properties()
-- The SDK constructs an HTTP request - The SDK builds the appropriate HTTP request with headers, authentication, and query parameters
-- Azure service responds - The service returns an HTTP response, typically with a JSON payload in the response body
-- The SDK processes the response - The SDK:
-  - Checks the HTTP status code
-  - Parses the response body (usually JSON)
-  - Validates the data against expected schemas
-  - Maps the data to Python model objects
-- Your code receives Python objects - You work with the deserialized objects, not raw HTTP data
+- **Your code calls an SDK method:** You invoke a method like `get_blob_properties()`.
+- **The SDK constructs an HTTP request:** The SDK builds the appropriate HTTP request with headers, authentication, and query parameters.
+- **The Azure service responds:** The service returns an HTTP response, typically with a JSON payload in the response body.
+- **The SDK processes the response:** The SDK:
+  - Checks the HTTP status code.
+  - Parses the response body (usually JSON).
+  - Validates the data against expected schemas.
+  - Maps the data to Python model objects.
+- **Your code receives Python objects:** You work with the deserialized objects, not raw HTTP data.
 
 This abstraction allows you to focus on your application logic rather than HTTP protocol details.
 
@@ -60,7 +60,7 @@ The Azure SDK for Python uses several standard response types across all service
 
 ### Resource models
 
-Most SDK operations return resource models—Python objects that represent Azure resources. These models are service-specific but follow consistent patterns:
+Most SDK operations return resource models. These Python objects represent Azure resources. The models are service specific but follow consistent patterns:
 
 ```python
 # Azure Key Vault example
@@ -86,7 +86,7 @@ print(f"Item ID: {item['id']}")
 
 ### ItemPaged for collection results
 
-When listing resources, the SDK returns `ItemPaged` objects that handle pagination transparently:
+When the SDK lists resources, it returns `ItemPaged` objects that handle pagination transparently:
 
 ```python
 from azure.storage.blob import BlobServiceClient
@@ -103,14 +103,14 @@ for blob in blobs:
     print(f"Blob: {blob.name}, Size: {blob.size}")
 ```
 
-## Accessing the raw HTTP response
+## Access the raw HTTP response
 
 While the SDK's high-level abstractions meet most needs, you sometimes need access to the underlying HTTP response. Common scenarios include:
 
-- Debugging failed requests
-- Accessing custom response headers
-- Implementing custom retry logic
-- Working with nonstandard response formats
+- Debugging failed requests.
+- Accessing custom response headers.
+- Implementing custom retry logic.
+- Working with nonstandard response formats.
 
 Most SDK methods accept a `raw_response_hook` parameter:
 
@@ -138,7 +138,7 @@ secret = secret_client.get_secret("mysecret", raw_response_hook=inspect_response
 
 ## Paging and iterators
 
-Azure services often return large collections of resources. The SDK uses ItemPaged to handle these collections efficiently without loading everything into memory at once.
+Azure services often return large collections of resources. The SDK uses `ItemPaged` to handle these collections efficiently without loading everything into memory at once.
 
 ### Automatic pagination
 
@@ -153,7 +153,7 @@ for blob in blobs:
     process_blob(blob)  # Pages loaded on-demand
 ```
 
-### Working with pages explicitly
+### Work with pages explicitly
 
 You can also work with pages directly when needed:
 
@@ -167,31 +167,29 @@ for page in blobs.by_page():
         process_blob(blob)
 ```
 
-### Controlling page size
+### Control page size
 
-Many list operations accept a results_per_page parameter:
+Many list operations accept a `results_per_page` parameter:
 
 ```python
 # Fetch 100 items per page instead of the default
 blobs = container_client.list_blobs(results_per_page=100)
 ```
 
-Some methods for some Azure services have other mechanisms for controlling page size. For example, KeyVault and Azure Search use the `top` kwarg to limit results per call. See the [source code](https://github.com/Azure/azure-sdk-for-python/blob/0cf4523c054fc793c6ce46616daa5e23f9607d33/sdk/search/azure-search-documents/azure/search/documents/_search_client.py#L174) for Azure Search's `search()` method as an example.
-
+Some methods for some Azure services have other mechanisms for controlling page size. For example, Azure Key Vault and Azure Search use the `top` kwarg to limit results per call. For an example that uses the Azure Search `search()` method, see the [source code](https://github.com/Azure/azure-sdk-for-python/blob/0cf4523c054fc793c6ce46616daa5e23f9607d33/sdk/search/azure-search-documents/azure/search/documents/_search_client.py#L174).
 
 ## Special case: Long-running operations and pollers
 
-
 Some Azure operations can't complete immediately. Examples include:
 
-- Creating or deleting virtual machines
-- Deploying ARM templates
-- Training machine learning models
-- Copying large blobs
+- Creating or deleting virtual machines.
+- Deploying Azure Resource Manager templates.
+- Training machine learning models.
+- Copying large blobs.
 
 These operations return poller objects that track the operation's progress.
 
-### Working with pollers
+### Work with pollers
 
 ```python
 from azure.mgmt.storage import StorageManagementClient
@@ -218,7 +216,7 @@ storage_account = poller.result()
 
 ### Asynchronous pollers
 
-When using async/await patterns, you work with `AsyncLROPoller`:
+When you use async/await patterns, you work with `AsyncLROPoller`:
 
 ```python
 from azure.storage.blob.aio import BlobServiceClient
@@ -234,9 +232,9 @@ async with BlobServiceClient.from_connection_string(connection_string) as client
     copy_properties = await poller.result()
 ```
 
-### Polling objects for long-running operations example: Virtual Machines
+### Polling objects for long-running operations example: Virtual machines
 
-Deploying Virtual Machines in an example of an operation that takes time to complete and handles it by returning poller objects (LROPoller for synchronous code, AsyncLROPoller for asynchronous code):
+Deploying virtual machines is an example of an operation that takes time to complete and handles it by returning poller objects (`LROPoller` for synchronous code, `AsyncLROPoller` for asynchronous code):
 
 ```python
 from azure.mgmt.compute import ComputeManagementClient
@@ -256,7 +254,7 @@ vm = poller.result()  # Blocks until operation completes
 print(f"VM {vm.name} provisioned successfully")
 ```
 
-### Accessing response for paged results
+### Access response for paged results
 
 For paged results, use the `by_page()` method with `raw_response_hook`:
 
@@ -274,8 +272,9 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
 
 ## Best practices
 
-- **Prefer high-level abstractions**
-- **Work with the SDK's resource models rather than raw responses** whenever possible, and **avoid accessing any method prefixed with an underscore `_`** since, by convention, those are private in Python. There are no guarantees about breaking changes, etc. compared to public APIs:
+- **Prefer high-level abstractions.**
+- **Work with the SDK's resource models rather than raw responses whenever possible.**
+- **Avoid accessing any method prefixed with an underscore (_).** By convention, those methods are private in Python. There are no guarantees about issues like breaking changes compared to public APIs:
 
   ```python
   # Preferred: Work with typed objects
@@ -291,9 +290,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
       use_secret(data['value'])
   ```
 
-
-
-- **Handle pagination properly** - Always iterate over paged results instead of converting to a list:
+- **Handle pagination properly.** Always iterate over paged results instead of converting to a list:
 
   ```python
   # Good: Memory-efficient iteration
@@ -304,7 +301,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
   all_blobs = list(container_client.list_blobs())  # Could consume excessive memory
   ```
 
-- **Use `poller.result()` for long-running operations** - Always use the `result()` method to ensure operations complete successfully:
+- **Use poller.result() for long-running operations.** Always use the `result()` method to ensure that operations complete successfully:
 
   ```python
   # Correct: Wait for operation completion
@@ -320,7 +317,7 @@ for page in blobs.by_page(raw_response_hook=page_response_hook):
   print("VM deleted successfully")  # Deletion might still be in progress!
   ```
 
-- **Access raw responses only when needed** - Use raw response access sparingly and only for specific requirements:
+- **Access raw responses only when needed.** Use raw response access sparingly and only for specific requirements:
 
   ```python
   # Good use case: Debugging or logging

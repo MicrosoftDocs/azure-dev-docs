@@ -33,17 +33,17 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: "Quickstart: Upgrade a Java project"
-            url: /java/upgrade/quickstart-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            url: quickstart-upgrade.md
           - text: "Quickstart: Generate unit tests"
-            url: /java/upgrade/quickstart-unit-tests?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            url: quickstart-unit-tests.md
       - linkListType: how-to-guide
         links:
           - text: Configure settings for IntelliJ
-            url: /java/upgrade/configure-settings-intellij?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            url: configure-settings-intellij.md
           - text: Customize the upgrade plan
-            url: /java/upgrade/customize-upgrade-plan?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            url: customize-upgrade-plan.md
           - text: Upgrade a framework or third-party dependency
-            url: /java/upgrade/framework-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            url: framework-upgrade.md
   - title: Migrate Java projects to Azure
     linkLists:
       - linkListType: reference
