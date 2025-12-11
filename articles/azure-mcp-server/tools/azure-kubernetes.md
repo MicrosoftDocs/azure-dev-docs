@@ -8,10 +8,10 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 12/05/2025
 ---
-# Azure Kubernetes Service tools for the Azure MCP Server
+# Azure Kubernetes Service tools for the Azure MCP Server overview
 
 Use the Azure MCP Server to manage Azure resources, including Azure Kubernetes Service (AKS) clusters, with natural language prompts. You can quickly manage your container workloads without remembering complex syntax.
 
