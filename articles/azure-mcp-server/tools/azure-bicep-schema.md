@@ -5,7 +5,6 @@ keywords: azure mcp server, azmcp, azure bicep, bicep schema, arm templates, inf
 ms.service: azure-mcp-server
 ms.date: 12/05/2025
 ms.topic: concept-article
-ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
