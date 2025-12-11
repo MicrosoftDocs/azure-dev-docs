@@ -20,20 +20,20 @@ items:
           - name: Coding agent
             href: ../java/migration/github-copilot-app-modernization-for-java-coding-agent.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
           - name: Java utilities
-            href: /java/upgrade/tools?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            href: tools.md
           - name: Configure settings for IntelliJ
-            href: /java/upgrade/configure-settings-intellij?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+            href: configure-settings-intellij.md
           - name: Upgrade Java projects
             expanded: true
             items:
             - name: "Quickstart: Upgrade a Java project"
-              href: /java/upgrade/quickstart-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: quickstart-upgrade.md
             - name: "Quickstart: Generate unit tests"
-              href: /java/upgrade/quickstart-unit-tests?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: quickstart-unit-tests.md
             - name: Customize the upgrade plan
-              href: /java/upgrade/customize-upgrade-plan?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: customize-upgrade-plan.md
             - name: Upgrade a framework or third-party dependency
-              href: /java/upgrade/framework-upgrade?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
+              href: framework-upgrade.md
           - name: Migrate Java projects to Azure
             expanded: true
             items:

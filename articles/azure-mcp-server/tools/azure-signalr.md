@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 ---
 
-# Azure SignalR tools for the Azure MCP Server
+# Azure SignalR tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure resources, including Azure SignalR resources, using natural language prompts. This feature lets you quickly manage your SignalR resources without remembering complex syntax.
 

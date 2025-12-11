@@ -2,20 +2,20 @@
 title: Azure SDK Language Design Guidelines for Python
 description: Learn about the Azure SDK Language Design Guidelines for Python and how they promote consistency which easy usability across the entire SDK surface.
 ms.date: 7/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-python
 ---
 
 # Azure SDK Language Design Guidelines for Python
 
-Azure SDK Design Guidelines are comprehensive standards that ensure consistency, predictability, and ease of use across all Azure SDKs. These guidelines help developers work efficiently with Azure services by providing familiar patterns and behaviors across different services and programming languages.
+Azure SDK Language Design Guidelines are comprehensive standards that ensure consistency, predictability, and ease of use across all Azure SDKs. These guidelines help developers work efficiently with Azure services by providing familiar patterns and behaviors across different services and programming languages.
 
 The guidelines consist of two categories:
 
-- **General Guidelines**: Core principles that apply to all Azure SDKs regardless of programming language
-- **Language-Specific Guidelines**: Implementation details optimized for each supported language, including [Python](https://azure.github.io/azure-sdk/python_design.html), [.NET](https://azure.github.io/azure-sdk/dotnet_introduction.html), [Java](https://azure.github.io/azure-sdk/java_introduction.html), [TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html), and many more (see the Table of Contents starting on the [General Guidelines: Introduction](https://azure.github.io/azure-sdk/general_introduction.html) page).
+- **General Guidelines**: Core principles that apply to all Azure SDKs regardless of programming language.
+- **Language-Specific Guidelines**: Implementation details optimized for each supported language, including [Python](https://azure.github.io/azure-sdk/python_design.html), [.NET](https://azure.github.io/azure-sdk/dotnet_introduction.html), [Java](https://azure.github.io/azure-sdk/java_introduction.html), [TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html), and many more. For more information, see the Table of Contents starting on the [General Guidelines: Introduction](https://azure.github.io/azure-sdk/general_introduction.html) page.
 
-These guidelines are developed openly on GitHub, allowing community review and contribution.
+These guidelines are developed openly on GitHub, which allows for community review and contribution.
 
 ## General design principles
 
@@ -23,21 +23,21 @@ All Azure SDKs follow these fundamental principles:
 
 |Principle|Description|
 |---|---|
-|Idiomatic usage|SDKs follow language-specific conventions and patterns|
-|Consistency|Uniform behaviors across different Azure services|
-|Simplicity|Common tasks require minimal code|
-|Progressive disclosure|Advanced features are available but don't complicate basic usage|
-|Robustness|Built-in handling for errors, retries, and timeouts|
+|Idiomatic usage|SDKs follow language-specific conventions and patterns.|
+|Consistency|Behaviors are uniform across different Azure services.|
+|Simplicity|Common tasks require minimal code.|
+|Progressive disclosure|Advanced features are available but don't complicate basic usage.|
+|Robustness|Handling is built in for errors, retries, and timeouts.|
 
 ## Python-specific guidelines
 
-The rest of this document will focus on the [Python guidelines](https://azure.github.io/azure-sdk/python_design.html).
+The rest of this document focuses on the [Python guidelines](https://azure.github.io/azure-sdk/python_design.html).
 
 ### Naming conventions
 
 Azure SDKs for Python follow standard Python naming conventions:
 
-- **Methods** - Use snake_case.
+- **Methods**: Use `snake_case`.
 
   ```python
   list_containers()
@@ -45,14 +45,14 @@ Azure SDKs for Python follow standard Python naming conventions:
   create_database()
   ```
 
-- **Variables** - Use snake_case.
+- **Variables**: Use `snake_case`.
 
   ```python
   connection_string = "..."
   retry_count = 3
   ```
 
-- **Classes** - Use PascalCase.
+- **Classes**: Use `PascalCase`.
 
   ```python
   BlobServiceClient
@@ -60,7 +60,7 @@ Azure SDKs for Python follow standard Python naming conventions:
   CosmosClient
   ```
 
-- **Constants** - Use UPPER_CASE.
+- **Constants**: Use `UPPER_CASE`.
 
   ```python
   DEFAULT_CHUNK_SIZE
@@ -90,7 +90,7 @@ Clients provide multiple instantiation methods:
 from azure.storage.blob import BlobServiceClient
 from azure.identity import DefaultAzureCredential
 
-# Note: do not use connection string if you can possibly avoid it!
+# Note: Do not use connection string if you can possibly avoid it!
 
 # Using account URL and credential
 credential = DefaultAzureCredential()
@@ -130,8 +130,8 @@ with BlobServiceClient.from_connection_string(conn_str) as client:
     blob_list = container_client.list_blobs()
 ```
 
-> [!Note]
-> While most clients support context managers, verify specific client documentation for availability.
+> [!NOTE]
+> Although most clients support context managers, verify specific client documentation for availability.
 
 ### Asynchronous operations
 
@@ -153,7 +153,7 @@ asyncio.run(list_blobs_async())
 
 ### Long-running operations
 
-Long-running operations use the begin_ prefix and return poller objects:
+Long-running operations use the `begin_` prefix and return poller objects:
 
 ```python
 from azure.storage.blob import BlobServiceClient
@@ -209,7 +209,7 @@ print(secret.properties.created_on)
 
 ## Error handling
 
-Azure SDK exceptions inherit from AzureError and provide specific exception types:
+Azure SDK exceptions inherit from `AzureError` and provide specific exception types:
 
 ```python
 from azure.core.exceptions import (
@@ -261,19 +261,19 @@ client = BlobServiceClient(
 
 Azure SDKs typically follow a three-level hierarchy:
 
-- **Service Client**: Entry point for service operations
+- **Service client**: Entry point for service operations:
 
   ```python
   service_client = BlobServiceClient(...)
   ```
 
-- **Resource Client**: Operations on specific resources
+- **Resource client**: Operations on specific resources:
 
   ```python
   container_client = service_client.get_container_client("container")
   ```
 
-- **Operation Methods**: Actions on resources
+- **Operation methods**: Actions on resources:
 
   ```python
   blob_client = container_client.get_blob_client("blob.txt")
@@ -284,7 +284,7 @@ Azure SDKs typically follow a three-level hierarchy:
 
 Method names follow predictable patterns:
 
-|Operation|Method Pattern|Example|
+|Operation|Method pattern|Example|
 |---|---|---|
 |Create|`create_<resource>`|`create_container()`|
 |Read|`get_<resource>`|`get_blob()`|
@@ -293,8 +293,7 @@ Method names follow predictable patterns:
 |List|`list_<resources>`|`list_blobs()`|
 |Exists|`exists()`|`blob_client.exists()`|
 
-
-## Working with Azure SDKs
+## Work with Azure SDKs
 
 The following example demonstrates how design guidelines create consistency across different Azure services:
 
@@ -337,17 +336,17 @@ except ResourceNotFoundError as e:
     print(f"Resource not found: {e}")
 ```
 
-## Contributing to Azure SDKs
+## Contribute to Azure SDKs
 
-When extending or contributing to Azure SDKs:
+When you extend or contribute to Azure SDKs:
 
-- **Follow Python idioms** - Use Pythonic patterns and conventions
-- **Maintain consistency** - Align with existing SDK patterns
-- **Write comprehensive tests** - Include unit and integration tests
-- **Document thoroughly** - Provide docstrings and examples
-- **Review guidelines** - Consult the Azure SDK Contribution Guide
+- **Follow Python idioms:** Use Pythonic patterns and conventions.
+- **Maintain consistency:** Align with existing SDK patterns.
+- **Write comprehensive tests:** Include unit and integration tests.
+- **Document thoroughly:** Provide docstrings and examples.
+- **Review guidelines:** Consult the Azure SDK Contribution Guide.
 
-Here's an example of implementing a custom client method that follows the Language Design Guidelines.
+Here's an example of implementing a custom client method that follows the Language Design Guidelines:
 
 ```python
 def list_items_with_prefix(self, prefix: str, **kwargs) -> ItemPaged[ItemProperties]:
@@ -365,7 +364,7 @@ def list_items_with_prefix(self, prefix: str, **kwargs) -> ItemPaged[ItemPropert
     return self.list_items(name_starts_with=prefix, **kwargs)
 ```
 
-## Next steps
+## Related content
 
-- Review the complete [Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/)
-- Read the [Azure SDK Releases page](https://azure.github.io/azure-sdk/releases/latest/python.html)
+- Review the complete [Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/).
+- Read the [Azure SDK Releases page](https://azure.github.io/azure-sdk/releases/latest/python.html).

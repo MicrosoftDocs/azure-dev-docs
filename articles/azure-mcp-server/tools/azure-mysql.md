@@ -14,7 +14,7 @@ ms.custom:
   - references_regions
 --- 
 
-# Azure Database for MySQL tools for Azure MCP Server
+# Azure Database for MySQL tools for Azure MCP Server overview
 
 Azure MCP Server enables you to manage Azure Database for MySQL servers, databases, and tables using natural language prompts. Simplify MySQL resource management without complex syntax.
 
@@ -248,3 +248,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Database for MySQL](/azure/mysql/)
