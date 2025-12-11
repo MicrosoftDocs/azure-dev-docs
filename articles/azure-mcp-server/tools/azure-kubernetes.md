@@ -8,10 +8,10 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
-ms.date: 11/17/2025
+ms.topic: concept-article
+ms.date: 12/05/2025
 ---
-# Azure Kubernetes Service tools for the Azure MCP Server
+# Azure Kubernetes Service tools for the Azure MCP Server overview
 
 Use the Azure MCP Server to manage Azure resources, including Azure Kubernetes Service (AKS) clusters, with natural language prompts. You can quickly manage your container workloads without remembering complex syntax.
 
@@ -33,9 +33,9 @@ Example prompts include:
 - **Cluster details with resource group**: "Show me the details of AKS cluster 'web-app-cluster' in resource group 'containers-rg'"
 - **Network configuration**: "Show me the network configuration for AKS cluster 'ml-workloads'"
 - **Detailed cluster info**: "What are the details of my AKS cluster 'dev-kubernetes' in 'development-rg'?"
-- **List all clusters**: "List all AKS clusters in my subscription"
-- **Show clusters**: "Show me my Azure Kubernetes Service clusters"
-- **Cluster inventory**: "What AKS clusters do I have?"
+- **List all clusters**: "List all AKS clusters in my subscription for cluster 'production-aks'"
+- **Show clusters**: "Show me Azure Kubernetes Service cluster 'web-app-cluster'"
+- **Cluster inventory**: "What is the status of AKS cluster 'dev-kubernetes'?"
 - **Production environment**: "Get configuration details for AKS cluster 'prod-aks-001' in resource group 'production'"
 - **Development setup**: "Show me the setup of AKS cluster 'staging-aks' in 'staging-resources'"
 - **Microservices cluster**: "What's the configuration of AKS cluster 'microservices-cluster' in 'apps-rg'?"

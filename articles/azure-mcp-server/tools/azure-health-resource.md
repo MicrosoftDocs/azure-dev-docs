@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure Health Resources tools for the Azure MCP Server
+# Azure Health Resources tools for the Azure MCP Server overview
 
 The Azure MCP Server enables you to monitor resource health and availability by using natural language prompts. With this capability, you can quickly check the status of your Azure resources without needing to remember complex command syntax.
 
@@ -88,3 +88,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Service Health](/azure/service-health/)

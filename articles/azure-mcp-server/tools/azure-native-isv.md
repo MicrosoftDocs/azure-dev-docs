@@ -5,12 +5,12 @@ keywords: azure mcp server, azmcp, native isv, datadog, partner solutions, monit
 author: diberry
 ms.author: diberry
 ms.date: 11/17/2025
-ms.topic: reference
+ms.topic: concept-article
 ms.service: azure
 ai-usage: ai-assisted
 ---
 
-# Azure Native ISV tools for Azure MCP Server
+# Azure Native ISV tools for Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure resources, including Azure Native ISV partner solutions, using natural language prompts. This enables you to quickly manage third-party services that are natively integrated with Azure without remembering complex syntax, improving productivity and reducing operational overhead.
 

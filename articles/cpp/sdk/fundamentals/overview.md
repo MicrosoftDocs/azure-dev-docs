@@ -19,15 +19,15 @@ The Azure SDK for C++ provides libraries for data plane operations but doesn't o
 
 ## Azure Core vs. other libraries
 
-The Azure Core ([`azure-core`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/index.html)) library provides fundamental functionalities that other libraries build on top of to provide specific functionalities for different Azure services. Developers need to understand the role of Azure Core to effectively use the SDK.
+The Azure Core ([`azure-core`](/cpp/api/overview/azure/core-readme)) library provides fundamental functionalities that other libraries build on top of to provide specific functionalities for different Azure services. Developers need to understand the role of Azure Core to effectively use the SDK.
 
-The main shared concepts of [`Azure::Core`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/namespace_azure.html) include:
+The main shared concepts of [`Azure::Core`](/cpp/api/azure-core/namespace_azure) include:
 
-- Handling streaming data and input/output (I/O) via [`BodyStream`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_i_o_1_1_body_stream.html) along with its derived types.
-- Accessing HTTP response details for the returned model of any SDK client operation, via [`Response<T>`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_response.html).
-- Polling long-running operations (LROs), via [`Operation<T>`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_operation.html).
-- Exceptions for reporting errors from service requests in a consistent fashion via the base exception type [`RequestFailedException`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_request_failed_exception.html).
-- Abstractions for Azure SDK credentials [`TokenCredential`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-core/latest/class_azure_1_1_core_1_1_credentials_1_1_token_credential.html).
+- Handling streaming data and input/output (I/O) via [`BodyStream`](/cpp/api/azure-core/class_azure_1_1_core_1_1_i_o_1_1_body_stream) along with its derived types.
+- Accessing HTTP response details for the returned model of any SDK client operation, via [`Response<T>`](/cpp/api/azure-core/class_azure_1_1_response).
+- Polling long-running operations (LROs), via [`Operation<T>`](/cpp/api/azure-core/class_azure_1_1_core_1_1_operation).
+- Exceptions for reporting errors from service requests in a consistent fashion via the base exception type [`RequestFailedException`](/cpp/api/azure-core/class_azure_1_1_core_1_1_request_failed_exception).
+- Abstractions for Azure SDK credentials [`TokenCredential`](/cpp/api/azure-core/class_azure_1_1_core_1_1_credentials_1_1_token_credential).
 - Replaceable HTTP transport layer to send requests and receive responses over the network.
 - HTTP pipeline and HTTP policies such as retry and logging, which are configurable via service client specific options.
 
@@ -37,7 +37,7 @@ The Azure SDK for C++ uses a consistent naming scheme: `azure-<group_name>-<serv
 
 ## Client objects
 
-Client objects in the Azure SDK for C++ are used to interact with Azure services. Each client object corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`BlobClient`](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/latest/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html) is used to interact with Azure Blob Storage.
+Client objects in the Azure SDK for C++ are used to interact with Azure services. Each client object corresponds to a specific Azure service and provides methods to perform operations on that service. For example, [`BlobClient`](/cpp/api/azure-storage-blobs/class_azure_1_1_storage_1_1_blobs_1_1_blob_client) is used to interact with Azure Blob Storage.
 
 ## Options parameter for client objects
 

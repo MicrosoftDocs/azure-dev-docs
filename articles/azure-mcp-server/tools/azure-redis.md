@@ -5,13 +5,13 @@ keywords: azure mcp server, azmcp, managed redis, cache for redis, redis cache, 
 author: diberry
 ms.author: diberry
 ms.date: 11/17/2025
-ms.topic: reference
+ms.topic: concept-article
 ms.service: azure
 ai-usage: ai-assisted
 ms.custom: build-2025
 ---
 
-# Azure Redis tools for Azure MCP Server
+# Azure Redis tools for Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure Redis instances using natural language prompts. You can create new Redis resources and list existing Redis resources without remembering complex syntax or commands.
 

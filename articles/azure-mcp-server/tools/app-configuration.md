@@ -4,14 +4,14 @@ description: "Learn how to use Azure MCP Server tools to manage Azure App Config
 keywords: azure mcp server, azmcp, app configuration
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure App Configuration tools for the Azure MCP Server
+# Azure App Configuration tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure resources, including App Configuration stores using natural language prompts. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
 
@@ -46,9 +46,9 @@ The Azure MCP Server can delete a [key-value setting](/azure/azure-app-configura
 Example prompts include:
 
 - **Delete a setting**: "Remove the 'AppName:TemporaryConfig' key from my 'myappconfigstore' App Configuration store."
-- **Delete a labeled setting**: "Delete the 'AppName:FeatureFlag' setting with label 'test'"
-- **Remove configuration**: "Delete the old database connection string from my 'contoso-appconfig'"
-- **Clean up settings**: "Delete all test settings with label 'deprecated'"
+- **Delete a labeled setting**: "Delete the 'AppName:FeatureFlag' setting with label 'test' from App Configuration store 'myappconfigstore'"
+- **Remove configuration**: "Delete the key 'ProductionEndpointUrl' from App Configuration store 'contoso-appconfig'"
+- **Clean up settings**: "Delete the key 'TestSettings' with label 'deprecated' from App Configuration store 'myappconfigstore'"
 - **Purge config**: "Delete the temporary API key 'TempAuth' from app-config-dev"
 
 | Parameter |  Required or optional | Description |
@@ -132,10 +132,10 @@ Set or update a [key-value setting](/azure/azure-app-configuration/concept-key-v
 Example prompts include:
 
 - **Create a setting**: "Create a new key 'AppName:ApiUrl' with value 'https://api.example.com' in my 'myappconfigstore' App Configuration store."
-- **Update a setting**: "Update the 'AppName:MaxRetries' setting to '5'"
+- **Update a setting**: "Update the key 'AppName:MaxRetries' to value '5' in App Configuration store 'myappconfigstore'"
 - **Create a labeled setting**: "Set 'AppName:LogLevel' with value 'Debug' and label 'dev' in my 'contoso-appconfig' App Configuration store."
 - **Add new config**: "Add a new setting called 'ApiEndpoint' with URL value 'https://api.contoso.com' to my 'eastus-config'"
-- **Change existing value**: "Change MaxThreads to 10 in appconfig-prod"
+- **Change existing value**: "Set key 'MaxThreads' to value '10' in App Configuration store 'appconfig-prod'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|

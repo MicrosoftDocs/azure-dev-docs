@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure Database for PostgreSQL tools for the Azure MCP Server
+# Azure Database for PostgreSQL tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure Database for PostgreSQL resources using natural language prompts. You can query databases, list tables, retrieve schemas, and more without remembering complex query syntax.
 
