@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 ---
-# Azure AI Search tools for the Azure MCP Server
+# Azure AI Search tools for the Azure MCP Server overview
 
 <!-- ai-search service list -->
 
