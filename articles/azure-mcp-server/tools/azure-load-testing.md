@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
 ms.date: 12/05/2025
+ms.topic: concept-article
 ---
 
-# Azure Load Testing tools for the Azure MCP Server
+# Azure Load Testing tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure resources, including Azure Load Testing services, using natural language prompts. This feature helps you quickly create and manage load tests without needing to remember complex syntax.
 

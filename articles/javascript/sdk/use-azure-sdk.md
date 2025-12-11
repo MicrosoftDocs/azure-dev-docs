@@ -2,7 +2,7 @@
 title: Use Azure client libraries for JavaScript
 description: To programmatically access your Azure services, use the Azure client libraries (SDKs) for JavaScript or TypeScript development.
 ms.topic: concept-article
-ms.date: 03/04/2025
+ms.date: 12/05/2025
 ms.custom: devx-track-js, devx-track-ts
 ---
 
@@ -51,9 +51,9 @@ The Azure client libraries require credentials [to authenticate to the Azure pla
 
 Once you programmatically create a credential, pass the credential to your Azure client. The client may require additional information such as a subscription ID or service endpoint. These values are available in the Azure portal, for your resource.
 
-The following code example uses the DefaultAzureCredential and the `arm` subscription client library to list subscriptions which this credential has access to read.
+The following code example uses `DefaultAzureCredential` and the [`@azure/arm-resources`](https://www.npmjs.com/package/@azure/arm-resources) client library to list resource groups which this credential has access to read.
 
-:::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="28,33" :::
+:::code language="TypeScript" source="~/../azure-sdk-for-js-docs/samples/identity/resources/src/list-resources.ts" highlight="13,14" :::
 
 ## Asynchronous paging of results
 

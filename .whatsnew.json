@@ -26,20 +26,40 @@
             "heading": "Ansible on Azure"
         },
         {
+            "names": ["github"],
+            "heading": "Azure and GitHub integration"
+        },
+        {
             "names": ["azure-developer-cli"],
             "heading": "Azure Developer CLI (azd)"
         },
         {
-            "names": ["azure-mcp-server"],
-            "heading": "Azure MCP Server"
-        },
-        {
-            "names": ["chef"],
-            "heading": "Chef Software on Azure"
-        },
-        {
             "names": ["cpp"],
             "heading": "Azure for C++"
+        },
+        {
+            "names": ["go"],
+            "heading": "Azure for Go"
+        },
+        {
+            "names": ["javascript"],
+            "heading": "Azure for JavaScript"
+        },
+        {
+            "names": ["java"],
+            "heading": "Azure for Java"
+        },
+        {
+            "names": ["python"],
+            "heading": "Azure for Python"
+        },
+        {
+            "names": ["rust"],
+            "heading": "Azure for Rust"
+        },
+        {
+            "names": ["azure-mcp-server"],
+            "heading": "Azure MCP Server"
         },
         {
             "names": ["dev-tunnels"],
@@ -54,14 +74,6 @@
             "heading": "GitHub Copilot for Azure"
         },
         {
-            "names": ["github"],
-            "heading": "Azure and GitHub integration"
-        },
-        {
-            "names": ["go"],
-            "heading": "Azure for Go"
-        },
-        {
             "names": ["iac"],
             "heading": "Infrastructure as Code"
         },
@@ -70,24 +82,8 @@
             "heading": "Introduction to Azure for developers"
         },
         {
-            "names": ["javascript"],
-            "heading": "Azure for JavaScript"
-        },
-        {
-            "names": ["java"],
-            "heading": "Azure for Java"
-        },
-        {
             "names": ["jenkins"],
             "heading": "Jenkins on Azure"
-        },
-        {
-            "names": ["python"],
-            "heading": "Azure for Python"
-        },
-        {
-            "names": ["rust"],
-            "heading": "Azure for Rust"
         },
         {
             "names": ["terraform"],
