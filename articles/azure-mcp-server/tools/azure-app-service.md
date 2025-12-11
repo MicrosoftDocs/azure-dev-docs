@@ -6,13 +6,13 @@ ms.service: azure-mcp-server
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 author: diberry
 ms.author: diberry
 ---
 
-# Azure App Service tools for Azure MCP Server
+# Azure App Service tools for Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure resources, including Azure App Service instances, using natural language prompts. This feature enables you to quickly manage your web applications without needing to remember complex syntax.
 

@@ -4,15 +4,15 @@ description: "Learn how to use Azure MCP Server with Azure Storage tools to mana
 keywords: azure mcp server, azmcp, storage account, blob storage
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/06/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
 
-# Azure Storage tools for the Azure MCP Server
+# Azure Storage tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts. You don't need to remember specific command syntax.
 
@@ -104,8 +104,8 @@ Example prompts include:
 
 - **Container details**: "Show me details about the 'documents' container in my 'mystorageaccount' storage account."
 - **Container info**: "Get properties of container 'images' in storage account 'media_files'."
-- **Container properties**: "What are the settings for my 'backups' container?"
-- **Container status**: "Check access policy for 'user_data' container."
+- **Container properties**: "What are the settings for container 'backups' in storage account 'mystorageaccount'?"
+- **Container status**: "Check access policy for container 'user_data' in storage account 'prodstore'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -167,3 +167,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Storage](/azure/storage/common/storage-introduction)

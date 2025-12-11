@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure Event Grid tools for the Azure MCP Server
+# Azure Event Grid tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure Event Grid resources using natural language prompts. You can list topics, view subscriptions, and more without remembering complex syntax.
 

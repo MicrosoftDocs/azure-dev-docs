@@ -4,15 +4,17 @@ description: Learn how to manage Azure Database for MySQL with Azure MCP Server 
 keywords: azure mcp server, azmcp, mysql
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: reference
-ms.custom: build-2025
+ms.custom: 
+  - build-2025
+  - references_regions
 --- 
 
-# Azure Database for MySQL tools for Azure MCP Server
+# Azure Database for MySQL tools for Azure MCP Server overview
 
 Azure MCP Server enables you to manage Azure Database for MySQL servers, databases, and tables using natural language prompts. Simplify MySQL resource management without complex syntax.
 
@@ -29,11 +31,11 @@ List all databases available on the specified Azure Database for MySQL Flexible 
 
 Example prompts include:
 
-- **List databases**: "List all databases on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Show databases**: "Show all databases on MySQL server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Filter by name**: "List databases on 'my-mysql-server' in resource group 'my-resource-group' that start with 'test'"
-- **List in resource group**: "List databases on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Show databases accessible by user**: "List databases accessible by user 'dbadmin' on server 'my-mysql-server' in resource group 'my-resource-group'"
+- **List databases**: "List all databases on server 'my-mysql-server' in resource group 'database-rg' with user 'dbadmin'"
+- **Show databases**: "Show all databases on MySQL server 'prod-mysql-server' in resource group 'prod-rg' with user 'appuser'"
+- **Filter by name**: "List databases on server 'dev-mysql-server' in resource group 'dev-rg' with user 'developer' that start with 'test'"
+- **List in resource group**: "List databases on server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'analyst'"
+- **Show databases accessible by user**: "List databases accessible by user 'readonly' on server 'report-mysql-server' in resource group 'reporting-rg'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -74,11 +76,11 @@ Execute a safe, read-only SQL SELECT query against a database on an Azure Databa
 
 Example prompts include:
 
-- **Run a query**: "Run SELECT id, name FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50 on database 'salesdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Count rows**: "Run SELECT COUNT(*) FROM orders WHERE status = 'completed' on database 'salesdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Filtered query**: "Run SELECT name FROM users WHERE created_at > '2025-01-01' ORDER BY created_at LIMIT 25 on database 'appdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Top products**: "Run SELECT product_id, SUM(quantity) AS total FROM sales WHERE sale_date >= '2025-01-01' GROUP BY product_id ORDER BY total DESC LIMIT 10 on database 'analytics' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Distinct values**: "Run SELECT DISTINCT category FROM products LIMIT 20 on database 'inventory' on server 'my-mysql-server' in resource group 'my-resource-group'"
+- **Run a query**: "Run query 'SELECT id, name FROM customers WHERE status = 'Active' ORDER BY name LIMIT 50' on database 'salesdb' on server 'prod-mysql-server' in resource group 'sales-rg' with user 'appuser'"
+- **Count rows**: "Run query SELECT COUNT(*) FROM orders WHERE status = 'completed' on database 'salesdb' on server 'prod-mysql-server' in resource group 'sales-rg' with user 'analyst'"
+- **Filtered query**: "Run query 'SELECT name FROM users WHERE created_at > '2025-01-01' ORDER BY created_at LIMIT 25' on database 'appdb' on server 'app-mysql-server' in resource group 'app-rg' with user 'developer'"
+- **Top products**: "Run query 'SELECT product_id, SUM(quantity) AS total FROM sales WHERE sale_date >= '2025-01-01' GROUP BY product_id ORDER BY total DESC LIMIT 10' on database 'analytics' on server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'analyst'"
+- **Distinct values**: "Run query 'SELECT DISTINCT category FROM products LIMIT 20' on database 'inventory' on server 'inventory-mysql-server' in resource group 'inventory-rg' with user 'readonly'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -100,11 +102,11 @@ Retrieves comprehensive configuration details for the specified Azure Database f
 
 Example prompts include:
 
-- **Get server config**: "Get configuration details for server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Show version and SKU**: "Show the MySQL engine version and SKU for server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Get backup retention**: "What is the backup retention period for server 'my-mysql-server' in resource group 'my-resource-group'?"
-- **Show storage allocation**: "Show storage allocation for server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Get full configuration**: "Get full configuration for server 'my-mysql-server' in resource group 'my-resource-group'"
+- **Get server config**: "Get configuration details for server 'prod-mysql-server' in resource group 'database-rg' with user 'dbadmin'"
+- **Show version and SKU**: "Show the MySQL engine version and SKU for server 'app-mysql-server' in resource group 'app-rg' with user 'developer'"
+- **Get backup retention**: "What is the backup retention period for server 'backup-mysql-server' in resource group 'backup-rg' with user 'backup-admin'?"
+- **Show storage allocation**: "Show storage allocation for server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'analyst'"
+- **Get full configuration**: "Get full configuration for server 'prod-mysql-server' in resource group 'prod-rg' with user 'sysadmin'"
 
 
 | Parameter |  Required or optional | Description |
@@ -125,11 +127,11 @@ List all Azure Database for MySQL Flexible Server instances within the specified
 
 Example prompts include:
 
-- **List servers**: "List all MySQL Flexible Server instances in resource group 'my-resource-group'"
-- **List servers in resource group**: "List MySQL servers in resource group 'my-resource-group'"
-- **Filter by region**: "Show MySQL servers in region 'eastus' in resource group 'my-resource-group'"
-- **Show server statuses**: "List servers along with their current status in resource group 'my-resource-group'"
-- **Find server by name**: "Find server named 'my-mysql-server' in resource group 'my-resource-group'"
+- **List servers**: "List all MySQL Flexible Server instances in resource group 'database-rg' with user 'dbadmin'"
+- **List servers in resource group**: "List MySQL servers in resource group 'prod-rg' with user 'sysadmin'"
+- **Filter by region**: "Show MySQL servers in region 'eastus' in resource group 'eastus-rg' with user 'operator'"
+- **Show server statuses**: "List servers along with their current status in resource group 'monitoring-rg' with user 'monitor'"
+- **Find server by name**: "Find server named 'prod-mysql-server' in resource group 'prod-rg' with user 'developer'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -148,11 +150,11 @@ Retrieve the current value of a single server configuration parameter on an Azur
 
 Example prompts include:
 
-- **Get parameter value**: "Get the value of `max_connections` for server `my-mysql-server` in resource group 'my-resource-group'"
-- **Check slow_query_log**: "Is `slow_query_log` enabled on server `my-mysql-server` in resource group 'my-resource-group'?"
-- **Get wait_timeout**: "Show the `wait_timeout` value for server `my-mysql-server` in resource group 'my-resource-group'"
-- **Show buffer pool size**: "Get `innodb_buffer_pool_size` for server `my-mysql-server` in resource group 'my-resource-group'"
-- **Retrieve parameter before change**: "Retrieve `max_allowed_packet` on server `my-mysql-server` in resource group 'my-resource-group' before update"
+- **Get parameter value**: "Get the value of parameter 'max_connections' for server 'prod-mysql-server' in resource group 'database-rg' with user 'dbadmin'"
+- **Check slow_query_log**: "Get parameter 'slow_query_log' on server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'analyst'"
+- **Get wait_timeout**: "Show the parameter 'wait_timeout' value for server 'app-mysql-server' in resource group 'app-rg' with user 'developer'"
+- **Show buffer pool size**: "Get parameter 'innodb_buffer_pool_size' for server 'prod-mysql-server' in resource group 'prod-rg' with user 'sysadmin'"
+- **Retrieve parameter before change**: "Retrieve parameter 'max_allowed_packet' on server 'perf-mysql-server' in resource group 'performance-rg' with user 'dba' before update"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -173,11 +175,11 @@ Sets or updates a MySQL server configuration parameter to a new value. Use this 
 
 Example prompts include:
 
-- **Set parameter**: "Set `max_connections` to 500 on server `my-mysql-server` in resource group 'my-resource-group'"
-- **Enable slow query log**: "Enable `slow_query_log` on server `my-mysql-server` in resource group 'my-resource-group'"
-- **Adjust timeout**: "Set `wait_timeout` to 300 on server `my-mysql-server` in resource group 'my-resource-group'"
-- **Increase buffer pool**: "Set `innodb_buffer_pool_size` to `2G` on server `my-mysql-server` in resource group 'my-resource-group'"
-- **Change max allowed packet**: "Set `max_allowed_packet` to `64M` on server `my-mysql-server` in resource group 'my-resource-group'"
+- **Set parameter**: "Set parameter 'max_connections' to value '500' on server 'prod-mysql-server' in resource group 'database-rg' with user 'dbadmin'"
+- **Enable slow query log**: "Set parameter 'slow_query_log' to value 'ON' on server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'dba'"
+- **Adjust timeout**: "Set parameter 'wait_timeout' to value '300' on server 'app-mysql-server' in resource group 'app-rg' with user 'sysadmin'"
+- **Increase buffer pool**: "Set parameter 'innodb_buffer_pool_size' to value '2G' on server 'prod-mysql-server' in resource group 'prod-rg' with user 'dba'"
+- **Change max allowed packet**: "Set parameter 'max_allowed_packet' to value '64M' on server 'perf-mysql-server' in resource group 'performance-rg' with user 'dbadmin'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -199,11 +201,11 @@ Enumerate all tables within a specified database on an Azure Database for MySQL 
 
 Example prompts include:
 
-- **List tables**: "List all tables in database 'salesdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Show tables**: "What tables exist in database 'inventory' on server 'my-mysql-server' in resource group 'my-resource-group'?"
-- **Filter tables**: "List tables starting with 'tmp_' in database 'appdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Count tables**: "How many tables are in database 'analytics' on server 'my-mysql-server' in resource group 'my-resource-group'?"
-- **Find table**: "Find table named 'orders' in database 'salesdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
+- **List tables**: "List all tables in database 'salesdb' on server 'prod-mysql-server' in resource group 'sales-rg' with user 'appuser'"
+- **Show tables**: "What tables exist in database 'inventory' on server 'inventory-mysql-server' in resource group 'inventory-rg' with user 'developer'?"
+- **Filter tables**: "List tables starting with 'tmp_' in database 'appdb' on server 'app-mysql-server' in resource group 'app-rg' with user 'developer'"
+- **Count tables**: "How many tables are in database 'analytics' on server 'analytics-mysql-server' in resource group 'analytics-rg' with user 'analyst'?"
+- **Find table**: "Find table 'orders' in database 'salesdb' on server 'sales-mysql-server' in resource group 'sales-rg' with user 'readonly'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -224,11 +226,11 @@ Retrieve detailed schema information for a specific table within an Azure Databa
 
 Example prompts include:
 
-- **Get table schema**: "Show schema for table 'orders' in database 'salesdb' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Get column list**: "List columns and data types for 'customers' in database 'crm' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Show index information**: "Show indexes for table 'transactions' in database 'billing' on server 'my-mysql-server' in resource group 'my-resource-group'"
-- **Find primary key**: "What is the primary key for table 'users' in database 'auth' on server 'my-mysql-server' in resource group 'my-resource-group'?"
-- **Show full definition**: "Get full table definition for 'inventory_items' in database 'inventory' on server 'my-mysql-server' in resource group 'my-resource-group'"
+- **Get table schema**: "Show schema for table 'orders' in database 'salesdb' on server 'sales-mysql-server' in resource group 'sales-rg' with user 'developer'"
+- **Get column list**: "List columns and data types for table 'customers' in database 'crm' on server 'crm-mysql-server' in resource group 'crm-rg' with user 'appuser'"
+- **Show index information**: "Show indexes for table 'transactions' in database 'billing' on server 'billing-mysql-server' in resource group 'billing-rg' with user 'analyst'"
+- **Find primary key**: "What is the primary key for table 'users' in database 'auth' on server 'auth-mysql-server' in resource group 'auth-rg' with user 'developer'?"
+- **Show full definition**: "Get full table definition for table 'inventory_items' in database 'inventory' on server 'inventory-mysql-server' in resource group 'inventory-rg' with user 'readonly'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -246,3 +248,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Database for MySQL](/azure/mysql/)
