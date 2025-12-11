@@ -16,7 +16,7 @@ ms.author: diberry
 
 This article describes the Terraform best practices for Azure tool available in Azure MCP Server. The tool provides guidance for implementing Infrastructure as Code (IaC) with Terraform in Azure environments.
 
-Terraform best practices for Azure helps you implement secure, scalable, and maintainable infrastructure configurations by using recommended patterns and practices from Microsoft.
+Terraform best practices for Azure help you implement secure, scalable, and maintainable infrastructure configurations by using recommended patterns and practices from Microsoft.
 
 ## Get best practices
 
