@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server allows you to manage Azure resources, including subscriptions, using natural language prompts. This server enables you to quickly list subscriptions without needing to remember complex syntax.
 
-provide a way to organize and manage access to Azure resources. Subscriptions are the foundation for resource management, billing, and access control in Azure.
+[Azure Subscriptions](/azure/cost-management-billing/manage/cloud-subscription) provide a way to organize and manage access to Azure resources. Subscriptions are the foundation for resource management, billing, and access control in Azure.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -38,4 +38,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Subscriptions](/azure/cost-management-billing/manage/cloud-subscription) 
+- [Azure Subscriptions](/azure/cost-management-billing/manage/cloud-subscription)
