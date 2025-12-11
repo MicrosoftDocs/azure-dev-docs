@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure App Configuration tools for the Azure MCP Server
+# Azure App Configuration tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure resources, including App Configuration stores using natural language prompts. This allows you to quickly manage configuration settings and feature flags without remembering complex syntax.
 

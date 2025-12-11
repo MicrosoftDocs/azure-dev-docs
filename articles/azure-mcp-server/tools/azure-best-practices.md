@@ -6,13 +6,13 @@ ms.service: azure-mcp-server
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 author: diberry
 ms.author: diberry
 ---
 
-# Azure best practices tools
+# Azure best practices tools for the Azure MCP Server overview
 
 This article describes the best practices tools in Azure MCP Server that provide guidance on Azure service usage, development, and deployment.
 
