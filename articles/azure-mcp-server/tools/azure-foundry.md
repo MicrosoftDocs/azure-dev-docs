@@ -3,14 +3,14 @@ title: Azure AI Foundry Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure AI Foundry to manage your AI models and deployments.
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ---
 
-# Azure AI Foundry tools for the Azure MCP Server
+# Azure AI Foundry tools for the Azure MCP Server overview
 
 The Azure MCP Server enables you to manage Azure resources, including Azure AI Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
 

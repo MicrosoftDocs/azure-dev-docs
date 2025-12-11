@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 ---
 
-# Azure Cloud Architect design tools for the Azure MCP Server
+# Azure Cloud Architect design tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure resources, including Azure Cloud Architect services, by using natural language prompts. This feature helps you quickly gather requirements and get architecture recommendations without having to remember complex syntax.
 
