@@ -4,7 +4,7 @@ description: "Learn how to use the Azure MCP Server with Azure Data Explorer. Qu
 keywords: azure mcp server, azmcp, kusto, azure data explorer, adx
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -77,11 +77,11 @@ The Azure MCP Server lists all databases in an Azure Data Explorer cluster.
 
 Example prompts include:
 
-- **List databases**: "Show me all databases in my Azure Data Explorer cluster."
+- **List databases**: "Show me all databases in Azure Data Explorer cluster 'analytics-cluster'."
 - **View databases**: "What databases do I have in my ADX cluster 'analytics-cluster'?"
-- **Check databases**: "List all databases in my Data Explorer cluster."
+- **Check databases**: "List all databases in Data Explorer cluster 'analytics-cluster'."
 - **Query databases**: "Show databases in Azure Data Explorer cluster URI 'https://mycluster.westus.kusto.windows.net'."
-- **Find databases**: "Get all databases from my ADX instance."
+- **Find databases**: "Get all databases from ADX cluster 'analytics-cluster'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -100,11 +100,11 @@ The Azure MCP Server lists all tables in a specific Azure Data Explorer database
 
 Example prompts include:
 
-- **List tables**: "Show me all tables in the 'logs' database of my Azure Data Explorer cluster."
-- **View tables**: "What tables do I have in database 'telemetry' in my ADX cluster?"
-- **Check tables**: "List all tables in Azure Data Explorer database 'analytics'."
-- **Query tables**: "Show tables in the 'metrics' database of my Data Explorer cluster."
-- **Find tables**: "Get all tables from 'events' database in my Azure Data Explorer instance."
+- **List tables**: "Show me all tables in the 'logs' database of Azure Data Explorer cluster 'analytics-cluster'."
+- **View tables**: "What tables do I have in database 'telemetry' in ADX cluster 'analytics-cluster'?"
+- **Check tables**: "List all tables in Azure Data Explorer database 'analytics' in cluster 'analytics-cluster'."
+- **Query tables**: "Show tables in the 'metrics' database of Data Explorer cluster 'analytics-cluster'."
+- **Find tables**: "Get all tables from 'events' database in Azure Data Explorer cluster 'analytics-cluster'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -124,11 +124,11 @@ The Azure MCP Server gets the schema of a specific table in an Azure Data Explor
 
 Example prompts include:
 
-- **View schema**: "Show me the schema of the 'Events' table in my Azure Data Explorer database."
-- **Get structure**: "What columns does the 'Metrics' table have in my ADX database?"
-- **Check schema**: "Describe the 'Logs' table in my Data Explorer database."
-- **View columns**: "Show columns and types for 'Telemetry' table in Azure Data Explorer."
-- **Examine table**: "Get the structure of 'Traces' table in my ADX database."
+- **View schema**: "Show me the schema of the 'Events' table in database 'logs' in Azure Data Explorer cluster 'analytics-cluster'."
+- **Get structure**: "What columns does the 'Metrics' table have in database 'telemetry' in ADX cluster 'analytics-cluster'?"
+- **Check schema**: "Describe the 'Logs' table in database 'logs' in Data Explorer cluster 'analytics-cluster'."
+- **View columns**: "Show columns and types for 'Telemetry' table in database 'telemetry' in Azure Data Explorer cluster 'analytics-cluster'."
+- **Examine table**: "Get the structure of 'Traces' table in database 'logs' in ADX cluster 'analytics-cluster'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -149,11 +149,11 @@ The Azure MCP Server retrieves a sample of data from a specified Azure Data Expl
 
 Example prompts include:
 
-- **Get sample data**: "Show me a sample of data from the 'Events' table in my Azure Data Explorer database."
-- **Preview table**: "Give me a preview of records from the 'Logs' table in my ADX database."
-- **View data examples**: "Show sample rows from 'Metrics' table in my Data Explorer database."
-- **Check data format**: "Get a few sample records from the 'Telemetry' table in Azure Data Explorer to see the data structure."
-- **Data exploration**: "Return 10 sample rows from 'UserActivity' table in my ADX cluster."
+- **Get sample data**: "Show me a sample of data from the 'Events' table in database 'logs' in Azure Data Explorer cluster 'analytics-cluster'."
+- **Preview table**: "Give me a preview of records from the 'Logs' table in database 'logs' in ADX cluster 'analytics-cluster'."
+- **View data examples**: "Show sample rows from 'Metrics' table in database 'telemetry' in Data Explorer cluster 'analytics-cluster'."
+- **Check data format**: "Get a few sample records from the 'Telemetry' table in database 'telemetry' in Azure Data Explorer cluster 'analytics-cluster' to see the data structure."
+- **Data exploration**: "Return 10 sample rows from 'UserActivity' table in database 'logs' in ADX cluster 'analytics-cluster'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -175,11 +175,11 @@ The Azure MCP Server executes a KQL query against an Azure Data Explorer databas
 
 Example prompts include:
 
-- **Run query**: "Execute 'Logs | where Timestamp > ago(1h) | count' in my Azure Data Explorer database."
-- **Query data**: "Run KQL query to find all errors in the last 24 hours in my ADX database."
-- **Fetch data**: "Get recent events from my Data Explorer database with query."
-- **Extract insights**: "Query user activity patterns from my Azure Data Explorer database."
-- **Analyze logs**: "Execute KQL to summarize performance metrics by service in my ADX database."
+- **Run query**: "Execute 'Logs | where Timestamp > ago(1h) | count' in database 'logs' in Azure Data Explorer cluster 'analytics-cluster'."
+- **Query data**: "Run KQL query 'Logs | where Level == "Error" and Timestamp > ago(24h)' to find all errors in the last 24 hours in database 'logs' in ADX cluster 'analytics-cluster'."
+- **Fetch data**: "Get recent events with query 'Events | take 100' from database 'logs' in Data Explorer cluster 'analytics-cluster'."
+- **Extract insights**: "Query user activity patterns with 'UserActivity | summarize count() by UserId' from database 'logs' in Azure Data Explorer cluster 'analytics-cluster'."
+- **Analyze logs**: "Execute KQL 'Metrics | summarize avg(Duration) by Service' to summarize performance metrics by service in database 'telemetry' in ADX cluster 'analytics-cluster'."
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
