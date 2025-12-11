@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Resource group tools for the Azure MCP Server
+# Resource group tools for the Azure MCP Server overview
 
 The Azure MCP Server allows you to manage Azure resource groups, providing foundational resource organization capabilities with natural language prompts. You can view your resource groups without needing to remember specific command syntax.
 
@@ -39,6 +39,6 @@ Example prompts include:
 
 ## Related content
 
-- [Subscription tools](subscription.md)
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Resource Groups](/azure/azure-resource-manager/management/overview)

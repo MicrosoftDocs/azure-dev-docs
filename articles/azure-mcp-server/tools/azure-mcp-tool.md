@@ -8,10 +8,10 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure MCP tools management for the Azure MCP Server
+# Azure MCP tools management for the Azure MCP Server overview
 
 The Azure MCP Server provides tools to discover and manage the available Azure tools within the server. You can list all available tools using natural language prompts without remembering specific command syntax.
 

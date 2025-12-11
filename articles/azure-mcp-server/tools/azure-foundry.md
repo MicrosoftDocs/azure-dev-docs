@@ -3,14 +3,14 @@ title: Azure AI Foundry Tools - Azure MCP Server
 description: Learn how to use the Azure MCP Server with Azure AI Foundry to manage your AI models and deployments.
 keywords: azure mcp server, azmcp, azure ai foundry, ai models, model deployment
 ms.service: azure-mcp-server
-ms.topic: reference
-ms.date: 11/17/2025
+ms.topic: concept-article
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ---
 
-# Azure AI Foundry tools for the Azure MCP Server
+# Azure AI Foundry tools for the Azure MCP Server overview
 
 The Azure MCP Server enables you to manage Azure resources, including Azure AI Foundry models and deployments, with natural language prompts. This capability helps you quickly manage your AI models without needing to remember complex syntax.
 
@@ -28,9 +28,9 @@ Connect to a specific Azure AI Agent and run a query. This command returns the a
 
 Example prompts include: 
 
-- **Connect to agent**: "Connect to agent 'support-bot' and ask about ticket status"
-- **Query specific agent**: "Ask agent 'sales-bot' for the latest sales report"
-- **Use context**: "Connect to agent 'hr-bot' with context from the last conversation"
+- **Connect to agent**: "Connect to agent 'support-bot' and ask 'What is the status of ticket #12345?' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project'"
+- **Query specific agent**: "Ask agent 'sales-bot' for the latest sales report with query 'Show me this month's revenue' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales'"
+- **Use context**: "Connect to agent 'hr-bot' with query 'What are the benefits options?' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -73,20 +73,20 @@ Run agent evaluation on agent data. Requires JSON strings for query, response, a
 
 Example prompts include:
 
-- **Evaluate task adherence**: "Evaluate the full query and response I got from my agent for task_adherence"
-- **Check intent resolution**: "Evaluate my agent's response for intent_resolution using the query about pricing plans"
-- **Verify tool accuracy**: "Analyze the tool_call_accuracy of my sales-bot's response to the customer inquiry"
-- **Assess agent performance**: "Evaluate my support agent's response to the technical issue query using task_adherence"
-- **Comprehensive evaluation**: "Run an evaluation on my HR agent's handling of the employee onboarding query with all the response data"
+- **Evaluate task adherence**: "Evaluate the query 'What are the refund policies?' for task_adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' using Azure OpenAI deployment 'gpt-4'"
+- **Check intent resolution**: "Evaluate the query 'What pricing plans do you offer?' for intent_resolution at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales' using Azure OpenAI deployment 'gpt-4'"
+- **Verify tool accuracy**: "Analyze tool_call_accuracy for query 'Check inventory for item 5678' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales-bot' using Azure OpenAI deployment 'gpt-35-turbo'"
+- **Assess agent performance**: "Evaluate query 'My app won't start' for task_adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support' using Azure OpenAI deployment 'gpt-4'"
+- **Comprehensive evaluation**: "Run evaluation on query 'What documents do I need for onboarding?' for task_adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept' using Azure OpenAI deployment 'gpt-4'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
+| **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
+| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 | **Query** |  Required | The query sent to the agent. |
 | **Evaluator** |  Required | The name of the evaluator to use (`intent_resolution`, `tool_call_accuracy`, `task_adherence`). |
 | **Response** |  Optional | The response from the agent. |
 | **Tool Definitions** |  Optional | Optional tool definitions made by the agent in JSON format. |
-| **Endpoint** |  Required |  The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>`. |
-| **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model to be used in evaluation. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -121,11 +121,11 @@ List all Azure AI Agents in an Azure AI Foundry project. Shows agents that can b
 
 Example prompts include:
 
-- **View all agents**: "Show me all agents in Azure AI Foundry"
-- **List by project**: "List all AI agents in my 'customer-service' project"
-- **Check available agents**: "What agents do I have configured in my Azure AI Foundry account?"
-- **Agent inventory**: "I need a complete list of all the agents in my Azure AI environment"
-- **Find specific agents**: "Show me all chatbot agents available in my Azure AI Foundry resource"
+- **View all agents**: "Show me all agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
+- **List by project**: "List all AI agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/customer-service'"
+- **Check available agents**: "What agents do I have at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'?"
+- **Agent inventory**: "I need a complete list of agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
+- **Find specific agents**: "Show me all chatbot agents at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -143,20 +143,21 @@ Query an agent and evaluate its response in a single operation. This command ret
 
 Example prompts include:
 
-- **Query and evaluate**: "Query agent 'support-bot' about ticket status and evaluate task adherence"
-- **Single operation**: "Ask agent 'sales-bot' for the latest sales report and check intent resolution"
-- **Combined action**: "Connect to agent 'hr-bot', ask about onboarding, and evaluate tool call accuracy"
-- **Full cycle**: "Query 'marketing-bot' for campaign ideas and evaluate the response for task adherence"
-- **End-to-end check**: "Ask 'devops-bot' about deployment status and evaluate intent resolution"
+- **Query and evaluate**: "Query agent 'support-bot' with 'What is ticket 123 status?' and evaluate task adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-project' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
+- **Single operation**: "Ask agent 'sales-bot' query 'Show monthly revenue' and check intent resolution at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/sales' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
+- **Combined action**: "Connect to agent 'hr-bot' with query 'What is the onboarding process?' and evaluate tool call accuracy at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/hr-dept' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-35-turbo'"
+- **Full cycle**: "Query agent 'marketing-bot' with 'Suggest campaign ideas' and evaluate task adherence at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/marketing' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
+- **End-to-end check**: "Ask agent 'devops-bot' query 'What is deployment status?' and evaluate intent resolution at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/devops' using Azure OpenAI endpoint 'https://my-openai.openai.azure.com' and deployment 'gpt-4'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Agent ID** |  Required | The ID of the agent to interact with. |
-| **Query** |  Required | The query sent to the agent. |
 | **Endpoint** |  Required | The endpoint URL for the Azure AI Foundry project or service in the format `https://<resource>.services.ai.azure.com/api/projects/<project-name>` |
-| **Evaluators** |  Optional | The list of evaluators to use for evaluation, separated by commas. If not specified, all evaluators are used. |
 | **Azure OpenAI Endpoint** |  Required | The endpoint URL for the Azure OpenAI service to be used in evaluation. |
 | **Azure OpenAI Deployment** |  Required | The deployment name for the Azure OpenAI model.|
+| **Agent ID** |  Required | The ID of the agent to interact with. |
+| **Query** |  Required | The query sent to the agent. |
+| **Evaluators** |  Optional | The list of evaluators to use for evaluation, separated by commas. If not specified, all evaluators are used. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -174,11 +175,11 @@ Get a list of knowledge indexes from Azure AI Foundry:
 
 Example prompts include: 
 
-- **View all indexes**: "Show me all knowledge indexes in Azure AI Foundry"
-- **Filter by project**: "List knowledge indexes in the 'support-bot' project"
-- **Search by name**: "Find the knowledge index named 'product-faqs'"
-- **Filter by tag**: "List knowledge indexes tagged with 'security' or 'onboarding'"
-- **Show index details**: "Show details for the 'customer-service' knowledge index, including document count and last updated date"
+- **View all indexes**: "Show me all knowledge indexes at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
+- **Filter by project**: "List knowledge indexes at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/support-bot'"
+- **Search by name**: "Find the knowledge index named 'product-faqs' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
+- **Filter by tag**: "List knowledge indexes tagged with 'security' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
+- **Show index details**: "Show details for the 'customer-service' knowledge index at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -198,7 +199,7 @@ This operation shows you comprehensive information about the structure and confi
 
 
 Example prompts include:
-- **View index schema**: "Show me the schema for the knowledge index 'product-facts'"
+- **View index schema**: "Show me the schema for knowledge index 'product-facts' at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -275,11 +276,11 @@ List model deployments in an Azure AI Foundry (Cognitive Services) project. Show
 
 Example prompts include:
 
-- **List deployments on production**: "Show me all model deployments on my https://my-example-resource.openai.azure.com endpoint"
-- **Check specific endpoint**: "What models are currently deployed to the https://my-example-resource.openai.azure.com endpoint?"
-- **View regional deployments**: "List all deployments in my https://my-example-resource.openai.azure.com endpoint"
-- **Check deployment status**: "Show me the status of all models deployed to our https://my-example-resource.openai.azure.com endpoint"
-- **See active models**: "What AI models are running on our https://my-example-resource.openai.azure.com endpoint right now?"
+- **List deployments on production**: "Show me all model deployments at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/production'"
+- **Check specific endpoint**: "What models are currently deployed to endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'?"
+- **View regional deployments**: "List all deployments at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/west-region'"
+- **Check deployment status**: "Show me the status of all models deployed to endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project'"
+- **See active models**: "What AI models are running at endpoint 'https://my-example-resource.services.ai.azure.com/api/projects/my-project' right now?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -297,7 +298,7 @@ Example prompts include:
 
 Example prompts include:
 
-- **Simple greeting**: "Create a chat completion with the message 'Hello, how are you today?'"
+- **Simple greeting**: "Create a chat completion with message array '[{\"role\":\"user\",\"content\":\"Hello, how are you today?\"}]' using deployment 'gpt-35-turbo' on resource 'openai-prod'"
 - **With system message**: "Create a chat completion with system message 'You are a helpful assistant' and user message 'Explain quantum computing' using deployment 'gpt-35-turbo' on resource 'openai-west'"
 - **Control creativity**: "Generate a chat completion for 'Write a creative story' using deployment 'gpt-4' with temperature 0.8 and max 150 tokens on resource 'ai-central'"
 - **Deterministic response**: "Create chat completion with message 'List 5 facts about Mars' using deployment 'gpt-35-turbo' with temperature 0.1 and seed 12345 on resource 'ai-services-prod'"

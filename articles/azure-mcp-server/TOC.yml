@@ -154,3 +154,13 @@ items:
       href: tools/index.md
     - name: Troubleshooting
       href: https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/TROUBLESHOOTING.md
+    - name: Host MCP servers on Azure
+      items:
+        - name: Azure Container Apps hosting custom MCP servers with .NET
+          href: ../ai/build-openai-mcp-server-dotnet.md
+        - name: Azure Container Apps hosting custom MCP server with TypeScript
+          href: ../ai/build-mcp-server-ts.md
+        - name: Azure Functions MCP trigger
+          href: https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059
+        - name: Azure App Service remote MCP server
+          href: https://techcommunity.microsoft.com/blog/appsonazureblog/host-remote-mcp-servers-in-azure-app-service/4405082

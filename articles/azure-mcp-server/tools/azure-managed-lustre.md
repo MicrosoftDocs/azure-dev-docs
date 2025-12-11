@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 ---
 
-# Azure Managed Lustre tools for Azure MCP Server
+# Azure Managed Lustre tools for Azure MCP Server overview
 
 Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
 

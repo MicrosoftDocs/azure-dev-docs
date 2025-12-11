@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 ---
 
-# Azure App Lens tools for the Azure MCP Server
+# Azure App Lens tools for the Azure MCP Server overview
 
 The Azure MCP Server helps you manage Azure resources, including Azure App Lens, using natural language prompts. This feature enables you to quickly manage your application performance and insights without needing to remember complex syntax.
 
