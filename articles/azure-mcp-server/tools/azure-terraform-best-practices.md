@@ -6,13 +6,13 @@ ms.service: azure-mcp-server
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 author: diberry
 ms.author: diberry
 ---
 
-# Terraform best practices for Azure tools
+# Terraform best practices for Azure tools for the Azure MCP Server overview
 
 This article describes the Terraform best practices for Azure tool available in Azure MCP Server. The tool provides guidance for implementing Infrastructure as Code (IaC) with Terraform in Azure environments.
 
