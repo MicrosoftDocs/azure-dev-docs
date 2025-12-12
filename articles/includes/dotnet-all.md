@@ -422,13 +422,13 @@
 | System Net Client Model | NuGet [1.0.0-beta.1](https://www.nuget.org/packages/System.Net.ClientModel/1.0.0-beta.1) |  |  |
 | Unknown Display Name | NuGet [0.13.0](https://www.nuget.org/packages/Azure.Iot.Operations.Connector/0.13.0) |  |  |
 | Unknown Display Name | NuGet [0.1.0](https://www.nuget.org/packages/Azure.Iot.Operations.Templates/0.1.0) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp/2.0.0-beta.7) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/2.0.0-beta.7) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-x64/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp.linux-x64/2.0.0-beta.7) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/2.0.0-beta.7) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-x64/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp.osx-x64/2.0.0-beta.7) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-arm64/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp.win-arm64/2.0.0-beta.7) |  |  |
-| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-x64/1.0.0)<br>NuGet [2.0.0-beta.7](https://www.nuget.org/packages/Azure.Mcp.win-x64/2.0.0-beta.7) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp/2.0.0-beta.8) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp.linux-arm64/2.0.0-beta.8) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.linux-x64/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp.linux-x64/2.0.0-beta.8) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp.osx-arm64/2.0.0-beta.8) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.osx-x64/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp.osx-x64/2.0.0-beta.8) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-arm64/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp.win-arm64/2.0.0-beta.8) |  |  |
+| Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Mcp.win-x64/1.0.0)<br>NuGet [2.0.0-beta.8](https://www.nuget.org/packages/Azure.Mcp.win-x64/2.0.0-beta.8) |  |  |
 | Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Monitor.Query.Logs/1.0.0) |  |  |
 | Unknown Display Name | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Monitor.Query.Metrics/1.0.0) |  |  |
 | Unknown Display Name | NuGet [0.1.4-preview.2](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Aot/0.1.4-preview.2) |  |  |
@@ -497,8 +497,9 @@
 | LUIS Authoring | NuGet [3.1.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/3.1.0)<br>NuGet [3.2.0-preview.5](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/3.2.0-preview.5) |  | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring_3.2.0-preview.3/sdk/cognitiveservices/Language.LUIS.Authoring) |
 | LUIS Runtime | NuGet [3.1.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/3.1.0-preview.1) |  | GitHub [3.1.0-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime_3.1.0-preview.1/sdk/cognitiveservices/Language.LUIS.Runtime) |
 | Media Live Video Analytics Edge | NuGet [1.0.4-preview.1](https://www.nuget.org/packages/Microsoft.Azure.Media.LiveVideoAnalytics.Edge/1.0.4-preview.1) |  | GitHub [1.0.4-preview.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Media.LiveVideoAnalytics.Edge_1.0.4-preview.1/sdk/mediaservices/Microsoft.Azure.Media.LiveVideoAnalytics.Edge) |
+| Microsoft Service Fabric | NuGet [11.3.475](https://www.nuget.org/packages/Microsoft.ServiceFabric/11.3.475) | [docs](/dotnet/api/overview/azure/service-fabric) |  |
 | Microsoft.Azure.Amqp | NuGet [2.7.0](https://www.nuget.org/packages/Microsoft.Azure.Amqp/2.7.0) |  |  |
-| Microsoft.Azure.Devices | NuGet [1.40.0](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.40.0)<br>NuGet [2.0.0-preview007](https://www.nuget.org/packages/Microsoft.Azure.Devices/2.0.0-preview007) |  |  |
+| Microsoft.Azure.Devices | NuGet [1.41.0](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.41.0)<br>NuGet [2.0.0-preview007](https://www.nuget.org/packages/Microsoft.Azure.Devices/2.0.0-preview007) |  |  |
 | Microsoft.Azure.Devices.Authentication | NuGet [2.0.0-preview001](https://www.nuget.org/packages/Microsoft.Azure.Devices.Authentication/2.0.0-preview001) |  |  |
 | Microsoft.Azure.Devices.Client.PCL | NuGet [1.0.16](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client.PCL/1.0.16) |  |  |
 | Microsoft.Azure.Devices.ProtocolGateway.Core | NuGet [2.0.1](https://www.nuget.org/packages/Microsoft.Azure.Devices.ProtocolGateway.Core/2.0.1) |  |  |
@@ -545,7 +546,7 @@
 | Functions extension for Application Insights | NuGet [1.0.0-preview4](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/1.0.0-preview4) |  |  |
 | Functions extension for Azure Mobile Apps | NuGet [3.0.0-beta8](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/3.0.0-beta8) |  | GitHub [3.0.0-beta8](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v3.0.0-beta8/src/WebJobs.Extensions.MobileApps) |
 | Functions extension for Azure SQL and SQL Server | NuGet [3.1.527](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/3.1.527) |  |  |
-| Functions extension for Cosmos DB | NuGet [4.13.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.13.0) |  | GitHub [4.13.0](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/cosmos-v3.0.7/src/WebJobs.Extensions.CosmosDB) |
+| Functions extension for Cosmos DB | NuGet [4.14.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.14.0) |  | GitHub [4.14.0](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/cosmos-v3.0.7/src/WebJobs.Extensions.CosmosDB) |
 | Functions extension for DocumentDB | NuGet [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.3.0) |  | GitHub [1.3.0](https://github.com/Azure/azure-webjobs-sdk-extensions) |
 | Functions extension for Durable Task Framework | NuGet [3.8.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.8.0) | [docs](/dotnet/api/overview/azure/functions) | GitHub [3.8.0](https://github.com/Azure/azure-functions-durable-extension/tree/v2.2.2/src/WebJobs.Extensions.DurableTask) |
 | Functions extension for Durable Task Framework - isolated worker | NuGet [1.10.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.10.0) |  |  |
