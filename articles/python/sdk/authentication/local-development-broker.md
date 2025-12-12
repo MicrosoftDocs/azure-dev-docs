@@ -165,7 +165,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
        parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
    )
    ```
-3. Use the `credential` to access the Azure Service, which is Blob Storage in this example.
+3. Use the `credential` to access the Azure service, which is Blob Storage in this example.
 
 Here's the final code example:
 
