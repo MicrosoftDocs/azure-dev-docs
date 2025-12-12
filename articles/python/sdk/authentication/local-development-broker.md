@@ -106,7 +106,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
    pip install azure-identity-broker msal
    ```
 
-2. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. This requires you to get a reference to the parent window on top of which the account picker dialog should appear (provided by the `msal` constant). In the code example below, that will be the line:
+2. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. This requires you to get a reference to the parent window on top of which the account picker dialog should appear (provided by the `msal` module). In the code example below, that will be the line:
 
    ```python
    credential = InteractiveBrowserBrokerCredential(
@@ -158,7 +158,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
    pip install azure-identity-broker msal
    ```
 
-2. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. This requires you to get a reference to the parent window on top of which the account picker dialog should appear (provided by the `msal` constant). In the code example below, that will be the line:
+2. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. This requires you to get a reference to the parent window on top of which the account picker dialog should appear (provided by the `msal` module). In the code example below, that will be the line:
 
    ```python
    credential = InteractiveBrowserBrokerCredential(
