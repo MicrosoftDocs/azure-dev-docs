@@ -26,7 +26,7 @@ The Azure MCP Server lets you manage Azure Storage resources, including storage 
 
 Create a new Azure Storage account.
 
-**Prerequisites**: [Global parameters](index.md#tool-parameters) (subscription, resource group) are established through conversation context. Caller must have Storage Account Contributor role or equivalent permissions on the target subscription.
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, resource group). Caller must have Storage Account Contributor role or equivalent permissions on the target subscription.
 
 Example prompts include:
 
@@ -36,9 +36,9 @@ Example prompts include:
 
 | Parameter | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Storage account** |  Required | The globally unique name of the Azure Storage account (3-24 characters, lowercase letters and numbers only). |
-| **Location** |  Required | The Azure region where the storage account will be created (for example, `eastus`, `westus2`). |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
+| **Storage account** |  Required |The globally unique name of the Azure Storage account (3-24 characters, lowercase letters, and numbers only). |
+| **Location** |  Required | The Azure region where Azure creates the storage account (for example, `eastus`, `westus2`). |
 | **SKU** |  Optional | The storage account SKU. Valid values: `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_ZRS`, `Premium_LRS`, `Premium_ZRS`, `Standard_GZRS`, `Standard_RAGZRS`. |
 | **Access tier** |  Optional | The default access tier for blob storage. Valid values: `Hot`, `Cool`. |
 | **Enable hierarchical namespace** |  Optional | Whether to enable hierarchical namespace (Data Lake Storage Gen2) for the storage account. |
@@ -53,9 +53,9 @@ Example prompts include:
 
 <!-- storage account get -->
 
-Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If a specific account name isn't provided, returns details for all accounts in the subscription.
+Retrieves detailed information about Azure Storage accounts, including account name, location, SKU, kind, hierarchical namespace status, HTTPS-only settings, and blob public access configuration. If you don't provide a specific account name, the tool returns details for all accounts in the subscription.
 
-**Prerequisites**: [Global parameters](index.md#tool-parameters) (subscription, authentication) are established through conversation context. Caller must have Storage Account Reader role or equivalent permissions.
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Account Reader role or equivalent permissions.
 
 Example prompts include:
 
@@ -67,7 +67,7 @@ Example prompts include:
 |-----------|----------|-------------|
 | **Storage account** | Optional | The globally unique name of the Azure Storage account (for example, 'mystorageaccount'). |
 
-**Success verification**: Returns JSON with storage account properties or a list of all accounts if no name specified.
+**Success verification**: Returns JSON with storage account properties or a list of all accounts if you don't specify a name.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -79,7 +79,7 @@ Example prompts include:
 
 Create a blob container with optional blob public access.
 
-**Prerequisites**: [Global parameters](index.md#tool-parameters) (subscription, authentication) are established through conversation context. Caller must have Storage Blob Data Contributor role or equivalent on the storage account.
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Contributor role or equivalent on the storage account.
 
 Example prompts include:
 
@@ -104,7 +104,7 @@ Example prompts include:
 
 List all blob containers in a storage account or show details for a specific container. Displays container properties including access policies, lease status, and metadata.
 
-**Prerequisites**: [Global parameters](index.md#tool-parameters) (subscription, authentication) are established through conversation context. Caller must have Storage Blob Data Reader role or equivalent on the storage account.
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Reader role or equivalent on the storage account.
 
 Example prompts include:
 
@@ -115,9 +115,9 @@ Example prompts include:
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Storage account** | Required | The globally unique name of the Azure Storage account. |
-| **Container** | Optional | The name of the container. If not specified, lists all containers in the storage account. |
+| **Container** | Optional | The name of the container. If you don't specify a name, the tool lists all containers in the storage account. |
 
-**Success verification**: Returns JSON with container properties or a list of all containers if no name specified.
+**Success verification**: Returns JSON with container properties or a list of all containers if you don't specify a name.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -129,7 +129,7 @@ Example prompts include:
 
 List blobs in a container or get details for a specific blob. Shows blob properties including metadata, size, last modification time, and content properties.
 
-**Prerequisites**: [Global parameters](index.md#tool-parameters) (subscription, authentication) are established through conversation context. Caller must have Storage Blob Data Reader role or equivalent on the storage account.
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Reader role or equivalent on the storage account.
 
 Example prompts include:
 
@@ -141,9 +141,9 @@ Example prompts include:
 |-----------------------------|----------------------|-------------|
 | **Storage account** | Required | The globally unique name of the Azure Storage account (for example, 'mystorageaccount'). |
 | **Container** | Required | The name of the container within the storage account. |
-| **Blob** | Optional | The name of the blob within the container, including the full path (for example, `file.txt` or `folder/file.txt`). If not specified, lists all blobs in the container. |
+| **Blob** | Optional | The name of the blob within the container, including the full path (for example, `file.txt` or `folder/file.txt`). If you don't specify a name, the tool lists all blobs in the container. |
 
-**Success verification**: Returns JSON with blob properties or a list of all blobs if no name specified.
+**Success verification**: Returns JSON with blob properties or a list of all blobs if you don't specify a name.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -153,9 +153,9 @@ Example prompts include:
 
 <!-- storage blob upload -->
 
-Uploads a local file to a blob in Azure Storage if it does not exist.
+Uploads a local file to a blob in Azure Storage if the blob doesn't exist.
 
-**Prerequisites**: [Global parameters](index.md#tool-parameters) (subscription, authentication) are established through conversation context. Caller must have Storage Blob Data Contributor role or equivalent on the storage account. Local file must exist and be accessible.
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Blob Data Contributor role or equivalent on the storage account. Local file must exist and be accessible.
 
 Example prompts include:
 
@@ -169,7 +169,7 @@ Example prompts include:
 | **Blob** | Required | The name of the blob within the container, including the full path (for example, `file.txt` or `folder/file.txt`). |
 | **Local file path** | Required | The full path to the local file on your system. |
 
-**Success verification**: The tool returns returning the last modified time, ETag, and content hash of the uploaded blob.
+**Success verification**: The tool returns the last modified time, ETag, and content hash of the uploaded blob.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
