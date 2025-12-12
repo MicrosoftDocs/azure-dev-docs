@@ -59,7 +59,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
    credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
    ```
 
-4. Use the `credential` to access the Azure Service, which is Blob Storage in this example.
+4. Use the `credential` to access the Azure service, which is Blob Storage in this example.
 
 Here's the final code example:
 
