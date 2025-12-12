@@ -110,7 +110,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
 
    ```python
    credential = InteractiveBrowserBrokerCredential(
-    parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
+       parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
    )
    ```
 3. Use the `credential` to access the Azure Service, which is Blob Storage in this example.
