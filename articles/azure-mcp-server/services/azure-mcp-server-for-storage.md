@@ -86,58 +86,6 @@ Upload, download, list, and inspect blobs within containers.
 
 For detailed information about each tool, including parameters and examples, see [Azure Storage tools for Azure MCP Server](../tools/azure-storage.md).
 
-## Example scenarios for Azure Storage customers
-
-Here are practical ways Azure Storage customers use the Azure MCP Server:
-
-### Set up storage for a new project
-
-**Challenge**: Your team needs a new storage account with specific security and redundancy requirements, but navigating the portal's many options is time-consuming.
-
-**How Azure MCP Server helps**: Describe your requirements in plain language, and the AI assistant creates the storage account with the correct SKU, access tier, and security settings.
-
-**Example conversation**:
-
-> **You**: "Create a storage account called 'projectdata2025' in eastus with locally redundant storage and hot access tier"
-> 
-> **AI Assistant**: "I'll create the storage account with Standard_LRS SKU and hot access tier in the eastus region. The account will be created in your current resource group with secure defaults enabled."
-
-### Investigate unexpected storage costs
-
-**Challenge**: Your monthly storage bill increased significantly, but you're not sure which accounts or containers are responsible for the increase.
-
-**How Azure MCP Server helps**: Query your storage accounts to compare configurations, analyze blob counts, and identify accounts with expensive SKUs or access tiers without manually checking each one in the portal.
-
-**Example conversation**:
-
-> **You**: "Show me all storage accounts in my subscription and their SKUs"
-> 
-> **AI Assistant**: "You have 5 storage accounts. I notice 'archivedata' is using Premium_LRS which is significantly more expensive than Standard_LRS. The account contains 12 containers. Would you like to review its usage patterns?"
-
-### Troubleshoot container access issues
-
-**Challenge**: A team member reports they can't access blobs in a container, but you're not sure if it's a permission issue or configuration problem.
-
-**How Azure MCP Server helps**: Quickly check container properties, access levels, and blob listings to diagnose the issue without switching between multiple portal pages or running multiple CLI commands.
-
-**Example conversation**:
-
-> **You**: "What's the access level of the 'reports' container in the 'companydata' storage account?"
-> 
-> **AI Assistant**: "The 'reports' container has private access level, which requires authentication. The team member needs either Storage Blob Data Reader role or you can change the container to blob-level public access if appropriate for your security requirements."
-
-### Organize and upload project files
-
-**Challenge**: You need to upload multiple files to blob storage and organize them in a specific container structure, but the portal upload interface is cumbersome for bulk operations.
-
-**How Azure MCP Server helps**: Create containers and upload files using natural language commands, allowing you to organize your storage structure conversationally without repetitive portal clicks.
-
-**Example conversation**:
-
-> **You**: "Create a container called 'deployment-logs' in my 'prodlogs' storage account and upload the file './logs/app.log' to it"
-> 
-> **AI Assistant**: "I've created the 'deployment-logs' container with private access and uploaded 'app.log' successfully. The blob is now available at the path 'deployment-logs/app.log'."
-
 ## Get started
 
 Ready to use Azure MCP Server with your Azure Storage resources?

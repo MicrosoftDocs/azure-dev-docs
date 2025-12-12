@@ -78,58 +78,6 @@ List and review all Redis resources in your subscription, including Azure Manage
 
 For detailed information about each tool, including parameters and examples, see [Azure Redis tools for Azure MCP Server](../tools/azure-redis.md).
 
-## Example scenarios for Azure Redis users
-
-Here are practical ways Azure Redis users use the Azure MCP Server:
-
-### Set up Redis for a new application
-
-**Challenge**: Your development team needs a new Redis cache for a microservice application, but navigating the Azure portal's creation wizard with its many configuration options takes time.
-
-**How Azure MCP Server helps**: Describe your Redis requirements in plain language, and the AI assistant creates the cache with the appropriate SKU and modules without manual form filling.
-
-**Example conversation**:
-
-> **You**: "Create a Redis resource named 'app-cache-dev' in eastus with SKU Balanced_B1 and enable RedisJSON module"
-> 
-> **AI Assistant**: "I'll create the Redis resource 'app-cache-dev' in eastus region with Balanced_B1 SKU and RedisJSON module enabled. This will take a few minutes to provision. Would you like me to notify you when it's ready?"
-
-### Audit Redis resources across environments
-
-**Challenge**: You need to review all Redis caches across your organization's subscriptions to identify unused resources and optimize costs, but manually checking each subscription is tedious.
-
-**How Azure MCP Server helps**: Query all Redis resources in one conversational request and review the complete inventory without switching between subscriptions or resource groups.
-
-**Example conversation**:
-
-> **You**: "List all Redis resources in my subscription"
-> 
-> **AI Assistant**: "You have 8 Redis resources: 4 Azure Managed Redis instances, 3 Azure Cache for Redis, and 1 Azure Redis Enterprise. I notice 2 instances in the 'dev-rg' resource group that haven't been accessed in 30 days. Would you like to review them for potential cleanup?"
-
-### Provision Redis caches for multiple regions
-
-**Challenge**: You're deploying a globally distributed application and need to provision Redis caches in multiple Azure regions with consistent configurations.
-
-**How Azure MCP Server helps**: Create multiple Redis resources through conversation, specifying different locations while maintaining consistent SKU and module settings.
-
-**Example conversation**:
-
-> **You**: "Create Redis resources named 'api-cache-eastus' in eastus and 'api-cache-westus' in westus2, both with Balanced_B1 SKU and RedisBloom module"
-> 
-> **AI Assistant**: "I'll create both Redis resources with identical configurations: Balanced_B1 SKU and RedisBloom module enabled. Creating 'api-cache-eastus' in eastus and 'api-cache-westus' in westus2. Both resources will be available in approximately 5 minutes."
-
-### Verify Redis deployment for compliance
-
-**Challenge**: Your organization requires all Redis instances to have access key authentication disabled for security compliance, but manually checking each resource is error-prone.
-
-**How Azure MCP Server helps**: List all Redis resources and review their authentication settings conversationally to identify any non-compliant configurations.
-
-**Example conversation**:
-
-> **You**: "Show me all Redis resources and check if any have access keys enabled"
-> 
-> **AI Assistant**: "I found 8 Redis resources. 7 have access key authentication disabled as required. However, 'legacy-cache' in resource group 'prod-rg' still has access keys enabled. This resource may not be compliant with your security policy."
-
 ## Get started
 
 Ready to use Azure MCP Server with your Azure Redis resources?
