@@ -82,23 +82,14 @@ For detailed information about each tool, including parameters and examples, see
 
 Ready to use Azure MCP Server with your Azure Redis resources?
 
-1. **Set up your environment**: Choose an AI assistant or development tool that supports MCP. See [Get started with Azure MCP Server](../get-started.md) for setup instructions.
+1. **Set up your environment**: Choose an AI assistant or development tool that supports MCP. For setup and authentication instructions, see the links in the [Where can you use Azure MCP Server?](#where-can-you-use-azure-mcp-server) section above.
 
-2. **Connect to Azure**: Sign in to your Azure account through the MCP client. If you're prompted to authenticate, follow the authentication steps for your IDE:
-   * [Cline](../get-started/tools/cline.md#use-prompts-to-test-the-azure-mcp-server)
-   * [Cursor](../get-started/tools/cursor.md#use-prompts-to-test-the-azure-mcp-server)
-   * [Eclipse](../get-started/tools/eclipse.md#use-prompts-to-test-the-azure-mcp-server)
-   * [IntelliJ](../get-started/tools/jet-brains.md#use-prompts-to-test-the-azure-mcp-server)
-   * [Visual Studio](../get-started/tools/visual-studio.md#use-prompts-to-test-the-azure-mcp-server)
-   * [Visual Studio Code](../get-started/tools/visual-studio-code.md#use-prompts-to-test-the-azure-mcp-server)
-   * [Windsurf](../get-started/tools/windsurf.md#use-prompts-to-test-the-azure-mcp-server)
-
-3. **Start exploring**: Ask your AI assistant questions about your Redis resources or request operations. Try prompts like:
+2. **Start exploring**: Ask your AI assistant questions about your Redis resources or request operations. Try prompts like:
    - "List all Redis resources in my subscription"
    - "Create a Redis cache named 'test-cache' in eastus with Balanced_B0 SKU"
    - "Show me my Redis instances in the 'production' resource group"
 
-4. **Learn more**: Review the [Azure Redis tools reference](../tools/azure-redis.md) for all available capabilities and detailed parameter information.
+3. **Learn more**: Review the [Azure Redis tools reference](../tools/azure-redis.md) for all available capabilities and detailed parameter information.
 
 ## Best practices
 
