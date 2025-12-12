@@ -155,7 +155,7 @@ This article shows you how to migrate Java apps using **GitHub Copilot app moder
 
     After you submit it, Copilot starts a new session and opens a new pull request. It appears in the list below the prompt box. Copilot works on the task and adds you as a reviewer when it finishes, triggering a notification.
 
-    :::image type="content" source="./media/coding-agent/select-custom-agent.png" lightbox="./media/coding-agent/select-custom-agent.png" alt-text="Screenshot of Java migrate task input in Coding Agent.":::
+    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/select-custom-agent.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent/select-custom-agent.png" alt-text="Screenshot of Java migrate task input in Coding Agent.":::
 
     Here are some prompt examples for your reference:
 

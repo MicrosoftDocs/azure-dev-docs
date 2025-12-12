@@ -190,15 +190,13 @@ Using Copilot CLI for app modernization enables you to run modernization tasks d
       /agent
       ```
 
-      :::image type="content" source="./media/select-custom-agent.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/select-custom-agent.png" alt-text="Screenshot of selecting app modernization custom agent in Copilot CLI.":::
+      :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/select-custom-agent.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/select-custom-agent.png" alt-text="Screenshot of selecting app modernization custom agent in Copilot CLI.":::
 
     - Call the custom agent directly in a prompt:
 
       ```text
       Use the app modernization agent to migrate this application from S3 to Azure Blob Storage.
       ```
-
-### Migrate your Java application to Azure
 
 ### Migrate your Java application to Azure
 
