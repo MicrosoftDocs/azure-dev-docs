@@ -117,9 +117,9 @@ Skip the Security step for now and proceed to the **Definition** step.
 
 ![Screenshot of Swagger editor with POST root method selected and custom x-ms-agentic-protocol property set to mcp-streamable-1.0 for MCP interaction.](../media/custom-connector-swagger-editor.png)
 
-#### Custom connector: Security (OAuth 2.0)
+#### Custom connector: Security 
 
-Return to the **Security** step, configure OAuth 2.0 authentication:
+Return to the **Security** step to configure authentication:
 
 | Parameter | Value | Notes |
 |-----------|-------|-------|
