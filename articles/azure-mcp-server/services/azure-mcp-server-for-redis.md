@@ -3,7 +3,7 @@ title: Manage Azure Redis with Azure MCP Server
 description: Learn how to use the Azure MCP Server to create, list, and manage Azure Redis resources through AI-powered natural language interactions.
 author: diberry
 ms.author: diberry
-ms.service: azure-redis
+ms.service: azure-managed-redis
 ms.topic: how-to
 ms.date: 12/12/2025
 content_well_notification: 
@@ -42,7 +42,7 @@ To use the Azure MCP Server with Azure Redis, you need:
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 - **Azure Redis resources**: At least one Redis resource in your subscription, or permissions to create them.
-- **Azure permissions**: Appropriate roles like Contributor or Redis Cache Contributor to perform the operations you want. See [Azure Redis security documentation](/azure/redis/managed-redis/managed-redis-best-practices-security).
+- **Azure permissions**: Appropriate roles like Contributor or Redis Cache Contributor to perform the operations you want. See [Use Microsoft Entra ID for cache authentication with Azure Managed Redis](/azure/redis/entra-for-authentication).
 
 [!INCLUDE [mcp-prerequisites](../includes/mcp-prerequisites.md)]
 
@@ -162,4 +162,4 @@ When using Azure MCP Server with Azure Redis:
 * [Get started with Azure MCP Server](../get-started.md)
 * [Azure Redis tools reference](../tools/azure-redis.md)
 * [Azure Redis documentation](/azure/redis/)
-* [Azure Managed Redis overview](/azure/redis/managed-redis/managed-redis-overview)
+* [Azure Managed Redis overview](/azure/redis/overview)
