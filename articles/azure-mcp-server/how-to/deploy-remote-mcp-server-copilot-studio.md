@@ -76,7 +76,7 @@ Deploy the Azure MCP server to Azure Container Apps:
     ENTRA_APP_SERVER_CLIENT_ID="<your-server-app-registration-client-id>"
     ```
 
-1. You also need to add the created API scope as one of the permissions of the client app registration. Go to Azure Portal and search for the client app registration using the `ENTRA_APP_CLIENT_CLIENT_ID` output value.
+1. You also need to add the created API scope as one of the permissions of the client app registration. Go to the Azure portal and search for the client app registration using the `ENTRA_APP_CLIENT_CLIENT_ID` output value.
 1. Go to the API permissions blade and select **Add a permission**.
 1. In the My APIs tab, select the **Server app registration** and add the `Mcp.Tools.ReadWrite` scope.
 
@@ -187,7 +187,7 @@ azd down
 ```
 
 > [!NOTE]
-> `azd` cannot delete the Entra app registrations created by this template. Delete the Entra app registrations by searching for the `ENTRA_APP_CLIENT_CLIENT_ID` and the `ENTRA_APP_SERVER_CLIENT_ID` values in the Azure Portal and then delete the corresponding app registrations.
+> `azd` cannot delete the Entra app registrations created by this template. Delete the Entra app registrations by searching for the `ENTRA_APP_CLIENT_CLIENT_ID` and the `ENTRA_APP_SERVER_CLIENT_ID` values in the Azure portal and then delete the corresponding app registrations.
 
 Delete the Copilot Studio agent, Power Apps custom connector, and connection to clean up Power Platform resources.
 
