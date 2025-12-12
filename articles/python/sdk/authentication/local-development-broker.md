@@ -41,7 +41,7 @@ zone_pivot_groups: operating-systems-set-one
 
 The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
 
-1. Install the packages. `pywin32` will be used in Windows to retrieve the window  currently in the foreground.
+1. Install the packages. `pywin32` will be used in Windows to retrieve the window currently in the foreground.
 
    ```cmd
    pip install azure-identity-broker pywin32
@@ -59,7 +59,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
    credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
    ```
 
-4. Use the `credential` to access the Blob Service.
+4. Use the `credential` to access the Azure Service, which is Blob Storage in this example.
 
 Here's the final code example:
 
@@ -113,7 +113,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
     parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
    )
    ```
-3. Use the `credential` to access the Blob Service.
+3. Use the `credential` to access the Azure Service, which is Blob Storage in this example.
 
 Here's the final code example:
 
@@ -165,7 +165,7 @@ The following example demonstrates using an [`InteractiveBrowserBrokerCredential
     parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
    )
    ```
-3. Use the `credential` to access the Blob Service.
+3. Use the `credential` to access the Azure Service, which is Blob Storage in this example.
 
 Here's the final code example:
 
