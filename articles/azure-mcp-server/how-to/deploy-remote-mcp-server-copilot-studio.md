@@ -101,6 +101,10 @@ On the **General** step:
 
 ![Screenshot of the custom connector General tab showing name, description, scheme set to HTTPS, and host field populated with a container app URL.](../media/custom-connector-general.png)
 
+#### Security
+
+Skip the Security step for now and proceed to the **Definition** step.
+
 #### Definition
 
 1. Toggle **Swagger editor** to enter the editor view.
@@ -115,7 +119,7 @@ On the **General** step:
 
 #### Custom connector: Security (OAuth 2.0)
 
-On the **Security** step, configure OAuth 2.0 authentication:
+Return to the **Security** step, configure OAuth 2.0 authentication:
 
 | Parameter | Value | Notes |
 |-----------|-------|-------|
