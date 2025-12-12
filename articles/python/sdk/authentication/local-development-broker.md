@@ -41,6 +41,28 @@ zone_pivot_groups: operating-systems-set-one
 
 The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
 
+1. Install the packages. `pywin32` will be used in Windows to retrieve the window  currently in the foreground.
+
+   ```cmd
+   pip install azure-identity-broker pywin32
+   ```
+
+2. Get a reference to the parent window on top of which the account picker dialog should appear. In the code example below, that will be the line:
+
+   ```python
+   current_window_handle = win32gui.GetForegroundWindow()
+   ```
+
+3. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. In the final code example, that will be the line:
+
+   ```python
+   credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
+   ```
+
+4. Use the `credential` to access the Blob Service.
+
+Here's the final code example:
+
 ```python
 import win32gui
 from azure.identity.broker import InteractiveBrowserBrokerCredential
@@ -77,6 +99,24 @@ The following screenshot shows the alternative interactive, brokered authenticat
 
 The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient).
 
+
+1. Install the packages. `msal` (Microsoft Authentication Library) is used to provide a constant for the `parent_window_handle` parameter.
+
+   ```bash
+   pip install azure-identity-broker msal
+   ```
+
+2. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. This requires you to get a reference to the parent window on top of which the account picker dialog should appear (provided by the `msal` constant). In the code example below, that will be the line:
+
+   ```python
+   credential = InteractiveBrowserBrokerCredential(
+    parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
+   )
+   ```
+3. Use the `credential` to access the Blob Service.
+
+Here's the final code example:
+
 ```python
 from azure.identity.broker import InteractiveBrowserBrokerCredential
 from azure.storage.blob import BlobServiceClient
@@ -111,6 +151,23 @@ The following screenshot shows the alternative interactive, brokered authenticat
 > Linux support exists in `azure-identity-broker` versions 1.3.0 and later.
 
 The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
+
+1. Install the packages. `msal` (Microsoft Authentication Library) is used to provide a constant for the `parent_window_handle` parameter.
+
+   ```bash
+   pip install azure-identity-broker msal
+   ```
+
+2. Create an instance of `InteractiveBrowserBrokerCredential` passing in the parent window reference. This requires you to get a reference to the parent window on top of which the account picker dialog should appear (provided by the `msal` constant). In the code example below, that will be the line:
+
+   ```python
+   credential = InteractiveBrowserBrokerCredential(
+    parent_window_handle=msal.PublicClientApplication.CONSOLE_WINDOW_HANDLE
+   )
+   ```
+3. Use the `credential` to access the Blob Service.
+
+Here's the final code example:
 
 ```python
 from azure.identity.broker import InteractiveBrowserBrokerCredential
