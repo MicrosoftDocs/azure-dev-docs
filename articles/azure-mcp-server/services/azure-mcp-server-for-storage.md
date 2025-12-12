@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/12/2025
 content_well_notification: 
   - AI-contribution
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ms.custom: build-2025
 
 #customer intent: As an Azure Storage customer, I want to manage storage accounts and blobs using natural language conversations so that I can work more efficiently without navigating portals or remembering complex commands.
@@ -17,7 +17,7 @@ ms.custom: build-2025
 
 # Manage Azure Storage with Azure MCP Server
 
-The Azure MCP Server helps you manage Azure Storage accounts, containers, and blobs using natural language conversations with AI assistants. You can create storage accounts, query containers, configure access policies, and upload files without navigating the Azure portal or remembering CLI commands.
+Manage Azure Storage accounts, containers, and blobs using natural language conversations with AI assistants through the Azure MCP Server. Create storage accounts, query containers, configure access policies, and upload files without navigating the Azure portal or remembering CLI commands.
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios.
 

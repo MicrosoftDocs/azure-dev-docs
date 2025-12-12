@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/12/2025
 content_well_notification: 
   - AI-contribution
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ms.custom: build-2025
 
 #customer intent: As an Azure Redis user, I want to create and manage Redis resources using natural language conversations so that I can quickly provision caches and review inventory without navigating portals.
