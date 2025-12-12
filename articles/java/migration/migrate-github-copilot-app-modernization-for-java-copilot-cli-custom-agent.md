@@ -35,7 +35,7 @@ Using Copilot CLI for app modernization enables you to run modernization tasks d
     copilot
     ```
 
-    :::image type="content" source="./media/copilot-cli-entrance.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/copilot-cli-entrance.png" alt-text="Screenshot of app modernization entrance in Copilot CLI.":::
+    :::image type="content" source="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/copilot-cli-entrance.png" lightbox="./media/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent/copilot-cli-entrance.png" alt-text="Screenshot of app modernization entrance in Copilot CLI.":::
 
     Copilot asks you to confirm that you trust the files in this folder. For details, see [Using Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#trusted-directories).
 

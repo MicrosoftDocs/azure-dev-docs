@@ -164,7 +164,7 @@ This article shows you how to migrate Java apps using **GitHub Copilot app moder
     Run migration task for scenario local file I/O to Azure Blob Storage
     ```
 
-    For details on predefined migration tasks, see [migration tasks](predefined-tasks.md).
+    For details on predefined migration tasks, see [Predefined tasks for GitHub Copilot app modernization for Java developers](migrate-github-copilot-app-modernization-for-java-predefined-tasks.md).
 
 1. After the migration starts, monitor the progress:
 
