@@ -4,7 +4,7 @@ description: Learn how to connect to and consume Azure MCP Server operations wit
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/14/2025
+ms.date: 12/11/2025
 ms.topic: get-started
 ms.custom: build-2025
 ---
@@ -31,7 +31,7 @@ In this article, you learn how to complete the following tasks:
 
 ## Create the Python app
 
-Complete the following steps to create a Python app. The app connects to an AI model and acts as a host for an MCP client that connects to an Azure MCP Server.
+Complete the following steps to create a Python app (host app). The app connects to an AI model and acts as a host for an MCP client that connects to an Azure MCP Server (local process running the MCP protocol).
 
 ### Create the project
 
@@ -76,7 +76,7 @@ Complete the following steps to create a Python app. The app connects to an AI m
 
 ### Add the app code
 
-Update the contents of `Main.py` with the following code:
+Update the contents of `main.py` with the following code:
 
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
@@ -186,19 +186,32 @@ The preceding code accomplishes the following tasks:
 
 - Sets up logging and loads environment variables from a `.env` file.
 - Configures Azure OpenAI client using `azure-identity` and `openai` libraries.
-- Initializes an MCP client to interact with the Azure MCP Server using a standard I/O transport.
-- Retrieves and displays a list of available tools from the MCP server.
+- Initializes an MCP client to interact with the Azure MCP Server (local process) using a standard I/O transport.
+- Retrieves and displays a list of available tools (MCP-registered Azure operations) from the Azure MCP Server.
 - Implements a conversational loop to process user prompts, utilize tools, and handle tool calls.
+
+**Configuration parameters:**
+
+| Parameter | Description | Example |
+|-----------|-------------|----------|
+| `AZURE_OPENAI_ENDPOINT` | Your Azure OpenAI service endpoint | `https://your-resource.openai.azure.com/` |
+| `AZURE_OPENAI_MODEL` | Model deployment name | `gpt-4o` |
+| **Token scope** | Azure Cognitive Services OAuth scope | `https://cognitiveservices.azure.com/.default` |
+| **Authentication** | Uses `DefaultAzureCredential` (Azure CLI, managed identity, or other credential chain) | See [Azure Identity documentation](/python/api/azure-identity/azure.identity.defaultazurecredential) |
+| **Required RBAC** | Cognitive Services User role or equivalent on the Azure OpenAI resource | Assigned through Azure portal or CLI |
+
 
 ## Run and test the app
 
-Complete the following steps to test your .NET host app:
+Complete the following steps to test your Python app:
 
 1. In a terminal window open to the root of your project, run the following command to start the app:
 
    ```console
    python main.py
    ```
+
+   **Success verification**: The app should display a list of available Azure MCP Server tools, then show a `Prompt:` input.
 
 1. Once the app is running, enter the following test prompt:
 
