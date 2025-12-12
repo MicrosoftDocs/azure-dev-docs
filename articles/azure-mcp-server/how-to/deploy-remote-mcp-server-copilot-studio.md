@@ -53,7 +53,6 @@ Deploy the Azure MCP server to Azure Container Apps:
 
 - **Azure Container App**: Runs the Azure MCP Server and provides the storage namespace.
 - **User-assigned managed identity**: A managed identity with the **Subscription Reader** role assigned to the container app and used by the Azure MCP server to make tool calls.
-- **Entra app registration (Azure MCP Server)**: Provides OAuth 2.0 authentication for clients, like agents, with the `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the AI Foundry resource ID input.
 - **Entra App Registration (Client)**: For the Power Apps custom connector to connect to the remote Azure MCP Server.
 - **Application Insights**: Provides telemetry and monitoring.
 
