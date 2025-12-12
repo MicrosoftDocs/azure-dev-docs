@@ -78,16 +78,6 @@ Complete the following steps to create a Python app (host app). The app connects
 
 Update the contents of `main.py` with the following code:
 
-**Configuration parameters:**
-
-| Parameter | Description | Example |
-|-----------|-------------|----------|
-| `AZURE_OPENAI_ENDPOINT` | Your Azure OpenAI service endpoint | `https://your-resource.openai.azure.com/` |
-| `AZURE_OPENAI_MODEL` | Model deployment name | `gpt-4o` |
-| **Token scope** | Azure Cognitive Services OAuth scope | `https://cognitiveservices.azure.com/.default` |
-| **Authentication** | Uses `DefaultAzureCredential` (Azure CLI, managed identity, or other credential chain) | See [Azure Identity documentation](/python/api/azure-identity/azure.identity.defaultazurecredential) |
-| **Required RBAC** | Cognitive Services User role or equivalent on the Azure OpenAI resource | Assigned through Azure portal or CLI |
-
 ```python
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from openai import AzureOpenAI
@@ -199,6 +189,17 @@ The preceding code accomplishes the following tasks:
 - Initializes an MCP client to interact with the Azure MCP Server (local process) using a standard I/O transport.
 - Retrieves and displays a list of available tools (MCP-registered Azure operations) from the Azure MCP Server.
 - Implements a conversational loop to process user prompts, utilize tools, and handle tool calls.
+
+**Configuration parameters:**
+
+| Parameter | Description | Example |
+|-----------|-------------|----------|
+| `AZURE_OPENAI_ENDPOINT` | Your Azure OpenAI service endpoint | `https://your-resource.openai.azure.com/` |
+| `AZURE_OPENAI_MODEL` | Model deployment name | `gpt-4o` |
+| **Token scope** | Azure Cognitive Services OAuth scope | `https://cognitiveservices.azure.com/.default` |
+| **Authentication** | Uses `DefaultAzureCredential` (Azure CLI, managed identity, or other credential chain) | See [Azure Identity documentation](/python/api/azure-identity/azure.identity.defaultazurecredential) |
+| **Required RBAC** | Cognitive Services User role or equivalent on the Azure OpenAI resource | Assigned through Azure portal or CLI |
+
 
 ## Run and test the app
 
