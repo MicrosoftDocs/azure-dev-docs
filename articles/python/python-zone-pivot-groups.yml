@@ -9,3 +9,13 @@ groups:
     title: Single Server
   - id: postgres-flexible-server
     title: Flexible Server
+- id: operating-systems-set-one
+  title: Operating Systems
+  prompt: Choose an operating system
+  pivots:
+  - id: os-windows 
+    title: Windows 
+  - id: os-linux
+    title: Linux
+  - id: os-macos
+    title: macOS

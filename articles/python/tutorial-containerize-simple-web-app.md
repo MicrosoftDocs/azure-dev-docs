@@ -59,7 +59,7 @@ COPY . .
 
 EXPOSE 50505
 
-ENTRYPOINT ["gunicorn", "app:app"]
+ENTRYPOINT ["gunicorn", "--config", "gunicorn.conf.py", "app:app"]
 ```
 
 `50505` is used for the container port (internal) in this example, but you can use any free port.
