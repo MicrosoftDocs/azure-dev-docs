@@ -53,10 +53,8 @@ items:
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-sample.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
             - name: Migrate from Oracle to PostgreSQL
               href: ../java/migration/migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json
-            - name: Migrate Java apps to Azure using GitHub Copilot app modernization in Copilot CLI Custom Agent
-              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-copilot-cli-custom-agent.md
-            - name: Migrate Java apps to Azure using GitHub Copilot app modernization in Coding Agent Custom Agent
-              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-coding-agent-custom-agent.md    
+            - name: Migration via Custom Agent
+              href: ../java/migration/migrate-github-copilot-app-modernization-for-java-custom-agent.md?toc=/azure/developer/github-copilot-app-modernization/toc.json&bc=/azure/developer/github-copilot-app-modernization/breadcrumb/toc.json    
       - name: .NET
         expanded: true
         items:
