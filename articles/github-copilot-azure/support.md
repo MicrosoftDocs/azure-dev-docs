@@ -50,7 +50,7 @@ To get support, create a [new issue on the GitHub Copilot for Azure repo](https:
 
 ::: zone pivot="visual-studio-2022"  
 
-## GitHub Copilot for Azure support in Visual Studio 2026
+## GitHub Copilot for Azure support in Visual Studio 2022
 
 Seek out support for GitHub Copilot for Azure in Visual Studio 2026 when experiencing the following issues:
 
@@ -59,11 +59,7 @@ Seek out support for GitHub Copilot for Azure in Visual Studio 2026 when experie
 - Incorrect tool calling (the wrong tools are being called by the LLM)
 - Tool performance (calls to the tools are taking too long, or returning unusable results)
 
-Leverage the following channel for creating a feedback ticket: Help | Send Feedback | Report a Problem
-
-To get support, create a [new issue on the GitHub Copilot for Azure repo](https://github.com/microsoft/GitHub-Copilot-for-Azure/issues).
-
-
+Use Visual Studio 2026's "Report a Problem" menu item. On the menu bar, choose "Help" > "Send Feedback" > "Report a Problem". This will open a web browser to the "Report a problem" page on the Developer Community site.
 ::: zone-end
 
 ::: zone pivot="visual-studio-2026"  
@@ -77,10 +73,7 @@ Seek out support for GitHub Copilot for Azure in Visual Studio 2026 when experie
 - Incorrect tool calling (the wrong tools are being called by the LLM)
 - Tool performance (calls to the tools are taking too long, or returning unusable results)
 
-Leverage the following channel for creating a feedback ticket: Help | Send Feedback | Report a Problem
-
-To get support, create a [new issue on the GitHub Copilot for Azure repo](https://github.com/microsoft/GitHub-Copilot-for-Azure/issues).
-
+Use Visual Studio 2026's "Report a Problem" menu item. On the menu bar, choose "Help" > "Send Feedback" > "Report a Problem". This will open a web browser to the "Report a problem" page on the Developer Community site.
 
 ::: zone-end
 
