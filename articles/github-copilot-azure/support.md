@@ -4,7 +4,7 @@ description: This article helps you decide where to find support for your issue.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 5/30/2025
+ms.date: 12/15/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
