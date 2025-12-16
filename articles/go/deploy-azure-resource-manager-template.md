@@ -146,9 +146,9 @@ In this section, you create a new Go module and install the required Azure SDK p
 
 ## Create the Azure Resource Manager template
 
-1. Inside the `deployARM-how-to` directory, create another file named `template.json`.
+1. In the `deployARM-how-to` directory, create another file named `template.json`.
 
-1. Open the `template.json` file and add the following Azure Resource Manager template code that creates an Azure Storage account:
+1. Open the `template.json` file and add the following Azure Resource Manager template code that creates an Azure storage account:
 
     ```json
     {
@@ -176,7 +176,7 @@ In this section, you create a new Go module and install the required Azure SDK p
     }
     ```
 
-1. Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid storage name value](/azure/storage/common/storage-account-overview#storage-account-endpoints).
+1. Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid storage name value](/azure/storage/common/storage-account-overview).
 
 ## Sign in to Azure
 
@@ -197,15 +197,16 @@ If multiple subscriptions are associated with your account, use the [az account 
 
 Before you can deploy the template, you need to define your Azure subscription ID as an environment variable.
 
-1. Create an environment variable named `AZURE_SUBSCRIPTION_ID` and set it to your Azure subscription ID. To get the subscription ID, run the following [az account show](/cli/azure/account#az-account-show) command.
+1. To get the subscription ID, run the following [az account show](/cli/azure/account#az-account-show) command.
 
     ```azurecli
     az account show --query id --output tsv
 
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable with your subscription ID. Replace `<AzureSubscriptionId>` with your subscription ID.
+
+    ```azurecli
     export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
     ```
-
-    Replace `<AzureSubscriptionId>` with your subscription ID.
 
 1. Run the `go run` command to deploy the template:
 
