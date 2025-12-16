@@ -4,13 +4,17 @@ description: This article helps you decide where to find support for your issue.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 5/30/2025
+ms.date: 12/15/2025
 ms.collection: ce-skilling-ai-copilot
+zone_pivot_group_filename: developer/github-copilot-azure/github-copilot-azure-zone-pivot-groups.json
+zone_pivot_groups: ide-options
 ---
 
 # Getting support for GitHub Copilot for Azure
 
 If you experience issues when using GitHub Copilot for Azure, you can get support from the product team. However, _where_ you find support you need depends on the type of issue you're experiencing. Since GitHub Copilot for Azure is one of many extensions to GitHub Copilot, this document provides some guidance on where to look for support for your issue.
+
+::: zone pivot="visual-studio-code"
 
 ## GitHub Copilot support
 
@@ -21,16 +25,61 @@ Seek out support for GitHub Copilot when experiencing the following issues:
 
 To get support, create a [new issue on the GitHub Copilot repo](https://github.com/microsoft/vscode-copilot-release/issues).
 
-## GitHub Copilot for Azure support
+## Azure MCP Server
+
+GitHub Copilot for Azure supplements the general knowledge of a foundational large language model (LLM) like GPT-5 and Claude Sonnet 4 with tool calling using the **Azure Model Context Protocol (MCP) Server** that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
+
+Seek out support for Azure MCP Server when experiencing the following issues:
+
+- Azure authentication issues
+- Incorrect tool calling (the wrong tools are being called by the LLM)
+- Tool performance (calls to the tools are taking too long, or returning unusable results)
+
+To get support, create a [new issue on the GitHub Copilot for Azure repo](https://aka.ms/azmcp)
+
+
+## GitHub Copilot for Azure support in Visual Studio Code
 
 Seek out support for GitHub Copilot for Azure when experiencing the following issues:
 
-- Azure authentication issues
-- Tool performance (calls to the tools are taking too long, or returning unusable results)
-- Incorrect tool calling (the wrong tools are being called by the LLM)
 - Installation issues
 
 To get support, create a [new issue on the GitHub Copilot for Azure repo](https://github.com/microsoft/GitHub-Copilot-for-Azure/issues).
+
+::: zone-end  
+
+::: zone pivot="visual-studio-2022"  
+
+## GitHub Copilot for Azure support in Visual Studio 2022
+
+Seek out support for GitHub Copilot for Azure in Visual Studio 2022 when experiencing the following issues:
+
+- Installation issues
+- Azure authentication issues
+- Incorrect tool calling (the wrong tools are being called by the LLM)
+- Tool performance (calls to the tools are taking too long, or returning unusable results)
+
+Use Visual Studio 2022's "Report a Problem" menu item. On the menu bar, choose "Help" > "Send Feedback" > "Report a Problem". This will open a web browser to the "Report a problem" page on the Developer Community site.
+::: zone-end
+
+::: zone pivot="visual-studio-2026"  
+
+## GitHub Copilot for Azure support in Visual Studio 2026
+
+Seek out support for GitHub Copilot for Azure in Visual Studio 2026 when experiencing the following issues:
+
+- Installation issues
+- Azure authentication issues
+- Incorrect tool calling (the wrong tools are being called by the LLM)
+- Tool performance (calls to the tools are taking too long, or returning unusable results)
+
+Use Visual Studio 2026's "Report a Problem" menu item. On the menu bar, choose "Help" > "Send Feedback" > "Report a Problem". This will open a web browser to the "Report a problem" page on the Developer Community site.
+
+::: zone-end
+
+
+
+
 
 ## Related content
 
