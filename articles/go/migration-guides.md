@@ -12,7 +12,7 @@ The following table links to migration guides for the Azure SDK for Go.
 
 | Migration guide | To | From |
 |------|-------------|-------------|
-|[Azure Resource Management libraries](https://github.com/Azure/azure-sdk-for-go/blob/main/documentation/MIGRATION_GUIDE.md)|sdk/resourcemanager/\*\*/arm\*\*|services/\*\*/mgmt/\*\*|
+|[Azure Resource Management libraries](https://github.com/Azure/azure-sdk-for-go/blob/main/documentation/development/ARM/MIGRATION_GUIDE.md)|sdk/resourcemanager/\*\*/arm\*\*|services/\*\*/mgmt/\*\*|
 |[Azure Service Bus](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/messaging/azservicebus/migrationguide.md)| azservicebus | azure-service-bus-go |
 
 <!-- Include links to packages in the To \\ From columns? -->

@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure MCP Server as a remote MCP server and
 keywords: azure mcp server, azmcp
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/14/2025
+ms.date: 12/11/2025
 ms.topic: how-to
 ai-usage: ai-generated
 ---
@@ -53,7 +53,6 @@ Deploy the Azure MCP server to Azure Container Apps:
 
 - **Azure Container App**: Runs the Azure MCP Server and provides the storage namespace.
 - **User-assigned managed identity**: A managed identity with the **Subscription Reader** role assigned to the container app and used by the Azure MCP server to make tool calls.
-- **Entra app registration (Azure MCP Server)**: Provides OAuth 2.0 authentication for clients, like agents, with the `Mcp.Tools.ReadWrite.All` role. This role is assigned to the managed identity of the AI Foundry project specified by the AI Foundry resource ID input.
 - **Entra App Registration (Client)**: For the Power Apps custom connector to connect to the remote Azure MCP Server.
 - **Application Insights**: Provides telemetry and monitoring.
 
@@ -77,7 +76,7 @@ Deploy the Azure MCP server to Azure Container Apps:
     ENTRA_APP_SERVER_CLIENT_ID="<your-server-app-registration-client-id>"
     ```
 
-1. You also need to add the created API scope as one of the permissions of the client app registration. Go to Azure Portal and search for the client app registration using the `ENTRA_APP_CLIENT_CLIENT_ID` output value.
+1. You also need to add the created API scope as one of the permissions of the client app registration. Go to the Azure portal and search for the client app registration using the `ENTRA_APP_CLIENT_CLIENT_ID` output value.
 1. Go to the API permissions blade and select **Add a permission**.
 1. In the My APIs tab, select the **Server app registration** and add the `Mcp.Tools.ReadWrite` scope.
 
@@ -117,27 +116,33 @@ Skip the Security step for now and proceed to the **Definition** step.
 
 ![Screenshot of Swagger editor with POST root method selected and custom x-ms-agentic-protocol property set to mcp-streamable-1.0 for MCP interaction.](../media/custom-connector-swagger-editor.png)
 
-#### Security
+#### Custom connector: Security 
 
-On the **Security** step:
+Return to the **Security** step to configure authentication:
 
-- Select **OAuth 2.0** as the authentication type.
-- Select **Azure Active Directory** as the identity provider.
-- Set **Client ID** to the `ENTRA_APP_CLIENT_CLIENT_ID` value from the `azd` output.
-- Choose **Use client secret** or **Use managed identity** as the secret option.
-  - If you choose a client secret, create a client secret under the client app registration in the Azure portal. Copy the secret value and paste it into the client secret field.
-  - If you choose managed identity, proceed with the remaining steps until the custom connector is created.
-- Keep **Authorization URL** as `https://login.microsoftonline.com`.
-- Set **Tenant ID** to the `AZURE_TENANT_ID` value from the `azd` output.
-- Set **Resource URL** to the `ENTRA_APP_SERVER_CLIENT_ID` value from the `azd` output.
-- Enable **On-behalf-of login**.
-- Set **Scope** to `ENTRA_APP_SERVER_CLIENT_ID/.default`.
+| Parameter | Value | Notes |
+|-----------|-------|-------|
+| **Authentication type** | OAuth 2.0 | Required |
+| **Identity provider** | Azure Active Directory | Required |
+| **Client ID** | `ENTRA_APP_CLIENT_CLIENT_ID` from azd output | Client app registration ID |
+| **Secret option** | Use client secret OR Use managed identity | See below for setup |
+| **Authorization URL** | `https://login.microsoftonline.com` | Default value |
+| **Tenant ID** | `AZURE_TENANT_ID` from azd output | Your Azure tenant ID |
+| **Resource URL** | `ENTRA_APP_SERVER_CLIENT_ID` from azd output | Server app registration client ID (not a URL) |
+| **On-behalf-of login** | Enabled | Required |
+| **Scope** | `<ENTRA_APP_SERVER_CLIENT_ID>/.default` | Format: `{server_client_id}/.default` |
+
+**Secret option setup**:
+- **If using client secret**: Create a client secret in the client app registration (Azure portal). Copy the secret value and paste it into the client secret field.
+- **If using managed identity**: Proceed with remaining steps until the custom connector is created.
+
+**Same-tenant requirement**: The client and server app registrations must be in the same tenant for simplified authentication. For cross-tenant scenarios, see [Known issues](#known-issues).
 
 Select **Create connector** and wait for completion. After creation, the UI shows a redirect URL and, if selected, a managed identity.
 
 ![Screenshot of Security step showing OAuth 2.0 with Azure Active Directory, client ID, secret option, tenant ID, resource URL, scope, and on-behalf-of login enabled.](../media/custom-connector-security.png)
 
-### Configure the app registration
+### App registration: Configure redirect URI and credentials
 
 1. In the Azure portal, add a redirect URI under the Web platform in the client app registration.
 
@@ -182,7 +187,7 @@ azd down
 ```
 
 > [!NOTE]
-> `azd` cannot delete the Entra app registrations created by this template. Delete the Entra app registrations by searching for the `ENTRA_APP_CLIENT_CLIENT_ID` and the `ENTRA_APP_SERVER_CLIENT_ID` values in the Azure Portal and then delete the corresponding app registrations.
+> `azd` cannot delete the Entra app registrations created by this template. Delete the Entra app registrations by searching for the `ENTRA_APP_CLIENT_CLIENT_ID` and the `ENTRA_APP_SERVER_CLIENT_ID` values in the Azure portal and then delete the corresponding app registrations.
 
 Delete the Copilot Studio agent, Power Apps custom connector, and connection to clean up Power Platform resources.
 
@@ -199,13 +204,18 @@ The `azd` template includes these Bicep modules:
 
 ## Known issues
 
-- The Power Apps custom connector doesn't support authenticating users from multiple tenants, so set the client app registration to accept only users from its tenant.
-- During authentication, the user or a tenant admin grants the client app access to their data. Learn more in [application consent experience](/entra/identity-platform/application-consent-experience). You can give consent in several ways.
+- **Single-tenant requirement**: The Power Apps custom connector doesn't support authenticating users from multiple tenants, so set the client app registration to accept only users from its tenant.
+- **Consent options**: During authentication, the user or a tenant admin grants the client app access to their data. Learn more in [application consent experience](/entra/identity-platform/application-consent-experience). You can give consent in several ways:
   - A user can give consent during sign-in just for that user. Tenant security policy might block this.
   - A tenant admin can give consent for all users in the tenant in the client app registration under the **API permissions** blade in Azure portal.
   - Add the client app registration as a preauthorized client app in the server app registration under the **Expose an API** blade in Azure portal.
-- If the client app registration and server app registration are in different tenants, you might see the following error when you try to create the connection:
-  - "The app is trying to access a service 'server_app_registration_client_id'(server_app_registration_display_name) that your organization 'client_app_registration_tenant' lacks a service principal for." A tenant admin of the client app registration provisions a service principal for the server app registration in that tenant by running the Azure CLI command `az ad sp create --id <server_app_registration_client_id>`. After provisioning, create the connection again. The consent flow triggers.
+- **Cross-tenant scenario**: If the client app registration and server app registration are in different tenants, you might see the following error when you try to create the connection:
+  - "The app is trying to access a service 'server_app_registration_client_id'(server_app_registration_display_name) that your organization 'client_app_registration_tenant' lacks a service principal for." 
+  - **Resolution**: A tenant admin of the client app registration must provision a service principal for the server app registration in that tenant:
+    ```bash
+    az ad sp create --id <server_app_registration_client_id>
+    ```
+  - After provisioning, create the connection again. The consent flow triggers.
 - If the Power Apps environment has a tenant isolation policy, it blocks data flow when the client or server app registrations are in different tenants. Learn how to add exception rules to allow this data flow in [cross tenant restrictions](/power-platform/admin/cross-tenant-restrictions).
 
 ## Related content
