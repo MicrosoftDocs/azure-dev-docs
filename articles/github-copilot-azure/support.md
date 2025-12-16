@@ -29,7 +29,7 @@ To get support, create a [new issue on the GitHub Copilot repo](https://github.c
 
 GitHub Copilot for Azure supplements the general knowledge of a foundational large language model (LLM) like GPT-5 and Claude Sonnet 4 with tool calling using the **Azure Model Context Protocol (MCP) Server** that enables interaction with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
 
-Seek our support for Azure MCP Server when experiencing the following issues:
+Seek out support for Azure MCP Server when experiencing the following issues:
 
 - Azure authentication issues
 - Incorrect tool calling (the wrong tools are being called by the LLM)
@@ -52,14 +52,14 @@ To get support, create a [new issue on the GitHub Copilot for Azure repo](https:
 
 ## GitHub Copilot for Azure support in Visual Studio 2022
 
-Seek out support for GitHub Copilot for Azure in Visual Studio 2026 when experiencing the following issues:
+Seek out support for GitHub Copilot for Azure in Visual Studio 2022 when experiencing the following issues:
 
 - Installation issues
 - Azure authentication issues
 - Incorrect tool calling (the wrong tools are being called by the LLM)
 - Tool performance (calls to the tools are taking too long, or returning unusable results)
 
-Use Visual Studio 2026's "Report a Problem" menu item. On the menu bar, choose "Help" > "Send Feedback" > "Report a Problem". This will open a web browser to the "Report a problem" page on the Developer Community site.
+Use Visual Studio 2022's "Report a Problem" menu item. On the menu bar, choose "Help" > "Send Feedback" > "Report a Problem". This will open a web browser to the "Report a problem" page on the Developer Community site.
 ::: zone-end
 
 ::: zone pivot="visual-studio-2026"  
