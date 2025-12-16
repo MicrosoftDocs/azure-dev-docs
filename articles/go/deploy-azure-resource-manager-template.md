@@ -82,7 +82,9 @@ In this section, you create a new Go module and install the required Azure SDK p
     var (
     	ctx = context.Background()
     )
-    // read a JSON file from the given path.
+
+    // Read a JSON file from the given path.
+
     func readJSON(path string) (map[string]interface{}, error) {
     	data, err := os.ReadFile(path)
     	if err != nil {
@@ -95,12 +97,16 @@ In this section, you create a new Go module and install the required Azure SDK p
     
     func main() {
     	subscriptionId := os.Getenv("AZURE_SUBSCRIPTION_ID")
+
     	// Authenticate to Azure
+    
     	cred, err := azidentity.NewDefaultAzureCredential(nil)
     	if err != nil {
     		log.Fatalf("failed to obtain a credential: %v", err)
     	}
+    
 		// Create a resource group.
+    
     	client, err := armresources.NewResourceGroupsClient(subscriptionId, cred, nil)
     	if err != nil {
     		log.Fatalf("failed to create client: %v", err)
@@ -114,12 +120,14 @@ In this section, you create a new Go module and install the required Azure SDK p
     	log.Printf("resource group ID: %s\n", *resp.ResourceGroup.ID)
     
     	// Read the template file.
+    
     	template, err := readJSON(templateFile)
     	if err != nil {
     		return
     	}
     
     	// Deploy the Azure Resource Manager template.
+    
     	deploymentsClient, err := armresources.NewDeploymentsClient(subscriptionId, cred, nil)
     	if err != nil {
     		log.Fatalf("failed to create client: %v", err)
@@ -178,6 +186,8 @@ In this section, you create a new Go module and install the required Azure SDK p
 
 1. Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid storage name value](/azure/storage/common/storage-account-overview).
 
+For more information about Azure Resource Manager templates, see [Azure Resource Manager templates overview](/azure/azure-resource-manager/templates/overview).
+
 ## Sign in to Azure
 
 The code in this article uses the [DefaultAzureCredential](./sdk/authentication/credential-chains.md#defaultazurecredential-overview) type from the Azure Identity module for Go to authenticate to Azure. `DefaultAzureCredential` supports many credential types for authentication with Azure using OAuth with Microsoft Entra ID. In this article, you use the user credentials that you sign in to the Azure CLI with.
@@ -201,6 +211,7 @@ Before you can deploy the template, you need to define your Azure subscription I
 
     ```azurecli
     az account show --query id --output tsv
+    ```
 
 1. Set the `AZURE_SUBSCRIPTION_ID` environment variable with your subscription ID. Replace `<AzureSubscriptionId>` with your subscription ID.
 
@@ -250,7 +261,7 @@ az deployment group show -g deployARM-how-to -n deployARM-how-to
 
 ## Clean up resources
 
-Leaving resources in Azure can incur ongoing charges. Be sure to clean up the resources you created in this article.
+Resources in Azure can incur ongoing charges. Be sure to clean up the resources you created in this article.
 
 Deploying an empty template in complete mode deletes all the resources within a resource group. It's a neat way to clean up resources without deleting the resource group itself.
 
