@@ -2,7 +2,7 @@
 title: Deploy an Azure Resource Manage Template with the Azure SDK for Go
 description: In this tutorial, you learn how to use the Azure SDK for Go to deploy an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 12/11/2025
+ms.date: 12/16/2025
 ms.custom: devx-track-go, devx-track-arm-template
 ---
 
@@ -19,162 +19,168 @@ By the end of this tutorial, you write and deploy an Azure Resource Manager temp
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
+- [Go version 1.18 or above](https://go.dev/dl/)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Create a new module
 
-Create a new directory named `deployARM-how-to`. Then change into that directory.
+In this section, you create a new Go module and install the required Azure SDK packages. You then create the main application file and add code that deploys an Azure Resource Manager template.
 
-```bash
-mkdir deployARM-how-to
-cd deployARM-how-to
-```
+1. Create a new directory named `deployARM-how-to`. Then change into that directory.
 
-Run the `go mod init` command to create the `go.mod` and `go.sum` files.
+    ```bash
+    mkdir deployARM-how-to
+    cd deployARM-how-to
+    ```
 
-```bash
-go mod init deployARM-how-to
-```
+1. Run the `go mod init` command to create the `go.mod` and `go.sum` files.
 
-The Azure SDK for Go contains several packages for working with Azure. For this tutorial, you need the `azcore/to`, `azidentity`, and `armresources` packages.
+    ```bash
+    go mod init deployARM-how-to
+    ```
 
-Run the `go get` command to download these packages:
+1. The Azure SDK for Go contains several packages for working with Azure. For this tutorial, you need the `azcore/to`, `azidentity`, and `armresources` packages.
 
-```bash
-go get github.com/Azure/azure-sdk-for-go/sdk/azcore/to
-go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
-```
+    Run the `go get` command to download these packages:
 
-Next create a file named `main.go`
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/azcore/to
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
+    ```
 
-```bash
-touch main.go
-```
+1. Create a file named `main.go`.
 
-Open your `main.go` in your editor and add the following code:
+    ```bash
+    touch main.go
+    ```
 
-```go
-package main
+1. Open `main.go` in your editor and add the following code that authenticates to Azure, creates a resource group, and deploys an Azure Resource Manager template:
 
-import (
-	"context"
-	"encoding/json"
-	"fmt"
-	"log"
-	"os"
-
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
-	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
-)
-
-const (
-	resourceGroupName     = "deployARM-how-to"
-	resourceGroupLocation = "eastus"
-	deploymentName        = "deployARM-how-to"
-	templateFile          = "template.json"
-)
-
-var (
-	ctx = context.Background()
-)
-
-func readJSON(path string) (map[string]interface{}, error) {
-	data, err := os.ReadFile(path)
-	if err != nil {
-		log.Fatalf("failed to read file: %v", err)
-	}
-	contents := make(map[string]interface{})
-	_ = json.Unmarshal(data, &contents)
-	return contents, nil
-}
-
-func main() {
-	subscriptionId := os.Getenv("AZURE_SUBSCRIPTION_ID")
-
-	cred, err := azidentity.NewDefaultAzureCredential(nil)
-	if err != nil {
-		log.Fatalf("failed to obtain a credential: %v", err)
-	}
-	client, err := armresources.NewResourceGroupsClient(subscriptionId, cred, nil)
-	if err != nil {
-		log.Fatalf("failed to create client: %v", err)
-	}
-	resp, err := client.CreateOrUpdate(context.Background(), resourceGroupName, armresources.ResourceGroup{
-		Location: to.Ptr(resourceGroupLocation),
-	}, nil)
-	if err != nil {
-		log.Fatalf("failed to obtain a response: %v", err)
-	}
-	log.Printf("resource group ID: %s\n", *resp.ResourceGroup.ID)
-
-	template, err := readJSON(templateFile)
-	if err != nil {
-		return
-	}
-
-	deploymentsClient, err := armresources.NewDeploymentsClient(subscriptionId, cred, nil)
-	if err != nil {
-		log.Fatalf("failed to create client: %v", err)
-	}
-	deploy, err := deploymentsClient.BeginCreateOrUpdate(
-		ctx,
-		resourceGroupName,
-		deploymentName,
-		armresources.Deployment{
-			Properties: &armresources.DeploymentProperties{
-				Template: template,
-				Mode:     to.Ptr(armresources.DeploymentModeIncremental),
-			},
-		},
-		nil,
-	)
-	if err != nil {
-		log.Fatalf("failed to deploy template: %v", err)
-	}
-
-	fmt.Println(deploy)
-}
-```
+    ```go
+    package main
+    
+    import (
+    	"context"
+    	"encoding/json"
+    	"fmt"
+    	"log"
+    	"os"
+    
+    	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+    	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources"
+    )
+    
+    const (
+    	resourceGroupName     = "deployARM-how-to"
+    	resourceGroupLocation = "eastus"
+    	deploymentName        = "deployARM-how-to"
+    	templateFile          = "template.json"
+    )
+    
+    var (
+    	ctx = context.Background()
+    )
+    // read a JSON file from the given path.
+    func readJSON(path string) (map[string]interface{}, error) {
+    	data, err := os.ReadFile(path)
+    	if err != nil {
+    		log.Fatalf("failed to read file: %v", err)
+    	}
+    	contents := make(map[string]interface{})
+    	_ = json.Unmarshal(data, &contents)
+    	return contents, nil
+    }
+    
+    func main() {
+    	subscriptionId := os.Getenv("AZURE_SUBSCRIPTION_ID")
+    	// Authenticate to Azure
+    	cred, err := azidentity.NewDefaultAzureCredential(nil)
+    	if err != nil {
+    		log.Fatalf("failed to obtain a credential: %v", err)
+    	}
+		// Create a resource group.
+    	client, err := armresources.NewResourceGroupsClient(subscriptionId, cred, nil)
+    	if err != nil {
+    		log.Fatalf("failed to create client: %v", err)
+    	}
+    	resp, err := client.CreateOrUpdate(context.Background(), resourceGroupName, armresources.ResourceGroup{
+    		Location: to.Ptr(resourceGroupLocation),
+    	}, nil)
+    	if err != nil {
+    		log.Fatalf("failed to obtain a response: %v", err)
+    	}
+    	log.Printf("resource group ID: %s\n", *resp.ResourceGroup.ID)
+    
+    	// Read the template file.
+    	template, err := readJSON(templateFile)
+    	if err != nil {
+    		return
+    	}
+    
+    	// Deploy the Azure Resource Manager template.
+    	deploymentsClient, err := armresources.NewDeploymentsClient(subscriptionId, cred, nil)
+    	if err != nil {
+    		log.Fatalf("failed to create client: %v", err)
+    	}
+    	deploy, err := deploymentsClient.BeginCreateOrUpdate(
+    		ctx,
+    		resourceGroupName,
+    		deploymentName,
+    		armresources.Deployment{
+    			Properties: &armresources.DeploymentProperties{
+    				Template: template,
+    				Mode:     to.Ptr(armresources.DeploymentModeIncremental),
+    			},
+    		},
+    		nil,
+    	)
+    	if err != nil {
+    		log.Fatalf("failed to deploy template: %v", err)
+    	}
+    
+    	fmt.Println(deploy)
+    }
+    ```
 
 ## Create the Azure Resource Manager template
 
-Inside the `deployARM-how-to` directory, create another file named `template.json`.
+1. Inside the `deployARM-how-to` directory, create another file named `template.json`.
 
-Open the `template.json` file and add the following code:
+1. Open the `template.json` file and add the following Azure Resource Manager template code that creates an Azure Storage account:
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "functions": [],
-    "variables": {},
-    "resources": [{
-        "name": "<StorageAccountName>",
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2021-04-01",
-        "tags": {
-            "displayName": "<StorageAccountDisplayName>"
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
         },
-        "location": "EastUS",
-        "kind": "StorageV2",
-        "sku": {
-            "name": "Premium_LRS",
-            "tier": "Premium"
-        }
-    }],
-    "outputs": {}
-}
-```
+        "functions": [],
+        "variables": {},
+        "resources": [{
+            "name": "<StorageAccountName>",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-04-01",
+            "tags": {
+                "displayName": "<StorageAccountDisplayName>"
+            },
+            "location": "EastUS",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            }
+        }],
+        "outputs": {}
+    }
+    ```
 
-Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid storage name value](/azure/storage/common/storage-account-overview#storage-account-endpoints).
+1. Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid storage name value](/azure/storage/common/storage-account-overview#storage-account-endpoints).
 
 ## Sign in to Azure
 
-The code in this article uses the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go to authenticate to Azure. `DefaultAzureCredential` supports many credential types for authentication with Azure using OAuth with Microsoft Entra ID. In this article, you use the user credentials that you sign in to the Azure CLI with.
+The code in this article uses the [DefaultAzureCredential](./sdk/authentication/credential-chains.md#defaultazurecredential-overview) type from the Azure Identity module for Go to authenticate to Azure. `DefaultAzureCredential` supports many credential types for authentication with Azure using OAuth with Microsoft Entra ID. In this article, you use the user credentials that you sign in to the Azure CLI with.
 
 If you haven't already, sign in to the Azure CLI:
 
@@ -191,25 +197,25 @@ If multiple subscriptions are associated with your account, use the [az account 
 
 Before you can deploy the template, you need to define your Azure subscription ID as an environment variable.
 
-Create an environment variable named `AZURE_SUBSCRIPTION_ID` and set it to your Azure subscription ID. To get the subscription ID, run the following [az account show](/cli/azure/account#az-account-show) command.
+1. Create an environment variable named `AZURE_SUBSCRIPTION_ID` and set it to your Azure subscription ID. To get the subscription ID, run the following [az account show](/cli/azure/account#az-account-show) command.
 
-```azurecli
-az account show --query id --output tsv
-```
+    ```azurecli
+    az account show --query id --output tsv
 
-```azurecli
-export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
-```
+    export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
+    ```
 
-Replace `<AzureSubscriptionId>` with your subscription ID.
+    Replace `<AzureSubscriptionId>` with your subscription ID.
 
-Next, run the `go run` command to deploy the template:
+1. Run the `go run` command to deploy the template:
 
-```azurecli
-go run main.go
-```
+    ```azurecli
+    go run main.go
+    ```
 
 ## Troubleshoot
+
+If the storage account deployment fails, verify you used a [valid storage name value](/azure/storage/common/storage-account-overview#storage-account-endpoints). Storage account names must be between 3 and 24 characters in length and can contain only lowercase letters and numbers.
 
 If the program returns an error related to authentication or authorization, check the following items:
 
@@ -247,60 +253,58 @@ Leaving resources in Azure can incur ongoing charges. Be sure to clean up the re
 
 Deploying an empty template in complete mode deletes all the resources within a resource group. It's a neat way to clean up resources without deleting the resource group itself.
 
-Create a new empty template named `empty-template.json`.
+1. Create a new empty template named `empty-template.json`.
 
-Open `empty-template.json` in your editor and add the following code:
+1. Open `empty-template.json` in your editor and add the following code:
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [],
-    "outputs": {}
-}
-```
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {},
+        "resources": [],
+        "outputs": {}
+    }
+    ```
 
-Next, open your `main.go` file and change the deployment time to _complete_ instead of _incremental_. To learn more about deployment modes, see [Azure Resource Manager deployment modes](/azure/azure-resource-manager/templates/deployment-modes).
+1. Open your `main.go` file.
 
-Change the Mode in the deployment properties to `DeploymentModeComplete`. Update the `templateFile` constant value to `empty-template.json`. Be sure to save your changes.
+1. Update the `templateFile` constant value to `empty-template.json`.
 
-Update the templateFile const:
+    ```go
+    const (
+    	resourceGroupName     = "deployARM-how-to"
+    	resourceGroupLocation = "eastus"
+    	deploymentName        = "deployARM-how-to"
+    	templateFile          = "empty-template.json"
+    )
+    ```
 
-```go
-const (
-	resourceGroupName     = "deployARM-how-to"
-	resourceGroupLocation = "eastus"
-	deploymentName        = "deployARM-how-to"
-	templateFile          = "empty-template.json"
-)
-```
+1. Change the deployment time from *incremental* to *complete* by changing the deployment *Mode* properties to `DeploymentModeComplete`. To learn more about deployment modes, see [Azure Resource Manager deployment modes](/azure/azure-resource-manager/templates/deployment-modes).
 
-Update the deployment mode:
+    ```go
+    deploy, err = deploymentsClient.BeginCreateOrUpdate(
+    	ctx,
+    	resourceGroupName,
+    	deploymentName,
+    	armresources.Deployment{
+    		Properties: &armresources.DeploymentProperties{
+    			Template: template,
+    			Mode:     to.Ptr(armresources.DeploymentModeComplete), //Deployment Mode is here
+    		},
+    	},
+    	nil,
+    )
+    ```
 
-```go
-deploy, err = deploymentsClient.BeginCreateOrUpdate(
-    ctx,
-    resourceGroupName,
-    deploymentName,
-    armresources.Deployment{
-        Properties: &armresources.DeploymentProperties{
-            Template: template,
-            Mode:     to.Ptr(armresources.DeploymentModeComplete), //Deployment Mode is here
-        },
-    },
-    nil,
-)
-```
+1. Run the `go run` command to deploy the empty template and delete the storage account you created previously.
 
-Run the `go run` command to deploy the empty template and delete the storage account you created previously.
+    ```azurecli
+    go run main.go
+    ```
 
-```azurecli
-go run main.go
-```
-
-Optionally, you can delete the resource group and all its resources along with it.
+Instead of using a deployment, you can delete the resource group and all its resources by running the following Azure CLI command:
 
 ```azurecli
 az group delete --resource-group deployARM-how-to
