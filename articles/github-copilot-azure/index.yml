@@ -7,7 +7,7 @@ summary: |
 metadata:
   title: GitHub Copilot for Azure
   description: Use AI to add cloud features and deploy your app to Azure
-  ms.date: 5/30/2025
+  ms.date: 12/16/2025
   ms.topic: landing-page
   ms.collection: ce-skilling-ai-copilot
   ms.service: github-copilot-for-azure
@@ -21,6 +21,8 @@ landingContent:
             url: introduction.md
           - text: Get Started with GitHub Copilot for Azure
             url: get-started.md
+          - text: Get Support
+            url: support.md
           - text: Quickstart - Building, Deploying and Improving your application with GitHub Copilot for Azure
             url: quickstart-deploy-app-agent-mode.md
           - text: Generate and deploy a Django / PostgreSQL app
