@@ -8,11 +8,11 @@ ms.date: 11/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
 
-# Azure Container Registry tools for the Azure MCP Server
+# Azure Container Registry tools for the Azure MCP Server overview
 
 The Azure MCP Server enables you to manage Azure resources, including Azure Container Registries, by using natural language prompts. This capability lets you work with container registries without needing to remember complex command syntax.
 
@@ -68,3 +68,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Container Registry](/azure/container-registry/)

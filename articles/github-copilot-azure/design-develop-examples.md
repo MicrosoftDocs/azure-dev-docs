@@ -4,7 +4,7 @@ description: This article provides example prompts that can help you design and 
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 5/30/2025
+ms.date: 12/16/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

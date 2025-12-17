@@ -3,7 +3,7 @@ title: Use the Microsoft Foundry azd agent extension
 description: Learn about the Microsoft Foundry azd agent extension and how to scaffold, provision, and deploy an agent end to end.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 11/13/2025
+ms.date: 12/11/2025
 ms.service: azure-dev-cli
 ms.topic: tutorial
 ms.custom: devx-track-azdevcli, devx-track-ai
@@ -67,7 +67,7 @@ azd ai agent init -m <agent-definition-url>
 For example, use the following URL for a simple calculator agent:
 
 ```bash
-azd ai agent init -m https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/microsoft/python/getting-started-agents/hosted-agents/calculator-agent/agent.yaml
+azd ai agent init -m https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/python/hosted-agents/calculator-agent/agent.yaml
 ```
 
 The `azd ai agent init` command:

@@ -8,10 +8,10 @@ ms.date: 12/05/2025
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 ---
-# Azure AI Speech tools for the Azure MCP Server
+# Azure AI Speech tools for the Azure MCP Server overview
 
 Use the Azure MCP Server to manage Azure AI Speech functionalities such as speech-to-text (STT) and text-to-speech (TTS) with natural language prompts.
 

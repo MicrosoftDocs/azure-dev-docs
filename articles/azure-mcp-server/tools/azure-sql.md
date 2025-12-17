@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 ---
 
-# Azure SQL tools for the Azure MCP Server
+# Azure SQL tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure SQL Database resources by using natural language prompts. This Azure SQL tools reference provides comprehensive commands for managing databases, servers, firewall rules, and elastic pools without complex syntax.
 
