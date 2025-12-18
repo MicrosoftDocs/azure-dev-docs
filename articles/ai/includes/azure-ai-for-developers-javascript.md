@@ -37,17 +37,17 @@ Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's po
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI in Microsoft Foundry Models Documentation](/azure/ai-foundry/how-to/upgrade-azure-openai?view=foundry-classic&tabs=portal)|The Microsoft Foundry resource type offers a superset of capabilities compared to the Azure OpenAI resource type.|
-|[Work with chat completions models using Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/how-to/chatgpt?view=foundry&tabs=python-secure)|A quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
+|[Azure OpenAI in Microsoft Foundry Models Documentation](/azure/ai-foundry/how-to/upgrade-azure-openai?view=foundry-classic&tabs=portal&preserve-view=true)|The Microsoft Foundry resource type offers a superset of capabilities compared to the Azure OpenAI resource type.|
+|[Work with chat completions models using Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/how-to/chatgpt?view=foundry&tabs=python-secure&preserve-view=true)|A quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
 |[Quickstart: Getting started with the Azure OpenAI Responses API](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript)|The Responses API is a new stateful API from Azure OpenAI. It brings together the best capabilities from the chat completions and assistants API in one unified experience.|
 |[Quickstart: Chat with Azure OpenAI in Microsoft Foundry models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
 |[Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true&tabs=typescript)|The Microsoft Foundry SDK is available in multiple languages, including Python, Java, TypeScript, and C#.|
 |[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio)|How to programmatically ask the model to describe the contents of an image.|
 |[Quickstart: Generate images with Azure OpenAI in Microsoft Foundry Models](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-javascript)|Use this guide to get started generating images with the Azure OpenAI SDK for JavaScript.|
 
-## Resources for other Azure AI services
+## Resources for other Foundry Tools
 
-In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+In addition to Azure OpenAI in Microsoft Foundry Models, there are many other Foundry Tools that help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ### Samples
 
