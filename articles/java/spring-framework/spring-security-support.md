@@ -9,7 +9,7 @@ ms.topic: reference
 appliesto:
   - ✅ Version 4.20.0
   - ✅ Version 5.24.1
-  - ✅ Version 6.0.0
+  - ✅ Version 6.1.0
 ms.custom:
   - devx-track-java
   - devx-track-extended-java

@@ -53,7 +53,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>6.0.0</version>
+        <version>6.1.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
