@@ -72,7 +72,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -405,7 +405,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -533,7 +533,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -726,7 +726,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -838,7 +838,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -944,7 +944,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >

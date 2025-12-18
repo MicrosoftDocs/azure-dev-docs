@@ -73,7 +73,7 @@ To install the Spring Cloud Azure Service Bus Starter module, add the following 
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -333,7 +333,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -479,7 +479,7 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -590,7 +590,7 @@ To install the Spring Cloud Azure Service Bus Integration Starter module, add th
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >
@@ -753,7 +753,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >

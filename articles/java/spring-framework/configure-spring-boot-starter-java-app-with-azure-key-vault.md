@@ -57,7 +57,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
   >
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
   >

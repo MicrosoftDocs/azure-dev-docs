@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.23.0
+- ✅ Version 5.24.1
 - ✅ Version 6.0.0
 ---
 
@@ -110,7 +110,7 @@ With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the fol
 For more information, see [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/).
 
 > [!NOTE]
-> If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
+> If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
 >
 > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
 >
