@@ -1,15 +1,15 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 05/22/2025
+ms.date: 12/18/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
 
-## Resources for Azure OpenAI Service
+## Resources for Azure OpenAI in Microsoft Foundry Models
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI Node API Library, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
+Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI Node API Library, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
 ### Libraries
 
@@ -25,10 +25,9 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[AI Travel Agents](https://github.com/Azure-Samples/azure-ai-travel-agents)|The **AI Travel Agents** is a robust enterprise application that leverages multiple AI agents to enhance travel agency operations. The application demonstrates how six AI agents collaborate to assist employees in handling customer queries, providing destination recommendations, and planning itineraries.|
 |[Getting Started with Remote MCP Servers using Azure Container Apps (Node.js/TypeScript)](https://github.com/Azure-Samples/mcp-container-ts)|This quick start guide provides the basic building blocks to set up a remote Model Context Protocol (MCP) server using Azure Container Apps. The MCP server is built using Node.js and TypeScript, and it can be used to run various tools and services in a serverless environment.|
 |[DeepSeek on Azure](https://github.com/Azure-Samples/deepseek-azure-javascript)|Demonstrates how to use DeepSeek with JavaScript/TypeScript via the OpenAI Node.js client library or LangChain.js. DeepSeek excels at tasks requiring deep context understanding and complex reasoning. You may experience longer response times compared to other models, because it simulates a thought process (under the `<think>` tag) before providing an actual answer.|
-|[Microblog AI](https://github.com/Azure-Samples/microblog-ai-swa-remix)|Microblog AI is an application that showcases the power of Azure Static Web Apps combined with Azure Functions and Server-Side Rendering (SSR) using Remix. The application leverages Azure OpenAI's GPT-4o artificial intelligence to enable the creation of microblogs in a simple and intuitive way.|
 |[Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v2-beta/javascript/completions.js)|A simple example demonstrating how to get completions for the provided prompt.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v2-beta/javascript/streamChatCompletions.js)|A simple example demonstrating how to use  streaming chat completions.|
-|[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
+|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=javascript)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[LangChain.js with Azure OpenAI and Azure AI Search](https://github.com/Azure-Samples/azure-typescript-langchainjs)|Build an intelligent RAG agent with LangChain.js that evaluates whether questions can be answered using unstructured data in Azure AI Search, and delivers contextually relevant responses from that knowledge base when possible.|
@@ -38,13 +37,13 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
-|[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?pivots=programming-language-javascript)|A quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
-|[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
-|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
-|[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
+|[Azure OpenAI in Microsoft Foundry Models Documentation](/azure/ai-foundry/how-to/upgrade-azure-openai?view=foundry-classic&tabs=portal)|The Microsoft Foundry resource type offers a superset of capabilities compared to the Azure OpenAI resource type.|
+|[Work with chat completions models using Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/how-to/chatgpt?view=foundry&tabs=python-secure)|A quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
+|[Quickstart: Getting started with the Azure OpenAI Responses API](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript)|The Responses API is a new stateful API from Azure OpenAI. It brings together the best capabilities from the chat completions and assistants API in one unified experience.|
+|[Quickstart: Chat with Azure OpenAI in Microsoft Foundry models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
+|[Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true&tabs=typescript)|The Microsoft Foundry SDK is available in multiple languages, including Python, Java, TypeScript, and C#.|
 |[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio)|How to programmatically ask the model to describe the contents of an image.|
-|[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-javascript)|Programmatically generate images using Dall-E based on a prompt.|
+|[Quickstart: Generate images with Azure OpenAI in Microsoft Foundry Models](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-javascript)|Use this guide to get started generating images with the Azure OpenAI SDK for JavaScript.|
 
 ## Resources for other Azure AI services
 
@@ -80,9 +79,9 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
 |[Generative AI for JavaScript developers](https://github.com/microsoft/generative-ai-with-javascript)|This covers the basics of generative AI and how to build AI applications using JavaScript, from local development to deployment on Azure, up to running and scaling your AI models. The [YouTube playlist of videos](https://www.youtube.com/playlist?list=PLlrxD0HtieHi5ZpsHULPLxm839IrhmeDk) includes a series of videos around 10 minutes long, each focusing on a specific topic.|
 |[AI Agents for Beginners Workshop](https://github.com/microsoft/ai-agents-for-beginners)|Learn the fundamentals of building Generative AI agents with our 10-lesson comprehensive course by Microsoft Cloud Advocates.|
-|[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
+|[Get started with Foundry Tools](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you learn how to provision, secure, monitor, and deploy Foundry Tools resources and use them to build intelligent solutions.|
 |[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
-|[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
+|[Develop Generative AI solutions with Azure OpenAI in Microsoft Foundry](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI in Microsoft Foundry provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the OpenAI SDK and other Azure services.|
 |[Build AI apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
 |[Secure Azure OpenAI authentication and authorization](/training/modules/secure-azure-openai-authentication-authorization/)|Learn why you should use managed identity for Azure OpenAI authentication and how you can configure role based access controls to minimize necessary permissions.|
 |[Introduction to Azure OpenAI managed identity authentication with JavaScript](/training/modules/intro-azure-openai-managed-identity-auth-javascript/)|This module helps you understand how to use a managed identity in JavaScript apps that interact with Azure OpenAI Service.|
