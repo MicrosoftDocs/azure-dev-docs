@@ -1,7 +1,7 @@
 ---
 title: Get started load testing Python enterprise chat sample using RAG
 description: Get started load testing your Python chat app. 
-ms.date: 06/26/2025
+ms.date: 12/18/2025
 ms.update-cycle: 180-days
 ms.author: johalexander
 author: ms-johnalex
