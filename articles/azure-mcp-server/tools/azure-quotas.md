@@ -8,11 +8,11 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
-ms.topic: reference
+ms.topic: concept-article
 ms.date: 11/17/2025
 ---
 
-# Azure Quotas for the Azure MCP Server
+# Azure Quotas for the Azure MCP Server overview
 
 Azure MCP Server helps you manage Azure quotas efficiently by using natural language prompts. This article explains how to monitor quota usage, set alerts, and optimize resource allocation for your Azure resources.
 
@@ -71,3 +71,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure Quotas](/azure/quotas/quotas-overview)

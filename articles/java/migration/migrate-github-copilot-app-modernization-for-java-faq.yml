@@ -99,6 +99,12 @@ sections:
       - question: Which model should I use?
         answer: As a general rule of thumb, newer models outperform previous models. For coding tasks, we recommend Claud Sonnet models for better accuracy. However to reduce cost, consider starting your exploration from models with a [lower multiplier](https://docs.github.com/en/copilot/concepts/billing/copilot-requests#model-multipliers).
 
+      - question: How do I change the model used by the AppModernization custom agent?
+        answer: |
+          In Visual Studio Code, app modernization uses the `AppModernization` custom agent with Claude Sonnet 4.5 by default for best results when updating Java code to migrate to Azure. It falls back to the 'auto' model if Sonnet 4.5 is not available to you. You can configure the custom agent to [modify the 'model' setting](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) by selecting **Configure Custom Agents** from the **Agent** menu. Alternatively, you can use the language model picker in the chat window to switch models for the current chat session.
+
+          :::image type="content" source="media/migrate-github-copilot-app-modernization-for-java/configure-custom-agents.png" alt-text="Screenshot of the GitHub Copilot chat pane in Visual Studio Code that shows the Configure Custom Agents option." lightbox="media/migrate-github-copilot-app-modernization-for-java/configure-custom-agents.png":::
+
   - name: Troubleshooting guide
 
     questions:

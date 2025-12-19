@@ -8,10 +8,10 @@ ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
-ms.topic: reference
+ms.topic: concept-article
 ms.custom: build-2025
 --- 
-# Azure Service Bus tools for the Azure MCP Server
+# Azure Service Bus tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you to manage Azure Service Bus resources, including queues and topics with natural language prompts. You can peek at messages and view message details without specialized knowledge of messaging protocols.
 

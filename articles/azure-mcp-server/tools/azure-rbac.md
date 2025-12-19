@@ -5,10 +5,10 @@ keywords: azure mcp server, azmcp, rbac, role based access control
 author: diberry
 ms.author: diberry
 ms.date: 11/17/2025
-ms.topic: reference
+ms.topic: concept-article
 ---
 
-# Azure RBAC tools for the Azure MCP Server
+# Azure RBAC tools for the Azure MCP Server overview
 
 Azure RBAC tools in the Azure MCP Server allow you to manage Azure role-based access control using natural language prompts. This allows you to quickly view and manage role assignments without remembering complex syntax, streamlining your Azure access management workflow.
 
@@ -46,3 +46,4 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control)
