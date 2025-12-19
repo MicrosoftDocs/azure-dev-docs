@@ -11,7 +11,7 @@ ms.custom: scenarios:getting-started, languages:TypeScript, devx-track-ts, azure
 
 # Tutorial: Upload an image to an Azure Storage blob with TypeScript
 
-Upload files directly from a browser to Azure Blob Storage using the [Valet Key pattern](/azure/architecture/patterns/valet-key)—an API generates time-limited SAS tokens so browsers can upload without exposing credentials.
+Upload files directly from a browser to Azure Blob Storage using the [Valet Key pattern](/azure/architecture/patterns/valet-key)—an API generates time-limited Shared Access Signature (SAS) tokens so browsers can upload without exposing credentials.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Upload files directly from a browser to Azure Blob Storage using the [Valet Key 
 
 The frontend requests a SAS token from the API, then uploads files directly to Azure Storage. After upload, the API lists all uploaded files with read-only SAS tokens for display.
 
- :::image type="content" source="./media/browser-file-upload-azure-storage-blob/solution-demo-sas-token-file-storage.gif" alt-text="Demonstration of uploading an image file through the web app interface.":::
+ :::image type="content" source="./media/browser-file-upload-azure-storage-blob/solution-demo-shared-access-signature-token-file-storage.gif" alt-text="Demonstration of uploading an image file through the web app interface.":::
 
 ## Key concepts
 
@@ -75,6 +75,25 @@ This tutorial's [complete sample code](https://github.com/Azure-Samples/azure-ty
     | Enter a unique environment name | `secure-upload` |
     | Select an Azure Subscription to use | Select your subscription from the list |
     | Enter a value for the 'location' infrastructure parameter | Select from the locations available |
+
+    Alternatively, if you would like to see the resources provisioned then see the deployment output, you can run the following command to deploy without prompts:
+    
+    ```azdcli
+    azd provision
+    ```
+
+    Then run this command to deploy the application code:
+    
+    ```azdcli    
+    azd deploy
+    ```
+
+    If you change the API or web app code, you can redeploy just the application code with one of the following commands:
+
+    ```azdcli
+    azd deploy app
+    azd deploy api
+    ```
 
 1. When the deployment is complete, note the URL of the deployed web app displayed in the terminal.
 
