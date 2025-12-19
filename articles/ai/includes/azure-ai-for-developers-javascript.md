@@ -37,8 +37,8 @@ Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's po
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI in Microsoft Foundry Models Documentation](/azure/ai-foundry/how-to/upgrade-azure-openai?view=foundry-classic&tabs=portal&preserve-view=true)|The Microsoft Foundry resource type offers a superset of capabilities compared to the Azure OpenAI resource type.|
-|[Work with chat completions models using Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/how-to/chatgpt?view=foundry&tabs=python-secure&preserve-view=true)|A quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
+|[Azure OpenAI in Microsoft Foundry Models Documentation](/azure/ai-foundry/how-to/upgrade-azure-openai?&tabs=portal)|The Microsoft Foundry resource type offers a superset of capabilities compared to the Azure OpenAI resource type.|
+|[Work with chat completions models using Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/how-to/chatgpt?tabs=python-secure)|A quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
 |[Quickstart: Getting started with the Azure OpenAI Responses API](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript)|The Responses API is a new stateful API from Azure OpenAI. It brings together the best capabilities from the chat completions and assistants API in one unified experience.|
 |[Quickstart: Chat with Azure OpenAI in Microsoft Foundry models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
 |[Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true&tabs=typescript)|The Microsoft Foundry SDK is available in multiple languages, including Python, Java, TypeScript, and C#.|
