@@ -30,11 +30,9 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    git clone https://github.com/Azure-Samples/storage-blob-upload-from-webapp.git
    ```
    
-1. In Visual Studio Code, on the Title Bar, select the **Open Chat** icon (the GitHub Copilot logo) to open the chat pane in the Secondary side bar. Select **Agent** under the chat text box.
+1. In Visual Studio Code, on the Title Bar, select the **Open Chat** icon (the GitHub Copilot logo) to open the chat pane in the Secondary side bar. To start a new chat session, select the plus icon (**+**) on the pane's title bar. Then select **Agent** under the chat text box.
 
    :::image type="content" source="media/quickstart-deploy-app-agent-mode/ask-copilot.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
-
-   To start a new chat session, select the plus icon (**+**) on the pane's title bar.
 
 1. In the chat text box at the bottom of the pane, type the following prompt. Then select **Send** (paper airplane icon) or select Enter on your keyboard.
 
