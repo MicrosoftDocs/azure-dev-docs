@@ -1,9 +1,13 @@
 ---
-title: "TypeScript: Upload image to Blob Storage"
+title: "Upload Image to Azure Blob Storage with TypeScript"
 titleSuffix: TypeScript on Azure
-description: Use a client web app to upload a file to Azure Storage blobs directly using a URL with a SAS token query string. 
+description: Learn how to securely upload images to Azure Blob Storage using TypeScript. This tutorial covers SAS tokens, direct browser uploads, and API integration.
+#customer intent: As a TypeScript developer, I want to explore how to implement the Valet Key pattern for secure file uploads, so that I can enhance the security of my applications.
 ms.topic: tutorial
-ms.date: 12/17/2025
+ms.date: 12/19/2025
+author: diberry
+ms.author: diberry
+ms.reviewer: diberry
 ms.custom: scenarios:getting-started, languages:TypeScript, devx-track-ts, azure-sdk-storage-blob-typescript-version-12.2.1, engagement-fy23
 # CustomerIntent: As a JavaScript developer new to Azure, I want to learn how to upload files to Azure Storage from a browser without exposing authentication secrets.
 ---
@@ -11,12 +15,24 @@ ms.custom: scenarios:getting-started, languages:TypeScript, devx-track-ts, azure
 
 # Tutorial: Upload an image to an Azure Storage blob with TypeScript
 
-Upload files directly from a browser to Azure Blob Storage using the [Valet Key pattern](/azure/architecture/patterns/valet-key)—an API generates time-limited Shared Access Signature (SAS) tokens so browsers can upload without exposing credentials.
+This tutorial shows you how to upload files from a browser directly to Azure Blob Storage without exposing credentials. You'll use TypeScript to implement the [Valet Key pattern](/azure/architecture/patterns/valet-key) with Shared Access Signature (SAS) tokens and Managed Identity for secure, keyless authentication.
+
+The sample application includes:
+- A Fastify API that generates time-limited SAS tokens
+- A React frontend that uploads files directly to Azure Storage
+- Infrastructure as code for deployment with Azure Developer CLI
+
+By the end of this tutorial, you'll have a working application deployed to Azure Container Apps that demonstrates secure file uploads without exposing storage credentials to the browser.
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free][free Azure account].
-* [GitHub account](https://github.com/join) for GitHub Codespaces access.
+Before you begin, ensure you have:
+
+* An Azure subscription - [create one for free][free Azure account]
+* A [GitHub account](https://github.com/join) to use GitHub Codespaces (includes free monthly hours)
+
+> [!TIP]
+> This tutorial uses GitHub Codespaces, which provides a pre-configured development environment in your browser. No local setup required.
 
 ## Architecture
 
@@ -24,7 +40,7 @@ Upload files directly from a browser to Azure Blob Storage using the [Valet Key 
 
 The frontend requests a SAS token from the API, then uploads files directly to Azure Storage. After upload, the API lists all uploaded files with read-only SAS tokens for display.
 
-:::image type="content" source="./media/browser-file-upload-azure-storage-blob/solution-demo-shared-access-signature-token-file-storage.gif" alt-text="Demonstration of uploading an image file through the web app interface.":::
+:::image type="content" source="./media/browser-file-upload-azure-storage-blob/solution-demo-shared-access-signature-token-file-storage.gif" alt-text="Screenshot of a web app titled 'Upload file to Azure Storage' with a Select File button and container name upload displayed.":::
 
 ## Key concepts
 
@@ -41,6 +57,9 @@ Deploy the complete infrastructure with `azd up`. This provisions Azure Containe
 
 This tutorial's [complete sample code](https://github.com/Azure-Samples/azure-typescript-upload-file-storage-blob) uses a development container in either [GitHub Codespaces](https://codespaces.new/Azure-Samples/azure-typescript-upload-file-storage-blob) or local Visual Studio Code.
 
+> [!NOTE]
+> You can also run this tutorial locally in Visual Studio Code with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The [complete sample code](https://github.com/Azure-Samples/azure-typescript-upload-file-storage-blob) includes the development container configuration.
+
 ## Open the sample in GitHub Codespaces
 
 [GitHub Codespaces](https://docs.github.com/codespaces) provides a browser-based VS Code environment with all dependencies preinstalled.
@@ -50,7 +69,7 @@ This tutorial's [complete sample code](https://github.com/Azure-Samples/azure-ty
 
 1. In a web browser, open the [sample repository](https://github.com/Azure-Samples/azure-typescript-upload-file-storage-blob) and select **Code** > **Create codespace on main**. 
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-button.png" alt-text="GitHub screenshot of Codespaces buttons for a repository.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/github-codespaces-button.png" alt-text="Screenshot of GitHub repository page showing Go to file, Add file, and green Code button highlighted.":::
 
 1. Wait for the development container to start. This startup process can take a few minutes. The remaining steps in this tutorial take place in the context of this development container.
 
@@ -108,22 +127,28 @@ This tutorial's [complete sample code](https://github.com/Azure-Samples/azure-ty
 
 1. Open the deployed web app in a new browser tab and select a PNG file to upload. Several PNG files are available in the `./docs/media` folder. 
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" lightbox="" alt-text="Screenshot of web browser showing deployed web app with Select File button available.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Screenshot of web app for uploading files to Azure Storage, showing Select File button and container name upload." lightbox="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png":::
 
 1. Select **Get SAS token**, then select **Upload file**.
 1. View your uploaded file in the gallery below the upload button.
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" lightbox="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Screenshot of web browser showing web app with the image file uploaded and a thumbnail of the file displayed."::: 
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png" alt-text="Screenshot of web app after uploading daisies.jpg to Azure Storage, showing file name, SAS URL, upload status, and image thumbnail." lightbox="media/browser-file-upload-azure-storage-blob/browser-file-upload-complete.png":::
 
-The file uploads directly from your browser to Azure Storage using a time-limited, write-only SAS token. The gallery images load directly from Azure Storage using read-only SAS tokens.
+**What just happened?**
+- Your file uploaded directly from the browser to Azure Storage using a time-limited, write-only SAS token
+- The gallery images load directly from Azure Storage using read-only SAS tokens
+- No authentication secrets were exposed in your browser
 
-### Understand the API code to generate SAS tokens and upload files
+## How the code works
 
-The application consists of two main parts:
-- An API which generates SAS tokens and lists files in Azure Storage
-- A client web app that interacts with the user and uploads files to Azure Storage using SAS
+Now that you've seen the application in action, explore how the code implements secure file uploads. The application has two main parts:
 
-## API server to generate SAS tokens and list files
+1. **API backend** - Authenticates with Azure and generates SAS tokens
+2. **React frontend** - Uploads files directly to Azure Storage using SAS tokens
+
+The following sections walk through the key code implementations.
+
+### API server to generate SAS tokens and list files
 
 The API server authenticates to Azure Storage and generates time-limited SAS tokens for the browser to use.
 
@@ -233,7 +258,7 @@ const sasToken = generateBlobSASQueryParameters(
 const sasUrl = `${blobClient.url}?${sasToken}`;
 ```
 
-## Web app client request and receive SAS tokens from the API server
+### Web app client request and receive SAS tokens from the API server
 
 The React frontend requests SAS tokens from the API and uses them to directly upload files to Azure Storage from the browser.
 
@@ -246,7 +271,7 @@ The frontend follows a three-step process:
 This architecture keeps the backend lightweight - it only generates tokens, never handles file data.
 
 
-## Request a Blob Storage SAS Token from the API server
+### Request a Blob Storage SAS Token from the API server
 
 When a user selects a file and clicks "Get SAS Token", the frontend requests a write-only SAS token from the API:
 
@@ -418,7 +443,7 @@ The frontend uses the SAS URLs directly in image tags. The browser fetches image
 
 ## Clean up resources
 
-Run the following Azure Developer CLI command to remove all resources created by this tutorial:
+When you're finished with this tutorial, remove all Azure resources to avoid ongoing charges:
 
 ```azdcli
 azd down
@@ -436,10 +461,18 @@ Report [issues](https://github.com/Azure-Samples/azure-typescript-upload-file-st
 
 * GitHub repository: [Azure-Samples/azure-typescript-upload-file-storage-blob](https://github.com/Azure-Samples/azure-typescript-upload-file-storage-blob)
 
+## Next steps
+
+Now that you've learned how to securely upload files to Azure Storage, explore these related topics:
+
+* [Azure Blob Storage documentation](/azure/storage/blobs/storage-blobs-introduction) - Learn about storage tiers, lifecycle management, and advanced features
+* [@azure/storage-blob npm package](https://www.npmjs.com/package/@azure/storage-blob) - Explore the full SDK reference and additional capabilities
+* [Valet Key pattern](/azure/architecture/patterns/valet-key) - Understand the architectural pattern behind this solution
+* [Managed Identity best practices](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations) - Secure your Azure applications
+
 ## Related content
 
-* Azure Blob Storage [documentation](/azure/storage/blobs/storage-blobs-introduction)
-* @azure/storage-blob
-    * [npm package](https://www.npmjs.com/package/@azure/storage-blob)
+* [Deploy TypeScript applications to Azure](/azure/developer/javascript/how-to/deploy-web-app)
+* [Azure Developer CLI documentation](/azure/developer/azure-developer-cli/overview)
 
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
