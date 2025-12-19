@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/28/2025
+ms.date: 12/18/2025
 ms.service: azure-dev-cli
 ms.topic: article
 ms.custom: devx-track-azdevcli
@@ -219,6 +219,7 @@ See each sub-command's help for details on how to use the generated script.
 ### See also
 
 * [azd completion bash](#azd-completion-bash): Generate bash completion script.
+* [azd completion fig](#azd-completion-fig): Generate Fig autocomplete spec.
 * [azd completion fish](#azd-completion-fish): Generate fish completion script.
 * [azd completion powershell](#azd-completion-powershell): Generate PowerShell completion script.
 * [azd completion zsh](#azd-completion-zsh): Generate zsh completion script.
@@ -237,6 +238,34 @@ azd completion bash
 ```azdeveloper
       --docs   Opens the documentation for azd completion bash in your web browser.
   -h, --help   Gets help for bash.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd completion](#azd-completion): Generate shell completion scripts.
+* [Back to top](#azd)
+
+## azd completion fig
+
+Generate Fig autocomplete spec.
+
+```azdeveloper
+azd completion fig
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd completion fig in your web browser.
+  -h, --help   Gets help for fig.
 ```
 
 ### Options inherited from parent commands
@@ -647,7 +676,7 @@ azd deploy <service> [flags]
 Delete your project's Azure resources.
 
 ```azdeveloper
-azd down [flags]
+azd down [<layer>] [flags]
 ```
 
 ### Options
@@ -834,6 +863,7 @@ azd env refresh <environment> [flags]
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for refresh.
       --hint string          Hint to help identify the environment to refresh
+      --layer string         Provisioning layer to refresh the environment from.
 ```
 
 ### Options inherited from parent commands
@@ -854,7 +884,7 @@ azd env refresh <environment> [flags]
 Set the default environment.
 
 ```azdeveloper
-azd env select <environment> [flags]
+azd env select [<environment>] [flags]
 ```
 
 ### Options
@@ -979,7 +1009,7 @@ Manage azd extensions.
 Installs specified extensions.
 
 ```azdeveloper
-azd extension install <extension-name> [flags]
+azd extension install <extension-id> [flags]
 ```
 
 ### Options
@@ -1041,7 +1071,7 @@ azd extension list [--installed] [flags]
 Show details for a specific extension.
 
 ```azdeveloper
-azd extension show <extension-name> [flags]
+azd extension show <extension-id> [flags]
 ```
 
 ### Options
@@ -1184,7 +1214,7 @@ azd extension source remove <name> [flags]
 Uninstall specified extensions.
 
 ```azdeveloper
-azd extension uninstall <extension-name> [flags]
+azd extension uninstall [extension-id] [flags]
 ```
 
 ### Options
@@ -1213,7 +1243,7 @@ azd extension uninstall <extension-name> [flags]
 Upgrade specified extensions.
 
 ```azdeveloper
-azd extension upgrade <extension-name> [flags]
+azd extension upgrade [extension-id] [flags]
 ```
 
 ### Options
@@ -1453,15 +1483,11 @@ without prompting for permission. You can specify different permission
 levels and scopes for the rules.
 
 Examples:
-Grant always permission to all tools globally:
-  
-```azdeveloper
-azd mcp consent grant --global --permission always
+  **Grant always permission to all tools globally**
+  azd mcp consent grant --global --permission always
 
-Grant project permission to a specific tool with read-only scope:
-  
-```azdeveloper
-azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
+  **Grant project permission to a specific tool with read-only scope**
+  azd mcp consent grant --server my-server --tool my-tool --permission project --scope read-only
 
 ```azdeveloper
 azd mcp consent grant [flags]
@@ -1729,7 +1755,7 @@ azd pipeline config [flags]
 Provision Azure resources for your project.
 
 ```azdeveloper
-azd provision [flags]
+azd provision [<layer>] [flags]
 ```
 
 ### Options
@@ -1819,7 +1845,7 @@ azd restore <service> [flags]
 Display information about your project and its resources.
 
 ```azdeveloper
-azd show [resource name or ID] [flags]
+azd show [resource-name|resource-id] [flags]
 ```
 
 ### Options
