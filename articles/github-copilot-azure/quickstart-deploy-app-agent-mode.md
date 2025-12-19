@@ -40,20 +40,16 @@ In this section, use GitHub Copilot agent mode to create [Bicep deployment files
    Help me deploy my project to Azure
    ```
 
-   Copilot Agent analyzes the project, recommend Azure services, and generate Bicep files. You might see a response like the following example. 
-
-   :::image type="content" source="media/quickstart-deploy-app-agent-mode/recommend-resources.png" alt-text="Screenshot of the GitHub Copilot chat pane evaluating your project to recommend resources.":::
-
    > [!IMPORTANT]
    > Each time GitHub Copilot for Azure answers the prompt the response's wording and potentially its approach is different due to how large language models (LLMs) generate responses and its approach. It's possible your experience might vary from this article. Take the time to read GitHub Copilot's responses and choose the correct course of action. If you're unsure how to proceed, ask GitHub Copilot what it intends to do and why.
 
-   In general, Copilot agent analyzes your project and generates the necessary deployment files. 
+In general, Copilot agent analyzes your project and generates the necessary deployment files. 
 
-   Copilot agent uses command line tools like `azd` to perform many tasks, including a predeployment check, dependency checks, and ultimately the deployment itself using the `azd up` command. The `azd up` command runs in Visual Studio Code's terminal and prompts you for input like an environment name, a resource group, and more.
+Copilot agent uses command line tools like `azd` to perform many tasks, including a predeployment check, dependency checks, and ultimately the deployment itself using the `azd up` command. The `azd up` command runs in Visual Studio Code's terminal and prompts you for input like an environment name, a resource group, and more.
 
-   If you followed the instructions in this document, you might encounter an error with .NET version; Copilot picks it up and generates a fix for it.
+If you followed the instructions in this document, you might encounter an error with .NET version; Copilot picks it up and generates a fix for it.
 
-   If any errors were encountered during the deployment process, Copilot agent mode can also fix the errors and redeploy the application. Be sure to read the conversation closely and respond appropriately. You can nudge, suggest, and direct Copilot to try different approaches.
+If any errors were encountered during the deployment process, Copilot agent mode can also fix the errors and redeploy the application. Be sure to read the conversation closely and respond appropriately. You can nudge, suggest, and direct Copilot to try different approaches.
 
 ## Tips
 
