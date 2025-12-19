@@ -20,11 +20,11 @@ Upload files directly from a browser to Azure Blob Storage using the [Valet Key 
 
 ## Architecture
 
-:::image type="content" source="./media/browser-file-upload-azure-storage-blob/architecture-with-user-flow.png" alt-text="Azure architecture diagram showing the upload flow: User selects file in Web App Frontend, frontend requests SAS token from API App Backend, backend gets user delegation key from Managed Identity and generates SAS token from Storage Blob Container, frontend uploads file directly to Storage using SAS token, backend queries Storage to list uploaded files. Container Registry provides container images for both apps.":::
+:::image type="content" source="./media/browser-file-upload-azure-storage-blob/architecture-with-user-flow.png" lightbox="./media/browser-file-upload-azure-storage-blob/architecture-with-user-flow.png" alt-text="Azure architecture diagram showing the upload flow: User selects file in Web App Frontend, frontend requests SAS token from API App Backend, backend gets user delegation key from Managed Identity and generates SAS token from Storage Blob Container, frontend uploads file directly to Storage using SAS token, backend queries Storage to list uploaded files. Container Registry provides container images for both apps.":::
 
 The frontend requests a SAS token from the API, then uploads files directly to Azure Storage. After upload, the API lists all uploaded files with read-only SAS tokens for display.
 
- :::image type="content" source="./media/browser-file-upload-azure-storage-blob/solution-demo-shared-access-signature-token-file-storage.gif" alt-text="Demonstration of uploading an image file through the web app interface.":::
+:::image type="content" source="./media/browser-file-upload-azure-storage-blob/solution-demo-shared-access-signature-token-file-storage.gif" alt-text="Demonstration of uploading an image file through the web app interface.":::
 
 ## Key concepts
 
@@ -108,7 +108,7 @@ This tutorial's [complete sample code](https://github.com/Azure-Samples/azure-ty
 
 1. Open the deployed web app in a new browser tab and select a PNG file to upload. Several PNG files are available in the `./docs/media` folder. 
 
-    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" alt-text="Screenshot of web browser showing deployed web app with Select File button available.":::
+    :::image type="content" source="media/browser-file-upload-azure-storage-blob/browser-app-select-file.png" lightbox="" alt-text="Screenshot of web browser showing deployed web app with Select File button available.":::
 
 1. Select **Get SAS token**, then select **Upload file**.
 1. View your uploaded file in the gallery below the upload button.
