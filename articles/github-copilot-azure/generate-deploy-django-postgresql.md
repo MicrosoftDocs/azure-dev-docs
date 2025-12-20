@@ -1,10 +1,10 @@
 ---
-title: Generate a Django and PostgreSQL and deploy to Azure
+title: Generate a Django and PostgreSQL app and deploy to Azure
 description: This article demonstrates how to prompt GitHub Copilot along with GitHub Copilot for Azure to generate an entire app, then deploy to Azure App Service and Azure PostgreSQL Flexible Server.
 keywords: github, copilot, ai, azure
 ms.service: github-copilot-for-azure
 ms.topic: how-to
-ms.date: 06/6/2025
+ms.date: 12/19/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -83,11 +83,11 @@ While GitHub Copilot is capable of performing virtually any application developm
 
    ```
 
-   On my PostgreSQL server localhost, please create a new database named market.
+   On my PostgreSQL server localhost, please create a new database named 'contacts'.
 
    Then create a new user <db-username> with password `<password>` and give that 
    user full rights (create tables and other db objects, CRUD data) to the new 
-   market database.
+   contacts database.
 
    Please do the work, and only prompt me when you are unable to do it yourself.
 
@@ -230,7 +230,7 @@ The prompt has the following features:
    - Generate Bicep files
    - Run the `azd` CLI
    - Test the deployment
-   - If necessary, debug the deployment using logs or other 
+   - If necessary, debug the deployment using logs or other output
 
 
 ## Interact with GitHub Copilot
@@ -244,7 +244,7 @@ While it's working, you can watch and agree to most of the questions it asks you
 
 Occasionally, you're required to provide input. There are a few distinct moments when you're prompted for input:
 
-- **User credentials** - If the current operation in the terminal requires a username or password, 
+- **User credentials** - If the current operation in the terminal requires a username or password, you will be prompted for this information.
 - **Moment of decision** - Occasionally, GitHub Copilot gives you several options in a list and ask which you prefer.
 - **The Command Palette** - Occasionally, GitHub Copilot uses the features of an extension and the options are displayed in the Command Palette. Once you make the proper selections, GitHub Copilot proceeds.
 - **Interactive login** - The Azure CLI and `azd` CLI need you to authenticate, and initiates one of several authentication mechanisms.

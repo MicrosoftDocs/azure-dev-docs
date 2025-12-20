@@ -2,7 +2,7 @@
 title: Overview of How to Deploy a Python Web App in Azure Container Apps
 description: Overview of how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: tutorial
-ms.date: 12/18/2024
+ms.date: 12/19/2025
 ms.custom: devx-track-python
 ---
 
@@ -49,7 +49,7 @@ The diagram includes these components:
 
   The sample code stores application data in a PostgreSQL database. The container app connects to PostgreSQL by using a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). Connection information is stored in environment variables configured explicitly or through an [Azure service connector][8].
 
-* [GitHub][1]:
+* [GitHub][7]:
 
   The sample code for this tutorial series is in a GitHub repo that you fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6], you need a GitHub account.
   
@@ -85,7 +85,7 @@ To complete this tutorial series, you need:
   * You can use the Azure CLI through [Azure Cloud Shell][9].
 
 * Python packages:
-  * [pyscopg2-binary][12] for connecting to PostgreSQL.
+  * [psycopg2-binary][12] for connecting to PostgreSQL.
   * [Flask][10] or [Django][11] as a web framework.
 
 ## Sample app
@@ -109,7 +109,7 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 [9]: /azure/cloud-shell/overview
 [10]: https://flask.palletsprojects.com/en/2.1.x/
 [11]: https://www.djangoproject.com/
-[12]: https://pypi.org/project/psycopg-binary/
+[12]: https://pypi.org/project/psycopg2-binary/
 [13]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps
 [16]: https://code.visualstudio.com/
 [17]: /cli/azure/what-is-azure-cli
