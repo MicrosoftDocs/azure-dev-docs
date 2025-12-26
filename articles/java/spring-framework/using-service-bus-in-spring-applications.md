@@ -72,14 +72,7 @@ To install the Spring Cloud Azure Service Bus Starter module, add the following 
   </dependencyManagement>
   ```
 
-  > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
-  >
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-  >
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
-  >
-  > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus artifact:
 
@@ -332,14 +325,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
   </dependencyManagement>
   ```
 
-  > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
-  >
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-  >
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
-  >
-  > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus JMS artifact:
 
@@ -478,14 +464,7 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
   </dependencyManagement>
   ```
 
-  > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
-  >
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-  >
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
-  >
-  > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
 
 - The Spring Messaging Service Bus and Spring Cloud Azure starter artifacts:
 
@@ -589,14 +568,7 @@ To install the Spring Cloud Azure Service Bus Integration Starter module, add th
   </dependencyManagement>
   ```
 
-  > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
-  >
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-  >
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
-  >
-  > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus Integration artifact:
 
@@ -752,14 +724,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
   </dependencyManagement>
   ```
 
-  > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.24.1`.
-  >
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-  >
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
-  >
-  > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus Integration artifact:
 
