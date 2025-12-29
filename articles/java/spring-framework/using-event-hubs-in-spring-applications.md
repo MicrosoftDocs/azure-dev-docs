@@ -397,7 +397,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure starter, Spring Messaging Event Hubs and Azure Event Hubs Checkpoint Store artifacts:
 
@@ -518,7 +518,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Event Hubs Integration artifact:
 
@@ -704,7 +704,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Event Hubs Stream Binder artifact:
 
@@ -809,7 +809,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure starter and Spring Kafka artifact:
 
@@ -908,7 +908,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure starter artifact:
 
