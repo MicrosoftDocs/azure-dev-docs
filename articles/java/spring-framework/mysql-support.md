@@ -11,6 +11,7 @@ appliesto:
 - ✅ Version 4.20.0
 - ✅ Version 5.24.1
 - ✅ Version 6.1.0
+- ✅ Version 7.0.0-beta.1
 ---
 
 # Spring Cloud Azure MySQL support
