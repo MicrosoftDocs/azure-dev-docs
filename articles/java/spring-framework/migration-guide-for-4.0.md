@@ -72,7 +72,7 @@ We used to ship two BOMs for our libraries, the `azure-spring-boot-bom` and `azu
 </dependencyManagement>
 ```
 
-[!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+[!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 ## Artifact changes: renamed / added / deleted
 

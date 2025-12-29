@@ -72,7 +72,7 @@ To install the Spring Cloud Azure Service Bus Starter module, add the following 
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus artifact:
 
@@ -325,7 +325,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus JMS artifact:
 
@@ -464,7 +464,7 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Messaging Service Bus and Spring Cloud Azure starter artifacts:
 
@@ -568,7 +568,7 @@ To install the Spring Cloud Azure Service Bus Integration Starter module, add th
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus Integration artifact:
 
@@ -724,7 +724,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Service Bus Integration artifact:
 

@@ -61,7 +61,7 @@ To install the Spring Cloud Azure Event Grid Starter module and the Spring Cloud
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Event Grid Starter artifact:
 

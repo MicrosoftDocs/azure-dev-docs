@@ -57,7 +57,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Stream Binder Event Hubs artifact:
 

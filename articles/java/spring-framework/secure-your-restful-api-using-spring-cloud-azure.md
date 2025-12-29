@@ -105,7 +105,7 @@ To install the Spring Cloud Azure Starter Azure Active Directory module, add the
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Starter Microsoft Entra artifact:
 

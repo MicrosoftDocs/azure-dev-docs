@@ -197,7 +197,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    </dependencyManagement>
    ```
 
-[!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+[!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 1. Add the following properties to your **application.yml** file:
 

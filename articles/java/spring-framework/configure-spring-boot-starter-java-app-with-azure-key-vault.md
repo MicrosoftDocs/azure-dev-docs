@@ -56,7 +56,7 @@ To install the Spring Cloud Azure Key Vault Starter module, add the following de
   </dependencyManagement>
   ```
 
-  [!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Key Vault Starter artifact:
 

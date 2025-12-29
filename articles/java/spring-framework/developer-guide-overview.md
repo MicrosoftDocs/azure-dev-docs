@@ -110,7 +110,7 @@ With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the fol
 
 For more information, see [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/).
 
-[!INCLUDE [spring-cloud-azure-version-note.md](spring-cloud-azure-version-note.md)]
+[!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 #### Starter dependencies
 
