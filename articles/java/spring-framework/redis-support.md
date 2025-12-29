@@ -43,7 +43,7 @@ If none of these types of credentials are found, the credential chain via `Defau
 
 ## Configuration
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 Configurable properties when using Redis support:
 
@@ -90,7 +90,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 ### Connect to Azure Cache for Redis with passwordless
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 
@@ -227,7 +227,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 Use the following steps to connect to Azure Cache for Redis:
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 1. Add the following dependency to your project. This configuration automatically includes the `spring-boot-starter` dependency in your project transitively.
 

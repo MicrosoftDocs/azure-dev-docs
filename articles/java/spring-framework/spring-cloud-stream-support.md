@@ -432,7 +432,7 @@ A `PartitionSupplier` with user-provided partition information is created to con
 
 #### Handle error messages
 
-##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+##### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 * Handle outbound binding error messages
 
@@ -1058,7 +1058,7 @@ public Supplier<Message<String>> generate() {
 
 #### Handle error messages
 
-##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+##### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 * Handle outbound binding error messages
 
