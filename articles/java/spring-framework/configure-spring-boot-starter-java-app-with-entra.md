@@ -50,7 +50,7 @@ The following prerequisites are required to complete the steps in this article:
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.24.1</version>
+         <version>7.0.0-beta.1</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
