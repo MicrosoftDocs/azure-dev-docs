@@ -200,10 +200,10 @@
 | Resource Management - Container Apps | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-appcontainers/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-appcontainers-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appcontainers_3.0.0/sdk/appcontainers/arm-appcontainers/) |
 | Resource Management - Container Instances | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/9.1.0)<br>npm [9.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerinstance/v/9.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerinstance-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Orchestrator Runtime | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerorchestratorruntime/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerorchestratorruntime-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerorchestratorruntime_1.0.0-beta.1/sdk/kubernetesruntime/arm-containerorchestratorruntime/) |
-| Resource Management - Container Registry | npm [11.0.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/11.0.0) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [11.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
+| Resource Management - Container Registry | npm [11.0.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/11.0.0)<br>npm [12.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerregistry/v/12.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [11.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice-rest) |
-| Resource Management - Container Service | npm [24.0.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/24.0.0)<br>npm [24.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservice/v/24.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [24.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
-| Resource Management - Container Service Fleet | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/2.0.0)<br>npm [2.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/2.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservicefleet-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.0.0/sdk/containerservice/arm-containerservicefleet/)<br>GitHub [2.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0-beta.1/sdk/containerservice/arm-containerservicefleet/) |
+| Resource Management - Container Service | npm [24.1.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/24.1.0)<br>npm [24.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservice/v/24.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [24.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service Fleet | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/2.0.0)<br>npm [2.1.0-beta.2](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/2.1.0-beta.2) | [docs](/javascript/api/overview/azure/arm-containerservicefleet-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.0.0/sdk/containerservice/arm-containerservicefleet/)<br>GitHub [2.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_2.1.0-beta.2/sdk/containerservice/arm-containerservicefleet/) |
 | Resource Management - Containerservicesafeguards | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservicesafeguards/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservicesafeguards-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicesafeguards_1.0.0-beta.1/sdk/containerservice/arm-containerservicesafeguards/) |
 | Resource Management - Content Delivery Network | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-cdn/v/9.1.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [16.4.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.4.0)<br>npm [17.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/17.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [16.4.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
@@ -286,7 +286,7 @@
 | Resource Management - Links | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-links/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-links-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links) |
 | Resource Management - Load Testing | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-loadtesting/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-loadtesting-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtesting_1.0.0/sdk/loadtestservice/arm-loadtesting/) |
 | Resource Management - Locks | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-locks/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-locks-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks) |
-| Resource Management - Log Analytics | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-operationalinsights/v/9.0.0) | [docs](/javascript/api/overview/azure/arm-operationalinsights-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights) |
+| Resource Management - Log Analytics | npm [10.0.0](https://www.npmjs.com/package/@azure/arm-operationalinsights/v/10.0.0) | [docs](/javascript/api/overview/azure/arm-operationalinsights-readme) | GitHub [10.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationalinsights/arm-operationalinsights) |
 | Resource Management - Logic Apps | npm [8.2.0](https://www.npmjs.com/package/@azure/arm-logic/v/8.2.0) | [docs](/javascript/api/overview/azure/arm-logic-readme) | GitHub [8.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/logic/arm-logic) |
 | Resource Management - Machine Learning | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-machinelearning/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-machinelearning-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-machinelearning_3.0.0/sdk/machinelearning/arm-machinelearning/) |
 | Resource Management - Machine Learning Compute | npm [2.1.1](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/2.1.1)<br>npm [3.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-machinelearningcompute/v/3.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-machinelearningcompute-readme) | GitHub [2.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearningcompute/arm-machinelearningcompute) |
@@ -315,7 +315,7 @@
 | Resource Management - NetApp Files | npm [22.0.0](https://www.npmjs.com/package/@azure/arm-netapp/v/22.0.0)<br>npm [22.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-netapp/v/22.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-netapp-readme) | GitHub [22.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/netapp/arm-netapp) |
 | Resource Management - Network | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-network/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network-rest) |
 | Resource Management - Network | npm [35.0.0](https://www.npmjs.com/package/@azure/arm-network/v/35.0.0) | [docs](/javascript/api/overview/azure/arm-network-readme) | GitHub [35.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network) |
-| Resource Management - Network Cloud | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-networkcloud/v/1.2.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-networkcloud/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-networkcloud-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.2.0/sdk/networkcloud/arm-networkcloud/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_2.0.0-beta.1/sdk/networkcloud/arm-networkcloud/) |
+| Resource Management - Network Cloud | npm [1.3.0](https://www.npmjs.com/package/@azure/arm-networkcloud/v/1.3.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-networkcloud/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-networkcloud-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_1.3.0/sdk/networkcloud/arm-networkcloud/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkcloud_2.0.0-beta.1/sdk/networkcloud/arm-networkcloud/) |
 | Resource Management - Network Function | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-networkfunction/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-networkfunction-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-networkfunction_2.0.0/sdk/networkfunction/arm-networkfunction/) |
 | Resource Management - New Relic Observability | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-newrelicobservability/v/1.1.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-newrelicobservability/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-newrelicobservability-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-newrelicobservability_1.1.0/sdk/newrelicobservability/arm-newrelicobservability/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-newrelicobservability_2.0.0-beta.1/sdk/newrelicobservability/arm-newrelicobservability/) |
 | Resource Management - Nginx | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-nginx/v/3.0.0)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-nginx/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-nginx-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_3.0.0/sdk/nginx/arm-nginx/)<br>GitHub [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-nginx_4.0.0-beta.2/sdk/nginx/arm-nginx/) |
@@ -368,7 +368,7 @@
 | Resource Management - Service Bus | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-servicebus/v/6.1.0)<br>npm [6.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-servicebus/v/6.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-servicebus-readme) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus) |
 | Resource Management - Service Fabric | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-servicefabric/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabric/arm-servicefabric-rest) |
 | Resource Management - Service Fabric | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-servicefabric/v/3.0.0) | [docs](/javascript/api/overview/azure/arm-servicefabric-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabric/arm-servicefabric) |
-| Resource Management - Service Fabric Managed Clusters | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/arm-servicefabricmanagedclusters/v/1.0.0-beta.6) | [docs](/javascript/api/overview/azure/arm-servicefabricmanagedclusters-readme) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.6/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/) |
+| Resource Management - Service Fabric Managed Clusters | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-servicefabricmanagedclusters/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-servicefabricmanagedclusters-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicefabricmanagedclusters_1.0.0-beta.3/sdk/servicefabricmanagedclusters/arm-servicefabricmanagedclusters/) |
 | Resource Management - Service Fabric Mesh | npm [2.2.1](https://www.npmjs.com/package/@azure/arm-servicefabricmesh/v/2.2.1)<br>npm [3.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-servicefabricmesh/v/3.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-servicefabricmesh-readme) | GitHub [2.2.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicefabricmesh/arm-servicefabricmesh) |
 | Resource Management - Service Linker | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-servicelinker/v/2.1.0)<br>npm [2.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-servicelinker/v/2.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-servicelinker-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicelinker_2.1.0/sdk/servicelinker/arm-servicelinker/)<br>GitHub [2.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-servicelinker_2.2.0-beta.1/sdk/servicelinker/arm-servicelinker/) |
 | Resource Management - Service Map | npm [2.3.1](https://www.npmjs.com/package/@azure/arm-servicemap/v/2.3.1)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-servicemap/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-servicemap-readme) | GitHub [2.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/service-map/arm-servicemap) |
@@ -414,7 +414,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.63.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.63.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.63.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.63.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.31.0) |  |  |
-| @azure-tools/typespec-go | npm [0.8.7](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.7) |  |  |
+| @azure-tools/typespec-go | npm [0.8.8](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.8.8) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.11.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -422,12 +422,12 @@
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
 | @azure/functions-opentelemetry-instrumentation | npm [0.2.0](https://www.npmjs.com/package/@azure/functions-opentelemetry-instrumentation/v/0.2.0) |  |  |
-| @microsoft.azure/autorest-core | npm [2.0.4430](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4430) |  |  |
+| @microsoft.azure/autorest-core | npm [2.0.4432](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4432) |  |  |
 | @microsoft.azure/autorest.testserver | npm [3.3.51](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.51) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.4](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.4) |  |  |
-| @microsoft.azure/openapi-validator-rulesets | npm [2.1.10](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.10) |  |  |
+| @microsoft.azure/openapi-validator-rulesets | npm [2.2.0](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.2.0) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
-| @typespec/bundler | npm [0.4.6](https://www.npmjs.com/package/@typespec/bundler/v/0.4.6) |  |  |
+| @typespec/bundler | npm [0.4.7](https://www.npmjs.com/package/@typespec/bundler/v/0.4.7) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.9](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.9) |  |  |
 | @typespec/playground | npm [0.11.3](https://www.npmjs.com/package/@typespec/playground/v/0.11.3) |  |  |
 | @typespec/tspd | npm [0.73.2](https://www.npmjs.com/package/@typespec/tspd/v/0.73.2) |  |  |
@@ -437,7 +437,7 @@
 | App Configuration Provider | npm [2.2.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.2.0) |  |  |
 | App Configuration Provider File Source | npm [1.1.3-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.1.3-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
-| Spec Gen SDK | npm [0.9.4](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.9.4) |  |  |
+| Spec Gen SDK | npm [0.9.6](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.9.6) |  |  |
 | tmlanguage-generator | npm [0.6.6](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.6) |  |  |
 | TypeSpec Asset Emitter | npm [0.77.0](https://www.npmjs.com/package/@typespec/asset-emitter/v/0.77.0) |  |  |
 | TypeSpec Emitter Framework | npm [0.14.0](https://www.npmjs.com/package/@typespec/emitter-framework/v/0.14.0) |  |  |
@@ -445,14 +445,14 @@
 | TypeSpec HTTP Client | npm [0.13.0](https://www.npmjs.com/package/@typespec/http-client/v/0.13.0) |  |  |
 | TypeSpec HTTP Client Java | npm [0.6.1](https://www.npmjs.com/package/@typespec/http-client-java/v/0.6.1) |  |  |
 | TypeSpec HTTP Client JavaScript | npm [0.12.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.12.0) |  |  |
-| TypeSpec HTTP Client Python | npm [0.23.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.23.0) |  |  |
+| TypeSpec HTTP Client Python | npm [0.23.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.23.1) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.29](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.29) |  |  |
 | TypeSpec Rust | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.32.0) |  |  |
 | TypeSpec SSE | npm [0.77.0](https://www.npmjs.com/package/@typespec/sse/v/0.77.0) |  |  |
 | TypeSpec Streams | npm [0.77.0](https://www.npmjs.com/package/@typespec/streams/v/0.77.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.11.0) |  |  |
-| Unknown Display Name | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/0.1.4) |  |  |
+| Unknown Display Name | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/0.1.8) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.6](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.6) |  |  |
@@ -470,13 +470,13 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5662952) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5662952) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5662952) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5662952) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5662952) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5662952) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5662952](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5662952) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5676627) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5676627) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5676627) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5676627) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5676627) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5676627) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5676627) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.8) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.8) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
@@ -603,7 +603,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.16.0](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.16.0) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.16.1](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.16.1) |  |  |
 | @azure-tools/json | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/json/v/1.3.1) |  |  |
 | @azure-tools/jsonschema | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.1) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -645,7 +645,7 @@
 | AutoRest - Go | npm [4.0.0-preview.75](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.75) |  |  |
 | AutoRest - Modeler Four | npm [4.27.2](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.2) |  | GitHub [4.27.2](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.45.0](https://www.npmjs.com/package/@autorest/python/v/6.45.0) |  | GitHub [6.45.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.45.1](https://www.npmjs.com/package/@autorest/python/v/6.45.1) |  | GitHub [6.45.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
