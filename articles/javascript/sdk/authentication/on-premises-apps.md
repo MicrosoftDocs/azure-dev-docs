@@ -78,7 +78,7 @@ For example, to allow the service principal with the appId of `00001111-aaaa-222
 ```azurecli
 az role assignment create --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
     --role "Storage Blob Data Contributor" \
-    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-javascript-sdk-auth-example
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-javascript-sdk-auth-example \
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
