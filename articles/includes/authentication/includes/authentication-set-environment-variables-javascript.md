@@ -3,7 +3,7 @@ ms.topic: include
 ms.date: 01/05/2026
 ---
 
-## Configure environment variables for application
+## Set the app environment variables
 
 At runtime, `DefaultAzureCredential` searches for service principal information in the following environment variables:
 
