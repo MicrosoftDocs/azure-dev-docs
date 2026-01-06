@@ -32,7 +32,7 @@ A different app registration should be created for each environment the app is h
 
 The [Azure Identity library](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true) provides various *credentials*&mdash;implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [ClientSecretCredential](/javascript/api/@azure/identity/clientsecretcredential?view=azure-node-latest&preserve-view=true) when working with service principals locally and in production.
 
-## Implement the code
+### Implement the code
 
 Add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package in the Node.js project:
 
