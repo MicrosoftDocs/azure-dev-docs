@@ -29,6 +29,9 @@ A different app registration should be created for each environment the app is h
 
 [!INCLUDE [authentication-to Azure Services](~/../dotnet-docs/docs/azure/sdk/includes/implement-service-principal-concepts.md)]
 
+## Authenticate to Azure services from your app
+
+The [Azure Identity library](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true) provides various *credentials*&mdash;implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [ClientSecretCredential](/javascript/api/@azure/identity/clientsecretcredential?view=azure-node-latest&preserve-view=true) when working with service principals locally and in production.
 
 [!INCLUDE [Implement service principal](../../../includes/authentication/includes/implement-service-principal-javascript.md)]
 

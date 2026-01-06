@@ -3,34 +3,51 @@ ms.topic: include
 ms.date: 01/05/2026
 ---
 
-## Implement DefaultAzureCredential in your application
+## Implement the code
 
-Add the `@azure/identity` package.
+Add the `@azure/identity` package:
 
 ```bash
 npm install @azure/identity
 ```
 
-Next, for any JavaScript code that creates an Azure SDK client object in your app, follow these steps:
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. For any JavaScript code that creates an Azure SDK client object in your app, follow these steps:
 
-1. Import the `DefaultAzureCredential` class from the `@azure/identity` module.
-1. Create a `DefaultAzureCredential` object.
-1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
+1. Import the [`ClientSecretCredential`](/javascript/api/@azure/identity/clientsecretcredential?view=azure-node-latest&preserve-view=true) class from the `@azure/identity` module.
+1. Create a `ClientSecretCredential` object with the `tenantId`, `clientId`, and `clientSecret`.
+1. Pass the `ClientSecretCredential` instance to the Azure SDK client object constructor.
 
 An example of this approach is shown in the following code segment:
 
 ```javascript
 import { BlobServiceClient } from '@azure/storage-blob';
-import { DefaultAzureCredential } from '@azure/identity';
-import 'dotenv/config';
+import { ClientSecretCredential } from '@azure/identity';
 
+// Authentication
+const tenantId = process.env.AZURE_TENANT_ID;
+const clientId = process.env.AZURE_CLIENT_ID;
+const clientSecret = process.env.AZURE_CLIENT_SECRET;
+
+// Azure Storage account name
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-if (!accountName) throw Error('Azure Storage accountName not found');
+
+if (!tenantId || !clientId || !clientSecret || !accountName) {
+  throw Error('Required environment variables not found');
+}
+
+const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 const blobServiceClient = new BlobServiceClient(
   `https://${accountName}.blob.core.windows.net`,
-  new DefaultAzureCredential()
+  credential
 );
 ```
 
-When the preceding code instantiates the `DefaultAzureCredential` object, `DefaultAzureCredential` reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure.
+An alternative approach is to pass the `ClientSecretCredential` object directly to the Azure SDK client constructor:
+
+```javascript
+const blobServiceClient = new BlobServiceClient(
+  `https://${accountName}.blob.core.windows.net`,
+  new ClientSecretCredential(tenantId, clientId, clientSecret)
+);
+```

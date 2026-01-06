@@ -19,7 +19,7 @@ Next, determine what roles (permissions) your app needs on what resources and as
     - Search for the service principal you created earlier and select it from the filtered results. Choose **Select** to select the group and close the flyout panel.
     - Select **Review + assign** at the bottom of the **Members** tab.
 
-    :::image type="content" source="../../media/app-role-assignment.png" alt-text="A screenshot showing how to assign a role to the service principal.":::
+    :::image type="content" source="/dotnet/azure/media/app-role-assignment.png" alt-text="A screenshot showing how to assign a role to the service principal.":::
 
 1. On the **Review + assign** tab, select **Review + assign** at the bottom of the page.
 
