@@ -27,7 +27,7 @@ A different app registration should be created for each environment the app is h
 
 [!INCLUDE [authentication-set-environment-variables](../../../includes/authentication/includes/authentication-set-environment-variables-javascript.md)]
 
-[!INCLUDE [authentication-to Azure Services](~/dotnet-docs/docs/azure/sdk/includes/implement-service-principal-concepts.md)]
+[!INCLUDE [authentication-to Azure Services](~/../dotnet-docs/docs/azure/sdk/includes/implement-service-principal-concepts.md)]
 
 
 [!INCLUDE [Implement service principal](../../../includes/authentication/includes/implement-service-principal-javascript.md)]
