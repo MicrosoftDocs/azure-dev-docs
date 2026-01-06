@@ -129,4 +129,4 @@ If you have any feedback about GitHub Copilot agent, [create an issue at the git
 ## Next step
 
 - [Use GitHub Copilot agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents)
-- [Migrate Java apps to Azure using GitHub Copilot app modernization via Custom Agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)
+- [Migrate Java apps to Azure by using GitHub Copilot app modernization via custom agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)

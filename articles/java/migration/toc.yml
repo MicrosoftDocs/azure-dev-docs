@@ -29,7 +29,7 @@ items:
           href: migrate-github-copilot-app-modernization-for-java-sample.md
         - name: Migrate from Oracle to PostgreSQL
           href: migrate-github-copilot-app-modernization-for-java-oracle-to-postgresql.md
-        - name: Migration via Custom Agent
+        - name: Migration via custom agent
           href: migrate-github-copilot-app-modernization-for-java-custom-agent.md  
     - name: Spring to Azure
       expanded: true
