@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/13/2025
+ms.date: 01/06/2026
 ---
 
 ## Register the app in Azure

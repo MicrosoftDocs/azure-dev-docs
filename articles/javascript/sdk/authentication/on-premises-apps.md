@@ -2,7 +2,7 @@
 title: Authenticate to Azure resources from JavaScript apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript in on-premises hosted apps. 
 ms.topic: how-to
-ms.date: 03/13/2025
+ms.date: 01/06/2025
 ms.custom:
   - devx-track-js
   - engagement-fy23
