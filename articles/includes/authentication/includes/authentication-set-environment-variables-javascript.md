@@ -40,13 +40,7 @@ To set environment variables persistently in Windows, you can use the `setx` com
 
 ### [.env file](#tab/env-file)
 
-For local development, you can use a `.env` file with the [dotenv](https://www.npmjs.com/package/dotenv) package:
-
-1. Install the dotenv package:
-
-    ```bash
-    npm install dotenv
-    ```
+For local development, you can use a `.env` file. Node.js 20.6.0 and later support the `--env-file` flag to automatically load environment variables from a `.env` file.
 
 1. Create a `.env` file in your project root:
 
@@ -54,6 +48,20 @@ For local development, you can use a `.env` file with the [dotenv](https://www.n
     AZURE_CLIENT_ID=<your-client-id>
     AZURE_TENANT_ID=<your-tenant-id>
     AZURE_CLIENT_SECRET=<your-client-secret>
+    ```
+
+1. Run your application with the `--env-file` flag:
+
+    ```bash
+    node --env-file=.env app.js
+    ```
+
+For earlier Node.js versions, you can use the [dotenv](https://www.npmjs.com/package/dotenv) npm package:
+
+1. Install the dotenv package:
+
+    ```bash
+    npm install dotenv
     ```
 
 1. Load the environment variables in your application:

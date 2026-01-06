@@ -5,9 +5,7 @@ ms.date: 01/05/2026
 
 ## Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package.
-
-Start by adding the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
+Add the `@azure/identity` package.
 
 ```bash
 npm install @azure/identity

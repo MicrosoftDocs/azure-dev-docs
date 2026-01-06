@@ -1,102 +1,34 @@
 ---
 title: Authenticate to Azure resources from JavaScript apps hosted on-premises
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for JavaScript in on-premises hosted apps. 
-ms.date: 01/05/2026
 ms.topic: how-to
+ms.date: 03/13/2025
 ms.custom:
   - devx-track-js
+  - engagement-fy23
   - sfi-image-nochange
 ---
 
 # Authenticate to Azure resources from JavaScript apps hosted on-premises
 
-Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When you create an application service principal, you get a client ID and client secret for your app. You store the client ID, client secret, and your tenant ID in environment variables to be used by the Azure SDK for JavaScript to authenticate your app to Azure at runtime.
+Apps hosted outside of Azure, such as on-premises or in a third-party data center, should use an application service principal through [Microsoft Entra ID](/entra/fundamentals/whatis) to authenticate to Azure services. In the sections ahead, you learn:
 
-A different app registration should be created for each environment the app is hosted in. Creating a different app registration allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+- How to register an application with Microsoft Entra to create a service principal
+- How to assign roles to scope permissions
+- How to authenticate using a service principal from your app code
 
-## Register the application in Azure
+Using dedicated application service principals allows you to adhere to the principle of least privilege when accessing Azure resources. Permissions are limited to the specific requirements of the app during development, preventing accidental access to Azure resources intended for other apps or services. This approach also helps avoid issues when the app is moved to production by ensuring it isn't over-privileged in the development environment.
 
-An app can be registered with Azure using either the Azure portal or the Azure CLI.
+A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and make sure an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
-### [Azure CLI](#tab/azure-cli)
+[!INCLUDE [authentication-create-app-registration](~/dotnet-docs/docs/azure/sdk/includes/auth-create-app-registration.md)]
 
-```azurecli
-az ad sp create-for-rbac --name <app-name>
-```
+[!INCLUDE [authentication-assign-service-principal-roles](../../../includes/authentication/includes/authentication-assign-service-principal-roles.md)]
 
-The output of the command is similar to the following example. Make note of these values or keep this window open as you need these values in the next steps and won't be able to view the password (client secret) value again.
+[!INCLUDE [authentication-set-environment-variables](../../../includes/authentication/includes/authentication-set-environment-variables-javascript.md)]
 
-```json
-{
-  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-  "displayName": "msdocs-sdk-auth-prod",
-  "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
-  "tenant": "ffffaaaa-5555-bbbb-6666-cccc7777dddd"
-}
-```
+[!INCLUDE [authentication-to Azure Services](~/dotnet-docs/docs/azure/sdk/includes/implement-service-principal-concepts.md)]
 
-### [Azure portal](#tab/azure-portal)
-
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app registration step 1](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-1.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-1-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-1.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to find and navigate to the App registrations page." ::: |
-| [!INCLUDE [Create app registration step 2](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-2.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-2-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-2.png" alt-text="A screenshot showing the location of the New registration button in the App registrations page." ::: |
-| [!INCLUDE [Create app registration step 3](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-3.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-3-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-3.png" alt-text="A screenshot to fill out Register by giving the app a name and specifying supported account types as accounts in this organizational directory only." ::: |
-| [!INCLUDE [Create app registration step 4](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-4.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-4-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-4.png" alt-text="A screenshot of the App registration after completion.  This screenshot shows the application and tenant IDs, which will be needed in a future step. " ::: |
-| [!INCLUDE [Create app registration step 5](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-5.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-5-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-5.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." ::: |
-| [!INCLUDE [Create app registration step 6](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-6.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-6-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-6.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal created by the app registration process." ::: |
-| [!INCLUDE [Create app registration step 7](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-7.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-7-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-7.png" alt-text="A screenshot showing the page with the generated client secret." ::: |
-
----
-
-## Assign roles to the application service principal
-
-Next, determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned at the resource, resource group, or subscription scope. This example shows how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
-
-### [Azure CLI](#tab/azure-cli)
-
-Assign a role to a service principal in Azure with the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
-
-```azurecli
-az role assignment create --assignee "{appId}" \
-    --role "{roleName}" \
-    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} 
-```
-
-To get the role names that you can assign to a service principal, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
-
-```azurecli
-az role definition list \
-    --query "sort_by([].{roleName:roleName, description:description}, &roleName)" \
-    --output table
-```
-
-For example, to allow the service principal with the appId of `00001111-aaaa-2222-bbbb-3333cccc4444` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-javascript-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
-
-```azurecli
-az role assignment create --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
-    --role "Storage Blob Data Contributor" \
-    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-javascript-sdk-auth-example \
-```
-
-For information on assigning permissions at the resource or subscription level using the Azure CLI, see [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
-
-### [Azure portal](#tab/azure-portal)
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Assign service principal to role step 1](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-1.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-1-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-1.png" alt-text="A screenshot showing the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." ::: |
-| [!INCLUDE [Assign service principal to role step 2](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-2.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-2-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-2.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." ::: |
-| [!INCLUDE [Assign service principal to role step 3](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-3.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-3-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-3.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." ::: |
-| [!INCLUDE [Assign service principal to role step 4](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-4.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-4-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-4.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." ::: |
-| [!INCLUDE [Assign service principal to role step 5](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-5.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-5-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-5.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." ::: |
-| [!INCLUDE [Assign service principal to role step 6](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-6.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-6-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-6.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." ::: |
-| [!INCLUDE [Assign service principal to role step 7](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-7.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-7-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-7.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." ::: |
-
----
-
-[!INCLUDE [Set environment variables](../../../includes/authentication/includes/auth-set-environment-variables-javascript.md)]
 
 [!INCLUDE [Implement service principal](../../../includes/authentication/includes/implement-service-principal-javascript.md)]
+
