@@ -21,7 +21,7 @@ Using dedicated application service principals allows you to adhere to the princ
 
 A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and make sure an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
-[!INCLUDE [authentication-create-app-registration](~/../dotnet-docs/docs/azure/sdk/includes/auth-create-app-registration.md)]
+[!INCLUDE [authentication-create-app-registration](../../../includes/authentication/includes/authenticate-create-app-registration.md)]
 
 [!INCLUDE [authentication-assign-service-principal-roles](../../../includes/authentication/includes/authentication-assign-service-principal-roles.md)]
 
@@ -32,5 +32,52 @@ A different app registration should be created for each environment the app is h
 
 The [Azure Identity library](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true) provides various *credentials*&mdash;implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [ClientSecretCredential](/javascript/api/@azure/identity/clientsecretcredential?view=azure-node-latest&preserve-view=true) when working with service principals locally and in production.
 
-[!INCLUDE [Implement service principal](../../../includes/authentication/includes/implement-service-principal-javascript.md)]
+## Implement the code
+
+Add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package in the Node.js project:
+
+```bash
+npm install @azure/identity
+```
+
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. For any JavaScript code that creates an Azure SDK client object in your app, follow these steps:
+
+1. Import the `ClientSecretCredential` class from the `@azure/identity` module.
+1. Create a `ClientSecretCredential` object with the `tenantId`, `clientId`, and `clientSecret`.
+1. Pass the `ClientSecretCredential` instance to the Azure SDK client object constructor.
+
+An example of this approach is shown in the following code segment:
+
+```javascript
+import { BlobServiceClient } from '@azure/storage-blob';
+import { ClientSecretCredential } from '@azure/identity';
+
+// Authentication
+const tenantId = process.env.AZURE_TENANT_ID;
+const clientId = process.env.AZURE_CLIENT_ID;
+const clientSecret = process.env.AZURE_CLIENT_SECRET;
+
+// Azure Storage account name
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+
+if (!tenantId || !clientId || !clientSecret || !accountName) {
+  throw Error('Required environment variables not found');
+}
+
+const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+
+const blobServiceClient = new BlobServiceClient(
+  `https://${accountName}.blob.core.windows.net`,
+  credential
+);
+```
+
+An alternative approach is to pass the `ClientSecretCredential` object directly to the Azure SDK client constructor:
+
+```javascript
+const blobServiceClient = new BlobServiceClient(
+  `https://${accountName}.blob.core.windows.net`,
+  new ClientSecretCredential(tenantId, clientId, clientSecret)
+);
+```
 
