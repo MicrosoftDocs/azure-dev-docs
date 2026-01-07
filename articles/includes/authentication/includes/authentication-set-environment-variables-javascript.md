@@ -83,7 +83,7 @@ For local development, you can use a `.env` file. Node.js 20.6.0 and later suppo
 
 For earlier Node.js versions, you can use the [dotenv](https://www.npmjs.com/package/dotenv) npm package:
 
-1. Install the dotenv package:
+1. Install the `dotenv` package:
 
     ```bash
     npm install dotenv
