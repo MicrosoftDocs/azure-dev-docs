@@ -21,7 +21,7 @@ In Visual Studio Code, environment variables can be set in the `launch.json` fil
 "configurations": [
 {
     "env": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
+        "NODE_ENV": "development",
         "AZURE_CLIENT_ID": "<your-client-id>",
         "AZURE_TENANT_ID":"<your-tenant-id>",
         "AZURE_CLIENT_SECRET": "<your-client-secret>"
@@ -35,13 +35,13 @@ You can set environment variables for Windows from the command line. However, th
 
 ```bash
 # Set user environment variables
-setx ASPNETCORE_ENVIRONMENT "Development"
+setx NODE_ENV "development"
 setx AZURE_CLIENT_ID "<your-client-id>"
 setx AZURE_TENANT_ID "<your-tenant-id>"
 setx AZURE_CLIENT_SECRET "<your-client-secret>"
 
 # Set system environment variables - requires running as admin
-setx ASPNETCORE_ENVIRONMENT "Development" /m
+setx NODE_ENV "development" /m
 setx AZURE_CLIENT_ID "<your-client-id>" /m
 setx AZURE_TENANT_ID "<your-tenant-id>" /m
 setx AZURE_CLIENT_SECRET "<your-client-secret>" /m
@@ -51,13 +51,13 @@ PowerShell can also be used to set environment variables at the user or system l
 
 ```powershell
 # Set user environment variables
-[Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development", "User")
+[Environment]::SetEnvironmentVariable("NODE_ENV", "development", "User")
 [Environment]::SetEnvironmentVariable("AZURE_CLIENT_ID", "<your-client-id>", "User")
 [Environment]::SetEnvironmentVariable("AZURE_TENANT_ID", "<your-tenant-id>", "User")
 [Environment]::SetEnvironmentVariable("AZURE_CLIENT_SECRET", "<your-client-secret>", "User")
 
 # Set system environment variables - requires running as admin
-[Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development", "Machine")
+[Environment]::SetEnvironmentVariable("NODE_ENV", "development", "Machine")
 [Environment]::SetEnvironmentVariable("AZURE_CLIENT_ID", "<your-client-id>", "Machine")
 [Environment]::SetEnvironmentVariable("AZURE_TENANT_ID", "<your-tenant-id>", "Machine")
 [Environment]::SetEnvironmentVariable("AZURE_CLIENT_SECRET", "<your-client-secret>", "Machine")
