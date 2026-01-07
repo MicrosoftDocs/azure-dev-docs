@@ -19,7 +19,7 @@ Apps hosted outside of Azure, such as on-premises or in a third-party data cente
 
 Using dedicated application service principals allows you to adhere to the principle of least privilege when accessing Azure resources. Permissions are limited to the specific requirements of the app during development, preventing accidental access to Azure resources intended for other apps or services. This approach also helps avoid issues when the app is moved to production by ensuring it isn't over-privileged in the development environment.
 
-A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and make sure an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+A different app registration should be created for each environment the app is hosted in. This allows environment-specific resource permissions to be configured for each service principal and ensures an app deployed to one environment doesn't talk to Azure resources in another environment.
 
 [!INCLUDE [authentication-create-app-registration](../../../includes/authentication/includes/authenticate-create-app-registration.md)]
 
