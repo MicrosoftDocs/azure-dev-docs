@@ -43,7 +43,7 @@ Next, sign in to Azure by using one of several developer tools that you can use 
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
+Developers can use [Azure CLI](/cli/azure/what-is-azure-cli) to authenticate. Apps that use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) or [AzureCLICredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#AzureCLICredential) can then use this account to authenticate app requests.
 
 To authenticate with the Azure CLI, run the `az login` command. On a system with a default web browser, the Azure CLI launches the browser to authenticate the user.
 
