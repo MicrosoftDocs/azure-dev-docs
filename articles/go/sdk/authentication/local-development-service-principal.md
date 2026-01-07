@@ -31,11 +31,11 @@ When you register the app in Azure, you create an application service principal.
 During local development, set environment variables with the application service principal's identity. The Azure Identity library reads these environment variables to authenticate the app to the required Azure resources.
 
 
-[!INCLUDE [create-app-registration](../../../includes/authentication/includes/auth-create-app-registration.md)]
+[!INCLUDE [create-app-registration](../../../includes/authentication/create-app-registration.md)]
 
-[!INCLUDE [create-entra-group](../../../includes/authentication/includes/auth-create-entra-group.md)]
+[!INCLUDE [create-entra-group](../../../includes/authentication/create-entra-group.md)]
 
-[!INCLUDE [auth-assign-group-roles](../../../includes/authentication/includes/auth-assign-group-roles.md)]
+[!INCLUDE [assign-group-roles](../../../includes/authentication/assign-group-roles.md)]
 
 ## Set the app environment variables
 

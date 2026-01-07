@@ -22,7 +22,7 @@ dotnet add package Microsoft.Extensions.Azure
 
 Right-click your project in the Visual Studio **Solution Explorer** window and select **Manage NuGet Packages**. Search for **Azure.Identity**, and install the matching package. Repeat this process for the **Microsoft.Extensions.Azure** package.
 
-:::image type="content" source="../media/nuget-azure-identity.png" alt-text="Install a package using the package manager.":::
+:::image type="content" source="./media/nuget-azure-identity.png" alt-text="Install a package using the package manager.":::
 
 ---
 

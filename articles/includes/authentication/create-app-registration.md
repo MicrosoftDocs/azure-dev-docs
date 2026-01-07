@@ -16,7 +16,7 @@ Application service principal objects are created through an app registration in
     - For the **Supported account types**, select **Accounts in this organizational directory only (Microsoft Customer Led only - Single tenant)**, or whichever option best fits your requirements.
 1. Select **Register** to register your app and create the service principal.
 
-    :::image type="content" source="../media/app-registration.png" alt-text="A screenshot showing how to create an app registration in the Azure portal.":::
+    :::image type="content" source="./media/app-registration.png" alt-text="A screenshot showing how to create an app registration in the Azure portal.":::
 
 1. On the **App registration** page for your app, copy the **Application (client) ID** and **Directory (tenant) ID** and paste them in a temporary location for later use in your app code configurations.
 1. Select **Add a certificate or secret** to set up credentials for your app.
