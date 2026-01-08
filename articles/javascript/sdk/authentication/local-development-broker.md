@@ -13,23 +13,23 @@ zone_pivot_groups: pivot-os-windows-linux
 
 # Authenticate JavaScript apps to Azure services during local development using brokered authentication
 
-[!INCLUDE [broker-intro](../../../includes/authentication/includes/broker-intro.md)]
+[!INCLUDE [broker-introduction](../../../includes/authentication/broker-introduction.md)]
 
 :::zone target="docs" pivot="os-windows"
 
-[!INCLUDE [broker-windows](../../../includes/authentication/includes/broker-windows.md)]
+[!INCLUDE [broker-windows](../../../includes/authentication/broker-windows.md)]
 
 :::zone-end
 
 :::zone target="docs" pivot="os-linux"
 
-[!INCLUDE [broker-linux](../../../includes/authentication/includes/broker-linux.md)]
+[!INCLUDE [broker-linux](../../../includes/authentication/broker-linux.md)]
 
 :::zone-end
 
-[!INCLUDE [broker-configure-app](../../../includes/authentication/includes/broker-configure-app.md)]
+[!INCLUDE [broker-configure-application](../../../includes/authentication/broker-configure-application.md)]
 
-[!INCLUDE [broker-assign-roles](../../../includes/authentication/includes/broker-assign-roles.md)]
+[!INCLUDE [broker-assign-roles](../../../includes/authentication/broker-assign-roles.md)]
 
 ## Implement the code
 

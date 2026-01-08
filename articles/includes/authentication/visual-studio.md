@@ -14,6 +14,6 @@ Developers using Visual Studio 2017 or later can authenticate using their develo
 1. Select the drop-down menu under **Choose an account** and choose to add a Microsoft account.
 1. In the window that opens, enter the credentials for your desired Azure account, and then confirm your inputs.
 
-    :::image type="content" source="../media/visual-studio-sign-in.png" alt-text="A screenshot showing how to sign-in to Azure using Visual Studio.":::
+    :::image type="content" source="./media/visual-studio-sign-in.png" alt-text="A screenshot showing how to sign-in to Azure using Visual Studio.":::
 
 1. Select **OK** to close the options dialog.
