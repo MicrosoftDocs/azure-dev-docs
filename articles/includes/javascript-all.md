@@ -63,7 +63,7 @@
 | Event Grid | npm [5.12.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.12.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.12.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.12.0/sdk/eventgrid/eventgrid/) |
 | Event Grid Namespaces | npm [1.0.0](https://www.npmjs.com/package/@azure/eventgrid-namespaces/v/1.0.0) | [docs](/javascript/api/overview/azure/eventgrid-namespaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-namespaces_1.0.0/sdk/eventgrid/eventgrid-namespaces/) |
 | Event Grid System Events | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/eventgrid-system-events/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/eventgrid-system-events-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.5/sdk/eventgrid/eventgrid-system-events/) |
-| Event Hubs | npm [6.0.0](https://www.npmjs.com/package/@azure/event-hubs/v/6.0.0) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.0/sdk/eventhub/event-hubs/) |
+| Event Hubs | npm [6.0.2](https://www.npmjs.com/package/@azure/event-hubs/v/6.0.2) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [6.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_6.0.2/sdk/eventhub/event-hubs/) |
 | Face | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.3/sdk/face/ai-vision-face-rest/) |
 | farmbeats | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.3/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.1.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.1.0/sdk/formrecognizer/ai-form-recognizer/) |
@@ -458,11 +458,11 @@
 | Unknown Display Name | npm [1.4.6](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.6) |  |  |
 | Unknown Display Name | npm [0.0.2-dev](https://www.npmjs.com/package/@azure/bicep-deploy-common/v/0.0.2-dev) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/functions-extensions-base/v/0.2.0) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.8) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.8) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.8) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.8) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.8) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.9) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.9) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.9) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.9) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.9) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -470,15 +470,15 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5676627](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5676627) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.8) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.8](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.8) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5729534](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5729534) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.9) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.9](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.9) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.14.0](https://www.npmjs.com/package/@typespec/http-canonicalization/v/0.14.0) |  |  |
 | Unknown Display Name | npm [0.14.0](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.14.0) |  |  |
