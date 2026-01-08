@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/13/2025
+ms.date: 01/06/2026
 ---
 
 ## Register the app in Azure
@@ -22,8 +22,8 @@ Application service principal objects are created through an app registration in
 1. Select **Add a certificate or secret** to set up credentials for your app.
 1. On the **Certificates & secrets** page, select **+ New client secret**.
 1. In the **Add a client secret** flyout panel that opens:
-    - For the **Description**, enter a value of Current.
-    - For the **Expires** value, leave the default recommended value of 180 days.
+    - For the **Description**, enter a value of `Current`.
+    - For the **Expires** value, leave the default recommended value of `180 days`.
     - Select **Add** to add the secret.
 1. On the **Certificates & secrets** page, copy the **Value** property of the client secret for use in a future step.
 
