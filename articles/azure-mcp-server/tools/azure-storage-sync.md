@@ -9,13 +9,12 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
-ms.custom: build-2025
 --- 
 # Azure Storage Sync Tools
 
-Azure Storage Sync tools in Azure MCP Server enable you to manage Azure File Sync services, sync groups, cloud endpoints, and server endpoints using natural language prompts. These tools facilitate the administration of file synchronization between on-premises servers and Azure File Shares.
+Azure Storage Sync tools in Azure MCP Server help you manage Azure File Sync services through natural language prompts. You can configure sync groups, cloud endpoints, and server endpoints to synchronize files between on-premises servers and Azure File Shares. These tools simplify storage sync management and reduce configuration complexity.
 
-[Azure File Sync](/azure/storage/file-sync) is a service for centralizing an organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of a Windows file server.
+[Azure File Sync](/azure/storage/file-sync) is a service that centralizes an organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of a Windows file server.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -79,7 +78,7 @@ Example prompts include:
 
 <!-- storagesync cloudendpoint get -->
 
-List all cloud endpoints in a sync group or retrieve details about a specific cloud endpoint. Returns cloud endpoint properties including Azure File Share configuration, storage account details, and provisioning state. Use --cloud-endpoint-name for a specific endpoint.
+List all cloud endpoints in a sync group or retrieve details about a specific cloud endpoint. The command returns cloud endpoint properties, including Azure File Share configuration, storage account details, and provisioning state. If you provide the cloud endpoint name parameter, the command returns a specific cloud endpoint. Otherwise, it lists all cloud endpoints in the sync group. 
 
 Example prompts include:
 
@@ -131,7 +130,7 @@ Example prompts include:
 
 <!-- storagesync registeredserver get -->
 
-List all registered servers in a Storage Sync service or retrieve details about a specific registered server. Returns server properties including server ID, registration status, agent version, OS version, and last heartbeat. Use --server-id for a specific server.
+List all registered servers in a Storage Sync service or retrieve details about a specific registered server. The command returns server properties including server ID, registration status, agent version, OS version, and last heartbeat. If you provide the server ID parameter, the command returns a specific registered server. Otherwise, it lists all registered servers in the Storage Sync service.
 
 Example prompts include:
 
@@ -145,7 +144,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group**| Required | The resource group name for the storage sync resource. |
 | **Resource name** |  Required | The name of the storage sync service. |
-| **Server ID** |  Optional | The ID/name of the registered server. |
+| **Server ID** |  Optional | The ID or name of the registered server. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -261,7 +260,7 @@ Example prompts include:
 
 <!-- storagesync serverendpoint get -->
 
-List all server endpoints in a sync group or retrieve details about a specific server endpoint. Returns server endpoint properties including local path, cloud tiering status, sync health, and provisioning state. Use --name for a specific endpoint.
+List all server endpoints in a sync group or retrieve details about a specific server endpoint. The command returns server endpoint properties, including local path, cloud tiering status, sync health, and provisioning state. If you provide the server endpoint name parameter, the command returns a specific server endpoint. Otherwise, it lists all server endpoints in the sync group.
 
 Example prompts include:
 
@@ -317,7 +316,7 @@ Example prompts include:
 
 <!-- storagesync service create -->
 
-Create a new Azure Storage Sync service resource in a resource group. This is the top-level service container that manages sync groups, registered servers, and synchronization workflows.
+Create a new Azure Storage Sync service resource in a resource group. This service acts as the top-level service container that manages sync groups, registered servers, and synchronization workflows.
 
 Example prompts include:
 
@@ -331,7 +330,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group**| Required | The resource group name for the storage sync resource. |
 | **Resource name** |  Required | The name of the storage sync service. |
-| **Location** |  Required | The Azure region/location name (for example, `EastUS`, `WestEurope`). |
+| **Location** |  Required | The Azure region or location name (for example, `EastUS`, `WestEurope`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -364,7 +363,7 @@ Example prompts include:
 
 <!-- storagesync service get -->
 
-Retrieve Azure Storage Sync service details or list all Storage Sync services. Use --name to get a specific service, or omit it to list all services in the subscription or resource group. Shows service properties, location, provisioning state, and configuration.
+Retrieve Azure Storage Sync service details or list all Storage Sync services. The command shows service properties, location, provisioning state, and configuration. If you provide the resource name parameter, the command returns a specific Storage Sync service. Otherwise, it lists all Storage Sync services in the subscription or resource group.
 
 Example prompts include:
 
@@ -440,7 +439,7 @@ Example prompts include:
 
 <!-- storagesync syncgroup delete -->
 
-Remove a sync group from a Storage Sync service. Deleting a sync group also removes all associated cloud endpoints and server endpoints within that group.
+Remove a sync group from a Storage Sync service. When you delete a sync group, you also remove all associated cloud endpoints and server endpoints within that group.
 
 Example prompts include:
 
@@ -464,7 +463,7 @@ Example prompts include:
 
 <!-- storagesync syncgroup get -->
 
-Get details about a specific sync group or list all sync groups. If --sync-group-name is provided, returns a specific sync group; otherwise, lists all sync groups in the Storage Sync service.
+Get details about a specific sync group or list all sync groups. If you provide the sync group name parameter, the command returns a specific sync group. Otherwise, it lists all sync groups in the Storage Sync service.
 
 Example prompts include:
 
