@@ -42,7 +42,7 @@ Example prompts include:
 | **Resource name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
-| **Storage account resource ID** |  Required | The resource ID of the Azure storage account. |
+| **Storage account** |  Required | The resource name or ID of the Azure storage account. |
 | **Azure file share name** |  Required | The name of the Azure file share. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
