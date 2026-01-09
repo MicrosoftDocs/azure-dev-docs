@@ -15,7 +15,7 @@ The Azure Developer CLI (azd) provides support for [Azure Deployment Environment
 
 ## Prerequisites
 
-Verify you have completed the following prerequisites to work with Azure Deployment Environments using `azd`:
+To work with Azure Deployment Environments using `azd`, verify you completed the following prerequisites :
 
 * [Installed `azd` locally](/azure/developer/azure-developer-cli/install-azd) or have access to `azd` via Cloud Shell
 * [Created and configured an Azure Deployment Environment](/azure/deployment-environments/quickstart-create-and-configure-devcenter) with a dev center, project, and template catalog
@@ -33,7 +33,7 @@ You can configure `azd` to provision and deploy resources to your deployment env
 azd config set platform.type devcenter
 ```
 
-When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning will leverage new dev center components. This configuration also means that the `infra` folder in your local templates will effectively be ignored. Instead, `azd` will use one of the infrastructure templates defined in your dev center catalog for resource provisioning.
+When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning leverage new dev center components. This configuration also means that the `infra` folder in your local templates is ignored. Instead, `azd` uses one of the infrastructure templates defined in your dev center catalog for resource provisioning.
 
 You can also disable dev center support via the following command:
 
@@ -55,7 +55,7 @@ azd init
 
 ### azd up
 
-The `azd up` command will package, provision, and deploy your application to Azure Deployment Environments. However, the provision stage of the `azd up` command will use the curated infrastructure-as-code templates in your remote dev center, while the deployment stage will deploy the source code in your `azd` template. While dev center mode is enabled, `azd` will ignore the `infra` folder in your local `azd` template and only provision resources using the dev center templates. The command will also prompt you for any necessary values, such as the Azure Deployment Environment project or environment type.
+The `azd up` command packages, provisions, and deploys your application to Azure Deployment Environments. However, the provision stage of the `azd up` command uses the curated infrastructure-as-code templates in your remote dev center, while the deployment stage deploys the source code in your `azd` template. While dev center mode is enabled, `azd` ignores the `infra` folder in your local `azd` template and only provision resources using the dev center templates. The command will also prompt you for any necessary values, such as the Azure Deployment Environment project or environment type.
 
 ```bash
 azd up
@@ -63,7 +63,7 @@ azd up
 
 ### azd template list
 
-The `azd template list` command will display the available infrastructure templates in your dev center catalog, rather than showing templates from the default AZD Awesome gallery. [Catalogs](/azure/deployment-environments/concept-environments-key-concepts#catalogs) provide a set of curated and approved infrastructure-as-code templates your development teams can use to create environments.
+The `azd template list` command displays the available infrastructure templates in your dev center catalog, rather than showing templates from the default AZD Awesome gallery. [Catalogs](/azure/deployment-environments/concept-environments-key-concepts#catalogs) provide a set of curated and approved infrastructure-as-code templates your development teams can use to create environments.
 
 ```bash
 azd template list
@@ -73,7 +73,7 @@ azd template list
 
 ### azd provision
 
-The `azd provision` command will create new dev center environments. The command will prompt you for any missing values, such as the environment type or project. When the command runs, it will use the associated infrastructure template to provision the correct set of Azure resources for that environment. While dev center mode is enabled, `azd` will ignore the `infra` folder in your local `azd` template and only provision resources using the dev center templates.
+The `azd provision` command creates new dev center environments. The command prompts you for any missing values, such as the environment type or project. When the command runs, it uses the associated infrastructure template to provision the correct set of Azure resources for that environment. While dev center mode is enabled, `azd` ignores the `infra` folder in your local `azd` template and only provision resources using the dev center templates.
 
 ```bash
 azd provision
@@ -81,7 +81,7 @@ azd provision
 
 ### azd env list
 
-The `azd env list` command will display the same list of environments you would see in the developer portal.
+The `azd env list` command displays the same list of environments you would see in the developer portal.
 
 ```bash
 azd env list
@@ -89,7 +89,7 @@ azd env list
 
 ## Tagging resources for Azure Deployment Environments
 
-`azd` provisioning for Azure Deployment Environments relies on curated templates from the dev center catalog. Templates in the catalog may or may not assign tags to provisioned Azure resources for you to associate your app services with in the `azure.yaml` file. If the templates do not assign tags, you can address this issue in one of two ways:
+`azd` provisioning for Azure Deployment Environments relies on curated templates from the dev center catalog. Templates in the catalog may or may not assign tags to provisioned Azure resources for you to associate your app services with in the `azure.yaml` file. If the templates don't assign tags, you can address this issue in one of two ways:
 
 * Work with your dev center catalog administrator to ensure the provisioned Azure resources include tags to associate them with services defined in your `azure.yaml` file.
 * Specify the `resourceName` in your `azure.yaml` file instead of using tags:
@@ -121,7 +121,7 @@ You can define `azd` settings for your dev centers in multiple places. Settings 
 
 ### Environment variables
 
-The following environment variables will be discovered and used by `azd`:
+`azd` discovers and uses the following environment variables:
 
 * AZURE_DEVCENTER_NAME
 * AZURE_DEVCENTER_PROJECT
