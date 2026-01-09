@@ -3,7 +3,7 @@ title: Resource Group Scoped Deployments
 description: How to deploy templates that target resource group scope instead of subscription scope with the Azure Developer CLI (azd)
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 09/12/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: article
 ms.custom: devx-track-azdevcli

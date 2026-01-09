@@ -3,7 +3,7 @@ title: Explore azd config functionality
 description: Learn how to use the azd config command and related functionality
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/17/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep

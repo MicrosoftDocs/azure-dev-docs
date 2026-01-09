@@ -3,7 +3,7 @@ title: Helm and Kustomize support for Azure Developer CLI
 description: How to use helm and Kustomize integration with Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/13/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom:
