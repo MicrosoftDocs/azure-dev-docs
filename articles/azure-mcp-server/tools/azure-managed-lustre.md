@@ -1,6 +1,6 @@
 ---
 title: Azure Managed Lustre Tools for Azure MCP Server
-description: Learn how to use Azure MCP Server tools with Azure Managed Lustre to manage and analyze scalable Lustre file systems. 
+description: Learn how to use Azure MCP Server tools with Azure Managed Lustre to manage, create, update, and analyze scalable Lustre file systems for AI and HPC workloads.
 keywords: azure mcp server, azmcp, azure managed lustre, lustre file systems
 ai-usage: ai-assisted
 content_well_notification: 
@@ -17,7 +17,7 @@ ms.date: 01/12/2026
 
 Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
 
-[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning.‌
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning.‌ With [auto-import](/azure/azure-managed-lustre/auto-import) and [auto-export](/azure/azure-managed-lustre/auto-export) capabilities, you can seamlessly sync data between Azure Blob Storage and your Lustre filesystem.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -286,7 +286,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob autoexport get -->
 
-Get status, configuration, and progress details of auto-export jobs for your Azure Managed Lustre filesystem. Auto-export jobs sync data from the Lustre filesystem to the linked blob storage container. If you provide a job name, the tool returns details of that specific job. Otherwise, it returns all jobs for the filesystem.
+Get status, configuration, and progress details of [auto-export](/azure/azure-managed-lustre/auto-export) jobs for your Azure Managed Lustre filesystem. Auto-export jobs sync data from the Lustre filesystem to the linked blob storage container. If you provide a job name, the tool returns details of that specific job. Otherwise, it returns all jobs for the filesystem.
 
 Example prompts include:
 
@@ -385,3 +385,5 @@ Example prompts include:
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
+- [Learn more about auto-import](/azure/azure-managed-lustre/auto-import)
+- [Learn more about auto-export](/azure/azure-managed-lustre/auto-export)
