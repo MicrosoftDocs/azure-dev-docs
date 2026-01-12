@@ -42,7 +42,7 @@ Example prompts include:
 | **SKU** |  Required | The AMLFS SKU. Exact allowed values: `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250`, `AMLFS-Durable-Premium-500`. |
 | **Size** |  Required | The AMLFS size in TiB as an integer (no unit). Examples: `4`, `12`, `128`. |
 | **Subnet ID** |  Required | Full subnet resource ID. Required format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/{subnet}`. Example: `/subscriptions/0000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001`. |
-| **Zone** |  Required | Availability zone identifier. Use a single digit string matching the region's AZ labels (for example `1`). Example: `1`. |
+| **Zone** |  Required | Availability zone identifier. Use a single digit string matching the region's availability zone labels (for example `1`). Example: `1`. |
 | **Maintenance day** |  Required | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
 | **Maintenance time** |  Required | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
 | **HSM container** |  Optional | Full blob container resource ID for HSM integration. HPC Cache Resource Provider must have before deployment Storage Blob Data Contributor and Storage Account Contributor roles on parent Storage Account. Format: `/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}/blobServices/default/containers/{container}`. Example: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/stacc/blobServices/default/containers/hsm-container`. |
@@ -137,7 +137,7 @@ Example prompts include:
 - **Off-peak scheduling**: "Set maintenance window for filesystem 'analytics-lustre' in resource group 'my-resource-group' to Monday at 01:00"
 - **Root squash configuration**: "Update filesystem 'secure-amlfs' in resource group 'my-resource-group' with root squash mode 'All' and squash UID 1000 and GID 1000 with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp'"
 - **Combined update**: "Update filesystem 'ml-amlfs' in resource group 'my-resource-group' maintenance to Friday at 03:00 and set root squash mode to 'None'"
-- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' in resource group 'my-resource-group' withno squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp', and squash GID 999"
+- **Security hardening**: "Configure Azure Managed Lustre filesystem 'production-fs' in resource group 'my-resource-group' with no squash NID list '10.0.2.4@tcp;10.0.2.[6-8]@tcp', and squash GID 999"
 - **Development environment**: "Update filesystem 'test-lustre' in resource group 'my-resource-group' maintenance window to Thursday at 12:00 for development testing"
 - **Regional maintenance**: "Set maintenance schedule for filesystem 'europe-amlfs' in resource group 'my-resource-group' to Tuesday at 04:00 for minimal impact"
 
@@ -227,7 +227,7 @@ Example prompts include:
 | **Conflict resolution mode** |  Optional | Conflict resolution method for the auto-import job. `Fail`: stops immediately on conflict. `Skip`: skips the conflict. `OverwriteIfDirty`: deletes and re-imports if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
 | **Autoimport prefixes** |  Optional | Array of blob paths or prefixes to auto-import to the cluster namespace. Default: `/`. Maximum: 100 paths. Example: `/data`, `/logs`. |
 | **Admin status** |  Optional | Administrative status of the auto-import job. `Enable`: job is active. `Disable`: disables the current active auto-import job. Default: `Enable`. Allowed values: `Enable`, `Disable`. |
-| **Enable deletions** |  Optional | Specifies whether to enable deletions during auto-import. This only affects overwrite-dirty mode. Default: `false`. |
+| **Enable deletions** |  Optional | Specifies whether to enable deletions during auto-import. This parameter only affects overwrite-dirty mode. Default: `false`. |
 | **Maximum errors** |  Optional | Total non-conflict-oriented errors (for example, OS errors) that the import can tolerate before exiting with failure. `-1`: infinite. `0`: exits immediately on any error. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -238,7 +238,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob autoimport cancel -->
 
-Cancel a running [auto-import](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This stops the ongoing sync operation from the linked blob storage container to the Lustre filesystem.
+Cancel a running [auto-import](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This action stops the ongoing sync operation from the linked blob storage container to the Lustre filesystem.
 
 Example prompts include:
 
@@ -262,7 +262,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob autoimport delete -->
 
-Delete an [auto-import](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This permanently removes the job record from the filesystem. Use this to clean up completed, failed, or canceled auto-import jobs.
+Delete an [auto-import](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This action permanently removes the job record from the filesystem. Use this tool to clean up completed, failed, or canceled auto-import jobs.
 
 Example prompts include:
 
@@ -336,7 +336,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob autoexport cancel -->
 
-Cancel a running [auto-export](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This stops the ongoing sync operation from the Lustre filesystem to the linked blob storage container.
+Cancel a running [auto-export](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This action stops the ongoing sync operation from the Lustre filesystem to the linked blob storage container.
 
 Example prompts include:
 
@@ -360,7 +360,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob autoexport delete -->
 
-Delete an [auto-export](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This permanently removes the job record from the filesystem. Use this to clean up completed, failed, or canceled auto-export jobs.
+Delete an [auto-export](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This action permanently removes the job record from the filesystem. Use this tool to clean up completed, failed, or canceled auto-export jobs.
 
 Example prompts include:
 
