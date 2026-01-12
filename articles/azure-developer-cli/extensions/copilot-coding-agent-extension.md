@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.custom: devx-track-azdevcli
 ai-usage: ai-generated
 ms.collection: ce-skilling-ai-copilot
-ms.update-cyle: 180 days
+ms.update-cycle: 180 days
 ---
 
 # Connect GitHub Copilot coding agent with Azure MCP Server using azd extensions
