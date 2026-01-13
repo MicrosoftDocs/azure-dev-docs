@@ -9,6 +9,8 @@ ms.topic: reference
 ms.date: 11/18/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Working with assessment: Comprehensive guide to application assessment with GitHub Copilot App Modernization for Java
