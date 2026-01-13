@@ -3,7 +3,7 @@ title: Helm and Kustomize support for Azure Developer CLI
 description: How to use helm and Kustomize integration with Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/13/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom:
@@ -13,7 +13,7 @@ ms.custom:
 
 # Helm and Kustomize support
 
-The Azure Developer CLI provides support for Helm and Kustomize to improve the provisioning and deployment process to Azure Kubernetes Service (AKS). Helm and Kustomize are tools that help you configure and manage Kubernetes applications. In the sections ahead, you'll learn how to enable and customize support for these tools in your `azd` templates.
+The Azure Developer CLI provides support for Helm and Kustomize to improve the provisioning and deployment process to Azure Kubernetes Service (AKS). Helm and Kustomize are tools that help you configure and manage Kubernetes applications. In the sections ahead, you learn how to enable and customize support for these tools in your `azd` templates.
 
 ## Enable Helm support
 
@@ -91,16 +91,16 @@ Configure Kustomize features using the following `azure.yaml` sections:
 
 - `dir`: Relative path from the service to your Kustomize directory that contains a `kustomization.yaml` file.
   - Supports environment variable substitution.
-- `edits`: Array of edit expression that are applied before deployment
+- `edits`: Array of edit expressions that are applied before deployment
   - Supports environment variable substitution
 - `env`: Map of key/value pairs generated before deployment
   - Map values support environment variable substitution
 
 ## Use cases
 
-The following Kustomize use cases are supported by `azd`.
+`azd` supports the following Kustomize use cases.
 
-### Deploy k8s manifests
+### Deploy K8s manifests
 
 The following configuration performs a `kubectl apply -k <dir>` command that points to your manifests folder that contains a `kustomization.yaml`:
 
@@ -122,7 +122,7 @@ services:
 
 ### Use overlays to deploy to with different variants
 
-This use case is typically used to have custom configurations for deploying to different stages or environments, such as `dev`, `test` and `prod`. In the following example, the user can specify the `${AZURE_ENV_NAME}` environment variable within the kustomize directory to automatically leverage the azd environments as your default overlay convention:
+This use case is typically used to have custom configurations for deploying to different stages or environments, such as `dev`, `test` and `prod`. In the following example, the user can specify the `${AZURE_ENV_NAME}` environment variable within the kustomize directory to automatically use the azd environments as your default overlay convention:
 
 ```yml
 # azure.yaml
@@ -166,11 +166,11 @@ services:
 
 ### Use `azd` environment variables within config maps
 
-Config maps or secrets are critical in configuring your k8s clusters. Since [kustomize does not support any direct environment variable substitution](https://kubectl.docs.kubernetes.io/faq/kustomize/eschewedfeatures/#build-time-side-effects-from-cli-args-or-env-variables) we can leverage the kustomize `configMapGenerator` with a `.env` file.
+Config maps or secrets are critical in configuring your K8s clusters. Since [kustomize doesn't support any direct environment variable substitution](https://kubectl.docs.kubernetes.io/faq/kustomize/eschewedfeatures/#build-time-side-effects-from-cli-args-or-env-variables) we can use the kustomize `configMapGenerator` with a `.env` file.
 
 The `kustomize` configuration section supports a `env` section where one or many key/value pairs can be defined. This configuration automatically generates a temporary `.env` file within your kustomization directory that can be used by a `configMapGenerator`.
 
-The following configuration will create a `.env` with the specified key/value pairs.
+The following configuration creates a `.env` with the specified key/value pairs.
 
 ```yml
 # azure.yaml
@@ -194,7 +194,7 @@ services:
           APPLICATIONINSIGHTS_CONNECTION_STRING: ${APPLICATIONINSIGHTS_CONNECTION_STRING}
 ```
 
-The `configMapGenerator` generates a k8s config map with the specified name and contains all the key/value pairs referenced within the `.env` file.
+The `configMapGenerator` generates a K8s config map with the specified name and contains all the key/value pairs referenced within the `.env` file.
 
 ```yml
 # kustomization.yaml
