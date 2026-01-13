@@ -91,7 +91,7 @@ Configure Kustomize features using the following `azure.yaml` sections:
 
 - `dir`: Relative path from the service to your Kustomize directory that contains a `kustomization.yaml` file.
   - Supports environment variable substitution.
-- `edits`: Array of edit expression that are applied before deployment
+- `edits`: Array of edit expressions that are applied before deployment
   - Supports environment variable substitution
 - `env`: Map of key/value pairs generated before deployment
   - Map values support environment variable substitution

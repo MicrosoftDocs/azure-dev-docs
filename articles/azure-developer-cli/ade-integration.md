@@ -15,7 +15,7 @@ The Azure Developer CLI (azd) provides support for [Azure Deployment Environment
 
 ## Prerequisites
 
-To work with Azure Deployment Environments using `azd`, verify you completed the following prerequisites :
+To work with Azure Deployment Environments using `azd`, verify you completed the following prerequisites:
 
 * [Installed `azd` locally](/azure/developer/azure-developer-cli/install-azd) or have access to `azd` via Cloud Shell
 * [Created and configured an Azure Deployment Environment](/azure/deployment-environments/quickstart-create-and-configure-devcenter) with a dev center, project, and template catalog
