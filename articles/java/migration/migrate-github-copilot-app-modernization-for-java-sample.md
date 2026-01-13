@@ -9,6 +9,8 @@ ms.topic: overview
 ms.date: 09/23/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Asset Manager Java migration sample for GitHub Copilot app modernization

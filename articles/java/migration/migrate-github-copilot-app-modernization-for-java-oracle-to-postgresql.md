@@ -9,6 +9,8 @@ ms.topic: overview
 ms.date: 11/18/2025
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Migrate from Oracle to PostgreSQL by using GitHub Copilot app modernization
