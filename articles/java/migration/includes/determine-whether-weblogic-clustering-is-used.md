@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.date: 09/09/2024
+ms.date: 01/13/2026
 ---
 
 ### Determine whether WebLogic clustering is used

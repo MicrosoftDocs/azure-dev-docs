@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 11/28/2024
+ms.date: 01/13/2026
 ---
 
 Create an Azure Traffic Manager profile by following the instructions in [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.

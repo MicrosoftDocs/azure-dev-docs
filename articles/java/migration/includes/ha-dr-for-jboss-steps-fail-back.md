@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 11/28/2024
+ms.date: 01/13/2026
 ---
 
 1. Select the recovery service vault deployed in the primary region - for example, `recovery-service-vault-eastus-gzh032124`.
