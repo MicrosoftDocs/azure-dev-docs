@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: manriem
-ms.date: 5/8/2020
+ms.date: 01/13/2026
 ---
 
 ### Inspect the deployment architecture

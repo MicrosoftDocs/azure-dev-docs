@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 4/15/2020
+ms.date: 01/13/2026
 ---
 
 #### Identify Spring Boot versions

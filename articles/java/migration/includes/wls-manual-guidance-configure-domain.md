@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 11/30/2022
+ms.date: 01/13/2026
 ---
 
 A WebLogic Server domain is a logically related group of WebLogic Server instances, and the resources running on and connected to them, that can be managed as a single administrative unit. For more information, see [WebLogic Server Domains](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/intro/domains.html#GUID-EE8E9DA0-2D95-4EF1-ADA2-4C76CB1AB3A4).

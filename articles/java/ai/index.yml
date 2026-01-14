@@ -8,7 +8,7 @@ metadata:
   description: Get started using Azure AI with Java.
   author: KarlErickson
   ms.author: karler
-  ms.date: 05/21/2025 
+  ms.date: 01/13/2026 
   ms.topic: landing-page
   ms.custom: devx-track-java, devx-track-extended-java
 
@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: Develop using Azure AI services
             url: azure-ai-for-java-developers.md
+          - text: GitHub Copilot app modernization for Java developers
+            url: ../migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - linkListType: get-started
         links:
           - text: Enterprise chat using RAG

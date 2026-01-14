@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 05/27/2020
+ms.date: 01/13/2026
 ---
 
 ### Validate that the supported Java version works correctly

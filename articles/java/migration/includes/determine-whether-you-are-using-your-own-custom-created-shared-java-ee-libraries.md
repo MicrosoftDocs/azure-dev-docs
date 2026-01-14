@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.date: 1/21/2020
+ms.date: 01/13/2026
 ---
 
 ### Determine whether you are using your own custom created Shared Java EE Libraries

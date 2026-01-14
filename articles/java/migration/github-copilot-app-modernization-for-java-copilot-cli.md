@@ -6,9 +6,11 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jessiehuang
 ms.topic: overview
-ms.date: 11/18/2025
+ms.date: 01/13/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Modernize Java apps by using GitHub Copilot app modernization in the Copilot CLI
@@ -146,3 +148,4 @@ If you have any feedback about GitHub Copilot CLI, [create an issue at the githu
 ## Next step
 
 - [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#using-copilot-cli)
+- [Migrate Java apps to Azure by using GitHub Copilot app modernization via custom agent](migrate-github-copilot-app-modernization-for-java-custom-agent.md)
