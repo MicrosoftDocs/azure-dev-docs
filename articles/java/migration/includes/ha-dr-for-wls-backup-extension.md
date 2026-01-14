@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 4/22/2024
+ms.date: 01/13/2026
 ---
 
 3. Open the resource group that has AKS deployed. Select the AKS cluster from the resources list.

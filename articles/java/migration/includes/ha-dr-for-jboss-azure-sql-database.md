@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 11/28/2024
+ms.date: 01/13/2026
 ---
 
 First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database.

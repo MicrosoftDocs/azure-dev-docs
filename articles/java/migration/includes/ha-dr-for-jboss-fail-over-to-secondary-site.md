@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 11/28/2024
+ms.date: 01/13/2026
 ---
 
 First, use the following steps to failover the Azure SQL Database from the primary server to the secondary server:

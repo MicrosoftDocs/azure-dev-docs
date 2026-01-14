@@ -1,5 +1,5 @@
 ---
-ms.date: 10/28/2025
+ms.date: 01/13/2026
 ---
 
 - A GitHub account with an active [GitHub Copilot](https://github.com/features/copilot) subscription under any plan.

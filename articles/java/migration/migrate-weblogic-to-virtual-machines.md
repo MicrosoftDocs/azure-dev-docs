@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: upgrade-and-migration-article
-ms.date: 09/09/2024
+ms.date: 01/13/2026
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 

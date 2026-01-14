@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 11/28/2024
+ms.date: 01/13/2026
 ---
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and then select **Resource groups** in the search results.

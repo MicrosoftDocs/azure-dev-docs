@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 04/29/2024
+ms.date: 01/13/2026
 ---
 
 Finally, use the following steps to verify the sample app after the endpoint `myFailoverEndpoint` is in the **Online** state:

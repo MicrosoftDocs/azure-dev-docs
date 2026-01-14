@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
 ms.topic: upgrade-and-migration-article
-ms.date: 09/20/2024
+ms.date: 01/13/2026
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
 

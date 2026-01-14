@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 04/29/2024
+ms.date: 01/13/2026
 ---
 
 In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you configure WLS to store its session data and transaction log (TLOG) data to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA). This guidance provides an Azure adaptation for MAA. For more information on MAA, see [Oracle Maximum Availability Architecture](https://www.oracle.com/database/technologies/maximum-availability-architecture/).

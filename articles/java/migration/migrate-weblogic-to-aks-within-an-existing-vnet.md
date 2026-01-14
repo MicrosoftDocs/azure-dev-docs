@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
 ms.topic: tutorial
-ms.date: 05/13/2025
+ms.date: 01/13/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-extended-java

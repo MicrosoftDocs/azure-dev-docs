@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 04/29/2024
+ms.date: 01/13/2026
 ---
 
 Since the primary cluster is up and running, it acts as the active cluster and handles all user requests routed by your Traffic Manager profile.
