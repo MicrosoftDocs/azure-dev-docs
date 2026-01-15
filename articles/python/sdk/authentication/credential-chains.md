@@ -1,7 +1,7 @@
 ---
 title: Credential chains in the Azure Identity library for Python
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
-ms.date: 10/02/2025
+ms.date: 01/15/2026
 ms.topic: article
 ms.custom: devx-track-python
 ---
