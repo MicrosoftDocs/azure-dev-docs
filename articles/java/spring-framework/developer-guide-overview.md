@@ -24,11 +24,11 @@ For more information about supported versions, see [Spring Versions Mapping](htt
 
 If you have any questions about this documentation, create a GitHub issue in one of the following GitHub repositories. Pull requests are also welcome.
 
-| GitHub repositories                                                                          | Description                              |
-|----------------------------------------------------------------------------------------------|------------------------------------------|
-| [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring) | This repository holds the source code.   |
-| [Azure-Samples/azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) | This repository holds the samples. |
-| [MicrosoftDocs/azure-dev-docs](https://github.com/MicrosoftDocs/azure-dev-docs)              | This repository holds the documentation. |
+| GitHub repositories                                                                          | Description                                |
+|----------------------------------------------------------------------------------------------|--------------------------------------------|
+| [Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring) | This repository holds the source code.     |
+| [Azure-Samples/azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) | This repository holds the related samples. |
+| [MicrosoftDocs/azure-dev-docs](https://github.com/MicrosoftDocs/azure-dev-docs)              | This repository holds the documentation.   |
 
 ## Getting started
 
@@ -61,7 +61,7 @@ With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the fol
 
   plugins {
     id("java")
-    id("org.springframework.boot") version "3.2.O"
+    id("org.springframework.boot") version "4.0.1"
   }
 
   dependencies {
@@ -74,7 +74,7 @@ With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the fol
 
   ```kotlin
   plugins {
-      id("io.spring.dependency-management") version "1.1.0"
+      id("io.spring.dependency-management") version "1.1.7"
   }
 
   dependencyManagement {
@@ -188,7 +188,3 @@ The following list summarizes some of the changes that Spring Cloud Azure 4.0 pr
 * More options exposed in a Spring-idiomatic way through improved auto-configuration coverage of Azure SDK clients for both synchronous and asynchronous scenarios.
 * Added health indicators for Azure App Configuration, Event Hubs, Azure Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File.
 * Spring Cloud Sleuth support for all HTTP-based Azure SDKs.
-
-## Migration guide for 4.0
-
-For more information on migrating to 4.0, see [Migration guide for 4.0](migration-guide-for-4.0.md).
