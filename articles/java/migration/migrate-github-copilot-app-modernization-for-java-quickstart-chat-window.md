@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Use Chat Window with AppModernization Agent"
+title: "Optimize Chat Results for Migrating Java Apps to Azure"
 titleSuffix: GitHub Copilot app modernization - Azure
-description: Shows you how to use the Copilot chat window with the AppModernization custom agent for Java migration.
+description: Shows you how to optimize chat results by using the AppModernization custom agent for migrating Java applications to Azure.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 01/14/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
@@ -14,9 +14,9 @@ ms.update-cycle: 180-days
 ai-usage: ai-generated
 ---
 
-# Quickstart: use chat window with AppModernization agent for GitHub Copilot app modernization
+# Optimize chat results for migrating Java apps to Azure
 
-This quickstart shows you how to use the GitHub Copilot chat window with the AppModernization custom agent to migrate Java applications to Azure. The AppModernization custom agent is optimized for application modernization tasks and enables you to use simple, natural language prompts to perform complex migration scenarios.
+This quickstart shows you how to optimize chat results by using the AppModernization custom agent to migrate Java applications to Azure. The AppModernization custom agent is optimized for application modernization tasks and enables you to use simple, natural language prompts to perform complex migration scenarios.
 
 ## Prerequisites
 
@@ -36,6 +36,9 @@ The AppModernization custom agent provides the best experience for Java applicat
 
 > [!NOTE]
 > While you can select different language models in the chat window, Claude Sonnet 4.5 is the tested and recommended model for best results with Java application modernization tasks.
+
+> [!IMPORTANT]
+> The AppModernization custom agent is currently available only for Visual Studio Code. Support for IntelliJ IDEA will be available in a future release.
 
 ## Use simple prompts for migration
 
