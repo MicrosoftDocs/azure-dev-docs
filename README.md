@@ -17,6 +17,7 @@ Contributing to the documentation requires a GitHub account. If you don't have a
 #### Tools
 
 To install necessary tools, follow the instructions for [Install content authoring tools](https://learn.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
+These contain tools that will help you build, validate, and preview documentation locally before submitting a pull request, especially for first-time contributors.
 
 ## License
 
