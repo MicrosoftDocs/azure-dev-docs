@@ -119,7 +119,7 @@ Consider these factors when designing your full-stack deployment:
 
   - **Configure service order**: In your [`azure.yaml`](./azd-schema.md) file, define services in the order you want them deployed. While `azd` deploys services in parallel by default, you can use [hooks](./azd-extensibility.md) to enforce sequential deployment when needed.
 
-  - **Customize workflow steps**: Override the default [`azd up`](./azd-commands.md#azd-up) workflow by defining a custom `workflows` property in your [`azure.yaml`](./azd-schema.md) file. For example, you can change the default behavior to run provisioning before building your application source code:
+  - **Customize workflow steps**: Override the default [`azd up`](./azd-commands.md) workflow by defining a custom `workflows` property in your [`azure.yaml`](./azd-schema.md) file. For example, you can change the default behavior to run provisioning before building your application source code:
 
     ```yaml
     name: todo-nodejs-mongo
@@ -135,7 +135,7 @@ Consider these factors when designing your full-stack deployment:
 
     This pattern is useful when your build process needs configuration values that are only available after provisioning completes.
 
-  - **Separate provision and deploy**: Instead of using [`azd up`](./azd-commands.md#azd-up), run [`azd provision`](./azd-commands.md#azd-provision) and [`azd deploy`](./azd-commands.md#azd-deploy) as separate commands. This separation is useful when you need to verify infrastructure configuration before deploying application code, or when troubleshooting deployment issues. You can provision infrastructure once, then deploy and redeploy application code multiple times without reprovisioning.
+  - **Separate provision and deploy**: Instead of using [`azd up`](./azd-commands.md), run [`azd provision`](./azd-commands.md#azd-provision) and [`azd deploy`](./azd-commands.md#azd-deploy) as separate commands. This separation is useful when you need to verify infrastructure configuration before deploying application code, or when troubleshooting deployment issues. You can provision infrastructure once, then deploy and redeploy application code multiple times without reprovisioning.
 
   - **Customize with hooks**: Add pre and post [hooks](./azd-extensibility.md) in your [`azure.yaml`](./azd-schema.md) file to execute custom logic between provisioning and deployment phases. Use hooks to populate configuration files, validate environment state, or coordinate complex deployment sequences.
 
@@ -146,7 +146,7 @@ When building full-stack applications with `azd`, follow these best practices:
 1. **Map dependencies early**: Identify which services need information from other services during your design phase. Distinguish between one-directional dependencies that Bicep/Terraform handles automatically and circular dependencies that require immediate or deferred resolution strategies.
 1. **Choose the right resolution strategy**: Use immediate dependency resolution when services need configuration at deployment time. Use deferred dependency resolution when you need flexibility to update configuration without redeployment. Combine both strategies when appropriate.
 1. **Use Azure Verified Modules (AVM)**: Leverage [Azure Verified Modules](/azure/azure-resource-manager/bicep/modules#azure-verified-modules) Bicep modules like [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert) for container apps. These patterns work seamlessly with `azd`'s two-phase workflow to resolve circular dependencies.
-1. **Customize workflows when needed**: For simple deployments, use [`azd up`](./azd-commands.md#azd-up) with default settings. For complex scenarios with circular dependencies, customize the `workflows` property in your [`azure.yaml`](./azd-schema.md) file to control the order of package, provision, and deploy steps.
+1. **Customize workflows when needed**: For simple deployments, use [`azd up`](./azd-commands.md) with default settings. For complex scenarios with circular dependencies, customize the `workflows` property in your [`azure.yaml`](./azd-schema.md) file to control the order of package, provision, and deploy steps.
 1. **Leverage runtime configuration**: For maximum flexibility across environments, use Azure App Configuration or local configuration files to manage service endpoints and settings that can be updated without redeployment.
 1. **Test across environments**: Ensure your dependency resolution strategy works correctly across development, staging, and production environments where service URLs and configurations differ.
 

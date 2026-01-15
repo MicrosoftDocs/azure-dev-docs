@@ -164,7 +164,7 @@ Your template should:
 
 ## Next steps
 
-- [Full-stack deployment with Azure Developer CLI](./full-stack-deployment-overview.md)
+- [Full-stack deployment with Azure Developer CLI](./full-stack-deployment.md)
 - [Azure Developer CLI templates overview](./azd-templates.md)
 - [Deploy to Azure Container Apps using the Azure Developer CLI](./container-apps-workflows.md)
 - [Explore the azd up workflow](./azd-up-workflow.md)
