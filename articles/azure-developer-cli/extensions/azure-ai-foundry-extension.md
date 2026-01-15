@@ -67,7 +67,7 @@ azd ai agent init -m <agent-definition-url>
 For example, use the following URL for a simple calculator agent:
 
 ```bash
-azd ai agent init -m https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples/python/hosted-agents/calculator-agent/agent.yaml
+azd ai agent init -m https://github.com/microsoft-foundry/foundry-samples/blob/main/samples/python/hosted-agents/langgraph/calculator-agent/agent.yaml
 ```
 
 The `azd ai agent init` command:

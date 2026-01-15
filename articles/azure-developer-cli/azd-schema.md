@@ -218,7 +218,7 @@ pipeline:
 |--------------|--------|----------|-------------|
 | azd          | string | Yes      | The name and args of the azd command to execute. |
 
-#### Sample workflow
+#### Configure the order of workflow steps
 
 The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step using a workflow. This example could be used in scenarios where you need to know the URLs of resources during the build or packaging process.
 
@@ -230,6 +230,7 @@ workflows:
   up: 
     steps:
       - azd: provision
+      - azd: package
       - azd: deploy --all
 ```
 
