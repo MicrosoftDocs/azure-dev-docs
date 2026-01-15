@@ -15,14 +15,14 @@ If your organization requires the use of a proxy server to access internet resou
 
 ## Configure `azd` proxy settings
 
-Set the following environment variable to use local proxy server:
+Set the following environment variable to use a local proxy server:
 
 ### PowerShell
 
 ```powershell
 $env:HTTP_PROXY = "http://proxy.example.com:8080"
 $env:HTTPS_PROXY = "http://proxy.example.com:8080"
-$env:NO_PROXY = "localhost,127.0.0.1,.azurewebsites.net"
+$env:NO_PROXY = "localhost,127.0.0.1"
 ```
 
 ### Bash
@@ -30,7 +30,7 @@ $env:NO_PROXY = "localhost,127.0.0.1,.azurewebsites.net"
 ```bash
 export HTTP_PROXY="http://proxy.example.com:8080"
 export HTTPS_PROXY="http://proxy.example.com:8080"
-export NO_PROXY="localhost,127.0.0.1,.azurewebsites.net"
+export NO_PROXY="localhost,127.0.0.1"
 ```
 
 > [!NOTE]
