@@ -135,7 +135,7 @@ Consider these factors when designing your full-stack deployment:
 
     This pattern is useful when your build process needs configuration values that are only available after provisioning completes.
 
-  - **Separate provision and deploy**: Instead of using [`azd up`](./azd-commands.md), run [`azd provision`](./azd-commands.md#azd-provision) and [`azd deploy`](./azd-commands.md#azd-deploy) as separate commands. This separation is useful when you need to verify infrastructure configuration before deploying application code, or when troubleshooting deployment issues. You can provision infrastructure once, then deploy and redeploy application code multiple times without reprovisioning.
+  - **Separate provision and deploy**: Instead of using [`azd up`](./azd-commands.md), run `azd provision` and `azd deploy` as separate commands. This separation is useful when you need to verify infrastructure configuration before deploying application code, or when troubleshooting deployment issues. You can provision infrastructure once, then deploy and redeploy application code multiple times without reprovisioning.
 
   - **Customize with hooks**: Add pre and post [hooks](./azd-extensibility.md) in your [`azure.yaml`](./azd-schema.md) file to execute custom logic between provisioning and deployment phases. Use hooks to populate configuration files, validate environment state, or coordinate complex deployment sequences.
 
