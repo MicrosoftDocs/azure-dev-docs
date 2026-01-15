@@ -152,7 +152,7 @@ The templates listed in this article are maintained by Microsoft and the communi
 
 ## Contributing templates
 
-If you have a full-stack template that you'd like to contribute, see the [Azure Samples contribution guide](https://github.com/Azure-Samples/.github/blob/main/CONTRIBUTING.md).
+If you have a full-stack template that you'd like to contribute, see the [Azure Samples contribution guide](https://github.com/Azure-Samples/.github/blob/main/README.md).
 
 Your template should:
 
