@@ -119,8 +119,8 @@
           href: environment-variables-faq.md
       - name: Full stack
         items:
-        - name: Full-stack deployment overview
-          href: full-stack-deployment-overview.md
+        - name: Full-stack deployment
+          href: full-stack-deployment.md
         - name: Full-stack deployment templates
           href: full-stack-templates.md
       - name: Deploy to Azure Container Apps
