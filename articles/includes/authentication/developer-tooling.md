@@ -57,4 +57,30 @@ For systems without a default web browser, the `Connect-AzAccount` command uses 
 Connect-AzAccount -UseDeviceAuthentication
 ```
 
+### [Visual Studio Code](#tab/sign-in-visual-studio-code)
+
+Developers can use Visual Studio Code to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `VisualStudioCodeCredential` can then use this account to authenticate app requests when running locally.
+
+To authenticate with Visual Studio Code:
+
+1. Install the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) in Visual Studio Code.
+1. In Visual Studio Code, open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P on macOS) and run the **Azure: Sign In** command to sign in to Azure.
+
+To use Visual Studio Code authentication in your application, you need to install the `@azure/identity-vscode` plugin package and configure it in your code:
+
+```bash
+npm install @azure/identity-vscode
+```
+
+Then, enable the plugin in your application:
+
+```javascript
+import { useIdentityPlugin, DefaultAzureCredential } from "@azure/identity";
+import { vsCodePlugin } from "@azure/identity-vscode";
+
+useIdentityPlugin(vsCodePlugin);
+
+const credential = new DefaultAzureCredential();
+```
+
 ---
