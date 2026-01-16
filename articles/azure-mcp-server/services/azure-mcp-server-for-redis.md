@@ -17,9 +17,9 @@ ms.custom: build-2025
 
 # Manage Azure Redis with Azure MCP Server
 
-If you work with Azure Redis, the Azure MCP Server can help you create new Redis resources, inventory existing caches, and manage Redis deployments using natural language conversations with AI assistants.
+If you work with Azure Managed Redis, the Azure MCP Server can help you create new Redis resources, inventory existing caches, and manage Redis deployments using natural language conversations with AI assistants.
 
-[Azure Redis](/azure/redis) provides in-memory data storage based on the Redis software. While the Azure portal and Azure CLI are powerful tools, the Azure MCP Server provides a more intuitive way to interact with your Redis resources through conversational AI.
+[Azure Managed Redis](/azure/redis) provides in-memory data storage based on the Redis software. While the Azure portal and Azure CLI are powerful tools, the Azure MCP Server provides a more intuitive way to interact with your Redis resources through conversational AI.
 
 ## What is the Azure MCP Server?
 
@@ -41,7 +41,7 @@ To use the Azure MCP Server with Azure Redis, you need:
 ### Azure requirements
 
 - **Azure subscription**: An active Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
-- **Azure Redis resources**: At least one Redis resource in your subscription, or permissions to create them.
+- **Azure Redis resources**: At least one Azure Managed Redis cache in your subscription, or permissions to create them.
 - **Azure permissions**: Appropriate roles like Contributor or Redis Cache Contributor to perform the operations you want. See [Use Microsoft Entra ID for cache authentication with Azure Managed Redis](/azure/redis/entra-for-authentication).
 
 [!INCLUDE [mcp-prerequisites](../includes/mcp-prerequisites.md)]
@@ -67,7 +67,7 @@ Provision new Azure Managed Redis resources with specific configurations, SKUs, 
 
 ### Resource inventory
 
-List and review all Redis resources in your subscription, including Azure Managed Redis, Azure Cache for Redis, and Azure Redis Enterprise.
+List and review all Redis resources in your subscription.
 
 **Common scenarios**:
 - Audit Redis resources across subscriptions and resource groups
