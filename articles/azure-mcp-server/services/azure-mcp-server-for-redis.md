@@ -54,27 +54,25 @@ To use the Azure MCP Server with Azure Redis, you need:
 
 The Azure MCP Server provides two tools specifically designed for Azure Redis operations. These tools enable you to create and manage Redis resources through natural language conversations.
 
-### Resource creation
+### Create a Redis resource
 
 Provision new Azure Managed Redis resources with specific configurations, SKUs, and modules.
 
 **Common scenarios**:
-- Quickly create Redis caches for new applications or environments
-- Provision Redis with specific SKUs matching performance requirements
+
+- Create a Redis cache for a new application or environment
+- Provision Redis with a specific SKU matching performance requirements
 - Enable Redis modules like RedisJSON or RedisBloom during creation
-- Set up multiple Redis instances across regions for testing
-- Configure authentication settings during Redis provisioning
 
-### Resource inventory
+### List Redis resources
 
-List and review all Redis resources in your subscription.
+List and review all Redis resources in your subscription. Returns details of all Azure Managed Redis, Azure Cache for Redis, and Azure Redis Enterprise resources.
 
 **Common scenarios**:
-- Audit Redis resources across subscriptions and resource groups
-- Identify Redis instances for cost optimization reviews
-- Find Redis caches by name or location
-- Verify Redis deployments after infrastructure changes
-- Create inventory reports of Redis resources for compliance
+
+- List all Redis resources in your subscription to audit deployments
+- View Redis caches to identify instances for cost optimization
+- Get an inventory of Redis clusters across your environment
 
 For detailed information about each tool, including parameters and examples, see [Azure Redis tools for Azure MCP Server](../tools/azure-redis.md).
 

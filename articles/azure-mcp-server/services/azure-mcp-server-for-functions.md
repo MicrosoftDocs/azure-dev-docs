@@ -54,17 +54,15 @@ To use the Azure MCP Server with Azure Functions, you need:
 
 The Azure MCP Server provides one tool specifically designed for Azure Functions operations, enabling you to retrieve function app information through natural language conversations.
 
-### Function app management
+### Get function app details
 
 Get detailed information about your function apps, including configuration, status, hostnames, and deployment details.
 
 **Common scenarios**:
-- Quickly verify function app settings before deployments
-- Check function app status and runtime information across environments
-- Review hostnames and custom domains configured for function apps
-- Troubleshoot function app issues by inspecting current configuration
-- Compare function app settings between development and production
-- Validate function app properties after infrastructure changes
+
+- Get function app details to verify configuration before deployments
+- Get function app status to check runtime information across environments
+- List hostnames for a function app to review custom domains
 
 For detailed information about each tool, including parameters and examples, see [Azure Functions tools for Azure MCP Server](../tools/azure-functions.md).
 
