@@ -18,11 +18,12 @@ When developing an application that uses the Azure Identity library for Python, 
 
 :::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developer's credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
-To enable an application to authenticate to Azure during local development using the developer’s own Azure credentials, the developer must first sign in using one of the supported command-line tools:
+To enable an application to authenticate to Azure during local development using the developer’s own Azure credentials, the developer must first sign in using one of the supported tools:
 
 * Azure CLI (`az login`)
 * Azure Developer CLI (`azd login`)
 * Azure PowerShell (`Connect-AzAccount`)
+* Visual Studio Code
 
 Once signed in, the Azure Identity library for Python can automatically detect the active session and retrieve the necessary tokens from the credentials cache. This capability allows the app to authenticate to Azure services as the signed-in user, without requiring any additional configuration or hardcoded secrets.
 
@@ -38,9 +39,9 @@ However, developer accounts typically have broader permissions than the applicat
 
 Developers can configure the local environment to use the service principal via environment variables, and `DefaultAzureCredential` picks it up automatically. For more information, see the article [Authenticate Python apps to Azure services during local development using service principals](./local-development-service-principal.md).
 
-<a name='1---create-azure-ad-group-for-local-development'></a>
+<a name='create-azure-ad-group-for-local-development'></a>
 
-## 1 - Create Microsoft Entra security group for local development
+## Create Microsoft Entra security group for local development
 
 In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, we recommend that you first create a Microsoft Entra security group specifically for the application’s local development needs.
 
@@ -140,9 +141,9 @@ az ad group member add `
 > [!NOTE]
 > By default, the creation of Microsoft Entra security groups is limited to certain privileged roles in a directory. If you're unable to create a group, contact an administrator for your directory. If you're unable to add members to an existing group, contact the group owner or a directory administrator. To learn more, see [Manage Microsoft Entra groups and group membership](/entra/fundamentals/how-to-manage-groups).
 
-<a name='2---assign-roles-to-the-azure-ad-group'></a>
+<a name='assign-roles-to-the-azure-ad-group'></a>
 
-## 2 - Assign roles to the Microsoft Entra group
+## Assign roles to the Microsoft Entra group
 
 After creating your Microsoft Entra security group and adding members, the next step is to determine what roles (permissions) your application requires, and assign those roles to the group at the appropriate scope.
 
@@ -228,7 +229,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## 3 - Sign-in to Azure using the Azure CLI, Azure PowerShell, Azure Developer CLI, or in a browser
+## Sign-in to Azure using the Azure CLI, Azure PowerShell, Azure Developer CLI, or in a browser
 
 To authenticate with your Azure account, choose one of the following methods:
 
@@ -266,7 +267,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ---
 
-## 4 - Implement DefaultAzureCredential in your application
+## Implement DefaultAzureCredential in your application
 
 To authenticate Azure SDK client objects with Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure-identity` package. This is the recommended authentication method for both local development and production deployments.
 
