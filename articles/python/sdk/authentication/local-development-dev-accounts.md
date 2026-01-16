@@ -1,7 +1,7 @@
 ---
 title: Authenticate Python apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using developer accounts.
-ms.date: 05/29/2025
+ms.date: 01/16/2026
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ---
