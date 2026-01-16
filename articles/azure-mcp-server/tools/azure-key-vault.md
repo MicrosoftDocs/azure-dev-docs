@@ -27,9 +27,10 @@ Retrieves all Key Vault Managed HSM account settings for a given vault. This inc
 
 Example prompts include:
 
-- **Get account settings**: "Get the account settings for my key vault 'mykeyvault'"
-- **Show managed HSM settings**: "Show me the account settings for managed HSM keyvault 'contoso-hsm'"
-- **Query specific setting**: "What's the value of the 'purgeProtection' setting in my key vault with name 'mykeyvault'"
+- **Get account settings**:
+  - "Get the account settings for my managed HSM 'myhsm'"
+  - "Show me the account settings for managed HSM 'contoso-hsm'"
+- **Query a specific setting**: "What's the value of the 'purgeProtection' setting in my managed HSM with name 'myhsm'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -145,7 +146,11 @@ Example prompts include:
 - **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
 - **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my Key Vault?"
 - **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
-- **Access credentials**: "Show me the 'service-principal-secret' from my production Key Vault"
+- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my key vault 'production-vault'."
+- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' key vault"
+- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my key vault?"
+- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
+- **Access credentials**: "Show me the 'service-principal-secret' from my production key vault"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -168,7 +173,11 @@ Example prompts include:
 - **View secrets**: "What secrets do I have in Key Vault 'api-secrets'?"
 - **Find secrets**: "List secrets in my Key Vault 'configuration-kv'"
 - **Query secrets**: "Show all secrets in my Key Vault"
-- **Check secrets**: "What secrets are stored in my 'eastus-keyvault'?"
+- "Show me all secrets in my key vault 'production-vault'."
+- "What secrets do I have in key Vault 'api-secrets'?"
+- "List secrets in my Key Vault 'configuration-kv'"
+- "Show all secrets in my Key Vault"
+- "What secrets are stored in my 'eastus-keyvault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -190,7 +199,11 @@ Example prompts include:
 - **Generate certificate**: "Create a new certificate called 'api-tls-cert' in Key Vault 'security-kv'"
 - **Add certificate**: "Generate a certificate 'webapp-cert' for my web application in Key Vault 'mykeyvault'"
 - **Set up TLS cert**: "Create a certificate named 'app-certificate' in Key Vault 'mykeyvault'"
-- **Make new cert**: "Create a certificate called 'service-cert' in 'certificates-vault'"
+- **Create SSL certificate**: "Create a certificate named 'web-ssl-cert' in my key vault 'production-vault'."
+- **Generate certificate**: "Create a new certificate called 'api-tls-cert' in key vault 'security-kv'"
+- **Add certificate**: "Generate a certificate 'webapp-cert' for my web application in key vault 'mykeyvault'"
+- **Set up TLS cert**: "Create a certificate named 'app-certificate' in key vault 'mykeyvault'"
+- **Make new cert**: "Create a certificate called 'service-cert' in key vault 'certificates-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -212,6 +225,10 @@ Example prompts include:
 - **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my 'production-vault' Key Vault."
 - **View certificate info**: "Get information about the 'api-tls-cert' certificate in Key Vault 'security-kv'"
 - **Retrieve certificate**: "Get properties of the 'app-certificate' in Key Vault 'mykeyvault'"
+- **Check certificate**: "Show me the details of certificate 'ssl-certificate' in vault 'mykeyvault'"
+- **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my key vault 'production-vault'."
+- **View certificate info**: "Get information about the 'api-tls-cert' certificate in key vault 'security-kv'"
+- **Retrieve certificate**: "Get properties of the 'app-certificate' in key vault 'mykeyvault'"
 - **Check certificate**: "Show me the details of certificate 'ssl-certificate' in vault 'mykeyvault'"
 - **Find certificate**: "Get the properties of 'service-cert' certificate in 'certificates-vault'"
 
@@ -237,7 +254,11 @@ Example prompts include:
 - **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
 - **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into Key Vault 'api-vault' as 'api-cert'."
 - **Import PEM certificate**: "Import a PEM certificate into my Key Vault 'prod-vault' named 'prod-cert'."
-- **Import password-protected certificate**: "Import the certificate 'secure.pfx' into Key Vault 'ssl-vault' with password 'mypassword'."
+- **Import certificate from file**: "Import the certificate in file '/path/to/cert.pfx' into the key vault 'mykeyvault'."
+- **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
+- **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into key vault 'api-vault' as 'api-cert'."
+- **Import PEM certificate**: "Import a PEM certificate into my key vault 'prod-vault' named 'prod-cert'."
+- **Import password-protected certificate**: "Import the certificate 'secure.pfx' into key vault 'ssl-vault' with password 'mypassword'."
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
@@ -262,6 +283,10 @@ Example prompts include:
 - **View certificates**: "What certificates do I have in Key Vault 'security-kv'?"
 - **Find certificates**: "List certificates in Key Vault 'certificates-kv'"
 - **Query certificates**: "Show all certificates in Key Vault 'mykeyvault'"
+- **List all certificates**: "Show me all certificates in my key vault 'production-vault'."
+- **View certificates**: "What certificates do I have in key vault 'security-kv'?"
+- **Find certificates**: "List certificates in key vault 'certificates-kv'"
+- **Query certificates**: "Show all certificates in key vault 'mykeyvault'"
 - **Check certificates**: "What certificates are available in vault 'ssl-vault'?"
 
 | Parameter | Required or optional | Description |
