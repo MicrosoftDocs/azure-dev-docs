@@ -218,6 +218,7 @@ Example prompts include:
 - "I need to create a Managed Lustre autoimport for filesystem 'AnalyticsFS' in resource group 'rg-analytics-eastus'"
 - "Start an autoimport for the filesystem named 'ResearchFS' in resource group 'rg-research-lustre'"
 - "Establish an autoimport job on filesystem 'FSBackup' under resource group 'rg-backup-westus2'"
+- "Create an autoimport job for filesystem 'DataFS' in resource group 'rg-prod' with prefix '/data/incoming' and conflict resolution mode 'OverwriteIfDirty'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -319,6 +320,7 @@ Example prompts include:
 - "I need to create a blob autoexport for filesystem 'faststorage' in resource group 'rg-data-analytics'"
 - "Deploy a new autoexport task for the Lustre filesystem named 'ArchiveFS' under resource group 'rg-archive'"
 - "Initiate autoexport on filesystem 'ResearchFS' located in resource group 'rg-science-projects'"
+- "Create an autoexport job for filesystem 'OutputFS' in resource group 'rg-prod' with prefix '/results/processed'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
