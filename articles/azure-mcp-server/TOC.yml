@@ -49,8 +49,6 @@ items:
           href: services/azure-mcp-server-for-functions.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
-        - name: Azure Storage
-          href: services/azure-mcp-server-for-storage.md
     - name: Tools
       expanded: true
       items:
