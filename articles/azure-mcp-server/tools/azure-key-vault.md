@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 12/05/2025
+ms.date: 0116/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -48,11 +48,11 @@ The Azure MCP Server can create a new key in an Azure Key Vault. This operation 
 
 Example prompts include:
 
-- **Create RSA key**: "Create a new RSA key named 'app-encryption-key' in my 'mykeyvault' Key Vault."
-- **Generate EC key**: "Generate a new EC key called 'signing-key' in Key Vault 'security-kv'"
-- **Add encryption key**: "Add a new 2048-bit RSA key named 'data-key' to Key Vault 'mykeyvault'"
-- **Set up signing key**: "Create an EC key 'signing-key' for JWT signing in Key Vault 'mykeyvault'"
-- **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
+- **Create RSA key**: "Create a new RSA key named 'app-encryption-key' in my key vault 'mykeyvault'"
+- **Generate EC key**: "Generate a new EC key called 'signing-key' in key vault 'security-kv'"
+- **Add encryption key**: "Add a new 2048-bit RSA key named 'data-key' to key vault 'mykeyvault'"
+- **Set up signing key**: "Create an EC key named 'signing-key' for JWT signing in key vault 'mykeyvault'"
+- **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my key vault 'api-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -72,11 +72,11 @@ The Azure MCP Server can retrieve details of a specific key from an Azure Key Va
 
 Example prompts include:
 
-- **Get key details**: "Show me details of the 'app-encryption-key' in my 'mykeyvault' Key Vault."
-- **View key info**: "Get information about the 'signing-key' in Key Vault 'security-kv'"
-- **Retrieve key**: "Get properties of the 'data-key' in Key Vault 'mykeyvault'"
-- **Check key**: "Show me the details of key 'encryption-key' in vault 'mykeyvault'"
-- **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
+- "Show me details of the key 'app-encryption-key' in my key vault 'mykeyvault'"
+- "What is the key type of 'signing-key' in key vault 'security-kv'?"
+- "Is the key 'data-key' enabled in key vault 'mykeyvault'?"
+- "When does the key 'encryption-key' expire in key vault 'mykeyvault'?"
+- "Get the properties of key 'jwt-signing' in key vault 'api-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -95,11 +95,8 @@ The Azure MCP Server can list all keys in an Azure Key Vault. This operation hel
 
 Example prompts include:
 
-- **List all keys**: "Show me all keys in my 'mykeyvault' Key Vault."
-- **View keys**: "What keys do I have in Key Vault 'security-kv'?"
-- **Find keys**: "List keys in Key Vault 'central-keys' with include managed set to false"
-- **Query keys**: "Show all keys including managed keys in Key Vault 'mykeyvault' with include managed set to true"
-- **Check keys**: "What keys are available in vault 'encryption-vault' with include managed set to false?"
+- "List all non-managed keys in key vault 'central-keys'"
+- "Which non-managed keys are available in key vault 'encryption-vault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -118,11 +115,10 @@ The Azure MCP Server can create a new secret in an Azure Key Vault. This operati
 
 Example prompts include:
 
-- **Create API secret**: "Create a secret named 'api-key' with value 'xyz123' in my 'production-vault' Key Vault."
-- **Store password**: "Add a secret called 'database-password' to Key Vault 'security-kv'"
-- **Save connection string**: "Create a secret 'db-connection' with value 'Server=myserver;Database=mydb' in Key Vault 'mykeyvault'"
-- **Add credentials**: "Store secret 'sp-secret' with value 'abc123def456' in Key Vault 'api-vault'"
-- **Set configuration**: "Create a secret named 'app-config' with value '{\"setting\":\"value\"}' in Key Vault 'mykeyvault'"
+- **Create API secret**: "Create a secret named 'api-key' with value 'xyz123' in my key vault named 'production-vault'."
+- **Store password**: "Add a secret called 'database-password' with value 'myP@ssw0rd' to key vault 'security-kv'"
+- **Save connection string**: "Create a secret 'db-connection' with value 'Server=myserver;Database=mydb' in key vault 'mykeyvault'"
+- **Add credentials**: "Store secret 'sp-secret' with value 'abc123def456' in key vault 'api-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
