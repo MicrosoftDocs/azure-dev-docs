@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 0116/2026
+ms.date: 01/16/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
