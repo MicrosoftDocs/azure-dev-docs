@@ -227,7 +227,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## Sign-in to Azure using the Azure CLI, Azure PowerShell, Azure Developer CLI, or in a browser
+## Sign-in to Azure using developer tooling
 
 To authenticate with your Azure account, choose one of the following methods:
 
