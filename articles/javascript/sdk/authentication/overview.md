@@ -59,7 +59,7 @@ A system-assigned managed identity is enabled directly on an Azure resource. The
 
 ## Authentication during local development
 
-During local development, you can authenticate to Azure resources using your developer credentials or a service principal. This allows you to test your app's authentication logic without deploying it to Azure.
+During local development, you can authenticate to Azure resources using your developer credentials, a broker, or a service principal. This allows you to test your app's authentication logic without deploying it to Azure.
 
 #### Use developer credentials
 
