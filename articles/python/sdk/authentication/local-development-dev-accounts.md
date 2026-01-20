@@ -141,7 +141,7 @@ az ad group member add `
 
 <a name='assign-roles-to-the-azure-ad-group'></a>
 
-## Assign roles to the Microsoft Entra group
+## Assign roles to the group
 
 After creating your Microsoft Entra security group and adding members, the next step is to determine what roles (permissions) your application requires, and assign those roles to the group at the appropriate scope.
 
