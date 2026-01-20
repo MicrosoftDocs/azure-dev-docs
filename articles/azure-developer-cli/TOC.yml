@@ -139,6 +139,8 @@
       href: configure-template-sources.md
     - name: Use azd in sovereign clouds
       href: sovereign-clouds.md
+    - name: Configure a proxy
+      href: configure-proxy.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot
