@@ -37,6 +37,6 @@ During local development, set environment variables with the application service
 
 [!INCLUDE [assign-group-roles](../../../includes/authentication/assign-group-roles.md)]
 
-[!INCLUDE [add app environment variables](../../../includes/authentication/authenticate-set-environment-variables-javascript.md)]
+[!INCLUDE [add app environment variables](../../../includes/authentication/authentication-set-environment-variables-javascript.md)]
 
 [!INCLUDE [auth and implement code](./includes/implement-default-azure-credential.md)]
