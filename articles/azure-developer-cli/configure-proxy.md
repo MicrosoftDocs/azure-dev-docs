@@ -34,9 +34,9 @@ export NO_PROXY="localhost,127.0.0.1"
 ```
 
 > [!NOTE]
-> Invalid environment variables values will result in various HTTP related error messages when running azd commands.
+> Invalid environment variables values result in various HTTP related error messages when running azd commands.
 
-`azd` uses the Go `net/http` package. `DefaultTransport` is the default implementation of `Transport` and is used by `DefaultClient`. It establishes network connections as needed and caches them for reuse by subsequent calls. It uses HTTP proxies as directed by the environment variables `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` (upppercase or lowercase).
+`azd` uses the Go `net/http` package. `DefaultTransport` is the default implementation of `Transport` and is used by `DefaultClient`. It establishes network connections as needed and caches them for reuse by subsequent calls. It uses HTTP proxies as directed by the environment variables `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` (uppercase or lowercase).
 
 ## Next steps
 
