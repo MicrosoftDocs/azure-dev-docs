@@ -2,7 +2,7 @@
 author: diberry
 ms.service: azure
 ms.topic: include
-ms.date: 09/22/2025
+ms.date: 01/20/2026
 ms.author: diberry
 ---
 ## Sign-in to Azure using developer tooling
