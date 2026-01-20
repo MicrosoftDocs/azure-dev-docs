@@ -1,7 +1,7 @@
 ---
 title: How to authenticate JavaScript apps with Azure services
 description: Learn how to authenticate a JavaScript app with Azure services by using classes in the Azure Identity library.
-ms.date: 01/20/2025
+ms.date: 01/20/2026
 ms.topic: concept-article
 ms.custom:
   - devx-track-js
