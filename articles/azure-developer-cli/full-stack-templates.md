@@ -59,8 +59,6 @@ azd up
 |----------|-----------|----------|----------|-----|-----|------------|
 | AI Travel Agents | Angular on Azure Container Apps | Multiple MCP servers (Python, Node.js, Java, .NET) on Azure Container Apps | Azure OpenAI, Azure Cosmos DB | Bicep | - | [azure-ai-travel-agents](https://github.com/Azure-Samples/azure-ai-travel-agents) |
 
-**-**: Add additional Angular-specific full-stack templates when available.
-
 ### [Vue](#tab/vue)
 
 | Template | Front end | Back end | Database | IaC | AVM | Repository |
