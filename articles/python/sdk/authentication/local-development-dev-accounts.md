@@ -18,9 +18,9 @@ When developing an application that uses the Azure Identity library for Python, 
 
 To enable an application to authenticate to Azure during local development using the developer’s own Azure credentials, the developer must first sign in using one of the supported tools:
 
-* Azure CLI (`az login`)
-* Azure Developer CLI (`azd login`)
-* Azure PowerShell (`Connect-AzAccount`)
+* Azure CLI
+* Azure Developer CLI
+* Azure PowerShell
 * Visual Studio Code
 
 Once signed in, the Azure Identity library for Python can automatically detect the active session and retrieve the necessary tokens from the credentials cache. This capability allows the app to authenticate to Azure services as the signed-in user, without requiring any additional configuration or hardcoded secrets.
@@ -39,7 +39,7 @@ Developers can configure the local environment to use the service principal via 
 
 <a name='create-azure-ad-group-for-local-development'></a>
 
-## Create Microsoft Entra security group for local development
+## Create a Microsoft Entra security group for local development
 
 In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, we recommend that you first create a Microsoft Entra security group specifically for the application’s local development needs.
 
@@ -141,7 +141,7 @@ az ad group member add `
 
 <a name='assign-roles-to-the-azure-ad-group'></a>
 
-## Assign roles to the Microsoft Entra group
+## Assign roles to the group
 
 After creating your Microsoft Entra security group and adding members, the next step is to determine what roles (permissions) your application requires, and assign those roles to the group at the appropriate scope.
 
@@ -227,7 +227,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ---
 
-## Sign-in to Azure using the Azure CLI, Azure PowerShell, Azure Developer CLI, or in a browser
+## Sign-in to Azure using developer tooling
 
 To authenticate with your Azure account, choose one of the following methods:
 
@@ -288,7 +288,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ---
 
-## Implement DefaultAzureCredential in your application
+## Authenticate to Azure services from your app
 
 To authenticate Azure SDK client objects with Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure-identity` package. This is the recommended authentication method for both local development and production deployments.
 
