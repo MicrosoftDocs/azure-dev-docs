@@ -63,7 +63,7 @@ Use the following steps to get started with app modernization using Copilot CLI.
    /mcp add app-modernization
    ```
 
-   Alternatively, manually update the `~/.config/mcp-config.json` file with the following configuration. For more information, see [Add an MCP server](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
+   Alternatively, manually update the `~/copilot/mcp-config.json` file with the following configuration. For more information, see [Add an MCP server](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
 
    ```json
    {
