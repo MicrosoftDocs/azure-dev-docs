@@ -22,7 +22,7 @@ During local development, applications need to authenticate to Azure to access v
 
 By using dedicated application service principals, you can adhere to the principle of least privilege when accessing Azure resources. Limit permissions to the specific requirements of the app during development, preventing accidental access to Azure resources intended for other apps or services. This approach also helps avoid issues when the app is moved to production by ensuring it isn't over-privileged in the development environment.
 
-:::image type="content" source="../../../includes/authentication/media/mermaidjs/-auth-passwordless/javascript/local-service-principal-authentication.png" alt-text="A diagram showing how a JavaScript app during local development uses the developer's credentials to connect to Azure by obtaining those credentials locally installed development tools.":::
+:::image type="content" source="../../../includes/authentication/media/mermaidjs/local-service-principal-authentication.svg" alt-text="A diagram showing how a JavaScript app during local development uses the developer's credentials to connect to Azure by obtaining those credentials locally installed development tools.":::
 
 When you register the app in Azure, you create an application service principal. For local development:
 
@@ -37,6 +37,6 @@ During local development, set environment variables with the application service
 
 [!INCLUDE [assign-group-roles](../../../includes/authentication/assign-group-roles.md)]
 
-[!INCLUDE [add app environment variables](../../../includes/authentication/authenticate-set-environment-varaibles-javascript.md)]
+[!INCLUDE [add app environment variables](../../../includes/authentication/authenticate-set-environment-variables-javascript.md)]
 
 [!INCLUDE [auth and implement code](./includes/implement-default-azure-credential.md)]
