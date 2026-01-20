@@ -59,28 +59,23 @@ Connect-AzAccount -UseDeviceAuthentication
 
 ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-Developers can use Visual Studio Code to authenticate to Microsoft Entra ID. Apps using `DefaultAzureCredential` or `VisualStudioCodeCredential` can then use this account to authenticate app requests when running locally.
+Developers using Visual Studio Code can authenticate with their developer account directly through the editor via the broker. Apps that use <xref:Azure.Identity.DefaultAzureCredential> or <xref:Azure.Identity.VisualStudioCodeCredential> can then use this account to authenticate app requests through a seamless single-sign-on experience.
 
-To authenticate with Visual Studio Code:
+1. In Visual Studio Code, go to the **Extensions** panel and install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension. This extension lets you view and manage Azure resources directly from Visual Studio Code. It also uses the built-in Visual Studio Code Microsoft authentication provider to authenticate with Azure.
 
-1. Install the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) in Visual Studio Code.
-1. In Visual Studio Code, open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P on macOS) and run the **Azure: Sign In** command to sign in to Azure.
+    :::image type="content" source="../media/azure-resources-extension.png" alt-text="Screenshot showing the Azure Resources extension.":::
 
-To use Visual Studio Code authentication in your application, you need to install the `@azure/identity-vscode` plugin package and configure it in your code:
+1. Open the Command Palette in Visual Studio Code, then search for and select **Azure: Sign in**.
 
-```bash
-npm install @azure/identity-vscode
-```
+    :::image type="content" source="../media/visual-studio-code-sign-in.png" alt-text="Screenshot showing how to sign in to Azure in Visual Studio Code.":::
 
-Then, enable the plugin in your application:
+    > [!TIP]
+    > Open the Command Palette using `Ctrl+Shift+P` on Windows/Linux or `Cmd+Shift+P` on macOS.
 
-```javascript
-import { useIdentityPlugin, DefaultAzureCredential } from "@azure/identity";
-import { vsCodePlugin } from "@azure/identity-vscode";
+1. Add [`@azure/identity-vscode`](https://www.npmjs.com/package/@azure/identity) package to your app:
 
-useIdentityPlugin(vsCodePlugin);
-
-const credential = new DefaultAzureCredential();
-```
+    ```bash
+    npm install @azure/identity-vscode
+    ```
 
 ---
