@@ -12,10 +12,10 @@ ms.date: 08/07/2024
 
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#fff', 'edgeLabelBackground':'#fff', 'fontSize': '24px'}}}%%
 flowchart LR
-    NetApp[".NET app"]
+    App["App"]
     Q1{Where is the app running?}
     
-    NetApp --> Q1
+    App --> Q1
     
     %% Local Development Machine Branch
     Q1 --> LocalDev[Development machine]
@@ -41,7 +41,7 @@ flowchart LR
     %% Edge label styling
     linkStyle default font-size:24px
     
-    class NetApp startNode
+    class App startNode
     class Q1 questionBox
     class AppSP,UserPrincipal,ManagedId,ServicePrincipal,ArcManagedId authMethod
     class LocalDev,AzureApp,OnPremApp envNode
