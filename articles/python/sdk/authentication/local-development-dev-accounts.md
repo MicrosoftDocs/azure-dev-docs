@@ -290,38 +290,46 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## Authenticate to Azure services from your app
 
-To authenticate Azure SDK client objects with Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure-identity` package. This is the recommended authentication method for both local development and production deployments.
+The [Azure Identity library](/python/api/azure-identity/azure.identity) provides implementations of [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) that support various scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) or a specific development tool credential when working with user accounts locally.
 
-In a local development scenario, `DefaultAzureCredential` works by sequentially checking for available authentication sources. Specifically, it looks for active sessions in the following tools:
+### Implement the code
 
-* Azure CLI (az login)
-* Azure PowerShell (Connect-AzAccount)
-* Azure Developer CLI (azd auth login)
+1. Add the [azure-identity](https://pypi.org/project/azure-identity/) package to your application:
 
-If the developer is signed in to Azure using any of these tools, `DefaultAzureCredential` automatically detects the session and uses those credentials to authenticate the application with Azure services. This allows developers to securely authenticate without storing secrets or modifying code for different environments.
+    ```bash
+    pip install azure-identity
+    ```
 
-Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
+2. Add the necessary `import` statements for the `azure.identity` module and the Azure service client module your app requires.
 
-```console
-pip install azure-identity
-```
+3. Pass a `TokenCredential` instance to the Azure SDK client object constructor. Common `TokenCredential` examples include:
 
-Next, for any Python code that creates an Azure SDK client object in your app, you want to:
+    **DefaultAzureCredential instance** optimized for local development. For more information, see [Customize the DefaultAzureCredential chain](credential-chains.md#customize-the-defaultazurecredential-chain).
 
-1. Import the `DefaultAzureCredential` class from the `azure.identity` module.
-1. Create a `DefaultAzureCredential` object.
-1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
+    ```python
+    from azure.identity import DefaultAzureCredential
+    from azure.storage.blob import BlobServiceClient
 
-An example of these steps is shown in the following code segment.
+    credential = DefaultAzureCredential()
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient
+    blob_service_client = BlobServiceClient(
+        account_url="https://<account-name>.blob.core.windows.net",
+        credential=credential)
+    ```
 
-# Acquire a credential object
-token_credential = DefaultAzureCredential()
+    **Credential corresponding to a specific development tool**, such as `VisualStudioCodeCredential`.
 
-blob_service_client = BlobServiceClient(
-        account_url="https://<my_account_name>.blob.core.windows.net",
-        credential=token_credential)
-```
+    ```python
+    from azure.identity import VisualStudioCodeCredential
+    from azure.storage.blob import BlobServiceClient
+
+    credential = VisualStudioCodeCredential()
+
+    blob_service_client = BlobServiceClient(
+        account_url="https://<account-name>.blob.core.windows.net",
+        credential=credential)
+    ```
+
+
+> [!TIP]
+> When your team uses multiple development tools to authenticate with Azure, prefer `DefaultAzureCredential` over tool-specific credentials.
