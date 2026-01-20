@@ -231,6 +231,29 @@ For information on assigning permissions at the resource or subscription level u
 
 To authenticate with your Azure account, choose one of the following methods:
 
+### [Visual Studio Code](#tab/sign-in-vscode)
+
+Developers using Visual Studio Code can authenticate with their developer account directly through the editor via the broker. Apps that use [DefaultAzureCredential](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.defaultazurecredential) or [VisualStudioCodeCredential](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.visualstudiocodecredential) can then use this account to authenticate app requests through a seamless single-sign-on experience.
+
+1. In Visual Studio Code, go to the **Extensions** panel and install the Azure Resources extension. This extension lets you view and manage Azure resources directly from Visual Studio Code. It also uses the built-in Visual Studio Code Microsoft authentication provider to authenticate with Azure.
+
+:::image type="content" source="../../../includes/authentication/media/azure-resources-extension.png" alt-text="Screenshot showing the Azure Resources extension.":::
+
+2. Open the Command Palette in Visual Studio Code, then search for and select **Azure: Sign in**.
+
+:::image type="content" source="../../../includes/authentication/media/visual-studio-sign-in.png" alt-text="Screenshot showing how to sign in to Azure in Visual Studio Code.":::
+
+> [!TIP]
+> Open the Command Palette using `Ctrl+Shift+P` on Windows/Linux or `Cmd+Shift+P` on macOS.
+
+
+3. Add the `azure-identity-broker` Python package to your app:
+
+```bash
+pip install azure-identity-broker
+```
+
+
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
 Open a terminal on your developer workstation and sign-in to Azure from the [Azure CLI](/cli/azure/what-is-azure-cli).
