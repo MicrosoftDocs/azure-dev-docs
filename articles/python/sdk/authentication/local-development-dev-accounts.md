@@ -39,7 +39,7 @@ Developers can configure the local environment to use the service principal via 
 
 <a name='create-azure-ad-group-for-local-development'></a>
 
-## Create Microsoft Entra security group for local development
+## Create a Microsoft Entra security group for local development
 
 In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, we recommend that you first create a Microsoft Entra security group specifically for the application’s local development needs.
 
