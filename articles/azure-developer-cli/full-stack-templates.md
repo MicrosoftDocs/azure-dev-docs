@@ -1,6 +1,6 @@
 ---
 title: Full-stack deployment templates for Azure Developer CLI
-description: Explore full-stack application templates for Azure Developer CLI (azd) that combine front-end and back-end services across multiple languages and frameworks.
+description: Discover full-stack deployment templates for Azure Developer CLI (azd) that integrate front-end and back-end services. Start building your app today.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 01/20/2026
@@ -12,7 +12,7 @@ ai-usage: ai-generated
 
 # Full-stack deployment templates for Azure Developer CLI
 
-This article provides a curated list of full-stack application templates that you can use with the Azure Developer CLI (`azd`). These templates demonstrate how to deploy applications with separate front-end and back-end services to Azure.
+This article introduces full-stack deployment templates for Azure Developer CLI (azd). Use these templates to quickly deploy applications with front-end and back-end services on Azure.
 
 ## What are full-stack templates?
 
@@ -23,7 +23,7 @@ Full-stack templates include:
 - **Infrastructure**: Bicep or Terraform files to provision Azure resources
 - **Configuration**: An `azure.yaml` file that ties everything together
 
-Each template in this list has been designed to work with `azd` commands like `azd init`, `azd up`, and `azd deploy`.
+Each template in this list works with `azd` commands like `azd init`, `azd up`, and `azd deploy`.
 
 ## How to use these templates
 
@@ -45,7 +45,7 @@ azd up
 
 ### [React](#tab/react)
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | React + Node.js + MongoDB | React on App Service | Node.js on App Service | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-nodejs-mongo](https://github.com/Azure-Samples/todo-nodejs-mongo) |
 | React + Node.js + MongoDB (Container Apps) | React on Container Apps | Node.js on Container Apps | Azure Cosmos DB (MongoDB) | Bicep | ✅ | [todo-nodejs-mongo-aca](https://github.com/Azure-Samples/todo-nodejs-mongo-aca) |
@@ -55,7 +55,7 @@ azd up
 
 ### [Angular](#tab/angular)
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | AI Travel Agents | Angular on Azure Container Apps | Multiple MCP servers (Python, Node.js, Java, .NET) on Azure Container Apps | Azure OpenAI, Azure Cosmos DB | Bicep | - | [azure-ai-travel-agents](https://github.com/Azure-Samples/azure-ai-travel-agents) |
 
@@ -63,7 +63,7 @@ azd up
 
 ### [Vue](#tab/vue)
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | Weather App (Vue + Java Quarkus) | Vue.js on Azure Container Apps | Java (Quarkus) microservices on Azure Container Apps | Azure Database for PostgreSQL, Azure Database for MySQL | Bicep | - | [java-on-aca-quarkus](https://github.com/Azure-Samples/java-on-aca-quarkus) |
 
@@ -73,7 +73,7 @@ azd up
 
 ### [ASP.NET Core](#tab/aspnet)
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | React + C# + SQL Database | React on App Service | ASP.NET Core on App Service | Azure SQL Database | Bicep | - | [todo-csharp-sql](https://github.com/Azure-Samples/todo-csharp-sql) |
 | React + C# + Cosmos DB | React on App Service | ASP.NET Core on App Service | Azure Cosmos DB (NoSQL) | Bicep | - | [todo-csharp-cosmos-sql](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) |
@@ -81,7 +81,7 @@ azd up
 
 ### [Blazor](#tab/blazor)
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | OpenAI MCP Agent (.NET) | Blazor (.NET) on Azure Container Apps | .NET MCP agent, TypeScript MCP server on Azure Container Apps | Azure OpenAI | Bicep | - | [openai-mcp-agent-dotnet](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) |
 | Data API Builder + Cosmos DB | Blazor (.NET) on Azure Container Apps | Data API Builder container | Azure Cosmos DB for NoSQL | Bicep | - | [dab-azure-cosmos-db-nosql-quickstart](https://github.com/azure-samples/dab-azure-cosmos-db-nosql-quickstart) |
@@ -89,7 +89,7 @@ azd up
 
 ### [.NET Aspire](#tab/aspire)
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | Aspire Empty App | None | None | None | - | - | [Aspire Empty App Docs](https://aspire.dev/get-started/aspire-sdk-templates/?dev-environment=aspire-cli#solution-templates) |
 | Aspire Starter App | Blazor (.NET) | ASP.NET Core Minimal API (.NET) | None | - | - | [Aspire Starter App Docs](https://aspire.dev/get-started/aspire-sdk-templates/?dev-environment=aspire-cli#solution-templates) |
@@ -100,7 +100,7 @@ azd up
 
 ## Python templates
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | React + Python + MongoDB | React on App Service | Python (Flask/FastAPI) on App Service | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-python-mongo](https://github.com/Azure-Samples/todo-python-mongo) |
 | React + Python + MongoDB (Container Apps) | React on Container Apps | Python on Container Apps | Azure Cosmos DB (MongoDB) | Bicep | ✅ | [todo-python-mongo-aca](https://github.com/Azure-Samples/todo-python-mongo-aca) |
@@ -109,7 +109,7 @@ azd up
 
 ## Java templates
 
-| Template | Front-end | Back-end | Database | IaC | AVM | Repository |
+| Template | Front end | Back end | Database | IaC | AVM | Repository |
 |----------|-----------|----------|----------|-----|-----|------------|
 | React + Java + MongoDB | React on App Service | Java (Spring Boot) on App Service | Azure Cosmos DB (MongoDB) | Bicep | - | [todo-java-mongo](https://github.com/Azure-Samples/todo-java-mongo) |
 | React + Java + MongoDB (Container Apps) | React on Container Apps | Java on Container Apps | Azure Cosmos DB (MongoDB) | Bicep | ✅ | [todo-java-mongo-aca](https://github.com/Azure-Samples/todo-java-mongo-aca) |
