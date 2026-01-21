@@ -1,69 +1,90 @@
 ---
 title: How to authenticate JavaScript apps with Azure services
 description: Learn how to authenticate a JavaScript app with Azure services by using classes in the Azure Identity library.
-ms.date: 09/22/2025
-ms.topic: overview
+ms.date: 01/20/2026
+ms.topic: concept-article
 ms.custom:
   - devx-track-js
   - sfi-image-nochange
 ---
 
-# How to authenticate JavaScript apps to Azure services using the Azure Identity library
+# Authenticate JavaScript apps to Azure services using the Azure Identity library
 
-[!INCLUDE [Create app registration step 1](<../../../includes/authentication/overview-para-1.md>)] This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
+Apps can use the Azure Identity library to authenticate to Microsoft Entra ID, which allows the apps to access Azure services and resources. This authentication requirement applies whether the app is deployed to Azure, hosted on-premises, or running locally on a developer workstation. The sections ahead describe the recommended approaches to authenticate an app to Microsoft Entra ID across different environments when using the Azure SDK for JavaScript.
 
-## Recommended app authentication approach
+## Recommended approach for app authentication
 
-[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication-javascript.md>)]
-
-:::image type="content" source="../../media/azure-sdk-authentication/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
+Token-based authentication via Microsoft Entra ID is the recommended approach for authenticating apps to Azure, instead of using connection strings or key-based options. The [Azure Identity library](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true) provides classes that support token-based authentication and allow apps to authenticate to Azure resources whether the app runs locally, on Azure, or on an on-premises server.
 
 ### Advantages of token-based authentication
 
-[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/default-azure-credential-overview-javascript.md>)]
+Token-based authentication offers the following advantages over connection strings:
 
-[!INCLUDE [Overview of Advantages](<../../../includes/authentication/overview-advantages.md>)]
+- Token-based authentication ensures only the specific apps intended to access the Azure resource are able to do so, whereas anyone or any app with a connection string can connect to an Azure resource.
+- Token-based authentication allows you to further limit Azure resource access to only the specific permissions needed by the app. This follows the [principle of least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege). In contrast, a connection string grants full rights to the Azure resource.
+- When using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for token-based authentication, Azure handles administrative functions for you, so you don't have to worry about tasks like securing or rotating secrets. This makes the app more secure because there's no connection string or application secret that can be compromised.
+- The Azure Identity library acquires and manages Microsoft Entra tokens for you.
 
-Use the following library: 
+Use of connection strings should be limited to scenarios where token-based authentication is not an option, initial proof-of-concept apps, or development prototypes that don't access production or sensitive data. When possible, use the token-based authentication classes available in the Azure Identity library to authenticate to Azure resources.
 
-* [@azure/identity](https://www.npmjs.com/package/@azure/identity)
+## Authentication across different environments
 
-### DefaultAzureCredential
+The specific type of token-based authentication an app should use to authenticate to Azure resources depends on where the app runs. The following diagram provides guidance for different scenarios and environments:
 
-[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential-javascript.md>)]
+:::image type="content" source="../../../includes/authentication/media/mermaidjs/authentication-environments.svg" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
-## Authentication in server environments
+When an app is:
 
-[!INCLUDE [Authentication in server environments](<../../../includes/authentication/overview-server-environments.md>)]
+- **Hosted on Azure**: The app should authenticate to Azure resources using a managed identity. This option is discussed in more detail at [authentication in server environments](#authentication-for-azure-hosted-apps).
+- **Running locally during development**: The app can authenticate to Azure using a [developer account](local-development-environment-developer-account.md), a [broker](local-development-broker.md), or a [service principal](local-development-environment-service-principal.md). Each option is discussed in more detail at [authentication during local development](#authentication-during-local-development).
+- **Hosted on-premises**: The app should authenticate to Azure resources using an application service principal. On-premises workflows are discussed in more detail at [Authentication for apps hosted on-premises](#authentication-for-apps-hosted-on-premises).
+
+## Authentication for Azure-hosted apps
+
+When your app is hosted on Azure, it can use managed identities to authenticate to Azure resources without needing to manage any credentials. There are two types of managed identities: user-assigned and system-assigned.
+
+#### Use a user-assigned managed identity
+
+A user-assigned managed identity is created as a standalone Azure resource. It can be assigned to one or more Azure resources, allowing those resources to share the same identity and permissions. To authenticate using a user-assigned managed identity, create the identity, assign it to your Azure resource, and then configure your app to use this identity for authentication by specifying its client ID.
+
+> [!div class="nextstepaction"]
+> [Authenticate using a user-assigned managed identity](user-assigned-managed-identity.md)
+
+#### Use a system-assigned managed identity
+
+A system-assigned managed identity is enabled directly on an Azure resource. The identity is tied to the lifecycle of that resource and is automatically deleted when the resource is deleted. To authenticate using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
+
+> [!div class="nextstepaction"]
+> [Authenticate using a system-assigned managed identity](system-assigned-managed-identity.md)
 
 ## Authentication during local development
 
-[!INCLUDE [Authentication during local development](<../../../includes/authentication/overview-local-environments.md>)]
+During local development, you can authenticate to Azure resources using your developer credentials, a broker, or a service principal. This allows you to test your app's authentication logic without deploying it to Azure.
 
-## Use DefaultAzureCredential in an application
+#### Use developer credentials
 
-[DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class derived from the [TokenCredential](/javascript/api/@azure/core-auth/tokencredential?view=azure-node-latest&preserve-view=true) class and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
+You can use your own Azure credentials to authenticate to Azure resources during local development. This is typically done using a development tool, such as Azure CLI, which can provide your app with the necessary tokens to access Azure services. This method is convenient but should only be used for development purposes.
 
-To use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential), add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
+> [!div class="nextstepaction"]
+> [Authenticate locally using developer credentials](local-development-environment-developer-account.md)
 
-```terminal
-npm install @azure/identity
-```
+#### Use a broker
 
-Then, the following [code sample](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-default-azure-credential.js) shows how to instantiate a `DefaultAzureCredential` object and use it with an Azure SDK service client class&mdash;in this case, a `BlobServiceClient` used to access Azure Blob Storage.
+Brokered authentication collects user credentials using the system authentication broker to authenticate an app. A system authentication broker runs on a user's machine and manages the authentication handshakes and token maintenance for all connected accounts.
 
-```javascript
-import { BlobServiceClient } from '@azure/storage-blob';
-import { DefaultAzureCredential } from '@azure/identity';
-import 'dotenv/config';
+> [!div class="nextstepaction"]
+> [Authenticate locally using a broker](local-development-broker.md)
 
-const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-if (!accountName) throw Error('Azure Storage accountName not found');
+#### Use a service principal
 
-const blobServiceClient = new BlobServiceClient(
-  `https://${accountName}.blob.core.windows.net`,
-  new DefaultAzureCredential()
-);
-```
+A service principal is created in a Microsoft Entra tenant to represent an app and be used to authenticate to Azure resources. You can configure your app to use service principal credentials during local development. This method is more secure than using developer credentials and is closer to how your app will authenticate in production. However, it's still less ideal than using a managed identity due to the need for secrets.
 
-[!INCLUDE [Authentication during local development - after](<../../../includes/authentication/overview-defaultazurecredential-after.md>)]
+> [!div class="nextstepaction"]
+> [Authenticate locally using a service principal](local-development-environment-service-principal.md)
+
+## Authentication for apps hosted on-premises
+
+For apps hosted on-premises, you can use a service principal to authenticate to Azure resources. This involves creating a service principal in Microsoft Entra ID, assigning it the necessary permissions, and configuring your app to use its credentials. This method allows your on-premises app to securely access Azure services.
+
+> [!div class="nextstepaction"]
+> [Authenticate your on-prem app using a service principal](on-premises-apps.md)
