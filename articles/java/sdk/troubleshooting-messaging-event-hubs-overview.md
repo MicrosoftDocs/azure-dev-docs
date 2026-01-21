@@ -87,7 +87,7 @@ For more information, see the following articles:
 
 ### Can't add components to the connection string
 
-The legacy Event Hubs clients allowed customers to add components to the connection string retrieved from the Azure portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://search.maven.org/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
+The legacy Event Hubs clients allowed customers to add components to the connection string retrieved from the Azure portal. The legacy clients are in packages [com.microsoft.azure:azure-eventhubs](https://central.sonatype.com/artifact/com.microsoft.azure/azure-eventhubs/) and [com.microsoft.azure:azure-eventhubs-eph](https://central.sonatype.com/artifact/com.microsoft.azure/azure-eventhubs-eph). The current generation supports connection strings only in the form published by the Azure portal.
 
 #### Add "TransportType=AmqpWebSockets"
 
