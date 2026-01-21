@@ -1,8 +1,8 @@
 --- 
 title: Authenticate to Azure from GitHub Actions workflows
 description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login action and manage your Azure resources.
-author: MoChilia 
-ms.author: shiyingchen 
+author: wangzelin007
+ms.author: zelinwang
 ms.topic: reference
 ms.service: azure 
 ms.date: 07/01/2024
