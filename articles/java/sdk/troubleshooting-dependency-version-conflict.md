@@ -78,7 +78,7 @@ The following sections describe how to mitigate version mismatch issues.
 
 ### Use Azure SDK BOM
 
-Use the latest stable [Azure SDK BOM](https://search.maven.org/artifact/com.azure/azure-sdk-bom) and don't specify Azure SDK and dependency versions in your POM file. When applicable, use the [Azure Spring Boot BOM](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-bom/).
+Use the latest stable [Azure SDK BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom) and don't specify Azure SDK and dependency versions in your POM file. When applicable, use the [Azure Spring Boot BOM](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-bom/).
 
 The dependencies listed in the Azure SDK BOM are tested rigorously to avoid dependency conflicts.
 
@@ -113,7 +113,7 @@ Environments like Databricks or Apache Spark have custom dependency management a
 
 ## Understand compatible dependency versions
 
-For information about `azure-core`-specific dependencies and their versions, see [azure-core](https://search.maven.org/artifact/com.azure/azure-core/) at the Maven Central Repository. The following table shows some general considerations:
+For information about `azure-core`-specific dependencies and their versions, see [azure-core](https://central.sonatype.com/artifact/com.azure/azure-core/) at the Maven Central Repository. The following table shows some general considerations:
 
 | Dependency                      | Supported versions                                                                                                                                                                                                                                                      |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

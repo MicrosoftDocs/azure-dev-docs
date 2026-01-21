@@ -226,8 +226,8 @@ For details about API breaking changes in each library, use the following links:
 Breaking changes in each library are introduced as follows.
 
 ### From azure-spring-boot-starter to spring-cloud-azure-starter
-This guide is intended to assist in the migration to [spring-cloud-azure-starter](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter) from
-version 3 of [azure-spring-boot-starter](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter) from
+version 3 of [azure-spring-boot-starter](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter).
 
 For general information, use the following links:
 
@@ -251,8 +251,8 @@ The following table shows the Removed dependencies:
 
 ### From azure-spring-boot-starter-active-directory to spring-cloud-azure-starter-active-directory
 
-This guide is intended to assist the migration to [spring-cloud-azure-starter-active-directory](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory) from
-version 3 of [azure-spring-boot-starter-active-directory](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-active-directory).
+This guide is intended to assist the migration to [spring-cloud-azure-starter-active-directory](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory) from
+version 3 of [azure-spring-boot-starter-active-directory](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory).
 
 For general information, use the following links:
 
@@ -392,7 +392,7 @@ This section lists the removed classes from azure-spring-boot-starter-active-dir
 
 ### From azure-spring-boot-starter-active-directory-b2c to spring-cloud-azure-starter-active-directory-b2c
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-active-directory-b2c](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory-b2c) from version 3 of [azure-spring-boot-starter-active-directory-b2c](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-active-directory-b2c](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory-b2c) from version 3 of [azure-spring-boot-starter-active-directory-b2c](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-active-directory-b2c).
 
 For general information, use the following links:
 
@@ -473,7 +473,7 @@ The following table shows the class mappings from `azure-spring-boot-starter-act
 
 ### From azure-spring-boot-starter-cosmos to spring-cloud-azure-starter-data-cosmos
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-data-cosmos](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-data-cosmos) from version 3 of [azure-spring-boot-starter-cosmos](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-cosmos).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-data-cosmos](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-data-cosmos) from version 3 of [azure-spring-boot-starter-cosmos](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-cosmos).
 
 For general information, use the following links:
 
@@ -502,7 +502,7 @@ The following table shows the class mappings from `azure-spring-boot-starter-cos
 
 ### From azure-spring-boot-starter-keyvault-secrets to spring-cloud-azure-starter-keyvault-secrets
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-keyvault-secrets](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-keyvault-secrets) from version 3 of [azure-spring-boot-starter-keyvault-secrets](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-keyvault-secrets).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-keyvault-secrets](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-keyvault-secrets) from version 3 of [azure-spring-boot-starter-keyvault-secrets](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-keyvault-secrets).
 
 For general information, use the following links:
 
@@ -549,7 +549,7 @@ The following points you should pay your attention to:
 
 ### From azure-spring-boot-starter-servicebus-jms to spring-cloud-azure-starter-servicebus-jms
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-servicebus-jms](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-servicebus-jms) from version 3 of [azure-spring-boot-starter-servicebus-jms](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-servicebus-jms](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-servicebus-jms) from version 3 of [azure-spring-boot-starter-servicebus-jms](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms).
 
 For general information, use the following links:
 
@@ -566,7 +566,7 @@ Configuration type for `spring.jms.servicebus.idle-timeout` changed from `long`(
 
 ### From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-blob
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-storage-blob](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-storage-blob) from version 3 of [azure-spring-boot-starter-storage](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-storage).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-storage-blob](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-storage-blob) from version 3 of [azure-spring-boot-starter-storage](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-storage).
 
 For general information, use the following links:
 
@@ -602,7 +602,7 @@ The following table shows the class mappings from `azure-spring-boot-starter-sto
 
 ### From azure-spring-boot-starter-storage to spring-cloud-azure-starter-storage-file-share
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-storage-file-share](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-storage-file-share) from version 3 of [azure-spring-boot-starter-storage](https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-storage).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-storage-file-share](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-storage-file-share) from version 3 of [azure-spring-boot-starter-storage](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-boot-starter-storage).
 
 For general information, use the following links:
 
@@ -638,7 +638,7 @@ The following table shows the class mappings from `azure-spring-boot-starter-sto
 
 ### From azure-spring-cloud-starter-eventhubs to spring-cloud-azure-starter-integration-eventhubs
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-eventhubs](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-integration-eventhubs) from version 2 of [azure-spring-cloud-starter-eventhubs](https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-eventhubs).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-eventhubs) from version 2 of [azure-spring-cloud-starter-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-eventhubs).
 
 For general information, use the following links:
 
@@ -832,7 +832,7 @@ The following table shows the class mappings from `azure-spring-cloud-starter-ev
 
 ### From azure-spring-integration-eventhubs to spring-integration-azure-eventhubs
 
-This guide is intended to assist in the migration to [spring-integration-azure-eventhubs](https://search.maven.org/artifact/com.azure.spring/spring-integration-azure-eventhubs) from version 2 of [azure-spring-integration-eventhubs](https://search.maven.org/artifact/com.azure.spring/azure-spring-integration-eventhubs).
+This guide is intended to assist in the migration to [spring-integration-azure-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-eventhubs) from version 2 of [azure-spring-integration-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-eventhubs).
 
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
@@ -875,7 +875,7 @@ The following table shows the class mappings from `azure-spring-integration-even
 
 ### From azure-spring-cloud-starter-servicebus to spring-cloud-azure-starter-integration-servicebus
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-servicebus](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-integration-servicebus) from version 2 of [azure-spring-cloud-starter-servicebus](https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-servicebus).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-servicebus](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-servicebus) from version 2 of [azure-spring-cloud-starter-servicebus](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-servicebus).
 
 For general information, use the following links:
 
@@ -1053,7 +1053,7 @@ The following table shows the class mappings from `azure-spring-cloud-starter-se
 
 ### From azure-spring-integration-servicebus to spring-integration-azure-servicebus
 
-This guide is intended to assist in the migration to [spring-integration-azure-servicebus](https://search.maven.org/artifact/com.azure.spring/spring-integration-azure-servicebus) from version 2 of [azure-spring-integration-servicebus](https://search.maven.org/artifact/com.azure.spring/azure-spring-integration-servicebus).
+This guide is intended to assist in the migration to [spring-integration-azure-servicebus](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-servicebus) from version 2 of [azure-spring-integration-servicebus](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-servicebus).
 
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
@@ -1085,7 +1085,7 @@ The following table shows the class mappings from `azure-spring-integration-serv
 
 ### From azure-spring-cloud-starter-storage-queue to spring-cloud-azure-starter-integration-storage-queue
 
-This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-storage-queue](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-integration-storage-queue) from version 2 of [azure-spring-cloud-starter-storage-queue](https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-storage-queue).
+This guide is intended to assist in the migration to [spring-cloud-azure-starter-integration-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-starter-integration-storage-queue) from version 2 of [azure-spring-cloud-starter-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-starter-storage-queue).
 
 For general information, use the following links:
 
@@ -1128,7 +1128,7 @@ The following table shows the class mappings from `azure-spring-cloud-starter-st
 
 ### From azure-spring-integration-storage-queue to spring-integration-azure-storage-queue
 
-This guide is intended to assist in the migration to [spring-integration-azure-storage-queue](https://search.maven.org/artifact/com.azure.spring/spring-integration-azure-storage-queue) from version 2 of [azure-spring-integration-storage-queue](https://search.maven.org/artifact/com.azure.spring/azure-spring-integration-storage-queue).
+This guide is intended to assist in the migration to [spring-integration-azure-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/spring-integration-azure-storage-queue) from version 2 of [azure-spring-integration-storage-queue](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-integration-storage-queue).
 
 * For an overview of the changes in 4.0, see the [Introduction](#introduction) and [Migration benefits](#migration-benefits) sections.
 * To learn more about the strategy changes in the project naming, see the [Naming changes](#naming-changes) section.
@@ -1153,7 +1153,7 @@ The following table shows the class mappings from `azure-spring-integration-stor
 
 ### From azure-spring-cloud-stream-binder-eventhubs to spring-cloud-azure-stream-binder-eventhubs
 
-This guide is intended to assist in the migration to [spring-cloud-azure-stream-binder-eventhubs](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-eventhubs) from version 2 of [azure-spring-cloud-stream-binder-eventhubs](https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-stream-binder-eventhubs).
+This guide is intended to assist in the migration to [spring-cloud-azure-stream-binder-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-eventhubs) from version 2 of [azure-spring-cloud-stream-binder-eventhubs](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-eventhubs).
 
 For general information, use the following links:
 
@@ -1351,7 +1351,7 @@ The following table shows the class mappings from `azure-spring-cloud-stream-bin
 
 ### From azure-spring-cloud-stream-binder-servicebus-* to spring-cloud-azure-stream-binder-servicebus
 
-This guide is intended to assist in the migration to [spring-cloud-azure-stream-binder-servicebus](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-servicebus) from version 2 of [azure-spring-cloud-stream-binder-servicebus-queue](https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-queue) or [azure-spring-cloud-stream-binder-servicebus-topic](https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-topic).
+This guide is intended to assist in the migration to [spring-cloud-azure-stream-binder-servicebus](https://central.sonatype.com/artifact/com.azure.spring/spring-cloud-azure-stream-binder-servicebus) from version 2 of [azure-spring-cloud-stream-binder-servicebus-queue](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-queue) or [azure-spring-cloud-stream-binder-servicebus-topic](https://central.sonatype.com/artifact/com.azure.spring/azure-spring-cloud-stream-binder-servicebus-topic).
 
 For general information, use the following links:
 
