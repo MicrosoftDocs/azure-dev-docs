@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 # Quickstart: upgrade a Java project with GitHub Copilot app modernization
 App modernization Java upgrades support the following scenarios:
 
-- Upgrade Java Development Kit (JDK) to Java 8, 11, 17, 21, or 25.
+- Upgrade Java Development Kit (JDK) to Java 11, 17, 21, or 25.
 - Upgrade Spring Boot up to version 3.5.
 - Upgrade Spring Framework up to version 6.2+.
 - Upgrade Java EE to Jakarta EE, up to Jakarta EE 10.
