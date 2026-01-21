@@ -37,4 +37,4 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 [!INCLUDE [sign-in-dev-tooling](../../../includes/authentication/developer-tooling-javascript.md)]
 
-[!INCLUDE [Implement DefaultAzureCredential](./includes/implement-local-development-credential.md)]
+[!INCLUDE [Implement Credential based on use case](./includes/implement-local-development-credential.md)]
