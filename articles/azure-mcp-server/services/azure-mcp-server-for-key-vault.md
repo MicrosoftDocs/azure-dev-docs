@@ -3,7 +3,7 @@ title: Manage Azure Key Vault with Azure MCP Server
 description: Learn how to use the Azure MCP Server to manage key vaults, access secrets and keys, and troubleshoot configurations through AI-powered natural language interactions.
 author: diberry
 ms.author: diberry
-ms.service: key-vault
+ms.service: azure-mcp-server
 ms.topic: how-to
 ms.date: 01/20/2026
 content_well_notification: 
@@ -93,7 +93,7 @@ Retrieve and manage Azure Key Vault Managed HSM account settings for high-securi
 - Review purge protection and soft-delete retention settings
 - Query HSM-specific configurations
 
-For detailed information about each tool, including parameters and examples, see [Azure Key Vault tools for Azure MCP Server](../tools/keyvault.md).
+For detailed information about each tool, including parameters and examples, see [Azure Key Vault tools for Azure MCP Server](../tools/azure-key-vault.md).
 
 ## Get started
 
@@ -106,7 +106,7 @@ Ready to use Azure MCP Server with your Azure Key Vault resources?
    - "What's the current access policy for key vault 'secrets-vault'?"
    - "List the enabled operations for key vault 'crypto-vault'"
 
-3. **Learn more**: Review the [Azure Key Vault tools reference](../tools/keyvault.md) for all available capabilities and detailed parameter information.
+3. **Learn more**: Review the [Azure Key Vault tools reference](../tools/azure-key-vault.md) for all available capabilities and detailed parameter information.
 
 ## Best practices
 
@@ -124,6 +124,6 @@ When using Azure MCP Server with Azure Key Vault:
 
 * [Azure MCP Server overview](../overview.md)
 * [Get started with Azure MCP Server](../get-started.md)
-* [Azure Key Vault tools reference](../tools/keyvault.md)
+* [Azure Key Vault tools reference](../tools/azure-key-vault.md)
 * [Azure Key Vault documentation](/azure/key-vault/)
 * [Azure Key Vault best practices](/azure/key-vault/general/best-practices)
