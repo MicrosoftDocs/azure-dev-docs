@@ -43,8 +43,6 @@ While convenient for inner-loop development, this approach assumes that every de
 
 ## Usage
 
-### Basic usage
-
 To build and publish the image for a specific service defined in your `azure.yaml`:
 
 ```bash
