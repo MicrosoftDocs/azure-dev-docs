@@ -127,7 +127,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint triggerchangedetection](../includes/tools/annotations/azure-storagesync-cloudendpoint-triggerchangedetection-annotations.md)]
+[!INCLUDE [storagesync cloudendpoint changedetection](../includes/tools/annotations/azure-storagesync-cloudendpoint-changedetection-annotations.md)]
 
 ## Registered server: Get registered server
 
