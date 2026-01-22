@@ -16,7 +16,7 @@ During local development, applications need to authenticate to Azure to use diff
 
 This article explains how to authenticate using a developer account with tools supported by the Azure Identity library. In the sections ahead, you learn:
 
-- How to use Microsoft Entra groups to efficiently manage permissions for multiple developer accounts.
+* How to use Microsoft Entra groups to efficiently manage permissions for multiple developer accounts.
 * How to assign roles to developer accounts to scope permissions.
 * How to sign-in to supported local development tools.
 * How to authenticate using a developer account from your app code.
