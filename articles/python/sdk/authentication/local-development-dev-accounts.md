@@ -39,12 +39,12 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 <a name='create-azure-ad-group-for-local-development'></a>
 
-[!INCLUDE [Create a Microsoft Entra group for local development](<../../../includes/authentication/create-entra-group.md/>)]
+[!INCLUDE [Create a Microsoft Entra group for local development](<../../../includes/authentication/create-entra-group/>)]
 
 
 <a name='assign-roles-to-the-azure-ad-group'></a>
 
-[!INCLUDE [Assign roles to the group](<../../../includes/authentication/assign-group-roles.md/>)]
+[!INCLUDE [Assign roles to the group](<../../../includes/authentication/assign-group-roles/>)]
 
 ## Sign-in to Azure using developer tooling
 
