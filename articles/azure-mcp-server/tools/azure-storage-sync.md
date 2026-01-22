@@ -18,7 +18,7 @@ Azure Storage Sync tools in Azure MCP Server help you manage Azure File Sync ser
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Cloud endpoint: Create 
+## Cloud endpoint: Create cloud endpoint 
 
 
 <!-- @mcpcli storagesync cloudendpoint create -->
@@ -48,7 +48,7 @@ Example prompts include:
 
 [!INCLUDE [storagesync cloudendpoint create](./../includes/tools/annotations/azure-storagesync-cloudendpoint-create-annotations.md)]
 
-## Cloud endpoint: Delete 
+## Cloud endpoint: Delete cloud endpoint
 
 <!-- @mcpcli storagesync cloudendpoint delete -->
 
@@ -75,7 +75,7 @@ Example prompts include:
 
 [!INCLUDE [storagesync cloudendpoint delete](../includes/tools/annotations/azure-storagesync-cloudendpoint-delete-annotations.md)]
 
-### Cloud endpoint: Get 
+### Cloud endpoint: Get cloud endpoint
 
 <!-- storagesync cloudendpoint get -->
 
