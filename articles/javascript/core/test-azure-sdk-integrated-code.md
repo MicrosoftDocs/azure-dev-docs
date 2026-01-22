@@ -1,7 +1,7 @@
 ---
 title: Azure Test Guide for JavaScript Applications
 description: "Learn unit, integration, CI/CD, and AI testing strategies with Azure SDKs for JavaScript applications to ensure code quality and performance. Start testing today!"
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/09/2025
 ms.custom: devx-track-js
 intent: As a JavaScript developer, new to Azure, you want to learn about test Azure cloud applications.
