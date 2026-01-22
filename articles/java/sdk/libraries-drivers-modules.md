@@ -2,7 +2,7 @@
 title: Java libraries, drivers, and Spring modules for Azure
 description: Links to the Java libraries, drivers, Spring modules, and related articles available for use with Azure.
 ms.date: 06/02/2025
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
