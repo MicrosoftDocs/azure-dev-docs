@@ -324,7 +324,7 @@ Example prompts include:
 
 [!INCLUDE [storagesync cloudendpoint delete](../includes/tools/annotations/azure-storagesync-cloudendpoint-delete-annotations.md)]
 
-### Cloud endpoint: Get cloud endpoint
+## Cloud endpoint: Get cloud endpoint
 
 <!-- storagesync cloudendpoint get -->
 
@@ -350,7 +350,7 @@ Example prompts include:
 
 [!INCLUDE [storagesync cloudendpoint get](../includes/tools/annotations/azure-storagesync-cloudendpoint-get-annotations.md)]
 
-### Cloud endpoint: Trigger change detection
+## Cloud endpoint: Trigger change detection
 
 <!-- @mcpcli storagesync cloudendpoint triggerchangedetection -->
 
