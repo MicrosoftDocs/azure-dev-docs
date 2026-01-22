@@ -1,41 +1,42 @@
 ---
 title: Authenticate Python apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using developer accounts.
-ms.date: 01/16/2026
+ms.date: 01/22/2026
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Authenticate Python apps to Azure services during local development using developer accounts
 
-When developing cloud applications, developers typically build, test, and debug their code locally before deploying it to Azure. However, even during local development, the application needs to authenticate with any Azure services it interacts with, such as Key Vault, Storage, or databases.
+During local development, applications need to authenticate to Azure to use different Azure services. Authenticate locally using one of these approaches:
 
-This article shows how to configure your application to use the developer's Azure credentials for authentication during local development. This approach enables a seamless and secure development experience without embedding secrets or writing environment-specific logic.
+* Use a developer account with one of the [developer tools supported by the Azure Identity library](local-development-dev-accounts.md#supported-developer-tools-for-authentication).
+* Use a [broker](local-development-broker.md) to manage credentials.
+* Use a [service principal](local-development-service-principal.md).
 
-## Overview of local development authentication using developer accounts
+This article explains how to authenticate using a developer account with tools supported by the Azure Identity library. In the sections ahead, you learn:
 
-When developing an application that uses the Azure Identity library for Python, you can authenticate to Azure services during local development using the developer's Azure account. This approach is often the simplest way to authenticate to Azure services during local development since it doesn't require creating and managing service principals or secrets.
+- How to use Microsoft Entra groups to efficiently manage permissions for multiple developer accounts.
+* How to assign roles to developer accounts to scope permissions.
+* How to sign-in to supported local development tools.
+* How to authenticate using a developer account from your app code.
 
-To enable an application to authenticate to Azure during local development using the developer’s own Azure credentials, the developer must first sign in using one of the supported tools:
+<a name='supported-development-tools-for-authentication'></a>
+
+## Supported developer tools for authentication
+
+For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from one of the following developer tools:
 
 * Azure CLI
 * Azure Developer CLI
 * Azure PowerShell
+* Visual Studio
 * Visual Studio Code
 
-Once signed in, the Azure Identity library for Python can automatically detect the active session and retrieve the necessary tokens from the credentials cache. This capability allows the app to authenticate to Azure services as the signed-in user, without requiring any additional configuration or hardcoded secrets.
+The Azure Identity library can detect that the developer is signed-in from one of these tools. The library can then obtain the Microsoft Entra access token via the tool to authenticate the app to Azure as the signed-in user.
 
-This behavior is enabled when using [`DefaultAzureCredential`](credential-chains.md?tabs=dac#defaultazurecredential-overview), which transparently falls back to CLI-based credentials in local environments.
+This approach takes advantage of the developer's existing Azure accounts to streamline the authentication process. However, a developer's account likely has more permissions than required by the app, therefore exceeding the permissions the app runs with in production. As an alternative, you can [create application service principals to use during local development](local-development-service-principal.md), which can be scoped to have only the access needed by the app.
 
-Using a developer's signed-in Azure credentials is the easiest setup for local development. It leverages each team member's existing Azure account, enabling seamless access to Azure services without requiring additional configuration.
-
-However, developer accounts typically have broader permissions than the application should have in production. These broader permissions can lead to inconsistencies in testing or inadvertently allow operations that the app wouldn't be authorized to perform in a production environment. To closely mirror production permissions and improve security posture, you can instead create application-specific service principals for local development. These identities:
-
-* Can be assigned only the roles and permissions the application needs
-* Support principle of least privilege
-* Offer consistent testing of access-related behavior across environments
-
-Developers can configure the local environment to use the service principal via environment variables, and `DefaultAzureCredential` picks it up automatically. For more information, see the article [Authenticate Python apps to Azure services during local development using service principals](./local-development-service-principal.md).
 
 <a name='create-azure-ad-group-for-local-development'></a>
 
