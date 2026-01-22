@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 2026-01-08
+ms.date: 2026-01-22
 mcp-cli.version: 1.0.0
-generated: 2026-01-08 22:02:49 UTC
-# [!INCLUDE [storagesync cloudendpoint create](../includes/tools/annotations/storagesync-cloudendpoint-create-annotations.md)]
+generated: 2026-01-22 16:03:08 UTC
+# [!INCLUDE [storagesync cloudendpoint create](./../includes/tools/annotations/storagesync-cloudendpoint-create-annotations.md)]
 # azmcp storagesync cloudendpoint create
 ---
 

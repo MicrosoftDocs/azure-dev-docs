@@ -18,63 +18,64 @@ Azure Storage Sync tools in Azure MCP Server help you manage Azure File Sync ser
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-## Cloud endpoint
+## Cloud endpoint: Create 
 
-### Create cloud endpoint
 
-<!-- storagesync cloudendpoint create -->
+<!-- @mcpcli storagesync cloudendpoint create -->
 
 Add a cloud endpoint to a sync group by connecting an Azure File Share. Cloud endpoints represent the Azure storage side of the sync relationship.
 
 Example prompts include:
 
-- "Create a cloud endpoint named 'FinanceShare' in sync group 'DataSync01' using storage account ID '/subscriptions/123/resourceGroups/rg-eastus/providers/Microsoft.Storage/storageAccounts/financestorage' within resource group 'rg-eastus'"
-- "I need to add cloud endpoint 'ReportsEndpoint' to the sync group 'SyncGroupA' in storage sync service 'StorageSyncSvc1' under resource group 'corp-resources', linking to Azure file share 'reports-files' on storage account resource ID '/subscriptions/abc/resourceGroups/corp-resources/providers/Microsoft.Storage/storageAccounts/reportstorage'"
-- "Setup a cloud endpoint called 'BackupPoint' in sync group 'BackupSync' for storage sync service 'BackupService' inside resource group 'backup-rg' using Azure file share 'backupshare' on storage account '/subscriptions/xyz/resourceGroups/backup-rg/providers/Microsoft.Storage/storageAccounts/backupstorage'"
-- "Please create the cloud endpoint 'HRDocuments' in resource group 'hr-files-rg' with sync group 'HRSyncGroup' and storage sync service 'HRSyncService', pointing to Azure file share 'hrsharedata' on storage account ID '/subscriptions/456/resourceGroups/hr-files-rg/providers/Microsoft.Storage/storageAccounts/hrstorageacct'"
-- "Add cloud endpoint 'ProjectShare' to the 'ProjectSync' sync group in 'DevSyncService' within 'dev-resources' resource group, linked to Azure file share 'projectfiles' on storage account '/subscriptions/789/resourceGroups/dev-resources/providers/Microsoft.Storage/storageAccounts/devstorage01'"
-
+- "Create a cloud endpoint named 'backupEndpoint' in sync group 'filesSync' within storage sync service 'FileSyncService1' and resource group 'rg-data' using storage account resource ID '/subscriptions/12345/resourceGroups/rg-data/providers/Microsoft.Storage/storageAccounts/storageacct01' with Azure file share 'backupshare'"
+- "Set up cloud endpoint 'userDocsEndpoint' in sync group 'docSyncGroup' under storage sync service 'UserFilesService' inside resource group 'rg-users', linking to storage account resource ID '/subscriptions/67890/resourceGroups/rg-users/providers/Microsoft.Storage/storageAccounts/usersstorage' and Azure file share 'userdocs'"
+- "I need to create a cloud endpoint called 'mediaEndpoint' for sync group 'mediaSync' on service 'MediaSyncService' in resource group 'rg-media', using storage account resource ID '/subscriptions/abcde/resourceGroups/rg-media/providers/Microsoft.Storage/storageAccounts/mediastorage' and the Azure file share 'mediashare1'"
+- "Please add cloud endpoint 'logsEndpoint' within sync group 'logSyncGroup' for storage sync service 'LogSyncService' located in resource group 'rg-logs' with storage account resource ID '/subscriptions/54321/resourceGroups/rg-logs/providers/Microsoft.Storage/storageAccounts/logstor' referencing Azure file share 'logfiles'"
+- "Create cloud endpoint 'archiveEndpoint' in 'archiveSyncGroup' sync group for the storage sync service named 'ArchiveService' inside resource group 'rg-archive' using storage account resource ID '/subscriptions/98765/resourceGroups/rg-archive/providers/Microsoft.Storage/storageAccounts/archivestorage' and file share 'archivefiles'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
-| **Storage account** |  Required | The resource name or ID of the Azure storage account. |
+| **Storage account resource ID** |  Required | The resource ID of the Azure storage account. |
 | **Azure file share name** |  Required | The name of the Azure file share. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint create](../includes/tools/annotations/azure-storagesync-cloudendpoint-create-annotations.md)]
+[!INCLUDE [storagesync cloudendpoint create](./../includes/tools/annotations/azure-storagesync-cloudendpoint-create-annotations.md)]
 
-### Delete cloud endpoint
+## Cloud endpoint: Delete 
 
-<!-- storagesync cloudendpoint delete -->
+<!-- @mcpcli storagesync cloudendpoint delete -->
 
 Delete a cloud endpoint from a sync group.
 
 Example prompts include:
 
-- "Delete the cloud endpoint named 'BackupEndpoint' in sync group 'SyncGroupEast' under storage sync service 'FileSyncService1' within resource group 'rg-westus-prod'"
-- "Can you remove cloud endpoint 'ArchiveStorage' from sync group 'MainSyncGroup' on the storage sync service 'CorpFileSync' in resource group 'enterprise-rg'"
-- "I need to delete cloud endpoint 'SalesDataEndpoint' from the sync group 'SalesSync' using storage sync service 'SalesFileSync' in resource group 'sales-rg-eu'"
-- "Remove cloud endpoint 'ProjectXEndpoint' associated with sync group 'ProjectXSync' in storage sync service 'DevFileSync' located in resource group 'dev-rg-central'"
-- "Please delete the cloud endpoint 'LogsCloudEndpoint' from sync group 'LoggingSyncGroup' inside storage sync service 'LoggingSyncService' in resource group 'prod-logging-rg'"
+- "Delete the cloud endpoint named 'ArchiveEndpoint' in sync group 'SyncGroupAlpha' of storage sync service 'StorageSyncWest' within resource group 'rg-storage-prod'"
+- "Can you remove cloud endpoint 'BackupEndpoint01' from sync group 'MainSyncGroup' under storage sync service 'FileSyncService' in resource group 'rg-data-center'?"
+- "I need to delete the cloud endpoint 'UserFilesEndpoint' from the sync group 'UserSyncGroup' in the storage sync service 'UserSyncServiceEast' located in resource group 'rg-eastus1'"
+- "Please delete cloud endpoint 'LogsStorage' for sync group 'LogSyncGroup' in storage sync service 'LogsSyncService' inside the resource group 'rg-logging-prod'"
+- "Remove cloud endpoint 'PhotosEndpoint' in the sync group 'MediaSync' from storage sync service 'MediaSyncService' in resource group 'rg-media-services'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync cloudendpoint delete](../includes/tools/annotations/azure-storagesync-cloudendpoint-delete-annotations.md)]
 
-### Get cloud endpoint
+### Cloud endpoint: Get 
 
 <!-- storagesync cloudendpoint get -->
 
@@ -82,142 +83,146 @@ List all cloud endpoints in a sync group or retrieve details about a specific cl
 
 Example prompts include:
 
-- "Get the cloud endpoint details for sync group 'SyncGroupEast' in storage sync service 'FileSyncService1' within resource group 'rg-datafiles'"
-- "Show me the cloud endpoint info for storage sync service 'StorageSyncProd', sync group 'MainSyncGroup', resource group 'rg-production'"
-- "Retrieve cloud endpoint data from resource group 'rg-backups' for storage sync named 'BackupSyncSrv' and sync group 'BackupSync'"
-- "I need the cloud endpoint for sync group 'UserDataSync' under the storage sync service 'UserSyncService' in resource group 'rg-userfiles'"
-- "Fetch cloud endpoint details in resource group 'rg-devzone' for the sync group 'DevSyncGroup' and storage sync service 'DevSyncService'"
+- "Get the cloud endpoint details for sync group 'SyncGroup1' in storage sync service 'StorageSyncEast' within resource group 'rg-storage-sync'"
+- "Show me the cloud endpoint info in resource group 'rg-syncservices', storage sync service 'FileSyncService', and sync group 'PrimarySync'"
+- "Retrieve cloud endpoint from storage sync service 'BackupSyncService' and sync group 'GroupA' in resource group 'rg-backups'"
+- "I need the cloud endpoint for sync group 'DataSync' under storage sync service 'SyncServiceWest' in 'rg-westus-sync'"
+- "Fetch cloud endpoint data for sync group 'MainGroup' of storage sync service 'CentralStorageSync' located in resource group 'rg-central-storage'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Optional | The name of the cloud endpoint. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync cloudendpoint get](../includes/tools/annotations/azure-storagesync-cloudendpoint-get-annotations.md)]
 
-### Trigger change detection for cloud endpoint
+### Cloud endpoint: Trigger change detection
 
-<!-- storagesync cloudendpoint triggerchangedetection -->
+<!-- @mcpcli storagesync cloudendpoint triggerchangedetection -->
 
 Trigger change detection on a cloud endpoint to sync file changes.
 
 Example prompts include:
 
-- "Trigger change detection on cloud endpoint 'photosbackup' within sync group 'dailySync' for storage sync service 'FileSyncService' in resource group 'rg-storage-sync-prod'"
-- "I need to start change detection on the cloud endpoint named 'endpoint1' in sync group 'syncGroupA' of storage sync service 'MainSyncService' under resource group 'rg-app-services'"
-- "Can you trigger change detection for cloud endpoint 'clientdata' from sync group 'syncGroupX' in the storage sync service 'SyncServiceEastUS' located in resource group 'rg-sync-eastus'?"
-- "Activate the change detection process for cloud endpoint 'backupEndpoint' belonging to sync group 'weeklySync' for 'CorpStorageSync' in resource group 'rg-data-archive'"
-- "Please initiate cloud endpoint change detection for the cloud endpoint 'archiveEndpoint' in sync group 'monthlySyncGroup' of the storage sync service 'ArchiveSyncService' within resource group 'rg-archive-services'"
+Example prompts include:
+
+- "Trigger change detection for cloud endpoint 'endpointOne' in sync group 'SyncGroupA' of storage sync service 'SyncService123' within resource group 'rg-storage-sync'"
+- "Can you start the change detection on cloud endpoint 'filesBackup' for sync group 'PrimaryGroup' under storage sync service 'FileSyncService' in resource group 'rg-prod-sync'?"
+- "Initiate cloud endpoint change detection named 'BackupEndpoint' in storage sync service 'DataSync' and sync group 'MainSync' within resource group 'rg-data-sync'"
+- "I need to trigger the change detection process on cloud endpoint 'archiveEndpoint' under sync group 'GroupOne' of storage sync service 'StorageSync01' located in 'rg-sync-resources'"
+- "Please activate change detection for cloud endpoint 'cloudEndpointX' in sync group 'GroupX' for storage sync service 'SyncServiceX' inside resource group 'rg-sync-project'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Cloud endpoint name** |  Required | The name of the cloud endpoint. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync cloudendpoint triggerchangedetection](../includes/tools/annotations/azure-storagesync-cloudendpoint-triggerchangedetection-annotations.md)]
 
-## Registered server
+## Registered server: Get registered server
 
-### Get registered server
-
-<!-- storagesync registeredserver get -->
+<!-- @mcpcli storagesync registeredserver get -->
 
 List all registered servers in a Storage Sync service or retrieve details about a specific registered server. The command returns server properties including server ID, registration status, agent version, OS version, and last heartbeat. If you provide the server ID parameter, the command returns a specific registered server. Otherwise, it lists all registered servers in the Storage Sync service.
 
 Example prompts include:
 
-- "Get details of the registered server named 'Srv-Backup01' in resource group 'rg-filesync' under storage sync service 'FileSyncServiceEast'"
-- "Show me the registered server info for 'primaryserver' within resource group 'data-sync-rg' and storage sync service 'CorpSyncService'"
-- "Retrieve registeredserver 'Server123' from storage sync service 'SyncServiceWest' in the 'sync-resources' resource group"
-- "Fetch the registered server data called 'ArchiveNode' in resource group 'file-sync-prod' and storage sync service 'ProdSyncService'"
-- "I need the info for registeredserver 'server-alpha' under the storage sync service 'SyncSvc01' in resource group 'rg-sync-env'"
+- "Get details of the registered server for storage sync service 'SyncServiceWest' in resource group 'rg-storage-west'"
+- "Show me the registered server for storage sync 'FileSyncService' within resource group 'rg-europe-central'"
+- "Retrieve info on the registered server named 'RegisteredServer01' in resource group 'rg-prod-storage' for sync service 'ProdFileSync'"
+- "Can you fetch the registered server for the storage sync service 'BackupSync' located in resource group 'rg-backup'"
+- "I need the registered server data for storage sync service 'CorpSync' under resource group 'rg-corp-data'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
-| **Server ID** |  Optional | The ID or name of the registered server. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
+| **Server ID** |  Optional | The ID/name of the registered server. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync registeredserver get](../includes/tools/annotations/azure-storagesync-registeredserver-get-annotations.md)]
 
-### Unregister registered server
+## Registered server: Unregister registered server
 
-<!-- storagesync registeredserver unregister -->
+<!-- @mcpcli storagesync registeredserver unregister -->
 
 Unregister a server from a Storage Sync service.
 
+
 Example prompts include:
 
-- "Unregister the server with ID 'server123' from storage sync service 'BackupSync' in resource group 'rg-westus'"
-- "Please remove registered server 'srv-456' from storage sync 'FileSyncService' within resource group 'prod-resources'"
-- "I need to unregister registered server 'dataserver01' from the storage sync service named 'SyncService01' in 'data-center-rg'"
-- "How can I unregister the server 'sync-server-9' from 'CloudSyncService' in resource group 'enterprise-rg'?"
-- "Can you unregister the registered server 'server789' under storage sync 'MainSync' located in resource group 'contoso-rg'?"
+- "Unregister the registered server with ID 'server123' from the storage sync service 'SyncServiceWest' in resource group 'rg-storage-sync'"
+- "Can you unregister the server named 'server456' from storage sync service 'FileSyncService' within resource group 'prod-storage-rg'?"
+- "Please remove the registered server 'backupServer01' from the storage sync service 'DataSyncService' in resource group 'dev-sync-resources'"
+- "I need to unregister the server ID 'syncServer789' from the storage sync service called 'MainStorageSync' located in resource group 'rg-sync-apps'"
+- "How do I unregister the registered server 'appServer42' from storage sync service 'SyncServiceEast' under resource group 'rg-eastern-storage'?"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Server ID** |  Required | The ID/name of the registered server. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync registeredserver unregister](../includes/tools/annotations/azure-storagesync-registeredserver-unregister-annotations.md)]
 
-### Update registered server
+## Registered server: Update registered server
 
-<!-- storagesync registeredserver update -->
+<!-- @mcpcli storagesync registeredserver update -->
 
 Update properties of a registered server.
 
 Example prompts include:
 
-- "Update the registered server 'server123' in storage sync service 'SyncServiceEast' within resource group 'rg-data-sync'"
-- "Can you update 'Server456' registered under 'StorageSyncProd' in the resource group 'prod-resource-group'?"
-- "Please update registered server 'srv789' for the storage sync service named 'SyncServiceWest' in 'resource-group-west'"
-- "I need to update the registered server 'backupServer01' in storage sync service 'CentralSync' located in resource group 'rg-central-sync'"
-- "Modify the registered server with ID 'server321' from storage sync service 'SyncServiceNorth' in resource group 'rg-north-sync'"
+- "Update the registered server with ID 'server123' in storage sync service 'SyncServiceOne' within resource group 'rg-sync-prod'"
+- "Can you update the registered server named 'serverABC' for storage sync service 'DataSyncService' in resource group 'rg-data-sync'?"
+- "Please update the registered server 'server789' in storage sync service 'MySyncService' under resource group 'rg-sync-dev'"
+- "I need to update registered server 'server456' in 'SyncServicePrimary' storage sync service located in resource group 'rg-sync-main'"
+- "Modify the registered server having ID 'server321' for the storage sync service 'BackupSync' inside resource group 'rg-backup-sync'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Server ID** |  Required | The ID/name of the registered server. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync registeredserver update](../includes/tools/annotations/azure-storagesync-registeredserver-update-annotations.md)]
 
-## Server endpoint
+## Server endpoint: Create server endpoint
 
-### Create server endpoint
-
-<!-- storagesync serverendpoint create -->
+<!-- @mcpcli storagesync serverendpoint create -->
 
 Add a server endpoint to a sync group by specifying a local server path to sync. Server endpoints represent the on-premises side of the sync relationship and include cloud tiering configuration.
 
 Example prompts include:
 
-- "Create a server endpoint named 'sales-data' in sync group 'EastUSSync' for storage sync service 'DataSyncService' in resource group 'prod-rg' using server resource ID '/subscriptions/abc123/resourceGroups/prod-rg/providers/Microsoft.Compute/servers/server01' with local path 'D:/SyncFolder'"
-- "I need to add a server endpoint called 'BackupEndpoint1' in sync group 'BackupSyncGroup' under storage sync service 'CorpSyncService' in resource group 'corp-resource-group' with server local path 'C:/Data' and server ID '/subscriptions/xyz789/resourceGroups/corp-resource-group/providers/Microsoft.Compute/servers/server02'"
-- "Set up a new server endpoint named 'ArchivePoint' for sync group 'ArchiveSync' under storage sync service 'ArchiveSyncService' in resource group 'archival-rg' with server resource ID '/subscriptions/123456/resourceGroups/archival-rg/providers/Microsoft.Compute/servers/archive01' and folder path 'E:/ArchiveData'"
-- "Can you create the server endpoint 'FinanceSyncServer' within sync group 'FinanceGroup' in storage sync service 'FinanceSyncService' in resource group 'fin-rg' on server '/subscriptions/555abc/resourceGroups/fin-rg/providers/Microsoft.Compute/servers/fin01' syncing folder 'F:/FinanceFiles'?"
-- "Add a server endpoint titled 'DevSyncEndpoint' in sync group 'DevGroup' to storage sync service 'DevSyncService' in 'development-rg' resource group, syncing from server resource ID '/subscriptions/777def/resourceGroups/development-rg/providers/Microsoft.Compute/servers/devserver' at local path 'G:/DevData'"
+- "Create a server endpoint named 'syncEndpoint01' in sync group 'filesSyncGroup' using storage sync service 'FileSyncService' within resource group 'rg-storage' with server resource ID '/subscriptions/12345/resourceGroups/rg-storage/providers/Microsoft.StorageSync/registeredServers/server01' and local path 'D:\Data'"
+- "I need to add a server endpoint called 'backupEndpoint' to sync group 'BackupGroup' under storage sync service 'BackupService' in resource group 'rg-backup' using server resource ID '/subscriptions/67890/resourceGroups/rg-backup/providers/Microsoft.StorageSync/registeredServers/serverBackup' with local path 'E:\Backup'"
+- "Set up server endpoint 'MediaSync' for sync group 'MediaGroup' on storage sync service 'MediaSyncService' inside the resource group 'rg-media' specifying server resource ID '/subscriptions/abcde/resourceGroups/rg-media/providers/Microsoft.StorageSync/registeredServers/mediaServer' and local sync path 'C:\MediaFiles'"
+- "Please create a server endpoint named 'LogsEndpoint' in resource group 'rg-logs' using storage sync service 'LogSyncService' with sync group 'LogSync' providing server resource ID '/subscriptions/fghij/resourceGroups/rg-logs/providers/Microsoft.StorageSync/registeredServers/logServer' and local folder 'F:\Logs'"
+- "Can you add server endpoint 'DocsEndpoint' to the sync group 'DocsGroup' in 'DocSyncService' within resource group 'rg-docs'? The server resource ID is '/subscriptions/klmno/resourceGroups/rg-docs/providers/Microsoft.StorageSync/registeredServers/docServer' and the local path is 'G:\Documents'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Required | The name of the server endpoint. |
 | **Server resource ID** |  Required | The resource ID of the registered server. |
@@ -225,182 +230,186 @@ Example prompts include:
 | **Cloud tiering** |  Optional | Enable cloud tiering on this endpoint. |
 | **Volume free space percent** |  Optional | Volume free space percentage to maintain (1-99, default `20`). |
 | **Tier files older than days** |  Optional | Archive files not accessed for this many days. |
-| **Local cache mode** |  Optional | Local cache mode: DownloadNewAndModifiedFiles, UpdateLocallyCachedFiles. |
+| **Local cache mode** |  Optional | Local cache mode: `DownloadNewAndModifiedFiles`, `UpdateLocallyCachedFiles`. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync serverendpoint create](../includes/tools/annotations/azure-storagesync-serverendpoint-create-annotations.md)]
 
-### Delete server endpoint
+## Server endpoint: Delete server endpoint
 
-<!-- storagesync serverendpoint delete -->
+<!-- @mcpcli storagesync serverendpoint delete -->
 
 Delete a server endpoint from a sync group.
 
 Example prompts include:
 
-- "Delete the server endpoint named 'fileserver01' from sync group 'SyncGroupEast' in storage sync service 'FileSyncService' within resource group 'rg-data-backup'"
-- "Can you remove the server endpoint 'endpoint123' under sync group 'PrimarySync' and storage sync service 'StorageSyncProd' in resource group 'rg-prod-storage'?"
-- "I need to delete server endpoint 'backup-endpoint' from storage sync service 'SyncServiceWest' and sync group 'GroupA' in resource group 'rg-westus'"
-- "Within resource group 'rg-media-resources', remove the 'mediaServer' server endpoint in sync group 'MediaSyncGroup' of storage sync service 'MediaSyncService'"
-- "Please delete server endpoint 'endpoint42' from the sync group 'SyncGroup42' in storage sync service 'StorageSync42' within resource group 'rg-test-environment'"
+- "Delete the server endpoint 'BackupEndpoint01' from sync group 'MainSyncGroup' in storage sync service 'CorpSyncService' within resource group 'rg-data-sync'"
+- "Please remove the server endpoint named 'FileServerEndpoint' in sync group 'DocumentsSync' belonging to storage sync service 'FileSyncService' located in resource group 'rg-file-services'"
+- "I want to delete server endpoint 'ServerEndpoint3' under sync group 'DailySync' from the storage sync service 'DataSyncPrimary' in resource group 'rg-production-sync'"
+- "Can you delete 'FinanceEndpoint' server endpoint from the 'FinanceSyncGroup' sync group at storage sync service 'FinanceDataSync' in resource group 'rg-finance'"
+- "Remove the server endpoint 'ArchiveServer01' in sync group 'ArchiveSync' from storage sync service 'ArchiveSyncService' within resource group 'rg-archive-management'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Required | The name of the server endpoint. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync serverendpoint delete](../includes/tools/annotations/azure-storagesync-serverendpoint-delete-annotations.md)]
 
-### Get server endpoint
+## Server endpoint: Get server endpoint
 
-<!-- storagesync serverendpoint get -->
+<!-- @mcpcli storagesync serverendpoint get -->
 
 List all server endpoints in a sync group or retrieve details about a specific server endpoint. The command returns server endpoint properties, including local path, cloud tiering status, sync health, and provisioning state. If you provide the server endpoint name parameter, the command returns a specific server endpoint. Otherwise, it lists all server endpoints in the sync group.
 
 Example prompts include:
 
-- "Get details of the server endpoint named 'FileServer01' in sync group 'SyncGroupA' under resource group 'rg-storage-sync' and storage sync service 'StorageSyncService1'"
-- "Show me the server endpoint info for 'BackupEndpoint' within the sync group 'PrimarySync' from the storage sync service 'MainSyncService' in resource group 'enterprise-rg'"
-- "Retrieve server endpoint data for sync group 'ArchiveGroup' in storage sync service 'ArchiveSyncService' located in resource group 'rg-data-archive'"
-- "I need the info of the server endpoint called 'Endpoint42' on storage sync service 'FastSyncService' inside resource group 'rg-fast-sync' and sync group 'FastSyncGroup'"
-- "Get the server endpoint details for the sync group 'ProjectSync' from 'ProjectStorageSync' service within resource group 'rg-project-sync'"
+- "Get details of the server endpoint named 'endpoint1' in sync group 'SyncGroupA' from storage sync service 'StorageSync01' within resource group 'rg-storage-sync'"
+- "Show me the server endpoint information for sync group 'SyncGroupB' under storage sync service 'FastSync' in resource group 'resource-group-prod'"
+- "Retrieve server endpoint data for storage sync service 'CentralSync' and sync group 'SyncMain' located in resource group 'rg-data-sync'"
+- "I need to get the server endpoint for sync group 'GroupSyncX' in storage sync service 'SyncServiceX' from resource group 'rg-sync-services'"
+- "Please fetch the server endpoint info belonging to sync group 'PrimarySyncGroup' and storage sync service 'SyncServicePro' in resource group 'rg-sync-prod'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Optional | The name of the server endpoint. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync serverendpoint get](../includes/tools/annotations/azure-storagesync-serverendpoint-get-annotations.md)]
 
-### Update server endpoint
+## Server endpoint: Update server endpoint
 
-<!-- storagesync serverendpoint update -->
+<!-- @mcpcli storagesync serverendpoint update -->
 
 Update properties of a server endpoint.
 
 Example prompts include:
 
-- "Update the server endpoint 'endpointEast' in sync group 'SyncGroupA' for storage sync service 'FileSyncService1' within resource group 'rg-data-sync'"
-- "I need to update server endpoint 'ServerEndpoint01' under sync group 'PrimarySyncGroup' in storage sync service 'StorageSyncMain' inside resource group 'prod-rg'"
-- "Can you update the server endpoint named 'BackupEndpoint' in sync group 'DailyBackup' for the storage sync service 'MySyncService' in resource group 'resource-group-01'?"
-- "Modify the server endpoint 'ArchiveServer' within sync group 'ArchiveSync' of storage sync service 'ArchiveSyncService' in the 'dev-resources' resource group"
-- "Please perform an update on server endpoint 'endpoint-west' from sync group 'WestSync' in storage sync service 'SyncServiceWest' located in resource group 'west-rg'"
+- "Update the server endpoint 'endpoint01' in sync group 'SyncGroupA' for storage sync service 'SyncServiceX' within resource group 'rg-filesync'"
+- "Can you modify server endpoint 'FileServer01' under sync group 'PrimarySync' in storage sync service 'CorpSync' in resource group 'rg-data'?"
+- "Please update server endpoint 'BackupEndpoint' on sync group 'BackupGroup' for storage sync service 'StorageSyncProd' located in resource group 'rg-prod-storage'"
+- "Set new settings for server endpoint 'EdgeNode' in storage sync service 'SyncServiceEast' sync group 'EastSync' within resource group 'rg-east'"
+- "I need to update the server endpoint named 'ArchiveEndpoint' in sync group 'ArchiveSync' of storage sync service 'ArchiveService' inside resource group 'rg-archives'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 | **Server endpoint name** |  Required | The name of the server endpoint. |
 | **Cloud tiering** |  Optional | Enable cloud tiering on this endpoint. |
 | **Volume free space percent** |  Optional | Volume free space percentage to maintain (1-99, default `20`). |
 | **Tier files older than days** |  Optional | Archive files not accessed for this many days. |
-| **Local cache mode** |  Optional | Local cache mode: DownloadNewAndModifiedFiles, UpdateLocallyCachedFiles. |
+| **Local cache mode** |  Optional | Local cache mode: `DownloadNewAndModifiedFiles`, `UpdateLocallyCachedFiles`. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync serverendpoint update](../includes/tools/annotations/azure-storagesync-serverendpoint-update-annotations.md)]
 
-## Storage Sync service
+## Storage Sync service: Create service
 
-### Create service
-
-<!-- storagesync service create -->
+<!-- @mcpcli storagesync service create -->
 
 Create a new Azure Storage Sync service resource in a resource group. This service acts as the top-level service container that manages sync groups, registered servers, and synchronization workflows.
 
 Example prompts include:
 
-- "Create a storage sync service named 'SyncServiceProd' in the resource group 'rg-storage-sync' located in 'EastUS'"
-- "I need to set up a storage sync service called 'BackupSync' within 'core-resources' resource group at location 'WestEurope'"
-- "Can you create storage sync service 'FileSync01' in the 'data-services' group and place it in 'CentralUS' region?"
-- "Set up a storage sync service named 'SyncServiceX' in 'app-resources' resource group located at 'EastUS2'"
-- "Please create a storage sync service 'SyncServiceAlpha' under resource group 'sync-group' in the region 'NorthEurope'"
+- "Create a storage sync service named 'FileSyncService01' in resource group 'rg-storage-sync' at location 'EastUS'"
+- "Please set up a storage sync service called 'BackupSyncService' inside 'rg-backup' resource group located in 'WestEurope'"
+- "I need a new storage sync service with name 'DataSyncProd' deployed to 'rg-prod-sync' resource group in 'CentralUS'"
+- "Can you create a storage sync service named 'ArchiveSync' within resource group 'rg-archive' located at 'NorthEurope'?"
+- "Set up storage sync service 'SyncServiceWest' in the resource group 'rg-west-sync' at Azure region 'WestUS2'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Location** |  Required | The Azure region or location name (for example, `EastUS`, `WestEurope`). |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync service create](../includes/tools/annotations/azure-storagesync-service-create-annotations.md)]
 
-### Delete service
+## Storage Sync service: Delete service
 
-<!-- storagesync service delete -->
+<!-- @mcpcli storagesync service delete -->
 
 Delete an Azure Storage Sync service and all its associated resources.
 
 Example prompts include:
 
-- "Delete the storage sync service named 'SyncServiceEast' in resource group 'rg-prod-storage'"
-- "I need to remove the service 'FileSyncService01' within the 'resource-group-west' resource group"
-- "Can you delete storage sync service 'BackupSync' from resource group 'rg-backup-dev'?"
-- "Please remove the 'SyncServicePrimary' from the 'rg-enterprise-files' resource group"
-- "How do I delete the service called 'DataSync01' in resource group 'rg-data-sync-prod'?"
+- "Delete the storage sync service named 'SyncServiceEastUS' in resource group 'rg-storage-prod'"
+- "Can you remove the storage sync service 'FilesSync01' from resource group 'rg-file-sync'?"
+- "Please delete storage sync service 'BackupSyncService' located in resource group 'rg-backups'"
+- "I need to delete the storage sync service called 'CorporateSync' within resource group 'rg-corp-resources'"
+- "Remove the storage sync service 'DataSyncPrimary' from resource group 'rg-data-sync'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync service delete](../includes/tools/annotations/azure-storagesync-service-delete-annotations.md)]
 
-### Get service
+## Storage Sync service: Get service
 
-<!-- storagesync service get -->
+<!-- @mcpcli storagesync service get -->
 
 Retrieve Azure Storage Sync service details or list all Storage Sync services. The command shows service properties, location, provisioning state, and configuration. If you provide the resource name parameter, the command returns a specific Storage Sync service. Otherwise, it lists all Storage Sync services in the subscription or resource group.
 
 Example prompts include:
 
-- "Get details for the storage sync service named 'SyncServiceEastUS' in resource group 'rg-sync-east'"
-- "Show me the configuration of 'CorporateSyncService' in resource group 'rg-corporate'"
-- "Fetch information about storage sync service 'filesync-prod' in resource group 'rg-prod-storage'"
-- "I need to retrieve the status of 'BackupSyncService' in resource group 'rg-backup'"
-- "What are the properties of the storage sync service called 'DataSyncCentral' in resource group 'rg-data-sync'"
+- "Get details for the storage sync service named 'SyncServiceEastUS'"
+- "Can you retrieve info on storage sync service 'CorporateFileSync'?"
+- "I need to see the configuration of the service called 'DataSyncProd'"
+- "Show me the storage sync service with the name 'BackupSync01'"
+- "Fetch the service details for 'SyncServiceWestEurope' storage sync"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Optional | The name of the storage sync service. |
+| **Name** |  Optional | The name of the storage sync service. |
+
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync service get](../includes/tools/annotations/azure-storagesync-service-get-annotations.md)]
 
-### Update service
+## Storage Sync service: Update service
 
-<!-- storagesync service update -->
+<!-- @mcpcli storagesync service update -->
 
 Update properties of an existing Azure Storage Sync service.
 
 Example prompts include:
 
-- "Update the storage sync service named 'SyncServiceWest' in resource group 'rg-backup-west'"
-- "Change settings for 'FileSyncService01' located in resource group 'prod-data-rg'"
-- "I need to update the service 'AzureSyncProd' in the resource group 'resourcegroup-east'"
-- "Modify the storage sync service 'CorpFileSync' under resource group 'rg-corporate-files'"
-- "Please update the service 'SyncManager' within the resource group 'data-sync-rg'"
+- "Update the storage sync service named 'filesyncservice01' in resource group 'rg-storage-prod'"
+- "Can you update the service 'sync-service-eastus' within the resource group 'rg-sync-eastus'?"
+- "Please update the storage sync service 'CorpFileSync' located in resource group 'rg-corp-filesync'"
+- "Make changes to storage sync service 'ArchiveSyncService' in the resource group 'rg-archive-data'"
+- "I need to update the service called 'BackupSync' in resource group 'rg-backup-resources'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Incoming traffic policy** |  Optional | Incoming traffic policy for the service (`AllowAllTraffic` or `AllowVirtualNetworksOnly`). |
 | **Tags** |  Optional | Tags to assign to the service (space-separated key=value pairs). |
 | **Identity type** |  Optional | Managed service identity type (`None`, `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned`). |
@@ -409,74 +418,72 @@ Example prompts include:
 
 [!INCLUDE [storagesync service update](../includes/tools/annotations/azure-storagesync-service-update-annotations.md)]
 
-## Sync group
+## Sync group: Create sync group
 
-### Create sync group
-
-<!-- storagesync syncgroup create -->
+<!-- @mcpcli storagesync syncgroup create -->
 
 Create a sync group within an existing Storage Sync service. Sync groups define a sync topology and contain cloud endpoints (Azure File Shares) and server endpoints (local server paths) that sync together.
 
 Example prompts include:
 
-- "Create a sync group named 'FinanceSyncGroup' in storage sync service 'FileSyncService01' within resource group 'corp-data-rg'"
-- "I need to set up a sync group called 'PhotosBackup' under storage sync service 'PhotoSyncService' in the resource group 'media-resources'"
-- "Please create the sync group 'DailyReports' for storage sync service 'ReportSyncService' inside resource group 'analytics-prod'"
-- "Can you create a sync group named 'HRSyncGroup' in the 'EmployeeFiles' storage sync service located in resource group 'human-resources-rg'?"
-- "Setup a new sync group 'ProjectSync2024' under storage sync service 'ProjectFilesService' within resource group 'dev-team-rg'"
+- "Create a sync group named 'FinanceSync' in storage sync service 'FinanceSyncService' within resource group 'rg-finance-prod'"
+- "I need to create a sync group called 'HRSyncGroup' under storage sync service 'HRDataService' in 'rg-hr-resources'"
+- "Set up a sync group with the name 'ProjectSync' for the storage sync service 'ProjectFilesService' inside resource group 'rg-projects-dev'"
+- "Can you create a sync group named 'BackupSyncGroup' in 'BackupSyncService' located in resource group 'rg-backup-eastus'?"
+- "Make a new sync group 'SalesDataSync' in the storage sync service 'SalesService' under resource group 'rg-sales-central'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync syncgroup create](../includes/tools/annotations/azure-storagesync-syncgroup-create-annotations.md)]
 
-### Delete sync group
+## Sync group: Delete sync group
 
-<!-- storagesync syncgroup delete -->
+<!-- @mcpcli storagesync syncgroup delete -->
 
 Remove a sync group from a Storage Sync service. When you delete a sync group, you also remove all associated cloud endpoints and server endpoints within that group.
 
 Example prompts include:
 
-- "Delete the sync group named 'SyncGroupA' from storage sync service 'FileSyncService' in the resource group 'rg-production'"
-- "I need to remove sync group 'ProjectXSync' under the storage sync service 'CorpSyncService' in resource group 'rg-corp-westus'"
-- "Please delete the sync group 'BackupSync2024' for the storage sync service called 'BackupFiles' located in resource group 'rg-backup'"
-- "Can you delete sync group 'UserDataSync' from the storage sync service 'UserProfilesService' within resource group 'rg-userservices'"
-- "Remove the sync group 'DevTestSync' found in 'DevSyncService' under the resource group named 'rg-development'"
+- "Delete the sync group named 'filesSyncGroup' in storage sync service 'DataSyncService' within resource group 'rg-storage-prod'"
+- "Can you remove sync group 'backupSyncGroup' from storage sync service 'MySyncService' in resource group 'rg-westus'?"
+- "Please delete sync group 'archiveSync' under the storage sync service 'ArchiveService' located in resource group 'rg-europe'"
+- "Remove the sync group called 'syncGroup01' from 'FastSyncService' inside resource group 'rg-dev-storage'"
+- "I want to delete the sync group 'photosSyncGroup' from storage sync service 'PhotoService' in resource group 'rg-photoapp'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Required | The name of the sync group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storagesync syncgroup delete](../includes/tools/annotations/azure-storagesync-syncgroup-delete-annotations.md)]
 
-### Get sync group
+## Sync group: Get sync group
 
-<!-- storagesync syncgroup get -->
+<!-- @mcpcli storagesync syncgroup get -->
 
 Get details about a specific sync group or list all sync groups. If you provide the sync group name parameter, the command returns a specific sync group. Otherwise, it lists all sync groups in the Storage Sync service.
 
 Example prompts include:
 
-- "Get the sync group details for service 'FileSyncService' in resource group 'data-sync-prod'"
-- "Show me the storage sync group from 'BackupSyncService' within 'rg-sync-eastus'"
-- "Retrieve sync group info for storage sync service 'CorpFileSync' located in 'resource-group-north'"
-- "Can you fetch the sync group for 'EnterpriseSyncService' under the 'rg-internal-backup' resource group?"
-- "I need to get sync group data from 'AzureFilesSync' service in resource group 'sync-rg-west'"
+- "Get the sync group from storage sync service 'SyncServiceWestUS' in resource group 'rg-storage-prod'"
+- "Show me the details of storage sync service 'BackupSyncService' located in resource group 'rg-data-archive'"
+- "I need to retrieve sync group information from service 'FileSyncServiceEast' within resource group 'rg-enterprise-files'"
+- "Can you fetch the sync group data for storage sync service 'CorpSyncService' in 'rg-corp-resources'?"
+- "Retrieve the sync group for 'FileShareSync' storage sync service under resource group 'rg-devops-staging'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group**| Required | The resource group name for the storage sync resource. |
-| **Resource name** |  Required | The name of the storage sync service. |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the storage sync service. |
 | **Sync group name** |  Optional | The name of the sync group. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
