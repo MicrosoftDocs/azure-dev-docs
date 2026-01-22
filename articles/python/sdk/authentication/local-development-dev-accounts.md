@@ -40,7 +40,7 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 <a name='create-azure-ad-group-for-local-development'></a>
 
-## Create a Microsoft Entra security group for local development
+## Create a Microsoft Entra group for local development
 
 In most development scenarios, multiple developers contribute to the same application. To streamline access control and ensure consistent permissions across the team, we recommend that you first create a Microsoft Entra security group specifically for the application’s local development needs.
 
@@ -236,7 +236,7 @@ To authenticate with your Azure account, choose one of the following methods:
 
 Developers using Visual Studio Code can authenticate with their developer account directly through the editor via the broker. Apps that use [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) or [VisualStudioCodeCredential](/python/api/azure-identity/azure.identity.visualstudiocodecredential) can then use this account to authenticate app requests through a seamless single-sign-on experience.
 
-1. In Visual Studio Code, go to the **Extensions** panel and install the Azure Resources extension. This extension lets you view and manage Azure resources directly from Visual Studio Code. It also uses the built-in Visual Studio Code Microsoft authentication provider to authenticate with Azure.
+1. In Visual Studio Code, go to the **Extensions** panel and install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension. This extension lets you view and manage Azure resources directly from Visual Studio Code. It also uses the built-in Visual Studio Code Microsoft authentication provider to authenticate with Azure.
 
 :::image type="content" source="../../../includes/authentication/media/azure-resources-extension.png" alt-text="Screenshot showing the Azure Resources extension.":::
 
