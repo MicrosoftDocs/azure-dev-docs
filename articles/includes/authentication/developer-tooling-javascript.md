@@ -2,7 +2,7 @@
 author: diberry
 ms.service: azure
 ms.topic: include
-ms.date: 01/20/2026
+ms.date: 01/21/2026
 ms.author: diberry
 ---
 ## Sign-in to Azure using developer tooling
@@ -71,11 +71,5 @@ Developers using Visual Studio Code can authenticate with their developer accoun
 
     > [!TIP]
     > Open the Command Palette using `Ctrl+Shift+P` on Windows/Linux or `Cmd+Shift+P` on macOS.
-
-1. Add [`@azure/identity`](https://www.npmjs.com/package/@azure/identity) package to your app:
-
-    ```bash
-    npm install @azure/identity
-    ```
 
 ---

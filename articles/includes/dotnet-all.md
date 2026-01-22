@@ -439,7 +439,7 @@
 | Unknown Display Name | NuGet [0.2.804](https://www.nuget.org/packages/Microsoft.Azure.Mcp.AzTypes.Internal.Compact/0.2.804) |  |  |
 | Unknown Display Name | NuGet [1.1.2-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.2-preview) |  |  |
 | Unknown Display Name | NuGet [1.47.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.Extension.MAS/1.47.0) |  |  |
-| Unknown Display Name | NuGet [1.2.0](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Postgres/1.2.0) |  |  |
+| Unknown Display Name | NuGet [1.2.1](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Postgres/1.2.1) |  |  |
 | Unknown Display Name | NuGet [0.0.0-beta.5](https://www.nuget.org/packages/Microsoft.Fabric.Mcp/0.0.0-beta.5) |  |  |
 | Unknown Display Name | NuGet [0.0.0-beta.5](https://www.nuget.org/packages/Microsoft.Fabric.Mcp.linux-arm64/0.0.0-beta.5) |  |  |
 | Unknown Display Name | NuGet [0.0.0-beta.5](https://www.nuget.org/packages/Microsoft.Fabric.Mcp.linux-x64/0.0.0-beta.5) |  |  |
@@ -481,7 +481,7 @@
 | Common | NuGet [2.2.1](https://www.nuget.org/packages/Microsoft.Azure.Common/2.2.1) |  |  |
 | Common - Dependencies | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Common.Dependencies/1.0.0) |  |  |
 | Computer Vision | NuGet [7.0.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/7.0.1) |  | GitHub [7.0.1](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.ComputerVision_6.0.0-preview.1/sdk/cognitiveservices/Vision.ComputerVision) |
-| Cosmos DB | NuGet [3.47.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.47.0)<br>NuGet [3.57.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.57.0-preview.1) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.47.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
+| Cosmos DB | NuGet [3.47.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.47.0)<br>NuGet [3.58.0-preview.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.58.0-preview.0) | [docs](/dotnet/api/overview/azure/cosmosdb) | GitHub [3.47.0](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/3.12.0/Microsoft.Azure.Cosmos) |
 | Custom Vision Prediction | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction_2.0.0/sdk/cognitiveservices/Vision.CustomVision.Prediction) |
 | Custom Vision Training | NuGet [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/2.0.0)<br>NuGet [2.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/2.1.0-preview) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training_2.0.0/sdk/cognitiveservices/Vision.CustomVision.Training) |
 | Data Lake Analytics | NuGet [1.4.211011](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/1.4.211011) |  |  |
