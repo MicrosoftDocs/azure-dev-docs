@@ -20,6 +20,75 @@ The Azure MCP Server lets you manage Azure file shares with natural language pro
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+
+## Get limits
+
+<!-- @mcpcli fileshares limits -->
+
+Get file share limits for a subscription and location.
+
+Example prompts include:
+
+- "Show me the current file share limits in the 'eastus' location"
+- "What are the file share limits for location 'westeurope'?"
+- "Get the file share limits for location 'centralus'"
+- "Please provide the file share limits for location 'eastus2'"
+- "Retrieve file share limits for the 'westus' region"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Location** |  Required | The Azure region/location name (for example, `eastus`, `westeurope`). |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [fileshares limits](../includes/tools/annotations/azure-fileshares-limits-annotations.md)]
+
+## Get usage
+
+<!-- @mcpcli fileshares usage -->
+
+Get file share usage data for a subscription and location.
+
+Example prompts include:
+
+- "Show me the usage details for file shares in location 'eastus'"
+- "I want to see usage for file shares in region 'westeurope'"
+- "Get usage statistics for file shares in location 'centralus'"
+- "Can you provide usage information for file shares in 'eastus2'?"
+- "Display usage for file shares in the 'westus' region"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Location** |  Required | The Azure region/location name (for example, `eastus`, `westeurope`). |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [fileshares usage](../includes/tools/annotations/azure-fileshares-usage-annotations.md)]
+
+## Get recommendations
+
+<!-- @mcpcli fileshares rec -->
+
+Get provisioning parameter recommendations for a file share based on desired storage size.
+
+Example prompts include:
+
+- "Get recommendations for a 1000 GiB file share in location 'eastus'"
+- "Can you provide recommendations for a 500 GiB file share in 'westeurope'?"
+- "Get details for a 2000 GiB file share in location 'centralus'"
+- "I want to see recommendations for a 5000 GiB file share in 'eastus2'"
+- "Retrieve recommendations for a 250 GiB file share in the 'westus' region"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Location** |  Required | The Azure region/location name (for example, `eastus`, `westeurope`). |
+| **Provisioned storage in GiB (gibibytes)** |  Required | The desired provisioned storage size of the share in GiB. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [fileshares rec](../includes/tools/annotations/azure-fileshares-rec-annotations.md)]
+
+
 ## File Share: Check name availability
 
 <!-- @mcpcli fileshares fileshare check-name-availability -->
@@ -37,13 +106,13 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Name** |  Required | The name of the file share. |
-| **Location** |  Required | The Azure region/location name (for example, EastUS, WestEurope). |
+| **Location** |  Required | The Azure region/location name (for example, `EastUS`, `WestEurope`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [fileshares fileshare check-name-availability](../includes/tools/annotations/azure-fileshares-fileshare-check-name-availability-annotations.md)]
 
-## File Share: Create
+## File Share: Create file share
 
 <!-- @mcpcli fileshares fileshare create -->
 
@@ -61,16 +130,16 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Name** |  Required | The name of the file share. |
-| **Location** |  Required | The Azure region/location name (for example, EastUS, WestEurope). |
+| **Location** |  Required | The Azure region/location name (for example, `EastUS`, `WestEurope`). |
 | **Mount name** |  Optional | The mount name of the file share as seen by end users. |
-| **Media tier** |  Optional | The storage media tier (for example, SSD). |
-| **Redundancy** |  Optional | The redundancy level (for example, Local, Zone). |
-| **Protocol** |  Optional | The file sharing protocol (for example, NFS). |
-| **Provisioned storage in gib** |  Optional | The desired provisioned storage size of the share in GiB. |
+| **Media tier** |  Optional | The storage media tier (for example, `SSD`). |
+| **Redundancy** |  Optional | The redundancy level (for example, `Local`, `Zone`). |
+| **Protocol** |  Optional | The file sharing protocol (for example, `NFS`). |
+| **Provisioned storage in GiB (gibibytes)** |  Optional | The desired provisioned storage size of the share in GiB. |
 | **Provisioned io per sec** |  Optional | The provisioned IO operations per second. |
-| **Provisioned throughput mib per sec** |  Optional | The provisioned throughput in MiB per second. |
-| **Public network access** |  Optional | Public network access setting (Enabled or Disabled). |
-| **Nfs root squash** |  Optional | NFS root squash setting (NoRootSquash, RootSquash, or AllSquash). |
+| **Provisioned throughput in MiB per sec (mebibytes)** |  Optional | The provisioned throughput in MiB per second. |
+| **Public network access** |  Optional | Public network access setting (`Enabled` or `Disabled`). |
+| **Nfs root squash** |  Optional | NFS root squash setting (`NoRootSquash`, `RootSquash`, or `AllSquash`). |
 | **Allowed subnets** |  Optional | Comma-separated list of subnet IDs allowed to access the file share. |
 | **Tags** |  Optional | Resource tags as JSON (for example, `{"key1":"value1","key2":"value2"}`). |
 
@@ -78,7 +147,7 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare create](../includes/tools/annotations/azure-fileshares-fileshare-create-annotations.md)]
 
-## File Share: Delete
+## File Share: Delete file share
 
 <!-- @mcpcli fileshares fileshare delete -->
 
@@ -101,11 +170,11 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare delete](../includes/tools/annotations/azure-fileshares-fileshare-delete-annotations.md)]
 
-## File Share: Get
+## File Share: Get file share
 
 <!-- @mcpcli fileshares fileshare get -->
 
-Get details of a specific file share or list all file shares. If --name is provided, returns a specific file share; otherwise, lists all file shares in the subscription or resource group.
+Get details of a specific file share or list all file shares. If name is provided, returns a specific file share; otherwise, lists all file shares in the subscription or resource group.
 
 Example prompts include:
 
@@ -123,7 +192,7 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare get](../includes/tools/annotations/azure-fileshares-fileshare-get-annotations.md)]
 
-## File Share: Update
+## File Share: Update file share
 
 <!-- @mcpcli fileshares fileshare update -->
 
@@ -141,11 +210,11 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Name** |  Required | The name of the file share. |
-| **Provisioned storage in gib** |  Optional | The desired provisioned storage size of the share in GiB. |
+| **Provisioned storage in GiB (gibibytes)** |  Optional | The desired provisioned storage size of the share in GiB. |
 | **Provisioned io per sec** |  Optional | The provisioned IO operations per second. |
-| **Provisioned throughput mib per sec** |  Optional | The provisioned throughput in MiB per second. |
-| **Public network access** |  Optional | Public network access setting (Enabled or Disabled). |
-| **Nfs root squash** |  Optional | NFS root squash setting (NoRootSquash, RootSquash, or AllSquash). |
+| **Provisioned throughput in MiB per sec (mebibytes)** |  Optional | The provisioned throughput in MiB per second. |
+| **Public network access** |  Optional | Public network access setting (`Enabled` or `Disabled`). |
+| **Nfs root squash** |  Optional | NFS root squash setting (`NoRootSquash`, `RootSquash`, or `AllSquash`). |
 | **Allowed subnets** |  Optional | Comma-separated list of subnet IDs allowed to access the file share. |
 | **Tags** |  Optional | Resource tags as JSON (for example, `{"key1":"value1","key2":"value2"}`). |
 
@@ -153,7 +222,7 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare update](../includes/tools/annotations/azure-fileshares-fileshare-update-annotations.md)]
 
-## File Share Snapshot: Create
+## File Share Snapshot: Create snapshot
 
 <!-- @mcpcli fileshares fileshare snapshot create -->
 
@@ -178,7 +247,7 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare snapshot create](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-create-annotations.md)]
 
-## File Share Snapshot: Delete
+## File Share Snapshot: Delete snapshot
 
 <!-- @mcpcli fileshares fileshare snapshot delete -->
 
@@ -202,11 +271,11 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare snapshot delete](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-delete-annotations.md)]
 
-## File Share Snapshot: Get
+## File Share Snapshot: Get snapshot
 
 <!-- @mcpcli fileshares fileshare snapshot get -->
 
-Get details of a specific file share snapshot or list all snapshots. If --snapshot-name is provided, returns a specific snapshot; otherwise, lists all snapshots for the file share.
+Get details of a specific file share snapshot or list all snapshots. If the `snapshot name is provided, returns a specific snapshot; otherwise, lists all snapshots for the file share.
 
 Example prompts include:
 
@@ -226,7 +295,7 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare snapshot get](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-get-annotations.md)]
 
-## File Share Snapshot: Update
+## File Share Snapshot: Update snapshot
 
 <!-- @mcpcli fileshares fileshare snapshot update -->
 
@@ -250,73 +319,6 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [fileshares fileshare snapshot update](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-update-annotations.md)]
-
-## File Share: Get limits
-
-<!-- @mcpcli fileshares limits -->
-
-Get file share limits for a subscription and location.
-
-Example prompts include:
-
-- "Show me the current file share limits in the 'eastus' location"
-- "What are the file share limits for location 'westeurope'?"
-- "Get the file share limits for location 'centralus'"
-- "Please provide the file share limits for location 'eastus2'"
-- "Retrieve file share limits for the 'westus' region"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Location** |  Required | The Azure region/location name (for example, eastus, westeurope). |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [fileshares limits](../includes/tools/annotations/azure-fileshares-limits-annotations.md)]
-
-## File Share: Get usage
-
-<!-- @mcpcli fileshares usage -->
-
-Get file share usage data for a subscription and location.
-
-Example prompts include:
-
-- "Show me the usage details for file shares in location 'eastus'"
-- "I want to see usage for file shares in region 'westeurope'"
-- "Get usage statistics for file shares in location 'centralus'"
-- "Can you provide usage information for file shares in 'eastus2'?"
-- "Display usage for file shares in the 'westus' region"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Location** |  Required | The Azure region/location name (for example, eastus, westeurope). |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [fileshares usage](../includes/tools/annotations/azure-fileshares-usage-annotations.md)]
-
-## File Share: Get recommendations
-
-<!-- @mcpcli fileshares rec -->
-
-Get provisioning parameter recommendations for a file share based on desired storage size.
-
-Example prompts include:
-
-- "Get recommendations for a 1000 GiB file share in location 'eastus'"
-- "Can you provide recommendations for a 500 GiB file share in 'westeurope'?"
-- "Get details for a 2000 GiB file share in location 'centralus'"
-- "I want to see recommendations for a 5000 GiB file share in 'eastus2'"
-- "Retrieve recommendations for a 250 GiB file share in the 'westus' region"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Location** |  Required | The Azure region/location name (for example, eastus, westeurope). |
-| **Provisioned storage in gib** |  Required | The desired provisioned storage size of the share in GiB. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [fileshares rec](../includes/tools/annotations/azure-fileshares-rec-annotations.md)]
 
 ## Related content
 
