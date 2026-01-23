@@ -1,10 +1,11 @@
 ---
 title: Azure Policy Tools for Azure MCP Server
-description: 
-keywords: azure mcp server, azmcp, policy
+description: Manage Azure Policy assignments effortlessly with Azure MCP Server. Learn how to simplify compliance and governance using natural language prompts.
+#customer intent: As a compliance officer, I want to filter policy assignments by scope so that I can focus on policies relevant to a particular management group.
 author: diberry
 ms.author: diberry
-ms.date: 01/23/2025
+ms.reviewer: diberry
+ms.date: 01/23/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -14,7 +15,7 @@ reviewer: msalaman
 
 # Azure Policy tools for Azure MCP Server overview
 
-Azure MCP Server enables you to manage Azure Policy assignments, definitions, and initiatives using natural language prompts. Simplify policy management without complex syntax.
+Azure MCP Server enables you to view Azure Policy assignments, definitions, and initiatives using natural language prompts. Simplify policy management without complex syntax.
 
 [Azure Policy](/azure/governance/policy/) is a service in Azure that allows you to create, assign, and manage policies to enforce rules and effects on your resources. It helps ensure compliance with organizational standards and regulatory requirements.
 
@@ -24,8 +25,7 @@ Azure MCP Server enables you to manage Azure Policy assignments, definitions, an
 
 <!-- @mcpcli policy assignment list -->
 
-List policy assignments in a subscription or scope. This command retrieves all Azure Policy
-assignments along with their complete policy definition details (rules, effects, parameters schema), enforcement modes, assignment parameters, and metadata. You can optionally filter by scope to list assignments at a specific resource group, resource, or management group level.
+List policy assignments in a subscription or scope. This command retrieves all Azure Policy assignments along with their complete policy definition details (rules, effects, parameters schema), enforcement modes, assignment parameters, and metadata. You can optionally filter by scope to list assignments at a specific resource group, resource, or management group level.
 
 Example prompts include:
 
