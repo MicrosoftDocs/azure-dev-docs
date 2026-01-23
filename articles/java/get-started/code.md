@@ -5,7 +5,7 @@ description: This article provides an overview of the tools you can use for Java
 author: KarlErickson
 ms.author: karler
 ms.reviewer: asirveda
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/19/2025
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-jenkins
 ---

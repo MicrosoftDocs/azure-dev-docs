@@ -4,7 +4,7 @@ description: Provides an overview of the Java Diagnostic Tool (diag4j) on Azure 
 author: KarlErickson
 ms.author: karler
 ms.reviewer: xuycao
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/07/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---

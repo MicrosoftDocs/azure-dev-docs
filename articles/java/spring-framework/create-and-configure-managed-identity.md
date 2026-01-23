@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
 ms.date: 08/19/2025
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
