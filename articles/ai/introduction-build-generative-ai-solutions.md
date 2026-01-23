@@ -2,7 +2,7 @@
 title: Generative AI Applications for Developers
 description: Get a conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
 ms.date: 07/31/2025
-ms.topic: article
+ms.topic: concept-article
 ms.custom: build-2024-intelligent-apps, ai-learning-hub
 ms.subservice: intelligent-apps
 content_well_notification: 

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.date: 07/13/2024
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 # Java support on Azure and Azure Stack
