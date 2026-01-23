@@ -142,6 +142,8 @@ items:
           href: tools/azure-sql.md
         - name: Azure Storage
           href: tools/azure-storage.md
+        - name: Azure Storage Sync
+          href: tools/azure-storage-sync.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
         - name: Resource Group
