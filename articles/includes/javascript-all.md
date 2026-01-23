@@ -185,9 +185,9 @@
 | Resource Management - Cognitive Services | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-cognitiveservices/v/8.1.0) | [docs](/javascript/api/overview/azure/arm-cognitiveservices-readme) | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cognitiveservices/arm-cognitiveservices) |
 | Resource Management - Commerce | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-commerce/v/3.0.0)<br>npm [4.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-commerce/v/4.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-commerce-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce) |
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commitmentplans-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
-| Resource Management - Communication | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-communication/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-communication-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.1.0/sdk/communication/arm-communication/) |
+| Resource Management - Communication | npm [4.2.0](https://www.npmjs.com/package/@azure/arm-communication/v/4.2.0) | [docs](/javascript/api/overview/azure/arm-communication-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.2.0/sdk/communication/arm-communication/) |
 | Resource Management - Compute | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/arm-compute/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute-rest) |
-| Resource Management - Compute | npm [23.2.0](https://www.npmjs.com/package/@azure/arm-compute/v/23.2.0) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [23.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
+| Resource Management - Compute | npm [23.3.0](https://www.npmjs.com/package/@azure/arm-compute/v/23.3.0) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [23.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
 | Resource Management - Compute Fleet | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-computefleet/v/1.0.0)<br>npm [2.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-computefleet/v/2.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-computefleet-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0/sdk/computefleet/arm-computefleet/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_2.0.0-beta.1/sdk/computefleet/arm-computefleet/) |
 | Resource Management - Compute Schedule | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-computeschedule/v/1.1.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-computeschedule/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-computeschedule-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.1.0/sdk/computeschedule/arm-computeschedule/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.2.0-beta.1/sdk/computeschedule/arm-computeschedule/) |
 | Resource Management - Computelimit | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-computelimit/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-computelimit-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computelimit_1.0.0-beta.1/sdk/computelimit/arm-computelimit/) |
@@ -452,17 +452,17 @@
 | TypeSpec Streams | npm [0.78.0](https://www.npmjs.com/package/@typespec/streams/v/0.78.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.11.0) |  |  |
-| Unknown Display Name | npm [1.6.2](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/1.6.2) |  |  |
+| Unknown Display Name | npm [1.7.0](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/1.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [1.4.6](https://www.npmjs.com/package/@azure/ai-vision-face-ui/v/1.4.6) |  |  |
 | Unknown Display Name | npm [0.0.2-dev](https://www.npmjs.com/package/@azure/bicep-deploy-common/v/0.0.2-dev) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure/functions-extensions-base/v/0.2.0) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.12) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.12) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.12) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.12) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.12) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.13) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp-darwin-arm64/v/2.0.0-beta.13) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp-darwin-x64/v/2.0.0-beta.13) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp-linux-arm64/v/2.0.0-beta.13) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp-linux-x64/v/2.0.0-beta.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-darwin-x64/v/0.5.13) |  |  |
@@ -477,8 +477,8 @@
 | Unknown Display Name | npm [0.0.12-alpha.5776860](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5776860) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5776860](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5776860) |  |  |
 | Unknown Display Name | npm [0.0.12-alpha.5776860](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5776860) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.12) |  |  |
-| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.12](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.12) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.13) |  |  |
+| Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.13](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.13) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
 | Unknown Display Name | npm [0.15.0](https://www.npmjs.com/package/@typespec/http-canonicalization/v/0.15.0) |  |  |
 | Unknown Display Name | npm [0.15.0](https://www.npmjs.com/package/@typespec/mutator-framework/v/0.15.0) |  |  |
