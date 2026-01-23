@@ -114,6 +114,7 @@ A common production workflow involves building an image once and promoting it th
 | Command | Actions Performed | Best For |
 | :--- | :--- | :--- |
 | `azd publish` | Build -> Push | CI/CD pipelines, creating artifacts, "Build once" workflows. |
+| `azd publish --from-package` | Push only | pushes pre-built artifacts to environments. |
 | `azd deploy` | Build -> Push -> Deploy | Standard development iteration (inner loop). |
 | `azd deploy --from-package` | Deploy only | deploying pre-built/pre-published artifacts to environments. |
 | `azd up` | Provision -> Build -> Push -> Deploy | Getting started, initializing new environments from scratch. |
