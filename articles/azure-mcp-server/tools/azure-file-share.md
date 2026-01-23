@@ -9,6 +9,7 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
+reviewer: ankushbindlish2
 ---
 
 # Azure File Shares tools for the Azure MCP Server overview
