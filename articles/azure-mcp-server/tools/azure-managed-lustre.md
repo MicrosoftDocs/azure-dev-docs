@@ -188,11 +188,11 @@ Get status, configuration, and progress details of [auto-import](/azure/azure-ma
 
 Example prompts include:
 
-- "Get the autoimport settings for filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
-- "Show me the blob autoimport configuration for filesystem 'archiveLustre' within resource group 'rg-data-lake'"
-- "Retrieve autoimport details of the Managed Lustre filesystem 'fastLustreCompute' in resource group 'rg-hpc-environment'"
-- "Can you fetch the autoimport info for filesystem 'Lustre2024' from resource group 'rg-lustre-main'"
-- "I need to get the fs blob autoimport details for filesystem 'analyticsLustreFS' under resource group 'rg-analytics'"
+- "Get the autoimport jobs for filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
+- "Show me the blob autoimport jobs for filesystem 'archiveLustre' within resource group 'rg-data-lake'"
+- "Retrieve autoimport job details of the Managed Lustre filesystem 'fastLustreCompute' in resource group 'rg-hpc-environment'"
+- "Can you fetch the autoimport job info for filesystem 'Lustre2024' from resource group 'rg-lustre-main'"
+- "I need to get the fs blob autoimport job details for filesystem 'analyticsLustreFS' under resource group 'rg-analytics'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -219,6 +219,7 @@ Example prompts include:
 - "Start an autoimport for the filesystem named 'ResearchFS' in resource group 'rg-research-lustre'"
 - "Establish an autoimport job on filesystem 'FSBackup' under resource group 'rg-backup-westus2'"
 - "Create an autoimport job for filesystem 'DataFS' in resource group 'rg-prod' with prefix '/data/incoming' and conflict resolution mode 'OverwriteIfDirty'"
+- "Create an autoimport job for filesystem 'trainingLustre01' in resource group 'rg-training-lustre' with prefix '/datasets' and conflict resolution mode 'OverwriteAlways'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -245,7 +246,7 @@ Example prompts include:
 
 - "Cancel the autoimport job named 'dailySyncJob' on filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
 - "I need to stop the job 'autoimportJob42' for filesystem 'ProjectLustre' within 'rg-data-central'"
-- "Please cancel the autoimport task 'importJobA1' on the Lustre filesystem 'FsBackup2024' in the resource group 'rg-backup'"
+- "Please cancel the autoimport job 'importJobA1' on the Lustre filesystem 'FsBackup2024' in the resource group 'rg-backup'"
 - "How do I cancel the job 'nightlyAutoImport' running on filesystem 'fastLustreFs' in resource group 'rg-performance'?"
 - "Stop the autoimport job 'urgentSync' on Managed Lustre filesystem 'MainLustreFS' inside resource group 'rg-enterprise'"
 
@@ -291,11 +292,12 @@ Get status, configuration, and progress details of [auto-export](/azure/azure-ma
 
 Example prompts include:
 
-- "Get the blob autoexport settings for filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
-- "Show me the autoexport configuration of the Managed Lustre filesystem named 'AnalyticsFs' within 'rg-data-center'"
-- "Retrieve blob autoexport details for filesystem 'ProjectXFs' in resource group 'rg-projectx'"
-- "Can you provide the autoexport information for the Lustre filesystem 'SalesDataFs' under resource group 'rg-salesapp'?"
-- "I need to see the blob autoexport setup for 'ArchiveFs' in resource group 'rg-archives'"
+- "Get the blob autoexport jobs for filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
+- "Show me the autoexport jobs of the Managed Lustre filesystem named 'AnalyticsFs' within 'rg-data-center'"
+- "Retrieve blob autoexport job details for filesystem 'ProjectXFs' in resource group 'rg-projectx'"
+- "Can you provide the autoexport job information for the Lustre filesystem 'SalesDataFs' under resource group 'rg-salesapp'?"
+ - "Can you provide the autoexport job information for the Lustre filesystem 'TrainingDataFs' under resource group 'rg-training'?"
+- "I need to see the blob autoexport jobs for 'ArchiveFs' in resource group 'rg-archives'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -343,7 +345,7 @@ Cancel a running [auto-export](/azure/azure-managed-lustre/auto-export) job for 
 Example prompts include:
 
 - "Cancel the autoexport job named 'dailyBackupJob' on filesystem 'lustreProdFs' in resource group 'rg-lustre-apps'"
-- "Please stop the job 'autoexportApril' for filesystem 'financeLustre01' in resource group 'rg-finance-lustre'"
+- "Please stop the job 'trainingLustre01-autoexport' for filesystem 'trainingLustre01' in resource group 'rg-training-lustre'"
 - "I need to cancel the autoexport job 'weeklySync' from the 'dataLustreFs' filesystem in resource group 'rg-data-services'"
 - "How do I cancel the autoexport job called 'exportJob123' on filesystem 'prodLustreFs' within resource group 'rg-production'"
 - "Abort the autoexport job 'monthlyExport' on filesystem 'archiveLustre' under resource group 'rg-archive-management'"
