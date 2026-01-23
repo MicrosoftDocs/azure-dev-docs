@@ -14,6 +14,7 @@ The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform w
 ## Registration
 
 Registration may take a few minutes to complete. Check your registration status with `az provider show -n Microsoft.AzureTerraform`.
+Currently, the Resource Provider is only available on Azure Public Cloud.
 
 ### Terraform
 
