@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 11/17/2025
+ ms.date: 01/22/2025
 ---
 
 ## Available tools
@@ -119,6 +119,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
+| [Azure Policy](../../tools/azure-policy.md) | `policy` | Manage Azure Policy assignments, definitions, and initiatives. |
 | [Azure Quick Review CLI](../../tools/azure-compliance-quick-review.md) | `extension` | Generate compliance and security reports for Azure resources. |
 | [Azure Quotas](../../tools/azure-quotas.md) | `quota` | Manage Azure resource quotas and limits. |
 | [Azure Resource Health](../../tools/azure-health-resource.md) | `resourcehealth` | Check the health status of Azure resources. |
@@ -156,6 +157,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
 | [Azure Storage](../../tools/storage.md) | `storage` | List Azure Storage accounts, containers, blobs, and tables. |
+| [Azure Storage Sync](../../tools/azure-storage-sync.md) | `storagesync` | Manage Storage Sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
 | [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems. |
 
