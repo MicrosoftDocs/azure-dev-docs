@@ -2,7 +2,7 @@
 title: Azure MCP Server concepts
 description: Learn key concepts for working with Azure MCP Server, including multi-service workflows, error handling, optimization, and common use cases.
 ms.date: 01/26/2026
-ms.topic: conceptual
+ms.topic: concept-article
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-generated
