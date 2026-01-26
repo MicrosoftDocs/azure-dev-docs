@@ -1944,6 +1944,11 @@
       "source_path": "articles/chef/windows-vm-configure.md",
       "redirect_url": "https://docs.chef.io/azure_chef_cli/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/python/sdk/authentication/azure-hosted-apps.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication/system-assigned-managed-identity",
+      "redirect_document_id": false
     }
   ]
 }
