@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 09/09/2024
+ms.date: 01/13/2026
 ---
 
 ### Inventory configuration sources and secrets

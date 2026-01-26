@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 5/31/2023
+ms.date: 01/13/2026
 ---
 
 ### Inventory differences using IBM migration tools

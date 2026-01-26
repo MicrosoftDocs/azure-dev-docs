@@ -6,9 +6,11 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: quickstart
-ms.date: 11/18/2025
+ms.date: 01/13/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Quickstart: assess and migrate a Java project using GitHub Copilot app modernization

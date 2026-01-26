@@ -7,9 +7,11 @@ metadata:
   ms.author: karler
   ms.reviewer: xiading
   ms.topic: faq
-  ms.date: 11/18/2025
+  ms.date: 01/13/2026
   ms.custom: devx-track-java
   ms.subservice: migration-copilot
+  ms.collection: ce-skilling-ai-copilot
+  ms.update-cycle: 180-days
 
 title: GitHub Copilot app modernization FAQ
 summary: Answers frequently asked questions about GitHub Copilot app modernization.

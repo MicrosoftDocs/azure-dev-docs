@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 9/30/2024
+ms.date: 01/13/2026
 ---
 
 ### Create an Azure Container Apps environment and deploy apps

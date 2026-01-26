@@ -323,6 +323,8 @@
         "**/github-copilot-azure/**/*.yml": "180-days",
         "**/java/ai/**/*.md": "180-days",
         "**/java/ai/**/*.yml": "180-days",
+        "**/java/migration/**/*.md": "365-days",
+        "**/java/migration/**/*.yml": "365-days",
         "**/java/spring-framework/**/*.md": "365-days",
         "**/java/spring-framework/**/*.yml": "365-days",
         "**/javascript/ai/**/*.md": "180-days",

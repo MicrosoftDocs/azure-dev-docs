@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
 ms.topic: upgrade-and-migration-article
-ms.date: 09/20/2024
+ms.date: 01/13/2026
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, migration-java, template-how-to, linux-related-content
 #Customer intent: As a Java developer, I want to migrate my on-premise WebSphere Application Server workload to IBM WebSphere Liberty or Open Liberty that runs on Azure Red Hat OpenShift
 ---

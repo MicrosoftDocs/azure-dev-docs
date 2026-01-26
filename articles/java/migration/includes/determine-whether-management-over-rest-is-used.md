@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: edburns
-ms.date: 05/12/2025
+ms.date: 01/13/2026
 ---
 
 ### Determine whether Management over REST is used

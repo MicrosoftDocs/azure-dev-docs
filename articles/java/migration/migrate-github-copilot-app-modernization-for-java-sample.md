@@ -6,9 +6,11 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: xiading
 ms.topic: overview
-ms.date: 09/23/2025
+ms.date: 01/13/2026
 ms.custom: devx-track-java
 ms.subservice: migration-copilot
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Asset Manager Java migration sample for GitHub Copilot app modernization

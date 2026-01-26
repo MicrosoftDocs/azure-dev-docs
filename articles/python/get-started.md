@@ -1,7 +1,7 @@
 ---
 title: Get started with Python on Azure
 description: A starting point with links to everything a Python developer needs to know about Azure.
-ms.date: 01/28/2025
+ms.date: 01/16/2026
 ms.topic: get-started
 ms.custom: devx-track-python, vscode-azure-extension-update-completed
 ---

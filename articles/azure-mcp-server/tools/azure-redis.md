@@ -29,13 +29,16 @@ Create a new Azure Managed Redis resource in Azure. Use this command to provisio
 
 Example prompts include:
 
-- **Create Redis cache**: "Create a Redis resource named 'my-cache' in location 'eastus'"
-- **Create Redis with SKU**: "Create a Redis resource named 'production-redis' in location 'westus2' with SKU 'Balanced_B1'"
-- **Create Redis with modules**: "Create a Redis resource named 'app-cache' in location 'centralus' with modules RedisJSON and RedisBloom"
+- "Create a new Redis instance named 'my-redis' in resource group 'rg-backend' located in 'eastus'"
+- "Set up a Redis cache called 'cache-prod' within resource group 'rg-production' at location 'westus2'"
+- "I need to create Redis resource 'fastcache' in 'rg-apps' resource group with location 'centralus'"
+- "Provision Redis named 'session-store' in resource group 'rg-sessions' located in 'northcentralus'"
+- "Please create Redis resource 'redis-main' in resource group 'rg-main' at 'eastus2' location"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource** |  Required | The name of the Redis resource (for example, `my-redis`). |
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **SKU** |  Optional | The SKU for the Redis resource. (Default: `Balanced_B0`). |
 | **Location** |  Required | The location for the Redis resource (for example `eastus`). |
 | **Access keys authentication** |  Optional | Whether to enable access keys for authentication for the Redis resource. (Default: `false`). |
@@ -51,11 +54,11 @@ Lists all Redis resources in a subscription. Returns details of all Azure Manage
 
 Example prompts include:
 
-- `List all Redis resources in my subscription`
-- `Show me my Redis caches`
-- `Show me the Redis resources in my subscription`
-- `Get Redis clusters`
-- `What Redis caches do I have?`
+- "Show me all Redis caches available in my Azure subscription"
+- "List every Redis instance I have under tenant 'contoso.com'"
+- "Get details for Redis cache 'redisCacheWestUS' in subscription 'ProductionSub'"
+- "Can you retrieve information about Redis instance 'sales-redis-cache'?"
+- "I want to see the Redis cache named 'inventory-redis' in my tenant 'contoso.com'"
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

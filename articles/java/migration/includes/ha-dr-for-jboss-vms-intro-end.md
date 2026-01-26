@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 11/28/2024
+ms.date: 01/13/2026
 ---
 
 Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the JBoss EAP cluster. After the primary region is protected by [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery), you can restore the secondary region during the failover. As a result, the primary region is actively servicing network requests from the users, while the secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption.
