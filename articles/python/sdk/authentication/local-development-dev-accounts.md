@@ -129,7 +129,7 @@ The [Azure Identity library](/python/api/azure-identity/azure.identity) provides
     from azure.identity import DefaultAzureCredential
     from azure.storage.blob import BlobServiceClient
 
-    credential = DefaultAzureCredential()
+    credential = DefaultAzureCredential(require_envvar=True)
 
     blob_service_client = BlobServiceClient(
         account_url="https://<account-name>.blob.core.windows.net",
