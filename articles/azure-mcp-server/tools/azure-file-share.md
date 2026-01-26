@@ -116,7 +116,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare create -->
 
-Create a new Azure managed file share resource in a resource group. This creates a high-performance, fully managed file share accessible via NFS protocol.
+Create a new Azure file share resource in a resource group. This creates a high-performance, fully managed file share accessible via NFS protocol.
 
 Example prompts include:
 
@@ -196,7 +196,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare update -->
 
-Update an existing Azure managed file share resource. Allows updating mutable properties like provisioned storage, IOPS, throughput, and network access settings.
+Update an existing Azure file share resource. Allows updating mutable properties like provisioned storage, IOPS, throughput, and network access settings.
 
 Example prompts include:
 
@@ -226,7 +226,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare snapshot create -->
 
-Create a snapshot of an Azure managed file share. Snapshots are read-only point-in-time copies used for backup and recovery.
+Create a snapshot of an Azure file share. Snapshots are read-only point-in-time copies used for backup and recovery.
 
 Example prompts include:
 
@@ -299,7 +299,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare snapshot update -->
 
-Update properties and metadata of an Azure managed file share snapshot, such as tags or retention policies.
+Update properties and metadata of an Azure file share snapshot, such as tags or retention policies.
 
 Example prompts include:
 
