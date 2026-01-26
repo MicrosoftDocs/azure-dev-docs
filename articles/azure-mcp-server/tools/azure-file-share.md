@@ -112,6 +112,7 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare check-name-availability](../includes/tools/annotations/azure-fileshares-fileshare-check-name-availability-annotations.md)]
 
+
 ## File Share: Create file share
 
 <!-- @mcpcli fileshares fileshare create -->
@@ -147,28 +148,6 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare create](../includes/tools/annotations/azure-fileshares-fileshare-create-annotations.md)]
 
-## File Share: Delete file share
-
-<!-- @mcpcli fileshares fileshare delete -->
-
-Delete a file share permanently. This operation cannot be undone.
-
-Example prompts include:
-
-- "Delete the file share named 'backup-share' in resource group 'rg-prod'"
-- "Remove the file share 'project-files' in resource group 'rg-marketing'"
-- "I want to delete the file share 'temp-data' in resource group 'rg-dev'"
-- "Can you delete the file share 'archive-old' in resource group 'rg-archive'?"
-- "Please remove the file share 'cleanup-share' from resource group 'rg-cleanup'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **Name** |  Required | The name of the file share. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [fileshares fileshare delete](../includes/tools/annotations/azure-fileshares-fileshare-delete-annotations.md)]
 
 ## File Share: Get file share
 
@@ -191,6 +170,7 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [fileshares fileshare get](../includes/tools/annotations/azure-fileshares-fileshare-get-annotations.md)]
+
 
 ## File Share: Update file share
 
@@ -222,6 +202,30 @@ Example prompts include:
 
 [!INCLUDE [fileshares fileshare update](../includes/tools/annotations/azure-fileshares-fileshare-update-annotations.md)]
 
+
+## File Share: Delete file share
+
+<!-- @mcpcli fileshares fileshare delete -->
+
+Delete a file share permanently. This operation cannot be undone.
+
+Example prompts include:
+
+- "Delete the file share named 'backup-share' in resource group 'rg-prod'"
+- "Remove the file share 'project-files' in resource group 'rg-marketing'"
+- "I want to delete the file share 'temp-data' in resource group 'rg-dev'"
+- "Can you delete the file share 'archive-old' in resource group 'rg-archive'?"
+- "Please remove the file share 'cleanup-share' from resource group 'rg-cleanup'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Name** |  Required | The name of the file share. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [fileshares fileshare delete](../includes/tools/annotations/azure-fileshares-fileshare-delete-annotations.md)]
+
 ## File Share Snapshot: Create snapshot
 
 <!-- @mcpcli fileshares fileshare snapshot create -->
@@ -246,30 +250,6 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [fileshares fileshare snapshot create](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-create-annotations.md)]
-
-## File Share Snapshot: Delete snapshot
-
-<!-- @mcpcli fileshares fileshare snapshot delete -->
-
-Delete a file share snapshot permanently. This operation cannot be undone.
-
-Example prompts include:
-
-- "Delete snapshot 'backup-snap-jan15' from file share 'datafiles' in resource group 'rg-prod'"
-- "Remove snapshot 'weekly-backup' from file share 'backupshare' in resource group 'rg-backup'"
-- "Delete snapshot 'snapshot2024-03-15' from file share 'reports' in resource group 'rg-analytics'"
-- "Please delete the snapshot 'dailybackup' from file share 'projectfiles' in resource group 'rg-dev'"
-- "Remove snapshot 'weeklysnap' from file share 'archive' in resource group 'rg-archive'"
-
-| Parameter |  Required or optional | Description |
-|-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
-| **File share name** |  Required | The name of the parent file share. |
-| **Snapshot name** |  Required | The name of the snapshot. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [fileshares fileshare snapshot delete](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-delete-annotations.md)]
 
 ## File Share Snapshot: Get snapshot
 
@@ -319,6 +299,32 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [fileshares fileshare snapshot update](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-update-annotations.md)]
+
+
+## File Share Snapshot: Delete snapshot
+
+<!-- @mcpcli fileshares fileshare snapshot delete -->
+
+Delete a file share snapshot permanently. This operation cannot be undone.
+
+Example prompts include:
+
+- "Delete snapshot 'backup-snap-jan15' from file share 'datafiles' in resource group 'rg-prod'"
+- "Remove snapshot 'weekly-backup' from file share 'backupshare' in resource group 'rg-backup'"
+- "Delete snapshot 'snapshot2024-03-15' from file share 'reports' in resource group 'rg-analytics'"
+- "Please delete the snapshot 'dailybackup' from file share 'projectfiles' in resource group 'rg-dev'"
+- "Remove snapshot 'weeklysnap' from file share 'archive' in resource group 'rg-archive'"
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **File share name** |  Required | The name of the parent file share. |
+| **Snapshot name** |  Required | The name of the snapshot. |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [fileshares fileshare snapshot delete](../includes/tools/annotations/azure-fileshares-fileshare-snapshot-delete-annotations.md)]
+
 
 ## Related content
 
