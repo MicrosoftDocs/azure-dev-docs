@@ -4,6 +4,8 @@ items:
   items:
     - name: Overview
       href: overview.md
+    - name: Concepts
+      href: concepts.md
     - name: Get started
       expanded: true
       items:
