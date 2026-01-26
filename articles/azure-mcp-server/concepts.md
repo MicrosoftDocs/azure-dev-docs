@@ -81,7 +81,7 @@ You can chain operations across multiple Azure services in a single conversation
 1. Query data from Cosmos DB
 1. Store results in Azure Storage
 
-Example prompts that chain operations:
+Example prompts that chain operations across services include:
 - "Get the database connection string from key vault 'my-vault', connect to the database, and list the collections"
 - "List all storage accounts in my subscription, then for each account show me the containers"
 - "Create a new storage container and upload the contents of my key vault secret to a blob"
