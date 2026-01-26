@@ -105,7 +105,7 @@ items:
         - name: Azure Event Hubs
           href: tools/azure-event-hubs.md
         - name: Azure File Shares
-          href: tools/azure-file-share.md
+          href: tools/azure-file-shares.md
         - name: Azure File Sync
           href: tools/azure-file-sync.md
         - name: Azure Functions
