@@ -64,7 +64,9 @@ sections:
         answer: |
           If you experience issues with device code authentication in Codespaces (for example, recurring 2FA requests or errors), try the following workaround using VS Code Desktop:
 
-          1. Open your Codespace in VS Code Desktop. (Click the bottom left corner of the Codespace in the browser and select **Open in VS Code Desktop**).
+          1. Open your Codespace in VS Code Desktop using one of these methods:
+            - Use the VS Code command palette (Ctrl+Shift+P on Windows or Cmd+Shift+P on MacOs) and select **Codespaces: Open in VS Code Desktop**.
+            - Click the bottom left corner of the Codespace in the browser and select **Open in VS Code Desktop**).
           2. In the VS Code Desktop terminal, run `azd auth login` and complete the browser-based authentication.
           3. Once authenticated, close VS Code Desktop and return to your Codespace in the browser. The authentication state should persist.
 
