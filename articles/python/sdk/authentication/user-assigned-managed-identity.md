@@ -109,7 +109,7 @@ Resource IDs can be built by convention, which makes them more convenient when w
     from azure.storage.blob import BlobServiceClient
 
     credential = ManagedIdentityCredential(
-        identity_config={"mi_res_id": "<resource-id>"}
+        identity_config={"resource_id": "<resource-id>"}
     )
 
     blob_service_client = BlobServiceClient(
