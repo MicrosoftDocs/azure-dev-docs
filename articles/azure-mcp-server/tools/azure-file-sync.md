@@ -1,18 +1,18 @@
 ---
-title: Azure Storage Sync Tools
-description: "Learn how to use Azure MCP Server with Azure Storage Sync tools for the Azure File Sync service to manage storage sync services, sync groups, and endpoints using natural language prompts."
-keywords: azure mcp server, azmcp, storage sync, sync group, cloud endpoint, server endpoint
+title: Azure File Sync Tools
+description: "Learn how to use Azure MCP Server with Azure File Sync tools to manage storage sync services, sync groups, cloud endpoints, and server endpoints using natural language prompts."
+keywords: azure mcp server, azmcp, file sync, storage sync, sync group, cloud endpoint, server endpoint
 author: diberry
 ms.author: diberry
 ms.date: 01/22/2026
 content_well_notification: 
   - AI-contribution
-ai-usage: ai-assisted
+ai-usage: ai-generated
 ms.topic: concept-article
 --- 
-# Azure Storage Sync Tools
+# Azure File Sync Tools
 
-Azure Storage Sync tools in Azure MCP Server help you manage Azure File Sync services through natural language prompts. You can manage Storage Sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints to synchronize files between on-premises servers and Azure File Shares. These tools simplify storage sync management and reduce configuration complexity.
+Azure File Sync tools in Azure MCP Server help you manage Azure File Sync services through natural language prompts. You can manage Storage Sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints to synchronize files between on-premises servers and Azure File Shares. These tools simplify storage sync management and reduce configuration complexity.
 
 [Azure File Sync](/azure/storage/file-sync) is a service that centralizes an organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of a Windows file server.
 
@@ -42,7 +42,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service create](../includes/tools/annotations/azure-storagesync-service-create-annotations.md)]
+[!INCLUDE [storagesync service create](../includes/tools/annotations/azure-file-sync-service-create-annotations.md)]
 
 ## Storage Sync service: Delete service
 
@@ -65,7 +65,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service delete](../includes/tools/annotations/azure-storagesync-service-delete-annotations.md)]
+[!INCLUDE [storagesync service delete](../includes/tools/annotations/azure-file-sync-service-delete-annotations.md)]
 
 ## Storage Sync service: Get service
 
@@ -88,7 +88,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service get](../includes/tools/annotations/azure-storagesync-service-get-annotations.md)]
+[!INCLUDE [storagesync service get](../includes/tools/annotations/azure-file-sync-service-get-annotations.md)]
 
 ## Storage Sync service: Update service
 
@@ -115,7 +115,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync service update](../includes/tools/annotations/azure-storagesync-service-update-annotations.md)]
+[!INCLUDE [storagesync service update](../includes/tools/annotations/azure-file-sync-service-update-annotations.md)]
 
 
 ## Registered server: Get registered server
@@ -141,7 +141,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync registeredserver get](../includes/tools/annotations/azure-storagesync-registeredserver-get-annotations.md)]
+[!INCLUDE [storagesync registeredserver get](../includes/tools/annotations/azure-file-sync-registeredserver-get-annotations.md)]
 
 ## Registered server: Unregister registered server
 
@@ -167,7 +167,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync registeredserver unregister](../includes/tools/annotations/azure-storagesync-registeredserver-unregister-annotations.md)]
+[!INCLUDE [storagesync registeredserver unregister](../includes/tools/annotations/azure-file-sync-registeredserver-unregister-annotations.md)]
 
 ## Registered server: Update registered server
 
@@ -191,7 +191,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync registeredserver update](../includes/tools/annotations/azure-storagesync-registeredserver-update-annotations.md)]
+[!INCLUDE [storagesync registeredserver update](../includes/tools/annotations/azure-file-sync-registeredserver-update-annotations.md)]
 
 ## Sync group: Create sync group
 
@@ -215,7 +215,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync syncgroup create](../includes/tools/annotations/azure-storagesync-syncgroup-create-annotations.md)]
+[!INCLUDE [storagesync syncgroup create](../includes/tools/annotations/azure-file-sync-syncgroup-create-annotations.md)]
 
 ## Sync group: Delete sync group
 
@@ -239,7 +239,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync syncgroup delete](../includes/tools/annotations/azure-storagesync-syncgroup-delete-annotations.md)]
+[!INCLUDE [storagesync syncgroup delete](../includes/tools/annotations/azure-file-sync-syncgroup-delete-annotations.md)]
 
 ## Sync group: Get sync group
 
@@ -263,7 +263,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync syncgroup get](../includes/tools/annotations/azure-storagesync-syncgroup-get-annotations.md)]
+[!INCLUDE [storagesync syncgroup get](../includes/tools/annotations/azure-file-sync-syncgroup-get-annotations.md)]
 
 
 
@@ -295,7 +295,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint create](./../includes/tools/annotations/azure-storagesync-cloudendpoint-create-annotations.md)]
+[!INCLUDE [storagesync cloudendpoint create](./../includes/tools/annotations/azure-file-sync-cloudendpoint-create-annotations.md)]
 
 ## Cloud endpoint: Delete cloud endpoint
 
@@ -322,7 +322,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint delete](../includes/tools/annotations/azure-storagesync-cloudendpoint-delete-annotations.md)]
+[!INCLUDE [storagesync cloudendpoint delete](../includes/tools/annotations/azure-file-sync-cloudendpoint-delete-annotations.md)]
 
 ## Cloud endpoint: Get cloud endpoint
 
@@ -348,7 +348,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint get](../includes/tools/annotations/azure-storagesync-cloudendpoint-get-annotations.md)]
+[!INCLUDE [storagesync cloudendpoint get](../includes/tools/annotations/azure-file-sync-cloudendpoint-get-annotations.md)]
 
 ## Cloud endpoint: Trigger change detection
 
@@ -376,7 +376,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync cloudendpoint changedetection](../includes/tools/annotations/azure-storagesync-cloudendpoint-changedetection-annotations.md)]
+[!INCLUDE [storagesync cloudendpoint changedetection](../includes/tools/annotations/azure-file-sync-cloudendpoint-changedetection-annotations.md)]
 
 
 ## Server endpoint: Create server endpoint
@@ -410,7 +410,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint create](../includes/tools/annotations/azure-storagesync-serverendpoint-create-annotations.md)]
+[!INCLUDE [storagesync serverendpoint create](../includes/tools/annotations/azure-file-sync-serverendpoint-create-annotations.md)]
 
 ## Server endpoint: Delete server endpoint
 
@@ -437,7 +437,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint delete](../includes/tools/annotations/azure-storagesync-serverendpoint-delete-annotations.md)]
+[!INCLUDE [storagesync serverendpoint delete](../includes/tools/annotations/azure-file-sync-serverendpoint-delete-annotations.md)]
 
 ## Server endpoint: Get server endpoint
 
@@ -463,7 +463,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint get](../includes/tools/annotations/azure-storagesync-serverendpoint-get-annotations.md)]
+[!INCLUDE [storagesync serverendpoint get](../includes/tools/annotations/azure-file-sync-serverendpoint-get-annotations.md)]
 
 ## Server endpoint: Update server endpoint
 
@@ -493,7 +493,7 @@ Example prompts include:
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [storagesync serverendpoint update](../includes/tools/annotations/azure-storagesync-serverendpoint-update-annotations.md)]
+[!INCLUDE [storagesync serverendpoint update](../includes/tools/annotations/azure-file-sync-serverendpoint-update-annotations.md)]
 
 
 ## Related content
