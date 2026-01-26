@@ -104,6 +104,8 @@ items:
           href: tools/azure-event-grid.md
         - name: Azure Event Hubs
           href: tools/azure-event-hubs.md
+        - name: Azure File Sync
+          href: tools/azure-file-sync.md
         - name: Azure Functions
           href: tools/azure-functions.md
         - name: Azure Key Vault
@@ -144,8 +146,6 @@ items:
           href: tools/azure-sql.md
         - name: Azure Storage
           href: tools/azure-storage.md
-        - name: Azure Storage Sync
-          href: tools/azure-storage-sync.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
         - name: Resource Group
