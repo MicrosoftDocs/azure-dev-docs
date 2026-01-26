@@ -26,7 +26,7 @@ The sections ahead describe the steps to enable and use a user-assigned managed 
 The [Azure Identity library](/python/api/azure-identity) provides various *credentials*&mdash;implementations of `TokenCredential` adapted to supporting different scenarios and Microsoft Entra authentication flows. Since managed identity is unavailable when running locally, the steps ahead demonstrate which credential to use in which scenario:
 
 - **Local dev environment**: During **local development only**, use a class called [DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains#defaultazurecredential-overview) for an opinionated, preconfigured chain of credentials. `DefaultAzureCredential` discovers user credentials from your local tooling or IDE, such as the Azure CLI or Visual Studio Code. It also provides flexibility and convenience for retries, wait times for responses, and support for multiple authentication options. Visit the [Authenticate to Azure services during local development](local-development-dev-accounts.md) article to learn more.
-- **Azure-hosted apps**: When your app is running in Azure, use `ManagedIdentityCredential` to safely discover the managed identity configured for your app. Specifying this exact type of credential prevents other available credentials from being picked up unexpectedly.
+- **Azure-hosted apps**: When your app is running in Azure, use [ManagedIdentityCredential](/python/api/azure-identity/azure.identity.managedidentitycredential?view=azure-python&preserve-view=true) to safely discover the managed identity configured for your app. Specifying this exact type of credential prevents other available credentials from being picked up unexpectedly.
 
 ### Implement the code
 
