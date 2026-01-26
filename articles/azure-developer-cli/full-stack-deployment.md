@@ -85,6 +85,13 @@ Deploy-time configuration means that service connections and configurations are 
 
 **Container upsert pattern**: Azure Verified Modules (AVM) provide container app patterns like `container-app-upsert` that work seamlessly with `azd`'s two-phase workflow. During provisioning, the infrastructure and initial container are created. During deployment, `azd` upserts the container image with updated environment variables that include values generated during provisioning, such as database connection strings or service URLs. This pattern resolves the chicken-and-egg problem by allowing the infrastructure to exist first, then updating the container configuration with all required dependency information.
 
+**Example workflow for a React front-end with a container API back-end**:
+
+1. Run `azd up`, which executes package, provision, and deploy phases sequentially.
+1. During provisioning, Bicep creates Azure Container Apps infrastructure using AVM `container-app-upsert` modules and outputs the back-end API URL.
+1. During deployment, `azd` automatically upserts both containers with the correct environment variables, including the API URL for the front-end.
+1. Both services start with the correct configuration. Future runs of `azd up` or `azd deploy` update the containers with any new configuration values.
+
 ### Runtime configuration
 
 Runtime configuration enables applications to load configuration when the application runs instead of during deployment. This approach provides flexibility to update service endpoints, connection strings, and policies without redeploying your application.
@@ -100,6 +107,13 @@ Runtime configuration enables applications to load configuration when the applic
 - Front-end applications that need to discover back-end API URLs, authentication endpoints, and microservice locations
 - Back-end services that need to update CORS policies as front-end URLs change
 - Services that need different configuration across development, staging, and production environments
+
+**Example workflow for a React front-end discovering a back-end API**:
+
+1. Run `azd up` to provision infrastructure and deploy both services.
+1. A post-deploy hook generates a `config.json` file containing the back-end URL and uploads it to the front-end's storage location.
+1. The React app fetches `config.json` at startup to discover the API endpoint.
+1. To update the endpoint later, modify `config.json` without redeploying the front-end.
 
 This approach doesn't work for statically generated sites where all content is pre-rendered at build time.
 
