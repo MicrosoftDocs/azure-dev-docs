@@ -63,19 +63,19 @@ Full-stack deployments often encounter circular dependency challenges where each
 
 **Environment-specific configuration**: Different environments (development, staging, production) require different endpoint URLs and configurations, but these values aren't known until provisioning completes.
 
-## Understand configuration resolution strategies
+## Understand configuration strategies
 
 Azure Developer CLI handles these interdependencies through two approaches: 
-- Resolve immediate dependencies configuration during provisioning and deployment
-- Defer dependency configuration to runtime 
+- Deploy-time configuration: Resolve dependencies during provisioning and deployment
+- Runtime configuration: Defer dependency configuration to when the application runs 
 
 These approaches represent design decisions you make when building your application. You can use one strategy exclusively or combine both depending on your architecture and requirements.
 
-:::image type="content" source="./media/full-stack-deployment/full-stack-dependency-resolution.png" alt-text="Diagram comparing immediate versus deferred dependency resolution strategies for full-stack deployments." :::
+:::image type="content" source="./media/full-stack-deployment/full-stack-dependency-resolution.png" alt-text="Diagram comparing deploy-time versus runtime configuration strategies for full-stack deployments." :::
 
-### Immediate dependency resolution
+### Deploy-time configuration
 
-Immediate dependency resolution means that service connections and configurations are determined and locked in during the `azd provision` and `azd deploy` phases. By using this approach, you configure services with specific endpoint URLs, connection strings, and other dependency information before they start running. This configuration becomes part of the deployed service's environment, either as environment variables or in configuration files packaged with the deployment.
+Deploy-time configuration means that service connections and configurations are determined and locked in during the `azd provision` and `azd deploy` phases. By using this approach, you configure services with specific endpoint URLs, connection strings, and other dependency information before they start running. This configuration becomes part of the deployed service's environment, either as environment variables or in configuration files packaged with the deployment.
 
 **Infrastructure-first provisioning**: When you run `azd up` or `azd provision`, the infrastructure is created first. This step generates the necessary URLs and connection strings before deployment begins, ensuring dependent services have the information they need.
 
@@ -85,9 +85,9 @@ Immediate dependency resolution means that service connections and configuration
 
 **Container upsert pattern**: Azure Verified Modules (AVM) provide container app patterns like `container-app-upsert` that work seamlessly with `azd`'s two-phase workflow. During provisioning, the infrastructure and initial container are created. During deployment, `azd` upserts the container image with updated environment variables that include values generated during provisioning, such as database connection strings or service URLs. This pattern resolves the chicken-and-egg problem by allowing the infrastructure to exist first, then updating the container configuration with all required dependency information.
 
-### Deferred dependency resolution
+### Runtime configuration
 
-Deferred dependency resolution enables applications to load configuration at runtime instead of during deployment. This approach provides flexibility to update service endpoints, connection strings, and policies without redeploying your application.
+Runtime configuration enables applications to load configuration when the application runs instead of during deployment. This approach provides flexibility to update service endpoints, connection strings, and policies without redeploying your application.
 
 **Configuration sources**: Applications can load runtime configuration from two primary sources:
 
@@ -107,7 +107,7 @@ This approach doesn't work for statically generated sites where all content is p
 
 Consider these factors when designing your full-stack deployment:
 
-1. **Identify dependencies**: Map out which services need information from other services. For one-directional dependencies (such as an API depending on a database), the provisioning platform (Bicep or Terraform) handles the ordering automatically. For circular dependencies (such as front-end and back-end services that both need each other's URLs at startup), you must design coordination using immediate or deferred dependency resolution strategies.
+1. **Identify dependencies**: Map out which services need information from other services. For one-directional dependencies (such as an API depending on a database), the provisioning platform (Bicep or Terraform) handles the ordering automatically. For circular dependencies (such as front-end and back-end services that both need each other's URLs at startup), you must design coordination using deploy-time or runtime configuration strategies.
 1. **Provision before deploy**: Ensure all infrastructure exists before deploying application code. 
 1. **Use environment variables**: Pass configuration between infrastructure and application layers by using [azd environment variables](./manage-environment-variables.md).
 1. **Design for multiple environments**: Plan how configuration differs across development, staging, and production environments.
@@ -143,12 +143,12 @@ Consider these factors when designing your full-stack deployment:
 
 When building full-stack applications with `azd`, follow these best practices:
 
-1. **Map dependencies early**: Identify which services need information from other services during your design phase. Distinguish between one-directional dependencies that Bicep or Terraform handles automatically and circular dependencies that require immediate or deferred resolution strategies.
-1. **Choose the right resolution strategy**: Use immediate dependency resolution when services need configuration at deployment time. Use deferred dependency resolution when you need flexibility to update configuration without redeployment. Combine both strategies when appropriate.
+1. **Map dependencies early**: Identify which services need information from other services during your design phase. Distinguish between one-directional dependencies that Bicep or Terraform handles automatically and circular dependencies that require deploy-time or runtime configuration strategies.
+1. **Choose the right configuration strategy**: Use deploy-time configuration when services need configuration locked in at deployment. Use runtime configuration when you need flexibility to update configuration without redeployment. Combine both strategies when appropriate.
 1. **Use Azure Verified Modules (AVM)**: Leverage [Azure Verified Modules](/azure/azure-resource-manager/bicep/modules#azure-verified-modules) Bicep modules like [`container-app-upsert`](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/azd/container-app-upsert) for container apps. These patterns work seamlessly with `azd`'s two-phase workflow to resolve circular dependencies.
 1. **Customize workflows when needed**: For simple deployments, use [`azd up`](./azd-commands.md) with default settings. For complex scenarios with circular dependencies, customize the `workflows` property in your [`azure.yaml`](./azd-schema.md) file to control the order of package, provision, and deploy steps.
 1. **Leverage runtime configuration**: For maximum flexibility across environments, use Azure App Configuration or local configuration files to manage service endpoints and settings that you can update without redeployment.
-1. **Test across environments**: Ensure your dependency resolution strategy works correctly across development, staging, and production environments where service URLs and configurations differ.
+1. **Test across environments**: Ensure your configuration strategy works correctly across development, staging, and production environments where service URLs and configurations differ.
 
 ## Next steps
 
