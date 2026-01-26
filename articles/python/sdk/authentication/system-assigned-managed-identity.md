@@ -30,25 +30,11 @@ The [Azure Identity library](/python/api/azure-identity) provides various *crede
 
 ### Implement the code
 
-Add the [azure-identity](https://pypi.org/project/azure-identity/) package to your application:
-
-### [terminal](#tab/command-line)
-
-In a terminal of your choice, navigate to the application project directory and run the following command:
+Add the [azure-identity](https://pypi.org/project/azure-identity/) package to your application, navigate to the application project directory and run the following command:
 
 ```terminal
 pip install azure-identity
 ```
-
-### [requirements.txt](#tab/requirements-txt)
-
-Add the following line to your `requirements.txt` file:
-
-```plaintext
-azure-identity
-```
-
----
 
 Azure services are accessed using specialized client classes from the various Azure SDK client libraries. The following code example demonstrates how to create a credential instance and use it with an Azure SDK service client. In your application code, complete the following steps to authenticate using a managed identity:
 
