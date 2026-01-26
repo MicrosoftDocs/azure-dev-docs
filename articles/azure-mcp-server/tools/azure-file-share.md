@@ -97,11 +97,11 @@ Check if a file share name is available in a specific location.
 
 Example prompts include:
 
-- "Can you check if the fileshare name 'projectdata' is available in location 'eastus'?"
-- "I want to see if 'salesbackup' is an available fileshare name in 'westeurope'"
-- "Check the availability of the fileshare name 'teamfiles' in location 'EastUS'"
-- "Is the name 'archive2024' free for a new fileshare in 'WestUS'?"
-- "Verify whether 'clientdocs' can be used as a fileshare name in location 'centralus'"
+- "Can you check if the file share name 'projectdata' is available in location 'eastus'?"
+- "I want to see if 'salesbackup' is an available file share name in 'westeurope'"
+- "Check the availability of the file share name 'teamfiles' in location 'EastUS'"
+- "Is the name 'archive2024' free for a new file share in 'WestUS'?"
+- "Verify whether 'clientdocs' can be used as a file share name in location 'centralus'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -120,11 +120,11 @@ Create a new Azure file share resource in a resource group. This creates a high-
 
 Example prompts include:
 
-- "Create a new fileshare named 'project-data' in resource group 'rg-prod' at location 'eastus'"
-- "I need to create a fileshare called 'backupshare' in resource group 'rg-backup' at location 'westeurope'"
-- "Set up a fileshare 'userdocs' in resource group 'rg-dev' at location 'centralus'"
-- "Create the fileshare 'archive2024' in resource group 'rg-archive' at location 'eastus2'"
-- "Generate a fileshare named 'mediafiles' in resource group 'rg-media' at location 'westus'"
+- "Create a new file share named 'project-data' in resource group 'rg-prod' at location 'eastus'"
+- "I need to create a file share called 'backupshare' in resource group 'rg-backup' at location 'westeurope'"
+- "Set up a file share 'userdocs' in resource group 'rg-dev' at location 'centralus'"
+- "Create the file share 'archive2024' in resource group 'rg-archive' at location 'eastus2'"
+- "Generate a file share named 'mediafiles' in resource group 'rg-media' at location 'westus'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -155,11 +155,11 @@ Delete a file share permanently. This operation cannot be undone.
 
 Example prompts include:
 
-- "Delete the fileshare named 'backup-share' in resource group 'rg-prod'"
-- "Remove the fileshare 'project-files' in resource group 'rg-marketing'"
-- "I want to delete the fileshare 'temp-data' in resource group 'rg-dev'"
-- "Can you delete the fileshare 'archive-old' in resource group 'rg-archive'?"
-- "Please remove the fileshare 'cleanup-share' from resource group 'rg-cleanup'"
+- "Delete the file share named 'backup-share' in resource group 'rg-prod'"
+- "Remove the file share 'project-files' in resource group 'rg-marketing'"
+- "I want to delete the file share 'temp-data' in resource group 'rg-dev'"
+- "Can you delete the file share 'archive-old' in resource group 'rg-archive'?"
+- "Please remove the file share 'cleanup-share' from resource group 'rg-cleanup'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -200,11 +200,11 @@ Update an existing Azure file share resource. Allows updating mutable properties
 
 Example prompts include:
 
-- "Update the fileshare named 'projectdocs' in storage account 'storageacct01' to modify its quota"
-- "Make changes to the fileshare 'shareddata' within storage account 'filescanstorage' by updating access tiers"
-- "Apply new settings to all fileshares in storage account 'datahubstorage' at once"
-- "Change configuration settings for every fileshare in storage account 'prodstorageacct'"
-- "I need to update the fileshare 'reports2024' on storage account 'corpfilesstorage'"
+- "Update the file share named 'projectdocs' in storage account 'storageacct01' to modify its quota"
+- "Make changes to the file share 'shareddata' within storage account 'filescanstorage' by updating access tiers"
+- "Apply new settings to all file shares in storage account 'datahubstorage' at once"
+- "Change configuration settings for every file share in storage account 'prodstorageacct'"
+- "I need to update the file share 'reports2024' on storage account 'corpfilesstorage'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -230,11 +230,11 @@ Create a snapshot of an Azure file share. Snapshots are read-only point-in-time 
 
 Example prompts include:
 
-- "Create a snapshot named 'backup-snap-jan23' for fileshare 'backups' in resource group 'rg-data-prod'"
-- "I want to create a snapshot called 'project-snapshot' for the fileshare 'projectfiles' in resource group 'rg-marketing'"
-- "Generate a snapshot named 'weekly-backup' for fileshare 'companyshare' in resource group 'rg-finance'"
-- "Please create a snapshot called 'reports-snapshot' on the fileshare 'reports' in resource group 'rg-analytics'"
-- "Initiate snapshot creation named 'dev-snapshot-01' for fileshare 'devfiles' in resource group 'rg-development'"
+- "Create a snapshot named 'backup-snap-jan23' for file share 'backups' in resource group 'rg-data-prod'"
+- "I want to create a snapshot called 'project-snapshot' for the file share 'projectfiles' in resource group 'rg-marketing'"
+- "Generate a snapshot named 'weekly-backup' for file share 'companyshare' in resource group 'rg-finance'"
+- "Please create a snapshot called 'reports-snapshot' on the file share 'reports' in resource group 'rg-analytics'"
+- "Initiate snapshot creation named 'dev-snapshot-01' for file share 'devfiles' in resource group 'rg-development'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -255,11 +255,11 @@ Delete a file share snapshot permanently. This operation cannot be undone.
 
 Example prompts include:
 
-- "Delete snapshot 'backup-snap-jan15' from fileshare 'datafiles' in resource group 'rg-prod'"
-- "Remove snapshot 'weekly-backup' from fileshare 'backupshare' in resource group 'rg-backup'"
-- "Delete snapshot 'snapshot2024-03-15' from fileshare 'reports' in resource group 'rg-analytics'"
-- "Please delete the snapshot 'dailybackup' from fileshare 'projectfiles' in resource group 'rg-dev'"
-- "Remove snapshot 'weeklysnap' from fileshare 'archive' in resource group 'rg-archive'"
+- "Delete snapshot 'backup-snap-jan15' from file share 'datafiles' in resource group 'rg-prod'"
+- "Remove snapshot 'weekly-backup' from file share 'backupshare' in resource group 'rg-backup'"
+- "Delete snapshot 'snapshot2024-03-15' from file share 'reports' in resource group 'rg-analytics'"
+- "Please delete the snapshot 'dailybackup' from file share 'projectfiles' in resource group 'rg-dev'"
+- "Remove snapshot 'weeklysnap' from file share 'archive' in resource group 'rg-archive'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -303,11 +303,11 @@ Update properties and metadata of an Azure file share snapshot, such as tags or 
 
 Example prompts include:
 
-- "Update the snapshot 'backup-snap-jan23' for fileshare 'backupshare' in resource group 'rg-backup'"
-- "Apply updates to snapshot 'data-snapshot' on fileshare 'datafiles' in resource group 'rg-data'"
-- "Can you update snapshot 'snapshot2024' for fileshare 'reports' in resource group 'rg-analytics'"
-- "Please update the snapshot named 'endofmonth' on fileshare 'finance-data' in resource group 'rg-finance'"
-- "Modify the properties of snapshot 'weeklybackup' for fileshare 'devfileshare' in resource group 'rg-dev'"
+- "Update the snapshot 'backup-snap-jan23' for file share 'backupshare' in resource group 'rg-backup'"
+- "Apply updates to snapshot 'data-snapshot' on file share 'datafiles' in resource group 'rg-data'"
+- "Can you update snapshot 'snapshot2024' for file share 'reports' in resource group 'rg-analytics'"
+- "Please update the snapshot named 'endofmonth' on file share 'finance-data' in resource group 'rg-finance'"
+- "Modify the properties of snapshot 'weeklybackup' for file share 'devfileshare' in resource group 'rg-dev'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
