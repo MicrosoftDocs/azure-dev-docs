@@ -74,7 +74,7 @@ The `all` mode exposes 800+ individual tools separately. This mode is useful whe
 
 ### Chaining operations across services
 
-You can chain operations across multiple Azure services in a single conversation. For example:
+You can chain operations across multiple Azure services in a single conversation. For example, you can:
 
 1. Query Azure Key Vault for database credentials
 1. Use those credentials to connect to Azure Cosmos DB
