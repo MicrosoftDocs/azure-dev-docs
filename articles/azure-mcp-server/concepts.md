@@ -57,6 +57,8 @@ Consolidated mode groups related operations into curated tools optimized for AI 
 
 Consolidated tools are named after user intents, for example `get_azure_databases_details`, making them more intuitive for natural language interactions.
 
+For a complete list of available server modes and their configurations, see the [troubleshooting guide](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/TROUBLESHOOTING.md#vs-code-only-shows-a-subset-of-tools-available).
+
 #### All mode
 
 The `all` mode exposes 800+ individual tools separately. This mode is useful when you need granular control but can exceed tool limits in some clients.
