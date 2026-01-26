@@ -70,7 +70,6 @@ sections:
           2. In the VS Code Desktop terminal, run `azd auth login` and complete the browser-based authentication.
           3. Once authenticated, close VS Code Desktop and return to your Codespace in the browser. The authentication state should persist.
 
-      
       - question: How is the azure.yaml file used?
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
