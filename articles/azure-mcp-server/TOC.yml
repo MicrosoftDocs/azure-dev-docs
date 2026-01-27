@@ -33,6 +33,8 @@ items:
             href: get-started/languages/python.md
           - name: .NET
             href: get-started/languages/dotnet.md
+    - name: Concepts
+      href: concepts.md
     - name: How to
       expanded: true
       items:
