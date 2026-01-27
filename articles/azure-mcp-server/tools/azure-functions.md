@@ -22,20 +22,19 @@ The Azure MCP Server enables you to manage Azure resources, including function a
 
 <!-- functionapp get -->
 
-Get the Azure function app details.
-
+Get details for a specific function app or list all function apps in your subscription. Returns information including name, location, status, and app service plan.
 
 Example prompts include:
 
-- **Get function app details**: "Get details for my function app 'my-function-app' in resource group 'my-resource-group'."
-- **Get specific function app**: "Show me the function app 'my-function-app' in resource group 'my-resource-group'."
-- **Get function app settings**: "Show the settings for function app 'my-function-app' in resource group 'my-resource-group'."
-- **Get function app status**: "Get the current status of function app 'my-function-app' in resource group 'my-resource-group'."
-- **Get function app hostnames**: "List the hostnames for function app 'my-function-app' in resource group 'my-resource-group'."
+- "List all Function Apps in my subscription"
+- "Show me all Function Apps in resource group 'rg-production'"
+- "Retrieve details for the Function App named 'HealthMonitor' in resource group 'rg-production'"
+- "Can you get the configuration of Function App 'DataProcessor' within resource group 'rg-analytics'?"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Function app** |  Required | The name of the function app. |
+| **Function app** |  Optional | The name of the function app. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 

@@ -4,7 +4,7 @@ description: This guide describes the features, issues, workarounds, and diagnos
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/19/2025
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

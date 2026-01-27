@@ -2,7 +2,7 @@
 title: Getting started materials for miscellaneous Azure services for Python apps
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
 ms.date: 06/11/2025
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

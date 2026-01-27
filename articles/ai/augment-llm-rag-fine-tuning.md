@@ -2,7 +2,7 @@
 title: Augment LLMs with RAGs or Fine-Tuning
 description: Get a conceptual introduction to creating retrieval-augmented generation (RAG)-based chat systems, with an emphasis on integration, optimization, and ethical considerations for delivering contextually relevant responses.
 ms.date: 07/31/2025
-ms.topic: article
+ms.topic: concept-article
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
 ms.subservice: intelligent-apps

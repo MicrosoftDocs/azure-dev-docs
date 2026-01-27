@@ -1908,6 +1908,10 @@
       "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-cli"
     },
     {
+      "source_path": "articles/azure-mcp-server/tools/azure-storage-sync.md",
+      "redirect_url": "/azure/developer/azure-mcp-server/tools/azure-file-sync"
+    },
+    {
       "source_path": "articles/github-copilot-azure/quickstart-build-deploy-applications.md",
       "redirect_url": "/azure/developer/github-copilot-azure/quickstart-deploy-app-agent-mode"
     },
@@ -1943,6 +1947,11 @@
     {
       "source_path": "articles/chef/windows-vm-configure.md",
       "redirect_url": "https://docs.chef.io/azure_chef_cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/python/sdk/authentication/azure-hosted-apps.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication/system-assigned-managed-identity",
       "redirect_document_id": false
     }
   ]
