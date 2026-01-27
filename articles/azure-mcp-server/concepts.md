@@ -61,7 +61,7 @@ For a complete list of available server modes and their configurations, see the 
 
 #### All mode
 
-The `all` mode exposes 800+ individual tools separately. This mode is useful when you need granular control but can exceed tool limits in some clients.
+The `all` mode exposes 200+ individual tools separately. This mode is useful when you need granular control but can exceed tool limits in some clients.
 
 ```json
 {
