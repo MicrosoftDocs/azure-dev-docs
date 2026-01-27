@@ -114,7 +114,7 @@ When using Azure MCP Server with Azure Key Vault:
 
 - **Specify resource group**: Always include the resource group name when querying key vaults to avoid ambiguity in subscriptions with many resources.
 - **Verify before changes**: Use read queries to understand current vault configuration before making access policy changes or updates.
-- **Review access policies**: Leverage conversational queries to examine access policies and ensure only authorized identities have appropriate permissions.
+- **Review access policies**: Leverage conversational queries to examine access policies and ensure only authorized identities have appropriate permissions. People with the correct access levels can retrieve secrets and keys securely through the MCP Server.
 - **Check certificate expiration**: Ask about certificate properties regularly to identify expiring certificates before they cause issues.
 - **Audit configurations**: Use the conversation history to document vault configurations for compliance and security audits.
 - **Compare environments**: Compare key vault settings across development, staging, and production environments to ensure configuration consistency.
