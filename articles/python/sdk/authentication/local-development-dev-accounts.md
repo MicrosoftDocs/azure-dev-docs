@@ -123,7 +123,7 @@ The [Azure Identity library](/python/api/azure-identity/azure.identity) provides
 
 3. Pass a `TokenCredential` instance to the Azure SDK client object constructor. Common `TokenCredential` examples include:
 
-    **DefaultAzureCredential instance** optimized for local development. For more information, see [Customize the DefaultAzureCredential chain](credential-chains.md#customize-the-defaultazurecredential-chain).
+    **DefaultAzureCredential instance** optimized for local development. For more information, see [Exclude a credential type category](credential-chains.md#exclude-a-credential-type-category).
 
     ```python
     from azure.identity import DefaultAzureCredential
