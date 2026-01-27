@@ -1,20 +1,21 @@
 ---
 title: Azure Storage Tools 
-description: "Learn how to use Azure MCP Server with Azure Storage tools to manage storage accounts, containers, and blobs using natural language prompts."
-keywords: azure mcp server, azmcp, storage account, blob storage
+description: "Learn how to use Azure MCP Server with Azure Storage tools to manage storage accounts, containers, blobs, and tables using natural language prompts."
+keywords: azure mcp server, azmcp, storage account, blob storage, table storage
 author: diberry
 ms.author: diberry
-ms.date: 12/11/2025
+ms.date: 01/27/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ms.topic: concept-article
 ms.custom: build-2025
+reviewers: alzimmermsft, jongio, xiangyan99
 --- 
 
 # Azure Storage tools for the Azure MCP Server overview
 
-The Azure MCP Server lets you manage Azure Storage resources, including storage accounts, containers, tables, and blobs with natural language prompts.
+The Azure MCP Server lets you manage Azure Storage resources, including storage accounts, containers, blobs, and tables with natural language prompts.
 
 [Azure Storage](/azure/storage/common/storage-introduction) is Microsoft's cloud storage solution for modern data storage scenarios.
 
@@ -174,6 +175,31 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [storage blob upload](../includes/tools/annotations/azure-storage-blob-upload-annotations.md)]
+
+## Table: List
+
+<!-- storage table list -->
+
+List all tables in an Azure Storage account.
+
+Example prompts include:
+
+- "Show me all tables in storage account 'dataarchives' within resource group 'rg-analytics-prod'"
+- "List every table in storage account 'storagesample01' from resource group 'rg-devops-test'"
+- "Get details for table 'UserLogs' in storage account 'appstorage01' under resource group 'rg-appservices'"
+- "I need to see the table named 'InventoryRecords' in storage account 'warehouseacct' within resource group 'rg-supplychain'"
+- "Can you provide the tables inside storage account 'mystorageaccount' for resource group 'rg-marketing'"
+
+
+| Parameter |  Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Storage account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+
+[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
+
+[!INCLUDE [storage table list](../includes/tools/annotations/azure-storage-table-list-annotations.md)]
+
+---
 
 ## Related content
 
