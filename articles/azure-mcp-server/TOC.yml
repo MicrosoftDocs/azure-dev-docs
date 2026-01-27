@@ -4,8 +4,6 @@ items:
   items:
     - name: Overview
       href: overview.md
-    - name: Concepts
-      href: concepts.md
     - name: Get started
       expanded: true
       items:
@@ -44,6 +42,8 @@ items:
           href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
         - name: Deploy a self-hosted Azure MCP Server (Copilot Studio)
           href: how-to/deploy-remote-mcp-server-copilot-studio.md
+    - name: Concepts
+      href: concepts.md
     - name: Use with Azure services
       expanded: true
       items:
