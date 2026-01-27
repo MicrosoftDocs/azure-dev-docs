@@ -121,14 +121,6 @@ For systems without a default web browser, the `Connect-AzAccount` command uses 
 Connect-AzAccount -UseDeviceAuthentication
 ```
 
-### [Interactive browser](#tab/sign-in-interactive-browser)
-
-Interactive authentication is disabled in the `DefaultAzureCredential` by default and can be enabled with a keyword argument:
-
-```Python
-DefaultAzureCredential(exclude_interactive_browser_credential=False)
-```
-
 ---
 
 ## Authenticate to Azure services from your app
