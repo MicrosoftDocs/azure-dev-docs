@@ -33,6 +33,8 @@ items:
             href: get-started/languages/python.md
           - name: .NET
             href: get-started/languages/dotnet.md
+    - name: Concepts
+      href: concepts.md
     - name: How to
       expanded: true
       items:
@@ -42,8 +44,6 @@ items:
           href: how-to/deploy-remote-mcp-server-microsoft-foundry.md
         - name: Deploy a self-hosted Azure MCP Server (Copilot Studio)
           href: how-to/deploy-remote-mcp-server-copilot-studio.md
-    - name: Concepts
-      href: concepts.md
     - name: Use with Azure services
       expanded: true
       items:
