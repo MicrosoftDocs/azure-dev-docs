@@ -153,7 +153,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare get -->
 
-Get details of a specific file share or list all file shares. If name is provided, returns a specific file share; otherwise, lists all file shares in the subscription or resource group.
+Get details of a specific file share or list all file shares. If name is provided, return a specific file share; otherwise, lists all file shares in the subscription or resource group.
 
 Example prompts include:
 
@@ -207,7 +207,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare delete -->
 
-Delete a file share permanently. This operation cannot be undone.
+Delete a file share permanently. This operation can't be undone.
 
 Example prompts include:
 
@@ -255,7 +255,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare snapshot get -->
 
-Get details of a specific file share snapshot or list all snapshots. If the `snapshot name is provided, returns a specific snapshot; otherwise, lists all snapshots for the file share.
+Get details of a specific file share snapshot or list all snapshots. If the `snapshot name is provided, return a specific snapshot; otherwise, lists all snapshots for the file share.
 
 Example prompts include:
 
@@ -305,7 +305,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare snapshot delete -->
 
-Delete a file share snapshot permanently. This operation cannot be undone.
+Delete a file share snapshot permanently. This operation can't be undone.
 
 Example prompts include:
 
