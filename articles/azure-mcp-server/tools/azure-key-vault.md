@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 01/16/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -25,15 +25,16 @@ The Azure MCP Server lets you manage Azure Key Vault resources, including keys, 
 
 Retrieves all Key Vault Managed HSM account settings for a given vault. This includes settings such as purge protection and soft-delete retention days. This tool ONLY applies to Managed HSM vaults.
 
+Example prompts include:
+
+- **Get account settings**:
+  - "Get the account settings for my managed HSM 'myhsm'"
+  - "Show me the account settings for managed HSM 'contoso-hsm'"
+- **Query a specific setting**: "What's the value of the 'purgeProtection' setting in my managed HSM with name 'myhsm'"
+
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Vault** |  Required | The name of the Key Vault. |
-
-Example prompts include:
-
-- **Get account settings**: "Get the account settings for my key vault 'mykeyvault'"
-- **Show managed HSM settings**: "Show me the account settings for managed HSM keyvault 'contoso-hsm'"
-- **Query specific setting**: "What's the value of the 'purgeProtection' setting in my key vault with name 'mykeyvault'"
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -47,17 +48,17 @@ The Azure MCP Server can create a new key in an Azure Key Vault. This operation 
 
 Example prompts include:
 
-- **Create RSA key**: "Create a new RSA key named 'app-encryption-key' in my 'mykeyvault' Key Vault."
-- **Generate EC key**: "Generate a new EC key called 'signing-key' in Key Vault 'security-kv'"
-- **Add encryption key**: "Add a new 2048-bit RSA key named 'data-key' to my Key Vault"
-- **Set up signing key**: "Create an EC key for JWT signing in my Key Vault"
-- **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my 'api-vault'"
+- **Create RSA key**: "Create a new RSA key named 'app-encryption-key' in my key vault 'mykeyvault'"
+- **Generate EC key**: "Generate a new EC key called 'signing-key' in key vault 'security-kv'"
+- **Add encryption key**: "Add a new 2048-bit RSA key named 'data-key' to key vault 'mykeyvault'"
+- **Set up signing key**: "Create an EC key named 'signing-key' for JWT signing in key vault 'mykeyvault'"
+- **Make new key**: "Create a P-256 EC key called 'jwt-signing' in my key vault 'api-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to create. |
-| **Key type** | Required | The type of key to create (RSA, EC). |
+| **Key type** | Required | The type of key to create (`RSA`, `EC`). |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -71,11 +72,11 @@ The Azure MCP Server can retrieve details of a specific key from an Azure Key Va
 
 Example prompts include:
 
-- **Get key details**: "Show me details of the 'app-encryption-key' in my 'mykeyvault' Key Vault."
-- **View key info**: "Get information about the 'signing-key' in Key Vault 'security-kv'"
-- **Retrieve key**: "Get properties of the 'data-key' in my Key Vault"
-- **Check key**: "Show me the details of the encryption key in my vault"
-- **Find key**: "Get the properties of 'jwt-signing' key in 'api-vault'"
+- "Show me details of the key 'app-encryption-key' in my key vault 'mykeyvault'"
+- "What is the key type of 'signing-key' in key vault 'security-kv'?"
+- "Is the key 'data-key' enabled in key vault 'mykeyvault'?"
+- "When does the key 'encryption-key' expire in key vault 'mykeyvault'?"
+- "Get the properties of key 'jwt-signing' in key vault 'api-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -94,11 +95,8 @@ The Azure MCP Server can list all keys in an Azure Key Vault. This operation hel
 
 Example prompts include:
 
-- **List all keys**: "Show me all keys in my 'mykeyvault' Key Vault."
-- **View keys**: "What keys do I have in Key Vault 'security-kv'?"
-- **Find keys**: "List keys in my Key Vault 'central-keys'"
-- **Query keys**: "Show all keys including managed keys in my Key Vault"
-- **Check keys**: "What keys are available in my 'encryption-vault'?"
+- "List all non-managed keys in key vault 'central-keys'"
+- "Which non-managed keys are available in key vault 'encryption-vault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -117,16 +115,15 @@ The Azure MCP Server can create a new secret in an Azure Key Vault. This operati
 
 Example prompts include:
 
-- **Create API secret**: "Create a secret named 'api-key' with value 'xyz123' in my 'production-vault' Key Vault."
-- **Store password**: "Add a secret called 'database-password' to Key Vault 'security-kv'"
-- **Save connection string**: "Create a secret for my database connection string in Key Vault"
-- **Add credentials**: "Store my service principal secret in Key Vault 'api-vault'"
-- **Set configuration**: "Create a secret named 'app-config' in my Key Vault"
+- **Create API secret**: "Create a secret named 'api-key' with value 'xyz123' in my key vault named 'production-vault'."
+- **Store password**: "Add a secret called 'database-password' with value 'myP@ssw0rd' to key vault 'security-kv'"
+- **Save connection string**: "Create a secret 'db-connection' with value 'Server=myserver;Database=mydb' in key vault 'mykeyvault'"
+- **Add credentials**: "Store secret 'sp-secret' with value 'abc123def456' in key vault 'api-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Required | The name of the secret to create. |
+| **Secret** | Required | The name of the secret to create. |
 | **Value** | Required | The value of the secret to store. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -145,12 +142,16 @@ Example prompts include:
 - **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
 - **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my Key Vault?"
 - **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
-- **Access credentials**: "Show me the 'service-principal-secret' from my production Key Vault"
+- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my key vault 'production-vault'."
+- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' key vault"
+- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my key vault?"
+- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
+- **Access credentials**: "Show me the 'service-principal-secret' from my production key vault"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Name** | Required | The name of the secret to retrieve. |
+| **Secret** | Required | The name of the secret to retrieve. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -168,7 +169,11 @@ Example prompts include:
 - **View secrets**: "What secrets do I have in Key Vault 'api-secrets'?"
 - **Find secrets**: "List secrets in my Key Vault 'configuration-kv'"
 - **Query secrets**: "Show all secrets in my Key Vault"
-- **Check secrets**: "What secrets are stored in my 'eastus-keyvault'?"
+- "Show me all secrets in my key vault 'production-vault'."
+- "What secrets do I have in key Vault 'api-secrets'?"
+- "List secrets in my Key Vault 'configuration-kv'"
+- "Show all secrets in my Key Vault"
+- "What secrets are stored in my 'eastus-keyvault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -188,9 +193,13 @@ Example prompts include:
 
 - **Create SSL certificate**: "Create a certificate named 'web-ssl-cert' in my 'production-vault' Key Vault."
 - **Generate certificate**: "Create a new certificate called 'api-tls-cert' in Key Vault 'security-kv'"
-- **Add certificate**: "Generate a certificate for my web application in Key Vault"
-- **Set up TLS cert**: "Create a certificate named 'app-certificate' in my Key Vault"
-- **Make new cert**: "Create a certificate called 'service-cert' in 'certificates-vault'"
+- **Add certificate**: "Generate a certificate 'webapp-cert' for my web application in Key Vault 'mykeyvault'"
+- **Set up TLS cert**: "Create a certificate named 'app-certificate' in Key Vault 'mykeyvault'"
+- **Create SSL certificate**: "Create a certificate named 'web-ssl-cert' in my key vault 'production-vault'."
+- **Generate certificate**: "Create a new certificate called 'api-tls-cert' in key vault 'security-kv'"
+- **Add certificate**: "Generate a certificate 'webapp-cert' for my web application in key vault 'mykeyvault'"
+- **Set up TLS cert**: "Create a certificate named 'app-certificate' in key vault 'mykeyvault'"
+- **Make new cert**: "Create a certificate called 'service-cert' in key vault 'certificates-vault'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -211,8 +220,12 @@ Example prompts include:
 
 - **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my 'production-vault' Key Vault."
 - **View certificate info**: "Get information about the 'api-tls-cert' certificate in Key Vault 'security-kv'"
-- **Retrieve certificate**: "Get properties of the 'app-certificate' in my Key Vault"
-- **Check certificate**: "Show me the details of the SSL certificate in my vault"
+- **Retrieve certificate**: "Get properties of the 'app-certificate' in Key Vault 'mykeyvault'"
+- **Check certificate**: "Show me the details of certificate 'ssl-certificate' in vault 'mykeyvault'"
+- **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my key vault 'production-vault'."
+- **View certificate info**: "Get information about the 'api-tls-cert' certificate in key vault 'security-kv'"
+- **Retrieve certificate**: "Get properties of the 'app-certificate' in key vault 'mykeyvault'"
+- **Check certificate**: "Show me the details of certificate 'ssl-certificate' in vault 'mykeyvault'"
 - **Find certificate**: "Get the properties of 'service-cert' certificate in 'certificates-vault'"
 
 | Parameter | Required or optional | Description |
@@ -237,7 +250,11 @@ Example prompts include:
 - **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
 - **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into Key Vault 'api-vault' as 'api-cert'."
 - **Import PEM certificate**: "Import a PEM certificate into my Key Vault 'prod-vault' named 'prod-cert'."
-- **Import password-protected certificate**: "Import the certificate 'secure.pfx' into Key Vault 'ssl-vault' with password 'mypassword'."
+- **Import certificate from file**: "Import the certificate in file '/path/to/cert.pfx' into the key vault 'mykeyvault'."
+- **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
+- **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into key vault 'api-vault' as 'api-cert'."
+- **Import PEM certificate**: "Import a PEM certificate into my key vault 'prod-vault' named 'prod-cert'."
+- **Import password-protected certificate**: "Import the certificate 'secure.pfx' into key vault 'ssl-vault' with password 'mypassword'."
 
 | Parameter | Required or optional | Description |
 |-----------|----------|-------------|
@@ -260,9 +277,13 @@ Example prompts include:
 
 - **List all certificates**: "Show me all certificates in my 'production-vault' Key Vault."
 - **View certificates**: "What certificates do I have in Key Vault 'security-kv'?"
-- **Find certificates**: "List certificates in my Key Vault 'certificates-kv'"
-- **Query certificates**: "Show all certificates in my Key Vault"
-- **Check certificates**: "What certificates are available in my 'ssl-vault'?"
+- **Find certificates**: "List certificates in Key Vault 'certificates-kv'"
+- **Query certificates**: "Show all certificates in Key Vault 'mykeyvault'"
+- **List all certificates**: "Show me all certificates in my key vault 'production-vault'."
+- **View certificates**: "What certificates do I have in key vault 'security-kv'?"
+- **Find certificates**: "List certificates in key vault 'certificates-kv'"
+- **Query certificates**: "Show all certificates in key vault 'mykeyvault'"
+- **Check certificates**: "What certificates are available in vault 'ssl-vault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
