@@ -49,6 +49,8 @@ items:
       items:
         - name: Azure Functions
           href: services/azure-mcp-server-for-functions.md
+        - name: Azure Key Vault
+          href: services/azure-mcp-server-for-key-vault.md
         - name: Azure Redis
           href: services/azure-mcp-server-for-redis.md
     - name: Tools
