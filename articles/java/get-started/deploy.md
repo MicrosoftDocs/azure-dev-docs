@@ -65,7 +65,7 @@ Fully managed PaaS services for running Java applications on Azure include the f
 
 Java runtimes for Azure App Service and for Azure Container Apps deployed as code or binaries (JAR/WAR) are supplied and maintained by Microsoft. They only support LTS distributions of OpenJDK, using Eclipse Adoptium Temurin for Java 8 and the Microsoft Build of OpenJDK for Java 11 and 17. That said, there are some caveats - for example, our jointly developed and supported partner offerings (discussed [later](#jointly-built-and-supported-solutions-with-java-ecosystem-partners)) use their own runtimes.
 
-The Azure Command Launcher for Java targets customer-managed runtimes and isn't used by the managed Java runtimes in Azure App Service or Azure Container Apps. Developers who deploy their own container images to Azure Container Apps can choose to use the launcher inside those images.
+The Azure Command Launcher for Java targets customer-managed runtimes and isn't used by the Microsoft-managed Java runtimes provided by Azure App Service or Azure Container Apps. However, developers who deploy their own custom container images to Azure Container Apps can choose to use the launcher inside those images, as those containers use customer-managed runtimes.
 
 For Azure Container Apps built from your own container images, since you need to build and manage your own container images from source code, you're free to use the distribution and version of Java - and application server - of your choice.
 

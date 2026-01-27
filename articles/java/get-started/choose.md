@@ -215,7 +215,7 @@ Consider the following two examples, which showcase how Azure caters to containe
 These examples underscore Azure's commitment to providing versatile, efficient, and developer-friendly environments for deploying Java applications, whether through traditional methods or modern containerization.
 
 > [!NOTE]
-> When running Java workloads in Azure-managed container services (for example, Azure Kubernetes Service, Azure Container Apps, and Azure Container Instances), you can use the Azure Command Launcher for Java to automatically apply Azure-optimized JVM parameters. This launcher helps reduce wasted memory and CPU, improves first-deploy performance, and enhances cost efficiency. For more information, see [Azure Command Launcher for Java](https://azure.microsoft.com/updates?id=543994).
+> When running Java workloads in Azure-managed container services (for example, Azure Kubernetes Service, Azure Container Apps, and Azure Container Instances), you can use the Azure Command Launcher for Java to automatically apply Azure-optimized JVM parameters. This launcher helps reduce wasted memory and CPU, improves first-deploy performance, and enhances cost efficiency. For more information, see [Public Preview: Azure Command Launcher for Java](https://azure.microsoft.com/updates?id=543994).
 
 The following diagram shows the recommended Azure services for every Java application type deployed as containers:
 
