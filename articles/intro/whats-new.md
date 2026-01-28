@@ -51,7 +51,7 @@ New articles:
 
 Updated articles:
 
-- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio?tabs=manual&pivots=visual-studio-2026) - Update for Visual Studio 2026 release
+- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md?tabs=manual&pivots=visual-studio-2026) - Update for Visual Studio 2026 release
 
 ### GitHub Copilot app modernization
 
