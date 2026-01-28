@@ -1,0 +1,21 @@
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#0078D4','primaryTextColor':'#fff','primaryBorderColor':'#003366','lineColor':'#0078D4','secondaryColor':'#CA5010','tertiaryColor':'#D2D0CE','background':'#fff','mainBkg':'#0078D4','secondBkg':'#CA5010','tertiaryBkg':'#D2D0CE'}}}%%
+graph LR
+    subgraph "Azure Developer CLI Lifecycle"
+        A[azd up] --> B[Package Phase]
+        B --> C[Provision Phase]
+        C --> D[Deploy Phase]
+        D --> E[Application Running]
+        
+        B --> B1["Build source code<br/>Prepare artifacts"]
+        C --> C1["Create Azure resources<br/>Generate URLs & connection strings<br/>Output variables"]
+        D --> D1["Deploy packaged code<br/>Configure environment variables<br/>Start services"]
+    end
+    
+    style A fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style B fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style C fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style D fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style E fill:#D2D0CE,stroke:#003366,stroke-width:2px,color:#000
+    style B1 fill:#CA5010,stroke:#003366,stroke-width:1px,color:#fff
+    style C1 fill:#CA5010,stroke:#003366,stroke-width:1px,color:#fff
+    style D1 fill:#CA5010,stroke:#003366,stroke-width:1px,color:#fff
