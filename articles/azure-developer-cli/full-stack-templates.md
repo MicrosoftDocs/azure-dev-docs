@@ -83,7 +83,7 @@ azd up
 |----------|-----------|----------|----------|-----|-----|------------|
 | OpenAI MCP Agent (.NET) | Blazor (.NET) on Azure Container Apps | .NET MCP agent, TypeScript MCP server on Azure Container Apps | Azure OpenAI | Bicep | - | [openai-mcp-agent-dotnet](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) |
 | Data API Builder + Cosmos DB | Blazor (.NET) on Azure Container Apps | Data API Builder container | Azure Cosmos DB for NoSQL | Bicep | - | [dab-azure-cosmos-db-nosql-quickstart](https://github.com/azure-samples/dab-azure-cosmos-db-nosql-quickstart) |
-| Cosmos DB Copilot | Blazor (.NET) on Azure App Service | .NET (Semantic Kernel, RAG, multi-tenant) | Azure Cosmos DB for NoSQL, Azure OpenAI | Bicep | - | [cosmosdb-nosql-copilot](https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot) |
+| Cosmos DB Copilot | Blazor (.NET) on Azure App Service | .NET (Semantic Kernel, RAG, multitenant) | Azure Cosmos DB for NoSQL, Azure OpenAI | Bicep | - | [cosmosdb-nosql-copilot](https://github.com/AzureCosmosDB/cosmosdb-nosql-copilot) |
 
 ### [.NET Aspire](#tab/aspire)
 
