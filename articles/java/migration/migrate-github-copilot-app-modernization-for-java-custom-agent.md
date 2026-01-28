@@ -162,8 +162,6 @@ For more information, see [Creating a custom agent profile in a repository on Gi
 
 ### Custom agent content
 
-<!-- TODO: Update this custom agent content to the latest format based on commit 38b6769c1f88a9b3f940800097adc6e866033d55 -->
-
 Use the following content for both CLI and coding agent. For Copilot CLI, include the `tools` field in the YAML front matter.
 
 #### [Copilot CLI (with tools field)](#tab/copilot-cli)
