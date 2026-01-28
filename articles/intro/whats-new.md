@@ -66,6 +66,8 @@ New articles:
 
 ## TypeSpec on Azure
 
+Updated articles:
+
 - [Resources for developing TypeSpec apps](../typespec/resources.md) updated to include latest information
 
 ## What's new for November 2025
