@@ -42,8 +42,6 @@ Use the following steps to get started with the Copilot coding agent:
 
 1. Under **MCP Configuration** in the **Model Context Protocol (MCP)** section, manually add the following configuration, and then select **Save Configuration**:
 
-   <!-- TODO: Update this MCP configuration to the latest format based on commit 38b6769c1f88a9b3f940800097adc6e866033d55 -->
-
    ```json
    {
      "mcpServers": {
