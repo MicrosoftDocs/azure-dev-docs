@@ -180,7 +180,9 @@ Example prompts include:
 
 <!-- storage table list -->
 
-List all tables in an Azure Storage account.
+List all tables in an Azure Storage account. 
+
+**Prerequisites**: The conversation context establishes [global parameters](index.md#tool-parameters) (subscription, authentication). Caller must have Storage Account Reader role or equivalent permissions.
 
 Example prompts include:
 
@@ -194,6 +196,8 @@ Example prompts include:
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Storage account** |  Required | The name of the Azure Storage account. This is the unique name you chose for your storage account (for example, `mystorageaccount`). |
+
+**Success verification**: The tool returns the list of tables in the specified storage account.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
