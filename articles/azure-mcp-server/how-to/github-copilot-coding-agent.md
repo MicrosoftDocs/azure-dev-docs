@@ -60,6 +60,8 @@ The `azd` coding-agent extension simplifies the steps required to securely set u
    - Configure Copilot coding agent's managed identity roles in the Azure portal. By default, the "Reader" role is assigned. However you may want to give it other permissions based on what you want the coding agent to do autonomously.
    - Visit the link to set up the MCP Configuration. To navigate there manually, in GitHub go to Settings > Copilot > coding agent > MCP Configuration and paste in the JSON snippet provided. Here's an example:
 
+   <!-- TODO: Update this MCP configuration to the latest format based on commit 38b6769c1f88a9b3f940800097adc6e866033d55 -->
+
    ```json
    {
        "mcpServers": {
