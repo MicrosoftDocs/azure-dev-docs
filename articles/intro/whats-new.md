@@ -38,13 +38,20 @@ Updated articles:
 
 - [Deployment JavaScript app to Azure overview](../javascript/how-to/deploy-web-app.md) - Update JavaScript deployment article with modern Azure services
 - [Developing Serverless Node.js Apps with Azure Functions](../javascript/how-to/develop-serverless-apps.md) - Refresh serverless Node.js article with 2025 Azure Functions features
-- [Tutorial: Upload an image to an Azure Storage blob with TypeScript](../javascript/tutorial/browser-file-upload-azure-storage-blob.md) - JS - upload with SAS
+- [Tutorial: Upload an image to an Azure Storage blob with TypeScript](../javascript/tutorial/browser-file-upload-azure-storage-blob.md) - Update article and sample code to use latest Azure SDK for JavaScript/TypeScript libraries and infrastructure with Azure Developer CLI
+- [Tutorial: Build a LangChain.js agent with Azure AI Search](../javascript/ai/langchain-agent-on-azure.md) - Update article and sample code to use latest SDK and infrastructure with Azure Developer CLI
 
 ### Azure for Python
 
 New articles:
 
 - [Authenticate Python apps to Azure services during local development using brokered authentication](../python/sdk/authentication/local-development-broker.md)
+
+### Azure MCP Server
+
+Updated articles:
+
+- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio?tabs=manual&pivots=visual-studio-2026) - Update for Visual Studio 2026 release
 
 ### GitHub Copilot app modernization
 
@@ -56,6 +63,10 @@ New articles:
 - [Quickstart: generate Java unit tests with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
 - [Quickstart: upgrade a Java project with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
 - [Upgrade a Java framework or third-party dependency by using GitHub Copilot app modernization](../github-copilot-app-modernization/framework-upgrade.md)
+
+## TypeSpec on Azure
+
+- [Resources for developing TypeSpec apps](../typespec/resources.md) updated to include latest information
 
 ## What's new for November 2025
 
