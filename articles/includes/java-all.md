@@ -25,7 +25,7 @@
 | azure-sdk-archetype | Maven [1.0.0](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-archetype/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-archetype_1.0.0/sdk/tools/azure-sdk-archetype/) |
 | azure-sdk-build-tool | Maven [1.0.0](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool/1.0.0) | [docs](/java/api/overview/azure/sdk-build-tool-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-build-tool_1.0.0/sdk/tools/azure-sdk-build-tool/) |
 | azure-xml | Maven [1.2.1](https://central.sonatype.com/artifact/com.azure/azure-xml/1.2.1) | [docs](/java/api/overview/azure/xml-readme) | GitHub [1.2.1](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-xml_1.2.1/sdk/serialization/azure-xml/) |
-| Communication Call Automation | Maven [1.5.2](https://central.sonatype.com/artifact/com.azure/azure-communication-callautomation/1.5.2)<br>Maven [1.6.0-beta.1](https://central.sonatype.com/artifact/com.azure/azure-communication-callautomation/1.6.0-beta.1) | [docs](/java/api/overview/azure/communication-callautomation-readme) | GitHub [1.5.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.5.2/sdk/communication/azure-communication-callautomation/) |
+| Communication Call Automation | Maven [1.6.0](https://central.sonatype.com/artifact/com.azure/azure-communication-callautomation/1.6.0) | [docs](/java/api/overview/azure/communication-callautomation-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-java/tree/item.GroupId+azure-communication-callautomation_1.6.0/sdk/communication/azure-communication-callautomation/) |
 | Communication Chat | Maven [1.6.4](https://central.sonatype.com/artifact/com.azure/azure-communication-chat/1.6.4) | [docs](/java/api/overview/azure/communication-chat-readme) | GitHub [1.6.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.6.4/sdk/communication/azure-communication-chat/) |
 | Communication Common | Maven [1.4.4](https://central.sonatype.com/artifact/com.azure/azure-communication-common/1.4.4)<br>Maven [2.0.0-beta.1](https://central.sonatype.com/artifact/com.azure/azure-communication-common/2.0.0-beta.1) | [docs](/java/api/overview/azure/communication-common-readme) | GitHub [1.4.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.4.4/sdk/communication/azure-communication-common/) |
 | Communication Email | Maven [1.1.1](https://central.sonatype.com/artifact/com.azure/azure-communication-email/1.1.1)<br>Maven [1.2.0-beta.1](https://central.sonatype.com/artifact/com.azure/azure-communication-email/1.2.0-beta.1) | [docs](/java/api/overview/azure/communication-email-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.1.1/sdk/communication/azure-communication-email/) |
@@ -601,19 +601,19 @@
 | Storage - Java | Maven [10.0.0](https://central.sonatype.com/artifact/com.microsoft.azure/azure-storage-java/10.0.0) |  |  |
 | Support | Maven [0.1.8](https://central.sonatype.com/artifact/com.microsoft.azure/azure-support/0.1.8) |  |  |
 | synapseml | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml/0.9.3) |  |  |
-| synapseml_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml_2.12/1.1.0) |  |  |
+| synapseml_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml_2.12/1.1.1) |  |  |
 | synapseml-cognitive | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-cognitive/0.9.3) |  |  |
-| synapseml-cognitive_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.1.0) |  |  |
+| synapseml-cognitive_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.1.1) |  |  |
 | synapseml-core | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-core/0.9.3) |  |  |
-| synapseml-core_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-core_2.12/1.1.0) |  |  |
+| synapseml-core_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-core_2.12/1.1.1) |  |  |
 | synapseml-deep-learning | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-deep-learning/0.9.3) |  |  |
-| synapseml-deep-learning_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.1.0) |  |  |
+| synapseml-deep-learning_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.1.1) |  |  |
 | synapseml-lightgbm | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-lightgbm/0.9.3) |  |  |
-| synapseml-lightgbm_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.1.0) |  |  |
+| synapseml-lightgbm_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.1.1) |  |  |
 | synapseml-opencv | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-opencv/0.9.3) |  |  |
-| synapseml-opencv_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.1.0) |  |  |
+| synapseml-opencv_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.1.1) |  |  |
 | synapseml-vw | Maven [0.9.3](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-vw/0.9.3) |  |  |
-| synapseml-vw_2.12 | Maven [1.1.0](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-vw_2.12/1.1.0) |  |  |
+| synapseml-vw_2.12 | Maven [1.1.1](https://central.sonatype.com/artifact/com.microsoft.azure/synapseml-vw_2.12/1.1.1) |  |  |
 | synapseutils | Maven [1.1](https://central.sonatype.com/artifact/com.microsoft.azure.synapse/synapseutils/1.1) |  |  |
 | synapseutils_2.11 | Maven [1.5.3](https://central.sonatype.com/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.3) |  |  |
 | synapseutils_2.12 | Maven [1.5.4](https://central.sonatype.com/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.4) |  |  |
