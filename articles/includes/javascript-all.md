@@ -146,7 +146,7 @@
 | @azure/arm-resources-profile-2020-09-01-hybrid | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-resources-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-resources-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-profile-2020-09-01-hybrid_2.1.0/sdk/resources/arm-resources-profile-2020-09-01-hybrid/) |
 | @azure/arm-storage-profile-2020-09-01-hybrid | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-storage-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-storage-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-storage-profile-2020-09-01-hybrid_2.1.0/sdk/storage/arm-storage-profile-2020-09-01-hybrid/) |
 | @azure/arm-subscriptions-profile-2020-09-01-hybrid | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-subscriptions-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-subscriptions-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-subscriptions-profile-2020-09-01-hybrid_2.1.0/sdk/subscription/arm-subscriptions-profile-2020-09-01-hybrid/) |
-| Anomaly Detector - RLC | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-anomaly-detector/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector/ai-anomaly-detector-rest) |
+| Anomaly Detector - RLC | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-anomaly-detector/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-anomaly-detector_1.0.0-beta.1/sdk/anomalydetector/ai-anomaly-detector-rest) |
 | Resouce Management - Resources Subscriptions | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-resources-subscriptions/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-resources-subscriptions-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_2.1.0/sdk/resources-subscriptions/arm-resources-subscriptions/) |
 | Resource Management - AD External Identities | npm [1.0.3](https://www.npmjs.com/package/@azure/arm-azureadexternalidentities/v/1.0.3) | [docs](/javascript/api/overview/azure/arm-azureadexternalidentities-readme) | GitHub [1.0.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azureadexternalidentities_1.0.3/sdk/azureadexternalidentities/arm-azureadexternalidentities/) |
 | Resource Management - Advisor | npm [3.2.0](https://www.npmjs.com/package/@azure/arm-advisor/v/3.2.0) | [docs](/javascript/api/overview/azure/arm-advisor-readme) | GitHub [3.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor) |
@@ -414,7 +414,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.64.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.64.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.64.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.64.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.31.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.31.0) |  |  |
-| @azure-tools/typespec-go | npm [0.9.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.9.1) |  |  |
+| @azure-tools/typespec-go | npm [0.9.2](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.9.2) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.11.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -434,7 +434,7 @@
 | @typespec/xml | npm [0.78.0](https://www.npmjs.com/package/@typespec/xml/v/0.78.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [2.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/2.0.0-preview) |  |  |
-| App Configuration Provider | npm [2.3.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.3.0) |  |  |
+| App Configuration Provider | npm [2.3.1](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.3.1) |  |  |
 | App Configuration Provider File Source | npm [2.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/2.0.0-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Spec Gen SDK | npm [0.9.6](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.9.6) |  |  |
