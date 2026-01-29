@@ -1,0 +1,25 @@
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#0078D4','primaryTextColor':'#fff','primaryBorderColor':'#003366','lineColor':'#8A8886','secondaryColor':'#CA5010','tertiaryColor':'#D2D0CE'}}}%%
+graph TB
+    subgraph "Circular Dependency Problem"
+        FE[Front-end Application<br/>React/Angular/Vue]
+        BE[Back-end API<br/>Container App/App Service]
+        DB[(Database<br/>Cosmos DB/SQL)]
+        
+        FE -.->|"Needs API URL<br/>❌ Not available until deployed"| BE
+        BE -.->|"Needs Front-end URL<br/>❌ Not available until deployed"| FE
+        FE -->|"Requires connection string"| DB
+        BE -->|"Requires connection string"| DB
+    end
+    
+    subgraph "Deployment Challenges"
+        P1["❓ Which service deploys first?"]
+        P2["❓ How to configure URLs?"]
+        P3["❓ How to handle CORS?"]
+    end
+    
+    style FE fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style BE fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style DB fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style P1 fill:#8A8886,stroke:#003366,stroke-width:2px,color:#fff
+    style P2 fill:#8A8886,stroke:#003366,stroke-width:2px,color:#fff
+    style P3 fill:#8A8886,stroke:#003366,stroke-width:2px,color:#fff

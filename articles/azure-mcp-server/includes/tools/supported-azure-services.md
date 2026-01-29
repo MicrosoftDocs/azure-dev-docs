@@ -159,7 +159,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Storage](../../tools/storage.md) | `storage` | List Azure Storage accounts, containers, blobs, and tables. |
 | [Azure File Sync](../../tools/azure-file-sync.md) | `storagesync` | Manage Storage Sync services, register servers, create sync groups, configure cloud endpoints, and set up server endpoints for Azure File Sync. |
 | [Azure Confidential Ledger](../../tools/azure-confidential-ledger.md) | `confidentialledger` | Manage Azure Confidential Ledger resources, including ledgers and transactions. |
-| [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems. |
+| [Azure Managed Lustre](../../tools/azure-managed-lustre.md) | `managedlustre` | Manage Azure Managed Lustre file systems, including auto-import and auto-export jobs. |
 
 ### Virtual desktop infrastructure (VDI)
 
