@@ -1,0 +1,43 @@
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#0078D4','primaryTextColor':'#fff','primaryBorderColor':'#003366','lineColor':'#0078D4','secondaryColor':'#CA5010','tertiaryColor':'#D2D0CE'}}}%%
+graph TB
+    subgraph "Dependency Resolution Strategies"
+        START[Full-stack Application] --> CHOICE{Choose Strategy}
+        
+        CHOICE -->|Immediate Resolution| IMM[Configure at Deployment]
+        CHOICE -->|Deferred Resolution| DEF[Configure at Runtime]
+        CHOICE -->|Combined| BOTH[Use Both Strategies]
+        
+        IMM --> IMM1["✓ Infrastructure-first provisioning<br/>✓ Bicep/Terraform output variables<br/>✓ Environment variables<br/>✓ Container upsert pattern"]
+        
+        DEF --> DEF1["✓ Local config files config.json<br/>✓ Azure App Configuration<br/>✓ Runtime service discovery"]
+        
+        BOTH --> BOTH1["✓ Infrastructure for base config<br/>✓ Runtime for flexible updates"]
+    end
+    
+    subgraph "Immediate: Locked at Deployment"
+        IMM2["Configuration set during<br/>azd provision & deploy"]
+        IMM3["Requires redeployment<br/>to change configuration"]
+    end
+    
+    subgraph "Deferred: Flexible Updates"
+        DEF2["Configuration loaded<br/>at application startup"]
+        DEF3["Update without<br/>redeployment"]
+    end
+    
+    IMM1 --> IMM2
+    IMM2 --> IMM3
+    DEF1 --> DEF2
+    DEF2 --> DEF3
+    
+    style START fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style CHOICE fill:#FF8C00,stroke:#003366,stroke-width:3px,color:#fff
+    style IMM fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style DEF fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style BOTH fill:#0078D4,stroke:#003366,stroke-width:2px,color:#fff
+    style IMM1 fill:#CA5010,stroke:#003366,stroke-width:1px,color:#fff
+    style DEF1 fill:#CA5010,stroke:#003366,stroke-width:1px,color:#fff
+    style BOTH1 fill:#CA5010,stroke:#003366,stroke-width:1px,color:#fff
+    style IMM2 fill:#D2D0CE,stroke:#003366,stroke-width:2px,color:#000
+    style IMM3 fill:#605E5C,stroke:#003366,stroke-width:1px,color:#fff
+    style DEF2 fill:#D2D0CE,stroke:#003366,stroke-width:2px,color:#000
+    style DEF3 fill:#D2D0CE,stroke:#003366,stroke-width:2px,color:#000
