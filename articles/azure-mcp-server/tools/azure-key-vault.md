@@ -15,7 +15,7 @@ ms.custom: build-2025
 
 The Azure MCP Server lets you manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You don't need to remember specialized command syntax to manage these resources.
 
-[Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
+[Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, keys, and certificates. A secret is anything that you want to tightly control access to, such as API keys, passwords, or connection strings.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 

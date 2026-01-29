@@ -51,11 +51,11 @@ To use the Azure MCP Server with Azure Key Vault, you need:
 
 ## Available tools for Azure Key Vault
 
-The Azure MCP Server provides multiple tools for Azure Key Vault operations, enabling you to manage keys, secrets, certificates, and vault configurations through natural language conversations.
+The Azure MCP Server provides multiple tools for Azure Key Vault operations, enabling you to manage keys, secrets, and certificates through natural language conversations.
 
 ### Manage keys
 
-Create and retrieve [cryptographic keys](/azure/key-vault/keys/about-keys) (RSA and EC types) stored in your vault.
+Create and retrieve [cryptographic keys](/azure/key-vault/keys/about-keys) stored in your vault. Supported key types include RSA, RSA-HSM, EC, EC-HSM, oct, and oct-HSM.
 
 **Common scenarios**:
 
@@ -85,11 +85,11 @@ Create, import, retrieve, and list [SSL/TLS certificates](/azure/key-vault/certi
 
 ### Manage Managed HSM settings
 
-Retrieve and manage [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) account settings for high-security deployments that require FIPS 140-3 Level 3 validated HSMs.
+Retrieve [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) account settings for high-security deployments that require FIPS 140-3 Level 3 validated HSMs. This tool only applies to Managed HSM vaults, not standard Key Vault vaults.
 
 **Common scenarios**:
 
-- Review [purge protection and soft-delete](/azure/key-vault/general/soft-delete-overview) retention settings
+- Review purge protection and soft-delete retention settings for Managed HSM
 - Query HSM-specific configurations
 
 For detailed information about each tool, including parameters and examples, see [Azure Key Vault tools for Azure MCP Server](../tools/azure-key-vault.md).
