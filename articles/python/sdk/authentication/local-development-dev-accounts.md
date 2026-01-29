@@ -141,7 +141,7 @@ The [Azure Identity library](/python/api/azure-identity/azure.identity) provides
 2. Choose one of the credential implementations based on your scenario.
 
    * [Use a credential specific to your development tool](#use-a-credential-specific-to-your-development-tool): this option is best for single person or single tool scenarios.
-   * [Use a credential available for use in any development tool](#use-a-credential-available-for-use-in-any-development-tool): this option is best for open source projects and diverse tool teams.
+   * [Use a credential available for use in any development tool](#use-a-credential-available-for-use-in-any-development-tool): this option is best for open-source projects and diverse tool teams.
 
 <a name='use-credential-specific-to-development-tool'></a>
 
