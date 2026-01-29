@@ -127,6 +127,7 @@ Connect-AzAccount -UseDeviceAuthentication
 
 The [Azure Identity library](/python/api/azure-identity/azure.identity) provides implementations of [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) that support various scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) or a specific development tool credential when working with user accounts locally.
 
+
 ### Implement the code
 
 1. Add the [azure-identity](https://pypi.org/project/azure-identity/) package to your application:
@@ -135,36 +136,53 @@ The [Azure Identity library](/python/api/azure-identity/azure.identity) provides
     pip install azure-identity
     ```
 
-2. Add the necessary `import` statements for the `azure.identity` module and the Azure service client module your app requires.
+    Add the necessary `import` statements for the `azure.identity` module and the Azure service client module your app requires.
 
-3. Pass a `TokenCredential` instance to the Azure SDK client object constructor. Common `TokenCredential` examples include:
+2. Choose one of the credential implementations based on your scenario.
 
-    **DefaultAzureCredential instance** optimized for local development. For more information, see [Exclude a credential type category](credential-chains.md#exclude-a-credential-type-category).
+   * [Use a credential specific to your development tool](#use-a-credential-specific-to-your-development-tool): this option is best for single person or single tool scenarios.
+   * [Use a credential available for use in any development tool](#use-a-credential-available-for-use-in-any-development-tool): this option is best for open source projects and diverse tool teams.
 
-    ```python
-    from azure.identity import DefaultAzureCredential
-    from azure.storage.blob import BlobServiceClient
+<a name='use-credential-specific-to-development-tool'></a>
 
-    credential = DefaultAzureCredential(require_envvar=True)
+#### Use a credential specific to your development tool
 
-    blob_service_client = BlobServiceClient(
-        account_url="https://<account-name>.blob.core.windows.net",
-        credential=credential)
-    ```
+Pass a `TokenCredential` instance corresponding to a specific development tool to the Azure service client constructor, such as `AzureCliCredential`.
 
-    **Credential corresponding to a specific development tool**, such as `VisualStudioCodeCredential`.
+```python
+from azure.identity import AzureCliCredential
+from azure.storage.blob import BlobServiceClient
 
-    ```python
-    from azure.identity import VisualStudioCodeCredential
-    from azure.storage.blob import BlobServiceClient
+credential = AzureCliCredential()
 
-    credential = VisualStudioCodeCredential()
+blob_service_client = BlobServiceClient(
+   account_url="https://<account-name>.blob.core.windows.net",
+   credential=credential)
+```
 
-    blob_service_client = BlobServiceClient(
-        account_url="https://<account-name>.blob.core.windows.net",
-        credential=credential)
-    ```
+> [!NOTE]
+> When using `VisualStudioCodeCredential`, you must also install the `azure-identity-broker` package:
+>
+> ```bash
+> pip install azure-identity-broker
+> ```
 
+<a name='use-credential-available-in-any-development-tool'></a>
+
+#### Use a credential available for use in any development tool
+
+Use a `DefaultAzureCredential` instance optimized for all local development tools. This example requires the environment variable `AZURE_TOKEN_CREDENTIALS` set to `dev`. For more information, see [Exclude a credential type category](credential-chains.md#exclude-a-credential-type-category).
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+credential = DefaultAzureCredential(require_envvar=True)
+
+blob_service_client = BlobServiceClient(
+   account_url="https://<account-name>.blob.core.windows.net",
+   credential=credential)
+```
 
 > [!TIP]
 > When your team uses multiple development tools to authenticate with Azure, prefer `DefaultAzureCredential` over tool-specific credentials.
