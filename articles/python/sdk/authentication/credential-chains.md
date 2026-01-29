@@ -88,6 +88,7 @@ blob_service_client = BlobServiceClient(
 )
 ```
 
+<a name="customize-the-defaultazurecredential-chain"></a>
 ### How to customize DefaultAzureCredential
 
 The following sections describe strategies for controlling which credentials are included in the chain.
