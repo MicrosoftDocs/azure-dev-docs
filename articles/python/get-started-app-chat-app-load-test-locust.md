@@ -45,7 +45,7 @@ The load test is in the [Python chat app](get-started-app-chat-template.md) solu
 
 ## Run the test
 
-1. Install the locust package for the load test:
+1. Install the Locust package, which is used to simulate concurrent users and generate load against your chat application:
 
     ```bash
     python -m pip install locust
@@ -57,14 +57,14 @@ The load test is in the [Python chat app](get-started-app-chat-template.md) solu
     locust ChatUser
     ```
 
-1. Open the running Locust website, such as `http://localhost:8089`.
+1. After Locust starts successfully, it launches a local web interface that you use to configure and monitor the load test. Open the running Locust website, such as `http://localhost:8089`.
 1. Enter the following values in the Locust website.
 
     |Property|Value|
     |---|---|
     |Number of users|20|
     |Ramp up|1|
-    |Host|`https://<YOUR-CHAT-APP-URL>.azurewebsites.net`|
+    |Host|`https://<YOUR-CHAT-APP-URL>.azurewebsites.net` (the base URL of your deployed chat application)|
 
     :::image type="content" source="./media/get-started-app-chat-app-load-test-locust/locust-test-settings.png" alt-text="Screenshot that shows the Locust test with values filled in.":::
 
