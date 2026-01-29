@@ -66,7 +66,6 @@ The load test is in the [Python chat app](get-started-app-chat-template.md) solu
     |Ramp up|1|
     |Host|`https://<YOUR-CHAT-APP-URL>.azurewebsites.net` (the base URL of your deployed chat application)|
 
-
     :::image type="content" source="./media/get-started-app-chat-app-load-test-locust/locust-test-settings.png" alt-text="Screenshot that shows the Locust test with values filled in.":::
 
 1. Select **Start Swarm** to start the test.
