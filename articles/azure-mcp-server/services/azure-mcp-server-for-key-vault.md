@@ -17,7 +17,7 @@ ms.custom: build-2025
 
 # Manage Azure Key Vault with Azure MCP Server
 
-Manage key vaults, review access policies, and troubleshoot configurations using natural language conversations with AI assistants through the Azure MCP Server.
+Manage keys, secrets, and certificates using natural language conversations with AI assistants through the Azure MCP Server.
 
 [Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, keys, and certificates. It helps solve problems related to [secrets management, key management, and certificate management](/azure/key-vault/general/about-keys-secrets-certificates). While the Azure portal, Azure CLI, and Azure PowerShell are powerful, the Azure MCP Server provides a more intuitive way to interact with your key vaults through conversational AI.
 
@@ -27,12 +27,11 @@ Manage key vaults, review access policies, and troubleshoot configurations using
 
 For Azure Key Vault administrators and developers, this means you can:
 
-- Retrieve key vault details and configurations without navigating the portal
-- Check vault status, access policies, and secret information conversationally
-- Review enabled cryptographic operations and certificate properties
-- Troubleshoot key vault access issues by asking about current state
-- Compare vault configurations across environments for consistency
-- Verify vault settings before and after security updates
+- Create and retrieve keys, secrets, and certificates without navigating the portal
+- List your key, secret, and certificate inventory conversationally
+- Review cryptographic key properties and certificate expiration dates
+- Import certificates into your vaults
+- Query Managed HSM settings for high-security deployments
 
 ## Prerequisites
 
@@ -102,9 +101,9 @@ Ready to use Azure MCP Server with your Azure Key Vault resources?
 1. **Set up your environment**: Choose an AI assistant or development tool that supports MCP. For setup and authentication instructions, see the links in the [Where can you use Azure MCP Server?](#where-can-you-use-azure-mcp-server) section above.
 
 2. **Start exploring**: Ask your AI assistant questions about your key vaults or request operations. Try prompts like:
-   - "Show me details for my key vault 'my-vault' in resource group 'my-rg'"
-   - "What's the current access policy for key vault 'secrets-vault'?"
-   - "List the enabled operations for key vault 'crypto-vault'"
+   - "List all secrets in my key vault 'my-vault'"
+   - "Get the certificate 'web-ssl-cert' from key vault 'prod-vault'"
+   - "Create a new RSA key named 'app-key' in key vault 'crypto-vault'"
 
 3. **Learn more**: Review the [Azure Key Vault tools reference](../tools/azure-key-vault.md) for all available capabilities and detailed parameter information.
 
@@ -112,14 +111,12 @@ Ready to use Azure MCP Server with your Azure Key Vault resources?
 
 When using Azure MCP Server with Azure Key Vault:
 
-- **Specify resource group**: Always include the resource group name when querying key vaults to avoid ambiguity in subscriptions with many resources.
-- **Verify before changes**: Use read queries to understand current vault configuration before making access policy changes or updates.
-- **Use Azure RBAC**: Leverage [Azure role-based access control](/azure/key-vault/general/rbac-guide) rather than legacy access policies for improved security and Privileged Identity Management (PIM) support.
-- **Review permissions**: Leverage conversational queries to examine role assignments and ensure only authorized identities have appropriate permissions. People with the correct [RBAC roles](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations) can retrieve secrets and keys securely through the MCP Server.
+- **Specify vault name clearly**: Always include the exact key vault name when querying to avoid ambiguity, especially in subscriptions with many vaults.
 - **Check certificate expiration**: Ask about certificate properties regularly to identify expiring certificates before they cause issues.
-- **Audit configurations**: Use the conversation history to document vault configurations for compliance and security audits.
-- **Compare environments**: Compare key vault settings across development, staging, and production environments to ensure [configuration consistency](/azure/key-vault/general/secure-key-vault).
-- **Combine with other tools**: Use Azure MCP Server for quick queries and Azure CLI or PowerShell for sensitive operations like [secret rotation](/azure/key-vault/secrets/tutorial-rotation) to optimize your security workflow.
+- **Audit your inventory**: Use list operations to review your keys, secrets, and certificates inventory for compliance and security audits.
+- **Combine with other tools**: Use Azure MCP Server for quick queries and inventory checks. Use Azure CLI or PowerShell for vault configuration changes, access control management, and sensitive operations like [secret rotation](/azure/key-vault/secrets/tutorial-rotation).
+
+For general Azure Key Vault security guidance beyond the Azure MCP Server, see [Secure your Azure Key Vault](/azure/key-vault/general/secure-key-vault).
 
 ## Related content
 
@@ -127,5 +124,4 @@ When using Azure MCP Server with Azure Key Vault:
 * [Get started with Azure MCP Server](../get-started.md)
 * [Azure Key Vault tools reference](../tools/azure-key-vault.md)
 * [Azure Key Vault documentation](/azure/key-vault/general/overview)
-* [Secure your Azure Key Vault](/azure/key-vault/general/secure-key-vault)
 * [Azure RBAC for Key Vault](/azure/key-vault/general/rbac-guide)
