@@ -136,6 +136,13 @@ The [Azure Identity library](/python/api/azure-identity/azure.identity) provides
     pip install azure-identity
     ```
 
+   > [!NOTE]
+   > When using `VisualStudioCodeCredential`, you must also install the `azure-identity-broker` package:
+   >
+   > ```bash
+   > pip install azure-identity-broker
+   > ```
+
     Add the necessary `import` statements for the `azure.identity` module and the Azure service client module your app requires.
 
 2. Choose one of the credential implementations based on your scenario.
@@ -159,13 +166,6 @@ blob_service_client = BlobServiceClient(
    account_url="https://<account-name>.blob.core.windows.net",
    credential=credential)
 ```
-
-> [!NOTE]
-> When using `VisualStudioCodeCredential`, you must also install the `azure-identity-broker` package:
->
-> ```bash
-> pip install azure-identity-broker
-> ```
 
 <a name='use-credential-available-in-any-development-tool'></a>
 
