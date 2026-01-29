@@ -81,7 +81,7 @@ Create, import, retrieve, and list [SSL/TLS certificates](/azure/key-vault/certi
 **Common scenarios**:
 
 - Generate or import SSL/TLS certificates for web applications
-- Track certificate expiration dates and [configure renewal](/azure/key-vault/certificates/overview-renew-certificate)
+- Track certificate expiration dates to plan for [renewal](/azure/key-vault/certificates/overview-renew-certificate)
 - Retrieve certificate properties for compliance verification
 
 ### Manage Managed HSM settings
