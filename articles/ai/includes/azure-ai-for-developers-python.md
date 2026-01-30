@@ -1,38 +1,39 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 05/16/2025
+ms.date: 01/29/2026
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
-## Resources for Azure OpenAI Service
+## Resources for Azure OpenAI in Microsoft Foundry Models
 
-Azure OpenAI Service provides REST API access to the powerful language models available in OpenAI. Azure OpenAI helps you adapt these models to accomplish specific tasks, such as content generation, summarization, image understanding, semantic search, and natural language to code translation. Access Azure OpenAI by using the REST APIs, the Azure OpenAI SDK for .NET, or the web-based interface in [Azure OpenAI Studio](https://oai.azure.com/).
-
+Azure OpenAI in Microsoft Foundry Models provides REST API access to the powerful language models available in OpenAI. Azure OpenAI helps you adapt these models to accomplish specific tasks, such as content generation, summarization, image understanding, semantic search, and natural language to code translation. Access Azure OpenAI by using the REST APIs, the Azure OpenAI SDK for Python, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 ### SDKs and libraries
 
 |Link|Description|
 |---|---|
 |[OpenAI SDK for Python](https://github.com/openai/openai-python/blob/main/README.md)|The GitHub source code version of the OpenAI Python library, which provides convenient access to the OpenAI API from applications written in the Python language.|
 |[OpenAI Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
-|[Switch from OpenAI to Azure OpenAI](/azure/ai-services/openai/how-to/switching-endpoints)|A guidance article on the small changes you need to make to your code, so you can swap back and forth between OpenAI and the Azure OpenAI Service.|
+
+### Samples
+
 |[Streaming chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|A notebook example that demonstrates how to get chat completions to work by using the Azure endpoints. The example focuses on chat completions, but also introduces other operations available with the API.|
 |[Azure embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|A notebook example that demonstrates how to use embeddings with Azure endpoints. The example focuses on embeddings, but also introduces other operations available with the API.|
-|[Deploy model and generate text](/azure/ai-services/openai/quickstart?pivots=programming-language-python)|An article with minimal, straightforward detailed steps to deploy a model that can programmatically chat.|
-|[OpenAI with Microsoft Entra ID role-based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication by using Microsoft Entra ID and [Azure role-based access control](/azure/role-based-access-control/overview).|
-|[OpenAI with Azure AD-managed identities for Azure resources](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control. Explore how to authenticate to your OpenAI resource with Microsoft Entra ID.|
-|[Azure OpenAI Service samples](https://github.com/Azure-Samples/openai/blob/main/README.md)|A compilation of useful Azure OpenAI Service resources and code samples to help you get started and accelerate your technology adoption journey.|
 
 ### Documentation
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI Service documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
+|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=python)|A guidance article on the small changes you need to make to your code, so you can swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Quickstart: Get started generating text with Azure OpenAI Service](/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|A quickstart that demonstrates how to set up the services you need and write code to prompt a model by using Python.|
 |[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|A quickstart that demonstrates how to work with system, assistant, and user roles to tailor content in response to certain questions.|
 |[Quickstart: Chat with Azure OpenAI models by using your own data](/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|A quickstart that helps you add your own data, such as a PDF or other document.|
 |[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?tabs=command-line%2Ctypescript&pivots=programming-language-python)|A quickstart that demonstrates how to instruct a model to use the built-in Python code interpreter to solve math problems step by step. This example provides a starting point to use your own AI assistants accessed through custom instructions.|
+|[Deploy model and generate text](/azure/ai-services/openai/quickstart?pivots=programming-language-python)|An article with minimal, straightforward detailed steps to deploy a model that can programmatically chat.|
+|[OpenAI with Microsoft Entra ID role-based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication by using Microsoft Entra ID and [Azure role-based access control](/azure/role-based-access-control/overview).|
+|[OpenAI with Azure AD-managed identities for Azure resources](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control. Explore how to authenticate to your OpenAI resource with Microsoft Entra ID.|
+|[Azure OpenAI in Microsoft Foundry Models samples](https://github.com/Azure-Samples/openai/blob/main/README.md)|A compilation of useful Azure OpenAI in Microsoft Foundry Models resources and code samples to help you get started and accelerate your technology adoption journey.|
 |[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?tabs=image%2Ccommand-line&pivots=programming-language-python)|A quickstart that shows how to programmatically ask a model to describe the contents of an image.|
 |[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?tabs=dalle3%2Ccommand-line&pivots=programming-language-python)|A quickstart that demonstrates how to programmatically generate images by using Dall-E based on a prompt.|
 

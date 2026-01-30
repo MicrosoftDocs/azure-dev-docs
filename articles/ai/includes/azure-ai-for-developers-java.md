@@ -1,14 +1,15 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 04/28/2025
+ms.date: 01/30/2026
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
-## Resources for Azure OpenAI Service
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the `langchain4j-azure-open-ai` package, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
+## Resources for Azure OpenAI in Microsoft Foundry Models
+
+Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI Node API Library, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
 ### Libraries and samples
 
@@ -17,12 +18,6 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[**langchain4j-azure-open-ai**](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-open-ai)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai/versions) [Maven package](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai)|
 |[**langchain4j-azure-ai-search**](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-ai-search)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search/versions) [Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search)|
 |**langchain4j-document-loader-azure-storage-blob**|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions) [Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|
-|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&tabs=command-line)|An article that walks you through creating a chat completion sample.|
-|[Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatbotSample.java)|A simple example demonstrating how to get completions for the provided prompt.|
-|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/StreamingChatSample.java)|A simple example demonstrating how to use  streaming chat completions.|
-|[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|An article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
-|[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|An article that looks at authentication using Microsoft Entra ID.|
-|[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More Samples](https://aka.ms/oai/java/samples)|The Azure OpenAI service samples are a set of self-contained Java programs that demonstrate interacting with Azure OpenAI service using the client library. Each sample focuses on a specific scenario and can be executed independently.|
 
 ### Documentation
@@ -31,12 +26,13 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |---|---|
 |[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 |[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?pivots=programming-language-java)|A quick set of instructions to set up the services you need and code you must write to prompt a model using Java.|
-|[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
+|[Work with chat completions models using Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/how-to/chatgpt?tabs=python-secure)|A quick set of instructions to set up the services you need and code you must write to prompt a model using Java.|
+|[Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true&tabs=java)|The Microsoft Foundry SDK is available in multiple languages, including Python, Java, TypeScript, and C#.|
+|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=java)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
+|[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|An article that looks at authentication using Microsoft Entra ID.|
+|[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij)|Similar to the first quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions using IntelliJ.|
-|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
-|[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?tabs=command-line%2Ctypescript&pivots=programming-language-python)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
-|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio)|How to programmatically ask the model to describe the contents of an image.|
-|[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-java)|Programmatically generate images using Dall-E based on a prompt.|
+|[Quickstart: Generate images with Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/dall-e-quickstart?view=foundry&pivots=programming-language-java&tabs=command-line%2Cgpt-image-1%2Ckeyless%2Ctypescript-keyless)|Use this guide to get started generating images with the Azure OpenAI SDK for Java.|
 
 ## Resources for other Azure AI services
 
@@ -50,7 +46,7 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)|A collection of samples for the Azure.AI.FormRecognizer client library.|
 |[Extract, classify, and understand text within documents using Text Analytics in Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true)|The client Library for Text Analytics is part of the [Azure AI Language](/azure/ai-services/language-service) service, which provides Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Document Translation in Java](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-java)|A quickstart article that explains how to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
-|[Analyze images](/azure/ai-services/computer-vision/sdk/overview-sdk)|Sample code and setup documents for the Microsoft Azure AI Image Analysis SDK|
+|[Analyze images](/java/api/overview/azure/ai-vision-imageanalysis-readme?view=azure-java-stable&preserve-view=true)|Sample code and setup documents for the Microsoft Azure Image Analysis client library for Java|
 
 ### Documentation
 
@@ -70,9 +66,8 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |---|---|
 |[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
 |[AI Agents for Beginners Workshop](https://github.com/microsoft/ai-agents-for-beginners)|Learn the fundamentals of building Generative AI agents with our 10-lesson comprehensive course by Microsoft Cloud Advocates.|
-|[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
-|[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
-|[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
+|[Introduction to AI in Azure](/training/paths/introduction-to-ai-on-azure/)|Training path to help you understand core concepts related to artificial intelligence (AI), and the services in Microsoft Azure that can be used to create AI solutions.|
+|[Develop generative AI apps in Azure](/training/paths/create-custom-copilots-ai-studio/)|Generative Artificial Intelligence (AI) is becoming more accessible through comprehensive development platforms like Microsoft Foundry. Learn how to build generative AI applications that use language models to chat with your users.|
 
 ## AI app templates
 
