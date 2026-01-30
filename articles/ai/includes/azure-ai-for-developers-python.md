@@ -18,6 +18,8 @@ Azure OpenAI in Microsoft Foundry Models provides REST API access to the powerfu
 
 ### Samples
 
+|Link|Description|
+|---|---|
 |[Streaming chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|A notebook example that demonstrates how to get chat completions to work by using the Azure endpoints. The example focuses on chat completions, but also introduces other operations available with the API.|
 |[Azure embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|A notebook example that demonstrates how to use embeddings with Azure endpoints. The example focuses on embeddings, but also introduces other operations available with the API.|
 

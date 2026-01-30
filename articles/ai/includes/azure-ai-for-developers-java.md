@@ -31,7 +31,7 @@ Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's po
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|An article that looks at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij)|Similar to the first quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions using IntelliJ.|
-|[Quickstart: Generate images with Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/dall-e-quickstart?view=foundry&pivots=programming-language-java&tabs=command-line%2Cgpt-image-1%2Ckeyless%2Ctypescript-keyless)|Use this guide to get started generating images with the Azure OpenAI SDK for Java.|
+|[Quickstart: Generate images with Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/dall-e-quickstart?view=foundry&pivots=programming-language-java&tabs=command-line%2Cgpt-image-1%2Ckeyless%2Ctypescript-keyless&preserve-view=true)|Use this guide to get started generating images with the Azure OpenAI SDK for Java.|
 
 ## Resources for other Azure AI services
 
