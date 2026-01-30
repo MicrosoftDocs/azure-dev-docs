@@ -4,6 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Key Vault keys, se
 keywords: azure mcp server, azmcp, key vault
 author: diberry
 ms.author: diberry
+ms.reviewer: mbaldwin
 ms.date: 01/16/2026
 content_well_notification: 
   - AI-contribution
@@ -15,7 +16,7 @@ ms.custom: build-2025
 
 The Azure MCP Server lets you manage Azure Key Vault resources, including keys, secrets, and certificates with natural language prompts. You don't need to remember specialized command syntax to manage these resources.
 
-[Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys.
+[Azure Key Vault](/azure/key-vault/general/overview) is a cloud service for securely storing and accessing secrets, keys, and certificates. A secret is anything that you want to tightly control access to, such as API keys, passwords, or connection strings.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -58,7 +59,7 @@ Example prompts include:
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
 | **Key** | Required | The name of the key to create. |
-| **Key type** | Required | The type of key to create (`RSA`, `EC`). |
+| **Key type** | Required | The type of key to create. Supported types: `RSA`, `RSA-HSM`, `EC`, `EC-HSM`, `oct`, `oct-HSM`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -138,10 +139,6 @@ The Azure MCP Server can retrieve a specific secret from a Key Vault. This is us
 
 Example prompts include:
 
-- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my 'production-vault' Key Vault."
-- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
-- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my Key Vault?"
-- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
 - **Get specific secret**: "Retrieve the 'database-connection-string' secret from my key vault 'production-vault'."
 - **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' key vault"
 - **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my key vault?"
@@ -165,15 +162,11 @@ The Azure MCP Server can list all secrets in an Azure Key Vault. This operation 
 
 Example prompts include:
 
-- **List all secrets**: "Show me all secrets in my 'production-vault' Key Vault."
-- **View secrets**: "What secrets do I have in Key Vault 'api-secrets'?"
-- **Find secrets**: "List secrets in my Key Vault 'configuration-kv'"
-- **Query secrets**: "Show all secrets in my Key Vault"
-- "Show me all secrets in my key vault 'production-vault'."
-- "What secrets do I have in key Vault 'api-secrets'?"
-- "List secrets in my Key Vault 'configuration-kv'"
-- "Show all secrets in my Key Vault"
-- "What secrets are stored in my 'eastus-keyvault'?"
+- **List all secrets**: "Show me all secrets in my key vault 'production-vault'."
+- **View secrets**: "What secrets do I have in key vault 'api-secrets'?"
+- **Find secrets**: "List secrets in my key vault 'configuration-kv'"
+- **Query secrets**: "Show all secrets in my key vault"
+- **Check inventory**: "What secrets are stored in my 'eastus-keyvault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -191,10 +184,6 @@ The Azure MCP Server can create a new certificate in an Azure Key Vault by using
 
 Example prompts include:
 
-- **Create SSL certificate**: "Create a certificate named 'web-ssl-cert' in my 'production-vault' Key Vault."
-- **Generate certificate**: "Create a new certificate called 'api-tls-cert' in Key Vault 'security-kv'"
-- **Add certificate**: "Generate a certificate 'webapp-cert' for my web application in Key Vault 'mykeyvault'"
-- **Set up TLS cert**: "Create a certificate named 'app-certificate' in Key Vault 'mykeyvault'"
 - **Create SSL certificate**: "Create a certificate named 'web-ssl-cert' in my key vault 'production-vault'."
 - **Generate certificate**: "Create a new certificate called 'api-tls-cert' in key vault 'security-kv'"
 - **Add certificate**: "Generate a certificate 'webapp-cert' for my web application in key vault 'mykeyvault'"
@@ -218,10 +207,6 @@ The Azure MCP Server retrieves details of a specific certificate from an Azure K
 
 Example prompts include:
 
-- **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my 'production-vault' Key Vault."
-- **View certificate info**: "Get information about the 'api-tls-cert' certificate in Key Vault 'security-kv'"
-- **Retrieve certificate**: "Get properties of the 'app-certificate' in Key Vault 'mykeyvault'"
-- **Check certificate**: "Show me the details of certificate 'ssl-certificate' in vault 'mykeyvault'"
 - **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my key vault 'production-vault'."
 - **View certificate info**: "Get information about the 'api-tls-cert' certificate in key vault 'security-kv'"
 - **Retrieve certificate**: "Get properties of the 'app-certificate' in key vault 'mykeyvault'"
@@ -248,10 +233,6 @@ Example prompts include:
 
 - **Import certificate from file**: "Import the certificate in file '/path/to/cert.pfx' into the key vault 'mykeyvault'."
 - **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
-- **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into Key Vault 'api-vault' as 'api-cert'."
-- **Import PEM certificate**: "Import a PEM certificate into my Key Vault 'prod-vault' named 'prod-cert'."
-- **Import certificate from file**: "Import the certificate in file '/path/to/cert.pfx' into the key vault 'mykeyvault'."
-- **Import certificate with name**: "Import a certificate into the key vault 'security-kv' using the name 'web-ssl-cert'."
 - **Add PFX certificate**: "Import a PFX certificate from 'C:\\certs\\api.pfx' into key vault 'api-vault' as 'api-cert'."
 - **Import PEM certificate**: "Import a PEM certificate into my key vault 'prod-vault' named 'prod-cert'."
 - **Import password-protected certificate**: "Import the certificate 'secure.pfx' into key vault 'ssl-vault' with password 'mypassword'."
@@ -275,10 +256,6 @@ The Azure MCP Server lists all certificates in an Azure Key Vault. This operatio
 
 Example prompts include:
 
-- **List all certificates**: "Show me all certificates in my 'production-vault' Key Vault."
-- **View certificates**: "What certificates do I have in Key Vault 'security-kv'?"
-- **Find certificates**: "List certificates in Key Vault 'certificates-kv'"
-- **Query certificates**: "Show all certificates in Key Vault 'mykeyvault'"
 - **List all certificates**: "Show me all certificates in my key vault 'production-vault'."
 - **View certificates**: "What certificates do I have in key vault 'security-kv'?"
 - **Find certificates**: "List certificates in key vault 'certificates-kv'"
@@ -297,4 +274,5 @@ Example prompts include:
 
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
-- [Azure Key Vault documentation](/azure/key-vault/)
+- [Manage Azure Key Vault with Azure MCP Server](../services/azure-mcp-server-for-key-vault.md)
+- [Azure Key Vault documentation](/azure/key-vault/general/overview)
