@@ -13,6 +13,6 @@ items:
     - name: GPT-35-Turbo and GPT-4 with IntelliJ
       href: ../toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Generate text
-      href: /azure/ai-services/openai/quickstart?view=foundry&tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      href: /azure/ai-services/openai/quickstart?view=foundry&preserve-view=true&tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Generate images
-      href: /azure/ai-services/openai/dall-e-quickstart?view=foundry&tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      href: /azure/ai-services/openai/dall-e-quickstart?view=foundry&preserve-view=true&tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
