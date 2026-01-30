@@ -6,17 +6,17 @@ ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
-## Resources for Azure OpenAI Service
+## Resources for Azure OpenAI in Microsoft Foundry Models
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
+Azure OpenAI in Microsoft Foundry Models provides REST API access to the powerful language models available in OpenAI. Azure OpenAI helps you adapt these models to accomplish specific tasks, such as content generation, summarization, image understanding, semantic search, and natural language to code translation. Access Azure OpenAI by using the REST APIs, the OpenAI SDK for Python, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
 ### Libraries
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI SDK for .NET](https://aka.ms/oai/net/sdk)|The GitHub source version of the Azure OpenAI client library for .NET is an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem. It can connect to Azure OpenAI resources or to the non-Azure OpenAI inference endpoint, making it a great choice for even non-Azure OpenAI development.|
-|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all Azure OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
-|[Azure.AI.OpenAI NuGet package](https://aka.ms/oai/net/nuget)|The NuGet version of the Azure OpenAI client library for .NET.|
+|[OpenAI SDK for .NET](https://aka.ms/oai/net/sdk)|The OpenAI .NET library provides convenient access to the OpenAI REST API from .NET applications. It can connect to Azure OpenAI resources or to the non-Azure OpenAI inference endpoint, making it a great choice for even non-Azure OpenAI development.|
+|[OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
+|[OpenAI NuGet package](https://www.nuget.org/packages/OpenAI)|The NuGet version of the  OpenAI client library for .NET.|
 
 ### Samples
 
@@ -25,9 +25,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[.NET OpenAI MCP Agent](https://github.com/Azure-Samples/openai-mcp-agent-dotnet)|This sample is an MCP agent app written in .NET, using Azure OpenAI, with a remote MCP server written in TypeScript.|
 |[AI Travel Agents](https://github.com/Azure-Samples/azure-ai-travel-agents)|The **AI Travel Agents** is a robust enterprise application that leverages multiple AI agents to enhance travel agency operations. The application demonstrates how six AI agents collaborate to assist employees in handling customer queries, providing destination recommendations, and planning itineraries.|
 |[deepseek-dotnet](https://github.com/Azure-Samples/deepseek-dotnet)|This is a sample chat demo that showcases the capabilities of DeepSeek-R1.|
-|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)|A collection of 10 samples that demonstrate how to use the Azure OpenAI client library for .NET to chat, stream replies, use your own data, transcribe/translate audio, generate images, etc.|
-|Streaming Chat Completions|A deep link to the samples demonstrating streaming completions.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://github.com/Azure-Samples/openai-dotnet-samples/blob/main/README.md)|A collection of OpenAI samples written in .NET.|
@@ -38,11 +36,13 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |---|---|
 |[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 |[Overview of the .NET + AI ecosystem](/dotnet/ai/dotnet-ai-ecosystem)|Summary of the services and tools you might need to use in your applications, with links to learn more about each of them.|
-|[Build an Azure AI chat app with .NET](/dotnet/ai/quickstarts/get-started-azure-openai)|Use Semantic Kernel or Azure OpenAI SDK to create a simple .NET 8 console chat application.|
-|[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Similar to the previous article, but the prompt is to summarize text.|
-|[Get insight about your data from an .NET Azure AI chat app](/dotnet/ai/quickstarts/quickstart-ai-chat-with-data)|Use Semantic Kernel or Azure OpenAI SDK to get analytics and information about your data.|
-|[Extend Azure AI using Tools and execute a local Function with .NET](/dotnet/ai/quickstarts/quickstart-azure-openai-tool)|Create an assistant that handles certain prompts using custom tools built in .NET.|
-|[Generate images using Azure AI with .NET](/dotnet/ai/quickstarts/quickstart-openai-generate-images)|Use the OpenAI dell-e-3 model to generate an image.|
+|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=dotnet)|A guidance article on the small changes you need to make to your code, so you can swap back and forth between OpenAI and the Azure OpenAI Service.|
+[Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true&tabs=csharp)|The Microsoft Foundry SDK is available in multiple languages, including Python, Java, TypeScript, and C#.|
+|[Build an AI chat app with .NET](/dotnet/ai/quickstarts/build-chat-app?pivots=openai)|Create a conversational .NET console chat app using an OpenAI or Azure OpenAI model. |
+|[Connect to and prompt an AI model](/dotnet/ai/quickstarts/prompt-model?pivots=openai)|Create a .NET console chat app to connect to and prompt an OpenAI or Azure OpenAI model.|
+|[Build a .NET AI vector search app](/dotnet/ai/quickstarts/quickstart-ai-chat-with-data)|Create a .NET console app to perform semantic search on a vector store to find relevant results for the user's query.|
+|[Invoke .NET functions using an AI model](/dotnet/ai/quickstarts/use-function-calling?pivots=openai)|Create a .NET console AI chat app that connects to an AI model with local function calling enabled.|
+|[Generate images using OpenAI.Images.ImageClient](/dotnet/ai/quickstarts/generate-images?pivots=openai)|Use the OpenAI DALL-E AI model. to generate an image.|
 
 ## Resources for other Azure AI services
 
