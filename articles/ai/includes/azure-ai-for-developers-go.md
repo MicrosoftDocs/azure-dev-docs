@@ -13,7 +13,7 @@ Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's po
 |Link|Description|
 |---|---|
 |[OpenAI SDK for Go](https://github.com/openai/openai-go)|The GitHub source version of the OpenAI SDK for Go.|
-|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=java)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
+|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=pivots=golang)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)|The Go package version of Azure OpenAI client module for Go.|
 |[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-package-GetChatCompletions)|A simple example demonstrating how to implement completions.|
 |[ChatCompletions using Tools](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-package-GetChatCompletions_usingTools)|A simple example demonstrating how to implement completions using Functions.|
