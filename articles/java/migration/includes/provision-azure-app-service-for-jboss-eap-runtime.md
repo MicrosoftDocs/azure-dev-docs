@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 03/17/2025
+ms.date: 01/13/2026
 ---
 
 ### Provision Azure App Service for JBoss EAP runtime

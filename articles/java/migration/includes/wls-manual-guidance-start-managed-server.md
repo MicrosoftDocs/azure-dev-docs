@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 12/09/2022
+ms.date: 01/13/2026
 ---
 
 1. Sign in to the Administration Console portal with your admin account and password. The URL is `http://<adminvm-private-ip>:7001/console/`. In this example, the admin account and password are `weblogic/Secret123456`. You'll find the state of managed servers are **Shutdown**.

@@ -8,8 +8,9 @@ ms.reviewer: seal
 ms.topic: reference
 appliesto:
   - ✅ Version 4.20.0
-  - ✅ Version 5.23.0
-  - ✅ Version 6.0.0
+  - ✅ Version 5.24.1
+  - ✅ Version 6.1.0
+  - ✅ Version 7.0.0-beta.1
 ms.custom:
   - devx-track-java
   - devx-track-extended-java
@@ -87,7 +88,7 @@ Now, start your application and access your application through the browser. You
 
 ##### Add extra security configurations
 
-###### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+###### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -282,7 +283,7 @@ Update `redirect-uri` in the Azure portal.
 
 After we set `redirect-uri-template`, we need to update the security builder:
 
-###### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+###### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -589,7 +590,7 @@ For more information about the access token, see [MS docs about Microsoft identi
 
 ##### Add extra security configurations
 
-###### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+###### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -941,7 +942,7 @@ spring:
 
 Configure multiple `SecurityFilterChain` instances. `AadWebApplicationAndResourceServerConfig` contains two security filter chain configurations for resource server and web application.
 
-##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+##### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -1158,7 +1159,7 @@ Grant admin consent for ***Graph*** permissions.
 
 Add the following dependencies to your **pom.xml** file.
 
-##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+##### [Spring Cloud Azure 6.x.7.x](#tab/SpringCloudAzure6x)
 
 ```xml
 <dependencies>
@@ -1292,7 +1293,7 @@ public class WebController {
 
 For your security configuration code, you can refer to the following example:
 
-##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+##### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -1554,7 +1555,7 @@ class Demo {
 
 For your security configuration code, you can refer to the following example:
 
-##### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+##### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 ```java
 @Configuration(proxyBeanMethods = false)

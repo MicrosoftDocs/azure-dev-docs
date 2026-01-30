@@ -2,7 +2,7 @@
 title: Use the Azure libraries (SDK) for Python
 description: Overview of the features and capabilities of the Azure libraries for Python that help developers be more productive when creating, using, and managing Azure resources.
 ms.date: 02/06/2025
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

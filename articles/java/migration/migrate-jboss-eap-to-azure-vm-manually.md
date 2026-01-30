@@ -4,7 +4,7 @@ description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azur
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 01/13/2026
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli, linux-related-content
 ---
 

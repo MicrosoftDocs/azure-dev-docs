@@ -1,7 +1,7 @@
 ---
 title: "Get started sample: Chat using your data in Python"
 description: Search your own data with a chat app sample in Python, and get started with Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search.
-ms.date: 06/19/2025
+ms.date: 01/15/2025
 ms.update-cycle: 180-days
 ms.topic: how-to
 ms.subservice: intelligent-apps

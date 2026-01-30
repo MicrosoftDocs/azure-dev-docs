@@ -3,7 +3,7 @@ title: Configure service packaging file inclusions and exclusions
 description: How to configure service packaging file inclusions and exclusions for Azure Developer CLI templates
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/20/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure service packaging file exclusions
 
-The Azure Developer CLI (`azd`) allows you to add ignore files in your templates that specify files and directories to exclude from the deployment package for App Service and Function Apps. This features provides granular control at the service level over which files are included in the packaging process.
+The Azure Developer CLI (`azd`) allows you to add ignore files in your templates that specify files and directories to exclude from the deployment package for App Service and Function Apps. This feature provides granular control at the service level over which files are included in the packaging process.
 
 ## Understand service packaging ignore files
 
@@ -42,7 +42,7 @@ logs/*
 testfile.js
 ```
 
-Exclude folders or files that are ignored by default when the `.webappignore` or `.funcignore` file is not present:
+Exclude folders or files that are ignored by default when the `.webappignore` or `.funcignore` file isn't present:
 
 ```text
 node_modules/
@@ -57,7 +57,7 @@ logs/*
 testfile.py
 ```
 
-Exclude folders or files that are ignored by default when the `.webappignore` or `.funcignore` file is not present:
+Exclude folders or files that are ignored by default when the `.webappignore` or `.funcignore` file isn't present:
 
 ```text
 __pycache__/*

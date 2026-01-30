@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 1/24/2020
+ms.date: 01/13/2026
 ---
 
 #### Inventory certificates

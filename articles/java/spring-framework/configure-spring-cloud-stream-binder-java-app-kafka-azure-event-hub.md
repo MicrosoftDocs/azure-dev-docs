@@ -40,9 +40,6 @@ SAS authentication uses the connection string of your Azure Event Hubs namespace
 
 ### Prepare credentials
 
-> [!IMPORTANT]
-> Connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use passwordless connections instead.
-
 #### [Passwordless (Recommended)](#tab/passwordless)
 
 Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) to grant permissions to a [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object), which may be a user or an application service principal.
@@ -81,7 +78,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>6.0.0</version>
+        <version>7.0.0-beta.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -89,14 +86,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
   </dependencyManagement>
   ```
 
-  > [!NOTE]
-  > If you're using Spring Boot 3.0.x-3.4.x, be sure to set the `spring-cloud-azure-dependencies` version to `5.23.0`.
-  >
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.20.0`.
-  >
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
-  >
-  > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  [!INCLUDE [spring-cloud-azure-version-note.md](includes/spring-cloud-azure-version-note.md)]
 
 - The Spring Cloud Azure Starter artifact:
 
@@ -110,9 +100,6 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
 ## Code the application
 
 Use the following steps to configure your application to produce and consume messages using Azure Event Hubs.
-
-> [!IMPORTANT]
-> Connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use passwordless connections instead.
 
 1. Configure the Event hub credentials by adding the following properties to your **application.properties** file.
 

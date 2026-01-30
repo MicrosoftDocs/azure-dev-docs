@@ -3,7 +3,7 @@ title: Use third-party container registries
 description: How to use third-party container registries
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 09/13/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
@@ -15,7 +15,7 @@ Azure Developer CLI (`azd`) supports external third-party container registries f
 
 ## Authentication
 
-Run `docker login` and authenticate to your external container registry. You may need to follow additional setup or configuration steps for your specific registry provider.
+Run `docker login` and authenticate to your external container registry. You may need to follow more setup or configuration steps for your specific registry provider.
 
 ```azdeveloper
 docker login <your-registry>
@@ -23,7 +23,7 @@ docker login <your-registry>
 
 ## Example scenarios
 
-You can configure `azd` to push and pull images from an external container registry in the `azure.yaml` file of your template. Support for additional container registries provides greater flexibility for your deployment workflows.
+You can configure `azd` to push and pull images from an external container registry in the `azure.yaml` file of your template. Support for more container registries provides greater flexibility for your deployment workflows.
 
 ### Pull from external container registry
 
@@ -62,7 +62,7 @@ services:
       tag: latest   
 ```
 
-During a call to `azd deploy` the nginx image will be pulled from the configured image. In this case it is a public image on docker hub. The container/image will be retagged and pushed to the docker registry.
+The `azd deploy` command pulls the configured nginx image. In this case, it's a public image on docker hub, so `azd` retags the container/image and pushes it to the docker registry.
 
 ### Build, tag & push to external registry on azd deploy
 
@@ -83,4 +83,4 @@ services:
       image: todo-api
 ```
 
-During `azd deploy` the container source will be built, tagged and push to the docker registry.
+The `azd deploy` command builds the container, tags it and pushes it to the docker registry.

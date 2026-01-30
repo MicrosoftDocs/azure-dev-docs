@@ -1,8 +1,8 @@
 --- 
 title: Authenticate to Azure from GitHub Actions by a secret
 description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login action with a client secret.
-author: MoChilia 
-ms.author: shiyingchen 
+author: wangzelin007
+ms.author: zelinwang
 ms.topic: reference
 ms.service: azure 
 ms.date: 07/01/2024

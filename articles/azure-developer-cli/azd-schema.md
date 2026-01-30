@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml file
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/14/2024
+ms.date: 01/09/2026
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -218,7 +218,7 @@ pipeline:
 |--------------|--------|----------|-------------|
 | azd          | string | Yes      | The name and args of the azd command to execute. |
 
-#### Sample workflow
+#### Configure workflow step order
 
 The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step using a workflow. This example could be used in scenarios where you need to know the URLs of resources during the build or packaging process.
 
@@ -230,6 +230,7 @@ workflows:
   up: 
     steps:
       - azd: provision
+      - azd: package
       - azd: deploy --all
 ```
 

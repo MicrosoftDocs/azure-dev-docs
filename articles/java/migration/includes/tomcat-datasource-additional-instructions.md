@@ -1,7 +1,7 @@
 --- 
 author: KarlErickson
 ms.author: karler 
-ms.date: 3/30/2020 
+ms.date: 01/13/2026
 --- 
 
 For additional data source instructions, see the following sections of the [JNDI Datasource How-To](https://tomcat.apache.org/tomcat-9.0-doc/jndi-datasource-examples-howto.html) in the Tomcat documentation:

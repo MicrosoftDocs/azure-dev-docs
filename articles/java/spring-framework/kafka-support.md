@@ -9,19 +9,20 @@ ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.23.0
-- ✅ Version 6.0.0
+- ✅ Version 5.24.1
+- ✅ Version 6.1.0
+- ✅ Version 7.0.0-beta.1
 ---
 
 # Spring Cloud Azure Kafka support
+
+From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 
 ## Supported Kafka version
 
 The current version of the starter should be compatible with Apache Kafka Clients 2.0.0 using Java 8 or higher.
 
 ## Supported authentication types
-
-Starting with version 6.0.0, Spring Cloud Azure for Kafka has removed the support for plain connection string authentication.
 
 The following authentication types are supported:
 
@@ -53,9 +54,7 @@ If none of these types of credentials are found, the credential chain via `Defau
 
 For the connection string authentication mode, you can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string. For more information about the usage, see the [Basic usage for connection string authentication](#basic-usage-connection-string) section.
 
-> [!IMPORTANT]
-> Plain connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use OAuth credential authentication instead.
->
+> [!NOTE]
 > Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
 
 ## Configuration
@@ -148,9 +147,6 @@ The following table shows the Spring Boot Kafka common configuration options:
 > - The Spring Cloud Stream Kafka Binder options are just like the above.
 
 ### Configurable properties when using Kafka support with plain connection string authentication
-
-> [!IMPORTANT]
-> Plain connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use OAuth credential authentication instead.
 
 The following table shows the Spring Boot Event Hubs for Kafka common configuration options:
 
@@ -278,9 +274,6 @@ See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-sprin
 
 <a name="basic-usage-connection-string"></a>
 ### Use connection string authentication
-
-> [!IMPORTANT]
-> Plain connection string authentication is no longer supported in Spring Cloud Azure 6.0.0 or higher. Use OAuth credential authentication instead.
 
 You can use connection string authentication directly or use the Azure Resource Manager to retrieve the connection string.
 

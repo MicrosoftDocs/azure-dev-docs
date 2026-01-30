@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 05/27/2021
+ms.date: 01/13/2026
 ---
 
 ### Determine whether your application uses a Resource Adapter

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: dbrittain
 ms.topic: upgrade-and-migration-article
-ms.date: 09/20/2024
+ms.date: 01/13/2026
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java, devx-track-javaee-websphere, linux-related-content
 ---
 

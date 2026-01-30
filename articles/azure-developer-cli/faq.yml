@@ -4,7 +4,7 @@ metadata:
   description: Get answers to commonly asked questions about Azure Developer CLI.
   author: alexwolfmsft
   ms.author: alexwolf
-  ms.date: 9/14/2024
+  ms.date: 01/27/2026
   ms.topic: article
   ms.custom: devx-track-azdevcli, build-2023
   ms.service: azure-dev-cli
@@ -60,6 +60,16 @@ sections:
           1. Run `azd init -t <template repo>` to clone the template project to your local machine.
           2. To pull down the existing env created using Codespaces, run `azd env refresh`. Make sure you provide the same environment name, subscription and location as before.
       
+      - question: How do I authenticate in Codespaces if device login has an issue?
+        answer: |
+          If you experience issues with device code authentication in Codespaces (for example, recurring 2FA requests or errors), try the following workaround using VS Code Desktop:
+
+          1. Open your Codespace in VS Code Desktop using one of these methods:
+            - Use the command palette (Ctrl+Shift+P on Windows or Cmd+Shift+P on MacOs) and select **Codespaces: Open in VS Code Desktop**.
+            - Click the bottom left corner of the Codespace in the browser and select **Open in VS Code Desktop**).
+          2. In the VS Code Desktop terminal, run `azd auth login` and complete the browser-based authentication.
+          3. Once authenticated, close VS Code Desktop and return to your Codespace in the browser. The authentication state should persist.
+
       - question: How is the azure.yaml file used?
         answer: |
           The azure.yaml file describes the apps and types of Azure resources that are included in the template.
@@ -131,7 +141,21 @@ sections:
           This entry creates a new resource named "my-unique-name" instead of a randomized value such as "app-web-aj84u2adj" the next time you provision your application. You can either manually remove the old resource group using the Azure portal or run `azd down` to remove all previous deployments. After removing the resources, run `azd provision` to create them again with the new name.
 
           This name will need to be globally unique, otherwise you will receive an ARM error during `azd provision` when it tries to create the resource.
-   
+
+      - question: Can I work with multiple Azure tenants?
+        answer: |
+          Yes. To authenticate with a specific tenant, use the `--tenant-id` parameter with the `azd auth login` command.
+
+          ```bash
+          azd auth login --tenant-id <tenant-id>
+          ```
+          
+          Alternatively, if you want `azd` to have access to all your tenants, you can handle the Multi-Factor Authentication (MFA) challenges in the browser first:
+          
+          1. Open the [Azure Portal](https://portal.azure.com) in your browser.
+          2. Switch to each of your tenants one by one. This action triggers any necessary MFA challenges and refreshes your tokens.
+          3. Run `azd auth login` in your terminal. `azd` will use the browser's existing session and access tokens, which are now valid for all the tenants you visited.
+
   - name: "Command: azd provision"
     questions:
       - question: How does the command know what resources to provision?

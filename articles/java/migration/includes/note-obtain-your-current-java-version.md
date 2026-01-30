@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 1/22/2020
+ms.date: 01/13/2026
 ---
 
 <!-- Included in technology-specific include files such as note-obtain-your-current-java-version-app-service.md. -->

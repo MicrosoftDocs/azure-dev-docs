@@ -8,8 +8,9 @@ ms.reviewer: seal
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 appliesto:
-- ✅ Version 5.23.0
-- ✅ Version 6.0.0
+- ✅ Version 5.24.1
+- ✅ Version 6.1.0
+- ✅ Version 7.0.0-beta.1
 ---
 
 # Spring Cloud Azure support for Testcontainers
