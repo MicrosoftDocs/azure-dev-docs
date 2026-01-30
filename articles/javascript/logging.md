@@ -1,7 +1,7 @@
 ---
 title: Monitor JavaScript applications in Azure with logs, metrics, and alerts
 description: Learn how to monitor your Azure resources and applications.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/03/2025
 ms.custom: devx-track-js
 # intent: As a developer new to Azure, I want to understand how to monitor my applications and resources using logs, metrics, and alerts.

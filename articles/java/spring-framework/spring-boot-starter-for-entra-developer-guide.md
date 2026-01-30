@@ -9,8 +9,9 @@ ms.reviewer: seal
 ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 appliesto:
 - ✅ Version 4.20.0
-- ✅ Version 5.23.0
-- ✅ Version 6.0.0
+- ✅ Version 5.24.1
+- ✅ Version 6.1.0
+- ✅ Version 7.0.0-beta.1
 ---
 
 # Spring Boot Starter for Microsoft Entra developer's guide
@@ -97,7 +98,7 @@ spring:
 
 Use the default security configuration or provide your own configuration.
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 Option 1: Use the default configuration.
 
@@ -291,7 +292,7 @@ You can use both the `<your-client-ID>` and `<your-app-ID-URI>` values to verify
 
 Use the default security configuration or provide your own configuration.
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 Option 1: Use the default configuration.
 
@@ -494,7 +495,7 @@ spring:
 
 Write Java code to configure multiple `HttpSecurity` instances.
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
 
@@ -664,7 +665,7 @@ spring:
 
 Use the default security configuration or provide your own configuration.
 
-#### [Spring Cloud Azure 6.x](#tab/SpringCloudAzure6x)
+#### [Spring Cloud Azure 6.x/7.x](#tab/SpringCloudAzure6x)
 
 Option 1: Use the default configuration. With this option, you don't need to do anything. The `DefaultAadWebSecurityConfiguration` class is configured automatically.
 

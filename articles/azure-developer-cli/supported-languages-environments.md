@@ -3,9 +3,9 @@ title: Supported languages and environments
 description: Details about the Azure Developer CLI's template structure and supported development environments, hosts, and programming languages.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 9/13/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-azdevcli
 ---
 
@@ -33,10 +33,9 @@ For more information about each feature stage, see [feature versioning and relea
 | ------------------------ | -------------- |
 | Azure App Service        | Stable         |
 | Azure Static Web Apps    | Stable         |
-| Azure Container Apps     | Beta           |
+| Azure Container Apps     | Stable         |
 | Azure Functions          | Stable         |
 | Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`)    |
-| Azure Spring Apps        | Beta           |
 
 ## Supported languages and frameworks
 

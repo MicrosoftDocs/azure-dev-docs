@@ -3,7 +3,7 @@ title: Azure deployment stacks integration with the Azure Developer CLI
 description: How to use Azure deployment stacks with the Azure Developer CLI (azd)
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/24/2024
+ms.date: 01/09/2026
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli

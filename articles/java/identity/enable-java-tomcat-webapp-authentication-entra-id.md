@@ -6,7 +6,7 @@ author: bmitchell287
 ms.author: brendm
 ms.reviewer: givermei
 ms.date: 08/21/2025
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 

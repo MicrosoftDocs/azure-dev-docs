@@ -2,7 +2,7 @@
 title: Authorization in the Azure SDK libraries for Python
 description: Learn how to implement and troubleshoot authorization when using the Azure SDK for Python.
 ms.date: 7/10/2025
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 09/20/2024
+ms.date: 01/13/2026
 ---
 
 ### Account for the use of JCA adapters and resource adapters

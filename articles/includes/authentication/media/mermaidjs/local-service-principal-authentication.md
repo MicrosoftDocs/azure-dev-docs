@@ -11,7 +11,7 @@ ms.date: 08/07/2024
 %% 2. Run command: mmdc -i local-service-principal-authentication.md -o ../../media/mermaidjs/local-service-principal-authentication.svg 
 
 flowchart LR
-    APP["Local .NET app"]
+    APP["Local app"]
     SP["App service principal stored in environment variables"]
     AS["Azure services"]
     

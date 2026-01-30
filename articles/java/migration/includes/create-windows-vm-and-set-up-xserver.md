@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 06/21/2024
+ms.date: 01/13/2026
 ---
 
 1. Use the following steps to create a Windows 10 VM from the Azure portal:

@@ -87,6 +87,8 @@
         items:
         - name: Remote build support
           href: remote-builds.md
+        - name: Publishing workflows
+          href: publishing-workflows.md
         - name: Docker support as a language
           href: docker-language-support.md
         - name: Metadata configuration
@@ -117,6 +119,12 @@
           href: manage-environment-variables.md
         - name: Environment variables FAQ
           href: environment-variables-faq.md
+      - name: Full stack
+        items:
+        - name: Full-stack deployment
+          href: full-stack-deployment.md
+        - name: Full-stack deployment templates
+          href: full-stack-templates.md
       - name: Deploy to Azure Container Apps
         href: container-apps-workflows.md
       - name: Use Terraform for infrastructure as code
@@ -139,6 +147,8 @@
       href: configure-template-sources.md
     - name: Use azd in sovereign clouds
       href: sovereign-clouds.md
+    - name: Configure a proxy
+      href: configure-proxy.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot

@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: haiche
-ms.date: 04/29/2024
+ms.date: 01/13/2026
 ---
 
 In this section, you build and package a sample CRUD Java/JakartaEE application that you later deploy and run on WLS clusters for failover testing.

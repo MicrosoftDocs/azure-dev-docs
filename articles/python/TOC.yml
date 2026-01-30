@@ -154,7 +154,11 @@
         - name: Use a broker 
           href: sdk/authentication/local-development-broker.md
       - name: Auth from Azure-hosted apps
-        href: sdk/authentication/azure-hosted-apps.md
+        items:
+        - name: Use a system-assigned managed identity
+          href: sdk/authentication/system-assigned-managed-identity.md
+        - name: Use a user-assigned managed identity
+          href: sdk/authentication/user-assigned-managed-identity.md
       - name: Auth from on-premises apps
         href: sdk/authentication/on-premises-apps.md
       - name: Additional auth methods

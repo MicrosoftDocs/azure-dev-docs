@@ -5,7 +5,7 @@ description: This article provides an overview of some key Azure services and fe
 author: KarlErickson
 ms.author: karler
 ms.reviewer: asirveda
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/19/2025
 ms.custom:
   - devx-track-java

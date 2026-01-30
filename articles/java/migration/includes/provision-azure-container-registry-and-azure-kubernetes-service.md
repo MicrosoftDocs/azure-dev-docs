@@ -2,7 +2,7 @@
 author: KarlErickson
 ms.author: karler
 ms.reviewer: manriem
-ms.date: 2/28/2020
+ms.date: 01/13/2026
 ---
 
 ### Provision Azure Container Registry and Azure Kubernetes Service

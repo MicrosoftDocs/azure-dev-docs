@@ -4,7 +4,7 @@ description: This article describes how to establish a baseline for containerize
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/13/2022
 ms.custom: devx-track-java, devx-track-extended-java
 ---

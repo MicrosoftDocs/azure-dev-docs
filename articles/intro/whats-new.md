@@ -1,15 +1,74 @@
 ---
 title: "Azure developer documentation: What's new"
 description: "What's new in the Azure developer documentation."
-ms.date: 12/01/2025
+ms.date: 01/27/2026
 author: KarlErickson
 ms.author: karler
-ms.topic: article
+ms.topic: whats-new
 ---
 
 # Azure developer documentation: What's new
 
 Welcome to what's new in the [Azure developer documentation](../index.yml) for the last three months. This article lists some of the major changes to docs during this period.
+
+## What's new for December 2025
+
+### Azure Developer CLI (azd)
+
+Updated articles:
+
+- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.22.5
+
+### Azure for C++
+
+New articles:
+
+- [Authenticate Azure-hosted C++ apps to Azure resources using a system-assigned managed identity](../cpp/sdk/authentication/system-assigned-managed-identity.md)
+- [Authenticate Azure-hosted C++ apps to Azure resources using a user-assigned managed identity](../cpp/sdk/authentication/user-assigned-managed-identity.md)
+- [Authenticate C++ apps to Azure services during local development using developer accounts](../cpp/sdk/authentication/local-development-dev-accounts.md)
+- [Authenticate C++ apps to Azure services during local development using service principals](../cpp/sdk/authentication/local-development-service-principal.md)
+
+Updated articles:
+
+- [Authenticate C++ apps to Azure services using the Azure Identity library](../cpp/sdk/authentication/overview.md) - Add C++ authentication articles
+
+### Azure for JavaScript
+
+Updated articles:
+
+- [Deployment JavaScript app to Azure overview](../javascript/how-to/deploy-web-app.md) - Update JavaScript deployment article with modern Azure services
+- [Developing Serverless Node.js Apps with Azure Functions](../javascript/how-to/develop-serverless-apps.md) - Refresh serverless Node.js article with 2025 Azure Functions features
+- [Tutorial: Upload an image to an Azure Storage blob with TypeScript](../javascript/tutorial/browser-file-upload-azure-storage-blob.md) - Update article and sample code to use latest Azure SDK for JavaScript/TypeScript libraries and infrastructure with Azure Developer CLI
+- [Tutorial: Build a LangChain.js agent with Azure AI Search](../javascript/ai/langchain-agent-on-azure.md) - Update article and sample code to use latest SDK and infrastructure with Azure Developer CLI
+
+### Azure for Python
+
+New articles:
+
+- [Authenticate Python apps to Azure services during local development using brokered authentication](../python/sdk/authentication/local-development-broker.md)
+
+### Azure MCP Server
+
+Updated articles:
+
+- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md?tabs=manual&pivots=visual-studio-2026) - Update for Visual Studio 2026 release
+
+### GitHub Copilot app modernization
+
+New articles:
+
+- [Configure settings for GitHub Copilot app modernization to optimize the experience for IntelliJ](../github-copilot-app-modernization/configure-settings-intellij.md)
+- [Customize the Java project upgrade plan when using GitHub Copilot app modernization](../github-copilot-app-modernization/customize-upgrade-plan.md)
+- [GitHub Copilot app modernization Java utilities](../github-copilot-app-modernization/tools.md)
+- [Quickstart: generate Java unit tests with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-unit-tests.md)
+- [Quickstart: upgrade a Java project with GitHub Copilot app modernization](../github-copilot-app-modernization/quickstart-upgrade.md)
+- [Upgrade a Java framework or third-party dependency by using GitHub Copilot app modernization](../github-copilot-app-modernization/framework-upgrade.md)
+
+## TypeSpec on Azure
+
+Updated articles:
+
+- [Resources for developing TypeSpec apps](../typespec/resources.md) updated to include latest information
 
 ## What's new for November 2025
 
@@ -195,108 +254,3 @@ New articles:
 
 - [Azure SDK for Rust crates](../rust/azure-sdk-library-package-index.md)
 - [OpenTelemetry in Azure SDK for Rust crates](../rust/sdk/logging.md)
-
-## What's new for September 2025
-
-### AI apps using Azure services
-
-New articles:
-
-- [Build a .NET OpenAI Agent using an MCP server on Azure Container Apps](../ai/build-openai-mcp-server-dotnet.md)
-
-### Azure Developer CLI (azd)
-
-New articles:
-
-- [Work with Azure Developer CLI metadata for Bicep input parameters](../azure-developer-cli/metadata.md)
-
-Updated articles:
-
-- [Azure Developer CLI reference](../azure-developer-cli/reference.md) - Update reference documents for Azure CLI @ 1.19.0
-
-### Azure MCP Server
-
-New articles:
-
-- [Get started with the Azure MCP Server in Cline](../azure-mcp-server/get-started/tools/cline.md)
-- [Azure App Lens tools for the Azure MCP Server](../azure-mcp-server/tools/azure-app-lens.md)
-- [Azure App Service tools for Azure MCP Server](../azure-mcp-server/tools/azure-app-service.md)
-- [Azure Event Grid tools for the Azure MCP Server](../azure-mcp-server/tools/azure-event-grid.md)
-
-Updated articles:
-
-- [Get started with the Azure MCP Server in Cursor](../azure-mcp-server/get-started/tools/cursor.md)
-- [Get started with the Azure MCP Server in IntelliJ](../azure-mcp-server/get-started/tools/jet-brains.md)
-- [Get started with the Azure MCP Server in Windsurf](../azure-mcp-server/get-started/tools/windsurf.md)
-- [Get started with the Azure MCP Server using Visual Studio](../azure-mcp-server/get-started/tools/visual-studio.md)
-- [Get started with the Azure MCP Server using Visual Studio Code](../azure-mcp-server/get-started/tools/visual-studio-code.md)
-- [Azure App Configuration tools for the Azure MCP Server](../azure-mcp-server/tools/app-configuration.md)
-- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md)
-- [Azure AI Search tools for the Azure MCP Server](../azure-mcp-server/tools/ai-search.md)
-- [Azure Functions tools for the Azure MCP Server](../azure-mcp-server/tools/azure-functions.md)
-- [Azure Health Resource tools for the Azure MCP Server](../azure-mcp-server/tools/azure-health-resource.md)
-- [Azure Load Testing tools for the Azure MCP Server](../azure-mcp-server/tools/azure-load-testing.md)
-- [Azure Key Vault tools for the Azure MCP Server](../azure-mcp-server/tools/azure-key-vault.md)
-- [Azure Kubernetes Service tools for the Azure MCP Server](../azure-mcp-server/tools/azure-aks.md)
-- [Azure Managed Lustre tools for the Azure MCP Server](../azure-mcp-server/tools/azure-managed-lustre.md)
-- [Azure Monitor tools for the Azure MCP Server](../azure-mcp-server/tools/monitor.md)
-- [Azure MCP Tool tools for the Azure MCP Server](../azure-mcp-server/tools/azure-mcp-tool.md)
-- [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md)
-- [Azure Storage tools for the Azure MCP Server](../azure-mcp-server/tools/storage.md)
-
-### Azure for Java
-
-Updated articles:
-
-- Updates for Spring Cloud Azure 6.0.0:
-  - [Spring Boot Starter for Microsoft Entra developer's guide](../java/spring-framework/spring-boot-starter-for-entra-developer-guide.md)
-  - [Spring Cloud Azure Redis support](../java/spring-framework/redis-support.md)
-  - [Spring Cloud Azure support for Spring Cloud Stream](../java/spring-framework/spring-cloud-stream-support.md)
-  - [Spring Cloud Azure support for Spring Security](../java/spring-framework/spring-security-support.md)
-
-### Azure for JavaScript
-
-Updated articles:
-
-- [Authenticate Azure-hosted JavaScript apps to Azure resources using a system-assigned managed identity](../javascript/sdk/authentication/system-assigned-managed-identity.md)
-- [Authenticate Azure-hosted JavaScript apps to Azure resources using a user-assigned managed identity](../javascript/sdk/authentication/user-assigned-managed-identity.md)
-- [Authenticate Node.js apps to Azure services during local development using developer accounts](../javascript/sdk/authentication/local-development-environment-developer-account.md)
-
-### Azure for .NET
-
-New articles:
-
-- [Quickstart: Vector search with .NET in Azure Cosmos DB for MongoDB (vCore)](/azure/documentdb/quickstart-dotnet-vector-search)
-
-### Azure for Rust
-
-New articles:
-
-- [OpenTelemetry in Azure SDK for Rust crates](../rust/sdk/logging.md)
-
-Updated articles:
-
-- [Authenticate Rust apps to Azure services](../rust/sdk/authentication/overview.md)
-- [Configure your Rust development environment for Azure](../rust/developer-environment.md)
-- [Use Azure SDK for Rust crates to access Azure services](../rust/sdk/use-crates.md)
-- [What are Azure SDK for Rust crates?](../rust/sdk/overview.md)
-
-### GitHub Copilot for Azure
-
-Updated articles:
-
-- [What is GitHub Copilot for Azure?](../github-copilot-azure/introduction.md) - Added table for supported development environments
-
-### GitHub Copilot app modernization
-
-New articles:
-
-- [Quickstart: containerize your Java project using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-containerization.md)
-- [Quickstart: deploy your Java project to Azure by using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-deploy-to-azure.md)
-
-Updated articles:
-
-- GA release updates:
-  - [GitHub Copilot app modernization](../github-copilot-app-modernization/overview.md)
-  - [GitHub Copilot app modernization FAQ](../java/migration/migrate-github-copilot-app-modernization-for-java-faq.yml)
-  - [Quickstart: assess and migrate a Java project using GitHub Copilot app modernization](../java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate.md)
