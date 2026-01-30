@@ -6,16 +6,15 @@ ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
-## Resources for Azure OpenAI in Microsoft Foundry Models for Go developers
+## Resources for Azure OpenAI in Microsoft Foundry Models
 
 Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI Node API Library, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
 |Link|Description|
 |---|---|
-|[Azure OpenAI SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)|The GitHub source version of the Azure OpenAI SDK for Go.|
-|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai#go)| Azure SDK releases listing Azure OpenAI client library for Go.|
+|[OpenAI SDK for Go](https://github.com/openai/openai-go)|The GitHub source version of the OpenAI SDK for Go.|
+|[Switch from OpenAI to Azure OpenAI](/azure/developer/ai/how-to/switching-endpoints?tabs=openai&pivots=java)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)|The Go package version of Azure OpenAI client module for Go.|
-|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-go&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[ChatCompletions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-package-GetChatCompletions)|A simple example demonstrating how to implement completions.|
 |[ChatCompletions using Tools](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-package-GetChatCompletions_usingTools)|A simple example demonstrating how to implement completions using Functions.|
 |[Streaming Chat Completions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#example-package-ChatCompletionStream)|A simple example demonstrating how to implement streaming completions.|
