@@ -6,7 +6,6 @@ ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
-
 ## Resources for Azure OpenAI in Microsoft Foundry Models
 
 Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI Node API Library, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).

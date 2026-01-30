@@ -1,14 +1,14 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 04/28/2025
+ms.date: 01/30/2026
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
 ---
-## OpenAI for Go developers
+## Resources for Azure OpenAI in Microsoft Foundry Models for Go developers
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for Go, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
+Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI Node API Library, or via the [Microsoft Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
 |Link|Description|
 |---|---|
