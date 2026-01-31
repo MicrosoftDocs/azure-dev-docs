@@ -155,7 +155,7 @@ Then, you can use [Azure AI Content Safety](/azure/ai-services/content-safety/ov
 
 AI agents are a new way to build generative AI apps that work on their own. They use LLMs to read and write text, and they can also connect to outside systems, APIs, and data sources.
 AI agents can manage complex tasks, make choices using real-time data, and learn from how people use them.
-For more information about AI agents, see [Quickstart: Create a new agent](/azure/ai-foundry/agents/quickstart?view=foundry-classic&pivots=programming-language-python-azure).
+For more information about AI agents, see [Quickstart: Create a new agent](/azure/ai-foundry/agents/quickstart?view=foundry-classic&pivots=programming-language-python-azure&preserve-view=true).
 
 ### Tool calling
 
