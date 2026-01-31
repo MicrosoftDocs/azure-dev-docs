@@ -1,13 +1,13 @@
 ---
-title: Scale Azure OpenAI for Java Chat Sample Using RAG
+title: Scale OpenAI for Java Chat Sample Using RAG
 description: Learn how to add load balancing to your Java solution to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 04/08/2025
+ms.date: 01/30/2026
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, build-2024-intelligent-apps
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 
-# Scale Azure OpenAI for Java chat using RAG with Azure Container Apps
+# Scale OpenAI for Java chat using RAG with Azure Container Apps
 
 [!INCLUDE [aca-load-balancer-intro](../../ai/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
 
