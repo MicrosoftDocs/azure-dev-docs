@@ -1,7 +1,7 @@
 ---
 title: Key concepts and considerations in generative AI
 description: Learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, building an inference pipeline, and adjusting API call parameters.
-ms.date: 07/31/2025
+ms.date: 01/30/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -64,9 +64,9 @@ For developers, the following libraries help estimate token counts for prompts a
 
 ### Token usage affects billing
 
-Each Azure OpenAI API has a different billing methodology. For processing and generating text with the Chat Completions API, you're billed based on the number of tokens you submit as a prompt and the number of tokens that are generated as a result (completion).
+Each Azure OpenAI API has a different billing methodology. For processing and generating text with the Responses or Chat Completions API, you're billed based on the number of tokens you submit as a prompt and the number of tokens that are generated as a result (completion).
 
-Each LLM model (for example, GPT-4.1, GPT-4o, or GPT-4o mini) usually has a different price, which reflects the amount of computation required to process and generate tokens. Many times, price is presented as "price per 1,000 tokens" or "price per 1 million tokens."
+Each LLM model (for example, GPT-5.2, or GPT-5.2-mini) usually has a different price, which reflects the amount of computation required to process and generate tokens. Many times, price is presented as "price per 1,000 tokens" or "price per 1 million tokens."
 
 This pricing model has a significant effect on how you design the user interactions and the amount of preprocessing and post-processing you add.
 
@@ -125,7 +125,7 @@ For information about the specific steps to take to build an inference pipeline,
 
 Beyond programmatically modifying the prompt, creating an inference pipeline, and other techniques, more details are discussed in [Augmenting a large-language model with retrieval-augmented generation and fine-tuning](augment-llm-rag-fine-tuning.md). Also, you can modify parameters when you make calls to the Azure OpenAI API.
 
-To review required and optional parameters to pass that can affect various aspects of the completion, see the [Chat endpoint documentation](https://platform.openai.com/docs/api-reference/chat/create). If you're using an SDK, see the SDK documentation for the language you use. You can experiment with the parameters in the [Playground](https://platform.openai.com/playground/chat).
+Here are some of the key parameters you can adjust to influence the model's output:
 
 - **`Temperature`**: Control the randomness of the output the model generates. At zero, the model becomes deterministic, consistently selecting the most likely next token from its training data. At a temperature of 1, the model balances between choosing high-probability tokens and introducing randomness into the output.
 
@@ -145,7 +145,7 @@ To review required and optional parameters to pass that can affect various aspec
 
 In addition to keeping the LLM's responses bound to specific subject matter or domains, you also likely are concerned about the kinds of questions your users are asking of the LLM. It's important to consider the kinds of answers it's generating.
 
-First, API calls to Microsoft Azure OpenAI Services automatically filter content that the API finds potentially offensive and reports this back to you in many filtering categories.
+First, API calls to Microsoft Azure OpenAI Models in Microsoft Foundry automatically filter content that the API finds potentially offensive and reports this back to you in many filtering categories.
 
 You can directly use the [Content Moderation API](/azure/ai-services/content-moderator/api-reference) directly to check any content for potentially harmful content.
 
@@ -155,14 +155,14 @@ Then, you can use [Azure AI Content Safety](/azure/ai-services/content-safety/ov
 
 AI agents are a new way to build generative AI apps that work on their own. They use LLMs to read and write text, and they can also connect to outside systems, APIs, and data sources.
 AI agents can manage complex tasks, make choices using real-time data, and learn from how people use them.
-For more information about AI agents, see [Quickstart: Create a new agent](/azure/ai-foundry/agents/quickstart?pivots=programming-language-python-azure).
+For more information about AI agents, see [Quickstart: Create a new agent](/azure/ai-foundry/agents/quickstart?view=foundry-classic&pivots=programming-language-python-azure).
 
 ### Tool calling
 
 AI agents can use outside tools and APIs to get information, take action, or connect with other services. This feature lets them do more than just generate text and handle more complex tasks.
 
 For example, an AI agent can get real-time weather updates from a weather API or pull details from a database based on what a user asks.
-For more information about tool calling, see [Tool calling in Azure AI Foundry](/azure/ai-foundry/agents/how-to/tools/overview).
+For more information about tool calling, see [Discover and manage tools in the Foundry tool catalog (preview)](/azure/ai-foundry/agents/concepts/tool-catalog?view=foundry&preserve-view=true).
 
 ### Model Context Protocol (MCP)
 
