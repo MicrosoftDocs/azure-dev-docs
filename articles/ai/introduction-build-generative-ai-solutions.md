@@ -124,7 +124,7 @@ You need a service to run your business logic, presentation logic, or APIs for g
 
 |Product|Description|
 |---|---|
-|**Azure App Service (or other container-based cloud services)**|Host web interfaces or APIs for users to interact with your RAG chat system. Quickly develop, deploy, and scale web apps. Easily manage the front end of your system.|
+|**Azure App Service (or other container-based cloud services)**|Host web interfaces or APIs for users to interact with your RAG chat system. Quickly develop, deploy, and scale agentic web apps. Host MCP servers or OpenAPI servers on App Service. Easily manage the front end of your system. See [Integrate AI into your Azure App Service applications](/azure/app-service/overview-ai-integration).|
 |**Azure Functions**|Use serverless compute for event-driven tasks in your RAG chat system. Trigger data retrieval, process user queries, or handle background tasks like syncing and cleanup. Build a modular, scalable back end.|
 
 ### Low-code and no-code solutions
