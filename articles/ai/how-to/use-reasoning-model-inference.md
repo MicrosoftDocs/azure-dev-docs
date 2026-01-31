@@ -1,7 +1,7 @@
 ---
 title: "Develop reasoning apps with DeepSeek models on Azure AI Foundry using the OpenAI SDK"
 description: "Learn how to use reasoning models like DeepSeek in Azure OpenAI with the OpenAI SDK for Python."
-ms.date: 06/23/2025
+ms.date: 01/30/2026
 ms.topic: how-to 
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
