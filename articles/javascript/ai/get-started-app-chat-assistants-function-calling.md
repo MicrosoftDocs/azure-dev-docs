@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Azure OpenAI Assistants and function calling"
 description: "This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling."
-ms.date: 06/26/2025
+ms.date: 01/30/2026
 ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
