@@ -51,7 +51,7 @@ One way to create an embedding is to send your content to the Azure OpenAI Embed
 
 All these numbers together show where the content sits in a multi-dimensional space. Imagine a 3D graph, but with hundreds or thousands of dimensions. Computers can work with this kind of space, even if we can’t draw it.
 
-The [Tutorial: Explore Azure OpenAI in Microsoft Foundry Models embeddings and document search](/azure/ai-foundry/openai/tutorials/embeddings?view=foundry&tabs=command-line&pivots=programming-language-python) provides a guide on how to use the Azure OpenAI Embeddings API to create embeddings for your documents.
+The [Tutorial: Explore Azure OpenAI in Microsoft Foundry Models embeddings and document search](/azure/ai-foundry/openai/tutorials/embeddings?view=foundry&tabs=command-line&pivots=programming-language-python&preserve-view=true) provides a guide on how to use the Azure OpenAI Embeddings API to create embeddings for your documents.
 
 #### Storing the vector and content
 
@@ -118,7 +118,7 @@ Fine-tuning also has some challenges:
 
 
 
-[Customize a model through fine-tuning](/azure/ai-foundry/openai/how-to/fine-tuning?view=foundry&tabs=oai-sdk%2Cazure-openai&pivots=programming-language-studio) explains how to fine-tune a model.
+[Customize a model through fine-tuning](/azure/ai-foundry/openai/how-to/fine-tuning?view=foundry&tabs=oai-sdk%2Cazure-openai&pivots=programming-language-studio&preserve-view=true) explains how to fine-tune a model.
 
 ## Fine-tuning vs. RAG
 
