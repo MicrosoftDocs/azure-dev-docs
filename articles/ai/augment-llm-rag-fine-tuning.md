@@ -1,7 +1,7 @@
 ---
 title: Augment LLMs with RAGs or Fine-Tuning
 description: Get a conceptual introduction to creating retrieval-augmented generation (RAG)-based chat systems, with an emphasis on integration, optimization, and ethical considerations for delivering contextually relevant responses.
-ms.date: 07/31/2025
+ms.date: 01/30/2026
 ms.topic: concept-article
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -23,7 +23,7 @@ The next sections break down both methods.
 
 RAG enables the key "chat over my data" scenario. In this scenario, an organization has a potentially large corpus of textual content, like documents, documentation, and other proprietary data. It uses this corpus as the basis for answers to user prompts.
 
-RAG lets you build chatbots that answer questions using your own documents. Here's how it works:
+RAG lets you build chatbots or agents that answer questions using your own documents. Here's how it works:
 
 1. Store your documents (or parts of them, called *chunks*) in a database
 2. Create an *embedding* for each chunk; a list of numbers that describe it
@@ -51,7 +51,7 @@ One way to create an embedding is to send your content to the Azure OpenAI Embed
 
 All these numbers together show where the content sits in a multi-dimensional space. Imagine a 3D graph, but with hundreds or thousands of dimensions. Computers can work with this kind of space, even if we can’t draw it.
 
-The [Tutorial: Explore Azure OpenAI in Azure AI Foundry Models embeddings and document search](/azure/ai-foundry/openai/tutorials/embeddings?tabs=python-new%2Ccommand-line&pivots=programming-language-python) provides a guide on how to use the Azure OpenAI Embeddings API to create embeddings for your documents.
+The [Tutorial: Explore Azure OpenAI in Microsoft Foundry Models embeddings and document search](/azure/ai-foundry/openai/tutorials/embeddings?view=foundry&tabs=command-line&pivots=programming-language-python) provides a guide on how to use the Azure OpenAI Embeddings API to create embeddings for your documents.
 
 #### Storing the vector and content
 
@@ -118,7 +118,7 @@ Fine-tuning also has some challenges:
 
 
 
-[Customize a model through fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio) explains how to fine-tune a model.
+[Customize a model through fine-tuning](/azure/ai-foundry/openai/how-to/fine-tuning?view=foundry&tabs=oai-sdk%2Cazure-openai&pivots=programming-language-studio) explains how to fine-tune a model.
 
 ## Fine-tuning vs. RAG
 
