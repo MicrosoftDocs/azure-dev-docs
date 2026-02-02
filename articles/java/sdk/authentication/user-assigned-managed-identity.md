@@ -1,8 +1,8 @@
 ---
 title: Authenticate Azure-hosted Java apps by using a user-assigned managed identity
 titleSuffix: Azure SDK for Java
-description: Learn how to authenticate Azure-hosted Java apps to Azure resources using a user-assigned managed identity.
-ms.date: 01/30/2026
+description: Learn how to authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity.
+ms.date: 02/02/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287
@@ -13,7 +13,9 @@ ai-usage: ai-generated
 
 # Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity
 
-The recommended approach to authenticate an Azure-hosted app to other Azure resources is to use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). This approach is [supported for most Azure services](/entra/identity/managed-identities-azure-resources/managed-identities-status), including apps hosted on Azure App Service, Azure Container Apps, and Azure Virtual Machines. Discover more about different authentication techniques and approaches on the [authentication overview](overview.md) page. In the sections ahead, you learn:
+The recommended approach to authenticate an Azure-hosted app to other Azure resources is to use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). Most Azure services support this approach, including apps hosted on Azure App Service, Azure Container Apps, and Azure Virtual Machines. For more information, see [Azure services and resource types supporting managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status). For more information about different authentication techniques and approaches, see the [authentication overview](overview.md) page.
+
+In the following sections, you learn about:
 
 - Essential managed identity concepts.
 - How to create a user-assigned managed identity for your app.
@@ -22,7 +24,7 @@ The recommended approach to authenticate an Azure-hosted app to other Azure reso
 
 ## Essential managed identity concepts
 
-A managed identity enables your app to securely connect to other Azure resources without using secret keys or other application secrets. Internally, Azure tracks the identity and which resources it's allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources.
+A managed identity enables your app to securely connect to other Azure resources without using secret keys or other application secrets. Internally, Azure tracks the identity and which resources the identity is allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources.
 
 There are two types of managed identities to consider when configuring your hosted app:
 
@@ -162,7 +164,7 @@ az role assignment create \
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library](/java/api/com.azure.identity) provides different credentials as implementations of `TokenCredential` that support various scenarios and Entra authentication flows. For user-assigned managed identities, specify the identity's client ID, resource ID, or object ID when you configure the credential.
+The [Azure Identity library](/java/api/com.azure.identity) offers different credentials as implementations of `TokenCredential`. These credentials support various scenarios and Microsoft Entra authentication flows. For user-assigned managed identities, specify the identity's client ID, resource ID, or object ID when you configure the credential.
 
 ### Implement the code
 
@@ -309,7 +311,7 @@ SecretClient client = new SecretClientBuilder()
 
 ## Next steps
 
-This article covered authentication using a user-assigned managed identity. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
+This article covered authentication using a user-assigned managed identity. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways to authenticate:
 
 - [Authenticate using a system-assigned managed identity](system-assigned-managed-identity.md)
 - [Authenticate locally using developer credentials](local-development-dev-accounts.md)
