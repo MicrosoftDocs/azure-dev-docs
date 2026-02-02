@@ -1,5 +1,5 @@
 ---
-title: Azure JavaScript samples catalog
+title: Azure JavaScript Samples Catalog
 description: Discover JavaScript and Node.js code samples for Azure services including AI, storage, serverless computing, and web apps.
 ms.topic: concept-article
 ms.date: 01/29/2026
