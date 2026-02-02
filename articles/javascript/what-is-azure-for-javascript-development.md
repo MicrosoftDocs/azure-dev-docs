@@ -42,6 +42,7 @@ Top service categories for JavaScript developers include:
 * **Data and Storage**
   * [Azure Cosmos DB](/azure/cosmos-db/nosql/quickstart-nodejs) - NoSQL database with native JavaScript APIs
   * [Azure Database for PostgreSQL](/azure/postgresql/) - Managed PostgreSQL service
+  * [Azure DocumentDB (with MongoDB compatibility)](/azure/documentdb/) - Managed MongoDB compatibility database
   * [Azure Storage](/azure/storage/blobs/storage-quickstart-blobs-nodejs) - Scalable cloud storage
   * [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-nodejs-get-started) - In-memory data store
 
