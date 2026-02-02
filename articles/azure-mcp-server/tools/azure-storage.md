@@ -186,12 +186,11 @@ List all tables in an Azure Storage account.
 
 Example prompts include:
 
-- "Show me all tables in storage account 'dataarchives' within resource group 'rg-analytics-prod'"
-- "List every table in storage account 'storagesample01' from resource group 'rg-devops-test'"
-- "Get details for table 'UserLogs' in storage account 'appstorage01' under resource group 'rg-appservices'"
-- "I need to see the table named 'InventoryRecords' in storage account 'warehouseacct' within resource group 'rg-supplychain'"
-- "Can you provide the tables inside storage account 'mystorageaccount' for resource group 'rg-marketing'"
-
+- "Show me all tables in storage account 'dataarchives'"
+- "List every table in storage account 'storagesample01'"
+- "Get details for table 'UserLogs' in storage account 'appstorage01'"
+- "I need to see the table named 'InventoryRecords' in storage account 'warehouseacct'"
+- "Can you provide the tables inside storage account 'mystorageaccount'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
