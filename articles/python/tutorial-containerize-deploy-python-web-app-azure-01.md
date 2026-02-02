@@ -59,7 +59,7 @@ The components supporting the Azure environment in this tutorial include:
 
 * [Azure DocumentDB (with MongoDB compatibility)][2]
 
-  * The Azure DocumentDB is a MongoDB compatibility database used in this tutorial for data storage.
+  * The Azure DocumentDB is a MongoDB-compatible database used in this tutorial for data storage.
 
   * The containerized application connects to and accesses the Azure DocumentDB resource using a connection string, which is stored as an environment variable and provided to the app.
 
