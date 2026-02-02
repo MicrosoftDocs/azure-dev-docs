@@ -32,7 +32,9 @@ Limit use of connection strings to scenarios where token-based authentication is
 
 ## Authentication across different environments
 
-The specific type of token-based authentication an app should use to authenticate to Azure resources depends on where the app runs. The following list provides guidance for different scenarios and environments.
+The specific type of token-based authentication an app should use to authenticate to Azure resources depends on where the app runs. The following diagram provides guidance for different scenarios and environments:
+
+:::image type="content" source="../../../includes/authentication/media/mermaidjs/authentication-environments.svg" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 When an app is:
 
@@ -48,13 +50,13 @@ When you host your app on Azure, it can use managed identities to authenticate t
 
 You can create a user-assigned managed identity as a standalone Azure resource. You can then assign it to one or more Azure resources so those resources can share the same identity and permissions. To authenticate by using a user-assigned managed identity, create the identity, assign it to your Azure resource, and then configure your app to use this identity for authentication by specifying its client ID, resource ID, or object ID.
 
-For more information, see [Authenticate using a user-assigned managed identity](user-assigned-managed-identity.md).
+For more information, see [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md).
 
 ### Use a system-assigned managed identity
 
 You can enable a system-assigned managed identity directly on an Azure resource. The identity ties to the lifecycle of that resource and automatically deletes when the resource is deleted. To authenticate by using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
 
-For more information, see [Authenticate using a system-assigned managed identity](system-assigned-managed-identity.md).
+For more information, see [Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity](system-assigned-managed-identity.md).
 
 ## Authentication during local development
 
@@ -64,13 +66,13 @@ During local development, you can authenticate to Azure resources by using your 
 
 Use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
 
-For more information, see [Authenticate locally using developer credentials](local-development-dev-accounts.md).
+For more information, see [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md).
 
 ### Use a service principal
 
 You can create a service principal in a Microsoft Entra tenant to represent an app and authenticate to Azure resources. You can configure your app to use service principal credentials during local development. This method is more secure than using developer credentials and is closer to how your app authenticates in production. However, it's still less ideal than using a managed identity due to the need for secrets.
 
-For more information, see [Authenticate locally using a service principal](local-development-service-principal.md).
+For more information, see [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md).
 
 ## Add the Maven dependencies
 
@@ -109,7 +111,7 @@ A credential is a class that contains or can obtain the data needed for a servic
 
 The Azure Identity library focuses on OAuth authentication with Microsoft Entra ID, and it offers various credential classes that can acquire a Microsoft Entra token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core). You can use any of these credential classes to construct service clients that authenticate with a `TokenCredential`.
 
-`DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Credential chains](credential-chains.md) article.
+`DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see [Credential chains in the Azure Identity library for Java](credential-chains.md).
 
 ## Authenticate Azure client libraries
 
@@ -152,8 +154,8 @@ For guidance, see [Troubleshoot Azure Identity authentication issues](../trouble
 
 This article introduced the Azure Identity functionality available in the Azure SDK for Java. It described `DefaultAzureCredential` as common and appropriate in many cases. The following articles describe other ways to authenticate by using the Azure Identity library, and provide more information about `DefaultAzureCredential`:
 
-- [Authenticate locally using developer credentials](local-development-dev-accounts.md)
-- [Authenticate locally using a service principal](local-development-service-principal.md)
-- [Authenticate using a system-assigned managed identity](system-assigned-managed-identity.md)
-- [Authenticate using a user-assigned managed identity](user-assigned-managed-identity.md)
-- [Credential chains](credential-chains.md)
+- [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md)
+- [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md)
+- [Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity](system-assigned-managed-identity.md)
+- [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md)
+- [Credential chains in the Azure Identity library for Java](credential-chains.md)

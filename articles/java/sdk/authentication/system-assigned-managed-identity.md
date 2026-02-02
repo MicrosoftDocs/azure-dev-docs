@@ -13,24 +13,16 @@ ai-usage: ai-generated
 
 # Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity
 
-The recommended approach to authenticate an Azure-hosted app to other Azure resources is to use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). This approach is [supported for most Azure services](/entra/identity/managed-identities-azure-resources/managed-identities-status), including apps hosted on Azure App Service, Azure Container Apps, and Azure Virtual Machines. Discover more about different authentication techniques and approaches on the [authentication overview](overview.md) page. In the following sections, you learn:
+The recommended approach to authenticate an Azure-hosted app to other Azure resources is to use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). Most Azure services support this approach, including apps hosted on Azure App Service, Azure Container Apps, and Azure Virtual Machines. For more information, see [Azure services and resource types supporting managed identities](/entra/identity/managed-identities-azure-resources/managed-identities-status). For more information about different authentication techniques and approaches, see [Authenticate Java apps to Azure services by using the Azure Identity library](overview.md).
+
+In the following sections, you learn:
 
 - Essential managed identity concepts.
 - How to create a system-assigned managed identity for your app.
 - How to assign roles to the system-assigned managed identity.
 - How to authenticate by using the system-assigned managed identity from your app code.
 
-## Essential managed identity concepts
-
-A managed identity enables your app to securely connect to other Azure resources without the use of secret keys or other application secrets. Internally, Azure tracks the identity and which resources the identity is allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources.
-
-There are two types of managed identity to consider when you configure your hosted app:
-
-- **System-assigned managed identities** are enabled directly on an Azure resource and are tied to its life cycle. When you delete the resource, Azure automatically deletes the identity. System-assigned identities provide a minimalistic approach to using managed identities.
-- **User-assigned managed identities** are created as standalone Azure resources and offer greater flexibility and capabilities. They're ideal for solutions involving multiple Azure resources that need to share the same identity and permissions. For example, if multiple virtual machines need to access the same set of Azure resources, a user-assigned managed identity provides reusability and optimized management.
-
-> [!TIP]
-> Learn more about selecting and managing system-assigned managed identities and user-assigned managed identities in the [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations) article.
+[!INCLUDE [managed-identity-concepts](../../../includes/authentication/managed-identity-concepts.md)]
 
 The following sections describe the steps to enable and use a system-assigned managed identity for an Azure-hosted app. If you need to use a user-assigned managed identity, see [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md).
 
@@ -46,6 +38,8 @@ You can enable a system-assigned managed identity for an Azure resource by using
 1. From the resource's **Overview** page, expand **Settings** and select **Identity** from the navigation.
 1. On the **Identity** page, toggle the **Status** slider to **On**.
 1. Select **Save** to apply your changes.
+
+    :::image type="content" source="../../../includes/authentication/media/system-assigned-identity-enable.png" alt-text="A screenshot showing how to enable a system-assigned managed identity on a container app." lightbox="../../../includes/authentication/media/system-assigned-identity-enable.png":::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -91,11 +85,17 @@ The following example shows how to assign roles at the resource group scope, sin
 1. Go to the **Overview** page of the resource group that contains the app with the system-assigned managed identity.
 1. Select **Access control (IAM)** in the navigation pane.
 1. On **Access control (IAM)**, select **+ Add** in the top menu, and then choose **Add role assignment** to go to **Add role assignment**.
+
+    :::image type="content" source="../../../includes/authentication/media/system-assigned-identity-access-control.png" alt-text="A screenshot showing how to access the identity role assignment page." lightbox="../../../includes/authentication/media/system-assigned-identity-access-control.png":::
+
 1. **Add role assignment** presents a tabbed, multistep workflow to assign roles to identities. On the initial **Role** tab, use the search box at the top to locate the role you want to assign to the identity.
 1. Select the role from the results and then choose **Next** to move to the **Members** tab.
 1. For the **Assign access to** option, select **Managed identity**.
 1. For the **Members** option, choose **+ Select members** to open the **Select managed identities** panel.
 1. On the **Select managed identities** panel, use the **Subscription** and **Managed identity** dropdowns to filter the search results for your identities. Use the **Select** search box to locate the system-identity you enabled for the Azure resource hosting your app.
+
+    :::image type="content" source="../../../includes/authentication/media/system-assigned-identity-assign-roles.png" alt-text="A screenshot showing the managed identity assignment process." lightbox="../../../includes/authentication/media/system-assigned-identity-assign-roles.png":::
+
 1. Select the identity and choose **Select** at the bottom of the panel to continue.
 1. Select **Review + assign** at the bottom of the page.
 1. On the final **Review + assign** tab, select **Review + assign** to complete the workflow.
@@ -201,9 +201,9 @@ SecretClient client = new SecretClientBuilder()
 
 This article covered authentication using a system-assigned managed identity. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-- [Authenticate using a user-assigned managed identity](user-assigned-managed-identity.md)
-- [Authenticate locally using developer credentials](local-development-dev-accounts.md)
-- [Authenticate locally using a service principal](local-development-service-principal.md)
+- [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md)
+- [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md)
+- [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md)
 
 If you run into issues related to Azure-hosted application authentication, see [Troubleshoot Azure-hosted application authentication](../troubleshooting-authentication-azure-hosted.md).
 

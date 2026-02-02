@@ -38,89 +38,9 @@ The Azure Identity library can detect that the developer is signed in from one o
 
 This approach takes advantage of the developer's existing Azure accounts to streamline the authentication process. However, a developer's account likely has more permissions than the app requires, therefore exceeding the permissions the app runs with in production. As an alternative, you can [create application service principals to use during local development](local-development-service-principal.md), which can be scoped to have only the access needed by the app.
 
-## Create a Microsoft Entra group for local development
+[!INCLUDE [auth-create-entra-group](../../../includes/authentication/create-entra-group.md)]
 
-Create a Microsoft Entra group to encapsulate the roles (permissions) the app needs in local development rather than assigning the roles to individual service principal objects. This approach offers the following advantages:
-
-- Every developer has the same roles assigned at the group level.
-- If a new role is needed for the app, you only need to add it to the app group.
-- If a new developer joins the team, you create a new application service principal for the developer and add it to the group, ensuring the developer has the right permissions to work on the app.
-
-#### [Azure portal](#tab/azure-portal)
-
-1. Go to the Microsoft Entra ID overview page in the Azure portal.
-1. Select **All groups** from the left-hand menu.
-1. On the **Groups** page, select **New group**.
-1. On the **New group** page, fill out the following form fields:
-   - **Group type**: Select **Security**.
-   - **Group name**: Enter a name for the group that includes a reference to the app or environment name.
-   - **Group description**: Enter a description that explains the purpose of the group.
-1. Select the **No members selected** link under **Members** to add members to the group.
-1. In the flyout panel that opens, search for the user you want to add and select them from the filtered results. Choose the **Select** button at the bottom of the panel to confirm your selection.
-1. Select **Create** at the bottom of the **New group** page to create the group and return to the **All groups** page. If you don't see the new group listed, wait a moment and refresh the page.
-
-#### [Azure CLI](#tab/azure-cli)
-
-Run the following command to create a new group. Replace the placeholder values with appropriate values for your environment:
-
-```azurecli
-az ad group create \
-    --display-name <group-name> \
-    --mail-nickname <group-nickname> \
-    --description "<group-description>"
-```
-
-To add a user to the group:
-
-```azurecli
-az ad group member add \
-    --group <group-name> \
-    --member-id <user-object-id>
-```
-
-To get a user's object ID:
-
-```azurecli
-az ad user show --id <user-principal-name> --query id --output tsv
-```
-
----
-
-## Assign roles to the group
-
-Next, determine what roles (permissions) your app needs on what resources and assign those roles to the Microsoft Entra group you created. You can assign roles to groups at the resource, resource group, or subscription scope. The following example shows how to assign roles at the resource group scope, since most apps group all their Azure resources into a single resource group.
-
-#### [Azure portal](#tab/azure-portal)
-
-1. In the Azure portal, go to the **Overview** page of the resource group that contains your app.
-1. Select **Access control (IAM)** from the left navigation.
-1. On the **Access control (IAM)** page, select **+ Add** and then choose **Add role assignment** from the drop-down menu. The **Add role assignment** page provides several tabs to configure and assign roles.
-1. On the **Role** tab, use the search box to locate the role you want to assign. Select the role, and then choose **Next**.
-1. On the **Members** tab:
-   - For the **Assign access to** value, select **User, group, or service principal**.
-   - For the **Members** value, choose **+ Select members** to open the **Select members** flyout panel.
-   - Search for the Microsoft Entra group you created earlier and select it from the filtered results. Choose **Select** to select the group and close the flyout panel.
-   - Select **Review + assign** at the bottom of the **Members** tab.
-1. On the **Review + assign** tab, select **Review + assign** at the bottom of the page.
-
-#### [Azure CLI](#tab/azure-cli)
-
-Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign a role to the group.
-
-```azurecli
-az role assignment create \
-    --assignee "<group-object-id>" \
-    --role "<role-name>" \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-```
-
-To get the group's object ID:
-
-```azurecli
-az ad group show --group <group-name> --query id --output tsv
-```
-
----
+[!INCLUDE [auth-assign-group-roles](../../../includes/authentication/assign-group-roles.md)]
 
 ## Sign in to Azure by using developer tooling
 
@@ -131,8 +51,13 @@ Next, sign in to Azure by using one of several developer tools that you can use 
 Developers using Visual Studio Code can authenticate by using the Azure Resources extension. Use the following steps to sign in to Azure through the Azure Resources extension:
 
 1. Open Visual Studio Code and install the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) if you haven't already.
+
+    :::image type="content" source="../../../includes/authentication/media/azure-resources-extension.png" alt-text="Screenshot that shows the Azure Resources extension." lightbox="../../../includes/authentication/media/azure-resources-extension.png":::
+
 1. Select the Azure icon in the Activity Bar to open the Azure Resources view.
 1. In the Azure Resources view, select **Sign in to Azure...** and follow the prompts.
+
+    :::image type="content" source="../../../includes/authentication/media/visual-studio-code-sign-in.png" alt-text="Screenshot that shows how to sign in to Azure in Visual Studio Code." lightbox="../../../includes/authentication/media/visual-studio-code-sign-in.png":::
 
 #### [IntelliJ IDEA](#tab/sign-in-intellij)
 
@@ -276,9 +201,9 @@ SecretClient client = new SecretClientBuilder()
 
 This article covered authentication during development by using credentials available on your computer. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-- [Authenticate locally using a service principal](local-development-service-principal.md)
-- [Authenticate using a system-assigned managed identity](system-assigned-managed-identity.md)
-- [Authenticate using a user-assigned managed identity](user-assigned-managed-identity.md)
+- [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md)
+- [Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity](system-assigned-managed-identity.md)
+- [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md)
 
 If you run into issues related to development environment authentication, see [Troubleshoot development environment authentication](../troubleshooting-authentication-dev-env.md).
 
