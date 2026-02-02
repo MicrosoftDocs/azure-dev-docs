@@ -31,7 +31,7 @@ Example prompts include:
 - **Resource region list**: "Show me all regions where I can deploy Microsoft.CognitiveServices/accounts."
 - **Find available regions for resources**: "List available regions for Microsoft.App/containerApps, Microsoft.Web/sites, and Microsoft.CognitiveServices/accounts."
 - **Region support for cognitive services**: "Where can I deploy the 'gpt-4' model for Microsoft.CognitiveServices/accounts?"
-- **Deployment options**: "What regions allow deployment of container apps and web sites?"
+- **Deployment options**: "What regions allow deployment of Microsoft.App/containerApps and Microsoft.Web/sites?"
 
 | Parameters | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
@@ -54,8 +54,8 @@ Example prompts include:
 
 - **Check quota usage**: "Check my quota usage for Microsoft.App/containerApps in eastus."
 - **Resource quota status**: "Show me the current quota and usage for Microsoft.Web/sites and Microsoft.CognitiveServices/accounts in westus."
-- **Quota limits**: "What are the quota limits for container apps in centralus?"
-- **Usage report**: "Get a usage report for all my resources in region 'eastus2'."
+- **Quota limits**: "What are the quota limits for Microsoft.App/containerApps in centralus?"
+- **Usage report**: "Get a usage report for Microsoft.Compute/virtualMachines in region 'eastus2'."
 - **Quota and usage details**: "Can you provide quota and usage details for Microsoft.App/containerApps, Microsoft.Web/sites in westeurope?"
 
 | Parameters | Required or optional | Description |
