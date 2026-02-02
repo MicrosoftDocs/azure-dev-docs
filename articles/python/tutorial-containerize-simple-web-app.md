@@ -263,5 +263,5 @@ For more information, see the following resources:
 [21]: https://docs.docker.com/engine/reference/run/
 [22]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#config-file
 [23]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#configuration-file
-[24]: https://pypi.org/project/gunicorn/
+[24]: https://gunicorn.org/
 [25]: https://www.uvicorn.org/#running-with-gunicorn
