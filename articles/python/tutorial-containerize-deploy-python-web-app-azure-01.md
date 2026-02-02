@@ -10,7 +10,7 @@ ms.custom:
 
 # Overview: Containerized Python web app on Azure with MongoDB
 
-This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. App Service [Web App for Containers][3] allows you to focus on building your containers without worrying about managing and maintaining an underlying container orchestrator. When you are building web apps, Azure App Service is a good option for taking your first steps with containers. This container web app can use either a local MongoDB instance or [MongoDB for Azure Cosmos DB][2] to store data. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
+This tutorial series shows you how to containerize a Python web app and then either run it locally or deploy it to [Azure App Service][1]. App Service [Web App for Containers][3] allows you to focus on building your containers without worrying about managing and maintaining an underlying container orchestrator. When you are building web apps, Azure App Service is a good option for taking your first steps with containers. This container web app can use either a local MongoDB instance or [Azure DocumentDB (with MongoDB compatibility)][2] to store data. For more information about using containers in Azure, see [Comparing Azure container options](/azure/container-apps/compare-options).
 
 In this tutorial you:
 
@@ -57,11 +57,11 @@ The components supporting the Azure environment in this tutorial include:
 
   * In this tutorial, Azure Container Registry is the registry source, but you can also use Docker Hub or a private registry with minor modifications.
 
-* [Azure Cosmos DB for MongoDB][2]
+* [Azure DocumentDB (with MongoDB compatibility)][2]
 
-  * The Azure Cosmos DB for MongoDB is a NoSQL database used in this tutorial for data storage.
+  * The Azure DocumentDB is a MongoDB compatibility database used in this tutorial for data storage.
 
-  * The containerized application connects to and accesses the Azure Cosmos DB resource using a connection string, which is stored as an environment variable and provided to the app.
+  * The containerized application connects to and accesses the Azure DocumentDB resource using a connection string, which is stored as an environment variable and provided to the app.
 
 ## Authentication
 
@@ -69,7 +69,7 @@ In this tutorial, you build a Docker image, either locally or in Azure, and then
 
 To securely pull images from the repository, App Service utilizes a system-assigned managed identity. This managed identity grants the web app permissions to interact with other Azure resources, eliminating the need for explicit credentials. For this tutorial, the managed identity is configured during setup of App Service to use a registry container image.
 
-The tutorial sample web app uses MongoDB to store data. The sample code connects to Azure Cosmos DB via a connection string.
+The tutorial sample web app uses MongoDB to store data. The sample code connects to Azure DocumentDB via a connection string.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ To complete this tutorial, you need:
 
   * [Azure Container Registry][11]
   * [Azure App Service][1]
-  * [Azure Cosmos DB for MongoDB][2] (or access to an equivalent). To create an Azure Cosmos DB for MongoDB database, follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md).
+  * [Azure DocumentDB (with MongoDB compatibility)][2] (or access to an equivalent). To create an Azure DocumentDB database, follow the steps in [part 2 of this tutorial](tutorial-containerize-deploy-python-web-app-azure-02.md).
 
 * [Visual Studio Code][16] or [Azure CLI][17], depending on your tool of choice. If you use Visual Studio Code, you need the [Docker extension][6] and [Azure App Service extension][7].
 
@@ -104,7 +104,7 @@ In this tutorial, you build a Python restaurant review app that utilizes MongoDB
 > [Build and test locally](tutorial-containerize-deploy-python-web-app-azure-02.md)
 
 [1]: https://azure.microsoft.com/services/app-service/
-[2]: /azure/cosmos-db/mongodb/mongodb-introduction
+[2]: /azure/documentdb/overview
 [3]: https://azure.microsoft.com/services/app-service/containers/
 [4]: https://www.docker.com/
 [5]: /azure/active-directory/managed-identities-azure-resources/overview
@@ -114,9 +114,9 @@ In this tutorial, you build a Python restaurant review app that utilizes MongoDB
 [9]: https://flask.palletsprojects.com/
 [10]: https://www.djangoproject.com/
 [11]: https://azure.microsoft.com/services/container-registry/
-[12]: /azure/cosmos-db/mongodb/create-mongodb-python
+[12]: /azure/documentdb/quickstart-python
 [13]: /azure/cosmos-db/scripts/cli/mongodb/create
 [14]: /azure/cosmos-db/scripts/powershell/mongodb/create
-[15]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+[15]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-documentdb
 [16]: https://code.visualstudio.com/
 [17]: /cli/azure/what-is-azure-cli
