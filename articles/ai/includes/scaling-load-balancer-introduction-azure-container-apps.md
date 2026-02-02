@@ -1,11 +1,11 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 12/20/2024
+ms.date: 01/30/2026
 ms.service: azure
 ---
 
-Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI Service token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints and a primary container to direct incoming traffic to one of the three endpoints.
+Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI Models in Microsoft Foundry token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints and a primary container to direct incoming traffic to one of the three endpoints.
 
 This article requires you to deploy two separate samples:
 
@@ -25,9 +25,9 @@ This article requires you to deploy two separate samples:
 
 ## Architecture for load balancing Azure OpenAI with Azure Container Apps
 
-Because the Azure OpenAI resource has specific token and model quota limits, a chat app that uses a single Azure OpenAI resource is prone to have conversation failures because of those limits.
+Because the Azure OpenAI Models in Microsoft Foundry resource has specific token and model quota limits, a chat app that uses a single Azure OpenAI Models in Microsoft Foundry resource is prone to have conversation failures because of those limits.
 
-:::image type="content" source="../media/get-started-scaling-load-balancer-azure-container-apps/chat-app-original-architecuture.png" alt-text="Diagram that shows chat app architecture with the Azure OpenAI resource highlighted.":::
+:::image type="content" source="../media/get-started-scaling-load-balancer-azure-container-apps/chat-app-original-architecuture.png" alt-text="Diagram that shows chat app architecture with the Azure OpenAI Models in Microsoft Foundry resource highlighted.":::
 
 To use the chat app without hitting those limits, use a load-balanced solution with Container Apps. This solution seamlessly exposes a single endpoint from Container Apps to your chat app server.
 

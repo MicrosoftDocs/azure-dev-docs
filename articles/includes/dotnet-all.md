@@ -402,7 +402,7 @@
 | App Configuration Extension | NuGet [8.4.0](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.Functions.Worker/8.4.0)<br>NuGet [8.5.0-preview](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.Functions.Worker/8.5.0-preview) |  |  |
 | App Configuration Provider | NuGet [8.4.0](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore/8.4.0)<br>NuGet [8.5.0-preview](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore/8.5.0-preview) |  |  |
 | Azure.Communication.Administration | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Administration/1.0.0-beta.3) |  |  |
-| Communication Calling Windows Client | NuGet [1.13.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.13.0) |  |  |
+| Communication Calling Windows Client | NuGet [1.14.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.14.0) |  |  |
 | Content Safety Extension Embedded Image | NuGet [1.0.1-beta.4](https://www.nuget.org/packages/Azure.AI.ContentSafety.Extension.Embedded.Image/1.0.1-beta.4) |  |  |
 | Content Safety Extension Embedded Text | NuGet [1.0.0](https://www.nuget.org/packages/Azure.AI.ContentSafety.Extension.Embedded.Text/1.0.0)<br>NuGet [1.0.1-beta.4](https://www.nuget.org/packages/Azure.AI.ContentSafety.Extension.Embedded.Text/1.0.1-beta.4) |  |  |
 | Cosmos DB Fault Injection | NuGet [1.0.0-beta.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.FaultInjection/1.0.0-beta.0) |  |  |

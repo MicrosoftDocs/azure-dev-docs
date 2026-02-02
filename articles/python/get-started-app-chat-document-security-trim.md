@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat document security filtering"
 description: "Secure your chat app documents with user authentication and document security filtering to ensure that users receive answers based on their permissions."
-ms.date: 06/26/2025
+ms.date: 01/30/2026
 ms.update-cycle: 180-days
 ms.author: johalexander
 author: ms-johnalex
@@ -9,7 +9,7 @@ ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps, devx-track-azurecli, devx-track-python
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a Python developer new to Azure OpenAI Service, I want to secure my chat app documents so users only see answers they’re allowed to access.
+# CustomerIntent: As a Python developer new to Azure OpenAI Models in Microsoft Foundry, I want to secure my chat app documents so users only see answers they’re allowed to access.
 ---
 
 # Get started with chat document security for Python
@@ -29,7 +29,7 @@ When you build a [chat application by using the Retrieval Augmented Generation (
 
 ## Architectural overview
 
-Without a document security feature, the enterprise chat app has a simple architecture by using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.
+Without a document security feature, the enterprise chat app has a simple architecture by using Azure AI Search and Azure OpenAI Models in Microsoft Foundry. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/simple-rag-chat-architecture.png" alt-text="Architectural diagram that shows how Azure AI Search finds answers from stored documents and combines them with a response from Azure OpenAI.":::
 

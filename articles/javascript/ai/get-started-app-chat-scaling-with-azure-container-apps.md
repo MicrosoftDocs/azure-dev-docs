@@ -1,15 +1,15 @@
 ---
-title: Scale Azure OpenAI for JavaScript chat sample using RAG
-description: Learn how to add load balancing to your JavaScript solution to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 09/30/2025
+title: Scale OpenAI for JavaScript chat sample using RAG
+description: Learn how to add load balancing to your JavaScript solution to extend the chat app beyond the Azure OpenAI Models in Microsoft Foundry token and model quota limits. 
+ms.date: 01/30/2026
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to scale my Azure OpenAI capacity using Azure Container Apps to avoid rate limit errors.
+# CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to scale my Azure OpenAI Models in Microsoft Foundry capacity using Azure Container Apps to avoid rate limit errors.
 ---
 
-# Scale Azure OpenAI for JavaScript chat using RAG with Azure Container Apps
+# Scale OpenAI for JavaScript chat using RAG with Azure Container Apps
 
 [!INCLUDE [aca-load-balancer-intro](../../ai/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
 
