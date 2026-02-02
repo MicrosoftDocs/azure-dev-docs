@@ -261,7 +261,7 @@ For more information, see the following resources:
 [19]: /cli/azure/containerapp#az_containerapp_update
 [20]: /cli/azure/group#az-group-delete
 [21]: https://docs.docker.com/engine/reference/run/
-[22]: https://docs.gunicorn.org/en/stable/settings.html#config-file
-[23]: https://docs.gunicorn.org/en/stable/configure.html#configuration-file
-[24]: https://docs.gunicorn.org/en/stable/index.html
+[22]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#config-file
+[23]: https://betterstack.com/community/guides/scaling-python/gunicorn-explained/#configuration-file
+[24]: https://pypi.org/project/gunicorn/
 [25]: https://www.uvicorn.org/#running-with-gunicorn
