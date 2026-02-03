@@ -4,7 +4,7 @@ description: Learn to use Azure MCP Server tools to manage file shares with natu
 keywords: azure mcp server, azmcp, file shares, azure services
 author: diberry
 ms.author: diberry
-ms.date: 01/23/2026
+ms.date: 02/03/2026
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -15,6 +15,10 @@ reviewer: ankushbindlish2
 # Azure File Shares tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage Azure file shares with natural language prompts. You don't need to remember specific command syntax.
+
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+ 
+:heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
 [Azure File Shares](/azure/storage/files/storage-files-introduction) is a managed file sharing service in the cloud that allows you to create and manage file shares accessible via the NFS protocol. File shares provide high-performance, fully managed storage for your applications and workloads.
 
