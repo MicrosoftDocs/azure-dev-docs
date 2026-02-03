@@ -16,8 +16,8 @@ The Managed Lustre service refers to auto-import and auto-export operations as "
 - ❌ WRONG: "Get the autoimport settings for filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
 - ❌ WRONG: "Show me the blob autoimport configuration for filesystem 'archiveLustre'"
 
-### Use "auto-import" and "auto-export" consistently as hyphenated terms
-Refer to the features as "auto-import" and "auto-export" (with hyphen) to align with official service terminology.
+### Use "autoimport" and "autoexport" in example prompts
+Use "autoimport" and "autoexport" (no hyphen) in example prompts to match the tool prompt style. Use "auto-import" and "auto-export" in descriptive text and links.
 
 - ✅ CORRECT: "Create an autoimport job for filesystem 'ProjectDataFS'"
 - ❌ WRONG: "Create an auto import job for filesystem 'ProjectDataFS'"
@@ -42,9 +42,9 @@ The conflict resolution mode parameter controls how conflicts are handled during
 - `OverwriteIfDirty`: Deletes and re-imports if conflicting type, dirty, or currently released.
 - `OverwriteAlways`: Extends `OverwriteIfDirty` to include releasing restored but not dirty files.
 
-Both conflict resolution mode and autoimport prefixes are optional parameters with defaults.
+Both conflict resolution mode and auto import prefixes are optional parameters with defaults.
 
-### Autoimport prefixes and autoexport prefix usage
+### Auto import prefixes and auto export prefix usage
 - Auto-import jobs support multiple prefixes (up to 100) to specify blob paths or prefixes to import.
 - Auto-export jobs support only one prefix.
 - Default prefix is `/`.
