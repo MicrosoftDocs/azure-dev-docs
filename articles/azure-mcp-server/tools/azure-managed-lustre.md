@@ -17,7 +17,7 @@ ms.date: 02/02/2026
 
 Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
 
-[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning.‌ With [auto-import](/azure/azure-managed-lustre/auto-import) and [auto-export](/azure/azure-managed-lustre/auto-export) capabilities, you can seamlessly sync data between Azure Blob Storage and your Lustre filesystem.
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning.‌ With [autoimport](/azure/azure-managed-lustre/auto-import) and [autoexport](/azure/azure-managed-lustre/auto-export) capabilities, you can seamlessly sync data between Azure Blob Storage and your Lustre filesystem.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -200,8 +200,8 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
-| **Job name** |  Optional | The name of the auto-import job. If not specified, the system generates a timestamped name. |
-| **Conflict resolution mode** |  Optional | How the auto-import job handles conflicts. `Fail`: stop immediately on conflict. `Skip`: pass over the conflict. `OverwriteIfDirty`: delete and re-import if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
+| **Job name** |  Optional | The name of the autoimport job. If not specified, the system generates a timestamped name. |
+| **Conflict resolution mode** |  Optional | How the autoimport job handles conflicts. `Fail`: stop immediately on conflict. `Skip`: pass over the conflict. `OverwriteIfDirty`: delete and re-import if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
 | **Import prefixes** |  Optional | Array of blob paths or prefixes to import from blob storage. Default: `/`. Maximum: 100 paths. Examples: `/data`, `/logs`. |
 | **Maximum errors** |  Optional | Total non-conflict-oriented errors (for example, OS errors) that the import job tolerates before exiting with failure. `-1`: infinite. `0`: exit immediately on any error. |
 
@@ -229,7 +229,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
-| **Job name** |  Optional | The name of the auto-import job. If not specified, the system generates a timestamped name. |
+| **Job name** |  Optional | The name of the autoimport job. If not specified, the system generates a timestamped name. |
 
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -255,7 +255,7 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
-| **Job name** |  Required | The name of the auto-export or auto-import job. |
+| **Job name** |  Required | The name of the autoexport or autoimport job. |
 
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -282,18 +282,18 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
-| **Job name** |  Required | The name of the auto-export or auto-import job. |
+| **Job name** |  Required | The name of the autoexport or autoimport job. |
 
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [managedlustre fs blob import delete](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-delete-annotations.md)]
 
-## Auto-import: Get details of auto import jobs
+## Autoimport: Get details of autoimport jobs
 
 <!-- managedlustre fs blob autoimport get -->
 
-Get status, configuration, and progress details of [auto-import](/azure/azure-managed-lustre/auto-import) jobs for an Azure Managed Lustre filesystem. Auto-import jobs sync data from the linked blob storage container to the Lustre filesystem. If you provide a job name, the tool returns details of that specific job. Otherwise, it returns all jobs for the filesystem.
+Get status, configuration, and progress details of [autoimport](/azure/azure-managed-lustre/auto-import) jobs for an Azure Managed Lustre filesystem. Autoimport jobs sync data from the linked blob storage container to the Lustre filesystem. If you provide a job name, the tool returns details of that specific job. Otherwise, it returns all jobs for the filesystem.
 
 Example prompts include:
 
@@ -314,11 +314,11 @@ Example prompts include:
 [!INCLUDE [managedlustre fs blob autoimport get](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-get-annotations.md)]
 
 
-## Auto-import: Create an auto import job
+## Autoimport: Create an autoimport job
 
 <!-- managedlustre fs blob autoimport create -->
 
-Create an [auto-import](/azure/azure-managed-lustre/auto-import) job to continuously import new or modified files from the linked blob storage container to your Azure Managed Lustre filesystem. The job syncs changes from the configured HSM blob container to the Lustre filesystem, keeping your filesystem updated with changes in blob storage.
+Create an [autoimport](/azure/azure-managed-lustre/auto-import) job to continuously import new or modified files from the linked blob storage container to your Azure Managed Lustre filesystem. The job syncs changes from the configured HSM blob container to the Lustre filesystem, keeping your filesystem updated with changes in blob storage.
 
 Example prompts include:
 
@@ -334,22 +334,22 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
 | **Filesystem name** |  Required | Azure Managed Lustre filesystem name. |
-| **Job name** |  Optional | Auto-import job name. If you don't specify a name, a timestamped name is generated. |
-| **Conflict resolution mode** |  Optional | Conflict resolution method for the auto-import job. `Fail`: stops immediately on conflict. `Skip`: skips the conflict. `OverwriteIfDirty`: deletes and re-imports if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
-| **Auto import prefixes** |  Optional | Array of blob paths or prefixes to auto-import to the cluster namespace. Default: `/`. Maximum: 100 paths. Example: `/data`, `/logs`. |
-| **Admin status** |  Optional | Administrative status of the auto-import job. `Enable`: job is active. `Disable`: disables the current active auto-import job. Default: `Enable`. Allowed values: `Enable`, `Disable`. |
-| **Enable deletions** |  Optional | Specifies whether to enable deletions during auto-import. This parameter only affects overwrite-dirty mode. Default: `false`. |
+| **Job name** |  Optional | Autoimport job name. If you don't specify a name, a timestamped name is generated. |
+| **Conflict resolution mode** |  Optional | Conflict resolution method for the autoimport job. `Fail`: stops immediately on conflict. `Skip`: skips the conflict. `OverwriteIfDirty`: deletes and re-imports if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
+| **Autoimport prefixes** |  Optional | Array of blob paths or prefixes to autoimport to the cluster namespace. Default: `/`. Maximum: 100 paths. Example: `/data`, `/logs`. |
+| **Admin status** |  Optional | Administrative status of the autoimport job. `Enable`: job is active. `Disable`: disables the current active autoimport job. Default: `Enable`. Allowed values: `Enable`, `Disable`. |
+| **Enable deletions** |  Optional | Specifies whether to enable deletions during autoimport. This parameter only affects overwrite-dirty mode. Default: `false`. |
 | **Maximum errors** |  Optional | Total non-conflict-oriented errors (for example, OS errors) that the import can tolerate before exiting with failure. `-1`: infinite. `0`: exits immediately on any error. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [managedlustre fs blob autoimport create](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-create-annotations.md)]
 
-## Auto-import: Cancel an auto import job
+## Autoimport: Cancel an autoimport job
 
 <!-- managedlustre fs blob autoimport cancel -->
 
-Cancel a running [auto-import](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This action stops the ongoing sync operation from the linked blob storage container to the Lustre filesystem.
+Cancel a running [autoimport](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This action stops the ongoing sync operation from the linked blob storage container to the Lustre filesystem.
 
 Example prompts include:
 
@@ -363,17 +363,17 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
 | **Filesystem name** |  Required | Azure Managed Lustre filesystem name. |
-| **Job name** |  Required | Auto-import job name. |
+| **Job name** |  Required | Autoimport job name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [managedlustre fs blob autoimport cancel](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-cancel-annotations.md)]
 
-## Auto-import: Delete an auto import job
+## Autoimport: Delete an autoimport job
 
 <!-- managedlustre fs blob autoimport delete -->
 
-Delete an [auto-import](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This action permanently removes the job record from the filesystem. Use this tool to clean up completed, failed, or canceled auto-import jobs.
+Delete an [autoimport](/azure/azure-managed-lustre/auto-import) job for your Azure Managed Lustre filesystem. This action permanently removes the job record from the filesystem. Use this tool to clean up completed, failed, or canceled autoimport jobs.
 
 Example prompts include:
 
@@ -387,17 +387,17 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
 | **Filesystem name** |  Required | Azure Managed Lustre filesystem name. |
-| **Job name** |  Required | Auto-import job name. |
+| **Job name** |  Required | Autoimport job name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [managedlustre fs blob autoimport delete](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-delete-annotations.md)]
 
-## Auto-export: Get details of an auto export job
+## Autoexport: Get details of an autoexport job
 
 <!-- managedlustre fs blob autoexport get -->
 
-Get status, configuration, and progress details of [auto-export](/azure/azure-managed-lustre/auto-export) jobs for your Azure Managed Lustre filesystem. Auto-export jobs sync data from the Lustre filesystem to the linked blob storage container. If you provide a job name, the tool returns details of that specific job. Otherwise, it returns all jobs for the filesystem.
+Get status, configuration, and progress details of [autoexport](/azure/azure-managed-lustre/auto-export) jobs for your Azure Managed Lustre filesystem. Autoexport jobs sync data from the Lustre filesystem to the linked blob storage container. If you provide a job name, the tool returns details of that specific job. Otherwise, it returns all jobs for the filesystem.
 
 Example prompts include:
 
@@ -418,11 +418,11 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoexport get](../includes/tools/annotations/managedlustre-file-system-blob-autoexport-get-annotations.md)]
 
-## Auto-export: Create an auto export job
+## Autoexport: Create an autoexport job
 
 <!-- managedlustre fs blob autoexport create -->
 
-Create an [auto-export](/azure/azure-managed-lustre/auto-export) job to continuously export modified files from your Azure Managed Lustre filesystem to the linked blob storage container. The job syncs changes from the Lustre filesystem to the configured HSM blob container, keeping your blob storage updated with changes in the filesystem.
+Create an [autoexport](/azure/azure-managed-lustre/auto-export) job to continuously export modified files from your Azure Managed Lustre filesystem to the linked blob storage container. The job syncs changes from the Lustre filesystem to the configured HSM blob container, keeping your blob storage updated with changes in the filesystem.
 
 Example prompts include:
 
@@ -437,19 +437,19 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
 | **Filesystem name** |  Required | Azure Managed Lustre filesystem name. |
-| **Job name** |  Optional | Auto-export job name. If you don't specify a name, a timestamped name is generated. |
-| **Auto export prefix** |  Optional | Blob path or prefix to auto-export from the cluster namespace. Default: `/`. Note: Only one prefix is supported for auto-export jobs. Example: `/data`. |
-| **Admin status** |  Optional | Administrative status of the auto-export job. `Enable`: job is active. `Disable`: disables the current active auto-export job. Default: `Enable`. Allowed values: `Enable`, `Disable`. |
+| **Job name** |  Optional | Autoexport job name. If you don't specify a name, a timestamped name is generated. |
+| **Autoexport prefix** |  Optional | Blob path or prefix to autoexport from the cluster namespace. Default: `/`. Note: Only one prefix is supported for autoexport jobs. Example: `/data`. |
+| **Admin status** |  Optional | Administrative status of the autoexport job. `Enable`: job is active. `Disable`: disables the current active autoexport job. Default: `Enable`. Allowed values: `Enable`, `Disable`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [managedlustre fs blob autoexport create](../includes/tools/annotations/managedlustre-file-system-blob-autoexport-create-annotations.md)]
 
-## Auto-export: Cancel an auto export job
+## Autoexport: Cancel an autoexport job
 
 <!-- managedlustre fs blob autoexport cancel -->
 
-Cancel a running [auto-export](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This action stops the ongoing sync operation from the Lustre filesystem to the linked blob storage container.
+Cancel a running [autoexport](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This action stops the ongoing sync operation from the Lustre filesystem to the linked blob storage container.
 
 Example prompts include:
 
@@ -463,17 +463,17 @@ Example prompts include:
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
 | **Filesystem name** |  Required | Azure Managed Lustre filesystem name. |
-| **Job name** |  Required | Auto-export job name. |
+| **Job name** |  Required | Autoexport job name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [managedlustre fs blob autoexport cancel](../includes/tools/annotations/managedlustre-file-system-blob-autoexport-cancel-annotations.md)]
 
-## Auto-export: Delete an auto export job
+## Autoexport: Delete an autoexport job
 
 <!-- managedlustre fs blob autoexport delete -->
 
-Delete an [auto export](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This action permanently removes the job record from the filesystem. Use this tool to clean up completed, failed, or canceled auto-export jobs.
+Delete an [autoexport](/azure/azure-managed-lustre/auto-export) job for your Azure Managed Lustre filesystem. This action permanently removes the job record from the filesystem. Use this tool to clean up completed, failed, or canceled autoexport jobs.
 
 Example prompts include:
 
@@ -498,5 +498,5 @@ Example prompts include:
 - [What are the Azure MCP Server tools?](index.md)
 - [Get started using Azure MCP Server](../get-started.md)
 - [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
-- [Learn more about auto-import](/azure/azure-managed-lustre/auto-import)
-- [Learn more about auto-export](/azure/azure-managed-lustre/auto-export)
+- [Learn more about autoimport](/azure/azure-managed-lustre/auto-import)
+- [Learn more about autoexport](/azure/azure-managed-lustre/auto-export)
