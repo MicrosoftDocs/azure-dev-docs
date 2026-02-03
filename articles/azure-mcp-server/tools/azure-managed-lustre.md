@@ -181,7 +181,7 @@ Example prompts include:
 [!INCLUDE [managedlustre fs subnetsize validate](../includes/tools/annotations/azure-managed-lustre-file-system-subnet-size-validate-annotations.md)]
 
 
-## File system: Blob Import Create
+## Blobs: Create blob import job 
 
 <!-- managedlustre fs blob import create -->
 
@@ -210,7 +210,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob import create](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-create-annotations.md)]
 
-## File system: Blob Import Get
+## Blobs: Get blob import job 
 
 <!-- managedlustre fs blob import get -->
 
@@ -236,7 +236,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob import get](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-get-annotations.md)]
 
-## File system: Blob Import Cancel
+## Blobs: Cancel blob import job
 
 <!-- managedlustre fs blob import cancel -->
 
@@ -263,7 +263,7 @@ Example prompts include:
 [!INCLUDE [managedlustre fs blob import cancel](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-cancel-annotations.md)]
 
 
-## File system: Blob Import Delete
+## Blobs: Delete blob import job
 
 <!-- managedlustre fs blob import delete -->
 
