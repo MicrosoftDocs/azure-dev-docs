@@ -8,8 +8,8 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
+ms.date: 12/05/2025
 ms.topic: concept-article
-ms.date: 11/17/2025
 ---
 
 # Azure Load Testing tools for the Azure MCP Server overview
@@ -28,11 +28,11 @@ Creates a new load test in Azure Load Testing. Use this command to define and co
 
 Example prompts include:
 
-- **Create load test**: "Create a new load test named 'api-stress-test' in resource group 'performance-rg'"
-- **Set up test**: "Configure a new load test using my JMeter file for the shopping cart API"
-- **New performance test**: "Create a load test called 'peak-traffic-simulation' in my test subscription"
-- **Initialize test**: "Set up a new Azure Load Testing test for my e-commerce site"
-- **Test definition**: "Create a test that simulates 1000 concurrent users for my web app"
+- **Create load test**: "Create a new load test with test resource 'loadtest-resource' test ID 'api-stress-001' display name 'API Stress Test' description 'Stress testing API endpoints' endpoint 'https://api.example.com' with 100 virtual users for 300 seconds duration and 60 seconds ramp-up time"
+- **Set up test**: "Configure load test using test resource 'perf-test' test ID 'cart-load-001' display 'Shopping Cart Load Test' description 'Load test for cart API' endpoint 'https://cart.example.com/api' with 500 virtual users duration 600 seconds ramp-up 120 seconds"
+- **New performance test**: "Create load test with test resource 'test-res' test ID 'peak-sim-001' display 'Peak Traffic Simulation' description 'Simulate peak traffic' endpoint 'https://app.example.com' 1000 virtual users 900 seconds duration 180 seconds ramp-up"
+- **Initialize test**: "Set up load test with test resource 'ecommerce-test' test ID 'ecom-load-001' display 'E-commerce Load Test' description 'Load test for e-commerce site' endpoint 'https://shop.example.com' 200 virtual users 300 seconds duration 60 seconds ramp-up"
+- **Test definition**: "Create test with test resource 'webapp-test' test ID 'web-load-001' display 'Web App Load Test' description 'Concurrent user simulation' endpoint 'https://webapp.example.com' 1000 virtual users 600 seconds duration 120 seconds ramp-up"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -58,11 +58,11 @@ Gets details about a specific load test in Azure Load Testing. Use this command 
 
 Example prompts include:
 
-- **View test details**: "Show me the configuration of the 'api-stress-test' load test"
-- **Check test setup**: "Get the details of my 'peak-load' test in resource group 'perf-testing'"
-- **Test configuration**: "What are the settings for my load test named 'prod-readiness'?"
-- **Examine test**: "Let me see the configuration of the load test I created yesterday"
-- **Test parameters**: "Show the parameters for my 'database-benchmark' load test"
+- **View test details**: "Show me the configuration of load test with test resource 'loadtest-resource' and test ID 'api-stress-001'"
+- **Check test setup**: "Get the details of test resource 'perf-test' with test ID 'peak-load-001' in resource group 'perf-testing'"
+- **Test configuration**: "What are the settings for test resource 'prod-test' with test ID 'prod-readiness-001'?"
+- **Examine test**: "Let me see the configuration of test resource 'test-res' with test ID 'recent-test-001'"
+- **Test parameters**: "Show the parameters for test resource 'db-test' with test ID 'database-benchmark-001'"
 
 
 | Parameter | Required or optional | Description |
@@ -82,11 +82,11 @@ Lists all test resources in the specified Azure subscription. Use this command t
     
 Example prompts include:
 
-- **List test resources**: "Show me all the load testing resources in my subscription"
-- **View available resources**: "What Azure Load Testing resources do I have in my dev subscription?"
-- **Resource inventory**: "List all test resources in resource group 'performance-testing'"
-- **Check environment**: "Show me the testing resources we provisioned in our subscription"
-- **Find resources**: "Where are all my load testing resources deployed?"
+- **List test resources**: "Show me test resource 'loadtest-resource' in my subscription"
+- **View available resources**: "What is test resource 'dev-loadtest' in my dev subscription?"
+- **Resource inventory**: "List test resource 'perf-test-resource' in resource group 'performance-testing'"
+- **Check environment**: "Show me test resource 'prod-test-resource' we provisioned in our subscription"
+- **Find resources**: "Where is test resource 'webapp-test-resource' deployed?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -104,9 +104,9 @@ Creates a test resource in Azure Load Testing. Use this command to set up resour
 
 Example prompts include:
 
-- **Create test resource**: "Create a new test resource for my load testing in resource group 'load-test-rg'"
-- **Provision resources**: "Set up a test resource for my performance testing in subscription 'test-sub'"
-- **Initialize resource**: "Create a test resource for my 'api-load-test' in resource group 'perf-resources'"
+- **Create test resource**: "Create a new test resource 'loadtest-resource' for my load testing in resource group 'load-test-rg'"
+- **Provision resources**: "Set up test resource 'perf-test-resource' for my performance testing in subscription 'test-sub'"
+- **Initialize resource**: "Create test resource 'api-test-resource' for my 'api-load-test' in resource group 'perf-resources'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -124,9 +124,9 @@ Creates a new test run for an existing load test in Azure Load Testing. Use this
 
 Example prompts include:
 
-- **Run load test**: "Start a new test run for my 'api-stress-test' in resource group 'performance-rg'"
-- **Execute test**: "Run the load test named 'peak-traffic-simulation'"
-- **Initiate test run**: "Create a test run for my 'web-app-load-test' in subscription 'prod-sub'"
+- **Run load test**: "Start test run with test resource 'loadtest-resource' test ID 'api-stress-001' testrun ID 'run-001' display 'API Stress Test Run' description 'First stress test run' old testrun ID 'baseline-run'"
+- **Execute test**: "Run test with test resource 'perf-test' test ID 'peak-sim-001' testrun ID 'run-002' display 'Peak Simulation Run' description 'Peak traffic test execution' old testrun ID 'run-001'"
+- **Initiate test run**: "Create test run with test resource 'webapp-test' test ID 'web-load-001' testrun ID 'run-003' display 'Web App Test Run' description 'Production load test' old testrun ID 'run-002'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -149,9 +149,9 @@ Gets details about a specific test run in Azure Load Testing. Use this command t
 
 Example prompts include:
 
-- **View test run details**: "Show me the results of the last test run for 'api-performance' load test"
-- **Check test run status**: "Get the status of the most recent test run for my 'web-app-load-test'"
-- **Test run metrics**: "What were the results of the last load test run for 'checkout-service'?"
+- **View test run details**: "Show me the results of test resource 'api-test' with testrun ID 'run-001'"
+- **Check test run status**: "Get the status of test resource 'webapp-test' with testrun ID 'run-002'"
+- **Test run metrics**: "What were the results of test resource 'checkout-test' with testrun ID 'run-003'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -171,11 +171,11 @@ Lists all test runs for a specific load test in Azure Load Testing. Use this com
 
 Example prompts include:
 
-- **View test history**: "Show me all test runs for my 'api-performance' load test"
-- **Check recent tests**: "List the last 10 test runs for my load test in resource group 'perf-testing'"
-- **View test results**: "What load tests have been run on my 'web-app-load-test'?"
-- **Test execution history**: "Show me all load test executions from this month"
-- **Monitor test runs**: "List all load test runs for my subscription"
+- **View test history**: "Show me all test runs for test resource 'api-test' with test ID 'api-perf-001'"
+- **Check recent tests**: "List test runs for test resource 'perf-test' with test ID 'load-001' in resource group 'perf-testing'"
+- **View test results**: "What test runs exist for test resource 'webapp-test' with test ID 'web-load-001'?"
+- **Test execution history**: "Show me test runs for test resource 'monthly-test' with test ID 'exec-001'"
+- **Monitor test runs**: "List test runs for test resource 'prod-test' with test ID 'monitor-001'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
@@ -194,11 +194,11 @@ Updates an existing test run in Azure Load Testing. Use this command to modify a
 
 Example prompts include:
 
-- **Stop a test run**: "Stop the current load test run for my 'production-api-test'"
-- **Cancel testing**: "Cancel the load test execution with ID 'run-123456'"
-- **Abort test**: "Stop the running performance test in my 'test-environment' resource group"
-- **Update test parameters**: "Modify the current test run to reduce virtual user count to 100"
-- **Terminate run**: "Cancel the load test that's causing high CPU in production"
+- **Stop a test run**: "Stop test run with test resource 'prod-test' test ID 'api-001' testrun ID 'run-001' display 'Stopped API Test' description 'Test stopped due to errors'"
+- **Cancel testing**: "Cancel test with test resource 'loadtest-resource' test ID 'load-001' testrun ID 'run-123456' display 'Cancelled Test' description 'Test cancelled by user'"
+- **Abort test**: "Stop test with test resource 'test-env-resource' test ID 'perf-001' testrun ID 'run-002' display 'Aborted Test' description 'Test aborted'"
+- **Update test parameters**: "Modify test with test resource 'webapp-test' test ID 'web-001' testrun ID 'run-003' display 'Modified Test' description 'Reduced virtual users to 100'"
+- **Terminate run**: "Cancel test with test resource 'prod-resource' test ID 'cpu-001' testrun ID 'run-004' display 'Terminated Test' description 'Test causing high CPU usage'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|

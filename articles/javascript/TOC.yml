@@ -138,8 +138,8 @@
     href: learn-azure-javascript.md  
   - name: Samples
     items: 
-    - name: Azure Samples browser
-      href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Azure JavaScript samples 
+      href: samples.md
   - name: JavaScript at Microsoft
     href: https://developer.microsoft.com/javascript/
   - name: npm Packages
