@@ -28,7 +28,7 @@ By using `azd`, you can define both services in a single [`azure.yaml`](./azd-sc
 
 The Azure Developer CLI follows a structured workflow with distinct lifecycle events:
 
-:::image type="content" source="./media/full-stack-deployment/full-stack-deployment-lifecycle.png" alt-text="Diagram showing the Azure Developer CLI lifecycle with package, provision, and deploy phases." :::
+:::image type="content" source="./media/full-stack-deployment/full-stack-azd-lifecycle-light.png" alt-text="Diagram showing the Azure Developer CLI lifecycle with package, provision, and deploy phases." :::
 
 1. **Package**: Build your application source code and prepare artifacts for deployment.
 1. **Provision**: Create or update Azure infrastructure resources by using Bicep or Terraform.
@@ -53,7 +53,7 @@ Learn more about [hosting applications on Azure](/azure/developer/intro/hosting-
 
 Full-stack deployments often encounter circular dependency challenges where each service needs information about the other before it can be fully configured. Understanding these interdependencies helps you design effective deployment workflows.
 
-:::image type="content" source="./media/full-stack-deployment/full-stack-circular-dependency.png" alt-text="Diagram illustrating circular dependency between front-end and back-end services in full-stack deployments." :::
+:::image type="content" source="./media/full-stack-deployment/full-stack-circular-dependency-light.png" alt-text="Diagram illustrating circular dependency between front-end and back-end services in full-stack deployments." :::
 
 **Front-end needs back-end URL**: Your front-end application typically needs to know the back-end API endpoint URL at build time or runtime. However, the back-end service doesn't have a URL until it's deployed to Azure.
 
@@ -71,7 +71,7 @@ Azure Developer CLI handles these interdependencies through two approaches:
 
 These approaches represent design decisions you make when building your application. You can use one strategy exclusively or combine both depending on your architecture and requirements.
 
-:::image type="content" source="./media/full-stack-deployment/full-stack-dependency-resolution.png" alt-text="Diagram comparing deploy-time versus runtime configuration strategies for full-stack deployments." :::
+:::image type="content" source="./media/full-stack-deployment/full-stack-deploy-strategies-light.png" alt-text="Diagram comparing deploy-time versus runtime configuration strategies for full-stack deployments." :::
 
 ### Deploy-time configuration
 
