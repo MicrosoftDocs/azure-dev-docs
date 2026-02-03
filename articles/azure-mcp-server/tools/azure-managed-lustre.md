@@ -30,8 +30,8 @@ Create an Azure Managed Lustre (AMLFS) file system using the specified network, 
 Example prompts include:
 
 - **Basic filesystem creation**: "Create Azure Managed Lustre filesystem 'amlfs-prod-001' in resource group 'my-resource-group' in eastus with SKU 'AMLFS-Durable-Premium-125', size 128 TiB, in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001', zone 1, maintenance on Sunday at 02:00"
-- **Development environment**: "Create test filesystem 'dev-amlfs' in resource group 'my-resource-group' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 32 TiB capacity in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
-- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in resource group 'my-resource-group' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64 TiB capacity, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p'"
+- **Development environment**: "Create test filesystem 'dev-amlfs' in resource group 'my-resource-group' in westus2 using 'AMLFS-Durable-Premium-40' SKU with 32-TiB capacity in subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet', availability zone 2, maintenance Wednesday at 14:00"
+- **Secure filesystem with encryption**: "Create encrypted filesystem 'secure-amlfs' in resource group 'my-resource-group' in northeurope with 'AMLFS-Durable-Premium-125' SKU, 64-TiB capacity, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.Network/virtualNetworks/secure-vnet/subnets/lustre-subnet', zone 1, maintenance Friday at 23:00, using custom encryption with key vault '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/security-rg/providers/Microsoft.KeyVault/vaults/secure-kv' and key 'https://secure-kv.vault.azure.net/keys/lustre-key/a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p'"
 - **Budget-optimized setup**: "Create cost-effective filesystem 'budget-fs' in resource group 'my-resource-group' in eastus2 with 'AMLFS-Durable-Premium-40', 48 TiB, subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/budget-rg/providers/Microsoft.Network/virtualNetworks/budget-vnet/subnets/storage-subnet', zone 1, maintenance Sunday at 05:00"
 
 | Parameter |  Required or optional | Description |
@@ -83,16 +83,16 @@ Example prompts include:
 
 <!-- managedlustre fs subnetsize ask -->
 
-Calculates the required subnet size for an Azure Managed Lustre file system, given a SKU and size. Use this calculation to plan network deployment for AMLFS.
+Calculates the required subnet size for an Azure Managed Lustre file system, given a SKU, and size. Use this calculation to plan network deployment for AMLFS.
 
 Example prompts include:
 
 - **Basic calculation**: "What is the required subnet size for filesystem with SKU 'AMLFS-Durable-Premium-125' and size 128 TiB?"
 - **Small deployment**: "Calculate subnet size for Azure Managed Lustre filesystem with SKU 'AMLFS-Durable-Premium-250' and size 8 TiB"
-- **Large scale planning**: "What subnet size do I need for a 512 TiB filesystem using 'AMLFS-Durable-Premium-500' SKU?"
-- **Development environment**: "Calculate required subnet size for test filesystem with 'AMLFS-Durable-Premium-125' SKU and 32 TiB capacity"
+- **Large scale planning**: "What subnet size do I need for a 512-TiB filesystem using 'AMLFS-Durable-Premium-500' SKU?"
+- **Development environment**: "Calculate required subnet size for test filesystem with 'AMLFS-Durable-Premium-125' SKU and 32-TiB capacity"
 - **Production planning**: "What is the subnet size requirement for production filesystem 'prod-amlfs-001' with 256 TiB using 'AMLFS-Durable-Premium-250'?"
-- **High-performance setup**: "Calculate subnet requirements for AI training filesystem with 'AMLFS-Durable-Premium-500' and 1024 TiB"
+- **High-performance setup**: "Calculate subnet requirements for AI training filesystem with 'AMLFS-Durable-Premium-500' and 1,024 TiB"
 - **Research environment**: "What subnet size is needed for research filesystem 'ml-data-fs' with SKU 'AMLFS-Durable-Premium-125' and 64 TiB?"
 
 | Parameter |  Required or optional | Description |
@@ -143,7 +143,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Name** |  Required | The AMLFS resource name. Must be DNS-friendly (letters, numbers, hyphens). Example: `amlfs-001`. |
 | **Maintenance day** |  Optional | Preferred maintenance day. Allowed values: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`. |
 | **Maintenance time** |  Optional | Preferred maintenance time in UTC. Format: `HH:MM` (24-hour). Examples: `00:00`, `23:00`. |
@@ -167,7 +167,7 @@ Example prompts include:
 - **Basic validation**: "Validate if the network '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Network/virtualNetworks/vnet-001/subnets/subnet-001' can host Azure Managed Lustre filesystem of size 128 TiB using the SKU 'AMLFS-Durable-Premium-125'"
 - **Production environment**: "Check if subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hpc-rg/providers/Microsoft.Network/virtualNetworks/hpc-vnet/subnets/lustre-subnet' can support AMLFS filesystem of 256 TiB with SKU 'AMLFS-Durable-Premium-250' in eastus"
 - **Development setup**: "Validate subnet capacity for Azure Managed Lustre filesystem size 48 TiB using SKU 'AMLFS-Durable-Premium-40' in subnet '/subscriptions/dev-sub/resourceGroups/dev-rg/providers/Microsoft.Network/virtualNetworks/dev-vnet/subnets/amlfs-subnet' in westus2"
-- **Large scale deployment**: "Can subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ai-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet' host a 512 TiB Azure Managed Lustre filesystem using 'AMLFS-Durable-Premium-500' SKU in swedencentral?"
+- **Large scale deployment**: "Can subnet '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ai-rg/providers/Microsoft.Network/virtualNetworks/ai-vnet/subnets/storage-subnet' host a 512-TiB Azure Managed Lustre filesystem using 'AMLFS-Durable-Premium-500' SKU in swedencentral?"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -193,7 +193,7 @@ Example prompts include:
 - "I want to start an autoimport job on the managed Lustre filesystem 'DataLakeFS' in resource group 'rg-data-core'"
 - "Set up a new fs autoimport job for filesystem 'ProjectDataFS' within resource group 'rg-analytics'"
 - "Can you initiate an autoimport job on managed Lustre filesystem 'ArchiveFS' specifying the container 'importcontainer' in resource group 'rg-mlustredemo'?"
-- "Please create an autoimport job for filesystem 'TrainingFS' in resource group 'rg-lustre-eastus'"
+- "Create an autoimport job for filesystem 'TrainingFS' in resource group 'rg-lustre-eastus'"
 
 
 | Parameter |  Required or optional | Description |
@@ -203,7 +203,7 @@ Example prompts include:
 | **Job name** |  Optional | The name of the auto-import job. If not specified, the system generates a timestamped name. |
 | **Conflict resolution mode** |  Optional | How the auto-import job handles conflicts. `Fail`: stop immediately on conflict. `Skip`: pass over the conflict. `OverwriteIfDirty`: delete and re-import if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
 | **Import prefixes** |  Optional | Array of blob paths or prefixes to import from blob storage. Default: `/`. Maximum: 100 paths. Examples: `/data`, `/logs`. |
-| **Maximum errors** |  Optional | Total non-conflict-oriented errors (for example, OS errors) that import will tolerate before exiting with failure. `-1`: infinite. `0`: exit immediately on any error. |
+| **Maximum errors** |  Optional | Total non-conflict-oriented errors (for example, OS errors) that the import job tolerates before exiting with failure. `-1`: infinite. `0`: exit immediately on any error. |
 
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -214,7 +214,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob import get -->
 
-Gets import job details or lists all import jobs for an Azure Managed Lustre filesystem. If the job name is provided, returns details for that specific job. If job name is omitted, returns a list of all import jobs for the filesystem.
+Gets import job details or lists all import jobs for an Azure Managed Lustre filesystem. If the job name is provided, return details for that specific job. If job name is omitted, return a list of all import jobs for the filesystem.
 
 Example prompts include:
 
@@ -227,7 +227,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
 | **Job name** |  Optional | The name of the auto-import job. If not specified, the system generates a timestamped name. |
 
@@ -240,20 +240,20 @@ Example prompts include:
 
 <!-- managedlustre fs blob import cancel -->
 
-Cancels a running import job for an Azure Managed Lustre filesystem. This stops the import operation and prevents further processing. The job cannot be resumed after cancellation.
+Cancels a running import job for an Azure Managed Lustre filesystem. This stops the import operation and prevents further processing. The job can't be resumed after cancellation.
 
 Example prompts include:
 
 - "Cancel the autoimport job 'import1234' for filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
 - "I need to cancel the fs autoimport job 'backup-sync' on filesystem 'DataLakeFS' in resource group 'rg-lustre-dev'"
 - "Cancel the autoimport job with ID 'dailybackup-import' from the managed Lustre filesystem 'ArchiveFS' in resource group 'rg-fileservices'"
-- "Please stop the fs autoimport job 'import5678' on filesystem 'ProjectDataFS' in resource group 'rg-ml-prod'"
+- "Stop the fs autoimport job 'import5678' on filesystem 'ProjectDataFS' in resource group 'rg-ml-prod'"
 - "Cancel the managed Lustre fs autoimport job named 'weeklysync' on filesystem 'TrainingFS' within resource group 'rg-analytics'"
 
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
 | **Job name** |  Required | The name of the auto-export or auto-import job. |
 
@@ -267,7 +267,7 @@ Example prompts include:
 
 <!-- managedlustre fs blob import delete -->
 
-Deletes an import job for an Azure Managed Lustre filesystem. This removes the job record and history. The job must be completed or cancelled before it can be deleted.
+Deletes an import job for an Azure Managed Lustre filesystem. This operation removes the job record and history. The job must be completed or cancelled before it can be deleted.
 
 Example prompts include:
 
@@ -280,7 +280,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
 | **Job name** |  Required | The name of the auto-export or auto-import job. |
 
@@ -305,7 +305,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
 | **Job name** |  Optional | The name of the auto export or auto import job. |
 
@@ -323,7 +323,7 @@ Create an [auto-import](/azure/azure-managed-lustre/auto-import) job to continuo
 Example prompts include:
 
 - "Create an autoimport job for filesystem 'ProjectDataFS' in resource group 'rg-managedlustre-prod'"
-- "Please set up a blob autoimport on filesystem 'LustreMainFS' within resource group 'rg-dev-cluster'"
+- "Set up a blob autoimport on filesystem 'LustreMainFS' within resource group 'rg-dev-cluster'"
 - "I need to create a Managed Lustre autoimport for filesystem 'AnalyticsFS' in resource group 'rg-analytics-eastus'"
 - "Start an autoimport for the filesystem named 'ResearchFS' in resource group 'rg-research-lustre'"
 - "Establish an autoimport job on filesystem 'FSBackup' under resource group 'rg-backup-westus2'"
@@ -355,7 +355,7 @@ Example prompts include:
 
 - "Cancel the autoimport job named 'dailySyncJob' on filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
 - "I need to stop the job 'autoimportJob42' for filesystem 'ProjectLustre' within 'rg-data-central'"
-- "Please cancel the autoimport job 'importJobA1' on the Lustre filesystem 'FsBackup2024' in the resource group 'rg-backup'"
+- "Cancel the autoimport job 'importJobA1' on the Lustre filesystem 'FsBackup2024' in the resource group 'rg-backup'"
 - "How do I cancel the job 'nightlyAutoImport' running on filesystem 'fastLustreFs' in resource group 'rg-performance'?"
 - "Stop the autoimport job 'urgentSync' on Managed Lustre filesystem 'MainLustreFS' inside resource group 'rg-enterprise'"
 
@@ -380,7 +380,7 @@ Example prompts include:
 - "Delete the autoimport job named 'importJob123' from filesystem 'LustreFs1' in resource group 'rg-lustre-prod'"
 - "Remove autoimport job 'dailySync' for filesystem 'FsData2024' within resource group 'rg-storage-eus'"
 - "I want to delete the job 'autoImportApril' from Managed Lustre filesystem 'DataLakeFs' inside resource group 'rg-datalake-west'"
-- "Please delete the fs blob autoimport job 'syncJob01' on filesystem 'LustreFsX' located in resource group 'rg-cluster-01'"
+- "Delete the fs blob autoimport job 'syncJob01' on filesystem 'LustreFsX' located in resource group 'rg-cluster-01'"
 - "Can you delete the autoimport job 'weekly-import' on filesystem 'LustreMain' under resource group 'rg-enterprise-services'"
 
 | Parameter |  Required or optional | Description |
@@ -454,7 +454,7 @@ Cancel a running [auto-export](/azure/azure-managed-lustre/auto-export) job for 
 Example prompts include:
 
 - "Cancel the autoexport job named 'dailyBackupJob' on filesystem 'lustreProdFs' in resource group 'rg-lustre-apps'"
-- "Please stop the job 'trainingLustre01-autoexport' for filesystem 'trainingLustre01' in resource group 'rg-training-lustre'"
+- "Stop the job 'trainingLustre01-autoexport' for filesystem 'trainingLustre01' in resource group 'rg-training-lustre'"
 - "I need to cancel the autoexport job 'weeklySync' from the 'dataLustreFs' filesystem in resource group 'rg-data-services'"
 - "How do I cancel the autoexport job called 'exportJob123' on filesystem 'prodLustreFs' within resource group 'rg-production'"
 - "Abort the autoexport job 'monthlyExport' on filesystem 'archiveLustre' under resource group 'rg-archive-management'"
@@ -480,7 +480,7 @@ Example prompts include:
 - "Delete the autoexport job 'archiveExportJob' from filesystem 'LustreProdFs' in resource group 'rg-cloud-storage'"
 - "Remove autoexport job 'dailyBackup' on filesystem 'LustreFS1' within resource group 'rg-datahub'"
 - "Can you delete the job named 'autoExportJob42' for filesystem 'AzureLustreFs' in resource group 'rg-az-lustre'?"
-- "Please delete autoexport job 'monthlyExport' from the Managed Lustre filesystem 'LustreFsEast' located in resource group 'rg-eastus-lustre'"
+- "Delete autoexport job 'monthlyExport' from the Managed Lustre filesystem 'LustreFsEast' located in resource group 'rg-eastus-lustre'"
 - "I need to delete the autoexport job 'exportJob2024' in filesystem 'LustreMain' under resource group 'rg-production-lustre'"
 
 | Parameter |  Required or optional | Description |
