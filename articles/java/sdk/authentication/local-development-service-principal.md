@@ -61,15 +61,7 @@ After editing the file, run `source ~/.bashrc` or `source ~/.zshrc` to apply the
 
 #### [Visual Studio Code](#tab/vscode-env)
 
-In Visual Studio Code, set environment variables by using a `.env` file in your project or through the `launch.json` configuration. Create a `.env` file in your project root:
-
-```bash
-AZURE_CLIENT_ID=<your-client-id>
-AZURE_TENANT_ID=<your-tenant-id>
-AZURE_CLIENT_SECRET=<your-client-secret>
-```
-
-Or configure environment variables in `.vscode/launch.json`:
+In Visual Studio Code, configure environment variables in `.vscode/launch.json`:
 
 ```json
 {
