@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 # Authenticate Java apps to Azure services by using the Azure Identity library
 
-Apps can use the Azure Identity library to authenticate to Microsoft Entra ID, which allows the apps to access Azure services and resources. This authentication requirement applies whether the app is deployed to Azure, hosted on-premises, or running locally on a developer workstation. The sections ahead describe the recommended approaches to authenticate an app to Microsoft Entra ID across different environments when using the Azure SDK client libraries.
+Apps can use the Azure Identity library to authenticate to Microsoft Entra ID, which allows the apps to access Azure services and resources. This authentication requirement applies whether the app is deployed to Azure, hosted on-premises, or running locally on a developer workstation. This article describes the recommended approaches to authenticate an app to Microsoft Entra ID across different environments when using the Azure SDK client libraries.
 
 ## Recommended approach for Java app authentication
 
@@ -38,8 +38,8 @@ The specific type of token-based authentication an app should use to authenticat
 
 When an app is:
 
-- **Hosted on Azure**: The app should authenticate to Azure resources by using a managed identity. For more information, see [Authentication for Azure-hosted apps](#authentication-for-azure-hosted-apps).
-- **Running locally during development**: The app can authenticate to Azure by using a developer account or a service principal. For more information, see [Authentication during local development](#authentication-during-local-development).
+- **Hosted on Azure**: The app should authenticate to Azure resources by using a managed identity. For more information, see the [Authentication for Azure-hosted apps](#authentication-for-azure-hosted-apps) section.
+- **Running locally during development**: The app can authenticate to Azure by using a developer account or a service principal. For more information, see the [Authentication during local development](#authentication-during-local-development) section.
 - **Hosted on-premises**: The app should authenticate to Azure resources by using an application service principal.
 
 ## Authentication for Azure-hosted apps
@@ -54,17 +54,17 @@ For more information, see [Authenticate Azure-hosted Java apps to Azure resource
 
 ### Use a system-assigned managed identity
 
-You can enable a system-assigned managed identity directly on an Azure resource. The identity ties to the lifecycle of that resource and automatically deletes when the resource is deleted. To authenticate by using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
+You can enable a system-assigned managed identity directly on an Azure resource. The identity is tied to the lifecycle of that resource and is automatically deleted when the resource is deleted. To authenticate by using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
 
 For more information, see [Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity](system-assigned-managed-identity.md).
 
 ## Authentication during local development
 
-During local development, you can authenticate to Azure resources by using your developer credentials or a service principal. By using this method, you can test your app's authentication logic without deploying it to Azure.
+During local development, you can authenticate to Azure resources by using your developer credentials or a service principal. By using one of these methods, you can test your app's authentication logic without deploying it to Azure.
 
 ### Use developer credentials
 
-Use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
+You can use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
 
 For more information, see [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md).
 
@@ -76,7 +76,7 @@ For more information, see [Authenticate Java apps to Azure services during local
 
 ## Add the Maven dependencies
 
-Include the `azure-sdk-bom` in your project to take a dependency on the stable version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. To learn more about the BOM, see the [Add Azure SDK for Java to an existing project](../get-started-maven.md#add-azure-sdk-for-java-to-an-existing-project) section of [Get started with Azure SDK and Apache Maven](../get-started-maven.md).
+To use the Azure Identity library in your project, include the `azure-sdk-bom` to take a dependency on the stable version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. To learn more about the BOM and find available version numbers, see the [Add Azure SDK for Java to an existing project](../get-started-maven.md#add-azure-sdk-for-java-to-an-existing-project) section of [Get started with Azure SDK and Apache Maven](../get-started-maven.md).
 
 ```xml
 <dependencyManagement>
