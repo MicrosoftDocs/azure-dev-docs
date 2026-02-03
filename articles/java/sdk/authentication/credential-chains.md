@@ -7,6 +7,7 @@ author: bmitchell287
 ms.author: brendm
 ms.reviewer: scaddie
 ms.custom: devx-track-java
+ai-usage: ai-assisted
 ---
 
 # Credential chains in the Azure Identity library for Java
