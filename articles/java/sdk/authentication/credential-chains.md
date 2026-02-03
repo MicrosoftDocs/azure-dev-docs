@@ -126,6 +126,20 @@ DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     .build();
 ```
 
+> [!IMPORTANT]
+> The `requireEnvVars` method is available in `azure-identity` package versions 1.18.0 and later.
+
+To use a custom environment variable name instead of the default `AZURE_TOKEN_CREDENTIALS`, use `AzureIdentityEnvVars.fromString()` to create a reference to your custom variable:
+
+```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+    .requireEnvVars(AzureIdentityEnvVars.fromString("MY_CUSTOM_TOKEN_CREDENTIALS"))
+    .build();
+```
+
+> [!NOTE]
+> Custom environment variable names must follow standard conventions (letters, digits, and underscores only). The `requireEnvVars` method throws an `IllegalStateException` if the specified environment variables aren't set or are empty.
+
 #### Use a specific credential
 
 To exclude all credentials except for one, set environment variable `AZURE_TOKEN_CREDENTIALS` to the credential name. For example, you can reduce the `DefaultAzureCredential` chain to `AzureCliCredential` by setting `AZURE_TOKEN_CREDENTIALS` to `AzureCliCredential`. The string comparison is performed in a case-insensitive manner. Valid string values for the environment variable include:
