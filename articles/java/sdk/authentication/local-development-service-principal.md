@@ -13,7 +13,12 @@ ai-usage: ai-generated
 
 # Authenticate Java apps to Azure services during local development by using service principals
 
-During local development, applications need to authenticate to Azure to access various Azure services. Two common approaches for local authentication are to [use a developer account](local-development-dev-accounts.md) or a service principal. This article explains how to use an application service principal. For more information about service principals, see [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals). In the sections ahead, you learn:
+During local development, applications need to authenticate to Azure to access various Azure services. You can authenticate locally by using one of the following approaches:
+
+- Use a developer account with one of the developer tools supported by the Azure Identity library. For more information, see [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md).
+- Use a service principal.
+
+This article explains how to use an application service principal. For more information about service principals, see [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals). In this article, you learn:
 
 - How to register an application with Microsoft Entra to create a service principal.
 - How to use Microsoft Entra groups to efficiently manage permissions.
@@ -24,7 +29,7 @@ Using dedicated application service principals enables you to follow the princip
 
 :::image type="content" source="../../../includes/authentication/media/mermaidjs/local-service-principal-authentication.svg" alt-text="A diagram that shows how a local Java app uses a service principal to connect to Azure resources.":::
 
-When you register the app in Azure, an application service principal is created. For local development:
+When you register the app in Azure, an application service principal is created. For local development, you should:
 
 - Create a separate app registration for each developer working on the app so each developer has their own application service principal and doesn't need to share credentials.
 - Create a separate app registration for each app to limit the app's permissions to only what is necessary.
@@ -61,7 +66,7 @@ After editing the file, run `source ~/.bashrc` or `source ~/.zshrc` to apply the
 
 #### [Visual Studio Code](#tab/vscode-env)
 
-In Visual Studio Code, configure environment variables in `.vscode/launch.json`:
+Configure environment variables in `.vscode/launch.json`:
 
 ```json
 {
@@ -84,7 +89,7 @@ In Visual Studio Code, configure environment variables in `.vscode/launch.json`:
 
 #### [IntelliJ IDEA](#tab/intellij-env)
 
-In IntelliJ IDEA, configure environment variables in the run configuration:
+Configure environment variables in the run configuration:
 
 1. Select **Run > Edit Configurations...**.
 1. Select your application configuration.
@@ -100,7 +105,7 @@ In IntelliJ IDEA, configure environment variables in the run configuration:
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library](/java/api/com.azure.identity) provides various credentials as implementations of `TokenCredential` that support different scenarios and Microsoft Entra authentication flows. The following steps demonstrate how to use `ClientSecretCredential` when working with service principals locally and in production.
+The [Azure Identity library](/java/api/com.azure.identity) provides various credentials as implementations of `TokenCredential` that support different scenarios and Microsoft Entra authentication flows. The following steps show you how to use `ClientSecretCredential` when working with service principals locally and in production.
 
 ### Implement the code
 
@@ -113,7 +118,7 @@ Add the `azure-identity` dependency to your `pom.xml` file:
 </dependency>
 ```
 
-You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code samples demonstrate how to configure credentials for service principal authentication.
+You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code examples show you how to configure credentials for service principal authentication.
 
 #### Use DefaultAzureCredential
 

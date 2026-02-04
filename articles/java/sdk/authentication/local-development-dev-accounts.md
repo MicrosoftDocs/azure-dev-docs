@@ -13,12 +13,12 @@ ai-usage: ai-generated
 
 # Authenticate Java apps to Azure services during local development by using developer accounts
 
-During local development, applications need to authenticate to Azure to access various Azure services. Authenticate locally by using one of these approaches:
+During local development, applications need to authenticate to Azure to access various Azure services. You can authenticate locally by using one of the following approaches:
 
-- Use a developer account with one of the [developer tools supported by the Azure Identity library](#supported-developer-tools-for-authentication).
-- Use a [service principal](local-development-service-principal.md).
+- Use a developer account with one of the developer tools supported by the Azure Identity library.
+- Use a service principal. For more information, see [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md).
 
-This article explains how to authenticate by using a developer account with tools supported by the Azure Identity library. In the sections ahead, you learn:
+This article explains how to authenticate by using a developer account with tools supported by the Azure Identity library. In this article, you learn:
 
 - How to use Microsoft Entra groups to efficiently manage permissions for multiple developer accounts.
 - How to assign roles to developer accounts to scope permissions.
@@ -27,7 +27,7 @@ This article explains how to authenticate by using a developer account with tool
 
 ## Supported developer tools for authentication
 
-During local development, an app can authenticate to Azure by using your Azure credentials. For this authentication to work, you must be signed in to Azure from one of the following developer tools:
+During local development, an app can authenticate to Azure by using your Azure credentials. For this authentication to work, you must be signed in to Azure from a developer tool such as one of the following:
 
 - Azure CLI
 - Azure Developer CLI
@@ -44,11 +44,11 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 ## Sign in to Azure by using developer tooling
 
-Next, sign in to Azure by using one of several developer tools that you can use to perform authentication in your development environment. The account you authenticate should also exist in the Microsoft Entra group you created and configured earlier.
+Next, sign in to Azure by using one of the developer tools that you can use to perform authentication in your development environment. The account you authenticate should also exist in the Microsoft Entra group you created and configured earlier.
 
 #### [Visual Studio Code](#tab/sign-in-vscode)
 
-Developers using Visual Studio Code can authenticate by using the Azure Resources extension. Use the following steps to sign in to Azure through the Azure Resources extension:
+Authenticate by using the Azure Resources extension. Use the following steps to sign in to Azure through the Azure Resources extension:
 
 1. Open Visual Studio Code and install the [Azure Resources extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) if you haven't already.
 
@@ -61,7 +61,7 @@ Developers using Visual Studio Code can authenticate by using the Azure Resource
 
 #### [IntelliJ IDEA](#tab/sign-in-intellij)
 
-Developers using IntelliJ IDEA can authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following steps to sign in:
+Authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following steps to sign in:
 
 1. In your IntelliJ window, open **File > Settings > Plugins**.
 1. Search for "Azure Toolkit for IntelliJ" in the marketplace. Install and restart the IDE.
@@ -76,7 +76,7 @@ Sign in as a user by using the following [Azure CLI](/cli/azure) command:
 az login
 ```
 
-If the account or service principal has access to multiple tenants, make sure the desired tenant or subscription is in the state "Enabled" in the output from the following command:
+If the account or service principal has access to multiple tenants, make sure the desired tenant or subscription is in the "Enabled" state in the output from the following command:
 
 ```azurecli
 az account list
@@ -104,7 +104,7 @@ Follow the prompts to authenticate your account. After authentication, your cred
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library](/java/api/com.azure.identity) provides implementations of [TokenCredential](/java/api/com.azure.core.credential.tokencredential) that support various scenarios and Microsoft Entra authentication flows. The following steps demonstrate how to use `DefaultAzureCredential` or a specific development tool credential when working with user accounts locally.
+The [Azure Identity library](/java/api/com.azure.identity) provides implementations of [TokenCredential](/java/api/com.azure.core.credential.tokencredential) that support various scenarios and Microsoft Entra authentication flows. The following steps show you how to use `DefaultAzureCredential` or a specific development tool credential when working with user accounts locally.
 
 ### Implement the code
 
@@ -117,7 +117,7 @@ Add the `azure-identity` dependency to your `pom.xml` file:
 </dependency>
 ```
 
-You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code samples demonstrate how to configure credentials for local development authentication.
+You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code examples show you how to configure credentials for local development authentication.
 
 #### Use DefaultAzureCredential
 
@@ -141,11 +141,11 @@ SecretClient client = new SecretClientBuilder()
 
 #### Use a specific tool credential
 
-When your team uses multiple development tools to authenticate with Azure, prefer a local development-optimized instance of `DefaultAzureCredential` over tool-specific credentials. However, if you need to use a specific tool credential, the following examples demonstrate how to do so.
+When your team uses multiple development tools to authenticate with Azure, prefer a local development-optimized instance of `DefaultAzureCredential` over tool-specific credentials. However, if you need to use a specific tool credential, the following examples show you how to do so.
 
 ##### Azure CLI credential
 
-The following example demonstrates authenticating by using `AzureCliCredential`:
+The following example shows you how to authenticate by using `AzureCliCredential`:
 
 ```java
 import com.azure.identity.AzureCliCredential;
@@ -163,7 +163,7 @@ SecretClient client = new SecretClientBuilder()
 
 ##### IntelliJ IDEA credential
 
-The following example demonstrates authenticating by using `IntelliJCredential` on a workstation where IntelliJ IDEA is installed and the user signs in with an Azure account to the Azure Toolkit for IntelliJ:
+The following example shows you how to authenticate by using `IntelliJCredential` on a workstation where IntelliJ IDEA is installed and the user signs in with an Azure account to the Azure Toolkit for IntelliJ:
 
 ```java
 import com.azure.identity.IntelliJCredential;
@@ -181,7 +181,7 @@ SecretClient client = new SecretClientBuilder()
 
 ##### Visual Studio Code credential
 
-The following example demonstrates authenticating by using `VisualStudioCodeCredential`:
+The following example shows you how to authenticate by using `VisualStudioCodeCredential`:
 
 ```java
 import com.azure.identity.VisualStudioCodeCredential;
