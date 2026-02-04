@@ -48,7 +48,7 @@ To install the Spring Cloud Azure Storage Blob Starter module, add the following
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>7.0.0-beta.1</version>
+        <version>7.0.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
