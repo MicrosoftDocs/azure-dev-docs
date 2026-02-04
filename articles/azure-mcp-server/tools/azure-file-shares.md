@@ -14,7 +14,7 @@ reviewer: ankushbindlish2
 
 # Azure Files tools for the Azure MCP Server overview
 
-The Azure MCP Server lets you manage Azure file shares with natural language prompts. You don't need to remember specific command syntax.
+The Azure MCP Server lets you manage Azure file shares (Microsoft.FileShares) using natural language prompts. You don't need to remember specific command syntax.
 
 :heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
  
