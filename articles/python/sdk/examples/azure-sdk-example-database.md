@@ -16,6 +16,7 @@ If you prefer to use the Azure CLI, [Equivalent Azure CLI commands](#for-referen
 
 * [Create a MySQL server](/azure/mysql/flexible-server/quickstart-create-server-portal)
 * [Create a PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal)
+* [Create a DocumentDB (with MongoDB compatibility) cluster](/azure/documentdb/quickstart-portal)
 
 Unless otherwise specified, all examples and commands work consistently across Linux/macOS bash and Windows command shells.
 
