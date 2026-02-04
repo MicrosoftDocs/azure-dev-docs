@@ -4,7 +4,7 @@ description: Learn to use Azure MCP Server tools to manage file shares with natu
 keywords: azure mcp server, azmcp, file shares, azure services
 author: diberry
 ms.author: diberry
-ms.date: 01/23/2026
+ms.date: 02/03/2026
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
@@ -12,11 +12,15 @@ ms.topic: concept-article
 reviewer: ankushbindlish2
 ---
 
-# Azure File Shares tools for the Azure MCP Server overview
+# Azure Files tools for the Azure MCP Server overview
 
-The Azure MCP Server lets you manage Azure file shares with natural language prompts. You don't need to remember specific command syntax.
+The Azure MCP Server lets you manage Azure file shares (`Microsoft.FileShares`) using natural language prompts. You don't need to remember specific command syntax.
 
-[Azure File Shares](/azure/storage/files/storage-files-introduction) is a managed file sharing service in the cloud that allows you to create and manage file shares accessible via the NFS protocol. File shares provide high-performance, fully managed storage for your applications and workloads.
+:heavy_check_mark: **Applies to:** File shares created with the `Microsoft.FileShares` resource provider (preview)
+ 
+:heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the `Microsoft.Storage` resource provider
+
+[Azure Files](/azure/storage/files/storage-files-introduction) is a managed file sharing service in the cloud. Azure file shares provide high-performance, fully managed storage for your applications and workloads. This article applies only to file shares created with the `Microsoft.FileShares` resource provider (preview), which is currently only available for NFS file shares. It doesn't apply to classic file shares created with the `Microsoft.Storage` resource provider.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -32,7 +36,7 @@ Example prompts include:
 - "Show me the current file share limits in the 'eastus' location"
 - "What are the file share limits for location 'westeurope'?"
 - "Get the file share limits for location 'centralus'"
-- "Please provide the file share limits for location 'eastus2'"
+- "Provide the file share limits for location 'eastus2'"
 - "Retrieve file share limits for the 'westus' region"
 
 | Parameter |  Required or optional | Description |
@@ -117,7 +121,7 @@ Example prompts include:
 
 <!-- @mcpcli fileshares fileshare create -->
 
-Create a new Azure file share resource in a resource group. This creates a high-performance, fully managed file share accessible via NFS protocol.
+Create a new Azure file share resource in a resource group. This operation creates a high-performance, fully managed file share accessible via NFS protocol.
 
 Example prompts include:
 
@@ -129,7 +133,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
 | **Name** |  Required | The name of the file share. |
 | **Location** |  Required | The Azure region/location name (for example, `EastUS`, `WestEurope`). |
 | **Mount name** |  Optional | The mount name of the file share as seen by end users. |
@@ -188,7 +192,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
 | **Name** |  Required | The name of the file share. |
 | **Provisioned storage in GiB (gibibytes)** |  Optional | The desired provisioned storage size of the share in GiB. |
 | **Provisioned io per sec** |  Optional | The provisioned IO operations per second. |
@@ -215,11 +219,11 @@ Example prompts include:
 - "Remove the file share 'project-files' in resource group 'rg-marketing'"
 - "I want to delete the file share 'temp-data' in resource group 'rg-dev'"
 - "Can you delete the file share 'archive-old' in resource group 'rg-archive'?"
-- "Please remove the file share 'cleanup-share' from resource group 'rg-cleanup'"
+- "Remove the file share 'cleanup-share' from resource group 'rg-cleanup'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
 | **Name** |  Required | The name of the file share. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -237,12 +241,12 @@ Example prompts include:
 - "Create a snapshot named 'backup-snap-jan23' for file share 'backups' in resource group 'rg-data-prod'"
 - "I want to create a snapshot called 'project-snapshot' for the file share 'projectfiles' in resource group 'rg-marketing'"
 - "Generate a snapshot named 'weekly-backup' for file share 'companyshare' in resource group 'rg-finance'"
-- "Please create a snapshot called 'reports-snapshot' on the file share 'reports' in resource group 'rg-analytics'"
+- "Create a snapshot called 'reports-snapshot' on the file share 'reports' in resource group 'rg-analytics'"
 - "Initiate snapshot creation named 'dev-snapshot-01' for file share 'devfiles' in resource group 'rg-development'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
 | **File share name** |  Required | The name of the parent file share. |
 | **Snapshot name** |  Required | The name of the snapshot. |
 | **Metadata** |  Optional | Custom metadata for the snapshot as a JSON object (for example, `{"key1":"value1","key2":"value2"}`). |
@@ -267,7 +271,7 @@ Example prompts include:
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
 | **File share name** |  Required | The name of the parent file share. |
 | **Snapshot name** |  Optional | The name of the snapshot. |
 
@@ -286,12 +290,12 @@ Example prompts include:
 - "Update the snapshot 'backup-snap-jan23' for file share 'backupshare' in resource group 'rg-backup'"
 - "Apply updates to snapshot 'data-snapshot' on file share 'datafiles' in resource group 'rg-data'"
 - "Can you update snapshot 'snapshot2024' for file share 'reports' in resource group 'rg-analytics'"
-- "Please update the snapshot named 'endofmonth' on file share 'finance-data' in resource group 'rg-finance'"
+- "Update the snapshot named 'endofmonth' on file share 'finance-data' in resource group 'rg-finance'"
 - "Modify the properties of snapshot 'weeklybackup' for file share 'devfileshare' in resource group 'rg-dev'"
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
-| **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
+| **Resource group** |  Required | The name of the Azure resource group. The resource group is a logical container for Azure resources. |
 | **File share name** |  Required | The name of the parent file share. |
 | **Snapshot name** |  Required | The name of the snapshot. |
 | **Metadata** |  Optional | Custom metadata for the snapshot as a JSON object (for example, `{"key1":"value1","key2":"value2"}`). |
@@ -312,7 +316,7 @@ Example prompts include:
 - "Delete snapshot 'backup-snap-jan15' from file share 'datafiles' in resource group 'rg-prod'"
 - "Remove snapshot 'weekly-backup' from file share 'backupshare' in resource group 'rg-backup'"
 - "Delete snapshot 'snapshot2024-03-15' from file share 'reports' in resource group 'rg-analytics'"
-- "Please delete the snapshot 'dailybackup' from file share 'projectfiles' in resource group 'rg-dev'"
+- "Delete the snapshot 'dailybackup' from file share 'projectfiles' in resource group 'rg-dev'"
 - "Remove snapshot 'weeklysnap' from file share 'archive' in resource group 'rg-archive'"
 
 | Parameter |  Required or optional | Description |
