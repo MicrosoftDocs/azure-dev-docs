@@ -20,7 +20,7 @@ The Azure MCP Server lets you manage Azure file shares (Microsoft.FileShares) us
  
 :heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
-[Azure File Shares](/azure/storage/files/storage-files-introduction) is a managed file sharing service in the cloud that allows you to create and manage file shares accessible via the NFS protocol. File shares provide high-performance, fully managed storage for your applications and workloads.
+[Azure Files](/azure/storage/files/storage-files-introduction) is a managed file sharing service in the cloud. Azure file shares provide high-performance, fully managed storage for your applications and workloads. This article applies only to file shares created with the Microsoft.FileShares resource provider (preview), which is currently only available for NFS file shares. It doesn't apply to classic file shares created with the Microsoft.Storage resource provider.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
