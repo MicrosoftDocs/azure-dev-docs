@@ -64,7 +64,7 @@ To install the Spring Cloud Azure Service Bus Starter module, add the following 
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0-beta.1</version>
+         <version>7.0.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -317,7 +317,7 @@ To install the Spring Cloud Azure Service Bus JMS Starter module, add the follow
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0-beta.1</version>
+         <version>7.0.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -456,7 +456,7 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0-beta.1</version>
+         <version>7.0.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -560,7 +560,7 @@ To install the Spring Cloud Azure Service Bus Integration Starter module, add th
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0-beta.1</version>
+         <version>7.0.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -716,7 +716,7 @@ To install the Spring Cloud Azure Service Bus Stream Binder module, add the foll
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>7.0.0-beta.1</version>
+         <version>7.0.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
