@@ -2,7 +2,7 @@
 title: Authenticate Java apps to Azure services
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Java apps to Azure services using the Azure Identity library, including managed identities and developer accounts.
-ms.date: 02/02/2026
+ms.date: 02/05/2026
 ms.topic: overview
 ms.custom: devx-track-java
 author: bmitchell287
@@ -115,7 +115,7 @@ The Azure Identity library focuses on OAuth authentication with Microsoft Entra 
 
 ## Authenticate Azure client libraries
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets) client library by using `DefaultAzureCredential`.
+The following example shows you how to authenticate `SecretClient` from the [azure-security-keyvault-secrets](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets) client library by using `DefaultAzureCredential`.
 
 ```java
 // Azure SDK client builders accept the credential as a parameter.

@@ -2,7 +2,7 @@
 title: Authenticate Azure-hosted Java apps by using a user-assigned managed identity
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity.
-ms.date: 02/02/2026
+ms.date: 02/05/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287
@@ -151,7 +151,7 @@ Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignmen
 
 ```azurecli
 # Get the principal ID of the user-assigned managed identity
-principalId=$(az identity show \
+export PRINCIPAL_ID=$(az identity show \
     --resource-group <resource-group-name> \
     --name <identity-name> \
     --query principalId \
@@ -159,7 +159,7 @@ principalId=$(az identity show \
 
 # Assign a role to the managed identity
 az role assignment create \
-    --assignee "$principalId" \
+    --assignee "$PRINCIPAL_ID" \
     --role "<role-name>" \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
 ```
@@ -168,7 +168,7 @@ az role assignment create \
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library](/java/api/com.azure.identity) offers different credentials as implementations of `TokenCredential`. These credentials support various scenarios and Microsoft Entra authentication flows. For user-assigned managed identities, specify the identity's client ID, resource ID, or object ID when you configure the credential.
+The [Azure Identity library](/java/api/com.azure.identity) offers different credentials as implementations of `TokenCredential`. Each implementation supports different scenarios and Microsoft Entra authentication flows. For user-assigned managed identities, specify the identity's client ID, resource ID, or object ID when you configure the credential.
 
 ### Implement the code
 
@@ -181,7 +181,7 @@ Add the `azure-identity` dependency to your `pom.xml` file:
 </dependency>
 ```
 
-You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code samples demonstrate how to configure the credential for user-assigned managed identity authentication.
+You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code examples show you how to configure the credential for user-assigned managed identity authentication.
 
 #### Use DefaultAzureCredential
 

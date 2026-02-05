@@ -2,7 +2,7 @@
 title: Authenticate Azure-hosted Java apps by using a system-assigned managed identity
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity.
-ms.date: 02/02/2026
+ms.date: 02/05/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287
@@ -108,7 +108,7 @@ For Azure App Service:
 
 ```azurecli
 # Get the principal ID of the managed identity
-principalId=$(az webapp identity show \
+export PRINCIPAL_ID=$(az webapp identity show \
     --resource-group <resource-group-name> \
     --name <app-service-name> \
     --query principalId \
@@ -116,7 +116,7 @@ principalId=$(az webapp identity show \
 
 # Assign a role to the managed identity
 az role assignment create \
-    --assignee "$principalId" \
+    --assignee "$PRINCIPAL_ID" \
     --role "<role-name>" \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
 ```
@@ -125,7 +125,7 @@ For Azure Container Apps:
 
 ```azurecli
 # Get the principal ID of the managed identity
-principalId=$(az containerapp identity show \
+export PRINCIPAL_ID=$(az containerapp identity show \
     --resource-group <resource-group-name> \
     --name <container-app-name> \
     --query principalId \
@@ -133,7 +133,7 @@ principalId=$(az containerapp identity show \
 
 # Assign a role to the managed identity
 az role assignment create \
-    --assignee "$principalId" \
+    --assignee "$PRINCIPAL_ID" \
     --role "<role-name>" \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
 ```
@@ -155,7 +155,7 @@ Add the `azure-identity` dependency to your `pom.xml` file:
 </dependency>
 ```
 
-You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code sample demonstrates how to configure the credential for system-assigned managed identity authentication.
+You access Azure services by using specialized client classes from the Azure SDK client libraries. The following code examples show you how to configure the credential for system-assigned managed identity authentication.
 
 #### Use DefaultAzureCredential
 

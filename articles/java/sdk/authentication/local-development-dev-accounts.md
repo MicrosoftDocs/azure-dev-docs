@@ -2,7 +2,7 @@
 title: Authenticate Java apps during local development by using developer accounts
 titleSuffix: Azure SDK for Java
 description: Learn how to authenticate Java apps to Azure services during local development by using developer accounts and tools like Azure CLI, Visual Studio Code, and IntelliJ IDEA.
-ms.date: 02/02/2026
+ms.date: 02/05/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
 author: bmitchell287
@@ -31,6 +31,7 @@ During local development, an app can authenticate to Azure by using your Azure c
 
 - Azure CLI
 - Azure Developer CLI
+- Azure PowerShell
 - Visual Studio Code
 - IntelliJ IDEA
 
@@ -46,7 +47,7 @@ This approach takes advantage of the developer's existing Azure accounts to stre
 
 Next, sign in to Azure by using one of the developer tools that you can use to perform authentication in your development environment. The account you authenticate should also exist in the Microsoft Entra group you created and configured earlier.
 
-#### [Visual Studio Code](#tab/sign-in-vscode)
+### [Visual Studio Code](#tab/sign-in-vscode)
 
 Authenticate by using the Azure Resources extension. Use the following steps to sign in to Azure through the Azure Resources extension:
 
@@ -59,7 +60,7 @@ Authenticate by using the Azure Resources extension. Use the following steps to 
 
     :::image type="content" source="../../../includes/authentication/media/visual-studio-code-sign-in.png" alt-text="Screenshot that shows how to sign in to Azure in Visual Studio Code." lightbox="../../../includes/authentication/media/visual-studio-code-sign-in.png":::
 
-#### [IntelliJ IDEA](#tab/sign-in-intellij)
+### [IntelliJ IDEA](#tab/sign-in-intellij)
 
 Authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following steps to sign in:
 
@@ -68,7 +69,7 @@ Authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following s
 1. Find the new menu item **Tools > Azure > Azure Sign In**.
 1. **Device Login** helps you sign in as a user account. Follow the instructions to sign in on the `login.microsoftonline.com` website by using the device code. IntelliJ prompts you to select your subscriptions. Select the subscription with the resources that you want to access.
 
-#### [Azure CLI](#tab/sign-in-azure-cli)
+### [Azure CLI](#tab/sign-in-azure-cli)
 
 Sign in as a user by using the following [Azure CLI](/cli/azure) command:
 
@@ -90,15 +91,13 @@ az account get-access-token
 
 You might need to repeat this process after a certain time period, depending on the refresh token validity in your organization. Generally, the refresh token validity period is a few weeks to a few months. `AzureCliCredential` prompts you to sign in again.
 
-#### [Azure Developer CLI](#tab/sign-in-azd)
+### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
 
-Sign in by using the Azure Developer CLI with the following command:
+[!INCLUDE [sign-in-azure-developer-cli](../../../includes/authentication/sign-in-azure-developer-cli.md)]
 
-```bash
-azd auth login
-```
+### [Azure PowerShell](#tab/sign-in-azure-powershell)
 
-Follow the prompts to authenticate your account. After authentication, your credentials are stored and used by `AzureDeveloperCliCredential`.
+[!INCLUDE [sign-in-azure-powershell](../../../includes/authentication/sign-in-azure-powershell.md)]
 
 ---
 
