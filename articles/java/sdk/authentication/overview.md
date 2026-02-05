@@ -64,7 +64,7 @@ During local development, you can authenticate to Azure resources by using your 
 
 ### Use developer credentials
 
-You can use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
+You can use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
 
 For more information, see [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md).
 

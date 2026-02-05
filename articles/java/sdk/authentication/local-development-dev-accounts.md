@@ -1,7 +1,7 @@
 ---
 title: Authenticate Java apps during local development by using developer accounts
 titleSuffix: Azure SDK for Java
-description: Learn how to authenticate Java apps to Azure services during local development by using developer accounts and tools like Azure CLI, Visual Studio Code, and IntelliJ IDEA.
+description: Learn how to authenticate Java apps to Azure services during local development by using developer accounts and tools like Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, and IntelliJ IDEA.
 ms.date: 02/05/2026
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-azurecli
@@ -120,7 +120,7 @@ You access Azure services by using specialized client classes from the Azure SDK
 
 #### Use DefaultAzureCredential
 
-Use `DefaultAzureCredential` for local development and Azure-hosted apps because it automatically switches between environments. In development, it discovers credentials from Azure CLI, Azure Developer CLI, Visual Studio Code, IntelliJ IDEA, or environment variables. In production on Azure, it automatically discovers managed identity credentials.
+Use `DefaultAzureCredential` for local development and Azure-hosted apps because it automatically switches between environments. In development, it discovers credentials from Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, IntelliJ IDEA, or environment variables. In production on Azure, it automatically discovers managed identity credentials.
 
 ```java
 import com.azure.identity.DefaultAzureCredential;
@@ -140,11 +140,7 @@ SecretClient client = new SecretClientBuilder()
 
 #### Use a specific tool credential
 
-When your team uses multiple development tools to authenticate with Azure, prefer a local development-optimized instance of `DefaultAzureCredential` over tool-specific credentials. However, if you need to use a specific tool credential, the following examples show you how to do so.
-
-##### Azure CLI credential
-
-The following example shows you how to authenticate by using `AzureCliCredential`:
+When your team uses multiple development tools to authenticate with Azure, prefer a local development-optimized instance of `DefaultAzureCredential` over tool-specific credentials. However, if you need to use a specific tool credential, pass a `TokenCredential` instance corresponding to the development tool to the Azure SDK client builder. The following example shows how to authenticate by using `AzureCliCredential`:
 
 ```java
 import com.azure.identity.AzureCliCredential;
@@ -160,41 +156,13 @@ SecretClient client = new SecretClientBuilder()
     .buildClient();
 ```
 
-##### IntelliJ IDEA credential
+Each tool credential follows the same pattern. Replace the credential type and its corresponding builder as needed:
 
-The following example shows you how to authenticate by using `IntelliJCredential` on a workstation where IntelliJ IDEA is installed and the user signs in with an Azure account to the Azure Toolkit for IntelliJ:
-
-```java
-import com.azure.identity.IntelliJCredential;
-import com.azure.identity.IntelliJCredentialBuilder;
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-
-IntelliJCredential credential = new IntelliJCredentialBuilder().build();
-
-SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://<your-key-vault-name>.vault.azure.net")
-    .credential(credential)
-    .buildClient();
-```
-
-##### Visual Studio Code credential
-
-The following example shows you how to authenticate by using `VisualStudioCodeCredential`:
-
-```java
-import com.azure.identity.VisualStudioCodeCredential;
-import com.azure.identity.VisualStudioCodeCredentialBuilder;
-import com.azure.security.keyvault.secrets.SecretClient;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
-
-VisualStudioCodeCredential credential = new VisualStudioCodeCredentialBuilder().build();
-
-SecretClient client = new SecretClientBuilder()
-    .vaultUrl("https://<your-key-vault-name>.vault.azure.net")
-    .credential(credential)
-    .buildClient();
-```
+- `AzureCliCredential` / `AzureCliCredentialBuilder`
+- `AzureDeveloperCliCredential` / `AzureDeveloperCliCredentialBuilder`
+- `AzurePowerShellCredential` / `AzurePowerShellCredentialBuilder`
+- `IntelliJCredential` / `IntelliJCredentialBuilder`
+- `VisualStudioCodeCredential` / `VisualStudioCodeCredentialBuilder`
 
 ## Next steps
 
