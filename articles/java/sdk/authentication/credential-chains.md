@@ -139,7 +139,7 @@ DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
 ```
 
 > [!NOTE]
-> Custom environment variable names must follow standard conventions (letters, digits, and underscores only). The `requireEnvVars` method throws an `IllegalStateException` if the specified environment variables aren't set or are empty.
+> The `requireEnvVars` method throws an `IllegalStateException` if the specified environment variables aren't set or are empty.
 
 #### Use a specific credential
 
