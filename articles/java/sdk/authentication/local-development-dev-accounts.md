@@ -120,7 +120,7 @@ You access Azure services by using specialized client classes from the Azure SDK
 
 #### Use DefaultAzureCredential
 
-Use `DefaultAzureCredential` for local development and Azure-hosted apps because it automatically switches between environments. In development, it discovers credentials from Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, IntelliJ IDEA, or environment variables. In production on Azure, it automatically discovers managed identity credentials.
+Use `DefaultAzureCredential` for local development and Azure-hosted apps because it automatically switches between environments. In development, it discovers credentials from Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, IntelliJ IDEA, or environment variables. In Azure, it automatically discovers managed identity credentials.
 
 ```java
 import com.azure.identity.DefaultAzureCredential;
