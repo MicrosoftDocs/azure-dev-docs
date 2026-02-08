@@ -19,7 +19,7 @@ Advisor is a service that gives you actionable insights to help you optimize you
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
-# Get recommendation list
+## Get recommendation list
 
 <!-- @mcpcli advisor recommendation list -->
 
