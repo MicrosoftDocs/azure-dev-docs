@@ -116,6 +116,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 
 | Product, tool, or service | Namespace | Description |
 |------|------|--------------|
+| [Azure Pricing](../../tools/azure-pricing.md) | `pricing` | Get Azure retail pricing, cost estimates, and billing details for services, SKUs, and regions. |
 | [Azure Cloud Architect](../../tools/azure-cloud-architect.md) | `cloudarchitect` | Design cloud systems by gathering requirements through guided questions and recommending optimal solutions. |
 | [Azure Managed Grafana](../../tools/azure-grafana.md) | `grafana` | List Azure Managed Grafana workspaces. |
 | [Azure Monitor](../../tools/azure-monitor.md) | `monitor` | Query Azure Monitor logs and metrics. |
