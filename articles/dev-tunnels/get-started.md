@@ -102,6 +102,37 @@ Direct download link:
 
 ## [Linux](#tab/linux)
 
+## Homebrew
+
+You can use Homebrew, to install and update the `devtunnel` CLI. The following commands could be used with or without `--cask`.
+
+```bash
+brew install --cask devtunnel
+```
+
+```bash
+brew uninstall --cask devtunnel
+```
+
+```bash
+brew upgrade --cask devtunnel
+```
+
+```bash
+brew list --versions devtunnel
+```
+
+Please note, the following command is only available if you installed the version you are looking for with Homebrew previously. To see a list of which versions you have available, run the command above.
+
+## Script
+
+```bash
+brew switch --cask devtunnel <older_version>
+```
+
+
+## Script
+
 ```bash
 curl -sL https://aka.ms/DevTunnelCliInstall | bash
 ```
