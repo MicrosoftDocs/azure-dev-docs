@@ -33,13 +33,15 @@ Example prompts include:
 | Parameter                  | Required or optional | Description                                                                                                                                        |
 |---------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Currency**              | Optional             | Currency code for pricing (for example, `USD`, `EUR`). The default is `USD`.                                                                      |
-| **SKU**                   | Optional             | ARM SKU name (for example, `Standard_D4s_v5`, `Standard_E64-16ds_v4`).                                                                            |
-| **Service**               | Optional             | Azure service name (for example, `Virtual Machines`, `Storage`, `SQL Database`).                                                                   |
-| **Region**                | Optional             | Azure region (for example, `eastus`, `westeurope`, `westus2`).                                                                                    |
-| **Service family**        | Optional             | Service family (for example, `Compute`, `Storage`, `Databases`, `Networking`).                                                                    |
-| **Price type**            | Optional             | Price type filter (for options: `Consumption`, `Reservation`, `DevTestConsumption`).                                                              |
+| **SKU**                   | Optional*             | ARM SKU name (for example, `Standard_D4s_v5`, `Standard_E64-16ds_v4`).                                                                            |
+| **Service**               | Optional*             | Azure service name (for example, `Virtual Machines`, `Storage`, `SQL Database`).                                                                   |
+| **Region**                | Optional*             | Azure region (for example, `eastus`, `westeurope`, `westus2`).                                                                                    |
+| **Service family**        | Optional*             | Service family (for example, `Compute`, `Storage`, `Databases`, `Networking`).                                                                    |
+| **Price type**            | Optional*             | Price type filter (for options: `Consumption`, `Reservation`, `DevTestConsumption`).                                                              |
 | **Include savings plan**  | Optional             | Include savings plan pricing information (uses preview API version).                                                                               |
-| **Filter**                | Optional             | Raw OData filter expression for advanced queries (for example,`meterId eq 'abc-123'`). For more about OData, see [OData documentation](https://www.odata.org/documentation/).                                               |
+| **Filter**                | Optional*             | Raw OData filter expression for advanced queries (for example,`meterId eq 'abc-123'`). For more about OData, see [OData documentation](https://www.odata.org/documentation/).                                               |
+
+* At least one filter option is required.
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
