@@ -1,10 +1,11 @@
 ---
 title: Resources for developing AI apps
 description: Overview article introducing the resources available for developers who are getting started building AI apps.
-keywords: ai, azure openai service
+keywords: ai, azure openai, microsoft foundry
 ms.service: azure
 ms.topic: overview
-ms.date: 05/16/2025
+ms.update-cycle: 180-days
+ms.date: 01/30/2026
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.json
 zone_pivot_groups: intelligent-apps-languages

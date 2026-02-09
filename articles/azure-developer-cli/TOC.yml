@@ -119,6 +119,12 @@
           href: manage-environment-variables.md
         - name: Environment variables FAQ
           href: environment-variables-faq.md
+      - name: Full stack
+        items:
+        - name: Full-stack deployment
+          href: full-stack-deployment.md
+        - name: Full-stack deployment templates
+          href: full-stack-templates.md
       - name: Deploy to Azure Container Apps
         href: container-apps-workflows.md
       - name: Use Terraform for infrastructure as code

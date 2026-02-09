@@ -8,8 +8,8 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
+ms.date: 12/05/2025
 ms.topic: concept-article
-ms.date: 11/17/2025
 ---
 
 # Azure Quotas for the Azure MCP Server overview
@@ -31,14 +31,14 @@ Example prompts include:
 - **Resource region list**: "Show me all regions where I can deploy Microsoft.CognitiveServices/accounts."
 - **Find available regions for resources**: "List available regions for Microsoft.App/containerApps, Microsoft.Web/sites, and Microsoft.CognitiveServices/accounts."
 - **Region support for cognitive services**: "Where can I deploy the 'gpt-4' model for Microsoft.CognitiveServices/accounts?"
-- **Deployment options**: "What regions allow deployment of container apps and web sites?"
+- **Deployment options**: "What regions allow deployment of Microsoft.App/containerApps and Microsoft.Web/sites?"
 
 | Parameters | Required or optional | Description |
 |-----------------------------|----------------------|-------------|
-| **Resource types to check** | Required | Comma-separated list of Azure resource types to check available regions for. For example: 'Microsoft.App/containerApps, Microsoft.Web/sites, Microsoft.CognitiveServices/accounts'. |
-| **Cognitive service model name** | Optional | Model name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
-| **Cognitive service model version** | Optional | Model version for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
-| **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when Microsoft.CognitiveServices is included in resource types. |
+| **Resource types to check** | Required | Comma-separated list of Azure resource types to check available regions for. For example: `Microsoft.App/containerApps`, `Microsoft.Web/sites`, `Microsoft.CognitiveServices/accounts`. |
+| **Cognitive service model name** | Optional | Model name for cognitive services. Only needed when `Microsoft.CognitiveServices` is included in resource types. |
+| **Cognitive service model version** | Optional | Model version for cognitive services. Only needed when `Microsoft.CognitiveServices` is included in resource types. |
+| **Cognitive service deployment SKU name** | Optional | Deployment SKU name for cognitive services. Only needed when `Microsoft.CognitiveServices` is included in resource types. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -54,8 +54,8 @@ Example prompts include:
 
 - **Check quota usage**: "Check my quota usage for Microsoft.App/containerApps in eastus."
 - **Resource quota status**: "Show me the current quota and usage for Microsoft.Web/sites and Microsoft.CognitiveServices/accounts in westus."
-- **Quota limits**: "What are the quota limits for container apps in centralus?"
-- **Usage report**: "Get a usage report for all my resources in region 'eastus2'."
+- **Quota limits**: "What are the quota limits for Microsoft.App/containerApps in centralus?"
+- **Usage report**: "Get a usage report for Microsoft.Compute/virtualMachines in region 'eastus2'."
 - **Quota and usage details**: "Can you provide quota and usage details for Microsoft.App/containerApps, Microsoft.Web/sites in westeurope?"
 
 | Parameters | Required or optional | Description |

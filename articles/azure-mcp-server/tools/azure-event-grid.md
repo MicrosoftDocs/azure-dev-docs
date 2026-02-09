@@ -4,7 +4,7 @@ description: Learn how to use the Azure MCP Server with Azure Event Grid.
 keywords: azure mcp server, azmcp, kusto, azure event grid
 author: diberry
 ms.author: diberry
-ms.date: 11/17/2025
+ms.date: 12/05/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -29,9 +29,9 @@ status.
 
 Example prompts include:
 
-- **Publish with schema**: "Publish an event to Event Grid topic 'payment-events' using CloudEvents schema with the following data {...}"
-- **Simple publish**: "Publish event to my Event Grid topic 'user-signups' with the following events {...}"
-- **Resource group context**: "Send an event to Event Grid topic 'analytics-events' in resource group 'data-processing' with {...}"
+- **Publish with schema**: "Publish an event to Event Grid topic 'payment-events' using CloudEvents schema with data '{\"orderId\": \"12345\", \"amount\": 99.99}'."
+- **Simple publish**: "Publish event to my Event Grid topic 'user-signups' with data '{\"userId\": \"user123\", \"email\": \"user@example.com\"}'."
+- **Resource group context**: "Send an event to Event Grid topic 'analytics-events' in resource group 'data-processing' with data '{\"eventType\": \"click\", \"timestamp\": \"2025-12-05T10:00:00Z\"}'."
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|

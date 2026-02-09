@@ -1,7 +1,7 @@
 ---
 title: Get started with the Chat Using your Own Data Sample for Java
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 02/25/2025
+ms.date: 01/30/2026
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-t
 
 # Get started with the chat using your own data sample for Java
 
-This article shows you how to deploy and run the [Chat with your data sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document, and a list of company roles and expectations.
+This article shows you how to deploy and run the [Chat with your data sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Models in Microsoft Foundry, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document, and a list of company roles and expectations.
 
 * [Demo video](https://aka.ms/azai/java/video)
 
@@ -21,7 +21,7 @@ In this article, you accomplish the following tasks:
 
 Once you complete this article, you can start modifying the new project with your custom code.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Models in Microsoft Foundry and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
 * [JavaScript](../../javascript/ai/get-started-app-chat-template.md)
@@ -47,7 +47,9 @@ Key components of the architecture include:
 
 ## Cost
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there's a charge but it's minimal. When you're done with the article, you can delete the resources to stop incurring charges.
+Most resources used in this architecture fall under basic or consumption-based pricing tiers. This means you only pay for what you use, and charges are typically minimal during development or testing.
+
+To complete this sample, there may be a small cost incurred from using services like Azure OpenAI, AI Search, and storage. Once you're done evaluating or deploying the app, you can delete all provisioned resources to avoid ongoing charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-demo-java#cost-estimation).
 
@@ -76,7 +78,7 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article.
+Begin by setting up a development environment that has all the dependencies installed to complete this article.
 
 ### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -150,7 +152,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
+> Azure resources created in this section—especially Azure AI Search—can begin accruing charges immediately upon provisioning, even if the deployment is interrupted before completion. To avoid unexpected charges, monitor your Azure usage and delete unused resources promptly after testing.
 
 1. Provision the Azure resources and deploy the source code by running the following command:
 
@@ -246,6 +248,8 @@ The following steps walk you through the process of changing the settings.
     The response without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
 
 ## Clean up resources
+
+After you complete the exercise, it's a best practice to remove any resources that are no longer required.
 
 ### Clean up Azure resources
 
