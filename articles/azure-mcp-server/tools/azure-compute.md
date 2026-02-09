@@ -22,7 +22,7 @@ Azure Compute tools in the MCP Server help you manage virtual machines and scale
 
 <!-- @mcpcli compute vm get -->
 
-List or get Azure Virtual Machines (VMs) in a subscription or resource group. The command shows VM details including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state.
+List or get Azure Virtual Machines (VMs) in a subscription or resource group. The command shows VM details including the name, location, size, provisioning state, OS type, and instance view with runtime status and power state. If resource group name and VM name are not provided, it lists all VMs in the subscription.
 
 Example prompts include:
 
@@ -34,8 +34,9 @@ Example prompts include:
 
 | Parameter          | Required or optional | Description                                                                                          |
 |--------------------|----------------------|------------------------------------------------------------------------------------------------------|
-| **VM name**        | Optional             | The name of the virtual machine. You can specify a VM name to retrieve details for a specific VM. |
-| **Instance view**  | Optional             | Include instance view details when retrieving a specific VM. Valid values: `true`, `false`. |
+| **Resource group** |  Conditionally required | Required if **VM name** is provided. The name of the Azure resource group. Returns all VMs in the resource group if specified without VM name. |
+| **VM name**        | Optional | The name of the virtual machine. Requires **Resource group**. |
+| **Instance view**  | Optional               | Include instance view details when retrieving a specific VM. Valid values: `true`, `false`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -45,7 +46,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vmss get -->
 
-List or get Azure Virtual Machine Scale Sets (VMSS) and their instances in a subscription or resource group. This command shows scale set details, including name, location, SKU, capacity, upgrade policy, and information about individual VM instances.
+List or get Azure Virtual Machine Scale Sets (VMSS) and their instances in a subscription or resource group. This command shows scale set details, including name, location, SKU, capacity, upgrade policy, and information about individual VM instances.  If parameters are not provided, it lists all VM scale sets in the subscription.
 
 Example prompts include:
 
@@ -57,8 +58,9 @@ Example prompts include:
 
 | Parameter       | Required or Optional | Description                                                    |
 |------------------|----------------------|----------------------------------------------------------------|
-| **VM scale set name**  | Optional             | Specify the name of the virtual machine scale set. |
-| **Instance ID**| Optional             | Indicate the instance ID of the virtual machine in the scale set. |
+| **Resource group**      | Conditionally required | Required if **VM scale set name** is provided. The name of the Azure resource group. Returns all VM scale sets in the resource group if specified without VM scale set name. |
+| **VM scale set name**   | Conditionally required | The name of the virtual machine scale set. Requires **Resource group**. |
+| **Instance ID**         | Optional | The instance ID of the VM in the scale set. Requires **VM scale set name** and **Resource group**. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
