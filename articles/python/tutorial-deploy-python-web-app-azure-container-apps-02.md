@@ -2,7 +2,7 @@
 title: Build and Deploy a Python Web App with Azure Container Apps
 description: This tutorial describes how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: tutorial
-ms.date: 06/18/2025
+ms.date: 02/06/2026
 ms.custom:
   - devx-track-python
   - devx-track-azurecli
@@ -549,7 +549,7 @@ If you have trouble creating the database, the server might still be processing 
 
 ---
 
-You can also connect to the Azure Database for PostgreSQL flexible server and create a database by using [psql][15] or an IDE that supports PostgreSQL, like [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio). For steps using psql, see [Configure the managed identity on the PostgreSQL database](#configure-the-managed-identity-on-the-postgresql-database) later in this article.
+You can also connect to the Azure Database for PostgreSQL flexible server and create a database by using [psql][15] or an IDE that supports PostgreSQL, like [Visual Studio Code](/azure/postgresql/developer/vs-code-extension/vs-code-connect). For steps using psql, see [Configure the managed identity on the PostgreSQL database](#configure-the-managed-identity-on-the-postgresql-database) later in this article.
 
 ## Create a user-assigned managed identity
 
