@@ -202,7 +202,7 @@ Example prompts include:
 | **Resource group** |  Required | The name of the Azure resource group. This is a logical container for Azure resources. |
 | **Filesystem name** |  Required | The name of the Azure Managed Lustre filesystem. |
 | **Job name** |  Optional | The name of the autoimport job. If not specified, the system generates a timestamped name. |
-| **Conflict resolution mode** |  Optional | How the autoimport job handles conflicts. `Fail`: stop immediately on conflict. `Skip`: pass over the conflict. `OverwriteIfDirty`: delete and re-import if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
+| **Conflict resolution mode** |  Optional | Conflict resolution method for the autoimport job. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. Please reference [Conflict resolution mode](/azure/azure-managed-lustre/blob-integration#conflict-resolution-mode) for a thorough explanation of these resolution modes. |
 | **Import prefixes** |  Optional | Array of blob paths or prefixes to import from blob storage. Default: `/`. Maximum: 100 paths. Examples: `/data`, `/logs`. |
 | **Maximum errors** |  Optional | Total non-conflict-oriented errors (for example, OS errors) that the import job tolerates before exiting with failure. `-1`: infinite. `0`: exit immediately on any error. |
 
@@ -338,7 +338,7 @@ Example prompts include:
 | **Resource group** |  Required | Azure resource group name. |
 | **Filesystem name** |  Required | Azure Managed Lustre filesystem name. |
 | **Job name** |  Optional | Autoimport job name. If you don't specify a name, a timestamped name is generated. |
-| **Conflict resolution mode** |  Optional | Conflict resolution method for the autoimport job. `Fail`: stops immediately on conflict. `Skip`: skips the conflict. `OverwriteIfDirty`: deletes and re-imports if conflicting type, dirty, or currently released. `OverwriteAlways`: extends `OverwriteIfDirty` to include releasing restored but not dirty files. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. |
+| **Conflict resolution mode** |  Optional | Conflict resolution method for the autoimport job. Default: `Skip`. Allowed values: `Fail`, `Skip`, `OverwriteIfDirty`, `OverwriteAlways`. Please reference [Conflict resolution mode](/azure/azure-managed-lustre/blob-integration#conflict-resolution-mode) for a thorough explanation of these resolution modes. |
 | **Autoimport prefixes** |  Optional | Array of blob paths or prefixes to autoimport to the cluster namespace. Default: `/`. Maximum: 100 paths. Example: `/data`, `/logs`. |
 | **Admin status** |  Optional | Administrative status of the autoimport job. `Enable`: job is active. `Disable`: disables the current active autoimport job. Default: `Enable`. Allowed values: `Enable`, `Disable`. |
 | **Enable deletions** |  Optional | Specifies whether to enable deletions during autoimport. This parameter only affects overwrite-dirty mode. Default: `false`. |
