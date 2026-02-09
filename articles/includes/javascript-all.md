@@ -447,7 +447,7 @@
 | TypeSpec HTTP Client JavaScript | npm [0.13.0](https://www.npmjs.com/package/@typespec/http-client-js/v/0.13.0) |  |  |
 | TypeSpec HTTP Client Python | npm [0.27.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.27.0) |  |  |
 | TypeSpec HTTP Specs | npm [0.1.0-alpha.31](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.31) |  |  |
-| TypeSpec Rust | npm [0.33.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.33.0) |  |  |
+| TypeSpec Rust | npm [0.34.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.34.0) |  |  |
 | TypeSpec SSE | npm [0.78.0](https://www.npmjs.com/package/@typespec/sse/v/0.78.0) |  |  |
 | TypeSpec Streams | npm [0.78.0](https://www.npmjs.com/package/@typespec/streams/v/0.78.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
@@ -495,7 +495,7 @@
 | @azure/video-indexer-widgets | npm [1.0.5](https://www.npmjs.com/package/@azure/video-indexer-widgets/v/1.0.5) |  |  |
 | Auto Suggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  |  |
 | AutoRest | npm [3.7.2](https://www.npmjs.com/package/autorest/v/3.7.2) |  |  |
-| Azure Functions | npm [4.11.1](https://www.npmjs.com/package/@azure/functions/v/4.11.1) |  | GitHub [4.11.1](https://github.com/Azure/azure-functions-nodejs-library) |
+| Azure Functions | npm [4.11.2](https://www.npmjs.com/package/@azure/functions/v/4.11.2) |  | GitHub [4.11.2](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.41.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.41.1) |  | GitHub [1.41.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
