@@ -1,6 +1,6 @@
 ---
-title: Azure advisor tools for the Azure MCP Server overview
-description: Learn about the tools in Azure advisor for managing resource optimization and recommendations as part of the Azure MCP Server.
+title: Azure Advisor tools for the Azure MCP Server overview
+description: Learn about the tools in Azure Advisor for managing resource optimization and recommendations as part of the Azure MCP Server.
 #customer intent: As an Azure admin, I want to learn how to use Azure Advisor tools so I can optimize resource performance and costs in the Azure MCP Server.
 ms.date: 02/08/2026
 ms.reviewer: ankiga
@@ -11,11 +11,11 @@ tool_count: 1
 ai-usage: ai-generated
 ---
 
-# Azure advisor tools for the Azure MCP Server overview
+# Azure Advisor tools for the Azure MCP Server overview
 
 The Azure MCP Server lets you manage resource optimization, cost recommendations, and performance improvements with natural language prompts.
 
-Advisor is a service that gives you actionable insights to help you optimize your Azure resources and improve performance. For more about Advisor, see [Azure advisor documentation](/azure/advisor/).
+Azure Advisor is a service that gives you actionable insights to help you optimize your Azure resources and improve performance. For more about Advisor, see [Azure Advisor documentation](/azure/advisor/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
