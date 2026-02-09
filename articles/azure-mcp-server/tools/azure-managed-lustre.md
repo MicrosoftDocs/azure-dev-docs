@@ -189,11 +189,11 @@ Creates a one-time import job for an Azure Managed Lustre filesystem to import f
 
 Example prompts include:
 
-- "Create an autoimport job for filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
-- "I want to start an autoimport job on the managed Lustre filesystem 'DataLakeFS' in resource group 'rg-data-core'"
-- "Set up a new fs autoimport job for filesystem 'ProjectDataFS' within resource group 'rg-analytics'"
-- "Can you initiate an autoimport job on managed Lustre filesystem 'ArchiveFS' specifying the container 'importcontainer' in resource group 'rg-mlustredemo'?"
-- "Create an autoimport job for filesystem 'TrainingFS' in resource group 'rg-lustre-eastus'"
+- "Create an import job for filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
+- "I want to start an import job on the managed Lustre filesystem 'DataLakeFS' in resource group 'rg-data-core'"
+- "Set up a new fs import job for filesystem 'ProjectDataFS' within resource group 'rg-analytics'"
+- "Can you initiate an import job on managed Lustre filesystem 'ArchiveFS' specifying the container 'importcontainer' in resource group 'rg-mlustredemo'?"
+- "Create an import job for filesystem 'TrainingFS' in resource group 'rg-lustre-eastus'"
 
 
 | Parameter |  Required or optional | Description |
@@ -218,11 +218,11 @@ Gets import job details or lists all import jobs for an Azure Managed Lustre fil
 
 Example prompts include:
 
-- "Show me all autoimport jobs for managed Lustre filesystem 'LustreFs01' in resource group 'rg-storageprod'"
-- "List every autoimport job in managed Lustre filesystem 'BackupFS' under resource group 'rg-lustre-dev'"
-- "Get details for autoimport job 'import123' from filesystem 'DataLakeFS' in resource group 'rg-storageprod'"
-- "Retrieve information about autoimport job 'dailybackup' on filesystem 'ArchiveFS' within resource group 'rg-lustre-dev'"
-- "Can you show all autoimport jobs linked to managed Lustre filesystem 'ProjectDataFS' in resource group 'rg-storageprod'?"
+- "Show me all import jobs for managed Lustre filesystem 'LustreFs01' in resource group 'rg-storageprod'"
+- "List every import job in managed Lustre filesystem 'BackupFS' under resource group 'rg-lustre-dev'"
+- "Get details for import job 'import123' from filesystem 'DataLakeFS' in resource group 'rg-storageprod'"
+- "Retrieve information about import job 'dailybackup' on filesystem 'ArchiveFS' within resource group 'rg-lustre-dev'"
+- "Can you show all import jobs linked to managed Lustre filesystem 'ProjectDataFS' in resource group 'rg-storageprod'?"
 
 
 | Parameter |  Required or optional | Description |
@@ -244,11 +244,11 @@ Cancels a running import job for an Azure Managed Lustre filesystem. This stops 
 
 Example prompts include:
 
-- "Cancel the autoimport job 'import1234' for filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
-- "I need to cancel the fs autoimport job 'backup-sync' on filesystem 'DataLakeFS' in resource group 'rg-lustre-dev'"
-- "Cancel the autoimport job with ID 'dailybackup-import' from the managed Lustre filesystem 'ArchiveFS' in resource group 'rg-fileservices'"
-- "Stop the fs autoimport job 'import5678' on filesystem 'ProjectDataFS' in resource group 'rg-ml-prod'"
-- "Cancel the managed Lustre fs autoimport job named 'weeklysync' on filesystem 'TrainingFS' within resource group 'rg-analytics'"
+- "Cancel the import job 'import1234' for filesystem 'LustreFs01' in resource group 'rg-storage-prod'"
+- "I need to cancel the fs import job 'backup-sync' on filesystem 'DataLakeFS' in resource group 'rg-lustre-dev'"
+- "Cancel the import job with ID 'dailybackup-import' from the managed Lustre filesystem 'ArchiveFS' in resource group 'rg-fileservices'"
+- "Stop the fs import job 'import5678' on filesystem 'ProjectDataFS' in resource group 'rg-ml-prod'"
+- "Cancel the managed Lustre fs import job named 'weeklysync' on filesystem 'TrainingFS' within resource group 'rg-analytics'"
 
 
 | Parameter |  Required or optional | Description |
@@ -271,11 +271,11 @@ Deletes an import job for an Azure Managed Lustre filesystem. This operation rem
 
 Example prompts include:
 
-- "Delete the autoimport job 'import123' from filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
-- "Remove the autoimport job 'import456' on filesystem 'DataLakeFS' within resource group 'rg-data-central'"
-- "Delete the fs autoimport job with ID 'import789' from filesystem 'ArchiveFS' in resource group 'rg-backup'"
-- "Remove fs autoimport job 'importJob42' from filesystem 'ProjectDataFS' under resource group 'rg-analytics'"
-- "Delete the autoimport job 'syncJob01' on filesystem 'LustreFsX' within resource group 'rg-cluster-01'"
+- "Delete the import job 'import123' from filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
+- "Remove the import job 'import456' on filesystem 'DataLakeFS' within resource group 'rg-data-central'"
+- "Delete the fs import job with ID 'import789' from filesystem 'ArchiveFS' in resource group 'rg-backup'"
+- "Remove fs import job 'importJob42' from filesystem 'ProjectDataFS' under resource group 'rg-analytics'"
+- "Delete the import job 'syncJob01' on filesystem 'LustreFsX' within resource group 'rg-cluster-01'"
 
 
 | Parameter |  Required or optional | Description |
@@ -303,6 +303,7 @@ Example prompts include:
 - "Can you fetch the autoimport job info for filesystem 'Lustre2024' from resource group 'rg-lustre-main'"
 - "I need to get the fs blob autoimport job details for filesystem 'analyticsLustreFS' under resource group 'rg-analytics'"
 
+
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | The name of the Azure resource group. A resource group is a logical container for Azure resources. |
@@ -329,6 +330,7 @@ Example prompts include:
 - "Establish an autoimport job on filesystem 'FSBackup' under resource group 'rg-backup-westus2'"
 - "Create an autoimport job for filesystem 'DataFS' in resource group 'rg-prod' with prefix '/data/incoming' and conflict resolution mode 'OverwriteIfDirty'"
 - "Create an autoimport job for filesystem 'trainingLustre01' in resource group 'rg-training-lustre' with prefix '/datasets' and conflict resolution mode 'OverwriteAlways'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -359,6 +361,7 @@ Example prompts include:
 - "How do I cancel the job 'nightlyAutoImport' running on filesystem 'fastLustreFs' in resource group 'rg-performance'?"
 - "Stop the autoimport job 'urgentSync' on Managed Lustre filesystem 'MainLustreFS' inside resource group 'rg-enterprise'"
 
+
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
@@ -382,6 +385,7 @@ Example prompts include:
 - "I want to delete the job 'autoImportApril' from Managed Lustre filesystem 'DataLakeFs' inside resource group 'rg-datalake-west'"
 - "Delete the fs blob autoimport job 'syncJob01' on filesystem 'LustreFsX' located in resource group 'rg-cluster-01'"
 - "Can you delete the autoimport job 'weekly-import' on filesystem 'LustreMain' under resource group 'rg-enterprise-services'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -408,6 +412,7 @@ Example prompts include:
  - "Can you provide the autoexport job information for the Lustre filesystem 'TrainingDataFs' under resource group 'rg-training'?"
 - "I need to see the blob autoexport jobs for 'ArchiveFs' in resource group 'rg-archives'"
 
+
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
@@ -432,6 +437,7 @@ Example prompts include:
 - "Deploy a new autoexport task for the Lustre filesystem named 'ArchiveFS' under resource group 'rg-archive'"
 - "Initiate autoexport on filesystem 'ResearchFS' located in resource group 'rg-science-projects'"
 - "Create an autoexport job for filesystem 'OutputFS' in resource group 'rg-prod' with prefix '/results/processed'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
@@ -459,6 +465,7 @@ Example prompts include:
 - "How do I cancel the autoexport job called 'exportJob123' on filesystem 'prodLustreFs' within resource group 'rg-production'"
 - "Abort the autoexport job 'monthlyExport' on filesystem 'archiveLustre' under resource group 'rg-archive-management'"
 
+
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
 | **Resource group** |  Required | Azure resource group name. |
@@ -482,6 +489,7 @@ Example prompts include:
 - "Can you delete the job named 'autoExportJob42' for filesystem 'AzureLustreFs' in resource group 'rg-az-lustre'?"
 - "Delete autoexport job 'monthlyExport' from the Managed Lustre filesystem 'LustreFsEast' located in resource group 'rg-eastus-lustre'"
 - "I need to delete the autoexport job 'exportJob2024' in filesystem 'LustreMain' under resource group 'rg-production-lustre'"
+
 
 | Parameter |  Required or optional | Description |
 |-----------------------|----------------------|-------------|
