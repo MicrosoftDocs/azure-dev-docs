@@ -23,7 +23,8 @@ Azure Migrate provides a centralized hub for assessing and migrating on-premises
 
 Get how-to guidance for modifying, configuring, or customizing an existing Platform Landing Zone. 
 
-**Example prompts:**
+Example prompts include:
+
 - "How do I turn off Bastion in my Platform Landing Zone?"
 - "Get guidance on changing resource naming prefixes for my Landing Zone."
 - "Show me how to enable DDoS protection for my Platform Landing Zone."
@@ -32,33 +33,47 @@ Get how-to guidance for modifying, configuring, or customizing an existing Platf
 
 | Parameter | Required or optional | Description |
 |-----------|----------------------|-------------|
-| **Scenario** | Required | The modification scenario key. Use a valid value that matches your request, like `resource-names` or `ddos`. The system recognizes these values in your prompt and maps them to the right guidance. Valid values include: `resource-names`, `management-groups`, `ddos`, `bastion`, `dns`, `gateways`, `regions`, `ip-addresses`, `policy-enforcement`, `policy-assignment`, `ama`, `amba`, `defender`, `zero-trust`, `slz`. |
+| **Scenario** | Required | The modification scenario key. |
+| **Policy name** | Optional | The policy assignment name to look up (for example, `Enable-DDoS-VNET`). Used with `policy-enforcement` or `policy-assignment` scenarios. |
+| **List policies** | Optional | Set to true to list all available policies organized by archetype. Useful for finding the exact policy name. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 Destructive: ✅ | Idempotent: ✅ | Open World: ✅ | Read Only: ❌ | Secret: ❌ | Local Required: ✅
 
-## Create platform landing zone request
+
+## Request platform landing zone
 
 <!-- @mcpcli azuremigrate platformlandingzone request -->
 
-Generate and download platform landing zone configurations for Azure Migrate projects. You can update parameters, check existing landing zones, and view the status of parameters.
+Generate and download platform landing zone configurations for Azure Migrate projects. This tool updates parameters, checks existing landing zones, and views parameter statuses.
 
-**Example prompts:**
-- "Check if a platform landing zone exists for resource group 'rg-prod' and project name 'migrateProject1'."
-- "I want to update parameters for the project 'migrateProject1' in resource group 'rg-dev'."
-- "Generate a platform landing zone in resource group 'rg-prod' for project 'migrateProject1'."
-- "Download the generated files for 'migrateProject1' located in resource group 'rg-prod'."
-- "View the parameter status for resource group 'rg-test' and project name 'migrateProject2'."
+Example prompts include:
 
-| Parameter                    | Required or Optional | Description |
-|------------------------------|----------------------|-------------|
-| **Resource group**           | Required             | The name of the Azure resource group, which acts as a logical container for Azure resources. |
-| **Action**                   | Required             | The action to perform. Valid actions are: update to set parameters, check to check an existing platform landing zone, generate to create a platform landing zone, download to retrieve download instructions, or status to view parameter status. |
-| **Migrate project name**     | Required             | The name of the Azure Migrate project used for Platform Landing Zone generation context. |
+- "Check if a platform landing zone exists for Azure Migrate project 'migrate-project-1' in resource group 'rg-prod'."
+- "Update the parameters for the platform landing zone related to 'migrate-project-1' in resource group 'rg-dev'."
+- "Generate the platform landing zone for Azure Migrate project 'migrate-project-2' located in resource group 'rg-test'."
+- "Download the landing zone files for Azure Migrate project 'migrate-project-3' in resource group 'rg-production'."
+- "What is the current status of parameters for Azure Migrate project 'migrate-project-4' in resource group 'rg-staging'?"
+
+| Parameter                     | Required or Optional | Description                                                                                             |
+|-------------------------------|----------------------|---------------------------------------------------------------------------------------------------------|
+| **Resource group**            | Required             | The name of the Azure resource group. This is a logical container for Azure resources.                  |
+| **Migrate project name**      | Required             | The Azure Migrate project name for Platform Landing Zone generation context.                                           |
+| **Action**                    | Required             | The action to perform: `update` (set parameters), `check` (check existing platform landing zone), `generate` (generate platform landing zone), `download` (get download instructions), `status` (view parameter status). |
+| **Region type**               | Optional             | The region type for the Platform Landing Zone. Allowed values: `single`, `multi`. |
+| **Firewall type**             | Optional             | The firewall type for the Platform Landing Zone. Allowed values: `azurefirewall`, `nva`. |
+| **Network architecture**      | Optional             | The network architecture for the Platform Landing Zone. Allowed values: `hubspoke`, `vwan`. |
+| **Identity subscription ID**   | Optional             | The Azure subscription ID for the identity management group in the Platform Landing Zone (GUID format). |
+| **Management subscription ID** | Optional             | The Azure subscription ID for the management group in the Platform Landing Zone (GUID format). |
+| **Connectivity subscription ID** | Optional           | The Azure subscription ID for the connectivity group in the Platform Landing Zone (GUID format). |
+| **Regions**                   | Optional             | Comma-separated list of Azure regions for the Platform Landing Zone (for example, `eastus,westus2`). |
+| **Environment name**          | Optional             | The environment name for the Platform Landing Zone. |
+| **Version control system**     | Optional             | The version control system for the Platform Landing Zone. Allowed values: `local`, `github`, `azuredevops`. |
+| **Organization name**         | Optional             | The organization name for the Platform Landing Zone. |
+| **Migrate project resource ID** | Optional           | The full resource ID of the Azure Migrate project for the Platform Landing Zone (alternative to `subscription/resourceGroup/migrateProjectName`).  |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
 Destructive: ✅ | Idempotent: ✅ | Open World: ❌ | Read Only: ❌ | Secret: ❌ | Local Required: ✅
 
 ## Related content
