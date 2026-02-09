@@ -9,15 +9,16 @@ author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
 ms.topic: concept-article
-ms.date: 02/02/2026
-#reviewers: @wolfgang-desalvador @rebecca-makar
+ms.date: 02/08/2026
+tool_count: 18
+ms.reviewer: wdesalvador
 ---
 
 # Azure Managed Lustre tools for Azure MCP Server overview
 
-Azure MCP Server enables you to manage Azure resources, including Azure Managed Lustre, by using natural language prompts, streamlining infrastructure operations for AI training and HPC environments. Learn how to optimize AI and HPC workloads with scalable Lustre file systems.
+Azure MCP Server lets you manage Azure resources, including Azure Managed Lustre, using natural language prompts. You can optimize AI and HPC workloads with scalable Lustre file systems.
 
-[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning.‌ With [autoimport](/azure/azure-managed-lustre/auto-import) and [autoexport](/azure/azure-managed-lustre/auto-export) capabilities, you can seamlessly sync data between Azure Blob Storage and your Lustre filesystem.
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a high-performance, scalable file system built on the open-source Lustre technology and optimized for AI and HPC workloads on Azure. It provides the throughput, parallelism, and low-latency access required for large-scale simulation, model training, and fine-tuning. With [auto-import](/azure/azure-managed-lustre/auto-import) and [auto-export](/azure/azure-managed-lustre/auto-export) features, you can sync data between Azure Blob Storage and your Lustre file system. For one-time data movement, use manual import jobs.
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -106,7 +107,7 @@ Example prompts include:
 
 ## File system: Get SKU
 
-<!-- azuremanagedlustre filesystem sku get -->
+<!-- @mcpcli managedlustre fs sku get -->
 
 Retrieves the available Azure Managed Lustre SKU, including increments, bandwidth, scale targets, and zonal support. 
 
@@ -181,19 +182,19 @@ Example prompts include:
 [!INCLUDE [managedlustre fs subnetsize validate](../includes/tools/annotations/azure-managed-lustre-file-system-subnet-size-validate-annotations.md)]
 
 
-## Blobs: Create blob import job 
+## Manual import: Create manual import job
 
 <!-- managedlustre fs blob import create -->
 
-Creates a one-time import job for an Azure Managed Lustre filesystem to import files from the linked blob storage container. The import job performs a one-time sync of data from the configured HSM blob container to the Lustre filesystem. Use this job to import specific prefixes or all data from blob storage into the filesystem at a point in time.
+Creates a manual import job for an Azure Managed Lustre filesystem to import files from the linked blob storage container. The import job performs a one-time sync of data from the configured HSM blob container to the Lustre filesystem. Use this job to import specific prefixes or all data from blob storage into the filesystem at a point in time.
 
 Example prompts include:
 
-- "Create an import job for filesystem 'LustreFs01' in resource group 'rg-lustre-prod'"
-- "I want to start an import job on the managed Lustre filesystem 'DataLakeFS' in resource group 'rg-data-core'"
-- "Set up a new fs import job for filesystem 'ProjectDataFS' within resource group 'rg-analytics'"
-- "Can you initiate an import job on managed Lustre filesystem 'ArchiveFS' specifying the container 'importcontainer' in resource group 'rg-mlustredemo'?"
-- "Create an import job for filesystem 'TrainingFS' in resource group 'rg-lustre-eastus'"
+- "Create a manual import job for filesystem 'LustreFs01' in resource group 'rg-lustre-prod'."
+- "Start a manual import job on filesystem 'DataLakeFS' in resource group 'rg-data-core'."
+- "Set up a manual import job for filesystem 'ProjectDataFS' within resource group 'rg-analytics'."
+- "Initiate a manual import job on filesystem 'ArchiveFS' specifying the container 'importcontainer' in resource group 'rg-mlustredemo'."
+- "Create a manual import job for filesystem 'TrainingFS' in resource group 'rg-lustre-eastus'."
 
 
 | Parameter |  Required or optional | Description |
@@ -210,7 +211,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob import create](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-create-annotations.md)]
 
-## Blobs: Get blob import job 
+## Manual import: Get manual import job 
 
 <!-- managedlustre fs blob import get -->
 
@@ -236,7 +237,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob import get](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-get-annotations.md)]
 
-## Blobs: Cancel blob import job
+## Manual import: Cancel manual import job
 
 <!-- managedlustre fs blob import cancel -->
 
@@ -263,7 +264,7 @@ Example prompts include:
 [!INCLUDE [managedlustre fs blob import cancel](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-cancel-annotations.md)]
 
 
-## Blobs: Delete blob import job
+## Manual import: Delete manual import job
 
 <!-- managedlustre fs blob import delete -->
 
@@ -289,7 +290,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob import delete](../includes/tools/annotations/azure-managed-lustre-file-system-blob-import-delete-annotations.md)]
 
-## Autoimport: Get details of autoimport jobs
+## Auto-import: Get details of auto-import jobs
 
 <!-- managedlustre fs blob autoimport get -->
 
@@ -315,7 +316,7 @@ Example prompts include:
 [!INCLUDE [managedlustre fs blob autoimport get](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-get-annotations.md)]
 
 
-## Autoimport: Create an autoimport job
+## Auto-import: Create an auto-import job
 
 <!-- managedlustre fs blob autoimport create -->
 
@@ -347,7 +348,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoimport create](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-create-annotations.md)]
 
-## Autoimport: Cancel an autoimport job
+## Auto-import: Cancel an auto-import job
 
 <!-- managedlustre fs blob autoimport cancel -->
 
@@ -372,7 +373,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoimport cancel](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-cancel-annotations.md)]
 
-## Autoimport: Delete an autoimport job
+## Auto-import: Delete an auto-import job
 
 <!-- managedlustre fs blob autoimport delete -->
 
@@ -397,7 +398,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoimport delete](../includes/tools/annotations/managedlustre-file-system-blob-autoimport-delete-annotations.md)]
 
-## Autoexport: Get details of an autoexport job
+## Auto-export: Get details of an auto-export job
 
 <!-- managedlustre fs blob autoexport get -->
 
@@ -423,7 +424,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoexport get](../includes/tools/annotations/managedlustre-file-system-blob-autoexport-get-annotations.md)]
 
-## Autoexport: Create an autoexport job
+## Auto-export: Create an auto-export job
 
 <!-- managedlustre fs blob autoexport create -->
 
@@ -451,7 +452,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoexport create](../includes/tools/annotations/managedlustre-file-system-blob-autoexport-create-annotations.md)]
 
-## Autoexport: Cancel an autoexport job
+## Auto-export: Cancel an auto-export job
 
 <!-- managedlustre fs blob autoexport cancel -->
 
@@ -476,7 +477,7 @@ Example prompts include:
 
 [!INCLUDE [managedlustre fs blob autoexport cancel](../includes/tools/annotations/managedlustre-file-system-blob-autoexport-cancel-annotations.md)]
 
-## Autoexport: Delete an autoexport job
+## Auto-export: Delete an auto-export job
 
 <!-- managedlustre fs blob autoexport delete -->
 
