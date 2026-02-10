@@ -53,6 +53,23 @@ conceptualContent:
         - text: (Legacy) Deploy with ARM templates
           url: /azure/azure-resource-manager/management/overview
           itemType: get-started
+      - title: Azure command-line tools
+        links:
+        - text: Azure CLI
+          url: /cli/azure/
+          itemType: overview
+        - text: Azure PowerShell
+          url: /powershell/azure/
+          itemType: overview
+        - text: Deploy Bicep with Azure CLI
+          url: /azure/azure-resource-manager/bicep/deploy-cli
+          itemType: how-to-guide
+        - text: Deploy Bicep with Azure PowerShell
+          url: /azure/azure-resource-manager/bicep/deploy-powershell
+          itemType: how-to-guide
+        - text: Authenticate Terraform with Azure CLI
+          url: /azure/developer/terraform/authenticate-to-azure
+          itemType: how-to-guide
 
 additionalContent:
   sections:
