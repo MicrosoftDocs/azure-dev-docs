@@ -2,7 +2,7 @@
 ms.topic: include
 ms.date: 02/10/2026
 ---
-## Sign in for local development
+## Sign in to Azure MCP Server for local development
 
 Azure MCP Server provides a seamless authentication experience by using token-based authentication through [Microsoft Entra ID](/entra/identity/). Internally, Azure MCP Server uses [`DefaultAzureCredential`](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) from [Azure Identity](/azure/developer/intro/passwordless-overview) to authenticate users.
 
