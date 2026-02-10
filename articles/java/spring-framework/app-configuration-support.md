@@ -4,7 +4,7 @@ description: This developer guide walks you through using Spring Cloud Azure App
 author: KarlErickson
 ms.author: karler
 ms.reviewer: mametcal
-ms.date: 10/23/2025
+ms.date: 02/10/2026
 ms.topic: tutorial
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
 #Customer intent: As a developer, I want to use Spring Cloud Azure App Configuration Config to load configurations from Azure App Configuration.
@@ -144,14 +144,25 @@ In this example, if both the stores have the same configuration key, then the co
 
 ### Selecting configurations
 
-The library loads configurations using their key and label. By default, the configurations that start with the key `/application/` are loaded. The default label is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profile, which is `${spring.profiles.active}`.
+The library loads configurations using their key and label, or snapshot. When no method of selection is used, the library loads all keys with the prefix `/application/` and the label `\0`, which appears as `(No Label)` in the Azure portal.
+
+The default key filter is `/application/*`. The default label filter is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profile, which is `${spring.profiles.active}`.
+
+In addition you can load configurations from a specific snapshot. A snapshot is a static view of the configuration at a given point in time. When you load from a snapshot, you load the configurations as they were at the time of the snapshot creation, and they don't update until you create a new snapshot and load from it. The snapshot needs to be of the composition type `Key`, and you can specify the snapshot to load from by using the `snapshot` property:
+
+```properties
 
 You can configure which configurations are loaded by selecting different key and label filters:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=[my-key]
 spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter=[my-label]
+spring.cloud.azure.appconfiguration.stores[0].selects[1].snapshot=[snapshot-name]
 ```
+
+> [!NOTE]
+> You can't combine snapshot selection with key and label filters. When you use snapshot selection, all keys in the snapshot are loaded.
+
 
 The `key-filter` property supports the following filters:
 
@@ -295,6 +306,12 @@ az appconfig replica create --location --name --store-name [--resource-group]
 
 Azure App Configuration supports multiple types of key values, some of which have special features built into them. Azure App Configuration has built-in support for the JSON content type, Spring placeholders, and Key Vault references.
 
+### Trimming keys
+
+By default when loading keys from Azure App Configuration, the library trims the prefix defined by `spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter` from the key. For example, if you have a key named `/application/config.message` and a key filter of `/application/*`, the library trims the prefix `/application/` and loads the key as `config.message`. This trimming makes it easier to reference keys in your code.
+
+This behavior can be overridden by setting `spring.cloud.azure.appconfiguration.stores[0].trim-key-prefix[0]` to a different value. Setting this property to an empty string disables the trimming behavior, and the key is loaded with its full name.
+
 ### Placeholders
 
 The library supports configurations with `${}`-style environment placeholders. When referencing an Azure App Configuration key with a placeholder, remove prefixes from the reference. For example, `/application/config.message` is referenced as `${config.message}`.
@@ -304,32 +321,30 @@ The library supports configurations with `${}`-style environment placeholders. W
 
 ### JSON
 
-Configurations that have a content-type `application/json` are processed as JSON objects. This feature enables you to map one configuration to a complex object inside a `@ConfigurationProperties`. For example, consider the JSON key `/application/config.colors` with the following value:
+You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider automatically converts configuration settings to complex objects inside a `@ConfigurationProperties`. For example, consider the JSON key `/application/config.colors` with the following value:
 
 ```json
 {
- "Red": {
-  "value": [255, 0, 0]
- },
- "Blue": {
-  "value": [0, 255, 0]
- },
- "Green": {
-  "value": [0, 0, 255]
- }
+    "key": "font",
+    "label": null,
+    "value": "{\r\n\t\"size\": 12,\r\n\t\"color\": \"red\"\r\n}",
+    "content_type": "application/json"
 }
 ```
 
-This key maps to the following code:
+This JSON content results in the key-value to be loaded as `{ size: 12, color: "red" }`.
 
 ```java
 @ConfigurationProperties(prefix = "config")
 public class MyConfigurations {
 
-    private Map<String, Color> colors;
+    private Font font;
 
 }
 ```
+
+> [!NOTE]
+> Starting with version *6.0.0* of `spring-cloud-azure-appconfiguration-config`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
 
 ### Key Vault references
 
@@ -401,6 +416,14 @@ By default, all feature flags with a `\0` label, seen as `(No Label)`, are loade
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].key-filter=A*
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-filter= dev
 ```
+
+### Feature flag telemetry
+
+When feature flag telemetry is enabled, the Azure App Configuration provider injects additional properties to feature flag telemetry data. These properties provide more context about the feature flag and its evaluation:
+
+- **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
+- **ETag**: The current ETag for the feature flag.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
 
 ### Feature management basics
 
