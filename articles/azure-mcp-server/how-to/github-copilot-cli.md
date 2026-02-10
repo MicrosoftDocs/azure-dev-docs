@@ -16,7 +16,7 @@ In this quickstart, you learn how to connect the Azure Model Context Protocol (M
 - [Azure CLI](/cli/azure/install-azure-cli) installed and authenticated (`az login`).
 - [Node.js](https://nodejs.org/) installed (for running the server via `npx`).
 
-[!INCLUDE [sign-in-local-development](../../includes/sign-in-local-development.md)]
+[!INCLUDE [sign-in-local-development](../includes/sign-in-local-development.md)]
 
 ## Add Azure MCP Server
 
