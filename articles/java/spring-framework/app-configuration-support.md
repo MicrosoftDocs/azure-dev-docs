@@ -148,7 +148,7 @@ The library loads configurations using their key and label, or snapshot. When no
 
 The default key filter is `/application/*`. The default label filter is `\0`, which appears as `(No Label)` in the Azure portal. If a Spring profile is set, and no label is provided, then the default label is your Spring Profile, which is `${spring.profiles.active}`.
 
-In addition you can load configurations from a specific snapshot. A snapshot is a static view of the configuration at a given point in time. When you load from a snapshot, you load the configurations as they were at the time of the snapshot creation, and they don't update until you create a new snapshot and load from it. The snapshot needs to be of the composition type `Key`, and you can specify the snapshot to load from by using the `snapshot` property:
+In addition, you can load configurations from a specific snapshot. A snapshot is a static view of the configuration at a given point in time. When you load from a snapshot, you load the configurations as they were at the time of the snapshot creation, and they don't update until you create a new snapshot and load from it. The snapshot needs to be of the composition type `Key`, and you can specify the snapshot to load from by using the `snapshot` property:
 
 ```properties
 
@@ -540,7 +540,7 @@ public class MyDisabledFeaturesHandler implements DisabledFeaturesHandler {
 
 ##### Routing
 
-Certain routes might expose application capabilities that are gated by features. If a feature is disabled, you can redirect these routes to another endpoint, as shown in the following example:
+Features might gate certain routes that expose application capabilities. If a feature is disabled, you can redirect these routes to another endpoint, as shown in the following example:
 
 ```java
 @GetMapping("/featureT")
@@ -567,7 +567,7 @@ This filter always returns `true`. For a usage example, see the [feature flag de
 
 #### PercentageFilter
 
-Each time it's checked, the evaluation of `PercentageFilter` can return a different result. You can circumvent this inconsistency by using the `FeatureManagementSnapshot`, which caches the result of the feature flag per request.
+`PercentageFilter` can return a different result on each check. You can circumvent this inconsistency by using `FeatureManagementSnapshot`, which caches the result of the feature flag per request.
 
 ```yaml
 feature-management:
