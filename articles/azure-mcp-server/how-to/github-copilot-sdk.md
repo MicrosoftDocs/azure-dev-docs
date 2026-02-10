@@ -50,11 +50,15 @@ The following examples show how to integrate the SDK in different languages.
 
 ### Installation
 
+Install the Python SDK package using pip.
+
 ```bash
 pip install github-copilot-sdk
 ```
 
-### Configuration
+### Sample code
+
+The following code demonstrates a complete flow:
 
 ```python
 import asyncio
@@ -111,15 +115,27 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+The preceding code:
+
+- Initializes the Copilot client.
+- Configures the Azure MCP server using `npx`.
+- Creates a session with the GPT-4.1 model and streaming enabled.
+- Handles events to print assistant responses and tool execution logs.
+- Sends a prompt to list Azure resource groups.
+
 # [Node.js / TypeScript](#tab/nodejs)
 
 ### Installation
+
+Install the Node.js SDK package using npm.
 
 ```bash
 npm install @github/copilot-sdk
 ```
 
-### Configuration
+### Sample code
+
+The following TypeScript code demonstrates a complete flow:
 
 ```typescript
 import { CopilotClient, SessionEventType } from '@github/copilot-sdk';
@@ -175,15 +191,27 @@ async function main() {
 main().catch(console.error);
 ```
 
+The preceding code:
+
+- Initializes the Copilot client.
+- Configures the Azure MCP server using `npx`.
+- Creates a session with the GPT-4.1 model and streaming enabled.
+- Handles events to print assistant responses and tool execution logs.
+- Sends a prompt to list Azure resource groups.
+
 # [.NET](#tab/dotnet)
 
 ### Installation
+
+Add the contents of the NuGet package to your project.
 
 ```bash
 dotnet add package GitHub.Copilot.SDK
 ```
 
-### Configuration
+### Sample code
+
+The following C# code demonstrates a complete flow:
 
 ```csharp
 using GitHub.Copilot.SDK;
@@ -249,15 +277,27 @@ class Program
 }
 ```
 
+The preceding code:
+
+- Initializes the Copilot client.
+- Configures the Azure MCP server using `npx`.
+- Creates a session with the GPT-4.1 model and streaming enabled.
+- Handles events to print assistant responses and tool execution logs.
+- Sends a prompt to list Azure resource groups.
+
 # [Go](#tab/go)
 
 ### Installation
+
+Get the Go SDK package using `go get`.
 
 ```bash
 go get github.com/github/copilot-sdk/go
 ```
 
-### Configuration
+### Sample code
+
+The following code demonstrates a complete flow:
 
 ```go
 package main
@@ -330,5 +370,13 @@ func main() {
     }
 }
 ```
+
+The preceding code:
+
+- Initializes the Copilot client.
+- Configures the Azure MCP server using `npx`.
+- Creates a session with the GPT-4.1 model and streaming enabled.
+- Handles events to print assistant responses and tool execution logs.
+- Sends a prompt to list Azure resource groups.
 
 ---
