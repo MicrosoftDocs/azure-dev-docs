@@ -86,7 +86,3 @@ See the [Manage dev tunnel access](cli-commands.md#advanced-manage-dev-tunnel-ac
 
 ### GitHub Organization Access
 To support tunnels granting access to all members of a GitHub organization, install the [Dev Tunnels GitHub app](https://github.com/apps/dev-tunnels) in the organization. That gives the Dev Tunnels service permission to check users' membership status in that organization. (Dev Tunnels does not require repo permissions to the org.) You may need to be an admin in the GitHub organization to perform this operation.
-
-## Further questions
-
-If after reviewing this page, you have further questions, see [Feedback and support](support.md#feedback-and-support).
