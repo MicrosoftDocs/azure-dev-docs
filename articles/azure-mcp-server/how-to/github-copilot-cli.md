@@ -30,9 +30,6 @@ The GitHub Copilot CLI supports MCP servers through the `/mcp` command family.
    copilot
    ```
 
-   > [!NOTE]
-   > If you haven't installed the GitHub CLI extension for Copilot, refer to the [installation guide](https://docs.github.com/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli#installing-github-copilot-in-the-cli).
-
 1. In the interactive session, run the following command to open the MCP server configuration form:
 
    ```bash
@@ -53,11 +50,11 @@ The GitHub Copilot CLI supports MCP servers through the `/mcp` command family.
    > If you prefer using .NET, set the **Command** to `dotnet dnx -p Azure.Mcp server start`.
 
 1. Press **Ctrl+S** (or **Cmd+S** on macOS) to save the server configuration.
-1. When you've finished, press `esc` to leave the server configuration.
+1. When you've finished, press `esc` to close the server configuration.
 
 ## Verify the connection
 
-To confirm that the Azure MCP Server is correctly configured and recognized by GitHub Copilot CLI:
+Confirm that you configured the Azure MCP Server correctly and that the GitHub Copilot CLI recognizes it:
 
 1. In your Copilot CLI session, run:
 
@@ -85,7 +82,7 @@ Once connected, you can use natural language to interact with your Azure resourc
    > List my Azure resource groups.
    ```
 
-1. GitHub Copilot will identify the intent and use the `azure-mcp` tools to fetch the information. You should see a response listing your Azure resource groups, similar to:
+1. GitHub Copilot identifies the intent and uses the `azure-mcp` tools to fetch the information. It prints a response listing your Azure resource groups, similar to:
 
    ```output
    I found the following resource groups in your subscription:
@@ -97,7 +94,7 @@ Once connected, you can use natural language to interact with your Azure resourc
 
 ## Manage MCP servers
 
-You can manage your configured MCP servers using the following commands:
+Manage your configured MCP servers using the following commands:
 
 - **List servers:** `/mcp show`
 - **Remove a server:** `/mcp remove azure-mcp`
