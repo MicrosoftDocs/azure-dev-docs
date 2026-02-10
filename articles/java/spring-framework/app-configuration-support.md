@@ -321,7 +321,7 @@ The library supports configurations with `${}`-style environment placeholders. W
 
 ### JSON
 
-You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider automatically converts configuration settings to complex objects inside a `@ConfigurationProperties`. For example, consider the JSON key `/application/config.colors` with the following value:
+You can [create JSON key-values](/azure/azure-app-configuration/howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider automatically converts configuration settings to complex objects inside a `@ConfigurationProperties`. For example, consider the JSON key `/application/config.colors` with the following value:
 
 ```json
 {
@@ -332,7 +332,7 @@ You can [create JSON key-values](./howto-leverage-json-content-type.md#create-js
 }
 ```
 
-This JSON content results in the key-value to be loaded as `{ size: 12, color: "red" }`.
+This JSON content results in the key-value being loaded as `{ size: 12, color: "red" }`.
 
 ```java
 @ConfigurationProperties(prefix = "config")
