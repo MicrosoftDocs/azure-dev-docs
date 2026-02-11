@@ -46,6 +46,12 @@ While you can deploy any Java runtime on all these IaaS and CaaS services, we re
 
 Both of these builds are available free-of-charge for local development and testing, and for building production-ready binaries using any platform or DevOps tools - without having to pay any licensing fees. We recommend them as a matter of convenience. When you use one of these builds, if you have any issues and have a qualifying support plan for Azure, you can open an Azure support ticket - without any more costs. That said, it's worth pointing out that these recommendations are just that - the options that we recommend among various other freely available builds of OpenJDK for ease-of-support. For more information, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
 
+Beyond selecting an LTS runtime, teams running on Azure infrastructure can optionally use the Azure Command Launcher for Java to apply battle-tested defaults without hand-tuning JVM flags for cloud and container environments.
+
+### Azure Command Launcher for Java (Public Preview)
+
+The Azure Command Launcher for Java is an optional JVM launcher optimized for Azure that automatically applies cloud-tailored JVM parameters for Java workloads. This launcher is designed for Java applications running on Azure VMs, VM Scale Sets, AKS, Azure Red Hat OpenShift, and Azure Container Instances. By using the Azure Command Launcher for Java, you can improve resource utilization, enhance first-deploy performance, and reduce wasted memory and CPU without manual JVM tuning. For more information, see [Public Preview: Azure Command Launcher for Java](https://azure.microsoft.com/updates?id=543994).
+
 :::image type="content" source="media/build-migrate.png" alt-text="Diagram with the heading 'Build or Migrate Java Apps' and a chart showing the relationship between Java technologies and Azure service categories." border="false" lightbox="media/build-migrate.png":::
 
 All of these IaaS and CaaS deployment options let you easily deploy the Apache Tomcat application server. If you're using a commercial offering - such as Spring Runtime from VMware, JBoss EAP from Red Hat, WebLogic Server from Oracle, or WebSphere from IBM - Azure offers jointly developed and supported hosting options from those vendors as well. They're covered later, under [Jointly built and supported solutions with Java ecosystem partners](#jointly-built-and-supported-solutions-with-java-ecosystem-partners).
@@ -58,6 +64,8 @@ Fully managed PaaS services for running Java applications on Azure include the f
 - [Azure App Service](/azure/app-service), an HTTP-based service for hosting web applications, REST APIs, and mobile back ends - with built-in security, load balancing, autoscaling, and automated management. App Service also supports comprehensive DevOps capabilities, such as continuous deployment, package management, staging environments, custom domains, and TLS/SSL certificates.
 
 Java runtimes for Azure App Service and for Azure Container Apps deployed as code or binaries (JAR/WAR) are supplied and maintained by Microsoft. They only support LTS distributions of OpenJDK, using Eclipse Adoptium Temurin for Java 8 and the Microsoft Build of OpenJDK for Java 11 and 17. That said, there are some caveats - for example, our jointly developed and supported partner offerings (discussed [later](#jointly-built-and-supported-solutions-with-java-ecosystem-partners)) use their own runtimes.
+
+The Azure Command Launcher for Java targets customer-managed runtimes and isn't used by the Microsoft-managed Java runtimes provided by Azure App Service or Azure Container Apps. However, developers who deploy their own custom container images to Azure Container Apps can choose to use the launcher inside those images, as those containers use customer-managed runtimes.
 
 For Azure Container Apps built from your own container images, since you need to build and manage your own container images from source code, you're free to use the distribution and version of Java - and application server - of your choice.
 
@@ -95,7 +103,7 @@ Today, the customer experience is simpler, safer, and more seamless. Customers c
 
 Joint development with partners for many of these offerings is a continual, ongoing effort. As our partners continue to innovate on their offerings, we're working closely with them to quickly bring those same innovations to Azure - so that customers can deploy and scale their Java applications with confidence and ease.
 
-In summary, Azure supports your workload with an abundance of choice regardless of what you're doing with Java. You can build any Java app, use any framework, run any application server, and support any application architecture - from monolithic applications running on VMs or in containers to cloud-native, microservices-based applications running on fully managed services.
+In summary, Azure supports your workload with an abundance of choice regardless of what you're doing with Java. You can build any Java app, use any framework, run any application server, and support any application architecture - from monolithic applications running on VMs or in containers to cloud-native, microservices-based applications running on fully managed services. Azure provides tooling to optimize Java runtime configuration for cloud-native deployments, including the Azure Command Launcher for Java (Public Preview) for VM and container scenarios. For more information, see [Public Preview: Azure Command Launcher for Java](https://azure.microsoft.com/updates?id=543994).
 
 :::image type="content" source="media/deploy-with-confidence.png" alt-text="Diagram with the heading 'Deploy Java applications with confidence and ease' and logos for the deployment options described in this article." border="false" lightbox="media/deploy-with-confidence.png":::
 

@@ -91,9 +91,6 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_messaging_eventhubs_processor/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_messaging_webpubsub/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_messaging_webpubsub_client/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_mixedreality_authentication/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_mixedreality_objectanchors_conversion/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_mixedreality_remoterendering/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_monitor_ingestion/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_monitor_opentelemetry_exporter/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_monitor_opentelemetry_livemetrics/0.0.1) |  |  |
@@ -217,7 +214,6 @@
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_marketplaceordering/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_media/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_migrationdiscoverysap/0.0.1) |  |  |
-| Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mixedreality/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mongocluster/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_monitor/0.0.1) |  |  |
 | Unknown Display Name | crate [0.0.1](https://crates.io/crates/azure_resourcemanager_mysql/0.0.1) |  |  |
