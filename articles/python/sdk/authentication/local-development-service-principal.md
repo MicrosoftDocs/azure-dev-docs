@@ -130,26 +130,22 @@ To make these environment variables persistent across terminal sessions, add the
 
 ## Authenticate to Azure services from your app
 
-The [azure-identity](https://pypi.org/project/azure-identity/) library provides various credentials to authenticate to Azure. This section demonstrates how to use `ClientSecretCredential` when working with service principals.
+The [azure-identity](https://pypi.org/project/azure-identity/) library provides various *credentials*—classes adapted to supporting different scenarios and Microsoft Entra authentication flows. The steps ahead demonstrate how to use [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) when working with service principals locally and in production.
 
-### Install required packages
+### Implement the code
 
-Install the Azure Identity library for Python.
+Install the [azure-identity](https://pypi.org/project/azure-identity/) package:
 
 ```terminal
 pip install azure-identity
 ```
 
-### Implement the code
-
-For any Python code that creates an Azure SDK client object in your app, you want to:
+Azure services are accessed using specialized client classes from the various Azure SDK client libraries. In your application code, complete the following steps to configure a client class for token-based authentication:
 
 1. Import the `ClientSecretCredential` class from the `azure.identity` module.
 1. Import the `os` module to read environment variables.
-1. Create a `ClientSecretCredential` object with the `tenant_id`, `client_id`, and `client_secret`.
-1. Pass the `ClientSecretCredential` object to the Azure SDK client object constructor.
-
-An example of this approach is shown in the following code segment.
+1. Configure `ClientSecretCredential` with the `tenant_id`, `client_id`, and `client_secret`.
+1. Pass the `ClientSecretCredential` instance to the Azure SDK client object constructor.
 
 ```python
 import os
@@ -172,9 +168,7 @@ blob_service_client = BlobServiceClient(
 )
 ```
 
-### Alternative approach
-
-You can also use `DefaultAzureCredential`, which automatically detects the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables and uses them to authenticate.
+An alternative to `ClientSecretCredential` is to use `DefaultAzureCredential`, which automatically detects the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables and uses them to authenticate:
 
 ```python
 from azure.identity import DefaultAzureCredential

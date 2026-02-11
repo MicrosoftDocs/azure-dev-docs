@@ -1,151 +1,122 @@
 ---
 title: Authenticate to Azure resources from Python apps hosted on-premises
-description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications. 
-ms.date: 11/10/2025
+description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python in on-premises hosted applications.
+ms.date: 02/11/2026
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
 # Authenticate to Azure resources from Python apps hosted on-premises
 
-Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. Creating a new application service principal generates a client ID and client secret for your app. You store the client ID, client secret, and your tenant ID in environment variables to be used by the Azure SDK for Python to authenticate your app to Azure at runtime.
+Apps hosted outside of Azure (for example, on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When an application service principal is created, a client ID and client secret will be generated for your app. You then store the client ID, client secret, and your tenant ID in environment variables so the Azure SDK for Python can use them to authenticate your app to Azure at runtime.
 
-A different app registration should be created for each environment the app is hosted in. Creating a different app registration allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
+A different app registration should be created for each environment the app is hosted in. This allows environment-specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
-## Register the application in Azure
+[!INCLUDE [Register the app in Azure](<../../../includes/authentication/create-app-registration.md>)]
 
-An app can be registered with Azure using either the Azure portal or the Azure CLI.
+[!INCLUDE [Assign roles to the application service principal](<../../../includes/authentication/includes/authentication-assign-service-principal-roles.md>)]
 
-### [Azure CLI](#tab/azure-cli)
+---
 
-```azurecli
-APP_NAME=<app-name>
-az ad sp create-for-rbac --name $APP_NAME
-```
+## Set the app environment variables
 
-The output of the command is similar to the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again.
+At runtime, certain credentials from the [Azure Identity library](https://pypi.org/project/azure-identity/), such as `DefaultAzureCredential`, `EnvironmentCredential`, and `ClientSecretCredential`, search for service principal information by convention in the environment variables. There are multiple ways to configure environment variables when working with Python, depending on your tooling and environment.
+
+Regardless of the approach you choose, configure the following environment variables for a service principal:
+
+- `AZURE_CLIENT_ID`: Used to identify the registered app in Azure.
+- `AZURE_TENANT_ID`: The ID of the Microsoft Entra tenant.
+- `AZURE_CLIENT_SECRET`: The secret credential that was generated for the app.
+
+### [VS Code](#tab/vscode)
+
+When running locally in Visual Studio Code, environment variables can be set in the `launch.json` file located in the `.vscode` folder of your project:
 
 ```json
 {
-  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-  "displayName": "msdocs-python-sdk-auth-prod",
-  "password": "Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6",
-  "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
+    "configurations": [
+        {
+            "env": {
+                "AZURE_CLIENT_ID": "<your-client-id>",
+                "AZURE_TENANT_ID": "<your-tenant-id>",
+                "AZURE_CLIENT_SECRET": "<your-client-secret>"
+            }
+        }
+    ]
 }
 ```
 
-Next, you need to get the `appID` value and store it into a variable. This value is used to set environment variables in your local development environment so that the Azure SDK for Python can authenticate to Azure using the service principal.
+### [Windows](#tab/windows)
 
-```azurecli
-APP_ID=$(az ad sp create-for-rbac \
-  --name $APP_NAME --query appId --output tsv)
+From the Windows command line, you can set user-level environment variables using the following commands:
+
+```cmd
+setx AZURE_CLIENT_ID "<your-client-id>"
+setx AZURE_TENANT_ID "<your-tenant-id>"
+setx AZURE_CLIENT_SECRET "<your-client-secret>"
 ```
 
-### [Azure portal](#tab/azure-portal)
+System-level environment variables can also be set if you run the command prompt as an administrator and add the `/m` flag:
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app registration step 1](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-1.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-1-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-1.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to find and navigate to the App registrations page." ::: |
-| [!INCLUDE [Create app registration step 2](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-2.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-2-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-2.png" alt-text="A screenshot showing the location of the New registration button in the App registrations page." ::: |
-| [!INCLUDE [Create app registration step 3](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-3.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-3-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-3.png" alt-text="A screenshot to fill out Register by giving the app a name and specifying supported account types as accounts in this organizational directory only." ::: |
-| [!INCLUDE [Create app registration step 4](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-4.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-4-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-4.png" alt-text="A screenshot of the App registration after completion.  This screenshot shows the application and tenant IDs, which will be needed in a future step. " ::: |
-| [!INCLUDE [Create app registration step 5](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-5.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-5-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-5.png" alt-text="A screenshot showing the location of the link to use to create a new client secret on the certificates and secrets page." ::: |
-| [!INCLUDE [Create app registration step 6](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-6.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-6-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-6.png" alt-text="A screenshot showing the page where a new client secret is added for the application service principal created by the app registration process." ::: |
-| [!INCLUDE [Create app registration step 7](<../../../includes/sdk-auth-passwordless/on-premises-app-registration-azure-portal-7.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-7-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/on-premises-app-registration-azure-portal-7.png" alt-text="A screenshot showing the page with the generated client secret." ::: |
-
----
-
-## Assign roles to the application service principal
-
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app. Roles can be assigned a role at a resource, resource group, or subscription scope. This example shows how to assign roles for the service principal at the resource group scope since most applications group all their Azure resources into a single resource group.
-
-### [Azure CLI](#tab/azure-cli)
-
-A service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
-
-```azurecli
-RESOURCE_GROUP_NAME=<resource-group-name>
-SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-ROLE_NAME=<role-name>
-
-az role assignment create \
-  --assignee "$APP_ID" \
-  --scope "./subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME" \
-  --role "$ROLE_NAME"
+```cmd
+setx AZURE_CLIENT_ID "<your-client-id>" /m
+setx AZURE_TENANT_ID "<your-tenant-id>" /m
+setx AZURE_CLIENT_SECRET "<your-client-secret>" /m
 ```
 
->![!NOTE]
-> To prevent Git Bash from treating /subscriptions/... as a file path, prepend ./ to the string for the `scope` parameter and use double quotes around the entire string.
+### [PowerShell](#tab/powershell)
 
-To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
+Use the following commands to set the environment variables at the user level using PowerShell:
 
-```azurecli
-az role definition list \
-    --query "sort_by([].{roleName:roleName, description:description}, &roleName)" \
-    --output table
+```powershell
+[Environment]::SetEnvironmentVariable("AZURE_CLIENT_ID", "<your-client-id>", "User")
+[Environment]::SetEnvironmentVariable("AZURE_TENANT_ID", "<your-tenant-id>", "User")
+[Environment]::SetEnvironmentVariable("AZURE_CLIENT_SECRET", "<your-client-secret>", "User")
 ```
 
-For example, to allow the service principal with the appId of `00001111-aaaa-2222-bbbb-3333cccc4444` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+System-level environment variables can also be set using PowerShell if you open it with the 'Run as Administrator' option:
 
-```azurecli
-az role assignment create --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
-    --scope "./subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example" \
-    --role "Storage Blob Data Contributor"
+```powershell
+[Environment]::SetEnvironmentVariable("AZURE_CLIENT_ID", "<your-client-id>", "Machine")
+[Environment]::SetEnvironmentVariable("AZURE_TENANT_ID", "<your-tenant-id>", "Machine")
+[Environment]::SetEnvironmentVariable("AZURE_CLIENT_SECRET", "<your-client-secret>", "Machine")
 ```
 
-For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
+### [Gunicorn](#tab/gunicorn)
 
-### [Azure portal](#tab/azure-portal)
+When using [Gunicorn](https://gunicorn.org/) to run Python web apps in a UNIX server environment, environment variables for an app can be specified by using the `EnvironmentFile` directive in the `gunicorn.service` file as shown below:
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Assign service principal to role step 1](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-1.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-1-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-1.png" alt-text="A screenshot showing the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." ::: |
-| [!INCLUDE [Assign service principal to role step 2](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-2.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-2-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-2.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." ::: |
-| [!INCLUDE [Assign service principal to role step 3](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-3.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-3-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-3.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." ::: |
-| [!INCLUDE [Assign service principal to role step 4](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-4.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-4-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-4.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." ::: |
-| [!INCLUDE [Assign service principal to role step 5](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-5.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-5-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-5.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." ::: |
-| [!INCLUDE [Assign service principal to role step 6](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-6.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-6-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-6.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." ::: |
-| [!INCLUDE [Assign service principal to role step 7](<../../../includes/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-7.md>)] | :::image type="content" source="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-7-240px.png" lightbox="../../../includes/media/sdk-auth-passwordless/assign-service-principal-to-role-azure-portal-7.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." ::: |
-
----
-
-## Configure environment variables for application
-
-You must set the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables for the process that runs your Python app to make the application service principal credentials available to your app at runtime. The [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) object looks for the service principal information in these environment variables.
-
-When using [Gunicorn](https://gunicorn.org/) to run Python web apps in a UNIX server environment, environment variables for an app can be specified by using the `EnvironmentFile` directive in the `gunicorn.server`. See the following example.
-
-```gunicorn.server
+```ini
 [Unit]
 Description=gunicorn daemon
-After=network.target  
-  
-[Service]  
+After=network.target
+
+[Service]
 User=www-user
 Group=www-data
 WorkingDirectory=/path/to/python-app
 EnvironmentFile=/path/to/python-app/py-env/app-environment-variables
-ExecStart=/path/to/python-app/py-env/gunicorn --config config.py wsgi:app
-            
-[Install]  
+ExecStart=/path/to/python-app/py-env/bin/gunicorn --config config.py wsgi:app
+
+[Install]
 WantedBy=multi-user.target
 ```
 
-The file specified in the `EnvironmentFile` directive should contain a list of environment variables with their values as follows.
+The file specified in the `EnvironmentFile` directive should contain a list of environment variables with their values as shown below:
 
 ```bash
-AZURE_CLIENT_ID=<value>
-AZURE_TENANT_ID=<value>
-AZURE_CLIENT_SECRET=<value>
+AZURE_CLIENT_ID=<your-client-id>
+AZURE_TENANT_ID=<your-tenant-id>
+AZURE_CLIENT_SECRET=<your-client-secret>
 ```
 
-## Implement DefaultAzureCredential in application
+---
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `azure.identity` package.
+## Authenticate to Azure services from your app
 
-Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
+To authenticate Azure SDK client objects to Azure, your application should use the `ClientSecretCredential` class from the `azure-identity` package.
+
+Start by adding the [azure-identity](https://pypi.org/project/azure-identity/) package to your application.
 
 ```terminal
 pip install azure-identity
@@ -153,22 +124,26 @@ pip install azure-identity
 
 Next, for any Python code that creates an Azure SDK client object in your app, you should:
 
-1. Import the `DefaultAzureCredential` class from the `azure.identity` module.
-1. Create a `DefaultAzureCredential` object.
-1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
+1. Import the `ClientSecretCredential` class from the `azure.identity` module.
+1. Import the `os` module to read environment variables.
+1. Read the environment variables to get the client ID, tenant ID, and client secret.
+1. Create a `ClientSecretCredential` object passing the tenant ID, client ID, and client secret.
+1. Pass the `ClientSecretCredential` object to the Azure SDK client object constructor.
 
 An example of this approach is shown in the following code segment.
 
 ```python
-from azure.identity import DefaultAzureCredential
+import os
+from azure.identity import ClientSecretCredential
 from azure.storage.blob import BlobServiceClient
 
-# Acquire a credential object
-token_credential = DefaultAzureCredential()
+tenant_id = os.environ.get("AZURE_TENANT_ID")
+client_id = os.environ.get("AZURE_CLIENT_ID")
+client_secret = os.environ.get("AZURE_CLIENT_SECRET")
+
+credential = ClientSecretCredential(tenant_id, client_id, client_secret)
 
 blob_service_client = BlobServiceClient(
-        account_url="https://<my_account_name>.blob.core.windows.net",
-        credential=token_credential)
+    account_url="https://<my_account_name>.blob.core.windows.net",
+    credential=credential)
 ```
-
-From this example, when the code instantiates the `DefaultAzureCredential` object, `DefaultAzureCredential` reads the environment variables `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` for the application service principal information to connect to Azure with.
