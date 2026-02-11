@@ -133,12 +133,11 @@ Install the Node.js SDK package using npm.
 npm install @github/copilot-sdk
 ```
 
-### Sample code
-
-The following TypeScript code demonstrates a complete flow:
+The following code demonstrates a complete flow:
 
 ```typescript
-import { CopilotClient, SessionEventType } from '@github/copilot-sdk';
+import { CopilotClient } from '@github/copilot-sdk';
+import type { MCPLocalServerConfig } from '@github/copilot-sdk';
 
 async function main() {
   // Initialize the Copilot client
@@ -152,9 +151,9 @@ async function main() {
   await client.start();
 
   // Configure Azure MCP server in session config
-  const azureMcpConfig = {
+  const azureMcpConfig: Record<string, MCPLocalServerConfig> = {
     'azure-mcp': {
-      type: 'local' as const,
+      type: 'local',
       command: 'npx',
       args: ['-y', '@azure/mcp@latest', 'server', 'start'],
       tools: ['*'],  // Enable all Azure MCP tools
@@ -170,11 +169,11 @@ async function main() {
 
   // Handle events
   session.on((event) => {
-    if (event.type === SessionEventType.ASSISTANT_MESSAGE_DELTA) {
+    if (event.type === 'assistant.message_delta') {
       if (event.data?.deltaContent) {
         process.stdout.write(event.data.deltaContent);
       }
-    } else if (event.type === SessionEventType.TOOL_EXECUTION_START) {
+    } else if (event.type === 'tool.execution_start') {
       const toolName = event.data?.toolName || 'unknown';
       console.log(`\n[TOOL: ${toolName}]`);
     }
@@ -182,7 +181,7 @@ async function main() {
 
   // Send prompt
   await session.sendAndWait({
-    prompt: 'List all resource groups in my Azure subscription'
+    prompt: 'List all resource groups in my Azure subscription 16caa5c4-46f1-4bfd-8c1b-a99f1efc8845'
   });
 
   await client.stop();
@@ -215,66 +214,56 @@ The following C# code demonstrates a complete flow:
 
 ```csharp
 using GitHub.Copilot.SDK;
-using GitHub.Copilot.SDK.Models;
 
-class Program
+// Initialize the Copilot client
+await using var client = new CopilotClient(new CopilotClientOptions
 {
-    static async Task Main(string[] args)
+    CliArgs = new[] { "--allow-all-tools", "--allow-all-paths" }
+});
+
+await client.StartAsync();
+
+// Configure Azure MCP server in session config
+var mcpServers = new Dictionary<string, object>
+{
+    ["azure-mcp"] = new McpLocalServerConfig
     {
-        // Initialize the Copilot client
-        var client = new CopilotClient(new CopilotClientOptions
-        {
-            CliArgs = new[] { "--allow-all-tools", "--allow-all-paths" }
-        });
-
-        await client.StartAsync();
-
-        // Configure Azure MCP server in session config
-        var azureMcpConfig = new Dictionary<string, MCPServerConfig>
-        {
-            ["azure-mcp"] = new MCPServerConfig
-            {
-                Type = "local",
-                Command = "npx",
-                Args = new[] { "-y", "@azure/mcp@latest", "server", "start" },
-                Tools = new[] { "*" }  // Enable all Azure MCP tools
-            }
-        };
-
-        // Create session with MCP servers
-        var session = await client.CreateSessionAsync(new SessionConfig
-        {
-            Model = "gpt-4.1",  // Default model; BYOK can override
-            Streaming = true,
-            McpServers = azureMcpConfig
-        });
-
-        // Handle events
-        session.OnEvent += (sender, e) =>
-        {
-            switch (e.Type)
-            {
-                case SessionEventType.AssistantMessageDelta:
-                    if (!string.IsNullOrEmpty(e.Data?.DeltaContent))
-                    {
-                        Console.Write(e.Data.DeltaContent);
-                    }
-                    break;
-                case SessionEventType.ToolExecutionStart:
-                    Console.WriteLine($"\n[TOOL: {e.Data?.ToolName}]");
-                    break;
-            }
-        };
-
-        // Send prompt
-        await session.SendAndWaitAsync(new Message
-        {
-            Prompt = "List all resource groups in my Azure subscription"
-        });
-
-        await client.StopAsync();
+        Type = "local",
+        Command = "npx",
+        Args = ["-y", "@azure/mcp@latest", "server", "start"],
+        Tools = ["*"]  // Enable all Azure MCP tools
     }
-}
+};
+
+// Create session with MCP servers
+await using var session = await client.CreateSessionAsync(new SessionConfig
+{
+    Model = "gpt-4.1",  // Default model; BYOK can override
+    Streaming = true,
+    McpServers = mcpServers
+});
+
+// Handle events
+session.On(evt =>
+{
+    if (evt is AssistantMessageDeltaEvent delta)
+    {
+        if (!string.IsNullOrEmpty(delta.Data.DeltaContent))
+        {
+            Console.Write(delta.Data.DeltaContent);
+        }
+    }
+    else if (evt is ToolExecutionStartEvent toolStart)
+    {
+        Console.WriteLine($"\n[TOOL: {toolStart.Data.ToolName}]");
+    }
+});
+
+// Send prompt
+await session.SendAndWaitAsync(new MessageOptions
+{
+    Prompt = "List all resource groups in my Azure subscription"
+});
 ```
 
 The preceding code:
