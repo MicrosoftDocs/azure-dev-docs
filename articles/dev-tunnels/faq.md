@@ -63,4 +63,4 @@ When using the `devtunnel` CLI for the first time, you see a link to the dev tun
 - [Local Port Forwarding built into Visual Studio Code](https://code.visualstudio.com/docs/editor/port-forwarding)
 - [Teams Toolkit for Visual Studio Code Update – April 2023](https://devblogs.microsoft.com/microsoft365dev/teams-toolkit-for-visual-studio-code-update-april-2023/)
 - [Debug and test your web APIs within Microsoft Power Automate or Power Apps](/connectors/custom-connectors/port-tunneling)
-- [GitHub Codespaces]([url](https://github.com/features/codespaces))
+- [GitHub Codespaces](https://github.com/features/codespaces)
