@@ -12,7 +12,7 @@ ai-usage: ai-generated
 
 # Layered provisioning
 
-Azure Developer CLI (`azd`) supports layered provisioning, which lets you define multiple provisioning layers in your `azure.yaml` file, each pointing to its own set of Infrastructure as Code (IaC) templates. Layers are provisioned sequentially in the order they're defined, and you can provision or tear down individual layers independently.
+Azure Developer CLI (`azd`) supports layered provisioning, which you can use to define multiple provisioning layers in your `azure.yaml` file. Each layer points to its own set of Infrastructure as Code (IaC) templates. The CLI provisions layers sequentially in the order you define them. You can also provision or tear down individual layers independently.
 
 This feature solves complex dependency scenarios where resources in one layer depend on resources from another layer. Instead of mixing IaC with imperative hook scripts, layered provisioning keeps everything declarative.
 
@@ -22,11 +22,11 @@ This feature solves complex dependency scenarios where resources in one layer de
 
 ## When to use layered provisioning
 
-Layered provisioning is designed for scenarios where a single `azd provision` deployment can't handle all of your infrastructure needs in one step. Consider using layered provisioning when:
+Use layered provisioning when a single `azd provision` deployment can't handle all of your infrastructure needs in one step. Consider using layered provisioning when:
 
 - **Circular or chicken-and-egg dependencies exist**: Some resources need to reference other resources that must be created first, such as a virtual network that must exist before a private endpoint can be configured.
-- **Foundational infrastructure differs from application infrastructure**: Shared networking, security, or identity resources are managed separately from per-application resources.
-- **Independent lifecycle management is needed**: Different infrastructure components are updated and torn down at different times. For example, a networking layer might be long-lived, while an application layer is frequently redeployed.
+- **Foundational infrastructure differs from application infrastructure**: You manage shared networking, security, or identity resources separately from per-application resources.
+- **Independent lifecycle management is needed**: You update and tear down different infrastructure components at different times. For example, a networking layer might be long-lived, while an application layer is frequently redeployed.
 - **Monorepo projects with distinct infrastructure groups**: A single repository contains multiple independent services (such as an Event Hub, a Container App, and a Function App), each with its own infrastructure templates.
 
 ## Enable layered provisioning
@@ -66,13 +66,13 @@ Each layer supports the following properties:
 
 | Property | Required | Description |
 | -------- | -------- | ----------- |
-| `name` | Yes | A unique name for the layer. Used when targeting a specific layer with commands. |
+| `name` | Yes | A unique name for the layer. Use this name when targeting a specific layer with commands. |
 | `path` | Yes | The relative path to the directory containing the IaC templates for this layer. |
 | `module` | No | The name of the module within the layer's directory. Defaults to `main`. |
-| `provider` | No | The IaC provider for this layer (`bicep` or `terraform`). Inherits from the root `infra.provider` if not specified. |
+| `provider` | No | The IaC provider for this layer (`bicep` or `terraform`). Inherits from the root `infra.provider` if you don't specify it. |
 
 > [!IMPORTANT]
-> When `infra.layers` is defined, other properties on the `infra` section (`path`, `module`, `deploymentStacks`) can't also be declared at the root level. All infrastructure configuration must be specified within each layer.
+> When you define `infra.layers`, you can't declare other properties on the `infra` section (`path`, `module`, `deploymentStacks`) at the root level. You must specify all infrastructure configuration within each layer.
 
 ### Directory structure
 
@@ -96,7 +96,7 @@ Each layer directory contains its own complete set of IaC templates, just as a s
 ## Provision layers
 
 > [!IMPORTANT]
-> **Layer processing order:** `azd provision` processes layers **top to bottom** in the order they're listed in `azure.yaml`. `azd down` processes layers in **reverse order** (bottom to top). Define your layers so that foundational resources appear first, followed by layers that depend on them. This ensures dependencies are created before the resources that need them, and removed after.
+> **Layer processing order:** `azd provision` processes layers **top to bottom** in the order they're listed in `azure.yaml`. `azd down` processes layers in **reverse order** (bottom to top). Define your layers so that foundational resources appear first, followed by layers that depend on them. This order ensures you create dependencies before the resources that need them, and remove dependencies after those resources.
 
 ### Provision all layers
 
@@ -106,7 +106,7 @@ Run `azd provision` without arguments to provision all layers sequentially in th
 azd provision
 ```
 
-`azd` processes each layer one at a time, ensuring the first layer completes before the second layer begins. This guarantees that dependent resources exist before layers that reference them are deployed.
+`azd` processes each layer one at a time, ensuring the first layer completes before the second layer begins. This process guarantees that dependent resources exist before layers that reference them are deployed.
 
 ### Provision a specific layer
 
@@ -126,7 +126,7 @@ This command deploys only the resources defined in the `networking` layer. Provi
 
 ### Tear down all layers
 
-Run `azd down` without arguments to tear down resources from all layers. When multiple layers are defined, `azd` processes them in **reverse order**, so dependent resources are removed before the foundational resources they depend on:
+Run `azd down` without arguments to tear down resources from all layers. When multiple layers exist, `azd` processes them in **reverse order**, so dependent resources are removed before the foundational resources they depend on:
 
 ```azdeveloper
 azd down
@@ -144,13 +144,13 @@ This command removes only the resources deployed by the `application` layer, lea
 
 ## Refresh environment state
 
-You can refresh the environment state from a specific layer using the `--layer` flag with `azd env refresh`:
+You can refresh the environment state from a specific layer by using the `--layer` flag with `azd env refresh`:
 
 ```azdeveloper
 azd env refresh --layer networking
 ```
 
-This updates the environment variables and outputs based on the most recent deployment of the specified layer.
+This command updates the environment variables and outputs based on the most recent deployment of the specified layer.
 
 ## Example: Monorepo with multiple services
 
@@ -246,11 +246,11 @@ infra:
 
 ## Considerations and limitations
 
-- When provisioning all layers, `azd` processes them sequentially in the order they're defined.  Plan your layer order so that foundational resources are provisioned first.
+- When provisioning all layers, `azd` processes them sequentially in the order you define.  Plan your layer order so that foundational resources are provisioned first.
 - When tearing down all layers, `azd` processes them in reverse order.
-- The `--preview` flag can't be used when provisioning multiple layers at once. Specify a `<layer>` name to use preview mode.
+- You can't use the `--preview` flag when provisioning multiple layers at once. Specify a `<layer>` name to use preview mode.
 - Layers operate independently in terms of IaC. To reference outputs from one layer in another layer, use environment variables that `azd` sets after each layer's deployment.
-- All standard `azd` provisioning features (deployment state caching, hooks, parameters, Bicep or Terraform) work within each individual layer.
+- All standard `azd` provisioning features (deployment state caching, hooks, parameters, Bicep, or Terraform) work within each individual layer.
 
 ## Next steps
 
