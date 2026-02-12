@@ -21,14 +21,7 @@ Token-based authentication through Microsoft Entra ID is the recommended approac
 
 ### Advantages of token-based authentication for Java apps
 
-Token-based authentication offers the following advantages over connection strings:
-
-- Token-based authentication ensures that only the specific apps intended to access the Azure resource can access it, whereas anyone or any app with a connection string can connect to an Azure resource.
-- Token-based authentication enables you to limit Azure resource access to only the specific permissions needed by the app. This approach follows the [principle of least privilege](https://wikipedia.org/wiki/Principle_of_least_privilege). In contrast, a connection string grants full rights to the Azure resource.
-- When you use a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for token-based authentication, Azure handles administrative functions for you, so you don't need to worry about tasks like securing or rotating secrets. This approach makes the app more secure because there's no connection string or application secret that can be compromised.
-- The Azure Identity library acquires and manages Microsoft Entra tokens for you.
-
-Limit use of connection strings to scenarios where token-based authentication isn't an option, initial proof-of-concept apps, or development prototypes that don't access production or sensitive data. When possible, use the token-based authentication classes available in the Azure Identity library to authenticate to Azure resources.
+[!INCLUDE [advantages-token-based-authentication](../../../includes/authentication/advantages-token-based-authentication.md)]
 
 ## Authentication across different environments
 
@@ -50,13 +43,15 @@ When you host your app on Azure, it can use managed identities to authenticate t
 
 You can create a user-assigned managed identity as a standalone Azure resource. You can then assign it to one or more Azure resources so those resources can share the same identity and permissions. To authenticate by using a user-assigned managed identity, create the identity, assign it to your Azure resource, and then configure your app to use this identity for authentication by specifying its client ID, resource ID, or object ID.
 
-For more information, see [Authenticate Azure-hosted Java apps to Azure resources by using a user-assigned managed identity](user-assigned-managed-identity.md).
+> [!div class="nextstepaction"]
+> [Authenticate by using a user-assigned managed identity](user-assigned-managed-identity.md).
 
 ### Use a system-assigned managed identity
 
 You can enable a system-assigned managed identity directly on an Azure resource. The identity is tied to the lifecycle of that resource and is automatically deleted when the resource is deleted. To authenticate by using a system-assigned managed identity, enable the identity on your Azure resource and then configure your app to use this identity for authentication.
 
-For more information, see [Authenticate Azure-hosted Java apps to Azure resources by using a system-assigned managed identity](system-assigned-managed-identity.md).
+> [!div class="nextstepaction"]
+> [Authenticate by using a system-assigned managed identity](system-assigned-managed-identity.md).
 
 ## Authentication during local development
 
@@ -66,13 +61,15 @@ During local development, you can authenticate to Azure resources by using your 
 
 You can use your own Azure credentials to authenticate to Azure resources during local development. Typically, you use a development tool such as Azure CLI, Azure Developer CLI, Azure PowerShell, Visual Studio Code, or IntelliJ IDEA. These tools can provide your app with the necessary tokens to access Azure services. This method is convenient but you should use it only for development purposes.
 
-For more information, see [Authenticate Java apps to Azure services during local development by using developer accounts](local-development-dev-accounts.md).
+> [!div class="nextstepaction"]
+> [Authenticate locally by using developer accounts](local-development-dev-accounts.md).
 
 ### Use a service principal
 
 You can create a service principal in a Microsoft Entra tenant to represent an app and authenticate to Azure resources. You can configure your app to use service principal credentials during local development. This method is more secure than using developer credentials and is closer to how your app authenticates in production. However, it's still less ideal than using a managed identity due to the need for secrets.
 
-For more information, see [Authenticate Java apps to Azure services during local development by using service principals](local-development-service-principal.md).
+> [!div class="nextstepaction"]
+> [Authenticate locally by using service principals](local-development-service-principal.md).
 
 ## Add the Maven dependencies
 

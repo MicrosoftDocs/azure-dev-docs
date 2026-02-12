@@ -71,25 +71,7 @@ Authenticate by using the Azure Toolkit for IntelliJ plugin. Use the following s
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
-Sign in as a user by using the following [Azure CLI](/cli/azure) command:
-
-```azurecli
-az login
-```
-
-If the account or service principal has access to multiple tenants, make sure the desired tenant or subscription is in the "Enabled" state in the output from the following command:
-
-```azurecli
-az account list
-```
-
-Before you use `AzureCliCredential` in code, run the following command to verify that the account is successfully configured:
-
-```azurecli
-az account get-access-token
-```
-
-You might need to repeat this process after a certain time period, depending on the refresh token validity in your organization. Generally, the refresh token validity period is a few weeks to a few months. `AzureCliCredential` prompts you to sign in again.
+[!INCLUDE [sign-in-azure-cli](../../../includes/authentication/sign-in-azure-cli.md)]
 
 ### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
 
@@ -103,7 +85,7 @@ You might need to repeat this process after a certain time period, depending on 
 
 ## Authenticate to Azure services from your app
 
-The [Azure Identity library](/java/api/com.azure.identity) provides implementations of [TokenCredential](/java/api/com.azure.core.credential.tokencredential) that support various scenarios and Microsoft Entra authentication flows. The following steps show you how to use `DefaultAzureCredential` or a specific development tool credential when working with user accounts locally.
+The [Azure Identity library](/java/api/com.azure.identity) provides implementations of [TokenCredential](/java/api/com.azure.core.credential.tokencredential) that support various scenarios and Microsoft Entra authentication flows. The following steps show you how to use [DefaultAzureCredential](credential-chains.md#defaultazurecredential-overview) or a specific development tool credential when working with user accounts locally.
 
 ### Implement the code
 
