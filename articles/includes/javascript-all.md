@@ -242,6 +242,7 @@
 | Resource Management - Durable Task | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-durabletask/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-durabletask-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-durabletask_1.0.0/sdk/durabletask/arm-durabletask/) |
 | Resource Management - Dynatrace | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-dynatrace/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-dynatrace-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dynatrace_2.0.0/sdk/dynatrace/arm-dynatrace/) |
 | Resource Management - Edge Zones | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-edgezones/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-edgezones-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgezones_1.0.0-beta.3/sdk/edgezones/arm-edgezones/) |
+| Resource Management - Edgeactions | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-edgeactions/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-edgeactions-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-edgeactions_1.0.0-beta.1/sdk/edgeactions/arm-edgeactions/) |
 | Resource Management - Education | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-education/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-education-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-education_1.0.0-beta.3/sdk/education/arm-education/) |
 | Resource Management - Elastic | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-elastic/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-elastic-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_2.0.0/sdk/elastic/arm-elastic/) |
 | Resource Management - Elasticsan | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.1.0)<br>npm [1.2.0-beta.2](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.2.0-beta.2) | [docs](/javascript/api/overview/azure/arm-elasticsan-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.1.0/sdk/elasticsans/arm-elasticsan/)<br>GitHub [1.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.2.0-beta.2/sdk/elasticsans/arm-elasticsan/) |
@@ -431,9 +432,9 @@
 | @typespec/tspd | npm [0.74.0](https://www.npmjs.com/package/@typespec/tspd/v/0.74.0) |  |  |
 | @typespec/xml | npm [0.79.0](https://www.npmjs.com/package/@typespec/xml/v/0.79.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
-| App Configuration Provider | npm [2.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/2.0.0-preview) |  |  |
-| App Configuration Provider | npm [2.3.1](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.3.1) |  |  |
-| App Configuration Provider File Source | npm [2.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/2.0.0-preview) |  |  |
+| App Configuration Provider | npm [3.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/3.0.0-preview) |  |  |
+| App Configuration Provider | npm [2.4.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/2.4.0) |  |  |
+| App Configuration Provider File Source | npm [3.0.0-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/3.0.0-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Spec Gen SDK | npm [0.9.6](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.9.6) |  |  |
 | tmlanguage-generator | npm [0.6.7](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.7) |  |  |
@@ -450,7 +451,7 @@
 | TypeSpec Streams | npm [0.79.0](https://www.npmjs.com/package/@typespec/streams/v/0.79.0) |  |  |
 | Unknown Display Name | npm [10.29.1](https://www.npmjs.com/package/@azure-tools/azcopy-win-arm64/v/10.29.1) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/liftr-extract-rp-metadata/v/0.11.0) |  |  |
-| Unknown Display Name | npm [1.9.0](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/1.9.0) |  |  |
+| Unknown Display Name | npm [1.10.0](https://www.npmjs.com/package/@azure-tools/openai-typespec/v/1.10.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-utils-vitest/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-emitter/v/0.11.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-metadata/v/0.1.0) |  |  |
