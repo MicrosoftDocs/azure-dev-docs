@@ -2,15 +2,16 @@
 title: Azure Compute tools for managing virtual machines
 description: Discover Azure Compute tools for managing virtual machines and scale sets in Azure MCP Server. Explore features and start optimizing your resources.
 #customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
-ms.date: 02/08/2026
+ms.date: 02/12/2026
 keywords: Azure, MCP Server, compute, tools, virtual machines, scalability
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.reviewer: vigera
 tool_count: 2
+optional_parameter: true
 ---
 
-# Azure Compute tools for managing virtual machines
+# Azure Compute tools for the Azure MCP Server overview
 
 The MCP Server lets you manage virtual machines, handle load balancing, and achieve scalability with natural language prompts.
 
@@ -34,8 +35,8 @@ Example prompts include:
 
 | Parameter          | Required or optional | Description                                                                                          |
 |--------------------|----------------------|------------------------------------------------------------------------------------------------------|
-| **Resource group** |  Conditionally required | Required if **VM name** is provided. The name of the Azure resource group. Returns all VMs in the resource group if specified without VM name. |
-| **VM name**        | Optional | The name of the virtual machine. Requires **Resource group**. |
+| **Resource group** |  Optional* | The name of the Azure resource group. Returns all VMs in the resource group if specified without VM name. *Required if **VM name** is provided.* |
+| **VM name**        | Optional* | The name of the virtual machine. *Required if **Resource group** is provided.* |
 | **Instance view**  | Optional               | Include instance view details when retrieving a specific VM. Valid values: `true`, `false`. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
@@ -58,8 +59,8 @@ Example prompts include:
 
 | Parameter       | Required or Optional | Description                                                    |
 |------------------|----------------------|----------------------------------------------------------------|
-| **Resource group**      | Conditionally required | Required if **VM scale set name** is provided. The name of the Azure resource group. Returns all VM scale sets in the resource group if specified without VM scale set name. |
-| **VM scale set name**   | Conditionally required | The name of the virtual machine scale set. Requires **Resource group**. |
+| **Resource group**      | Optional* | The name of the Azure resource group. Returns all VM scale sets in the resource group if specified without VM scale set name. *Required if **VM scale set name** is provided.* |
+| **VM scale set name**   | Optional* | The name of the virtual machine scale set. *Required if **Resource group** is provided.* |
 | **Instance ID**         | Optional | The instance ID of the VM in the scale set. Requires **VM scale set name** and **Resource group**. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
