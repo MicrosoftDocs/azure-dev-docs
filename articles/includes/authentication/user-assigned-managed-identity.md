@@ -56,7 +56,7 @@ A user-assigned managed identity can be associated with one or more Azure resour
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, navigate to the resource that hosts your app code, such as an Azure App Service or Azure Container App instance.
+1. In the Azure portal, navigate to the resource that hosts your app code, such as an Azure App Service or Azure Container Apps instance.
 1. From the resource's **Overview** page, expand **Settings** and select **Identity** from the navigation.
 1. On the **Identity** page, switch to the **User assigned** tab.
 1. Select **+ Add** to open the **Add user assigned managed identity** panel.

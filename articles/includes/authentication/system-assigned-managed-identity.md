@@ -7,13 +7,13 @@ ms.author: diberry
 ---
 ## Enable a system-assigned managed identity on the Azure hosting resource
 
-To get started using a system-assigned managed identity with your app, enable the identity on the Azure resource hosting your app, such as an Azure App Service, Azure Container App, or Azure Virtual Machine.
+To get started using a system-assigned managed identity with your app, enable the identity on the Azure resource hosting your app, such as an Azure App Service, Azure Container Apps, or Azure Virtual Machine.
 
 You can enable a system-assigned managed identity for an Azure resource using either the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, navigate to the resource that hosts your application code, such as an Azure App Service or Azure Container App instance.
+1. In the Azure portal, navigate to the resource that hosts your application code, such as an Azure App Service or Azure Container Apps instance.
 1. From the resource's **Overview** page, expand **Settings** and select **Identity** from the navigation.
 1. On the **Identity** page, toggle the **Status** slider to **On**.
 1. Select **Save** to apply your changes.
@@ -32,6 +32,15 @@ Azure App Service:
 az webapp identity assign \
     --resource-group <resource-group-name> \
     --name <web-app-name>
+```
+
+Azure Container Apps:
+
+```azurecli
+az containerapp identity assign \
+    --resource-group <resource-group-name> \
+    --name <container-app-name> \
+    --system-assigned
 ```
 
 Azure Virtual Machine:
