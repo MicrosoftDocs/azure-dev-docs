@@ -24,22 +24,10 @@ This feature solves complex dependency scenarios where resources in one layer de
 
 Use layered provisioning when a single `azd provision` deployment can't handle all of your infrastructure needs in one step. Consider using layered provisioning when:
 
-- **Circular or chicken-and-egg dependencies exist**: Some resources need to reference other resources that must be created first, such as a virtual network that must exist before a private endpoint can be configured.
+- **Circular dependencies**: Some resources need to reference other resources that must be created first, such as a virtual network that must exist before a private endpoint can be configured.
 - **Foundational infrastructure differs from application infrastructure**: You manage shared networking, security, or identity resources separately from per-application resources.
 - **Independent lifecycle management is needed**: You update and tear down different infrastructure components at different times. For example, a networking layer might be long-lived, while an application layer is frequently redeployed.
 - **Monorepo projects with distinct infrastructure groups**: A single repository contains multiple independent services (such as an Event Hub, a Container App, and a Function App), each with its own infrastructure templates.
-
-## Enable layered provisioning
-
-Layered provisioning is currently a beta feature. Beta features are available by default and don't require explicit opt-in. Beta commands are denoted as **Beta** in `azd` product help.
-
-Make sure you're running `azd` version 1.21.2 or later:
-
-```bash
-azd version
-```
-
-If you need to update, see [Install or update azd](install-azd.md).
 
 ## Configure layers in azure.yaml
 
@@ -59,6 +47,9 @@ services:
     language: js
     host: containerapp
 ```
+
+> [!IMPORTANT]
+> **Layer processing order:** `azd provision` processes layers **top to bottom** in the order they're listed in `azure.yaml`. `azd down` processes layers in **reverse order** (bottom to top). Define your layers so that foundational resources appear first, followed by layers that depend on them. This order ensures you create dependencies before the resources that need them, and remove dependencies after those resources.
 
 ### Layer properties
 
@@ -93,10 +84,9 @@ my-app/
 
 Each layer directory contains its own complete set of IaC templates, just as a standard `azd` project's `infra` directory would.
 
-## Provision layers
+## Provision and manage layers
 
-> [!IMPORTANT]
-> **Layer processing order:** `azd provision` processes layers **top to bottom** in the order they're listed in `azure.yaml`. `azd down` processes layers in **reverse order** (bottom to top). Define your layers so that foundational resources appear first, followed by layers that depend on them. This order ensures you create dependencies before the resources that need them, and remove dependencies after those resources.
+You can provision all layers at once or target a specific layer by name. The following sections describe common commands for provisioning, tearing down, and refreshing layer state.
 
 ### Provision all layers
 
@@ -122,8 +112,6 @@ This command deploys only the resources defined in the `networking` layer. Provi
 - You need to update one layer without redeploying others.
 - You're setting up a new layer on top of existing infrastructure.
 
-## Tear down layers
-
 ### Tear down all layers
 
 Run `azd down` without arguments to tear down resources from all layers. When multiple layers exist, `azd` processes them in **reverse order**, so dependent resources are removed before the foundational resources they depend on:
@@ -142,7 +130,7 @@ azd down application
 
 This command removes only the resources deployed by the `application` layer, leaving the other layers intact.
 
-## Refresh environment state
+### Refresh environment state
 
 You can refresh the environment state from a specific layer by using the `--layer` flag with `azd env refresh`:
 
