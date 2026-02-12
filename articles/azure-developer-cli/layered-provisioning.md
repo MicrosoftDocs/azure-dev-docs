@@ -35,7 +35,7 @@ Layered provisioning is currently a beta feature. Beta features are available by
 
 Make sure you're running `azd` version 1.21.2 or later:
 
-```azdeveloper
+```bash
 azd version
 ```
 
@@ -102,7 +102,7 @@ Each layer directory contains its own complete set of IaC templates, just as a s
 
 Run `azd provision` without arguments to provision all layers sequentially in the order they're defined in `azure.yaml`:
 
-```azdeveloper
+```bash
 azd provision
 ```
 
@@ -112,7 +112,7 @@ azd provision
 
 To provision only a specific layer, pass the layer name as an argument:
 
-```azdeveloper
+```bash
 azd provision networking
 ```
 
@@ -128,7 +128,7 @@ This command deploys only the resources defined in the `networking` layer. Provi
 
 Run `azd down` without arguments to tear down resources from all layers. When multiple layers exist, `azd` processes them in **reverse order**, so dependent resources are removed before the foundational resources they depend on:
 
-```azdeveloper
+```bash
 azd down
 ```
 
@@ -136,7 +136,7 @@ azd down
 
 To tear down only a specific layer, pass the layer name as an argument:
 
-```azdeveloper
+```bash
 azd down application
 ```
 
@@ -146,7 +146,7 @@ This command removes only the resources deployed by the `application` layer, lea
 
 You can refresh the environment state from a specific layer by using the `--layer` flag with `azd env refresh`:
 
-```azdeveloper
+```bash
 azd env refresh --layer networking
 ```
 
@@ -222,7 +222,7 @@ The `base` layer creates shared resources like networking, identity, and monitor
 
 During development, you might provision the base layer once and iterate on the application layer:
 
-```azdeveloper
+```bash
 azd provision base
 azd provision app
 azd provision app  # re-provision only the app layer after changes
