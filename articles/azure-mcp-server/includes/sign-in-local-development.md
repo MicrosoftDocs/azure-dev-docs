@@ -4,7 +4,7 @@ ms.date: 02/12/2026
 ---
 ## Sign in to Azure MCP Server for local development
 
-Azure MCP Server authenticates to [Microsoft Entra ID](/entra/identity/) using the [Azure Identity library for .NET](/dotnet/azure/sdk/authentication/). The server supports two authentication modes:
+Azure MCP Server authenticates to [Microsoft Entra ID](/entra/identity/) using the [Azure Identity library for .NET](/dotnet/azure/sdk/authentication/). The server supports [two authentication modes](https://github.com/microsoft/mcp/blob/main/docs/Authentication.md#authentication-fundamentals):
 
 - **Broker mode**: Uses your operating system's native authentication (like Windows Web Account Manager) with `InteractiveBrowserCredential`.
 - **Credential chain mode**: Tries multiple authentication methods in sequence: environment variables, Visual Studio Code, Visual Studio, Azure CLI, Azure PowerShell, Azure Developer CLI, and interactive browser authentication.
