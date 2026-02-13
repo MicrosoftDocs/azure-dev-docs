@@ -65,48 +65,29 @@ Example prompts include:
 
 [!INCLUDE [keyvault key create](../includes/tools/annotations/azure-key-vault-key-create-annotations.md)]
 
-## Keys: Get key
+## Keys: Get or list keys
 
 <!-- keyvault key get -->
 
-The Azure MCP Server can retrieve details of a specific key from an Azure Key Vault. This allows you to view key properties and metadata.
+The Azure MCP Server can retrieve details of a specific key or list all keys in an Azure Key Vault. When you provide a key name, it returns details for that specific key. When you omit the key name, it lists all keys in the vault.
 
 Example prompts include:
 
-- "Show me details of the key 'app-encryption-key' in my key vault 'mykeyvault'"
-- "What is the key type of 'signing-key' in key vault 'security-kv'?"
-- "Is the key 'data-key' enabled in key vault 'mykeyvault'?"
-- "When does the key 'encryption-key' expire in key vault 'mykeyvault'?"
-- "Get the properties of key 'jwt-signing' in key vault 'api-vault'"
+- **Get key details**: "Show me details of the 'app-encryption-key' in my 'mykeyvault' Key Vault."
+- **View key info**: "Get information about the 'signing-key' in Key Vault 'security-kv'"
+- **List all keys**: "Show me all keys in my 'mykeyvault' Key Vault."
+- **View keys**: "What keys do I have in Key Vault 'security-kv'?"
+- **Query keys**: "Show all keys including managed keys in my Key Vault"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Key** | Required | The name of the key to retrieve. |
+| **Key** | Optional | The name of the key to retrieve. Omit to list all keys. |
+| **Include managed** | Optional | Whether or not to include managed keys when listing. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [keyvault key get](../includes/tools/annotations/azure-key-vault-key-get-annotations.md)]
-
-## Keys: List keys
-
-<!-- keyvault key list -->
-
-The Azure MCP Server can list all keys in an Azure Key Vault. This operation helps you manage your cryptographic keys and view your key inventory.
-
-Example prompts include:
-
-- "List all non-managed keys in key vault 'central-keys'"
-- "Which non-managed keys are available in key vault 'encryption-vault'?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Vault** | Required | The name of the Key Vault. |
-| **Include managed** | Required | Whether or not to include managed keys in results. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [keyvault key list](../includes/tools/annotations/azure-key-vault-key-list-annotations.md)]
 
 ## Secrets: Create secret
 
@@ -131,50 +112,28 @@ Example prompts include:
 
 [!INCLUDE [keyvault secret create](../includes/tools/annotations/azure-key-vault-secret-create-annotations.md)]
 
-## Secrets: Get secret
+## Secrets: Get or list secrets
 
 <!-- keyvault secret get -->
 
-The Azure MCP Server can retrieve a specific secret from a Key Vault. This is useful for accessing sensitive configuration values, API keys, connection strings, and other secrets stored securely in Azure Key Vault. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data).
+The Azure MCP Server can retrieve a specific secret or list all secrets in a Key Vault. When you provide a secret name, it returns that specific secret value. When you omit the secret name, it lists all secrets in the vault. This operation requires [user consent](index.md#user-confirmation-for-sensitive-data) when retrieving a specific secret value.
 
 Example prompts include:
 
-- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my key vault 'production-vault'."
-- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' key vault"
-- **Check secret value**: "What is the value of the 'ssl-certificate-password' secret in my key vault?"
-- **Retrieve configuration**: "Get the 'app-config-secret' from vault 'eastus-keyvault'"
-- **Access credentials**: "Show me the 'service-principal-secret' from my production key vault"
+- **Get specific secret**: "Retrieve the 'database-connection-string' secret from my 'production-vault' Key Vault."
+- **Access API key**: "Get the 'third-party-api-key' secret from the 'api-secrets' vault"
+- **List all secrets**: "Show me all secrets in my 'production-vault' Key Vault."
+- **View secrets**: "What secrets do I have in Key Vault 'api-secrets'?"
+- **Find secrets**: "List secrets in my Key Vault 'configuration-kv'"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Secret** | Required | The name of the secret to retrieve. |
+| **Name** | Optional | The name of the secret to retrieve. Omit to list all secrets. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
-[!INCLUDE [keyvault secret get](../includes/tools/annotations/azure-key-vault-secret-get-annotations.md)]
-
-## Secrets: List secrets
-
-<!-- keyvault secret list -->
-
-The Azure MCP Server can list all secrets in an Azure Key Vault. This operation helps you manage your stored secrets and view your secret inventory. 
-
-Example prompts include:
-
-- **List all secrets**: "Show me all secrets in my key vault 'production-vault'."
-- **View secrets**: "What secrets do I have in key vault 'api-secrets'?"
-- **Find secrets**: "List secrets in my key vault 'configuration-kv'"
-- **Query secrets**: "Show all secrets in my key vault"
-- **Check inventory**: "What secrets are stored in my 'eastus-keyvault'?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Vault** | Required | The name of the Key Vault. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [keyvault secret list](../includes/tools/annotations/azure-key-vault-secret-list-annotations.md)]
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ✅ (when retrieving specific secret) | Local Required: ❌
 
 ## Certificates: Create certificate
 
@@ -199,24 +158,24 @@ Example prompts include:
 
 [!INCLUDE [keyvault certificate create](../includes/tools/annotations/azure-key-vault-certificate-create-annotations.md)]
 
-## Certificates: Get certificate
+## Certificates: Get or list certificates
 
 <!-- keyvault certificate get -->
 
-The Azure MCP Server retrieves details of a specific certificate from an Azure Key Vault. With this information, you can view certificate properties, expiration dates, and metadata.
+The Azure MCP Server can retrieve details of a specific certificate or list all certificates in an Azure Key Vault. When you provide a certificate name, it returns details for that specific certificate. When you omit the certificate name, it lists all certificates in the vault.
 
 Example prompts include:
 
-- **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my key vault 'production-vault'."
-- **View certificate info**: "Get information about the 'api-tls-cert' certificate in key vault 'security-kv'"
-- **Retrieve certificate**: "Get properties of the 'app-certificate' in key vault 'mykeyvault'"
-- **Check certificate**: "Show me the details of certificate 'ssl-certificate' in vault 'mykeyvault'"
-- **Find certificate**: "Get the properties of 'service-cert' certificate in 'certificates-vault'"
+- **Get certificate details**: "Show me details of the 'web-ssl-cert' certificate in my 'production-vault' Key Vault."
+- **View certificate info**: "Get information about the 'api-tls-cert' certificate in Key Vault 'security-kv'"
+- **List all certificates**: "Show me all certificates in my 'production-vault' Key Vault."
+- **View certificates**: "What certificates do I have in Key Vault 'security-kv'?"
+- **Check certificates**: "What certificates are available in my 'ssl-vault'?"
 
 | Parameter | Required or optional | Description |
 |-----------|-------------|-------------|
 | **Vault** | Required | The name of the Key Vault. |
-| **Certificate name** | Required | The name of the certificate to retrieve. |
+| **Certificate name** | Optional | The name of the certificate to retrieve. Omit to list all certificates. |
 
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
@@ -247,28 +206,6 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 
 [!INCLUDE [keyvault certificate import](../includes/tools/annotations/azure-key-vault-certificate-import-annotations.md)]
-
-## Certificates: List certificates
-
-<!-- keyvault certificate list -->
-
-The Azure MCP Server lists all certificates in an Azure Key Vault. This operation helps you manage your certificates and track expiration dates.
-
-Example prompts include:
-
-- **List all certificates**: "Show me all certificates in my key vault 'production-vault'."
-- **View certificates**: "What certificates do I have in key vault 'security-kv'?"
-- **Find certificates**: "List certificates in key vault 'certificates-kv'"
-- **Query certificates**: "Show all certificates in key vault 'mykeyvault'"
-- **Check certificates**: "What certificates are available in vault 'ssl-vault'?"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Vault** | Required | The name of the Key Vault. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [keyvault certificate list](../includes/tools/annotations/azure-key-vault-certificate-list-annotations.md)]
 
 ## Related content
 
