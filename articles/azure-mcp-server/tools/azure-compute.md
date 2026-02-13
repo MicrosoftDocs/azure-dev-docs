@@ -19,6 +19,27 @@ Azure Compute tools in the MCP Server help you manage virtual machines and scale
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
+
+## Get disk information
+
+<!-- @mcpcli compute disk get -->
+
+Retrieves detailed information about Azure managed disks. You can list all disks under a subscription or a resource group, or get details about a specific disk. 
+
+Example prompts:
+- "Show me all managed disks in my subscription."
+- "What managed disks are available under resource group 'rg-prod'?"
+- "Get details for disk 'win_OsDisk1' in resource group 'rg-dev'."
+- "I need information about the disk named `dataDisk*` across the subscription."
+- "Retrieve details for the managed disk `myDataDisk` in resource group 'rg-production'."
+
+| Parameter | Required or optional | Description |
+|-----------------------|----------------------|-------------|
+| **Resource group** |  Optional* | The name of the Azure resource group. Returns all VMs in the resource group if specified without VM name. *Required if **VM name** is provided.* |
+| **Disk** | Optional* | The name of the disk. Support for wildcard patterns in disk names is available (e.g., `win_OsDisk*`). If you provide a disk name without specifying a resource group, the tool searches across the entire subscription. When you specify a resource group, the tool scopes the search to that resource group. Both parameters are optional.|
+
+Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
+
 ## Get virtual machine details
 
 <!-- @mcpcli compute vm get -->
