@@ -406,7 +406,7 @@ BUG FIXES:
 * `azurerm_container_group` - prevent empty string from being passed into `commands` (#4953)
 * `azurerm_eventhub_namespace` - deprecating the `kafka_enabled` sproperty as it is now managed by Azure ([#4743](https://github.com/hashicorp/terraform-provider-azurerm/issues/4743))
 * `azurerm_kubernetes_cluster` - support for conditional updates / `ignore_changes` on the `node_count` field ([#4898](https://github.com/hashicorp/terraform-provider-azurerm/issues/4898))
-* `azurerm_kubernetes_cluster` - working around a case sensitivity bug when upgrading clusters via the Azure Portal ([#4929](https://github.com/hashicorp/terraform-provider-azurerm/issues/4929))
+* `azurerm_kubernetes_cluster` - working around a case sensitivity bug when upgrading clusters via the Azure portal ([#4929](https://github.com/hashicorp/terraform-provider-azurerm/issues/4929))
 * `azurerm_lb_probe` - fixing a bug where `protocol` was force lower-cased which caused a diff in the plan ([#4631](https://github.com/hashicorp/terraform-provider-azurerm/issues/4631))
 * `azurerm_lb_rule` - fixing a bug where `protocol` was force lower-cased which caused a diff in the plan ([#4631](https://github.com/hashicorp/terraform-provider-azurerm/issues/4631))
 * `azurerm_network_interface` - exporting the IP Address for Dynamic Network Interfaces ([#4852](https://github.com/hashicorp/terraform-provider-azurerm/issues/4852))
@@ -2031,7 +2031,7 @@ IMPROVEMENTS:
 BUG FIXES:
 
 * `azurerm_public_ip` - Setting the `ip_address` field regardless of the DNS Settings ([#772](https://github.com/hashicorp/terraform-provider-azurerm/issues/772))
-* `azurerm_virtual_machine` - ignores the case of the Managed Data Disk ID's to work around an Azure Portal bug ([#792](https://github.com/hashicorp/terraform-provider-azurerm/issues/792))
+* `azurerm_virtual_machine` - ignores the case of the Managed Data Disk ID's to work around an Azure portal bug ([#792](https://github.com/hashicorp/terraform-provider-azurerm/issues/792))
 
 FEATURES:
 
