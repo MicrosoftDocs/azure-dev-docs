@@ -122,7 +122,7 @@ resources:
 - The `services` node declares:
     - A deployment mapping named `webfrontend` between a .NET web app in the `src` directory and Azure Container Apps.
 - The `resources` node declares:
-    - An Azure container app and a matching dependency mapping named `webfrontend` between the hosted .NET container app and the database and AI service it depends on. The `uses` node maps the app to the other resources it depends on.
+    - An Azure container app and a matching dependency mapping named `webfrontend` between the hosted .NET container app and the database and Foundry Tool it depends on. The `uses` node maps the app to the other resources it depends on.
     - An Azure Database for PostgreSQL resource named `azdsql`.
     - An Azure OpenAI resource named `azdchat`.
 

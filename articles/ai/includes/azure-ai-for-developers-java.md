@@ -33,9 +33,9 @@ Azure OpenAI in Microsoft Foundry Models provides REST API access to OpenAI's po
 |[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij)|Similar to the first quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions using IntelliJ.|
 |[Quickstart: Generate images with Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/dall-e-quickstart?view=foundry&pivots=programming-language-java&tabs=command-line%2Cgpt-image-1%2Ckeyless%2Ctypescript-keyless&preserve-view=true)|Use this guide to get started generating images with the Azure OpenAI SDK for Java.|
 
-## Resources for other Azure AI services
+## Resources for other Foundry Tools
 
-In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+In addition to Azure OpenAI Service, there are many other Foundry Tools that help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ### Samples
 
@@ -43,15 +43,15 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |---|---|
 |[Integrate Speech into your apps with Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk)|A collection of samples for the Azure Cognitive Services Speech SDK. Links to samples for speech recognition, translation, speech synthesis, and more.|
 |[Extract structured data from forms, receipts, invoices, and cards using Form Recognizer in Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md#azure-form-recognizer-client-library-samples-for-java)|A collection of samples for the Azure.AI.FormRecognizer client library.|
-|[Extract, classify, and understand text within documents using Text Analytics in Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true)|The client Library for Text Analytics is part of the [Azure AI Language](/azure/ai-services/language-service) service, which provides Natural Language Processing (NLP) features for understanding and analyzing text.|
+|[Extract, classify, and understand text within documents using Text Analytics in Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable&preserve-view=true)|The client Library for Text Analytics is part of the [Azure Language in Foundry Tools](/azure/ai-services/language-service) service, which provides Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Document Translation in Java](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-java)|A quickstart article that explains how to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Analyze images](/java/api/overview/azure/ai-vision-imageanalysis-readme?view=azure-java-stable&preserve-view=true)|Sample code and setup documents for the Microsoft Azure Image Analysis client library for Java|
 
 ### Documentation
 
-|AI service|Description|API reference|Quickstart|
+|Foundry Tool|Description|API reference|Quickstart|
 |---|---|---|---|
-|[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/java/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-java)|
+|[Content Safety](/azure/ai-services/content-safety/)|A Foundry Tool that detects unwanted content.|[Content Safety API reference](/java/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-java)|
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/java/api/overview/azure/ai-formrecognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-java)|
 |[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural language understanding capabilities.|[Language API reference](/java/api/overview/azure/ai-textanalytics-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-java)|
 |[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/java/api/overview/azure/search-documents-readme)|[Quickstart](/azure/search/search-get-started-text?tabs=java) |

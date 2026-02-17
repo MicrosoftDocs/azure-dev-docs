@@ -529,8 +529,8 @@
 | Application Insights - Web Auto | Maven [2.6.4](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.4)<br>Maven [2.6.3-BETA-HEYA-TEST](https://central.sonatype.com/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.3-BETA-HEYA-TEST) |  |  |
 | AutoRest Build Tools | Maven [1.7.14](https://central.sonatype.com/artifact/com.microsoft.azure/autorest-build-tools/1.7.14) |  |  |
 | AutoRest Client Runtime for Java | Maven [2.1.1](https://central.sonatype.com/artifact/com.microsoft.azure.v2/autorest-clientruntime-for-java/2.1.1) |  |  |
-| Azure AI Vision SDK - Common | Maven [0.15.1-beta.1](https://central.sonatype.com/artifact/com.azure/azure-ai-vision-common/0.15.1-beta.1) |  | GitHub [0.15.1-beta.1](https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon) |
-| Azure AI Vision SDK - Internal | Maven [0.15.1-beta.1](https://central.sonatype.com/artifact/com.azure/azure-ai-vision-common-internal/0.15.1-beta.1) |  | GitHub [0.15.1-beta.1](https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon) |
+| Azure Vision in Foundry Tools SDK - Common | Maven [0.15.1-beta.1](https://central.sonatype.com/artifact/com.azure/azure-ai-vision-common/0.15.1-beta.1) |  | GitHub [0.15.1-beta.1](https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon) |
+| Vision SDK - Internal | Maven [0.15.1-beta.1](https://central.sonatype.com/artifact/com.azure/azure-ai-vision-common-internal/0.15.1-beta.1) |  | GitHub [0.15.1-beta.1](https://msasg.visualstudio.com/DefaultCollection/Skyman/_git/Carbon) |
 | Azure Functions Java Library RabbitMQ | Maven [2.1.0](https://central.sonatype.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq/2.1.0) |  |  |
 | Azure Profile hybrid | Maven [1.0.0-beta-1](https://central.sonatype.com/artifact/com.microsoft.azure.profile_2019_03_01_hybrid/azure/1.0.0-beta-1) |  |  |
 | azure-communication-administration | Maven [1.0.0-beta.4](https://central.sonatype.com/artifact/com.azure/azure-communication-administration/1.0.0-beta.4) |  |  |
