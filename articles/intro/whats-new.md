@@ -136,7 +136,7 @@ New articles:
 
 Updated articles:
 
-- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP update Foundry tools
+- [Microsoft Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP update Foundry tools
 - [Azure Database for MySQL tools for Azure MCP Server](../azure-mcp-server/tools/azure-mysql.md) - MCP - mysql - required resource name parameter
 - [Azure Database for PostgreSQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-database-postgresql.md) - MCP -postgres - required params in example prompts
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md) - MCP - azure SQL - required resource group param
@@ -196,7 +196,7 @@ Services with new, updated, or removed tools
 
 - [Azure AI Best practices](../azure-mcp-server/tools/azure-best-practices.md)
 - [Azure AI Search](../azure-mcp-server/tools/azure-ai-search.md)
-- [Azure AI Speech](../azure-mcp-server/tools/ai-services-speech.md)
+- [Azure Speech in Foundry Tools](../azure-mcp-server/tools/ai-services-speech.md)
 - [Azure App Configuration](../azure-mcp-server/tools/app-configuration.md)
 - [Azure App Lens](../azure-mcp-server/tools/azure-app-lens.md)
 - [Azure App Service](../azure-mcp-server/tools/azure-app-service.md)
