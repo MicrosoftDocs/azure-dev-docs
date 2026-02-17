@@ -62,7 +62,7 @@ In addition to Azure OpenAI in Microsoft Foundry Models, there are many other Fo
 
 ### Documentation
 
-|Foundry Tool|Description|API reference|Quickstart|
+|AI service|Description|API reference|Quickstart|
 |---|---|---|---|
 |[Content Safety](/azure/ai-services/content-safety/)|A Foundry Tool that detects unwanted content.|[Content Safety API reference](/javascript/api/overview/azure/ai-content-safety-rest-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-javascript)|
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/javascript/api/overview/azure/ai-form-recognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-javascript)|
