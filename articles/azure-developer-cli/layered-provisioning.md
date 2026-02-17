@@ -236,9 +236,13 @@ infra:
 
 - When provisioning all layers, `azd` processes them sequentially in the order you define.  Plan your layer order so that foundational resources are provisioned first.
 - When tearing down all layers, `azd` processes them in reverse order.
+  - If multiple layers deploy resources into the same Azure resource group and you use the default resource-group–based deletion behavior, shared resources may be deleted when running azd down.
+  - To allow independent tracking and deletion of layered infrastructure, enable deployment stacks using the command `azd config set alpha.deployment.stacks on`
+Deployment stacks allow azd to track resources per layer instead of relying solely on resource group deletion.
 - You can't use the `--preview` flag when provisioning multiple layers at once. Specify a `<layer>` name to use preview mode.
 - Layers operate independently in terms of IaC. To reference outputs from one layer in another layer, use environment variables that `azd` sets after each layer's deployment.
 - All standard `azd` provisioning features (deployment state caching, hooks, parameters, Bicep, or Terraform) work within each individual layer.
+  - Command-level hooks (for example, `preprovision`, `postprovision`) are invoked once per layer. When multiple layers are defined, hooks run for each layer in the order layers are processed.
 
 ## Next steps
 
