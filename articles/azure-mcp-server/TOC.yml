@@ -88,8 +88,6 @@ items:
           href: tools/azure-cloud-architect.md
         - name: Azure Communication Services
           href: tools/azure-communication.md
-        - name: Azure Compute
-          href: tools/azure-compute.md
         - name: Azure Confidential Ledger
           href: tools/azure-confidential-ledger.md
         - name: Azure Container Registry
@@ -156,6 +154,8 @@ items:
           href: tools/azure-storage.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
+        - name: Azure Virtual Machines
+          href: tools/azure-virtual-machines.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription
