@@ -78,7 +78,7 @@ To access billing information in the Azure portal:
 You can also access the Cost Management + Billing overview page directly.
 
 > [!div class="nextstepaction"]
-> [Azure Cost Management in the Azure Portal](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu/~/overview)
+> [Azure Cost Management in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu/~/overview)
 
 You can also access cost information programmatically to create a customized and accessible view of your cloud spend using the Billing API.
 
