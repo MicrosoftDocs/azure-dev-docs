@@ -123,7 +123,7 @@
 | Token Cache Persistence Plugin | npm [1.2.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.2.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.2.0/sdk/identity/identity-cache-persistence/) |
 | TypeSpec HTTP Runtime | npm [0.3.3](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.3.3) |  | GitHub [0.3.3](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.3.3/sdk/core/ts-http-runtime) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/onlineexperimentation/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/onlineexperimentation_1.0.0-beta.1/sdk/onlineexperimentation/onlineexperimentation-rest/) |
-| unknown | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-voicelive/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/ai-voicelive-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.2/sdk/ai/ai-voicelive/) |
+| unknown | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/ai-voicelive/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/ai-voicelive-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-voicelive_1.0.0-beta.3/sdk/ai/ai-voicelive/) |
 | unknown | npm [12.3.0](https://www.npmjs.com/package/@azure/storage-common/v/12.3.0) | [docs](/javascript/api/overview/azure/storage-common-readme) | GitHub [12.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-common_12.3.0/sdk/storage/storage-common/) |
 | VS Code Authentication Plugin | npm [2.1.0](https://www.npmjs.com/package/@azure/identity-vscode/v/2.1.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_2.1.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.2.0](https://www.npmjs.com/package/@azure/web-pubsub/v/1.2.0) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.2.0/sdk/web-pubsub/web-pubsub/) |
@@ -161,6 +161,7 @@
 | Resource Management - App Service | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-appservice-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-appservice-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appservice-profile-2020-09-01-hybrid_2.1.0/sdk/appservice/arm-appservice-profile-2020-09-01-hybrid/) |
 | Resource Management - Application Insights | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-appinsights/v/4.0.0)<br>npm [5.0.0-beta.8](https://www.npmjs.com/package/@azure/arm-appinsights/v/5.0.0-beta.8) | [docs](/javascript/api/overview/azure/arm-appinsights-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/applicationinsights/arm-appinsights) |
 | Resource Management - Arize AI Observability Eval | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-arizeaiobservabilityeval/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-arizeaiobservabilityeval-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-arizeaiobservabilityeval_1.0.0/sdk/liftrarize/arm-arizeaiobservabilityeval/) |
+| Resource Management - Artifactsigning | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-artifactsigning/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-artifactsigning-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-artifactsigning_1.0.0/sdk/artifactsigning/arm-artifactsigning/) |
 | Resource Management - Astro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-astro/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-astro-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-astro_1.0.0-beta.1/sdk/astro/arm-astro/) |
 | Resource Management - Attestation | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-attestation/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-attestation-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-attestation_2.1.0/sdk/attestation/arm-attestation/) |
 | Resource Management - Authorization | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-authorization/v/9.0.0)<br>npm [10.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-authorization/v/10.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-authorization-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization) |
@@ -425,7 +426,7 @@
 | @microsoft.azure/autorest-core | npm [2.0.4432](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4432) |  |  |
 | @microsoft.azure/autorest.testserver | npm [3.3.51](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.51) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.4](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.4) |  |  |
-| @microsoft.azure/openapi-validator-rulesets | npm [2.2.2](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.2.2) |  |  |
+| @microsoft.azure/openapi-validator-rulesets | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.2.3) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.5.0](https://www.npmjs.com/package/@typespec/bundler/v/0.5.0) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.9](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.9) |  |  |
@@ -472,13 +473,13 @@
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-linux-x64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-arm64/v/0.5.13) |  |  |
 | Unknown Display Name | npm [0.5.13](https://www.npmjs.com/package/@azure/mcp-native-win32-x64/v/0.5.13) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5863341) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5863341) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5863341) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5863341) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5863341) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5863341) |  |  |
-| Unknown Display Name | npm [0.0.12-alpha.5863341](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5863341) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template/v/0.0.12-alpha.5891147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-darwin-arm64/v/0.0.12-alpha.5891147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-darwin-x64/v/0.0.12-alpha.5891147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-linux-arm64/v/0.0.12-alpha.5891147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-linux-x64/v/0.0.12-alpha.5891147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-win32-arm64/v/0.0.12-alpha.5891147) |  |  |
+| Unknown Display Name | npm [0.0.12-alpha.5891147](https://www.npmjs.com/package/@azure/mcp-template-win32-x64/v/0.0.12-alpha.5891147) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-win32-arm64/v/2.0.0-beta.19) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/1.0.1)<br>npm [2.0.0-beta.19](https://www.npmjs.com/package/@azure/mcp-win32-x64/v/2.0.0-beta.19) |  |  |
 | Unknown Display Name | npm [1.0.7](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-core/v/1.0.7) |  |  |
