@@ -1,9 +1,9 @@
 ---
-title: Azure Compute tools for managing virtual machines
-description: Discover Azure Compute tools for managing virtual machines and scale sets in Azure MCP Server. Explore features and start optimizing your resources.
+title: Azure Virtual Machines tools for managing virtual machines
+description: Discover Azure Virtual Machines tools for managing virtual machines and scale sets in Azure MCP Server. Explore features and start optimizing your resources.
 #customer intent: As a system admin, I want to list all Virtual Machine Scale Sets in a subscription so I can manage their capacity and upgrade policies.
 ms.date: 02/12/2026
-keywords: Azure, MCP Server, compute, tools, virtual machines, scalability
+keywords: Azure, MCP Server, virtual machines, vm, tools, virtual machines, scalability
 ms.service: azure-mcp-server
 ms.topic: concept-article
 ms.reviewer: vigera
@@ -11,11 +11,11 @@ tool_count: 2
 optional_parameter: true
 ---
 
-# Azure Compute tools for the Azure MCP Server overview
+# Azure Virtual Machines tools for the Azure MCP Server overview
 
 The MCP Server lets you manage virtual machines, handle load balancing, and achieve scalability with natural language prompts.
 
-Azure Compute tools in the MCP Server help you manage virtual machines and scale sets efficiently. This article explains how to use these tools to optimize scalability and resource management. For more about Azure Compute, see [Azure Compute documentation](/azure/compute/).
+Azure virtual machines (VMs) are one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a virtual machine when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a virtual machine, how you create it, and how you manage it. For more about Azure VMs, see [Azure Virtual Machines documentation](/azure/virtual-machines/).
 
 [!INCLUDE [tip-about-params](../includes/tools/parameter-consideration.md)]
 
@@ -24,7 +24,7 @@ Azure Compute tools in the MCP Server help you manage virtual machines and scale
 
 <!-- @mcpcli compute disk get -->
 
-Retrieves detailed information about Azure managed disks. You can list all disks under a subscription or a resource group, or get details about a specific disk. 
+Retrieves detailed information about [Azure managed disks](/azure/virtual-machines/managed-disks-overview). You can list all disks under a subscription or a resource group, or get details about a specific disk. 
 
 Example prompts:
 - "Show me all managed disks in my subscription."
@@ -68,7 +68,7 @@ Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: 
 
 <!-- @mcpcli compute vmss get -->
 
-List or get Azure Virtual Machine Scale Sets (VMSS) and their instances in a subscription or resource group. This command shows scale set details, including name, location, SKU, capacity, upgrade policy, and information about individual VM instances.  If parameters are not provided, it lists all VM scale sets in the subscription.
+List or get [Azure Virtual Machine Scale Sets (VMSS)](/azure/virtual-machine-scale-sets) and their instances in a subscription or resource group. This command shows scale set details, including name, location, SKU, capacity, upgrade policy, and information about individual VM instances.  If parameters are not provided, it lists all VM scale sets in the subscription.
 
 Example prompts include:
 
