@@ -35,13 +35,16 @@ Select one of the following options to install the Azure MCP Server in Visual St
 
     [![Install with NPX in Visual Studio Code](https://img.shields.io/badge/VS_Code-Install_Azure_MCP_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](vscode:extension/ms-azuretools.vscode-azure-mcp-server)
 
-    > [!TIP]
-    > For an optimal Azure MCP Server experience, [install GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), which includes and uses the Azure MCP Server extension. GitHub Copilot for Azure streamlines your development workflow and enhances your productivity on the Azure platform.
+    > [!NOTE]
+    > If you install the Azure MCP Server extension using the VS Code extensions panel, avoid using the `@mcp` filter to ensure you install the latest version.
 
 1. After you install the extension, open GitHub Copilot and select Agent Mode. To learn more about Agent Mode, visit the [Visual Studio Code Documentation](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode).
 1. Refresh the tools list to see Azure MCP Server as an available option:
 
     :::image type="content" source="../../media/github-copilot-integration.png" alt-text="A screenshot showing Azure MCP Server as GitHub Copilot tool.":::
+
+    > [!TIP]
+    > For an optimal Azure MCP Server experience, [install GitHub Copilot for Azure](/azure/developer/github-copilot-azure/get-started), which includes and uses the Azure MCP Server extension. GitHub Copilot for Azure streamlines your development workflow and enhances your productivity on the Azure platform.
 
 [!INCLUDE [authentication-guidance](../../includes/authentication-guidance.md)]
 
