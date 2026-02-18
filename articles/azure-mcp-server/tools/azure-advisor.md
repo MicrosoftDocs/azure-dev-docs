@@ -2,7 +2,7 @@
 title: Azure Advisor tools for the Azure MCP Server overview
 description: Learn about the tools in Azure Advisor for managing resource optimization and recommendations as part of the Azure MCP Server.
 #customer intent: As an Azure admin, I want to learn how to use Azure Advisor tools so I can optimize resource performance and costs in the Azure MCP Server.
-ms.date: 02/08/2026
+ms.date: 02/18/2026
 ms.reviewer: ankiga
 keywords: Azure, MCP Server, advisor, resource optimization, recommendations, management
 ms.service: azure-mcp-server
@@ -30,8 +30,6 @@ Show Azure Advisor recommendations for a subscription.
 - "Show Azure Advisor recommendations for subscription 'MySubscription'."
 - "What are the current Advisor recommendations for my subscription 'MySubscription'?" 
 - "Show me all Azure Advisor recommendations under subscription 'MySubscription'."
-- "Get details for the Advisor recommendation 'PerformanceOptimize' in subscription 'MySubscription'."
-- "Retrieve the Advisor recommendation named 'SecurityEnhance' from subscription 'MySubscription'."
 
 <!-- No parameters for this tool -->
 
