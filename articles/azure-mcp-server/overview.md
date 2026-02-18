@@ -60,9 +60,9 @@ The Azure MCP Server implements a set of [tools](./tools/index.md) per the Model
 
 You can find step-by-step instructions for common tasks, including:
 
-1. [Connect GitHub Copilot coding agent to Azure MCP Server](how-to/github-copilot-coding-agent.md)
-1. [Deploy a self-hosted Azure MCP Server (Microsoft Foundry)](how-to/deploy-remote-mcp-server-microsoft-foundry.md)
-1. [Deploy a self-hosted Azure MCP Server (Copilot Studio)](how-to/deploy-remote-mcp-server-copilot-studio.md)
+- [Connect GitHub Copilot coding agent to Azure MCP Server](how-to/github-copilot-coding-agent.md)
+- [Deploy a self-hosted Azure MCP Server (Microsoft Foundry)](how-to/deploy-remote-mcp-server-microsoft-foundry.md)
+- [Deploy a self-hosted Azure MCP Server (Copilot Studio)](how-to/deploy-remote-mcp-server-copilot-studio.md)
 
 ## Tools and best practices
 
