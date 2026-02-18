@@ -6,7 +6,7 @@ ms.date: 02/18/2026
 ms.author: diberry
 ---
 
-Developers using Visual Studio Code can authenticate with their developer account directly through the editor via the broker. Apps that use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) or [VisualStudioCodeCredential](/javascript/api/@azure/identity/visualstudiocodecredential) can then use this account to authenticate app requests through a seamless single-sign-on experience.
+Developers using Visual Studio Code can authenticate with their developer account directly through the editor via the broker. Apps that use `DefaultAzureCredential` or `VisualStudioCodeCredential` can then use this account to authenticate app requests through a seamless single-sign-on experience.
 
 1. In Visual Studio Code, go to the **Extensions** panel and install the [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) extension. This extension lets you view and manage Azure resources directly from Visual Studio Code. It also uses the built-in Visual Studio Code Microsoft authentication provider to authenticate with Azure.
 
