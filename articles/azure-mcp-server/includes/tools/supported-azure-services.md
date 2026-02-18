@@ -42,6 +42,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Service](../../tools/azure-app-service.md) | `appservice` | Manage database connections for Azure App Service instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Service Fabric](../../tools/azure-service-fabric.md) | `servicefabric` | Manage Service Fabric managed clusters, including node details and restarts. |
 
 ### Containers
 
@@ -50,6 +51,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure Container Registry](../../tools/azure-container-registry.md) | `acr` | List Azure Container Registry instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Service Fabric](../../tools/azure-service-fabric.md) | `servicefabric` | Manage Service Fabric managed clusters, including node details and restarts. |
 
 ### Databases
 
