@@ -189,7 +189,7 @@ New articles:
 
 Updated articles:
 
-- [Azure AI Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP update Foundry tools
+- [Microsoft Foundry tools for the Azure MCP Server](../azure-mcp-server/tools/azure-foundry.md) - MCP update Foundry tools
 - [Azure Database for MySQL tools for Azure MCP Server](../azure-mcp-server/tools/azure-mysql.md) - MCP - mysql - required resource name parameter
 - [Azure Database for PostgreSQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-database-postgresql.md) - MCP -postgres - required params in example prompts
 - [Azure SQL tools for the Azure MCP Server](../azure-mcp-server/tools/azure-sql.md) - MCP - azure SQL - required resource group param

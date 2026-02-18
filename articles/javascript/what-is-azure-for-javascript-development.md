@@ -48,7 +48,7 @@ Top service categories for JavaScript developers include:
 
 * **AI and Cognitive Services**
   * [Azure OpenAI Service](/azure/ai-services/openai/quickstart?tabs=javascript) - Advanced AI models for applications
-  * [Azure AI Services](/azure/ai-services/multi-service-resource?tabs=nodejs) - Pre-built AI capabilities
+  * [Foundry Tools](/azure/ai-services/multi-service-resource?tabs=nodejs) - Pre-built AI capabilities
 
 * **Developer Tools**
   * [GitHub Actions with Azure](/azure/developer/github/github-actions) - CI/CD integration
