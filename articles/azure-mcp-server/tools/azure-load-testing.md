@@ -168,30 +168,6 @@ Example prompts include:
 [Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
 Destructive: ❌ | Idempotent: ✅ | Open World: ❌ | Read Only: ✅ | Secret: ❌ | Local Required: ❌
 
-## Test runs: List test runs
-
-<!-- loadtesting testrun list -->
-
-Lists all test runs for a specific load test in Azure Load Testing. Use this command to track the history and performance of your load tests.
-
-
-Example prompts include:
-
-- **View test history**: "Show me all test runs for test resource 'api-test' with test ID 'api-perf-001'"
-- **Check recent tests**: "List test runs for test resource 'perf-test' with test ID 'load-001' in resource group 'perf-testing'"
-- **View test results**: "What test runs exist for test resource 'webapp-test' with test ID 'web-load-001'?"
-- **Test execution history**: "Show me test runs for test resource 'monthly-test' with test ID 'exec-001'"
-- **Monitor test runs**: "List test runs for test resource 'prod-test' with test ID 'monitor-001'"
-
-| Parameter | Required or optional | Description |
-|-----------|-------------|-------------|
-| **Test resource** | Required | The name of the test resource used for the test runs. |
-| **Test ID** | Required | The ID of a specific test to filter test runs by. |
-
-[Tool annotation hints](index.md#tool-annotations-for-azure-mcp-server):
-
-[!INCLUDE [loadtesting testrun list](../includes/tools/annotations/azure-load-testing-test-run-list-annotations.md)]
-
 ## Related content
 
 - [What are the Azure MCP Server tools?](index.md)
