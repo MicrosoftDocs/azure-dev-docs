@@ -12,6 +12,7 @@ ms.topic: concept-article
 ms.custom: build-2025
 tool_count for monitor: 11
 tool_count for workbooks: 5
+ms.reviewer: jong
 --- 
 # Azure Monitor tools for the Azure MCP Server overview
 
