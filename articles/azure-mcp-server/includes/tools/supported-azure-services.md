@@ -3,7 +3,7 @@
  ms.author: diberry
  ms.service: azure-mcp-server
  ms.topic: include
- ms.date: 01/22/2025
+ ms.date: 02/18/2025
 ---
 
 ## Available tools
