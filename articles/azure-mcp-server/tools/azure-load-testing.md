@@ -8,6 +8,7 @@ content_well_notification:
 author: diberry
 ms.author: diberry
 ms.service: azure-mcp-server
+ms.reviewer: nishtha
 ms.date: 02/18/2026
 ms.topic: concept-article
 ---
