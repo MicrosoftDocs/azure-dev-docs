@@ -139,7 +139,7 @@ The sample app demonstrates best practices in routing, data access, and configur
 
   * App Service or Container Apps
   * Azure Databases (such as PostgreSQL, Cosmos DB)
-  * Azure AI services, Storage, and more
+  * Foundry Tools, Storage, and more
 
 * **CI/CD Configuration (Optional)**: Includes files to set up a GitHub repository with a GitHub Actions CI/CD pipeline, enabling:
 

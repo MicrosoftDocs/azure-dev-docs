@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Develop using Azure AI services
+          - text: Develop using Foundry Tools
             url: azure-ai-for-java-developers.md
           - text: GitHub Copilot app modernization for Java developers
             url: ../migration/migrate-github-copilot-app-modernization-for-java.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json

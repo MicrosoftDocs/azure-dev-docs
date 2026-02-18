@@ -82,11 +82,11 @@
       items:
         - name: AI + Machine Learning
           items:
-            - name: Azure AI Foundry 
+            - name: Microsoft Foundry 
               items: 
-                - name: Create an Azure AI Foundry hub
+                - name: Create a Microsoft Foundry hub
                   href: /azure/ai-foundry/how-to/create-hub-terraform
-            - name: Azure AI services
+            - name: Foundry Tools
               items:
                 - name: Create a resource
                   href: /azure/ai-services/create-account-terraform
@@ -242,7 +242,7 @@
                   href: /azure/api-management/quickstart-terraform
                 - name: Create and publish a product
                   href: /azure/api-management/api-management-howto-add-products?pivots=terraform
-            - name: Azure AI services
+            - name: Foundry Tools
               items:
                 - name: Create a resource
                   href: /azure/ai-services/create-account-terraform
