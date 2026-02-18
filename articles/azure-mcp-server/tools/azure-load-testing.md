@@ -121,9 +121,9 @@ Example prompts include:
 
 <!-- @mcpcli loadtesting testrun createorupdate -->
 
-Create or update a load test run execution. This command creates a new test run for a specified test in the load testing resource or updates metadata and display properties of an existing test run. This command does not modify the test plan configuration or create a new test/resource; it solely manages test run executions.
+Create or update a load test run execution. This command creates a new test run for a specified test in the load testing resource or updates metadata and display properties of an existing test run. This command doesn't modify the test plan configuration or create a new test/resource; it solely manages test run executions.
 
-When creating, it triggers a new test run execution based on the existing test configuration. Use the `testrun ID` to specify the new run identifier. Note that create operations are NOT idempotent—each call starts a new test run with unique timestamps and execution states. 
+When creating, it triggers a new test run execution based on the existing test configuration. Use the `testrun ID` to specify the new run identifier. The create operations are NOT idempotent—each call starts a new test run with unique timestamps and execution states. 
 
 When updating, this command modifies descriptive information (like display name and description) of a completed or in-progress test run for better organization and documentation. Update operations are idempotent, meaning repeated calls with the same values produce the same result. 
 
@@ -137,9 +137,9 @@ Example prompts include:
 | Parameter          | Required or optional | Description                                                                 |
 |--------------------|----------------------|-----------------------------------------------------------------------------|
 | **Test ID**        | Required             | The ID of the load test for which you want to fetch the details.           |
-| **Description**    | Optional             | The description for the load test run, providing additional context.       |
+| **Description**    | Optional             | The description for the load test run, providing more context.       |
 | **Display name**   | Optional             | A user-friendly display name to identify the load test run.               |
-| **Old testrun ID** | Optional             | The ID of an existing test run to update. If provided, it will trigger a rerun of the specified test run ID. |
+| **Old testrun ID** | Optional             | The ID of an existing test run to update. If provided, it triggers a rerun of the specified test run ID. |
 | **Test resource name** | Optional         | The name of the load test resource for which you want to fetch the details. |
 | **Testrun ID**     | Optional             | The ID of the load test run for which you want to fetch the details.       |
 
@@ -151,7 +151,7 @@ Destructive: ✅ | Idempotent: ❌ | Open World: ❌ | Read Only: ❌ | Secret: 
 
 <!-- @mcpcli loadtesting testrun get -->
 
-Retrieve load test run details by `testrun` ID or list all test runs by `test` ID. This command returns execution details, including status, start and end times, progress, metrics, and artifacts. It does not return test configuration or resource details.
+Retrieve load test run details by `testrun` ID or list all test runs by `test` ID. This command returns execution details, including status, start and end times, progress, metrics, and artifacts. It doesn't return test configuration or resource details.
 
 Example prompts include:
 - "Show me all load test runs for test ID `test123`"
