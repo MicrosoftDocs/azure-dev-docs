@@ -2,7 +2,7 @@
 title: Azure pricing tools overview for the MCP Server
 description: Discover Azure pricing tools for MCP Server to manage cost estimates and billing. Start optimizing your Azure costs today.
 #customer intent: As a system administrator, I want to analyze pricing for Azure services like Virtual Machines and Storage so that I can recommend the best configurations for my organization.
-ms.date: 02/08/2026
+ms.date: 02/18/2026
 ms.reviewer: anannyapatra
 keywords: Azure, MCP Server, pricing, tools, cost estimates, billing
 ms.service: azure-mcp-server
@@ -20,15 +20,15 @@ Azure [pricing tools](/azure/cost-management-billing/) in MCP Server help you ma
 
 <!-- @mcpcli pricing get -->
 
-Get Azure retail pricing information. 
+Get Azure retail pricing information. The tool can estimate deployment costs from an ARM or Bicep template. You can provide the template within the prompt or as a file input.
 
 Example prompts include:
 
+- "This is my Bicep template: <bicep_template>. Estimate my deployment costs."
 - "What is the pricing for SKU `Standard_D4s_v5` in region `eastus`?"
 - "Can I get the pricing details for service `Virtual Machines` and SKU `Standard_E64-16ds_v4`?"
 - "Show me the `Consumption` pricing for SKU `Standard_D4s_v5` in `westeurope` and include savings plan."
 - "List pricing information for all SKUs in the `Storage` service in region `westus2`."
-- "Tell me the reservation pricing for SKU `Standard_D4s_v5` in `eastus`."
 
 | Parameter                  | Required or optional | Description                                                                                                                                        |
 |---------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
