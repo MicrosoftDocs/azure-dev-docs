@@ -42,6 +42,7 @@ Azure MCP Server provides the following tools for Azure services and Azure-relat
 | [Azure App Service](../../tools/azure-app-service.md) | `appservice` | Manage database connections for Azure App Service instances. |
 | [Azure Functions](../../tools/azure-functions.md) | `functionapp` | List Azure Functions. |
 | [Azure Kubernetes Service](../../tools/azure-kubernetes.md) | `aks` | List Azure Kubernetes Service clusters. |
+| [Azure Virtual Machines](../../tools/azure-virtual-machines.md) | `compute` | Get details for Azure virtual machines, virtual machine scale sets, and managed disks. |
 
 ### Containers
 

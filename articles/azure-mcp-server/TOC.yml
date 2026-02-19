@@ -154,6 +154,8 @@ items:
           href: tools/azure-storage.md
         - name: Azure Virtual Desktop
           href: tools/azure-virtual-desktop.md
+        - name: Azure Virtual Machines
+          href: tools/azure-virtual-machines.md
         - name: Resource Group
           href: tools/resource-group.md
         - name: Subscription
