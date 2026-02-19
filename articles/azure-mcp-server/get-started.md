@@ -19,15 +19,24 @@ Connect to Azure MCP Server using various tools, languages, and frameworks. Use 
 
 Explore and contribute to the [Azure MCP Server on GitHub](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server).
 
-## Install using a package manager
+## Install Azure MCP Server using a package manager
 
-You can install Azure MCP Server directly using one of the supported package managers. Package manager installation offers several advantages, including centralized dependency management, CI/CD integration, support for headless/server environments, version control, and project portability. For more information, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
+You can optionally install Azure MCP Server directly using one of the supported package managers. Package manager installation offers several advantages, including centralized dependency management, CI/CD integration, support for headless/server environments, version control, and project portability.
+
+> [!NOTE]
+> You don't need to install the Azure MCP Server to use it. The other approaches explained in the following sections either include Azure MCP Server as part of their installation, or are able to run Azure MCP Server directly via package manager commands.
+
+For more information, see [Install with a package manager](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#package-manager).
 
 - **NuGet**: [Azure.Mcp](https://www.nuget.org/packages/Azure.Mcp/2.0.0-beta.20)
 - **NPM**: [@azure/mcp](https://www.npmjs.com/package/@azure/mcp/v/2.0.0-beta.20)
 - **PyPI**: [msmcp-azure](https://pypi.org/project/msmcp-azure/)
 
-## Connect using code editors
+## Connect to Azure MCP Server
+
+You can connect to Azure MCP Server using the following tools and programming frameworks.
+
+### Use a code editor
 
 Azure MCP Server works with AI-powered code editors and tools that support the Model Context Protocol. Learn how to get started:
 
@@ -38,7 +47,7 @@ Azure MCP Server works with AI-powered code editors and tools that support the M
 - [**Visual Studio Code**](get-started/tools/visual-studio-code.md)
 - [**Windsurf**](get-started/tools/windsurf.md)
 
-## Connect using GitHub Copilot tools
+### Use GitHub Copilot tools
 
 Connect to Azure MCP Server using other tools and services, such as GitHub Copilot coding agent and Docker. Learn how to get started:
 
@@ -46,15 +55,15 @@ Connect to Azure MCP Server using other tools and services, such as GitHub Copil
 - [**GitHub Copilot SDK**](how-to/github-copilot-sdk.md)
 - [**GitHub Copilot coding agent**](/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent)
 
-## Connect using a Docker container
+### Use a Docker container
 
 For easy deployment and isolation, you can [run the Azure MCP server as a Docker container](https://github.com/microsoft/mcp/blob/main/servers/Azure.Mcp.Server/README.md#docker).
 
-## Connect using languages & frameworks
+### Use programming languages & frameworks
 
 Connect to Azure MCP Server using programming languages and frameworks. This documentation currently provides guidance and examples for Python and .NET.
 
-### Python
+#### Python
 
 [Get started with Azure MCP Server and Python](get-started/languages/python.md) to enhance your apps and workflows.
 
@@ -63,7 +72,7 @@ Connect to Azure MCP Server using programming languages and frameworks. This doc
 - Integrate into web frameworks like Django, Flask, or FastAPI.
 - Incorporate Azure operations into data science workflows with Jupyter notebooks.
 
-### .NET
+#### .NET
 
 [Get started with Azure MCP Server and .NET](get-started/languages/dotnet.md) to enhance your apps and workflows.
 
